@@ -1,8 +1,13 @@
 const Login=()=>{
     return(
         <>
-        <h2>Login pagess</h2>
-        <h3>login changes new</h3>
+        <div className="container-fluid center">
+            <div className="main_div">
+             <h1>Login Page</h1>
+
+            </div>
+
+        </div>
         </>
     )
 }
