@@ -10,7 +10,7 @@ const useStyles = makeStyles({
       color: "#00b96a",
       outline: "1px solid #00b96a",
       borderRadius: "25px 25px",
-      minWidth: "100px",
+      minWidth: "100%",
       textTransform: "none",
 
     },

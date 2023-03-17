@@ -17,28 +17,11 @@ margin-top: 2px;
 
 
 }
-.nav_list ul{
-  display: flex;
-  gap: 40px;
-  list-style-type: none;
-  justify-content: flex-end;
 
-}
 
- .first_anchor:link{
-  color: green;
-  font-size: 16px;
-    text-decoration: none !important;
-    margin: 15px;
-    position: relative;
-    opacity: 0.8;
-    border-bottom: 3px solid green;
-}
- .first_anchor:active:hover{
-  opacity: 1;
-  color: green;
-}
-.nav_list1>.anchor {
+
+.nav_list1 ul li {
+
   color: black;
   font-size: 16px;
     text-decoration: none !important;
@@ -46,14 +29,20 @@ margin-top: 2px;
     position: relative;
     opacity: 0.8;
 }
-.nav_list1 >.anchor:hover{
+.nav_list1 ul li:hover{
   opacity: 1;
   color: #00b96a;
+  text-decoration:underline
 
 }
+<<<<<<< HEAD
 .nav_list1 >.anchor::before{
   
   content:"  ";
+=======
+.nav_list1 ul li::before{
+  content:"";
+>>>>>>> 00b57b1 (change)
   position: absolute;
   left: 0;
   bottom: 0;
@@ -62,12 +51,15 @@ margin-top: 2px;
   background: #00b96a;
   transition: all .45s;
 }
+<<<<<<< HEAD
 .nav_list1>.anchor:hover::before{
   width: 80%;
+=======
+.nav_list1 ul li :hover::before{
+  width: 100%;
+>>>>>>> 00b57b1 (change)
 }
-
-
-.nav_list2 ul{
+.nav_listl ul li{
 
   display: flex;
   gap: 40px;
@@ -75,6 +67,8 @@ margin-top: 2px;
   justify-content: flex-end;
   margin-right: 40px;
 }
+
+
 /* navbar search */
 .nav_search_bar_div{
   display: flex;
@@ -103,10 +97,12 @@ margin-top: 2px;
 .search_icon{
   background-color: #00b96a;
   color: white;
-  width: 5%;
+  width: 53px;
+
   text-align: center;
   border-radius: 0px 3px 3px 0px;
 }
+<<<<<<< HEAD
 /* category */
 .image_Div{
   display: flex;
@@ -148,3 +144,55 @@ line-height: 38px;
 color: #333333;
 }
 
+=======
+
+
+.Top{
+  margin-top: 5px;
+ }
+
+/* Top Navbar */
+.nav_list1 ul{
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin-inline: 100px;
+  list-style-type: none;
+  color: gray;
+}
+.nav_list1 ul li{
+  margin: 0px 7% 0 0%;
+}
+.Login_Sigup_button{
+  justify-content: center;
+  display: flex;
+  gap: 10%;
+}
+/* End */
+
+/* Slider Navbar */
+@media screen and (max-width: 993px) {
+
+  #mySidebar{
+    width: 0px;
+  }
+
+}
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1  ;
+  top: 90px;
+  left: 0;
+  background-color: #eeeeee;
+  overflow-x: hidden;
+  transition: 0.1s;
+}
+
+.Slider_content_center{
+  display: grid;
+  justify-content: center;
+}
+/* end */
+>>>>>>> 00b57b1 (change)
