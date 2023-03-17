@@ -53,7 +53,7 @@ const Navbar = () => {
             <li>More</li>
 
            </ul> */}
-           <a className="first_anchor" href="#">Dispansires</a>
+           <a className="anchor" href="#">Dispansires</a>
            <a className="anchor" href="#">Delivery</a>
            <a className="anchor" href="#">Brand</a>
            <a className="anchor" href="#">Product</a>
