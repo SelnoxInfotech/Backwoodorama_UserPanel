@@ -188,3 +188,59 @@ color: #333333;
   justify-content: center;
 }
 /* end */
+/* dispensories card */
+.disp_wraper{
+  margin-left: 20px;
+  margin-right: 20px;
+  gap: 10px;
+}
+.dispen_card{
+  width: 460.19px;
+  height: 249.99px;
+  display: flex;
+  padding: 10px;
+  background: #FFFFFF;
+  border-radius: 10px 10px;
+  padding-left: 10px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+.left_img_div{
+  width: 150px;
+  height: 120px;
+  border-radius: 50px;
+  margin-left: 20px;
+}
+.left_img_div img{
+  width: 120px;
+  height: 120px;
+  border-radius: 50px;
+
+}
+.dis_center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dis_right_div{
+  background: #FFFFFF;
+  
+  width: 300px;
+  padding-top: 10px;
+  padding-left: 15px;
+
+}
+.dis_right_div p{
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 27px;
+color: #282625;
+}
+.dis_right_div h5{
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+}
