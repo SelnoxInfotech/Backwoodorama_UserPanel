@@ -7,18 +7,17 @@ import Login from "./Components/Page/Login/Login"
 import { Routes, Route } from "react-router-dom"
 import Navbar from "./Components/Component/Navbar/Navbar"
 import Footer from "./Components/Component/Footer/Footer"
+import CategoryProduct from "./Components/Page/Home/Category/CategoryProduct";
 function App() {
   return (
     <div>
       <Navbar/>
      <Routes>
         <Route path="/login" element={ <Login/> } />
+        <Route path='/CategoryProduct' element={<CategoryProduct/>}/>
 
         </Routes>
-        <div className='footer_section p-4'>
-        <Footer/>
-
-        </div>
+    
     </div>
   );
 }
