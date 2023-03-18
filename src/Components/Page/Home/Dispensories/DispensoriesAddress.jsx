@@ -41,14 +41,14 @@ const DispensoriesAddress = () => {
         ]
     }
     const arr = [{ img_url: "./image/flower.png", address: "Canna Cabana",sec_add:"2917 Broadway astoria NY 11106",rating:"Rating" },
-     { img_url: "./image/flower.png", address: "Canna Cabana",sec_add:"2917 Broadway astoria NY 11106" ,rating:"Rating" },
-      { img_url: "./image/flower.png", address: "Canna Cabana",sec_add:"2917 Broadway astoria NY 11106",rating:"Rating"  },
-       { img_url: "./image/flower.png", address: "Canna Cabana",sec_add:"2917 Broadway astoria NY 11106",rating:"Rating" },
-       { img_url: "./image/flower.png", address: "Canna Cabana",sec_add:"2917 Broadway astoria NY 11106",rating:"Rating" },
+     { img_url: "./image/flower2.webp", address: "Canna Cabana",sec_add:"2917 Broadway astoria NY 11106" ,rating:"Rating" },
+      { img_url: "./image/logo_png.png", address: "Canna Cabana",sec_add:"2917 Broadway astoria NY 11106",rating:"Rating"  },
+       { img_url: "./image/logo.webp", address: "Canna Cabana",sec_add:"2917 Broadway astoria NY 11106",rating:"Rating" },
+       { img_url: "./image/logo2.png", address: "Canna Cabana",sec_add:"2917 Broadway astoria NY 11106",rating:"Rating" },
        { img_url: "./image/flower.png", address: "Canna Cabana",sec_add:"2917 Broadway astoria NY 11106" ,rating:"Rating" },
-       { img_url: "./image/flower.png", address: "Canna Cabana",sec_add:"2917 Broadway astoria NY 11106",rating:"Rating"  },
-        { img_url: "./image/flower.png", address: "Canna Cabana",sec_add:"2917 Broadway astoria NY 11106",rating:"Rating" },
-        { img_url: "./image/flower.png", address: "Canna Cabana",sec_add:"2917 Broadway astoria NY 11106",rating:"Rating" },
+       { img_url: "./image/logo.webp", address: "Canna Cabana",sec_add:"2917 Broadway astoria NY 11106",rating:"Rating" },
+
+    
 
 ]
 
