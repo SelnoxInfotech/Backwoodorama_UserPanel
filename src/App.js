@@ -9,6 +9,7 @@ import Navbar from "./Components/Component/Navbar/Navbar"
 import Footer from "./Components/Component/Footer/Footer"
 import CategoryProduct from "./Components/Page/Home/Category/CategoryProduct";
 import DispensoriesAddress from "./Components/Page/Home/Dispensories/DispensoriesAddress"
+import StoreLocationMap from "./Components/Component/Map/StoreLocation"
 function App() {
   return (
     <div>
@@ -17,6 +18,7 @@ function App() {
         <Route path="/login" element={ <Login/> } />
         <Route path='/CategoryProduct' element={<CategoryProduct/>}/>
          <Route  path="/DispensoriesAddress" element={<DispensoriesAddress/>}/>
+         <Route  path="/StoreLocationMap" element={<StoreLocationMap/>}/>
         </Routes>
     
     </div>

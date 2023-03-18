@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Box from '@mui/system/Box';
 import Grid from '@mui/system/Unstable_Grid';
 import SideNavbar from "../Navbar/Component/SideSlider/Slider"
 import Button from '@mui/material/Button';
@@ -8,7 +7,7 @@ import SearchBar from "./Component/SearchBar"
 import SliderLink from "./Component/SideSlider/SilderLink"
 const Navbar = () => {
   const [windowSize, setWindowSize] = React.useState()
-  const [Hamburger, SetHamburger] = React.useState(false)
+  const [Hamburger, SetHamburger] = React.useState(window.innerWidth >= 993)
   const classes = useStyles()
   React.useEffect(() => {
     const handleResize = () => {
@@ -16,35 +15,22 @@ const Navbar = () => {
     }
     window.addEventListener('resize', handleResize)
     if (windowSize >= 993) {
-      console.log(windowSize >= 993)
-      // document.getElementById("mySidebar").style.width = "16vw";
       SetHamburger(true)
     }
     else {
       if (windowSize <= 993) {
-        document.getElementById("mySidebar").style.width = "0px"
         SetHamburger(false)
-
       }
     }
     return () => window.removeEventListener('resize', handleResize)
   }, [windowSize])
-
-
   function openNav() {
-   
       document.getElementById("mySidebar").style.width = "250px";
-    
-  
   }
   function closeNav() {
-    console.log("kjhm")
     document.getElementById("mySidebar").style.width = "0";
-    // document.getElementById("main").style.marginLeft = "0";
+
   }
-
-
-
   // return (
   //   <>
   //     <nav>
@@ -130,7 +116,7 @@ const Navbar = () => {
             {
               Hamburger ?
                 <span >Backwoodaroma</span> :
-                <button className="openbtn " onClick={openNav}>☰</button>}
+                <button className="openbtn Border" onClick={openNav}>☰</button>}
           </Grid>
           <Grid xs={6} md={8} xl={8}>
             <SearchBar />
@@ -155,3 +141,6 @@ const Navbar = () => {
   )
 }
 export default Navbar
+
+
+// AIzaSyCIKajdxnw25suNPzUQIVQzbBmxN9n4XrE
