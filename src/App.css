@@ -297,7 +297,8 @@ line-height: 21px;
   font-style: normal;
   font-weight: 700;
   font-size: 25px;
-  line-height: 38px
+  line-height: 38px;
+  margin-left:20px;
 }
 .dis_navigation{
   display: flex;
