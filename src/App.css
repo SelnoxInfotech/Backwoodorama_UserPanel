@@ -63,9 +63,14 @@ margin-top: 2px;
   margin-right: 40px;
 }
 
+.Border{
+  border: 1px solid 00b96a;
+}
+
 
 /* navbar search */
 .nav_search_bar_div{
+  /* height: 40px; */
   display: flex;
   width:100%;
   border: 1px solid #00b96a;
@@ -186,6 +191,12 @@ color: #333333;
 .Slider_content_center{
   display: grid;
   justify-content: center;
+}
+
+.openbtn{
+  background-color: transparent;
+  color: #00b96a;
+  border: 1px solid #00b96a;
 }
 /* end */
 /* dispensories card */
