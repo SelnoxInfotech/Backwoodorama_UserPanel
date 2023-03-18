@@ -5,6 +5,8 @@ import Button from '@mui/material/Button';
 import useStyles from "../../../Style"
 import SearchBar from "./Component/SearchBar"
 import SliderLink from "./Component/SideSlider/SilderLink"
+import DispensoriesAddress from '../../Page/Home/Dispensories/DispensoriesAddress';
+import CategoryProduct from '../../Page/Home/Category/CategoryProduct';
 const Navbar = () => {
   const [windowSize, setWindowSize] = React.useState()
   const [Hamburger, SetHamburger] = React.useState(window.innerWidth >= 993)
@@ -137,6 +139,10 @@ const Navbar = () => {
       <SideNavbar
         closeNav={closeNav}
       ></SideNavbar>
+      <CategoryProduct/>
+      <div className='mt-4'>
+      <DispensoriesAddress/>
+      </div>
     </>
   )
 }
