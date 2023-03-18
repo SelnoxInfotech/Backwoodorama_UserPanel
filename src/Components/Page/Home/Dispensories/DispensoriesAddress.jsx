@@ -11,7 +11,7 @@ const DispensoriesAddress = () => {
         infinite: true,
         speed: 500,
         slidesToShow: 4,
-        slidesToScroll: 1,
+        slidesToScroll: 2,
         responsive: [
             {
                 breakpoint: 1024,
@@ -45,6 +45,10 @@ const DispensoriesAddress = () => {
       { img_url: "./image/flower.png", address: "Canna Cabana",sec_add:"2917 Broadway astoria NY 11106",rating:"Rating"  },
        { img_url: "./image/flower.png", address: "Canna Cabana",sec_add:"2917 Broadway astoria NY 11106",rating:"Rating" },
        { img_url: "./image/flower.png", address: "Canna Cabana",sec_add:"2917 Broadway astoria NY 11106",rating:"Rating" },
+       { img_url: "./image/flower.png", address: "Canna Cabana",sec_add:"2917 Broadway astoria NY 11106" ,rating:"Rating" },
+       { img_url: "./image/flower.png", address: "Canna Cabana",sec_add:"2917 Broadway astoria NY 11106",rating:"Rating"  },
+        { img_url: "./image/flower.png", address: "Canna Cabana",sec_add:"2917 Broadway astoria NY 11106",rating:"Rating" },
+        { img_url: "./image/flower.png", address: "Canna Cabana",sec_add:"2917 Broadway astoria NY 11106",rating:"Rating" },
 
 ]
 
