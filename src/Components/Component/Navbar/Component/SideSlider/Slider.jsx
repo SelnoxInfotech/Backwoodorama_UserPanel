@@ -1,13 +1,5 @@
 import React from "react"
-import { BsGrid } from "react-icons/bs"
-import { FaShoppingCart } from "react-icons/fa"
-import { IoAnalyticsOutline } from "react-icons/io5"
-import { MdOutlineGamepad } from "react-icons/md"
-import { MdLocalActivity } from "react-icons/md"
-import { MdTurnedIn } from "react-icons/md"
-import { MdMarkunread } from "react-icons/md"
-import { AiTwotoneSetting } from "react-icons/ai"
-import { Link, NavLink } from "react-router-dom"
+
 
 const SideNavbar = ({ closeNav }) => {
 

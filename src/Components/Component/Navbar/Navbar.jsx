@@ -38,6 +38,7 @@ const Navbar = () => {
   
   }
   function closeNav() {
+    console.log("kjhm")
     document.getElementById("mySidebar").style.width = "0";
     // document.getElementById("main").style.marginLeft = "0";
   }
