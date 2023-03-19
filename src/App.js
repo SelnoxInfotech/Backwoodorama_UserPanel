@@ -18,7 +18,7 @@ function App() {
         <Route path="/login" element={ <Login/> } />
         <Route path='/CategoryProduct' element={<CategoryProduct/>}/>
          <Route  path="/DispensoriesAddress" element={<DispensoriesAddress/>}/>
-         <Route  path="/StoreLocationMap" element={<StoreLocationMap/>}/>
+        <Route path="/StoreLocationMap" element={<StoreLocationMap isMarkerShown />}/>
         </Routes>
     
     </div>
