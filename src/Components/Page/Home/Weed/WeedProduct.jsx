@@ -74,7 +74,7 @@ const WeedProduct = () => {
         <>
             <div className="container-fluid  mt-4">
 
-                {/* <div className="row weed_had_btn mt-4">
+                <div className="row weed_had_btn mt-4">
                     <div className='col-12 border'>
                         <div className="col mt-4">
                             <h5>Want to find weed deals near you and more?</h5>
@@ -84,9 +84,9 @@ const WeedProduct = () => {
 
                     </div>
 
-                </div> */}
+                </div>
 
-                {/* <div className="row weed_had_btn mt-4">
+                <div className="row weed_had_btn mt-4">
                     <div className='col-12  d-flex '>
                         <div className="col mt-4">
                             <h5>Great Weeds you can find today</h5>
@@ -96,7 +96,7 @@ const WeedProduct = () => {
                         </div>
                     </div>
 
-                </div> */}
+                </div>
                 <Slider {...settings}>
 
                     {arr.map((ele, index) => {

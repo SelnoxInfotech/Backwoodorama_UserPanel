@@ -139,9 +139,9 @@ const Navbar = () => {
       <SideNavbar
         closeNav={closeNav}
       ></SideNavbar>
-      {/* <CategoryProduct/> */}
+      <CategoryProduct/>
       <div className='mt-4'>
-      {/* <DispensoriesAddress/> */}
+      <DispensoriesAddress/>
       </div>
     </>
   )
