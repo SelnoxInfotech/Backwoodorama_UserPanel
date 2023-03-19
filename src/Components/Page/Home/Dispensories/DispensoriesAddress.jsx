@@ -3,8 +3,14 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { BiMap } from "react-icons/bi"
-import { AiOutlineStar } from "react-icons/ai"
+import { AiFillStar } from "react-icons/ai"
+import LoadingButton from '@mui/lab/LoadingButton';
+import useStyles from "../../../../Style"
+import Box from '@mui/material/Box';
+
 const DispensoriesAddress = () => {
+    const classes = useStyles()
+
     const settings = {
 
         dots: true,
@@ -91,11 +97,18 @@ const DispensoriesAddress = () => {
                                         <div className='dis_right_div'>
                                             <p>{ele.address}</p>
                                             <div className=' dis_navigation'>
-                                                <span className='span_nav'><BiMap /></span> <h5>{ele.sec_add}</h5>
+                                                <span className='span_nav'><BiMap className={classes.disPen_Icons} /></span> <h5>{ele.sec_add}</h5>
                                             </div>
 
                                             <div className='dis_rating'>
-                                                <h5>{ele.rating}</h5><span className='span_nav_star'><AiOutlineStar /></span>
+                                                <h5>{ele.rating}</h5><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons}/></span>
+                                            </div>
+                                            <div className='dis_btn_div'>
+                                                <Box
+                                                    className={`${classes.loadingBtnTextAndBack}`}
+                                                >
+                                                    <LoadingButton>Order Pickup</LoadingButton>
+                                                </Box>
                                             </div>
                                         </div>
 

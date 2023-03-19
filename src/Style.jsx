@@ -36,6 +36,29 @@ const useStyles = makeStyles({
     fontSize: "x-large",
     color:"gray",
     
-  }
+  },
+  loadingBtnTextAndBack: {
+    "& .MuiButton-text": {
+      fontSize: ".7rem",
+    },
+    "& .MuiLoadingButton-root":{
+      backgroundColor: "#ffff",
+      color: "#31B665",
+      outline: "1px solid #31B665",
+      textTransform: "none",
+      // backgroundColor:"#31B665"
+
+    },
+    "& .MuiButtonBase-root:hover": {
+      color: "#ffff",
+      background: "#00b96a",
+    }
+
+  },
+  disPen_Icons:{
+    fontSize: "large",
+    color:"#31B665",
+    
+  },
 });
 export default useStyles

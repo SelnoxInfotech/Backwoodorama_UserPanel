@@ -257,7 +257,7 @@ color: #333333;
   /* margin-left: 5px; */
 }
 .left_img_div img{
-  width: 100%;
+  width: 93%;
   height: 90px;
   border-radius: 20px;
 
@@ -316,4 +316,82 @@ line-height: 21px;
 .span_nav_star{
   line-height: 100%;
    margin-left: 10px;
+}
+.dis_btn_div{
+  margin-left: 5px;
+}
+/* WeedProduct */
+
+
+
+.weed_had_btn{
+  padding-left: 25px;
+  padding-right: 25px;
+  height: 100px;
+  margin-top: 50px;
+}
+/* weedCArd */
+.weed_card_container{
+  width:94%;
+  height:400px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  background: #FFFFFF;
+border: 1px solid #7ED19F;
+box-shadow: 0px 4px 15px 12px rgba(177, 177, 177, 0.25);
+border-radius: 21px;
+}
+@media(max-width:599px){
+.weed_card_container{
+    width:94%;
+  margin-left: 15px;
+  margin-right: 10px;
+
+  }
+}
+@media only screen and (min-width: 501px) and (max-width: 769px){
+  .weed_card_container{
+    width:91% !important;
+  margin-left: 15px;
+  margin-right: 10px;
+
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 1024px){
+  .weed_card_container{
+    width:94% !important;
+  margin-left: 15px;
+
+  }
+}
+
+.img_div{
+  width:100%;
+  height: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img_div img{
+  width:25%;
+  height:100px;
+}
+.fontStyle{
+  font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+}
+.comm_head_prop{
+font-size: 24px;
+color: #282625;
+}
+.common_sub_head{
+  color: #949494;
+font-size: 14px;
+
+}
+.weed_content_div{
+  display: flex;
+  justify-content: center;
 }

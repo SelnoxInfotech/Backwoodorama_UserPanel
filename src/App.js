@@ -10,6 +10,7 @@ import Footer from "./Components/Component/Footer/Footer"
 import CategoryProduct from "./Components/Page/Home/Category/CategoryProduct";
 import DispensoriesAddress from "./Components/Page/Home/Dispensories/DispensoriesAddress"
 import StoreLocationMap from "./Components/Component/Map/StoreLocation"
+import WeedProduct from './Components/Page/Home/Weed/WeedProduct';
 function App() {
   return (
     <div>
@@ -19,6 +20,8 @@ function App() {
         <Route path='/CategoryProduct' element={<CategoryProduct/>}/>
          <Route  path="/DispensoriesAddress" element={<DispensoriesAddress/>}/>
          <Route  path="/StoreLocationMap" element={<StoreLocationMap/>}/>
+         <Route  path="/WeedProduct" element={<WeedProduct/>}/>
+
         </Routes>
     
     </div>
