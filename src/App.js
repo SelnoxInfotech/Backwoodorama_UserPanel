@@ -22,6 +22,7 @@ function App() {
          <Route  path="/StoreLocationMap" element={<StoreLocationMap/>}/>
          <Route  path="/WeedProduct" element={<WeedProduct/>}/>
 
+        <Route path="/StoreLocationMap" element={<StoreLocationMap isMarkerShown />}/>
         </Routes>
     
     </div>
