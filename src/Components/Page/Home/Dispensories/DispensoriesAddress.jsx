@@ -73,17 +73,7 @@ const DispensoriesAddress = () => {
             }
         ]
     }
-    const arr = [{ img_url: "./image/flower.png", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", third_add:"Tyonek Alaska | 110mi",f_add:"Medical and Recreational",rating: "Rating" },
-    { img_url: "./image/flower2.webp", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106",third_add:"Tyonek Alaska | 110mi",f_add:"Medical and Recreational", rating: "Rating" },
-    { img_url: "./image/logo_png.png", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", third_add:"Tyonek Alaska | 110mi",f_add:"Medical and Recreational",rating: "Rating" },
-    { img_url: "./image/logo.webp", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", third_add:"Tyonek Alaska | 110mi",f_add:"Medical and Recreational",rating: "Rating" },
-    { img_url: "./image/logo2.png", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106",third_add:"Tyonek Alaska | 110mi",f_add:"Medical and Recreational", rating: "Rating" },
-    { img_url: "./image/flower.png", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", third_add:"Tyonek Alaska | 110mi",f_add:"Medical and Recreational",rating: "Rating" },
-    { img_url: "./image/logo.webp", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106",third_add:"Tyonek Alaska | 110mi",f_add:"Medical and Recreational", rating: "Rating" },
-
-
-
-    ]
+   
 
     return (
         <>
@@ -102,8 +92,9 @@ const DispensoriesAddress = () => {
                                     <div className='dispen_card' >
                                         <div className='dis_center'>
                                             <div className='left_img_div'>
-                                                {/* <img src="./image/flower.png" alt='img_not_found' /> */}
-                                                <img src={`http://52.3.255.128:8000/image/images/download/media/Brand/blank-profile-picture-973460_640-1_4.webp`} alt='img_not_found' />
+                                                {/* <img src={`http://52.3.255.128:8000/image/images/download/media/Brand/blank-profile-picture-973460_640-1_4.webp`} alt='img_not_found' /> */}
+                                                <img src={`http://52.3.255.128:8000/${ele?.Store_Image}`} alt='img_not_found' />
+
 
                                             </div>
                                         </div>
@@ -115,7 +106,7 @@ const DispensoriesAddress = () => {
                                             <h5 className='fontStyle common_sub_head'>{ele.Store_Type}</h5>
                                             <h5 className='fontStyle common_sub_head'>{ele.city_name}</h5>
                                             <div className='dis_rating'>
-                                                <h5 className='fontStyle common_sub_head'>{ele.Store_Address}</h5><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons}/></span>
+                                                <h5 className='fontStyle common_sub_head'>{ele.Store_Address.slice(0, 100)}</h5><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons}/></span>
                                             </div>
                                           
 

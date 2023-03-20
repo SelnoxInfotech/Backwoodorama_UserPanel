@@ -20,8 +20,8 @@ const CategoryProduct = () => {
         dots: false,
         infinite: false,
         speed: 500,
-        slidesToShow: 8,
-        slidesToScroll: 4,
+        slidesToShow:8,
+        slidesToScroll: 2,
         // autoplay: true,
         responsive: [
             {
@@ -82,7 +82,7 @@ const CategoryProduct = () => {
 
                                         <img src="./image/glass.png" alt="flower_img" />
                                     </div>
-                                    <h6>{ele.name}</h6>
+                                    <h6>{ele.name.substr(0, 100)}</h6>
                                 </div>
                             )
                         })}
