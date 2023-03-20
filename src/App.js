@@ -11,6 +11,7 @@ import CategoryProduct from "./Components/Page/Home/Category/CategoryProduct";
 import DispensoriesAddress from "./Components/Page/Home/Dispensories/DispensoriesAddress"
 import StoreLocationMap from "./Components/Component/Map/StoreLocation"
 import WeedProduct from './Components/Page/Home/Weed/WeedProduct';
+import LatestServices from "./Components/Page/Home/LatestArticle/LatestServices"
 function App() {
   return (
     <div>
@@ -21,8 +22,10 @@ function App() {
          <Route  path="/DispensoriesAddress" element={<DispensoriesAddress/>}/>
          <Route  path="/StoreLocationMap" element={<StoreLocationMap/>}/>
          <Route  path="/WeedProduct" element={<WeedProduct/>}/>
+         <Route  path="/LatestServices" element={<LatestServices/>}/>
 
         <Route path="/StoreLocationMap" element={<StoreLocationMap isMarkerShown />}/>
+        
         </Routes>
     
     </div>

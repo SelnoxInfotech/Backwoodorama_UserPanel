@@ -51,7 +51,7 @@ const useStyles = makeStyles({
     },
     "& .MuiButtonBase-root:hover": {
       color: "#ffff",
-      background: "#00b96a",
+      backgroundColor: "#00b96a",
     }
 
   },

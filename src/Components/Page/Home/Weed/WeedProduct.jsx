@@ -84,7 +84,7 @@ const WeedProduct = () => {
                     <div className='col-12 border'>
                         <div className="col mt-4">
                             <h5>Want to find weed deals near you and more?</h5>
-                            <p>Let's connect</p>
+                            <p className='weed_paragraph'>Let's connect</p>
 
                         </div>
 
@@ -128,7 +128,7 @@ const WeedProduct = () => {
                                             <div className='d-flex'>
                                                 <span className='span_nav_loc'><BiMap className={classes.disPen_Icons} /></span><h5 className='fontStyle common_sub_head weed_h5'>2917 Broadway Astoria NY 11106</h5>
                                             </div>
-                                            <h5 className='fontStyle common_sub_head'>Tyonek Alaska | 110 mi</h5>
+                                            <h5 className='fontStyle common_sub_head'>Tyonek Alaska | 11111111111111110 mi</h5>
                                             <h5 className='fontStyle common_sub_head'>Medical and recreational</h5>
                                             <div className='d-flex'>
                                                 <h5 className='fontStyle common_sub_head'>Rating</h5><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons} /></span>

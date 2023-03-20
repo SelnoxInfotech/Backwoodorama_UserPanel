@@ -2,11 +2,23 @@ import * as React from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { useEffect,useState } from 'react';
 const CategoryProduct = () => {
+    const [value,setValue]=useState([])
+    useEffect(()=>{
+        const fetchData=async()=>{
+            const apidata=await fetch("http://52.3.255.128:8000/UserPanel/Get-Categories/");
+            const data=await apidata.json()
+            setValue(data)
+
+        }
+        fetchData()
+
+    },[])
+
     const settings = {
         dots: false,
-        infinite: true,
+        infinite: false,
         speed: 500,
         slidesToShow: 8,
         slidesToScroll: 4,
@@ -63,14 +75,14 @@ const CategoryProduct = () => {
                 <div className='catgory_wraper'>
 
                     <Slider {...settings}>
-                        {arr.map((ele, index) => {
+                        {value.map((ele, index) => {
                             return (
-                                <div className='cat_main_div'>
+                                <div className='cat_main_div' key={index} >
                                     <div className='image_Div'>
 
-                                        <img src={ele.img_url} alt="flower_img" />
+                                        <img src="./image/glass.png" alt="flower_img" />
                                     </div>
-                                    <h6>{ele.type}</h6>
+                                    <h6>{ele.name}</h6>
                                 </div>
                             )
                         })}

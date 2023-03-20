@@ -7,14 +7,25 @@ import { AiFillStar } from "react-icons/ai"
 import LoadingButton from '@mui/lab/LoadingButton';
 import useStyles from "../../../../Style"
 import Box from '@mui/material/Box';
-
+import { useEffect,useState } from 'react';
 const DispensoriesAddress = () => {
+    const [value,setValue]=useState([])
+    useEffect(()=>{
+   const fetchApiFun=async ()=>{
+    const fetchApi=await fetch("http://52.3.255.128:8000/UserPanel/Get-Stores/");
+    const data=await fetchApi.json();
+    setValue(data)
+
+   }
+   fetchApiFun()
+    },[])
+    console.log(value)
     const classes = useStyles()
 
     const settings = {
 
         dots: true,
-        infinite: true,
+        infinite: false,
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 2,
@@ -85,24 +96,26 @@ const DispensoriesAddress = () => {
 
                     <Slider {...settings}>
 
-                        {arr.map((ele, index) => {
+                        {value.map((ele, index) => {
                             return (
                                 <div className='disp_card_con' key={index}>
                                     <div className='dispen_card' >
                                         <div className='dis_center'>
                                             <div className='left_img_div'>
-                                                <img src={ele.img_url} alt='img_not_found' />
+                                                {/* <img src="./image/flower.png" alt='img_not_found' /> */}
+                                                <img src={`http://52.3.255.128:8000/image/images/download/media/Brand/blank-profile-picture-973460_640-1_4.webp`} alt='img_not_found' />
+
                                             </div>
                                         </div>
                                         <div className='dis_right_div'>
-                                            <p>{ele.address}</p>
+                                            <p>{ele.Store_Name}</p>
                                             <div className=' dis_navigation'>
-                                                <span className='span_nav'><BiMap className={classes.disPen_Icons} /></span> <h5>{ele.sec_add}</h5>
+                                                <span className='span_nav'><BiMap className={classes.disPen_Icons} /></span> <h5 className='fontStyle common_sub_head'>{ele.Store_Address}</h5>
                                             </div>
-                                            <h5>{ele.third_add}</h5>
-                                            <h5>{ele.f_add}</h5>
+                                            <h5 className='fontStyle common_sub_head'>{ele.Store_Type}</h5>
+                                            <h5 className='fontStyle common_sub_head'>{ele.city_name}</h5>
                                             <div className='dis_rating'>
-                                                <h5>{ele.rating}</h5><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons}/></span>
+                                                <h5 className='fontStyle common_sub_head'>{ele.Store_Address}</h5><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons}/></span>
                                             </div>
                                           
 
