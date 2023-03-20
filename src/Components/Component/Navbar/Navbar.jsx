@@ -149,6 +149,7 @@ const Navbar = () => {
       <div className='mt-4'>
         <WeedProduct/>
       </div>
+      
     </>
   )
 }
