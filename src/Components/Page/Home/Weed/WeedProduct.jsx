@@ -1,12 +1,18 @@
 import Button from '@mui/material/Button';
 import { BiMap } from "react-icons/bi"
-import { AiFillStar } from "react-icons/ai"
+import { AiFillStar } from "react-icons/ai";
+import { AiFillHeart } from "react-icons/ai";
+import { MdOutlineShoppingCart } from "react-icons/md"
+import LoadingButton from '@mui/lab/LoadingButton';
+
 import Box from '@mui/material/Box';
 import useStyles from "../../../../Style"
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 const WeedProduct = () => {
+    const classes = useStyles()
+
     const settings = {
 
         dots: true,
@@ -92,7 +98,11 @@ const WeedProduct = () => {
                             <h5>Great Weeds you can find today</h5>
                         </div>
                         <div className="col text-end mt-4">
-                            <Button variant="outlined">View All</Button>
+                            <Box
+                                className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
+                            >
+                                <LoadingButton>View All</LoadingButton>
+                            </Box>
                         </div>
                     </div>
 
@@ -103,6 +113,9 @@ const WeedProduct = () => {
                         return (
                             <div key={index}>
                                 <div className='weed_card_container'>
+                                    <div className='text-end  weed_card_heart'>
+                                        <AiFillHeart className={classes.disPen_Icons} />
+                                    </div>
                                     <div className='img_div'>
                                         <img src={ele.img_url} alt='img_not_found' />
                                     </div>
@@ -113,12 +126,20 @@ const WeedProduct = () => {
                                         <div>
                                             <h1 className='comm_head_prop fontStyle'>{ele.address}</h1>
                                             <div className='d-flex'>
-                                                <span className='span_nav'><BiMap /></span><h5 className='fontStyle common_sub_head'>2917 Broadway Astoria NY 11106</h5>
+                                                <span className='span_nav_loc'><BiMap className={classes.disPen_Icons} /></span><h5 className='fontStyle common_sub_head weed_h5'>2917 Broadway Astoria NY 11106</h5>
                                             </div>
                                             <h5 className='fontStyle common_sub_head'>Tyonek Alaska | 110 mi</h5>
                                             <h5 className='fontStyle common_sub_head'>Medical and recreational</h5>
                                             <div className='d-flex'>
-                                                <h5 className='fontStyle common_sub_head'>Rating</h5><span className='span_nav_star'><AiFillStar /></span>
+                                                <h5 className='fontStyle common_sub_head'>Rating</h5><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons} /></span>
+                                            </div>
+                                            <div className='d-flex'>
+                                                <MdOutlineShoppingCart className={classes.muiIcons} />
+                                                <Box
+                                                    className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
+                                                >
+                                                    <LoadingButton>Buy Now</LoadingButton>
+                                                </Box>
                                             </div>
                                         </div>
                                     </div>

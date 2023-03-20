@@ -6,6 +6,9 @@ import useStyles from "../../../Style"
 import SearchBar from "./Component/SearchBar"
 import SliderLink from "./Component/SideSlider/SilderLink"
 import DispensoriesAddress from '../../Page/Home/Dispensories/DispensoriesAddress';
+import WeedProduct from '../../Page/Home/Weed/WeedProduct';
+
+
 import CategoryProduct from '../../Page/Home/Category/CategoryProduct';
 const Navbar = () => {
   const [windowSize, setWindowSize] = React.useState()
@@ -142,6 +145,9 @@ const Navbar = () => {
       <CategoryProduct/>
       <div className='mt-4'>
       <DispensoriesAddress/>
+      </div>
+      <div className='mt-4'>
+        <WeedProduct/>
       </div>
     </>
   )

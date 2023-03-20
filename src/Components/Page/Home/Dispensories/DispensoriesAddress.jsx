@@ -62,13 +62,13 @@ const DispensoriesAddress = () => {
             }
         ]
     }
-    const arr = [{ img_url: "./image/flower.png", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
-    { img_url: "./image/flower2.webp", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
-    { img_url: "./image/logo_png.png", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
-    { img_url: "./image/logo.webp", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
-    { img_url: "./image/logo2.png", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
-    { img_url: "./image/flower.png", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
-    { img_url: "./image/logo.webp", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
+    const arr = [{ img_url: "./image/flower.png", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", third_add:"Tyonek Alaska | 110mi",f_add:"Medical and Recreational",rating: "Rating" },
+    { img_url: "./image/flower2.webp", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106",third_add:"Tyonek Alaska | 110mi",f_add:"Medical and Recreational", rating: "Rating" },
+    { img_url: "./image/logo_png.png", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", third_add:"Tyonek Alaska | 110mi",f_add:"Medical and Recreational",rating: "Rating" },
+    { img_url: "./image/logo.webp", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", third_add:"Tyonek Alaska | 110mi",f_add:"Medical and Recreational",rating: "Rating" },
+    { img_url: "./image/logo2.png", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106",third_add:"Tyonek Alaska | 110mi",f_add:"Medical and Recreational", rating: "Rating" },
+    { img_url: "./image/flower.png", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", third_add:"Tyonek Alaska | 110mi",f_add:"Medical and Recreational",rating: "Rating" },
+    { img_url: "./image/logo.webp", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106",third_add:"Tyonek Alaska | 110mi",f_add:"Medical and Recreational", rating: "Rating" },
 
 
 
@@ -99,10 +99,13 @@ const DispensoriesAddress = () => {
                                             <div className=' dis_navigation'>
                                                 <span className='span_nav'><BiMap className={classes.disPen_Icons} /></span> <h5>{ele.sec_add}</h5>
                                             </div>
-
+                                            <h5>{ele.third_add}</h5>
+                                            <h5>{ele.f_add}</h5>
                                             <div className='dis_rating'>
                                                 <h5>{ele.rating}</h5><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons}/></span>
                                             </div>
+                                          
+
                                             <div className='dis_btn_div'>
                                                 <Box
                                                     className={`${classes.loadingBtnTextAndBack}`}

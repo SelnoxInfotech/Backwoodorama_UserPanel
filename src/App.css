@@ -130,8 +130,8 @@ margin-top: 2px;
   color:#707070;
 }
 .catgory_wraper{
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 70px;
+  /* margin-right: 20px; */
 }
 .category_container p{
   margin-left: 20px;
@@ -252,13 +252,14 @@ color: #333333;
 
 .left_img_div{
   width: 100%;
-  /* height: 100px; */
   border-radius: 20px;
-  /* margin-left: 5px; */
+  display: flex;
+  justify-content: center;
+
 }
 .left_img_div img{
-  width: 93%;
-  height: 90px;
+  width: 75px;
+  height: 80px;
   border-radius: 20px;
 
 }
@@ -302,8 +303,17 @@ line-height: 21px;
 .dis_navigation{
   display: flex;
 }
+.weed_h5{
+  margin-left: 10px;
+  margin-top: 3px;
+}
 .span_nav{
   line-height: 100%;
+  margin-left: -3px;
+}
+.span_nav_loc{
+  line-height: 100%;
+  margin-left: -3px; 
 }
 .dis_navigation h5{
   margin-left: .6rem;
@@ -311,15 +321,13 @@ line-height: 21px;
 }
 .dis_rating{
   display: flex;
-  padding-left: 5px;
+  /* padding-left: 5px; */
 }
 .span_nav_star{
   line-height: 100%;
    margin-left: 10px;
 }
-.dis_btn_div{
-  margin-left: 5px;
-}
+
 /* WeedProduct */
 
 
@@ -342,6 +350,10 @@ border: 1px solid #7ED19F;
 box-shadow: 0px 4px 15px 12px rgba(177, 177, 177, 0.25);
 border-radius: 21px;
 }
+.weed_card_heart{
+  margin-right: 20px;
+  margin-top: 10px;
+}
 @media(max-width:599px){
 .weed_card_container{
     width:94%;
@@ -357,6 +369,10 @@ border-radius: 21px;
   margin-right: 10px;
 
   }
+  .dis_navigation h5{
+    margin-left: .2rem;
+    font-size: .8rem;
+  }
 }
 @media only screen and (min-width: 769px) and (max-width: 1024px){
   .weed_card_container{
@@ -368,14 +384,14 @@ border-radius: 21px;
 
 .img_div{
   width:100%;
-  height: 170px;
+  height: 114px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .img_div img{
-  width:25%;
-  height:100px;
+  width:80px;
+  height:80px;
 }
 .fontStyle{
   font-family: 'Poppins';
@@ -394,4 +410,7 @@ font-size: 14px;
 .weed_content_div{
   display: flex;
   justify-content: center;
+}
+.weed_cart_btn{
+  margin-left: 10px;
 }
