@@ -414,3 +414,56 @@ font-size: 14px;
 .weed_cart_btn{
   margin-left: 10px;
 }
+
+
+
+
+
+
+
+
+
+
+
+[data-reactroot]{
+  height: 100%;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+.u-vr {
+  margin-bottom: 8px;
+}
+
+.u-vr-top {
+  margin-top: 8px;
+}
+
+
+
+.google-map {
+  padding: 20px;
+  height: 100%;
+  width: 100%;
+}
+
+.info-window {
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 70px;
+  padding-left: 85px;
+  width: 300px;
+}
+
+.page {
+  padding: 20px;
+}
+
+.map-container {
+  height: 300px;
+}
+
