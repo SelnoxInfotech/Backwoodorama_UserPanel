@@ -1,7 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/js/bootstrap.bundle'
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-<<<<<<< HEAD
 import Login from "./Components/Page/Login/Login"
 import { Routes, Route } from "react-router-dom"
 import Navbar from "./Components/Component/Navbar/Navbar"
@@ -11,10 +10,8 @@ import StoreLocationMap from "./Components/Component/Map/StoreLocation"
 import WeedProduct from './Components/Page/Home/Weed/WeedProduct';
 import LatestServices from "./Components/Page/Home/LatestArticle/LatestServices"
 import Map from './Components/Component/Map/map';
-=======
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ConfigRoute from "./Routes/ConfigRoute"
->>>>>>> 9add9ff (dsf)
 function App() {
   const router = createBrowserRouter(ConfigRoute);
   return (
