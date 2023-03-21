@@ -97,7 +97,7 @@ const LatestServices = () => {
                                     </div>
                                     <div className="col latest_content_div ">
                                         <div className="col-10 mt-2">
-                                            <p className="fontStyle latest_font_size ">{ele.Title.slice(0,20)}</p>
+                                            <p className="fontStyle latest_font_size ">{ele.Title.slice(0,50)}</p>
 
                                         </div>
                                         <div className="col-10 ">
