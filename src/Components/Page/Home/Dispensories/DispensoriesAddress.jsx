@@ -19,7 +19,6 @@ const DispensoriesAddress = () => {
    }
    fetchApiFun()
     },[])
-    console.log(value)
     const classes = useStyles()
 
     const settings = {

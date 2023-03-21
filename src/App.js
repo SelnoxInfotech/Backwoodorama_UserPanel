@@ -6,7 +6,6 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Login from "./Components/Page/Login/Login"
 import { Routes, Route } from "react-router-dom"
 import Navbar from "./Components/Component/Navbar/Navbar"
-import Footer from "./Components/Component/Footer/Footer"
 import CategoryProduct from "./Components/Page/Home/Category/CategoryProduct";
 import DispensoriesAddress from "./Components/Page/Home/Dispensories/DispensoriesAddress"
 import StoreLocationMap from "./Components/Component/Map/StoreLocation"

@@ -1,7 +1,7 @@
 import React from "react";
 import Grid from '@mui/system/Unstable_Grid';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebook } from '@fortawesome/free-brands-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { BsWhatsapp } from "react-icons/bs"
 import {AiFillHeart} from "react-icons/ai"
 import {IoIosNotifications} from "react-icons/io"

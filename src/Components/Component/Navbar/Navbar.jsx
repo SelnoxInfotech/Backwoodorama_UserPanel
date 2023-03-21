@@ -6,6 +6,7 @@ import useStyles from "../../../Style"
 import SearchBar from "./Component/SearchBar"
 import SliderLink from "./Component/SideSlider/SilderLink"
 import DispensoriesAddress from '../../Page/Home/Dispensories/DispensoriesAddress';
+import LatestServices from "../../Page/Home/LatestArticle/LatestServices"
 import WeedProduct from '../../Page/Home/Weed/WeedProduct';
 
 
@@ -148,6 +149,9 @@ const Navbar = () => {
       </div>
       <div className='mt-4'>
         <WeedProduct/>
+      </div>
+      <div className='mt-4'>
+        <LatestServices/>
       </div>
       
     </>

@@ -54,19 +54,7 @@ const CategoryProduct = () => {
             }
         ]
     };
-    const arr = [{ img_url: "./image/flower.png", type: "flower" },
-     { img_url: "./image/G03.png", type: "Edible" },
-      { img_url: "./image/glass.png", type: "Edible" }, 
-      { img_url: "./image/images2.png", type: "Wap Card" }
-        , { img_url: "./image/glass.png", type: "Edible" }, 
-        { img_url: "./image/flower.png", type: "Edible" }, 
-        { img_url: "./image/flower.png", type: "Edible" },
-        { img_url: "./image/glass.png", type: "Edible" }, 
-        { img_url: "./image/google.png", type: "CBD" }, 
-         { img_url: "./image/flower.png", type: "Edible" }, 
-         { img_url: "./image/flower.png", type: "Edible" }, 
-         { img_url: "./image/flower.png", type: "Edible" }
-    ]
+   
     return (
         <>
 
