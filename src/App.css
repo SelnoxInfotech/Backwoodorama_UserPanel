@@ -501,4 +501,7 @@ border-radius: 10px;
   margin-top: 10px;
   margin-bottom: 40px;
 }
-
+.latest_font_size{
+  font-size: 15px;
+  color: #282625;
+}

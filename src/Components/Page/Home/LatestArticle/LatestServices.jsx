@@ -1,6 +1,8 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import parse from 'html-react-parser';
+
 import { useState,useEffect } from "react";
 const LatestServices = () => {
     const [value,setValue]=useState([])
@@ -94,12 +96,12 @@ const LatestServices = () => {
 
                                     </div>
                                     <div className="col latest_content_div ">
-                                        <div className="col-10">
-                                            <p className="fontStyle comm_head_prop">{ele.Title}</p>
+                                        <div className="col-10 mt-2">
+                                            <p className="fontStyle latest_font_size ">{ele.Title.slice(0,20)}</p>
 
                                         </div>
                                         <div className="col-10 ">
-                                        <p className="fontStyle common_sub_head">{ele.Meta_title}</p>
+                                        <p className="fontStyle common_sub_head">{parse(ele.Description.slice(0, 100))}</p>
 
                                         </div>
 
