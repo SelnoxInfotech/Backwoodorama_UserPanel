@@ -1,7 +1,21 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useState,useEffect } from "react";
 const LatestServices = () => {
+    const [value,setValue]=useState([])
+    useEffect(()=>{
+        const getApi=async ()=>{
+            const res=await fetch("http://52.3.255.128:8000/UserPanel/Get-News/");
+            const data=await res.json();
+            setValue(data)
+            // console.log(data)
+
+        }
+        getApi()
+
+    },[])
+    console.log(value)
     const settings = {
 
         dots: true,
@@ -53,14 +67,7 @@ const LatestServices = () => {
             }
         ]
     }
-    const arr = [{ head: "Easy to Signup", para: "Gravity is an irreversible force while it is certainly nice that it keeps us rooted certainly nice that it keep us rooted to the ..." },
-    { head: "Easy to Addup", para: "Gravity is an irreversible force while it is certainly nice that it keeps us rooted certainly nice that it keep us rooted to the ..." },
-    { head: "Easy to Login", para: "Gravity is an irreversible force while it is certainly nice that it keeps us rooted certainly nice that it keep us rooted to the ..." },
-    { head: "Easy to Signup", para: "Gravity is an irreversible force while it is certainly nice that it keeps us rooted certainly nice that it keep us rooted to the ..." },
-    { head: "Easy to Signup", para: "Gravity is an irreversible force while it is certainly nice that it keeps us rooted certainly nice that it keep us rooted to the ..." },
-    { head: "Easy to Signup", para: "Gravity is an irreversible force while it is certainly nice that it keeps us rooted certainly nice that it keep us rooted to the ..." },
-
-    ]
+  
     return (
         <>
             <div className="container-fluid m-4 p-2 mt-4">
@@ -75,24 +82,24 @@ const LatestServices = () => {
                 </div>
                 <div className="row ml-2">
                     <Slider {...settings}>
-                        {arr.map((ele, index) => {
+                        {value.map((ele, index) => {
                             return (
-                               <div className="col-12 center_latest" >
-                                <div className="col-10  latest_cont" key={index}>
+                               <div className="col-12 center_latest" key={index}>
+                                <div className="col-10  latest_cont" >
                                     <div className="col img_cont center_latest ">
                                         <div className="col-12  centerImg ">
-                                            <img src="./image/latest_img.png" alt="img_not_found" />
+                                            <img src={`http://52.3.255.128:8000/${ele.Image}`} alt="img_not_found" />
 
                                         </div>
 
                                     </div>
                                     <div className="col latest_content_div ">
                                         <div className="col-10">
-                                            <p className="fontStyle comm_head_prop">{ele.head}</p>
+                                            <p className="fontStyle comm_head_prop">{ele.Title}</p>
 
                                         </div>
                                         <div className="col-10 ">
-                                        <p className="fontStyle common_sub_head">{ele.para}</p>
+                                        <p className="fontStyle common_sub_head">{ele.Meta_title}</p>
 
                                         </div>
 
