@@ -91,7 +91,6 @@ const DispensoriesAddress = () => {
                                     <div className='dispen_card' >
                                         <div className='dis_center'>
                                             <div className='left_img_div'>
-                                                {/* <img src={`http://52.3.255.128:8000/image/images/download/media/Brand/blank-profile-picture-973460_640-1_4.webp`} alt='img_not_found' /> */}
                                                 <img src={`http://52.3.255.128:8000/${ele?.Store_Image}`} alt='img_not_found' />
 
 
