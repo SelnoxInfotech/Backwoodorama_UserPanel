@@ -5,12 +5,15 @@ import Button from '@mui/material/Button';
 import useStyles from "../../../Style"
 import SearchBar from "./Component/SearchBar"
 import SliderLink from "./Component/SideSlider/SilderLink"
+<<<<<<< HEAD
 import DispensoriesAddress from '../../Page/Home/Dispensories/DispensoriesAddress';
 import LatestServices from "../../Page/Home/LatestArticle/LatestServices"
 import WeedProduct from '../../Page/Home/Weed/WeedProduct';
 
 
 import CategoryProduct from '../../Page/Home/Category/CategoryProduct';
+=======
+>>>>>>> 9add9ff (dsf)
 const Navbar = () => {
   const [windowSize, setWindowSize] = React.useState()
   const [Hamburger, SetHamburger] = React.useState(window.innerWidth >= 993)
@@ -31,7 +34,7 @@ const Navbar = () => {
     return () => window.removeEventListener('resize', handleResize)
   }, [windowSize])
   function openNav() {
-      document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("mySidebar").style.width = "250px";
   }
   function closeNav() {
     document.getElementById("mySidebar").style.width = "0";
@@ -116,12 +119,12 @@ const Navbar = () => {
   // )
   return (
     <>
-      <div className='container-fluid Top sticky-top '>
-        <Grid container spacing={2}>
-          <Grid xs={1} md={2} xl={2} >
+     
+        <Grid container spacing={0}  rowSpacing={1} >  
+          <Grid xs={1} md={2} xl={2}>
             {
               Hamburger ?
-                <span >Backwoodaroma</span> :
+                <span> Backwoodaroma</span> :
                 <button className="openbtn Border" onClick={openNav}>☰</button>}
           </Grid>
           <Grid xs={6} md={8} xl={8}>
@@ -137,7 +140,11 @@ const Navbar = () => {
               </div>
             </div>
           </Grid>
+        <Grid xs={12} md={12} xl={12} >
+          <SliderLink></SliderLink>
+          <SideNavbar closeNav={closeNav}></SideNavbar>
         </Grid>
+<<<<<<< HEAD
       </div>
       <SliderLink></SliderLink>
       <SideNavbar
@@ -154,6 +161,12 @@ const Navbar = () => {
         <LatestServices/>
       </div>
       
+=======
+        </Grid>
+ 
+
+
+>>>>>>> 9add9ff (dsf)
     </>
   )
 }

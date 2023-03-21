@@ -13,7 +13,7 @@ export function MapContainer(props) {
 
   const displayMarkers = () => {
     return locations.map((store, index) => {
-      return( <Marker key={index} id={index}
+      return (<Marker key={index} id={index}
 
         position={{
           lat: store.latitude,
@@ -26,31 +26,22 @@ export function MapContainer(props) {
     })
   }
   return (
-    <>
-      <Map
-        style={{ width: '50%', height: '50%', position: 'relative' }}
-        google={window.google}
-        zoom={14}
-        initialCenter={{ lat: 40.712776, lng: -74.005974}}
-      >
 
+    <div className='container-fluid'>
+      <div className='row center'>
+        <div className='col-12 ' style={{ position: 'relative' }}>
+          <Map
+            style={{ width: '100%', height: '500px' }}
+            google={window.google}
+            zoom={14}
+            initialCenter={{ lat: 40.712776, lng: -74.005974 }}
+          >
+            {displayMarkers()}
+          </Map>
+        </div>
+      </div>
+    </div>
 
-{displayMarkers()}
-{/* <Marker
-    title={'The marker`s title will appear as a tooltip.'}
-    name={'Your position'}
-    position={{lat: 37.778519, lng: -122.405640}} />
-        <InfoWindow
-          onOpen={true}
-
-          visible={true}>
-          <div>
-            <h1>{ }</h1>
-          </div>
-        </InfoWindow> */}
-      </Map>
-
-    </>
   );
 }
 export default GoogleApiWrapper({

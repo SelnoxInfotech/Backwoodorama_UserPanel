@@ -18,7 +18,10 @@ margin-top: 2px;
 
 }
 
-
+.center{
+  display: flex;
+  justify-content: center;
+}
 
 .nav_list1 ul li {
 

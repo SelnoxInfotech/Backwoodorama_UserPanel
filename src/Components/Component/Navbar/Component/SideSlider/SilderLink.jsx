@@ -6,15 +6,17 @@ import { BsWhatsapp } from "react-icons/bs"
 import {AiFillHeart} from "react-icons/ai"
 import {IoIosNotifications} from "react-icons/io"
 import {MdOutlineShoppingCart} from "react-icons/md"
+import { Link } from "react-router-dom";
 export default function DashBoardLink() {
   return (
     <>
-      <div className="container-fluid Top mt-2 sticky-top">
-        <Grid container spacing={2}>
+      
+      <div className="container-fluid Top ">
+        <Grid container spacing={2} > 
           <Grid xs={8} md={8} xl={8} display={{ xs: "none", md: "block", lg: "block" }}>
             <div className="ccol  nav_list1">
               <ul>
-                <li>Dispansires</li>
+               <Link to="/"> <li>Dispansires</li></Link>
                 <li>Deliveries</li>
                 <li>Brand</li>
                 <li>Product</li>
@@ -47,6 +49,7 @@ export default function DashBoardLink() {
           </Grid>
         </Grid>
       </div>
+   
     </>
   )
 
