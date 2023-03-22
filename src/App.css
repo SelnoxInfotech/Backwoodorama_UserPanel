@@ -213,7 +213,7 @@ color: #333333;
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 10px;
-  height: 249.99px;
+  height: 219.99px;
   display: flex;
   padding: 10px;
   background: #FFFFFF;
@@ -343,7 +343,7 @@ line-height: 21px;
 }
 /* weedCArd */
 .weed_card_container{
-  width:94%;
+  width:84%;
   height:400px;
   margin-left: 12px;
   margin-bottom: 20px;
