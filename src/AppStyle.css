@@ -1,0 +1,13 @@
+.community_img_div img{
+    width:100%;
+    height:400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* .comm_head h5{
+    color: #31B665;
+} */
+.comm_para p{
+    font-size: 15px;
+}
