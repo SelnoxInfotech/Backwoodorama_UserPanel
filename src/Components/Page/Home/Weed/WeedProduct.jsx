@@ -99,7 +99,7 @@ const WeedProduct = () => {
                         </div>
                         <div className="col text-end mt-4">
                             <Box
-                                className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
+                                // className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
                             >
                                 <LoadingButton>View All</LoadingButton>
                             </Box>

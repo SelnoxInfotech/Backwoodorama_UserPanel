@@ -1,4 +1,8 @@
 
+*{
+  font-family: 'Poppins';;
+}
+
 .footer_section{
   position: fixed;
   left: 0;
@@ -202,134 +206,6 @@ color: #333333;
   border: 1px solid #00b96a;
 }
 /* end */
-/* dispensories card */
-.disp_wraper{
-  margin-left: 10px;
-  margin-right: 10px;
-  gap: 10px;
-}
-.dispen_card{
-  width: 95%;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 10px;
-  height: 219.99px;
-  display: flex;
-  padding: 10px;
-  background: #FFFFFF;
-  border-radius: 10px 10px;
-  padding-left: 10px;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-}
-@media(max-width:500px){
- .dispen_card{
-  width: 96% !important;
-  margin-left: 8px;
-  margin-top: 10px;
-  margin-bottom: 10px;
- }
- .dis_right_div h5{
-  font-size: 10px;
- }
-/* .dis_navigation h5 {
-  margin-left: 6px;
-  font-size: 5px;
-  color: #00b96a;
-} */
- 
-}
-@media only screen and (min-width: 501px) and (max-width: 767px){
-  .dispen_card{
-    width: 94% !important;
-   }
-}
-@media only screen and (min-width: 768px) and (max-width: 1024px){
-  .dispen_card{
-    width: 96% !important;
-    margin-left: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px
-   }
-}
-
-
-.left_img_div{
-  width: 100%;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-
-}
-.left_img_div img{
-  width: 75px;
-  height: 80px;
-  border-radius: 20px;
-
-}
-.dis_center{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 38%;
-}
-.dis_right_div{
-  background: #FFFFFF;
-  
-  width: 300px;
-  padding-top: 10px;
-  padding-left: 6px;
-
-}
-.dis_right_div p{
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 700;
-font-size: 18px;
-line-height: 27px;
-color: #282625;
-}
-.dis_right_div h5{
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 21px;
-}
-.disp_head p{
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 25px;
-  line-height: 38px;
-  margin-left:20px;
-}
-.dis_navigation{
-  display: flex;
-}
-.weed_h5{
-  margin-left: 10px;
-  margin-top: 3px;
-}
-.span_nav{
-  line-height: 100%;
-  margin-left: -3px;
-}
-.span_nav_loc{
-  line-height: 100%;
-  margin-left: -3px; 
-}
-.dis_navigation h5{
-  margin-left: .6rem;
-  font-size: .8rem;
-}
-.dis_rating{
-  display: flex;
-  /* padding-left: 5px; */
-}
-.span_nav_star{
-  line-height: 100%;
-   margin-left: 10px;
-}
 
 /* WeedProduct */
 
@@ -427,9 +303,6 @@ font-size: 12px;
 }
 
 
-* {
-  box-sizing: border-box;
-}
 
 
 .u-vr {
@@ -463,6 +336,8 @@ font-size: 12px;
 .map-container {
   height: 300px;
 }
+
+
 /* latestContest */
 
 .latest_cont{
@@ -495,6 +370,7 @@ border-radius: 10px;
 .center_latest{
   display: flex;
   justify-content: center;
+
 }
 .latest_services{
   text-align: center;
@@ -505,3 +381,6 @@ border-radius: 10px;
   font-size: 15px;
   color: #282625;
 }
+
+
+

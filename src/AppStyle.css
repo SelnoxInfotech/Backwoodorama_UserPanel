@@ -1,0 +1,36 @@
+/* dispensories card */
+.color {
+    color: #949494;
+}
+.dis_right_div {
+    height: 30px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    color: black;
+}
+.Dispensaries_card_discription{
+    font-size: 18px;
+    display: flex;
+    height: max-content;
+}
+.Dispensaries_card_discription .col-2{
+    width: 25px;
+}
+.Dispensaries_card_discription .col-10{
+ color: #949494;
+}
+.Dispensaries_card_discription span{
+    color: #949494;
+}
+.disp_head p{
+    font-weight: 700;
+    font-size: 25px;
+    margin-left:20px;
+  } 
+  .Rating  {
+    display: flex;
+  }
+
+  /* end */
+
