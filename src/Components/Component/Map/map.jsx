@@ -35,6 +35,8 @@ export function MapContainer(props) {
             google={window.google}
             zoom={14}
             initialCenter={{ lat: 40.712776, lng: -74.005974 }}
+            
+            fullscreenControl= {false}
           >
             {displayMarkers()}
           </Map>

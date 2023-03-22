@@ -1,4 +1,5 @@
 import './App.css';
+import "./AppStyle.css"
 import 'bootstrap/dist/js/bootstrap.bundle'
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Login from "./Components/Page/Login/Login"
