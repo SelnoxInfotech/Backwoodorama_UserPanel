@@ -11,6 +11,11 @@
 .comm_para p{
     font-size: 15px;
 }
+.comm_para1 p{
+    font-size: 18px;
+    
+    color: #31B665;
+}
 /* dispensories card */
 .color {
     color: #949494;
@@ -46,4 +51,10 @@
   }
 
   /* end */
+  .com{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 
