@@ -24,8 +24,11 @@ const CommunityType = () => {
                         <div className="col-6" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                             <div className="col-12 d-block">
 
-                                <div className="col-12  mt-4 comm_para1">
+                                <div className="col-12  mt-4 ">
+                                    <div className="col-10 comm_para1">
                                     <p>BACKWOODAROMA</p>
+
+                                    </div>
                                 </div>
                                 <div className="col-12 comm_para">
                                     <p>A community connecting canabis consumer retailers doctor and brands since 2008 </p>
