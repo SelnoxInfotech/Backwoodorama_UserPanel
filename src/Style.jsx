@@ -42,6 +42,8 @@ const useStyles = makeStyles({
       fontSize: ".7rem",
     },
     "& .MuiLoadingButton-root":{
+      width:"100%",
+      borderRadius:"40px",
       backgroundColor: "#ffff",
       color: "#31B665",
       outline: "1px solid #31B665",

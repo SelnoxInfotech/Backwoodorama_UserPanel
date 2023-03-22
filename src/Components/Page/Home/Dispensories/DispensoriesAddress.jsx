@@ -7,26 +7,46 @@ import { AiFillStar } from "react-icons/ai"
 import LoadingButton from '@mui/lab/LoadingButton';
 import useStyles from "../../../../Style"
 import Box from '@mui/material/Box';
-import { useEffect,useState } from 'react';
+import styled from "styled-components";
+import { useEffect, useState } from 'react';
+import { Rating } from '@mui/material';
 const DispensoriesAddress = () => {
-    const [value,setValue]=useState([])
-    useEffect(()=>{
-   const fetchApiFun=async ()=>{
-    const fetchApi=await fetch("http://52.3.255.128:8000/UserPanel/Get-Stores/");
-    const data=await fetchApi.json();
-    setValue(data)
+    const [value, setValue] = useState([])
+    useEffect(() => {
+        const fetchApiFun = async () => {
+            const fetchApi = await fetch("http://52.3.255.128:8000/UserPanel/Get-Stores/");
+            const data = await fetchApi.json();
+            setValue(data)
 
-   }
-   fetchApiFun()
-    },[])
+        }
+        fetchApiFun()
+    }, [])
     const classes = useStyles()
+    const Sliderv = styled(Slider)`
+    .slick-next {
+        right: 0px;
+      } 
+      .slick-prev {
+        left: 0px;
+      }
+     
+      .slider1 {
+        display: flex;
+        justify-content: center;
+      }
+      .Driscription_{
+
+      }
+      `;
 
     const settings = {
 
         dots: true,
         infinite: false,
         speed: 500,
-        slidesToShow: 4,
+        slidesToShow: 5,
+        lazyLoad: true,
+
         slidesToScroll: 2,
         responsive: [
             {
@@ -72,61 +92,86 @@ const DispensoriesAddress = () => {
             }
         ]
     }
-   
 
     return (
         <>
             <div className="container-fluid">
-                <div className="disp_head">
-                    <p>Shop Dispensories near you</p>
-
-                </div>
-                <div className='disp_wraper mt-4 '>
-
-                    <Slider {...settings}>
-
-                        {value.map((ele, index) => {
-                            return (
-                                <div className='disp_card_con' key={index}>
-                                    <div className='dispen_card' >
-                                        <div className='dis_center'>
-                                            <div className='left_img_div'>
-                                                <img src={`http://52.3.255.128:8000/${ele?.Store_Image}`} alt='img_not_found' />
-
-
-                                            </div>
-                                        </div>
-                                        <div className='dis_right_div'>
-                                            <p>{ele.Store_Name}</p>
-                                            <div className=' dis_navigation'>
-                                                <span className='span_nav'><BiMap className={classes.disPen_Icons} /></span> <h5 className='fontStyle common_sub_head'>{ele.Store_Address}</h5>
-                                            </div>
-                                            <h5 className='fontStyle common_sub_head'>{ele.Store_Type}</h5>
-                                            <h5 className='fontStyle common_sub_head'>{ele.city_name}</h5>
-                                            <div className='dis_rating'>
-                                                <h5 className='fontStyle common_sub_head'>{ele.Store_Address.slice(0, 100)}</h5><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons}/></span>
-                                            </div>
-                                          
-
-                                            <div className='dis_btn_div'>
-                                                <Box
-                                                    className={`${classes.loadingBtnTextAndBack}`}
-                                                >
-                                                    <LoadingButton>Order Pickup</LoadingButton>
-                                                </Box>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            )
-                        })}
-
-                    </Slider>
-                </div>
-
+                <div className='row'>
+                    <div className='col-12 ' >
+                        <div className="disp_head  ">
+                            <p>Shop Dispensories near you</p>
+                        </div>
+                    </div >
+                </div >
 
             </div>
+
+            <Sliderv  {...settings}>
+                {value.map((ele, index) => {
+                    return (
+                        <div className='col-12 slider1' key={index} >
+                            <div className='slider1'>
+                                <img src={`http://52.3.255.128:8000/${ele.Store_Image}`} alt='img_not_found' className='img-responsive rounded center-block' width={"83%"} height={"170px"}  />
+                            </div>
+                            <div>
+                                <div className='col-12  slider1'>
+
+                                    <div className=' col-10  dis_right_div'>
+                                        <p>{ele.Store_Name.toUpperCase()}</p>
+                                    </div>
+                                </div>
+                                <div className='col-12  slider1'>
+
+                                    <div className=' col-10 Dispensaries_card_discription'>
+                                        <div className='col-2'>
+                                            <span className='span_nav'><BiMap className={classes.disPen_Icons} /></span>
+                                        </div>
+
+                                        <div className='col-10'>
+                                            <span>{ele.Store_Address}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='col-12  slider1'>
+                                    <div className=' col-10 Dispensaries_card_discription'>
+                                        <span>Tyonek Alaska  | 110 mi</span>
+                                    </div>
+                                </div>
+
+                                <div className='col-12  slider1'>
+                                    <div className=' col-10 Dispensaries_card_discription'>
+                                        <span>Medical & Recreational</span>
+                                    </div>
+                                </div>
+                                <div className='col-12  slider1'>
+
+                                    <div className=' col-10 Rating'>
+                                        <div className='col-2 color'>
+                                            <span>Rating</span>
+                                        </div>
+
+                                        <div className='col-10'>
+                                            <span> <Rating name="read-only" value={4} readOnly /></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className='col-12  slider1 mt-4'>
+ 
+                                    <div className=' col-10  mb-2'>
+                                        <Box
+                                            className={`${classes.loadingBtnTextAndBack}`}
+                                        >
+                                            <LoadingButton>Order Pickup</LoadingButton>
+                                        </Box>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                })}
+            </Sliderv>
+        
         </>
     )
 }
