@@ -1,7 +1,11 @@
 
 *{
   font-family: 'Poppins';;
+  
+ 
 }
+
+
 
 .footer_section{
   position: fixed;
@@ -75,6 +79,11 @@ margin-top: 2px;
 }
 
 
+a{
+  text-decoration: none;
+  color: black;
+}
+
 /* navbar search */
 .nav_search_bar_div{
   /* height: 40px; */
@@ -88,9 +97,6 @@ margin-top: 2px;
   width:47%;
   border-style: hidden;
   margin-left: 10px;
-  /* border-right-style: hidden;
-  border-left-style: hidden;
-  border-bottom-style: hidden; */
   padding-left: 10px;
 }
 .vertical_div{
@@ -109,6 +115,8 @@ margin-top: 2px;
   text-align: center;
   border-radius: 0px 3px 3px 0px;
 }
+
+
 /* category */
 .image_Div{
   display: flex;
@@ -158,6 +166,7 @@ color: #333333;
 
 /* Top Navbar */
 .nav_list1 ul{
+  gap: 10px;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -374,8 +383,7 @@ border-radius: 10px;
 }
 .latest_services{
   text-align: center;
-  margin-top: 10px;
-  margin-bottom: 40px;
+
 }
 .latest_font_size{
   font-size: 15px;

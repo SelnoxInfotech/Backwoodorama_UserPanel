@@ -25,18 +25,35 @@ export function MapContainer(props) {
       />)
     })
   }
+  const exampleMapStyles = [
+    {
+        featureType: "poi",
+        elementType: "geometry",
+        stylers: [
+            {
+                color: "black",
+            },
+        ],
+    },
+   
+];
+
   return (
 
     <div className='container-fluid'>
       <div className='row center'>
-        <div className='col-12 ' style={{ position: 'relative' }}>
+        <div className='col-12 center ' >
+        
           <Map
-            style={{ width: '100%', height: '500px' }}
+            style={{ height: '500px' }}
             google={window.google}
             zoom={14}
             initialCenter={{ lat: 40.712776, lng: -74.005974 }}
-            
+            streetViewControl= {true}
             fullscreenControl= {false}
+            options={{
+              styles: exampleMapStyles,
+          }}
           >
             {displayMarkers()}
           </Map>
