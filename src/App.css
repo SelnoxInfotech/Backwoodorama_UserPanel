@@ -272,14 +272,16 @@ border-radius: 21px;
 
 .img_div{
   width:100%;
-  height: 114px;
-  display: flex;
+  height: 190px;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
 .img_div img{
-  width:80px;
-  height:80px;
+  width: 100%;
+  height: 197px;
+  border-radius: 23px;
+  padding: 10px;
 }
 .fontStyle{
   font-family: 'Poppins';
@@ -296,8 +298,14 @@ font-size: 12px;
 
 }
 .weed_content_div{
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
+  padding-left: 15px;
+  width: 100%;
+}
+.span_nav_star{
+  line-height: 82%;
+  padding-left: 10px;
 }
 .weed_cart_btn{
   margin-left: 10px;
@@ -305,7 +313,21 @@ font-size: 12px;
 .weed_paragraph{
   color: #31B665;
 }
+.btn_div {
+  gap: 10px;
 
+}
+.weed_btn{
+  border-style: none;
+  width: 80px;
+  height: 60px;
+  background-color: #cdcdcd;
+  opacity: .5;
+  border-radius: 5px;
+  border: 1px solid green;
+  font-size: 15px;
+}
+/* end */
 
 [data-reactroot]{
   height: 100%;

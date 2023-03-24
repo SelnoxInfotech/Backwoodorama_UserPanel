@@ -77,8 +77,8 @@ const WeedProduct = () => {
         ]
     }
 
-    const arr = [{ img_url: "./image/flower.png", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
-    { img_url: "./image/flower2.webp", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
+    const arr = [{ img_url: "./image/wee_img1.jpeg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
+    { img_url: "./image/weed_img2.jpeg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
     { img_url: "./image/logo_png.png", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
     { img_url: "./image/logo.webp", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
     { img_url: "./image/logo2.png", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
@@ -125,35 +125,48 @@ const WeedProduct = () => {
                         return (
                             <div key={index}>
                                 <div className='weed_card_container'>
-                                    <div className='text-end  weed_card_heart'>
-                                        <AiFillHeart className={classes.disPen_Icons} />
-                                    </div>
+                        
                                     <div className='img_div'>
-                                        <img src={ele.img_url} alt='img_not_found' />
+                                        <img src={ele.img_url} alt='img_not_found'/>
                                     </div>
                                     <hr />
                                     <div></div>
 
                                     <div className='weed_content_div'>
-                                        <div>
+                                        {/* <div className="weed_cont_inner"> */}
                                             <h1 className='comm_head_prop fontStyle'>{ele.address}</h1>
                                             <div className='d-flex'>
-                                                <span className='span_nav_loc'><BiMap className={classes.disPen_Icons} /></span><h5 className='fontStyle common_sub_head weed_h5'>2917 Broadway Astoria NY 11106</h5>
+                                                <h5 className='fontStyle common_sub_head weed_h5'>Flower</h5>
                                             </div>
-                                            <h5 className='fontStyle common_sub_head'>Tyonek Alaska | 11111111111111110 mi</h5>
-                                            <h5 className='fontStyle common_sub_head'>Medical and recreational</h5>
+                                      
                                             <div className='d-flex'>
                                                 <h5 className='fontStyle common_sub_head'>Rating</h5><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons} /></span>
                                             </div>
-                                            <div className='d-flex'>
+                                            <div className="btn_div d-flex">
+                                                <button className="weed_btn">
+
+                                                1gm 
+                                                <br></br>
+                                                20$
+                                                </button>
+                                                <button className="weed_btn">Price</button>
+
+
+
+
+                                            </div>
+                                         
+
+                                            <div className='d-flex mt-2'>
                                                 <MdOutlineShoppingCart className={classes.muiIcons} />
                                                 <Box
                                                     className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
+                                                    style={{width:"83%"}}
                                                 >
                                                     <LoadingButton>Buy Now</LoadingButton>
                                                 </Box>
                                             </div>
-                                        </div>
+                                        {/* </div> */}
                                     </div>
 
                                 </div>
