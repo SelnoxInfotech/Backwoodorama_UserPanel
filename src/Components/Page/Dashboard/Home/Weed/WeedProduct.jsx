@@ -111,7 +111,7 @@ const WeedProduct = () => {
                         </div>
                         <div className="col text-end mt-4">
                             <Box
-                                // className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
+                            // className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
                             >
                                 <LoadingButton>View All</LoadingButton>
                             </Box>
@@ -119,61 +119,78 @@ const WeedProduct = () => {
                     </div>
 
                 </div>
+
                 <SliderWeed {...settings}>
 
                     {arr.map((ele, index) => {
                         return (
-                            <div key={index}>
-                                <div className='weed_card_container'>
-                        
-                                    <div className='img_div'>
-                                        <img src={ele.img_url} alt='img_not_found'/>
+                            // <div >
+                            <div className="col-12 " key={index} >
+                                <div className="col-10  weed_main_Div">
+                                    <div className="col img_cont">
+                                        <div className="col-12 weed_img_div">
+                                            <img src={ele.img_url} alt="img_not_found"  />
+                                        </div>
                                     </div>
-                                    <hr />
-                                    <div></div>
-
-                                    <div className='weed_content_div'>
-                                        {/* <div className="weed_cont_inner"> */}
+                                    <div className="col content_cont">
+                                        <div className="col-10">
                                             <h1 className='comm_head_prop fontStyle'>{ele.address}</h1>
-                                            <div className='d-flex'>
-                                                <h5 className='fontStyle common_sub_head weed_h5'>Flower</h5>
-                                            </div>
-                                      
-                                            <div className='d-flex'>
-                                                <h5 className='fontStyle common_sub_head'>Rating</h5><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons} /></span>
-                                            </div>
-                                            <div className="btn_div d-flex">
+                                        </div>
+                                        <div className="col-10">
+                                            <h5 className='fontStyle common_sub_head weed_h5'>Flower</h5>
+                                        </div>
+                                        <div className="col-10 d-flex">
+                                            <h5 className='fontStyle common_sub_head'>Rating</h5><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons} /></span>
+                                        </div>
+                                        <div className="col-12 d-flex weed_btns_cont">
+                                            <div className="col-4">
                                                 <button className="weed_btn">
 
-                                                1gm 
-                                                <br></br>
-                                                20$
+                                                    1gm
+                                                    <br></br>
+                                                    20$
                                                 </button>
-                                                <button className="weed_btn">Price</button>
-
-
-
-
                                             </div>
-                                         
+                                            <div className="col-4">
+                                                <button className="weed_btn">
 
-                                            <div className='d-flex mt-2'>
-                                                <MdOutlineShoppingCart className={classes.muiIcons} />
-                                                <Box
-                                                    className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
-                                                    style={{width:"83%"}}
-                                                >
-                                                    <LoadingButton>Buy Now</LoadingButton>
-                                                </Box>
+                                                    1gm
+                                                    <br></br>
+                                                    20$
+                                                </button>
                                             </div>
-                                        {/* </div> */}
+                                            <div className="col-4">
+                                                <button className="weed_btn">
+
+                                                    1gm
+                                                    <br></br>
+                                                    20$
+                                                </button>
+                                            </div>
+                                            
+                                            
+                                            
+                                        </div>
+                                        <div className="col-10 d-flex mt-3">
+                                            <MdOutlineShoppingCart className={classes.muiIcons} />
+                                            <Box
+                                                className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
+                                                style={{ width: "83%" }}
+                                            >
+                                                <LoadingButton>Buy Now</LoadingButton>
+                                            </Box>
+                                        </div>
+
                                     </div>
 
                                 </div>
+
                             </div>
+                            // </div>
                         )
                     })}
                 </SliderWeed>
+
 
 
 
