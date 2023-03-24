@@ -15,7 +15,8 @@
     
     color: #31B665;
 }
-/* end */
+
+
 /* dispensories card */
 .color {
     color: #949494;
@@ -53,3 +54,33 @@
   /* end */
  
 
+/* category */
+
+ .Category_Image{
+    display: flex;
+    align-self: center;
+ }
+ .Image_Width{
+    width: 100px;
+    height: 100px;
+ }
+ @media screen and (max-width: 480px) {
+    .Image_Width{
+        width: 75px;
+        height: 75px;
+     }
+     .Category_title{   
+        font-size: 14px;
+     }
+  }
+  @media screen and (max-width: 400px) {
+    .Image_Width{
+        width: 60px;
+        height: 60px;
+     }
+     .Category_title{
+        font-size: 12px;
+     }
+  }
+
+  /*end*/

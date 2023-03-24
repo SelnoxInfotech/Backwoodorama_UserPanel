@@ -2,7 +2,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import parse from 'html-react-parser';
-
+import styled from "styled-components";
 import { useState,useEffect } from "react";
 const LatestServices = () => {
     const [value,setValue]=useState([])
@@ -17,7 +17,14 @@ const LatestServices = () => {
         getApi()
 
     },[])
-    console.log(value)
+    const SliderLatestService = styled(Slider)`
+    .slick-next {
+        right: 0px;
+      } 
+      .slick-prev {
+        left: 0px;
+      }
+      `;
     const settings = {
 
         dots: true,
@@ -72,7 +79,7 @@ const LatestServices = () => {
   
     return (
         <>
-            <div className="container-fluid m-4 p-2 mt-4">
+            <div className="container-fluid   mt-4">
                 <div className="row">
                     <div className="col-lg-12 ">
                         <div className="latest_services disp_head">
@@ -82,11 +89,12 @@ const LatestServices = () => {
                     </div>
 
                 </div>
-                <div className="row ml-2">
-                    <Slider {...settings}>
+                <div className="row ">
+                    <SliderLatestService {...settings}>
                         {value.map((ele, index) => {
                             return (
-                               <div className="col-12 center_latest" key={index}>
+                              <div key={index}>
+                                 <div className="col-12 center_latest" >
                                 <div className="col-10  latest_cont" >
                                     <div className="col img_cont center_latest ">
                                         <div className="col-12  centerImg ">
@@ -112,10 +120,11 @@ const LatestServices = () => {
 
                                 </div>
                                </div>
+                              </div>
                             )
                         })}
                       
-                    </Slider>
+                    </SliderLatestService>
 
 
 

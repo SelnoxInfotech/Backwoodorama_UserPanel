@@ -3,13 +3,14 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { BiMap } from "react-icons/bi"
-import { AiFillStar } from "react-icons/ai"
 import LoadingButton from '@mui/lab/LoadingButton';
-import useStyles from "../../../../Style"
+import useStyles from "../../../../../Style"
 import Box from '@mui/material/Box';
 import styled from "styled-components";
 import { useEffect, useState } from 'react';
 import { Rating } from '@mui/material';
+
+
 const DispensoriesAddress = () => {
     const [value, setValue] = useState([])
     useEffect(() => {
@@ -36,8 +37,7 @@ const DispensoriesAddress = () => {
       }
       .Driscription_{
 
-      }
-      `;
+      }x`;
 
     const settings = {
 
@@ -117,7 +117,7 @@ const DispensoriesAddress = () => {
                                 <div className='col-12  slider1'>
 
                                     <div className=' col-10  dis_right_div'>
-                                        <p>{ele.Store_Name.toUpperCase()}</p>
+                                        <p>{ ele.Store_Name.charAt(0).toUpperCase() + ele.Store_Name.slice(1)}</p>
                                     </div>
                                 </div>
                                 <div className='col-12  slider1'>
