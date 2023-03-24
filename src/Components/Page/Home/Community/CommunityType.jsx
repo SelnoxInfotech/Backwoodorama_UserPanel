@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom"
 const CommunityType = () => {
     return (
         <>
             <div className="container-fluid mb-4">
-                <div className="row" style={{ background: "#E8FFF1" }}>
+                <div className="row">
 
                     <div className="col-12 d-flex" style={{ background: "#E8FFF1" }}>
 
@@ -10,7 +11,7 @@ const CommunityType = () => {
                             <div className="col-12 d-flex">
 
                                 <div className="col-6 mt-4">
-                                    <div className="col-12  d-flex" >
+                                    <div className="col-12  d-flex">
                                         <img src="./image/community_1.png" alt='img_not_found' width={"100%"} height={"400px"}/>
                                         <img src="./image/community_2.png" alt='img_not_found' width={"100%"} height={"400px"}/>
 
@@ -34,13 +35,13 @@ const CommunityType = () => {
                                     <p>A community connecting canabis consumer retailers doctor and brands since 2008 </p>
 
                                 </div>
-                                <div className="col-12 d-flex center" style={{ gap: "10px" }}>
+                                <div className="col-12 d-flex" style={{ gap: "10px" }}>
                                     <div className='col-6 text-end'>
-                                        <p>Google Play</p>
+                                    <Link  to="#"><img src= "./image/play_store.png" alt="img_not_found" width={"100px"} height={"30px"}/> </Link>
 
                                     </div>
                                     <div className='col-6'>
-                                        <p>App Store</p>
+                                    <Link to="#"><img src="./image/apple_img.jpg" alt="img_not_found" width={"100px"} height={"30px"}/></Link>
 
                                     </div>
 
@@ -53,44 +54,6 @@ const CommunityType = () => {
                         </div>
 
                     </div>
-
-
-
-
-                    {/* <div className="col-6">
-                        <div className="row">
-                            <div className="col-6">
-                                <img src="./image/community_1.png" alt='img_not_found' width={"100%"} height={"400px"} />
-                            </div>
-                            <div className="col-6">
-                                <img src="./image/community_2.png" alt='img_not_found' width={"100%"} height={"400px"} />
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div className="col-6 com">
-                        <div className="row mt-4">
-                            <div className="col-12">
-                                <p>BACKWOODAROMA</p>
-                                <p>A community connecting canabis consumer retailers doctor and brands since 2008</p>
-                            </div>
-
-                        </div>
-                        <div className="row">
-                            <div className="col-6 text-end">
-                                <p>Google Play</p>
-                            </div>
-                            <div className="col-6">
-                                <p>App Store</p>
-                            </div>
-
-                        </div>
-                        <div>
-
-                        </div>
-                    </div> */}
-
                 </div>
             </div>
         </>
