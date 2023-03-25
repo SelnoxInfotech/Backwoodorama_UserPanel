@@ -88,6 +88,9 @@ const WeedProduct = () => {
 
 
     ]
+    const weeBtn = [{ quant: "1gms", rs: "1$" }, { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" },
+    { quant: "1gms", rs: "2$" },
+    { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" }]
     return (
         <>
             <div className="container-fluid  mt-4">
@@ -127,9 +130,11 @@ const WeedProduct = () => {
                             // <div >
                             <div className="col-12 " key={index} >
                                 <div className="col-10  weed_main_Div">
-                                    <div className="col img_cont">
+                                    <div className="col-4 weed_img_cont">
+
                                         <div className="col-12 weed_img_div">
-                                            <img src={ele.img_url} alt="img_not_found"  />
+                                            {/* <span> <AiFillHeart/></span> */}
+                                            <img src={ele.img_url} alt="img_not_found" />
                                         </div>
                                     </div>
                                     <div className="col content_cont">
@@ -142,35 +147,23 @@ const WeedProduct = () => {
                                         <div className="col-10 d-flex">
                                             <h5 className='fontStyle common_sub_head'>Rating</h5><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons} /></span>
                                         </div>
-                                        <div className="col-12 d-flex weed_btns_cont">
-                                            <div className="col-4">
-                                                <button className="weed_btn">
+                                        <div className="col-12  weed_btns_cont">
+                                            {weeBtn.map((ele, index) => {
+                                                return (
+                                                    <div className="col-3  mt-2 d-flex" key={index}>
 
-                                                    1gm
-                                                    <br></br>
-                                                    20$
-                                                </button>
-                                            </div>
-                                            <div className="col-4">
-                                                <button className="weed_btn">
+                                                        <button className="weed_btn">
 
-                                                    1gm
-                                                    <br></br>
-                                                    20$
-                                                </button>
-                                            </div>
-                                            <div className="col-4">
-                                                <button className="weed_btn">
+                                                            {ele.quant}
+                                                            <p className="rs">{ele.rs}</p>
+                                                        </button>
+                                                    </div>
 
-                                                    1gm
-                                                    <br></br>
-                                                    20$
-                                                </button>
-                                            </div>
-                                            
-                                            
-                                            
+                                                )
+                                            })}
                                         </div>
+
+
                                         <div className="col-10 d-flex mt-3">
                                             <MdOutlineShoppingCart className={classes.muiIcons} />
                                             <Box

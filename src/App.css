@@ -227,106 +227,18 @@ color: #333333;
   margin-top: 50px;
 }
 /* weedCArd */
-.weed_card_container{
-  width:84%;
-  height:420px;
-  margin-left: 12px;
-  margin-bottom: 20px;
-  margin-top: 10px;
-  background: #FFFFFF;
-border: 1px solid #7ED19F;
-box-shadow: 0px 4px 15px 12px rgba(177, 177, 177, 0.25);
-border-radius: 21px;
-}
-.weed_card_heart{
-  margin-right: 20px;
-  margin-top: 10px;
-}
-@media(max-width:599px){
-.weed_card_container{
-    width:94%;
-  margin-left: 15px;
-  margin-right: 10px;
 
-  }
-}
-@media only screen and (min-width: 501px) and (max-width: 769px){
-  .weed_card_container{
-    width:91% !important;
-  margin-left: 15px;
-  margin-right: 10px;
 
-  }
-  .dis_navigation h5{
-    margin-left: .2rem;
-    font-size: .8rem;
-  }
-}
-@media only screen and (min-width: 769px) and (max-width: 1024px){
-  .weed_card_container{
-    width:94% !important;
-  margin-left: 15px;
 
-  }
-}
 
-.img_div{
-  width:100%;
-  height: 190px;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-}
-.img_div img{
-  width: 100%;
-  height: 197px;
-  border-radius: 23px;
-  padding: 10px;
-}
-.fontStyle{
-  font-family: 'Poppins';
-font-style: normal;
-font-weight: 700;
-}
-.comm_head_prop{
-font-size: 20px;
-color: #282625;
-}
-.common_sub_head{
-  color: #949494;
-font-size: 12px;
 
-}
-.weed_content_div{
-  /* display: flex;
-  justify-content: center; */
-  padding-left: 15px;
-  width: 100%;
-}
-.span_nav_star{
-  line-height: 82%;
-  padding-left: 10px;
-}
-.weed_cart_btn{
-  margin-left: 10px;
-}
-.weed_paragraph{
-  color: #31B665;
-}
-.btn_div {
-  gap: 10px;
 
-}
-.weed_btn{
-  border-style: none;
-  width: 60px;
-  height: 50px;
-  background-color: #cdcdcd;
-  opacity: .5;
-  border-radius: 5px;
-  border: 1px solid green;
-  font-size: 15px;
-}
+
+
+
+
+
+
 /* end */
 
 [data-reactroot]{
