@@ -8,7 +8,9 @@ const useStyles = makeStyles({
     "&.MuiButtonBase-root": {
       backgroundColor: "white",
       color: "#00b96a",
-      outline: "1px solid #00b96a",
+      // outline: "1px solid #00b96a",
+      border:"1px solid #31B665",
+
       borderRadius: "25px 25px",
       minWidth: "100%",
       textTransform: "none",
@@ -46,15 +48,19 @@ const useStyles = makeStyles({
       borderRadius:"40px",
       backgroundColor: "#ffff",
       color: "#31B665",
-      outline: "1px solid #31B665",
+      // outline: "1px solid #31B665",
       textTransform: "none",
+      border:"1px solid #31B665"
       // backgroundColor:"#31B665"
 
     },
     "& .MuiButtonBase-root:hover": {
       color: "#ffff",
       backgroundColor: "#00b96a",
-    }
+      border:"1px solid #31B665"
+
+    },
+   
 
   },
   disPen_Icons:{

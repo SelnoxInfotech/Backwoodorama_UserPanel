@@ -170,7 +170,7 @@ const WeedProduct = () => {
                                                 className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
                                                 style={{ width: "83%" }}
                                             >
-                                                <LoadingButton>Buy Now</LoadingButton>
+                                                <LoadingButton variant="outlined">Buy Now</LoadingButton>
                                             </Box>
                                         </div>
 

@@ -150,6 +150,7 @@
   @media(max-width:480px){
     .weed_main_Div{
         display: flex;
+        height: 230px;
     }
     .weed_img_cont{
       min-width: 30%;
