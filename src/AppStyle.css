@@ -151,6 +151,9 @@
     .weed_main_Div{
         display: flex;
         height: 230px;
+        min-width: 89%;
+        border: none;
+        border-radius: 0px
     }
     .weed_img_cont{
       min-width: 30%;
