@@ -151,9 +151,18 @@
     .weed_main_Div{
         display: flex;
         height: 230px;
-        min-width: 89%;
-        border: none;
-        border-radius: 0px
+        min-width: 100%;
+        margin: 0px;
+        /* border: 1px solid lightgray; */
+        border-top: 1px solid lightgray;
+        border-bottom: 1px solid lightgray;
+        border-left: 0px;
+        border-right: 0px;
+
+
+        border-radius: 0px;
+    box-shadow:none;
+
     }
     .weed_img_cont{
       min-width: 30%;
@@ -171,6 +180,7 @@
  .weed_btn{
     font-size: 10px;
     width: 40px;
+
  }
   
   .content_cont{
