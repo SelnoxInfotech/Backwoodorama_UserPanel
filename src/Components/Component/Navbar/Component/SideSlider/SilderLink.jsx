@@ -31,10 +31,10 @@ export default function DashBoardLink() {
             <div className=' col-12 Login_Sigup_button  '>
 
 
-              <img src="image/facebook.png" alt="" ></img>
-              <img src="image/instagram.png" alt="" ></img>
-              <BsWhatsapp color="green" size={22}></BsWhatsapp>
-              <img src="image/google.png" alt="" ></img>
+              <img src="image/facebook.png" alt="" style={{pointerEvents: "none"}}></img>
+              <img src="image/instagram.png" alt="" style={{pointerEvents: "none"}}></img>
+              <BsWhatsapp color="green" size={22} style={{pointerEvents: "none"}}></BsWhatsapp>
+              <img src="image/google.png" alt="" style={{pointerEvents: "none"}}></img>
             </div>
           </Grid>
 

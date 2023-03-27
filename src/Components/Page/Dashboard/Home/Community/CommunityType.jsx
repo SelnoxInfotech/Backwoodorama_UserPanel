@@ -37,11 +37,11 @@ const CommunityType = () => {
                                 </div>
                                 <div className="col-12 d-flex" style={{ gap: "10px" }}>
                                     <div className='col-6 text-end'>
-                                    <Link  to="#"><img src= "./image/play_store.png" alt="img_not_found" width={"100px"} height={"30px"}/> </Link>
+                                    <Link  to="#" ><img src= "./image/play_store.png" alt="img_not_found" width={"100px"} height={"30px"}></img> </Link>
 
                                     </div>
                                     <div className='col-6'>
-                                    <Link to="#"><img src="./image/apple_img.jpg" alt="img_not_found" width={"100px"} height={"30px"}/></Link>
+                                    <Link to="#"><img src="./image/apple_img.jpg" alt="img_not_found" width={"100px"} height={"30px"} style={{pointerEvents: "none"}}></img></Link>
 
                                     </div>
 

@@ -14,7 +14,10 @@ const Flavour = () => {
                     <div className="col-12 d-flex border flavCont p-0">
                         <div className="col-4">
                             <div className="col-12 flav_img_div">
-                                <img src="./image/weed_img2.jpeg" alt="img_not_found"  />
+                                <div className="col-10 flav_img_inner_div">
+                                <img src="./image/logo2.png" alt="img_not_found" style={{pointerEvents: "none"}} />
+
+                                </div>
                             </div>
                         </div>
                         <div className="col-8 p-2">

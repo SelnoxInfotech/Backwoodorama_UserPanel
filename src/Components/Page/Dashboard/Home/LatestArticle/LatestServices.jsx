@@ -98,7 +98,7 @@ const LatestServices = () => {
                                 <div className="col-10  latest_cont" >
                                     <div className="col img_cont center_latest ">
                                         <div className="col-12  centerImg ">
-                                            <img src={`http://52.3.255.128:8000/${ele.Image}`} alt="img_not_found" />
+                                            <img src={`http://52.3.255.128:8000/${ele.Image}`} alt="img_not_found" style={{pointerEvents: "none"}}/>
 
                                         </div>
 

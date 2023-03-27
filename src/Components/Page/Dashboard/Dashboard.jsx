@@ -5,6 +5,7 @@ import LatestServices from "./Home/LatestArticle/LatestServices";
 import WeedProduct from "./Home/Weed/WeedProduct";
 import CommunityType from "./Home/Community/CommunityType";
 import Flavour from "./Delivery/Flavour/Flavour";
+import ProductCategory from "./Delivery/Product/ProductCategory"
 export default function Dashboard() {
 
     return (
@@ -18,7 +19,7 @@ export default function Dashboard() {
              <WeedProduct></WeedProduct>
             <LatestServices></LatestServices>
             <Flavour></Flavour>
-
+            <ProductCategory></ProductCategory>
             <CommunityType></CommunityType> 
         </div>
     )

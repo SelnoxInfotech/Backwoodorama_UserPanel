@@ -1,7 +1,7 @@
 // import Button from '@mui/material/Button';
-import { BiMap } from "react-icons/bi"
+// import { BiMap } from "react-icons/bi"
 import { AiFillStar } from "react-icons/ai";
-import { AiFillHeart } from "react-icons/ai";
+// import { AiFillHeart } from "react-icons/ai";
 import { MdOutlineShoppingCart } from "react-icons/md"
 import LoadingButton from '@mui/lab/LoadingButton';
 import styled from "styled-components";
@@ -84,9 +84,6 @@ const WeedProduct = () => {
     { img_url: "./image/logo2.png", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
     { img_url: "./image/flower.png", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
     { img_url: "./image/logo.webp", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
-
-
-
     ]
     const weeBtn = [{ quant: "1gms", rs: "1$" }, { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" },
     { quant: "1gms", rs: "2$" },
@@ -134,7 +131,7 @@ const WeedProduct = () => {
 
                                         <div className="col-12 weed_img_div">
                                             {/* <span> <AiFillHeart/></span> */}
-                                            <img src={ele.img_url} alt="img_not_found" />
+                                            <img src={ele.img_url} alt="img_not_found" style={{pointerEvents: "none"}}/>
                                         </div>
                                     </div>
                                     <div className="col content_cont">
