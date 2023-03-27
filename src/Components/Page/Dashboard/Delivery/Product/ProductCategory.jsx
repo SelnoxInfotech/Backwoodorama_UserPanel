@@ -38,56 +38,62 @@ const ProductCategory = () => {
                             </div>
 
                         </div>
-                        <div className="col-9 prod_cat_ border prod_cat_right_sec p-2">
+                        <div className="col-9   prod_cat_right_sec p-2">
                             <div className="col-12  prod_cat_display">
                                 {arr1.map((ele, index) => {
                                     return (
-                                        <div className="col-3" key={index}>
-                                            <div className="col-12  border p-2">
-                                                <div className="col-12 p-2 prod_cat_img">
-                                                    <img src={ele.img_url} alt="img_not_found" style={{ pointerEvents: "none" }} />
-                                                    <div className="col prod_img_btn prodCat_gap">
-                                                        <button className="cat_prod_inner_btn btn1">Indica</button>
-                                                        <button className="mx-2 cat_prod_inner_btn btn2">Sativa</button>
+                                        <div className="col-3 prod_inner_cont" key={index}>
+                                            <div className="col-12 prod_main_cont  p-2">
+                                                <div className="col-4 prod_cat_cont">
+                                                    <div className="col-12 p-2 prod_cat_img">
+                                                        <img src={ele.img_url} alt="img_not_found" style={{ pointerEvents: "none" }} />
+                                                        <div className="col prod_img_btn prodCat_gap d-flex">
+                                                            <button className="cat_prod_inner_btn btn1">Indica</button>
+                                                            <button className="mx-2 cat_prod_inner_btn btn2">Sativa</button>
 
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div className="col-12 px-2 " style={{ marginBottom: "-10px" }}>
-                                                    <p className="comm_head_prop fontStyle">{ele.address}</p>
+                                                <div className="col">
+                                                    <div className="col-12 px-2 " style={{ marginBottom: "-10px" }}>
+                                                        <p className="comm_head_prop fontStyle">{ele.address}</p>
 
+                                                    </div>
+                                                    <div className="col-12 px-2" style={{ marginBottom: "-10px" }}>
+                                                        <p className='fontStyle common_sub_head'>Flower</p>
+
+                                                    </div>
+                                                    <div className="col-12 px-2 d-flex" style={{ marginBottom: "0px" }}>
+                                                        <h5 className='fontStyle common_sub_head'>Rating</h5><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons} /></span>
+
+                                                    </div>
+                                                    <div className="col-12   prod_cat_cont_btn px-2">
+                                                        {weeBtn.map((ele, index) => {
+                                                            return (
+                                                                <div className="col-3  mt-2 d-flex" key={index}>
+
+                                                                    <button className="prod_cat_btns">
+
+                                                                        {ele.quant}
+                                                                        <p className="rs">{ele.rs}</p>
+                                                                    </button>
+                                                                </div>
+
+                                                            )
+                                                        })}
+                                                    </div>
+                                                    <div className="col-12 d-flex mt-3 mb-2">
+                                                        <MdOutlineShoppingCart className={classes.muiIcons} />
+                                                        <Box
+                                                            className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
+                                                            style={{ width: "83%" }}
+                                                        >
+                                                            <LoadingButton variant="outlined">Buy Now</LoadingButton>
+                                                        </Box>
+                                                    </div>
                                                 </div>
-                                                <div className="col-12 px-2" style={{ marginBottom: "-10px" }}>
-                                                    <p className='fontStyle common_sub_head'>Flower</p>
 
-                                                </div>
-                                                <div className="col-12 px-2 d-flex" style={{ marginBottom: "0px" }}>
-                                                    <h5 className='fontStyle common_sub_head'>Rating</h5><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons} /></span>
 
-                                                </div>
-                                                <div className="col-12  weed_btns_cont px-2">
-                                                    {weeBtn.map((ele, index) => {
-                                                        return (
-                                                            <div className="col-3  mt-2 d-flex" key={index}>
-
-                                                                <button className="weed_btn">
-
-                                                                    {ele.quant}
-                                                                    <p className="rs">{ele.rs}</p>
-                                                                </button>
-                                                            </div>
-
-                                                        )
-                                                    })}
-                                                </div>
-                                                <div className="col-12 d-flex mt-3 mb-2">
-                                                <MdOutlineShoppingCart className={classes.muiIcons} />
-                                            <Box
-                                                className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
-                                                style={{ width: "83%" }}
-                                            >
-                                                <LoadingButton variant="outlined">Buy Now</LoadingButton>
-                                            </Box>
-                                                </div>
 
                                             </div>
 
@@ -97,7 +103,6 @@ const ProductCategory = () => {
 
 
                             </div>
-
 
                         </div>
 
