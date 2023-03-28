@@ -1,6 +1,7 @@
 import { AiFillStar } from "react-icons/ai";
 import useStyles from "../../../../../Style"
-
+import LoadingButton from '@mui/lab/LoadingButton';
+import Box from '@mui/material/Box';
 const AddProduct = () => {
     const classes = useStyles()
     const arr1 = [{ img_url: "./image/weed_img2.jpeg" },
@@ -74,10 +75,19 @@ const AddProduct = () => {
                             })}
                         </div>
                         <div className="col-12 d-flex fontStyle add_prod_amount">
-                            <p>Amount</p> <span className="add_prod_span1">$64</span>
+                            <p>Amount</p> <p className="add_prod_span1">$64</p>
                             <span className="add_prod_span">
                                 <button className="add_prod_amount_btn"><span className="add_prod_plus_sub">+</span></button><span className="add_prod_amoount_data">1</span><button className="add_prod_amount_btn"><span>-</span></button>
                             </span>
+
+                        </div>
+                        <div className="col-12">
+                            <Box
+                                className={` add_product_btn ${classes.loadingBtnTextAndBack}`}
+                                style={{ width: "25%" }}
+                            >
+                                <LoadingButton variant="outlined">Add To Cart</LoadingButton>
+                            </Box>
 
                         </div>
                     </div>

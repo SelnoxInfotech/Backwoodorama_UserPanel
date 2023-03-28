@@ -464,6 +464,18 @@ border: 1px solid #E7E7E7
   .add_prod_para{
    font-size: 2rem;;
   }
+  @media(max-width:1496px){
+    .add_prod_para{
+      font-size: 1.2rem;;
+     }
+     .add_prod_amount p{
+      font-size:18px !important;
+    }
+    .add_prod_plus_sub {
+      font-weight: 700;
+      font-size: 28px;
+  }
+  }
   .add_prod_btn{
     display: flex;
     flex-wrap: wrap;
@@ -494,7 +506,7 @@ border: 1px solid #E7E7E7
   .add_prod_Quant_btn{
     border-style: none;
     width: 60px;
-    height: 41px;
+    height: 39px;
     background-color: #FFFFFF;
     border-radius: 5px;
     border: 1px solid green;
@@ -507,10 +519,69 @@ border: 1px solid #E7E7E7
     color: #31B665;
   }
   .add_prod_quant_inner_div{
-    width: 21% !important;
+    width: 26% !important;
   }
+  @media(max-width:1270px){
+    .add_prod_quant_inner_div {
+      width: 29% !important;
+  }
+  .add_prod_Quant_btn {
+    width: 55px !important; 
+  }
+}
+@media(max-width:1100px){
+  .add_product_main_cont{
+    display: block;
+  }
+  .add_product_img_continer{
+    width: 100% !important;
+  }
+  .add_product_content_cont{
+    width: 100% !important;
+  }
+  .add_prod_quant_btn_div{
+    width: 35% !important;
+  }
+}
+@media(max-width:875px){
+  .add_prod_quant_btn_div{
+    width: 46% !important;
+  }
+  .add_prod_Quant_btn {
+    width: 46px !important;
+}
+}
+@media(max-width:625px){
+.add_product_img_continer{
+  position: absolute;
+  left: 0px !important;
+}
+.add_product_content_cont{
+  position: absolute;
+  left: 0px !important;
+  top: 585px !important;
+}
+
+}
+@media(max-width:474px){
+  .add_prod_quant_btn_div {
+    width: 60% !important;
+}
+.add_prod_para{
+  font-size: .7rem;;
+ }
+.add_prod_quant_btn_div{
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+.add_prod_Quant_btn {
+  width: 36px !important;
+}
+}
   .add_prod_cont{
-    margin-top: 100px;
+    margin-top: 30px;
   }
   .add_prod_amount{
     gap: 20px;
@@ -529,7 +600,7 @@ border: 1px solid #E7E7E7
 .add_prod_span{
   background-color: white;
   border: 1px solid #31B665;
-
+  height: 42px;
 }
 .add_prod_span1{
   color: #31B665;
@@ -551,6 +622,10 @@ border: 1px solid #E7E7E7
 }
 .add_prod_p p{
   margin-top: -13px;
+}
+.add_product_btn{
+  margin-left: 10px;
+  margin-top: 10px;
 }
   /* end */
   
