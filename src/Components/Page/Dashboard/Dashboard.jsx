@@ -19,7 +19,6 @@ export default function Dashboard() {
              <WeedProduct></WeedProduct>
             <LatestServices></LatestServices>
             <Flavour></Flavour>
-            <ProductCategory></ProductCategory>
             <CommunityType></CommunityType> 
         </div>
     )
