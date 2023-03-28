@@ -37,12 +37,12 @@ const AddProduct = () => {
 
                         </div>
                     </div>
-                    <div className="col-6 add_product_content_cont p-2 ">
+                    <div className="col-7 add_product_content_cont ">
                         <div className="col-12 fontStyle add_prod_para">
                             <p>Alliens Cookies BLUE DREAM  THC FLOWER</p>
 
                         </div>
-                        <div className="col-12">
+                        <div className="col-12 add_prod_p">
                             <p>By careleaf</p>
                         </div>
                         <div className="col-12  add_prod_btn">
@@ -76,7 +76,7 @@ const AddProduct = () => {
                         <div className="col-12 d-flex fontStyle add_prod_amount">
                             <p>Amount</p> <span className="add_prod_span1">$64</span>
                             <span className="add_prod_span">
-                                <button className="add_prod_amount_btn">+</button><span className="add_prod_amoount_data">1</span><button className="add_prod_amount_btn">-</button>
+                                <button className="add_prod_amount_btn"><span className="add_prod_plus_sub">+</span></button><span className="add_prod_amoount_data">1</span><button className="add_prod_amount_btn"><span>-</span></button>
                             </span>
 
                         </div>

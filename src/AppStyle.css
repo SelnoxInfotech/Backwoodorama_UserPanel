@@ -442,7 +442,7 @@ border: 1px solid #E7E7E7
   }
   .add_product_content_cont{
     border: 1px solid #dee2e6;
-    
+    padding:50px;
   }
   .add_prod_first_img img{
     width: 100%;
@@ -522,6 +522,8 @@ border: 1px solid #E7E7E7
   height: 38px;
   color: #949494;
   background-color: white !important;
+  font-size: 30px;
+  font-weight: 700;
 
 }
 .add_prod_span{
@@ -532,15 +534,23 @@ border: 1px solid #E7E7E7
 .add_prod_span1{
   color: #31B665;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 30px;
 
 }
 .add_prod_amoount_data{
   color: #31B665;
-
+   font-size: 26px;
 }
 .add_prod_amount p{
   font-size: 26px;
+}
+.add_prod_plus_sub{
+  font-weight: 700;
+  font-size: 30px;
+
+}
+.add_prod_p p{
+  margin-top: -13px;
 }
   /* end */
   
