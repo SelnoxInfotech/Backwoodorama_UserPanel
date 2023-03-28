@@ -19,7 +19,7 @@ export default function DashBoardLink() {
                <Link to="/"> <li>Dispansires</li></Link>
                 <li>Deliveries</li>
                 <li>Brand</li>
-                <li>Product</li>
+                <Link to="/Product"><li>Product</li></Link>
                 <li>Deals</li>
                 <li>Learn</li>
                 <li>Strain</li>
