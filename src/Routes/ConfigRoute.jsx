@@ -1,7 +1,7 @@
 import Layout from "../Layout/Layout"
 
 import Dashboard from "../Components/Page/Dashboard/Dashboard";
-
+import ProductCategory from "../Components/Page/Dashboard/Delivery/Product/ProductCategory";
 
 const routesConfig = [
   
@@ -11,6 +11,10 @@ const routesConfig = [
           {
             path: "/",
             element: <Dashboard />,
+          },
+          {
+            path: "/Product",
+            element: <ProductCategory></ProductCategory>,
           },
         ],
       },
