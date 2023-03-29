@@ -26,7 +26,7 @@ const AllProduct = ({ arr, btn }) => {
 
                                 </div>
                             </div>
-                            <div className="col">
+                            <div className="col-8 product_cat_allProduct">
                                 <div className="col-12 px-2 prod_para " style={{ marginBottom: "-10px" }}>
                                     <p className="comm_head_prop fontStyle">{ele.address}</p>
 

@@ -3,7 +3,31 @@ import useStyles from "../../../../../Style"
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import AllProduct from "./Component/AllProduct"
+import Axios from "axios"
+import React from "react"
+
 const AddProduct = () => {
+   const [arr2 , Setarr2]  =  React.useState ([])
+   React.useEffect(()=>{
+    Axios("http://52.3.255.128:8000/UserPanel/Get-Product/", {
+
+
+}).then(response => {
+    console.log(response.data)
+    Setarr2(response.data)
+    // SetProduct(Product => ({ ...Product, Category: response.data?.data[0].id }))
+
+
+}).catch(
+    function (error) {
+
+        // SetProduct(Product => ({ ...Product, discount: "None" }))
+    })
+
+
+
+},[])
+
     const classes = useStyles()
     const arr1 = [{ img_url: "./image/weed_img2.jpeg" },
     { img_url: "./image/wee_img1.jpeg" },
@@ -16,16 +40,16 @@ const AddProduct = () => {
     { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" },
 
     ]
-    const arr2 = [{ img_url: "./image/weed_img2.jpeg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
-    { img_url: "./image/wee_img1.jpeg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
-    { img_url: "./image/logo.webp", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
-    { img_url: "./image/logo2.png", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
-    { img_url: "./image/cat_prod_5.jpg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
-    { img_url: "./image/cat_prod_6.jpg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
-    { img_url: "./image/cat_pro_7.jpg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
-    { img_url: "./image/cat_pro_8.jpg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
+    // const arr2 = [{ img_url: "./image/weed_img2.jpeg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
+    // { img_url: "./image/wee_img1.jpeg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
+    // { img_url: "./image/logo.webp", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
+    // { img_url: "./image/logo2.png", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
+    // { img_url: "./image/cat_prod_5.jpg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
+    // { img_url: "./image/cat_prod_6.jpg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
+    // { img_url: "./image/cat_pro_7.jpg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
+    // { img_url: "./image/cat_pro_8.jpg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
 
-    ]
+    // ]
     const weeBtn = [{ quant: "1gms", rs: "121$" }, { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" },
     { quant: "1gms", rs: "2$" },
     { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" }]
@@ -190,12 +214,16 @@ const AddProduct = () => {
                     </div>
 
                 </div>
-                <div className="col-10 mt-4 allProd_props">
+                <div className="col-10 mt-4 allProd_props AllProd_fWidth">
                     <div className="col-12 prod_des_head fontStyle AddProdLikePara">
                         <p>Like this products </p>
 
                     </div>
+                    <div className="col-12">
                     <AllProduct arr={arr2} btn={weeBtn} />
+
+                    </div>
+                    {/* <AllProduct arr={arr2} btn={weeBtn} /> */}
                 </div>
 
             </div>
