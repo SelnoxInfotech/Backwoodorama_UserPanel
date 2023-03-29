@@ -45,7 +45,7 @@ const ProductCategory = () => {
             <div className="container-fluid" style={{ padding: "35px" }}>
                 <div className="row center">
                     <div className="col-12   productCat_cont p-2">
-                        <div className="col-3  prod_cat_left_sec center d-block p-2">
+                        <div className="col-3  prod_cat_left_sec center d-block mt-4 p-2">
                             <div className="col-12 ">
                                 <h5>Product Category</h5>
 
@@ -56,7 +56,7 @@ const ProductCategory = () => {
                             </div>
 
                         </div>
-                        <div className="col-9   prod_cat_right_sec ">
+                        <div className="col-9  mt-4 prod_cat_right_sec ">
                               <AllProduct arr={arr1} btn={weeBtn} />
 
 
