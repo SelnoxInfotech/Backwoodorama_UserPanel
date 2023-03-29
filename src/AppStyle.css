@@ -686,6 +686,34 @@ border: 1px solid #E7E7E7
     background: #FFFFFF;
 
   }
+  .add_prod_btn{
+    border-style: none;
 
+  }
+  @media(max-width:625px){
+    .allProd_props{
+      position: relative;
+      top: 825px;
+    }
+
+  }
+  .add_prod_Help_Report_btn{
+    display: flex;
+    justify-content: flex-end;
+  }
+  .AddProdLikePara p{
+    font-size: 22px;
+  }
+  @media(max-width:850px){
+    .Add_prod_btn_div{
+      width: 12% !important;
+    }
+  }
+  @media(max-width:487px){
+    .Add_prod_btn_div{
+      width: 16% !important;
+    } 
+  }
+ 
   /* end */
   

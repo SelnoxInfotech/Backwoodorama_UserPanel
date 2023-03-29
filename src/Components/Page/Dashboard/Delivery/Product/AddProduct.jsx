@@ -29,6 +29,24 @@ const AddProduct = () => {
     const weeBtn = [{ quant: "1gms", rs: "121$" }, { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" },
     { quant: "1gms", rs: "2$" },
     { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" }]
+
+    const previewArr = [{
+        prevName: "Maxwell",
+        res: "Durban Thai  is a favorite of sativa lovers everywhere for its intense mental clarity and super delicious flavor.Sunnyside Medical Cannabis Dispensary - Williamsburg",
+        rate: "50 Follower reviews"
+    },
+    {
+        prevName: "Maxwell",
+        res: "Durban Thai  is a favorite of sativa lovers everywhere for its intense mental clarity and super delicious flavor.Sunnyside Medical Cannabis Dispensary - Williamsburg",
+        rate: "50 Follower reviews"
+    },
+    {
+        prevName: "Maxwell",
+        res: "Durban Thai  is a favorite of sativa lovers everywhere for its intense mental clarity and super delicious flavor.Sunnyside Medical Cannabis Dispensary - Williamsburg",
+        rate: "50 Follower reviews"
+    }
+
+    ]
     return (
         <div className="container-fluid p-4  add_prod_cont">
             <div className="row center">
@@ -116,7 +134,7 @@ const AddProduct = () => {
 
 
 
-                        <p>Durban Thai [DTA] is a favorite of sativa lovers everywhere for its intense mental clarity and super delicious flavor.
+                        <p>Durban Thai  is a favorite of sativa lovers everywhere for its intense mental clarity and super delicious flavor.
                             The Durban Thai feeling is very cerebral in nature,
                             with heady effects that begin almost as soon as the first exhale. Experience a clear headed high without any racing thoughts!</p>
 
@@ -126,39 +144,58 @@ const AddProduct = () => {
                 </div>
                 <div className="col-10  border mt-4 product_desc_container">
                     <div className="col-10  prod_des_head fontStyle ">
-                        <p>50 Flower reviews</p>
+                        <p>50 Follower reviews</p>
                     </div>
                     <div className="col-12  add_prod_rat mt-2">
                         <p>3.2</p> <span><AiFillStar className={classes.disPen_Icons} /></span>
 
                     </div>
-                    <div className="col-12 prod_desc_review p-2">
-                        <div className="col-12   prod_des_head fontStyle ">
-                            <p>Maxwell</p>
-                        </div>
-                        <div className="col-12  add_prod_rat">
-                            <p>3.2</p> <span><AiFillStar className={classes.disPen_Icons} /></span>
+                    <div className="col-12">
+                        {previewArr.map((ele, index) => {
+                            return (
+                                <div className="col-12 prod_desc_review p-2 mt-4 mb-4" key={index}>
+                                    <div className="col-12   prod_des_head fontStyle ">
+                                        <p>{ele.prevName}</p>
+                                    </div>
+                                    <div className="col-12  add_prod_rat">
+                                        <p>3.2</p> <span><AiFillStar className={classes.disPen_Icons} /></span>
 
-                        </div>
+                                    </div>
 
-                        <div className="col-12 mt-4 center product_des_para  p-2 ">
+                                    <div className="col-12 mt-4  product_des_para  p-2 ">
 
-                            <p>
-                                By far the best strain I’ve ever tried. I love the energy and stimulating affects to my brain. I have ADHD and
-                                I’m I’ve been on the same meds for years so they don’t always work that great.
-                                However, I do find sativa strains that help and this has been the best for me thus fa
+                                        <p>
+                                            {ele.res}
+
+                                        </p>
+
+                                    </div>
+                                    <div className="col-12  add_prod_Help_Report_btn" >
+                                        <div className="col-1  Add_prod_btn_div">
+                                            <button className="add_prod_btn">Help</button>
+                                        </div>
+                                        <div className="col-1  Add_prod_btn_div">
+                                            <button className="add_prod_btn">Report</button>
+                                        </div>
 
 
 
-                            </p>
+                                    </div>
 
-                        </div>
 
+                                </div>
+                            )
+                        })}
 
                     </div>
+
                 </div>
-                <div className="col-10 mt-4">
-                   <AllProduct arr={arr2} btn={weeBtn}/>
+                <div className="col-10 mt-4 allProd_props">
+                    <div className="col-12 prod_des_head fontStyle AddProdLikePara">
+                        <p>Like this products </p>
+
+                    </div>
+                    <AllProduct arr={arr2} btn={weeBtn} />
                 </div>
 
             </div>

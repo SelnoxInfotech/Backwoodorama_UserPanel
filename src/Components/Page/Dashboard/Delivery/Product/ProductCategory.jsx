@@ -1,12 +1,6 @@
 import { BsLayoutSplit } from "react-icons/bs"
-import { AiFillStar } from "react-icons/ai";
-import useStyles from "../../../../../Style"
-import { MdOutlineShoppingCart } from "react-icons/md"
-import LoadingButton from '@mui/lab/LoadingButton';
-import Box from '@mui/material/Box';
 import AllProduct from "./Component/AllProduct"
 const ProductCategory = () => {
-    const classes = useStyles()
 
     const arr1 = [{ img_url: "./image/weed_img2.jpeg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
     { img_url: "./image/wee_img1.jpeg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
