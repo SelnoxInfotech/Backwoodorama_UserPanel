@@ -21,7 +21,7 @@ const AddProduct = () => {
                 <div className="col-10  add_product_main_cont">
                     <div className="col-3  add_product_img_continer">
                         <div className="col-12 add_prod_first_img">
-                            <img src="./image/cat_prod_6.jpg" />
+                            <img src="./image/cat_prod_6.jpg" alt="img_not_found"/>
 
                         </div>
                         <div className="col-12 add_prod_multiple_img">
@@ -29,7 +29,7 @@ const AddProduct = () => {
                                 return (
                                     <div className="col-3 p-2" key={index}>
                                         <div className="col-12 add_prod_inner_img ">
-                                            <img src={ele.img_url} />
+                                            <img src={ele.img_url} alt="img_not_found"/>
                                         </div>
 
                                     </div>
