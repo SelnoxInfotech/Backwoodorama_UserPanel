@@ -2,6 +2,7 @@ import { AiFillStar } from "react-icons/ai";
 import useStyles from "../../../../../Style"
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
+import AllProduct from "./Component/AllProduct"
 const AddProduct = () => {
     const classes = useStyles()
     const arr1 = [{ img_url: "./image/weed_img2.jpeg" },
@@ -15,6 +16,19 @@ const AddProduct = () => {
     { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" },
 
     ]
+    const arr2 = [{ img_url: "./image/weed_img2.jpeg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
+    { img_url: "./image/wee_img1.jpeg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
+    { img_url: "./image/logo.webp", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
+    { img_url: "./image/logo2.png", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
+    { img_url: "./image/cat_prod_5.jpg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
+    { img_url: "./image/cat_prod_6.jpg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
+    { img_url: "./image/cat_pro_7.jpg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
+    { img_url: "./image/cat_pro_8.jpg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
+
+    ]
+    const weeBtn = [{ quant: "1gms", rs: "121$" }, { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" },
+    { quant: "1gms", rs: "2$" },
+    { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" }]
     return (
         <div className="container-fluid p-4  add_prod_cont">
             <div className="row center">
@@ -115,26 +129,36 @@ const AddProduct = () => {
                         <p>50 Flower reviews</p>
                     </div>
                     <div className="col-12  add_prod_rat mt-2">
+                        <p>3.2</p> <span><AiFillStar className={classes.disPen_Icons} /></span>
+
+                    </div>
+                    <div className="col-12 prod_desc_review p-2">
+                        <div className="col-12   prod_des_head fontStyle ">
+                            <p>Maxwell</p>
+                        </div>
+                        <div className="col-12  add_prod_rat">
                             <p>3.2</p> <span><AiFillStar className={classes.disPen_Icons} /></span>
 
                         </div>
-                
-                    <div className="col-12 mt-4 center product_des_para prod_desc_review p-2 my-4">
+
+                        <div className="col-12 mt-4 center product_des_para  p-2 ">
+
+                            <p>
+                                By far the best strain I’ve ever tried. I love the energy and stimulating affects to my brain. I have ADHD and
+                                I’m I’ve been on the same meds for years so they don’t always work that great.
+                                However, I do find sativa strains that help and this has been the best for me thus fa
 
 
 
-                        <p>
-                            By far the best strain I’ve ever tried. I love the energy and stimulating affects to my brain. I have ADHD and
-                            I’m I’ve been on the same meds for years so they don’t always work that great.
-                            However, I do find sativa strains that help and this has been the best for me thus fa
+                            </p>
 
-                            
-
-                        </p>
-
+                        </div>
 
 
                     </div>
+                </div>
+                <div className="col-10 mt-4">
+                   <AllProduct arr={arr2} btn={weeBtn}/>
                 </div>
 
             </div>
