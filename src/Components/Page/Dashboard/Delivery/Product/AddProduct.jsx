@@ -21,7 +21,7 @@ const AddProduct = () => {
                 <div className="col-10  add_product_main_cont">
                     <div className="col-3  add_product_img_continer">
                         <div className="col-12 add_prod_first_img">
-                            <img src="./image/cat_prod_6.jpg" alt="img_not_found"/>
+                            <img src="./image/cat_prod_6.jpg" alt="img_not_found" />
 
                         </div>
                         <div className="col-12 add_prod_multiple_img">
@@ -29,7 +29,7 @@ const AddProduct = () => {
                                 return (
                                     <div className="col-3 p-2" key={index}>
                                         <div className="col-12 add_prod_inner_img ">
-                                            <img src={ele.img_url} alt="img_not_found"/>
+                                            <img src={ele.img_url} alt="img_not_found" />
                                         </div>
 
                                     </div>
@@ -49,7 +49,7 @@ const AddProduct = () => {
                         <div className="col-12  add_prod_btn">
                             {addProdBtn.map((ele, index) => {
                                 return (
-                                    <div className="col-2 add_prod_inner_div" key={index}>
+                                    <div className="col-1 add_prod_inner_div" key={index}>
                                         <button className="add_pro_btn add_prod_btn_font">{ele.type}</button>
 
                                     </div>
@@ -74,7 +74,7 @@ const AddProduct = () => {
                                 )
                             })}
                         </div>
-                        <div className="col-12 d-flex fontStyle add_prod_amount">
+                        <div className="col-12 d-flex fontStyle add_prod_amount add_prod_rat">
                             <p>Amount</p> <p className="add_prod_span1">$64</p>
                             <span className="add_prod_span">
                                 <button className="add_prod_amount_btn"><span className="add_prod_plus_sub">+</span></button><span className="add_prod_amoount_data">1</span><button className="add_prod_amount_btn"><span>-</span></button>
@@ -83,8 +83,8 @@ const AddProduct = () => {
                         </div>
                         <div className="col-12">
                             <Box
-                                className={` add_product_btn ${classes.loadingBtnTextAndBack}`}
-                                style={{ width: "25%" }}
+                                className={` add_product_btn addProduct_btn ${classes.loadingBtnTextAndBack}`}
+
                             >
                                 <LoadingButton variant="outlined">Add To Cart</LoadingButton>
                             </Box>
@@ -94,7 +94,53 @@ const AddProduct = () => {
 
                 </div>
 
+                <div className="col-10  border mt-4 product_desc_container">
+                    <div className="col-10  prod_des_head fontStyle ">
+                        <p>Product Description</p>
+                    </div>
+                    <div className="col-10 center product_des_para ">
+
+
+
+                        <p>Durban Thai [DTA] is a favorite of sativa lovers everywhere for its intense mental clarity and super delicious flavor.
+                            The Durban Thai feeling is very cerebral in nature,
+                            with heady effects that begin almost as soon as the first exhale. Experience a clear headed high without any racing thoughts!</p>
+
+
+
+                    </div>
+                </div>
+                <div className="col-10  border mt-4 product_desc_container">
+                    <div className="col-10  prod_des_head fontStyle ">
+                        <p>50 Flower reviews</p>
+                    </div>
+                    <div className="col-12  add_prod_rat mt-2">
+                            <p>3.2</p> <span><AiFillStar className={classes.disPen_Icons} /></span>
+
+                        </div>
+                
+                    <div className="col-12 mt-4 center product_des_para prod_desc_review p-2 my-4">
+
+
+
+                        <p>
+                            By far the best strain I’ve ever tried. I love the energy and stimulating affects to my brain. I have ADHD and
+                            I’m I’ve been on the same meds for years so they don’t always work that great.
+                            However, I do find sativa strains that help and this has been the best for me thus fa
+
+                            
+
+                        </p>
+
+
+
+                    </div>
+                </div>
+
             </div>
+
+
+
 
         </div>
     )
