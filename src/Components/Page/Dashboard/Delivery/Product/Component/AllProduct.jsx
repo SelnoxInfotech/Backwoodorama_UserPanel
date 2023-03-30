@@ -3,12 +3,8 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import { AiFillStar } from "react-icons/ai";
 import useStyles from "../../../../../../Style"
-
 const AllProduct = ({ arr, btn }) => {
-    // console.log(arr)
-    // console.log(btn)
     const classes = useStyles()
-
     return (
         <div className="col-12  prod_cat_display">
             {arr.map((ele, index) => {
