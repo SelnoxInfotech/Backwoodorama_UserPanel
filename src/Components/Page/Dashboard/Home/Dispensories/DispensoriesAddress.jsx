@@ -12,12 +12,12 @@ import { Rating } from '@mui/material';
 
 
 const DispensoriesAddress = () => {
-    const [value, setValue] = useState([])
+    const [Store, SetStore] = useState([])
     useEffect(() => {
         const fetchApiFun = async () => {
             const fetchApi = await fetch("http://52.3.255.128:8000/UserPanel/Get-Stores/");
             const data = await fetchApi.json();
-            setValue(data)
+            SetStore(data)
 
         }
         fetchApiFun()
@@ -107,7 +107,7 @@ const DispensoriesAddress = () => {
             </div>
 
             <Sliderv  {...settings}>
-                {value.map((ele, index) => {
+                {Store.map((ele, index) => {
                     return (
                         <div className='col-12 slider1' key={index} >
                             <div className='slider1'>
