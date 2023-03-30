@@ -5,12 +5,12 @@ import parse from 'html-react-parser';
 import styled from "styled-components";
 import { useState,useEffect } from "react";
 const LatestServices = () => {
-    const [value,setValue]=useState([])
+    const [News,SetNews]=useState([])
     useEffect(()=>{
         const getApi=async ()=>{
             const res=await fetch("http://52.3.255.128:8000/UserPanel/Get-News/");
             const data=await res.json();
-            setValue(data)
+            SetNews(data)
             // console.log(data)
 
         }
@@ -91,7 +91,7 @@ const LatestServices = () => {
                 </div>
                 <div className="row ">
                     <SliderLatestService {...settings}>
-                        {value.map((ele, index) => {
+                        {News.map((ele, index) => {
                             return (
                               <div key={index}>
                                  <div className="col-12 center_latest" >
