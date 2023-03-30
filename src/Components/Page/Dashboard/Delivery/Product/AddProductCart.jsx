@@ -1,8 +1,14 @@
 import { AiOutlinePlus } from "react-icons/ai"
 import { GrFormSubtract } from "react-icons/gr";
 import { RiDeleteBin6Line } from "react-icons/ri"
+import LoadingButton from '@mui/lab/LoadingButton';
+import Box from '@mui/material/Box';
+import useStyles from "../../../../../Style"
+
 const AddProductCart = () => {
-    const cartArr = [{ head: "Canna Cabana (1/2 oz)", innerHead: 'by careleaf', rs: "64$" },
+    const classes = useStyles()
+
+    const AddProduct_CartArr = [{ head: "Canna Cabana (1/2 oz)", innerHead: 'by careleaf', rs: "64$" },
     { head: "Canna Cabana (1/2 oz)", innerHead: 'by careleaf', rs: "64$" },
     { head: "Canna Cabana (1/2 oz)", innerHead: 'by careleaf', rs: "64$" },
     { head: "Canna Cabana (1/2 oz)", innerHead: 'by careleaf', rs: "64$" }
@@ -18,7 +24,7 @@ const AddProductCart = () => {
                     <div className="col-12  AddProductCartContainer">
 
                         <div className="col-10  AddProductCartContainerinner">
-                            {cartArr.map((ele, index) => {
+                            {AddProduct_CartArr.map((ele, index) => {
                                 return (
                                     <div className="col-12 border Add_product_cart_left_container_item" key={index}>
 
@@ -33,7 +39,7 @@ const AddProductCart = () => {
 
                                                 </div>
 
-                                                <div className="col-12 fontStyle  add_prod_para_margin">
+                                                <div className="col-12 fontStyle  add_prod_para_margin add_prod_cart_p">
                                                     <p>by careleaf</p>
 
                                                 </div>
@@ -44,19 +50,19 @@ const AddProductCart = () => {
                                                 <div className="col-12 add_prod_btn_amount">
                                                     <div className="col-2 border Add_prod_sub_minus_cont d-flex">
                                                         <div className="col-4">
-                                                            <button className="add_prod_btn"><GrFormSubtract size={"large"} /></button>
+                                                            <button className="add_prod_cart_btn"><GrFormSubtract size={"large"} /></button>
 
                                                         </div>
                                                         <div className="col-2 addprod_quant">
                                                             <p>1</p>
                                                         </div>
-                                                        <div className="col-4 ">
-                                                            <button className="add_prod_btn"><AiOutlinePlus size={"large"} /></button>
+                                                        <div className="col-4">
+                                                            <button className="add_prod_cart_btn"><AiOutlinePlus size={"large"} /></button>
 
                                                         </div>
 
                                                     </div>
-                                              
+
 
                                                 </div>
                                             </div>
@@ -77,12 +83,82 @@ const AddProductCart = () => {
                                 )
                             })}
                         </div>
-                        <div className="col-2 border  p-2 Add_product_cart_right_container_summary">
+                        <div className="col-2 border  p-2 Add_product_cart_right_container_summary ">
+                            <div className="col-12 fontStyle AddProdCartFont_weight">
                             <p>Order Summmary</p>
+
+                            </div>
+                            <div className="col-12 order_summary_flex">
+                                <div className="col-6 add_prod_cart_summary_p">
+                                    <p>Subtotal</p>
+                                </div>
+                                <div className="col-2 fontStyle">
+                                    <p>$233</p>
+                                </div>
+
+
+                            </div>
+                            <div className="col-12 order_summary_flex">
+                                <div className="col-6 add_prod_cart_summary_p">
+                                    <p>Est. excise tax</p>
+                                </div>
+                                <div className="col-2 fontStyle">
+                                    <p>$233</p>
+                                </div>
+
+
+                            </div>
+                            <div className="col-12 order_summary_flex">
+                                <div className="col-6 add_prod_cart_summary_p">
+                                    <p>State tax</p>
+                                </div>
+                                <div className="col-2 fontStyle">
+                                    <p>$233</p>
+                                </div>
+
+
+                            </div>
+                            <div className="col-12 order_summary_flex">
+                                <div className="col-6 add_prod_cart_summary_p">
+                                    <p>Delivery free</p>
+                                </div>
+                                <div className="col-2 fontStyle">
+                                    <p>free</p>
+                                </div>
+
+
+                            </div>
+                            <div className="col-12 order_Summary_total_container">
+
+                            <div className="col-12 order_summary_flex">
+                                <div className="col-6 fontStyle add_prod_cart_summary_p">
+                                    <p>Total</p>
+                                </div>
+                                <div className="col-2 fontStyle">
+                                    <p>$1200</p>
+                                </div>
+
+                            </div>
+                            <div className="col-12 add_prod_cart_p">
+                            <p>Taxes are Shows</p>
+
+                            </div>
+                            <div className="col-12 AddProd_cart_center_btn">
+                            <Box
+                                className={` add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
+
+                            >
+                                <LoadingButton variant="outlined">Checkout</LoadingButton>
+                            </Box>
+
+                            </div>
+                            </div>
+
+
                         </div>
-                     
+
                     </div>
-              
+
 
 
                 </div>
