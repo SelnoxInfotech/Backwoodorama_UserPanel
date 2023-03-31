@@ -2,7 +2,8 @@ import { MdOutlineShoppingCart } from "react-icons/md"
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import { AiFillStar } from "react-icons/ai";
-import useStyles from "../../../../../../Style"
+import useStyles from "../../../../Style"
+
 const AllProduct = ({ arr, btn }) => {
     const classes = useStyles()
     return (
@@ -14,7 +15,7 @@ const AllProduct = ({ arr, btn }) => {
                         <div className="col-12 prod_main_cont  p-2">
                             <div className="col-4 prod_cat_cont">
                                 <div className="col-12 p-2 prod_cat_img">
-                                    <img src={`http://52.3.255.128:8000/${ele.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }}/>
+                                    <img src={`http://52.3.255.128:8000/${ele.images[0].image}`}alt="img_not_found" style={{ pointerEvents: "none" }} />
                                     <div className="col prod_img_btn prodCat_gap d-flex">
                                         <button className="mx-2 cat_prod_inner_btn btn2">THC 70%</button>
                                     </div>

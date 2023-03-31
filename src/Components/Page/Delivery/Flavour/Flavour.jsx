@@ -1,6 +1,6 @@
 
 import { AiFillStar } from "react-icons/ai";
-import useStyles from "../../../../../Style"
+import useStyles from "../../../../Style"
 
 const Flavour = () => {
     const classes = useStyles()
