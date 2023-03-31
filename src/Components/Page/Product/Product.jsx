@@ -3,6 +3,7 @@ import { BsLayoutSplit } from "react-icons/bs"
 import {BsDropletHalf} from "react-icons/bs"
 import ProductList from "./Component/ProductList"
 import Axios from "axios"
+import Flavour from "../Delivery/Flavour/Flavour"
 
 const Product = () => {
    const [arr1 , Setarr1]  =  React.useState ([])
@@ -24,13 +25,13 @@ const Product = () => {
     },[])
 
 
-    const weeBtn = [{ quant: "1gms", rs: "121$" }, { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" },
-    { quant: "1gms", rs: "2$" },
-    { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" }]
+    const weeBtn = [{ quant: "1gms", rs: "121" }, { quant: "2gms", rs: "23" }, { quant: "3gms", rs: "25" },
+    { quant: "4gms", rs: "26" }, { quant: "5gms", rs: "27" }, { quant: "6gms", rs: "28" }, { quant: "7gms", rs: "29" }]
 
     return (
         <>
             <div className="container-fluid" style={{ padding: "35px" }}>
+                <Flavour></Flavour>
                 <div className="row center">
                     <div className="col-12   productCat_cont p-2">
                         <div className="col-3  prod_cat_left_sec center d-block mt-4 p-2">

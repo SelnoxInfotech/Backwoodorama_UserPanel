@@ -8,14 +8,12 @@ import React from "react"
 
 const ProductDetail = () => {
    const [arr2 , Setarr2]  =  React.useState ([])
-   console.log(arr2)
    React.useEffect(()=>{
     Axios("http://52.3.255.128:8000/UserPanel/Get-Product/", {
 
 
 }).then(response => {
-    console.log(response.data)
-    Setarr2(response.data)
+        Setarr2(response.data)
     // SetProduct(Product => ({ ...Product, Category: response.data?.data[0].id }))
 
 
@@ -42,9 +40,8 @@ const ProductDetail = () => {
 
     ]
   
-    const weeBtn = [{ quant: "1gms", rs: "121$" }, { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" },
-    { quant: "1gms", rs: "2$" },
-    { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" }]
+    const weeBtn = [{ quant: "1gms", rs: "121$" }, { quant: "2gms", rs: "2$" }, { quant: "3gms", rs: "2$" },
+    { quant: "4gms", rs: "2$" }, { quant: "5gms", rs: "2$" }, { quant: "6gms", rs: "2$" }, { quant: "7gms", rs: "2$" }]
 
     const previewArr = [{
         prevName: "Maxwell",
@@ -63,6 +60,9 @@ const ProductDetail = () => {
     }
 
     ]
+
+
+
     return (
         <div className="container-fluid p-4  add_prod_cont">
             <div className="row center">

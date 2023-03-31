@@ -4,7 +4,7 @@ import DispensoriesAddress from "./ComponentDashboard/Dispensories/DispensoriesA
 import LatestServices from "./ComponentDashboard/LatestArticle/LatestServices";
 import WeedProduct from "./ComponentDashboard/Weed/WeedProduct";
 import CommunityType from "./ComponentDashboard/Community/CommunityType";
-import Flavour from "../../Delivery/Flavour/Flavour";
+// import Flavour from "../../Delivery/Flavour/Flavour";
 export default function Dashboard() {
 
     return (
@@ -17,7 +17,7 @@ export default function Dashboard() {
             </div>
              <WeedProduct></WeedProduct>
             <LatestServices></LatestServices>
-            <Flavour></Flavour>
+            
             <CommunityType></CommunityType> 
         </div>
     )
