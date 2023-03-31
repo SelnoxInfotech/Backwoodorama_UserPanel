@@ -1,9 +1,7 @@
 import Layout from "../Layout/Layout"
-
-import Dashboard from "../Components/Page/Dashboard/Dashboard";
-import ProductCategory from "../Components/Page/Dashboard/Delivery/Product/ProductCategory";
-import AddProduct from "../Components/Page/Dashboard/Delivery/Product/AddProduct";
-import AddProductCart from "../Components/Page/Dashboard/Delivery/Product/AddProductCart"
+import Dashboard from "../Components/Page/Home/Dashboard/Dashboard";
+import ProductCategory from "../Components/Page/Home/Dashboard/ComponentDashboard/Category/CategoryProduct";
+import AddProduct from "../Components/Page/Product/AddProduct"
 const routesConfig = [
   
       {
@@ -21,10 +19,10 @@ const routesConfig = [
             path: "/AddProduct",
             element: <AddProduct></AddProduct>,
           },
-          {
-            path:"/AddProductCart",
-            element:<AddProductCart/>
-          }
+          // {
+          //   path:"/AddProductCart",
+          //   element:<AddProductCart/>
+          // }
         ],
       },
 ]

@@ -2,7 +2,8 @@ import { MdOutlineShoppingCart } from "react-icons/md"
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import { AiFillStar } from "react-icons/ai";
-import useStyles from "../../../../../../Style"
+import useStyles from "../../../../Style"
+
 const AllProduct = ({ arr, btn }) => {
     const classes = useStyles()
     return (
