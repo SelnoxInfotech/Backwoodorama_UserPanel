@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import { AiFillStar } from "react-icons/ai";
 import useStyles from "../../../../Style"
 
-const AllProduct = ({ arr, btn }) => {
+const ProductList = ({ arr, btn }) => {
     const classes = useStyles()
     return (
         <div className="col-12  prod_cat_display">
@@ -74,4 +74,4 @@ const AllProduct = ({ arr, btn }) => {
         </div>
     )
 }
-export default AllProduct
+export default ProductList

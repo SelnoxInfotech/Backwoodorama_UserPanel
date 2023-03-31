@@ -3,9 +3,9 @@ import { GrFormSubtract } from "react-icons/gr";
 import { RiDeleteBin6Line } from "react-icons/ri"
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
-import useStyles from "../../../../../Style"
+import useStyles from "../../../Style"
 
-const AddProductCart = () => {
+const AddToCart = () => {
     const classes = useStyles()
 
     const AddProduct_CartArr = [{ head: "Canna Cabana (1/2 oz)", innerHead: 'by careleaf', rs: "64$" },
@@ -168,4 +168,4 @@ const AddProductCart = () => {
         </div>
     )
 }
-export default AddProductCart
+export default AddToCart

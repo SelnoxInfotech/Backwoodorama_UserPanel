@@ -2,11 +2,11 @@ import { AiFillStar } from "react-icons/ai";
 import useStyles from "../../../Style"
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
-import AllProduct from "./Component/AllProduct"
+import ProductList from "./Component/ProductList"
 import Axios from "axios"
 import React from "react"
 
-const AddProduct = () => {
+const ProductDetail = () => {
    const [arr2 , Setarr2]  =  React.useState ([])
    console.log(arr2)
    React.useEffect(()=>{
@@ -212,7 +212,7 @@ const AddProduct = () => {
 
                     </div>
                     <div className="col-12">
-                    <AllProduct arr={arr2} btn={weeBtn} />
+                    <ProductList arr={arr2} btn={weeBtn} />
 
                     </div>
                     {/* <AllProduct arr={arr2} btn={weeBtn} /> */}
@@ -226,4 +226,4 @@ const AddProduct = () => {
         </div>
     )
 }
-export default AddProduct
+export default ProductDetail

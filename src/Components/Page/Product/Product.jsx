@@ -1,11 +1,10 @@
 import React from "react"
 import { BsLayoutSplit } from "react-icons/bs"
 import {BsDropletHalf} from "react-icons/bs"
-import {FiChevronRight} from "react-icons/fi"
-import AllProduct from "./Component/AllProduct"
+import ProductList from "./Component/ProductList"
 import Axios from "axios"
 
-const ProductCategory = () => {
+const Product = () => {
    const [arr1 , Setarr1]  =  React.useState ([])
 
     React.useEffect(()=>{
@@ -13,7 +12,6 @@ const ProductCategory = () => {
 
 
     }).then(response => {
-        console.log(response.data)
         Setarr1(response.data)
         // SetProduct(Product => ({ ...Product, Category: response.data?.data[0].id }))
 
@@ -23,21 +21,9 @@ const ProductCategory = () => {
 
             // SetProduct(Product => ({ ...Product, discount: "None" }))
         })
-
-
-
     },[])
 
-    // const arr1 = [{ img_url: "./image/weed_img2.jpeg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
-    // { img_url: "./image/wee_img1.jpeg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
-    // { img_url: "./image/logo.webp", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
-    // { img_url: "./image/logo2.png", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
-    // { img_url: "./image/cat_prod_5.jpg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
-    // { img_url: "./image/cat_prod_6.jpg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
-    // { img_url: "./image/cat_pro_7.jpg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
-    // { img_url: "./image/cat_pro_8.jpg", address: "Canna Cabana", sec_add: "2917 Broadway astoria NY 11106", rating: "Rating" },
-
-    // ]
+    
     const weeBtn = [{ quant: "1gms", rs: "121$" }, { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" },
     { quant: "1gms", rs: "2$" },
     { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" }]
@@ -63,7 +49,7 @@ const ProductCategory = () => {
 
                         </div>
                         <div className="col-9  mt-4 prod_cat_right_sec ">
-                              <AllProduct arr={arr1} btn={weeBtn} />
+                              <ProductList arr={arr1} btn={weeBtn} />
 
 
                         </div>
@@ -76,4 +62,4 @@ const ProductCategory = () => {
         </>
     )
 }
-export default ProductCategory
+export default Product

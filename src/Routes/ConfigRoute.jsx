@@ -1,7 +1,8 @@
 import Layout from "../Layout/Layout"
 import Dashboard from "../Components/Page/Home/Dashboard/Dashboard";
-import ProductCategory from "../Components/Page/Home/Dashboard/ComponentDashboard/Category/CategoryProduct";
-import AddProduct from "../Components/Page/Product/AddProduct"
+import Product from "../Components/Page/Product/Product";
+import ProductDetail from "../Components/Page/Product/ProductDetails"
+import AddToCart from "../Components/Page/Product/AddToCart"
 const routesConfig = [
   
       {
@@ -13,16 +14,16 @@ const routesConfig = [
           },
           {
             path: "/Product",
-            element: <ProductCategory></ProductCategory>,
+            element: <Product></Product>,
           },
           {
-            path: "/AddProduct",
-            element: <AddProduct></AddProduct>,
+            path: "/ProductDetail",
+            element: <ProductDetail></ProductDetail>,
           },
-          // {
-          //   path:"/AddProductCart",
-          //   element:<AddProductCart/>
-          // }
+          {
+            path:"/AddToCart",
+            element:<AddToCart/>
+          }
         ],
       },
 ]
