@@ -3,6 +3,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import { AiFillStar } from "react-icons/ai";
 import useStyles from "../../../../Style"
+import { Link } from "react-router-dom";
 
 const ProductList = ({ arr, btn }) => {
     const classes = useStyles()
@@ -12,7 +13,8 @@ const ProductList = ({ arr, btn }) => {
          
                 return (
                     <div className="col-3 prod_inner_cont" key={index}>
-                        <div className="col-12 prod_main_cont  p-2">
+                       <Link to="/ProductDetail" >
+                       <div className="col-12 prod_main_cont  p-2">
                             <div className="col-4 prod_cat_cont">
                                 <div className="col-12 p-2 prod_cat_img">
                                     <img src={`http://52.3.255.128:8000/${ele.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }}/>
@@ -51,20 +53,22 @@ const ProductList = ({ arr, btn }) => {
                                         )
                                     })}
                                 </div>
-                                <div className="col-12 d-flex mt-3 mb-2">
-                                    <MdOutlineShoppingCart className={classes.muiIcons} />
-                                    <Box
-                                        className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
-                                        style={{ width: "83%" }}
-                                    >
-                                        <LoadingButton variant="outlined">Buy Now</LoadingButton>
-                                    </Box>
-                                </div>
+                                    <div className="col-12 d-flex mt-3 mb-2">
+                                        <MdOutlineShoppingCart className={classes.muiIcons} />
+                                        <Box
+                                            className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
+                                            style={{ width: "83%" }}
+                                        >
+                                            <LoadingButton variant="outlined">Buy Now</LoadingButton>
+                                        </Box>
+                                    </div>
                             </div>
 
 
 
                         </div>
+
+                       </Link>
 
                     </div>
                 )

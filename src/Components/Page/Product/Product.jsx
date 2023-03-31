@@ -23,7 +23,7 @@ const Product = () => {
         })
     },[])
 
-    
+
     const weeBtn = [{ quant: "1gms", rs: "121$" }, { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" },
     { quant: "1gms", rs: "2$" },
     { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" }]

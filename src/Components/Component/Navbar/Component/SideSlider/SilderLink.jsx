@@ -42,7 +42,7 @@ export default function DashBoardLink() {
             <div className=' col-12 Login_Sigup_button  '>
               <AiFillHeart size={22}></AiFillHeart>
               <IoIosNotifications size={23}></IoIosNotifications>
-            <MdOutlineShoppingCart size={22}></MdOutlineShoppingCart>
+           <Link to="AddToCart">  <MdOutlineShoppingCart size={22}></MdOutlineShoppingCart></Link>
             
             
             </div>
