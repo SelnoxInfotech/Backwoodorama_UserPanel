@@ -1,18 +1,13 @@
 import React from "react"
 import { BsLayoutSplit } from "react-icons/bs"
 import { BsDropletHalf } from "react-icons/bs"
-import { FiChevronRight } from "react-icons/fi"
-import { FiChevronLeft } from "react-icons/fi"
-
-import {RiArrowDropDownLine} from "react-icons/ri"
-
+import {MdOutlineBrandingWatermark} from "react-icons/md"
 import ProductList from "./Component/ProductList"
 import Axios from "axios"
 import Flavour from "../Delivery/Flavour/Flavour"
+import ProductFilter from "./Component/ProductFilter"
 const Product = () => {
     const [arr1, Setarr1] = React.useState([])
-    const [OpenEvent, SetOpenEvent] = React.useState(true)
-    const [HideEvent, SetHideEvent] = React.useState(false)
     React.useEffect(() => {
         Axios("http://52.3.255.128:8000/UserPanel/Get-Product/", {
 
@@ -32,11 +27,8 @@ const Product = () => {
 
     const weeBtn = [{ quant: "1gms", rs: "121" }, { quant: "2gms", rs: "23" }, { quant: "3gms", rs: "25" },
     { quant: "4gms", rs: "26" }, { quant: "5gms", rs: "27" }, { quant: "6gms", rs: "28" }, { quant: "7gms", rs: "29" }]
-    const HandleOpenEvent = () => {
-        SetOpenEvent(!OpenEvent)
-        // SetOpenEvent(!e.target.value)
 
-    }
+const ProductFilterData=[{Name:"Category",Type1:"Flower",Type2:"CBD",Icons:<BsDropletHalf/>},{Name:"Brand",Type1:"Leafly",Type2:"CBD",Icons:<MdOutlineBrandingWatermark/>}]
 
     return (
         <>
@@ -53,54 +45,8 @@ const Product = () => {
                                 <span><BsLayoutSplit /></span><p>All category</p>
 
                             </div>
-                            <div className="col-12 d-flex prodCat_gap product_category_border " onClick={HandleOpenEvent}>
-                                <div className="col-1 brand_left_arrow">
-                                    <p>{OpenEvent?"":<FiChevronLeft/>}</p>
-                                </div>
-                                <div className="col-1">
-                                    <p><BsDropletHalf /></p>
-                                </div>
-                                <div className="col-6">
-                                    <p>Category</p>
-                                </div>
-                                <div className="col-4 brand_right_arrow">
-                                  
-                                    <p>{OpenEvent ? <FiChevronRight /> : ""}</p>
-
-                                </div>
-
-                            </div>
-                            {OpenEvent ?"": (<div className="col-12 product_category_border" id="Related_Brand_Data">
-                                <div className="col-10 p-2">
-                                    <p>Leafly</p>
-                                </div>
-
-                            </div>)}
-                            <div className="col-12 d-flex prodCat_gap product_category_border " onClick={HandleOpenEvent}>
-                                <div className="col-1 brand_left_arrow">
-                                    <p>{OpenEvent?"":<FiChevronLeft/>}</p>
-                                </div>
-                                <div className="col-1">
-                                    <p><BsDropletHalf /></p>
-                                </div>
-                                <div className="col-6">
-                                    <p>Brand</p>
-                                </div>
-                                <div className="col-4 brand_right_arrow">
-                                  
-                                    <p>{OpenEvent ? <FiChevronRight /> : ""}</p>
-
-                                </div>
-
-                            </div>
-                            {OpenEvent ?"": (<div className="col-12 product_category_border" id="Related_Brand_Data">
-                                <div className="col-10 p-2">
-                                    <p>Leafly</p>
-                                </div>
-
-                            </div>)}
-
-
+                            
+                            <ProductFilter ProductFilterData={ProductFilterData}/>
                         </div>
                         <div className="col-9  mt-4 prod_cat_right_sec ">
                             <ProductList arr={arr1} btn={weeBtn} />
