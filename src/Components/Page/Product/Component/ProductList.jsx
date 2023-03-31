@@ -10,21 +10,22 @@ const ProductList = ({ arr, btn }) => {
     return (
         <div className="col-12  prod_cat_display">
             {arr.map((ele, index) => {
-         
+
                 return (
                     <div className="col-3 prod_inner_cont" key={index}>
-                       <Link to="/ProductDetail" >
-                       <div className="col-12 prod_main_cont  p-2">
-                            <div className="col-4 prod_cat_cont">
-                                <div className="col-12 p-2 prod_cat_img">
-                                    <img src={`http://52.3.255.128:8000/${ele.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }}/>
-                                    <div className="col prod_img_btn prodCat_gap d-flex">
-                                        <button className="mx-2 cat_prod_inner_btn btn2">THC 70%</button>
-                                    </div>
-                                    <button className="cat_prod_inner_btn btn1">Indica</button>
+                        <div className="col-12 prod_main_cont  p-2">
+                            <Link to="/ProductDetail" >
+                                <div className="col-4 prod_cat_cont">
+                                    <div className="col-12 p-2 prod_cat_img">
+                                        <img src={`http://52.3.255.128:8000/${ele.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }} />
+                                        <div className="col prod_img_btn prodCat_gap d-flex">
+                                            <button className="mx-2 cat_prod_inner_btn btn2">THC 70%</button>
+                                        </div>
+                                        <button className="cat_prod_inner_btn btn1">Indica</button>
 
+                                    </div>
                                 </div>
-                            </div>
+                            </Link>
                             <div className="col-8 product_cat_allProduct">
                                 <div className="col-12 px-2 prod_para " style={{ marginBottom: "-10px" }}>
                                     <p className="comm_head_prop fontStyle">{ele.address}</p>
@@ -53,22 +54,23 @@ const ProductList = ({ arr, btn }) => {
                                         )
                                     })}
                                 </div>
-                                    <div className="col-12 d-flex mt-3 mb-2">
-                                        <MdOutlineShoppingCart className={classes.muiIcons} />
-                                        <Box
-                                            className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
-                                            style={{ width: "83%" }}
-                                        >
-                                            <LoadingButton variant="outlined">Buy Now</LoadingButton>
-                                        </Box>
-                                    </div>
+                                <div className="col-12 d-flex mt-3 mb-2">
+                                    <MdOutlineShoppingCart className={classes.muiIcons} />
+                                    <Box
+                                        className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
+                                        style={{ width: "83%" }}
+                                    >
+                                        <LoadingButton variant="outlined">Buy Now</LoadingButton>
+                                    </Box>
+                                </div>
                             </div>
 
 
 
                         </div>
 
-                       </Link>
+
+
 
                     </div>
                 )
