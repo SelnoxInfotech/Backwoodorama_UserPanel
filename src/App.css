@@ -116,6 +116,11 @@ a{
   border-radius: 0px 3px 3px 0px;
 }
 
+/* Active */
+ #active{
+  outline: 1px solid #00b96a;
+ }
+/* End */
 
 /* category */
 .image_Div{
