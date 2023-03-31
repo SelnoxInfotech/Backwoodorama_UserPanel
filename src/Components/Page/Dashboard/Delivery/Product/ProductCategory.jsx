@@ -1,5 +1,7 @@
 import React from "react"
 import { BsLayoutSplit } from "react-icons/bs"
+import {BsDropletHalf} from "react-icons/bs"
+import {FiChevronRight} from "react-icons/fi"
 import AllProduct from "./Component/AllProduct"
 import Axios from "axios"
 
@@ -50,8 +52,12 @@ const ProductCategory = () => {
                                 <h5>Product Category</h5>
 
                             </div>
-                            <div className="col-12 d-flex prodCat_gap" >
+                            <div className="col-12 d-flex prodCat_gap " >
                                 <span><BsLayoutSplit /></span><p>All category</p>
+
+                            </div>
+                            <div className="col-12 d-flex prodCat_gap " >
+                                <span><BsDropletHalf /></span><p>All category</p>
 
                             </div>
 

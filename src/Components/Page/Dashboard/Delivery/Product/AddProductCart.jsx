@@ -50,14 +50,14 @@ const AddProductCart = () => {
                                                 <div className="col-12 add_prod_btn_amount">
                                                     <div className="col-2 border Add_prod_sub_minus_cont d-flex">
                                                         <div className="col-4">
-                                                            <button className="add_prod_cart_btn"><GrFormSubtract size={"large"} /></button>
+                                                            <button className="add_prod_cart_btn"><GrFormSubtract  /></button>
 
                                                         </div>
                                                         <div className="col-2 addprod_quant">
                                                             <p>1</p>
                                                         </div>
                                                         <div className="col-4">
-                                                            <button className="add_prod_cart_btn"><AiOutlinePlus size={"large"} /></button>
+                                                            <button className="add_prod_cart_btn"><AiOutlinePlus  /></button>
 
                                                         </div>
 
@@ -85,7 +85,7 @@ const AddProductCart = () => {
                         </div>
                         <div className="col-2 border  p-2 Add_product_cart_right_container_summary ">
                             <div className="col-12 fontStyle AddProdCartFont_weight">
-                            <p>Order Summmary</p>
+                            <h5>Order Summmary</h5>
 
                             </div>
                             <div className="col-12 order_summary_flex">

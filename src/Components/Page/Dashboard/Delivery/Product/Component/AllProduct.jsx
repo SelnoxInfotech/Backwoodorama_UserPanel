@@ -14,7 +14,7 @@ const AllProduct = ({ arr, btn }) => {
                         <div className="col-12 prod_main_cont  p-2">
                             <div className="col-4 prod_cat_cont">
                                 <div className="col-12 p-2 prod_cat_img">
-                                    <img src={`http://52.3.255.128:8000/${ele.images[0].image}`}alt="img_not_found" style={{ pointerEvents: "none" }} />
+                                    <img src={`http://52.3.255.128:8000/${ele.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }}/>
                                     <div className="col prod_img_btn prodCat_gap d-flex">
                                         <button className="mx-2 cat_prod_inner_btn btn2">THC 70%</button>
                                     </div>

@@ -8,6 +8,7 @@ import React from "react"
 
 const AddProduct = () => {
    const [arr2 , Setarr2]  =  React.useState ([])
+   console.log(arr2)
    React.useEffect(()=>{
     Axios("http://52.3.255.128:8000/UserPanel/Get-Product/", {
 
