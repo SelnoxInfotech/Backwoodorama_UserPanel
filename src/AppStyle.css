@@ -1016,7 +1016,7 @@
   .Add_product_cart_right_container_summary {
     position: relative;
     left: 0px;
-    top: 0px;
+    top: -10px;
     width: 100% !important;
   }
 }
@@ -1131,7 +1131,7 @@
 
 .AddProdCartFont_weight h5 {
   font-weight: 700;
-  font-size: 24px;
+  font-size: 23px;
 }
 
 /* end */

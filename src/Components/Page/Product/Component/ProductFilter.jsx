@@ -8,7 +8,9 @@ const ProductFilter = ({ ProductFilterData }) => {
     const classes = useStyles()
 
     // const [OpenEvent, SetOpenEvent] = React.useState(true)
-    const [OpenEvent, SetOpenEvent] = React.useState(null)
+    const [OpenEvent, SetOpenEvent] = React.useState(null);
+    const [OpenCategoryEvent, SetOpenCategoryEvent] = React.useState(null);
+    const Category = [{ Id: 1, Name: "Rose", Type: "white" }, { Id: 2, Name: "Lotus", Type: "white" },]
 
     const HandleOpenEvent = (Id) => {
         if (OpenEvent === Id) {
@@ -18,7 +20,9 @@ const ProductFilter = ({ ProductFilterData }) => {
         SetOpenEvent(Id)
 
     }
-
+    const CategoryEventHandler = (Id) => {
+        SetOpenCategoryEvent(Id)
+    }
     return (
         <>
             {ProductFilterData.map((ele, index) => {
@@ -45,6 +49,19 @@ const ProductFilter = ({ ProductFilterData }) => {
                         {(Id === OpenEvent) ? (<div className="col-12 product_category_border" id="Related_Brand_Data">
 
                             <div className="col-10 px-2 ">
+                                {/* <div className="col-6">
+                                    {(Type1 === "Flower") ? Category.map((CategoryItem, Index) => {
+                                        const { Id, Name, Type } = CategoryItem;
+                                        return (
+                                            <div className="col-12" onClick={() => CategoryEventHandler(Id)}>
+                                               <p>{Type1}</p>
+                                                {(Id===OpenCategoryEvent)?(<div className="col-10">{Name}</div>):" "}
+                                                
+                                            </div>
+                                        )
+                                    }) : (<p>{Type1}</p>)}
+
+                                </div> */}
                                 <p>{Type1}</p>
                             </div>
                             <div className="col-10 px-2 py-0 ">
