@@ -33,7 +33,7 @@ const useStyles = makeStyles({
 
   },
   muiIcons:{
-    fontSize: "x-large",
+    fontSize: "large",
     color:"gray",
     
   },

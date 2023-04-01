@@ -9,7 +9,7 @@ const Flavour = () => {
 
     return (
         <>
-            <div className="container-fluid" style={{ padding: "35px" }}>
+            <div className="container-fluid" >
                 <div className="row center">
                     <div className="col-12 d-flex border flavCont p-0">
                         <div className="col-4">
