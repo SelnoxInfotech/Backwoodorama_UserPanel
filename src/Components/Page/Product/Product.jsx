@@ -11,6 +11,7 @@ import Axios from "axios"
 import Flavour from "../Delivery/Flavour/Flavour"
 import ProductFilter from "./Component/ProductFilter"
 import useStyles from "../../../Style"
+import SearchBar from "material-ui-search-bar";
 const Product = () => {
     const classes = useStyles()
 
@@ -58,10 +59,10 @@ const Product = () => {
                                 <h5>Shop by category</h5>
 
                             </div>
-                            {/* <div className="col-12 d-flex prodCat_gap p-2" >
-                                <span><BsLayoutSplit /></span><p>All category</p>
+                            <div className="col-12 d-flex prodCat_gap p-2" >
+                               <SearchBar className={classes.muiSearchIcon}/>
 
-                            </div> */}
+                            </div>
 
                             <ProductFilter ProductFilterData={ProductFilterData} />
                         </div>
