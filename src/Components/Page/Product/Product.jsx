@@ -28,7 +28,7 @@ const Product = () => {
     const weeBtn = [{ quant: "1gms", rs: "121" }, { quant: "2gms", rs: "23" }, { quant: "3gms", rs: "25" },
     { quant: "4gms", rs: "26" }, { quant: "5gms", rs: "27" }, { quant: "6gms", rs: "28" }, { quant: "7gms", rs: "29" }]
 
-const ProductFilterData=[{Name:"Category",Type1:"Flower",Type2:"CBD",Icons:<BsDropletHalf/>},{Name:"Brand",Type1:"Leafly",Type2:"CBD",Icons:<MdOutlineBrandingWatermark/>}]
+const ProductFilterData=[{Id:1,Name:"Category",Type1:"Flower",Type2:"CBD",Icons:<BsDropletHalf/>},{Id:2,Name:"Brand",Type1:"Leafly",Type2:"CBD",Icons:<MdOutlineBrandingWatermark/>}]
 
     return (
         <>
