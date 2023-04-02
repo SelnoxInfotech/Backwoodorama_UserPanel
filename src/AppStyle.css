@@ -304,7 +304,13 @@
   display: flex;
 
 }
-
+.product_search_and_select{
+  display: flex;
+}
+.product_select{
+  display: flex;
+  justify-content: flex-end !important;
+}
 .prod_cat_left_sec {
   border: 1px solid #dee2e6;
 }
@@ -314,10 +320,23 @@
     display: block;
 
   }
+  .product_search_and_select{
+    display: block;
+  }
+  .product_select{
+    display: flex;
+    justify-content: flex-start !important;
+    margin-left: -8px;
+  }
+  .product_search_bar{
+    width: 99% !important;
+  }
 
   .prod_cat_left_sec {
     border: 1px solid #dee2e6;
     min-width: 100%;
+    /* min-width: 32%; */
+
 
   }
 
