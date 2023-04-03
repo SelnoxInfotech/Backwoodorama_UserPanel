@@ -128,7 +128,7 @@
 }
 
 .span_nav_star {
-  line-height: 82%;
+  /* line-height: 82%; */
   padding-left: 10px;
 }
 
@@ -272,6 +272,7 @@
 /* product categorys */
 .product_cat_allProduct {
   width: 100% !important;
+  min-height: 268px !important;
 }
 .prod_cat_img img {
   width: 100%;
@@ -443,6 +444,8 @@
 
   .product_cat_allProduct {
     width: 50% !important;
+    min-height: 210px !important;
+    margin-top: 11px;
   }
 
   .prod_cat_btns {
@@ -1188,4 +1191,7 @@
   border-radius: 50%;
   background: #FFFFFF;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+.product_category_name{
+  margin-left: 14px;
 }

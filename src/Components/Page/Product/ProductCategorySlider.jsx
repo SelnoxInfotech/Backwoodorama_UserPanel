@@ -10,13 +10,14 @@ const ProductCategorySlider = () => {
         visibility:hidden;
       } 
       .slick-slide{
-        width:120px !important;
+        width:117px !important;
         margin-bottom:10px;
       }
-      .slick-track{
-        display:flex;
-        width:100%;
-      }
+   
+      .slick-track {
+        display: flex;
+        width: 1494px !important;
+    }
       .slick-prev {
         left: 0px;
       }
@@ -33,7 +34,7 @@ const ProductCategorySlider = () => {
         dots: false,
         infinite: false,
         speed: 500,
-        slidesToShow: 8,
+        slidesToShow: 14,
         lazyLoad: true,
 
         slidesToScroll: 1,
@@ -90,17 +91,24 @@ const ProductCategorySlider = () => {
         ]
     }
     const ProductCategory = [
-        { image_url: "./image/prod_cat_Slider1.png" },
+        { image_url: "./image/prod_cat_Slider1.png",category_name:"Indica" },
 
-    { image_url: "./image/prod_cat_Slider3.png" },
-    { image_url: "./image/prod_cat_Slider3.png" },
-    { image_url: "./image/prod_cat_Slider1.png" },
-    { image_url: "./image/prod_cat_Slider2.png" },
-    { image_url: "./image/prod_cat_Slider3.png" },
-    { image_url: "./image/prod_cat_Slider3.png" },
-    { image_url: "./image/prod_cat_Slider1.png" },
-    { image_url: "./image/prod_cat_Slider2.png" },
-
+    { image_url: "./image/prod_cat_Slider3.png",category_name:"Flower" },
+    { image_url: "./image/prod_cat_Slider3.png" ,category_name:"Indica"},
+    { image_url: "./image/prod_cat_Slider1.png" ,category_name:"Sativa"},
+    { image_url: "./image/prod_cat_Slider2.png" ,category_name:"Sativa"},
+    { image_url: "./image/prod_cat_Slider3.png",category_name:"Sativa" },
+    { image_url: "./image/prod_cat_Slider3.png",category_name:"Sativa" },
+    { image_url: "./image/prod_cat_Slider1.png" ,category_name:"Sativa"},
+    { image_url: "./image/prod_cat_Slider2.png",category_name:"Flower" },
+    { image_url: "./image/prod_cat_Slider3.png" ,category_name:"Flower"},
+    { image_url: "./image/prod_cat_Slider3.png",category_name:"Flower" },
+    { image_url: "./image/prod_cat_Slider1.png" ,category_name:"Flower"},
+    { image_url: "./image/prod_cat_Slider2.png" ,category_name:"Flower"},
+    { image_url: "./image/prod_cat_Slider3.png" ,category_name:"Flower"},
+    { image_url: "./image/prod_cat_Slider3.png" ,category_name:"Flower"},
+    { image_url: "./image/prod_cat_Slider1.png" ,category_name:"Flower"},
+    { image_url: "./image/prod_cat_Slider2.png" ,category_name:"Flower"},
 
     ]
     return (
@@ -108,12 +116,17 @@ const ProductCategorySlider = () => {
         <ProductSlider  {...settings}>
             {ProductCategory.map((ele, index) => {
                 return (
-                    <div className="col-2 mt-4 slick-slide slick-active slick-current" key={index}>
+                    <div className="col-12" key={index}>
+                    <div className="col-2 mt-4 slick-slide slick-active slick-current" >
                       
                             <img id="Product_category_image" src={ele.image_url} alt="image_not found" />
                       
-
+                         
                     </div>
+                    <div className="col-12 product_category_name">
+                    <p>{ele.category_name}</p>
+                 </div>
+                 </div>
                 )
             })}
         </ProductSlider>

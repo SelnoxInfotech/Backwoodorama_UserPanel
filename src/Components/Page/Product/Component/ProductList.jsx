@@ -108,7 +108,6 @@ const ProductList = ({ arr }) => {
                                 </div>
                                 <div className="col-12 d-flex mt-3 mb-2">
 
-                                    <MdOutlineShoppingCart className={classes.muiIcons} />
 
                                     <Box
                                         className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
