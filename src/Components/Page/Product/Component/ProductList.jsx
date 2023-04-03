@@ -15,81 +15,23 @@ const ProductList = ({ arr }) => {
         // const johnArr = _.filter(Price, Price => Price.Event.id === Event.id - 1)
         // console.log(johnArr);
         // SetPrice(Price.map((price)=>{
-
-
         // }))
-
-
     }
 
 
 
-    const PriceSelect = (Product, Item) => {
-        //          Price.forEach((item) =>{ 
-        // console.log(Product)
-        //        item.Product_id === Product_id 
-        //        ?  SetPrice({...Price, Item_id: Item_id })
-        //        : SetPrice([...Price, { Product_id, Item_id }])
-        //    })
-
-        if (Price.length === 0) {
-            SetPrice([...Price, { Product_id: Product, Item_id: Item }])
-        }
-
-        if (Price.map((friend) => { return friend.Product_id === Product })) {
-            console.log(Price)
-
-            SetPrice(
-                Price.map((friend) =>
-                    friend.Product_id === Product
-                        ? { ...friend, Item_id: Item }
-                        : { ...friend }
-                )
-            )
-        }
-        else {
-
-            SetPrice([...Price, { Product_id: Product, Item_id: Item }])
-            // SetPrice(
-            //     Price.map((friend) =>
-            //         friend.Product_id === Product
-            //             ? { ...friend, Item_id: Item }
-            //             : { ...friend }
-            //     )
-            // )
-            console.log(Price)`   `
-        }
-
-        //   
+   
+    console.log(Price)
 
 
-        // SetPrice((prev)=>prev.map((task)=>{
-        //     if(task.Product_id === Product_id){
-        //       return { ...Price, Item_id: Item_id }
-        //     }  
-        //     else{
-        //       return [...Price, { Product_id, Item_id }];
-        //     }
-        // }))
 
-        // console.log(Price)
-        // // SetPrice(
-        //     Price?.map((data) => { 
-        //     console.log(data.Product_id)
-        //     if (data.Product_id === Product_id) {
-        //         return SetPrice({ ...Price, Item_id: Item_id })
-        //     }
-        //     // else {
-        //     return( [...Price, { Product_id, Item_id }])
-        // }
+    function PriceSelect(Product, Item) {
+        SetPrice(Price => {
+            return Price.filter(Price => Price.Product_id !== Product)
+          })
+        SetPrice(Price => [...Price, { Product_id:Product, Item_id: Item}]);
+      }
 
-        //   return  data.Product_id === Product_id ? { ...Price, Item_id: Item_id } : [...Price, { Product_id, Item_id }]
-        // })   
-        // )
-        //  }
-
-    }
-    // console.log(Price)
 
     const classes = useStyles()
     return (
