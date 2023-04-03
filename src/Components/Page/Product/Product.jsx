@@ -17,6 +17,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import ProductCategorySlider from "./ProductCategorySlider"
 const Product = () => {
     const classes = useStyles()
 
@@ -57,6 +58,8 @@ const Product = () => {
         <>
             <div className="container-fluid" style={{ padding: "35px" }}>
                 <Flavour></Flavour>
+                <ProductCategorySlider></ProductCategorySlider>
+
                 <div className="row center  mt-2 p-2">
                     <div className="col-12 mt-4 product_search_and_select">
                         <div className="col-2 product_search_bar">
