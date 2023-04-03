@@ -56,9 +56,15 @@ const Product = () => {
 
     return (
         <>
-            <div className="container-fluid" style={{ padding: "35px" }}>
+            <div className="container-fluid product_container" style={{ padding: "7px" }}>
                 <Flavour></Flavour>
-                <ProductCategorySlider></ProductCategorySlider>
+                <div className="row">
+                    <div className="col-12 mt-4">
+                    <ProductCategorySlider></ProductCategorySlider>
+
+                    </div>
+
+                </div>
 
                 <div className="row center  mt-2 p-2">
                     <div className="col-12 mt-4 product_search_and_select">
