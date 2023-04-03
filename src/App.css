@@ -117,9 +117,9 @@ a{
 }
 
 /* Active */
- /* #active{
-  outline: 1px solid #31B665;
- } */
+ #active{
+  outline: 3px solid #31B665;
+ }
 /* End */
 
 /* category */

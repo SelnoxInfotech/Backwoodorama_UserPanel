@@ -9,28 +9,52 @@ import _ from "lodash";
 const ProductList = ({ arr }) => {
 
     const [Price, SetPrice] = React.useState([])
-
+    const [AddTOCard, SetAddToCard] = React.useState([])
 
     const Addtocard = (Event) => {
-        // const johnArr = _.filter(Price, Price => Price.Event.id === Event.id - 1)
-        // console.log(johnArr);
-        // SetPrice(Price.map((price)=>{
-        // }))
+
+        const AddData = _.filter(Price, Price => Price.Product_id === Event.id)
+        const Arry = {
+            Product_id: Event.id,
+            Product_Name: Event.Product_Name,
+            Prices: Event.Prices,
+            Store_id: Event.Store_id,
+            Image: Event.images,
+            Price_index: AddData
+        }
+        // SetAddToCard((AddTOCard) =>
+        //     [...AddTOCard, Arry]
+        // )
+        // SetAddToCard({...AddTOCard, Arry})
+        SetAddToCard(AddTO => [...AddTO, Arry]);
+ 
+      
     }
-
-
-
-   
-    console.log(Price)
-
-
-
+ 
+  
+    React.useEffect(() => { 
+     
+        var LocalItem = JSON.parse(localStorage.getItem('items'))
+               
+        if (LocalItem === null) {
+            // Items.push(Arry);
+            localStorage.setItem('items', JSON.stringify(AddTOCard))
+        }
+        else {
+         LocalItem.push(AddTOCard);
+            localStorage.setItem('items', JSON.stringify(LocalItem));
+        }
+        // localStorage.clear()  
+        console.log( AddTOCard);
+            //    
+            }, [AddTOCard])
+       
     function PriceSelect(Product, Item) {
         SetPrice(Price => {
             return Price.filter(Price => Price.Product_id !== Product)
-          })
-        SetPrice(Price => [...Price, { Product_id:Product, Item_id: Item}]);
-      }
+        })
+        SetPrice(Price => [...Price, { Product_id: Product, Item_id: Item }]);
+    }
 
 
     const classes = useStyles()
@@ -71,7 +95,8 @@ const ProductList = ({ arr }) => {
                                             jsondata.map((data, index) => {
                                                 return (
                                                     <div className="col-3 prod_cat_btn_cont mt-2 d-flex" key={index} >
-                                                        <section className="prod_cat_btns " id="active" value={data.id} onClick={() => PriceSelect(ele.id, data.id, data.id)} >
+                                                        <section className="prod_cat_btns "
+                                                            value={data.id} onClick={() => PriceSelect(ele.id, data.id, data.id)} >
                                                             {data.Weight}
                                                             <p className="rs">{data.Price}$</p>
                                                         </section>
@@ -83,16 +108,16 @@ const ProductList = ({ arr }) => {
                                 </div>
                                 <div className="col-12 d-flex mt-3 mb-2">
 
-                                    {/* <MdOutlineShoppingCart onClick={() => { Addtocard(ele) }} className={classes.muiIcons} /> */}
-                               
+                                    <MdOutlineShoppingCart className={classes.muiIcons} />
+
                                     <Box
                                         className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
                                         style={{ width: "83%" }}
                                     >
-                                        <LoadingButton variant="outlined">Add to cart</LoadingButton>
+                                        <LoadingButton onClick={() => { Addtocard(ele) }} variant="outlined">Add to cart</LoadingButton>
                                     </Box>
 
-                                  
+
                                 </div>
                             </div>
                         </div>

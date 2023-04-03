@@ -1,3 +1,4 @@
+import React from "react";
 import { AiOutlinePlus } from "react-icons/ai"
 import { GrFormSubtract } from "react-icons/gr";
 import { RiDeleteBin6Line } from "react-icons/ri"
@@ -8,12 +9,12 @@ import useStyles from "../../../Style"
 const AddToCart = () => {
     const classes = useStyles()
 
-    const AddProduct_CartArr = [{ head: "Canna Cabana (1/2 oz)", innerHead: 'by careleaf', rs: "64$" },
-    { head: "Canna Cabana (1/2 oz)", innerHead: 'by careleaf', rs: "64$" },
-    { head: "Canna Cabana (1/2 oz)", innerHead: 'by careleaf', rs: "64$" },
-    { head: "Canna Cabana (1/2 oz)", innerHead: 'by careleaf', rs: "64$" }
+     React.useEffect(()=>{
+      const item =    localStorage.getItem('item')
+      console.log(item)
+     },[])
 
-        ,]
+
     return (
         <div className="container">
             <div className="row mt-4">
@@ -24,7 +25,7 @@ const AddToCart = () => {
                     <div className="col-12  AddProductCartContainer">
 
                         <div className="col-10  AddProductCartContainerinner">
-                            {AddProduct_CartArr.map((ele, index) => {
+                            {/* {AddProduct_CartArr.map((ele, index) => {
                                 return (
                                     <div className="col-12 border Add_product_cart_left_container_item" key={index}>
 
@@ -81,7 +82,7 @@ const AddToCart = () => {
 
                                     </div>
                                 )
-                            })}
+                            })} */}
                         </div>
                         <div className="col-2 border  p-2 Add_product_cart_right_container_summary ">
                             <div className="col-12 fontStyle AddProdCartFont_weight">
