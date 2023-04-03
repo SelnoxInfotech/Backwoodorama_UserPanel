@@ -58,6 +58,27 @@ const useStyles = makeStyles({
       border:"1px solid #31B665"
     },
   },
+  loadingBtnTextAndBack: {
+    "& .MuiButton-text": {
+      fontSize: ".7rem",
+    },
+    "& .MuiLoadingButton-root":{
+      width:"100%",
+      borderRadius:"40px",
+      backgroundColor: "#ffff",
+      color: "#31B665",
+      // outline: "1px solid #31B665",
+      textTransform: "none",
+      border:"1px solid #31B665"
+      // backgroundColor:"#31B665"
+
+    },
+    "& .MuiButtonBase-root:hover": {
+      color: "#ffff",
+      backgroundColor: "#00b96a",
+      border:"1px solid #31B665"
+    },
+  },
   disPen_Icons:{
     fontSize: "large",
     color:"#31B665",

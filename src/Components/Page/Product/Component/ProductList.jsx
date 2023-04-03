@@ -38,8 +38,8 @@ const ProductList = ({ arr }) => {
 
         if (Price.map((friend) => { return friend.Product_id === Product })) {
             console.log(Price)
-           
-             SetPrice(
+
+            SetPrice(
                 Price.map((friend) =>
                     friend.Product_id === Product
                         ? { ...friend, Item_id: Item }
@@ -47,7 +47,7 @@ const ProductList = ({ arr }) => {
                 )
             )
         }
-        else  {
+        else {
 
             SetPrice([...Price, { Product_id: Product, Item_id: Item }])
             // SetPrice(
@@ -57,11 +57,11 @@ const ProductList = ({ arr }) => {
             //             : { ...friend }
             //     )
             // )
-              console.log(Price)`   `
+            console.log(Price)`   `
         }
-        
-            //   
-        
+
+        //   
+
 
         // SetPrice((prev)=>prev.map((task)=>{
         //     if(task.Product_id === Product_id){
@@ -115,7 +115,7 @@ const ProductList = ({ arr }) => {
                             <div className="col-8 product_cat_allProduct">
                                 <div className="col-12 px-2 prod_para " style={{ marginBottom: "-10px" }}>
                                 </div>
-                                <div className="col-12 px-2 prod_para" style={{ marginBottom: "-10px" }}>
+                                <div className="col-12 px-2 prod_para_name" style={{ marginBottom: "" }}>
                                     <p className='fontStyle common_sub_head'>{ele.Product_Name}</p>
                                 </div>
                                 <div className="col-12 px-2 d-flex prod_para" style={{ marginBottom: "0px" }}>
@@ -141,14 +141,16 @@ const ProductList = ({ arr }) => {
                                 </div>
                                 <div className="col-12 d-flex mt-3 mb-2">
 
-                                    <MdOutlineShoppingCart onClick={() => { Addtocard(ele) }} className={classes.muiIcons} />
-
+                                    {/* <MdOutlineShoppingCart onClick={() => { Addtocard(ele) }} className={classes.muiIcons} /> */}
+                               
                                     <Box
                                         className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
                                         style={{ width: "83%" }}
                                     >
-                                        <LoadingButton variant="outlined">Buy Now</LoadingButton>
+                                        <LoadingButton variant="outlined">Add to cart</LoadingButton>
                                     </Box>
+
+                                  
                                 </div>
                             </div>
                         </div>
