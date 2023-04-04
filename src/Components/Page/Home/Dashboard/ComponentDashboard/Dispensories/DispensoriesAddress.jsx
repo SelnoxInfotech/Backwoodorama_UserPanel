@@ -128,19 +128,19 @@ const DispensoriesAddress = () => {
                                         </div>
 
                                         <div className='col-10'>
-                                            <span>{ele.Store_Address}</span>
+                                            <span>{ele.city_name}/110 mi</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div className='col-12  slider1'>
+                                {/* <div className='col-12  slider1'>
                                     <div className=' col-10 Dispensaries_card_discription'>
                                         <span>Tyonek Alaska  | 110 mi</span>
                                     </div>
-                                </div>
+                                </div> */}
 
                                 <div className='col-12  slider1'>
                                     <div className=' col-10 Dispensaries_card_discription'>
-                                        <span>Medical & Recreational</span>
+                                        <span>{ele.Store_Type}</span>
                                     </div>
                                 </div>
                                 <div className='col-12  slider1'>

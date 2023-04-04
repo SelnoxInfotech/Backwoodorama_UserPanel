@@ -48,7 +48,7 @@ const useStyles = makeStyles({
       color: "#31B665",
       // outline: "1px solid #31B665",
       textTransform: "none",
-      border:"1px solid #31B665"
+      border:"2px solid #31B665"
       // backgroundColor:"#31B665"
 
     },

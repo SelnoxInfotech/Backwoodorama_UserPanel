@@ -117,7 +117,7 @@ a{
 }
 
 /* Active */
- #active{
+ .active{
   outline: 3px solid #31B665;
  }
 /* End */

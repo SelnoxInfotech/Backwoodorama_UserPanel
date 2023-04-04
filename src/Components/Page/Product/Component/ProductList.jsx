@@ -8,14 +8,16 @@ import { Link } from "react-router-dom";
 import _ from "lodash";
 const ProductList = ({ arr }) => {
     const [Price, SetPrice] = React.useState([])
+    const [Item_idq, SetItem] = React.useState('')
+    const [Count] = React.useState(1)
     const [AddTOCard, SetAddToCard] = React.useState(() => {
         const saved = localStorage.getItem("items");
         const initialValue = JSON.parse(saved);
         return initialValue || [];
-      })
-
+    })
+ 
     const Addtocard = (Event) => {
-      
+
 
         const AddData = _.filter(Price, Price => Price.Product_id === Event.id)
         const Arry = {
@@ -25,22 +27,76 @@ const ProductList = ({ arr }) => {
             Store_id: Event.Store_id,
             Image: Event.images,
             Price_index: AddData,
-            StoreName:Event.StoreName
+            StoreName: Event.StoreName,
+            Product_Quantity: Count
         }
-        SetAddToCard( [...AddTOCard, Arry])
-    }
-    React.useEffect(() => {   
-        localStorage.setItem('items', JSON.stringify(AddTOCard))
-    
-    },[AddTOCard])
 
-    function PriceSelect(Product, Item) {
+        // SetAddToCard(prevValue =>
+        //     [...prevValue].map(el =>
+
+        //         el.Product_id === Event.id ? ({ ...el, Product_Quantity: Count+1}) : [...prevValue, Arry]
+
+        //         )
+        // )
+
+        // SetPrice(Price => [...Price, { Product_id: Product, Item_id: Item }]);
+
+       const w =  SetAddToCard(AddTOCard => {
+            return AddTOCard.filter(AddTOCard => AddTOCard.Product_id !== Event.id)
+        })
+        console.log(w)
+
+        SetAddToCard(AddTOCard => [...AddTOCard, {
+            Product_id: Event.id,
+            Product_Name: Event.Product_Name,
+            Prices: Event.Prices,
+            Store_id: Event.Store_id,
+            Image: Event.images,
+            Price_index: AddData,
+            StoreName: Event.StoreName,
+            Product_Quantity: Count + 1
+        }
+        ]);
+
+        // SetAddToCard([...AddTOCard, Arry]) 
+       
+    }
+    React.useEffect(() => {
+        
+        localStorage.setItem('items', JSON.stringify(AddTOCard))
+
+    }, [AddTOCard])
+
+    async function PriceSelect(Product, Item) {
         SetPrice(Price => {
             return Price.filter(Price => Price.Product_id !== Product)
         })
         SetPrice(Price => [...Price, { Product_id: Product, Item_id: Item }]);
+
+        SetItem([Product, Item])
     }
-    
+
+
+    //     const classActive = (ele, id) => {
+    //         Price?.map((data,index) => {
+    //             console.log(id)
+    //             // console.log(data.Product_id === ele && data.Item_id === id)
+    //         //   return (data.Product_id === ele && data.Item_id === id) ? "active prod_cat_btns" : "prod_cat_btns"
+    //             if (data.Product_id === ele && data.Item_id === id)  {
+    //    console.log("sfsafas")
+    //             }
+    //             else 
+    //             {    
+    //                 console.log("fl=a==")
+    //             }
+    //         })
+    //         // return "prod_cat_btns";
+
+    //         console.log(Price)
+
+
+    //     }
+
     const classes = useStyles()
     return (
         <div className="col-12  prod_cat_display">
@@ -79,7 +135,8 @@ const ProductList = ({ arr }) => {
                                             jsondata.map((data, index) => {
                                                 return (
                                                     <div className="col-3 prod_cat_btn_cont mt-2 d-flex" key={index} >
-                                                        <section className="prod_cat_btns "
+                                                        <section className={'prod_cat_btns'}
+                                                            // id={classActive(ele.id, data.id)}
                                                             value={data.id} onClick={() => PriceSelect(ele.id, data.id, data.id)} >
                                                             {data.Weight}
                                                             <p className="rs">{data.Price}$</p>

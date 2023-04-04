@@ -515,7 +515,9 @@
 .prod_main_cont {
   border: 1px solid #dee2e6;
 }
-
+.prod_main_cont:hover{
+  outline: 2px solid #31B665;
+}
 .prod_cat_cont {
   min-width: 100%;
 }
@@ -1043,11 +1045,7 @@
 
 @media(max-width:1000px) {
   .AddProductCartContainer {
-    flex-direction: column;
-    position: absolute;
-    left: 0px;
-    /* width: 100% !important; */
-
+    display: contents;
   }
 
   .AddProduct_Cart_Btn {
