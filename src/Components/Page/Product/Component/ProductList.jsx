@@ -15,7 +15,7 @@ const ProductList = ({ arr }) => {
         const initialValue = JSON.parse(saved);
         return initialValue || [];
     })
- 
+
     const Addtocard = (Event) => {
 
 
@@ -31,38 +31,25 @@ const ProductList = ({ arr }) => {
             Product_Quantity: Count
         }
 
-        // SetAddToCard(prevValue =>
-        //     [...prevValue].map(el =>
+        SetAddToCard(AddTOCard.map((Add) => {
+            if (Add.Product_id === Event.id) {
+                if (AddData !== []) {
+                    return { ...Add, Price_index: AddData ,Product_Quantity: Add.Product_Quantity + 1 
+                    }
+                }
+                else {
+                    return { ...Add, Product_Quantity: Add.Product_Quantity + 1 }
+                }
+            }
 
-        //         el.Product_id === Event.id ? ({ ...el, Product_Quantity: Count+1}) : [...prevValue, Arry]
-
-        //         )
-        // )
-
-        // SetPrice(Price => [...Price, { Product_id: Product, Item_id: Item }]);
-
-       const w =  SetAddToCard(AddTOCard => {
-            return AddTOCard.filter(AddTOCard => AddTOCard.Product_id !== Event.id)
-        })
-        console.log(w)
-
-        SetAddToCard(AddTOCard => [...AddTOCard, {
-            Product_id: Event.id,
-            Product_Name: Event.Product_Name,
-            Prices: Event.Prices,
-            Store_id: Event.Store_id,
-            Image: Event.images,
-            Price_index: AddData,
-            StoreName: Event.StoreName,
-            Product_Quantity: Count + 1
-        }
-        ]);
+            return Add
+        }))
 
         // SetAddToCard([...AddTOCard, Arry]) 
-       
+
     }
     React.useEffect(() => {
-        
+        console.log(AddTOCard)
         localStorage.setItem('items', JSON.stringify(AddTOCard))
 
     }, [AddTOCard])
