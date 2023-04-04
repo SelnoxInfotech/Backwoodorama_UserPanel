@@ -19,33 +19,34 @@ const ProductList = ({ arr }) => {
     const Addtocard = (Event) => {
 
 
-        const AddData = _.filter(Price, Price => Price.Product_id === Event.id)
+        const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
+        var PriceIndex = AddData === [] ? "" : AddData;
         const Arry = {
             Product_id: Event.id,
             Product_Name: Event.Product_Name,
             Prices: Event.Prices,
             Store_id: Event.Store_id,
             Image: Event.images,
-            Price_index: AddData,
+            Price_index: PriceIndex,
             StoreName: Event.StoreName,
             Product_Quantity: Count
         }
 
-        SetAddToCard(AddTOCard.map((Add) => {
-            if (Add.Product_id === Event.id) {
-                if (AddData !== []) {
-                    return { ...Add, Price_index: AddData ,Product_Quantity: Add.Product_Quantity + 1 
-                    }
-                }
-                else {
-                    return { ...Add, Product_Quantity: Add.Product_Quantity + 1 }
-                }
-            }
+        // SetAddToCard(AddTOCard.map((Add) => {
+        //     if (Add.Product_id === Event.id) {
+        //         // if (AddData !== []) {
+        //         //     return { ...Add, Price_index: AddData ,Product_Quantity: Add.Product_Quantity + 1 
+        //         //     }
+        //         // }
+        //         // else {
+        //             return { ...Add,Price_index: PriceIndex , Product_Quantity: Add.Product_Quantity + 1 }
+        //         // }
+        //     }
 
-            return Add
-        }))
+        //     return Add
+        // }))
 
-        // SetAddToCard([...AddTOCard, Arry]) 
+        SetAddToCard([...AddTOCard, Arry]) 
 
     }
     React.useEffect(() => {
