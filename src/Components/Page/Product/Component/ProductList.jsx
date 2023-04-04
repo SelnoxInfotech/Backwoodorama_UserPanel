@@ -1,5 +1,4 @@
 import React from "react";
-import { MdOutlineShoppingCart } from "react-icons/md"
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import { AiFillStar } from "react-icons/ai";
@@ -9,7 +8,6 @@ import _ from "lodash";
 const ProductList = ({ arr }) => {
     const [Price, SetPrice] = React.useState([])
     const [Item_idq, SetItem] = React.useState('')
-    const [Count] = React.useState(1)
     const [AddTOCard, SetAddToCard] = React.useState(() => {
         const saved = localStorage.getItem("items");
         const initialValue = JSON.parse(saved);
@@ -17,8 +15,6 @@ const ProductList = ({ arr }) => {
     })
 
     const Addtocard = (Event) => {
-
-
         const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
         var PriceIndex = AddData === [] ? "" : AddData;
         const Arry = {
@@ -29,25 +25,25 @@ const ProductList = ({ arr }) => {
             Image: Event.images,
             Price_index: PriceIndex,
             StoreName: Event.StoreName,
-            Product_Quantity: Count
+            Product_Quantity: 1
         }
-
-        // SetAddToCard(AddTOCard.map((Add) => {
-        //     if (Add.Product_id === Event.id) {
-        //         // if (AddData !== []) {
-        //         //     return { ...Add, Price_index: AddData ,Product_Quantity: Add.Product_Quantity + 1 
-        //         //     }
-        //         // }
-        //         // else {
-        //             return { ...Add,Price_index: PriceIndex , Product_Quantity: Add.Product_Quantity + 1 }
-        //         // }
-        //     }
-
-        //     return Add
-        // }))
-
-        SetAddToCard([...AddTOCard, Arry]) 
-
+        const Status = AddTOCard.find((data) => {
+            if (data.Product_id === Event.id) {
+                return true
+            }
+            return false
+        })
+        if (Status !== undefined) {
+            SetAddToCard(AddTOCard.map((Add) => {
+                if (Add.Product_id === Event.id) {
+                    return { ...Add, Price_index: PriceIndex, Product_Quantity: Add.Product_Quantity + 1 }
+                }
+                return Add
+            }))
+        }
+        else (
+            SetAddToCard([...AddTOCard, Arry])
+        )
     }
     React.useEffect(() => {
         console.log(AddTOCard)
