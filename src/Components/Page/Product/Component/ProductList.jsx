@@ -111,7 +111,7 @@ const ProductList = ({ arr }) => {
 
                                     <Box
                                         className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
-                                        style={{ width: "83%" }}
+                                        style={{ width: "77%" }}
                                     >
                                         <LoadingButton onClick={() => { Addtocard(ele) }} variant="outlined">Add to cart</LoadingButton>
                                     </Box>
