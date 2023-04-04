@@ -94,18 +94,10 @@ const Product = () => {
 
                     </div>
                     <div className="col-12   productCat_cont">
-                        <div className="col-2  prod_cat_left_sec center d-block mt-4">
-                            <div className="col-12 p-2 fontStyle">
-                                <h5>Shop by category</h5>
-
-                            </div>
-                            {/* <div className="col-12 d-flex prodCat_gap p-2" >
-                                <SearchBar className={classes.muiSearchIcon} />
-
-                            </div> */}
+                     
+                           
 
                             <ProductFilter ProductFilterData={ProductFilterData} />
-                        </div>
                         <div className="col-9  mt-4 prod_cat_right_sec ">
                             <ProductList arr={arr1} btn={weeBtn} />
 

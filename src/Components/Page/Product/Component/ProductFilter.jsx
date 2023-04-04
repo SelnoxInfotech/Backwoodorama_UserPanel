@@ -24,7 +24,8 @@ const ProductFilter = ({ ProductFilterData }) => {
         SetOpenCategoryEvent(Id)
     }
     return (
-        <>
+        <div className="col-2  prod_cat_left_sec  center  mt-4">
+
             {ProductFilterData.map((ele, index) => {
                 const { Id, Name, Type1, Type2, Price, Icons } = ele;
                 return (
@@ -77,7 +78,7 @@ const ProductFilter = ({ ProductFilterData }) => {
             })}
 
 
-        </>
+        </div>
     )
 }
 export default ProductFilter
