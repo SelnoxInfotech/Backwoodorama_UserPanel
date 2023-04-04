@@ -7,11 +7,15 @@ import useStyles from "../../../../Style"
 import { Link } from "react-router-dom";
 import _ from "lodash";
 const ProductList = ({ arr }) => {
-
     const [Price, SetPrice] = React.useState([])
-    const [AddTOCard, SetAddToCard] = React.useState([])
+    const [AddTOCard, SetAddToCard] = React.useState(() => {
+        const saved = localStorage.getItem("items");
+        const initialValue = JSON.parse(saved);
+        return initialValue || [];
+      })
 
     const Addtocard = (Event) => {
+      
 
         const AddData = _.filter(Price, Price => Price.Product_id === Event.id)
         const Arry = {
@@ -20,43 +24,23 @@ const ProductList = ({ arr }) => {
             Prices: Event.Prices,
             Store_id: Event.Store_id,
             Image: Event.images,
-            Price_index: AddData
+            Price_index: AddData,
+            StoreName:Event.StoreName
         }
-        // SetAddToCard((AddTOCard) =>
-        //     [...AddTOCard, Arry]
-        // )
-        // SetAddToCard({...AddTOCard, Arry})
-        SetAddToCard(AddTO => [...AddTO, Arry]);
- 
-      
+        SetAddToCard( [...AddTOCard, Arry])
     }
- 
-  
-    React.useEffect(() => { 
-     
-        var LocalItem = JSON.parse(localStorage.getItem('items'))
-               
-        if (LocalItem === null) {
-            // Items.push(Arry);
-            localStorage.setItem('items', JSON.stringify(AddTOCard))
-        }
-        else {
-         LocalItem.push(AddTOCard);
-            localStorage.setItem('items', JSON.stringify(LocalItem));
-        }
-        // localStorage.clear()  
-        console.log( AddTOCard);
-            //    
-            }, [AddTOCard])
-       
+    React.useEffect(() => {   
+        localStorage.setItem('items', JSON.stringify(AddTOCard))
+    
+    },[AddTOCard])
+
     function PriceSelect(Product, Item) {
         SetPrice(Price => {
             return Price.filter(Price => Price.Product_id !== Product)
         })
         SetPrice(Price => [...Price, { Product_id: Product, Item_id: Item }]);
     }
-
-
+    
     const classes = useStyles()
     return (
         <div className="col-12  prod_cat_display">

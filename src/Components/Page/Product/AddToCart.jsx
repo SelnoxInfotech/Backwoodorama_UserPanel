@@ -5,14 +5,21 @@ import { RiDeleteBin6Line } from "react-icons/ri"
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
-
+import { json } from "react-router-dom";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 const AddToCart = () => {
     const classes = useStyles()
+const [LocalData,SetLocalData]= React.useState([])
+      
 
-     React.useEffect(()=>{
-      const item =    localStorage.getItem('item')
-      console.log(item)
-     },[])
+React.useEffect(()=>{
+    const item = localStorage.getItem('items')
+    SetLocalData(JSON.parse(item))
+},[])
+
+function DeleteItem (Id){
+    console.log(LocalData)
+}
 
 
     return (
@@ -25,23 +32,24 @@ const AddToCart = () => {
                     <div className="col-12  AddProductCartContainer">
 
                         <div className="col-10  AddProductCartContainerinner">
-                            {/* {AddProduct_CartArr.map((ele, index) => {
+                            {LocalData?.map((ele, index) => {
+
                                 return (
                                     <div className="col-12 border Add_product_cart_left_container_item" key={index}>
 
                                         <div className="col-12  Add_prod_item_image">
 
                                             <div className="col-1 Add_prod_item_image_cont">
-                                                <img src="./image/wee_img1.jpeg" alt="imag not found" />
+                                                <LazyLoadImage  src={`http://52.3.255.128:8000//${ele.Image[0].image}`} alt="imag not found" />
                                             </div>
                                             <div className="col-8 Add_prod_content_cont p-2">
                                                 <div className="col-12 fontStyle  add_prod_para_font">
-                                                    <h5>{ele.head} </h5>
+                                                    <h5>{ele.Product_Name}  </h5>
 
                                                 </div>
 
                                                 <div className="col-12 fontStyle  add_prod_para_margin add_prod_cart_p">
-                                                    <p>by careleaf</p>
+                                                    <p>{ele.StoreName}</p>
 
                                                 </div>
                                                 <div className="col-12 fontStyle  add_prod_para_margin d-flex">
@@ -69,7 +77,7 @@ const AddToCart = () => {
                                             </div>
                                             <div className="col-3 ">
                                                 <div className="col-10 fontStyle Add_prod_cart_amount  mt-4 ">
-                                                    <RiDeleteBin6Line />
+                                                    <RiDeleteBin6Line onClick={(()=>{DeleteItem(ele.Product_id)})} />
                                                 </div>
 
                                                 <div className="col-10 fontStyle Add_prod_cart_amount_right_side   d-flex">
@@ -82,7 +90,7 @@ const AddToCart = () => {
 
                                     </div>
                                 )
-                            })} */}
+                            })}
                         </div>
                         <div className="col-2 border  p-2 Add_product_cart_right_container_summary ">
                             <div className="col-12 fontStyle AddProdCartFont_weight">

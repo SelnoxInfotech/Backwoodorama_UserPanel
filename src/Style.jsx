@@ -58,16 +58,15 @@ const useStyles = makeStyles({
       border:"1px solid #31B665"
     },
   },
-
   disPen_Icons:{
     fontSize: "large",
     color:"#31B665",
     
   },
   muiSearchIcon:{
-    "& .MuiSvgIcon-root":{
-      color:"#31B665"
-    }
+    // "& .MuiSvgIcon-root":{
+    //   color:"#31B665"
+    // }
   }
  
 });
