@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 const CommunityType = () => {
     return (
         <>
-            <div className="container-fluid mb-4">
+            <div className="container-fluid mb-4 mt-4">
                 <div className="row">
 
                     <div className="col-12 d-flex" style={{ background: "#E8FFF1" }}>

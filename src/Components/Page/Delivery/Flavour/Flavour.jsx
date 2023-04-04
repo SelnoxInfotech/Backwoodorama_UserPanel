@@ -12,15 +12,15 @@ const Flavour = () => {
             <div className="container-fluid" >
                 <div className="row center">
                     <div className="col-12 d-flex border flavCont p-0">
-                        <div className="col-4">
+                        <div className="col-2">
                             <div className="col-12 flav_img_div">
-                                <div className="col-10 flav_img_inner_div">
+                                <div className="col-4 flav_img_inner_div">
                                 <img src="./image/logo2.png" alt="img_not_found" style={{pointerEvents: "none"}} />
 
                                 </div>
                             </div>
                         </div>
-                        <div className="col-8 p-2">
+                        <div className="col-10 p-2">
                             <div className="col-12 comm_head_prop fontStyle">
                                 <p>Urban Flavours Delivery Berkeley </p>
 

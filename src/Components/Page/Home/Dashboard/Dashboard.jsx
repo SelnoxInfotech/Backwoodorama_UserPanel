@@ -4,6 +4,7 @@ import DispensoriesAddress from "./ComponentDashboard/Dispensories/DispensoriesA
 import LatestServices from "./ComponentDashboard/LatestArticle/LatestServices";
 import WeedProduct from "./ComponentDashboard/Weed/WeedProduct";
 import CommunityType from "./ComponentDashboard/Community/CommunityType";
+import Footer from "../../../Component/Footer/Footer";
 // import Flavour from "../../Delivery/Flavour/Flavour";
 export default function Dashboard() {
 
@@ -19,6 +20,7 @@ export default function Dashboard() {
             <LatestServices></LatestServices>
             
             <CommunityType></CommunityType> 
+            <Footer></Footer>
         </div>
     )
 }
