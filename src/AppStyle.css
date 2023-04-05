@@ -1332,4 +1332,9 @@ border-radius: 10px;
 .signup_btn{
   color: #909090;
 }
+.signup_head p{
+  color: #333333;
+  font-size: 24px;
+
+}
 /* end */

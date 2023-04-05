@@ -10,8 +10,13 @@ const Signup = () => {
         <>
             <div className="container signup_margins_top">
                 <div className="row center">
-                    <div className="col-lg-4 col-md-6 col-sm-6 col-10 signup_container">
-                        <h1>signup</h1>
+                    <div className="col-lg-4 col-md-6 col-sm-8 col-10 signup_container">
+                        <div className='row'>
+                            <div className='col-12 signup_head'>
+                            <p>signup</p>
+
+                            </div>
+                            </div>
                         <div className='row'>
                             <label>Email</label>
 
@@ -30,10 +35,10 @@ const Signup = () => {
 
                         </div>
                         <div className='row center signup_margins_top'>
-                                <div className='col-lg-6 col-6 signup_btn'>
+                                <div className='col-lg-6 col-md-6 col-6 signup_btn'>
                                 <p>Already a member?</p>
                                 </div>
-                                <div className='col-lg-2 col-2'>
+                                <div className='col-lg-2 col-md-2 col-2'>
                                  <Button variant="outlined">Signin</Button>
                                 </div>
 
