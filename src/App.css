@@ -331,3 +331,6 @@ border-radius: 10px;
 
 
 
+.prod_main_cont:hover{
+  outline: 2px solid #31B665;
+}
