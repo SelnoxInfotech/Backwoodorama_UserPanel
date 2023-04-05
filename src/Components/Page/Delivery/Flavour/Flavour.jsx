@@ -15,7 +15,7 @@ const Flavour = () => {
                         <div className="col-2 flav_image_col_two">
                             <div className="col-12 flav_img_div">
                                 <div className="col-4 flav_img_inner_div">
-                                <img src="./image/logo2.png" alt="img_not_found" style={{pointerEvents: "none"}} />
+                                    <img src="./image/logo2.png" alt="img_not_found" style={{ pointerEvents: "none" }} />
 
                                 </div>
                             </div>
@@ -40,9 +40,29 @@ const Flavour = () => {
 
                                         </div>
                                     )
-                                })}                             
+                                })}
                             </div>
-                           
+                            {/* <div className="row">
+                                <div className="col-lg-2 col-md-4 col-sm-6  flav_mobile_btn">
+                                <button>mo-number</button>
+
+                                </div>
+                                <div className="col-lg-2 col-md-4 col-sm-6  flav_email_btn">
+                                <button>Email</button>
+
+                                </div>
+
+                            </div> */}
+                            <div className="col-12 flavour_mobile_email_btn">
+                                <div className="col-2  flav_mobile_btn">
+                                    <button>mo-number</button>
+                                </div>
+                                <div className="col-2  flav_email_btn">
+                                    <button>Email</button>
+                                </div>
+
+                            </div>
+
 
                         </div>
 

@@ -224,7 +224,28 @@
   flex-wrap: wrap;
 
 }
+.flavour_mobile_email_btn{
+  display: flex;
+  margin-top: 10px;
+}
+.flav_mobile_btn button{
+  border-style: none;
+  /* width: fit-content; */
+  width: 150px;
+  background-color: #FFFFFF;
+  padding:4px;
+  border-radius: 15px;
+  border: 1px solid black;
+}
+.flav_email_btn button{
+  border-style: none;
+  width: 150px;
+  border-radius: 15px;
+  padding:4px; 
+  border: 1px solid black;
+  background-color: #FFFFFF;
 
+}
 .flavo_btns {
   border-style: none;
   width: 150px;
