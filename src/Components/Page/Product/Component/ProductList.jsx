@@ -110,7 +110,7 @@ const ProductList = ({ arr }) => {
                                     <p className='fontStyle common_sub_head'>Rating</p><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons} /></span>
                                 </div>
                                 <div className="col-12   prod_cat_cont_btn px-2">
-                                    {ele.Prices?.map((ele1, index) => {
+                                    {ele.Prices?.map((ele1, ndex) => {
                                         var JsonObject = JSON.parse(JSON.stringify(ele1))
                                         var jsondata = JSON.parse(JsonObject.Price)
                                         return (
@@ -152,3 +152,43 @@ const ProductList = ({ arr }) => {
     )
 }
 export default ProductList
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// if (Status !== undefined) {
+//     SetAddToCard(AddTOCard.map((Add) => {
+//         if (AddData.length !== 0) {
+           
+//             if (AddData[0]?.Item_id === Add.Price_index[0]?.Item_id) {
+
+//                 return { ...Add, Product_Quantity: Add.Product_Quantity + 1 }
+//             }
+//             else {
+//                 return { ...Add, Price_index: AddData, Product_Quantity: 1 }
+//             }
+//         }
+        
+//         else if ( Add.Product_id === Event.id  Add.Price_index.length!==0 || AddData[0]?.Item_id === Add.Price_index[0]?.Item_id) {
+            
+//             return { ...Add, Product_Quantity: Add.Product_Quantity + 1}
+//         }
+//         return Add
+//     }))

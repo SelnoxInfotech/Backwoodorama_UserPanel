@@ -11,27 +11,28 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 const AddToCart = () => {
     const classes = useStyles()
     const [LocalData, SetLocalData] = React.useState([])
-    const [Delete , SetDeleteItem] = React.useState([])
     React.useEffect(() => {
         const item = localStorage.getItem('items')
         SetLocalData(JSON.parse(item))
     }, [])
 
-    
+
     function DeleteItem(Id) {
-        var obj = JSON.parse(localStorage.getItem("items")) ;
-        for (var i = 0; i < obj.length; i++) { 
-          if (obj[i].Product_id === Id) { 
-            obj.splice(i, 1);
-            break; 
-          }
+        var obj = JSON.parse(localStorage.getItem("items"));
+        for (var i = 0; i < obj.length; i++) {
+            if (obj[i].Product_id === Id) {
+                obj.splice(i, 1);
+                break;
+            }
         }
-        localStorage.setItem("items", JSON.stringify(obj)); 
+        localStorage.setItem("items", JSON.stringify(obj));
         const item = localStorage.getItem('items')
         SetLocalData(JSON.parse(item))
-      }
-      
+    }
 
+function Total(e) {
+    console.log(e)
+}
 
 
 
@@ -76,7 +77,7 @@ const AddToCart = () => {
 
                                                         </div>
                                                         <div className="col-2 addprod_quant">
-                                                            <p>1</p>
+                                                            <p>{ele.Product_Quantity}</p>
                                                         </div>
                                                         <div className="col-4">
                                                             <button className="add_prod_cart_btn"><AiOutlinePlus /></button>
@@ -94,7 +95,19 @@ const AddToCart = () => {
                                                 </div>
 
                                                 <div className="col-10 fontStyle Add_prod_cart_amount_right_side   d-flex">
-                                                    <p>Amount</p>  <span className="add_prod_span_amount fontStyle">$64</span>
+                                                    {ele?.Prices.map((ele1, index) => {
+                                                        var JsonObject = JSON.parse(JSON.stringify(ele1))
+                                                        var jsondata = JSON.parse(JsonObject.Price)
+                                                        return (
+
+                                                            <div key={index} >
+                                                                <p> Amount</p>  <span className="add_prod_span_amount fontStyle" onChange={Total(jsondata[0].Price)} >{jsondata[0].Price}</span>
+                                                            </div>
+                                                        )
+                                                    })
+
+                                                    }
+
 
                                                 </div>
                                             </div>
