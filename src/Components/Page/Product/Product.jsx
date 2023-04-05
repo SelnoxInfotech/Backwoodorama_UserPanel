@@ -46,9 +46,9 @@ const Product = () => {
     const ProductFilterData = [{ Id: 1, Name: "Category", Type1: "Flower", Type2: "CBD", Icons: <BsLayoutSplit className={classes.muiIcons} /> },
     { Id: 2, Name: "Brand", Type1: "Leafly", Type2: "CBD", Icons: <MdOutlineBrandingWatermark className={classes.muiIcons} /> },
     { Id: 3, Name: "Strain", Type1: "Indica", Type2: "Hybrid", Icons: <BsStripe className={classes.muiIcons} /> },
-    { Id: 4, Name: "Price Range", Type1: "Any", Type2: "$25", Price: "$100", Icons: <MdOutlinePriceChange className={classes.muiIcons} /> },
+    { Id: 4, Name: "Price", Type1: "Any", Type2: "$25", Price: "$100", Icons: <MdOutlinePriceChange className={classes.muiIcons} /> },
     { Id: 5, Name: "Weight", Type1: "Any", Type2: "$25", Price: "$100", Icons: <GiWeightScale className={classes.muiIcons} /> },
-    { Id: 6, Name: "Product Type", Type1: "Medical", Type2: "Recreational", Icons: <RiProductHuntLine className={classes.muiIcons} /> },
+    { Id: 6, Name: "Product", Type1: "Medical", Type2: "Recreational", Icons: <RiProductHuntLine className={classes.muiIcons} /> },
     ]
     const handleChange = (event) => {
         SetProduct(event.target.value);
@@ -60,7 +60,7 @@ const Product = () => {
                 <Flavour></Flavour>
                 <div className="row">
                     <div className="col-12 mt-4">
-                    <ProductCategorySlider></ProductCategorySlider>
+                        <ProductCategorySlider></ProductCategorySlider>
 
                     </div>
 
@@ -93,12 +93,21 @@ const Product = () => {
                         </div>
 
                     </div>
-                    <div className="col-12   productCat_cont">
-                     
-                           
+                    {/* <div className="row">
+                        <div className="col-lg-2 col-md-2 col-sm-12">
+                        <ProductFilter ProductFilterData={ProductFilterData} />
+                        </div>
+                        <div className="col-lg-10 col-md-10 col-sm-12">
+                        <ProductList arr={arr1} btn={weeBtn} />
+                        </div>
 
-                            <ProductFilter ProductFilterData={ProductFilterData} />
-                        <div className="col-9  mt-4 prod_cat_right_sec ">
+                    </div> */}
+                    <div className="col-12   productCat_cont">
+
+
+
+                        <ProductFilter ProductFilterData={ProductFilterData} />
+                        <div className="col-10 mt-4 prod_cat_right_sec">
                             <ProductList arr={arr1} btn={weeBtn} />
 
 

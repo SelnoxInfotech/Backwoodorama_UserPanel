@@ -1,16 +1,12 @@
 import React from "react"
-import { BsLayoutSplit } from "react-icons/bs"
-import { BsDropletHalf } from "react-icons/bs"
 import { FiChevronRight } from "react-icons/fi"
 import { FiChevronLeft } from "react-icons/fi"
 import useStyles from "../../../../Style"
 const ProductFilter = ({ ProductFilterData }) => {
     const classes = useStyles()
 
-    // const [OpenEvent, SetOpenEvent] = React.useState(true)
     const [OpenEvent, SetOpenEvent] = React.useState(null);
-    const [OpenCategoryEvent, SetOpenCategoryEvent] = React.useState(null);
-    const Category = [{ Id: 1, Name: "Rose", Type: "white" }, { Id: 2, Name: "Lotus", Type: "white" },]
+
 
     const HandleOpenEvent = (Id) => {
         if (OpenEvent === Id) {
@@ -20,11 +16,9 @@ const ProductFilter = ({ ProductFilterData }) => {
         SetOpenEvent(Id)
 
     }
-    const CategoryEventHandler = (Id) => {
-        SetOpenCategoryEvent(Id)
-    }
+
     return (
-        <div className="col-2  prod_cat_left_sec  center  mt-4">
+        <div className="col-lg-2 col-md-12 col-sm-12  prod_cat_left_sec  center  mt-4">
 
             {ProductFilterData.map((ele, index) => {
                 const { Id, Name, Type1, Type2, Price, Icons } = ele;
@@ -34,7 +28,7 @@ const ProductFilter = ({ ProductFilterData }) => {
                             <div className="col-1 brand_left_arrow">
                                 <p>{(Id === OpenEvent) ? <FiChevronLeft className={classes.muiIcons} /> : ""}</p>
                             </div>
-                            <div className="col-1">
+                            <div className="col-1 prod_filter_icon">
                                 <p>{Icons}</p>
                             </div>
                             <div className="col-6 fontStyle product_filter_name">
@@ -50,19 +44,7 @@ const ProductFilter = ({ ProductFilterData }) => {
                         {(Id === OpenEvent) ? (<div className="col-12 product_category_border" id="Related_Brand_Data">
 
                             <div className="col-10 px-2 ">
-                                {/* <div className="col-6">
-                                    {(Type1 === "Flower") ? Category.map((CategoryItem, Index) => {
-                                        const { Id, Name, Type } = CategoryItem;
-                                        return (
-                                            <div className="col-12" onClick={() => CategoryEventHandler(Id)}>
-                                               <p>{Type1}</p>
-                                                {(Id===OpenCategoryEvent)?(<div className="col-10">{Name}</div>):" "}
-                                                
-                                            </div>
-                                        )
-                                    }) : (<p>{Type1}</p>)}
-
-                                </div> */}
+                              
                                 <p>{Type1}</p>
                             </div>
                             <div className="col-10 px-2 py-0 ">
