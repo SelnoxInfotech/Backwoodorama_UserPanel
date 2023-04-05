@@ -7,19 +7,32 @@ import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
 import { json } from "react-router-dom";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 const AddToCart = () => {
     const classes = useStyles()
-const [LocalData,SetLocalData]= React.useState([])
+    const [LocalData, SetLocalData] = React.useState([])
+    const [Delete , SetDeleteItem] = React.useState([])
+    React.useEffect(() => {
+        const item = localStorage.getItem('items')
+        SetLocalData(JSON.parse(item))
+    }, [])
+
+    
+    function DeleteItem(Id) {
+        var obj = JSON.parse(localStorage.getItem("items")) ;
+        for (var i = 0; i < obj.length; i++) { 
+          if (obj[i].Product_id === Id) { 
+            obj.splice(i, 1);
+            break; 
+          }
+        }
+        localStorage.setItem("items", JSON.stringify(obj)); 
+        const item = localStorage.getItem('items')
+        SetLocalData(JSON.parse(item))
+      }
       
 
-React.useEffect(()=>{
-    const item = localStorage.getItem('items')
-    SetLocalData(JSON.parse(item))
-},[])
 
-function DeleteItem (Id){
-    console.log(LocalData)
-}
 
 
     return (
@@ -40,7 +53,7 @@ function DeleteItem (Id){
                                         <div className="col-12  Add_prod_item_image">
 
                                             <div className="col-1 Add_prod_item_image_cont">
-                                                <LazyLoadImage  src={`http://52.3.255.128:8000//${ele.Image[0].image}`} alt="imag not found" />
+                                                <LazyLoadImage src={`http://52.3.255.128:8000//${ele.Image[0].image}`} alt="imag not found" />
                                             </div>
                                             <div className="col-8 Add_prod_content_cont p-2">
                                                 <div className="col-12 fontStyle  add_prod_para_font">
@@ -59,14 +72,14 @@ function DeleteItem (Id){
                                                 <div className="col-12 add_prod_btn_amount">
                                                     <div className="col-2 border Add_prod_sub_minus_cont d-flex">
                                                         <div className="col-4">
-                                                            <button className="add_prod_cart_btn"><GrFormSubtract  /></button>
+                                                            <button className="add_prod_cart_btn"><GrFormSubtract /></button>
 
                                                         </div>
                                                         <div className="col-2 addprod_quant">
                                                             <p>1</p>
                                                         </div>
                                                         <div className="col-4">
-                                                            <button className="add_prod_cart_btn"><AiOutlinePlus  /></button>
+                                                            <button className="add_prod_cart_btn"><AiOutlinePlus /></button>
 
                                                         </div>
 
@@ -77,7 +90,7 @@ function DeleteItem (Id){
                                             </div>
                                             <div className="col-3 ">
                                                 <div className="col-10 fontStyle Add_prod_cart_amount  mt-4 ">
-                                                    <RiDeleteBin6Line onClick={(()=>{DeleteItem(ele.Product_id)})} />
+                                                    <RiDeleteBin6Line onClick={(() => { DeleteItem(ele.Product_id) })} />
                                                 </div>
 
                                                 <div className="col-10 fontStyle Add_prod_cart_amount_right_side   d-flex">
@@ -94,7 +107,7 @@ function DeleteItem (Id){
                         </div>
                         <div className="col-2 border  p-2 Add_product_cart_right_container_summary ">
                             <div className="col-12 fontStyle AddProdCartFont_weight">
-                            <h5>Order Summmary</h5>
+                                <h5>Order Summmary</h5>
 
                             </div>
                             <div className="col-12 order_summary_flex">
@@ -139,28 +152,28 @@ function DeleteItem (Id){
                             </div>
                             <div className="col-12 order_Summary_total_container">
 
-                            <div className="col-12 order_summary_flex">
-                                <div className="col-6 fontStyle add_prod_cart_summary_p">
-                                    <p>Total</p>
+                                <div className="col-12 order_summary_flex">
+                                    <div className="col-6 fontStyle add_prod_cart_summary_p">
+                                        <p>Total</p>
+                                    </div>
+                                    <div className="col-2 fontStyle">
+                                        <p>$1200</p>
+                                    </div>
+
                                 </div>
-                                <div className="col-2 fontStyle">
-                                    <p>$1200</p>
+                                <div className="col-12 add_prod_cart_p">
+                                    <p>Taxes are Shows</p>
+
                                 </div>
+                                <div className="col-12 AddProd_cart_center_btn">
+                                    <Box
+                                        className={` add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
 
-                            </div>
-                            <div className="col-12 add_prod_cart_p">
-                            <p>Taxes are Shows</p>
+                                    >
+                                        <LoadingButton variant="outlined">Checkout</LoadingButton>
+                                    </Box>
 
-                            </div>
-                            <div className="col-12 AddProd_cart_center_btn">
-                            <Box
-                                className={` add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
-
-                            >
-                                <LoadingButton variant="outlined">Checkout</LoadingButton>
-                            </Box>
-
-                            </div>
+                                </div>
                             </div>
 
 

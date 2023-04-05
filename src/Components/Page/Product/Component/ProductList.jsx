@@ -13,7 +13,6 @@ const ProductList = ({ arr }) => {
         const initialValue = JSON.parse(saved);
         return initialValue || [];
     })
-
     const Addtocard = (Event) => {
         const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
         var PriceIndex = AddData === [] ? "" : AddData;
@@ -38,6 +37,7 @@ const ProductList = ({ arr }) => {
                 if (Add.Product_id === Event.id) {
                     return { ...Add, Price_index: PriceIndex, Product_Quantity: Add.Product_Quantity + 1 }
                 }
+                
                 return Add
             }))
         }
@@ -46,9 +46,7 @@ const ProductList = ({ arr }) => {
         )
     }
     React.useEffect(() => {
-        console.log(AddTOCard)
         localStorage.setItem('items', JSON.stringify(AddTOCard))
-
     }, [AddTOCard])
 
     async function PriceSelect(Product, Item) {
