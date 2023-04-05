@@ -1,4 +1,15 @@
-import React from "react"
+import React from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import Flavour from "../../../../Delivery/Flavour/Flavour";
+import ProductCategorySlider from "../../../../Product/ProductCategorySlider";
+import SearchBar from "material-ui-search-bar";
+import useStyles from "../../../../../../Style"
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import ProductFilter from "../../../../Product/Component/ProductFilter";
+import ProductList from "../../../../Product/Component/ProductList";
 import { BsLayoutSplit } from "react-icons/bs"
 import { BsDropletHalf } from "react-icons/bs"
 import { MdOutlineBrandingWatermark } from "react-icons/md"
@@ -6,46 +17,32 @@ import { MdOutlinePriceChange } from "react-icons/md"
 import { BsStripe } from "react-icons/bs"
 import { GiWeightScale } from "react-icons/gi"
 import { RiProductHuntLine } from "react-icons/ri"
-import ProductList from "./Component/ProductList"
-import Axios from "axios"
-import Flavour from "../Delivery/Flavour/Flavour"
-import ProductFilter from "./Component/ProductFilter"
-import useStyles from "../../../Style"
-import SearchBar from "material-ui-search-bar";
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormHelperText from '@mui/material/FormHelperText';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import ProductCategorySlider from "./ProductCategorySlider"
-const Product = () => {
+export default function DispensoriesProduct() {
+    const { id } = useParams();
     const classes = useStyles()
-
-    const [arr1, Setarr1] = React.useState([])
     const [Product, SetProduct] = React.useState('');
+    const [DespensariesData, SetDespensariesData] = React.useState([])
+    const [Despen , SetDespens] = React.useState([])
+    const handleChange = (event) => {
+        SetProduct(event.target.value);
+    };
+
+
+
     React.useEffect(() => {
-        Axios("http://52.3.255.128:8000/UserPanel/Get-Product/", {
 
-
+        axios.get(`http://52.3.255.128:8000/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
         }).then(response => {
-            Setarr1(response.data)
-            // SetProduct(Product => ({ ...Product, Category: response.data?.data[0].id }))
 
+            SetDespensariesData(response.data)
+        })
+        axios.get(`http://52.3.255.128:8000/UserPanel/Get-DispensaryByid/${id}`, {
+        }).then(response => {
 
-        }).catch(
-            function (error) {
-
-                // SetProduct(Product => ({ ...Product, discount: "None" }))
-            })
+            SetDespens(response.data)
+            
+        })
     }, [])
-
-
-    const weeBtn = [{ quant: "1gms", rs: "121" }, { quant: "2gms", rs: "23" }, { quant: "3gms", rs: "25" },
-    { quant: "4gms", rs: "26" }, { quant: "5gms", rs: "27" }, { quant: "6gms", rs: "28" }, { quant: "7gms", rs: "29" }]
-
-    const delBtn = [{ del: "Delivery Only" }, { del: "Closed Open" }, { del: "Medical and recreational" }, { del: "Licence and Information" }
-    , { del: "order only delivery" }]
-
     const ProductFilterData = [{ Id: 1, Name: "Category", Type1: "Flower", Type2: "CBD", Icons: <BsLayoutSplit className={classes.muiIcons} /> },
     { Id: 2, Name: "Brand", Type1: "Leafly", Type2: "CBD", Icons: <MdOutlineBrandingWatermark className={classes.muiIcons} /> },
     { Id: 3, Name: "Strain", Type1: "Indica", Type2: "Hybrid", Icons: <BsStripe className={classes.muiIcons} /> },
@@ -53,14 +50,12 @@ const Product = () => {
     { Id: 5, Name: "Weight", Type1: "Any", Type2: "$25", Price: "$100", Icons: <GiWeightScale className={classes.muiIcons} /> },
     { Id: 6, Name: "Product", Type1: "Medical", Type2: "Recreational", Icons: <RiProductHuntLine className={classes.muiIcons} /> },
     ]
-    const handleChange = (event) => {
-        SetProduct(event.target.value);
-    };
-
+    const delBtn = [{ del: "Delivery Only" }, { del: "Closed Open" }, { del: "Medical and recreational" }, { del: "Licence and Information" }
+        , { del: "order only delivery" }]
     return (
-        <>
+        <div>
             <div className="container-fluid product_container" style={{ padding: "7px" }}>
-                <Flavour delBtn={delBtn}></Flavour>
+                <Flavour delBtn={Despen}></Flavour>
                 <div className="row">
                     <div className="col-12 mt-4">
                         <ProductCategorySlider></ProductCategorySlider>
@@ -96,14 +91,14 @@ const Product = () => {
                         </div>
 
                     </div>
-                   
+
                     <div className="col-12   productCat_cont">
 
 
 
                         <ProductFilter ProductFilterData={ProductFilterData} />
                         <div className="col-10  prod_cat_right_sec">
-                            <ProductList arr={arr1} btn={weeBtn} />
+                            <ProductList arr={DespensariesData} />
 
 
                         </div>
@@ -114,7 +109,6 @@ const Product = () => {
                 </div>
 
             </div>
-        </>
+        </div>
     )
 }
-export default Product

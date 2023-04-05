@@ -2,7 +2,8 @@
 import { AiFillStar } from "react-icons/ai";
 import useStyles from "../../../../Style"
 
-const Flavour = () => {
+const Flavour = (Deta) => {
+ console.log(Deta.delBtn)
     const classes = useStyles()
     const delBtn = [{ del: "Delivery Only" }, { del: "Closed Open" }, { del: "Medical and recreational" }, { del: "Licence and Information" }
         , { del: "order only delivery" }]
@@ -15,14 +16,14 @@ const Flavour = () => {
                         <div className="col-2 flav_image_col_two">
                             <div className="col-12 flav_img_div">
                                 <div className="col-4 flav_img_inner_div">
-                                    <img src="./image/logo2.png" alt="img_not_found" style={{ pointerEvents: "none" }} />
+                                <img src={`http://52.3.255.128:8000/${Deta.delBtn[0]?.Store_Image}`} alt="img_not_found" style={{pointerEvents: "none"}} />
 
                                 </div>
                             </div>
                         </div>
                         <div className="col-10  p-2">
                             <div className="col-12 comm_head_prop fontStyle">
-                                <p>Urban Flavours Delivery Berkeley </p>
+                                <p>{Deta.delBtn[0]?.Store_Name}</p>
 
                             </div>
                             <div className="col-12 d-flex">
@@ -30,7 +31,7 @@ const Flavour = () => {
 
                             </div>
                             <div className="col-12 ">
-                                <p>Berkeley, California</p>
+                                <p>{Deta.delBtn[0]?.city_name}</p>
                             </div>
                             {/* <div className="col-12  flav_btn">
                                 {delBtn.map((ele, index) => {

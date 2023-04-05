@@ -9,6 +9,7 @@ import Box from '@mui/material/Box';
 import styled from "styled-components";
 import { useEffect, useState } from 'react';
 import { Rating } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 
 const DispensoriesAddress = () => {
@@ -109,9 +110,12 @@ const DispensoriesAddress = () => {
             <Sliderv  {...settings}>
                 {Store.map((ele, index) => {
                     return (
+                       
                         <div className='col-12 slider1' key={index} >
                             <div className='slider1'>
+                            <Link to={`/DispensoriesProduct/${ele.id}`}>
                                 <img src={`http://52.3.255.128:8000/${ele.Store_Image}`} alt='img_not_found' className='img-responsive rounded center-block' width={"83%"} height={"170px"}  />
+                                </Link>
                             </div>
                             <div>
                                 <div className='col-12  slider1'>
@@ -168,6 +172,7 @@ const DispensoriesAddress = () => {
                                 </div>
                             </div>
                         </div>
+                       
                     )
                 })}
             </Sliderv>
