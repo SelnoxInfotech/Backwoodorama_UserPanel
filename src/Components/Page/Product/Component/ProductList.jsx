@@ -35,7 +35,19 @@ const ProductList = ({ arr }) => {
         if (Status !== undefined) {
             SetAddToCard(AddTOCard.map((Add) => {
                 if (Add.Product_id === Event.id) {
-                    return { ...Add, Price_index: PriceIndex, Product_Quantity: Add.Product_Quantity + 1 }
+                    if (AddData.length !== 0) {
+
+                        if (AddData[0]?.Item_id === Add.Price_index[0]?.Item_id) {
+                        
+                             return { ...Add, Product_Quantity: Add.Product_Quantity + 1 }
+                        }
+                        else {
+                            return { ...Add, Price_index: AddData, Product_Quantity: 1 }
+                        }
+                    }
+                    else {
+                        return { ...Add, Product_Quantity: Add.Product_Quantity + 1 }
+                    }
                 }
                 
                 return Add
