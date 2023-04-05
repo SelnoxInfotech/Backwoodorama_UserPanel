@@ -32,7 +32,7 @@ const Flavour = () => {
                             <div className="col-12 ">
                                 <p>Berkeley, California</p>
                             </div>
-                            <div className="col-12  flav_btn">
+                            {/* <div className="col-12  flav_btn">
                                 {delBtn.map((ele, index) => {
                                     return (
                                         <div className="col-2 mt-2" key={index}>
@@ -41,18 +41,8 @@ const Flavour = () => {
                                         </div>
                                     )
                                 })}
-                            </div>
-                            {/* <div className="row">
-                                <div className="col-lg-2 col-md-4 col-sm-6  flav_mobile_btn">
-                                <button>mo-number</button>
-
-                                </div>
-                                <div className="col-lg-2 col-md-4 col-sm-6  flav_email_btn">
-                                <button>Email</button>
-
-                                </div>
-
                             </div> */}
+                           
                             <div className="col-12 flavour_mobile_email_btn">
                                 <div className="col-2  flav_mobile_btn">
                                     <button>mo-number</button>
