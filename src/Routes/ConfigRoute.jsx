@@ -4,6 +4,7 @@ import Product from "../Components/Page/Product/Product";
 import ProductDetail from "../Components/Page/Product/ProductDetails"
 import AddToCart from "../Components/Page/Product/AddToCart"
 import DispensoriesProduct from "../Components/Page/Home/Dashboard/ComponentDashboard/Dispensories/DispensoriesDetail"
+import Signup from "../Components/Page/Signup/Signup"
 const routesConfig = [
   
       {
@@ -12,6 +13,10 @@ const routesConfig = [
           {
             path: "/",
             element: <Dashboard />,
+          },
+          {
+            path: "/Signup",
+            element: <Signup></Signup>,
           },
           {
             path: "/Product",
