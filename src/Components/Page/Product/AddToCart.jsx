@@ -46,7 +46,7 @@ const AddToCart = () => {
 
                         <div className="col-10  AddProductCartContainerinner">
                             {LocalData?.map((ele, index) => {
-
+                            console.log(ele)
                                 return (
                                     <div className="col-12 border Add_product_cart_left_container_item" key={index}>
 

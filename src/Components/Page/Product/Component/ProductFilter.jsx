@@ -2,11 +2,10 @@ import React from "react"
 import { FiChevronRight } from "react-icons/fi"
 import { FiChevronLeft } from "react-icons/fi"
 import useStyles from "../../../../Style"
+
 const ProductFilter = ({ ProductFilterData }) => {
     const classes = useStyles()
-
     const [OpenEvent, SetOpenEvent] = React.useState(null);
-
 
     const HandleOpenEvent = (Id) => {
         if (OpenEvent === Id) {
@@ -18,7 +17,7 @@ const ProductFilter = ({ ProductFilterData }) => {
     }
 
     return (
-        <div className="col-lg-2 col-md-12 col-sm-12  prod_cat_left_sec  center  mt-4">
+        <div className="col-lg-2 col-md-10 col-sm-10  prod_cat_left_sec  center">
 
             {ProductFilterData.map((ele, index) => {
                 const { Id, Name, Type1, Type2, Price, Icons } = ele;
@@ -41,7 +40,7 @@ const ProductFilter = ({ ProductFilterData }) => {
                             </div>
 
                         </div>
-                        {(Id === OpenEvent) ? (<div className="col-12 product_category_border" id="Related_Brand_Data">
+                        {(Id === OpenEvent) ? (<div className="col-12 product_category_border product_category_dropdown" id="Related_Brand_Data" >
 
                             <div className="col-10 px-2 ">
                               

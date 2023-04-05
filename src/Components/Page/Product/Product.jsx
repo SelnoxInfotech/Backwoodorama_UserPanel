@@ -82,7 +82,7 @@ const Product = () => {
                                     size="small"
                                 >
                                     <MenuItem value="">
-                                        <em>Sort by A to Z</em>
+                                        Sort by A to Z
                                     </MenuItem>
                                     <MenuItem value={"Sort by Z to A"}>Sort by Z to A</MenuItem>
                                     <MenuItem value={"Price low to high"}>Price low to high</MenuItem>
@@ -93,21 +93,13 @@ const Product = () => {
                         </div>
 
                     </div>
-                    {/* <div className="row">
-                        <div className="col-lg-2 col-md-2 col-sm-12">
-                        <ProductFilter ProductFilterData={ProductFilterData} />
-                        </div>
-                        <div className="col-lg-10 col-md-10 col-sm-12">
-                        <ProductList arr={arr1} btn={weeBtn} />
-                        </div>
-
-                    </div> */}
+                   
                     <div className="col-12   productCat_cont">
 
 
 
                         <ProductFilter ProductFilterData={ProductFilterData} />
-                        <div className="col-10 mt-4 prod_cat_right_sec">
+                        <div className="col-10  prod_cat_right_sec">
                             <ProductList arr={arr1} btn={weeBtn} />
 
 
