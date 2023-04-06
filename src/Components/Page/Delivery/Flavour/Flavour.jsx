@@ -5,10 +5,7 @@ import useStyles from "../../../../Style"
 import Box from '@mui/material/Box';
 
 const Flavour = (Deta) => {
-    console.log(Deta.delBtn)
     const classes = useStyles()
-    const delBtn = [{ del: "Delivery Only" }, { del: "Closed Open" }, { del: "Medical and recreational" }, { del: "Licence and Information" }
-        , { del: "order only delivery" }]
 
     return (
         <>

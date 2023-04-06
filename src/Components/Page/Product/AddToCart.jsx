@@ -11,10 +11,12 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 const AddToCart = () => {
     const classes = useStyles()
     const [LocalData, SetLocalData] = React.useState([])
+    const [Total, SetTotal] = React.useState([])
 
     React.useEffect(() => {
         const item = localStorage.getItem('items')
         SetLocalData(JSON.parse(item))
+        console.log(Total)
     }, [])
 
 
@@ -32,15 +34,14 @@ const AddToCart = () => {
     }
 
     function Quantity(Id) {
-           var obj = JSON.parse(localStorage.getItem("items"));
-         var s = obj?.map((arr)=>{
-           if (arr.Product_id === Id)
-           {
-           
-            return { ...arr ,Product_Quantity : arr.Product_Quantity + 1}
-           }
-           return arr
-   
+        var obj = JSON.parse(localStorage.getItem("items"));
+        var s = obj?.map((arr) => {
+            if (arr.Product_id === Id) {
+
+                return { ...arr, Product_Quantity: arr.Product_Quantity + 1 }
+            }
+            return arr
+
         })
         localStorage.setItem("items", JSON.stringify(s));
         const item = localStorage.getItem('items')
@@ -48,23 +49,24 @@ const AddToCart = () => {
 
 
     }
-  function decreaseQuantity ( Id) {
-    var obj = JSON.parse(localStorage.getItem("items"));
-    var s = obj?.map((arr)=>{
-      if (arr.Product_id === Id)
-      {
-      
-       return { ...arr ,Product_Quantity : arr.Product_Quantity - 1}
-      }
-      return arr
+    function decreaseQuantity(Id) {
+        var obj = JSON.parse(localStorage.getItem("items"));
+        var s = obj?.map((arr) => {
+            if (arr.Product_id === Id) {
 
-   })
-   localStorage.setItem("items", JSON.stringify(s));
-   const item = localStorage.getItem('items')
-   SetLocalData(JSON.parse(item))
-  }
+                return { ...arr, Product_Quantity: arr.Product_Quantity - 1 }
+            }
+            return arr
 
-    
+        })
+        localStorage.setItem("items", JSON.stringify(s));
+        const item = localStorage.getItem('items')
+        SetLocalData(JSON.parse(item))
+    }
+
+
+
+
     return (
         <div className="container">
             <div className="row mt-4">
@@ -95,20 +97,39 @@ const AddToCart = () => {
 
                                                 </div>
                                                 <div className="col-12 fontStyle  add_prod_para_margin d-flex">
-                                                    <span className="add_prod_span_amount fontStyle">$64</span>
+                                                    {ele?.Prices.map((ele1, index) => {
+                                                        var JsonObject = JSON.parse(JSON.stringify(ele1))
+                                                        var jsondata = JSON.parse(JsonObject.Price)
+                                                        if (ele.Price_index?.length === 0) {
+                                                            return (
+
+                                                                <span className="add_prod_span_amount fontStyle">${jsondata[0].Price }</span>
+                                                            )
+                                                        }
+                                                        else {
+                                                            const d = jsondata?.find((PriceSelect) => {
+                                                                return (PriceSelect.id === ele.Price_index[0].Item_id) && PriceSelect.Price
+                                                            })
+
+                                                            return (   <span className="add_prod_span_amount fontStyle">${d.Price}</span>
+                                                            )
+                                                        }
+                                                    })
+                                                    }
+
 
                                                 </div>
                                                 <div className="col-12 add_prod_btn_amount">
                                                     <div className="col-2 border Add_prod_sub_minus_cont d-flex">
                                                         <div className="col-4">
-                                                            <button className="add_prod_cart_btn" onClick={()=>{Quantity(ele.Product_id)}} ><AiOutlinePlus /></button>
+                                                            <button className="add_prod_cart_btn" onClick={() => { Quantity(ele.Product_id) }} ><AiOutlinePlus /></button>
 
                                                         </div>
                                                         <div className="col-2 addprod_quant">
                                                             <p>{ele.Product_Quantity}</p>
                                                         </div>
                                                         <div className="col-4">
-                                                            <button className="add_prod_cart_btn" onClick={()=>{decreaseQuantity(ele.Product_id)}}> <GrFormSubtract /></button>
+                                                            <button className="add_prod_cart_btn" > {ele.Product_Quantity > 1 && <GrFormSubtract onClick={() => { decreaseQuantity(ele.Product_id) }} />}</button>
 
                                                         </div>
 
@@ -130,19 +151,19 @@ const AddToCart = () => {
                                                             return (
 
                                                                 <div key={index} >
-                                                                    <p> Amount</p>  <span className="add_prod_span_amount fontStyle">{jsondata[0].Price * ele.Product_Quantity}</span>
+                                                                    <p> Amount</p>  <span className="add_prod_span_amount fontStyle Amount" >{jsondata[0].Price * ele.Product_Quantity}</span>
                                                                 </div>
                                                             )
                                                         }
                                                         else {
                                                             const d = jsondata?.find((PriceSelect) => {
-                                                                return (PriceSelect.id === ele.Price_index[0].Item_id )&& PriceSelect.Price
+                                                                return (PriceSelect.id === ele.Price_index[0].Item_id) && PriceSelect.Price
                                                             })
-                                                            return ( 
-                                                              
+                                                            return (
+
                                                                 < div key={index} >
- 
-                                                                    <p> Amount</p> <span className="add_prod_span_amount fontStyle">{ d.Price * ele.Product_Quantity }</span>
+
+                                                                    <p> Amount</p> <span className="add_prod_span_amount Amount fontStyle" value={d.Price * ele.Product_Quantity} onChange={SetTotal([d.Price])} >{d.Price * ele.Product_Quantity}</span>
                                                                 </div>
                                                             )
 
@@ -172,7 +193,7 @@ const AddToCart = () => {
                                     <p>Subtotal</p>
                                 </div>
                                 <div className="col-2 fontStyle">
-                                    <p>$233</p>
+                                    <p>{Total}</p>
                                 </div>
 
 
@@ -214,7 +235,7 @@ const AddToCart = () => {
                                         <p>Total</p>
                                     </div>
                                     <div className="col-2 fontStyle">
-                                        <p>$1200</p>
+                                        <p>{Total}</p>
                                     </div>
 
                                 </div>

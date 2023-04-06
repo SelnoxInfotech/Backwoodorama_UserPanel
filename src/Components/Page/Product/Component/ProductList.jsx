@@ -5,6 +5,9 @@ import { AiFillStar } from "react-icons/ai";
 import useStyles from "../../../../Style"
 import { Link } from "react-router-dom";
 import _ from "lodash";
+
+
+
 const ProductList = ({ arr }) => {
     const [Price, SetPrice] = React.useState([])
     const [Item_idq, SetItem] = React.useState('')
