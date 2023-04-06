@@ -1318,11 +1318,17 @@
 }
 /* end */
 /* signup */
-.signup_container{
+.login_signup_reset_container{
   background: #FFFFFF;
 border: 1px solid #31B665;
 border-radius: 10px;
-height:450px;
+/* height:450px; */
+}
+.signup_container_height{
+  height: 450px;
+}
+.login_container_height{
+  height: 515px;
 }
 .signup_margins_top{
   margin-top:20px !important;
@@ -1352,8 +1358,11 @@ height:450px;
 .signup_btn p{
   font-size:12px;
 }
-.Signup_already_btn{
-  margin-bottom: 10px !important;
-    margin-left: -31px !important;
+.Signup_already_btn p{
+font-size: 10px;
+cursor: pointer;
+}
+.signup_btn_height{
+  height: 45px;
 }
 /* end */
