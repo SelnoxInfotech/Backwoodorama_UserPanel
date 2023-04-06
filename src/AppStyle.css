@@ -1326,6 +1326,16 @@ border-radius: 10px;
 .signup_margins_top{
   margin-top:20px !important;
 }
+.signup_margins_top_textfield{
+  margin-top:8px !important;
+
+}
+.signup_padding_bottom{
+  padding-top:20px !important;
+
+  padding-bottom:20px !important;
+
+}
 .signup_btn{
   margin-left: 10px;
 }
@@ -1334,7 +1344,14 @@ border-radius: 10px;
 }
 .signup_head p{
   color: #333333;
-  font-size: 24px;
+  font-size: 28px;
 
+}
+.signup_btn p{
+  font-size:12px;
+}
+.Signup_already_btn{
+  margin-bottom: 10px !important;
+    margin-left: -31px !important;
 }
 /* end */
