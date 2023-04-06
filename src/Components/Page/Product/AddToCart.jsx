@@ -7,19 +7,22 @@ import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
 import { json } from "react-router-dom";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import TextField from '@mui/material/TextField';
 
 const AddToCart = () => {
     const classes = useStyles()
     const [LocalData, SetLocalData] = React.useState([])
     const [Total, SetTotal] = React.useState([])
-
+    const [OpenDelivery, SetOpenDelivery] = React.useState(false);
     React.useEffect(() => {
         const item = localStorage.getItem('items')
         SetLocalData(JSON.parse(item))
         console.log(Total)
     }, [])
 
-
+    const HandleDelivery = () => {
+        return SetOpenDelivery(true)
+    }
     function DeleteItem(Id) {
         var obj = JSON.parse(localStorage.getItem("items"));
         for (var i = 0; i < obj.length; i++) {
@@ -103,7 +106,7 @@ const AddToCart = () => {
                                                         if (ele.Price_index?.length === 0) {
                                                             return (
 
-                                                                <span className="add_prod_span_amount fontStyle">${jsondata[0].Price }</span>
+                                                                <span className="add_prod_span_amount fontStyle">${jsondata[0].Price}</span>
                                                             )
                                                         }
                                                         else {
@@ -111,7 +114,7 @@ const AddToCart = () => {
                                                                 return (PriceSelect.id === ele.Price_index[0].Item_id) && PriceSelect.Price
                                                             })
 
-                                                            return (   <span className="add_prod_span_amount fontStyle">${d.Price}</span>
+                                                            return (<span className="add_prod_span_amount fontStyle">${d.Price}</span>
                                                             )
                                                         }
                                                     })
@@ -186,6 +189,37 @@ const AddToCart = () => {
                         <div className="col-2 border  p-2 Add_product_cart_right_container_summary ">
                             <div className="col-12 fontStyle AddProdCartFont_weight">
                                 <h5>Order Summmary</h5>
+
+                            </div>
+                            <div className="col-12 d-flex addToCart_deliver">
+                                <div className="col-6">
+                                    <Box
+                                        className={` add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
+
+                                    >
+                                        <LoadingButton onClick={HandleDelivery} variant="outlined">Delivery</LoadingButton>
+                                    </Box>
+                                </div>
+                                <div className="col-6">
+                                    <Box
+                                        className={` add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
+
+                                    >
+                                        <LoadingButton variant="outlined">Pickup</LoadingButton>
+                                    </Box>
+                                </div>
+
+                            </div>
+                            <div className="col-12">
+                                {OpenDelivery && (<div className="col-12">
+
+                                    <div className="col-12">
+                                        <TextField id="outlined-basic" placeholder="Enter Your Delivery" variant="outlined" fullWidth size='small' />
+                                    </div>
+                                    <div className="col-12">
+                                        <TextField id="outlined-basic" placeholder="Enter Your contact" variant="outlined" fullWidth size='small' />
+                                    </div>
+                                </div>)}
 
                             </div>
                             <div className="col-12 order_summary_flex">
