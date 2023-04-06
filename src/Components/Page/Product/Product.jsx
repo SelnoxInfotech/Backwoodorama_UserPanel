@@ -76,7 +76,7 @@ const Product = () => {
 
                         </div>
                         <div className="col-10 product_select">
-                            <FormControl sx={{ m: 1, minWidth: 120 }}>
+                            <FormControl  sx={{ m: 1, minWidth: 120 }}>
                                 <Select
                                     value={Product}
                                     onChange={handleChange}

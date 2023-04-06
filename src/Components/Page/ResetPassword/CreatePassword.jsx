@@ -4,17 +4,17 @@ import useStyles from "../../../Style"
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
-const ResetPassword = () => {
+const CreatePassword=()=>{
     const classes = useStyles()
 
-    return (
+    return(
         <>
-            <div className="container signup_margins_top signup_margins_bottom">
+        <div className="container signup_margins_top signup_margins_bottom">
                 <div className="row center">
-                    <div className="col-lg-4 col-md-6 col-sm-8 col-10 signup_padding_bottom login_signup_reset_container reset_container_height">
+                    <div className="col-lg-4 col-md-6 col-sm-8 col-10 signup_padding_bottom login_signup_reset_container create_container_height">
                         <div className='row'>
                             <div className='col-12 fontStyle signup_head'>
-                                <p>Reset Password</p>
+                                <p>Create Password</p>
 
                             </div>
                         </div>
@@ -25,10 +25,19 @@ const ResetPassword = () => {
                             </div>
                         </div>
                         <div className='row'>
-                            <label>Email/Username</label>
+                            <label>New Password</label>
 
                             <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
-                                <TextField id="outlined-basic" placeholder="Enter Your Email" variant="outlined" fullWidth size='small' />
+                            <TextField type='password' id="outlined-basic" placeholder="Enter Your New Password" variant="outlined" fullWidth size='small' />
+
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <label>Confirm Password</label>
+
+                            <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
+                            <TextField type='password' id="outlined-basic" placeholder="Enter Confirm Password" variant="outlined" fullWidth size='small' />
+
                             </div>
                         </div>
 
@@ -39,7 +48,7 @@ const ResetPassword = () => {
                                 <Box
                                     className={` ${classes.loadingBtnTextAndBack}`}
                                 >
-                                    <LoadingButton variant="outlined">Send email</LoadingButton>
+                                    <LoadingButton variant="outlined">Save</LoadingButton>
                                 </Box>
                             </div>
 
@@ -66,7 +75,6 @@ const ResetPassword = () => {
             </div>
 
         </>
-
     )
 }
-export default ResetPassword
+export default CreatePassword

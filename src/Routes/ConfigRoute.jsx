@@ -7,6 +7,8 @@ import DispensoriesProduct from "../Components/Page/Home/Dashboard/ComponentDash
 import Signup from "../Components/Page/Signup/Signup"
 import Login from "../Components/Page/Login/Login"
 import SignupWithEmail from "../Components/Page/Signup/SignupWithEmail"
+import ResetPassword from "../Components/Page/ResetPassword/ResetPassword"
+import CreatePassword from "../Components/Page/ResetPassword/CreatePassword"
 const routesConfig = [
   
       {
@@ -28,6 +30,14 @@ const routesConfig = [
           {
             path: "/Login",
             element: <Login></Login>,
+          },
+          {
+            path: "/ResetPassword",
+            element: <ResetPassword></ResetPassword>,
+          },
+          {
+            path: "/CreatePassword",
+            element: <CreatePassword></CreatePassword>,
           },
           {
             path: "/Product",

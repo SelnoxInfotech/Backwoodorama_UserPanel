@@ -231,6 +231,13 @@
   display: flex;
   margin-top: 10px;
   box-sizing: border-box;
+  height: 40px;
+}
+.flav_mobile_btn{
+  height: 47px;
+}
+.flav_email_btn{
+  height: 47px;
 }
 @media(max-width:949px){
   .flav_mobile_btn{
@@ -284,7 +291,8 @@
 
 .flavCont {
   background: #FAFAFA;
-  border: 1px solid #E7E7E7
+  border: 1px solid #E7E7E7;
+  height: 224px;
 }
 
 @media(max-width:1470px) {
@@ -367,10 +375,15 @@
 }
 .product_search_and_select{
   display: flex;
+  /* height: 60px; */
 }
 .product_select{
   display: flex;
   justify-content: flex-end !important;
+  /* height: 58px; */
+}
+.product_search_bar{
+  /* height: 58px; */
 }
 .prod_cat_left_sec {
   /* border: 1px solid #dee2e6; */
@@ -394,7 +407,8 @@
 
   }
   .product_category_dropdown{
-    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+    /* box-shad
+    ow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
   border: 1px solid #E7E7E7;
     
     margin-top: 0px;
@@ -1330,6 +1344,11 @@ border-radius: 10px;
 .login_container_height{
   height: 515px;
 }
+.reset_container_height{
+  height:350px;
+  
+}
+
 .signup_margins_top{
   margin-top:20px !important;
 }
@@ -1364,5 +1383,16 @@ cursor: pointer;
 }
 .signup_btn_height{
   height: 45px;
+}
+/* end */
+/* resetpassword */
+.resetPassword_paragraph p{
+  color: #AAAAAA;
+  font-size: 12px;
+}
+/* end */
+/* createPassword */
+.create_container_height{
+  height:430px;
 }
 /* end */

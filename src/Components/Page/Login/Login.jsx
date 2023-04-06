@@ -37,7 +37,7 @@ const Login = () => {
                                 <p>Having trouble to access your account?</p>
                             </div>
                             <div className='col-lg-2 col-md-2 col-sm-2 col-2 Signup_already_btn'>
-                                <p>Click here</p>
+                              <Link to="/ResetPassword"><p>Click here</p></Link>
                             </div>
 
 
