@@ -45,9 +45,9 @@ const Login=()=>{
                         </div>
                      
                         <div className='row  signup_margins_top'>
-                            <div className='col-lg-12 signup_btn_height'>
+                            <div className=' col-lg-12 signup_btn_height'>
                                 <Box
-                                    className={`  ${classes.loadingBtnTextAndBack}`}
+                                    className={` ${classes.loadingBtnTextAndBack}`}
                                 >
                                     <LoadingButton variant="outlined">LOGIN</LoadingButton>
                                 </Box>
