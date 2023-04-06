@@ -13,13 +13,14 @@ const routesConfig = [
         element: <Layout />,
         children: [
           {
-            path: "/",
-            element: <Dashboard />,
-          },
-          {
             path: "/Signup",
             element: <Signup></Signup>,
           },
+          {
+            path: "/",
+            element: <Dashboard />,
+          },
+         
           {
             path: "/SignupWithEmail",
             element: <SignupWithEmail></SignupWithEmail>,

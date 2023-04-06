@@ -69,9 +69,10 @@ const useStyles = makeStyles({
     },
     "& .MuiLoadingButton-root":{
       // background: "#3A559F",
-      textTransform: "none",
+      // textTransform: "none",
       width: "100%",
       borderRadius: "40px",
+      borderSpacing: "2px",
       border: "2px solid #3369C2"
 
 

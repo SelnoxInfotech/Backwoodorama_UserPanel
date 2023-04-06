@@ -55,7 +55,7 @@ const Signup = () => {
                             </div>
 
                         </div>
-                        <div className='row  signup_margins_top'>
+                        <div className='signup_margins_top'>
                             <div className='col-lg-12'>
                                 <Box
                                     className={`${classes.Signup_loading_btn_google}`}
