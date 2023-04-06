@@ -11,6 +11,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 const AddToCart = () => {
     const classes = useStyles()
     const [LocalData, SetLocalData] = React.useState([])
+
     React.useEffect(() => {
         const item = localStorage.getItem('items')
         SetLocalData(JSON.parse(item))
@@ -30,12 +31,40 @@ const AddToCart = () => {
         SetLocalData(JSON.parse(item))
     }
 
-function Total(e) {
-    console.log(e)
-}
+    function Quantity(Id) {
+           var obj = JSON.parse(localStorage.getItem("items"));
+         var s = obj?.map((arr)=>{
+           if (arr.Product_id === Id)
+           {
+           
+            return { ...arr ,Product_Quantity : arr.Product_Quantity + 1}
+           }
+           return arr
+   
+        })
+        localStorage.setItem("items", JSON.stringify(s));
+        const item = localStorage.getItem('items')
+        SetLocalData(JSON.parse(item))
 
 
+    }
+  function decreaseQuantity ( Id) {
+    var obj = JSON.parse(localStorage.getItem("items"));
+    var s = obj?.map((arr)=>{
+      if (arr.Product_id === Id)
+      {
+      
+       return { ...arr ,Product_Quantity : arr.Product_Quantity - 1}
+      }
+      return arr
 
+   })
+   localStorage.setItem("items", JSON.stringify(s));
+   const item = localStorage.getItem('items')
+   SetLocalData(JSON.parse(item))
+  }
+
+    
     return (
         <div className="container">
             <div className="row mt-4">
@@ -47,7 +76,6 @@ function Total(e) {
 
                         <div className="col-10  AddProductCartContainerinner">
                             {LocalData?.map((ele, index) => {
-                            console.log(ele)
                                 return (
                                     <div className="col-12 border Add_product_cart_left_container_item" key={index}>
 
@@ -73,14 +101,14 @@ function Total(e) {
                                                 <div className="col-12 add_prod_btn_amount">
                                                     <div className="col-2 border Add_prod_sub_minus_cont d-flex">
                                                         <div className="col-4">
-                                                            <button className="add_prod_cart_btn"><GrFormSubtract /></button>
+                                                            <button className="add_prod_cart_btn" onClick={()=>{Quantity(ele.Product_id)}} ><AiOutlinePlus /></button>
 
                                                         </div>
                                                         <div className="col-2 addprod_quant">
                                                             <p>{ele.Product_Quantity}</p>
                                                         </div>
                                                         <div className="col-4">
-                                                            <button className="add_prod_cart_btn"><AiOutlinePlus /></button>
+                                                            <button className="add_prod_cart_btn" onClick={()=>{decreaseQuantity(ele.Product_id)}}> <GrFormSubtract /></button>
 
                                                         </div>
 
@@ -98,15 +126,31 @@ function Total(e) {
                                                     {ele?.Prices.map((ele1, index) => {
                                                         var JsonObject = JSON.parse(JSON.stringify(ele1))
                                                         var jsondata = JSON.parse(JsonObject.Price)
-                                                        return (
+                                                        if (ele.Price_index?.length === 0) {
+                                                            return (
 
-                                                            <div key={index} >
-                                                                <p> Amount</p>  <span className="add_prod_span_amount fontStyle" onChange={Total(jsondata[0].Price)} >{jsondata[0].Price}</span>
-                                                            </div>
-                                                        )
-                                                    })
+                                                                <div key={index} >
+                                                                    <p> Amount</p>  <span className="add_prod_span_amount fontStyle">{jsondata[0].Price * ele.Product_Quantity}</span>
+                                                                </div>
+                                                            )
+                                                        }
+                                                        else {
+                                                            const d = jsondata?.find((PriceSelect) => {
+                                                                return (PriceSelect.id === ele.Price_index[0].Item_id )&& PriceSelect.Price
+                                                            })
+                                                            return ( 
+                                                              
+                                                                < div key={index} >
+ 
+                                                                    <p> Amount</p> <span className="add_prod_span_amount fontStyle">{ d.Price * ele.Product_Quantity }</span>
+                                                                </div>
+                                                            )
 
-                                                    }
+                                                        }
+                                                    })}
+
+
+
 
 
                                                 </div>
@@ -200,7 +244,7 @@ function Total(e) {
 
             </div>
 
-        </div>
+        </div >
     )
 }
 export default AddToCart
