@@ -32,17 +32,6 @@ const Flavour = (Deta) => {
                             <div className="col-12 ">
                                 <p>{Deta.delBtn[0]?.city_name}</p>
                             </div>
-                            {/* <div className="col-12  flav_btn">
-                                {delBtn.map((ele, index) => {
-                                    return (
-                                        <div className="col-2 mt-2" key={index}>
-                                            <button className="flavo_btns">{ele.del}</button>
-
-                                        </div>
-                                    )
-                                })}
-                            </div> */}
-
                             <div className="col-12 flavour_mobile_email_btn">
                                 <div className="col-2  flav_mobile_btn">
                                     <Box

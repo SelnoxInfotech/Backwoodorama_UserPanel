@@ -18,9 +18,10 @@ import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import ProductCategorySlider from "./ProductCategorySlider"
+
 const Product = () => {
     const classes = useStyles()
-
+ const [Category , SetCategory] = React.useState([])
     const [arr1, Setarr1] = React.useState([])
     const [Product, SetProduct] = React.useState('');
     React.useEffect(() => {
@@ -35,7 +36,17 @@ const Product = () => {
         }).catch(
             function (error) {
 
-                // SetProduct(Product => ({ ...Product, discount: "None" }))
+                // SetProduct(Product => ({ ...Product, discount: "None" })) 52.3.255.128:8000/UserPanel/Get-Categories/ 
+            })
+            Axios("http://52.3.255.128:8000/UserPanel/Get-Categories/ ", {
+
+
+        }).then(response => {
+            SetCategory(response.data)
+        }).catch(
+            function (error) {
+
+                // SetProduct(Product => ({ ...Product, discount: "None" })) 52.3.255.128:8000/UserPanel/Get-Categories/ 
             })
     }, [])
 
@@ -53,6 +64,25 @@ const Product = () => {
     { Id: 5, Name: "Weight", Type1: "Any", Type2: "$25", Price: "$100", Icons: <GiWeightScale className={classes.muiIcons} /> },
     { Id: 6, Name: "Product", Type1: "Medical", Type2: "Recreational", Icons: <RiProductHuntLine className={classes.muiIcons} /> },
     ]
+
+       const FilterCategory = (id) =>{
+      
+        Axios(`http://52.3.255.128:8000/UserPanel/Get-ProductByCategory/${id}`, {
+
+
+    }).then(response => {
+        Setarr1(response.data)
+        // SetProduct(Product => ({ ...Product, Category: response.data?.data[0].id }))
+
+
+    }).catch(
+        function (error) {
+
+            // SetProduct(Product => ({ ...Product, discount: "None" }))
+        })
+
+       }
+
     const handleChange = (event) => {
         SetProduct(event.target.value);
     };
@@ -63,7 +93,7 @@ const Product = () => {
                 <Flavour delBtn={delBtn}></Flavour>
                 <div className="row">
                     <div className="col-12 mt-4">
-                        <ProductCategorySlider></ProductCategorySlider>
+                        <ProductCategorySlider FilterCategory ={FilterCategory} Category={Category}></ProductCategorySlider>
 
                     </div>
 

@@ -48,7 +48,7 @@ const CategoryProduct = () => {
                 settings: {
                     slidesToShow: 4,
                     slidesToScroll: 1,
-                    infinite: true,
+                    infinite: false,
                     dots: false
                 }
             },
@@ -58,7 +58,7 @@ const CategoryProduct = () => {
                     slidesToShow: 4,
                     slidesToScroll: 2,
                     // initialSlide: 2,
-                    infinite: true,
+                    infinite: false,
 
                 }
             },
@@ -67,7 +67,7 @@ const CategoryProduct = () => {
                 settings: {
                     slidesToShow: 4,
                     slidesToScroll: 1,
-                    infinite: true,
+                    infinite: false,
 
                 }
             }

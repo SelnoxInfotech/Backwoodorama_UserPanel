@@ -45,7 +45,7 @@ export function MapContainer(props) {
         <div className='col-12 center ' >
         
           <Map
-            style={{ height: '500px' }}
+            style={{ height: '300px' }}
             google={window.google}
             zoom={14}
             initialCenter={{ lat: 40.712776, lng: -74.005974 }}

@@ -5,14 +5,15 @@ import { RiDeleteBin6Line } from "react-icons/ri"
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
-import { json } from "react-router-dom";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import TextField from '@mui/material/TextField';
 import { useState } from "react";
 
 const AddToCart = () => {
     const classes = useStyles()
-    const [LocalData, SetLocalData] = React.useState([])
+
+    const [LocalData, SetLocalData] = React.useState()
+
     const [Total, SetTotal] = React.useState([])
     const [OpenDelivery, SetOpenDelivery] = React.useState(false);
     const [DeliveryButtonBackground, SetDeliveryButtonBackground] = React.useState("")
@@ -20,8 +21,7 @@ const AddToCart = () => {
     React.useEffect(() => {
         const item = localStorage.getItem('items')
         SetLocalData(JSON.parse(item))
-        console.log(Total)
-    }, [])
+    },)
 
     const HandleDelivery = () => {
         const bgColor = "#31B665"
@@ -94,7 +94,7 @@ const AddToCart = () => {
                                         <div className="col-12  Add_prod_item_image">
 
                                             <div className="col-1 Add_prod_item_image_cont">
-                                                <LazyLoadImage src={`http://52.3.255.128:8000//${ele.Image[0].image}`} alt="imag not found" />
+                                                <LazyLoadImage src={`http://52.3.255.128:8000//${ele.Image[0]?.image}`} alt="imag not found" />
                                             </div>
                                             <div className="col-8 Add_prod_content_cont p-2">
                                                 <div className="col-12 fontStyle  add_prod_para_font">
@@ -173,7 +173,7 @@ const AddToCart = () => {
 
                                                                 < div key={index} >
 
-                                                                    <p> Amount</p> <span className="add_prod_span_amount Amount fontStyle" value={d.Price * ele.Product_Quantity} onChange={SetTotal([d.Price])} >{d.Price * ele.Product_Quantity}</span>
+                                                                    <p> Amount</p> <span className="add_prod_span_amount Amount fontStyle" value={d.Price * ele.Product_Quantity} >{d.Price * ele.Product_Quantity}</span>
                                                                 </div>
                                                             )
 

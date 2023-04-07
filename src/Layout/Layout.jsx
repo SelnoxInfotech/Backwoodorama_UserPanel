@@ -15,17 +15,23 @@ const Item = styled(Paper)(({ theme }) => ({
 }))
 
 export default function BasicGrid() {
+
     return (
-        <Box >
-            <Grid>
-                <div className='col-12 sticky-top ' style={{ backgroundColor: "white" }}>
-                    <Navbar></Navbar>
-                </div>
-                <Grid xs={12} md={12} xl={12}>
-                    <Outlet />
-                </Grid>
+
+
+
+        <div>
+           
+                <Navbar></Navbar>
+
+          
+            <Grid xs={12} md={12} xl={12}>
+
+                <Outlet />
 
             </Grid>
-        </Box>
+
+        </div>
+
     )
 }

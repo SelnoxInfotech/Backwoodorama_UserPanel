@@ -13,7 +13,7 @@ export default function Dashboard() {
 
             <CategoryProduct></CategoryProduct>
             <DispensoriesAddress></DispensoriesAddress>
-            <div  className="col-12 mt-5" style={{ height: '500px'  }}>
+            <div  className="col-12 mt-5" style={{ height: '250px'  }}>
                 <Map></Map>
             </div>
              <WeedProduct></WeedProduct>
