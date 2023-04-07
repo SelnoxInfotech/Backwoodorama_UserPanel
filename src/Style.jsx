@@ -31,7 +31,6 @@ const useStyles = makeStyles({
     "& .MuiSelect-nativeInput":{
       height:"33px",
       width:"119px",
-      border:"1px solid red"
     }
   },
   muiBtn: {

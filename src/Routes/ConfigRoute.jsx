@@ -9,6 +9,7 @@ import Login from "../Components/Page/Login/Login"
 import SignupWithEmail from "../Components/Page/Signup/SignupWithEmail"
 import ResetPassword from "../Components/Page/ResetPassword/ResetPassword"
 import CreatePassword from "../Components/Page/ResetPassword/CreatePassword"
+import DeliveryOption from "../Components/Page/Product/DeliveryOption"
 const routesConfig = [
   
       {
@@ -50,6 +51,10 @@ const routesConfig = [
           {
             path:"/AddToCart",
             element:<AddToCart/>
+          },
+          {
+            path:"/DeliveryOption",
+            element:<DeliveryOption/>
           },
           {
             path:"/DispensoriesProduct/:id",
