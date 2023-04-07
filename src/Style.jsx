@@ -16,12 +16,13 @@ const useStyles = makeStyles({
       width: "168px",
       height: "38px",
       minWidth:"120px",
+      margin:"1px"
       // border:"1px solid red"
     },
     "& .MuiInputBase-root":{
       width: "168px",
       height: "38px",
-      minWidth:"120px",
+      minWidth:"150px",
       // border:"1px solid yellow"
     },
     "& .MuiOutlinedInput-input":{

@@ -1404,10 +1404,17 @@ cursor: pointer;
   border: 1px solid grey;
 border-radius: 10px;
 box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-  height: 950px;
+  height: 990px;
   padding: 10px;
   box-sizing: border-box;
 
+}
+@media screen and (min-width: 300px) and (max-width:1496px){
+  .DeliveryOption_container{
+    /* height: 1200px; */
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
 }
 .margin_left{
   margin-left: 10px;
@@ -1448,7 +1455,7 @@ margin-left: 10px;
   /* border: 1px solid gray; */
 }
 .text_area_margin{
-  margin-left: 10px;
+  padding: 10px;
 }
 .font_size_checkbox_paragraph p{
   font-size: 15px;

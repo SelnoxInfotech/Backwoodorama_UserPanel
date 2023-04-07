@@ -3,7 +3,6 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import TextareaAutosize from '@mui/base/TextareaAutosize';
 import Checkbox from '@mui/material/Checkbox';
 import LoadingButton from '@mui/lab/LoadingButton';
 import Button from '@mui/material/Button';
@@ -23,7 +22,7 @@ const DeliveryOption = () => {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-12 center ">
-                        <div className="col-12 col-lg-4 col-md-10 col-sm-12 col-xs-12 DeliveryOption_container">
+                        <div className="col-12 col-lg-4 col-md-6 col-sm-12 col-xs-12 DeliveryOption_container">
                             <div className="col-12 height_for_inner_div fontStyle font_size_paragraph">
                                 <p>Delivery Options</p>
 
@@ -50,7 +49,7 @@ const DeliveryOption = () => {
                             </div>
                             <div className="col-12 height_for_time_div ">
                                 <div className="col-12 col-lg-12 ">
-                                    <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                                    <FormControl className={classes.muiSelect}  size="small">
                                         <InputLabel id="demo-select-small">Time</InputLabel>
                                         <Select
                                             labelId="demo-select-small"
@@ -77,38 +76,35 @@ const DeliveryOption = () => {
 
                             </div>
                             <div className="col-12 height_for_delivery_instruction_textarea_div ">
-                                <div className='col-12 text_area_margin height_for_delivery_instruction_textarea_div'>
-                                    <TextareaAutosize
-                                        aria-label="empty textarea"
-                                        placeholder="Empty"
+                                <div className='col-12  text_area_margin height_for_delivery_instruction_textarea_div'>
 
-                                    />
+                                    <textarea class="form-control" id="textAreaExample4" rows="3"></textarea>
                                 </div>
 
 
 
                             </div>
                             <div className='col-12 flex_for_delivery'>
-                                <div className='col-2 col-sm-2 col-md-2 col-lg-2 text-end '>
+                                <div className='col-2 col-sm-2 col-md-2 col-lg-2 '>
                                     <Checkbox ></Checkbox>
                                 </div>
-                                <div className='col-10  col-lg-10 col-md-10 col-sm-10 justify-content-start font_size_checkbox_paragraph'>
+                                <div className='col-10  col-lg-10 col-md-10 col-sm-10  font_size_checkbox_paragraph'>
                                     <p>**Please check this box if you are available for all day delivery (8AM-7PM).</p>
                                 </div>
 
                             </div>
                             <div className='col-12 flex_for_delivery'>
-                                <div className='col-2 col-sm-2 col-md-2 col-lg-2 text-end '>
+                                <div className='col-2 col-sm-2 col-md-2 col-lg-2 '>
                                     <Checkbox ></Checkbox>
                                 </div>
-                                <div className='col-10  col-lg-10 col-md-10 col-sm-10 justify-content-start font_size_checkbox_paragraph'>
+                                <div className='col-10  col-lg-10 col-md-10 col-sm-10 font_size_checkbox_paragraph'>
                                     <p>Please check this box if the information entered is for a caregiver. If so, please add the patient information
                                         (first name, last name, DOB, Medical Marijuana ID number) in the delivery instructions.</p>
                                 </div>
 
                             </div>
                             <div className='col-12 flex_for_delivery'>
-                                <div className='col-2 col-sm-2 col-md-2 col-lg-2 text-end '>
+                                <div className='col-2 col-sm-2 col-md-2 col-lg-2  '>
                                     <Checkbox ></Checkbox>
                                 </div>
                                 <div className='col-10  col-lg-10 col-md-10 col-sm-10 justify-content-start font_size_checkbox_paragraph'>
@@ -128,7 +124,7 @@ const DeliveryOption = () => {
 
                             </div>
                             <div className='col-12 height_delivery_option_buttton'>
-                            <Box
+                                <Box
                                     className={`  ${classes.loadingBtnTextAndBack}`}
                                 >
                                     <LoadingButton variant="outlined">continue</LoadingButton>
@@ -138,7 +134,7 @@ const DeliveryOption = () => {
 
 
                         </div>
-
+                       
 
                     </div>
 
