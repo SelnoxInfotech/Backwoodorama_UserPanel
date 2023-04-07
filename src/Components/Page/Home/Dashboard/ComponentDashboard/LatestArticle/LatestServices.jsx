@@ -24,6 +24,10 @@ const LatestServices = () => {
       .slick-prev {
         left: 0px;
       }
+      .slick-dots{
+        width: 90%;
+       
+    }
       `;
     const settings = {
 

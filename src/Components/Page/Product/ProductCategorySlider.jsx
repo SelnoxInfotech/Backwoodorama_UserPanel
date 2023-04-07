@@ -3,7 +3,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from "styled-components";
 
-const ProductCategorySlider = () => {
+const ProductCategorySlider = ({ FilterCategory, Category }) => {
+
     const ProductSlider = styled(Slider)`
     .slick-next {
         right: 0px;
@@ -90,43 +91,24 @@ const ProductCategorySlider = () => {
             }
         ]
     }
-    const ProductCategory = [
-        { image_url: "./image/prod_cat_Slider1.png",category_name:"Indica" },
-
-    { image_url: "./image/prod_cat_Slider3.png",category_name:"Flower" },
-    { image_url: "./image/prod_cat_Slider3.png" ,category_name:"Indica"},
-    { image_url: "./image/prod_cat_Slider1.png" ,category_name:"Sativa"},
-    // { image_url: "./image/prod_cat_Slider2.png" ,category_name:"Sativa"},
-    // { image_url: "./image/prod_cat_Slider3.png",category_name:"Sativa" },
-    // { image_url: "./image/prod_cat_Slider3.png",category_name:"Sativa" },
-    // { image_url: "./image/prod_cat_Slider1.png" ,category_name:"Sativa"},
-    // { image_url: "./image/prod_cat_Slider2.png",category_name:"Flower" },
-    // { image_url: "./image/prod_cat_Slider3.png" ,category_name:"Flower"},
-    // { image_url: "./image/prod_cat_Slider3.png",category_name:"Flower" },
-    // { image_url: "./image/prod_cat_Slider1.png" ,category_name:"Flower"},
-    // { image_url: "./image/prod_cat_Slider2.png" ,category_name:"Flower"},
-    // { image_url: "./image/prod_cat_Slider3.png" ,category_name:"Flower"},
-    // { image_url: "./image/prod_cat_Slider3.png" ,category_name:"Flower"},
-    // { image_url: "./image/prod_cat_Slider1.png" ,category_name:"Flower"},
-    // { image_url: "./image/prod_cat_Slider2.png" ,category_name:"Flower"},
-
-    ]
+    const ProductCategory = Category
+    console.log(Category)
     return (
 
         <ProductSlider  {...settings}>
             {ProductCategory.map((ele, index) => {
                 return (
-                    <div className="col-12" key={index}>
-                    <div className="col-2 mt-4 slick-slide slick-active slick-current" >
-                      
-                            <img id="Product_category_image" src={ele.image_url} alt="image_not found" />
-                      
-                         
+                    <div className="col-12" key={index}  onClick={(()=>{FilterCategory(ele.id)})}>
+                        <div className="col-2 mt-4 slick-slide slick-active slick-current" >
+
+                            <img id="Product_category_image" src={`http://52.3.255.128:8000/${ele.categoryImages}`} alt="image_not found" />
+
+
+                        </div>
+                        <div className="col-12 product_category_name">
+                            <p>{ele.name}</p>
+                        </div>
                     </div>
-                    <div className="col-12 product_category_name">
-                    <p>{ele.category_name}</p>
-                 </div>
-                 </div>
                 )
             })}
         </ProductSlider>

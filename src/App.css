@@ -5,6 +5,37 @@
  
 }
 
+ div a{
+  text-align: center;
+
+  text-decoration: none;
+  display: contents;
+}
+div a:hover{
+  opacity: 1;
+  color: #00b96a;
+  text-decoration:underline
+
+}
+div a::before{
+  content:"";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background: #00b96a;
+  transition: all .45s;
+}
+
+
+.nav_list1 a {
+  text-align: center;
+  color: #ffffff;
+  text-decoration: none;
+  display: contents;
+}
+
 
 
 .footer_section{
@@ -31,11 +62,11 @@ margin-top: 2px;
   justify-content: center;
 }
 
-.nav_list1 ul li {
+.nav_list1  ul li {
 
   color: black;
   font-size: 16px;
-    text-decoration: none !important;
+    text-decoration: none ;
     margin: 15px;
     position: relative;
     opacity: 0.8;
@@ -171,7 +202,7 @@ color: #333333;
 
 /* Top Navbar */
 .nav_list1 ul{
-  gap: 10px;
+  gap: 7px;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -204,9 +235,15 @@ color: #333333;
   z-index: 1  ;
   top: 90px;
   left: 0;
-  background-color: #eeeeee;
+  background: white;
   overflow-x: hidden;
   transition: 0.1s;
+
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.Tooglrbar{
+gap: 10px;
+display: flex;
 }
 
 .Slider_content_center{

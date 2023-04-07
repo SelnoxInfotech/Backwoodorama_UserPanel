@@ -90,7 +90,7 @@ const WeedProduct = () => {
     { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" }]
     return (
         <>
-            <div className="container-fluid  mt-4">
+            <div className="container-fluid " style={{marginTop:"62px"}}>
 
                 <div className="row weed_had_btn mt-4">
                     <div className='col-12 border'>
