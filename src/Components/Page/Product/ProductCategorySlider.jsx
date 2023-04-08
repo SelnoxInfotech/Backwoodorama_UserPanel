@@ -105,8 +105,11 @@ const ProductCategorySlider = ({ FilterCategory, Category }) => {
 
 
                         </div>
-                        <div className="col-12 product_category_name">
+                        <div className="col-12  center">
+                            <div className="col-12 product_category_name">
                             <p>{ele.name}</p>
+
+                            </div>
                         </div>
                     </div>
                 )
