@@ -14,7 +14,7 @@ const ProductList = ({ arr }) => {
     const [AddTOCard, SetAddToCard] = React.useState(() => {
         const saved = localStorage.getItem("items");
         const initialValue = JSON.parse(saved);
-        return initialValue 
+        return initialValue || []
     })
     const Addtocard = (Event) => {
         const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
