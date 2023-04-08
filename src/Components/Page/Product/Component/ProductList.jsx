@@ -141,7 +141,7 @@ const ProductList = ({ arr }) => {
                                         return (
                                             jsondata.map((data, index) => {
                                                 return (
-                                                    <div className="col-3 prod_cat_btn_cont mt-2 d-flex" key={index} >
+                                                    <div className="col-3 prod_cat_btn_cont mt-2 d-flex" id="" key={index} >
                                                         <section
                                                       className={classActive(ele.id, data.id)}
                                                             // id={classActive(ele.id, data.id)}
