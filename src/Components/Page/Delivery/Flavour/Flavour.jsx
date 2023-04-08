@@ -12,7 +12,7 @@ const Flavour = (Deta) => {
             <div className="container-fluid" >
                 <div className="row center">
                     <div className="col-12 d-flex border flavCont p-0">
-                        <div className="col-4 flav_image_col_two">
+                        <div className=" col-4   flav_image_col_two">
                             <div className="col-12 flav_img_div">
                                 <div className="col-6  flav_img_inner_div">
                                     <img src={`http://52.3.255.128:8000/${Deta.delBtn[0]?.Store_Image}`} alt="img_not_found" style={{ pointerEvents: "none" }} />
@@ -20,7 +20,7 @@ const Flavour = (Deta) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-8 p-2">
+                        <div className="col-8  p-2">
                             <div className="col-12 comm_head_prop fontStyle">
                                 <p>{Deta.delBtn[0]?.Store_Name}</p>
 
