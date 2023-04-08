@@ -287,7 +287,9 @@
     flex-direction: column;
 
   }
- 
+ .flav_content_div{
+  width: 96% !important;
+ }
   .flav_image_col_two{
     width: 100%;
     /* background-color: #989898; */

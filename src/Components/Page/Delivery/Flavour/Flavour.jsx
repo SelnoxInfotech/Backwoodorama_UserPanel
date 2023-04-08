@@ -20,7 +20,7 @@ const Flavour = (Deta) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-8  p-2">
+                        <div className="col-8 flav_content_div p-2">
                             <div className="col-12 comm_head_prop fontStyle">
                                 <p>{Deta.delBtn[0]?.Store_Name}</p>
 
