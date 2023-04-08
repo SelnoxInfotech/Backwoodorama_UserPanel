@@ -113,6 +113,9 @@ const ProductList = ({ arr }) => {
                                         <button className="cat_prod_inner_btn btn1">Indica</button>
 
                                     </div>
+                                    <div className="col-12">
+
+                                    </div>
                                 </div>
                             </Link>
                             <div className="col-8 product_cat_allProduct">

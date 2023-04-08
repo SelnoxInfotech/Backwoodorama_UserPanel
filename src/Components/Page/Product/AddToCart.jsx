@@ -8,6 +8,7 @@ import useStyles from "../../../Style"
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import TextField from '@mui/material/TextField';
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 
 const AddToCart = () => {
     const classes = useStyles()
@@ -26,7 +27,7 @@ const AddToCart = () => {
     const HandleDelivery = () => {
         const bgColor = "#31B665"
 
-        SetOpenDelivery(true)
+        SetOpenDelivery(!OpenDelivery)
         SetBackgroundClick(!null)
         SetDeliveryButtonBackground({ background: bgColor })
     }
@@ -218,18 +219,18 @@ const AddToCart = () => {
 
                         </div>
                         <div className="col-12">
-                            {OpenDelivery && (<div className="col-12">
+                            {OpenDelivery && (<div className="col-12 mt-4">
 
-                                <div className="col-12">
+                                <div className="col-12 mt-2">
                                     <TextField id="outlined-basic" placeholder="Enter Your Delivery" variant="outlined" fullWidth size='small' />
                                 </div>
-                                <div className="col-12">
+                                <div className="col-12 mt-2">
                                     <TextField id="outlined-basic" placeholder="Enter Your contact" variant="outlined" fullWidth size='small' />
                                 </div>
                             </div>)}
 
                         </div>
-                        <div className="col-12 order_summary_flex">
+                        <div className="col-12 order_summary_flex mt-4">
                             <div className="col-6 add_prod_cart_summary_p">
                                 <p>Subtotal</p>
                             </div>
@@ -289,7 +290,7 @@ const AddToCart = () => {
                                     className={` add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
 
                                 >
-                                    <LoadingButton variant="outlined">Checkout</LoadingButton>
+                                    <Link to="/DeliveryOption"><LoadingButton variant="outlined">Checkout</LoadingButton></Link>
                                 </Box>
 
                             </div>

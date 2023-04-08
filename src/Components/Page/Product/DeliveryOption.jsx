@@ -47,8 +47,8 @@ const DeliveryOption = () => {
 
 
                             </div>
-                            <div className="col-12 height_for_time_div ">
-                                <div className="col-12 col-lg-12 ">
+                            <div className="col-12 height_for_time_div">
+                                <div className="col-12 col-lg-12 height_for_time_div">
                                     <FormControl className={classes.muiSelect}  size="small">
                                         <InputLabel id="demo-select-small">Time</InputLabel>
                                         <Select
