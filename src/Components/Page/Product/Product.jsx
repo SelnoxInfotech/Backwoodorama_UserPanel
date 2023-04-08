@@ -71,6 +71,7 @@ const Product = () => {
 
 
     }).then(response => {
+        console.log(response)
         Setarr1(response.data)
         // SetProduct(Product => ({ ...Product, Category: response.data?.data[0].id }))
 

@@ -9,6 +9,7 @@ import { IoIosNotifications } from "react-icons/io"
 import { MdOutlineShoppingCart } from "react-icons/md"
 import { Link } from "react-router-dom";
 import SliderLink from "./Component/SideSlider/SilderLink"
+import { GiConsoleController } from 'react-icons/gi';
 const Navbar = () => {
   const [windowSize, setWindowSize] = React.useState()
   const [Hamburger, SetHamburger] = React.useState(window.innerWidth >= 993)
@@ -33,6 +34,7 @@ const Navbar = () => {
     return () => window.removeEventListener('resize', handleResize)
   }, [windowSize])
   function openNav() {
+    console.log("dddd")
     document.getElementById("mySidebar").style.width = "250px";
   }
   function closeNav() {
@@ -53,7 +55,7 @@ const Navbar = () => {
                 <span> Backwoodaroma</span> :
 
                 <div className='center'>
-                  <button className="openbtn Border" onClick={openNav}>☰</button>
+                  <button className="openbtn Border" onClick={()=>{openNav()}}>☰</button>
                 </div>
 
             }

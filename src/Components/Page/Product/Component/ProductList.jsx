@@ -74,9 +74,16 @@ const ProductList = ({ arr }) => {
     }
 
 
-    //     const classActive = (ele, id) => {
+        const classActive = (ele, id) => {
+            
+                        console.log(id ,ele)
+                        if (id===3){
+
+                        return 'prod_cat_btns'
+                        
+                        }
+                        else return "active"
     //         Price?.map((data,index) => {
-    //             console.log(id)
     //             // console.log(data.Product_id === ele && data.Item_id === id)
     //         //   return (data.Product_id === ele && data.Item_id === id) ? "active prod_cat_btns" : "prod_cat_btns"
     //             if (data.Product_id === ele && data.Item_id === id)  {
@@ -92,7 +99,7 @@ const ProductList = ({ arr }) => {
     //         console.log(Price)
 
 
-    //     }
+        }
 
     const classes = useStyles()
     return (
@@ -135,7 +142,8 @@ const ProductList = ({ arr }) => {
                                             jsondata.map((data, index) => {
                                                 return (
                                                     <div className="col-3 prod_cat_btn_cont mt-2 d-flex" key={index} >
-                                                        <section className={'prod_cat_btns'}
+                                                        <section
+                                                      className={classActive(ele.id, data.id)}
                                                             // id={classActive(ele.id, data.id)}
                                                             value={data.id} onClick={() => PriceSelect(ele.id, data.id, data.id)} >
                                                             {data.Weight}

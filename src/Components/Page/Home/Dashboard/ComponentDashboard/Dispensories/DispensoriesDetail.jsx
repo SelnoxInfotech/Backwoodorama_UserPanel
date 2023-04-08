@@ -21,7 +21,7 @@ export default function DispensoriesProduct() {
     const { id } = useParams();
     const classes = useStyles()
     const [Product, SetProduct] = React.useState('');
-    const [DespensariesData, SetDespensariesData] = React.useState([])
+    const [DespensariesData, SetDespensariesProductData] = React.useState([])
     const [Despen , SetDespens] = React.useState([])
     const handleChange = (event) => {
         SetProduct(event.target.value);
@@ -34,7 +34,7 @@ export default function DispensoriesProduct() {
         axios.get(`http://52.3.255.128:8000/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
         }).then(response => {
 
-            SetDespensariesData(response.data)
+            SetDespensariesProductData(response.data)
         })
         axios.get(`http://52.3.255.128:8000/UserPanel/Get-DispensaryByid/${id}`, {
         }).then(response => {
@@ -58,7 +58,7 @@ export default function DispensoriesProduct() {
                 <Flavour delBtn={Despen}></Flavour>
                 <div className="row">
                     <div className="col-12 mt-4">
-                        <ProductCategorySlider></ProductCategorySlider>
+                        {/* <ProductCategorySlider></ProductCategorySlider> */}
 
                     </div>
 

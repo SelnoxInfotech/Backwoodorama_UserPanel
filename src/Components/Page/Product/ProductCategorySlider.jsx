@@ -92,7 +92,6 @@ const ProductCategorySlider = ({ FilterCategory, Category }) => {
         ]
     }
     const ProductCategory = Category
-    console.log(Category)
     return (
 
         <ProductSlider  {...settings}>
