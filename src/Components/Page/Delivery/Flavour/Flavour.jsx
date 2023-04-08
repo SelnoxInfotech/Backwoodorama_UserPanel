@@ -33,14 +33,14 @@ const Flavour = (Deta) => {
                                 <p>{Deta.delBtn[0]?.city_name}</p>
                             </div>
                             <div className="col-12 col-sm-12 col-lg-12 col-md-12  flavour_mobile_email_btn">
-                                <div className="col-6 col-sm-4 col-md-2 col-lg-2   flav_mobile_btn">
+                                <div className="col-8 col-sm-4 col-md-2 col-lg-2   flav_mobile_btn">
                                     <Box
                                         className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
                                     >
                                         <LoadingButton variant="outlined">Mobile no</LoadingButton>
                                     </Box>
                                 </div>
-                                <div className="col-6 col-sm-4 col-md-2 col-lg-2  flav_email_btn">
+                                <div className="col-8 col-sm-4 col-md-2 col-lg-2  flav_email_btn">
                                     <Box
                                         className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
                                     >
