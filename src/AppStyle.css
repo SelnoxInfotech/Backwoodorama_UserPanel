@@ -254,14 +254,19 @@
 .flav_img_div{
   display: flex;
   justify-content: center;
+  height: 100px;
 }
 .flav_img_div img {
   width: 100%;
   height: 166px;
   padding: 10px;
 }
-
-
+.flav_content_div{
+  height: 200px;
+}
+.flav_image_col_two{
+  height: 200px;
+}
 .flavCont {
   background: #FAFAFA;
   border: 1px solid #E7E7E7;
@@ -291,16 +296,19 @@
   width: 96% !important;
  }
   .flav_image_col_two{
-    width: 100%;
+    width: 100% !important;
+    height: 100px;
     /* background-color: #989898; */
   }
   .flav_img_div{
     display: flex;
     justify-content: center;
+    height: 100px !important;
   }
 
   .flav_img_div img {
-    width: 150px;
+    width: 70%;
+    height: 126px;
   }
 
 
