@@ -492,6 +492,9 @@
     flex-wrap: wrap;
     width: 100%;
   }
+  .prod_inner_cont{
+    height: 240px !important;
+  }
   .prod_cat_img img {
     width: 160%;
     /* height: 90px; */
