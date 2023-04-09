@@ -74,53 +74,6 @@ const ProductList = ({ arr }) => {
     }
 
 
-        // const classActive = (Product, id) => {
-        //         console.log( Price.length)
-        //         if (Price.length !== 0) {
-        //             // console.log(Product.Prices[0].Price)
-        //             // Product.Prices?.map((Product_data)=>{
-        //             //     var JsonObject = JSON.parse(JSON.stringify(Product_data))
-        //             //     var jsondata = JSON.parse(JsonObject.Price)
-        //             //     console.log(jsondata)
-        //             //     jsondata.map((data)=>{
-        //             //         // console.log(data.id)
-        //             //         if(data.id === 1){
-        //             //             const s = "active"
-        //             //             return s
-        //             //         }
-        //             //         // else {
-                            
-        //             //         //     return "prod_cat_btns"
-        //             //         // }
-
-        //             //     })
-        //                 // console.log(s)
-
-        //                 return "prod_cat_btns active"
-                        
-        //             // })
-        //         }
-        //         else {
-        //             return 'prod_cat_btns'
-        //         }
-
-    //         Price?.map((data,index) => {
-    //             // console.log(data.Product_id === ele && data.Item_id === id)
-    //         //   return (data.Product_id === ele && data.Item_id === id) ? "active prod_cat_btns" : "prod_cat_btns"
-    //             if (data.Product_id === ele && data.Item_id === id)  {
-    //    console.log("sfsafas")
-    //             }
-    //             else 
-    //             {    
-    //                 console.log("fl=a==")
-    //             }
-    //         })
-    //         // return "prod_cat_btns";
-
-    //         console.log(Price)
-
-
-        // }
 
     const classes = useStyles()
     return (
@@ -161,15 +114,33 @@ const ProductList = ({ arr }) => {
                                         var jsondata = JSON.parse(JsonObject.Price)
                                         return (
                                             jsondata.map((data, index) => {
-                                                console.log(data.id === 1 )
+                                                let s = false
+                                           
+                                                console.log(s)
+                                                if ( Price.length=== 0){
+                                                    
+                                                          if(data.id === 1)
+                                                        {
+                                                          s = true
+                                                        }
+                                                    
+                                                }
+                                                else (
+                                                    Price?.map((Price)=>{
+                                                        if(ele.id === Price?.Product_id && data.id === Price?.Item_id) {
+                                                             s = true
+                                                        }
+                                                        else {
+                                                                
+                                                          s = false
+                                                        }
+                                                        return s
+                                                    })
+                                                )
                                                 return (
                                                     <div className="col-3 prod_cat_btn_cont mt-2 d-flex" id="" key={index} >
                                                         <section
-                                                        className={ "prod_cat_btns " + ( data.id === 1 && "active") }
-                                                    //   className{data.id === 1 ? "": ""}
-                                                    
-                                                    
-                                                            // id={classActive(ele.id, data.id)}
+                                                        className={ "prod_cat_btns " + (s ? "active" : "") }
                                                             value={data.id} onClick={() => PriceSelect(ele.id, data.id)} >
                                                             {data.Weight}
                                                             <p className="rs">{data.Price}$</p>
@@ -205,41 +176,3 @@ const ProductList = ({ arr }) => {
 export default ProductList
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// if (Status !== undefined) {
-//     SetAddToCard(AddTOCard.map((Add) => {
-//         if (AddData.length !== 0) {
-           
-//             if (AddData[0]?.Item_id === Add.Price_index[0]?.Item_id) {
-
-//                 return { ...Add, Product_Quantity: Add.Product_Quantity + 1 }
-//             }
-//             else {
-//                 return { ...Add, Price_index: AddData, Product_Quantity: 1 }
-//             }
-//         }
-        
-//         else if ( Add.Product_id === Event.id  Add.Price_index.length!==0 || AddData[0]?.Item_id === Add.Price_index[0]?.Item_id) {
-            
-//             return { ...Add, Product_Quantity: Add.Product_Quantity + 1}
-//         }
-//         return Add
-//     }))
