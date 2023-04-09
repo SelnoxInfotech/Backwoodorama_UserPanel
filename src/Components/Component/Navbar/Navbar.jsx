@@ -14,6 +14,7 @@ const Navbar = () => {
   const [windowSize, setWindowSize] = React.useState()
   const [Hamburger, SetHamburger] = React.useState(window.innerWidth >= 993)
   const classes = useStyles()
+  const [Open , SetOpen] = React.useState(false)
   React.useEffect(() => {
     const handleResize = () => {
       setWindowSize(window.innerWidth)
@@ -32,13 +33,16 @@ const Navbar = () => {
       }
     }
     return () => window.removeEventListener('resize', handleResize)
+
   }, [windowSize])
   function openNav() {
     console.log("dddd")
-    document.getElementById("mySidebar").style.width = "250px";
+    SetOpen(true)
+    // document.getElementById("mySidebar").style.width = "250px";
   }
   function closeNav() {
-    document.getElementById("mySidebar").style.width = "0";
+    SetOpen(false)
+    // document.getElementById("mySidebar").style.width = "0";
 
   }
 
@@ -88,7 +92,7 @@ const Navbar = () => {
           </Grid>
           <Grid xs={12} md={12} xl={12} >
             <SliderLink></SliderLink>
-            <SideNavbar closeNav={closeNav}></SideNavbar>
+            <SideNavbar closeNav={closeNav} Open={Open}></SideNavbar>
           </Grid>
         </Grid>
 

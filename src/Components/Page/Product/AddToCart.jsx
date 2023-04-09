@@ -22,7 +22,7 @@ const AddToCart = () => {
     React.useEffect(() => {
         const item = localStorage.getItem('items')
         SetLocalData(JSON.parse(item))
-    },)
+    },[])
 
     const HandleDelivery = () => {
         const bgColor = "#31B665"

@@ -74,15 +74,34 @@ const ProductList = ({ arr }) => {
     }
 
 
-        const classActive = (ele, id) => {
-            
-                        console.log(id ,ele)
-                        if (id===3){
+        const classActive = (Product, id) => {
+                console.log(id ,Product , Price)
+                if (Price.length !== 0) {
+                    console.log(Product.Prices[0].Price)
+                    Product.Prices?.map((Product_data)=>{
+                        var JsonObject = JSON.parse(JSON.stringify(Product_data))
+                        var jsondata = JSON.parse(JsonObject.Price)
+                                        
+                        console.log(jsondata)
+                      const s =   jsondata.map((data)=>{
+                            if(data.id === 1){
+                                console.log(data.id === 1)
+                                return 'active' 
+                            }
+                            // else {
+                            //     return 'prod_cat_btns'
+                            // }
 
-                        return 'prod_cat_btns'
-                        
-                        }
-                        else return "active"
+                        })
+                        console.log(s)
+                        return s[0]
+                    })
+                }
+                else {
+                Price?.map((data,index) => {
+                
+                    })
+                }
     //         Price?.map((data,index) => {
     //             // console.log(data.Product_id === ele && data.Item_id === id)
     //         //   return (data.Product_id === ele && data.Item_id === id) ? "active prod_cat_btns" : "prod_cat_btns"
@@ -143,9 +162,9 @@ const ProductList = ({ arr }) => {
                                                 return (
                                                     <div className="col-3 prod_cat_btn_cont mt-2 d-flex" id="" key={index} >
                                                         <section
-                                                      className={classActive(ele.id, data.id)}
+                                                      className={classActive(ele, data.id)}
                                                             // id={classActive(ele.id, data.id)}
-                                                            value={data.id} onClick={() => PriceSelect(ele.id, data.id, data.id)} >
+                                                            value={data.id} onClick={() => PriceSelect(ele.id, data.id)} >
                                                             {data.Weight}
                                                             <p className="rs">{data.Price}$</p>
                                                         </section>
