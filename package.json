@@ -39,6 +39,7 @@
     "react-slick": "^0.29.0",
     "react-store-locator": "^0.20.7",
     "recompose": "^0.30.0",
+    "serve": "^14.2.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.9",
     "swiper": "^9.1.1",

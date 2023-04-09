@@ -74,34 +74,36 @@ const ProductList = ({ arr }) => {
     }
 
 
-        const classActive = (Product, id) => {
-                console.log(id ,Product , Price)
-                if (Price.length !== 0) {
-                    console.log(Product.Prices[0].Price)
-                    Product.Prices?.map((Product_data)=>{
-                        var JsonObject = JSON.parse(JSON.stringify(Product_data))
-                        var jsondata = JSON.parse(JsonObject.Price)
-                                        
-                        console.log(jsondata)
-                      const s =   jsondata.map((data)=>{
-                            if(data.id === 1){
-                                console.log(data.id === 1)
-                                return 'active' 
-                            }
-                            // else {
-                            //     return 'prod_cat_btns'
-                            // }
+        // const classActive = (Product, id) => {
+        //         console.log( Price.length)
+        //         if (Price.length !== 0) {
+        //             // console.log(Product.Prices[0].Price)
+        //             // Product.Prices?.map((Product_data)=>{
+        //             //     var JsonObject = JSON.parse(JSON.stringify(Product_data))
+        //             //     var jsondata = JSON.parse(JsonObject.Price)
+        //             //     console.log(jsondata)
+        //             //     jsondata.map((data)=>{
+        //             //         // console.log(data.id)
+        //             //         if(data.id === 1){
+        //             //             const s = "active"
+        //             //             return s
+        //             //         }
+        //             //         // else {
+                            
+        //             //         //     return "prod_cat_btns"
+        //             //         // }
 
-                        })
-                        console.log(s)
-                        return s[0]
-                    })
-                }
-                else {
-                Price?.map((data,index) => {
-                
-                    })
-                }
+        //             //     })
+        //                 // console.log(s)
+
+        //                 return "prod_cat_btns active"
+                        
+        //             // })
+        //         }
+        //         else {
+        //             return 'prod_cat_btns'
+        //         }
+
     //         Price?.map((data,index) => {
     //             // console.log(data.Product_id === ele && data.Item_id === id)
     //         //   return (data.Product_id === ele && data.Item_id === id) ? "active prod_cat_btns" : "prod_cat_btns"
@@ -118,7 +120,7 @@ const ProductList = ({ arr }) => {
     //         console.log(Price)
 
 
-        }
+        // }
 
     const classes = useStyles()
     return (
@@ -159,10 +161,14 @@ const ProductList = ({ arr }) => {
                                         var jsondata = JSON.parse(JsonObject.Price)
                                         return (
                                             jsondata.map((data, index) => {
+                                                console.log(data.id === 1 )
                                                 return (
                                                     <div className="col-3 prod_cat_btn_cont mt-2 d-flex" id="" key={index} >
                                                         <section
-                                                      className={classActive(ele, data.id)}
+                                                        className={ "prod_cat_btns " + ( data.id === 1 && "active") }
+                                                    //   className{data.id === 1 ? "": ""}
+                                                    
+                                                    
                                                             // id={classActive(ele.id, data.id)}
                                                             value={data.id} onClick={() => PriceSelect(ele.id, data.id)} >
                                                             {data.Weight}
