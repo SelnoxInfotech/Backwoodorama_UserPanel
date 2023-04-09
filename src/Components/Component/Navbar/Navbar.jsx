@@ -29,23 +29,25 @@ const Navbar = () => {
     else {
       if (windowSize <= 993) {
         SetHamburger(false)
-        window.addEventListener('click', closeNav);
       }
     }
     return () => window.removeEventListener('resize', handleResize)
 
   }, [windowSize])
   function openNav() {
-    console.log("dddd")
     SetOpen(true)
-    // document.getElementById("mySidebar").style.width = "250px";
   }
   function closeNav() {
     SetOpen(false)
-    // document.getElementById("mySidebar").style.width = "0";
 
   }
 
+  React.useState(()=>{
+    if (Open === true) {
+
+      document.addEventListener("click", closeNav)
+    }
+  },[])
 
   return (
     <>

@@ -9,14 +9,10 @@ import styled from "styled-components";
 const SideNavbar = ({ closeNav, Open }) => {
 
     const classes = useStyles()
-    // const Popup = styled.div`
-console.log(Open)
-    // width: ${Open ? "250px" : "0px"};
     
-//   `;
     return (
         <>
-            <div id="mySidebar" className="sidebar " style={{ width: Open ? "250px" : "0px"}}>
+            <div id="mySidebar" className="sidebar" style={{ width: Open ? "250px" : "0px"}}>
                 <div className=' col-12 Login_Sigup_button mt-4 mb-3 '>
                     <div className='col-4'>
 
