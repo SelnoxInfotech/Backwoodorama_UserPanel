@@ -15,7 +15,7 @@ const DeliveryInformation = () => {
 
             </div>
 
-            <div className='row center'>
+            <div className='row center deliver_row_margin'>
 
                 <div className='col-lg-4 col-md-8 col-sm-8 col-12 delivery_information_container'>
                     <div className='row'>
@@ -64,7 +64,7 @@ const DeliveryInformation = () => {
                     </div>
                     <div className='row'>
                         <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
-                            <TextField label="Mobile phone" variant="standard" fullWidth />
+                            <TextField type='number' label="Mobile phone" variant="standard" fullWidth />
 
 
                         </div>
