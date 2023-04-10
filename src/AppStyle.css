@@ -476,7 +476,7 @@
   margin-bottom: 10px;
 }
 .prod_para_name{
-  min-height: 60px !important;
+  min-height: 30px !important;
 }
 .prod_para_name p{
   font-size: 15px;
@@ -1453,4 +1453,51 @@ margin-left: 10px;
 .height_delivery_option_buttton{
   height:44px;
 }
+/* end */
+/* DeliveryInformation */
+.delivery_information_font_family{
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+.delivery_information_container{
+  margin-top: 20px;
+  border: 1px solid grey;
+border-radius: 10px;
+box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  height: 750px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+@media screen and (min-width: 300px) and (max-width:1496px){
+  .delivery_information_container{
+    /* height: 1200px; */
+    overflow-y: scroll;
+    overflow-x: hidden;
+    
+  }
+}
+.height_del_information_inner_div{
+  height: 50px;
+}
+.height_text_field{
+  height: 50px;
+}
+.font_color{
+  color: rgb(102, 102, 102);
+  margin-top: 4px;
+  font-size: 15px;
+}
+.height_delivery_information_btn{
+  height: 50px;
+}
+.delivery_option_img_div_height{
+  height: 150px;
+}
+.delivery_option_img_div_height img{
+  width: 70%;
+  height: 120px;
+}
+
 /* end */

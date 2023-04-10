@@ -9,6 +9,8 @@ import Button from '@mui/material/Button';
 
 import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
+import { Link } from 'react-router-dom';
+
 const DeliveryOption = () => {
     const classes = useStyles()
 
@@ -22,7 +24,7 @@ const DeliveryOption = () => {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-12 center ">
-                        <div className="col-12 col-lg-4 col-md-6 col-sm-12 col-xs-12 DeliveryOption_container">
+                        <div className="col-12 col-lg-4 col-md-8 col-sm-8  DeliveryOption_container">
                             <div className="col-12 height_for_inner_div fontStyle font_size_paragraph">
                                 <p>Delivery Options</p>
 
@@ -38,7 +40,7 @@ const DeliveryOption = () => {
 
                                 </div>
                                 <div className="col-6 col-sm-6 col-md-6 position_right">
-                                    <Button>Change</Button>
+                                    <Link to="/DeliveryOption">  <Button>Change</Button></Link>
 
                                 </div>
                             </div>
@@ -123,11 +125,11 @@ const DeliveryOption = () => {
                                 <p>Please agree to the store's required terms</p>
 
                             </div>
-                            <div className='col-12 height_delivery_option_buttton'>
+                            <div className='col-12 col-lg-4 height_delivery_option_buttton'>
                                 <Box
                                     className={`  ${classes.loadingBtnTextAndBack}`}
                                 >
-                                    <LoadingButton variant="outlined">continue</LoadingButton>
+                                  <Link to="/DeliveryInformation"><LoadingButton variant="outlined">continue</LoadingButton></Link>
                                 </Box>
 
                             </div>

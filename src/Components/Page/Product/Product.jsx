@@ -66,7 +66,6 @@ const Product = () => {
     ]
 
        const FilterCategory = (id) =>{
-      
         Axios(`http://52.3.255.128:8000/UserPanel/Get-ProductByCategory/${id}`, {
 
 
