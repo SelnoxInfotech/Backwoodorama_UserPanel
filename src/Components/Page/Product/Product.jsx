@@ -11,17 +11,20 @@ import Axios from "axios"
 import Flavour from "../Delivery/Flavour/Flavour"
 import ProductFilter from "./Component/ProductFilter"
 import useStyles from "../../../Style"
-import SearchBar from "material-ui-search-bar";
+// import SearchBar from "material-ui-search-bar";
+
+import SearchBar from '@mkyy/mui-search-bar';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import ProductCategorySlider from "./ProductCategorySlider"
+import { GrFormSearch } from "react-icons/gr"
 
 const Product = () => {
     const classes = useStyles()
- const [Category , SetCategory] = React.useState([])
+    const [Category, SetCategory] = React.useState([])
     const [arr1, Setarr1] = React.useState([])
     const [Product, SetProduct] = React.useState('');
     React.useEffect(() => {
@@ -38,7 +41,7 @@ const Product = () => {
 
                 // SetProduct(Product => ({ ...Product, discount: "None" })) 52.3.255.128:8000/UserPanel/Get-Categories/ 
             })
-            Axios("http://52.3.255.128:8000/UserPanel/Get-Categories/ ", {
+        Axios("http://52.3.255.128:8000/UserPanel/Get-Categories/ ", {
 
 
         }).then(response => {
@@ -55,7 +58,7 @@ const Product = () => {
     { quant: "4gms", rs: "26" }, { quant: "5gms", rs: "27" }, { quant: "6gms", rs: "28" }, { quant: "7gms", rs: "29" }]
 
     const delBtn = [{ del: "Delivery Only" }, { del: "Closed Open" }, { del: "Medical and recreational" }, { del: "Licence and Information" }
-    , { del: "order only delivery" }]
+        , { del: "order only delivery" }]
 
     const ProductFilterData = [{ Id: 1, Name: "Category", Type1: "Flower", Type2: "CBD", Icons: <BsLayoutSplit className={classes.muiIcons} /> },
     { Id: 2, Name: "Brand", Type1: "Leafly", Type2: "CBD", Icons: <MdOutlineBrandingWatermark className={classes.muiIcons} /> },
@@ -65,23 +68,23 @@ const Product = () => {
     { Id: 6, Name: "Product", Type1: "Medical", Type2: "Recreational", Icons: <RiProductHuntLine className={classes.muiIcons} /> },
     ]
 
-       const FilterCategory = (id) =>{
+    const FilterCategory = (id) => {
         Axios(`http://52.3.255.128:8000/UserPanel/Get-ProductByCategory/${id}`, {
 
 
-    }).then(response => {
-        console.log(response)
-        Setarr1(response.data)
-        // SetProduct(Product => ({ ...Product, Category: response.data?.data[0].id }))
+        }).then(response => {
+            console.log(response)
+            Setarr1(response.data)
+            // SetProduct(Product => ({ ...Product, Category: response.data?.data[0].id }))
 
 
-    }).catch(
-        function (error) {
+        }).catch(
+            function (error) {
 
-            // SetProduct(Product => ({ ...Product, discount: "None" }))
-        })
+                // SetProduct(Product => ({ ...Product, discount: "None" }))
+            })
 
-       }
+    }
 
     const handleChange = (event) => {
         SetProduct(event.target.value);
@@ -93,7 +96,7 @@ const Product = () => {
                 <Flavour delBtn={delBtn}></Flavour>
                 <div className="row">
                     <div className="col-12 mt-4">
-                        <ProductCategorySlider FilterCategory ={FilterCategory} Category={Category}></ProductCategorySlider>
+                        <ProductCategorySlider FilterCategory={FilterCategory} Category={Category}></ProductCategorySlider>
 
                     </div>
 
@@ -102,11 +105,12 @@ const Product = () => {
                 <div className="row center  mt-2 p-2">
                     <div className="col-12 mt-4 product_search_and_select">
                         <div className="col-2 product_search_bar">
-                            <SearchBar className={classes.muiSearchIcon} />
+                            <SearchBar style={{border:"1px solid gray"}} width={"100%"}/>
+                            
 
                         </div>
                         <div className="col-10 product_select">
-                            <FormControl  sx={{ m: 1, minWidth: 120 }}>
+                            <FormControl sx={{ m: 1, minWidth: 120 }}>
                                 <Select
                                     value={Product}
                                     onChange={handleChange}
@@ -126,7 +130,7 @@ const Product = () => {
                         </div>
 
                     </div>
-                   
+
                     <div className="col-12   productCat_cont">
 
 

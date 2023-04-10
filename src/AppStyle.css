@@ -1262,6 +1262,20 @@
     width: 46% !important;
 }
 }
+.addtocart_textfield_flex{
+  display: flex;
+  gap: 10px;
+}
+@media(max-width:600px){
+  .addtocart_textfield_flex{
+    display: block;
+    gap: 10px;
+  }
+  .addtocart_textfield{
+    width: 60% !important;
+
+  }
+}
 /* Product_category_image */
 #Product_category_image{
   width:54%;

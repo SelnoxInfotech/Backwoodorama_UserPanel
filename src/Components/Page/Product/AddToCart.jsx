@@ -113,12 +113,12 @@ const AddToCart = () => {
 
                         </div>
                         <div className="col-12">
-                            {OpenDelivery && (<div className="col-12 mt-4">
+                            {OpenDelivery && (<div className="col-12 mt-4 addtocart_textfield_flex">
 
-                                <div className="col-12 mt-2">
+                                <div className="col-2 addtocart_textfield mt-2">
                                     <TextField id="outlined-basic" placeholder="Enter Your Delivery" variant="outlined" fullWidth size='small' />
                                 </div>
-                                <div className="col-12 mt-2">
+                                <div className="col-2 addtocart_textfield mt-2">
                                     <TextField id="outlined-basic" placeholder="Enter Your contact" variant="outlined" fullWidth size='small' />
                                 </div>
                             </div>)}
