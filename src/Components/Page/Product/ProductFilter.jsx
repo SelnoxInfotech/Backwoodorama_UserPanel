@@ -1,7 +1,7 @@
 import React from "react"
 import { FiChevronRight } from "react-icons/fi"
 import { FiChevronLeft } from "react-icons/fi"
-import useStyles from "../../../../Style"
+import useStyles from "../../../Style"
 
 const ProductFilter = ({ ProductFilterData }) => {
     const classes = useStyles()

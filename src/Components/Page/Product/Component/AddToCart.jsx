@@ -4,7 +4,7 @@ import { GrFormSubtract } from "react-icons/gr";
 import { RiDeleteBin6Line } from "react-icons/ri"
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
-import useStyles from "../../../Style"
+import useStyles from "../../../../Style"
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import TextField from '@mui/material/TextField';
 import { useState } from "react";

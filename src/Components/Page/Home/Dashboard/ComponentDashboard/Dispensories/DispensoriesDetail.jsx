@@ -8,8 +8,8 @@ import useStyles from "../../../../../../Style"
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-import ProductFilter from "../../../../Product/Component/ProductFilter";
-import ProductList from "../../../../Product/Component/ProductList";
+import ProductFilter from "../../../../Product/ProductFilter";
+import ProductList from "../../../../Product/ProductList";
 import { BsLayoutSplit } from "react-icons/bs"
 import { BsDropletHalf } from "react-icons/bs"
 import { MdOutlineBrandingWatermark } from "react-icons/md"

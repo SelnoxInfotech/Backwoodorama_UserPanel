@@ -2,7 +2,7 @@ import React from "react";
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import { AiFillStar } from "react-icons/ai";
-import useStyles from "../../../../Style"
+import useStyles from "../../../Style"
 import { Link } from "react-router-dom";
 import _ from "lodash";
 
