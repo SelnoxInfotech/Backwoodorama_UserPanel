@@ -83,7 +83,7 @@ const ProductList = ({ arr }) => {
                     <div className="col-3 prod_inner_cont" key={index}>
 
                         <div className="col-12 prod_main_cont  p-2">
-                            <Link to="/ProductDetail" >
+                            <Link to="/ProductDetail"  state={{ Id: ele.id}}>
                                 <div className="col-4 prod_cat_cont">
                                     <div className="col-12 p-2 prod_cat_img">
                                         <img id={ele.id} src={`http://52.3.255.128:8000/${ele.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }} />
@@ -109,14 +109,12 @@ const ProductList = ({ arr }) => {
                                     <p className='fontStyle common_sub_head'>Rating</p><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons} /></span>
                                 </div>
                                 <div className="col-12   prod_cat_cont_btn px-2">
-                                    {ele.Prices?.map((ele1, ndex) => {
+                                    {ele.Prices?.map((ele1, ndex) => {  
                                         var JsonObject = JSON.parse(JSON.stringify(ele1))
                                         var jsondata = JSON.parse(JsonObject.Price)
                                         return (
                                             jsondata.map((data, index) => {
                                                 let s = false
-                                           
-                                                console.log(s)
                                                 if ( Price.length=== 0){
                                                     
                                                           if(data.id === 1)
