@@ -15,10 +15,16 @@ const DeliveryOption = () => {
     const classes = useStyles()
 
     const [Time, SetTime] = React.useState('');
-
+    const [ShowDeliveryRestData,SetShowDeliveryRestData]=React.useState(true)
     const handleChange = (event) => {
         SetTime(event.target.value);
     };
+    const ShowHideDeliveryOptions=()=>{
+        SetShowDeliveryRestData(false)
+    }
+    const AddDeliveryInstruction=()=>{
+        SetShowDeliveryRestData(true)
+    }
     return (
         <>
             <div className="container-fluid">
@@ -44,6 +50,13 @@ const DeliveryOption = () => {
 
                                 </div>
                             </div>
+                            {ShowDeliveryRestData?"":   <div className='showagain' onClick={AddDeliveryInstruction}>
+                              <p>Add delivery instructions</p>
+                            </div>}
+                         
+                            {ShowDeliveryRestData&&
+
+                            <div className='show_and_hide'>
                             <div className="col-12 height_for_inner_div ">
                                 <p>Delivery time</p>
 
@@ -129,14 +142,14 @@ const DeliveryOption = () => {
                                 <Box
                                     className={`  ${classes.loadingBtnTextAndBack}`}
                                 >
-                                  <Link to="/DeliveryInformation"><LoadingButton variant="outlined">continue</LoadingButton></Link>
+                                  <Link to="/DeliveryInformation"><LoadingButton onClick={ShowHideDeliveryOptions} variant="outlined">continue</LoadingButton></Link>
                                 </Box>
 
                             </div>
 
-
+                            </div>
+                        }
                         </div>
-                       
 
                     </div>
 

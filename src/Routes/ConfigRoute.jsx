@@ -9,8 +9,9 @@ import Login from "../Components/Page/Login/Login"
 import SignupWithEmail from "../Components/Page/Signup/SignupWithEmail"
 import ResetPassword from "../Components/Page/ResetPassword/ResetPassword"
 import CreatePassword from "../Components/Page/ResetPassword/CreatePassword"
-import DeliveryOption from "../Components/Page/Product/DeliveryOption"
-import DeliveryInformation from "../Components/Page/Product/DeliveryInformation"
+import DeliveryOption from "../Components/Page/Checkout/DeliveryOption"
+import DeliveryInformation from "../Components/Page/Checkout/DeliveryInformation"
+import CheckOutMainPage from "../Components/Page/Checkout/CheckoutMainPage"
 const routesConfig = [
   
       {
@@ -53,6 +54,11 @@ const routesConfig = [
             path:"/AddToCart",
             element:<AddToCart/>
           },
+          {
+            path:"/CheckOutMainPage",
+            element:<CheckOutMainPage/>
+          },
+
           {
             path:"/DeliveryOption",
             element:<DeliveryOption/>

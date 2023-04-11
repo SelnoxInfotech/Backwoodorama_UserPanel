@@ -105,7 +105,7 @@ const Product = () => {
                 <div className="row center  mt-2 p-2">
                     <div className="col-12 mt-4 product_search_and_select">
                         <div className="col-2 product_search_bar">
-                            <SearchBar style={{border:"1px solid gray"}} width={"100%"}/>
+                            <SearchBar style={{border:"1px solid #dee2e6"}} width={"100%"}/>
                             
 
                         </div>
