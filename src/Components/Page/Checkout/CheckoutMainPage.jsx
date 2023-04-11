@@ -1,14 +1,23 @@
 import DeliveryOption from "./DeliveryOption"
 import DeliveryInformation from "./DeliveryInformation"
+import Payment from "./Payment"
+import React from "react"
 const CheckOutMainPage=()=>{
+    const [ShowData,SetShowData]=React.useState(false)
+    const [ShowDeliveryInformation,SetShowDeliveryInformation]=React.useState(false)
     return(
         <>
         <div className="container-fluid">
             <div className="row">
-               <DeliveryOption/>
+               <DeliveryOption SetShowData={SetShowData}/>
             </div>
             <div className="row">
-                <DeliveryInformation/>
+            {ShowData===true&& <DeliveryInformation SetShowDeliveryInformation={SetShowDeliveryInformation}/>
+              }
+
+            </div>
+            <div className="row">
+                {ShowDeliveryInformation===true && <Payment/>}
 
             </div>
             

@@ -23,7 +23,7 @@ const AddToCart = () => {
     React.useEffect(() => {
         const item = localStorage.getItem('items')
         SetLocalData(JSON.parse(item))
-    },[])
+    }, [])
 
     const HandleDelivery = () => {
         const bgColor = "#31B665"
@@ -87,10 +87,10 @@ const AddToCart = () => {
                         <p>Your Items</p>
                     </div>
 
-                    <div className="col-12  ">
+                    <div className="col-12 AddProductCartContainer">
 
 
-                        <div className="col-12  AddProductCartContainerinner">
+                        <div className="col-10  AddProductCartContainerinner">
                             {LocalData?.map((ele, index) => {
                                 return (
                                     <div className="col-12 border Add_product_cart_left_container_item" key={index}>
@@ -134,10 +134,10 @@ const AddToCart = () => {
 
                                                 </div>
                                                 <div className="col-12 add_prod_btn_amount">
-                                                    <div className="col-10 col-lg-2 col-md-6 col-sm-10  add_to_product_btn_div d-flex">
+                                                    <div className="col-10 col-lg-3 col-md-4 col-sm-4  add_to_product_btn_div d-flex">
                                                         <div className="col-4">
                                                             {/* <button className="add_prod_cart_btn" onClick={() => { Quantity(ele.Product_id) }} ><AiOutlinePlus /></button> */}
-                                                            <Button className="" style={{width:"15px"}} onClick={() => { Quantity(ele.Product_id) }} ><AiOutlinePlus /></Button>
+                                                            <Button className="" style={{ width: "15px" }} onClick={() => { Quantity(ele.Product_id) }} ><AiOutlinePlus /></Button>
 
 
                                                         </div>
@@ -146,7 +146,7 @@ const AddToCart = () => {
                                                         </div>
                                                         <div className="col-4">
                                                             {/* <button className="add_prod_cart_btn" > {ele.Product_Quantity > 1 && <GrFormSubtract onClick={() => { decreaseQuantity(ele.Product_id) }} />}</button> */}
-                                                            <Button className="" style={{width:"15px"}} > {ele.Product_Quantity > 1 && <GrFormSubtract onClick={() => { decreaseQuantity(ele.Product_id) }} />}</Button>
+                                                            <Button className="" style={{ width: "15px" }} > {ele.Product_Quantity > 1 && <GrFormSubtract onClick={() => { decreaseQuantity(ele.Product_id) }} />}</Button>
 
                                                         </div>
 
@@ -200,124 +200,125 @@ const AddToCart = () => {
                                 )
                             })}
                         </div>
+                        <div className="col-3 border  p-2 Add_product_cart_right_container_summary ">
+                            <div className="col-12 fontStyle AddProdCartFont_weight">
+                                <h5>Order Summmary</h5>
+
+                            </div>
+                            <div className="col-12 d-flex addToCart_deliver">
+                                <div className="col-6">
+                                    <Box
+                                        className={` add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
+
+                                    >
+                                        <LoadingButton onClick={HandleDelivery} variant="outlined">Delivery</LoadingButton>
+                                    </Box>
+                                </div>
+                                <div className="col-6">
+                                    <Box
+                                        className={`add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
+
+                                    >
+                                        <LoadingButton variant="outlined">Pickup</LoadingButton>
+                                    </Box>
+                                </div>
+
+                            </div>
+                            <div className="col-12">
+                                {OpenDelivery && (<div className="col-12 mt-4 ">
+
+                                    <div className="col-lg-12 col-md-8 col-sm-8 addtocart_textfield mt-2">
+                                        <TextField id="outlined-basic" placeholder="Enter Your Delivery" variant="outlined" fullWidth size='small' />
+                                    </div>
+                                    <div className="col-lg-12 col-md-8 col-sm-8 addtocart_textfield mt-2">
+                                        <TextField id="outlined-basic" placeholder="Enter Your contact" variant="outlined" fullWidth size='small' />
+                                    </div>
+                                </div>)}
+
+                            </div>
+                            <div className="col-12 order_summary_flex mt-4">
+                                <div className="col-6 add_prod_cart_summary_p">
+                                    <p>Subtotal</p>
+                                </div>
+                                <div className="col-2 fontStyle">
+                                    <p>{Total}</p>
+                                </div>
+
+
+                            </div>
+                            <div className="col-12 order_summary_flex">
+                                <div className="col-6 add_prod_cart_summary_p">
+                                    <p>Est. excise tax</p>
+                                </div>
+                                <div className="col-2 fontStyle">
+                                    <p>$233</p>
+                                </div>
+
+
+                            </div>
+                            <div className="col-12 order_summary_flex">
+                                <div className="col-6 add_prod_cart_summary_p">
+                                    <p>State tax</p>
+                                </div>
+                                <div className="col-2 fontStyle">
+                                    <p>$233</p>
+                                </div>
+
+
+                            </div>
+                            <div className="col-12 order_summary_flex">
+                                <div className="col-6 add_prod_cart_summary_p">
+                                    <p>Delivery free</p>
+                                </div>
+                                <div className="col-2 fontStyle">
+                                    <p>free</p>
+                                </div>
+
+
+                            </div>
+                            <div className="col-12 order_Summary_total_container">
+
+                                <div className="col-12 order_summary_flex">
+                                    <div className="col-6 fontStyle add_prod_cart_summary_p">
+                                        <p>Total</p>
+                                    </div>
+                                    <div className="col-2 fontStyle">
+                                        <p>{Total}</p>
+                                    </div>
+
+                                </div>
+                                <div className="col-12 add_prod_cart_p">
+                                    <p>Taxes are Shows</p>
+
+                                </div>
+                                <div className="col-6 AddProd_cart_center_btn">
+                                    <Box
+                                        className={` add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
+
+                                    >
+                                        {/* <Link to="/DeliveryOption"><LoadingButton variant="outlined">Checkout</LoadingButton></Link> */}
+                                        <Link to="/CheckOutMainPage"><LoadingButton variant="outlined">Checkout</LoadingButton></Link>
+
+                                    </Box>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+                    <div className="col-12">
+
+
+                    </div>
+
 
 
                 </div>
-                <div className="col-12">
-
-<div className="col-12 border  p-2 Add_product_cart_right_container_summary ">
-        <div className="col-12 fontStyle AddProdCartFont_weight">
-            <h5>Order Summmary</h5>
-
-        </div>
-        <div className="col-12 d-flex addToCart_deliver">
-            <div className="col-3">
-                <Box
-                    className={` add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
-
-                >
-                    <LoadingButton  onClick={HandleDelivery} variant="outlined">Delivery</LoadingButton>
-            </Box>
-        </div>
-        <div className="col-3">
-            <Box
-                className={`add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
-
-            >
-                <LoadingButton variant="outlined">Pickup</LoadingButton>
-            </Box>
-        </div>
-
-    </div>
-    <div className="col-12">
-        {OpenDelivery && (<div className="col-12 mt-4 addtocart_textfield_flex">
-
-            <div className="col-lg-2 col-sm-4 addtocart_textfield mt-2">
-                <TextField id="outlined-basic" placeholder="Enter Your Delivery" variant="outlined" fullWidth size='small' />
-            </div>
-            <div className="col-lg-2 col-sm-4 addtocart_textfield mt-2">
-                <TextField id="outlined-basic" placeholder="Enter Your contact" variant="outlined" fullWidth size='small' />
-            </div>
-        </div>)}
-
-    </div>
-    <div className="col-12 order_summary_flex mt-4">
-        <div className="col-6 add_prod_cart_summary_p">
-            <p>Subtotal</p>
-        </div>
-        <div className="col-2 fontStyle">
-            <p>{Total}</p>
-        </div>
-
-
-    </div>
-    <div className="col-12 order_summary_flex">
-        <div className="col-6 add_prod_cart_summary_p">
-            <p>Est. excise tax</p>
-        </div>
-        <div className="col-2 fontStyle">
-            <p>$233</p>
-        </div>
-
-
-    </div>
-    <div className="col-12 order_summary_flex">
-        <div className="col-6 add_prod_cart_summary_p">
-            <p>State tax</p>
-        </div>
-        <div className="col-2 fontStyle">
-            <p>$233</p>
-        </div>
-
-
-    </div>
-    <div className="col-12 order_summary_flex">
-        <div className="col-6 add_prod_cart_summary_p">
-            <p>Delivery free</p>
-        </div>
-        <div className="col-2 fontStyle">
-            <p>free</p>
-        </div>
-
-
-    </div>
-    <div className="col-12 order_Summary_total_container">
-
-        <div className="col-12 order_summary_flex">
-            <div className="col-6 fontStyle add_prod_cart_summary_p">
-                <p>Total</p>
-            </div>
-            <div className="col-2 fontStyle">
-                <p>{Total}</p>
-            </div>
-
-        </div>
-        <div className="col-12 add_prod_cart_p">
-            <p>Taxes are Shows</p>
-
-        </div>
-        <div className="col-4 AddProd_cart_center_btn">
-            <Box
-                className={` add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
-
-            >
-                {/* <Link to="/DeliveryOption"><LoadingButton variant="outlined">Checkout</LoadingButton></Link> */}
-                <Link to="/CheckOutMainPage"><LoadingButton variant="outlined">Checkout</LoadingButton></Link>
-
-            </Box>
-
-        </div>
-    </div>
-
-
-</div>
-</div>
-
-
 
             </div>
-
-        </div>
 
         </div >
     )

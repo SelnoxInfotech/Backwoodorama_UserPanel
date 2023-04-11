@@ -12,6 +12,7 @@ import CreatePassword from "../Components/Page/ResetPassword/CreatePassword"
 import DeliveryOption from "../Components/Page/Checkout/DeliveryOption"
 import DeliveryInformation from "../Components/Page/Checkout/DeliveryInformation"
 import CheckOutMainPage from "../Components/Page/Checkout/CheckoutMainPage"
+import Payment from "../Components/Page/Checkout/DeliveryInformation"
 const routesConfig = [
   
       {
@@ -51,6 +52,10 @@ const routesConfig = [
             element: <ProductDetail></ProductDetail>,
           },
           {
+            path: "/Payment",
+            element: <Payment></Payment>,
+          },
+          {
             path:"/AddToCart",
             element:<AddToCart/>
           },
@@ -59,14 +64,11 @@ const routesConfig = [
             element:<CheckOutMainPage/>
           },
 
-          {
-            path:"/DeliveryOption",
-            element:<DeliveryOption/>
-          },
-          {
-            path:"/DeliveryInformation",
-            element:<DeliveryInformation/>
-          },
+          // {
+          //   path:"/DeliveryOption",
+          //   element:<DeliveryOption/>
+          // },
+          
           {
             path:"/DispensoriesProduct/:id",
             element:<DispensoriesProduct/>

@@ -11,7 +11,7 @@ import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
 import { Link } from 'react-router-dom';
 
-const DeliveryOption = () => {
+const DeliveryOption = ({SetShowData}) => {
     const classes = useStyles()
 
     const [Time, SetTime] = React.useState('');
@@ -20,11 +20,13 @@ const DeliveryOption = () => {
         SetTime(event.target.value);
     };
     const ShowHideDeliveryOptions=()=>{
+        SetShowData(true)
         SetShowDeliveryRestData(false)
     }
     const AddDeliveryInstruction=()=>{
         SetShowDeliveryRestData(true)
     }
+
     return (
         <>
             <div className="container-fluid">
@@ -46,7 +48,7 @@ const DeliveryOption = () => {
 
                                 </div>
                                 <div className="col-6 col-sm-6 col-md-6 position_right">
-                                    <Link to="/DeliveryOption">  <Button>Change</Button></Link>
+                                  <Button>Change</Button>
 
                                 </div>
                             </div>
@@ -129,6 +131,7 @@ const DeliveryOption = () => {
                                         (including pregnancy, breastfeeding, unstable cardiac conditions, and history of schizophrenia).
                                         If you have questions or concerns regarding whether medical cannabis is right for you,
                                         please either reach out to your physician or schedule a consultation with one of our pharmacists.*</p>
+                                        {/* <p>{paragraph}</p> */}
 
 
                                 </div>
@@ -142,7 +145,7 @@ const DeliveryOption = () => {
                                 <Box
                                     className={`  ${classes.loadingBtnTextAndBack}`}
                                 >
-                                  <Link to="/DeliveryInformation"><LoadingButton onClick={ShowHideDeliveryOptions} variant="outlined">continue</LoadingButton></Link>
+                              <LoadingButton onClick={ShowHideDeliveryOptions} variant="outlined">continue</LoadingButton>
                                 </Box>
 
                             </div>
