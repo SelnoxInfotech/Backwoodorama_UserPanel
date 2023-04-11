@@ -13,7 +13,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation }) => {
         SetShowDeliveryInformation(true)
         SetShowRestDeliveryInformation(false)
     }
-    const ShowAgainDeliverInformation =()=>{
+    const ShowAgainDeliverInformation = () => {
         SetShowRestDeliveryInformation(true)
     }
 
@@ -23,13 +23,13 @@ const DeliveryInformation = ({ SetShowDeliveryInformation }) => {
 
             <div className='row center deliver_row_margin'>
 
-                <div className='col-lg-4 col-md-8 col-sm-8 col-12 delivery_information_container'>
+                <div className='col-lg-12 col-md-12 col-sm-12 col-12 delivery_information_container'>
                     <div className='row'>
                         <div className="col-12 height_del_information_inner_div font_size_paragraph">
                             <p>Your Information</p>
                         </div>
                     </div>
-                    {ShowRestDeliveryInformation?"":<div onClick={ShowAgainDeliverInformation} className='showAgainInformation'>Your Information</div>}
+                    {ShowRestDeliveryInformation ? "" : <div onClick={ShowAgainDeliverInformation} className='showAgainInformation'>Your Information</div>}
                     {ShowRestDeliveryInformation &&
 
                         <div className='showRestDeliveryInformation'>
@@ -50,7 +50,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation }) => {
                             </div>
                             <div className='row'>
                                 {Image && <div className='col-8 delivery_option_img_div_height'>
-                                    <img src='./image/apple_img.jpg' height="100px" />
+                                    <img className='delivery_option_image' src='./image/apple_img.jpg' />
                                 </div>}
 
 

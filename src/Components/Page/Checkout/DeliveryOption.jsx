@@ -31,8 +31,8 @@ const DeliveryOption = ({ SetShowData }) => {
         <>
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-12 center ">
-                        <div className="col-12 col-lg-4 col-md-8 col-sm-8  DeliveryOption_container">
+                    <div className="col-12 center">
+                        <div className="col-12 col-lg-12 col-md-12 col-sm-12  DeliveryOption_container">
                             <div className="col-12 height_for_inner_div fontStyle font_size_paragraph">
                                 <p>Delivery Options</p>
 

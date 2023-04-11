@@ -4,7 +4,7 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 const Payment = () => {
-    const [value, setValue] = React.useState('female');
+    const [value, setValue] = React.useState('');
 
     const handleChange = (event) => {
         setValue(event.target.value);
@@ -12,8 +12,8 @@ const Payment = () => {
     return (
         <>
             <div className="container-fluid">
-                <div className="row center">
-                    <div className="col-lg-4 col-md-8 col-sm-8 col-12 payment_container">
+                <div className="row center deliver_row_margin">
+                    <div className="col-lg-12 col-md-12 col-sm-12 col-12 payment_container">
                         <div className="row">
                             <div className="col-12">
                                 <p>Payment</p>
