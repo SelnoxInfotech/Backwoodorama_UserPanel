@@ -8,7 +8,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Button from '@mui/material/Button';
 
 import Box from '@mui/material/Box';
-import useStyles from "../../../../Style"
+import useStyles from "../../../Style"
 import { Link } from 'react-router-dom';
 
 const DeliveryOption = () => {
