@@ -5,6 +5,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 const Payment = () => {
     const [value, setValue] = React.useState('');
+    const [PaymentRestData,SetPaymentRestData]=React.useState(true)
 
     const handleChange = (event) => {
         setValue(event.target.value);
