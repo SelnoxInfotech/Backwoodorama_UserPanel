@@ -2,15 +2,15 @@ import Layout from "../Layout/Layout"
 import Dashboard from "../Components/Page/Home/Dashboard/Dashboard";
 import Product from "../Components/Page/Product/Product";
 import ProductDetail from "../Components/Page/Product/ProductDetails"
-import AddToCart from "../Components/Page/Product/AddToCart"
+import AddToCart from "../Components/Page/Product/Component/AddToCart"
 import DispensoriesProduct from "../Components/Page/Home/Dashboard/ComponentDashboard/Dispensories/DispensoriesDetail"
 import Signup from "../Components/Page/Signup/Signup"
 import Login from "../Components/Page/Login/Login"
 import SignupWithEmail from "../Components/Page/Signup/SignupWithEmail"
 import ResetPassword from "../Components/Page/ResetPassword/ResetPassword"
 import CreatePassword from "../Components/Page/ResetPassword/CreatePassword"
-import DeliveryOption from "../Components/Page/Product/DeliveryOption"
-import DeliveryInformation from "../Components/Page/Product/DeliveryInformation"
+import DeliveryOption from "../Components/Page/Product/Component/DeliveryOption"
+import DeliveryInformation from "../Components/Page/Product/Component/DeliveryInformation"
 const routesConfig = [
   
       {

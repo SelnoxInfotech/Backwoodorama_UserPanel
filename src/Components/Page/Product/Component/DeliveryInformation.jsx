@@ -1,7 +1,7 @@
 import TextField from '@mui/material/TextField';
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
-import useStyles from "../../../Style"
+import useStyles from "../../../../Style"
 import React from 'react';
 import DeliveryOption from "./DeliveryOption"
 const DeliveryInformation = () => {

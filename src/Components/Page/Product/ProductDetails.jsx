@@ -2,7 +2,7 @@ import { AiFillStar } from "react-icons/ai";
 import useStyles from "../../../Style"
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
-import ProductList from "./Component/ProductList"
+import ProductList from "./ProductList"
 import Axios from "axios"
 import React from "react"
 

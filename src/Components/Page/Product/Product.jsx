@@ -6,10 +6,10 @@ import { MdOutlinePriceChange } from "react-icons/md"
 import { BsStripe } from "react-icons/bs"
 import { GiWeightScale } from "react-icons/gi"
 import { RiProductHuntLine } from "react-icons/ri"
-import ProductList from "./Component/ProductList"
+import ProductList from "./ProductList"
 import Axios from "axios"
 import Flavour from "../Delivery/Flavour/Flavour"
-import ProductFilter from "./Component/ProductFilter"
+import ProductFilter from "./ProductFilter"
 import useStyles from "../../../Style"
 // import SearchBar from "material-ui-search-bar";
 
