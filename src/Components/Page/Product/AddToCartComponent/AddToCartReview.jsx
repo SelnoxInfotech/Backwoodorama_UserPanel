@@ -101,7 +101,7 @@ const AddToCartReview = () => {
 
                                     </div>
                                     <div className="col-12 add_prod_btn_amount">
-                                        <div className="col-10 col-lg-4 col-md-6 col-sm-6  add_to_product_btn_div d-flex">
+                                        <div className="col-10 col-lg-4 col-md-4 col-sm-6  add_to_product_btn_div d-flex">
                                             <div className="col-4">
                                                 {/* <button className="add_prod_cart_btn" onClick={() => { Quantity(ele.Product_id) }} ><AiOutlinePlus /></button> */}
                                                 <Button className="" style={{ width: "15px" }} onClick={() => { Quantity(ele.Product_id) }} ><AiOutlinePlus /></Button>
