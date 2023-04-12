@@ -26,10 +26,9 @@ const DeliveryInformation = ({ SetShowDeliveryInformation }) => {
                 <div className='col-lg-12 col-md-12 col-sm-12 col-12 delivery_information_container'>
                     <div className='row'>
                         <div className="col-12 height_del_information_inner_div font_size_paragraph">
-                            <p>Your Information</p>
+                            <p  onClick={ShowAgainDeliverInformation} >Your Information</p>
                         </div>
                     </div>
-                    {ShowRestDeliveryInformation ? "" : <div onClick={ShowAgainDeliverInformation} className='showAgainInformation'>Your Information</div>}
                     {ShowRestDeliveryInformation &&
 
                         <div className='showRestDeliveryInformation'>

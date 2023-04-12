@@ -48,7 +48,7 @@ const DeliveryOption = ({ SetShowData }) => {
 
                                 </div>
                                 <div className="col-6 col-sm-6 col-md-6 position_right">
-                                    <Button>Change</Button>
+                                    <p>Change</p>
 
                                 </div>
                             </div>
