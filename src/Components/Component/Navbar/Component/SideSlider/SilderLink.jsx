@@ -28,7 +28,7 @@ export default function DashBoardLink() {
               </ul>
             </div>
           </Grid>
-          <Grid xs={6} md={2} xl={2}  display={{ xs: "none", md: "block", lg: "block" }}>
+          <Grid xs={6} md={2} xl={2} display={{ xs: "none", md: "block", lg: "block" }}>
             <div className=' col-12 Login_Sigup_button  '>
 
 
@@ -39,18 +39,23 @@ export default function DashBoardLink() {
             </div>
           </Grid>
 
-          <Grid xs={6} md={2} xl={2}   display={{ xs: "none", md: "block", lg: "block" }} >
+          <Grid xs={6} md={2} xl={2} display={{ xs: "none", md: "block", lg: "block" }} >
             <div className=' col-12 Login_Sigup_button  '>
               <AiFillHeart size={22}></AiFillHeart>
               <IoIosNotifications size={23}></IoIosNotifications>
-              <Link to="AddToCart">  <MdOutlineShoppingCart size={22}></MdOutlineShoppingCart></Link>
-    
+              <Link to="AddToCart">
+                <MdOutlineShoppingCart size={22}></MdOutlineShoppingCart>
 
+              </Link>
+
+              <div className="border SliderLink_CartCount_div" >
+                 11
+              </div>
             </div>
           </Grid>
           <Grid xs={12} md={8} xl={8} display={{ xs: "block", md: "none", lg: "none" }}>
-          <SearchBar />
-        </Grid>
+            <SearchBar />
+          </Grid>
         </Grid>
       </div>
 

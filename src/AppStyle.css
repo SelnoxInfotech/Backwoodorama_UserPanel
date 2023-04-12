@@ -1562,3 +1562,18 @@ box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
 }
 /* end */
+/* SliderLink_CartCount_div */
+.SliderLink_CartCount_div{
+  min-height: 20px;
+  min-width: 20px;
+  background-color: #31B665;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  color: #FFFFFF;
+  position: relative;
+  right: 30px;
+  top: -9px;
+}
