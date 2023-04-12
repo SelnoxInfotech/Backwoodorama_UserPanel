@@ -7,6 +7,7 @@ import Axios from "axios"
 import React from "react"
 import { useLocation } from 'react-router-dom'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import _ from "lodash";
 const ProductDetail = () => {
     const location = useLocation()
     const { Id } = location.state
@@ -82,28 +83,30 @@ const ProductDetail = () => {
         // SetAddToCard([...AddTOCard, Arry])
         const Status = AddTOCard.find((data) => {
             if (data.Product_id === Event.id) {
-                return true
+                return data
             }
             return false
         })
 
-       console.log(Status)
+        console.log(Status )
 
         if (Status !== undefined) {
             SetAddToCard(AddTOCard.map((Add) => {
-                if (Status.Product_id === Event.id) {
+             
+                if (Add.Product_id === Status.Product_id) {
                     if (Item.length !== 0) {
+                        console.log(Item )
+                        if (Item[0]?.Product_id === Add.Price_index[0]?.Item_id) {
 
-                        if (Item[0]?.Product_Item === Add.Price_index[0]?.Item_id) {
-
-                            return { ...Add, Product_Quantity: Add.Product_Quantity + 1 }
+                            return { ...Add, Product_Quantity:  Product_Quantity.Product_quantity }
                         }
                         else {
-                            return { ...Add, Price_index: Item, Product_Quantity: 1 }
+                            return { ...Add, Price_index: Item, Product_Quantity:  Product_Quantity.Product_quantity }
                         }
                     }
                     else {
-                        return { ...Add, Product_Quantity: Add.Product_Quantity + 1 }
+
+                        return { ...Add, Product_Quantity: Product_Quantity.Product_quantity  }
                     }
                 }
 
@@ -113,11 +116,11 @@ const ProductDetail = () => {
         else (
             SetAddToCard([...AddTOCard, Arry])
         )
-        
+
 
 
     }
-
+ 
 
     return (
         <div className="container-fluid p-4  add_prod_cont">
@@ -187,19 +190,38 @@ const ProductDetail = () => {
                                             {ele.Prices.map((ele1, index) => {
                                                 var JsonObject = JSON.parse(JSON.stringify(ele1))
                                                 var jsondata = JSON.parse(JsonObject.Price)
+
                                                 return (
                                                     jsondata.map((data, index) => {
-
+                                                   
                                                         let s = false
                                                         if (Item.length === 0) {
-
-                                                            if (data.id === 1) {
+                                                            // console.log(AddTOCard?.find(Add => Add.Price_index[0]?.Product_id === ele.id && Add.Price_index[0].Item_id === data.id))
+                                                            if ( AddTOCard?.find(Add => Add.Price_index[0]?.Product_id === ele.id && Add.Price_index[0].Item_id === data.id)) {
                                                                 s = true
+                                                            
                                                             }
+                                                            else {
+                                                    
+                                                                if (data.id === 1) {
+                                                                   
+                                                                        s = true
+                                                                    }
+                                                              
+                                                            
+                                                             
+                                                            }
+                                                        
 
                                                         }
-                                                        else (
+                                                        //
+                                                        else {
+
+
+
                                                             Item?.map((Price) => {
+
+                                                               
                                                                 if (ele.id === Price?.Product_id && data.id === Price?.Item_id) {
                                                                     s = true
                                                                 }
@@ -209,12 +231,15 @@ const ProductDetail = () => {
                                                                 }
                                                                 return s
                                                             })
-                                                        )
+
+                                                        }
+
+
                                                         return (
                                                             <div className="col-3 add_prod_quant_inner_div mt-2 " key={index}>
                                                                 <section onClick={() => PriceSelect(ele.id, data.id)}
                                                                     className={"add_prod_Quant_btn " + (s ? "active" : "")}>
-                                                                    {data.Weight}
+                                                                    {data.Weight || data.Unit}
                                                                     <p className="rs">{data.Price}</p>
                                                                 </section>
                                                             </div>
@@ -249,6 +274,7 @@ const ProductDetail = () => {
                                                                                 < div > <p>Amount</p> <p className="add_prod_span1">${Prices.Price}</p></div>
                                                                             )
                                                                         }
+
                                                                     })
                                                                 )
                                                             }
@@ -263,7 +289,12 @@ const ProductDetail = () => {
 
 
                                             <span className="add_prod_span">
-                                                <button className="add_prod_amount_btn"><span className="add_prod_plus_sub" onClick={Quantity}>+</span></button><span className="add_prod_amoount_data">{Product_Quantity.Product_quantity}</span>
+
+ {/* {
+console.log(_.find(AddTOCard ,  Add => console.log(Add.Product_id === ele.id) ))
+ } */}
+
+                                                <button className="add_prod_amount_btn"><span className="add_prod_plus_sub" onClick={Quantity}>+</span></button><span className="add_prod_amoount_data">{ Product_Quantity.Product_quantity}</span>
                                                 {
                                                     Product_Quantity.Product_quantity > 1 &&
                                                     <button className="add_prod_amount_btn" onClick={decreaseQuantity}> <span>-</span> </button>

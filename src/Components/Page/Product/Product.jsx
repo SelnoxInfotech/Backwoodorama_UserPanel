@@ -21,7 +21,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import ProductCategorySlider from "./ProductCategorySlider"
 import { GrFormSearch } from "react-icons/gr"
-
+import _ from "lodash"
 const Product = () => {
     const classes = useStyles()
     const [Category, SetCategory] = React.useState([])
@@ -33,29 +33,29 @@ const Product = () => {
 
         }).then(response => {
             Setarr1(response.data)
-            // SetProduct(Product => ({ ...Product, Category: response.data?.data[0].id }))
-
 
         }).catch(
             function (error) {
 
-                // SetProduct(Product => ({ ...Product, discount: "None" })) 52.3.255.128:8000/UserPanel/Get-Categories/ 
             })
-        Axios("http://52.3.255.128:8000/UserPanel/Get-Categories/ ", {
+        Axios("http://52.3.255.128:8000/UserPanel/CategoryOnProduct/ ", {
+
 
 
         }).then(response => {
-            SetCategory(response.data)
+            var uniqueUsersByID = _.uniqBy(response.data, 'Category_id'); //removed if had duplicate id
+            var uniqueUsers = _.uniqWith(response.data, _.isEqual);//removed complete duplicates
+            SetCategory(uniqueUsers)
+
+
         }).catch(
             function (error) {
 
-                // SetProduct(Product => ({ ...Product, discount: "None" })) 52.3.255.128:8000/UserPanel/Get-Categories/ 
+
             })
     }, [])
 
 
-    const weeBtn = [{ quant: "1gms", rs: "121" }, { quant: "2gms", rs: "23" }, { quant: "3gms", rs: "25" },
-    { quant: "4gms", rs: "26" }, { quant: "5gms", rs: "27" }, { quant: "6gms", rs: "28" }, { quant: "7gms", rs: "29" }]
 
     const delBtn = [{ del: "Delivery Only" }, { del: "Closed Open" }, { del: "Medical and recreational" }, { del: "Licence and Information" }
         , { del: "order only delivery" }]
@@ -73,8 +73,9 @@ const Product = () => {
 
 
         }).then(response => {
-            console.log(response)
+
             Setarr1(response.data)
+
             // SetProduct(Product => ({ ...Product, Category: response.data?.data[0].id }))
 
 
@@ -92,7 +93,7 @@ const Product = () => {
 
     return (
         <>
-            <div className="container-fluid product_container" style={{ padding: "7px" }}>
+            <div className="container-fluid product_container" >
                 <Flavour delBtn={delBtn}></Flavour>
                 <div className="row">
                     <div className="col-12 mt-4">
@@ -105,8 +106,8 @@ const Product = () => {
                 <div className="row center  mt-2 p-2">
                     <div className="col-12 mt-4 product_search_and_select">
                         <div className="col-2 product_search_bar">
-                            <SearchBar style={{border:"1px solid #dee2e6"}} width={"100%"}/>
-                            
+                            <SearchBar style={{ border: "1px solid #dee2e6" }} width={"100%"} />
+
 
                         </div>
                         <div className="col-10 product_select">
@@ -135,9 +136,9 @@ const Product = () => {
 
 
 
-                        <ProductFilter ProductFilterData={ProductFilterData} />
+                        <ProductFilter ProductFilterData={ProductFilterData} Setarr1={Setarr1} />
                         <div className="col-10  prod_cat_right_sec">
-                            <ProductList arr={arr1} btn={weeBtn} />
+                            <ProductList arr={arr1} />
 
 
                         </div>
