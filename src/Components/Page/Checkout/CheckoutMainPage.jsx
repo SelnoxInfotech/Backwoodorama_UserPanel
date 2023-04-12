@@ -32,8 +32,8 @@ const CheckOutMainPage = () => {
                             </div>
 
                         </div>
-                        <div className="row">
-                            <div className="col-lg-11 mx-auto checkout_main_page_addtocart_review fontStyle font_size_paragraph">
+                        <div className="row checkout_main_page_addtocart_margin">
+                            <div className="col-lg-12 mx-auto checkout_main_page_addtocart_review fontStyle font_size_paragraph">
                                 <p>Review</p>
                           <AddToCartReview/>
                             </div>
@@ -42,7 +42,7 @@ const CheckOutMainPage = () => {
 
                     </div>
                     <div className="col-md-8 col-lg-4 col-sm-12 col-12  checkout_main_page_summary">
-                        <div className="row">
+                        <div className="row ">
                             <div className="col-lg-12  ">                         
                                       <AddToCartSummary/>                  
 
