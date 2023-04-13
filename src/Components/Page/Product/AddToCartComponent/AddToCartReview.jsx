@@ -14,34 +14,34 @@ const AddToCartReview = ({ SetTotal, Total }) => {
         const item = localStorage.getItem('items')
         SetLocalData(JSON.parse(item))
 
-        JSON.parse(item)?.map((item) => {
-            if (item?.Price_index.length === 0) {
-                item?.Prices.map((ele1) => {
-                    var JsonObject = JSON.parse(JSON.stringify(ele1))
-                    var jsondata = JSON.parse(JsonObject.Price)
-                    console.log(jsondata, Boolean(_.find(Total, Total => Total.Id === item.Product_id)))
-                    if (Boolean(_.find(Total, Total => Total.Id === item.Product_id))) {
+        // JSON.parse(item)?.map((item) => {
+        //     if (item?.Price_index.length === 0) {
+        //         item?.Prices.map((ele1) => {
+        //             var JsonObject = JSON.parse(JSON.stringify(ele1))
+        //             var jsondata = JSON.parse(JsonObject.Price)
+        //             console.log(jsondata, Boolean(_.find(Total, Total => Total.Id === item.Product_id)))
+        //             if (Boolean(_.find(Total, Total => Total.Id === item.Product_id))) {
 
-                        let newArr = Total?.map((i) => {
+        //                 let newArr = Total?.map((i) => {
 
-                            console.log(i.Id === item.Product_id)
-                            // if (i.Id === item.Product_id) {
-                            //     return { ...i, Price: jsondata[0]?.Price, Id: item.Product_id };
-                            // }
-                            // return i
-                        });
+        //                     console.log(i.Id === item.Product_id)
+        //                     // if (i.Id === item.Product_id) {
+        //                     //     return { ...i, Price: jsondata[0]?.Price, Id: item.Product_id };
+        //                     // }
+        //                     // return i
+        //                 });
 
-                        // SetTotal(newArr);
-                        // SetTotal( [...Total, { Price: jsondata[0]?.Price * item.Product_Quantity, Id: item.Product_id }])
-                    }
-                    else {
+        //                 // SetTotal(newArr);
+        //                 // SetTotal( [...Total, { Price: jsondata[0]?.Price * item.Product_Quantity, Id: item.Product_id }])
+        //             }
+        //             else {
 
-                        SetTotal(Total => [...Total, { Price: jsondata[0]?.Price * item.Product_Quantity, Id: item.Product_id }])
-                    }
-                    // console.log(newArr)
-                })
-            }
-        })
+        //                 SetTotal(Total => [...Total, { Price: jsondata[0]?.Price * item.Product_Quantity, Id: item.Product_id }])
+        //             }
+        //             // console.log(newArr)
+        //         })
+        //     }
+        // })
 
 
     }, [])

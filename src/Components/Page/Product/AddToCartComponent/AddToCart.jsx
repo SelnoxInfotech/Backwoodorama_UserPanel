@@ -22,10 +22,10 @@ const AddToCart = () => {
                             <AddToCartReview SetTotal={SetTotal} Total={Total} />
 
                         </div>
-                        <div className="col-4   p-2 Add_product_cart_right_container_summary ">
-                            <AddToCartSummary SetDeliveryOptionData={SetDeliveryOptionData}/>
-                            <AddToCartSummary  />
-                        </div>
+                        {/* <div className="col-4   p-2 Add_product_cart_right_container_summary "> */}
+                            <AddToCartSummary SetDeliveryOptionData={SetDeliveryOptionData} SetTotal={SetTotal} Total={Total}/>
+                            {/* <AddToCartSummary  /> */}
+                        {/* </div> */}
 
 
 
