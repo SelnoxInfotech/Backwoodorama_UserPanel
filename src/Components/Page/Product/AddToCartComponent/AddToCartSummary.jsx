@@ -216,3 +216,6 @@ const AddToCartSummary = ({ SetDeliveryOptionData, abc }) => {
         )
     }
 }
+
+
+export default AddToCartSummary
