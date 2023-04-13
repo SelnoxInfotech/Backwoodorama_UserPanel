@@ -1,8 +1,8 @@
 
 
 import React from "react";
-import AddToCartReview from "../AddToCartComponent/AddToCartReview"
-import AddToCartSummary from "../AddToCartComponent/AddToCartSummary"
+import AddToCartReview from "./AddToCartReview"
+import AddToCartSummary from "./AddToCartSummary"
 const AddToCart = () => {
     return (
         <div className="container">
