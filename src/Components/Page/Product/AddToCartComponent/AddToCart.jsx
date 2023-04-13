@@ -4,6 +4,8 @@ import React from "react";
 import AddToCartReview from "./AddToCartReview"
 import AddToCartSummary from "./AddToCartSummary"
 const AddToCart = () => {
+    const [DeliveryOptionData, SetDeliveryOptionData] = React.useState([])
+
     return (
         <div className="container">
             <div className="row mt-4">
@@ -20,17 +22,14 @@ const AddToCart = () => {
 
                         </div>
                         <div className="col-4   p-2 Add_product_cart_right_container_summary ">
-                            <AddToCartSummary />
+                            <AddToCartSummary SetDeliveryOptionData={SetDeliveryOptionData}/>
                         </div>
 
 
 
 
                     </div>
-                    <div className="col-12">
 
-
-                    </div>
 
 
 

@@ -4,17 +4,27 @@ import Payment from "./Payment"
 import React from "react"
 import AddToCartReview from "../Product/AddToCartComponent/AddToCartReview"
 import AddToCartSummary from "../Product/AddToCartComponent/AddToCartSummary"
+import { useLocation } from 'react-router-dom';
 const CheckOutMainPage = () => {
     const [ShowData, SetShowData] = React.useState(false)
     const [ShowDeliveryInformation, SetShowDeliveryInformation] = React.useState(false)
+    const [DeliveryOptionData, SetDeliveryOptionData] = React.useState([])
+    const location = useLocation();
+    const {InputValues,abc}=location.state
+    console.log(InputValues,abc)
+    const AddToCartSummaryData=location.AddToCartSummaryData
+    // console.log(AddToCartSummaryData)
+    console.log(AddToCartSummaryData)
+
+
     return (
         <>
             <div className="container">
                 <div className="row center">
                     <div className="col-md-8 col-lg-6 col-sm-12 col-12">
-                        <div className="row">
+                        <div className="row ">
                             <div className="col-lg-12">
-                                <DeliveryOption SetShowData={SetShowData} />
+                                <DeliveryOption DeliveryOptionData={DeliveryOptionData} address={InputValues.delivery} SetShowData={SetShowData} />
 
                             </div>
 
@@ -32,7 +42,7 @@ const CheckOutMainPage = () => {
                             </div>
 
                         </div>
-                        <div className="row checkout_main_page_addtocart_margin">
+                        <div className="row m-2">
                             <div className="col-lg-12 mx-auto checkout_main_page_addtocart_review fontStyle font_size_paragraph">
                                 <p>Review</p>
                           <AddToCartReview/>
@@ -41,10 +51,10 @@ const CheckOutMainPage = () => {
                         </div>
 
                     </div>
-                    <div className="col-md-8 col-lg-4 col-sm-12 col-12  checkout_main_page_summary">
-                        <div className="row ">
-                            <div className="col-lg-12  ">                         
-                                      <AddToCartSummary/>                  
+                    <div className="col-md-8 col-lg-4 col-sm-12 col-12">
+                        <div className="row checkout_main_page_addtocart_margin">
+                            <div className="col-lg-12  checkout_main_page_summary">                         
+                                      <AddToCartSummary SetDeliveryOptionData={SetDeliveryOptionData }  abc={abc}/>                 
 
                             </div>
 

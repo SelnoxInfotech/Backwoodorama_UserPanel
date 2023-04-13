@@ -11,7 +11,8 @@ import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
 import { Link } from 'react-router-dom';
 
-const DeliveryOption = ({ SetShowData }) => {
+const DeliveryOption = ({ SetShowData ,DeliveryOptionData,address}) => {
+    // console.log(DeliveryOptionData)
     const classes = useStyles()
 
     const [Time, SetTime] = React.useState('');
@@ -37,14 +38,22 @@ const DeliveryOption = ({ SetShowData }) => {
                                 <p>Delivery Options</p>
 
                             </div>
-                            <div className="col-12 height_for_inner_div ">
-                                <p>Your address</p>
+                            <div className="col-12 height_for_inner_div">
+                                {DeliveryOptionData.map((ele,index)=>{
+                                    return(
+                                        <div key="index">
+                                        <p >Your {ele?.address}</p>
+                                        </div>
+
+                                    )
+
+                                })}
 
                             </div>
                             <div className="col-12 height_for_inner_div_address flex_for_delivery marginTop_deliver p-2">
                                 <div className="col-6 col-sm-6 col-md-6">
-                                    <p>92 Greene St, yh6edf
-                                        New York, NY 10012</p>
+                                    <p>{address
+                                    }</p>
 
                                 </div>
                                 <div className="col-6 col-sm-6 col-md-6 position_right">
