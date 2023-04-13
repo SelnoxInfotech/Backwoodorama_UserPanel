@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import LoadingButton from '@mui/lab/LoadingButton';
 import useStyles from "../../../../Style"
 
-const AddToCartSummary = ({ SetDeliveryOptionData,abc }) => {
+const AddToCartSummary = ({ SetDeliveryOptionData,abcToggle,SetabcToggle }) => {
     const classes = useStyles()
     const navigate = useNavigate()
     const [Total, SetTotal] = React.useState([0])
@@ -25,15 +25,14 @@ const AddToCartSummary = ({ SetDeliveryOptionData,abc }) => {
     const HandlePickupAndDelivery = (e) => {
         console.log(e.currentTarget.id)
         if (e.currentTarget.id === "pickup_btn") {
-            SetDeliveryOptionData([{ address: "Pickup Address Mata mandir" }])
+            // SetDeliveryOptionData([{ address: "Pickup Address Mata mandir" }])
             // return alert("pickup btn")
             SetOpenPickup(true)
             SetOpenDelivery(false)
 
-
         }
         else if (e.currentTarget.id === "delivery_btn") {
-            SetDeliveryOptionData([{ address: " Delivery address Platinum plaza" }])
+            // SetDeliveryOptionData([{ address: " Delivery address Platinum plaza" }])
 
             SetOpenDelivery(true)
             SetOpenPickup(false)
@@ -42,11 +41,11 @@ const AddToCartSummary = ({ SetDeliveryOptionData,abc }) => {
         }
     }
     const CheckoutProcess = () => {
-        navigate("/CheckOutMainPage", {state : { InputValues,abc:true }})
+        navigate("/CheckOutMainPage", {state : { InputValues,abc:false }})
     }
     return (
         <>
-            <div className="col-12   p-2 Add_product_cart_right_container_summary ">
+            <div className="col-12   p-2 Add_product_cart_right_container_summary">
                 <form>
                     <div className="col-12 fontStyle AddProdCartFont_weight">
                         <h5>Order Summary</h5>
@@ -72,7 +71,7 @@ const AddToCartSummary = ({ SetDeliveryOptionData,abc }) => {
 
                     </div>
                     <div className="col-6">
-                        {abc && (<div className="col-12 mt-4 ">
+                        {abcToggle && (<div className="col-12 mt-4 ">
 
                             <div className="col-lg-12 col-md-8 col-sm-8 addtocart_textfield mt-2">
                                 <TextField name='delivery' value={InputValues.delivery} onChange={InputFieldHandler} id="outlined-basic" placeholder="Enter Your Delivery" variant="outlined" fullWidth size='small' />
@@ -83,7 +82,7 @@ const AddToCartSummary = ({ SetDeliveryOptionData,abc }) => {
                         </div>)}
 
                     </div>
-                    <div className='col-12 '>
+                    <div className='col-12 mt-2'>
 
                         {OpenPickup && (
                             <div className='col-lg-12  pickup_div fontStyle'>

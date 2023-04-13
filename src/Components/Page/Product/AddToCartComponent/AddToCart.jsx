@@ -5,6 +5,7 @@ import AddToCartReview from "./AddToCartReview"
 import AddToCartSummary from "./AddToCartSummary"
 const AddToCart = () => {
     const [DeliveryOptionData, SetDeliveryOptionData] = React.useState([])
+    const [abcToggle,SetabcToggle]=React.useState(true)
 
     const [Total, SetTotal] = React.useState([])
     return (
@@ -22,10 +23,10 @@ const AddToCart = () => {
                             <AddToCartReview SetTotal={SetTotal} Total={Total} />
 
                         </div>
-                        {/* <div className="col-4   p-2 Add_product_cart_right_container_summary "> */}
-                            <AddToCartSummary SetDeliveryOptionData={SetDeliveryOptionData} SetTotal={SetTotal} Total={Total}/>
+                        <div className="col-4   p-2 Add_product_cart_right_container_summary ">
+                            <AddToCartSummary SetDeliveryOptionData={SetDeliveryOptionData} SetTotal={SetTotal} Total={Total} abcToggle={abcToggle}/>
                             {/* <AddToCartSummary  /> */}
-                        {/* </div> */}
+                        </div>
 
 
 

@@ -56,7 +56,7 @@ const DeliveryOption = ({ SetShowData ,DeliveryOptionData,address}) => {
                                     }</p>
 
                                 </div>
-                                <div className="col-6 col-sm-6 col-md-6 position_right">
+                                <div className="col-6 col-sm-6 col-md-6 position_right deliveroption_cursor">
                                     <p>Change</p>
 
                                 </div>

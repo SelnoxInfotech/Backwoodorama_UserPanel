@@ -1452,6 +1452,9 @@ box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
 .font_size_paragraph p{
   font-size: 20px;
 }
+.deliveroption_cursor p{
+  cursor: pointer;
+}
 .height_for_inner_div_address{
   height: 90px;
 }
