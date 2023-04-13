@@ -2,10 +2,44 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
 import TextField from '@mui/material/TextField';
-import { Link } from 'react-router-dom'
+import { Link ,useNavigate } from 'react-router-dom'
 import Button from '@mui/material/Button';
+import React from 'react';
+import axios from 'axios';
+import { useForm } from "react-hook-form";
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { CiLock } from "react-icons/ci"
+import LoginWithGoogle from './LoginWithGoogle';
 const Login = () => {
+    const method = useForm()
+    const Navigate = useNavigate()
+    const [loading, Setloading] = React.useState(false)
     const classes = useStyles()
+    const [showPassword, setShowPassword] = React.useState(false);
+    const [dulicate, Setduplicate] = React.useState([])
+    const handleClickShowPassword = () => setShowPassword((show) => !show);
+    function Submit(data) {
+        Setloading(true)
+        axios.post("http://52.3.255.128:8000/UserPanel/Login/", {
+
+            email: data.email,
+            password: data.password
+
+        },
+        ).then(response => {
+            Navigate("/")
+            Setloading(false)
+
+        }).catch(
+            function (error) {
+                Setloading(false)
+            alert(error.response.data.message)
+                
+            })
+    }
 
     return (
         <>
@@ -18,48 +52,91 @@ const Login = () => {
 
                             </div>
                         </div>
-                        <div className='row'>
-                            <label>Email/Username</label>
+                        <form onSubmit={method.handleSubmit(Submit)}>
+                            <div className='row'>
+                                <label>Email/Username</label>
 
-                            <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
-                                <TextField id="outlined-basic" placeholder="Enter Your Email" variant="outlined" fullWidth size='small' />
+                                <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
+                                    <TextField
+                                        placeholder="Enter Your Email"
+                                        variant="outlined"
+                                        fullWidth
+                                        name='email'
+                                        size='small'
+                                        inputRef={method.register({
+                                            required: "email  is required*.",
+                                            pattern: {
+                                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                                message: "invalid email address"
+                                            }
+                                        },
+                                        )}
+                                        helperText={method.errors?.email?.message || dulicate?.email}
+                                        error={Boolean(method.errors?.email) || (Boolean(dulicate?.email))}
+                                    />
+                                </div>
                             </div>
-                        </div>
-                        <div className='row signup_margins_top'>
-                            <label>Password</label>
+                            <div className='row signup_margins_top'>
+                                <label>Password</label>
 
-                            <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
-                                <TextField type='password' id="outlined-basic" placeholder="Enter Your Password" variant="outlined" fullWidth size='small' />
+                                <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
+                                    <TextField
+                                        type={showPassword ? 'text' : 'password'}
+                                        placeholder="Enter Your Password"
+                                        variant="outlined"
+                                        fullWidth
+                                        size='small'
+                                        name='password'
+                                        InputProps={{
+                                            startAdornment: (
+                                                <InputAdornment position="start">
+                                                    <CiLock />
+                                                </InputAdornment>
+                                            ),
+                                            endAdornment: <InputAdornment position="end">
+                                                <IconButton
+                                                    aria-label="toggle password visibility"
+                                                    onClick={handleClickShowPassword}
+                                                >
+                                                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                                                </IconButton>
+                                            </InputAdornment>
+                                        }}
+                                        inputRef={method.register({
+                                            required: "password  is required*.",
+                                       
+                                        },
+                                        )}
+                                        helperText={method.errors?.password?.message}
+                                        error={Boolean(method.errors?.password)}
+                                    />
+                                </div>
                             </div>
-                        </div>
-                        <div className='row  align-items-center signup_margins_top'>
-                            <div className='col-lg-8  col-md-8 col-sm-8 col-8 signup_btn text-end'>
-                                <p>Having trouble to access your account?</p>
-                            </div>
-                            <div className='col-lg-2 col-md-2 col-sm-2 col-2 Signup_already_btn'>
-                              <Link to="/ResetPassword"><p>Click here</p></Link>
-                            </div>
+                            <div className='row  align-items-center signup_margins_top'>
+                                <div className='col-lg-8  col-md-8 col-sm-8 col-8 signup_btn text-end'>
+                                    <p>Having trouble to access your account?</p>
+                                </div>
+                                <div className='col-lg-2 col-md-2 col-sm-2 col-2 Signup_already_btn'>
+                                    <Link to="/ResetPassword"><p>Click here</p></Link>
+                                </div>
 
 
-                        </div>
-
-                        <div className='row  signup_margins_top'>
-                            <div className=' col-lg-12 signup_btn_height'>
-                                <Box
-                                    className={` ${classes.loadingBtnTextAndBack}`}
-                                >
-                                    <LoadingButton variant="outlined">LOGIN</LoadingButton>
-                                </Box>
                             </div>
 
-                        </div>
+                            <div className='row  signup_margins_top'>
+                                <div className=' col-lg-12 signup_btn_height'>
+                                    <Box
+                                        className={` ${classes.loadingBtnTextAndBack}`}
+                                    >
+                                        <LoadingButton variant="outlined" loading={loading} type='submit'>LOGIN</LoadingButton>
+                                    </Box>
+                                </div>
+
+                            </div>
+                        </form>
                         <div className='row  signup_margins_top'>
                             <div className='col-lg-12 signup_btn_height'>
-                                <Box
-                                    className={`  ${classes.Signup_loading_btn_facebook}`}
-                                >
-                                    <LoadingButton variant="outlined">Continue with Facebook</LoadingButton>
-                                </Box>
+                              <LoginWithGoogle></LoginWithGoogle>
                             </div>
 
                         </div>
@@ -68,7 +145,7 @@ const Login = () => {
                                 <Box
                                     className={`${classes.Signup_loading_btn_google}`}
                                 >
-                                    <LoadingButton variant="outlined">Continue with Google</LoadingButton>
+                                    <LoadingButton variant="outlined">Continue with Facebook</LoadingButton>
                                 </Box>
                             </div>
 

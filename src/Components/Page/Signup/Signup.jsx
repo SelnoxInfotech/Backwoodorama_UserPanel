@@ -3,9 +3,15 @@ import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
+import { Link , useNavigate} from 'react-router-dom';
+import { useForm} from "react-hook-form";
 const Signup = () => {
+    const navigate = useNavigate()
+    const method = useForm()
     const classes = useStyles()
+    function Submit ( State) {
+        navigate("/SignupWithEmail", { state: { State } })
+    }
 
     return (
         <>
@@ -18,11 +24,30 @@ const Signup = () => {
 
                             </div>
                             </div>
-                        <div className='row'>
+                       <form onSubmit={method.handleSubmit(Submit)}>
+                       <div className='row'>
                             <label>Email</label>
 
                             <div className='col-lg-12 signup_btn_height'>
-                                <TextField id="outlined-basic" placeholder="Enter Your Email" variant="outlined" fullWidth  size='small'/>
+                                <TextField 
+                                 id="outlined-basic" 
+                                 placeholder="Enter Your Email" 
+                                 name='email' 
+                                 variant="outlined" 
+                                 fullWidth 
+                                size='small'
+                                inputRef={method.register({
+                                    required: "email is required*.",
+                                    pattern: {
+                                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                        message: "invalid email address"
+                                      }
+
+                                }
+                                )}
+                                helperText={method.errors?.email?.message }
+                                error={Boolean(method.errors?.email )  }
+                                  />
                             </div>
                         </div>
                         <div className='row  signup_margins_top'>
@@ -30,11 +55,12 @@ const Signup = () => {
                                 <Box
                                     className={`  ${classes.loadingBtnTextAndBack}`}
                                 >
-                                     <Link to="/SignupWithEmail"><LoadingButton variant="outlined">Signup</LoadingButton></Link>
+                                     <LoadingButton variant="outlined" loading={false} type={'submit'}>Signup</LoadingButton>
                                 </Box>
                             </div>
 
                         </div>
+                       </form>
                         <div className='row justify-content-center align-items-center signup_margins_top'>
                                 <div className='col-lg-4  col-md-6 col-sm-6 col-6 signup_btn text-end signup_btn_height'>
                                 <p>Already a member?</p>

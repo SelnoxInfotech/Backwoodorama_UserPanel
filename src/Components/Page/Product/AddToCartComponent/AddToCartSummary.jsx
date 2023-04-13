@@ -8,10 +8,14 @@ import { useNavigate } from 'react-router-dom';
 import LoadingButton from '@mui/lab/LoadingButton';
 import useStyles from "../../../../Style"
 
+<<<<<<< HEAD
 const AddToCartSummary = ({ SetDeliveryOptionData,abc }) => {
     const classes = useStyles()
     const navigate = useNavigate()
     const [Total, SetTotal] = React.useState([0])
+=======
+const AddToCartSummary = ({SetTotal , Total}) => {
+>>>>>>> 118350c (Adtocard)
     const [OpenDelivery, SetOpenDelivery] = React.useState(false);
     const [OpenPickup, SetOpenPickup] = React.useState(false)
     // const [DeliveryOptionData, SetDeliveryOptionData] = React.useState([])
@@ -96,9 +100,53 @@ const AddToCartSummary = ({ SetDeliveryOptionData,abc }) => {
                         )}
 
                     </div>
+<<<<<<< HEAD
                     <div className="col-12 order_summary_flex mt-4">
                         <div className="col-6 add_prod_cart_summary_p">
                             <p>Subtotal</p>
+=======
+                    <div className="col-2 fontStyle">
+                        {/* <p>{Total}</p> */}
+                    </div>
+
+
+                </div>
+                <div className="col-12 order_summary_flex">
+                    <div className="col-6 add_prod_cart_summary_p">
+                        <p>Est. excise tax</p>
+                    </div>
+                    <div className="col-2 fontStyle">
+                        <p>$233</p>
+                    </div>
+
+
+                </div>
+                <div className="col-12 order_summary_flex">
+                    <div className="col-6 add_prod_cart_summary_p">
+                        <p>State tax</p>
+                    </div>
+                    <div className="col-2 fontStyle">
+                        <p>$233</p>
+                    </div>
+
+
+                </div>
+                <div className="col-12 order_summary_flex">
+                    <div className="col-6 add_prod_cart_summary_p">
+                        <p>Delivery free</p>
+                    </div>
+                    <div className="col-2 fontStyle">
+                        <p>free</p>
+                    </div>
+
+
+                </div>
+                <div className="col-12 order_Summary_total_container">
+
+                    <div className="col-12 order_summary_flex">
+                        <div className="col-6 fontStyle add_prod_cart_summary_p">
+                            <p>Total</p>
+>>>>>>> 118350c (Adtocard)
                         </div>
                         <div className="col-2 fontStyle">
                             <p>{Total}</p>

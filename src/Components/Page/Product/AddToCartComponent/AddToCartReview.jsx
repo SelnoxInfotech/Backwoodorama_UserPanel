@@ -3,16 +3,52 @@ import { AiOutlinePlus } from "react-icons/ai"
 import Button from '@mui/material/Button';
 import { GrFormSubtract } from "react-icons/gr";
 import { RiDeleteBin6Line } from "react-icons/ri"
-
+import _ from "lodash"
 import React from "react";
 import useStyles from "../../../../Style"
-const AddToCartReview = () => {
+const AddToCartReview = ({ SetTotal, Total }) => {
+
     const classes = useStyles()
     const [LocalData, SetLocalData] = React.useState()
     React.useEffect(() => {
         const item = localStorage.getItem('items')
         SetLocalData(JSON.parse(item))
+
+        JSON.parse(item)?.map((item) => {
+            if (item?.Price_index.length === 0) {
+                item?.Prices.map((ele1) => {
+                    var JsonObject = JSON.parse(JSON.stringify(ele1))
+                    var jsondata = JSON.parse(JsonObject.Price)
+                    console.log(jsondata, Boolean(_.find(Total, Total => Total.Id === item.Product_id)))
+                    if (Boolean(_.find(Total, Total => Total.Id === item.Product_id))) {
+
+                        let newArr = Total?.map((i) => {
+
+                            console.log(i.Id === item.Product_id)
+                            // if (i.Id === item.Product_id) {
+                            //     return { ...i, Price: jsondata[0]?.Price, Id: item.Product_id };
+                            // }
+                            // return i
+                        });
+
+                        // SetTotal(newArr);
+                        // SetTotal( [...Total, { Price: jsondata[0]?.Price * item.Product_Quantity, Id: item.Product_id }])
+                    }
+                    else {
+
+                        SetTotal(Total => [...Total, { Price: jsondata[0]?.Price * item.Product_Quantity, Id: item.Product_id }])
+                    }
+                    // console.log(newArr)
+                })
+            }
+        })
+
+
     }, [])
+
+
+    console.log(Total)
+
     function DeleteItem(Id) {
         var obj = JSON.parse(localStorage.getItem("items"));
         for (var i = 0; i < obj.length; i++) {
