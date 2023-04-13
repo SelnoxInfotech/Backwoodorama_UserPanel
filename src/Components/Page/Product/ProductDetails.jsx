@@ -87,15 +87,11 @@ const ProductDetail = () => {
             }
             return false
         })
-
-        console.log(Status )
-
         if (Status !== undefined) {
             SetAddToCard(AddTOCard.map((Add) => {
              
                 if (Add.Product_id === Status.Product_id) {
                     if (Item.length !== 0) {
-                        console.log(Item )
                         if (Item[0]?.Product_id === Add.Price_index[0]?.Item_id) {
 
                             return { ...Add, Product_Quantity:  Product_Quantity.Product_quantity }
