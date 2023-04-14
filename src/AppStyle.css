@@ -259,26 +259,39 @@
 .flav_img_inner_div{
   height: 100px;
 }
-
+/* new */
+.flav_img_height_div_container{
+  height:100px ;
+}
+.flav_new_btn_div{
+  height: 60px;
+}
 .flav_img_height{
   width: 100%;
-  height: 106px;
+  height: 100%;
   border-radius: 20px;
   padding: 10px;
 
 }
-@media(max-width:575px){
- .flav_img_height{
-  height: 100px;
-  width: 40%;
- }
-}
 .flavour_New_container{
   background: #FAFAFA;
   border: 1px solid #E7E7E7;
-  height: 280px;
+  height: 240px;
 
 }
+
+@media(max-width:575px){
+ .flav_img_height{
+  height: 100%;
+  width: 40%;
+ }
+ .flavour_New_container{
+  height: 300px;
+
+ }
+}
+
+/* end */
 .flav_star{
  margin-left: 10px;
 }

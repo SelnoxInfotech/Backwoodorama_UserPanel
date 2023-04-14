@@ -13,7 +13,7 @@ const Flavour = (Deta) => {
                 <div className='row'>
                     <div className='col-lg-12 col-sm-12 col-md-12 col-12 flavour_New_container'>
                         <div className='row'>
-                            <div className='col-lg-1  col-md-4 col-sm-2'>
+                            <div className='col-lg-1  col-md-4 col-sm-2 flav_img_height_div_container'>
                                 <img className='flav_img_height' src={`http://52.3.255.128:8000/${Deta.delBtn[0]?.Store_Image}`} alt="img_not_found" style={{ pointerEvents: "none" }} />
 
                             </div>
@@ -38,16 +38,20 @@ const Flavour = (Deta) => {
                             </div>
 
                         </div>
-                        <div className='row'>
-                            <div className='col-lg-4 col-md-4 col-sm-6 col-8 d-flex'>
+                        <div className='row flav_new_btn_div'>
+                            <div className='col-lg-2 col-md-2 col-sm-4 col-6'>
                                 <Box
-                                    className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
+                                    className={`flav_new_btn ${classes.loadingBtnTextAndBack}`}
                                 >
-                                    <LoadingButton  variant="outlined">Mobile no</LoadingButton>
+                                    <LoadingButton   variant="outlined">Mobile no</LoadingButton>
                                     
                                 </Box>
-                                <Box
-                                    className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
+                                
+                               
+                            </div>
+                            <div className='col-lg-2 col-md-2 col-sm-4 col-5'>
+                            <Box
+                                    className={`flav_new_btn ${classes.loadingBtnTextAndBack}`}
                                 >
                                     <LoadingButton  variant="outlined">email Id</LoadingButton>
                                 </Box>
