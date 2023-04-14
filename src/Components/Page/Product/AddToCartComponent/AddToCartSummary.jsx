@@ -5,10 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import LoadingButton from '@mui/lab/LoadingButton';
 import useStyles from "../../../../Style"
 
-const AddToCartSummary = ({ SetDeliveryOptionData,abcToggle,SetabcToggle,abc}) => {
+const AddToCartSummary = ({ SetDeliveryOptionData,abcToggle,SetabcToggle,abc ,Total}) => {
+    console.log(Total)
     const classes = useStyles()
     const navigate = useNavigate()
-    const [Total, SetTotal] = React.useState(0)
     const [OpenDelivery, SetOpenDelivery] = React.useState(false);
     const [OpenPickup, SetOpenPickup] = React.useState(false)
     // const [DeliveryOptionData, SetDeliveryOptionData] = React.useState([])
@@ -98,7 +98,7 @@ const AddToCartSummary = ({ SetDeliveryOptionData,abcToggle,SetabcToggle,abc}) =
                             <p>Subtotal</p>
                         </div>
                         <div className="col-2 fontStyle">
-                            {/* <p>{Total}</p> */}
+                            <p>${Total}</p>
                         </div>
 
 
@@ -108,7 +108,7 @@ const AddToCartSummary = ({ SetDeliveryOptionData,abcToggle,SetabcToggle,abc}) =
                             <p>Est. excise tax</p>
                         </div>
                         <div className="col-2 fontStyle">
-                            <p>$233</p>
+                            <p>$0</p>
                         </div>
 
 
@@ -118,7 +118,7 @@ const AddToCartSummary = ({ SetDeliveryOptionData,abcToggle,SetabcToggle,abc}) =
                             <p>State tax</p>
                         </div>
                         <div className="col-2 fontStyle">
-                            <p>$233</p>
+                            <p>$0</p>
                         </div>
 
 
@@ -128,7 +128,7 @@ const AddToCartSummary = ({ SetDeliveryOptionData,abcToggle,SetabcToggle,abc}) =
                             <p>Delivery fee</p>
                         </div>
                         <div className="col-2 fontStyle">
-                            <p>$100</p>
+                            <p>$0</p>
                         </div>
 
 
@@ -140,7 +140,7 @@ const AddToCartSummary = ({ SetDeliveryOptionData,abcToggle,SetabcToggle,abc}) =
                                 <p>Total</p>
                             </div>
                             <div className="col-2 fontStyle">
-                                <p>{Total}</p>
+                                <p>${Total}</p>
                             </div>
 
                         </div>
