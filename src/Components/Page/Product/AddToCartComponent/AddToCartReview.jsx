@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { AiOutlinePlus } from "react-icons/ai"
 import Button from '@mui/material/Button';
@@ -7,47 +8,144 @@ import _ from "lodash"
 import React from "react";
 import useStyles from "../../../../Style"
 const AddToCartReview = ({ SetTotal, Total }) => {
-
+    const count = useRef(null);
+    const count1 = useRef(null);
     const classes = useStyles()
     const [LocalData, SetLocalData] = React.useState()
+    const [ data ,  setdata] =  React.useState([])
     React.useEffect(() => {
-        const item = localStorage.getItem('items')
-        SetLocalData(JSON.parse(item))
-
-        // JSON.parse(item)?.map((item) => {
+        const items = localStorage.getItem('items')
+        SetLocalData(JSON.parse(items))
+     
+        // JSON.parse(items)?.map((item) => {
         //     if (item?.Price_index.length === 0) {
         //         item?.Prices.map((ele1) => {
         //             var JsonObject = JSON.parse(JSON.stringify(ele1))
         //             var jsondata = JSON.parse(JsonObject.Price)
-        //             console.log(jsondata, Boolean(_.find(Total, Total => Total.Id === item.Product_id)))
+
         //             if (Boolean(_.find(Total, Total => Total.Id === item.Product_id))) {
-
         //                 let newArr = Total?.map((i) => {
-
-        //                     console.log(i.Id === item.Product_id)
-        //                     // if (i.Id === item.Product_id) {
-        //                     //     return { ...i, Price: jsondata[0]?.Price, Id: item.Product_id };
-        //                     // }
-        //                     // return i
+        //                     if (i.Id === item.Product_id) {
+        //                         return { ...i, Price: jsondata[0]?.Price * item.Product_Quantity, Id: item.Product_id };
+        //                     }
+        //                     return i
         //                 });
-
-        //                 // SetTotal(newArr);
-        //                 // SetTotal( [...Total, { Price: jsondata[0]?.Price * item.Product_Quantity, Id: item.Product_id }])
+        //                 SetTotal(newArr);
         //             }
         //             else {
 
         //                 SetTotal(Total => [...Total, { Price: jsondata[0]?.Price * item.Product_Quantity, Id: item.Product_id }])
         //             }
-        //             // console.log(newArr)
+
         //         })
         //     }
+        //     else {
+        //         item?.Prices.map((ele1) => {
+        //             var JsonObject = JSON.parse(JSON.stringify(ele1))
+        //             var jsondata = JSON.parse(JsonObject.Price)
+        //             console.log(_.find(Total, total => console.log(item.Product_id)))
+
+        //             if (Boolean(_.find(Total, total => total.Id === item.Product_id))) {
+        //                 let newArr = Total?.map((i) => {
+        //                     console.log(i)
+        //                     jsondata?.map((data) => {
+
+        //                         if (i.Id === item.Product_id) {
+        //                             return { ...i, Price: jsondata[0]?.Price * item.Product_Quantity, Id: item.Product_id };
+        //                         }
+        //                     })
+        //                     return i
+        //                 });
+        //                 SetTotal(newArr);
+        //             }
+        //            else {
+        //             jsondata?.map((data) => {
+        //                 console.log(item.Price_index[0].Item_id)
+
+
+        //                 if (item.Price_index[0].Item_id === data.id) {
+        //                     console.log(data)
+        //                     // SetTotal(Total => [...Total, { Price: data?.Price * item.Product_Quantity, Id: item.Product_id }])
+        //                 }
+        //             })
+        //            }
+
+        //         })
+        //         // console.log(item.Price_index[0].Product_id)
+        //         // let g = _.find(Total, Total => Total.Id === item.Price_index[0].Product_id)
+        //         // console.log(g !== undefined)
+
+
+        //         // if (g !== undefined) {
+
+        //         //     console.log(Total)
+        //         //     Total?.map((total) => {
+        //         //         console.log(total.Id === item.Product_id)
+        //         //         // if (total.Id === item.Product_id)
+        //         //         // {
+        //         //         // }
+        //         //         // else {
+        //         //         //     return total
+        //         //         // }
+        //         //         return {...total , Price : 4444 , }
+        //         //     })
+
+        //         //     // SetTotal(Total.map((i) => {
+        //         //     //     if (i.Id === item.Price_index[0].Product_id) {
+        //         //     //         return { ...i, Price: 55, Id: item.Product_id }
+        //         //     //         // item?.Prices?.map((Pricing) => {
+        //         //     //         //     var JsonObject = JSON.parse(JSON.stringify(Pricing))
+        //         //     //         //     var jsondata = JSON.parse(JsonObject.Price)
+
+        //         //     //         //     // return jsondata
+        //         //     //         //     jsondata?.map((data) => {
+        //         //     //         //         if (item?.Price_index[0].Item_id === data.id) {
+        //         //     //         //             // console.log(i)
+        //         //     //         //             return { ...i, Price: data.Price * item.Product_Quantity, Id: item.Product_id }
+        //         //     //         //         }
+        //         //     //         //         return data
+        //         //     //         //     })
+        //         //     //         //     return Pricing
+        //         //     //         // })
+
+        //         //     //     }
+
+
+        //         //     //         return i
+
+
+        //         //     // }))
+        //         //     // SetTotal(Total => {
+        //         //     //     return Total.filter(Total => Total.Id !== item.Product_id)
+        //         //     // })
+        //         //     // SetTotal(Total => [...Total, { Product_id: "hkhjk", Item_id: "ghj" }]);
+
+
+        //         // }
+
+        //         // else {
+        //         //     item?.Prices?.map((Pricing) => {
+        //         //         var JsonObject = JSON.parse(JSON.stringify(Pricing))
+        //         //         var jsondata = JSON.parse(JsonObject.Price)
+        //         //         jsondata?.map((data) => {
+        //         //             if (item?.Price_index[0].Item_id === data.id) {
+        //         //                 SetTotal(Total => [...Total, { Price: data?.Price * item.Product_Quantity, Id: item.Product_id }])
+        //         //             }
+        //         //         })
+
+
+        //         //     })
+        //         // }
+        //     }
+
         // })
+        //    console.log( document.getElementById("qw"))
+
+    }, [localStorage.getItem('items')])
 
 
-    }, [])
+    // console.log(Total)
 
-
-    console.log(Total)
 
     function DeleteItem(Id) {
         var obj = JSON.parse(localStorage.getItem("items"));
@@ -91,6 +189,17 @@ const AddToCartReview = ({ SetTotal, Total }) => {
         const item = localStorage.getItem('items')
         SetLocalData(JSON.parse(item))
     }
+    let c = []
+
+    function tot (d){
+        // console.log(d );
+        // console.log(c.length);
+        // c.pop(d)
+        // setdata([...data , d])
+      
+    }
+
+    console.log(c)
     return (
         <>
             <div className="col-12  AddProductCartContainerinner">
@@ -171,7 +280,7 @@ const AddToCartReview = ({ SetTotal, Total }) => {
                                                 return (
 
                                                     <div key={index} >
-                                                        <p> Amount</p>  <span className="add_prod_span_amount fontStyle Amount" >{jsondata[0].Price * ele.Product_Quantity}</span>
+                                                        <p> Amount</p>  <span className="add_prod_span_amount fontStyle Amount" id='qw' value={jsondata[0].Price * ele.Product_Quantity} onChange={tot(jsondata[0].Price * ele.Product_Quantity)} ref={count} >{jsondata[0].Price * ele.Product_Quantity}</span>
                                                     </div>
                                                 )
                                             }
@@ -183,7 +292,7 @@ const AddToCartReview = ({ SetTotal, Total }) => {
 
                                                     < div key={index} >
 
-                                                        <p> Amount</p> <span className="add_prod_span_amount Amount fontStyle" value={d.Price * ele.Product_Quantity} >{d.Price * ele.Product_Quantity}</span>
+                                                        <p> Amount</p> <span className="add_prod_span_amount Amount fontStyle" id='qw' onChange={c.push(d.Price * ele.Product_Quantity)} value={d.Price * ele.Product_Quantity} ref={count1}>{d.Price * ele.Product_Quantity}</span>
                                                     </div>
                                                 )
 

@@ -5,10 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import LoadingButton from '@mui/lab/LoadingButton';
 import useStyles from "../../../../Style"
 
-const AddToCartSummary = ({ SetDeliveryOptionData,abcToggle,SetabcToggle }) => {
+const AddToCartSummary = ({ SetDeliveryOptionData,abcToggle,SetabcToggle}) => {
     const classes = useStyles()
     const navigate = useNavigate()
-    const [Total, SetTotal] = React.useState([0])
+    const [Total, SetTotal] = React.useState(0)
     const [OpenDelivery, SetOpenDelivery] = React.useState(false);
     const [OpenPickup, SetOpenPickup] = React.useState(false)
     // const [DeliveryOptionData, SetDeliveryOptionData] = React.useState([])
@@ -97,7 +97,7 @@ const AddToCartSummary = ({ SetDeliveryOptionData,abcToggle,SetabcToggle }) => {
                             <p>Subtotal</p>
                         </div>
                         <div className="col-2 fontStyle">
-                            <p>{Total}</p>
+                            {/* <p>{Total}</p> */}
                         </div>
 
 
