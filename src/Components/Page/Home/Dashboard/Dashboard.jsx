@@ -5,12 +5,13 @@ import LatestServices from "./ComponentDashboard/LatestArticle/LatestServices";
 import WeedProduct from "./ComponentDashboard/Weed/WeedProduct";
 import CommunityType from "./ComponentDashboard/Community/CommunityType";
 import Footer from "../../../Component/Footer/Footer";
+import HomePageBanner from "./ComponentDashboard/Banner/HomePageBanner"
 // import Flavour from "../../Delivery/Flavour/Flavour";
 export default function Dashboard() {
 
     return (
         <div>
-
+             <HomePageBanner></HomePageBanner>
             <CategoryProduct></CategoryProduct>
             <DispensoriesAddress></DispensoriesAddress>
             <div  className="col-12 mt-5" style={{ height: '250px'  }}>

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import LoadingButton from '@mui/lab/LoadingButton';
 import useStyles from "../../../../Style"
 
-const AddToCartSummary = ({ SetDeliveryOptionData,abcToggle,SetabcToggle }) => {
+const AddToCartSummary = ({ SetDeliveryOptionData,abcToggle,SetabcToggle,abc }) => {
     const classes = useStyles()
     const navigate = useNavigate()
     const [Total, SetTotal] = React.useState([0])
@@ -29,19 +29,20 @@ const AddToCartSummary = ({ SetDeliveryOptionData,abcToggle,SetabcToggle }) => {
             // return alert("pickup btn")
             SetOpenPickup(true)
             SetOpenDelivery(false)
-
+            // SetabcToggle(false)
         }
         else if (e.currentTarget.id === "delivery_btn") {
             // SetDeliveryOptionData([{ address: " Delivery address Platinum plaza" }])
 
             SetOpenDelivery(true)
             SetOpenPickup(false)
-
+            // SetabcToggle(true)
+            
 
         }
     }
     const CheckoutProcess = () => {
-        navigate("/CheckOutMainPage", {state : { InputValues,abc:false }})
+        navigate("/CheckOutMainPage", {state : { InputValues,abc:true }})
     }
     return (
         <>
@@ -57,7 +58,7 @@ const AddToCartSummary = ({ SetDeliveryOptionData,abcToggle,SetabcToggle }) => {
                                 className={` add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
 
                             >
-                                <LoadingButton onClick={HandlePickupAndDelivery} id='delivery_btn' variant="outlined">Delivery</LoadingButton>
+                                <LoadingButton  onClick={HandlePickupAndDelivery} id='delivery_btn' variant="outlined">Delivery</LoadingButton>
                             </Box>
                         </div>
                         <div className="col-6">
@@ -71,7 +72,7 @@ const AddToCartSummary = ({ SetDeliveryOptionData,abcToggle,SetabcToggle }) => {
 
                     </div>
                     <div className="col-6">
-                        {abcToggle && (<div className="col-12 mt-4 ">
+                        {abc && (<div className="col-12 mt-4 ">
 
                             <div className="col-lg-12 col-md-8 col-sm-8 addtocart_textfield mt-2">
                                 <TextField name='delivery' value={InputValues.delivery} onChange={InputFieldHandler} id="outlined-basic" placeholder="Enter Your Delivery" variant="outlined" fullWidth size='small' />
@@ -124,10 +125,10 @@ const AddToCartSummary = ({ SetDeliveryOptionData,abcToggle,SetabcToggle }) => {
                     </div>
                     <div className="col-12 order_summary_flex">
                         <div className="col-6 add_prod_cart_summary_p">
-                            <p>Delivery free</p>
+                            <p>Delivery fee</p>
                         </div>
                         <div className="col-2 fontStyle">
-                            <p>free</p>
+                            <p>$100</p>
                         </div>
 
 

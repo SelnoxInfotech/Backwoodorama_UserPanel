@@ -10,52 +10,58 @@ const Flavour = (Deta) => {
     return (
         <>
             <div className="container-fluid" >
-                <div className="row center">
-                    <div className="col-12 d-flex border flavCont p-0">
-                        <div className=" col-4   flav_image_col_two">
-                            <div className="col-12 flav_img_div">
-                                <div className="col-6  flav_img_inner_div">
-                                    <img src={`http://52.3.255.128:8000/${Deta.delBtn[0]?.Store_Image}`} alt="img_not_found" style={{ pointerEvents: "none" }} />
-                                    {/* <img src='./image/cat_pro_7.jpg'/> */}
-                                </div>
+                <div className='row'>
+                    <div className='col-lg-12 col-sm-12 col-md-12 col-12 flavour_New_container'>
+                        <div className='row'>
+                            <div className='col-lg-1  col-md-4 col-sm-2'>
+                                <img className='flav_img_height' src={`http://52.3.255.128:8000/${Deta.delBtn[0]?.Store_Image}`} alt="img_not_found" style={{ pointerEvents: "none" }} />
+
                             </div>
-                        </div>
-                        <div className="col-8 flav_content_div p-2">
-                            <div className="col-12 comm_head_prop fontStyle">
+                            <div className='col-lg-10 col-md-8 col-sm-8 flav_content_right_side fontStyle'>
                                 <p>{Deta.delBtn[0]?.Store_Name}</p>
 
                             </div>
-                            <div className="col-12 d-flex">
-                                <p>Rating</p><span className="mx-2"><AiFillStar className={classes.disPen_Icons} /></span>
-
-                            </div>
-                            <div className="col-12 ">
-                                <p>{Deta.delBtn[0]?.city_name}</p>
-                            </div>
-                            <div className="col-12 col-sm-12 col-lg-12 col-md-12  flavour_mobile_email_btn">
-                                <div className="col-6 col-sm-4 col-md-2 col-lg-2   flav_mobile_btn">
-                                    <Box
-                                        className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
-                                    >
-                                        <LoadingButton variant="outlined">Mobile no</LoadingButton>
-                                    </Box>
-                                </div>
-                                <div className="col-6 col-sm-4 col-md-2 col-lg-2  flav_email_btn">
-                                    <Box
-                                        className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
-                                    >
-                                        <LoadingButton  variant="outlined">email</LoadingButton>
-                                    </Box>
-                                </div>
-
-                            </div>
-
 
                         </div>
+                        <div className='row'>
+
+                            <div className='col-lg-12 mx-2 flav_new_cont_rat_star'>
+                                <span>Rating</span>
+                               <span> <AiFillStar className={classes.disPen_Icons} id='flav_star'/></span>
+                            </div>
+
+                        </div>
+                        <div className='row'>
+
+                            <div className='col-lg-12 mx-2'>
+                                <p>{Deta.delBtn[0]?.city_name}</p>
+                            </div>
+
+                        </div>
+                        <div className='row'>
+                            <div className='col-lg-4 col-md-4 col-sm-6 col-8 d-flex'>
+                                <Box
+                                    className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
+                                >
+                                    <LoadingButton  variant="outlined">Mobile no</LoadingButton>
+                                    
+                                </Box>
+                                <Box
+                                    className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
+                                >
+                                    <LoadingButton  variant="outlined">email Id</LoadingButton>
+                                </Box>
+                            </div>
+                           
+
+                        </div>
+
 
                     </div>
 
                 </div>
+                
+
 
             </div>
         </>

@@ -233,7 +233,7 @@ const ProductDetail = () => {
 
                                                         return (
                                                             <div className="col-3 add_prod_quant_inner_div mt-2 " key={index}>
-                                                                <section onClick={() => PriceSelect(ele.id, data.id)}
+                                                                <section id="productDetail_section" onClick={() => PriceSelect(ele.id, data.id)}
                                                                     className={"add_prod_Quant_btn " + (s ? "active" : "")}>
                                                                     {data.Weight || data.Unit}
                                                                     <p className="rs">{data.Price}</p>
