@@ -12,11 +12,11 @@ const AddToCartReview = ({ SetTotal, Total }) => {
     const count1 = useRef(null);
     const classes = useStyles()
     const [LocalData, SetLocalData] = React.useState()
-    const [ data ,  setdata] =  React.useState([])
+    const [data, setdata] = React.useState([])
     React.useEffect(() => {
         const items = localStorage.getItem('items')
         SetLocalData(JSON.parse(items))
-     
+
         // JSON.parse(items)?.map((item) => {
         //     if (item?.Price_index.length === 0) {
         //         item?.Prices.map((ele1) => {
@@ -140,11 +140,43 @@ const AddToCartReview = ({ SetTotal, Total }) => {
 
         // })
         //    console.log( document.getElementById("qw"))
+        if (Total.length === 0) {
+            JSON.parse(items)?.map((value) => {
+                if (value.Price_index.length === 0) {
+                    // console.log(value.Prices)
+                    value.Prices.map((Pricevalue) => {
+                        var JsonObject = JSON.parse(JSON.stringify(Pricevalue))
+                        var jsondata = JSON.parse(JsonObject.Price)
+
+                        SetTotal(Total => [...Total, { Price: jsondata[0]?.Price * value.Product_Quantity, Id: value.Product_id, Amount: jsondata[0]?.Price }])
+
+                    })
+                }
+                else {
+                    value.Prices.map((Pricevalue) => {
+                        var JsonObject = JSON.parse(JSON.stringify(Pricevalue))
+                        var jsondata = JSON.parse(JsonObject.Price)
+                        jsondata.map((da) => {
+                            if (da.id === value.Price_index[0].Item_id)
+                                SetTotal(Total => [...Total, { Price: da?.Price * value.Product_Quantity, Id: value.Product_id, Amount: da?.Price }])
+
+                        })
+
+
+                    })
+
+                }
+
+
+            })
+        }
+        // const spanElement =  screen.queryByTestId('test-span');
+
+
 
     }, [localStorage.getItem('items')])
 
 
-    // console.log(Total)
 
 
     function DeleteItem(Id) {
@@ -158,8 +190,12 @@ const AddToCartReview = ({ SetTotal, Total }) => {
         localStorage.setItem("items", JSON.stringify(obj));
         const item = localStorage.getItem('items')
         SetLocalData(JSON.parse(item))
+        SetTotal(oldValues => {
+            return oldValues.filter(Total => Total.Id !== Id)
+          })
+
     }
-    function Quantity(Id) {
+    function Quantity(Id, Product_Quantity) {
         var obj = JSON.parse(localStorage.getItem("items"));
         var s = obj?.map((arr) => {
             if (arr.Product_id === Id) {
@@ -173,9 +209,21 @@ const AddToCartReview = ({ SetTotal, Total }) => {
         const item = localStorage.getItem('items')
         SetLocalData(JSON.parse(item))
 
+        SetTotal(
+            Total?.map((data) => {
+                if (Id === data.Id) {
+                    return { ...data, Price: data.Amount * (Product_Quantity + 1) }
+    
+                }
+    
+                return data
+    
+            })
+        )
+
 
     }
-    function decreaseQuantity(Id) {
+    function decreaseQuantity(Id , Product_Quantity) {
         var obj = JSON.parse(localStorage.getItem("items"));
         var s = obj?.map((arr) => {
             if (arr.Product_id === Id) {
@@ -188,18 +236,20 @@ const AddToCartReview = ({ SetTotal, Total }) => {
         localStorage.setItem("items", JSON.stringify(s));
         const item = localStorage.getItem('items')
         SetLocalData(JSON.parse(item))
-    }
-    let c = []
+        SetTotal(
+            Total?.map((data) => {
+                if (Id === data.Id) {
+                    return { ...data, Price: data.Amount * (Product_Quantity - 1) }
+    
+                }
+    
+                return data
+    
+            })
+        )
 
-    function tot (d){
-        // console.log(d );
-        // console.log(c.length);
-        // c.pop(d)
-        // setdata([...data , d])
-      
     }
 
-    console.log(c)
     return (
         <>
             <div className="col-12  AddProductCartContainerinner">
@@ -249,7 +299,7 @@ const AddToCartReview = ({ SetTotal, Total }) => {
                                         <div className="col-10 col-lg-4 col-md-4 col-sm-6  add_to_product_btn_div d-flex">
                                             <div className="col-4">
                                                 {/* <button className="add_prod_cart_btn" onClick={() => { Quantity(ele.Product_id) }} ><AiOutlinePlus /></button> */}
-                                                <Button className="center" style={{ width: "15px" }} onClick={() => { Quantity(ele.Product_id) }} ><AiOutlinePlus /></Button>
+                                                <Button className="center" style={{ width: "15px" }} onClick={() => { Quantity(ele.Product_id, ele.Product_Quantity) }} ><AiOutlinePlus /></Button>
 
 
                                             </div>
@@ -258,7 +308,7 @@ const AddToCartReview = ({ SetTotal, Total }) => {
                                             </div>
                                             <div className="col-4">
                                                 {/* <button className="add_prod_cart_btn" > {ele.Product_Quantity > 1 && <GrFormSubtract onClick={() => { decreaseQuantity(ele.Product_id) }} />}</button> */}
-                                                <Button className="" style={{ width: "15px" }} > {ele.Product_Quantity > 1 && <GrFormSubtract onClick={() => { decreaseQuantity(ele.Product_id) }} />}</Button>
+                                                <Button className="" style={{ width: "15px" }} > {ele.Product_Quantity > 1 && <GrFormSubtract onClick={() => { decreaseQuantity(ele.Product_id, ele.Product_Quantity) }} />}</Button>
 
                                             </div>
 
@@ -274,13 +324,16 @@ const AddToCartReview = ({ SetTotal, Total }) => {
 
                                     <div className="col-10 fontStyle Add_prod_cart_amount_right_side   d-flex">
                                         {ele?.Prices.map((ele1, index) => {
+                                            // console.log(document.getElementById(ele1.id))
                                             var JsonObject = JSON.parse(JSON.stringify(ele1))
                                             var jsondata = JSON.parse(JsonObject.Price)
                                             if (ele.Price_index?.length === 0) {
+                                                // SetTotal((Total) => { [...Total, jsondata[0].Price * ele.Product_Quantity] })
+
                                                 return (
 
                                                     <div key={index} >
-                                                        <p> Amount</p>  <span className="add_prod_span_amount fontStyle Amount" id='qw' value={jsondata[0].Price * ele.Product_Quantity} onChange={tot(jsondata[0].Price * ele.Product_Quantity)} ref={count} >{jsondata[0].Price * ele.Product_Quantity}</span>
+                                                        <p> Amount</p>  <span className="add_prod_span_amount fontStyle Amount" id={ele1.id} value={jsondata[0].Price * ele.Product_Quantity} ref={count} >{jsondata[0].Price * ele.Product_Quantity}</span>
                                                     </div>
                                                 )
                                             }
@@ -292,7 +345,7 @@ const AddToCartReview = ({ SetTotal, Total }) => {
 
                                                     < div key={index} >
 
-                                                        <p> Amount</p> <span className="add_prod_span_amount Amount fontStyle" id='qw' onChange={c.push(d.Price * ele.Product_Quantity)} value={d.Price * ele.Product_Quantity} ref={count1}>{d.Price * ele.Product_Quantity}</span>
+                                                        <p> Amount</p> <span className="add_prod_span_amount Amount fontStyle" id={ele1.id}  value={d.Price * ele.Product_Quantity} ref={count1}>{d.Price * ele.Product_Quantity}</span>
                                                     </div>
                                                 )
 
