@@ -27,7 +27,7 @@ const CheckOutMainPage = () => {
                             </div>
 
                         </div>
-                        <div className="row">
+                        <div className="row ">
                             <div className="col-lg-12">
                                 {ShowData === true && <DeliveryInformation SetShowDeliveryInformation={SetShowDeliveryInformation} />
                                 }
