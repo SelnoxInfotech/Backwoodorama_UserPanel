@@ -17,139 +17,14 @@ const AddToCartReview = ({ SetTotal, Total }) => {
         const items = localStorage.getItem('items')
         SetLocalData(JSON.parse(items))
 
-        // JSON.parse(items)?.map((item) => {
-        //     if (item?.Price_index.length === 0) {
-        //         item?.Prices.map((ele1) => {
-        //             var JsonObject = JSON.parse(JSON.stringify(ele1))
-        //             var jsondata = JSON.parse(JsonObject.Price)
-
-        //             if (Boolean(_.find(Total, Total => Total.Id === item.Product_id))) {
-        //                 let newArr = Total?.map((i) => {
-        //                     if (i.Id === item.Product_id) {
-        //                         return { ...i, Price: jsondata[0]?.Price * item.Product_Quantity, Id: item.Product_id };
-        //                     }
-        //                     return i
-        //                 });
-        //                 SetTotal(newArr);
-        //             }
-        //             else {
-
-        //                 SetTotal(Total => [...Total, { Price: jsondata[0]?.Price * item.Product_Quantity, Id: item.Product_id }])
-        //             }
-
-        //         })
-        //     }
-        //     else {
-        //         item?.Prices.map((ele1) => {
-        //             var JsonObject = JSON.parse(JSON.stringify(ele1))
-        //             var jsondata = JSON.parse(JsonObject.Price)
-        //             console.log(_.find(Total, total => console.log(item.Product_id)))
-
-        //             if (Boolean(_.find(Total, total => total.Id === item.Product_id))) {
-        //                 let newArr = Total?.map((i) => {
-        //                     console.log(i)
-        //                     jsondata?.map((data) => {
-
-        //                         if (i.Id === item.Product_id) {
-        //                             return { ...i, Price: jsondata[0]?.Price * item.Product_Quantity, Id: item.Product_id };
-        //                         }
-        //                     })
-        //                     return i
-        //                 });
-        //                 SetTotal(newArr);
-        //             }
-        //            else {
-        //             jsondata?.map((data) => {
-        //                 console.log(item.Price_index[0].Item_id)
-
-
-        //                 if (item.Price_index[0].Item_id === data.id) {
-        //                     console.log(data)
-        //                     // SetTotal(Total => [...Total, { Price: data?.Price * item.Product_Quantity, Id: item.Product_id }])
-        //                 }
-        //             })
-        //            }
-
-        //         })
-        //         // console.log(item.Price_index[0].Product_id)
-        //         // let g = _.find(Total, Total => Total.Id === item.Price_index[0].Product_id)
-        //         // console.log(g !== undefined)
-
-
-        //         // if (g !== undefined) {
-
-        //         //     console.log(Total)
-        //         //     Total?.map((total) => {
-        //         //         console.log(total.Id === item.Product_id)
-        //         //         // if (total.Id === item.Product_id)
-        //         //         // {
-        //         //         // }
-        //         //         // else {
-        //         //         //     return total
-        //         //         // }
-        //         //         return {...total , Price : 4444 , }
-        //         //     })
-
-        //         //     // SetTotal(Total.map((i) => {
-        //         //     //     if (i.Id === item.Price_index[0].Product_id) {
-        //         //     //         return { ...i, Price: 55, Id: item.Product_id }
-        //         //     //         // item?.Prices?.map((Pricing) => {
-        //         //     //         //     var JsonObject = JSON.parse(JSON.stringify(Pricing))
-        //         //     //         //     var jsondata = JSON.parse(JsonObject.Price)
-
-        //         //     //         //     // return jsondata
-        //         //     //         //     jsondata?.map((data) => {
-        //         //     //         //         if (item?.Price_index[0].Item_id === data.id) {
-        //         //     //         //             // console.log(i)
-        //         //     //         //             return { ...i, Price: data.Price * item.Product_Quantity, Id: item.Product_id }
-        //         //     //         //         }
-        //         //     //         //         return data
-        //         //     //         //     })
-        //         //     //         //     return Pricing
-        //         //     //         // })
-
-        //         //     //     }
-
-
-        //         //     //         return i
-
-
-        //         //     // }))
-        //         //     // SetTotal(Total => {
-        //         //     //     return Total.filter(Total => Total.Id !== item.Product_id)
-        //         //     // })
-        //         //     // SetTotal(Total => [...Total, { Product_id: "hkhjk", Item_id: "ghj" }]);
-
-
-        //         // }
-
-        //         // else {
-        //         //     item?.Prices?.map((Pricing) => {
-        //         //         var JsonObject = JSON.parse(JSON.stringify(Pricing))
-        //         //         var jsondata = JSON.parse(JsonObject.Price)
-        //         //         jsondata?.map((data) => {
-        //         //             if (item?.Price_index[0].Item_id === data.id) {
-        //         //                 SetTotal(Total => [...Total, { Price: data?.Price * item.Product_Quantity, Id: item.Product_id }])
-        //         //             }
-        //         //         })
-
-
-        //         //     })
-        //         // }
-        //     }
-
-        // })
-        //    console.log( document.getElementById("qw"))
+      
         if (Total?.length === 0) {
             JSON.parse(items)?.map((value) => {
                 if (value.Price_index.length === 0) {
-                    // console.log(value.Prices)
                     value.Prices.map((Pricevalue) => {
                         var JsonObject = JSON.parse(JSON.stringify(Pricevalue))
                         var jsondata = JSON.parse(JsonObject.Price)
-
                         SetTotal(Total => [...Total, { Price: jsondata[0]?.Price * value.Product_Quantity, Id: value.Product_id, Amount: jsondata[0]?.Price }])
-
                     })
                 }
                 else {
@@ -159,7 +34,6 @@ const AddToCartReview = ({ SetTotal, Total }) => {
                         jsondata.map((da) => {
                             if (da.id === value.Price_index[0].Item_id)
                                 SetTotal(Total => [...Total, { Price: da?.Price * value.Product_Quantity, Id: value.Product_id, Amount: da?.Price }])
-
                         })
 
 
@@ -170,8 +44,6 @@ const AddToCartReview = ({ SetTotal, Total }) => {
 
             })
         }
-      
-
 
     }, [localStorage.getItem('items')])
 
@@ -297,7 +169,6 @@ const AddToCartReview = ({ SetTotal, Total }) => {
                                     <div className="col-12 add_prod_btn_amount">
                                         <div className="col-10 col-lg-4 col-md-4 col-sm-6  add_to_product_btn_div d-flex">
                                             <div className="col-4">
-                                                {/* <button className="add_prod_cart_btn" onClick={() => { Quantity(ele.Product_id) }} ><AiOutlinePlus /></button> */}
                                                 <Button className="center" style={{ width: "15px" }} onClick={() => { Quantity(ele.Product_id, ele.Product_Quantity) }} ><AiOutlinePlus /></Button>
 
 
@@ -306,7 +177,6 @@ const AddToCartReview = ({ SetTotal, Total }) => {
                                                 <p>{ele.Product_Quantity}</p>
                                             </div>
                                             <div className="col-4">
-                                                {/* <button className="add_prod_cart_btn" > {ele.Product_Quantity > 1 && <GrFormSubtract onClick={() => { decreaseQuantity(ele.Product_id) }} />}</button> */}
                                                 <Button className="" style={{ width: "15px" }} > {ele.Product_Quantity > 1 && <GrFormSubtract onClick={() => { decreaseQuantity(ele.Product_id, ele.Product_Quantity) }} />}</Button>
 
                                             </div>

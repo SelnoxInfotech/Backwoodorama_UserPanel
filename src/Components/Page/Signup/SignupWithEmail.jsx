@@ -24,16 +24,14 @@ const SignupWithEmail = () => {
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     const method = useForm()
     const classes = useStyles()
-    // UserPanel/ RegisterAPI/
-
     function Submit(data) {
         Setloading(true)
         axios.post("http://52.3.255.128:8000/UserPanel/RegisterAPI/", {
 
             username: data.Name,
             email: Email,
-            password: data.password
-
+            password: data.password,
+            user_type:"Customer"
         },
         ).then(response => {
             Navigate("/Login")

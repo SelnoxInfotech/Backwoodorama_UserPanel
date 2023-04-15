@@ -32,35 +32,50 @@ const ProductList = ({ arr }) => {
             }
             return false
         })
-        if (Status !== undefined) {
-            SetAddToCard(AddTOCard.map((Add) => {
-                if (Add.Product_id === Event.id) {
-                    if (AddData.length !== 0) {
+        const Store = AddTOCard.find((data) => {
+            if (data.Store_id === Event.Store_id) {
+                return true
+            }
+            return false
+        })
+        if (Store !== undefined) {
 
-                        if (AddData[0]?.Item_id === Add.Price_index[0]?.Item_id) {
-                        
-                             return { ...Add, Product_Quantity: Add.Product_Quantity + 1 }
+            if (Status !== undefined) {
+                SetAddToCard(AddTOCard.map((Add) => {
+                    if (Add.Product_id === Event.id) {
+                        if (AddData.length !== 0) {
+
+                            if (AddData[0]?.Item_id === Add.Price_index[0]?.Item_id) {
+
+                                return { ...Add, Product_Quantity: Add.Product_Quantity + 1 }
+                            }
+                            else {
+                                return { ...Add, Price_index: AddData, Product_Quantity: 1 }
+                            }
                         }
                         else {
-                            return { ...Add, Price_index: AddData, Product_Quantity: 1 }
+                            return { ...Add, Product_Quantity: Add.Product_Quantity + 1 }
                         }
                     }
-                    else {
-                        return { ...Add, Product_Quantity: Add.Product_Quantity + 1 }
-                    }
-                }
-                
-                return Add
-            }))
+
+                    return Add
+                }))
+            }
+            else (
+                SetAddToCard([...AddTOCard, Arry])
+            )
         }
-        else (
-            SetAddToCard([...AddTOCard, Arry])
-        )
+        else {
+            SetAddToCard([Arry])
+        }
     }
+ 
     React.useEffect(() => {
         localStorage.setItem('items', JSON.stringify(AddTOCard))
     }, [AddTOCard])
 
+
+ 
     async function PriceSelect(Product, Item) {
         SetPrice(Price => {
             return Price.filter(Price => Price.Product_id !== Product)
@@ -80,7 +95,7 @@ const ProductList = ({ arr }) => {
                     <div className="col-3 prod_inner_cont" key={index}>
 
                         <div className="col-12 prod_main_cont  p-2">
-                            <Link to="/ProductDetail"  state={{ Id: ele.id}}>
+                            <Link to="/ProductDetail" state={{ Id: ele.id }}>
                                 <div className="col-4 prod_cat_cont">
                                     <div className="col-12 p-2 prod_cat_img">
                                         <img id={ele.id} src={`http://52.3.255.128:8000/${ele.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }} />
@@ -98,6 +113,7 @@ const ProductList = ({ arr }) => {
                             </Link>
                             <div className="col-8 product_cat_allProduct">
                                 <div className="col-12 px-2 prod_para " style={{ marginBottom: "-10px" }}>
+                                    <p className='fontStyle common_sub_head'>{ele.StoreName}</p>
                                 </div>
                                 <div className="col-12 px-2 prod_para_name" style={{ marginBottom: "" }}>
                                     <p className='fontStyle common_sub_head'>{ele.Product_Name}</p>
@@ -106,28 +122,27 @@ const ProductList = ({ arr }) => {
                                     <p className='fontStyle common_sub_head'>Rating</p><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons} /></span>
                                 </div>
                                 <div className="col-12   prod_cat_cont_btn px-2">
-                                    {ele.Prices?.map((ele1, ndex) => {  
+                                    {ele.Prices?.map((ele1, ndex) => {
                                         var JsonObject = JSON.parse(JSON.stringify(ele1))
                                         var jsondata = JSON.parse(JsonObject.Price)
                                         return (
                                             jsondata.map((data, index) => {
                                                 let s = false
-                                                if ( Price.length=== 0){
-                                                    
-                                                          if(data.id === 1)
-                                                        {
-                                                          s = true
-                                                        }
-                                                    
+                                                if (Price.length === 0) {
+
+                                                    if (data.id === 1) {
+                                                        s = true
+                                                    }
+
                                                 }
                                                 else (
-                                                    Price?.map((Price)=>{
-                                                        if(ele.id === Price?.Product_id && data.id === Price?.Item_id) {
-                                                             s = true
+                                                    Price?.map((Price) => {
+                                                        if (ele.id === Price?.Product_id && data.id === Price?.Item_id) {
+                                                            s = true
                                                         }
                                                         else {
-                                                                
-                                                          s = false
+
+                                                            s = false
                                                         }
                                                         return s
                                                     })
@@ -135,9 +150,9 @@ const ProductList = ({ arr }) => {
                                                 return (
                                                     <div className="col-3 prod_cat_btn_cont mt-2 d-flex" id="" key={index} >
                                                         <section
-                                                        className={ "prod_cat_btns " + (s ? "active" : "") }
+                                                            className={"prod_cat_btns " + (s ? "active" : "")}
                                                             value={data.id} onClick={() => PriceSelect(ele.id, data.id)} >
-                                                            {data.Weight ||data.Unit }
+                                                            {data.Weight || data.Unit}
                                                             <p className="rs">{data.Price}$</p>
                                                         </section>
                                                     </div>
