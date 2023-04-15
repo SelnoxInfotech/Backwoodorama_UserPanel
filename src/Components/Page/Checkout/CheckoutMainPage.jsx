@@ -12,10 +12,7 @@ const CheckOutMainPage = () => {
     // const [abcToggle,SetabcToggle]=React.useState(true)
     const location = useLocation();
     const {InputValues,abc}=location.state
-    console.log(InputValues,abc)
     const AddToCartSummaryData=location.AddToCartSummaryData
-    // console.log(AddToCartSummaryData)
-    console.log(AddToCartSummaryData)
 
 
     return (

@@ -6,7 +6,6 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import useStyles from "../../../../Style"
 
 const AddToCartSummary = ({ SetDeliveryOptionData,abcToggle,SetabcToggle,abc ,Total}) => {
-    console.log(Total)
     const classes = useStyles()
     const navigate = useNavigate()
     const [OpenDelivery, SetOpenDelivery] = React.useState(false);
@@ -23,7 +22,6 @@ const AddToCartSummary = ({ SetDeliveryOptionData,abcToggle,SetabcToggle,abc ,To
     }
 
     const HandlePickupAndDelivery = (e) => {
-        console.log(e.currentTarget.id)
         if (e.currentTarget.id === "pickup_btn") {
             // SetDeliveryOptionData([{ address: "Pickup Address Mata mandir" }])
             // return alert("pickup btn")
@@ -32,8 +30,7 @@ const AddToCartSummary = ({ SetDeliveryOptionData,abcToggle,SetabcToggle,abc ,To
             // SetabcToggle(false)
         }
         else if (e.currentTarget.id === "delivery_btn") {
-            // SetDeliveryOptionData([{ address: " Delivery address Platinum plaza" }])
-
+          
             SetOpenDelivery(true)
             SetOpenPickup(false)
             // SetabcToggle(true)

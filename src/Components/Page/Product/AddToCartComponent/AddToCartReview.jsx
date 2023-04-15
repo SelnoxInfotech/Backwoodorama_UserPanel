@@ -140,7 +140,7 @@ const AddToCartReview = ({ SetTotal, Total }) => {
 
         // })
         //    console.log( document.getElementById("qw"))
-        if (Total.length === 0) {
+        if (Total?.length === 0) {
             JSON.parse(items)?.map((value) => {
                 if (value.Price_index.length === 0) {
                     // console.log(value.Prices)
@@ -170,8 +170,7 @@ const AddToCartReview = ({ SetTotal, Total }) => {
 
             })
         }
-        // const spanElement =  screen.queryByTestId('test-span');
-
+      
 
 
     }, [localStorage.getItem('items')])
@@ -279,7 +278,7 @@ const AddToCartReview = ({ SetTotal, Total }) => {
                                             if (ele.Price_index?.length === 0) {
                                                 return (
 
-                                                    <span className="add_prod_span_amount fontStyle">${jsondata[0].Price}</span>
+                                                    <span className="add_prod_span_amount fontStyle" key={index}>${jsondata[0].Price}</span>
                                                 )
                                             }
                                             else {
@@ -287,7 +286,7 @@ const AddToCartReview = ({ SetTotal, Total }) => {
                                                     return (PriceSelect.id === ele.Price_index[0].Item_id) && PriceSelect.Price
                                                 })
 
-                                                return (<span className="add_prod_span_amount fontStyle">${d.Price}</span>
+                                                return (<span className="add_prod_span_amount fontStyle" key={index}>${d.Price}</span>
                                                 )
                                             }
                                         })

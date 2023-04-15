@@ -91,13 +91,15 @@ const ProductCategorySlider = ({ FilterCategory, Category }) => {
             }
         ]
     }
+
+
     const ProductCategory = Category
     return (
 
         <ProductSlider  {...settings}>
             {ProductCategory.map((ele, index) => {
                 return (
-                    <div className="col-12" key={index}  onClick={(()=>{FilterCategory(ele.Category_id)})}>
+                    <div className="col-12" key={index}  onClick={(()=>{FilterCategory(ele.id)})}>
                         <div className="col-2 mt-4 slick-slide slick-active slick-current" >
 
                             <img id="Product_category_image" src={`http://52.3.255.128:8000/${ele.category_Image}`} alt="image_not found" />
