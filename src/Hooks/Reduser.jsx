@@ -6,7 +6,8 @@ const reducer = (state, action) => {
         
         case 'api':  
         return {...state, api: action.api  }
-  
+
+       
       default:  return state  
     }  
   }  ;

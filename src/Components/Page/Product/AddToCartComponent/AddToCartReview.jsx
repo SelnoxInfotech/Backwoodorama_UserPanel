@@ -12,7 +12,6 @@ const AddToCartReview = ({ SetTotal, Total }) => {
     const count1 = useRef(null);
     const classes = useStyles()
     const [LocalData, SetLocalData] = React.useState()
-    const [data, setdata] = React.useState([])
     React.useEffect(() => {
         const items = localStorage.getItem('items')
         SetLocalData(JSON.parse(items))

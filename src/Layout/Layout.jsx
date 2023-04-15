@@ -21,10 +21,10 @@ export default function BasicGrid() {
 
 
         <div>
-           
-                <Navbar></Navbar>
 
-          
+            <Navbar></Navbar>
+
+
             <Grid xs={12} md={12} xl={12}>
 
                 <Outlet />

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import LoadingButton from '@mui/lab/LoadingButton';
 import useStyles from "../../../../Style"
 import Axios from "axios"
+
 const AddToCartSummary = ({ SetDeliveryOptionData, abcToggle, SetabcToggle, abc, Total }) => {
     const classes = useStyles()
     const navigate = useNavigate()
@@ -49,7 +50,7 @@ const AddToCartSummary = ({ SetDeliveryOptionData, abcToggle, SetabcToggle, abc,
         }
     }
     const CheckoutProcess = () => {
-        navigate("/CheckOutMainPage", { state: { InputValues, abc: true } })
+        navigate("/CheckOutMainPage", { state: { InputValues, abc: Total } })
     }
     return (
         <>
