@@ -16,10 +16,12 @@ import { MdOutlinePriceChange } from "react-icons/md"
 import { BsStripe } from "react-icons/bs"
 import { GiWeightScale } from "react-icons/gi"
 import { RiProductHuntLine } from "react-icons/ri"
+import _ from "lodash"
 export default function DispensoriesProduct() {
     const { id } = useParams();
     const classes = useStyles()
     const [Product, SetProduct] = React.useState('');
+    const [Category, SetCategory] = React.useState([])
     const [DespensariesData, SetDespensariesProductData] = React.useState([])
     const [Despen , SetDespens] = React.useState([])
     const handleChange = (event) => {
@@ -41,7 +43,42 @@ export default function DispensoriesProduct() {
             SetDespens(response.data)
             
         })
+        axios("http://52.3.255.128:8000/UserPanel/CategoryOnProduct/ ", {
+
+
+
+    }).then(response => {
+        var uniqueUsersByID = _.uniqBy(response.data, 'Category_id'); //removed if had duplicate id
+        var uniqueUsers = _.uniqWith(response.data, _.isEqual);//removed complete duplicates
+        SetCategory(uniqueUsers)
+
+
+    }).catch(
+        function (error) {
+
+
+        })
     }, [])
+    console.log(DespensariesData)
+    const FilterCategory = (id) => {
+        axios(`http://52.3.255.128:8000/UserPanel/Get-ProductByCategory/${id}`, {
+
+
+        }).then(response => {
+
+            SetDespensariesProductData(response.data)
+
+            // SetProduct(Product => ({ ...Product, Category: response.data?.data[0].id }))
+
+
+        }).catch(
+            function (error) {
+
+                // SetProduct(Product => ({ ...Product, discount: "None" }))
+            })
+
+    }
+
     const ProductFilterData = [{ Id: 1, Name: "Category", Type1: "Flower", Type2: "CBD", Icons: <BsLayoutSplit className={classes.muiIcons} /> },
     { Id: 2, Name: "Brand", Type1: "Leafly", Type2: "CBD", Icons: <MdOutlineBrandingWatermark className={classes.muiIcons} /> },
     { Id: 3, Name: "Strain", Type1: "Indica", Type2: "Hybrid", Icons: <BsStripe className={classes.muiIcons} /> },
@@ -49,15 +86,13 @@ export default function DispensoriesProduct() {
     { Id: 5, Name: "Weight", Type1: "Any", Type2: "$25", Price: "$100", Icons: <GiWeightScale className={classes.muiIcons} /> },
     { Id: 6, Name: "Product", Type1: "Medical", Type2: "Recreational", Icons: <RiProductHuntLine className={classes.muiIcons} /> },
     ]
-    const delBtn = [{ del: "Delivery Only" }, { del: "Closed Open" }, { del: "Medical and recreational" }, { del: "Licence and Information" }
-        , { del: "order only delivery" }]
     return (
         <div>
             <div className="container-fluid product_container" style={{ padding: "7px" }}>
                 <Flavour delBtn={Despen}></Flavour>
                 <div className="row">
                     <div className="col-12 mt-4">
-                        {/* <ProductCategorySlider></ProductCategorySlider> */}
+                    <ProductCategorySlider FilterCategory={FilterCategory} Category={Category}></ProductCategorySlider>
 
                     </div>
 
