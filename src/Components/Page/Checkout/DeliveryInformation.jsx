@@ -17,6 +17,11 @@ const DeliveryInformation = ({ SetShowDeliveryInformation }) => {
         SetShowRestDeliveryInformation(true)
     }
 
+    const [focus, setFocused] = React.useState(false);
+    const [hasValue, setHasValue] = React.useState(false);
+    const onFocus = () => setFocused(true);
+    const onBlur = () => setFocused(false);
+
     return (
         <div className="container-fluid">
 
@@ -26,7 +31,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation }) => {
                 <div className='col-lg-12 col-md-12 col-sm-12 col-12 delivery_information_container'>
                     <div className='row'>
                         <div className="col-12 height_del_information_inner_div font_size_paragraph">
-                            <p  onClick={ShowAgainDeliverInformation} >Your Information</p>
+                            <p onClick={ShowAgainDeliverInformation} >Your Information</p>
                         </div>
                     </div>
                     {ShowRestDeliveryInformation &&
@@ -65,7 +70,15 @@ const DeliveryInformation = ({ SetShowDeliveryInformation }) => {
                             </div>
                             <div className='row'>
                                 <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
-                                    <TextField label="Birth date" variant="standard" fullWidth />
+                                    <TextField
+                                        onFocus={onFocus}
+                                        onBlur={onBlur}
+                                        onChange={(e) => {
+                                            if (e.target.value) setHasValue(true);
+                                            else setHasValue(false);
+                                        }}
+                                        type={hasValue || focus ? "date" : "text"}
+                                        label="Birth date" variant="standard" fullWidth />
                                 </div>
                                 <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
                                     <TextField label="Email" variant="standard" fullWidth />

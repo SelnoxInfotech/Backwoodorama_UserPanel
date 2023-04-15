@@ -149,11 +149,11 @@ const WeedProduct = () => {
                                                 return (
                                                     <div className="col-3  mt-2 d-flex" key={index}>
 
-                                                        <button className="weed_btn">
+                                                        <section className="weed_btn">
 
                                                             {ele.quant}
                                                             <p className="rs">{ele.rs}</p>
-                                                        </button>
+                                                        </section>
                                                     </div>
 
                                                 )
@@ -162,10 +162,10 @@ const WeedProduct = () => {
 
 
                                         <div className="col-10 d-flex mt-3">
-                                            <MdOutlineShoppingCart className={classes.muiIcons} />
+                                            {/* <MdOutlineShoppingCart className={classes.muiIcons} /> */}
                                             <Box
                                                 className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
-                                                style={{ width: "83%" }}
+                                                style={{ width: "100%" }}
                                             >
                                                 <LoadingButton variant="outlined">Buy Now</LoadingButton>
                                             </Box>
