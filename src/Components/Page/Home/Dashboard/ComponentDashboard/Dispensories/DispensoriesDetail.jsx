@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Flavour from "../../../../Delivery/Flavour/Flavour";
 import ProductCategorySlider from "../../../../Product/ProductCategorySlider";
-import SearchBar from "material-ui-search-bar";
 import useStyles from "../../../../../../Style"
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
@@ -11,7 +10,7 @@ import MenuItem from '@mui/material/MenuItem';
 import ProductFilter from "../../../../Product/ProductFilter";
 import ProductList from "../../../../Product/ProductList";
 import { BsLayoutSplit } from "react-icons/bs"
-import { BsDropletHalf } from "react-icons/bs"
+import SearchBar from '@mkyy/mui-search-bar';
 import { MdOutlineBrandingWatermark } from "react-icons/md"
 import { MdOutlinePriceChange } from "react-icons/md"
 import { BsStripe } from "react-icons/bs"
@@ -67,7 +66,7 @@ export default function DispensoriesProduct() {
                 <div className="row center  mt-2 p-2">
                     <div className="col-12 mt-4 product_search_and_select">
                         <div className="col-2 product_search_bar">
-                            <SearchBar className={classes.muiSearchIcon} />
+                        <SearchBar style={{ border: "1px solid #dee2e6" }} width={"100%"} />
 
                         </div>
                         <div className="col-10 product_select">
