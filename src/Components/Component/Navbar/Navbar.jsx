@@ -7,14 +7,19 @@ import SearchBar from "./Component/SearchBar"
 import { AiFillHeart } from "react-icons/ai"
 import { IoIosNotifications } from "react-icons/io"
 import { MdOutlineShoppingCart } from "react-icons/md"
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import SliderLink from "./Component/SideSlider/SilderLink"
-import { GiConsoleController } from 'react-icons/gi';
+import Createcontext from "../../../Hooks/Context"
+import Cookies from 'universal-cookie';
+
 const Navbar = () => {
+  const cookies = new Cookies();
+  const { state, dispatch } = React.useContext(Createcontext)
   const [windowSize, setWindowSize] = React.useState()
   const [Hamburger, SetHamburger] = React.useState(window.innerWidth >= 993)
   const classes = useStyles()
-  const [Open , SetOpen] = React.useState(false)
+  const [Open, SetOpen] = React.useState(false)
+
   React.useEffect(() => {
     const handleResize = () => {
       setWindowSize(window.innerWidth)
@@ -22,9 +27,9 @@ const Navbar = () => {
     window.addEventListener('resize', handleResize)
     if (windowSize >= 993) {
       SetHamburger(true)
- 
-       
-     
+
+
+
     }
     else {
       if (windowSize <= 993) {
@@ -42,26 +47,32 @@ const Navbar = () => {
 
   }
 
-  React.useState(()=>{
+  React.useState(() => {
     if (Open === true) {
 
       document.addEventListener("click", closeNav)
+
     }
-  },[])
+  }, [ dispatch])
+
+  function Logout() {
+    cookies.remove('Token_access')
+    dispatch({type:'Login',login: false})
+  }
 
   return (
     <>
 
 
-      <div className='sticky-top' style={{ background: "white" ,padding:"10px" }}>
+      <div className='sticky-top' style={{ background: "white", padding: "10px" }}>
         <Grid container spacing={0} rowSpacing={0.3}   >
-          <Grid xs={2 } md={2} xl={2}>
+          <Grid xs={2} md={2} xl={2}>
             {
               Hamburger ?
-                <span><img className='navbar_logo_image' src='./image/logo.webp'/></span> :
+                <span><img className='navbar_logo_image' src='./image/logo.webp' /></span> :
 
                 <div className='center'>
-                  <button className="openbtn Border" onClick={()=>{openNav()}}>☰</button>
+                  <button className="openbtn Border" onClick={() => { openNav() }}>☰</button>
                 </div>
 
             }
@@ -79,18 +90,33 @@ const Navbar = () => {
             </div>
           </Grid>
           <Grid xs={4} md={2} xl={2} >
-            <div className=' col-12 Login_Sigup_button '>
-              <div className='col-lg-4 col-sm-4'>
-                <Grid display={{ xs: "none", md: "block", lg: "block" }}>
-                  <Button className={classes.muiBtn} >Login</Button>
-                </Grid>
-              </div>
-              <div className='col-lg-4 col-sm-4'>
-              <Grid>
-                <Button className={classes.muiBtn} >Signup</Button>
-                </Grid>
-              </div>
-            </div>
+            {
+              state.login === true 
+              ?
+
+                <div className=' col-12 Login_Sigup_button '>
+                  <div className='col-lg-4 col-sm-4'>
+                    <Grid display={{ xs: "none", md: "block", lg: "block" }}>
+                      <Button className={classes.muiBtn} onClick={Logout} >Logout</Button>
+                    </Grid>
+                  </div>
+                </div>
+
+                :
+
+                <div className=' col-12 Login_Sigup_button '>
+                  <div className='col-lg-4 col-sm-4'>
+                    <Grid display={{ xs: "none", md: "block", lg: "block" }}>
+                      <NavLink to="/Login" >   <Button className={classes.muiBtn} >Login</Button></NavLink>
+                    </Grid>
+                  </div>
+                  <div className='col-lg-4 col-sm-4'>
+                    <Grid>
+                      <NavLink to="/Signup" >    <Button className={classes.muiBtn} >Signup</Button></NavLink>
+                    </Grid>
+                  </div>
+                </div>
+            }
           </Grid>
           <Grid xs={12} md={12} xl={12} >
             <SliderLink></SliderLink>

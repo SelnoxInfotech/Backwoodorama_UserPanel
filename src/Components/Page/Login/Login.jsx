@@ -13,8 +13,12 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { CiLock } from "react-icons/ci"
 import LoginWithGoogle from './LoginWithGoogle';
+import Cookies from 'universal-cookie';
+import Createcontext from "../../../Hooks/Context"
 const Login = () => {
+    const cookies = new Cookies();
     const method = useForm()
+    const {  dispatch } = React.useContext(Createcontext)
     const Navigate = useNavigate()
     const [loading, Setloading] = React.useState(false)
     const classes = useStyles()
@@ -30,12 +34,17 @@ const Login = () => {
 
         },
         ).then(response => {
+            let date = new Date();
+            date.setTime(date.getTime() + (60 * 60 * 8000))
+            cookies.set('Token_access', response.data.tokens.access, { expires: date })
+            dispatch({type:'Login',login: true})
             Navigate("/")
             Setloading(false)
 
+
         }).catch(
             function (error) {
-                Setloading(false)
+            Setloading(false)
             alert(error.response.data.message)
                 
             })
@@ -81,6 +90,7 @@ const Login = () => {
 
                                 <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
                                     <TextField
+                                    autoComplete="on"
                                         type={showPassword ? 'text' : 'password'}
                                         placeholder="Enter Your Password"
                                         variant="outlined"
