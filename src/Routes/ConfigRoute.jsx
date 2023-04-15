@@ -10,6 +10,7 @@ import SignupWithEmail from "../Components/Page/Signup/SignupWithEmail"
 import ResetPassword from "../Components/Page/ResetPassword/ResetPassword"
 import CreatePassword from "../Components/Page/ResetPassword/CreatePassword"
 import CheckOutMainPage from "../Components/Page/Checkout/CheckoutMainPage"
+import ProtectRout from "../Routes/ProtectRout"
 const routesConfig = [
   
       {
@@ -57,11 +58,9 @@ const routesConfig = [
           },
           {
             path:"/CheckOutMainPage",
-            element:<CheckOutMainPage/>
+            element:  <ProtectRout Component={CheckOutMainPage}></ProtectRout> 
           },
 
-      
-          
           {
             path:"/DispensoriesProduct/:id",
             element:<DispensoriesProduct/>

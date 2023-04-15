@@ -4,13 +4,13 @@ import React from "react";
 import { useNavigate } from 'react-router-dom';
 import LoadingButton from '@mui/lab/LoadingButton';
 import useStyles from "../../../../Style"
-
-const AddToCartSummary = ({ SetDeliveryOptionData,abcToggle,SetabcToggle,abc ,Total}) => {
+import Axios from "axios"
+const AddToCartSummary = ({ SetDeliveryOptionData, abcToggle, SetabcToggle, abc, Total }) => {
     const classes = useStyles()
     const navigate = useNavigate()
     const [OpenDelivery, SetOpenDelivery] = React.useState(false);
     const [OpenPickup, SetOpenPickup] = React.useState(false)
-    // const [DeliveryOptionData, SetDeliveryOptionData] = React.useState([])
+    const[PickupAddress, SetPickupAddress] = React.useState("")
     const [InputValues, SetInputValues] = React.useState({
         delivery: "",
         contact: ""
@@ -23,23 +23,33 @@ const AddToCartSummary = ({ SetDeliveryOptionData,abcToggle,SetabcToggle,abc ,To
 
     const HandlePickupAndDelivery = (e) => {
         if (e.currentTarget.id === "pickup_btn") {
-            // SetDeliveryOptionData([{ address: "Pickup Address Mata mandir" }])
-            // return alert("pickup btn")
             SetOpenPickup(true)
             SetOpenDelivery(false)
-            // SetabcToggle(false)
+            const items = localStorage.getItem('items')
+            Axios(`http://52.3.255.128:8000/UserPanel/Get-DispensaryByid/${JSON.parse(items)[0].Store_id}`, {
+
+
+            }).then(response => {
+                console.log(response.data[0].Store_Address)
+                SetPickupAddress(response.data[0].Store_Address)
+            }).catch(
+                function (error) {
+
+                    // SetProduct(Product => ({ ...Product, discount: "None" }))
+                })
+
         }
         else if (e.currentTarget.id === "delivery_btn") {
-          
+
             SetOpenDelivery(true)
             SetOpenPickup(false)
             // SetabcToggle(true)
-            
+
 
         }
     }
     const CheckoutProcess = () => {
-        navigate("/CheckOutMainPage", {state : { InputValues,abc:true }})
+        navigate("/CheckOutMainPage", { state: { InputValues, abc: true } })
     }
     return (
         <>
@@ -55,7 +65,7 @@ const AddToCartSummary = ({ SetDeliveryOptionData,abcToggle,SetabcToggle,abc ,To
                                 className={` add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
 
                             >
-                                <LoadingButton  onClick={HandlePickupAndDelivery} id='delivery_btn' variant="outlined">Delivery</LoadingButton>
+                                <LoadingButton onClick={HandlePickupAndDelivery} id='delivery_btn' variant="outlined">Delivery</LoadingButton>
                             </Box>
                         </div>
                         <div className="col-6">
@@ -84,7 +94,7 @@ const AddToCartSummary = ({ SetDeliveryOptionData,abcToggle,SetabcToggle,abc ,To
 
                         {OpenPickup && (
                             <div className='col-lg-12  pickup_div fontStyle'>
-                                <p>Pickup location- 2917 Broadway Astoria, NY 11106</p>
+                                <p>{PickupAddress}</p>
 
                             </div>
                         )}
@@ -151,7 +161,7 @@ const AddToCartSummary = ({ SetDeliveryOptionData,abcToggle,SetabcToggle,abc ,To
 
                             >
                                 {/* <Link to="/DeliveryOption"><LoadingButton variant="outlined">Checkout</LoadingButton></Link> */}
-                                <LoadingButton variant="outlined" onClick={CheckoutProcess }>Checkout</LoadingButton>
+                                <LoadingButton variant="outlined" onClick={CheckoutProcess}>Checkout</LoadingButton>
 
                             </Box>
 
