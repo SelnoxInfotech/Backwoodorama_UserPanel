@@ -5,16 +5,14 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Checkbox from '@mui/material/Checkbox';
 import LoadingButton from '@mui/lab/LoadingButton';
-import Button from '@mui/material/Button';
-
+import { useForm } from "react-hook-form";
 import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
-import { Link } from 'react-router-dom';
 
-const DeliveryOption = ({ SetShowData ,DeliveryOptionData,address}) => {
-    // console.log(DeliveryOptionData)
+
+const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
+     const method = useForm()
     const classes = useStyles()
-
     const [Time, SetTime] = React.useState('');
     const [ShowDeliveryRestData, SetShowDeliveryRestData] = React.useState(true)
     const handleChange = (event) => {
@@ -27,7 +25,6 @@ const DeliveryOption = ({ SetShowData ,DeliveryOptionData,address}) => {
     const AddDeliveryInstruction = () => {
         SetShowDeliveryRestData(true)
     }
-
     return (
         <>
             <div className="container-fluid">
@@ -39,7 +36,7 @@ const DeliveryOption = ({ SetShowData ,DeliveryOptionData,address}) => {
 
                             </div>
                             <div className="col-12 height_for_inner_div">
-                            <p >Your Address</p>
+                                <p >Your Address</p>
 
                                 {/* {DeliveryOptionData.map((ele,index)=>{
                                     return(
@@ -54,8 +51,7 @@ const DeliveryOption = ({ SetShowData ,DeliveryOptionData,address}) => {
                             </div>
                             <div className="col-12 height_for_inner_div_address flex_for_delivery marginTop_deliver p-2">
                                 <div className="col-6 col-sm-6 col-md-6">
-                                    <p>{address
-                                    }</p>
+                                    <p>{address}</p>
 
                                 </div>
                                 <div className="col-6 col-sm-6 col-md-6 position_right deliveroption_cursor">
@@ -106,61 +102,63 @@ const DeliveryOption = ({ SetShowData ,DeliveryOptionData,address}) => {
                                     <div className="col-12 height_for_delivery_instruction_textarea_div ">
                                         <div className='col-12  text_area_margin height_for_delivery_instruction_textarea_div'>
 
-                                            <textarea class="form-control" id="textAreaExample4" rows="3"></textarea>
-                                        </div>
-
-
-
-                                    </div>
-                                    <div className='col-12 flex_for_delivery'>
-                                        <div className='col-2 col-sm-2 col-md-2 col-lg-2 '>
-                                            <Checkbox ></Checkbox>
-                                        </div>
-                                        <div className='col-10  col-lg-10 col-md-10 col-sm-10  font_size_checkbox_paragraph'>
-                                            <p>**Please check this box if you are available for all day delivery (8AM-7PM).</p>
+                                            <textarea className="form-control" id="textAreaExample4" rows="3"></textarea>
                                         </div>
 
                                     </div>
-                                    <div className='col-12 flex_for_delivery'>
-                                        <div className='col-2 col-sm-2 col-md-2 col-lg-2 '>
-                                            <Checkbox ></Checkbox>
-                                        </div>
-                                        <div className='col-10  col-lg-10 col-md-10 col-sm-10 font_size_checkbox_paragraph'>
-                                            <p>Please check this box if the information entered is for a caregiver. If so, please add the patient information
-                                                (first name, last name, DOB, Medical Marijuana ID number) in the delivery instructions.</p>
-                                        </div>
 
-                                    </div>
-                                    <div className='col-12 flex_for_delivery'>
-                                        <div className='col-2 col-sm-2 col-md-2 col-lg-2  '>
-                                            <Checkbox ></Checkbox>
-                                        </div>
-                                        <div className='col-10  col-lg-10 col-md-10 col-sm-10 justify-content-start font_size_checkbox_paragraph'>
-                                            <p>I confirm that all the customer information added is the information linked to my NYS issued medical marijuana card and agree to present
-                                                my card to the driver upon arrival. I also confirm that any changes in my medical history
-                                                and/or medications have been documented with Vireo Health, as there are potential medication interactions and contraindications to using cannabis
-                                                (including pregnancy, breastfeeding, unstable cardiac conditions, and history of schizophrenia).
-                                                If you have questions or concerns regarding whether medical cannabis is right for you,
-                                                please either reach out to your physician or schedule a consultation with one of our pharmacists.*</p>
-                                            {/* <p>{paragraph}</p> */}
-
+                                    <form onSubmit={method.handleSubmit(ShowHideDeliveryOptions)} >
+                                        <div className='col-12 flex_for_delivery'>
+                                            <div className='col-2 col-sm-2 col-md-2 col-lg-2 '>
+                                            <Checkbox required ></Checkbox>
+                                                 
+                                            </div>
+                                            <div className='col-10  col-lg-10 col-md-10 col-sm-10  font_size_checkbox_paragraph'>
+                                                <p>**Please check this box if you are available for all day delivery (8AM-7PM).</p>
+                                            </div>
 
                                         </div>
+                                        <div className='col-12 flex_for_delivery'>
+                                            <div className='col-2 col-sm-2 col-md-2 col-lg-2 '>
+                                                <Checkbox required ></Checkbox>
+                                            </div>
+                                            <div className='col-10  col-lg-10 col-md-10 col-sm-10 font_size_checkbox_paragraph'>
+                                                <p>Please check this box if the information entered is for a caregiver. If so, please add the patient information
+                                                    (first name, last name, DOB, Medical Marijuana ID number) in the delivery instructions.</p>
+                                            </div>
 
-                                    </div>
-                                    <div className='col-12 margin_left'>
-                                        <p>Please agree to the store's required terms</p>
+                                        </div>
+                                        <div className='col-12 flex_for_delivery'>
+                                            <div className='col-2 col-sm-2 col-md-2 col-lg-2  '>
+                                            <Checkbox required ></Checkbox>
+                                            </div>
+                                            <div className='col-10  col-lg-10 col-md-10 col-sm-10 justify-content-start font_size_checkbox_paragraph'>
+                                                <p>I confirm that all the customer information added is the information linked to my NYS issued medical marijuana card and agree to present
+                                                    my card to the driver upon arrival. I also confirm that any changes in my medical history
+                                                    and/or medications have been documented with Vireo Health, as there are potential medication interactions and contraindications to using cannabis
+                                                    (including pregnancy, breastfeeding, unstable cardiac conditions, and history of schizophrenia).
+                                                    If you have questions or concerns regarding whether medical cannabis is right for you,
+                                                    please either reach out to your physician or schedule a consultation with one of our pharmacists.*</p>
+                                                {/* <p>{paragraph}</p> */}
 
-                                    </div>
-                                    <div className='col-12 col-lg-4 height_delivery_option_buttton'>
-                                        <Box
-                                            className={`  ${classes.loadingBtnTextAndBack}`}
-                                        >
-                                            <LoadingButton onClick={ShowHideDeliveryOptions} variant="outlined">continue</LoadingButton>
-                                        </Box>
 
-                                    </div>
+                                            </div>
 
+                                        </div>
+                                        <div className='col-12 margin_left'>
+                                            <p>Please agree to the store's required terms</p>
+
+                                        </div>
+                                        <div className='col-12 col-lg-4 height_delivery_option_buttton'>
+                                            <Box
+                                                className={`  ${classes.loadingBtnTextAndBack}`}
+                                            >
+                                                <LoadingButton type='submit' variant="outlined">continue</LoadingButton>
+                                            </Box>
+
+                                        </div>
+
+                                    </form>
                                 </div>
                             }
                         </div>

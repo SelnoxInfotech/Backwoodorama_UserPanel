@@ -9,7 +9,8 @@ const log = login ? true :  false
 const initialUser = {
 
     login: log,
-    api: ""
+    api: "",
+  
 }
 function Context(props) {
     const [state, dispatch] = useReducer(Reducer, initialUser)
