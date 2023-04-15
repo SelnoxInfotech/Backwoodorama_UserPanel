@@ -61,7 +61,7 @@ const Payment = () => {
                                                 onChange={handleChange}
                                             >
                                                 <FormControlLabel value="I plan to pay delivery at cash" control={<Radio />} label="I plan to pay delivery at cash" />
-                                                <FormControlLabel value="I plan to pay delivery at cash" control={<Radio />} label="I plan to pay delivery at cash" />
+                                                <FormControlLabel value="I plan to pay delivery at cash" control={<Radio />} label="I plan to pay delivery at " />
                                             </RadioGroup>
                                         </FormControl>
 

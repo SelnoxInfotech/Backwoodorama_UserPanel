@@ -40,7 +40,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation }) => {
                             </div>
                             <div className='row'>
                                 <div className='col-lg-2 col-md-2 col-sm-2 col-2'>
-                                    <p>Photo</p>
+                                    <p>Photo Id</p>
                                 </div>
                                 <div className='col-lg-10 col-md-10 col-sm-10 col-10'>
                                     <input type='file' />
@@ -49,7 +49,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation }) => {
                             </div>
                             <div className='row'>
                                 {Image && <div className='col-8 delivery_option_img_div_height'>
-                                    <img className='delivery_option_image' src='./image/apple_img.jpg' />
+                                    <img className='delivery_option_image' src='./image/user.webp' />
                                 </div>}
 
 

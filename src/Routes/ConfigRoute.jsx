@@ -10,7 +10,6 @@ import SignupWithEmail from "../Components/Page/Signup/SignupWithEmail"
 import ResetPassword from "../Components/Page/ResetPassword/ResetPassword"
 import CreatePassword from "../Components/Page/ResetPassword/CreatePassword"
 import CheckOutMainPage from "../Components/Page/Checkout/CheckoutMainPage"
-import Payment from "../Components/Page/Checkout/DeliveryInformation"
 const routesConfig = [
   
       {
@@ -49,10 +48,7 @@ const routesConfig = [
             path: "/ProductDetail",
             element: <ProductDetail></ProductDetail>,
           },
-          {
-            path: "/Payment",
-            element: <Payment></Payment>,
-          },
+        
           {
             path:"/AddToCart",
             element:<AddToCart/>

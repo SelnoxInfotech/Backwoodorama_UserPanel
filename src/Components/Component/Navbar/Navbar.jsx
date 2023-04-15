@@ -58,7 +58,7 @@ const Navbar = () => {
           <Grid xs={2 } md={2} xl={2}>
             {
               Hamburger ?
-                <span> Backwoodaroma</span> :
+                <span><img className='navbar_logo_image' src='./image/logo.webp'/></span> :
 
                 <div className='center'>
                   <button className="openbtn Border" onClick={()=>{openNav()}}>☰</button>
