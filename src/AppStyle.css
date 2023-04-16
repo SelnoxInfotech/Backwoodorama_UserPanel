@@ -1134,6 +1134,7 @@ text-align: center;
   margin-left: 20px;
   font-size: x-large;
   color: gray;
+  cursor: pointer;
 }
 
 .Add_prod_cart_amount p {
@@ -1519,6 +1520,13 @@ box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
 .deliveroption_cursor p{
   cursor: pointer;
 }
+.showagain{
+  cursor: pointer;
+}
+.showagain p{
+  font-weight: bold;
+}
+
 .height_for_inner_div_address{
   height: 90px;
 }
@@ -1572,6 +1580,7 @@ box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
 }
 .height_del_information_inner_div{
   height: 50px;
+  cursor: pointer;
 }
 .height_text_field{
   height: 50px;
