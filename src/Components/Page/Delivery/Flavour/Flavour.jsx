@@ -39,7 +39,7 @@ const Flavour = (Deta) => {
 
                         </div>
                         <div className='row flav_new_btn_div'>
-                            <div className='col-lg-12 col-md-8 col-sm-8 col-8 d-flex'>
+                            <div className='col-lg-12 col-md-8 col-sm-8 col-12 d-flex'>
                                 <Box
                                     className={`flav_new_btn ${classes.loadingBtnTextAndBack}`}
                                 >
