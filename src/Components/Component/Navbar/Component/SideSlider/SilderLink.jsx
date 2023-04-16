@@ -12,7 +12,7 @@ export default function DashBoardLink({state}) {
 
   React.useEffect(()=>{
     const saved = localStorage.getItem("items");
-    console.log()
+  
     
   },[localStorage.getItem("items")])
   return (

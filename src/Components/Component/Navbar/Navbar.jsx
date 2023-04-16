@@ -39,20 +39,22 @@ const Navbar = () => {
 
   }, [windowSize])
   function openNav() {
-    SetOpen(true)
+    // SetOpen(true)
+    console.log("sss")
+    SetOpen((Open) => !Open)
   }
   function closeNav() {
     SetOpen(false)
 
   }
 
-  React.useState(() => {
-    if (Open === true) {
+  // React.useEffect(() => {
+  //   if (Open === true) {
+  //     document.addEventListener("click", closeNav)
 
-      document.addEventListener("click", closeNav)
-
-    }
-  }, [ dispatch])
+  //   }
+  //   // return () => window.removeEventListener('click',closeNav)
+  // },[document])
 
   function Logout() {
     cookies.remove('Token_access')
