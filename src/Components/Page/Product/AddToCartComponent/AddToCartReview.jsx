@@ -7,7 +7,9 @@ import { RiDeleteBin6Line } from "react-icons/ri"
 import _ from "lodash"
 import React from "react";
 import useStyles from "../../../../Style"
+import Createcontext from "../../../../Hooks/Context"
 const AddToCartReview = ({ SetTotal, Total }) => {
+    const { state, dispatch } = React.useContext(Createcontext)
     const count = useRef(null);
     const count1 = useRef(null);
     const classes = useStyles()
@@ -63,6 +65,7 @@ const AddToCartReview = ({ SetTotal, Total }) => {
         SetTotal(oldValues => {
             return oldValues.filter(Total => Total.Id !== Id)
           })
+          dispatch({type:'CartCount' , CartCount: JSON.parse(item).length })
 
     }
     function Quantity(Id, Product_Quantity) {
@@ -90,7 +93,6 @@ const AddToCartReview = ({ SetTotal, Total }) => {
     
             })
         )
-
 
     }
     function decreaseQuantity(Id , Product_Quantity) {

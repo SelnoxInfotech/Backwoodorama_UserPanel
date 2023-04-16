@@ -75,12 +75,13 @@ const ProductList = ({ arr }) => {
         else {
             SetAddToCard([Arry])
         }
+    
         ApiCallPost(Arry)
 
     }
     React.useEffect(() => {
         localStorage.setItem('items', JSON.stringify(AddTOCard))
-          dispatch({type:'CartCount' , CartCount: AddTOCard.length })
+        dispatch({type:'CartCount' , CartCount: AddTOCard.length })
     }, [AddTOCard])
 
 
