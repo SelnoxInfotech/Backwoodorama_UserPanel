@@ -8,7 +8,13 @@ import { IoIosNotifications } from "react-icons/io"
 import { MdOutlineShoppingCart } from "react-icons/md"
 import { Link } from "react-router-dom";
 import SearchBar from "../../Component/SearchBar"
-export default function DashBoardLink() {
+export default function DashBoardLink({state}) {
+
+  React.useEffect(()=>{
+    const saved = localStorage.getItem("items");
+    console.log()
+    
+  },[localStorage.getItem("items")])
   return (
     <>
 
@@ -49,7 +55,7 @@ export default function DashBoardLink() {
               </Link>
 
               <div className="border SliderLink_CartCount_div" >
-                 11
+              {state}
               </div>
             </div>
           </Grid>

@@ -6,7 +6,10 @@ const reducer = (state, action) => {
         
         case 'api':  
         return {...state, api: action.api  }
-
+        case "CartCount":
+          {
+            return {...state, CartCount: action.CartCount  }
+             }
        
       default:  return state  
     }  

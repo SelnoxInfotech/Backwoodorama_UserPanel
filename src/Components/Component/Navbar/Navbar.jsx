@@ -19,7 +19,6 @@ const Navbar = () => {
   const [Hamburger, SetHamburger] = React.useState(window.innerWidth >= 993)
   const classes = useStyles()
   const [Open, SetOpen] = React.useState(false)
-
   React.useEffect(() => {
     const handleResize = () => {
       setWindowSize(window.innerWidth)
@@ -119,7 +118,7 @@ const Navbar = () => {
             }
           </Grid>
           <Grid xs={12} md={12} xl={12} >
-            <SliderLink></SliderLink>
+            <SliderLink state={state.CartCount}></SliderLink>
             <SideNavbar closeNav={closeNav} Open={Open}></SideNavbar>
           </Grid>
         </Grid>

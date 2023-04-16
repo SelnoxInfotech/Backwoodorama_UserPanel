@@ -5,12 +5,14 @@ import Cookies from 'universal-cookie';
 const Createcontext = createContext();
 const cookies = new Cookies();
 const login = cookies.get("Token_access")
+const length = localStorage.getItem("items")
+const count = JSON.parse(length)?.length
 const log = login ? true :  false
 const initialUser = {
 
     login: log,
     api: "",
-  
+    CartCount: count
 }
 function Context(props) {
     const [state, dispatch] = useReducer(Reducer, initialUser)
@@ -18,7 +20,9 @@ function Context(props) {
 
 
     return (
+        
         <Createcontext.Provider value={{ state, dispatch }} >
+            
             {props.children}
         </Createcontext.Provider>
 
