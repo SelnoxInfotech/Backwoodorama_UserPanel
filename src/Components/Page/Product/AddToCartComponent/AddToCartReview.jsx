@@ -167,25 +167,25 @@ const AddToCartReview = ({ SetTotal, Total }) => {
 
 
                                     </div>
-                                    <div className="col-12 add_prod_btn_amount">
-                                        <div className="col-10 col-lg-4 col-md-4 col-sm-6  add_to_product_btn_div d-flex">
-                                            <div className="col-4">
-                                                <Button className="center" style={{ width: "15px" }} onClick={() => { Quantity(ele.Product_id, ele.Product_Quantity) }} ><AiOutlinePlus /></Button>
-
+                                    <div className='col-12'>
+                                        <div className='AddToCartReviewBtn d-flex' >
+                                            <div className='addToCart_btn'>
+                                            <Button className="center" style={{ width: "15px" }} onClick={() => { Quantity(ele.Product_id, ele.Product_Quantity) }} ><AiOutlinePlus /></Button>
 
                                             </div>
-                                            <div className="col-2 addprod_quant">
-                                                <p>{ele.Product_Quantity}</p>
+                                            <div className='AddToCartCount' style={{width:"20px"}}>
+                                            <p>{ele.Product_Quantity}</p>
+
                                             </div>
-                                            <div className="col-4">
-                                                <Button className="" style={{ width: "15px" }} > {ele.Product_Quantity > 1 && <GrFormSubtract onClick={() => { decreaseQuantity(ele.Product_id, ele.Product_Quantity) }} />}</Button>
+                                            <div className='addToCart_btn'>
+                                            <Button  style={{ width: "15px"}} > {ele.Product_Quantity > 1 && <GrFormSubtract onClick={() => { decreaseQuantity(ele.Product_id, ele.Product_Quantity) }} />}</Button>
 
                                             </div>
 
                                         </div>
 
-
                                     </div>
+                                 
                                 </div>
                                 <div className="col-3 ">
                                     <div className="col-10 fontStyle Add_prod_cart_amount  mt-4 ">

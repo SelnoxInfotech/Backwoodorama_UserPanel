@@ -1110,6 +1110,19 @@ text-align: center;
 .add_prod_btn_amount {
   display: flex;
 }
+/* newss */
+.AddToCartReviewBtn{
+  border: 1px solid #dee2e6;
+  width: 160px;
+  height: 28px;
+}
+.addToCart_btn{  
+  width: 70px;
+}
+.AddToCartCount{
+  font-weight: 700;
+  font-size: 18px; 
+}
 .add_to_product_btn_div{
   height: 30px !important;
   border: 1px solid #dee2e6;
