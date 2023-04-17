@@ -8,6 +8,8 @@ import _ from "lodash";
 import Createcontext from "../../../Hooks/Context"
 import Cookies from 'universal-cookie';
 import axios from "axios"
+import FlyingButton from 'react-flying-item'
+import {AiOutlineShoppingCart} from "react-icons/ai"
 const ProductList = ({ arr }) => {
     const cookies = new Cookies();
     const { state, dispatch } = React.useContext(Createcontext)
@@ -77,38 +79,41 @@ const ProductList = ({ arr }) => {
         else {
             SetAddToCard([Arry])
         }
-
+       
+    
+    
+    
 
     }
 
 
 
 
-    const config = {
-        headers: { Authorization: `Bearer ${token_data}` }
-    };
-    if (state.login === true) {
-
-        axios.post("http://52.3.255.128:8000/UserPanel/Add-AddtoCart/",
-            AddTOCard,
-            config
-
-
-        ).then(response => {
-
-
-        }).catch(
-            function (error) {
-
-            })
-    }
-
-
-
+   
     React.useEffect(() => {
 
         localStorage.setItem('items', JSON.stringify(AddTOCard))
         dispatch({ type: 'CartCount', CartCount: AddTOCard.length })
+        const config = {
+            headers: { Authorization: `Bearer ${token_data}` }
+        };
+        if (state.login === true) {
+             AddTOCard.map((a)=>{
+
+            axios.post("http://52.3.255.128:8000/UserPanel/Add-AddtoCart/",
+            a,
+                config
+    
+    
+            ).then(response => {
+    
+    
+            }).catch(
+                function (error) {
+    
+                })
+             })
+        }
     }, [AddTOCard])
 
 
@@ -198,14 +203,15 @@ const ProductList = ({ arr }) => {
                                         )
                                     })}
                                 </div>
-                                <div className="col-12 d-flex mt-3 mb-2">
+                                <div className="col-12 d-flex mt-3 mb-2 Fly">
 
 
                                     <Box
                                         className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
                                         style={{ width: "93%" }}
                                     >
-                                        <LoadingButton onClick={() => { Addtocard(ele) }} variant="outlined">Add to cart</LoadingButton>
+                                        {/* <LoadingButton id='Animation' onClick={() => { Addtocard(ele) }} variant="outlined">Add to cart</LoadingButton> */}
+                                        <FlyingButton targetLeft={'95%'}  animationDuration={2} src={`http://52.3.255.128:8000/${ele.images[0]?.image}`}> <LoadingButton id='Animation' onClick={() => { Addtocard(ele) }} variant="outlined">Add to cart</LoadingButton></FlyingButton>
                                     </Box>
 
 

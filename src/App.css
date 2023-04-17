@@ -28,7 +28,18 @@ div a::before{
   transition: all .45s;
 }
 
+.Fly button{
+  width: 100%;
+  background-color: transparent;
+  border: 0px;
+}
 
+.flying_image{
+  z-index: 10000;
+  height: 10%;
+  width: 20%;
+ 
+}
 .nav_list1 a {
   text-align: center;
   color: #ffffff;
