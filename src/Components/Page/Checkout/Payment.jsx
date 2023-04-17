@@ -8,14 +8,14 @@ import useStyles from "../../../Style"
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
-const Payment = ({SetShowThankYouOrder}) => {
+const Payment = ({SetShowPlaceOrder}) => {
     const classes = useStyles()
 
     const [value, setValue] = React.useState('');
     const [PaymentRestData, SetPaymentRestData] = React.useState(true)
     const HandlePaymentRestData = () => {
         SetPaymentRestData(false)
-        SetShowThankYouOrder(true)
+        SetShowPlaceOrder(true)
     }
     const ShowAgainPaymentRestData=()=>{
         SetPaymentRestData(true)

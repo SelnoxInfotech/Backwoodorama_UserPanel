@@ -1833,12 +1833,37 @@
 /* end */
 /* ThanYouOrder */
 .ThanYouOrder_Container_height{
-  height:150px;
+  border: 1px solid grey;
+  height: 600px;
+  
+}
+.top_container{
+  background: #FAFAFA;
+border: 1px solid #FFFFFF;
+height:150px;
+
+}
+.stepper_container{
   border: 1px solid grey;
 
 }
 .ThankYouOrder_paragraph p{
   font-size: 20px;
   font-weight: bold;
+
+}
+.order_details{
+  border: 1px solid grey;
+  height: 150px;
+
+}
+.order_detail_paragraph p{
+  font-size: 20px;
+  font-weight: bold;
+}
+.order_detail_paragraph1 p{
+  color: #31B665;
+  font-weight: bold;
+
 }
 /* end */

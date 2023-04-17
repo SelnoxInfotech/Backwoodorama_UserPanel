@@ -11,6 +11,11 @@ const useStyles = makeStyles({
       color: "gray"
     }
   },
+  stepperBtn:{
+    "&.StepButton-d0-0-4-6.completed":{
+      background:"#31B665"
+    }
+  },
   muiSelect: {
     "&.MuiFormControl-root": {
       width: "168px",

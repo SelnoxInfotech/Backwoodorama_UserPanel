@@ -11,6 +11,7 @@ import ResetPassword from "../Components/Page/ResetPassword/ResetPassword"
 import CreatePassword from "../Components/Page/ResetPassword/CreatePassword"
 import CheckOutMainPage from "../Components/Page/Checkout/CheckoutMainPage"
 import ProtectRout from "../Routes/ProtectRout"
+import PlaceOrder from "../Components/Page/Checkout/PlaceOrder"
 const routesConfig = [
   
       {
@@ -21,6 +22,10 @@ const routesConfig = [
           {
             path: "/Signup",
             element: <Signup></Signup>,
+          },
+          {
+            path: "/PlaceOrder",
+            element: <PlaceOrder></PlaceOrder>,
           },
          
           {
