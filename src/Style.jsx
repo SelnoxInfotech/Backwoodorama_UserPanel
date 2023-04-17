@@ -14,6 +14,16 @@ const useStyles = makeStyles({
   stepperBtn:{
     "&.StepButton-d0-0-4-6.completed":{
       background:"#31B665"
+    },
+
+  },
+  stepperActiveBtn:{
+    "& .StepButton-d2-0-4-12 &.active":{
+      background:"#31B665"
+
+    },
+    "& .active":{
+      outline:"none"
     }
   },
   muiSelect: {

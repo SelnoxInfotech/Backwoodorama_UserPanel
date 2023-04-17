@@ -46,8 +46,8 @@ const PlaceOrder = () => {
                         </div>
                         <div className="row  center p-2">
                             <div className="col-12 stepper_container mt-4">
-                                <Stepper activeStep={1}>
-                                    <Step className={classes.stepperBtn} label="Order place" />
+                                <Stepper activeStep={2} className={classes.stepperActiveBtn}>
+                                    <Step  label="Order place"  className={classes.stepperBtn}/>
                                     <Step label="Confirming your order" />
                                     <Step label="order ready" />
                                     <Step label="pickup" />
