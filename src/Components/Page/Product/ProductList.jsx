@@ -9,9 +9,7 @@ import Axios from "axios";
 import Cookies from 'universal-cookie';
 import FlyingButton from 'react-flying-item'
 import Createcontext from "../../../Hooks/Context"
-import Cookies from 'universal-cookie';
 import axios from "axios"
-import FlyingButton from 'react-flying-item'
 import {AiOutlineShoppingCart} from "react-icons/ai"
 const ProductList = ({ arr }) => {
     const navigation = useNavigate()

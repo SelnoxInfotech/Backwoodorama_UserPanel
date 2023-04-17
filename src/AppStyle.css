@@ -1789,13 +1789,18 @@
 /* HomePageBanner */
 .HomePageBanner_height {
   height: 350px;
+  width: 100%;
+  background-image: url("/public/image/banner2.jpg");
+
+
 }
 
-.HomePageBanner_height {
+
+/* .HomePageBanner_height {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .homePage_header h1 {
   color: #FFFFFF;
