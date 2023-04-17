@@ -1,5 +1,6 @@
 
 *{
+
   font-family: 'Poppins';;
   
  
@@ -32,7 +33,7 @@ div a::before{
   width: 100%;
   background-color: transparent;
   border: 0px;
-} */
+}
 
  .flying_image{
   z-index: 10000;
