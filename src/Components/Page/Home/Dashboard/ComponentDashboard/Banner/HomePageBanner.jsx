@@ -1,25 +1,19 @@
 const HomePageBanner = () => {
+    const BannerArray=[{image_url:"./image/banner1.jpg"}]
     return (
         <>
             <div className="container-fluid">
                 <div className="row">
-
-                    <div className="col-lg-12 HomePageBanner_height ">
-                        <div className="row">
-                            <div className="col-12 homePage_header fontStyle">
-                                <h1>FIND YOUR STRAIN</h1>
+                     {BannerArray.map((ele,index)=>{
+                        return(
+                            <div className="col-12 col-lg-12 col-md-12 col-sm-12 HomePageBanner_height ">
+                     
+                              <img src={ele.image_url} alt="image not found" height={"100%"} width={"100%"}/>
 
                             </div>
-                            <div className="col-12">
-                               <p>With thousands to choose from,find the </p>
-                            </div>
-                            <div className="col-12">
-                               <p>strain that fits your need </p>
-                            </div>
-                        </div>
-
-
-                    </div>
+                        )
+                     })}
+ 
 
                 </div>
 
