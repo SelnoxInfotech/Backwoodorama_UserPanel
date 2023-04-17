@@ -11,18 +11,16 @@ import Axios from "axios"
 import Flavour from "../Delivery/Flavour/Flavour"
 import ProductFilter from "./ProductFilter"
 import useStyles from "../../../Style"
-
-
 import SearchBar from '@mkyy/mui-search-bar';
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import ProductCategorySlider from "./ProductCategorySlider"
-import { GrFormSearch } from "react-icons/gr"
 import _ from "lodash"
+import Createcontext from "../../../Hooks/Context"
 const Product = () => {
+    const {  dispatch } = React.useContext(Createcontext)
+const [Searchvalue, setSearchvalue] =  React.useState()
     const classes = useStyles()
     const [Category, SetCategory] = React.useState([])
     const [arr1, Setarr1] = React.useState([])
@@ -33,6 +31,7 @@ const Product = () => {
 
         }).then(response => {
             Setarr1(response.data)
+            dispatch({type:'AllProduct' , AllProduct: response.data })
 
         }).catch(
             function (error) {
@@ -91,6 +90,46 @@ const Product = () => {
     const handleChange = (event) => {
         SetProduct(event.target.value);
     };
+     const Search = () =>{
+         Axios(`http://52.3.255.128:8000/UserPanel/Get-SearchFilter/?search=${Searchvalue}`, {
+
+
+    }).then(response => {
+
+        Setarr1(response.data)
+
+       
+
+
+    }).catch(
+        function (error) {
+
+        })
+     } 
+     
+     const SearchA2Z  = () =>{
+        Axios(`http://52.3.255.128:8000/UserPanel/Get-SortingFilterAtoZ/`, {
+
+
+    }).then(response => {
+
+        Setarr1(response.data)
+
+ 
+
+    }).catch(
+        function (error) {
+
+       
+        })
+
+     }
+
+     const  SearchZ2A = () =>{
+        Setarr1(arr1?.reverse())
+     }
+
+
 
     return (
         <>
@@ -107,7 +146,12 @@ const Product = () => {
                 <div className="row center  mt-2 p-2">
                     <div className="col-12 mt-4 product_search_and_select">
                         <div className="col-2 product_search_bar">
-                            <SearchBar style={{ border: "1px solid #dee2e6" }} width={"100%"} />
+                            <SearchBar
+                      onChange={newValue => setSearchvalue(newValue)}
+                      onSearch={Search}
+                        // callback={(Search) => console.log(Search)}
+                       
+                            style={{ border: "1px solid #dee2e6" }} width={"100%"} />
 
 
                         </div>
@@ -120,10 +164,13 @@ const Product = () => {
                                     inputProps={{ 'aria-label': 'Without label' }}
                                     size="small"
                                 >
-                                    <MenuItem value="">
+                                    <MenuItem value="" disabled>
+                                        Sort by
+                                    </MenuItem>
+                                    <MenuItem value={"Sort by A to Z"}  onClick={SearchA2Z}>
                                         Sort by A to Z
                                     </MenuItem>
-                                    <MenuItem value={"Sort by Z to A"}>Sort by Z to A</MenuItem>
+                                    <MenuItem value={"Sort by Z to A"}   onClick={SearchZ2A}>Sort by Z to A</MenuItem>
                                     <MenuItem value={"Price low to high"}>Price low to high</MenuItem>
                                     <MenuItem value={"Price hight to low"}>Price hight to low</MenuItem>
                                 </Select>

@@ -9,6 +9,7 @@ import { useLocation } from 'react-router-dom'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import _ from "lodash";
 import Createcontext from "../../../Hooks/Context"
+import parse from 'html-react-parser';
 const ProductDetail = () => {
     const location = useLocation()
     const { state, dispatch } = React.useContext(Createcontext)
@@ -48,7 +49,7 @@ const ProductDetail = () => {
 
     React.useEffect(() => {
         localStorage.setItem('items', JSON.stringify(AddTOCard))
-        dispatch({type:'CartCount' , CartCount: AddTOCard.length })
+        dispatch({ type: 'CartCount', CartCount: AddTOCard.length })
     }, [AddTOCard])
 
 
@@ -90,7 +91,7 @@ const ProductDetail = () => {
             }
             return false
         })
-         const Store = AddTOCard.find((data) => {
+        const Store = AddTOCard.find((data) => {
             if (data.Store_id === Event.Store_id) {
                 return true
             }
@@ -299,10 +300,6 @@ const ProductDetail = () => {
 
                                             <span className="add_prod_span">
 
-                                                {/* {
-console.log(_.find(AddTOCard ,  Add => console.log(Add.Product_id === ele.id) ))
- } */}
-
                                                 <button className="add_prod_amount_btn"><span className="add_prod_plus_sub" onClick={Quantity}>+</span></button><span className="add_prod_amoount_data">{Product_Quantity.Product_quantity}</span>
                                                 {
                                                     Product_Quantity.Product_quantity > 1 &&
@@ -329,29 +326,26 @@ console.log(_.find(AddTOCard ,  Add => console.log(Add.Product_id === ele.id) ))
                 </div>
 
 
+                {ProductDetails.map((ele,index) => {
+                    return (
+                        <div key={index} className="col-10  border mt-4 product_desc_container">
+                            <div className="col-10  prod_des_head fontStyle ">
+                                <p>Product Description</p>
+                            </div>
+                            <div className="col-10 center product_des_para ">
 
 
 
+                                <p>{ parse (ele.Product_Description)}</p>
 
 
 
+                            </div>
+                        </div>
+                    )
+                })
 
-                {/* <div className="col-10  border mt-4 product_desc_container">
-                    <div className="col-10  prod_des_head fontStyle ">
-                        <p>Product Description</p>
-                    </div>
-                    <div className="col-10 center product_des_para ">
-
-
-
-                        <p>Durban Thai  is a favorite of sativa lovers everywhere for its intense mental clarity and super delicious flavor.
-                            The Durban Thai feeling is very cerebral in nature,
-                            with heady effects that begin almost as soon as the first exhale. Experience a clear headed high without any racing thoughts!</p>
-
-
-
-                    </div>
-                </div>
+                }
                 <div className="col-10  border mt-4 product_desc_container">
                     <div className="col-10  prod_des_head fontStyle ">
                         <p>50 Follower reviews</p>
@@ -361,11 +355,11 @@ console.log(_.find(AddTOCard ,  Add => console.log(Add.Product_id === ele.id) ))
 
                     </div>
                     <div className="col-12">
-                        {previewArr.map((ele, index) => {
+                        {ProductDetails.map((ele, index) => {
                             return (
                                 <div className="col-12 prod_desc_review p-2 mt-4 mb-4" key={index}>
                                     <div className="col-12   prod_des_head fontStyle ">
-                                        <p>{ele.prevName}</p>
+                                        {/* <p>{ele.prevName}</p> */}
                                     </div>
                                     <div className="col-12  add_prod_rat">
                                         <p>3.2</p> <span><AiFillStar className={classes.disPen_Icons} /></span>
@@ -375,7 +369,7 @@ console.log(_.find(AddTOCard ,  Add => console.log(Add.Product_id === ele.id) ))
                                     <div className="col-12 mt-4  product_des_para  p-2 ">
 
                                         <p>
-                                            {ele.res}
+                                            {/* {ele.res} */}
 
                                         </p>
 
@@ -406,11 +400,11 @@ console.log(_.find(AddTOCard ,  Add => console.log(Add.Product_id === ele.id) ))
 
                     </div>
                     <div className="col-12">
-                    <ProductList arr={arr2} btn={weeBtn} />
+                        <ProductList arr={state.AllProduct} />
 
                     </div>
                     {/* <AllProduct arr={arr2} btn={weeBtn} /> */}
-                {/* </div> */}
+                </div>
 
             </div>
 
