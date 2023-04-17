@@ -1834,7 +1834,7 @@
 /* ThanYouOrder */
 .ThanYouOrder_Container_height{
   border: 1px solid grey;
-  height: 600px;
+  height: 800px;
   
 }
 .top_container{
@@ -1864,6 +1864,16 @@ height:150px;
 .order_detail_paragraph1 p{
   color: #31B665;
   font-weight: bold;
+
+}
+@media(max-width:500px){
+  .order_detail_paragraph p{
+    font-size: 14px;
+  }  
+}
+.important_message_div_height{
+  height: 200px;
+  background: #FAFAFA;
 
 }
 /* end */
