@@ -32,14 +32,14 @@ div a::before{
   width: 100%;
   background-color: transparent;
   border: 0px;
-}
+} */
 
-.flying_image{
+ .flying_image{
   z-index: 10000;
   height: 10%;
   width: 20%;
  
-}
+} 
 .nav_list1 a {
   text-align: center;
   color: #ffffff;
@@ -193,7 +193,6 @@ a{
 }
 .catgory_wraper{
   margin-left: 70px;
-  /* margin-right: 20px; */
 }
 .category_container p{
   margin-left: 20px;
@@ -225,9 +224,14 @@ color: #333333;
   margin: 0px 7% 0 0%;
 }
 .Login_Sigup_button{
-  justify-content: center;
+  justify-content:center;
   display: flex;
   gap: 10%;
+}
+.Heder_icon{
+  height: 10px;
+  justify-content:flex-end;
+  gap: 5%;
 }
 /* End */
 

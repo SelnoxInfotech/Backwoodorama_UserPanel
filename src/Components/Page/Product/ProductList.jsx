@@ -3,7 +3,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import { AiFillStar } from "react-icons/ai";
 import useStyles from "../../../Style"
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
 import _ from "lodash";
 import Createcontext from "../../../Hooks/Context"
 import Cookies from 'universal-cookie';
@@ -11,6 +11,7 @@ import axios from "axios"
 import FlyingButton from 'react-flying-item'
 import {AiOutlineShoppingCart} from "react-icons/ai"
 const ProductList = ({ arr }) => {
+    const navigation = useNavigate()
     const cookies = new Cookies();
     const { state, dispatch } = React.useContext(Createcontext)
     const token_data = cookies.get('Token_access')
@@ -37,6 +38,7 @@ const ProductList = ({ arr }) => {
             SubTotal: state.SubTotal
 
         }
+        
         const Status = AddTOCard.find((data) => {
             if (data.Product_id === Event.id) {
                 return true
@@ -94,26 +96,26 @@ const ProductList = ({ arr }) => {
 
         localStorage.setItem('items', JSON.stringify(AddTOCard))
         dispatch({ type: 'CartCount', CartCount: AddTOCard.length })
-        const config = {
-            headers: { Authorization: `Bearer ${token_data}` }
-        };
-        if (state.login === true) {
-             AddTOCard.map((a)=>{
+        // const config = {
+        //     headers: { Authorization: `Bearer ${token_data}` }
+        // };
+        // if (state.login === true) {
+        //      AddTOCard.map((a)=>{
 
-            axios.post("http://52.3.255.128:8000/UserPanel/Add-AddtoCart/",
-            a,
-                config
+        //     axios.post("http://52.3.255.128:8000/UserPanel/Add-AddtoCart/",
+        //     a,
+        //         config
     
     
-            ).then(response => {
+        //     ).then(response => {
     
     
-            }).catch(
-                function (error) {
+        //     }).catch(
+        //         function (error) {
     
-                })
-             })
-        }
+        //         })
+        //      })
+        // }
     }, [AddTOCard])
 
 
@@ -127,7 +129,9 @@ const ProductList = ({ arr }) => {
         SetItem([Product, Item])
     }
 
-
+    function Product_Details (ele){
+        navigation ("/ProductDetail" ,{state:{ Id: ele.id }})
+    }
 
     const classes = useStyles()
     return (
@@ -137,8 +141,8 @@ const ProductList = ({ arr }) => {
                     <div className="col-3 prod_inner_cont" key={index}>
 
                         <div className="col-12 prod_main_cont  p-2">
-                            <Link to="/ProductDetail" state={{ Id: ele.id }}>
-                                <div className="col-4 prod_cat_cont">
+                            {/* <Link to="/ProductDetail" state={{ Id: ele.id }}> */}
+                                <div className="col-4 prod_cat_cont" >
                                     <div className="col-12 p-2 prod_cat_img">
                                         <img id={ele.id} src={`http://52.3.255.128:8000/${ele.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }} />
 
@@ -152,19 +156,20 @@ const ProductList = ({ arr }) => {
 
                                     </div>
                                 </div>
-                            </Link>
+                            {/* </Link> */}
                             <div className="col-8 product_cat_allProduct">
-                                <div className="col-12 px-2 prod_para " style={{ marginBottom: "-10px" }}>
-                                    <p className='fontStyle common_sub_head'>{ele.StoreName}</p>
-                                </div>
+                               
                                 <div className="col-12 px-2 prod_para_name" style={{ marginBottom: "" }}>
                                     <p className='fontStyle common_sub_head'>{ele.Product_Name}</p>
+                                </div>
+                                <div className="col-12 px-2 prod_para " style={{ marginBottom: "-10px" }}>
+                                    <p className='fontStyle common_sub_head'>{ele.StoreName}</p>
                                 </div>
                                 <div className="col-12 px-2 d-flex prod_para" style={{ marginBottom: "0px" }}>
                                     <p className='fontStyle common_sub_head'>Rating</p><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons} /></span>
                                 </div>
                                 <div className="col-12   prod_cat_cont_btn px-2">
-                                    {ele.Prices?.map((ele1, ndex) => {
+                                    {ele.Prices?.map((ele1, index) => {
                                         var JsonObject = JSON.parse(JSON.stringify(ele1))
                                         var jsondata = JSON.parse(JsonObject.Price)
                                         return (

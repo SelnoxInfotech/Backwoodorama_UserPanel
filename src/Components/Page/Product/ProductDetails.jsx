@@ -403,7 +403,7 @@ const ProductDetail = () => {
                         <ProductList arr={state.AllProduct} />
 
                     </div>
-                    {/* <AllProduct arr={arr2} btn={weeBtn} /> */}
+                   
                 </div>
 
             </div>

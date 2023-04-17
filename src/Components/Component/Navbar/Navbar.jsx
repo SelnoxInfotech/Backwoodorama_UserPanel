@@ -58,7 +58,7 @@ const Navbar = () => {
 
   function Logout() {
     cookies.remove('Token_access')
-    dispatch({type:'Login',login: false})
+    dispatch({ type: 'Login', login: false })
   }
 
   return (
@@ -81,19 +81,22 @@ const Navbar = () => {
           <Grid xs={6} md={8} xl={8} display={{ xs: "none", md: "block", lg: "block" }}>
             <SearchBar />
           </Grid>
-          <Grid xs={6} md={2} xl={2} display={{ xs: "block", md: "none", lg: "none" }} >
-            <div className=' col-12 Login_Sigup_button  '>
+          <Grid xs={10} md={2} xl={2} display={{ xs: "block", md: "none", lg: "none" }} >
+            <div className=' col-12 Login_Sigup_button  Heder_icon '>
               <AiFillHeart size={30}></AiFillHeart>
               <IoIosNotifications size={30}></IoIosNotifications>
-              <Link to="AddToCart">  <MdOutlineShoppingCart size={30}></MdOutlineShoppingCart></Link>
+              <Link to="/AddToCart">  <MdOutlineShoppingCart size={30}></MdOutlineShoppingCart></Link>
+              <div className="border SliderLink_CartCount_div" >
+              {state.CartCount}
+              </div>
 
 
             </div>
           </Grid>
           <Grid xs={4} md={2} xl={2} >
             {
-              state.login === true 
-              ?
+              state.login === true
+                ?
 
                 <div className=' col-12 Login_Sigup_button '>
                   <div className='col-lg-4 col-sm-4'>
