@@ -34,10 +34,7 @@
     "react-alice-carousel": "^2.7.0",
     "react-dom": "^18.2.0",
     "react-flying-item": "^1.1.2",
-<<<<<<< HEAD
     "react-form-stepper": "^2.0.3",
-=======
->>>>>>> 96bb7bd (change)
     "react-google-maps": "^9.4.5",
     "react-hook-form": "^6.15.8",
     "react-icons": "^4.8.0",
