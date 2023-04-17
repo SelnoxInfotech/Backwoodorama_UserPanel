@@ -5,6 +5,9 @@ import { AiFillStar } from "react-icons/ai";
 import useStyles from "../../../Style"
 import { Link , useNavigate } from "react-router-dom";
 import _ from "lodash";
+import Axios from "axios";
+import Cookies from 'universal-cookie';
+import FlyingButton from 'react-flying-item'
 import Createcontext from "../../../Hooks/Context"
 import Cookies from 'universal-cookie';
 import axios from "axios"
@@ -215,8 +218,11 @@ const ProductList = ({ arr }) => {
                                         className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
                                         style={{ width: "93%" }}
                                     >
-                                        {/* <LoadingButton id='Animation' onClick={() => { Addtocard(ele) }} variant="outlined">Add to cart</LoadingButton> */}
-                                        <FlyingButton targetLeft={'95%'}  animationDuration={2} src={`http://52.3.255.128:8000/${ele.images[0]?.image}`}> <LoadingButton id='Animation' onClick={() => { Addtocard(ele) }} variant="outlined">Add to cart</LoadingButton></FlyingButton>
+                                        
+                                        <FlyingButton src={`http://52.3.255.128:8000/${ele.images[0]?.image}`} targetTop={'00%'} targetLeft={'100%'}>
+
+                                        <LoadingButton onClick={() => { Addtocard(ele) }} variant="outlined">Add to cart</LoadingButton>
+                                        </FlyingButton>
                                     </Box>
 
 

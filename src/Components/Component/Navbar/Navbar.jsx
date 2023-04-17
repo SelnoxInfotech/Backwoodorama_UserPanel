@@ -39,8 +39,6 @@ const Navbar = () => {
 
   }, [windowSize])
   function openNav() {
-    // SetOpen(true)
-    console.log("sss")
     SetOpen((Open) => !Open)
   }
   function closeNav() {
