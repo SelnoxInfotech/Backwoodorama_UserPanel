@@ -1,5 +1,6 @@
 import DeliveryOption from "./DeliveryOption"
 import DeliveryInformation from "./DeliveryInformation"
+import ThankYouOrder from "./ThankYouOrder"
 import Payment from "./Payment"
 import React from "react"
 import AddToCartReview from "../Product/AddToCartComponent/AddToCartReview"
@@ -10,6 +11,7 @@ const CheckOutMainPage = () => {
     const [ShowData, SetShowData] = React.useState(false)
     const [ShowDeliveryInformation, SetShowDeliveryInformation] = React.useState(false)
     const [DeliveryOptionData, SetDeliveryOptionData] = React.useState([])
+    const [ShowThankYouOrder,SetShowThankYouOrder]=React.useState(false)
     // const [abcToggle,SetabcToggle]=React.useState(true)
     const location = useLocation();
     const { InputValues, abc } = location.state
@@ -36,7 +38,14 @@ const CheckOutMainPage = () => {
                         </div>
                         <div className="row">
                             <div className="col-lg-12">
-                                {ShowDeliveryInformation === true && <Payment />}
+                                {ShowDeliveryInformation === true && <Payment SetShowThankYouOrder={SetShowThankYouOrder}/>}
+                            </div>
+
+                        </div>
+                        <div className="row">
+                            <div className="col-lg-12">
+                                {ShowThankYouOrder===true && <ThankYouOrder/>}
+
                             </div>
 
                         </div>

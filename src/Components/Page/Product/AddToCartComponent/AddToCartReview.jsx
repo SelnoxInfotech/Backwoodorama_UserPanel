@@ -169,7 +169,8 @@ const AddToCartReview = ({ SetTotal, Total }) => {
                                     <div className='col-12'>
                                         <div className='AddToCartReviewBtn d-flex' >
                                             <div className='addToCart_btn'>
-                                            <Button className="center" style={{ width: "15px" }} onClick={() => { Quantity(ele.Product_id, ele.Product_Quantity) }} ><AiOutlinePlus /></Button>
+                                            <Button  style={{ width: "15px"}} > {ele.Product_Quantity > 1 && <GrFormSubtract onClick={() => { decreaseQuantity(ele.Product_id, ele.Product_Quantity) }} />}</Button>
+
 
                                             </div>
                                             <div className='AddToCartCount' style={{width:"20px"}}>
@@ -177,7 +178,7 @@ const AddToCartReview = ({ SetTotal, Total }) => {
 
                                             </div>
                                             <div className='addToCart_btn'>
-                                            <Button  style={{ width: "15px"}} > {ele.Product_Quantity > 1 && <GrFormSubtract onClick={() => { decreaseQuantity(ele.Product_id, ele.Product_Quantity) }} />}</Button>
+                                            <Button className="center" style={{ width: "15px" }} onClick={() => { Quantity(ele.Product_id, ele.Product_Quantity) }} ><AiOutlinePlus /></Button>
 
                                             </div>
 
