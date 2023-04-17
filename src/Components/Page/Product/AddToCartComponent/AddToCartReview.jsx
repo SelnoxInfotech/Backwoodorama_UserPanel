@@ -6,13 +6,12 @@ import { GrFormSubtract } from "react-icons/gr";
 import { RiDeleteBin6Line } from "react-icons/ri"
 import _ from "lodash"
 import React from "react";
-import useStyles from "../../../../Style"
 import Createcontext from "../../../../Hooks/Context"
 const AddToCartReview = ({ SetTotal, Total }) => {
     const { state, dispatch } = React.useContext(Createcontext)
     const count = useRef(null);
     const count1 = useRef(null);
-    const classes = useStyles()
+
     const [LocalData, SetLocalData] = React.useState()
     React.useEffect(() => {
         const items = localStorage.getItem('items')

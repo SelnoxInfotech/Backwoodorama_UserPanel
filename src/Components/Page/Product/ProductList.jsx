@@ -1,16 +1,16 @@
-import React ,{useContext} from "react";
+import React, { useContext } from "react";
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import { AiFillStar } from "react-icons/ai";
 import useStyles from "../../../Style"
 import { Link } from "react-router-dom";
 import _ from "lodash";
-import Axios from "axios";
-import Cookies from 'universal-cookie';
 import Createcontext from "../../../Hooks/Context"
+import Cookies from 'universal-cookie';
+import axios from "axios"
 const ProductList = ({ arr }) => {
-    const { state, dispatch } = React.useContext(Createcontext)
     const cookies = new Cookies();
+    const { state, dispatch } = React.useContext(Createcontext)
     const token_data = cookies.get('Token_access')
     const [Price, SetPrice] = React.useState([])
     const [Item_idq, SetItem] = React.useState('')
@@ -19,8 +19,8 @@ const ProductList = ({ arr }) => {
         const initialValue = JSON.parse(saved);
         return initialValue || []
     })
-    const  Addtocard = async (Event) => {
-      
+  
+    const Addtocard = async (Event) => {
         const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
         var PriceIndex = AddData === [] ? "" : AddData;
         const Arry = {
@@ -31,7 +31,9 @@ const ProductList = ({ arr }) => {
             Image: Event.images,
             Price_index: PriceIndex,
             StoreName: Event.StoreName,
-            Product_Quantity: 1
+            Product_Quantity: 1,
+            SubTotal: state.SubTotal
+
         }
         const Status = AddTOCard.find((data) => {
             if (data.Product_id === Event.id) {
@@ -47,8 +49,8 @@ const ProductList = ({ arr }) => {
         })
         if (Store !== undefined) {
 
-              if (Status !== undefined) {
-                await   SetAddToCard(AddTOCard.map((Add) => {
+            if (Status !== undefined) {
+                await SetAddToCard(AddTOCard.map((Add) => {
                     if (Add.Product_id === Event.id) {
                         if (AddData.length !== 0) {
 
@@ -75,13 +77,38 @@ const ProductList = ({ arr }) => {
         else {
             SetAddToCard([Arry])
         }
-    
-        ApiCallPost(Arry)
+
 
     }
+
+
+
+
+    const config = {
+        headers: { Authorization: `Bearer ${token_data}` }
+    };
+    if (state.login === true) {
+
+        axios.post("http://52.3.255.128:8000/UserPanel/Add-AddtoCart/",
+            AddTOCard,
+            config
+
+
+        ).then(response => {
+
+
+        }).catch(
+            function (error) {
+
+            })
+    }
+
+
+
     React.useEffect(() => {
+
         localStorage.setItem('items', JSON.stringify(AddTOCard))
-        dispatch({type:'CartCount' , CartCount: AddTOCard.length })
+        dispatch({ type: 'CartCount', CartCount: AddTOCard.length })
     }, [AddTOCard])
 
 
@@ -96,33 +123,7 @@ const ProductList = ({ arr }) => {
     }
 
 
-    const config = {
-        headers: { Authorization: `Bearer ${token_data}` }
-    };
-    async function ApiCallPost(Arry) {
-        const saved = localStorage.getItem("items");
-        const initialValue = JSON.parse(saved);
-        const Data = []
-        Data.push(initialValue)
-       Axios.post(
-            'http://52.3.255.128:8000/UserPanel/Add-AddtoCart/',
 
-            initialValue ,
-            config,
-            {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                }
-            },
-            // Setloading(true)
-        ).then(response => {
-        // Setarr1(response.data)
-
-    }).catch(
-        function (error) {
-
-        })
-    }
     const classes = useStyles()
     return (
         <div className="col-12  prod_cat_display">

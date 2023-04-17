@@ -3,7 +3,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
 import TextField from '@mui/material/TextField';
-import { Link, useLocation ,useNavigate} from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -18,9 +18,9 @@ const SignupWithEmail = () => {
     let { State } = location.state;
     const [showPassword, setShowPassword] = React.useState(false);
     const [loading, Setloading] = React.useState(false)
-    const [EmailDisabled ,SetEmailDisabled] = React.useState(true)
+    const [EmailDisabled, SetEmailDisabled] = React.useState(true)
     const [dulicate, Setduplicate] = React.useState([])
-    const [Email ,SetEmail]  = React.useState(State?.email)
+    const [Email, SetEmail] = React.useState(State?.email)
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     const method = useForm()
     const classes = useStyles()
@@ -31,7 +31,7 @@ const SignupWithEmail = () => {
             username: data.Name,
             email: Email,
             password: data.password,
-            user_type:"Customer"
+            user_type: "Customer"
         },
         ).then(response => {
             Navigate("/Login")
@@ -40,11 +40,11 @@ const SignupWithEmail = () => {
         }).catch(
             function (error) {
                 Setloading(false)
-                if(error.response.data.username){
+                if (error.response.data.username) {
 
                     Setduplicate(error.response.data)
                 }
-                if(error.response.data.email){
+                if (error.response.data.email) {
                     SetEmailDisabled(false)
                     Setduplicate(error.response.data)
                 }
@@ -68,28 +68,28 @@ const SignupWithEmail = () => {
 
                             <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
                                 <TextField
-                                 value={Email}   
-                                 disabled={EmailDisabled}
-                                 onChange={(e) =>{ 
-                                    SetEmail(e.target.value)
-                                }}  
-                                // onClick={(e)=>{Setduplicate('')}}
-                                  name='email'
-                                  placeholder="Enter Your Email" 
-                                  variant="outlined" 
-                                  fullWidth 
-                                  size='small' 
-                                  inputRef={method.register({
-                                    required: "email  is required*.",
-                                    pattern: {
-                                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                        message: "invalid email address"
-                                      }
-                                },
-                                )}
-                                helperText={method.errors?.email?.message  || dulicate?.email}
-                                error={Boolean(method.errors?.email ) || (Boolean (dulicate?.email))}
-                                  />
+                                    value={Email}
+                                    disabled={EmailDisabled}
+                                    onChange={(e) => {
+                                        SetEmail(e.target.value)
+                                    }}
+                                    // onClick={(e)=>{Setduplicate('')}}
+                                    name='email'
+                                    placeholder="Enter Your Email"
+                                    variant="outlined"
+                                    fullWidth
+                                    size='small'
+                                    inputRef={method.register({
+                                        required: "email  is required*.",
+                                        pattern: {
+                                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                            message: "invalid email address"
+                                        }
+                                    },
+                                    )}
+                                    helperText={method.errors?.email?.message || dulicate?.email}
+                                    error={Boolean(method.errors?.email) || (Boolean(dulicate?.email))}
+                                />
                             </div>
                         </div>
                         <form onSubmit={method.handleSubmit(Submit)}>
@@ -157,7 +157,7 @@ const SignupWithEmail = () => {
                                         },
                                         )}
                                         helperText={method.errors?.Name?.message || dulicate?.username}
-                                        error={Boolean(method.errors?.Name)  || Boolean(dulicate?.username)}
+                                        error={Boolean(method.errors?.Name) || Boolean(dulicate?.username)}
                                     />
                                 </div>
                             </div>
