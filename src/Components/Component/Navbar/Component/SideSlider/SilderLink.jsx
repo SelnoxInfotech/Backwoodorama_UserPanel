@@ -8,13 +8,13 @@ import { IoIosNotifications } from "react-icons/io"
 import { MdOutlineShoppingCart } from "react-icons/md"
 import { Link } from "react-router-dom";
 import SearchBar from "../../Component/SearchBar"
-export default function DashBoardLink({state}) {
+export default function DashBoardLink({ state }) {
 
-  React.useEffect(()=>{
+  React.useEffect(() => {
     const saved = localStorage.getItem("items");
-  
-    
-  },[localStorage.getItem("items")])
+
+
+  }, [localStorage.getItem("items")])
   return (
     <>
 
@@ -23,7 +23,7 @@ export default function DashBoardLink({state}) {
           <Grid xs={8} md={8} xl={8} display={{ xs: "none", md: "block", lg: "block" }}>
             <div className="ccol  nav_list1">
               <ul>
-                <Link to="/"> <li>Dispansires</li></Link>
+                <Link to="/Dispansires"> <li>Dispansires</li></Link>
                 <li>Deliveries</li>
                 <li>Brand</li>
                 <Link to="/Product"><li>Product</li></Link>
@@ -55,7 +55,7 @@ export default function DashBoardLink({state}) {
               </Link>
 
               <div className="border SliderLink_CartCount_div" >
-              {state}
+                {state}
               </div>
             </div>
           </Grid>
