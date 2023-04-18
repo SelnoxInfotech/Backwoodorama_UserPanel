@@ -170,11 +170,25 @@ const useStyles = makeStyles({
     color: "#31B665",
 
   },
-  muiSearchIcon: {
-    // "& .MuiSvgIcon-root":{
-    //   color:"#31B665"
-    // }
+open_dispensory_tab:{
+  "& .css-1aquho2-MuiTabs-indicator":{
+    position: "absolute",
+    height: "2px",
+    bottom: "10px",
+    left:"0px",
+    width:"90px",
+    background:"#31B665"
+  },
+  "& .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected":{
+    color:"#31B665"
   }
+},
+open_dispensory_tab_background:{
+  "& .css-heg063-MuiTabs-flexContainer":{
+  backgroundColor:"#F9F9F9",
+  overflowX: "scroll"
+  }
+}
 
 });
 export default useStyles
