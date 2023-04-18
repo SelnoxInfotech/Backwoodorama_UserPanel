@@ -177,7 +177,8 @@ open_dispensory_tab:{
     bottom: "10px",
     left:"0px",
     width:"90px",
-    background:"#31B665"
+    background:"#31B665",
+  
   },
   "& .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected":{
     color:"#31B665"
@@ -186,7 +187,11 @@ open_dispensory_tab:{
 open_dispensory_tab_background:{
   "& .css-heg063-MuiTabs-flexContainer":{
   backgroundColor:"#F9F9F9",
-  overflowX: "scroll"
+  gap: '70px'
+
+  },
+  "& .MuiTabs-scroller":{
+    overflow:"scroll"
   }
 },
 homePage_iconsColor:{

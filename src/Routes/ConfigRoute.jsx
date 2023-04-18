@@ -12,7 +12,7 @@ import CreatePassword from "../Components/Page/ResetPassword/CreatePassword"
 import CheckOutMainPage from "../Components/Page/Checkout/CheckoutMainPage"
 import ProtectRout from "../Routes/ProtectRout"
 import PlaceOrder from "../Components/Page/Checkout/PlaceOrder"
-import OpenDispansires from "../Components/Page/Dispansires/OpenDispansires"
+import OpenDispansires from "../Components/Page/Dispansires/Dispansires"
 const routesConfig = [
   
       {
