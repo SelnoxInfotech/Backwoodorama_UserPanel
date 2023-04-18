@@ -1934,21 +1934,21 @@ height:20px;
 /* end */
 /* DispensoriesOpenResult */
 .dispensories_main_container{
-  height:600px;
+  height:650px;
   border: 1px solid gray;
 }
 .despensories_card_container{
-  height:184px;
-  background: #FFFFFF;
+  height:224px;
+  background: white;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
 }
 .disensories_card_image_div{
-  height:184px;
+  height:200px;
   display: grid;
   place-items: center;
 }
 .dispenosries_card_content_div{
-  height:184px;
+  height:200px;
 
 }
 .dispensories_card_image{

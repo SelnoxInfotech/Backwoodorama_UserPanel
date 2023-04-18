@@ -1,15 +1,20 @@
-import {IoMdStar} from "react-icons/io"
+import { IoMdStar } from "react-icons/io";
+import LoadingButton from '@mui/lab/LoadingButton';
+import useStyles from "../../../../Style";
+import Box from '@mui/material/Box';
+
 const DispensoriesOpenResult = () => {
+    const classes=useStyles()
     const DispensoriesArray = [{ img_url: "./image/logo2.png", head: "Canna Cabana", subHead: "Recreational" }, { img_url: "./image/logo.webp", head: "Canna Cabana", subHead: "Recreational" }]
     return (
         <>
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-lg-4 col-md-6 col-sm-12 col-12 dispensories_main_container  ">
+                    <div className="col-lg-4 col-md-6 col-sm-12 col-12 dispensories_main_container ">
 
                         {DispensoriesArray.map((ele, index) => {
                             return (
-                                <div className="row p-2">
+                                <div className="row mt-2">
                                     <div className="col-lg-12  col-md-12 col-sm-12 col-12 despensories_card_container">
                                         <div className="row">
                                             <div className="col-4 disensories_card_image_div">
@@ -34,7 +39,12 @@ const DispensoriesOpenResult = () => {
                                                         <button className="dispensories_pickup_btn">Pickup delivery</button>
                                                     </div>
                                                     <div className="col-12 d-flex">
-                                                        <p>Rating</p><span className="dis_open_result_star"><IoMdStar/></span>
+                                                        <p>Rating</p><span className="dis_open_result_star"><IoMdStar /></span>
+                                                    </div>
+                                                    <div className="col-12">
+                                                        <Box className={classes.loadingBtnTextAndBack}>
+                                                        <LoadingButton style={{width:"60%",height:"30px"}}>Order Pickup</LoadingButton>
+                                                        </Box>
                                                     </div>
                                                 </div>
                                             </div>
