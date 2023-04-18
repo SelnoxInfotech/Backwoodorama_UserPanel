@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import useStyles from "../../../Style";
 import Map from "../../Component/Map/map"
+import DispensoriesOpenResult from "./DispansiresComponent/DispensoriesOpenResult"
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
 
@@ -51,7 +52,7 @@ export default function Dispansires() {
         <>
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-10 mx-auto dispensory_menu">
+                    <div className="col-12 col-lg-10 mx-auto dispensory_menu">
                         <Box className={classes.open_dispensory_tab_background} sx={{ width: '100%' }}>
                             <Box className={classes.open_dispensory_tab} sx={{ borderBottom: 1, borderColor: 'divider', }}>
                                 <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" >
@@ -68,7 +69,7 @@ export default function Dispansires() {
                             </Box>
 
                             <TabPanel value={value} index={0}>
-                                Open
+                              <DispensoriesOpenResult/>
                             </TabPanel>
                             <TabPanel value={value} index={1}>
                                 Storefronts
