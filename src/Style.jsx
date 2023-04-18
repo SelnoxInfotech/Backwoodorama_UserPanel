@@ -196,7 +196,10 @@ open_dispensory_tab_background:{
 },
 homePage_iconsColor:{
 color:"black",
+},
+disp_star_color:{
+  color:"#31B665"
+  
 }
-
 });
 export default useStyles

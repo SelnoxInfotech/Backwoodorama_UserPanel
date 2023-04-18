@@ -5,41 +5,58 @@ import Box from '@mui/material/Box';
 
 const DispensoriesOpenResult = () => {
     const classes=useStyles()
-    const DispensoriesArray = [{ img_url: "./image/logo2.png", head: "Canna Cabana", subHead: "Recreational" }, { img_url: "./image/logo.webp", head: "Canna Cabana", subHead: "Recreational" }]
+    const DispensoriesArray = [{ img_url: "./image/logo2.png", head: "Canna Cabana", subHead: "Recreational" }, 
+    { img_url: "./image/logo.webp", head: "Canna Cabana", subHead: "Recreational" },
+    { img_url: "./image/latest_img.png", head: "Canna Cabana", subHead: "Recreational" },
+    { img_url: "./image/logo.webp", head: "Canna Cabana", subHead: "Recreational" },
+    { img_url: "./image/logo.webp", head: "Canna Cabana", subHead: "Recreational" },
+  
+
+
+]
     return (
         <>
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-lg-4 col-md-6 col-sm-12 col-12 dispensories_main_container ">
+                    <div className="col-lg-4 col-md-6 col-sm-12 col-12 dispensories_main_container">
+                        <div className="row">
+                        <div className="col-6 dispensories_result_head fontStyle">
+                          <p>Showing result</p>
+                        </div>
+                        <div className="col-6 text-end dispensories_result_head fontStyle">
+                         <p>1 to 20</p>
+                        </div>
+                        </div>
+
 
                         {DispensoriesArray.map((ele, index) => {
                             return (
-                                <div className="row mt-2">
+                                <div className="row mt-2" key="index">
                                     <div className="col-lg-12  col-md-12 col-sm-12 col-12 despensories_card_container">
                                         <div className="row">
                                             <div className="col-4 disensories_card_image_div">
-                                                <img className="dispensories_card_image" src={ele.img_url} alt="image not available" width={"100%"} height={"100px"} />
+                                                <img className="dispensories_card_image" src={ele.img_url} alt="image not available" />
 
                                             </div>
                                             <div className="col-8 dispenosries_card_content_div">
                                                 <div className="row">
-                                                    <div className="col-12 dispensories_content_paragraphs">
+                                                    <div className="col-12 dispensories_content_Header_paragraphs">
                                                         <p>{ele.head}</p>
 
                                                     </div>
-                                                    <div className="col-12">
+                                                    <div className="col-12 dispensories_content_paragraphs">
                                                         <p>{ele.subHead}</p>
                                                     </div>
                                                     <div className="col-12 dispensories_buttonsContainer">
                                                         <button className="dispensories_open_res_btns">Closed</button>
-                                                        <button className="dispensories_open_res_btns">Order Online</button>
+                                                        <button className="dispensories_open_res_btns2">Order Online</button>
 
                                                     </div>
-                                                    <div className="col-12">
+                                                    <div className="col-12 dispensories_buttonsContainer mt-2">
                                                         <button className="dispensories_pickup_btn">Pickup delivery</button>
                                                     </div>
-                                                    <div className="col-12 d-flex">
-                                                        <p>Rating</p><span className="dis_open_result_star"><IoMdStar /></span>
+                                                    <div className="col-12 d-flex dispensories_content_paragraphs">
+                                                        <p>Rating</p><span className="dis_open_result_star"><IoMdStar className={classes.disp_star_color}/></span>
                                                     </div>
                                                     <div className="col-12">
                                                         <Box className={classes.loadingBtnTextAndBack}>
