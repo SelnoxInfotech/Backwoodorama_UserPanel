@@ -85,7 +85,7 @@ const Navbar = () => {
               <IoIosNotifications size={30}></IoIosNotifications>
               <Link to="/AddToCart">  <MdOutlineShoppingCart size={30}></MdOutlineShoppingCart></Link>
               <div className="border SliderLink_CartCount_div" >
-              {state.CartCount}
+                {state.CartCount}
               </div>
 
 
@@ -113,7 +113,7 @@ const Navbar = () => {
                     </Grid>
                   </div>
                   <div className='col-lg-4 col-sm-4'>
-                    <Grid>
+                    <Grid display={{ xs: "none", md: "block", lg: "block" }}>
                       <NavLink to="/Signup" >    <Button className={classes.muiBtn} >Signup</Button></NavLink>
                     </Grid>
                   </div>

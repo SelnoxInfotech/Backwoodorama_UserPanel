@@ -34,19 +34,22 @@ const HomePageBanner = () => {
     return (
         <div>
             <Carousel
-              fullHeightHover={false}     // We want the nav buttons wrapper to only be as big as the button element is
+              fullHeightHover={true}     // We want the nav buttons wrapper to only be as big as the button element is
               navButtonsProps={{          // Change the colors and radius of the actual buttons. THIS STYLES BOTH BUTTONS
                   style: {
-                      backgroundColor: 'cornflowerblue',
+                      backgroundColor: 'black',
                       borderRadius: 0
                   }
               }} 
               navButtonsWrapperProps={{   // Move the buttons to the bottom. Unsetting top here to override default style.
                   style: {
                       bottom: '0',
-                      top: 'unset'
+                      top: '40px'
+
                   }
+                  
               }} 
+            
               NextIcon='next'             // Change the "inside" of the next button to "next"
               PrevIcon='prev'             // Change the "inside of the prev button to "prev"
         
@@ -54,6 +57,7 @@ const HomePageBanner = () => {
                 onChange={handleChange}
                 interval={10000}
                 animation="slide"
+                autoPlay={false}
                 indicators={false}
                 stopAutoPlayOnHover
                 swipe
