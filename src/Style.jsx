@@ -188,6 +188,9 @@ open_dispensory_tab_background:{
   backgroundColor:"#F9F9F9",
   overflowX: "scroll"
   }
+},
+homePage_iconsColor:{
+color:"black",
 }
 
 });
