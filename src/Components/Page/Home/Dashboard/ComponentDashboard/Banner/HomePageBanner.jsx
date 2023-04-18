@@ -90,45 +90,9 @@ bottom: -12px
 
                     <div>
                         <div className='col-12'>
-
-
-                            <Carousel
-                                fullHeightHover={true}     // We want the nav buttons wrapper to only be as big as the button element is
-                                navButtonsProps={{          // Change the colors and radius of the actual buttons. THIS STYLES BOTH BUTTONS
-                                    style: {
-                                        backgroundColor: 'black',
-                                        borderRadius: 0
-                                    }
-                                }}
-                                navButtonsWrapperProps={{   // Move the buttons to the bottom. Unsetting top here to override default style.
-                                    style: {
-                                        bottom: '0',
-                                        top: '40px'
-
-                                    }
-
-                                }}
-
-                                NextIcon='next'             // Change the "inside" of the next button to "next"
-                                PrevIcon='prev'             // Change the "inside of the prev button to "prev"
-
-                                index={index}
-                                onChange={handleChange}
-                                interval={10000}
-                                animation="slide"
-                                autoPlay={false}
-                                indicators={false}
-                                stopAutoPlayOnHover
-                                swipe
-                                className="my-carousel"
-                            >
-                                {items.map((item, i) => (
-                                    <div>
-                                        <LazyLoadImage className='HomePageBanner_image' src={item.description}></LazyLoadImage>
-
-                                    </div>
-                                ))}
-                            </Carousel>
+                            <div className=''>
+                                <LazyLoadImage src={ele.description} alt="glass_img" className='HomePageBanner_image' />
+                            </div>
                         </div>
 
                     </div>
