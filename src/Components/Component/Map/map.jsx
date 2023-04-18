@@ -1,5 +1,5 @@
 import { Map, GoogleApiWrapper, Marker,  } from 'google-maps-react';
-
+import googleMapStyles from "./MapStyle"
 
 
 export function MapContainer(props) {
@@ -25,17 +25,37 @@ export function MapContainer(props) {
       />)
     })
   }
-  const exampleMapStyles = [
+  const styles =[
     {
         featureType: "poi",
         elementType: "geometry",
         stylers: [
             {
-                color: "black",
+                color: "#f5f5f5",
+            },
+            {
+              lightness: 100,
+          },
+        ],
+    },
+    {
+        featureType: "poi",
+        elementType: "labels.text",
+        stylers: [
+            {
+                visibility: "off",
             },
         ],
     },
-   
+    {
+        featureType: "water",
+        elementType: "labels.text.fill",
+        stylers: [
+            {
+                color: "#f5f5f5",
+            },
+        ],
+    },
 ];
 
   return (
@@ -45,15 +65,13 @@ export function MapContainer(props) {
         <div className='col-12 center ' >
         
           <Map
-            style={{ height: '300px' }}
+            style={{ height: '300px'  ,  backgroundColor: 'black'}}
             google={window.google}
             zoom={14}
             initialCenter={{ lat: 40.712776, lng: -74.005974 }}
             streetViewControl= {true}
             fullscreenControl= {false}
-            options={{
-              styles: exampleMapStyles,
-          }}
+            options={{ styles }}
           >
             {displayMarkers()}
           </Map>
@@ -63,6 +81,7 @@ export function MapContainer(props) {
 
   );
 }
+MapContainer.defaultProps = googleMapStyles;
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU'
 })(MapContainer);
