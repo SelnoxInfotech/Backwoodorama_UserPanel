@@ -74,7 +74,7 @@ const routesConfig = [
           }
           ,
           {
-            path:"/OpenDispansires",
+            path:"/Dispansires",
             element:<OpenDispansires/>
           }
         ],

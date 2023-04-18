@@ -11,6 +11,7 @@ import { Link, NavLink } from "react-router-dom";
 import SliderLink from "./Component/SideSlider/SilderLink"
 import Createcontext from "../../../Hooks/Context"
 import Cookies from 'universal-cookie';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Navbar = () => {
   const cookies = new Cookies();
@@ -68,7 +69,9 @@ const Navbar = () => {
           <Grid xs={2} md={2} xl={2}>
             {
               Hamburger ?
-                <span><img className='navbar_logo_image' src='./image/logo.webp' /></span> :
+                <span>
+                  <Link to="/"><LazyLoadImage className='navbar_logo_image' src='/image/logo.webp' /></Link>
+                </span> :
 
                 <div className='center'>
                   <button className="openbtn Border" onClick={() => { openNav() }}>☰</button>

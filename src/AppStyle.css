@@ -113,7 +113,7 @@
   }
 
   .Category_title {
-    font-size: 12px;
+    font-size: 10px;
   }
 }
 
@@ -1902,7 +1902,7 @@ height:450px;
     height:180px;
   }
 }
-@media screen and (min-device-width: 481px) and (max-device-width: 768px) { 
+@media (max-width: 768px) { 
   /* STYLES HERE */
   .HomePageBanner_image{
     height: 190px;
@@ -1911,10 +1911,10 @@ height:450px;
     height:220px;
   }
 }
-@media screen and (min-device-width: 769px) and (max-device-width: 900px) { 
+@media  (max-width: 900px) { 
   /* STYLES HERE */
   .HomePageBanner_image{
-    height: 190px;
+    height: 140px;
   }
   .homepage_carousal_container{
     height:220px;
