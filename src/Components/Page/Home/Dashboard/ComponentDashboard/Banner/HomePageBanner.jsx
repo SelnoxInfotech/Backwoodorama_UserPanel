@@ -54,14 +54,13 @@ const HomePageBanner = () => {
                                 navButtonsWrapperProps={{   // Move the buttons to the bottom. Unsetting top here to override default style.
                                     style: {
                                         bottom: '0',
-                                        top: '40px'
+                                        top: '40px',
+                                        display:"none"
 
                                     }
 
                                 }}
 
-                                NextIcon='next'             // Change the "inside" of the next button to "next"
-                                PrevIcon='prev'             // Change the "inside of the prev button to "prev"
 
                                 index={index}
                                 onChange={handleChange}

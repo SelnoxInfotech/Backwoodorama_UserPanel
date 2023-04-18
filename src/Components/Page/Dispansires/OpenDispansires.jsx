@@ -47,13 +47,14 @@ export default function OpenDispansires() {
         <>
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-10 mx-auto dispensory_menu">
+                    <div className="col-12 col-lg-10 col-md-10 col-sm-12 mx-auto dispensory_menu">
                         <Box className={classes.open_dispensory_tab_background} sx={{ width: '100%',overflow:"scroll" }}>
                             <Box className={classes.open_dispensory_tab} sx={{ borderBottom: 1, borderColor: 'divider' }}>
                                 <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
                                     <Tab label="Open" {...a11yProps(0)} />
                                     <Tab label="Storefronts" {...a11yProps(1)} />
                                     <Tab label="delivery" {...a11yProps(2)} />
+                                    
                                 </Tabs>
                             </Box>
                             <TabPanel value={value} index={0}>
