@@ -72,10 +72,22 @@ export default function Dispansires() {
                               <DispensoriesOpenResult/>
                             </TabPanel>
                             <TabPanel value={value} index={1}>
-                                Storefronts
+                            <DispensoriesOpenResult/>
                             </TabPanel>
                             <TabPanel value={value} index={2}>
-                                delivery
+                            <DispensoriesOpenResult/>
+                            </TabPanel>
+                            <TabPanel value={value} index={2}>
+                            <DispensoriesOpenResult/>
+                            </TabPanel>
+                            <TabPanel value={value} index={2}>
+                            <DispensoriesOpenResult/>
+                            </TabPanel>
+                            <TabPanel value={value} index={2}>
+                            <DispensoriesOpenResult/>
+                            </TabPanel>
+                            <TabPanel value={value} index={2}>
+                            <DispensoriesOpenResult/>
                             </TabPanel>
                          <div style={{position: "relative" , bottom: "623px" }}>
                          <Map height={"800px"}></Map>
