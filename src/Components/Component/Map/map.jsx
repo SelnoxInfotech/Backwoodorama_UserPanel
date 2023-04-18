@@ -31,7 +31,7 @@ export function MapContainer(props) {
         <div className='col-12 center ' >
         
           <Map
-            style={{ height: '300px'  ,  backgroundColor: 'black'}}
+            style={{ height: props.height  ,  backgroundColor: 'black'}}
             google={window.google}
             mapTypeId= "google.maps.MapTypeId.ROADMAP"
             zoom={14}

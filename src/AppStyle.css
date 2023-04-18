@@ -1883,7 +1883,7 @@ height:150px;
 /* end */
 /* dispensory_menu */
 .dispensory_menu{
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
 }
 /* end */
 /* HomePageBanner */
@@ -1934,6 +1934,7 @@ height:20px;
 /* end */
 /* DispensoriesOpenResult */
 .dispensories_main_container{
+  z-index: 1;
   height:600px;
   border: 1px solid gray;
 }

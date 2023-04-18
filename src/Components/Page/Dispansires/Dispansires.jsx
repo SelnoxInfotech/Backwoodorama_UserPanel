@@ -77,7 +77,9 @@ export default function Dispansires() {
                             <TabPanel value={value} index={2}>
                                 delivery
                             </TabPanel>
-                            <Map></Map>
+                         <div style={{position: "relative" , bottom: "623px" }}>
+                         <Map height={"800px"}></Map>
+                         </div>
                         </Box>
 
                     </div>
