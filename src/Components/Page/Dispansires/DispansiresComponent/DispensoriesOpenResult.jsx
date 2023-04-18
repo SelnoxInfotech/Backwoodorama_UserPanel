@@ -1,4 +1,5 @@
-import {IoMdStar} from "react-icons/io"
+import React from "react"
+import { IoMdStar } from "react-icons/io"
 const DispensoriesOpenResult = () => {
     const DispensoriesArray = [{ img_url: "./image/logo2.png", head: "Canna Cabana", subHead: "Recreational" }, { img_url: "./image/logo.webp", head: "Canna Cabana", subHead: "Recreational" }]
     return (
@@ -34,7 +35,7 @@ const DispensoriesOpenResult = () => {
                                                         <button className="dispensories_pickup_btn">Pickup delivery</button>
                                                     </div>
                                                     <div className="col-12 d-flex">
-                                                        <p>Rating</p><span className="dis_open_result_star"><IoMdStar/></span>
+                                                        <p>Rating</p><span className="dis_open_result_star"><IoMdStar /></span>
                                                     </div>
                                                 </div>
                                             </div>

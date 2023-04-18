@@ -42,7 +42,7 @@ export default function Dispansires() {
 
 
 
-    const [value, setValue] = React.useState(2);
+    const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
