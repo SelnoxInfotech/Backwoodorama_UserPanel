@@ -33,7 +33,7 @@
 }
 
 .comm_para1 p {
-  font-size: 18px;
+  font-size: 15px;
 
   color: #31B665;
 }
@@ -1514,6 +1514,34 @@
     font-size: 16px;
   }
 }
+.Footer_image{
+  width: 398px;
+  height: 395px;
+
+}
+@media (max-width:1100px) {
+
+  .Footer_image{
+    width: 200px;
+    height: 395px;
+  
+  }
+}
+.Social{
+  display: flex;
+}
+@media (max-width:700px) {
+
+  .Footer_image{
+    width: 200px;
+    height: 395px;
+  
+  }
+  .Social{
+    display: grid;
+  }
+}
+
 
 /* end */
 /* signup */
