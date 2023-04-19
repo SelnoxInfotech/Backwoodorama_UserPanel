@@ -7,7 +7,7 @@ const SearchBar = () => {
                 <div className="vertical_div"></div>
                <input className="sec_input_search" type="text" placeholder="location"/>
 
-                <div className="search_icon"><CiSearch/></div>
+                {/* <div className="search_icon"><CiSearch/></div> */}
             </div>
         </>
     )

@@ -129,7 +129,7 @@ a{
 
 /* navbar search */
 .nav_search_bar_div{
-  /* height: 40px; */
+  height: 35px;
   display: flex;
   width:100%;
   border: 1px solid #00b96a;
@@ -144,7 +144,9 @@ a{
 }
 .vertical_div{
   border-left: 1px solid gray;
-  height:30px;
+  height:23px;
+  position: relative;
+  top: 5px;
 }
 
 .nav_search_bar_div input:focus{

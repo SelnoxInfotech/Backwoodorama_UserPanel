@@ -6,7 +6,7 @@ import useStyles from "../../../Style"
 import { Link } from "react-router-dom"
 const Footer = () => {
     const classes = useStyles()
-    const AboutUs = [ { head: "company" }, { head: "Investor" }, { head: "Help Center" }, { head: "Download App" }]
+    const AboutUs = [{ head: "company" }, { head: "Investor" }, { head: "Help Center" }, { head: "Download App" }]
     const Category = [{ head: "Flower" }, { head: "CBD" }, { head: "Concentrate" }, { head: "Edible" }]
     const Legal = [{ head: "Term 7 conditions" }, { head: "Carrier" }, { head: "Privacy Policy" }]
     const More = [{ head: "Get started" }, { head: "Brand" }, { head: "Add business" }, { head: "Contact us" }]
@@ -47,10 +47,10 @@ const Footer = () => {
                                                 <h5 className="fontStyle">About us</h5>
                                                 {AboutUs.map((ele, index) => {
                                                     return (
-                                                        <div key="index">
-                                                
-                                                <Link to="/"><li>{ele.head}</li></Link>
-                                                </div>
+
+
+                                                        <Link to="/" key={index}><li>{ele.head}</li></Link>
+
 
                                                     )
                                                 })}
@@ -61,9 +61,9 @@ const Footer = () => {
                                                 <h5 className="fontStyle">Category</h5>
                                                 {Category.map((ele, index) => {
                                                     return (
-                                                        <div key="index">
-                                                          <Link to="/"> <li>{ele.head}</li></Link>
-                                                        </div>
+
+                                                        <Link to="/" > <li key={index}>{ele.head}</li></Link>
+
 
 
                                                     )
@@ -83,12 +83,8 @@ const Footer = () => {
 
                                                 {Legal.map((ele, index) => {
                                                     return (
-                                                        <div key="index">
-                                                            <Link to="/"> <li>{ele.head}</li></Link>
 
-
-                                                        </div>
-
+                                                        <Link to="/" key={index}> <li>{ele.head}</li></Link>
 
                                                     )
 
@@ -102,10 +98,10 @@ const Footer = () => {
                                                 {More.map((ele, index) => {
                                                     return (
                                                         <>
-                                                            <div key="index">
-                                                            <Link to="/"> <li key="index">{ele.head}</li></Link>
+                                                        
+                                                                <Link to="/" key={index}> <li key="index">{ele.head}</li></Link>
 
-                                                            </div>
+                                                       
 
                                                         </>
                                                     )
