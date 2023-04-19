@@ -1,48 +1,51 @@
-import { Map, GoogleApiWrapper, Marker,  } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker, } from 'google-maps-react';
 import googleMapStyles from "./MapStyle"
-
-
+import { TbCannabis } from "react-icons/tb"
+import { FaBeer, Fa500Px } from "react-icons/fa";
 export function MapContainer(props) {
   const locations = [
-    { latitude: 40.712776, longitude: -74.005974, name: 'First Marker' },
-    { latitude: 47.5524675, longitude: -122.0425407, name: 'First Marker' }]
-    
+    { latitude: 40.727019, longitude: -74.037536, name: 'First Marker' },
+    { latitude: 40.719941, longitude: -74.049308, name: 'First Marker' },
+    { latitude: 40.726186, longitude: -74.042616, name: 'First Marker' },
+    { latitude: 40.724494, longitude: -74.041242, name: 'First Marker' },
+    { latitude: 40.72283, longitude: -74.036, name: 'First Marker' }]
+
   const displayMarkers = () => {
 
     return locations.map((store, index) => {
-      return (<Marker key={index} id={index}
-
-        position={{
-          lat: store.latitude,
-          lng: store.longitude,
-        }}
-        title="title"
-
-        onClick={() => console.log("You clicked me!")}
-      />)
+      return (
+        <Marker key={index} id={index}
+          position={{
+            lat: store.latitude,
+            lng: store.longitude,
+          }}
+          title="title"
+          icon={Fa500Px}
+          onClick={() => console.log("You clicked me!")}
+        />)
     })
   }
 
-   function _mapLoaded(mapProps, map) {
-      map.setOptions({
-         styles:props.Theme
-      });
-   }
-  
+  function _mapLoaded(mapProps, map) {
+    map.setOptions({
+      styles: props.Theme
+    });
+  }
+
 
   return (
 
     <div className='container-fluid'>
       <div className='row center'>
         <div className='col-12 center ' >
-        
           <Map
-            style={{ height: props.height  ,  backgroundColor: 'black'}}
+            style={{ height: props.height, backgroundColor: 'black' }}
             google={window.google}
-            mapTypeId= "google.maps.MapTypeId.ROADMAP"
-            zoom={14}
-            streetViewControl= {true}
-            fullscreenControl= {false}
+            mapTypeId="google.maps.MapTypeId.ROADMAP"
+            zoom={15}
+            initialCenter={{ lat: 40.719074, lng: -74.050552 }}
+            streetViewControl={true}
+            fullscreenControl={false}
             onReady={(mapProps, map) => _mapLoaded(mapProps, map)}
           >
             {displayMarkers()}
