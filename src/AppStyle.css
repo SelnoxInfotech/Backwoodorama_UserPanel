@@ -2009,4 +2009,16 @@ height:20px;
   font-weight: bold;
   font-size: 18px;
 }
+.dispensories_open_result_heading{
+  position:sticky;
+  top: 0px;
+}
+.dispensories_open_result_heading{
+  background-color: rgb(242, 243, 244);
+  border-bottom: 0.0625rem solid rgb(228, 229, 231);
+  z-index: 1;
+}
+
+.dispensories_open_search_result{
+}
 /* ends */

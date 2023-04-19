@@ -2,30 +2,34 @@ import { IoMdStar } from "react-icons/io";
 import LoadingButton from '@mui/lab/LoadingButton';
 import useStyles from "../../../../Style";
 import Box from '@mui/material/Box';
-
+import SearchBar from '@mkyy/mui-search-bar';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 const DispensoriesOpenResult = () => {
-    const classes=useStyles()
-    const DispensoriesArray = [{ img_url: "./image/logo2.png", head: "Canna Cabana", subHead: "Recreational" }, 
+    const classes = useStyles()
+    const DispensoriesArray = [{ img_url: "./image/logo2.png", head: "Canna Cabana", subHead: "Recreational" },
     { img_url: "./image/logo.webp", head: "Canna Cabana", subHead: "Recreational" },
     { img_url: "./image/latest_img.png", head: "Canna Cabana", subHead: "Recreational" },
     { img_url: "./image/logo.webp", head: "Canna Cabana", subHead: "Recreational" },
     { img_url: "./image/logo.webp", head: "Canna Cabana", subHead: "Recreational" },
-  
 
 
-]
+
+    ]
     return (
         <>
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-lg-4 col-md-6 col-sm-12 col-12 dispensories_main_container">
-                        <div className="row">
-                        <div className="col-6 dispensories_result_head fontStyle">
-                          <p>Showing result</p>
-                        </div>
-                        <div className="col-6 text-end dispensories_result_head fontStyle">
-                         <p>1 to 20</p>
-                        </div>
+                        <div className="row dispensories_open_result_heading">
+                            <div className="col-12 dispensories_open_search_result mt-2">
+                                <SearchBar style={{ background: "#FFFFF", border: "1px solid gray" }} width={"100%"} placeholder="Search dispensaries address" />
+                            </div>
+                            <div className="col-6 dispensories_result_head fontStyle">
+                                <p>Showing result</p>
+                            </div>
+                            <div className="col-6 text-end dispensories_result_head fontStyle">
+                                <p>1 to 20</p>
+                            </div>
                         </div>
 
 
@@ -35,7 +39,7 @@ const DispensoriesOpenResult = () => {
                                     <div className="col-lg-12  col-md-12 col-sm-12 col-12 despensories_card_container">
                                         <div className="row">
                                             <div className="col-4 disensories_card_image_div">
-                                                <img className="dispensories_card_image" src={ele.img_url} alt="image not available" />
+                                                <LazyLoadImage className="dispensories_card_image" src={ele.img_url} alt="image_not_found" />
 
                                             </div>
                                             <div className="col-8 dispenosries_card_content_div">
@@ -56,11 +60,11 @@ const DispensoriesOpenResult = () => {
                                                         <button className="dispensories_pickup_btn">Pickup delivery</button>
                                                     </div>
                                                     <div className="col-12 d-flex dispensories_content_paragraphs">
-                                                        <p>Rating</p><span className="dis_open_result_star"><IoMdStar className={classes.disp_star_color}/></span>
+                                                        <p>Rating</p><span className="dis_open_result_star"><IoMdStar className={classes.disp_star_color} /></span>
                                                     </div>
                                                     <div className="col-12">
                                                         <Box className={classes.loadingBtnTextAndBack}>
-                                                        <LoadingButton style={{width:"60%",height:"30px"}}>Order Pickup</LoadingButton>
+                                                            <LoadingButton style={{ width: "60%", height: "30px" }}>Order Pickup</LoadingButton>
                                                         </Box>
                                                     </div>
                                                 </div>
