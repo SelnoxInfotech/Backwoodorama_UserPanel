@@ -132,7 +132,6 @@ a{
   height: 35px;
   display: flex;
   width:100%;
-  border: 1px solid #00b96a;
   border-radius: 5px 5px;
 }
 
@@ -141,6 +140,9 @@ a{
   border-style: hidden;
   margin-left: 10px;
   padding-left: 10px;
+}
+.SearchBar{
+  background: rgb(238, 238, 238);
 }
 .vertical_div{
   border-left: 1px solid gray;
