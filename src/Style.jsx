@@ -200,6 +200,10 @@ color:"black",
 disp_star_color:{
   color:"#31B665"
   
+},
+footer_icons_color:{
+  color:"#31B665",
+  fontSize:"large"
 }
 });
 export default useStyles

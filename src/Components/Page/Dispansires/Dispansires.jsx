@@ -90,7 +90,7 @@ export default function Dispansires() {
                             <TabPanel value={value} index={2}>
                             <DispensoriesOpenResult/>
                             </TabPanel>
-                         <div style={{position: "relative" , bottom: "623px" }}>
+                         <div style={{position: "relative" , bottom: "765px" }}>
                          <Map height={"800px"} Theme={Dispansires_MapTheme.Dispansires_MapTheme}></Map>
                          </div>
                         </Box>

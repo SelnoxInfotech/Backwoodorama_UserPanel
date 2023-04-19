@@ -1,4 +1,10 @@
+import { BsWhatsapp } from "react-icons/bs"
+import { FaFacebook } from "react-icons/fa"
+import { FaInstagram } from "react-icons/fa"
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import useStyles from "../../../Style"
 const Footer = () => {
+    const classes=useStyles()
     const AboutUs = [{ head1: "About us" }, { head: "company" }, { head: "Investor" }, { head: "Help Center" }, { head: "Download App" }]
     const Category = [{ head2: "Category" }, { head: "Flower" }, { head: "CBD" }, { head: "Concentrate" }, { head: "Edible" }]
     const Legal = [{ head3: "Legal" }, { head: "Term 7 conditions" }, { head: "Carrier" }, { head: "Privacy Policy" }]
@@ -8,13 +14,27 @@ const Footer = () => {
 
     return (
         <>
-            {/* <div className="container-fluid">
-                <div className="row">
+            <div className="container-fluid">
+                <div className="row footer_Main_row">
                     <div className="col-12 footer_main_div_display">
-                        <div className="col-4 footer_logo_container">
-                            <div className="col-12 footer_logo">
-                                <h5>Backwoodarama Logo</h5>
+                        <div className="col-4 footer_logo_container px-4">
+                            <div className="col-12 footer_logo footer_logo_height">
+                                <LazyLoadImage className="footer_logo_image" src="/image/logo.webp" alt="image_not found"/>
+
+                            </div>
+                            <div className="col-12 footer_logo footer_log_heading_height">
                                 <p>Build a modern and creative  website</p>
+                            </div>
+                            <div className="col-4  footer_logo_icons_height">
+                                <div className="col-2">
+                                    <BsWhatsapp className={`footer_icons ${classes.footer_icons_color}`}/>
+                                </div>
+                                <div className="col-2 ">
+                                    <FaFacebook className={` footer_icons ${classes.footer_icons_color}`}/>
+                                </div>
+                                <div className="col-2">
+                                    <FaInstagram className={` footer_icons ${classes.footer_icons_color}`} />
+                                </div>
                             </div>
                         </div>
                         <div className="col-8 footer_content_container">
@@ -107,13 +127,13 @@ const Footer = () => {
 
 
                         </div>
-                        
+
 
                     </div>
 
                 </div>
 
-            </div> */}
+            </div>
         </>
     )
 }

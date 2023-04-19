@@ -21,16 +21,26 @@ const DispensoriesOpenResult = () => {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-lg-4 col-md-6 col-sm-12 col-12 dispensories_main_container">
-                        <div className="row dispensories_open_result_heading">
-                            <div className="col-12 dispensories_open_search_result mt-2">
-                                <SearchBar style={{ background: "#FFFFF", border: "1px solid gray" }} width={"100%"} placeholder="Search dispensaries address" />
+                        <div className="row">
+                            <div className="col-12 dispensories_open_result_heading">
+                                <div className="row">
+                                    <div className="col-12 dispensories_open_search_result mt-2">
+                                        <SearchBar style={{ background: "#FFFFF", border: "1px solid gray" }} width={"100%"} placeholder="Search dispensaries address" />
+                                    </div>
+                                </div>
+                                <div className="row m-2">
+                                    <div className="col-6 dispensories_result_head fontStyle">
+                                        <p>Showing result</p>
+                                    </div>
+                                    <div className="col-6 text-end dispensories_result_head fontStyle">
+                                        <p>1 to 20</p>
+                                    </div>
+                                </div>
+
                             </div>
-                            <div className="col-6 dispensories_result_head fontStyle">
-                                <p>Showing result</p>
-                            </div>
-                            <div className="col-6 text-end dispensories_result_head fontStyle">
-                                <p>1 to 20</p>
-                            </div>
+
+
+
                         </div>
 
 
