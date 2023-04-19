@@ -20,7 +20,7 @@ export default function BasicGrid() {
 
 
 
-        <div>
+        <div >
 
             <Navbar></Navbar>
 

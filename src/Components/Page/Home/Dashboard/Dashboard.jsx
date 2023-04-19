@@ -11,12 +11,12 @@ import light  from "../../../Component/Map/MapStyle"
 export default function Dashboard() {
 
     return (
-        <div>
+        <div className="    ">
              <HomePageBanner></HomePageBanner>
             <CategoryProduct></CategoryProduct>
             <DispensoriesAddress></DispensoriesAddress>
-            <div  className="col-12 mt-5" style={{ height: '250px'  }}>
-                <Map height={"300px"}></Map>
+            <div  className="col-12 mt-5" >
+                <Map height={"300px"}   ></Map>
             </div>
              <WeedProduct></WeedProduct>
             <LatestServices></LatestServices>

@@ -35,8 +35,8 @@ export function MapContainer(props) {
 
   return (
 
-    <div className='container-fluid'>
-      <div className='row center'>
+    <div className='container'>
+      <div className='row'>
         <div className='col-12 center ' >
           <Map
             style={{ height: props.height, backgroundColor: 'black' }}
