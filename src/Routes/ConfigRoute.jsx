@@ -3,7 +3,7 @@ import Dashboard from "../Components/Page/Home/Dashboard/Dashboard";
 import Product from "../Components/Page/Product/Product";
 import ProductDetail from "../Components/Page/Product/ProductDetails"
 import AddToCart from "../Components/Page/Product/AddToCartComponent/AddToCart"
-import DispensoriesProduct from "../Components/Page/Home/Dashboard/ComponentDashboard/Dispensories/DispensoriesDetail"
+import DispensoriesProduct from "../Components/Page/Dispansires/DispansiresComponent/DispensoriesDetail"
 import Signup from "../Components/Page/Signup/Signup"
 import Login from "../Components/Page/Login/Login"
 import SignupWithEmail from "../Components/Page/Signup/SignupWithEmail"

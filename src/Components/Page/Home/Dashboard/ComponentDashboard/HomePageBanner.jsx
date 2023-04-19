@@ -2,7 +2,7 @@ import React from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import useStyles from '../../../../../../Style';
+import useStyles from '../../../../../Style';
 import styled from "styled-components";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 const HomePageBanner = () => {

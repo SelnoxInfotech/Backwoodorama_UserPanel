@@ -1,14 +1,14 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Flavour from "../../../../Delivery/Flavour/Flavour";
-import ProductCategorySlider from "../../../../Product/ProductCategorySlider";
-import useStyles from "../../../../../../Style"
+import Flavour from "../../Delivery/Flavour/Flavour";
+import ProductCategorySlider from "../../Product/ProductCategorySlider";
+import useStyles from "../../../../Style"
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-import ProductFilter from "../../../../Product/ProductFilter";
-import ProductList from "../../../../Product/ProductList";
+import ProductFilter from "../../Product/ProductFilter";
+import ProductList from "../../Product/ProductList";
 import { BsLayoutSplit } from "react-icons/bs"
 import SearchBar from '@mkyy/mui-search-bar';
 import { MdOutlineBrandingWatermark } from "react-icons/md"

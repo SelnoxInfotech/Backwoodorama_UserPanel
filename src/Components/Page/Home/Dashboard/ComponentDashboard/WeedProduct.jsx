@@ -6,7 +6,7 @@ import { MdOutlineShoppingCart } from "react-icons/md"
 import LoadingButton from '@mui/lab/LoadingButton';
 import styled from "styled-components";
 import Box from '@mui/material/Box';
-import useStyles from "../../../../../../Style"
+import useStyles from "../../../../../Style"
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
