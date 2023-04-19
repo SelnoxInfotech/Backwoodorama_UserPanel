@@ -5,12 +5,13 @@ import Box from '@mui/material/Box';
 import SearchBar from '@mkyy/mui-search-bar';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 const DispensoriesOpenResult = () => {
-    const classes = useStyles()
-    const DispensoriesArray = [{ img_url: "./image/logo2.png", head: "Canna Cabana", subHead: "Recreational" },
-    { img_url: "./image/logo.webp", head: "Canna Cabana", subHead: "Recreational" },
-    { img_url: "./image/latest_img.png", head: "Canna Cabana", subHead: "Recreational" },
-    { img_url: "./image/logo.webp", head: "Canna Cabana", subHead: "Recreational" },
-    { img_url: "./image/logo.webp", head: "Canna Cabana", subHead: "Recreational" },
+    const classes=useStyles()
+    const DispensoriesArray = [{ img_url: "./image/logo2.png", head: "Canna Cabana", subHead: "Recreational" }, 
+    { img_url: "/image/logo.webp", head: "Canna Cabana", subHead: "Recreational" },
+    { img_url: "/image/latest_img.png", head: "Canna Cabana", subHead: "Recreational" },
+    { img_url: "/image/logo.webp", head: "Canna Cabana", subHead: "Recreational" },
+    { img_url: "/image/logo.webp", head: "Canna Cabana", subHead: "Recreational" },
+  
 
 
 

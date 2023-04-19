@@ -3,13 +3,12 @@ import googleMapStyles from "./MapStyle"
 
 
 export function MapContainer(props) {
- 
   const locations = [
     { latitude: 40.712776, longitude: -74.005974, name: 'First Marker' },
     { latitude: 47.5524675, longitude: -122.0425407, name: 'First Marker' }]
     
   const displayMarkers = () => {
-    console.log(googleMapStyles.light)
+
     return locations.map((store, index) => {
       return (<Marker key={index} id={index}
 
@@ -24,6 +23,13 @@ export function MapContainer(props) {
     })
   }
 
+   function _mapLoaded(mapProps, map) {
+      map.setOptions({
+         styles:props.Theme
+      });
+   }
+  
+
   return (
 
     <div className='container-fluid'>
@@ -35,10 +41,9 @@ export function MapContainer(props) {
             google={window.google}
             mapTypeId= "google.maps.MapTypeId.ROADMAP"
             zoom={14}
-            initialCenter={{ lat: 40.712776, lng: -74.005974 }}
             streetViewControl= {true}
             fullscreenControl= {false}
-            options={{ styles :googleMapStyles.light }}
+            onReady={(mapProps, map) => _mapLoaded(mapProps, map)}
           >
             {displayMarkers()}
           </Map>

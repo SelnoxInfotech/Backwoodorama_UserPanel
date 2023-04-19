@@ -7,6 +7,7 @@ import CommunityType from "./ComponentDashboard/Community/CommunityType";
 import Footer from "../../../Component/Footer/Footer";
 import HomePageBanner from "./ComponentDashboard/Banner/HomePageBanner"
 // import Flavour from "../../Delivery/Flavour/Flavour";
+import light  from "../../../Component/Map/MapStyle"
 export default function Dashboard() {
 
     return (
@@ -15,7 +16,7 @@ export default function Dashboard() {
             <CategoryProduct></CategoryProduct>
             <DispensoriesAddress></DispensoriesAddress>
             <div  className="col-12 mt-5" style={{ height: '250px'  }}>
-                <Map height={"300px"} ></Map>
+                <Map height={"300px"}  ></Map>
             </div>
              <WeedProduct></WeedProduct>
             <LatestServices></LatestServices>

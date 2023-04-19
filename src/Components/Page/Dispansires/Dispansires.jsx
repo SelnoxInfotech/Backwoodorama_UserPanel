@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import useStyles from "../../../Style";
 import Map from "../../Component/Map/map"
 import DispensoriesOpenResult from "./DispansiresComponent/DispensoriesOpenResult"
+import Dispansires_MapTheme from "../../Component/Map/MapStyle"
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
 
@@ -90,7 +91,7 @@ export default function Dispansires() {
                             <DispensoriesOpenResult/>
                             </TabPanel>
                          <div style={{position: "relative" , bottom: "623px" }}>
-                         <Map height={"800px"}></Map>
+                         <Map height={"800px"} Theme={Dispansires_MapTheme.Dispansires_MapTheme}></Map>
                          </div>
                         </Box>
 
