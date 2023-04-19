@@ -78,16 +78,19 @@ export default function Dispansires() {
                             <TabPanel value={value} index={2}>
                             <DispensoriesOpenResult/>
                             </TabPanel>
-                            <TabPanel value={value} index={2}>
+                            <TabPanel value={value} index={3}>
                             <DispensoriesOpenResult/>
                             </TabPanel>
-                            <TabPanel value={value} index={2}>
+                            <TabPanel value={value} index={4}>
                             <DispensoriesOpenResult/>
                             </TabPanel>
-                            <TabPanel value={value} index={2}>
+                            <TabPanel value={value} index={5}>
                             <DispensoriesOpenResult/>
                             </TabPanel>
-                            <TabPanel value={value} index={2}>
+                            <TabPanel value={value} index={6}>
+                            <DispensoriesOpenResult/>
+                            </TabPanel>
+                            <TabPanel value={value} index={7}>
                             <DispensoriesOpenResult/>
                             </TabPanel>
                          <div style={{position: "relative" , bottom: "765px" }}>

@@ -10,9 +10,6 @@ const Footer = () => {
     const Category = [{ head: "Flower" }, { head: "CBD" }, { head: "Concentrate" }, { head: "Edible" }]
     const Legal = [{ head: "Term 7 conditions" }, { head: "Carrier" }, { head: "Privacy Policy" }]
     const More = [{ head: "Get started" }, { head: "Brand" }, { head: "Add business" }, { head: "Contact us" }]
-
-
-
     return (
         <>
             <div className="container-fluid">
@@ -21,7 +18,6 @@ const Footer = () => {
                         <div className="col-4 footer_logo_container">
                             <div className="col-12 footer_logo footer_logo_height">
                                 <LazyLoadImage className="footer_logo_image" src="/image/logo.webp" alt="image_not found" />
-
                             </div>
                             <div className="col-12 footer_logo footer_log_heading_height">
                                 <p>Build a modern and creative  website</p>
@@ -47,11 +43,7 @@ const Footer = () => {
                                                 <h5 className="fontStyle">About us</h5>
                                                 {AboutUs.map((ele, index) => {
                                                     return (
-
-
                                                         <Link to="/" key={index}><li>{ele.head}</li></Link>
-
-
                                                     )
                                                 })}
                                             </ol>
@@ -61,11 +53,7 @@ const Footer = () => {
                                                 <h5 className="fontStyle">Category</h5>
                                                 {Category.map((ele, index) => {
                                                     return (
-
                                                         <Link to="/" > <li key={index}>{ele.head}</li></Link>
-
-
-
                                                     )
                                                 })}
                                             </ol>
@@ -83,9 +71,7 @@ const Footer = () => {
 
                                                 {Legal.map((ele, index) => {
                                                     return (
-
                                                         <Link to="/" key={index}> <li>{ele.head}</li></Link>
-
                                                     )
 
                                                 })}
@@ -97,25 +83,15 @@ const Footer = () => {
                                                 <h5 className="fontStyle">More</h5>
                                                 {More.map((ele, index) => {
                                                     return (
-                                                        <>
-                                                        
-                                                                <Link to="/" key={index}> <li key="index">{ele.head}</li></Link>
-
-                                                       
-
-                                                        </>
+                                                        <Link to="/" key={index}> <li key="index">{ele.head}</li></Link>
                                                     )
 
                                                 })}
                                             </ol>
                                         </div>
-
                                     </div>
-
                                 </div>
                             </div>
-
-
                         </div>
 
 

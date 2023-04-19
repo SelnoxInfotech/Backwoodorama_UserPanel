@@ -8,6 +8,7 @@ import { IoIosNotifications } from "react-icons/io"
 import { MdOutlineShoppingCart } from "react-icons/md"
 import { Link } from "react-router-dom";
 import SearchBar from "../../Component/SearchBar"
+
 export default function DashBoardLink({ state }) {
 
   React.useEffect(() => {
@@ -30,7 +31,7 @@ export default function DashBoardLink({ state }) {
                 <li>Deals</li>
                 <li>Learn</li>
                 <li>Strain</li>
-                <li>More</li>
+               <Link to="/"><li>Store</li></Link>
               </ul>
             </div>
           </Grid>
