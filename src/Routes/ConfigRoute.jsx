@@ -13,6 +13,7 @@ import CheckOutMainPage from "../Components/Page/Checkout/CheckoutMainPage"
 import ProtectRout from "../Routes/ProtectRout"
 import PlaceOrder from "../Components/Page/Checkout/PlaceOrder"
 import OpenDispansires from "../Components/Page/Dispansires/Dispansires"
+import StoreDetail from "../Components/Page/StoreDetail/StoreDetail"
 const routesConfig = [
   
       {
@@ -76,6 +77,11 @@ const routesConfig = [
           {
             path:"/Dispansires",
             element:<OpenDispansires/>
+          }
+          ,
+          {
+            path:"/StoreDetail",
+            element:<StoreDetail/>
           }
         ],
       },
