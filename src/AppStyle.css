@@ -1465,6 +1465,16 @@
   flex-wrap: wrap;
   padding-left: 20px;
 }
+.footer_list ol li{
+  text-align: start;
+  list-style: none;
+  color: #183B56;
+  gap: 30px;
+}
+.footer_list_gap{
+  display: grid;
+  gap: 10px;
+}
 
 .footer_logo h5 {
   color: #31B665;
@@ -1476,6 +1486,9 @@
 .footer_logo p {
   color: #5A7184;
   font-size: 14px;
+}
+.footer_logo_container{
+  padding-left: 60px;
 }
 
 @media(max-width:800px) {
