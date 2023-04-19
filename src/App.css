@@ -343,7 +343,10 @@ display: flex;
 
 .latest_cont{
   background:#f7f8f9;
-min-height: 250px;
+/* min-height: 250px; */
+height: 380px;
+/* overflow-y: scroll;
+overflow-x: hidden; */
 border-radius: 10px;
 }
 .img_cont{

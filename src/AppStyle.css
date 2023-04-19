@@ -1431,7 +1431,7 @@
   font-size: 14px;
 }
 .footer_logo_height{
-  height: 100px;
+  height: 150px;
 }
 .footer_log_heading_height{
   height: 40px;
@@ -1463,6 +1463,7 @@
 .footer_inner_flex {
   display: flex;
   flex-wrap: wrap;
+  padding-left: 20px;
 }
 
 .footer_logo h5 {
