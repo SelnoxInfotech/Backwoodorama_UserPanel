@@ -1,11 +1,46 @@
-import {CiSearch} from "react-icons/ci"
+import { CiSearch } from "react-icons/ci"
+import { TextField } from "@material-ui/core";
+import useStyles from "../../../../Style"
+import InputAdornment from '@material-ui/core/InputAdornment';
+import { BsSearch } from "react-icons/bs"
+import {IoLocationSharp} from "react-icons/io5"
 const SearchBar = () => {
+    const classes = useStyles()
     return (
         <>
-            <div className=" nav_search_bar_div ">
-               <input type="text" placeholder="Products Brands Retailers and more" className="SearchBar"/>
-                {/* <div className="vertical_div"></div> */}
-               <input className="sec_input_search SearchBar" type="text" placeholder="location" />
+            <div className="col_Search">
+                <div className=" nav_search_bar_div ">
+
+                    <TextField
+                     size="small" 
+                     type="text" variant="outlined"
+                     placeholder="Products Brands Retailers and more"
+                      className={`SearchBar nav_search_bar_div ${classes.SearchBar_Text}`} 
+                      InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <BsSearch color="gray" /> 
+                            </InputAdornment>
+                        ),
+                    }}
+                      />
+                    <div id="Boder_left"></div>
+                    <TextField 
+                    size="small" 
+                    variant="outlined"
+                     className={`sec_input_search SearchBar ${classes.SearchBar_Text}` } 
+                     type="text" 
+                     placeholder="location" 
+                     InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <IoLocationSharp  color="gray" size={18}/> 
+                            </InputAdornment>
+                        ),
+                    }}
+                     />
+
+                </div>
             </div>
         </>
     )

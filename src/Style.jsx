@@ -1,5 +1,16 @@
 import { makeStyles } from '@mui/styles';
 const useStyles = makeStyles({
+  SearchBar_Text:{
+    "& .MuiOutlinedInput-notchedOutline":{
+      border: "0px",
+      paddingTop: '8.5px'
+
+    }
+    ,
+    "& .MuiInputBase-input":{
+      height:"15px"
+    }
+  },
   root: {
     background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
 
