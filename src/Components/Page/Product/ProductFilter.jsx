@@ -113,7 +113,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1 }) => {
     }
 
     return (
-        <div className="col-lg-2 col-md-10 col-sm-10  prod_cat_left_sec  center">
+        <div className="col-lg-2 col-md-12 prod_cat_left_sec  center">
 
             {ProductFilterData.map((ele, index) => {
                 const { Id, Name, Type1, Type2, Price, Icons } = ele;

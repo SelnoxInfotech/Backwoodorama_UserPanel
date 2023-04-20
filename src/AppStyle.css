@@ -492,7 +492,7 @@
 
   .prod_cat_left_sec {
     /* border: 1px solid #dee2e6; */
-    display: -webkit-inline-box;
+    display: flex;
     overflow-x: scroll;
     width: 100%;
     z-index: 1;
