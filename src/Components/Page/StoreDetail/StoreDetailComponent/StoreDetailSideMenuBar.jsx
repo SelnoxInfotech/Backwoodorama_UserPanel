@@ -10,16 +10,16 @@ import {SlSocialSpotify} from "react-icons/sl"
 import {RiSettings2Fill} from "react-icons/ri"
 import useStyles from "../../../../Style"
 const StoreDetailSideMenuBar = () => {
-    const StoreDetailSideMenubarArray = [{ icons: <HiCheckCircle />, item: "List Information" }, 
-    { icons: <FaCarAlt />, item: "StoreFront|Pickup" },
-     { icons: <GiPlainCircle />, item: "Closed" },
-     { icons: <MdAssistantNavigation />, item: "California" },
-     { icons: <BiMobileAlt />, item: "+916392004333" },
-     { icons: <FiPlus />, item: "Medical" },
-     { icons: <MdEmail />, item: "Email" },
-     { icons: <CgGlobeAlt />, item: "Website" },
-     { icons: <SlSocialSpotify />, item: "Social Media" },
-     { icons: <RiSettings2Fill />, item: "Support" },
+    const StoreDetailSideMenubarArray = [{ icons: <HiCheckCircle />, item: "List Information" ,color:"#000000"}, 
+    { icons: <FaCarAlt />, item: "StoreFront|Pickup",color:"#000000" },
+     { icons: <GiPlainCircle />, item: "Closed" ,color:"#000000"},
+     { icons: <MdAssistantNavigation />, item: "California",color:"#000000" },
+     { icons: <BiMobileAlt />, item: "+916392004333" ,color:"#000000"},
+     { icons: <FiPlus />, item: "Medical" ,color:"#000000"},
+     { icons: <MdEmail />, item: "Email",color:"#000000" },
+     { icons: <CgGlobeAlt />, item: "Website",color:"#000000" },
+     { icons: <SlSocialSpotify />, item: "Social Media" ,color:"#000000"},
+     { icons: <RiSettings2Fill />, item: "Support" ,color:"#000000"},
     ]
     const classes=useStyles()
     return (
@@ -33,9 +33,9 @@ const StoreDetailSideMenuBar = () => {
 
                     {StoreDetailSideMenubarArray.map((ele, index) => {
                         return (
-                            <li>
+                            <li key={index}>
                                 <div className="Store_detail_list">
-                                <p>{ele.icons}</p>
+                                <p style={{color:ele.color}}>{ele.icons}</p>
                                 <p>{ele.item}</p>
                                 </div>
 

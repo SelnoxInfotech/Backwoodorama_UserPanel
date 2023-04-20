@@ -2128,43 +2128,28 @@
 
 /* ends */
 /* amenities */
-.amenities_list {
-  display: flex;
-  flex-direction: row;
-  list-style: none;
-  color: #828282;
-  justify-content: space-between;
-}
+
 
 .amenities_container {
-  height: 100px;
+  height: 120px;
   background-color: #F6F6F6;
 
 }
-
+.amenties_paragrap{
+  height:28px;
+}
 .amenties_paragrap p {
   color: #000000;
-  margin-left: 30px;
+  margin-left: 40px;
 }
 
 .amenities_list_item_paragrap {
   margin-top: -13px;
 }
 
-@media(max-width:688px) {
-  .amenities_container {
-    overflow-y: hidden;
-    overflow-x: scroll;
-  }
 
-  .amenities_list {
-    gap: 45px;
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    color: #828282;
-    overflow-x: scroll;
-  }
+.amenties_list_items{
+  min-width: 12%;
 }
 
 .amenities_link {
@@ -2172,8 +2157,25 @@
 }
 
 .ameitiesList_container_height {
-  height: 60px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
 }
+.amenities_list{
+  display: flex;
+  list-style: none;
+  color: #828282;
+  gap: 3%;
+  width:100%;
+  align-items:center;
+
+}
+@media(max-width:688px) {
+  .ameitiesList_container_height{
+    overflow-y: hidden;
+    overflow-x: scroll;
+  }
+  }
 
 /* end */
 /* storeDetailSideMenuBar*/
@@ -2189,11 +2191,12 @@
 }
 .store_detail_order_list {
   display: flex;
-  gap: 11%;
+  gap: 7%;
   list-style: none;
   color: #828282;
-  margin-top: 10px;
   width: 80%;
+  align-items: center;
+  height: 100%;
 }
 
 .StoreDetailMenuItem_container {
@@ -2223,12 +2226,12 @@
   font-weight: 400;
 }
 .store_detail_SideMenuBar_order_list{
+  width: 100%;
   display: block;
   gap: 20%;
   list-style: none;
   color: #828282;
   margin-top: 10px;
-  width: 80%;
 }
 .Store_detail_list{
   display: flex;
@@ -2248,3 +2251,21 @@
  font-size: 20px;
 }
 /* end */
+
+.StoreDetail_paragraph p{
+  color: #000000;
+ font-size: 20px;
+
+}
+.store_middle_content_top{
+  height: 40px;
+}
+.store_content_middle_Content{
+  height: 150px;
+  /* border: 1px solid red; */
+}
+.storeDetails p{
+  color: #000000;
+  font-size: 16px;
+
+}

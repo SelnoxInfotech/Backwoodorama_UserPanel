@@ -7,7 +7,7 @@ import {MdOutlineImageSearch} from "react-icons/md"
 import {Link} from "react-router-dom"
 const Amenities = () => {
     const AmmenitiesArray = [{ item: "Accessible" ,icon:<MdOutlineNotAccessible/>,color:"#000000"}, 
-    { item: "age" ,icon:<MdOutlineImageSearch/>,color:"#000000"}, { item: "CurbsidePickup",icon:<BsFillCarFrontFill/>,color:"#000000" },
+    { item: "age" ,icon:<MdOutlineImageSearch/>,color:"#000000"}, { item: "Curbside Pickup",icon:<BsFillCarFrontFill/>,color:"#000000" },
     { item: "Medical",icon:<AiOutlinePlus/> ,color:"#000000"}, { item: "Security" ,icon:<MdSecurity/>,color:"#000000"}, { item: "Brand verify",icon:<SiBrandfolder/>,color:"#000000" }]
     return (
         <>
@@ -23,10 +23,11 @@ const Amenities = () => {
                         <div className="row">
                             <div className="col-lg-12 col-md-12 col-sm-12 col-12 ameitiesList_container_height">
                                 <ol className="amenities_list">
+                                    
                                     {AmmenitiesArray.map((ele, index) => {
                                         return (
                                             <Link to="#/" key={index} className="amenities_link">
-                                            <li>
+                                            <li className="amenties_list_items">
                                                 <p style={{color:ele.color}}>{ele.icon}</p>
                                                 <p className="amenities_list_item_paragrap listfontStyle">
                                                 {ele.item}
