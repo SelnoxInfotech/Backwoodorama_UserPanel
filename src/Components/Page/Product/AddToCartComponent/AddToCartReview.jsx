@@ -22,18 +22,16 @@ const AddToCartReview = ({ SetTotal, Total }) => {
             JSON.parse(items)?.map((value) => {
                 if (value.Price_index.length === 0) {
                     value.Prices.map((Pricevalue) => {
-                        var JsonObject = JSON.parse(JSON.stringify(Pricevalue))
-                        var jsondata = JSON.parse(JsonObject.Price)
-                        SetTotal(Total => [...Total, { Price: jsondata[0]?.Price * value.Product_Quantity, Id: value.Product_id, Amount: jsondata[0]?.Price }])
+                      
+                        SetTotal(Total => [...Total, { Price: Pricevalue[0]?.SalePrice * value.Product_Quantity, Id: value.Product_id, Amount: Pricevalue[0]?.SalePrice }])
                     })
                 }
                 else {
                     value.Prices.map((Pricevalue) => {
-                        var JsonObject = JSON.parse(JSON.stringify(Pricevalue))
-                        var jsondata = JSON.parse(JsonObject.Price)
-                        jsondata.map((da) => {
+                
+                        Pricevalue?.Price?.map((da) => {
                             if (da.id === value.Price_index[0].Item_id)
-                                SetTotal(Total => [...Total, { Price: da?.Price * value.Product_Quantity, Id: value.Product_id, Amount: da?.Price }])
+                                SetTotal(Total => [...Total, { Price: da?.SalePrice * value.Product_Quantity, Id: value.Product_id, Amount: da?.SalePrice }])
                         })
 
 
@@ -145,20 +143,25 @@ const AddToCartReview = ({ SetTotal, Total }) => {
                                     </div>
                                     <div className="col-12 fontStyle  add_prod_para_margin d-flex">
                                         {ele?.Prices.map((ele1, index) => {
-                                            var JsonObject = JSON.parse(JSON.stringify(ele1))
-                                            var jsondata = JSON.parse(JsonObject.Price)
+                           
+                                
                                             if (ele.Price_index?.length === 0) {
                                                 return (
 
-                                                    <span className="add_prod_span_amount fontStyle" key={index}>${jsondata[0].Price}</span>
+                                                    <span className="add_prod_span_amount fontStyle" key={index}>${ele1.Price[0].SalePrice}</span>
                                                 )
                                             }
                                             else {
-                                                const d = jsondata?.find((PriceSelect) => {
+                                                const d = ele1?.Price?.find((PriceSelect) => {
                                                     return (PriceSelect.id === ele.Price_index[0].Item_id) && PriceSelect.Price
                                                 })
-
-                                                return (<span className="add_prod_span_amount fontStyle" key={index}>${d.Price}</span>
+                                                
+                                                return (
+                                                <span className="add_prod_span_amount fontStyle" key={index}>
+                                                    
+                                                    ${d.SalePrice}
+                                                
+                                                </span>
                                                 )
                                             }
                                         })
@@ -195,27 +198,27 @@ const AddToCartReview = ({ SetTotal, Total }) => {
                                     <div className="col-10 fontStyle Add_prod_cart_amount_right_side   d-flex">
                                         {ele?.Prices.map((ele1, index) => {
                                             // console.log(document.getElementById(ele1.id))
-                                            var JsonObject = JSON.parse(JSON.stringify(ele1))
-                                            var jsondata = JSON.parse(JsonObject.Price)
+                                            // var JsonObject = JSON.parse(JSON.stringify(ele1))
+                                            // var jsondata = JSON.parse(JsonObject.Price)
                                             if (ele.Price_index?.length === 0) {
                                                 // SetTotal((Total) => { [...Total, jsondata[0].Price * ele.Product_Quantity] })
 
                                                 return (
 
                                                     <div key={index} >
-                                                        <p> Amount</p>  <span className="add_prod_span_amount fontStyle Amount" id={ele1.id} value={jsondata[0].Price * ele.Product_Quantity} ref={count} >{jsondata[0].Price * ele.Product_Quantity}</span>
+                                                        <p> Amount</p>  <span className="add_prod_span_amount fontStyle Amount" id={ele1.id} value={ele1.Price[0].SalePrice * ele.Product_Quantity} ref={count} >{ele1.Price[0].SalePrice * ele.Product_Quantity}</span>
                                                     </div>
                                                 )
                                             }
                                             else {
-                                                const d = jsondata?.find((PriceSelect) => {
+                                                const d = ele1.Price?.find((PriceSelect) => {
                                                     return (PriceSelect.id === ele.Price_index[0].Item_id) && PriceSelect.Price
                                                 })
                                                 return (
 
                                                     < div key={index} >
 
-                                                        <p> Amount</p> <span className="add_prod_span_amount Amount fontStyle" id={ele1.id}  value={d.Price * ele.Product_Quantity} ref={count1}>{d.Price * ele.Product_Quantity}</span>
+                                                        <p> Amount</p> <span className="add_prod_span_amount Amount fontStyle" id={ele1.id}  value={d.SalePrice * ele.Product_Quantity} ref={count1}>{d.SalePrice * ele.Product_Quantity}</span>
                                                     </div>
                                                 )
 

@@ -171,10 +171,8 @@ const ProductList = ({ arr }) => {
                                 </div>
                                 <div className="col-12   prod_cat_cont_btn px-2">
                                     {ele.Prices?.map((ele1, index) => {
-                                        var JsonObject = JSON.parse(JSON.stringify(ele1))
-                                        var jsondata = JSON.parse(JsonObject.Price)
                                         return (
-                                            jsondata.map((data, index) => {
+                                            ele1.Price?.map((data, index) => {
                                                 let s = false
                                                 if (Price.length === 0) {
 
@@ -201,7 +199,7 @@ const ProductList = ({ arr }) => {
                                                             className={"prod_cat_btns " + (s ? "active" : "")}
                                                             value={data.id} onClick={() => PriceSelect(ele.id, data.id)} >
                                                             {data.Weight || data.Unit}
-                                                            <p className="rs">{data.Price}$</p>
+                                                            <p className="rs">{data.SalePrice}$</p>
                                                         </section>
                                                     </div>
                                                 )
