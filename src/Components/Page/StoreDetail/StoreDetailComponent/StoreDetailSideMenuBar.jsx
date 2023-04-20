@@ -34,7 +34,7 @@ const StoreDetailSideMenuBar = () => {
                     {StoreDetailSideMenubarArray.map((ele, index) => {
                         return (
                             <li key={index}>
-                                <div className="Store_detail_list">
+                                <div className=" Store_detail_list">
                                 <p style={{color:ele.color}}>{ele.icons}</p>
                                 <p>{ele.item}</p>
                                 </div>
