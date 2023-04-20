@@ -12,7 +12,7 @@ const StoreDetailMenuItem = () => {
                         <ol className="store_detail_order_list">
                             {StoreDetailMenuItem.map((ele, index) => {
                                 return (
-                                    <li className="listfontStyle" style={{color:ele.color}} key={index}>{ele.item}</li>
+                                    <li className="listfontStyle store_detail_list" style={{color:ele.color}} key={index}><span>{ele.item}</span></li>
                                 )
                             })}
                         </ol>

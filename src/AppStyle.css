@@ -2184,9 +2184,12 @@
 
 /* end */
 /* StoreDetailMenuItem */
+.store_detail_list{
+  min-width: 90px;
+}
 .store_detail_order_list {
   display: flex;
-  gap: 20%;
+  gap: 11%;
   list-style: none;
   color: #828282;
   margin-top: 10px;
@@ -2196,6 +2199,8 @@
 .StoreDetailMenuItem_container {
   height: 50px;
   background-color: #F6F6F6;
+  display: flex;
+  justify-content: center;
 }
 
 @media(max-width:688px) {
