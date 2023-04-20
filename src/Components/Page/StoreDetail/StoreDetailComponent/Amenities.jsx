@@ -28,10 +28,12 @@ const Amenities = () => {
                                         return (
                                             <Link to="#/" key={index} className="amenities_link">
                                             <li className="amenties_list_items">
-                                                <p style={{color:ele.color}}>{ele.icon}</p>
+                                              <div>
+                                              <p style={{color:ele.color}}>{ele.icon}</p>
                                                 <p className="amenities_list_item_paragrap listfontStyle">
                                                 {ele.item}
                                                 </p>
+                                              </div>
                                                 
                                                 </li>
                                             </Link>

@@ -2174,6 +2174,8 @@
   .ameitiesList_container_height{
     overflow-y: hidden;
     overflow-x: scroll;
+    background-color: #31B665;
+
   }
   }
 
