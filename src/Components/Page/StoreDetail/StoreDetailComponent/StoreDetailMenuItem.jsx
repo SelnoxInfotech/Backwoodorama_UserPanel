@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom"
+
 const StoreDetailMenuItem = () => {
 
     const StoreDetailMenuItem = [{ item: "Menu",color:"#31B665" }, { item: "Store Details",color:"#000000" }, { item: "Review",color:"#000000" },  { item: "Deal",color:"#000000" }, { item: "Media",color:"#000000" }]
