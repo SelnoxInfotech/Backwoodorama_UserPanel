@@ -2289,3 +2289,27 @@
   
 }
 /* end */
+/* OverAllReview */
+.left_circularbar{
+  height: 250px;
+}
+.right_horizontal_bar{
+  height: 250px;
+}
+.progress_bar_height{
+ height:13px
+}
+/* end */
+/* OverAllProgress */
+/* .overall_progressContainer{
+  height: 18px;
+  width:100%;
+  background-color:#e0e0de;
+  border-radius: 10px;
+  margin:10px;
+} */
+.overall_flex{
+  display: flex;
+  gap: 10px;
+}
+/* end */
