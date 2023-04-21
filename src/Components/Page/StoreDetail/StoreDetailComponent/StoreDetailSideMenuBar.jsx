@@ -25,19 +25,33 @@ const StoreDetailSideMenuBar = () => {
     return (
         <div className="col-lg-2 storeDetail_container">
             <div className="row">
+                <div className="col-12 center">
+                <p className="fontStyle store_detail_menu_heading">Mr nice guys DC</p>
+
+                </div>
+
+            </div>
+            <div className="row">
              
-                <div className="row">
                     <div className="col-lg-12">
+
                     <ol  className="store_detail_SideMenuBar_order_list">
-                    <p className="fontStyle store_detail_menu_heading">Mr nice guys DC</p>
 
                     {StoreDetailSideMenubarArray.map((ele, index) => {
                         return (
-                            <li key={index}>
-                                <div className=" Store_detail_list">
-                                <p style={{color:ele.color}}>{ele.icons}</p>
-                                <p>{ele.item}</p>
+                            <li className="StoreDetailSidemenuBarList" key={index}>
+                                <div className="row">
+                                    <div className="col-2">
+                                    <p style={{color:ele.color}}>{ele.icons}</p>
+
+                                    </div>
+                                    <div className="col-10">
+                                    <p>{ele.item}</p>
+
+                                    </div>
+
                                 </div>
+                               
 
                             </li>
                         )
@@ -45,7 +59,6 @@ const StoreDetailSideMenuBar = () => {
                 </ol>
                     </div>
 
-                </div>
              
 
             </div>
