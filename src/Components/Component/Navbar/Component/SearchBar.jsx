@@ -12,6 +12,7 @@ const SearchBar = () => {
                 <div className=" nav_search_bar_div ">
 
                     <TextField
+                    style={{ borderRadius:" 16px 0px 0px 16px"}}
                      size="small" 
                      type="text" variant="outlined"
                      placeholder="Products Brands Retailers and more"
@@ -24,8 +25,9 @@ const SearchBar = () => {
                         ),
                     }}
                       />
-                    <div id="Boder_left"></div>
+                    <div id="Boder_left" className="mt-1"></div>
                     <TextField 
+                    style={{borderRadius: "0px 16px 16px 0px"}}
                     size="small" 
                     variant="outlined"
                      className={`sec_input_search SearchBar ${classes.SearchBar_Text}` } 
