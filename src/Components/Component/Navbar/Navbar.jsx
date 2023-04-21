@@ -84,9 +84,9 @@ const Navbar = () => {
           </Grid>
           <Grid xs={10} md={2} xl={2} display={{ xs: "block", md: "none", lg: "none" }} >
             <div className=' col-12 Login_Sigup_button  Heder_icon '>
-              <AiFillHeart size={30}></AiFillHeart>
-              <IoIosNotifications size={30}></IoIosNotifications>
-              <Link to="/AddToCart">  <MdOutlineShoppingCart size={30}></MdOutlineShoppingCart></Link>
+              <AiFillHeart size={22}></AiFillHeart>
+              <IoIosNotifications size={22}></IoIosNotifications>
+              <Link to="/AddToCart">  <MdOutlineShoppingCart size={22}></MdOutlineShoppingCart></Link>
               <div className="border SliderLink_CartCount_div" >
                 {state.CartCount}
               </div>

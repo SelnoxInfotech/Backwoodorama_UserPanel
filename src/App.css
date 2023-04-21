@@ -141,7 +141,6 @@ a{
   background: rgb(238, 238, 238);
 }
 #Boder_left{  
-  height: 75%;
     border-left: 1px solid gray;
 
 }
@@ -269,6 +268,8 @@ display: flex;
 }
 
 .openbtn{
+  height: 25px;
+  width: 27px;
   background-color: transparent;
   color: #00b96a;
   border: 1px solid #00b96a;
@@ -286,18 +287,6 @@ display: flex;
   margin-top: 50px;
 }
 /* weedCArd */
-
-
-
-
-
-
-
-
-
-
-
-
 /* end */
 
 [data-reactroot]{

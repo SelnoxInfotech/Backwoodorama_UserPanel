@@ -4,6 +4,7 @@ import { FiChevronLeft } from "react-icons/fi"
 import useStyles from "../../../Style"
 import Axios from "axios"
 import _ from "lodash"
+import { FormControl, Grid, Menu, MenuItem, Select } from "@mui/material"
 const ProductFilter = ({ ProductFilterData, Setarr1 }) => {
     const classes = useStyles()
     const [OpenEvent, SetOpenEvent] = React.useState(null);
@@ -48,13 +49,12 @@ const ProductFilter = ({ ProductFilterData, Setarr1 }) => {
 
         }
         else if (Name === "Strain") {
-          console.log("ddd")
-          SetFilter ([{ id :"None"  , name: "None",  },{ id :"Indica" , name: "Indica",  },{ id :"Sativa" , name: "Sativa",  },{ id :"hybrid" , name: "hybrid",  },{ id :"CBD" , name: "CBD",}])
+            SetFilter([{ id: "N", name: "None", }, { id: "I", name: "Indica", }, { id: "Sativa", name: "Sativa", }, { id: "hybrid", name: "hybrid", }, { id: "CBD", name: "CBD", }])
 
-        } 
+        }
 
 
-      
+
 
     }
     function Category_Drop(id, name) {
@@ -81,17 +81,17 @@ const ProductFilter = ({ ProductFilterData, Setarr1 }) => {
             Axios(`http://52.3.255.128:8000/UserPanel/Get-ProductbyBrand/${id}`, {
 
 
-        }).then(response => {
-            console.log(response.data.data)
-            Setarr1(response.data)
+            }).then(response => {
+                console.log(response.data.data)
+                Setarr1(response.data)
 
 
 
 
-        }).catch(
-            function (error) {
+            }).catch(
+                function (error) {
 
-            })
+                })
         }
 
     }
@@ -113,10 +113,11 @@ const ProductFilter = ({ ProductFilterData, Setarr1 }) => {
     }
 
     return (
-        <div className="col-lg-2 col-md-12 prod_cat_left_sec  center">
+
+        <div className="col-lg-2 col-md-12  prod_cat_left_sec  center">
 
             {ProductFilterData.map((ele, index) => {
-                const { Id, Name, Type1, Type2, Price, Icons } = ele;
+                const { Id, Name, Icons } = ele;
                 return (
                     <div key={index}>
                         <div className="col-12 d-flex prodCat_gap product_category_border " onClick={() => HandleOpenEvent(Id, Name)}>
@@ -139,35 +140,38 @@ const ProductFilter = ({ ProductFilterData, Setarr1 }) => {
                         {(Id === OpenEvent) ?
                             (
 
-                                <div className="col-12 product_category_border product_category_dropdown" id="Related_Brand_Data" >
+                                <div className="col-xl-10 col-xs-4 product_category_border product_category_dropdown" id="Related_Brand_Data" >
 
                                     {
                                         Filter?.map((data) => {
                                             return (
                                                 <div>
                                                     <div className="col-10 px-2 ">
-                                                        <p onClick={() => { Category_Drop(data.id, ele.Name , ) }}>{data.name}</p>
+                                                        <p onClick={() => { Category_Drop(data.id, ele.Name,) }}>{data.name}</p>
                                                     </div>
                                                     {
                                                         SubCategory?.map((SubCategory) => {
-                                                            if (SubCategory.category_id === data.id) {
-                                                                return (
-                                                                    <div className="col-10 px-2 py-0 " style={{ left: "33px", position: "relative" }} >
-                                                                        <p onClick={() => { FilterSubCategorydata(SubCategory.id) }}>{SubCategory.name}</p>
+                                                            return (
+                                                                SubCategory.category_id === data.id
+                                                                &&
+                                                                <div className="col-10 px-2 py-0 " style={{ left: "33px", position: "relative" }} >
+                                                                    <p onClick={() => { FilterSubCategorydata(SubCategory.id) }}>{SubCategory.name}</p>
 
-                                                                    </div>
-                                                                )
-                                                            }
-
+                                                                </div>
+                                                            )
 
                                                         })
                                                     }
+
                                                 </div>
 
                                             )
                                         })
                                     }
+
                                 </div>
+
+
 
                             )
                             :
@@ -178,9 +182,32 @@ const ProductFilter = ({ ProductFilterData, Setarr1 }) => {
 
 
             })}
+            <Grid display={{ xs: "block", md: "none", lg: "none" }}>
 
+                <FormControl sx={{ width:"150px"  , fontSize:5 }}>
+                    <Select
+                        // value={Product}
+                        // onChange={handleChange}
+                        inputProps={{ 'aria-label': 'Without label' }}
+                        size="small"
+                    >
+                        <MenuItem value="" disabled>
+                            Sort by
+                        </MenuItem>
+                        <MenuItem value={"Sort by A to Z"} >Sort by A to Z</MenuItem>
+                        <MenuItem value={"Sort by Z to A"} >Sort by Z to A</MenuItem>
+                        <MenuItem value={"Price low to high"}>Price low to high</MenuItem>
+                        <MenuItem value={"Price hight to low"}>Price hight to low</MenuItem>
+                    </Select>
+                </FormControl>
+
+
+            </Grid>
 
         </div>
+
+
     )
+
 }
 export default ProductFilter

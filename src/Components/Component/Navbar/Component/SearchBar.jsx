@@ -25,7 +25,7 @@ const SearchBar = () => {
                         ),
                     }}
                       />
-                    <div id="Boder_left" className="mt-1"></div>
+                    <div id="Boder_left"></div>
                     <TextField 
                     style={{borderRadius: "0px 16px 16px 0px"}}
                     size="small" 

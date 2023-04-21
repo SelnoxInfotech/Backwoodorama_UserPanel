@@ -18,6 +18,7 @@ import Select from '@mui/material/Select';
 import ProductCategorySlider from "./ProductCategorySlider"
 import _ from "lodash"
 import Createcontext from "../../../Hooks/Context"
+import { Grid } from "@mui/material"
 const Product = () => {
     const { dispatch } = React.useContext(Createcontext)
     const [Searchvalue, setSearchvalue] = React.useState()
@@ -143,7 +144,7 @@ const Product = () => {
 
                 </div>
 
-                <div className="row center  mt-2 p-2">
+                <div className="row center  mt-2 p-2" >
                     <div className="col-12 mt-4 product_search_and_select">
                         <div className="col-2 product_search_bar">
                             <SearchBar
@@ -156,43 +157,42 @@ const Product = () => {
 
                         </div>
                         <div className="col-10 product_select">
-                            <FormControl sx={{ m: 1, minWidth: 120 }}>
-                                <Select
-                                    value={Product}
-                                    onChange={handleChange}
-                                    displayEmpty
-                                    inputProps={{ 'aria-label': 'Without label' }}
-                                    size="small"
-                                >
-                                    <MenuItem value="" disabled>
-                                        Sort by
-                                    </MenuItem>
-                                    <MenuItem value={"Sort by A to Z"} onClick={SearchA2Z}>
-                                        Sort by A to Z
-                                    </MenuItem>
-                                    <MenuItem value={"Sort by Z to A"} onClick={SearchZ2A}>Sort by Z to A</MenuItem>
-                                    <MenuItem value={"Price low to high"}>Price low to high</MenuItem>
-                                    <MenuItem value={"Price hight to low"}>Price hight to low</MenuItem>
-                                </Select>
-                            </FormControl>
+                            <Grid display={{ xs: "none", md: "contents", lg: "contents" }}>
+                                <FormControl sx={{ width:"150px" }}>
+                                    <Select
+                                        value={Product}
+                                        onChange={handleChange}
+                                        displayEmpty
+                                        inputProps={{ 'aria-label': 'Without label' }}
+                                        size="small"
+                                    >
+                                        <MenuItem value="" disabled>
+                                            Sort by
+                                        </MenuItem>
+                                        <MenuItem value={"Sort by A to Z"} onClick={SearchA2Z}>
+                                            Sort by A to Z
+                                        </MenuItem>
+                                        <MenuItem value={"Sort by Z to A"} onClick={SearchZ2A}>Sort by Z to A</MenuItem>
+                                        <MenuItem value={"Price low to high"}>Price low to high</MenuItem>
+                                        <MenuItem value={"Price hight to low"}>Price hight to low</MenuItem>
+                                    </Select>
+                                </FormControl>
 
+                            </Grid>
                         </div>
 
                     </div>
 
-                    <div className="col-12   productCat_cont">
-
-
-
+                    <div className="col-12  productCat_cont ">
                         <ProductFilter ProductFilterData={ProductFilterData} Setarr1={Setarr1} />
                         <div className="col-10  prod_cat_right_sec">
                             <ProductList arr={arr1} />
 
 
                         </div>
-
-
                     </div>
+
+
 
                 </div>
 
