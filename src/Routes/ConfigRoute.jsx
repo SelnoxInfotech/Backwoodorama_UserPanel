@@ -14,6 +14,7 @@ import ProtectRout from "../Routes/ProtectRout"
 import PlaceOrder from "../Components/Page/Checkout/PlaceOrder"
 import OpenDispansires from "../Components/Page/Dispansires/Dispansires"
 import StoreDetail from "../Components/Page/StoreDetail/StoreDetail"
+import Review from "../Components/Page/Review/Review";
 const routesConfig = [
   
       {
@@ -82,6 +83,10 @@ const routesConfig = [
           {
             path:"/StoreDetail",
             element:<StoreDetail/>
+          },
+          {
+            path:"/Review",
+            element:<Review/>
           }
         ],
       },
