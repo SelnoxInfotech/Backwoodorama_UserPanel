@@ -2010,6 +2010,11 @@
   overflow-y: scroll;
 
 }
+.dispensories_search_result{
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+}
 
 .despensories_card_container {
   height: 200px;
@@ -2301,15 +2306,20 @@
 }
 /* end */
 /* OverAllProgress */
-/* .overall_progressContainer{
-  height: 18px;
-  width:100%;
-  background-color:#e0e0de;
-  border-radius: 10px;
-  margin:10px;
-} */
+
 .overall_flex{
+  /* display: flex; */
+  gap: 10px; 
+    height: 40px;
+    /* margin-top: 1px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.overAll_Progress_center{
   display: flex;
-  gap: 10px;
+  justify-content: center;
+  align-items: center;
 }
 /* end */

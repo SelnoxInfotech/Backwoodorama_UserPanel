@@ -3,12 +3,12 @@ import { AiFillStar } from "react-icons/ai"
 const OverAllReview = () => {
 
     const testData = [
-        { bgcolor: "#31B665", completed: 60 },
-        { bgcolor: "#31B665", completed: 30 },
-        { bgcolor: "#31B665", completed: 53 },
-        { bgcolor: "#31B665", completed: 53 },
+        {starValue:5, bgcolor: "#31B665", completed: 60 },
+        {starValue:4, bgcolor: "#31B665", completed: 30 },
+        {starValue:3, bgcolor: "#31B665", completed: 53 },
+        { starValue:2,bgcolor: "#31B665", completed: 53 },
 
-        { bgcolor: "#31B665", completed: 53 },
+        {starValue: 1, bgcolor: "#31B665", completed: 53 },
 
     ];
     const starArray = [
@@ -40,24 +40,21 @@ const OverAllReview = () => {
                             </div>
                         </div>
                         <div className="col-8 border right_horizontal_bar">
-                            <div className="row">
-                                <div className="col-1">
-                                    {starArray.map((ele, index) => {
-                                        return (
-                                            <div className="overall_flex" key={index}>
-                                                <p>{ele.starValue}</p>
-                                                <p>{ele.starIcon}</p>
-                                            </div>
-                                        )
-                                    })}
-                                </div>
-                                <div className="col-10">
-                                    {testData.map((item, idx) => (
+                          
+                            {testData.map((item, idx) => {
+                                return (
+                                    <div className="row  mt-2">
+                                        <div className="col-1 overall_flex">
+                                           <span>{item.starValue}</span> <span><AiFillStar/></span>
+                                        </div>
+                                        <div className="col-10 overAll_Progress_center">
                                         <ProgressBar key={idx} bgcolor={item.bgcolor} completed={item.completed} />
-                                    ))}
-                                </div>
+                                            
+                                        </div>
 
-                            </div>
+                                    </div>
+                                )
+                            })}
 
                         </div>
 

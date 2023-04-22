@@ -21,7 +21,7 @@ const DispensoriesOpenResult = () => {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-lg-4 col-md-6 col-sm-12 col-12 dispensories_main_container">
-                        <div className="row">
+                        <div className="row dispensories_search_result">
                             <div className="col-12 dispensories_open_result_heading">
                                 <div className="row">
                                     <div className="col-12 dispensories_open_search_result mt-2">
