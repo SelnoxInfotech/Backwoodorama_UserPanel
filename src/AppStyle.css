@@ -2287,19 +2287,34 @@
   margin-top: 10px;
 }
 /* end */
-/* storereview */
-.store_review_container{
-  height: 400px;
+
+/* OverAllReview */
+.overall_review_container{
+  height: 295px;
   border: 1px solid #DCD9D9;
   
 }
-/* end */
-/* OverAllReview */
-.left_circularbar{
+@media(max-width:768px){
+  .overall_review_container{
+    height:600px;
+  }
+}
+.left_circularbar_heading{
+  height:30px;
+}
+.left_circularbar_container{
   height: 250px;
+}
+.left_circularbar{
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .right_horizontal_bar{
   height: 250px;
+  padding-left: 20px;
 }
 .progress_bar_height{
  height:13px
@@ -2321,5 +2336,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.overall_review_Button{
+  border-style: none;
+  color: #FFFFFF;
+  background-color: #878787;
+  border-radius: 20px;
+  font-size: 12px;
 }
 /* end */
