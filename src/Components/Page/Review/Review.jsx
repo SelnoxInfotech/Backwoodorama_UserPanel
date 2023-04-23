@@ -1,4 +1,5 @@
 import OverAllReview from "./ReviewComponent/OverAllReview"
+import RelatedReview from "./ReviewComponent/RelatedReview"
 const Review = () => {
     return (
         <>
@@ -6,13 +7,10 @@ const Review = () => {
                 <div className="row">
                     <div className="col-12">
                         <p>Store details</p>
-
                     </div>
-                   <OverAllReview/>
-
-
-
                 </div>
+                <OverAllReview />
+                <RelatedReview/>
 
 
             </div>

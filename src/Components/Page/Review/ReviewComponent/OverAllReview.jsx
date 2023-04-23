@@ -39,7 +39,7 @@ const OverAllReview = () => {
                                 </div>
                                 <div className="col-lg-12 left_circularbar">
                                     <div style={{ width: 100, height: 100 }}>
-                                        <CircularProgressbar  value={66} />
+                                        <CircularProgressbar    value={30} text="4.3"  />
                                     </div>
                                     <p>Review 102</p>
                                 </div>

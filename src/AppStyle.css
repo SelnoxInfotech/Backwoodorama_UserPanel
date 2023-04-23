@@ -2294,7 +2294,7 @@
   border: 1px solid #DCD9D9;
   
 }
-@media(max-width:768px){
+@media(max-width:750px){
   .overall_review_container{
     height:600px;
   }
@@ -2343,5 +2343,34 @@
   background-color: #878787;
   border-radius: 20px;
   font-size: 12px;
+}
+/* end */
+/* RelatedReview */
+.related_review_container{
+  height: 202px;
+}
+.related_img_container{
+  height: 160px;
+
+}
+.related_review_footer{
+  height: 40px;
+}
+.related_review_image{
+  height: 160px;
+  display: grid;
+  place-items: center;
+}
+.related_review_content{
+  height: 160px;
+
+}
+.realted_review_images{
+  height: 60px;
+  width: 60px;
+  border-radius: 30px;
+}
+.RelatedReview_TextCol_height{
+  height: 30px;
 }
 /* end */
