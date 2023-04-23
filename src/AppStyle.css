@@ -2159,6 +2159,22 @@
     overflow-x: scroll;
 
   }
+  .amenties_list_items{
+    min-width: 20%;
+  }
+  .amenities_list{
+    gap:7%;
+
+  }
+  }
+  @media(max-width:600px){
+    .amenties_list_items{
+      min-width: 25%;
+    }
+    .amenities_list{
+      gap:6%;
+  
+    }
   }
 
 /* end */
@@ -2302,6 +2318,10 @@
 .left_circularbar_heading{
   height:30px;
 }
+.left_circularbar_heading p{
+  color: #000000;
+  font-size: 20px;
+}
 .left_circularbar_container{
   height: 250px;
 }
@@ -2372,5 +2392,34 @@
 }
 .RelatedReview_TextCol_height{
   height: 30px;
+}
+.related_review_heading p{
+  font-size: 20px;
+}
+.related_review_paragraph p{
+  font-weight: 400;
+  color: #000000;
+  font-size: 16px;
+}
+.related_review_Comment p{
+  font-size: 14px;
+  color: #000000;
+  font-weight: 400;
+}
+.related_review_footer_paragraph p{
+  font-size: 12px;
+  color: black;
+  font-weight: 400;
+}
+.related_review_rate_star_flex{
+  display: flex;
+  gap: 4px;
+}
+/* end */
+/* Review */
+.Review_paragraph p{
+  color:#000000;
+  font-size: 24px;
+  
 }
 /* end */

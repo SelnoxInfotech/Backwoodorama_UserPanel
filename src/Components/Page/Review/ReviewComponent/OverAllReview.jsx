@@ -3,7 +3,11 @@ import { AiFillStar } from "react-icons/ai"
 import React from "react";
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import useStyles from "../../../../Style"
+
 const OverAllReview = () => {
+    const classes=useStyles()
+
     // const [completed, setCompleted] = React.useState(0);
 
     // React.useEffect(() => {
@@ -23,7 +27,7 @@ const OverAllReview = () => {
         <>
             <div className="row center">
 
-                <div className="col-10 overall_review_container px-2">
+                <div className="col-10 col-sm-10 overall_review_container px-2">
                     <div className="row">
                         <div className="col-12 text-end my-2">
                             <button className="overall_review_Button">Write review</button>
@@ -33,7 +37,7 @@ const OverAllReview = () => {
                     <div className="row">
                         <div className="col-lg-4 col-md-4 col-sm-12 col-12 left_circularbar_container  ">
                             <div className="row">
-                                <div className="col-12 left_circularbar_heading">
+                                <div className="col-12 left_circularbar_heading fontStyle">
                                     <p>Review</p>
 
                                 </div>
@@ -53,7 +57,7 @@ const OverAllReview = () => {
                                 return (
                                     <div className="row  mt-2">
                                         <div className="col-1 overall_flex">
-                                            <span>{item.starValue}</span> <span><AiFillStar /></span>
+                                            <span>{item.starValue}</span> <span><AiFillStar className={classes.disp_star_color}/></span>
                                         </div>
                                         <div className="col-10 overAll_Progress_center">
                                             <ProgressBar key={idx} bgcolor={item.bgcolor} completed={item.completed} />

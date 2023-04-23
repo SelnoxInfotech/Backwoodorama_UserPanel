@@ -4,8 +4,8 @@ const Review = () => {
     return (
         <>
             <div className="container-fluid">
-                <div className="row">
-                    <div className="col-12">
+                <div className="row center">
+                    <div className="col-10 fontStyle Review_paragraph">
                         <p>Store details</p>
                     </div>
                 </div>
