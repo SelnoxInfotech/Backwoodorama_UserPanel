@@ -5,7 +5,7 @@ import { AiFillStar } from "react-icons/ai";
 import useStyles from "../../../Style"
 import { Link, useNavigate } from "react-router-dom";
 import _ from "lodash";
-import Axios from "axios";
+import axios from "axios";
 import Cookies from 'universal-cookie';
 import FlyingButton from 'react-flying-item'
 import Createcontext from "../../../Hooks/Context"
@@ -89,31 +89,23 @@ const ProductList = ({ arr }) => {
 
     const Addtocard = async (Event) => {
         const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
-        const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id );
-        console.log(PriceArrry)
-            // var PriceIndex = AddData === [] ? "" : AddData;
-   
+        const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id);
+        var PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
+    
+        axios.post("http://52.3.255.128:8000/UserPanel/Add-AddtoCart/", {
+            Product_id: Event.id,
+            Store_id: Event.Store_id,
+            Image_id: Event.images[0].id,
+            Price: PriceIndex,
 
-        // const Arry = {
-        //     Product_id: Event.id,
-        //     Store_id: Event.Store_id,
-        //     Image_id: Event.images,
-        //     Price: Event.StoreName,
+          
+        }).then(response => {
+            console.log(response)
 
+        }).catch(
+            function (error) {
 
-        // }
-        // Axios("http://52.3.255.128:8000/UserPanel/CategoryOnProduct/ ", {
-        //     Arry
-
-
-        // }).then(response => {
-        //     console.log(response)
-
-        // }).catch(
-        //     function (error) {
-
-
-        //     })
+            })
     }
 
 
