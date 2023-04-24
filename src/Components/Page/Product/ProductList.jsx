@@ -181,7 +181,7 @@ const ProductList = ({ arr }) => {
         <div className="row">
             {arr.map((ele, index) => {
                 return (
-                    <div className="col-3 prod_inner_cont border"  key={index}>
+                    <div className="col-12 col-lg-3 col-md-4 col-sm-6  prod_inner_cont border"  key={index}>
 
                         {/* <div className="col-12 prod_main_cont  p-2"> */}
                         <div className="row">
@@ -197,9 +197,7 @@ const ProductList = ({ arr }) => {
                                     <button className="cat_prod_inner_btn btn1">Indica</button>
 
                                 </div>
-                                <div className="col-12">
-
-                                </div>
+                               
                             </div>
 
                             <div className="col-8 product_cat_allProduct">
@@ -238,7 +236,7 @@ const ProductList = ({ arr }) => {
                                                     })
                                                 )
                                                 return (
-                                                    <div className="col-4 col-sm-3 col-md-4 prod_cat_btn_cont mt-2 d-flex" id="" key={index} >
+                                                    <div className="col-4 col-sm-5 col-md-4 prod_cat_btn_cont mt-2 d-flex" id="" key={index} >
                                                         <section
                                                             className={"prod_cat_btns " + (s ? "active" : "")}
                                                             value={data.id} onClick={() => PriceSelect(ele.id, data.id)} >
