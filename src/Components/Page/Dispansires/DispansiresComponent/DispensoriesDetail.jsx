@@ -17,6 +17,7 @@ import { BsStripe } from "react-icons/bs"
 import { GiWeightScale } from "react-icons/gi"
 import { RiProductHuntLine } from "react-icons/ri"
 import _ from "lodash"
+import { Grid } from "@mui/material";
 export default function DispensoriesProduct() {
     const { id } = useParams();
     const classes = useStyles()
@@ -105,6 +106,7 @@ export default function DispensoriesProduct() {
 
                         </div>
                         <div className="col-10 product_select">
+                            <Grid display={{ xs: "none", md: "contents", lg: "contents" }}>
                             <FormControl sx={{ m: 1, minWidth: 120 }}>
                                 <Select
                                     value={Product}
@@ -121,7 +123,7 @@ export default function DispensoriesProduct() {
                                     <MenuItem value={"Price hight to low"}>Price hight to low</MenuItem>
                                 </Select>
                             </FormControl>
-
+                            </Grid>
                         </div>
 
                     </div>

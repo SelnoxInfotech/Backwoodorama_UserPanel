@@ -16,7 +16,6 @@ const ProductList = ({ arr }) => {
     const { state, dispatch } = React.useContext(Createcontext)
     const token_data = cookies.get('Token_access')
     const [Price, SetPrice] = React.useState([])
-    const [Item_idq, SetItem] = React.useState('')
     const [AddTOCard, SetAddToCard] = React.useState(() => {
         const saved = localStorage.getItem("items");
         const initialValue = JSON.parse(saved);
@@ -88,24 +87,29 @@ const ProductList = ({ arr }) => {
 
 
     const Addtocard = async (Event) => {
-        const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
-        const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id);
-        var PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
-    
-        axios.post("http://52.3.255.128:8000/UserPanel/Add-AddtoCart/", {
-            Product_id: Event.id,
-            Store_id: Event.Store_id,
-            Image_id: Event.images[0].id,
-            Price: PriceIndex,
 
-          
-        }).then(response => {
-            console.log(response)
+        if (token_data) {
+            const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
+            const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id);
+            var PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
 
-        }).catch(
-            function (error) {
+            axios.post("http://52.3.255.128:8000/UserPanel/Add-AddtoCart/", {
+                Product_id: Event.id,
+                Store_id: Event.Store_id,
+                Image_id: Event.images[0].id,
+                Price: PriceIndex,
+                Cart_Quantity: 1
+            }).then(response => {
+                console.log(response)
 
-            })
+            }).catch(
+                function (error) {
+
+                })
+        }
+        else {
+            
+        }
     }
 
 
@@ -143,7 +147,7 @@ const ProductList = ({ arr }) => {
         })
         SetPrice(Price => [...Price, { Product_id: Product, Item_id: Item }]);
 
-        SetItem([Product, Item])
+        // SetItem([Product, Item])
     }
 
     function Product_Details(ele) {
@@ -155,12 +159,9 @@ const ProductList = ({ arr }) => {
         <div className="row">
             {arr.map((ele, index) => {
                 return (
-                    <div className="col-4 col-lg-3 col-md-4 col-sm-5 prod_inner_cont border" key={index}>
-                        
+                    <div className="col-3 prod_inner_cont" key={index}>
 
-                        {/* <div className="col-12 prod_main_cont  p-2"> */}
-                        <div className="row">
-
+                        <div className="col-12 prod_main_cont  p-2">
                             {/* <Link to="/ProductDetail" state={{ Id: ele.id }}> */}
                             <div className="col-4 prod_cat_cont" >
                                 <div className="col-12 p-2 prod_cat_img">
@@ -176,7 +177,7 @@ const ProductList = ({ arr }) => {
 
                                 </div>
                             </div>
-                            {/* </Link> */}
+
                             <div className="col-8 product_cat_allProduct">
 
                                 <div className="col-12 px-2 prod_para_name ellipsis" style={{ marginBottom: "" }}>
