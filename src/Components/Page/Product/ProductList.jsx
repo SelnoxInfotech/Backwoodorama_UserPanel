@@ -108,7 +108,29 @@ const ProductList = ({ arr }) => {
                 })
         }
         else {
-            
+            const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
+            const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id);
+            var PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
+            const Arry = {
+                Product_id: Event.id,
+                Store_id: Event.Store_id,
+                Image_id: Event.images[0].id,
+                Price: PriceIndex,
+                Cart_Quantity: 1
+            }
+            if (AddTOCard.find((data) => { return data.Store_id === Event.Store_id })) {
+                const t = AddTOCard.filter((data) => { return data.Product_id === Event.id })
+                console.log(t)
+                if (t) {
+
+                    // SetAddToCard([...AddTOCard, Arry])
+                }
+                // console.log(AddTOCard)
+            }
+            else (
+                SetAddToCard([Arry])
+            )
+
         }
     }
 
