@@ -159,9 +159,11 @@ const ProductList = ({ arr }) => {
         <div className="row">
             {arr.map((ele, index) => {
                 return (
-                    <div className="col-3 prod_inner_cont" key={index}>
+                    <div className="col-3 prod_inner_cont border"  key={index}>
 
-                        <div className="col-12 prod_main_cont  p-2">
+                        {/* <div className="col-12 prod_main_cont  p-2"> */}
+                        <div className="row">
+
                             {/* <Link to="/ProductDetail" state={{ Id: ele.id }}> */}
                             <div className="col-4 prod_cat_cont" >
                                 <div className="col-12 p-2 prod_cat_img">
