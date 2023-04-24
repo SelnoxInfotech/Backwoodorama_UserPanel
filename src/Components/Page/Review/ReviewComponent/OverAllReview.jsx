@@ -35,7 +35,7 @@ const OverAllReview = () => {
                     
                     </div>
                     <div className="row">
-                        <div className="col-lg-4 col-md-4 col-sm-12 col-12 left_circularbar_container  ">
+                        <div className="col-lg-2 col-md-4 col-sm-12 col-12 left_circularbar_container  ">
                             <div className="row">
                                 <div className="col-12 left_circularbar_heading fontStyle">
                                     <p>Review</p>

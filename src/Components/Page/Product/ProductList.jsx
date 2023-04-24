@@ -136,12 +136,15 @@ const ProductList = ({ arr }) => {
 
     const classes = useStyles()
     return (
-        <div className="col-12  prod_cat_display">
+        <div className="row">
             {arr.map((ele, index) => {
                 return (
-                    <div className="col-3 prod_inner_cont" key={index}>
+                    <div className="col-4 col-lg-3 col-md-4 col-sm-5 prod_inner_cont border" key={index}>
+                        
 
-                        <div className="col-12 prod_main_cont  p-2">
+                        {/* <div className="col-12 prod_main_cont  p-2"> */}
+                        <div className="row">
+
                             {/* <Link to="/ProductDetail" state={{ Id: ele.id }}> */}
                                 <div className="col-4 prod_cat_cont" >
                                     <div className="col-12 p-2 prod_cat_img">
@@ -160,13 +163,13 @@ const ProductList = ({ arr }) => {
                             {/* </Link> */}
                             <div className="col-8 product_cat_allProduct">
                                
-                                <div className="col-12 px-2 prod_para_name" style={{ marginBottom: "" }}>
-                                    <p className='fontStyle common_sub_head'>{ele.Product_Name}</p>
+                                <div className="col-12 px-2 prod_para_name ellipsis" style={{ marginBottom: "" }}>
+                                    <p className='fontStyle common_sub_head '>{ele.Product_Name}</p>
                                 </div>
-                                <div className="col-12 px-2 prod_para " style={{ marginBottom: "-10px" }}>
+                                <div className="col-12 px-2 prod_para prod_sub_heading_height ellipsis">
                                     <p className='fontStyle common_sub_head'>{ele.StoreName}</p>
                                 </div>
-                                <div className="col-12 px-2 d-flex prod_para" style={{ marginBottom: "0px" }}>
+                                <div className="col-12 px-2 d-flex prod_para prod_sub_heading_height ellipsis" style={{ marginBottom: "0px" }}>
                                     <p className='fontStyle common_sub_head'>Rating</p><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons} /></span>
                                 </div>
                                 <div className="col-12   prod_cat_cont_btn px-2">
@@ -199,7 +202,7 @@ const ProductList = ({ arr }) => {
                                                             className={"prod_cat_btns " + (s ? "active" : "")}
                                                             value={data.id} onClick={() => PriceSelect(ele.id, data.id)} >
                                                             {data.Weight || data.Unit}
-                                                            <p className="rs">{data.SalePrice}$</p>
+                                                            <p className="rs">${data.SalePrice}</p>
                                                         </section>
                                                     </div>
                                                 )

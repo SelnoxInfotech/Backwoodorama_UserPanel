@@ -173,7 +173,12 @@
   display: flex;
   flex-wrap: wrap;
 }
-
+@media(max-width:600px){
+  .weed_cart_btn {
+    margin-left: 10px;
+    margin-top: 50px;
+  }
+}
 @media(max-width:480px) {
   .weed_main_Div {
     display: flex;
@@ -291,7 +296,7 @@
 .flavour_New_container {
   background: #FAFAFA;
   border: 1px solid #E7E7E7;
-  height: 240px;
+  height: 290px;
 
 }
 
@@ -385,7 +390,7 @@
 
 .product_cat_allProduct {
   width: 100% !important;
-  min-height: 268px !important;
+  height: 310px !important;
 }
 
 .prod_cat_img img {
@@ -416,6 +421,9 @@
   color: black;
   font-weight: 700;
 }
+.prod_cat_cont{
+  height: 337px;
+}
 
 .prod_cat_cont_btn {
   display: flex;
@@ -426,7 +434,7 @@
 
 .productCat_cont {
   display: flex;
-
+ margin-bottom: 50px;
 
 }
 
@@ -510,10 +518,10 @@
 }
 
 
-.prod_cat_display {
+/* .prod_cat_display {
   display: flex;
   flex-wrap: wrap;
-}
+} */
 
 .prod_p p {
   margin-left: -10px;
@@ -546,11 +554,21 @@
 }
 
 .prod_para p {
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 
 .prod_para_name {
-  min-height: 30px !important;
+  height: 38px !important;
+}
+.ellipsis {
+  text-overflow: ellipsis; /* enables ellipsis */
+  white-space: nowrap; /* keeps the text in a single line */
+  overflow: hidden; /* keeps the element from overflowing its parent */
+  /* text-overflow: ellipsis; */
+}
+
+.prod_sub_heading_height{
+  height: 30px;
 }
 
 .prod_para_name p {
@@ -562,14 +580,10 @@
 }
 
 @media(max-width:460px) {
-  .prod_cat_display {
-    display: block;
-    flex-wrap: wrap;
-    width: 100%;
-  }
+
 
   .prod_inner_cont {
-    height: 276px !important;
+    height: 355px !important;
   }
 
   .prod_cat_img img {
@@ -605,19 +619,13 @@
   }
 
 }
-@media(max-width:977px) {
-  .prod_cat_display {
-    width: 100%;
-    flex-wrap: wrap;
 
-  }
-
-}
 
 @media(max-width:960px) {
   .prod_inner_cont {
     flex: 0 0 auto;
-    min-width: 50%
+    min-width: 50%;
+    height: 664px;
       /* width: 100%; */
   }
 }
@@ -641,7 +649,7 @@
   .prod_inner_cont {
     flex: 0 0 auto;
     min-width: 100%;
-    height: 356px;
+    height: 355px;
     /* width: 100%; */
   }
 

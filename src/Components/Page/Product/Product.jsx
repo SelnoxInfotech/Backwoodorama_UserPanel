@@ -183,7 +183,8 @@ const Product = () => {
 
                     </div>
 
-                    <div className="col-12  productCat_cont ">
+                    <div className="col-12  productCat_cont">
+                    
                         <ProductFilter ProductFilterData={ProductFilterData} Setarr1={Setarr1} />
                         <div className="col-10  prod_cat_right_sec">
                             <ProductList arr={arr1} />
@@ -195,6 +196,7 @@ const Product = () => {
 
 
                 </div>
+              
 
             </div>
         </>

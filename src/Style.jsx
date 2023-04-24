@@ -205,6 +205,7 @@ open_dispensory_tab_background:{
     overflow:"scroll"
   }
 },
+
 homePage_iconsColor:{
 color:"black",
 },
@@ -217,4 +218,5 @@ footer_icons_color:{
   fontSize:"large"
 }
 });
+
 export default useStyles

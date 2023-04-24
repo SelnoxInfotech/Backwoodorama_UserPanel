@@ -4,19 +4,19 @@ import useStyles from "../../../../Style"
 import InputAdornment from '@material-ui/core/InputAdornment';
 import { BsSearch } from "react-icons/bs"
 import {IoLocationSharp} from "react-icons/io5"
+import Box from '@mui/material/Box';
 const SearchBar = () => {
     const classes = useStyles()
     return (
         <>
             <div className="col_Search">
                 <div className=" nav_search_bar_div ">
-
                     <TextField
                     style={{ borderRadius:" 16px 0px 0px 16px"}}
                      size="small" 
                      type="text" variant="outlined"
                      placeholder="Products Brands Retailers and more"
-                      className={`SearchBar nav_search_bar_div ${classes.SearchBar_Text}`} 
+                      className={`SearchBar nav_search_bar_div  ${classes.SearchBar_Text }`} 
                       InputProps={{
                         startAdornment: (
                             <InputAdornment position="start">
