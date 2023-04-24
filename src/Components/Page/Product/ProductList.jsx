@@ -3,14 +3,13 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import { AiFillStar } from "react-icons/ai";
 import useStyles from "../../../Style"
-import { Link , useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import _ from "lodash";
 import Axios from "axios";
 import Cookies from 'universal-cookie';
 import FlyingButton from 'react-flying-item'
 import Createcontext from "../../../Hooks/Context"
-import axios from "axios"
-import {AiOutlineShoppingCart} from "react-icons/ai"
+import { AiOutlineShoppingCart } from "react-icons/ai"
 const ProductList = ({ arr }) => {
     const navigation = useNavigate()
     const cookies = new Cookies();
@@ -23,76 +22,101 @@ const ProductList = ({ arr }) => {
         const initialValue = JSON.parse(saved);
         return initialValue || []
     })
-  
+
+    // const Addtocard = async (Event) => {
+    //     const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
+    //     var PriceIndex = AddData === [] ? "" : AddData;
+    //     const Arry = {
+    //         Product_id: Event.id,
+    //         Product_Name: Event.Product_Name,
+    //         Prices: Event.Prices,
+    //         Store_id: Event.Store_id,
+    //         Image: Event.images,
+    //         Price_index: PriceIndex,
+    //         StoreName: Event.StoreName,
+    //         Product_Quantity: 1,
+    //         SubTotal: state.SubTotal
+
+    //     }
+
+    //     const Status = AddTOCard.find((data) => {
+    //         if (data.Product_id === Event.id) {
+    //             return true
+    //         }
+    //         return false
+    //     })
+    //     const Store = AddTOCard.find((data) => {
+    //         if (data.Store_id === Event.Store_id) {
+    //             return true
+    //         }
+    //         return false
+    //     })
+    //     if (Store !== undefined) {
+
+    //         if (Status !== undefined) {
+    //             await SetAddToCard(AddTOCard.map((Add) => {
+    //                 if (Add.Product_id === Event.id) {
+    //                     if (AddData.length !== 0) {
+
+    //                         if (AddData[0]?.Item_id === Add.Price_index[0]?.Item_id) {
+
+    //                             return { ...Add, Product_Quantity: Add.Product_Quantity + 1 }
+    //                         }
+    //                         else {
+    //                             return { ...Add, Price_index: AddData, Product_Quantity: 1 }
+    //                         }
+    //                     }
+    //                     else {
+    //                         return { ...Add, Product_Quantity: Add.Product_Quantity + 1 }
+    //                     }
+    //                 }
+
+    //                 return Add
+    //             }))
+    //         }
+    //         else (
+    //             SetAddToCard([...AddTOCard, Arry])
+    //         )
+    //     }
+    //     else {
+    //         SetAddToCard([Arry])
+    //     }
+
+    // }
+
+
+
+
     const Addtocard = async (Event) => {
         const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
-        var PriceIndex = AddData === [] ? "" : AddData;
-        const Arry = {
-            Product_id: Event.id,
-            Product_Name: Event.Product_Name,
-            Prices: Event.Prices,
-            Store_id: Event.Store_id,
-            Image: Event.images,
-            Price_index: PriceIndex,
-            StoreName: Event.StoreName,
-            Product_Quantity: 1,
-            SubTotal: state.SubTotal
+        const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id );
+        console.log(PriceArrry)
+            // var PriceIndex = AddData === [] ? "" : AddData;
+   
 
-        }
-        
-        const Status = AddTOCard.find((data) => {
-            if (data.Product_id === Event.id) {
-                return true
-            }
-            return false
-        })
-        const Store = AddTOCard.find((data) => {
-            if (data.Store_id === Event.Store_id) {
-                return true
-            }
-            return false
-        })
-        if (Store !== undefined) {
+        // const Arry = {
+        //     Product_id: Event.id,
+        //     Store_id: Event.Store_id,
+        //     Image_id: Event.images,
+        //     Price: Event.StoreName,
 
-            if (Status !== undefined) {
-                await SetAddToCard(AddTOCard.map((Add) => {
-                    if (Add.Product_id === Event.id) {
-                        if (AddData.length !== 0) {
 
-                            if (AddData[0]?.Item_id === Add.Price_index[0]?.Item_id) {
+        // }
+        // Axios("http://52.3.255.128:8000/UserPanel/CategoryOnProduct/ ", {
+        //     Arry
 
-                                return { ...Add, Product_Quantity: Add.Product_Quantity + 1 }
-                            }
-                            else {
-                                return { ...Add, Price_index: AddData, Product_Quantity: 1 }
-                            }
-                        }
-                        else {
-                            return { ...Add, Product_Quantity: Add.Product_Quantity + 1 }
-                        }
-                    }
 
-                    return Add
-                }))
-            }
-            else (
-                SetAddToCard([...AddTOCard, Arry])
-            )
-        }
-        else {
-            SetAddToCard([Arry])
-        }
-       
-    
-    
-    
+        // }).then(response => {
+        //     console.log(response)
 
+        // }).catch(
+        //     function (error) {
+
+
+        //     })
     }
 
 
-
-
-   
     React.useEffect(() => {
 
         localStorage.setItem('items', JSON.stringify(AddTOCard))
@@ -106,14 +130,14 @@ const ProductList = ({ arr }) => {
         //     axios.post("http://52.3.255.128:8000/UserPanel/Add-AddtoCart/",
         //     a,
         //         config
-    
-    
+
+
         //     ).then(response => {
-    
-    
+
+
         //     }).catch(
         //         function (error) {
-    
+
         //         })
         //      })
         // }
@@ -130,8 +154,8 @@ const ProductList = ({ arr }) => {
         SetItem([Product, Item])
     }
 
-    function Product_Details (ele){
-        navigation ("/ProductDetail" ,{state:{ Id: ele.id }})
+    function Product_Details(ele) {
+        navigation("/ProductDetail", { state: { Id: ele.id } })
     }
 
     const classes = useStyles()
@@ -143,23 +167,23 @@ const ProductList = ({ arr }) => {
 
                         <div className="col-12 prod_main_cont  p-2">
                             {/* <Link to="/ProductDetail" state={{ Id: ele.id }}> */}
-                                <div className="col-4 prod_cat_cont" >
-                                    <div className="col-12 p-2 prod_cat_img">
-                                        <img id={ele.id} src={`http://52.3.255.128:8000/${ele.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }} />
+                            <div className="col-4 prod_cat_cont" >
+                                <div className="col-12 p-2 prod_cat_img">
+                                    <img id={ele.id} src={`http://52.3.255.128:8000/${ele.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }} />
 
-                                        <div className="col prod_img_btn prodCat_gap d-flex">
-                                            <button className="mx-2 cat_prod_inner_btn btn2">THC 70%</button>
-                                        </div>
-                                        <button className="cat_prod_inner_btn btn1">Indica</button>
-
+                                    <div className="col prod_img_btn prodCat_gap d-flex">
+                                        <button className="mx-2 cat_prod_inner_btn btn2">THC 70%</button>
                                     </div>
-                                    <div className="col-12">
+                                    <button className="cat_prod_inner_btn btn1">Indica</button>
 
-                                    </div>
                                 </div>
+                                <div className="col-12">
+
+                                </div>
+                            </div>
                             {/* </Link> */}
                             <div className="col-8 product_cat_allProduct">
-                               
+
                                 <div className="col-12 px-2 prod_para_name" style={{ marginBottom: "" }}>
                                     <p className='fontStyle common_sub_head'>{ele.Product_Name}</p>
                                 </div>
@@ -214,10 +238,10 @@ const ProductList = ({ arr }) => {
                                         className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
                                         style={{ width: "93%" }}
                                     >
-                                        
+
                                         <FlyingButton src={`http://52.3.255.128:8000/${ele.images[0]?.image}`} targetTop={'00%'} targetLeft={'100%'}>
 
-                                        <LoadingButton onClick={() => { Addtocard(ele) }} variant="outlined">Add to cart</LoadingButton>
+                                            <LoadingButton onClick={() => { Addtocard(ele) }} variant="outlined">Add to cart</LoadingButton>
                                         </FlyingButton>
                                     </Box>
 
