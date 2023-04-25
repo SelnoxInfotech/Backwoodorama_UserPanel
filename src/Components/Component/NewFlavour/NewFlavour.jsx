@@ -54,7 +54,7 @@ const NewFlavour = () => {
                                 </div>
                                 <div className='col-lg-12 col-md-8 col-sm-8 col-12 d-flex newFlav_btn_height'>
                                 <Box
-                                    className={`New_flav_btn ${classes.loadingBtnTextAndBack}`}
+                                    className={`${classes.loadingBtnTextAndBack}`}
                                 >
                                     <LoadingButton  style={{ width: "60%", height: "30px" }} variant="outlined">Email</LoadingButton>
 
