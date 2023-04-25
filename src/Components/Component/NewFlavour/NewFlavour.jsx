@@ -56,13 +56,13 @@ const NewFlavour = () => {
                                 <Box
                                     className={`New_flav_btn ${classes.loadingBtnTextAndBack}`}
                                 >
-                                    <LoadingButton  variant="outlined">Email</LoadingButton>
+                                    <LoadingButton  style={{ width: "60%", height: "30px" }} variant="outlined">Email</LoadingButton>
 
                                 </Box>
                                 <Box
                                     className={`New_flav_btn ${classes.loadingBtnTextAndBack}`}
                                 >
-                                    <LoadingButton variant="outlined">Call</LoadingButton>
+                                    <LoadingButton style={{ width: "60%", height: "30px" }} variant="outlined">Call</LoadingButton>
                                 </Box>
 
                                 </div>
