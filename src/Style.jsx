@@ -163,7 +163,7 @@ const useStyles = makeStyles({
   },
   loadingBtnTextAndBack: {
     "& .MuiButton-text": {
-      fontSize: ".7rem",
+      fontSize: ".5rem",
     },
     "& .MuiLoadingButton-root": {
       width: "100%",

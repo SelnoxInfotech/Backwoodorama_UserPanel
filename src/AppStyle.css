@@ -7,6 +7,11 @@
   font-style: normal;
   font-weight: 700;
 }
+.fontStyle_weight_fourHundred {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+}
 
 .comm_head_prop {
   font-size: 20px;
@@ -2431,17 +2436,18 @@
 /* end */
 /* NewFlavour */
 .newFlavour_container{
-  height:300px;
+  height:245px;
   border: 1px solid #E7E7E7;
+  background: #FAFAFA;
 }
 .newFlavour_image_container_height{
-  height: 300px;
+  height: 245px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .newFlavourContent_height{
-  height: 300px;
+  height: 245px;
   display: flex;
   align-items: center;
 
@@ -2457,24 +2463,65 @@
   width: 100px;
 
 }
-.newFlavour_ol {
-display:flex;
-gap: 30px;
-padding-left: 2px;
-width: 100%;
-}
-.newFlavour_ol li{
-  list-style: none;
-}
-.newFlavour_margin_inline{
-  margin-inline: 10px;
-}
+
+
+
 .newFlavour_row{
   display: grid;
   place-content: center;
 }
-@media(max-width:390px){
-  .newFlavour_ol{
-    gap:2px;
+.New_flavour_font_size_head{
+  font-size: 24px;
+}
+
+.new_flavour_flex{
+  display: flex;
+}
+#NewFlav_star{
+  margin-left:5px;
+}
+.newFlav_margin{
+  margin-left: 20px;
+}
+.new_flavourList_container{
+  height: 32px;
+
+}
+.newFlav_inner_div{
+  height: 32px;
+  display: flex;
+  align-items: center;
+}
+#new_flavCircle{
+  font-size: 12px;
+}
+#NewFlav_margins{
+  margin-left: 5px;
+}
+.newFlav_closed{
+  color:#FF1414;
+
+}
+.newFlav_btn_height{
+  height: 35px;
+}
+.New_flav_btn{
+  margin-left: 10px;
+}
+@media(max-width:464px){
+  .New_flavour_font_size_paragraph{
+    font-size: 12px;
   }
+  .New_flav_btn{
+    margin-left: 3px;
+  }
+ 
+  .newFlavour_image {
+    height: 80px;
+    width: 80px;
+}
+.newFlav_margin {
+  margin-left:8px;
+}
+
 }
