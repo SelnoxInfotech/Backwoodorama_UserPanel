@@ -23,13 +23,14 @@ export default function BasicGrid() {
         <div >
 
             <Navbar></Navbar>
-
-
             <Grid xs={12} md={12} xl={12}>
 
                 <Outlet />
 
             </Grid>
+            <div className='Snckerbar'>
+                gdfgg
+            </div>
 
         </div>
 
