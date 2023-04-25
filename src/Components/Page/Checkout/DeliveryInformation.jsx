@@ -7,7 +7,9 @@ import { useForm } from "react-hook-form";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Axios from "axios"
 import Cookies from 'universal-cookie';
+import Createcontext from "../../../Hooks/Context"
 const DeliveryInformation = ({ SetShowDeliveryInformation }) => {
+    const {  dispatch } = React.useContext(Createcontext)
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
     const method = useForm()
@@ -19,6 +21,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation }) => {
         SetShowDeliveryInformation(true)
         SetShowRestDeliveryInformation(false)
         SubmitData(data)
+        dispatch({ type: 'DeliveryInformation', DeliveryInformation: true })
     }
     const ShowAgainDeliverInformation = () => {
         SetShowRestDeliveryInformation(true)
@@ -47,16 +50,16 @@ const DeliveryInformation = ({ SetShowDeliveryInformation }) => {
         formdata.append('MobileNo', data.Mobile);
         formdata.append('MedicalMarijuanaNumber', data.Id_Number);
 
-        Axios.post(`http://52.3.255.128:8000/UserPanel/Add-Order/`, {
+        Axios.post(
+            // 'http://52.3.255.128:8000/AdminPanel/Add-Product/',
+
             formdata,
             config,
-
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            }
-
-
-        }).then(response => {
+            {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                }
+            }).then(response => {
             console.log(response.data)
 
         }).catch(
@@ -137,6 +140,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation }) => {
                                 <div className='row'>
                                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
                                         <TextField
+                                          id="outlined-number"
                                             onFocus={onFocus}
                                             onBlur={onBlur}
                                             onChange={(e) => {

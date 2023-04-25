@@ -3,12 +3,16 @@ const useStyles = makeStyles({
   SearchBar_Text:{
     "& .MuiOutlinedInput-notchedOutline":{
       border: "0px",
-      paddingTop: '8.5px'
-
+      paddingTop: '8.5px',
+    
     }
     ,
     "& .MuiInputBase-input":{
       height:"15px"
+    }
+    ,
+    "& .MuiInputBase-root":{
+      fontSize:"15px"
     }
   },
   root: {

@@ -1,17 +1,19 @@
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import React from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import LoadingButton from '@mui/lab/LoadingButton';
 import useStyles from "../../../../Style"
 import Axios from "axios"
-
-const AddToCartSummary = ({ SetDeliveryOptionData, abcToggle, SetabcToggle, abc, Total }) => {
+import Createcontext from "../../../../Hooks/Context"
+const AddToCartSummary = ({ abc, Total }) => {
     const classes = useStyles()
+    const { state , dispatch } = React.useContext(Createcontext)
     const navigate = useNavigate()
+    const location = useLocation();
     const [OpenDelivery, SetOpenDelivery] = React.useState(false);
     const [OpenPickup, SetOpenPickup] = React.useState(false)
-    const[PickupAddress, SetPickupAddress] = React.useState("")
+    const [PickupAddress, SetPickupAddress] = React.useState("")
     const [InputValues, SetInputValues] = React.useState({
         delivery: "",
         contact: ""
@@ -31,12 +33,9 @@ const AddToCartSummary = ({ SetDeliveryOptionData, abcToggle, SetabcToggle, abc,
 
 
             }).then(response => {
-                console.log(response.data[0].Store_Address)
                 SetPickupAddress(response.data[0].Store_Address)
             }).catch(
                 function (error) {
-
-                    // SetProduct(Product => ({ ...Product, discount: "None" }))
                 })
 
         }
@@ -50,7 +49,18 @@ const AddToCartSummary = ({ SetDeliveryOptionData, abcToggle, SetabcToggle, abc,
         }
     }
     const CheckoutProcess = () => {
-        navigate("/CheckOutMainPage", { state: { InputValues, abc: Total } })
+        if(location.pathname === "/AddToCart"){
+
+            navigate("/CheckOutMainPage", { state: { InputValues, abc: Total } })
+        }
+        else{
+          if (state.DeliveryOption === false) {
+            alert("First Fill form ")
+          }
+         else if (state.DeliveryInformation === false) {
+            alert("First Fill form ")
+          }
+        }
     }
     return (
         <>
@@ -161,9 +171,9 @@ const AddToCartSummary = ({ SetDeliveryOptionData, abcToggle, SetabcToggle, abc,
                                 className={` add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
 
                             >
-                                {/* <Link to="/DeliveryOption"><LoadingButton variant="outlined">Checkout</LoadingButton></Link> */}
-                                <LoadingButton variant="outlined" onClick={CheckoutProcess}>Checkout</LoadingButton>
-
+                      
+                                        <LoadingButton variant="outlined"  onClick={CheckoutProcess}>Checkout</LoadingButton>
+                                     
                             </Box>
 
                         </div>

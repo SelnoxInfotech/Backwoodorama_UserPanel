@@ -5,7 +5,9 @@
   
  
 }
-
+.jss1 {
+  top :0px;
+}
  div a{
   text-align: center;
 
@@ -129,7 +131,9 @@ a{
 
 /* navbar search */
 .nav_search_bar_div{
-  height: 40px;
+  /* height: 40px; */
+  margin-top: 4px;
+
   display: flex;
   border-radius: 5px 5px;
 }
@@ -268,6 +272,7 @@ display: flex;
 }
 
 .openbtn{
+  border-radius: 4px;
   height: 25px;
   width: 27px;
   background-color: transparent;
@@ -381,3 +386,18 @@ border-radius: 10px;
 .prod_main_cont:hover{
   outline: 2px solid #31B665;
 }
+
+
+/* Dispansires map*/
+ .Dispansires_map{
+position: relative ; 
+    bottom: 765px ;
+ }
+ @media (max-width: 768px)
+{
+  .Dispansires_map{
+    position: relative ; 
+        bottom: 0px ;
+     }
+}
+/* end */

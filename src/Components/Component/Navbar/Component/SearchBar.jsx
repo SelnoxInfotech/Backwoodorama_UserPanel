@@ -12,7 +12,7 @@ const SearchBar = () => {
             <div className="col_Search">
                 <div className=" nav_search_bar_div ">
                     <TextField
-                    style={{ borderRadius:" 16px 0px 0px 16px"}}
+                    style={{ borderRadius:" 16px 0px 0px 16px",top:"0px"}}
                      size="small" 
                      type="text" variant="outlined"
                      placeholder="Products Brands Retailers and more"
@@ -27,7 +27,7 @@ const SearchBar = () => {
                       />
                     <div id="Boder_left"></div>
                     <TextField 
-                    style={{borderRadius: "0px 16px 16px 0px"}}
+                    style={{borderRadius: "0px 16px 16px 0px",top:"0px"}}
                     size="small" 
                     variant="outlined"
                      className={`sec_input_search SearchBar ${classes.SearchBar_Text}` } 

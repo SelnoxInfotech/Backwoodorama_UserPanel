@@ -13,8 +13,8 @@ import { AiOutlineShoppingCart } from "react-icons/ai"
 const ProductList = ({ arr }) => {
     const navigation = useNavigate()
     const cookies = new Cookies();
-    const { state, dispatch } = React.useContext(Createcontext)
     const token_data = cookies.get('Token_access')
+    const { state, dispatch } = React.useContext(Createcontext)
     const [Price, SetPrice] = React.useState([])
     const [AddTOCard, SetAddToCard] = React.useState(() => {
         const saved = localStorage.getItem("items");
@@ -87,19 +87,28 @@ const ProductList = ({ arr }) => {
 
 
     const Addtocard = async (Event) => {
-
+        console.log(Boolean(token_data))
         if (token_data) {
             const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
             const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id);
             var PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
+            const config = {
+                headers: { Authorization: `Bearer ${token_data}` }
+            };
 
-            axios.post("http://52.3.255.128:8000/UserPanel/Add-AddtoCart/", {
-                Product_id: Event.id,
-                Store_id: Event.Store_id,
-                Image_id: Event.images[0].id,
-                Price: PriceIndex,
-                Cart_Quantity: 1
-            }).then(response => {
+            axios.post("http://52.3.255.128:8000/UserPanel/Add-AddtoCart/",
+
+                {
+                    Product_id: Event.id,
+                    Store_id: Event.Store_id,
+                    Image_id: Event.images[0].id,
+                    Price: PriceIndex,
+                    Cart_Quantity: 1,
+                    PriceId:PriceIndex.id
+
+                }
+                , config
+            ).then(response => {
                 console.log(response)
 
             }).catch(
@@ -111,6 +120,7 @@ const ProductList = ({ arr }) => {
             const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
             const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id);
             var PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
+
             const Arry = {
                 Product_id: Event.id,
                 Store_id: Event.Store_id,
@@ -119,13 +129,16 @@ const ProductList = ({ arr }) => {
                 Cart_Quantity: 1
             }
             if (AddTOCard.find((data) => { return data.Store_id === Event.Store_id })) {
-                const t = AddTOCard.filter((data) => { return data.Product_id === Event.id })
-                console.log(t)
-                if (t) {
+                const t = AddTOCard.filter((data) => { return data.Product_id === Event.id && data.Price.id === PriceIndex.id })
+                if (t.length > 0) {
 
-                    // SetAddToCard([...AddTOCard, Arry])
+                    SetAddToCard(AddTOCard.map((Cart) => {
+                        return { ...Cart, Cart_Quantity: Cart.Cart_Quantity + 1 }
+                    }))
                 }
-                // console.log(AddTOCard)
+                else {
+                    SetAddToCard([...AddTOCard, Arry])
+                }
             }
             else (
                 SetAddToCard([Arry])
@@ -181,7 +194,7 @@ const ProductList = ({ arr }) => {
         <div className="row">
             {arr.map((ele, index) => {
                 return (
-                    <div className="col-12 col-lg-3 col-md-4 col-sm-6  prod_inner_cont border"  key={index}>
+                    <div className="col-3 prod_inner_cont border" key={index}>
 
                         {/* <div className="col-12 prod_main_cont  p-2"> */}
                         <div className="row">
