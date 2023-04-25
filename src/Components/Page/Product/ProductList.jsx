@@ -194,11 +194,7 @@ const ProductList = ({ arr }) => {
         <div className="row">
             {arr.map((ele, index) => {
                 return (
-<<<<<<< HEAD
-                    <div className="col-12 col-lg-3 col-md-4 col-sm-6  prod_inner_cont border"  key={index}>
-=======
                     <div className="col-3 prod_inner_cont border" key={index}>
->>>>>>> ad6d1b1 (chnage)
 
                         {/* <div className="col-12 prod_main_cont  p-2"> */}
                         <div className="row">
