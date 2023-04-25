@@ -386,3 +386,18 @@ border-radius: 10px;
 .prod_main_cont:hover{
   outline: 2px solid #31B665;
 }
+
+
+/* Dispansires map*/
+ .Dispansires_map{
+position: relative ; 
+    bottom: 765px ;
+ }
+ @media (max-width: 768px)
+{
+  .Dispansires_map{
+    position: relative ; 
+        bottom: 0px ;
+     }
+}
+/* end */
