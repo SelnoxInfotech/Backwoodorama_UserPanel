@@ -6,33 +6,33 @@ import React from "react"
 import AddToCartReview from "../Product/AddToCartComponent/AddToCartReview"
 import AddToCartSummary from "../Product/AddToCartComponent/AddToCartSummary"
 import { useLocation } from 'react-router-dom';
+import { useForm , FormProvider } from "react-hook-form";
 const CheckOutMainPage = () => {
-
+    const method = useForm()
     const [ShowData, SetShowData] = React.useState(false)
     const [ShowDeliveryInformation, SetShowDeliveryInformation] = React.useState(false)
     const [DeliveryOptionData, SetDeliveryOptionData] = React.useState([])
     const [ShowPlaceOrder,SetShowPlaceOrder]=React.useState(false)
-    // const [abcToggle,SetabcToggle]=React.useState(true)
     const location = useLocation();
     const { InputValues, abc } = location.state
-    const AddToCartSummaryData = location.AddToCartSummaryData
 
     return (
         <>
             <div className="container">
-                <div className="row center">
+          
+               
+               <div className="row center">
                     <div className="col-md-8 col-lg-6 col-sm-12 col-12">
                         <div className="row ">
                             <div className="col-lg-12">
-                                <DeliveryOption DeliveryOptionData={DeliveryOptionData} address={InputValues.delivery} SetShowData={SetShowData} />
+                                <DeliveryOption DeliveryOptionData={DeliveryOptionData} address={InputValues.delivery} SetShowData={SetShowData}  />
 
                             </div>
 
                         </div>
                         <div className="row ">
                             <div className="col-lg-12">
-                                {ShowData === true && <DeliveryInformation SetShowDeliveryInformation={SetShowDeliveryInformation} />
-                                }
+                                {ShowData === true && <DeliveryInformation SetShowDeliveryInformation={SetShowDeliveryInformation} />}
                             </div>
 
                         </div>
@@ -71,7 +71,7 @@ const CheckOutMainPage = () => {
                 </div>
 
 
-
+        
 
             </div>
         </>

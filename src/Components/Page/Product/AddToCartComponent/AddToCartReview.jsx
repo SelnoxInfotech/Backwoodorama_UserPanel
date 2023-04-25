@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { AiOutlinePlus } from "react-icons/ai"
 import Button from '@mui/material/Button';
@@ -7,26 +6,35 @@ import { RiDeleteBin6Line } from "react-icons/ri"
 import _ from "lodash"
 import React from "react";
 import axios from 'axios';
+import Cookies from 'universal-cookie';
 import Createcontext from "../../../../Hooks/Context"
 const AddToCartReview = ({ SetTotal, Total }) => {
-    const { dispatch } = React.useContext(Createcontext)
-
+    const {state, dispatch } = React.useContext(Createcontext)
+    const cookies = new Cookies();
+    const token_data = cookies.get('Token_access')
     const [LocalData, SetLocalData] = React.useState()
     React.useEffect(() => {
-       
-        axios.get("http://52.3.255.128:8000/UserPanel/Get-Addtocart/", {
 
-        }).then(response => {
-            var uniqueUsersByID = _.uniqBy(response.data, 'Product_id'); //removed if had duplicate id
-            var uniqueUsers = _.uniqWith(uniqueUsersByID, _.isEqual);//removed complete duplicates
-            SetLocalData(uniqueUsers)
-    
+        if (token_data) {
+            axios.get("http://52.3.255.128:8000/UserPanel/Get-Addtocart/", {
 
-        }).catch(
-            function (error) {
+                headers: { Authorization: `Bearer ${token_data}` }
 
-            })
-            
+            }).then(response => {
+                var uniqueUsersByID = _.uniqBy(response.data, 'Product_id'); //removed if had duplicate id
+                var uniqueUsers = _.uniqWith(uniqueUsersByID, _.isEqual);//removed complete duplicates
+                SetLocalData(uniqueUsers)
+
+
+            }).catch(
+                function (error) {
+
+                })
+
+        }
+        else {
+            SetLocalData(JSON.parse(localStorage.getItem("items")))
+        }
 
     }, [])
 

@@ -2,11 +2,9 @@ import React from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import useStyles from '../../../../../Style';
 import styled from "styled-components";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 const HomePageBanner = () => {
-    const classes = useStyles()
     var items = [
         {
             name: "Random Name #1",
@@ -22,11 +20,17 @@ const HomePageBanner = () => {
         }
     ];
     const SliderCategory = styled(Slider)`
+
+    .slick-arrow{
+        display: none;
+    }
     .slick-next {
+        position: relative;
         right: 0px;
-        display: block;
+        display: none;
       } 
       .slick-prev {
+        position: relative;
         left: 0px;
         display: none;
       }
@@ -38,7 +42,7 @@ const HomePageBanner = () => {
 
       }
       .slick-dots{
-bottom: -12px
+            bottom: -12px
       }
       `;
     const settings = {
@@ -87,23 +91,10 @@ bottom: -12px
         <SliderCategory {...settings}>
             {items.map((ele, index) => {
                 return (
-
-                    <div>
-                        <div className='col-12'>
-                            <div className=''>
-                                <LazyLoadImage src={ele.description} alt="glass_img" className='HomePageBanner_image' />
-                            </div>
-                        </div>
-
+                    <div className='col-12'>
+                        <LazyLoadImage src={ele.description} alt="glass_img" className='HomePageBanner_image' />
                     </div>
 
-                    // <div className='cat_main_div' key={index} >
-                    //     <div className='image_Div'>
-
-                    //         
-                    //     </div>
-                    //     <h6>{ele.name.substr(0, 100)}</h6>
-                    // </div>
                 )
             })}
         </SliderCategory>

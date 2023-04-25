@@ -13,7 +13,10 @@ const initialUser = {
     login: log,
     api: "",
     CartCount: count,
-    AllProduct: []
+    AllProduct: [],
+    DeliveryOption :false,
+    DeliveryInformation : false
+
 }
 function Context(props) {
     const [state, dispatch] = useReducer(Reducer, initialUser)

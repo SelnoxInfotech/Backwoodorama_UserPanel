@@ -11,11 +11,20 @@ const reducer = (state, action) => {
       {
         return { ...state, CartCount: action.CartCount }
       }
-      case "AllProduct": 
-        {
-          return { ...state, AllProduct: action.AllProduct }
-        }
-  
+    case "AllProduct":
+      {
+        return { ...state, AllProduct: action.AllProduct }
+      }
+    case "DeliveryOption":
+      {
+        return { ...state, DeliveryOption: action.DeliveryOption }
+      }
+    case "DeliveryInformation":
+      {
+        return { ...state, DeliveryInformation: action.DeliveryInformation }
+      }
+
+
 
     default: return state
   }

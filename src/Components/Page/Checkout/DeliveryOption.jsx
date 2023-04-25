@@ -8,9 +8,10 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import { useForm } from "react-hook-form";
 import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
-
+import Createcontext from "../../../Hooks/Context"
 
 const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
+    const {  dispatch } = React.useContext(Createcontext)
      const method = useForm()
     const classes = useStyles()
     const [Time, SetTime] = React.useState('');
@@ -21,10 +22,12 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
     const ShowHideDeliveryOptions = () => {
         SetShowData(true)
         SetShowDeliveryRestData(false)
+        dispatch({ type: 'DeliveryOption', DeliveryOption: true })
     }
     const AddDeliveryInstruction = () => {
         SetShowDeliveryRestData(true)
     }
+  
     return (
         <>
             <div className="container-fluid">
@@ -153,7 +156,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
                                             <Box
                                                 className={`  ${classes.loadingBtnTextAndBack}`}
                                             >
-                                                <LoadingButton type='submit' variant="outlined">continue</LoadingButton>
+                                                <LoadingButton type='submit'  variant="outlined">continue</LoadingButton>
                                             </Box>
 
                                         </div>

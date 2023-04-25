@@ -5,7 +5,9 @@
   
  
 }
-
+.jss1 {
+  top :0px;
+}
  div a{
   text-align: center;
 
@@ -129,7 +131,9 @@ a{
 
 /* navbar search */
 .nav_search_bar_div{
-  height: 40px;
+  /* height: 40px; */
+  margin-top: 4px;
+
   display: flex;
   border-radius: 5px 5px;
 }
@@ -268,6 +272,7 @@ display: flex;
 }
 
 .openbtn{
+  border-radius: 4px;
   height: 25px;
   width: 27px;
   background-color: transparent;
