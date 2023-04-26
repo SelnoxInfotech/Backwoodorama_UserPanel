@@ -389,6 +389,10 @@
 
 /* end */
 /* product categorys */
+.productFilter_sortedList{
+  list-style: none;
+  z-index: 1;
+}
 .prod_inner_cont {
   /* height: 620px; */
   height: 588px;

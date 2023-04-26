@@ -8,8 +8,19 @@ import { FormControl, Grid, Menu, MenuItem, Select } from "@mui/material"
 const ProductFilter = ({ ProductFilterData, Setarr1 }) => {
     const classes = useStyles()
     const [OpenEvent, SetOpenEvent] = React.useState(null);
+    const [OpenSortedData, SetOpenSortedData] = React.useState(null);
+
     const [Filter, SetFilter] = React.useState([])
     const [SubCategory, SetSubCategory] = React.useState([])
+    const SortedArrayData = [{ Id: 1, name: "sort by" }]
+    const SortedData = [{ type: "Sort by A to Z" }, { type: "Sort by Z to A" }, { type: "Sort by low to high" }, { type: "Sort by high to low" }]
+    const HandleOpenSortedData = (Id, name) => {
+        if (OpenSortedData === Id) {
+            SetOpenSortedData(null)
+            return false;
+        }
+        SetOpenSortedData(Id)
+    }
     const HandleOpenEvent = (Id, Name) => {
 
         SetFilter([])
@@ -183,8 +194,47 @@ const ProductFilter = ({ ProductFilterData, Setarr1 }) => {
 
             })}
             <Grid display={{ xs: "block", md: "none", lg: "none" }}>
+                <div className="row mx-4">
+                    <div className="col-12 ">
+                        {SortedArrayData.map((ele, index) => {
+                            const { Id, name } = ele
+                            return (
+                                <div className="row" onClick={() => HandleOpenSortedData(Id, name)} key={index}>
+                                    <div className="col-8 d-flex">
+                                        <ol className="productFilter_sortedList d-flex">
+                                            <li>
+                                        {(Id === OpenSortedData) ? <FiChevronLeft /> : ""}
 
-                <FormControl sx={{ width:"150px"  , fontSize:5 }}>
+                                            </li>
+                                            <li>{name}</li>
+                                            <li>
+                                        {(Id === OpenSortedData) ? "" : <FiChevronRight />}
+
+                                            </li>
+                                        </ol>
+                                    </div>
+                                    
+                                   
+                                   {/* <div className="col-6 border product_filter_sortedlist_div">
+                                   {(Id === OpenSortedData) ?
+                                        (
+                                            <ol className="productFilter_sortedList">{SortedData.map((ele, index) => {
+                                                return (
+                                                    <li key={index}>{ele.type}</li>
+                                                )
+                                            })}</ol>
+                                        ) : ""
+                                    }
+                                   </div> */}
+                                  
+
+                                </div>
+                            )
+                        })}
+                    </div>
+
+                </div>
+                {/* <FormControl sx={{ width:"150px"  , fontSize:5 }}>
                     <Select
                         // value={Product}
                         // onChange={handleChange}
@@ -199,7 +249,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1 }) => {
                         <MenuItem value={"Price low to high"}>Price low to high</MenuItem>
                         <MenuItem value={"Price hight to low"}>Price hight to low</MenuItem>
                     </Select>
-                </FormControl>
+                </FormControl> */}
 
 
             </Grid>
