@@ -18,6 +18,8 @@ import { GiWeightScale } from "react-icons/gi"
 import { RiProductHuntLine } from "react-icons/ri"
 import _ from "lodash"
 import { Grid } from "@mui/material";
+import NewFlavourBanner from "../../../Component/NewFlavour/NewFlavourBanner";
+
 export default function DispensoriesProduct() {
     const { id } = useParams();
     const classes = useStyles()
@@ -90,7 +92,7 @@ export default function DispensoriesProduct() {
     return (
         <div>
             <div className="container-fluid product_container" style={{ padding: "7px" }}>
-                <Flavour delBtn={Despen}></Flavour>
+                <NewFlavourBanner delBtn={Despen}></NewFlavourBanner>
                 <div className="row">
                     <div className="col-12 mt-4">
                     <ProductCategorySlider FilterCategory={FilterCategory} Category={Category}></ProductCategorySlider>

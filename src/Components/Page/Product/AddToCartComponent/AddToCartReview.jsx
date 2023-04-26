@@ -21,9 +21,9 @@ const AddToCartReview = ({ SetTotal, Total }) => {
                 headers: { Authorization: `Bearer ${token_data}` }
 
             }).then(response => {
-                var uniqueUsersByID = _.uniqBy(response.data, 'Product_id'); //removed if had duplicate id
-                var uniqueUsers = _.uniqWith(uniqueUsersByID, _.isEqual);//removed complete duplicates
-                SetLocalData(uniqueUsers)
+                // var uniqueUsersByID = _.uniqBy(response.data, 'Product_id'); //removed if had duplicate id
+                // var uniqueUsers = _.uniqWith(uniqueUsersByID, _.isEqual);//removed complete duplicates
+                SetLocalData(response.data)
 
 
             }).catch(
