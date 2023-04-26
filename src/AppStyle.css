@@ -2583,3 +2583,52 @@
     text-align: center;
 }
 /* end */
+/* EmtyCard_container */
+.EmtyCard_container{
+  height: 300px;
+}
+.Empty_card_image{
+  height: 120px;
+}
+.Empty_card_image{
+  /* height: 100px;
+  width: 100px;
+  border-radius: 50px; */
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  border: 3px solid #E7E7E7;
+  display: grid;
+  place-items: center;
+}
+.Empty_image{
+  height: 90px;
+  width: 90px;
+  border-radius: 45px;
+}
+.image_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Empty_container_margin_top{
+  margin-top: 100px;
+}
+.height_empty_div_heading{
+  height: 40px;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.height_empty_div_paragraph{
+  height: 24px;
+
+}
+.height_empty_div_paragraph p{
+  color: rgb(124, 124, 124);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+.height_Empty_btnDiv{
+  height: 40px;
+}
+/* end */

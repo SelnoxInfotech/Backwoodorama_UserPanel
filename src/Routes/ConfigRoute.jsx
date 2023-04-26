@@ -15,6 +15,7 @@ import PlaceOrder from "../Components/Page/Checkout/PlaceOrder"
 import OpenDispansires from "../Components/Page/Dispansires/Dispansires"
 import StoreDetail from "../Components/Page/StoreDetail/StoreDetail"
 import Review from "../Components/Page/Review/Review";
+import EmptyCard from "../Components/Page/Product/EmptyCard/EmptyCard"
 const routesConfig = [
   
       {
@@ -87,6 +88,10 @@ const routesConfig = [
           {
             path:"/Review",
             element:<Review/>
+          },
+          {
+            path:"/EmptyCard",
+            element:<EmptyCard/>
           }
         ],
       },
