@@ -12,7 +12,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 
 const AddToCartPopUp = () => {
     const classes = useStyles()
-    const [layout, setLayout] = React.useState(true);
+    const [layout, setLayout] = React.useState(undefined);
     return (
         <React.Fragment>
             <Stack direction="row" spacing={1}>
@@ -20,26 +20,26 @@ const AddToCartPopUp = () => {
                     variant="outlined"
                     color="neutral"
                     onClick={() => {
-                        setLayout(!layout);
+                        setLayout('center');
                     }}
                 >
                    Add To Cart
                 </Button>
 
             </Stack>
-            <Modal open={layout} onClose={() => setLayout(!layout)}>
+            <Modal open={!!layout} onClose={() => setLayout(undefined)}>
                 <ModalDialog
                     aria-labelledby="layout-modal-title"
                     aria-describedby="layout-modal-description"
                     layout={layout}
                     sx={{ width: "32rem", height: "40rem" }}
                 >
-                    <ModalClose />
+                    <ModalClose/>
                     <div className='container-fluid marginRow'>
                         <div className='row '>
                             <div className='col-12 AddToCartImageContainer'>
                                 <div className='addToCartPopUpImage_background'>
-                                    <LazyLoadImage src='/image/flower.png' alt='not avail' height={"100px"} width={"100px"} />
+                                    <LazyLoadImage src='/image/addtocart1.jpg' alt='not avail' height={"100px"} width={"100px"} />
 
                                 </div>
 

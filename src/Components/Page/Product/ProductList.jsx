@@ -88,64 +88,64 @@ const ProductList = ({ arr }) => {
 
 
     const Addtocard = async (Event) => {
-        // if (token_data) {
-        //     const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
-        //     const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id);
-        //     var PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
-        //     const config = {
-        //         headers: { Authorization: `Bearer ${token_data}` }
-        //     };
+        console.log(Boolean(token_data))
+        if (token_data) {
+            const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
+            const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id);
+            var PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
+            const config = {
+                headers: { Authorization: `Bearer ${token_data}` }
+            };
 
-        //     axios.post("http://52.3.255.128:8000/UserPanel/Add-AddtoCart/",
+            axios.post("http://52.3.255.128:8000/UserPanel/Add-AddtoCart/",
 
-        //         {
-        //             Product_id: Event.id,
-        //             Store_id: Event.Store_id,
-        //             Image_id: Event.images[0].id,
-        //             Price: PriceIndex,
-        //             Cart_Quantity: 1,
-        //             PriceId:PriceIndex.id
+                {
+                    Product_id: Event.id,
+                    Store_id: Event.Store_id,
+                    Image_id: Event.images[0].id,
+                    Price: PriceIndex,
+                    Cart_Quantity: 1,
+                    PriceId:PriceIndex.id
 
-        //         }
-        //         , config
-        //     ).then(response => {
-        //         console.log(response)
+                }
+                , config
+            ).then(response => {
+                console.log(response)
 
-        //     }).catch(
-        //         function (error) {
+            }).catch(
+                function (error) {
 
-        //         })
-        // }
-        // else {
-        //     const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
-        //     const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id);
-        //     var PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
+                })
+        }
+        else {
+            const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
+            const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id);
+            var PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
 
-        //     const Arry = {
-        //         Product_id: Event.id,
-        //         Store_id: Event.Store_id,
-        //         Image_id: Event.images[0].id,
-        //         Price: PriceIndex,
-        //         Cart_Quantity: 1
-        //     }
-        //     if (AddTOCard.find((data) => { return data.Store_id === Event.Store_id })) {
-        //         const t = AddTOCard.filter((data) => { return data.Product_id === Event.id && data.Price.id === PriceIndex.id })
-        //         if (t.length > 0) {
+            const Arry = {
+                Product_id: Event.id,
+                Store_id: Event.Store_id,
+                Image_id: Event.images[0].id,
+                Price: PriceIndex,
+                Cart_Quantity: 1
+            }
+            if (AddTOCard.find((data) => { return data.Store_id === Event.Store_id })) {
+                const t = AddTOCard.filter((data) => { return data.Product_id === Event.id && data.Price.id === PriceIndex.id })
+                if (t.length > 0) {
 
-        //             SetAddToCard(AddTOCard.map((Cart) => {
-        //                 return { ...Cart, Cart_Quantity: Cart.Cart_Quantity + 1 }
-        //             }))
-        //         }
-        //         else {
-        //             SetAddToCard([...AddTOCard, Arry])
-        //         }
-        //     }
-        //     else (
-        //         SetAddToCard([Arry])
-        //     )
+                    SetAddToCard(AddTOCard.map((Cart) => {
+                        return { ...Cart, Cart_Quantity: Cart.Cart_Quantity + 1 }
+                    }))
+                }
+                else {
+                    SetAddToCard([...AddTOCard, Arry])
+                }
+            }
+            else (
+                SetAddToCard([Arry])
+            )
 
-        // }
-        <AddToCartPopUp/>
+        }
     }
 
 
@@ -273,7 +273,7 @@ const ProductList = ({ arr }) => {
 
                                         <FlyingButton src={`http://52.3.255.128:8000/${ele.images[0]?.image}`} targetTop={'00%'} targetLeft={'100%'}>
 
-                                            <LoadingButton onClick={() => { Addtocard(ele) }} variant="outlined">Add to cart</LoadingButton>
+                                            <LoadingButton onClick={() => { Addtocard(ele) }} variant="outlined"><AddToCartPopUp/></LoadingButton>
                                         </FlyingButton>
                                     </Box>
 
