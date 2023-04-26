@@ -220,6 +220,12 @@ disp_star_color:{
 footer_icons_color:{
   color:"#31B665",
   fontSize:"large"
+},
+AddToCartPoPUP_width_height:{
+  ".css-lmdl13-JoySheet-root-JoyModalDialog-root":{
+      width:"50%",
+      height:"50%"
+  }
 }
 });
 

@@ -2323,20 +2323,26 @@
 .left_circularbar_heading p{
   color: #000000;
   font-size: 20px;
+  margin-left: 30px;
 }
 .left_circularbar_container{
-  height: 250px;
+  height: 200px;
+}
+@media(max-width:767px){
+  .left_circularbar_container{
+    height: 148px;
+  }
 }
 .left_circularbar{
-  height: 220px;
+  height: 177px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 .right_horizontal_bar{
-  height: 250px;
-  padding-left: 20px;
+  height: 200px;
+  /* padding-left: 20px; */
 }
 .progress_bar_height{
  height:13px
@@ -2347,12 +2353,15 @@
 .overall_flex{
   /* display: flex; */
   gap: 10px; 
-    height: 40px;
+    height: 20px;
     /* margin-top: 1px; */
     display: flex;
     justify-content: center;
     align-items: center;
 
+}
+.over_col_height{
+  height: 20px;
 }
 .overAll_Progress_center{
   display: flex;
@@ -2525,3 +2534,42 @@
 }
 
 }
+/* AddToCartPopup */
+.AddToCartImageContainer{
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.addToCartPopUpImage_background{
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  border: 1px solid gray;
+}
+.marginRow{
+  margin-top:100px;
+}
+.AddToCartHeading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+}
+.AddToCartHeading p{
+  color: rgb(74, 74, 74);
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.0625rem;
+  line-height: 1.5;
+  text-align: center;
+}
+.AddToCartParagraphHeight{
+  height: 100px;
+}
+.AddToCartParagraphHeight p{
+  color: rgb(124, 124, 124);
+    font-size: 1rem;
+    text-align: center;
+}
+/* end */

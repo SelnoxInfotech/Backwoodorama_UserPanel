@@ -14,6 +14,7 @@
     "@material-ui/core": "^4.12.4",
     "@mkyy/mui-search-bar": "^0.5.2",
     "@mui/icons-material": "^5.11.11",
+    "@mui/joy": "^5.0.0-alpha.77",
     "@mui/lab": "^5.0.0-alpha.123",
     "@mui/material": "^5.11.13",
     "@mui/styles": "^5.11.13",

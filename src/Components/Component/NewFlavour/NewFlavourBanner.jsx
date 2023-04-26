@@ -11,7 +11,7 @@ const NewFlavourBanner = () => {
     return (
         <>
             <div className="row  newFlavour_row">
-                <div className="col-10 newFlavour_container">
+                <div className="col-12 newFlavour_container">
                     <div className="row">
                         <div className="col-md-3 col-sm-4  col-4 newFlavour_image_container_height">
                             <div className='newFlavourimage_div'>
