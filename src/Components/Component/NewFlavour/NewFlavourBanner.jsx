@@ -6,7 +6,7 @@ import useStyles from '../../../Style';
 import Box from '@mui/material/Box';
 import LoadingButton from '@mui/lab/LoadingButton';
 
-const NewFlavour = () => {
+const NewFlavourBanner = () => {
     const classes=useStyles()
     return (
         <>
@@ -28,7 +28,7 @@ const NewFlavour = () => {
                                 <div className='col-12'>
                                    
                                             <div className='new_flavour_flex New_flavour_font_size_paragraph '>
-                                                <p><IoLocationSharp /></p><p className=' fontStyle_weight_fourHundred'>Berkeley, California</p>
+                                                <p><IoLocationSharp /></p><p id='NewFlav_margins' className='fontStyle_weight_fourHundred'>Berkeley, California</p>
                                             </div>
                                      
 
@@ -78,4 +78,4 @@ const NewFlavour = () => {
         </>
     )
 }
-export default NewFlavour
+export default NewFlavourBanner
