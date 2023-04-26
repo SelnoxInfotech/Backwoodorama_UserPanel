@@ -105,7 +105,7 @@ const ProductList = ({ arr }) => {
                     Image_id: Event.images[0].id,
                     Price: PriceIndex,
                     Cart_Quantity: 1,
-                    PriceId:PriceIndex.id
+                    PriceId: PriceIndex.id
 
                 }
                 , config
@@ -195,23 +195,23 @@ const ProductList = ({ arr }) => {
         <div className="row">
             {arr.map((ele, index) => {
                 return (
-                    <div className="col-12 col-lg-3 col-md-4 col-sm-6  prod_inner_cont border"  key={index}>
+                    <div className="col-12 col-lg-3 col-md-4 col-sm-6  prod_inner_cont border" key={index}>
 
                         {/* <div className="col-12 prod_main_cont  p-2"> */}
                         <div className="row">
 
                             {/* <Link to="/ProductDetail" state={{ Id: ele.id }}> */}
                             <div className="col-4 prod_cat_cont" >
-                                <div className="col-10 p-2 prod_cat_img">
-                                    <img id={ele.id} src={`http://52.3.255.128:8000/${ele.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }} />
+                                <Link to="/ProductDetail" state={{ Id: ele.id }}>
+                                    <div className="col-10 p-2 prod_cat_img">
+                                        <img id={ele.id} src={`http://52.3.255.128:8000/${ele.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }} />
+                                        <div className="col prod_img_btn prodCat_gap d-flex">
+                                            <button className="mx-2 cat_prod_inner_btn btn2">THC 70%</button>
+                                        </div>
+                                        <button className="cat_prod_inner_btn btn1">Indica</button>
 
-                                    <div className="col prod_img_btn prodCat_gap d-flex">
-                                        <button className="mx-2 cat_prod_inner_btn btn2">THC 70%</button>
                                     </div>
-                                    <button className="cat_prod_inner_btn btn1">Indica</button>
-
-                                </div>
-                               
+                                </Link>
                             </div>
 
                             <div className="col-8 product_cat_allProduct">

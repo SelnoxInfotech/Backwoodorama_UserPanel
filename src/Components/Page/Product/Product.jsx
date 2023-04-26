@@ -19,6 +19,8 @@ import ProductCategorySlider from "./ProductCategorySlider"
 import _ from "lodash"
 import Createcontext from "../../../Hooks/Context"
 import { Grid } from "@mui/material"
+import NewFlavourBanner from "../../Component/NewFlavour/NewFlavourBanner"
+import StoreDetailMenuItem from "../StoreDetail/StoreDetailComponent/StoreDetailMenuItem"
 const Product = () => {
     const { dispatch } = React.useContext(Createcontext)
     const [Searchvalue, setSearchvalue] = React.useState()
@@ -57,8 +59,7 @@ const Product = () => {
 
 
 
-    const delBtn = [{ del: "Delivery Only" }, { del: "Closed Open" }, { del: "Medical and recreational" }, { del: "Licence and Information" }
-        , { del: "order only delivery" }]
+    const delBtn = [{ del: "Delivery Only" }]
 
     const ProductFilterData =
         [{ Id: 1, Name: "Category", Type1: "Flower", Type2: "CBD", Icons: <BsLayoutSplit className={classes.muiIcons} /> },
@@ -135,8 +136,8 @@ const Product = () => {
     return (
         <>
             <div className="container-fluid product_container" >
-                <Flavour delBtn={delBtn}></Flavour>
-                <div className="row">
+                <NewFlavourBanner delBtn={delBtn}></NewFlavourBanner>
+                <div className="row">   
                     <div className="col-12 mt-4">
                         <ProductCategorySlider FilterCategory={FilterCategory} Category={Category}></ProductCategorySlider>
 
@@ -158,7 +159,7 @@ const Product = () => {
                         </div>
                         <div className="col-10 product_select">
                             <Grid display={{ xs: "none", md: "contents", lg: "contents" }}>
-                                <FormControl sx={{ width:"150px" }}>
+                                <FormControl sx={{ width: "150px" }}>
                                     <Select
                                         value={Product}
                                         onChange={handleChange}
@@ -184,7 +185,7 @@ const Product = () => {
                     </div>
 
                     <div className="col-12  productCat_cont">
-                    
+
                         <ProductFilter ProductFilterData={ProductFilterData} Setarr1={Setarr1} />
                         <div className="col-10  prod_cat_right_sec">
                             <ProductList arr={arr1} />
@@ -196,7 +197,7 @@ const Product = () => {
 
 
                 </div>
-              
+
 
             </div>
         </>

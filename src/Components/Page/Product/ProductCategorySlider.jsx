@@ -96,26 +96,31 @@ const ProductCategorySlider = ({ FilterCategory, Category }) => {
     const ProductCategory = Category
     return (
 
-        <ProductSlider  {...settings}>
-            {ProductCategory.map((ele, index) => {
-                return (
-                    <div className="col-12" key={index}  onClick={(()=>{FilterCategory(ele.id)})}>
-                        <div className="col-2 mt-4 slick-slide slick-active slick-current" >
+        <>
+            <div className="col-12" style={{ fontSize: "25px", fontWeight: "700" }}>
+                <p>Shop by Category</p>
+            </div>
+            <ProductSlider  {...settings}>
+                {ProductCategory.map((ele, index) => {
+                    return (
+                        <div className="col-12" key={index} onClick={(() => { FilterCategory(ele.id) })}>
+                            <div className="col-2 mt-4 slick-slide slick-active slick-current" >
 
-                            <img id="Product_category_image" src={`http://52.3.255.128:8000/${ele.category_Image}`} alt="image_not found" />
+                                <img id="Product_category_image" src={`http://52.3.255.128:8000/${ele.category_Image}`} alt="image_not found" />
 
-
-                        </div>
-                        <div className="col-12  center">
-                            <div className="col-12 product_category_name">
-                            <p>{ele.name}</p>
 
                             </div>
+                            <div className="col-12  center">
+                                <div className="col-12 product_category_name">
+                                    <p>{ele.name}</p>
+
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                )
-            })}
-        </ProductSlider>
+                    )
+                })}
+            </ProductSlider>
+        </>
 
     )
 }

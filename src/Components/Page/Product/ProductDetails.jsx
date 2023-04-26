@@ -10,6 +10,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import _ from "lodash";
 import Createcontext from "../../../Hooks/Context"
 import parse from 'html-react-parser';
+import NewFlavourBanner from "../../Component/NewFlavour/NewFlavourBanner";
 const ProductDetail = () => {
     const location = useLocation()
     const { state, dispatch } = React.useContext(Createcontext)
@@ -17,6 +18,7 @@ const ProductDetail = () => {
     const [Item, SetItem] = React.useState([])
     const [ProductDetails, SetProductDetails] = React.useState([])
     const [Image, SetImage] = React.useState()
+    const [GetStore ,  SetStore_id ] =  React.useState([])
     const [Product_Quantity, SetProduct_Quantity] = React.useState({
         Product_quantity: 1
     })
@@ -26,14 +28,29 @@ const ProductDetail = () => {
         return initialValue || []
     })
 
+
+
     React.useEffect(() => {
         Axios(`http://52.3.255.128:8000/UserPanel/Get-ProductById/${Id}`, {
 
 
         }).then(response => {
             SetProductDetails(response.data)
-            // SetProduct(Product => ({ ...Product, Category: response.data?.data[0].id }))
+         
+            Axios(`http://52.3.255.128:8000/UserPanel/Get-DispensaryByid/${response.data[0].Store_id}`, {
 
+
+            }).then(response => {
+                SetStore_id(response.data)
+                // SetProduct(Product => ({ ...Product, Category: response.data?.data[0].id }))
+            
+
+            }).catch(
+                function (error) {
+
+                    alert("Something Goes Wrong")
+                    // SetProduct(Product => ({ ...Product, discount: "None" }))
+                })
 
         }).catch(
             function (error) {
@@ -135,10 +152,8 @@ const ProductDetail = () => {
     return (
         <div className="container-fluid p-4  add_prod_cont">
             <div className="row center">
-                <div className="col-10  add_product_main_cont">
-
-
-
+                <NewFlavourBanner  delBtn={GetStore}></NewFlavourBanner>
+                <div className="col-10  add_product_main_cont mt-5">
                     {
                         ProductDetails?.map((ele, index) => {
                             return (
@@ -198,11 +213,8 @@ const ProductDetail = () => {
                                         </div>
                                         <div className="col-6 add_prod_quant_btn_div">
                                             {ele.Prices.map((ele1, index) => {
-                                                var JsonObject = JSON.parse(JSON.stringify(ele1))
-                                                var jsondata = JSON.parse(JsonObject.Price)
-
                                                 return (
-                                                    jsondata.map((data, index) => {
+                                                    ele1.Price?.map((data, index) => {
 
                                                         let s = false
                                                         if (Item.length === 0) {
@@ -261,12 +273,9 @@ const ProductDetail = () => {
                                         <div className="col-12 d-flex fontStyle add_prod_amount add_prod_rat">
                                             {
                                                 ele.Prices?.map((data) => {
-                                                    var JsonObject = JSON.parse(JSON.stringify(data))
-                                                    var jsondata = JSON.parse(JsonObject.Price)
-
                                                     return (
 
-                                                        jsondata?.map((Prices) => {
+                                                        data.Price?.map((Prices) => {
 
                                                             if (Item.length === 0) {
                                                                 if (Prices.id === 1) {
@@ -326,7 +335,7 @@ const ProductDetail = () => {
                 </div>
 
 
-                {ProductDetails.map((ele,index) => {
+                {ProductDetails.map((ele, index) => {
                     return (
                         <div key={index} className="col-10  border mt-4 product_desc_container">
                             <div className="col-10  prod_des_head fontStyle ">
@@ -336,7 +345,7 @@ const ProductDetail = () => {
 
 
 
-                                <p>{ parse (ele.Product_Description)}</p>
+                                <p>{parse(ele.Product_Description)}</p>
 
 
 
@@ -403,7 +412,7 @@ const ProductDetail = () => {
                         <ProductList arr={state.AllProduct} />
 
                     </div>
-                   
+
                 </div>
 
             </div>
