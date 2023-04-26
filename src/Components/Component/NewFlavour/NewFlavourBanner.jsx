@@ -10,14 +10,6 @@ const NewFlavourBanner = ({ delBtn }) => {
     const classes = useStyles()
     return (
         <>
-<<<<<<< HEAD
-            <div className="row  newFlavour_row">
-                <div className="col-12 newFlavour_container">
-                    <div className="row">
-                        <div className="col-md-3 col-sm-4  col-4 newFlavour_image_container_height">
-                            <div className='newFlavourimage_div'>
-                                <LazyLoadImage className='newFlavour_image' src="/image/logo2.png" alt='not available' height={"100px"} />
-=======
             <div className='container-fluid'>
             <div className="row  newFlavour_row" >
                 <div className="col-12 newFlavour_container">
@@ -28,7 +20,6 @@ const NewFlavourBanner = ({ delBtn }) => {
                                     <div className="col-md-2 col-sm-4  col-4 newFlavour_image_container_height">
                                         <div className='newFlavourimage_div'>
                                             <LazyLoadImage className='newFlavour_image' src={`http://52.3.255.128:8000/${data?.Store_Image}`} alt='not available' height={"100px"} />
->>>>>>> c704e94 (Store Details)
 
                                         </div>
 
