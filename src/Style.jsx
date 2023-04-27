@@ -202,13 +202,23 @@ open_dispensory_tab:{
 open_dispensory_tab_background:{
   "& .css-heg063-MuiTabs-flexContainer":{
   backgroundColor:"#F9F9F9",
-  gap: '70px'
+  gap: '40px'
 
   },
+  "@media(max-width:1280px)":{
+    "& .css-heg063-MuiTabs-flexContainer":{
+      gap: '10px',
+      overflowX:"scroll",
+      overflowY:"hidden"
+    
+      }, 
+  },
+
   "& .MuiTabs-scroller":{
     overflow:"scroll"
   }
 },
+
 
 homePage_iconsColor:{
 color:"black",

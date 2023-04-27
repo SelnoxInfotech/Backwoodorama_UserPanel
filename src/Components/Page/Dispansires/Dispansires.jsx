@@ -44,7 +44,7 @@ export default function Dispansires() {
 
 
     const [value, setValue] = React.useState(0);
-
+    const DispensorShopLocation = [{ name: "Marijuana dispensaries", city: "in Aargau, AG" }]
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
@@ -52,13 +52,26 @@ export default function Dispansires() {
     return (
         <>
             <div className="container-fluid">
-                <div className="row">
-                    <div className="col-12 col-lg-10 col-md-10 col-sm-12 mx-auto dispensory_menu">
-                        <Box className={classes.open_dispensory_tab_background} sx={{ width: '100%' }}>
+
+                <div className="row center">
+                    <div className="col-12  col-md-10 col-sm-12">
+                        {DispensorShopLocation.map((ele, index) => {
+                            return (
+                                <div className="d-flex" key={index}>
+                                      <h1 className="dispensories_name">{ele.name}</h1><h1 className="dispensories_city">{ele.city}</h1>
+                                </div>
+
+
+                            )
+                        })}
+
+                    </div>
+                    <div className="col-12 col-lg-10 col-md-10 col-sm-12 mx-auto dispensory_menu my-2">
+                        <Box className={`dispensories_tabss ${classes.open_dispensory_tab_background}`} sx={{ width: '100%' }}>
                             <Box className={classes.open_dispensory_tab} sx={{ borderBottom: 1, borderColor: 'divider', }}>
                                 <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" >
 
-                                    <Tab label="Open" {...a11yProps(0)} />
+                             <Tab label="Open" {...a11yProps(0)} />
                                     <Tab label="Storefronts" {...a11yProps(1)} />
                                     <Tab label="delivery" {...a11yProps(2)} />
                                     <Tab label="Order online" {...a11yProps(3)} />
@@ -70,32 +83,32 @@ export default function Dispansires() {
                             </Box>
 
                             <TabPanel value={value} index={0}>
-                              <DispensoriesOpenResult/>
+                                <DispensoriesOpenResult />
                             </TabPanel>
                             <TabPanel value={value} index={1}>
-                            <DispensoriesOpenResult/>
+                                <DispensoriesOpenResult />
                             </TabPanel>
                             <TabPanel value={value} index={2}>
-                            <DispensoriesOpenResult/>
+                                <DispensoriesOpenResult />
                             </TabPanel>
                             <TabPanel value={value} index={3}>
-                            <DispensoriesOpenResult/>
+                                <DispensoriesOpenResult />
                             </TabPanel>
                             <TabPanel value={value} index={4}>
-                            <DispensoriesOpenResult/>
+                                <DispensoriesOpenResult />
                             </TabPanel>
                             <TabPanel value={value} index={5}>
-                            <DispensoriesOpenResult/>
+                                <DispensoriesOpenResult />
                             </TabPanel>
                             <TabPanel value={value} index={6}>
-                            <DispensoriesOpenResult/>
+                                <DispensoriesOpenResult />
                             </TabPanel>
                             <TabPanel value={value} index={7}>
-                            <DispensoriesOpenResult/>
+                                <DispensoriesOpenResult />
                             </TabPanel>
-                         <div className="Dispansires_map">
-                         <Map height={"800px"} Theme={Dispansires_MapTheme.Dispansires_MapTheme}></Map>
-                         </div>
+                            <div className="Dispansires_map">
+                                <Map height={"800px"} Theme={Dispansires_MapTheme.Dispansires_MapTheme}></Map>
+                            </div>
                         </Box>
 
                     </div>
