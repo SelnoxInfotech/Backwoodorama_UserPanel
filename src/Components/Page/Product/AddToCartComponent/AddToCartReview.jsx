@@ -18,36 +18,31 @@ const AddToCartReview = ({ SetTotal, Total }) => {
 
 
         post()
+        if(Total.length === 0) {
+
+        }
+      
     }, [localStorage])
+
 
     function post() {
         if (state.login) {
             axios.get("http://52.3.255.128:8000/UserPanel/Get-Addtocart/", {
-
                 headers: { Authorization: `Bearer ${token_data}` }
-
             }).then(response => {
-                // var uniqueUsersByID = _.uniqBy(response.data, 'Product_id'); //removed if had duplicate id
-                // var uniqueUsers = _.uniqWith(uniqueUsersByID, _.isEqual);//removed complete duplicates
                 SetLocalData(response.data)
-
-
             }).catch(
                 function (error) {
-
                 })
-
         }
         else {
             SetLocalData(JSON.parse(localStorage.getItem("items")))
         }
     }
 
+       console.log(Total)
 
-
-
-
-    function DeleteItem(Id , id) {
+    function DeleteItem(Id, id) {
         if (state.login) {
             const config = {
                 headers: { Authorization: `Bearer ${token_data}` }
@@ -82,8 +77,6 @@ const AddToCartReview = ({ SetTotal, Total }) => {
 
     }
 
-
-
     function Quantity(Id, Cart, Event) {
         if (state.login) {
             const config = {
@@ -104,7 +97,7 @@ const AddToCartReview = ({ SetTotal, Total }) => {
                 config
             )
                 .then((res) => {
-                    console.log(res.data)
+
                     post()
                 })
                 .catch((error) => {
@@ -115,7 +108,7 @@ const AddToCartReview = ({ SetTotal, Total }) => {
         else {
             var obj = JSON.parse(localStorage.getItem("items"));
             var s = obj?.map((arr) => {
-          
+
                 if (arr.Product_id === Event.Product_id && arr.Price.id === Event.Price.id) {
 
                     return { ...arr, Cart_Quantity: arr.Cart_Quantity + 1 }
@@ -172,7 +165,7 @@ const AddToCartReview = ({ SetTotal, Total }) => {
         else {
             var obj = JSON.parse(localStorage.getItem("items"));
             var s = obj?.map((arr) => {
-                if (arr.Product_id === Event.Product_id && arr.Price.id === Event.Price.id ) {
+                if (arr.Product_id === Event.Product_id && arr.Price.id === Event.Price.id) {
 
                     return { ...arr, Cart_Quantity: arr.Cart_Quantity - 1 }
                 }
@@ -200,13 +193,14 @@ const AddToCartReview = ({ SetTotal, Total }) => {
         <>
             <div className="col-12  AddProductCartContainerinner">
                 {LocalData?.map((ele, index) => {
+                    console.log(ele)
                     return (
                         <div className="col-12 border Add_product_cart_left_container_item" key={index}>
 
                             <div className="col-12  Add_prod_item_image">
 
                                 <div className="col-1 Add_prod_item_image_cont">
-                                    <LazyLoadImage src={`http://52.3.255.128:8000//${ele.image}`} alt="imag not found" />
+                                    <LazyLoadImage src={`http://52.3.255.128:8000//${ele.Image }` } alt="imag not found" />
                                 </div>
                                 <div className="col-8 Add_prod_content_cont p-2">
                                     <div className="col-12 fontStyle  add_prod_para_font">
@@ -214,7 +208,7 @@ const AddToCartReview = ({ SetTotal, Total }) => {
 
                                     </div>
 
-                                    <div className="col-12 fontStyle  add_prod_para_margin add_prod_cart_p">
+                                    <div className="col-12TOtalAmount(ele.Price.SalePrice * ele.Cart_Quantity) fontStyle  add_prod_para_margin add_prod_cart_p">
                                         <p>{ele.StoreName}</p>
 
                                     </div>
@@ -248,7 +242,7 @@ const AddToCartReview = ({ SetTotal, Total }) => {
                                     </div>
 
                                     <div className="col-10 fontStyle Add_prod_cart_amount_right_side   d-flex">
-                                        <span className="add_prod_span_amount fontStyle">${ele.Price.SalePrice * ele.Cart_Quantity}</span>
+                                        <span className="add_prod_span_amount fontStyle" value={ele.Price.SalePrice * ele.Cart_Quantity} >${ele.Price.SalePrice * ele.Cart_Quantity}</span>
                                     </div>
                                 </div>
 

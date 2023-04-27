@@ -90,7 +90,7 @@ const ProductList = ({ arr }) => {
 
 
     const Addtocard = async (Event) => {
-        // console.log(Event)
+        console.log(Event)
         if (token_data) {
             const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
             const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id);
@@ -136,6 +136,7 @@ const ProductList = ({ arr }) => {
             var PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
 
             const Arry = {
+                Image : Event.images[0].image,
                 Product_id: Event.id,
                 Store_id: Event.Store_id,
                 Image_id: Event.images[0].id,
