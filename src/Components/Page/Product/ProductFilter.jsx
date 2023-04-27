@@ -12,7 +12,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1 }) => {
 
     const [Filter, SetFilter] = React.useState([])
     const [SubCategory, SetSubCategory] = React.useState([])
-    const SortedArrayData = [{ Id: 1, name: "sort by" }]
+    const SortedArrayData = [{ Id: 1, name: "Sort by" }]
     const SortedData = [{ type: "Sort by A to Z" }, { type: "Sort by Z to A" }, { type: "Sort by low to high" }, { type: "Sort by high to low" }]
     const HandleOpenSortedData = (Id, name) => {
         if (OpenSortedData === Id) {
@@ -125,7 +125,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1 }) => {
 
     return (
 
-        <div className="col-lg-2 col-md-12  prod_cat_left_sec  center">
+        <div className="col-lg-2 col-md-12 prod_cat_left_sec  center">
 
             {ProductFilterData.map((ele, index) => {
                 const { Id, Name, Icons } = ele;
@@ -157,7 +157,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1 }) => {
                                         Filter?.map((data) => {
                                             return (
                                                 <div>
-                                                    <div className="col-10 px-2 ">
+                                                    <div className="col-10 px-2 product_category_dropdown_cursor">
                                                         <p onClick={() => { Category_Drop(data.id, ele.Name,) }}>{data.name}</p>
                                                     </div>
                                                     {
@@ -194,64 +194,42 @@ const ProductFilter = ({ ProductFilterData, Setarr1 }) => {
 
             })}
             <Grid display={{ xs: "block", md: "none", lg: "none" }}>
-                <div className="row mx-4">
-                    <div className="col-12 ">
+           
                         {SortedArrayData.map((ele, index) => {
                             const { Id, name } = ele
                             return (
-                                <div className="row" onClick={() => HandleOpenSortedData(Id, name)} key={index}>
-                                    <div className="col-8 d-flex">
-                                        <ol className="productFilter_sortedList d-flex">
+                                <div  key={index}>
+                                    <div className="col-12" onClick={() => HandleOpenSortedData(Id, name)}>
+                                        <ol className="productFilter_sortedList prodfilterSortedListGap">
                                             <li>
                                         {(Id === OpenSortedData) ? <FiChevronLeft /> : ""}
 
                                             </li>
-                                            <li>{name}</li>
+                                            <li className="fontStyle">{name}</li>
                                             <li>
                                         {(Id === OpenSortedData) ? "" : <FiChevronRight />}
 
                                             </li>
                                         </ol>
-                                    </div>
-                                    
+                                        </div>
                                    
-                                   {/* <div className="col-6 border product_filter_sortedlist_div">
+                              
                                    {(Id === OpenSortedData) ?
                                         (
+                                            <div className="border product_Sorted_filter_dropdown">
                                             <ol className="productFilter_sortedList">{SortedData.map((ele, index) => {
                                                 return (
-                                                    <li key={index}>{ele.type}</li>
+                                                    <li  key={index}>{ele.type}</li>
                                                 )
                                             })}</ol>
+                                            </div>
                                         ) : ""
                                     }
-                                   </div> */}
                                   
 
                                 </div>
                             )
-                        })}
-                    </div>
-
-                </div>
-                {/* <FormControl sx={{ width:"150px"  , fontSize:5 }}>
-                    <Select
-                        // value={Product}
-                        // onChange={handleChange}
-                        inputProps={{ 'aria-label': 'Without label' }}
-                        size="small"
-                    >
-                        <MenuItem value="" disabled>
-                            Sort by
-                        </MenuItem>
-                        <MenuItem value={"Sort by A to Z"} >Sort by A to Z</MenuItem>
-                        <MenuItem value={"Sort by Z to A"} >Sort by Z to A</MenuItem>
-                        <MenuItem value={"Price low to high"}>Price low to high</MenuItem>
-                        <MenuItem value={"Price hight to low"}>Price hight to low</MenuItem>
-                    </Select>
-                </FormControl> */}
-
-
+                        })}                 
             </Grid>
 
         </div>

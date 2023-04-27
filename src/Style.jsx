@@ -226,6 +226,10 @@ AddToCartPoPUP_width_height:{
       width:"50%",
       height:"50%"
   }
+},
+EmptyCartIcon:{
+  fontSize: "",
+  color:"gray" 
 }
 });
 

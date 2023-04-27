@@ -2,7 +2,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "../../../../Style"
-
+import {BsCartXFill} from "react-icons/bs"
 const EmptyCard = () => {
     const classes = useStyles()
 
@@ -14,8 +14,10 @@ const EmptyCard = () => {
                         <div className="row">
                             <div className="col-12 image_container">
                                 <div className="Empty_card_image">
-                                    <LazyLoadImage className="Empty_image" src="/image/empty_image.jpg"/>
-
+                                    {/* <LazyLoadImage className="Empty_image" src="/image/empty_image.jpg"/> */}
+                                    <Box className={classes.muiIcons}>
+                                    <BsCartXFill/>
+                                    </Box>
                                 </div>
 
                             </div>
