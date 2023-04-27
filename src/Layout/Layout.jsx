@@ -28,9 +28,9 @@ export default function BasicGrid() {
                 <Outlet />
 
             </Grid>
-            <div className='Snckerbar'>
+            {/* <div className='Snckerbar'>
                 gdfgg
-            </div>
+            </div> */}
 
         </div>
 

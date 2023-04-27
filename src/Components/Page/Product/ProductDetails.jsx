@@ -215,35 +215,21 @@ const ProductDetail = () => {
                                             {ele.Prices.map((ele1, index) => {
                                                 return (
                                                     ele1.Price?.map((data, index) => {
-
-                                                        let s = false
-                                                        if (Item.length === 0) {
-                                                            // console.log(AddTOCard?.find(Add => Add.Price_index[0]?.Product_id === ele.id && Add.Price_index[0].Item_id === data.id))
-                                                            if (AddTOCard?.find(Add => Add.Price_index[0]?.Product_id === ele.id && Add.Price_index[0].Item_id === data.id)) {
+                                                        let s = false               
+                                                        if (Item?.length === 0) {
+                                                            if (AddTOCard?.find(Add => Add.Price_index[0]?.Product_id === ele.id && Add.Price_index[0]?.Item_id === data.id)) {
                                                                 s = true
 
                                                             }
                                                             else {
-
                                                                 if (data.id === 1) {
 
                                                                     s = true
                                                                 }
-
-
-
                                                             }
-
-
                                                         }
-                                                        //
                                                         else {
-
-
-
                                                             Item?.map((Price) => {
-
-
                                                                 if (ele.id === Price?.Product_id && data.id === Price?.Item_id) {
                                                                     s = true
                                                                 }
@@ -253,10 +239,7 @@ const ProductDetail = () => {
                                                                 }
                                                                 return s
                                                             })
-
                                                         }
-
-
                                                         return (
                                                             <div className="col-3 add_prod_quant_inner_div mt-2 " key={index}>
                                                                 <section id="productDetail_section" onClick={() => PriceSelect(ele.id, data.id)}
@@ -274,11 +257,9 @@ const ProductDetail = () => {
                                             {
                                                 ele.Prices?.map((data) => {
                                                     return (
-
                                                         data.Price?.map((Prices) => {
-
-                                                            if (Item.length === 0) {
-                                                                if (Prices.id === 1) {
+                                                            if (Item?.length === 0) {
+                                                                if (Prices?.id === 1) {
                                                                     return (
                                                                         < div > <p>Amount</p> <p className="add_prod_span1">${Prices.Price}</p></div>
                                                                     )
@@ -288,12 +269,10 @@ const ProductDetail = () => {
                                                                 return (
                                                                     Item?.map((Price) => {
                                                                         if (ele.id === Price?.Product_id && Prices.id === Price?.Item_id) {
-
                                                                             return (
                                                                                 < div > <p>Amount</p> <p className="add_prod_span1">${Prices.Price}</p></div>
                                                                             )
                                                                         }
-
                                                                     })
                                                                 )
                                                             }
