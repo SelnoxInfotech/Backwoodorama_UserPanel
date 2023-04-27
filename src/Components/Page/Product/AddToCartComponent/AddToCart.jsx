@@ -7,6 +7,7 @@ import Createcontext from "../../../../Hooks/Context"
 const AddToCart = () => {
     const { dispatch } = React.useContext(Createcontext)
     const [Total, SetTotal] = React.useState([])
+    
     let AllTotal = 0
     Total.forEach((item) => {
         AllTotal += item.Price

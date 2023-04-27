@@ -9,11 +9,12 @@ import axios from "axios";
 import Cookies from 'universal-cookie';
 import FlyingButton from 'react-flying-item'
 import Createcontext from "../../../Hooks/Context"
-import { AiOutlineShoppingCart } from "react-icons/ai"
+
 import AddToCartPopUp from "./AddToCartPopUp/AddToCartPopUp"
 const ProductList = ({ arr }) => {
     const navigation = useNavigate()
     const cookies = new Cookies();
+    const [CartClean, SetCartClean] = React.useState(false)
     const token_data = cookies.get('Token_access')
     const { state, dispatch } = React.useContext(Createcontext)
     const [Price, SetPrice] = React.useState([])
@@ -22,6 +23,7 @@ const ProductList = ({ arr }) => {
         const initialValue = JSON.parse(saved);
         return initialValue || []
     })
+    const [NewData, SetNewData] = React.useState([])
 
     // const Addtocard = async (Event) => {
     //     const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
@@ -88,6 +90,7 @@ const ProductList = ({ arr }) => {
 
 
     const Addtocard = async (Event) => {
+        console.log(Event)
         if (token_data) {
             const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
             const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id);
@@ -95,7 +98,15 @@ const ProductList = ({ arr }) => {
             const config = {
                 headers: { Authorization: `Bearer ${token_data}` }
             };
+            SetNewData({
+                Product_id: Event.id,
+                Store_id: Event.Store_id,
+                Image_id: Event.images[0].id,
+                Price: PriceIndex,
+                Cart_Quantity: 1,
+                PriceId: PriceIndex.id
 
+            })
             axios.post("http://52.3.255.128:8000/UserPanel/Add-AddtoCart/",
 
                 {
@@ -109,7 +120,10 @@ const ProductList = ({ arr }) => {
                 }
                 , config
             ).then(response => {
-                console.log(response)
+                if (response.data === "Empty Add to Cart") {
+                    SetCartClean(true)
+                }
+
 
             }).catch(
                 function (error) {
@@ -122,22 +136,35 @@ const ProductList = ({ arr }) => {
             var PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
 
             const Arry = {
+                Image : Event.images[0].image,
                 Product_id: Event.id,
                 Store_id: Event.Store_id,
                 Image_id: Event.images[0].id,
                 Price: PriceIndex,
                 Cart_Quantity: 1
             }
-            if (AddTOCard.find((data) => { return data.Store_id === Event.Store_id })) {
-                const t = AddTOCard.filter((data) => { return data.Product_id === Event.id && data.Price.id === PriceIndex.id })
-                if (t.length > 0) {
+            SetNewData(Arry)
+            if (AddTOCard.length != 0) {
+                if (AddTOCard.find((data) => { return data.Store_id === Event.Store_id })) {
+                    const t = AddTOCard.filter((data) => { return data.Product_id === Event.id && data.Price.id === PriceIndex.id })
+                    if (t.length > 0) {
 
-                    SetAddToCard(AddTOCard.map((Cart) => {
-                        return { ...Cart, Cart_Quantity: Cart.Cart_Quantity + 1 }
-                    }))
+
+                        SetAddToCard(AddTOCard.map((Cart) => {
+                            if (Cart.Product_id === Event.id && Cart.Price.id === PriceIndex.id) {
+
+                                return { ...Cart, Cart_Quantity: Cart.Cart_Quantity + 1 }
+                            }
+
+                            return Cart
+                        }))
+                    }
+                    else {
+                        SetAddToCard([...AddTOCard, Arry])
+                    }
                 }
                 else {
-                    SetAddToCard([...AddTOCard, Arry])
+                    SetCartClean(true)
                 }
             }
             else (
@@ -272,11 +299,13 @@ const ProductList = ({ arr }) => {
 
                                         <FlyingButton src={`http://52.3.255.128:8000/${ele.images[0]?.image}`} targetTop={'00%'} targetLeft={'100%'}>
 
-                                            <LoadingButton onClick={() => { Addtocard(ele) }} variant="outlined"><AddToCartPopUp/></LoadingButton>
+                                            <LoadingButton onClick={() => { Addtocard(ele) }} variant="outlined"> AddToCart</LoadingButton>
                                         </FlyingButton>
                                     </Box>
 
-
+                                    {
+                                        CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />
+                                    }
                                 </div>
                             </div>
                         </div>
