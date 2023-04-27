@@ -4,37 +4,70 @@ import Stack from '@mui/joy/Stack';
 import Modal from '@mui/joy/Modal';
 import ModalClose from '@mui/joy/ModalClose';
 import ModalDialog from '@mui/joy/ModalDialog';
-import Typography from '@mui/joy/Typography';
 import useStyles from '../../../../Style';
 import Box from '@mui/material/Box';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import LoadingButton from '@mui/lab/LoadingButton';
-
-const AddToCartPopUp = () => {
+import Createcontext from "../../../../Hooks/Context"
+import Cookies from 'universal-cookie';
+import axios from "axios";
+const AddToCartPopUp = ({ CartClean, SetCartClean, NewData, SetAddToCard }) => {
     const classes = useStyles()
-    const [layout, setLayout] = React.useState(undefined);
+    const cookies = new Cookies();
+    const token_data = cookies.get('Token_access')
+    const { state } = React.useContext(Createcontext)
+    const [Loading, SetLoading] = React.useState(false)
+    const [layout, setLayout] = React.useState(CartClean);
+
+
+    function CleanData() {
+        if (state.login) {
+            SetLoading(true)
+            const config = {
+                headers: { Authorization: `Bearer ${token_data}` }
+            };
+
+            axios.post("http://52.3.255.128:8000/UserPanel/ClearAddtoCart/",
+            NewData,
+            config,
+            ).then(response => {
+                SetLoading(false)
+                SetCartClean(false)
+
+
+
+            }).catch(
+                function (error) {
+                    SetLoading(false)
+                })
+        }
+        else {
+            SetLoading(true)
+            setTimeout(function () {
+                localStorage.clear();
+                SetAddToCard([NewData])
+                SetLoading(false)
+                SetCartClean(false)
+            }, 2000)
+
+
+        }
+
+    }
     return (
         <React.Fragment>
             <Stack direction="row" spacing={1}>
-                <Button
-                    variant="outlined"
-                    color="neutral"
-                    onClick={() => {
-                        setLayout('center');
-                    }}
-                >
-                   Add To Cart
-                </Button>
+
 
             </Stack>
-            <Modal open={!!layout} onClose={() => setLayout(undefined)}>
+            <Modal open={!!layout} onClose={() => {  SetCartClean(false) }}>
                 <ModalDialog
                     aria-labelledby="layout-modal-title"
                     aria-describedby="layout-modal-description"
                     layout={layout}
                     sx={{ width: "32rem", height: "40rem" }}
                 >
-                    <ModalClose/>
+                    <ModalClose />
                     <div className='container-fluid marginRow'>
                         <div className='row '>
                             <div className='col-12 AddToCartImageContainer'>
@@ -50,22 +83,22 @@ const AddToCartPopUp = () => {
 
                             </div>
                             <div className='col-12 AddToCartParagraphHeight'>
-                                <p>You have currently have a items in  you cart from other menu.You may  only add items from one menu. 
+                                <p>You have currently have a items in  you cart from other menu.You may  only add items from one menu.
                                     Would you like to finish your previous order,or start anew cart
                                 </p>
                             </div>
                             <div className='col-12'>
-                            <Box
+                                <Box
                                     className={`  ${classes.loadingBtnTextAndBack}`}
                                 >
-                                     <LoadingButton variant="outlined" loading={false} type={'submit'}>Start a new cart</LoadingButton>
+                                    <LoadingButton variant="outlined" loading={Loading} onClick={CleanData} type={'submit'}>Start a new cart</LoadingButton>
                                 </Box>
                             </div>
                             <div className='col-12 my-2'>
-                            <Box
+                                <Box
                                     className={`  ${classes.loadingBtnTextAndBack}`}
                                 >
-                                     <LoadingButton variant="outlined" loading={false} type={'submit'}>Complete  previous order</LoadingButton>
+                                    <LoadingButton variant="outlined" loading={false} onClick={() => { SetCartClean(false) }} type={'submit'}>Complete  previous order</LoadingButton>
                                 </Box>
                             </div>
 

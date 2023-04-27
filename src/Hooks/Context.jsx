@@ -6,7 +6,7 @@ const Createcontext = createContext();
 const cookies = new Cookies();
 const login = cookies.get("Token_access")
 const length = localStorage.getItem("items")
-const count = JSON.parse(length)?.length
+const count = login ? JSON.parse(length)?.length : 0
 const log = login ? true :  false
 const initialUser = {
 
