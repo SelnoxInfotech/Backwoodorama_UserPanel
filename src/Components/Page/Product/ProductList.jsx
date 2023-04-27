@@ -88,7 +88,6 @@ const ProductList = ({ arr }) => {
 
 
     const Addtocard = async (Event) => {
-        console.log(Boolean(token_data))
         if (token_data) {
             const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
             const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id);
