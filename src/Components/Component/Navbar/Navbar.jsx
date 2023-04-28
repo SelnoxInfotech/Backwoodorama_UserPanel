@@ -21,6 +21,8 @@ const Navbar = () => {
   const classes = useStyles()
   const [Open, SetOpen] = React.useState(false)
   React.useEffect(() => {
+
+    dispatch({ type: 'CartCount'})
     const handleResize = () => {
       setWindowSize(window.innerWidth)
     }
@@ -60,6 +62,7 @@ const Navbar = () => {
     dispatch({ type: 'Login', login: false })
   }
 
+  console.log(state)
   return (
     <>
 

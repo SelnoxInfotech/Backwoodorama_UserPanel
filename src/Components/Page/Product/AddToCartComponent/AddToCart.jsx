@@ -14,7 +14,7 @@ const AddToCart = () => {
   
     })
 
-//  
+console.log(Total)
 
     return (
         <div className="container">

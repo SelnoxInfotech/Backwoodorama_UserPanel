@@ -141,7 +141,8 @@ const ProductList = ({ arr }) => {
                 Store_id: Event.Store_id,
                 Image_id: Event.images[0].id,
                 Price: PriceIndex,
-                Cart_Quantity: 1
+                Cart_Quantity: 1,
+                ProductName:Event.Product_Name
             }
             SetNewData(Arry)
             if (AddTOCard.length != 0) {

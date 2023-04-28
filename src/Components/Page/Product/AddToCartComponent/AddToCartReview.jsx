@@ -3,7 +3,6 @@ import { AiOutlinePlus } from "react-icons/ai"
 import Button from '@mui/material/Button';
 import { GrFormSubtract } from "react-icons/gr";
 import { RiDeleteBin6Line } from "react-icons/ri"
-import _ from "lodash"
 import React from "react";
 import axios from 'axios';
 import Axios from 'axios';
@@ -13,15 +12,13 @@ const AddToCartReview = ({ SetTotal, Total }) => {
     const { state, dispatch } = React.useContext(Createcontext)
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
-    const [LocalData, SetLocalData] = React.useState()
+    const [LocalData, SetLocalData] = React.useState([])
     React.useEffect(() => {
 
 
         post()
-        if(Total.length === 0) {
 
-        }
-      
+
     }, [localStorage])
 
 
@@ -31,16 +28,30 @@ const AddToCartReview = ({ SetTotal, Total }) => {
                 headers: { Authorization: `Bearer ${token_data}` }
             }).then(response => {
                 SetLocalData(response.data)
+                if (Total.length === 0) {
+                    response.data?.map((data) => {
+                    return (    SetTotal(Total => [ ...Total,{ Cart_id: data.id, Price: data.Price.SalePrice * data.Cart_Quantity, Cart_Quantity: data.Cart_Quantity  , Amount: data.Price.SalePrice}]))
+                    })
+
+
+                }
             }).catch(
                 function (error) {
                 })
         }
         else {
             SetLocalData(JSON.parse(localStorage.getItem("items")))
+           if(Total.length === 0) {
+            const D =  JSON.parse(localStorage.getItem("items"))
+            D?.map((data)=>{
+                return (  SetTotal(Total => [ ...Total,{ Cart_id: data.Product_id , Price: data.Price.SalePrice * data.Cart_Quantity, Cart_Quantity: data.Cart_Quantity , Amount: data.Price.SalePrice }]))
+            })
+           }
+
         }
     }
 
-       console.log(Total)
+    console.log(Total)
 
     function DeleteItem(Id, id) {
         if (state.login) {
@@ -97,12 +108,22 @@ const AddToCartReview = ({ SetTotal, Total }) => {
                 config
             )
                 .then((res) => {
-
+                
                     post()
                 })
                 .catch((error) => {
                     console.error(error)
                 })
+                SetTotal(
+                    Total?.map((data) => {
+                        if (Event.id  === data.Cart_id) { 
+                            return { ...data, Price: data.Amount * (data.Cart_Quantity + 1) , Cart_Quantity: data.Cart_Quantity + 1 }
+                        }
+                        else {
+                            return data
+                        }
+                    })
+                )
         }
 
         else {
@@ -122,13 +143,12 @@ const AddToCartReview = ({ SetTotal, Total }) => {
 
             SetTotal(
                 Total?.map((data) => {
-                    if (Id === data.Id) {
-                        return { ...data, Price: data.Amount * (Cart + 1) }
-
+                    if (Event.Product_id  === data.Cart_id) {
+                        return { ...data, Price: data.Amount * (data.Cart_Quantity + 1) , Cart_Quantity: data.Cart_Quantity + 1 }
                     }
-
-                    return data
-
+                    else {
+                        return data
+                    }
                 })
             )
         }
@@ -154,12 +174,23 @@ const AddToCartReview = ({ SetTotal, Total }) => {
                 config
             )
                 .then((res) => {
-                    console.log(res.data)
+                   
                     post()
                 })
                 .catch((error) => {
                     console.error(error)
                 })
+                SetTotal(
+                    Total?.map((data) => {
+                        if (Event.id  === data.Cart_id) { 
+                            return { ...data, Price: data.Amount * (data.Cart_Quantity - 1) , Cart_Quantity: data.Cart_Quantity - 1 }
+                        }
+                        else {
+                            return data
+                        }
+                    })
+                )
+                
         }
 
         else {
@@ -177,34 +208,31 @@ const AddToCartReview = ({ SetTotal, Total }) => {
             SetLocalData(JSON.parse(item))
             SetTotal(
                 Total?.map((data) => {
-                    if (Id === data.Id) {
-                        return { ...data, Price: data.Amount * (Cart - 1) }
-
+                    if (Event.Product_id  === data.Cart_id) {   
+                        return { ...data, Price: data.Amount * (data.Cart_Quantity - 1) , Cart_Quantity: data.Cart_Quantity - 1 }
                     }
-
-                    return data
-
+                    else {
+                        return data
+                    }
                 })
             )
-
         }
     }
     return (
         <>
             <div className="col-12  AddProductCartContainerinner">
                 {LocalData?.map((ele, index) => {
-                    console.log(ele)
                     return (
                         <div className="col-12 border Add_product_cart_left_container_item" key={index}>
 
                             <div className="col-12  Add_prod_item_image">
 
                                 <div className="col-1 Add_prod_item_image_cont">
-                                    <LazyLoadImage src={`http://52.3.255.128:8000//${ele.Image }` } alt="imag not found" />
+                                    <LazyLoadImage src={`http://52.3.255.128:8000//${ele.Image}`} alt="imag not found" />
                                 </div>
                                 <div className="col-8 Add_prod_content_cont p-2">
                                     <div className="col-12 fontStyle  add_prod_para_font">
-                                        <h5>{ele.ProductName}  </h5>
+                                        <h5>{ele.ProductName + "(" + ele.Price.Weight + ")"}</h5>
 
                                     </div>
 
