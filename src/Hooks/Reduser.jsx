@@ -15,18 +15,8 @@ const reducer = (state, action) => {
       return { ...state, api: action.api }
     case "CartCount":
       {
-        if (login) {
-          axios.get("http://52.3.255.128:8000/UserPanel/Get-Addtocart/", {
-            headers: { Authorization: `Bearer ${login}` }
-          }).then(function (response) {
-            // return response.data.length;
-            return { ...state, CartCount: response.data.length }
-          })
-            .catch(function (error) { })
-        }
-        else{
-          return { ...state, CartCount: count }
-        }
+        return { ...state, CartCount: action.CartCount}
+       
       }
     case "AllProduct":
       {

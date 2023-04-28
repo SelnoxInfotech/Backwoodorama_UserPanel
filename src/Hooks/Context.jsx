@@ -6,33 +6,15 @@ const Createcontext = createContext();
 const cookies = new Cookies();
 const login = cookies.get("Token_access")
 const length = localStorage.getItem("items")
-const s =  () => {
 
 
 
-    const   j  = axios.get ("http://52.3.255.128:8000/UserPanel/Get-Addtocart/", {
-        headers: { Authorization: `Bearer ${login}` }
-    }).then(function (response) {
-        var k = response.data.length
-        return response.data.length
-    })
-        .catch(function (error) {
-            return error
-        })
-    
-    console.log(j)
-
-}
-
-
-const e = s()
-console.log()
 //  let g = s().then((data)=>{
 //    return(data)
 // })
 // console.log(Promise.resolve(g))
 
-const count = !login ? JSON.parse(length)?.length : "d"
+const count = !login ? JSON.parse(length)?.length : 0
 
 const log = login ? true : false
 const initialUser = {
@@ -48,6 +30,18 @@ const initialUser = {
 
 function Context(props) {
     const [state, dispatch] = useReducer(Reducer, initialUser)
+
+    React.useEffect(() => {
+        axios.get("http://52.3.255.128:8000/UserPanel/Get-Addtocart/", {
+            headers: { Authorization: `Bearer ${login}` }
+        }).then(function (response) {
+            dispatch({ type: 'CartCount' ,CartCount: response.data.length})
+        
+        })
+            .catch(function (error) {
+                return error
+            })
+    },[])
     return (
 
         <Createcontext.Provider value={{ state, dispatch }} >
