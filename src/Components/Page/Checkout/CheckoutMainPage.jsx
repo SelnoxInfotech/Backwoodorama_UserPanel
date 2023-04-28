@@ -15,7 +15,6 @@ const CheckOutMainPage = () => {
     const [ShowPlaceOrder,SetShowPlaceOrder]=React.useState(false)
     const location = useLocation();
     const { InputValues, abc } = location.state
-
     return (
         <>
             <div className="container">

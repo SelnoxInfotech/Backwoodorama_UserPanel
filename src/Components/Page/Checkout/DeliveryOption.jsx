@@ -41,7 +41,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
                             <div className="col-12 height_for_inner_div">
                                 <p >Your Address</p>
 
-                                {/* {DeliveryOptionData.map((ele,index)=>{
+                                {DeliveryOptionData?.map((ele,index)=>{
                                     return(
                                         <div key="index">
                                         <p >Your {ele?.address}</p>
@@ -49,7 +49,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
 
                                     )
 
-                                })} */}
+                                })}
 
                             </div>
                             <div className="col-12 height_for_inner_div_address flex_for_delivery marginTop_deliver p-2">

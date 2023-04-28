@@ -1,4 +1,4 @@
-import React, { useReducer, createContext,useState, useEffect } from 'react';
+import React, { useReducer, createContext, useState, useEffect } from 'react';
 import Reducer from '../Hooks/Reduser'
 import Cookies from 'universal-cookie';
 import axios from 'axios';
@@ -6,24 +6,40 @@ const Createcontext = createContext();
 const cookies = new Cookies();
 const login = cookies.get("Token_access")
 const length = localStorage.getItem("items")
-// let s =  axios.get("http://52.3.255.128:8000/UserPanel/Get-Addtocart/", {
-//     headers: { Authorization: `Bearer ${login}` }
-// }).then(function (response) {
-//     return response.data.length;
+const s =  () => {
+
+
+
+    const   j  = axios.get ("http://52.3.255.128:8000/UserPanel/Get-Addtocart/", {
+        headers: { Authorization: `Bearer ${login}` }
+    }).then(function (response) {
+        var k = response.data.length
+        return response.data.length
+    })
+        .catch(function (error) {
+            return error
+        })
+    
+    console.log(j)
+
+}
+
+
+const e = s()
+console.log()
+//  let g = s().then((data)=>{
+//    return(data)
 // })
-//     .catch(function (error) {
-//     });
+// console.log(Promise.resolve(g))
 
-
-// console.log(s)
-const count = !login && JSON.parse(length)?.length 
+const count = !login ? JSON.parse(length)?.length : "d"
 
 const log = login ? true : false
 const initialUser = {
 
     login: log,
     api: "",
-    CartCount: 0,
+    CartCount: count,
     AllProduct: [],
     DeliveryOption: false,
     DeliveryInformation: false

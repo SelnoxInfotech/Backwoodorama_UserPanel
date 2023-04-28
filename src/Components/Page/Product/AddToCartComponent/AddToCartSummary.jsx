@@ -90,7 +90,7 @@ const AddToCartSummary = ({ abc, Total }) => {
 
                     </div>
                     <div className="col-6">
-                        {abc && (<div className="col-12 mt-4 ">
+                        {OpenDelivery && (<div className="col-12 mt-4 ">
 
                             <div className="col-lg-12 col-md-8 col-sm-8 addtocart_textfield mt-2">
                                 <TextField name='delivery' value={InputValues.delivery} onChange={InputFieldHandler} id="outlined-basic" placeholder="Enter Your Delivery" variant="outlined" fullWidth size='small' />
@@ -116,7 +116,7 @@ const AddToCartSummary = ({ abc, Total }) => {
                             <p>Subtotal</p>
                         </div>
                         <div className="col-2 fontStyle">
-                            <p>${Total}</p>
+                            <p>${parseInt(Total)}</p>
                         </div>
 
 
@@ -158,7 +158,7 @@ const AddToCartSummary = ({ abc, Total }) => {
                                 <p>Total</p>
                             </div>
                             <div className="col-2 fontStyle">
-                                <p>${Total}</p>
+                                <p>${parseInt(Total)}</p>
                             </div>
 
                         </div>
