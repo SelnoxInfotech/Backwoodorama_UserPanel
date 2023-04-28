@@ -51,7 +51,6 @@ const AddToCartReview = ({ SetTotal, Total }) => {
         }
     }
 
-    console.log(Total)
 
     function DeleteItem(Id, id) {
         if (state.login) {
@@ -63,6 +62,7 @@ const AddToCartReview = ({ SetTotal, Total }) => {
             )
                 .then((res) => {
                     post()
+                    dispatch({ type: 'CartCount' })
                 })
                 .catch((error) => {
                     console.error(error)

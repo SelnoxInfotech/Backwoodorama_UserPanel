@@ -5,23 +5,12 @@ import axios from 'axios';
 const Createcontext = createContext();
 const cookies = new Cookies();
 const login = cookies.get("Token_access")
-const length = localStorage.getItem("items")
-
-
-
-//  let g = s().then((data)=>{
-//    return(data)
-// })
-// console.log(Promise.resolve(g))
-
-const count = !login ? JSON.parse(length)?.length : 0
-
 const log = login ? true : false
 const initialUser = {
 
     login: log,
     api: "",
-    CartCount: count,
+    CartCount: Boolean,
     AllProduct: [],
     DeliveryOption: false,
     DeliveryInformation: false
@@ -30,18 +19,24 @@ const initialUser = {
 
 function Context(props) {
     const [state, dispatch] = useReducer(Reducer, initialUser)
-
+    // dispatch({ type: 'CartCount'})
     React.useEffect(() => {
-        axios.get("http://52.3.255.128:8000/UserPanel/Get-Addtocart/", {
-            headers: { Authorization: `Bearer ${login}` }
-        }).then(function (response) {
-            dispatch({ type: 'CartCount' ,CartCount: response.data.length})
-        
+   if(state.login){
+    axios.get("http://52.3.255.128:8000/UserPanel/Get-Addtocart/", {
+        headers: { Authorization: `Bearer ${login}` }
+    }).then(function (response) {
+        dispatch({ type: 'CartCount' ,CartCount: response.data.length})
+    
+    })
+        .catch(function (error) {
+            return error
         })
-            .catch(function (error) {
-                return error
-            })
-    },[])
+   }
+   else{
+    const length = localStorage.getItem("items")
+    dispatch({ type: 'CartCount' ,CartCount: JSON.parse(length)?.length})
+   }
+    },[state.CartCount])
     return (
 
         <Createcontext.Provider value={{ state, dispatch }} >

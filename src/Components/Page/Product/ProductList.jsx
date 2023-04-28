@@ -123,6 +123,7 @@ const ProductList = ({ arr }) => {
                 if (response.data === "Empty Add to Cart") {
                     SetCartClean(true)
                 }
+                dispatch({ type: 'CartCount' })
 
 
             }).catch(
