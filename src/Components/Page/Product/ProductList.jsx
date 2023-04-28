@@ -218,13 +218,13 @@ const ProductList = ({ arr }) => {
 
     const classes = useStyles()
     return (
-        <div className="row">
+        <div className="row" style={{height:"auto"}}>
             {arr.map((ele, index) => {
                 return (
-                    <div className="col-12 col-lg-3 col-md-4 col-sm-6  prod_inner_cont border" key={index}>
+                    <div className="col-12 col-xl-3 col-lg-4 col-md-4 col-sm-6  prod_inner_cont " key={index}>
 
                         {/* <div className="col-12 prod_main_cont  p-2"> */}
-                        <div className="row">
+                        <div className="row product_inner_row">
 
                             {/* <Link to="/ProductDetail" state={{ Id: ele.id }}> */}
                             <div className="col-4 prod_cat_cont" >

@@ -21,6 +21,7 @@ import Createcontext from "../../../Hooks/Context"
 import { Grid } from "@mui/material"
 import NewFlavourBanner from "../../Component/NewFlavour/NewFlavourBanner"
 import StoreDetailMenuItem from "../StoreDetail/StoreDetailComponent/StoreDetailMenuItem"
+import PreCheckout from "./PreCheckout/PreCheckout"
 const Product = () => {
     const { dispatch } = React.useContext(Createcontext)
     const [Searchvalue, setSearchvalue] = React.useState()
@@ -159,13 +160,14 @@ const Product = () => {
                         </div>
                         <div className="col-10 product_select">
                             <Grid display={{ xs: "none", md: "contents", lg: "contents" }}>
-                                <FormControl sx={{ width: "150px" }}>
+                                <FormControl sx={{Width: "160px",height:"36px"}}>
                                     <Select
                                         value={Product}
                                         onChange={handleChange}
                                         displayEmpty
                                         inputProps={{ 'aria-label': 'Without label' }}
                                         size="small"
+                                        style={{width:"160px",height:"36px"}}
                                     >
                                         <MenuItem value="" disabled>
                                             Sort by
@@ -193,10 +195,12 @@ const Product = () => {
 
                         </div>
                     </div>
+                  
 
 
 
                 </div>
+                <PreCheckout/>
 
 
             </div>
