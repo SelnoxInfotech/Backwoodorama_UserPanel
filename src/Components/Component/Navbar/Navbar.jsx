@@ -23,6 +23,7 @@ const Navbar = () => {
   React.useEffect(() => {
 
     dispatch({ type: 'CartCount'})
+    dispatch({ type: 'Cart_subTotal'})
     const handleResize = () => {
       setWindowSize(window.innerWidth)
     }
@@ -60,9 +61,12 @@ const Navbar = () => {
   function Logout() {
     cookies.remove('Token_access')
     dispatch({ type: 'Login', login: false })
+    dispatch({ type: 'CartCount'})
   }
 
+React.useEffect(()=>{
   console.log(state)
+},[state.Cart_subTotal])
   return (
     <>
 

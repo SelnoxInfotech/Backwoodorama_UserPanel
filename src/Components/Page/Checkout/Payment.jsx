@@ -61,8 +61,8 @@ const Payment = ({SetShowPlaceOrder}) => {
                                                 value={value}
                                                 onChange={handleChange}
                                             >
-                                                <FormControlLabel value="I plan to pay delivery at cash" control={<Radio />} label="I plan to pay delivery at cash" />
-                                                <FormControlLabel value="I plan to pay delivery at cash" control={<Radio />} label="I plan to pay delivery at " />
+                                                <FormControlLabel value="I plan to pay delivery at cash" control={<Radio />} label="We Accept Cash On Delivery" />
+                                               
                                             </RadioGroup>
                                         </FormControl>
 

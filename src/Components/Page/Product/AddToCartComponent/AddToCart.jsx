@@ -5,7 +5,7 @@ import AddToCartReview from "./AddToCartReview"
 import AddToCartSummary from "./AddToCartSummary"
 import Createcontext from "../../../../Hooks/Context"
 const AddToCart = () => {
-    const { dispatch } = React.useContext(Createcontext)
+    const { state,dispatch } = React.useContext(Createcontext)
     const [Total, SetTotal] = React.useState([])
     
     let AllTotal = 0
@@ -13,6 +13,11 @@ const AddToCart = () => {
         AllTotal += item.Price
   
     })
+
+    React.useEffect(()=>{
+        dispatch({ type: 'Cart_subTotal', Cart_subTotal: AllTotal })
+
+    },[ state.Cart_subTotal])
 
     return (
         <div className="container">

@@ -15,6 +15,7 @@ const CheckOutMainPage = () => {
     const [ShowPlaceOrder,SetShowPlaceOrder]=React.useState(false)
     const location = useLocation();
     const { InputValues, abc } = location.state
+    console.log(abc)
     return (
         <>
             <div className="container">
@@ -31,7 +32,7 @@ const CheckOutMainPage = () => {
                         </div>
                         <div className="row ">
                             <div className="col-lg-12">
-                                {ShowData === true && <DeliveryInformation SetShowDeliveryInformation={SetShowDeliveryInformation} />}
+                                {ShowData === true && <DeliveryInformation SetShowDeliveryInformation={SetShowDeliveryInformation}  Total={abc} address={InputValues.delivery}/>}
                             </div>
 
                         </div>
@@ -43,7 +44,7 @@ const CheckOutMainPage = () => {
                         </div>
                         <div className="row">
                             <div className="col-lg-12">
-                                {ShowPlaceOrder===true && <PlaceOrder/>}
+                                {/* {ShowPlaceOrder===true && <PlaceOrder/>} */}
 
                             </div>
 

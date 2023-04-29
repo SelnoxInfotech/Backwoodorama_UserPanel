@@ -32,6 +32,10 @@ const reducer = (state, action) => {
       {
         return { ...state, DeliveryInformation: action.DeliveryInformation }
       }
+      case "Cart_subTotal":
+        {
+          return { ...state, Cart_subTotal: action.Cart_subTotal }
+        }
 
 
 

@@ -10,12 +10,18 @@ import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
 import Createcontext from "../../../Hooks/Context"
 
-const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
+const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  }) => {
     const {  dispatch } = React.useContext(Createcontext)
      const method = useForm()
     const classes = useStyles()
     const [Time, SetTime] = React.useState('');
     const [ShowDeliveryRestData, SetShowDeliveryRestData] = React.useState(true)
+    const [Checkbox , SetCheckbox] =React.useState({
+        deliveryinstructions:"",
+        DeliveryTime:"",
+        documented:""
+
+})
     const handleChange = (event) => {
         SetTime(event.target.value);
     };
@@ -27,7 +33,16 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
     const AddDeliveryInstruction = () => {
         SetShowDeliveryRestData(true)
     }
-  
+
+    // SetStore({
+    //     ...AddStore, [event.target.name]: value
+    // });
+    function CheckBox (event){
+
+        SetCheckbox({
+        ...Checkbox, [event.target.name]: event.target.checked
+    }); 
+    }
     return (
         <>
             <div className="container-fluid">
@@ -112,8 +127,8 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
 
                                     <form onSubmit={method.handleSubmit(ShowHideDeliveryOptions)} >
                                         <div className='col-12 flex_for_delivery'>
-                                            <div className='col-2 col-sm-2 col-md-2 col-lg-2 '>
-                                            <Checkbox required ></Checkbox>
+                                            <div className='col-2 col-sm-2 col-md-2 col-lg-2  center'>
+                                            <input  id="checkbox-id" onClick={CheckBox}  checked={Checkbox.DeliveryTime} name='DeliveryTime'  type='checkbox' required />
                                                  
                                             </div>
                                             <div className='col-10  col-lg-10 col-md-10 col-sm-10  font_size_checkbox_paragraph'>
@@ -122,8 +137,8 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
 
                                         </div>
                                         <div className='col-12 flex_for_delivery'>
-                                            <div className='col-2 col-sm-2 col-md-2 col-lg-2 '>
-                                                <Checkbox required ></Checkbox>
+                                            <div className='col-2 col-sm-2 col-md-2 col-lg-2 center '>
+                                            <input checked={Checkbox.deliveryinstructions}  onClick={CheckBox} name='deliveryinstructions' type='checkbox' required />
                                             </div>
                                             <div className='col-10  col-lg-10 col-md-10 col-sm-10 font_size_checkbox_paragraph'>
                                                 <p>Please check this box if the information entered is for a caregiver. If so, please add the patient information
@@ -132,8 +147,8 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
 
                                         </div>
                                         <div className='col-12 flex_for_delivery'>
-                                            <div className='col-2 col-sm-2 col-md-2 col-lg-2  '>
-                                            <Checkbox required ></Checkbox>
+                                            <div className='col-2 col-sm-2 col-md-2 col-lg-2 center'>
+                                            <input checked={Checkbox.documented} onClick={CheckBox}  name="documented" type='checkbox' required />
                                             </div>
                                             <div className='col-10  col-lg-10 col-md-10 col-sm-10 justify-content-start font_size_checkbox_paragraph'>
                                                 <p>I confirm that all the customer information added is the information linked to my NYS issued medical marijuana card and agree to present

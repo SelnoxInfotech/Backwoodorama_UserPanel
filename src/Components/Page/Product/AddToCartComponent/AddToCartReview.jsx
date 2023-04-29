@@ -8,29 +8,30 @@ import axios from 'axios';
 import Axios from 'axios';
 import Cookies from 'universal-cookie';
 import Createcontext from "../../../../Hooks/Context"
+import { LoadingButton } from '@mui/lab';
 const AddToCartReview = ({ SetTotal, Total }) => {
     const { state, dispatch } = React.useContext(Createcontext)
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
     const [LocalData, SetLocalData] = React.useState([])
+    const [Loadingmines, SetLoadingmines] = React.useState(false)
+    const [LoadingPlue, SetLoadingPluse] = React.useState(false)
+    const [CartId, SetCartid] = React.useState()
+
     React.useEffect(() => {
-
-
         post()
+    }, [])
 
 
-    }, [localStorage])
-
-
-    function post() {
+  async  function  post() {
         if (state.login) {
-            axios.get("http://52.3.255.128:8000/UserPanel/Get-Addtocart/", {
+          await  axios.get("http://52.3.255.128:8000/UserPanel/Get-Addtocart/", {
                 headers: { Authorization: `Bearer ${token_data}` }
             }).then(response => {
                 SetLocalData(response.data)
                 if (Total.length === 0) {
                     response.data?.map((data) => {
-                    return (    SetTotal(Total => [ ...Total,{ Cart_id: data.id, Price: data.Price.SalePrice * data.Cart_Quantity, Cart_Quantity: data.Cart_Quantity  , Amount: data.Price.SalePrice}]))
+                        return (SetTotal(Total => [...Total, { Cart_id: data.id, Price: data.Price.SalePrice * data.Cart_Quantity, Cart_Quantity: data.Cart_Quantity, Amount: data.Price.SalePrice }]))
                     })
 
 
@@ -41,12 +42,12 @@ const AddToCartReview = ({ SetTotal, Total }) => {
         }
         else {
             SetLocalData(JSON.parse(localStorage.getItem("items")))
-           if(Total.length === 0) {
-            const D =  JSON.parse(localStorage.getItem("items"))
-            D?.map((data)=>{
-                return (  SetTotal(Total => [ ...Total,{ Cart_id: data.Product_id , Price: data.Price.SalePrice * data.Cart_Quantity, Cart_Quantity: data.Cart_Quantity , Amount: data.Price.SalePrice }]))
-            })
-           }
+            if (Total.length === 0) {
+                const D = JSON.parse(localStorage.getItem("items"))
+                D?.map((data) => {
+                    return (SetTotal(Total => [...Total, { Cart_id: data.Product_id, Price: data.Price.SalePrice * data.Cart_Quantity, Cart_Quantity: data.Cart_Quantity, Amount: data.Price.SalePrice }]))
+                })
+            }
 
         }
     }
@@ -63,6 +64,11 @@ const AddToCartReview = ({ SetTotal, Total }) => {
                 .then((res) => {
                     post()
                     dispatch({ type: 'CartCount' })
+                    SetTotal(
+                        oldValues => {
+                        return oldValues.filter(Total => Total.Cart_id !== id)
+                    }
+                    )
                 })
                 .catch((error) => {
                     console.error(error)
@@ -81,7 +87,7 @@ const AddToCartReview = ({ SetTotal, Total }) => {
             const item = localStorage.getItem('items')
             SetLocalData(JSON.parse(item))
             SetTotal(oldValues => {
-                return oldValues.filter(Total => Total.Id !== Id)
+                return oldValues.filter(Total => Total.Cart_id !== Id)
             })
             dispatch({ type: 'CartCount', CartCount: JSON.parse(item).length })
         }
@@ -89,7 +95,8 @@ const AddToCartReview = ({ SetTotal, Total }) => {
     }
 
     function Quantity(Id, Cart, Event) {
-        if (state.login) {
+
+        if (state.login || token_data) {
             const config = {
                 headers: { Authorization: `Bearer ${token_data}` }
             };
@@ -105,25 +112,32 @@ const AddToCartReview = ({ SetTotal, Total }) => {
             }
             Axios.post(`http://52.3.255.128:8000/UserPanel/Update-AddtoCart/${Id}`,
                 Arry,
-                config
+                config,
+                SetLoadingPluse(true)
             )
                 .then((res) => {
-                
-                    post()
+                    post().then(
+
+                        SetTotal(
+                            Total?.map((data) => {
+                                if (Event.id === data.Cart_id) {
+                                    return { ...data, Price: data.Amount * (data.Cart_Quantity + 1), Cart_Quantity: data.Cart_Quantity + 1 }
+                                }
+                                else {
+                                    return data
+                                }
+                            })
+                        )
+                    )
+                   
+                    // post()
+                    SetLoadingPluse(false)
+
                 })
                 .catch((error) => {
                     console.error(error)
                 })
-                SetTotal(
-                    Total?.map((data) => {
-                        if (Event.id  === data.Cart_id) { 
-                            return { ...data, Price: data.Amount * (data.Cart_Quantity + 1) , Cart_Quantity: data.Cart_Quantity + 1 }
-                        }
-                        else {
-                            return data
-                        }
-                    })
-                )
+
         }
 
         else {
@@ -143,8 +157,8 @@ const AddToCartReview = ({ SetTotal, Total }) => {
 
             SetTotal(
                 Total?.map((data) => {
-                    if (Event.Product_id  === data.Cart_id) {
-                        return { ...data, Price: data.Amount * (data.Cart_Quantity + 1) , Cart_Quantity: data.Cart_Quantity + 1 }
+                    if (Event.Product_id === data.Cart_id) {
+                        return { ...data, Price: data.Amount * (data.Cart_Quantity + 1), Cart_Quantity: data.Cart_Quantity + 1 }
                     }
                     else {
                         return data
@@ -153,44 +167,60 @@ const AddToCartReview = ({ SetTotal, Total }) => {
             )
         }
 
+
     }
     function decreaseQuantity(Id, Cart, Event) {
+
+        SetCartid(Event.id)
         if (state.login) {
             const config = {
                 headers: { Authorization: `Bearer ${token_data}` }
             };
-            let Arry =
-            {
-                Product_id: Event.Product_id,
-                Store_id: Event.Store_id,
-                Image_id: Event.Image_id,
-                Price: Event.Price,
-                Cart_Quantity: Event.Cart_Quantity - 1,
-                PriceId: Event.Price.id
-
-            }
+           
             Axios.post(`http://52.3.255.128:8000/UserPanel/Update-AddtoCart/${Id}`,
-                Arry,
-                config
+                {
+                    Product_id: Event.Product_id,
+                    Store_id: Event.Store_id,
+                    Image_id: Event.Image_id,
+                    Price: Event.Price,
+                    Cart_Quantity: (Event.Cart_Quantity - 1),
+                    PriceId: Event.Price.id
+
+                },
+                config,
+                SetLoadingmines(true)
             )
                 .then((res) => {
-                   
-                    post()
+               
+                    if (res.data.status === 'success') {
+                        post().then(
+                            SetTotal(
+                                Total?.map((data) => {
+                                    if (Event.id === data.Cart_id) {
+                                        return { ...data, Price: data.Amount * (data.Cart_Quantity - 1), Cart_Quantity: data.Cart_Quantity - 1 }
+                                    }
+                                    else {
+                                        return data
+                                    }
+                                })
+                            )
+                        )
+                        SetLoadingmines(false)
+                       
+
+
+
+
+                       
+                    }
+
+
                 })
                 .catch((error) => {
                     console.error(error)
                 })
-                SetTotal(
-                    Total?.map((data) => {
-                        if (Event.id  === data.Cart_id) { 
-                            return { ...data, Price: data.Amount * (data.Cart_Quantity - 1) , Cart_Quantity: data.Cart_Quantity - 1 }
-                        }
-                        else {
-                            return data
-                        }
-                    })
-                )
-                
+
+
         }
 
         else {
@@ -208,8 +238,8 @@ const AddToCartReview = ({ SetTotal, Total }) => {
             SetLocalData(JSON.parse(item))
             SetTotal(
                 Total?.map((data) => {
-                    if (Event.Product_id  === data.Cart_id) {   
-                        return { ...data, Price: data.Amount * (data.Cart_Quantity - 1) , Cart_Quantity: data.Cart_Quantity - 1 }
+                    if (Event.Product_id === data.Cart_id) {
+                        return { ...data, Price: data.Amount * (data.Cart_Quantity - 1), Cart_Quantity: data.Cart_Quantity - 1 }
                     }
                     else {
                         return data
@@ -241,12 +271,12 @@ const AddToCartReview = ({ SetTotal, Total }) => {
 
                                     </div>
                                     <div className="col-12 fontStyle  add_prod_para_margin d-flex">
-                                        <span className="add_prod_span_amount fontStyle">${ele.Price.SalePrice}</span>
+                                        <span className="add_prod_span_amount fontStyle">${parseInt(ele.Price.SalePrice)}</span>
                                     </div>
                                     <div className='col-12'>
                                         <div className='AddToCartReviewBtn d-flex' >
                                             <div className='addToCart_btn'>
-                                                <Button style={{ width: "15px" }} > {ele.Cart_Quantity > 1 && <GrFormSubtract onClick={() => { decreaseQuantity(ele.id, ele.Cart_Quantity, ele) }} />}</Button>
+                                                <LoadingButton loading={Loadingmines} style={{ width: "15px" }}  > {Loadingmines || (ele.Cart_Quantity > 1) && <GrFormSubtract onClick={() => { decreaseQuantity(ele.id, ele.Cart_Quantity, ele) }} />}</LoadingButton>
 
 
                                             </div>
@@ -255,7 +285,7 @@ const AddToCartReview = ({ SetTotal, Total }) => {
 
                                             </div>
                                             <div className='addToCart_btn'>
-                                                <Button className="center" style={{ width: "15px" }} onClick={() => { Quantity(ele.id, ele.Cart_Quantity, ele) }} ><AiOutlinePlus /></Button>
+                                                <LoadingButton loading={LoadingPlue} className="center" style={{ width: "15px" }} onClick={() => { Quantity(ele.id, ele.Cart_Quantity, ele) }} ><AiOutlinePlus /></LoadingButton>
 
                                             </div>
 
@@ -266,11 +296,11 @@ const AddToCartReview = ({ SetTotal, Total }) => {
                                 </div>
                                 <div className="col-3 ">
                                     <div className="col-10 fontStyle Add_prod_cart_amount  mt-4 ">
-                                        <RiDeleteBin6Line onClick={(() => { DeleteItem(ele.Product_id, ele.id) })} />
+                                        <LoadingButton className="center" style={{ width: "15px" }} onClick={(() => { DeleteItem(ele.Product_id, ele.id) })}> <RiDeleteBin6Line size={20} /></LoadingButton>
                                     </div>
 
                                     <div className="col-10 fontStyle Add_prod_cart_amount_right_side   d-flex">
-                                        <span className="add_prod_span_amount fontStyle" value={ele.Price.SalePrice * ele.Cart_Quantity} >${ele.Price.SalePrice * ele.Cart_Quantity}</span>
+                                        <span className="add_prod_span_amount fontStyle" value={ele.Price.SalePrice * ele.Cart_Quantity} >${parseInt(ele.Price.SalePrice * ele.Cart_Quantity)}</span>
                                     </div>
                                 </div>
 

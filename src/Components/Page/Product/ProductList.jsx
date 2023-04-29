@@ -90,7 +90,6 @@ const ProductList = ({ arr }) => {
 
 
     const Addtocard = async (Event) => {
-        console.log(Event)
         if (token_data) {
             const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
             const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id);
@@ -120,10 +119,12 @@ const ProductList = ({ arr }) => {
                 }
                 , config
             ).then(response => {
+                dispatch({ type: 'CartCount' })
+                dispatch({ type: 'Cart_subTotal' })
                 if (response.data === "Empty Add to Cart") {
                     SetCartClean(true)
                 }
-                dispatch({ type: 'CartCount' })
+              
 
 
             }).catch(
@@ -172,7 +173,8 @@ const ProductList = ({ arr }) => {
             else (
                 SetAddToCard([Arry])
             )
-
+            dispatch({ type: 'CartCount' })
+            dispatch({ type: 'Cart_subTotal' })
         }
     }
 
@@ -180,27 +182,6 @@ const ProductList = ({ arr }) => {
     React.useEffect(() => {
 
         localStorage.setItem('items', JSON.stringify(AddTOCard))
-        dispatch({ type: 'CartCount', CartCount: AddTOCard.length })
-        // const config = {
-        //     headers: { Authorization: `Bearer ${token_data}` }
-        // };
-        // if (state.login === true) {
-        //      AddTOCard.map((a)=>{
-
-        //     axios.post("http://52.3.255.128:8000/UserPanel/Add-AddtoCart/",
-        //     a,
-        //         config
-
-
-        //     ).then(response => {
-
-
-        //     }).catch(
-        //         function (error) {
-
-        //         })
-        //      })
-        // }
     }, [AddTOCard])
 
 
@@ -245,6 +226,7 @@ const ProductList = ({ arr }) => {
                             <div className="col-8 product_cat_allProduct">
 
                                 <div className="col-12 px-2 prod_para_name ellipsis" style={{ marginBottom: "" }}>
+
                                     <p className='fontStyle common_sub_head '>{ele.Product_Name}</p>
                                 </div>
                                 <div className="col-12 px-2 prod_para prod_sub_heading_height ellipsis">
@@ -283,7 +265,7 @@ const ProductList = ({ arr }) => {
                                                             className={"prod_cat_btns " + (s ? "active" : "")}
                                                             value={data.id} onClick={() => PriceSelect(ele.id, data.id)} >
                                                             {data.Weight || data.Unit}
-                                                            <p className="rs">${data.SalePrice.toFixed(2)}</p>
+                                                            <p className="rs">${data.SalePrice}</p>
                                                         </section>
                                                     </div>
                                                 )

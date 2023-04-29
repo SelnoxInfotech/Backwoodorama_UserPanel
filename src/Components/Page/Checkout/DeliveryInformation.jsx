@@ -8,19 +8,22 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Axios from "axios"
 import Cookies from 'universal-cookie';
 import Createcontext from "../../../Hooks/Context"
-const DeliveryInformation = ({ SetShowDeliveryInformation }) => {
-    const {  dispatch } = React.useContext(Createcontext)
+import { useNavigate } from 'react-router-dom';
+const DeliveryInformation = ({ SetShowDeliveryInformation , Total  ,address}) => {
+    const {state, dispatch } = React.useContext(Createcontext)
     const cookies = new Cookies();
+    const navigate =  useNavigate()
     const token_data = cookies.get('Token_access')
     const method = useForm()
     const [image, setImage] = React.useState()
+    const [Dataimage, setDataImage] = React.useState()
     const [ShowRestDeliveryInformation, SetShowRestDeliveryInformation] = React.useState(true)
-    
+    const [Details , SetDetails] =  React.useState({})
     const classes = useStyles()
     const HandleDeliveryInformation = (data) => {
         SetShowDeliveryInformation(true)
         SetShowRestDeliveryInformation(false)
-        SubmitData(data)
+        // SubmitData(data)
         dispatch({ type: 'DeliveryInformation', DeliveryInformation: true })
     }
     const ShowAgainDeliverInformation = () => {
@@ -35,39 +38,53 @@ const DeliveryInformation = ({ SetShowDeliveryInformation }) => {
     function SelectImage(event) {
         if (event.target.files && event.target.files[0]) {
             setImage(URL.createObjectURL(event.target.files[0]));
+            setDataImage(event.target.files[0])
+            console.log(event.target.files[0])
         }
     }
     const config = {
         headers: { Authorization: `Bearer ${token_data}` }
     };
 
+    React.useEffect(()=>{
+        console.log(state.AllProduct)
+            const formdata = new FormData();
+            formdata.append('IdCard', Dataimage);
+            formdata.append('FirstName', Details.FirstName);
+            formdata.append('LastName', Details.LastName);
+            formdata.append('DateOfBirth', Details.Birthdate);
+            formdata.append('MobileNo', Details.Mobile);
+            formdata.append('MedicalMarijuanaNumber', Details.Id_Number);
+            formdata.append('subtotal', Total);
+            formdata.append('AddtoCart', state.AllProduct[0].id);
+            formdata.append('Store',state.AllProduct[0].Store_id);
+            formdata.append('Address', address);
+            Axios.post(
+                'http://52.3.255.128:8000/UserPanel/Add-Order/ ',
+                formdata,
+                config,
+                {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    }
+                }).then(response => {
+                    console.log(response.data)
+                    navigate("/PlaceOrder")
+    
+                }).catch(
+                    function (error) {
+                        // alert("Something Goes Wrong")
+                    })
+       
+    },[state.CartCount])
     function SubmitData(data) {
-        const formdata = new FormData();
-        formdata.append('IdCard', image);
-        formdata.append('FirstName', data.FirstName);
-        formdata.append('LastName', data.LastName);
-        formdata.append('DateOfBirth', data.Birthdate);
-        formdata.append('MobileNo', data.Mobile);
-        formdata.append('MedicalMarijuanaNumber', data.Id_Number);
-
-        Axios.post(
-            // 'http://52.3.255.128:8000/AdminPanel/Add-Product/',
-
-            formdata,
-            config,
-            {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                }
-            }).then(response => {
-            console.log(response.data)
-
-        }).catch(
-            function (error) {
-                alert("Something Goes Wrong")
-            })
     }
+    function handleChange (event){
 
+        SetDetails({
+        ...Details, [event.target.name]: event.target.value
+    }); 
+    }
     return (
         <div className="container-fluid">
 
@@ -81,7 +98,6 @@ const DeliveryInformation = ({ SetShowDeliveryInformation }) => {
                         </div>
                     </div>
                     {ShowRestDeliveryInformation &&
-
                         <div className='showRestDeliveryInformation'>
                             <div className='row'>
                                 <div className="col-12 height_del_information_inner_div font_size_paragraph_del">
@@ -110,9 +126,11 @@ const DeliveryInformation = ({ SetShowDeliveryInformation }) => {
                                 <div className='row'>
                                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
                                         <TextField
+                                        value={Details.FirstName}
                                             label="First name on photo id"
                                             variant="standard"
                                             fullWidth
+                                            onChange={handleChange}
                                             name='FirstName'
                                             inputRef={method.register({
                                                 required: "FirstName is required*.",
@@ -126,6 +144,8 @@ const DeliveryInformation = ({ SetShowDeliveryInformation }) => {
                                         <TextField
                                             label="Last name on photo id"
                                             variant="standard"
+                                            value={Details.LastName}
+                                            onChange={handleChange}
                                             fullWidth
                                             name='LastName'
                                             inputRef={method.register({
@@ -140,12 +160,16 @@ const DeliveryInformation = ({ SetShowDeliveryInformation }) => {
                                 <div className='row'>
                                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
                                         <TextField
-                                          id="outlined-number"
+                                            id="outlined-number"
                                             onFocus={onFocus}
+                                            value={Details.Birthdate}
                                             onBlur={onBlur}
                                             onChange={(e) => {
                                                 if (e.target.value) setHasValue(true);
                                                 else setHasValue(false);
+                                                SetDetails({
+                                                    ...Details, [e.target.name]: e.target.value
+                                                }); 
                                             }}
                                             type={hasValue || focus ? "date" : "text"}
                                             label="Birth date" variant="standard" fullWidth
@@ -161,6 +185,8 @@ const DeliveryInformation = ({ SetShowDeliveryInformation }) => {
                                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
                                         <TextField
                                             label="Email"
+                                            value={Details.Email}
+                                            onChange={handleChange}
                                             variant="standard"
                                             fullWidth
                                             name='Email'
@@ -181,6 +207,8 @@ const DeliveryInformation = ({ SetShowDeliveryInformation }) => {
                                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
                                         <TextField
                                             type='number'
+                                            onChange={handleChange}
+                                            value={Details.Mobile}
                                             label="Mobile phone"
                                             variant="standard"
                                             fullWidth
@@ -224,6 +252,8 @@ const DeliveryInformation = ({ SetShowDeliveryInformation }) => {
                                 <div className='row mt-2'>
                                     <div className="col-12 height_del_information_inner_div font_size_paragraph_del font_color delivery_information_font_family">
                                         <TextField
+                                        onChange={handleChange}
+                                        value={Details.Id_Number}
                                             label="Medical Marijuana Number"
                                             variant="standard"
                                             fullWidth

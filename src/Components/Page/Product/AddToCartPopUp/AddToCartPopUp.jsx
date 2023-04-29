@@ -11,15 +11,15 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Createcontext from "../../../../Hooks/Context"
 import Cookies from 'universal-cookie';
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 const AddToCartPopUp = ({ CartClean, SetCartClean, NewData, SetAddToCard }) => {
     const classes = useStyles()
+    const Navigate = useNavigate()
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
-    const { state } = React.useContext(Createcontext)
+    const { state ,dispatch } = React.useContext(Createcontext)
     const [Loading, SetLoading] = React.useState(false)
     const [layout, setLayout] = React.useState(CartClean);
-
-
     function CleanData() {
         if (state.login) {
             SetLoading(true)
@@ -31,9 +31,9 @@ const AddToCartPopUp = ({ CartClean, SetCartClean, NewData, SetAddToCard }) => {
             NewData,
             config,
             ).then(response => {
+                dispatch({ type: 'CartCount' })
                 SetLoading(false)
                 SetCartClean(false)
-
 
 
             }).catch(
@@ -42,17 +42,23 @@ const AddToCartPopUp = ({ CartClean, SetCartClean, NewData, SetAddToCard }) => {
                 })
         }
         else {
+            
             SetLoading(true)
             setTimeout(function () {
                 localStorage.clear();
                 SetAddToCard([NewData])
+                dispatch({ type: 'CartCount' })
                 SetLoading(false)
                 SetCartClean(false)
             }, 2000)
 
-
         }
 
+    }
+    function Redirect (){
+    SetCartClean(false)
+    Navigate("/AddToCart")
+    
     }
     return (
         <React.Fragment>
@@ -98,7 +104,7 @@ const AddToCartPopUp = ({ CartClean, SetCartClean, NewData, SetAddToCard }) => {
                                 <Box
                                     className={`  ${classes.loadingBtnTextAndBack}`}
                                 >
-                                    <LoadingButton variant="outlined" loading={false} onClick={() => { SetCartClean(false) }} type={'submit'}>Complete  previous order</LoadingButton>
+                                    <LoadingButton variant="outlined" loading={false} onClick={Redirect} type={'submit'}>Complete  previous order</LoadingButton>
                                 </Box>
                             </div>
 

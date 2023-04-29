@@ -1,4 +1,9 @@
+import React from "react"
+import Createcontext from "../../../../Hooks/Context"
+
+
 const PreCheckout = () => {
+    const {state } = React.useContext(Createcontext)
     return (
         <>
             <div className="row center marginPre_checkout_row ">
@@ -8,7 +13,7 @@ const PreCheckout = () => {
 
                     </div>
                     <div className="center preCheck_price">
-                     <p>7 products ($1000.0024)</p>
+                     <p>{state.CartCount} products ${state.Cart_subTotal}</p>
                     </div>
                 </div>
 

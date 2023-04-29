@@ -61,6 +61,10 @@ const AddToCartSummary = ({ abc, Total }) => {
             alert("First Fill form ")
           }
         }
+        if(location.pathname === "/CheckOutMainPage"){
+
+            dispatch({ type: 'CartCount'})
+        }
     }
     return (
         <>

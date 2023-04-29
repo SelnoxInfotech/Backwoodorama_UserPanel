@@ -38,6 +38,7 @@ const Login = () => {
             date.setTime(date.getTime() + (60 * 60 * 8000))
             cookies.set('Token_access', response.data.tokens.access, { expires: date })
             dispatch({type:'Login',login: true})
+            dispatch({ type: 'CartCount'})
             Navigate("/")
             Setloading(false)
 
