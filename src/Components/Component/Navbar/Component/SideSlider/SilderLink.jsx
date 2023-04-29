@@ -25,7 +25,7 @@ export default function DashBoardLink({ state }) {
             <div className="ccol  nav_list1">
               <ul>
                 <Link to="/Dispansires"> <li>Dispansires</li></Link>
-                <li>Deliveries</li>
+                <Link to="/Deliveries"><li>Deliveries</li></Link>
                 <li>Brand</li>
                 <Link to="/Product"><li>Product</li></Link>
                 <li>Deals</li>

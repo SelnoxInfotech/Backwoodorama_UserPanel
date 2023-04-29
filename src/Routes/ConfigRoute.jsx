@@ -16,6 +16,7 @@ import OpenDispansires from "../Components/Page/Dispansires/Dispansires"
 import StoreDetail from "../Components/Page/StoreDetail/StoreDetail"
 import Review from "../Components/Page/Review/Review";
 import EmptyCard from "../Components/Page/Product/EmptyCard/EmptyCard"
+import Deliveries from "../Components/Page/Deliveries/Deliveries"
 const routesConfig = [
   
       {
@@ -54,6 +55,10 @@ const routesConfig = [
             element: <CreatePassword></CreatePassword>,
           },
           {
+            path:"/Deliveries",
+            element:<Deliveries></Deliveries>
+          },
+          {
             path: "/Product",
             element: <Product></Product>,
           },
@@ -81,6 +86,7 @@ const routesConfig = [
             element:<OpenDispansires/>
           }
           ,
+
           {
             path:"/StoreDetail",
             element:<StoreDetail/>

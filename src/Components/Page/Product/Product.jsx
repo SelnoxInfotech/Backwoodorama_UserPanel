@@ -200,6 +200,7 @@ const Product = () => {
 
 
                 </div>
+                
                 <PreCheckout/>
 
 

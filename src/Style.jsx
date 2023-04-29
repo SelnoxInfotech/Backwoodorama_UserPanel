@@ -193,10 +193,14 @@ open_dispensory_tab:{
     left:"0px",
     width:"90px",
     background:"#31B665",
-  
   },
   "& .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected":{
     color:"#31B665"
+  }
+},
+delivery_menuBar:{
+  "& .MuiTabPanel-root":{
+    paddingLeft:"0px"
   }
 },
 open_dispensory_tab_background:{
@@ -238,9 +242,10 @@ AddToCartPoPUP_width_height:{
   }
 },
 EmptyCartIcon:{
-  fontSize: "",
+  fontSize: "60px",
   color:"gray" 
-}
+},
+
 });
 
 export default useStyles

@@ -21,7 +21,7 @@
 
 .common_sub_head {
   color: #949494;
-  font-size: 18px;
+  font-size: 15px;
 
 }
 
@@ -635,7 +635,7 @@
 }
 
 .prod_para_name p {
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .btn2 {
@@ -2821,13 +2821,14 @@
   border: 1px solid gray;
   z-index: 1;
   position: fixed;
-  bottom: 10px;
+  bottom: 30px;
   background-color: #31B665;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .preCheckout_container:hover {
-  background-color: #7ED19F;
+  background-color: #228b22;
 }
 
 .preCheck_heading h6 {
@@ -2839,6 +2840,25 @@
 
 .marginPre_checkout_row {
   margin-top: 60px !important;
+}
+.marginPre_checkout_row{
+  position: fixed;
+  width: 83.3%;
+  bottom: 10px;
+  height: 100px;
+  /* background: gainsboro; */
+  display: grid;
+  place-items: center;
+  /* background: #fffeff; */
+  background-color: rgb(255,254,255,.9);
+  opacity: .9;
+  left: 17.3%;
+}
+@media(max-width:1020px){
+  .marginPre_checkout_row{
+    width: 100%;
+    left: 0%;
+  }
 }
 
 .preCheck_heading {
@@ -2857,4 +2877,20 @@
   font-weight: 600;
 }
 
+/* end */
+/* Deliveries */
+.Deliveries_Heading{
+  font-size: 32px;
+  color: #000000;
+}
+.deliveries_sub_heading{
+color: #707070;
+font-size: 24px;
+}
+.deliveries_pickup_menu_fontSize{
+  font-size: 32px;
+}
+.deliverMenuBarHeight{
+  height:80px;
+}
 /* end */
