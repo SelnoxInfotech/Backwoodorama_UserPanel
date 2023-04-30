@@ -3,20 +3,16 @@ import { AiFillStar } from "react-icons/ai"
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from '../../../../../Style';
-const DeliveryItemsCard = () => {
-    const classes=useStyles()
-    const DeliveryItemsCardArray = [{
-        imgurl: "/image/cat_prod_6.jpg", item_name: "Jaderoom delivery Irvine",
-        address: "Medical and recreational", address2: "Irvine", total_items: 1390,
-        Number_of_items_type1: 68, Number_of_items_type2: 200, Number_of_items_type3: 320, Number_of_items_type4: 201, Number_of_items_type5: 100
-    }]
+import {MdShoppingCart} from "react-icons/md"
+const DeliveryItemsCard = ({DeliveryItemsCardArray}) => {
+    const classes = useStyles()
     return (
         <>
             <div className="container-fluid">
                 <div className="row">
                     {DeliveryItemsCardArray.map((items, index) => {
                         return (
-                            <div className="col-lg-8 col-md-10 col-sm-12 col-12 delivery_items_cards_container" key={index}>
+                            <div className="col-lg-8 col-md-10 col-sm-12 col-12 delivery_items_cards_container mt-4" key={index}>
                                 <div className='row p-2'>
                                     <div className='col-lg-8 delivery_image_content_Container_height'>
                                         <div className='row'>
@@ -25,52 +21,58 @@ const DeliveryItemsCard = () => {
 
                                             </div>
                                             <div className='col-lg-7 col-7'>
-                                                <div className='DeliveryItem_heading deliver_items_content_same_height ellipsis'>
+                                                <div className='row'>
+                                                <div className='col-12 DeliveryItem_heading deliver_items_content_same_height ellipsis'>
                                                     <h1>{items.item_name}</h1>
                                                 </div>
-                                                <div className='delivery_items_card_flex deliver_items_content_same_height ellipsis'>
-                                                    <p><AiFillStar /></p><span className='delivery_items_spanss'>5.0(27)</span>
+                                                <div className='col-12 delivery_item_paragraph delivery_items_card_flex deliver_items_content_same_height ellipsis'>
+                                                    <span><AiFillStar /></span><p className='delivery_items_spanss'>5.0(27)</p>
 
                                                 </div>
-                                                <div className='deliver_items_content_same_height ellipsis'>
+                                                <div className='col-12 delivery_item_paragraph deliver_items_content_same_height ellipsis'>
                                                     <p>{items.address}</p>
                                                 </div>
-                                                <div className='deliver_items_content_same_height ellipsis'>
+                                                <div className='col-12 delivery_item_paragraph deliver_items_content_same_height ellipsis'>
                                                     <p>{items.address2}</p>
                                                 </div>
+                                                </div>
+                                               
                                             </div>
                                         </div>
                                     </div>
                                     <div className='col-lg-4 delivery_items_right_side_container_height'>
-                                        <div className='total_items deliver_items_content_same_height'>
-                                            <p>{items.total_items} Items</p>
-                                        </div>
-                                        <div className='delivery_items_card_flex deliver_items_content_same_height'>
-                                            <p><AiFillStar /></p><span>Concentrate {items.Number_of_items_type1} items</span>
-                                        </div>
-                                        <div className='delivery_items_card_flex deliver_items_content_same_height'>
-                                            <p><AiFillStar /></p><span>Edible {items.Number_of_items_type2} items</span>
-                                        </div>
-                                        <div className='delivery_items_card_flex deliver_items_content_same_height'>
-                                            <p><AiFillStar /></p><span>flower {items.Number_of_items_type3} items</span>
-                                        </div>
-                                        <div className='delivery_items_card_flex deliver_items_content_same_height'>
-                                            <p><AiFillStar /></p><span>Vape pens {items.Number_of_items_type4} items</span>
-                                        </div>
-                                        <div className='delivery_items_card_flex deliver_items_content_same_height'>
-                                            <p><AiFillStar /></p><span>others {items.Number_of_items_type5} items</span>
+                                        <div className='row'>
+
+                                            <div className='col-12 delivery_item_paragraph total_items deliver_items_content_same_height'>
+                                                <p>{items.total_items} Items</p>
+                                            </div>
+                                            <div className='col-12 delivery_item_paragraph delivery_items_card_flex deliver_items_content_same_height ellipsis'>
+                                                <span><AiFillStar /></span><p>Concentrate {items.Number_of_items_type1} items</p>
+                                            </div>
+                                            <div className='col-12 delivery_item_paragraph delivery_items_card_flex deliver_items_content_same_height ellipsis'>
+                                                <span><AiFillStar /></span><p>Edible {items.Number_of_items_type2} items</p>
+                                            </div>
+                                            <div className='col-12 delivery_item_paragraph delivery_items_card_flex deliver_items_content_same_height ellipsis'>
+                                                <span><AiFillStar /></span><p>flower {items.Number_of_items_type3} items</p>
+                                            </div>
+                                            <div className='col-12 delivery_item_paragraph delivery_items_card_flex deliver_items_content_same_height ellipsis'>
+                                                <span><AiFillStar /></span><p>Vape pens {items.Number_of_items_type4} items</p>
+                                            </div>
+                                            <div className='col-12 delivery_item_paragraph delivery_items_card_flex deliver_items_content_same_height ellipsis'>
+                                                <span><AiFillStar /></span><p>others {items.Number_of_items_type5} items</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div className='row p-2'>
-                                    
-                                    <div className='col-lg-8 delivery_items_button_div bg-light'>
+
+                                    <div className='col-xl-8 col-lg-10 col-md-12 delivery_items_button_div bg-light'>
                                         <div className='row'>
-                                            <div className='col-lg-5 delivery_btn_delivery'>
-                                                <p>30 to 90 min</p>
+                                            <div className='col-lg-7 delivery_item_paragraphBtn delivery_btn_delivery delivery_items_card_flex'>
+                                               <span><MdShoppingCart/></span> <p>30 to 90 min |<span>Free delivery</span>|<span>$50 min</span></p>
                                             </div>
-                                            <div className='col-lg-7 delivery_btn_div'>
-                                            <Box
+                                            <div className='col-lg-5 delivery_btn_div'>
+                                                <Box
                                                     className={`${classes.loadingBtnTextAndBack}`}
                                                 >
                                                     <LoadingButton style={{ width: "75%", height: "30px" }} variant="outlined">view menu</LoadingButton>
