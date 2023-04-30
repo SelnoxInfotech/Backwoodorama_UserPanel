@@ -2894,3 +2894,55 @@ font-size: 24px;
   height:80px;
 }
 /* end */
+/* DeliveryItemsCards */
+.delivery_items_cards_container{
+  height:auto;
+  /* background: rgb(255, 255, 255); */
+  background: #FFFFFF;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  /* border: 1px solid honeydew; */
+}
+.delivery_image_content_Container_height{
+  height:220px;
+}
+.delivery_items_right_side_container_height{
+  height: 220px;
+}
+.delivery_items_card_img_container{
+  height: 200px;
+  border: 1px solid gray;
+}
+.delivery_card_image_height{
+  height: 100%;
+  width: 100%;
+}
+.DeliveryItem_heading h1{
+  font-size: 1rem;
+}
+.delivery_items_card_flex{
+  display: flex;
+  gap: 8px;
+}
+.deliver_items_content_same_height{
+height: 28px;
+/* border: 1px solid red; */
+}
+.delivery_items_button_div{
+  height:auto;
+  line-height: 45px;
+  border-radius: 10px;
+}
+.delivery_btn_delivery{
+  height: 50px;
+}
+.delivery_btn_div{
+  height: 50px;
+
+}
+@media(min-width:992px){
+  .delivery_items_button_div{
+    margin-left: 30%;
+  }
+}
+
+/* end */

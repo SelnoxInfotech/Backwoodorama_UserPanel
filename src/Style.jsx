@@ -222,6 +222,14 @@ open_dispensory_tab_background:{
     overflow:"scroll"
   }
 },
+deliverItemCardPadding:{
+"& .css-13xfq8m-MuiTabPanel-root":{
+  paddingLeft:"0px",
+  paddingRight:"0px",
+  paddingTop:"24px",
+  padding:"0px",
+}
+},
 
 
 homePage_iconsColor:{
