@@ -223,10 +223,7 @@ open_dispensory_tab_background:{
   }
 },
 deliverItemCardPadding:{
-"& .css-13xfq8m-MuiTabPanel-root":{
-  paddingLeft:"0px",
-  paddingRight:"0px",
-  paddingTop:"24px",
+"& .MuiTabPanel-root":{
   padding:"0px",
 }
 },

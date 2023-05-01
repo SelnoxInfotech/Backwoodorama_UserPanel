@@ -2924,6 +2924,32 @@ font-size: 24px;
   /* line-height: 1.25rem; */
   color: rgb(96, 100, 111);
 }
+@media(max-width:610px){
+  .delivery_item_paragraph p{
+    font-size: .8rem;
+  } 
+}
+@media(max-width:575px){
+  .delivery_item_paragraph p{
+    font-size: .8rem;
+  } 
+  .delivery_items_right_side_container_height{
+    display: none;
+  }
+ 
+}
+@media(max-width:450px){
+  .delivery_items_card_img_container{
+    height: 139px;
+  }
+  .DeliveryItem_heading h1{
+    font-size: .8rem;
+  }
+  .delivery_image_content_Container_height {
+    height: 155px;
+
+  }
+}
 .delivery_item_paragraphBtn{
   font-size: .8rem;
   color: rgb(96, 100, 111);

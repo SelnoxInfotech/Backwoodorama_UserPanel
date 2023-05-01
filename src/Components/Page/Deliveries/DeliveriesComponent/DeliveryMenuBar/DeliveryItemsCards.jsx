@@ -12,9 +12,9 @@ const DeliveryItemsCard = ({DeliveryItemsCardArray}) => {
                 <div className="row">
                     {DeliveryItemsCardArray.map((items, index) => {
                         return (
-                            <div className="col-lg-8 col-md-10 col-sm-12 col-12 delivery_items_cards_container mt-4" key={index}>
+                            <div className="col-xl-8 col-lg-10 col-md-12 col-sm-12 col-12 delivery_items_cards_container mt-4" key={index}>
                                 <div className='row p-2'>
-                                    <div className='col-lg-8 delivery_image_content_Container_height'>
+                                    <div className='col-sm-8 col-12 delivery_image_content_Container_height'>
                                         <div className='row'>
                                             <div className='col-lg-5 col-5 delivery_items_card_img_container px-0'>
                                                 <LazyLoadImage className='delivery_card_image_height' src={items.imgurl} alt='Image_not found' height={"100px"} />
@@ -40,7 +40,7 @@ const DeliveryItemsCard = ({DeliveryItemsCardArray}) => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='col-lg-4 delivery_items_right_side_container_height'>
+                                    <div className='col-sm-4 col-12 delivery_items_right_side_container_height'>
                                         <div className='row'>
 
                                             <div className='col-12 delivery_item_paragraph total_items deliver_items_content_same_height'>
