@@ -636,6 +636,7 @@
 
 .prod_para_name p {
   font-size: 18px;
+  color: #000000;
 }
 
 .btn2 {
@@ -1233,6 +1234,9 @@
   display: block;
   margin-top: 10px !important;
 
+}
+.addTocard_main_container_height{
+  height: auto;
 }
 
 .Add_product_cart_right_container_summary {

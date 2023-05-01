@@ -27,6 +27,21 @@ const DeliveryMenuBar = () => {
         address: "Medical and recreational", address2: "Irvine", total_items: 1590,
         Number_of_items_type1: 68, Number_of_items_type2: 200, Number_of_items_type3: 320, Number_of_items_type4: 201, Number_of_items_type5: 100
     }]
+    const DeliveryItemsCardArray3 = [{
+        imgurl: "/image/cat_prod_5.jpg", item_name: "Jaderoom delivery Irvine",
+        address: "Medical and recreational", address2: "Irvine", total_items: 1590,
+        Number_of_items_type1: 68, Number_of_items_type2: 200, Number_of_items_type3: 320, Number_of_items_type4: 201, Number_of_items_type5: 100
+    }]
+    const DeliveryItemsCardArray4 = [{
+        imgurl: "/image/wee_img1.jpeg", item_name: "Jaderoom delivery Irvine",
+        address: "Medical and recreational", address2: "Irvine", total_items: 1590,
+        Number_of_items_type1: 68, Number_of_items_type2: 200, Number_of_items_type3: 320, Number_of_items_type4: 201, Number_of_items_type5: 100
+    }]
+    const DeliveryItemsCardArray5 = [{
+        imgurl: "/image/cat_prod_5.jpg", item_name: "Jaderoom delivery Irvine",
+        address: "Medical and recreational", address2: "Irvine", total_items: 1590,
+        Number_of_items_type1: 68, Number_of_items_type2: 200, Number_of_items_type3: 320, Number_of_items_type4: 201, Number_of_items_type5: 100
+    }]
     const classes = useStyles()
     const [value, setValue] = React.useState('1');
 
@@ -57,9 +72,9 @@ const DeliveryMenuBar = () => {
                                         <DeliveryItemsCard DeliveryItemsCardArray={DeliveryItemsCardArray1} />
                                     </TabPanel>
                                     <TabPanel value="2"><DeliveryItemsCard DeliveryItemsCardArray={DeliveryItemsCardArray2} /></TabPanel>
-                                    <TabPanel value="3">Best of Backwood aroma</TabPanel>
-                                    <TabPanel value="4">Recreational</TabPanel>
-                                    <TabPanel value="5">Medical</TabPanel>
+                                    <TabPanel value="3"><DeliveryItemsCard DeliveryItemsCardArray={DeliveryItemsCardArray3} /></TabPanel>
+                                    <TabPanel value="4"><DeliveryItemsCard DeliveryItemsCardArray={DeliveryItemsCardArray4} /></TabPanel>
+                                    <TabPanel value="5"><DeliveryItemsCard DeliveryItemsCardArray={DeliveryItemsCardArray5} /></TabPanel>
                                 </Box>
                             </TabContext>
                         </Box>

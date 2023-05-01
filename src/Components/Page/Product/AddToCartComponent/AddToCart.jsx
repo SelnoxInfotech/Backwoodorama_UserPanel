@@ -9,7 +9,7 @@ const AddToCart = () => {
     return (
         <div className="container">
             <div className="row mt-4">
-                <div className="col-12">
+                <div className="col-12 addTocard_main_container_height">
                     <div className="col-12">
                         <p>Your Items</p>
                     </div>
@@ -21,7 +21,7 @@ const AddToCart = () => {
                             <AddToCartReview/>
 
                         </div>
-                        <div className="col-4   p-2 Add_product_cart_right_container_summary ">
+                        <div className="col-4   p-2 Add_product_cart_right_container_summary">
                             <AddToCartSummary/>
                         </div>
 

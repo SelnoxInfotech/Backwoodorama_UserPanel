@@ -29,7 +29,9 @@ const DeliveryPickupMenu = () => {
                         <TabPanel value="1">
                             <DeliveryMenuBar/>
                         </TabPanel>
-                        <TabPanel value="2">Pickup</TabPanel>
+                        <TabPanel value="2">
+                        <DeliveryMenuBar/>
+                        </TabPanel>
                         </Box>
                     </TabContext>
                 </Box>
