@@ -3015,10 +3015,13 @@ flex-wrap: nowrap;
   display: none;
 }
 .newProduct_category_slider_image{
-  width:100px;
-  height: 100px;
-  border-radius:50px;
-  /* border: 1px solid rgb(189, 194, 189); */
+  display: grid;
+  width: 130px;
+  height: 130px;
+  border-radius: 65px;
+  border: 1px solid #31B665;
+  place-items: center;
+  background: #FFFFFF;
 }
 .newProductCategory_image{
   width: 100px;
@@ -3026,9 +3029,14 @@ flex-wrap: nowrap;
   border-radius: 50px;
 }
 .newProductCard{
-  margin: 1rem;
+  margin: .5rem;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 2500ms ease-in-out;
+  transition: all 250ms ease-in-out;
+}
+.productSlider_headings h1{
+  color: #000000;
+  font-size: 24px;
+  font-weight: bold;
 }
 /* end */

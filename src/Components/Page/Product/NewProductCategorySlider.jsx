@@ -1,9 +1,7 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-const NewProductCategorySlider = () => {
-    const flowerArray = [{ imgUrl: "/image/wee_img1.jpeg", title: "flower" }, { imgUrl: "/image/flower2.webp", title: "pre-roll" }, { imgUrl: "/image/flower2.webp", title: "flower" },
-    { imgUrl: "/image/flower2.webp" }, { imgUrl: "/image/flower2.webp" },
-    { imgUrl: "/image/flower2.webp", title: "flower" }, { imgUrl: "/image/flower2.webp", title: "flower" }, { imgUrl: "/image/flower2.webp", title: "flower" }]
+const NewProductCategorySlider = ({flowerArray}) => {
+
     return (
         <>
             <div className="container-fluid">
@@ -11,14 +9,14 @@ const NewProductCategorySlider = () => {
                     <div className="col-12 newProductCategorySliderContainer">
                         {flowerArray.map((items, index) => {
                             return (
-                                <div className="row newProductCard " key={index}>
-                                    <div className="col-12 mx-4">
+                                <div className="col newProductCard" key={index}>
+                                    <div className="col-12 d-flex justify-content-center">
                                         <div className="newProduct_category_slider_image">
                                         
-                                        <LazyLoadImage className="newProductCategory_image" src={items.imgUrl} />
+                                        <LazyLoadImage className="newProductCategory_image" src={items.imgUrl}/>
                                        </div>
                                     </div>
-                                    <div className="col-12" style={{ marginLeft: "50px" }}>
+                                    <div className="col-12 d-flex justify-content-center" >
                                         <p>flower</p>
                                     </div>
                                 </div>
