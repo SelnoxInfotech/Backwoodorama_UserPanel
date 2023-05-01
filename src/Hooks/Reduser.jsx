@@ -39,6 +39,11 @@ const reducer = (state, action) => {
         {
           return { ...state, LoadingApi: action.LoadingApi } 
         }
+        case "Order_place":
+          {
+            return { ...state, Order_place: action.Order_place } 
+          }
+    
   
 
 

@@ -39,7 +39,6 @@ const DeliveryInformation = ({ SetShowDeliveryInformation , Total  ,address}) =>
         if (event.target.files && event.target.files[0]) {
             setImage(URL.createObjectURL(event.target.files[0]));
             setDataImage(event.target.files[0])
-            console.log(event.target.files[0])
         }
     }
     const config = {
@@ -47,36 +46,43 @@ const DeliveryInformation = ({ SetShowDeliveryInformation , Total  ,address}) =>
     };
 
     React.useEffect(()=>{
-        console.log(state.AllProduct)
-            const formdata = new FormData();
-            formdata.append('IdCard', Dataimage);
-            formdata.append('FirstName', Details.FirstName);
-            formdata.append('LastName', Details.LastName);
-            formdata.append('DateOfBirth', Details.Birthdate);
-            formdata.append('MobileNo', Details.Mobile);
-            formdata.append('MedicalMarijuanaNumber', Details.Id_Number);
-            formdata.append('subtotal', Total);
-            formdata.append('AddtoCart', state.AllProduct[0].id);
-            formdata.append('Store',state.AllProduct[0].Store_id);
-            formdata.append('Address', address);
-            Axios.post(
-                'http://52.3.255.128:8000/UserPanel/Add-Order/ ',
-                formdata,
-                config,
-                {
-                    headers: {
-                        'Content-Type': 'multipart/form-data',
-                    }
-                }).then(response => {
-                    console.log(response.data)
-                    navigate("/PlaceOrder")
-    
-                }).catch(
-                    function (error) {
-                        // alert("Something Goes Wrong")
-                    })
-       
-    },[state.CartCount])
+        console.log(state.AllProduct , state.Order_place)
+     if(state.Order_place === true) {
+        const formdata = new FormData();
+        formdata.append('IdCard', Dataimage);
+        formdata.append('FirstName', Details.FirstName);
+        formdata.append('LastName', Details.LastName);
+        formdata.append('DateOfBirth', Details.Birthdate);
+        formdata.append('MobileNo', Details.Mobile);
+        formdata.append('MedicalMarijuanaNumber', Details.Id_Number);
+        formdata.append('subtotal', Total);
+        state.AllProduct?.map((data)=>{
+            return  formdata.append('AddtoCart',data.id);
+        })
+        formdata.append('Store',state.AllProduct[0].Store_id);
+        formdata.append('Address', address);
+        console.log(formdata)
+        Axios.post(
+            'http://52.3.255.128:8000/UserPanel/Add-Order/ ',
+            formdata,
+            config,
+            {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                }
+            }).then(response => {
+                console.log(response.data)
+                navigate("/PlaceOrder")
+                dispatch({ type: 'Order_place' , Order_place:!state.Order_place})
+                dispatch({ type: 'ApiProduct' , ApiProduct :!state.ApiProduct })
+            }).catch(
+                function (error) {
+                    // alert("Something Goes Wrong")
+                })
+   
+     }
+    },[state.Order_place])
+
     function SubmitData(data) {
     }
     function handleChange (event){
@@ -206,7 +212,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation , Total  ,address}) =>
                                 <div className='row'>
                                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
                                         <TextField
-                                            type='number'
+                                            type='mobile'
                                             onChange={handleChange}
                                             value={Details.Mobile}
                                             label="Mobile phone"

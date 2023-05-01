@@ -39,7 +39,7 @@ const Login = () => {
             cookies.set('Token_access', response.data.tokens.access, { expires: date })
             dispatch({type:'Login',login: true})
             dispatch({ type: 'ApiProduct'  , ApiProduct :!state.ApiProduct })
-            Navigate("/")
+            Navigate(-1)
             Setloading(false)
 
 

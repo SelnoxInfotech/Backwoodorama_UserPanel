@@ -1,7 +1,36 @@
+import React from 'react';
 import { Stepper, Step } from 'react-form-stepper';
 import useStyles from "../../../Style"
+import Createcontext from "../../../Hooks/Context"
+import Cookies from 'universal-cookie';
+import Axios from 'axios';
 const PlaceOrder = () => {
     const classes = useStyles()
+    const { state  , dispatch} = React.useContext(Createcontext)
+    const cookies = new Cookies();
+    const token_data = cookies.get('Token_access')
+    const [Order , SetOrder] =React.useState([])
+    React.useEffect( ()=>{
+        const config = {
+            headers: { Authorization: `Bearer ${token_data}` }
+        };
+      
+        Axios.get(`http://52.3.255.128:8000/UserPanel/Get-Order/`,
+            config,
+
+        )
+            .then((res) => {
+                SetOrder(res.data.reverse()[0])
+                console.log(res.data)
+                dispatch({ type: 'ApiProduct' , ApiProduct:!state.ApiProduct })
+            })
+            .catch((error) => {
+                console.error(error)    
+            })
+    },[])
+
+
+
 
     return (
         <>
@@ -20,7 +49,7 @@ const PlaceOrder = () => {
 
                                     </div>
                                     <div className="col-12">
-                                        <p>Order number:#122</p>
+                                        <p> Order ID # {Order.OrderId}</p>
                                     </div>
                                 </div>
 
@@ -71,7 +100,7 @@ const PlaceOrder = () => {
                                         <p>Sub total</p>
                                     </div>
                                     <div className='col-6 col-lg-2 col-md-2 col-sm-6 order_detail_paragraph fontStyle'>
-                                        <p>$400</p>
+                                        <p>$ {Order.subtotal}</p>
                                     </div>
 
                                 </div>

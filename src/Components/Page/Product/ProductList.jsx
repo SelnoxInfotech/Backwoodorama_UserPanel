@@ -5,6 +5,7 @@ import { AiFillStar } from "react-icons/ai";
 import useStyles from "../../../Style"
 import { Link, useNavigate } from "react-router-dom";
 import _ from "lodash";
+import PreCheckout from "./PreCheckout/PreCheckout"
 import axios from "axios";
 import Cookies from 'universal-cookie';
 import FlyingButton from 'react-flying-item'
@@ -135,6 +136,7 @@ const ProductList = ({ arr }) => {
 
     const classes = useStyles()
     return (
+      <>
         <div className="row" style={{height:"auto"}}>
             {arr.map((ele, index) => {
                 return (
@@ -227,8 +229,9 @@ const ProductList = ({ arr }) => {
                 )
             })}
 
-
         </div>
+<PreCheckout/>
+      </>
     )
 }
 export default ProductList

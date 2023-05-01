@@ -138,14 +138,12 @@ const AddToCartReview = () => {
         dispatch({ type: 'ApiProduct', ApiProduct:!state.ApiProduct })
 
     }
-  async  function decreaseQuantity(Id, Event) {
-
-        SetCartid(Event.id)
-        if (state.login) {
+  async function decreaseQuantity(Id, Event) {
+        if (state.login || token_data) {
             const config = {
                 headers: { Authorization: `Bearer ${token_data}` }
             };
-           
+          
            await Axios.post(`http://52.3.255.128:8000/UserPanel/Update-AddtoCart/${Id}`,
                 {
                     Product_id: Event.Product_id,
@@ -157,16 +155,17 @@ const AddToCartReview = () => {
 
                 },
                 config,
+                
                 SetLoadingmines(true)
                 
             )
                 .then((res) => {
                
-                    if (res.data.status === 'success') {
+                    
                         post()
                         SetLoadingmines(false)
                         dispatch({ type: 'ApiProduct', ApiProduct:!state.ApiProduct })
-                    }
+                    
                 })
                 .catch((error) => {
                     console.error(error)
@@ -220,7 +219,7 @@ const AddToCartReview = () => {
                                     <div className='col-12'>
                                         <div className='AddToCartReviewBtn d-flex' >
                                             <div className='addToCart_btn'>
-                                                <LoadingButton loading={Loadingmines} style={{ width: "15px" }}  > {Loadingmines || (ele.Cart_Quantity > 1) && <GrFormSubtract onClick={() => { decreaseQuantity(ele.id, ele.Cart_Quantity, ele) }} />}</LoadingButton>
+                                                <LoadingButton loading={Loadingmines} style={{ width: "15px" }}  > {Loadingmines || ele.Cart_Quantity > 1 && <GrFormSubtract onClick={() => { decreaseQuantity(ele.id, ele) }} />}</LoadingButton>
 
 
                                             </div>

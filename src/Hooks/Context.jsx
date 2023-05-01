@@ -16,6 +16,7 @@ const initialUser = {
     DeliveryInformation: false,
     Cart_subTotal: "",
     LoadingApi : false ,
+    Order_place:false,
 
 }
 
@@ -52,6 +53,7 @@ function Context(props) {
                return AllTotal += parseInt(data.Price.SalePrice* data.Cart_Quantity);
             })
             dispatch({ type: 'Cart_subTotal', Cart_subTotal: AllTotal })
+            dispatch({ type: 'LoadingApi', LoadingApi: false })
         }
     }, [state.ApiProduct])
     return (

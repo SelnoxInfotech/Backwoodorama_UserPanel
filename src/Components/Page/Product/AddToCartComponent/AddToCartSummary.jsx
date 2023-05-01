@@ -63,7 +63,7 @@ const AddToCartSummary = () => {
         }
         if(location.pathname === "/CheckOutMainPage"){
 
-            dispatch({ type: 'CartCount'})
+            dispatch({ type: 'Order_place' , Order_place:!state.Order_place})
         }
     }
     return (

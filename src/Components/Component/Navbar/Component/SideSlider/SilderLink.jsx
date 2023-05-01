@@ -55,7 +55,7 @@ export default function DashBoardLink({ state }) {
 
               </Link>
 
-              <div className="border SliderLink_CartCount_div" >
+              <div className="border SliderLink_CartCount_div animated bounce" >
                 {state}
               </div>
             </div>

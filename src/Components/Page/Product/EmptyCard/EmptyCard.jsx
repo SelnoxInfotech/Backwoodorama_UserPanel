@@ -3,8 +3,15 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "../../../../Style"
 import {BsCartXFill} from "react-icons/bs"
+import { useNavigate } from "react-router-dom";
 const EmptyCard = () => {
     const classes = useStyles()
+   const Navigate = useNavigate()
+
+    function ShopNow (){
+        Navigate("/")
+
+    }
 
     return (
         <>
@@ -36,7 +43,7 @@ const EmptyCard = () => {
                             <Box
                                     className={`  ${classes.loadingBtnTextAndBack}`}
                                 >
-                                     <LoadingButton style={{width:"100%",height:"100%"}} variant="outlined" loading={false} type={'submit'}>Shop now</LoadingButton>
+                                     <LoadingButton onClick={ShopNow} style={{width:"100%",height:"100%"}} variant="outlined" loading={false} type={'submit'}>Shop now</LoadingButton>
                                 </Box>
                             </div>
                         </div>

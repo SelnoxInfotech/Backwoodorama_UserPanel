@@ -47,24 +47,14 @@ const Navbar = () => {
     SetOpen(false)
 
   }
-
-  // React.useEffect(() => {
-  //   if (Open === true) {
-  //     document.addEventListener("click", closeNav)
-
-  //   }
-  //   // return () => window.removeEventListener('click',closeNav)
-  // },[document])
-
   function Logout() {
     cookies.remove('Token_access')
     dispatch({ type: 'Login', login: false })
     dispatch({ type: 'ApiProduct' })
   }
 
-// React.useEffect(()=>{
-//   console.log(state.AllProduct?.length)
-// },[state.AllProduct])
+
+  console.log(state.LoadingApi)
   return (
     <>
 
@@ -92,7 +82,7 @@ const Navbar = () => {
               <AiFillHeart size={22}></AiFillHeart>
               <IoIosNotifications size={22}></IoIosNotifications>
               <Link to="/AddToCart">  <MdOutlineShoppingCart size={22}></MdOutlineShoppingCart></Link>
-              <div className="border SliderLink_CartCount_div" >
+              <div  className={"border SliderLink_CartCount_div"+(state.LoadingApi  ? "animated bounce" : " ")} > 
                 {state.AllProduct?.length}
               </div>
 

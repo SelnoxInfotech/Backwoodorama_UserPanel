@@ -8,7 +8,6 @@ import { GiWeightScale } from "react-icons/gi"
 import { RiProductHuntLine } from "react-icons/ri"
 import ProductList from "./ProductList"
 import Axios from "axios"
-import Flavour from "../Delivery/Flavour/Flavour"
 import ProductFilter from "./ProductFilter"
 import useStyles from "../../../Style"
 import SearchBar from '@mkyy/mui-search-bar';
@@ -20,7 +19,6 @@ import _ from "lodash"
 import Createcontext from "../../../Hooks/Context"
 import { Grid } from "@mui/material"
 import NewFlavourBanner from "../../Component/NewFlavour/NewFlavourBanner"
-import StoreDetailMenuItem from "../StoreDetail/StoreDetailComponent/StoreDetailMenuItem"
 import PreCheckout from "./PreCheckout/PreCheckout"
 import NewProductCategorySlider from "./NewProductCategorySlider"
 const Product = () => {
@@ -205,7 +203,7 @@ const Product = () => {
 
                 </div>
                 
-                <PreCheckout/>
+               
 
 
             </div>
