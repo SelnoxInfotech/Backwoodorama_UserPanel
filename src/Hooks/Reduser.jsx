@@ -1,4 +1,3 @@
-import axios from "axios";
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 const login = cookies.get("Token_access")
@@ -11,12 +10,12 @@ const reducer = (state, action) => {
     case 'Login':
       return { ...state, login: action.login }
 
-    case 'api':
-      return { ...state, api: action.api }
+    case 'ApiProduct':
+      return { ...state, ApiProduct: action.ApiProduct }
     case "CartCount":
       {
-        return { ...state, CartCount: action.CartCount}
-       
+        return { ...state, CartCount: action.CartCount }
+
       }
     case "AllProduct":
       {
@@ -32,10 +31,10 @@ const reducer = (state, action) => {
       {
         return { ...state, DeliveryInformation: action.DeliveryInformation }
       }
-      case "Cart_subTotal":
-        {
-          return { ...state, Cart_subTotal: action.Cart_subTotal }
-        }
+    case "Cart_subTotal":
+      {
+        return { ...state, Cart_subTotal: action.Cart_subTotal }
+      }
 
 
 

@@ -31,7 +31,7 @@ const AddToCartPopUp = ({ CartClean, SetCartClean, NewData, SetAddToCard }) => {
             NewData,
             config,
             ).then(response => {
-                dispatch({ type: 'CartCount' })
+                dispatch({ type: 'ApiProduct' })
                 SetLoading(false)
                 SetCartClean(false)
 
@@ -46,8 +46,8 @@ const AddToCartPopUp = ({ CartClean, SetCartClean, NewData, SetAddToCard }) => {
             SetLoading(true)
             setTimeout(function () {
                 localStorage.clear();
+                dispatch({ type: 'ApiProduct' , ApiProduct:!state.ApiProduct })
                 SetAddToCard([NewData])
-                dispatch({ type: 'CartCount' })
                 SetLoading(false)
                 SetCartClean(false)
             }, 2000)

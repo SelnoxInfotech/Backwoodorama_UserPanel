@@ -22,8 +22,6 @@ const Navbar = () => {
   const [Open, SetOpen] = React.useState(false)
   React.useEffect(() => {
 
-    dispatch({ type: 'CartCount'})
-    dispatch({ type: 'Cart_subTotal'})
     const handleResize = () => {
       setWindowSize(window.innerWidth)
     }
@@ -61,12 +59,12 @@ const Navbar = () => {
   function Logout() {
     cookies.remove('Token_access')
     dispatch({ type: 'Login', login: false })
-    dispatch({ type: 'CartCount'})
+    dispatch({ type: 'ApiProduct' })
   }
 
-React.useEffect(()=>{
-  console.log(state)
-},[state.Cart_subTotal])
+// React.useEffect(()=>{
+//   console.log(state.AllProduct?.length)
+// },[state.AllProduct])
   return (
     <>
 
@@ -95,7 +93,7 @@ React.useEffect(()=>{
               <IoIosNotifications size={22}></IoIosNotifications>
               <Link to="/AddToCart">  <MdOutlineShoppingCart size={22}></MdOutlineShoppingCart></Link>
               <div className="border SliderLink_CartCount_div" >
-                {state.CartCount}
+                {state.AllProduct?.length}
               </div>
 
 
@@ -131,7 +129,7 @@ React.useEffect(()=>{
             }
           </Grid>
           <Grid xs={12} md={12} xl={12} >
-            <SliderLink state={state.CartCount}></SliderLink>
+            <SliderLink state={state.AllProduct?.length}></SliderLink>
             <SideNavbar closeNav={closeNav} Open={Open}></SideNavbar>
           </Grid>
         </Grid>

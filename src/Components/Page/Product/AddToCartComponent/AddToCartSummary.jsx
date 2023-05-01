@@ -6,7 +6,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import useStyles from "../../../../Style"
 import Axios from "axios"
 import Createcontext from "../../../../Hooks/Context"
-const AddToCartSummary = ({ abc, Total }) => {
+const AddToCartSummary = () => {
     const classes = useStyles()
     const { state , dispatch } = React.useContext(Createcontext)
     const navigate = useNavigate()
@@ -51,7 +51,7 @@ const AddToCartSummary = ({ abc, Total }) => {
     const CheckoutProcess = () => {
         if(location.pathname === "/AddToCart"){
 
-            navigate("/CheckOutMainPage", { state: { InputValues, abc: Total } })
+            navigate("/CheckOutMainPage", { state: { InputValues, abc:state.Cart_subTotal} })
         }
         else{
           if (state.DeliveryOption === false) {
@@ -120,7 +120,7 @@ const AddToCartSummary = ({ abc, Total }) => {
                             <p>Subtotal</p>
                         </div>
                         <div className="col-2 fontStyle">
-                            <p>${parseInt(Total)}</p>
+                            <p>${state.Cart_subTotal}</p>
                         </div>
 
 
@@ -162,7 +162,7 @@ const AddToCartSummary = ({ abc, Total }) => {
                                 <p>Total</p>
                             </div>
                             <div className="col-2 fontStyle">
-                                <p>${parseInt(Total)}</p>
+                                <p>${state.Cart_subTotal}</p>
                             </div>
 
                         </div>

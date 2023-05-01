@@ -9,7 +9,8 @@ import Axios from 'axios';
 import Cookies from 'universal-cookie';
 import Createcontext from "../../../../Hooks/Context"
 import { LoadingButton } from '@mui/lab';
-const AddToCartReview = ({ SetTotal, Total }) => {
+import { cssNumber } from 'jquery';
+const AddToCartReview = () => {
     const { state, dispatch } = React.useContext(Createcontext)
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
@@ -29,25 +30,25 @@ const AddToCartReview = ({ SetTotal, Total }) => {
                 headers: { Authorization: `Bearer ${token_data}` }
             }).then(response => {
                 SetLocalData(response.data)
-                if (Total.length === 0) {
-                    response.data?.map((data) => {
-                        return (SetTotal(Total => [...Total, { Cart_id: data.id, Price: data.Price.SalePrice * data.Cart_Quantity, Cart_Quantity: data.Cart_Quantity, Amount: data.Price.SalePrice }]))
-                    })
+                // if (Total.length === 0) {
+                //     response.data?.map((data) => {
+                //         return (SetTotal(Total => [...Total, { Cart_id: data.id, Price: data.Price.SalePrice * data.Cart_Quantity, Cart_Quantity: data.Cart_Quantity, Amount: data.Price.SalePrice }]))
+                //     })
 
 
-                }
+                // }
             }).catch(
                 function (error) {
                 })
         }
         else {
             SetLocalData(JSON.parse(localStorage.getItem("items")))
-            if (Total.length === 0) {
-                const D = JSON.parse(localStorage.getItem("items"))
-                D?.map((data) => {
-                    return (SetTotal(Total => [...Total, { Cart_id: data.Product_id, Price: data.Price.SalePrice * data.Cart_Quantity, Cart_Quantity: data.Cart_Quantity, Amount: data.Price.SalePrice }]))
-                })
-            }
+            // if (Total.length === 0) {
+            //     const D = JSON.parse(localStorage.getItem("items"))
+            //     D?.map((data) => {
+            //         return (SetTotal(Total => [...Total, { Cart_id: data.Product_id, Price: data.Price.SalePrice * data.Cart_Quantity, Cart_Quantity: data.Cart_Quantity, Amount: data.Price.SalePrice }]))
+            //     })
+            // }
 
         }
     }
@@ -63,17 +64,11 @@ const AddToCartReview = ({ SetTotal, Total }) => {
             )
                 .then((res) => {
                     post()
-                    dispatch({ type: 'CartCount' })
-                    SetTotal(
-                        oldValues => {
-                        return oldValues.filter(Total => Total.Cart_id !== id)
-                    }
-                    )
                 })
                 .catch((error) => {
                     console.error(error)
                 })
-
+                dispatch({ type: 'ApiProduct', ApiProduct:!state.ApiProduct })
         }
         else {
             var obj = JSON.parse(localStorage.getItem("items"));
@@ -86,11 +81,8 @@ const AddToCartReview = ({ SetTotal, Total }) => {
             localStorage.setItem("items", JSON.stringify(obj));
             const item = localStorage.getItem('items')
             SetLocalData(JSON.parse(item))
-            SetTotal(oldValues => {
-                return oldValues.filter(Total => Total.Cart_id !== Id)
-            })
-            dispatch({ type: 'CartCount', CartCount: JSON.parse(item).length })
         }
+        dispatch({ type: 'ApiProduct', ApiProduct:!state.ApiProduct })
 
     }
 
@@ -116,21 +108,7 @@ const AddToCartReview = ({ SetTotal, Total }) => {
                 SetLoadingPluse(true)
             )
                 .then((res) => {
-                    post().then(
-
-                        SetTotal(
-                            Total?.map((data) => {
-                                if (Event.id === data.Cart_id) {
-                                    return { ...data, Price: data.Amount * (data.Cart_Quantity + 1), Cart_Quantity: data.Cart_Quantity + 1 }
-                                }
-                                else {
-                                    return data
-                                }
-                            })
-                        )
-                    )
-                   
-                    // post()
+                    post()
                     SetLoadingPluse(false)
 
                 })
@@ -154,19 +132,8 @@ const AddToCartReview = ({ SetTotal, Total }) => {
             localStorage.setItem("items", JSON.stringify(s));
             const item = localStorage.getItem('items')
             SetLocalData(JSON.parse(item))
-
-            SetTotal(
-                Total?.map((data) => {
-                    if (Event.Product_id === data.Cart_id) {
-                        return { ...data, Price: data.Amount * (data.Cart_Quantity + 1), Cart_Quantity: data.Cart_Quantity + 1 }
-                    }
-                    else {
-                        return data
-                    }
-                })
-            )
         }
-
+        dispatch({ type: 'ApiProduct', ApiProduct:!state.ApiProduct })
 
     }
     function decreaseQuantity(Id, Cart, Event) {
@@ -193,18 +160,7 @@ const AddToCartReview = ({ SetTotal, Total }) => {
                 .then((res) => {
                
                     if (res.data.status === 'success') {
-                        post().then(
-                            SetTotal(
-                                Total?.map((data) => {
-                                    if (Event.id === data.Cart_id) {
-                                        return { ...data, Price: data.Amount * (data.Cart_Quantity - 1), Cart_Quantity: data.Cart_Quantity - 1 }
-                                    }
-                                    else {
-                                        return data
-                                    }
-                                })
-                            )
-                        )
+                        post()
                         SetLoadingmines(false)
                        
 
@@ -236,17 +192,9 @@ const AddToCartReview = ({ SetTotal, Total }) => {
             localStorage.setItem("items", JSON.stringify(s));
             const item = localStorage.getItem('items')
             SetLocalData(JSON.parse(item))
-            SetTotal(
-                Total?.map((data) => {
-                    if (Event.Product_id === data.Cart_id) {
-                        return { ...data, Price: data.Amount * (data.Cart_Quantity - 1), Cart_Quantity: data.Cart_Quantity - 1 }
-                    }
-                    else {
-                        return data
-                    }
-                })
-            )
         }
+
+        dispatch({ type: 'ApiProduct', ApiProduct:!state.ApiProduct })
     }
     return (
         <>
