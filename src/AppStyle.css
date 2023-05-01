@@ -2895,6 +2895,10 @@ font-size: 24px;
 }
 /* end */
 /* DeliveryItemsCards */
+.delivery_items_icons{
+  color: rgb(96, 100, 111);
+
+}
 .delivery_items_cards_container{
   height:auto;
   background: #FFFFFF;
@@ -2909,7 +2913,7 @@ font-size: 24px;
 }
 .delivery_items_card_img_container{
   height: 200px;
-  border: 1px solid gray;
+  border: 1px solid  rgb(157, 158, 160);
 }
 .delivery_card_image_height{
   height: 100%;
@@ -2961,7 +2965,6 @@ font-size: 24px;
 }
 .deliver_items_content_same_height{
 height: 28px;
-/* border: 1px solid red; */
 }
 .delivery_items_button_div{
   height:auto;
@@ -2981,4 +2984,13 @@ height: 28px;
   }
 }
 
+/* end */
+/* DeliverymenuBar */
+.delivery_menuBar_container{
+  height: auto;
+}
+.deliveries_container_height{
+  height: auto;
+
+}
 /* end */

@@ -4,6 +4,11 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from '../../../../../Style';
 import {MdShoppingCart} from "react-icons/md"
+import {GiFlowerPot} from "react-icons/gi"
+import {GiChocolateBar} from "react-icons/gi"
+import {GiSpotedFlower} from "react-icons/gi"
+import {FaPencilRuler} from "react-icons/fa"
+import {GiClothJar} from "react-icons/gi"
 const DeliveryItemsCard = ({DeliveryItemsCardArray}) => {
     const classes = useStyles()
     return (
@@ -12,7 +17,7 @@ const DeliveryItemsCard = ({DeliveryItemsCardArray}) => {
                 <div className="row">
                     {DeliveryItemsCardArray.map((items, index) => {
                         return (
-                            <div className="col-xl-8 col-lg-10 col-md-12 col-sm-12 col-12 delivery_items_cards_container mt-4" key={index}>
+                            <div className="col-xl-8 col-lg-10  col-12 delivery_items_cards_container mt-4" key={index}>
                                 <div className='row p-2'>
                                     <div className='col-sm-8 col-12 delivery_image_content_Container_height'>
                                         <div className='row'>
@@ -43,23 +48,23 @@ const DeliveryItemsCard = ({DeliveryItemsCardArray}) => {
                                     <div className='col-sm-4 col-12 delivery_items_right_side_container_height'>
                                         <div className='row'>
 
-                                            <div className='col-12 delivery_item_paragraph total_items deliver_items_content_same_height'>
-                                                <p>{items.total_items} Items</p>
+                                            <div className='col-12 DeliveryItem_heading  total_items deliver_items_content_same_height'>
+                                                <h1>{items.total_items} Items</h1>
                                             </div>
                                             <div className='col-12 delivery_item_paragraph delivery_items_card_flex deliver_items_content_same_height ellipsis'>
-                                                <span><AiFillStar /></span><p>Concentrate {items.Number_of_items_type1} items</p>
+                                                <span className='delivery_items_icons'><GiFlowerPot /></span><p>Concentrate {items.Number_of_items_type1} items</p>
                                             </div>
                                             <div className='col-12 delivery_item_paragraph delivery_items_card_flex deliver_items_content_same_height ellipsis'>
-                                                <span><AiFillStar /></span><p>Edible {items.Number_of_items_type2} items</p>
+                                                <span className='delivery_items_icons'><GiChocolateBar /></span><p>Edible {items.Number_of_items_type2} items</p>
                                             </div>
                                             <div className='col-12 delivery_item_paragraph delivery_items_card_flex deliver_items_content_same_height ellipsis'>
-                                                <span><AiFillStar /></span><p>flower {items.Number_of_items_type3} items</p>
+                                                <span className='delivery_items_icons'><GiSpotedFlower /></span><p>flower {items.Number_of_items_type3} items</p>
                                             </div>
                                             <div className='col-12 delivery_item_paragraph delivery_items_card_flex deliver_items_content_same_height ellipsis'>
-                                                <span><AiFillStar /></span><p>Vape pens {items.Number_of_items_type4} items</p>
+                                                <span className='delivery_items_icons'><FaPencilRuler /></span><p>Vape pens {items.Number_of_items_type4} items</p>
                                             </div>
                                             <div className='col-12 delivery_item_paragraph delivery_items_card_flex deliver_items_content_same_height ellipsis'>
-                                                <span><AiFillStar /></span><p>others {items.Number_of_items_type5} items</p>
+                                                <span className='delivery_items_icons'><GiClothJar /></span><p>others {items.Number_of_items_type5} items</p>
                                             </div>
                                         </div>
                                     </div>

@@ -13,7 +13,7 @@ const DeliveryMenuBar = () => {
             address: "Medical and recreational", address2: "Irvine", total_items: 1390,
             Number_of_items_type1: 68, Number_of_items_type2: 200, Number_of_items_type3: 320, Number_of_items_type4: 201, Number_of_items_type5: 100
         }, {
-            imgurl: "/image/cat_prod_6.jpg", item_name: "Jaderoom delivery Irvine",
+            imgurl: "/image/weed_img2.jpeg", item_name: "Jaderoom delivery Irvine",
             address: "Medical and recreational", address2: "Irvine", total_items: 1390,
             Number_of_items_type1: 68, Number_of_items_type2: 200, Number_of_items_type3: 320, Number_of_items_type4: 201, Number_of_items_type5: 100
         }, {
@@ -38,7 +38,7 @@ const DeliveryMenuBar = () => {
         <>
             <div className="container-fluid">
                 <div className="row ">
-                    <div className="col-lg-12 col-12">
+                    <div className="col-lg-12 col-12 delivery_menuBar_container">
 
                         <Box className={`px-0 ${classes}`} sx={{ width: '100%', typography: 'body1' }}>
                             <TabContext value={value}>
@@ -53,7 +53,7 @@ const DeliveryMenuBar = () => {
                                     </TabList>
                                 </Box>
                                 <Box className={`${classes.deliverItemCardPadding}`}>
-                                    <TabPanel value="1">
+                                    <TabPanel value="1" >
                                         <DeliveryItemsCard DeliveryItemsCardArray={DeliveryItemsCardArray1} />
                                     </TabPanel>
                                     <TabPanel value="2"><DeliveryItemsCard DeliveryItemsCardArray={DeliveryItemsCardArray2} /></TabPanel>
