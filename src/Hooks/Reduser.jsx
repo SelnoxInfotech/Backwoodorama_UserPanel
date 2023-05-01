@@ -33,8 +33,13 @@ const reducer = (state, action) => {
       }
     case "Cart_subTotal":
       {
-        return { ...state, Cart_subTotal: action.Cart_subTotal }
+        return { ...state, Cart_subTotal: action.Cart_subTotal } 
       }
+      case "LoadingApi":
+        {
+          return { ...state, LoadingApi: action.LoadingApi } 
+        }
+  
 
 
 
