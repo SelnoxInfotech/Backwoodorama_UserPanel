@@ -35,7 +35,6 @@ const Product = () => {
 
         }).then(response => {
             Setarr1(response.data)
-            dispatch({ type: 'AllProduct', AllProduct: response.data })
 
         }).catch(
             function (error) {

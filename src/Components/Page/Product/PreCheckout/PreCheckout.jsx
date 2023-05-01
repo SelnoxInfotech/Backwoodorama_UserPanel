@@ -13,7 +13,8 @@ const PreCheckout = () => {
 
                     </div>
                     <div className="center preCheck_price">
-                     <p>{state.CartCount} products ${state.Cart_subTotal}</p>
+                     <p>{state.AllProduct.length} products ${state.Cart_subTotal}</p>
+                    
                     </div>
                 </div>
 

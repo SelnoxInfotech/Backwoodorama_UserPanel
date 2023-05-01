@@ -25,71 +25,8 @@ const ProductList = ({ arr }) => {
     })
     const [NewData, SetNewData] = React.useState([])
 
-    // const Addtocard = async (Event) => {
-    //     const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
-    //     var PriceIndex = AddData === [] ? "" : AddData;
-    //     const Arry = {
-    //         Product_id: Event.id,
-    //         Product_Name: Event.Product_Name,
-    //         Prices: Event.Prices,
-    //         Store_id: Event.Store_id,
-    //         Image: Event.images,
-    //         Price_index: PriceIndex,
-    //         StoreName: Event.StoreName,
-    //         Product_Quantity: 1,
-    //         SubTotal: state.SubTotal
-
-    //     }
-
-    //     const Status = AddTOCard.find((data) => {
-    //         if (data.Product_id === Event.id) {
-    //             return true
-    //         }
-    //         return false
-    //     })
-    //     const Store = AddTOCard.find((data) => {
-    //         if (data.Store_id === Event.Store_id) {
-    //             return true
-    //         }
-    //         return false
-    //     })
-    //     if (Store !== undefined) {
-
-    //         if (Status !== undefined) {
-    //             await SetAddToCard(AddTOCard.map((Add) => {
-    //                 if (Add.Product_id === Event.id) {
-    //                     if (AddData.length !== 0) {
-
-    //                         if (AddData[0]?.Item_id === Add.Price_index[0]?.Item_id) {
-
-    //                             return { ...Add, Product_Quantity: Add.Product_Quantity + 1 }
-    //                         }
-    //                         else {
-    //                             return { ...Add, Price_index: AddData, Product_Quantity: 1 }
-    //                         }
-    //                     }
-    //                     else {
-    //                         return { ...Add, Product_Quantity: Add.Product_Quantity + 1 }
-    //                     }
-    //                 }
-
-    //                 return Add
-    //             }))
-    //         }
-    //         else (
-    //             SetAddToCard([...AddTOCard, Arry])
-    //         )
-    //     }
-    //     else {
-    //         SetAddToCard([Arry])
-    //     }
-
-    // }
-
-
-
-
     const Addtocard = async (Event) => {
+    
         if (token_data) {
             const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
             const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id);
@@ -119,17 +56,12 @@ const ProductList = ({ arr }) => {
                 }
                 , config
             ).then(response => {
-                dispatch({ type: 'CartCount' })
-                dispatch({ type: 'Cart_subTotal' })
                 if (response.data === "Empty Add to Cart") {
                     SetCartClean(true)
                 }
-              
-
-
             }).catch(
                 function (error) {
-
+                
                 })
         }
         else {
@@ -173,9 +105,10 @@ const ProductList = ({ arr }) => {
             else (
                 SetAddToCard([Arry])
             )
-            dispatch({ type: 'CartCount' })
-            dispatch({ type: 'Cart_subTotal' })
+           
+            // dispatch({ type: 'Cart_subTotal' })
         }
+        dispatch({ type: 'ApiProduct' , ApiProduct :!state.ApiProduct })
     }
 
 
@@ -191,8 +124,6 @@ const ProductList = ({ arr }) => {
             return Price.filter(Price => Price.Product_id !== Product)
         })
         SetPrice(Price => [...Price, { Product_id: Product, Item_id: Item }]);
-
-        // SetItem([Product, Item])
     }
 
     function Product_Details(ele) {
@@ -205,11 +136,7 @@ const ProductList = ({ arr }) => {
             {arr.map((ele, index) => {
                 return (
                     <div className="col-12 col-xl-3 col-lg-4 col-md-4 col-sm-6  prod_inner_cont " key={index}>
-
-                        {/* <div className="col-12 prod_main_cont  p-2"> */}
                         <div className="row product_inner_row">
-
-                            {/* <Link to="/ProductDetail" state={{ Id: ele.id }}> */}
                             <div className="col-4 prod_cat_cont" >
                                 <Link to="/ProductDetail" state={{ Id: ele.id }}>
                                     <div className="col-10 p-2 prod_cat_img">

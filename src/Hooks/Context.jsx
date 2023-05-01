@@ -1,4 +1,4 @@
-import React, { useReducer, createContext, } from 'react';
+import React, { useReducer, createContext } from 'react';
 import Reducer from '../Hooks/Reduser'
 import Cookies from 'universal-cookie';
 import axios from 'axios';
@@ -10,38 +10,47 @@ const log = login ? true : false
 const initialUser = {
 
     login: log,
-    api: "",
-    CartCount: Boolean,
+    ApiProduct: false,
     AllProduct: [],
     DeliveryOption: false,
     DeliveryInformation: false,
-    Cart_subTotal :""
+    Cart_subTotal: ""
 
 }
 
 function Context(props) {
     const [state, dispatch] = useReducer(Reducer, initialUser)
-
+    
     React.useEffect(() => {
-        dispatch({ type: 'Cart_subTotal'})
         const logi = cookies.get("Token_access")
-        if (Boolean(logi) ) {
+        if (Boolean(logi)) {
             axios.get("http://52.3.255.128:8000/UserPanel/Get-Addtocart/", {
                 headers: { Authorization: `Bearer ${login}` }
-            }).then(function (response) {
-                dispatch({ type: 'CartCount', CartCount:response?.data.length })
-                dispatch({ type: 'AllProduct', AllProduct:response?.data })
-
+            }).then(async function (response) {
+                const CarTProduct = await response?.data;
+                dispatch({ type: 'AllProduct', AllProduct: CarTProduct })
+                let AllTotal = 0
+                CarTProduct.map((data)=>{
+                  return  AllTotal += data.TotalPrice.toFixed()
+                })
+                dispatch({ type: 'Cart_subTotal', Cart_subTotal: AllTotal })
             })
                 .catch(function (error) {
                     return error
                 })
         }
         else {
-            const length = localStorage.getItem("items")
-            dispatch({ type: 'CartCount', CartCount: JSON.parse(length)?.length })
+            const length =  localStorage.getItem("items")
+            
+            dispatch({ type: 'AllProduct', AllProduct: JSON.parse(length) })
+            let AllTotal = 0
+            JSON.parse(length)?.map((data)=>{
+               
+               return AllTotal += data.Price.SalePrice.toFixed()* data.Cart_Quantity.toFixed();
+            })
+            dispatch({ type: 'Cart_subTotal', Cart_subTotal: AllTotal })
         }
-    }, [state.CartCount])
+    }, [state.ApiProduct])
     return (
 
         <Createcontext.Provider value={{ state, dispatch }} >
