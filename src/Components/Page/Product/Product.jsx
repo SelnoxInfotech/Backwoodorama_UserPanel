@@ -22,6 +22,7 @@ import { Grid } from "@mui/material"
 import NewFlavourBanner from "../../Component/NewFlavour/NewFlavourBanner"
 import StoreDetailMenuItem from "../StoreDetail/StoreDetailComponent/StoreDetailMenuItem"
 import PreCheckout from "./PreCheckout/PreCheckout"
+import NewProductCategorySlider from "./NewProductCategorySlider"
 const Product = () => {
     const { dispatch } = React.useContext(Createcontext)
     const [Searchvalue, setSearchvalue] = React.useState()
@@ -140,6 +141,10 @@ const Product = () => {
                 <div className="row">   
                     <div className="col-12 mt-4">
                         <ProductCategorySlider FilterCategory={FilterCategory} Category={Category}></ProductCategorySlider>
+
+                    </div>
+                    <div className="col-12 mt-4">
+                        <NewProductCategorySlider/>
 
                     </div>
 

@@ -2998,3 +2998,30 @@ height: 28px;
 
 }
 /* end */
+/* newProductCategorySliderContainer */
+.newProductCategorySliderContainer{
+  display: flex;
+flex-wrap: nowrap;
+  border-radius: 6px;
+  color: #333;
+  background: #eee;
+  padding: 1rem;
+  overflow-x: auto;
+
+
+  
+}
+.newProductCategorySliderContainer::-webkit-scrollbar {
+  display: none;
+}
+
+/* ::-webkit-scrollbar {
+  display: none;
+} */
+.newProductCard{
+  margin: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 2500ms ease-in-out;
+}
+/* end */
