@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import { AiFillStar } from "react-icons/ai";
@@ -9,7 +9,7 @@ import axios from "axios";
 import Cookies from 'universal-cookie';
 import FlyingButton from 'react-flying-item'
 import Createcontext from "../../../Hooks/Context"
-
+import {AiOutlineShoppingCart} from "react-icons/ai"
 import AddToCartPopUp from "./AddToCartPopUp/AddToCartPopUp"
 const ProductList = ({ arr }) => {
     const navigation = useNavigate()
@@ -30,7 +30,7 @@ const ProductList = ({ arr }) => {
         if (token_data) {
             const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
             const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id);
-            var PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
+            let PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
             const config = {
                 headers: { Authorization: `Bearer ${token_data}` }
             };
@@ -61,13 +61,16 @@ const ProductList = ({ arr }) => {
                 }
             }).catch(
                 function (error) {
-                
+                if(error.response.status === 406)
+                {
+                    alert ("This Product" + error.response.data[0])
+                }
                 })
         }
         else {
             const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
             const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id);
-            var PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
+            let PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
 
             const Arry = {
                 Image : Event.images[0].image,
@@ -79,7 +82,7 @@ const ProductList = ({ arr }) => {
                 ProductName:Event.Product_Name
             }
             SetNewData(Arry)
-            if (AddTOCard.length != 0) {
+            if (AddTOCard.length !== 0) {
                 if (AddTOCard.find((data) => { return data.Store_id === Event.Store_id })) {
                     const t = AddTOCard.filter((data) => { return data.Product_id === Event.id && data.Price.id === PriceIndex.id })
                     if (t.length > 0) {
@@ -126,9 +129,9 @@ const ProductList = ({ arr }) => {
         SetPrice(Price => [...Price, { Product_id: Product, Item_id: Item }]);
     }
 
-    function Product_Details(ele) {
-        navigation("/ProductDetail", { state: { Id: ele.id } })
-    }
+    // function Product_Details(ele) {
+    //     navigation("/ProductDetail", { state: { Id: ele.id } })
+    // }
 
     const classes = useStyles()
     return (
@@ -208,7 +211,7 @@ const ProductList = ({ arr }) => {
                                         style={{ width: "93%" }}
                                     >
 
-                                        <FlyingButton src={`http://52.3.255.128:8000/${ele.images[0]?.image}`} targetTop={'00%'} targetLeft={'100%'}>
+                                        <FlyingButton src={AiOutlineShoppingCart} targetTop={'00%'} targetLeft={'100%'}>
 
                                             <LoadingButton onClick={() => { Addtocard(ele) }} variant="outlined"> AddToCart</LoadingButton>
                                         </FlyingButton>

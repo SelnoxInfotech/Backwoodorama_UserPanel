@@ -18,7 +18,7 @@ import Createcontext from "../../../Hooks/Context"
 const Login = () => {
     const cookies = new Cookies();
     const method = useForm()
-    const {  dispatch } = React.useContext(Createcontext)
+    const { state, dispatch } = React.useContext(Createcontext)
     const Navigate = useNavigate()
     const [loading, Setloading] = React.useState(false)
     const classes = useStyles()
@@ -38,7 +38,7 @@ const Login = () => {
             date.setTime(date.getTime() + (60 * 60 * 8000))
             cookies.set('Token_access', response.data.tokens.access, { expires: date })
             dispatch({type:'Login',login: true})
-            dispatch({ type: 'CartCount'})
+            dispatch({ type: 'ApiProduct'  , ApiProduct :!state.ApiProduct })
             Navigate("/")
             Setloading(false)
 

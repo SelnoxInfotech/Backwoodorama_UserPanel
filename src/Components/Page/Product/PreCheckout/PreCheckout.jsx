@@ -1,24 +1,35 @@
 import React from "react"
 import Createcontext from "../../../../Hooks/Context"
+import { Link } from "react-router-dom"
 
 
 const PreCheckout = () => {
-    const {state } = React.useContext(Createcontext)
+    const { state } = React.useContext(Createcontext)
     return (
-        <>
+        <>  
+        {
+            state.AllProduct.length != 0 &&
             <div className="row center marginPre_checkout_row ">
+                <Link to="/AddToCart">
+
                 <div className="col-lg-3 col-md-6 col-sm-8 col-8 border preCheckout_container">
                     <div className="center preCheck_heading">
-                    <h6>CHECKOUT</h6>
+                        <h6>CHECKOUT</h6>
 
                     </div>
+
                     <div className="center preCheck_price">
-                     <p>{state.AllProduct.length} products ${state.Cart_subTotal}</p>
-                    
+                        {
+                            state.LoadingApi ? <div class="loader"></div> : <p>{state.AllProduct.length} products ${state.Cart_subTotal}</p>
+                        }
+
                     </div>
+
                 </div>
+        </Link>
 
             </div>
+        }
         </>
     )
 }

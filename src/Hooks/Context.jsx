@@ -14,7 +14,8 @@ const initialUser = {
     AllProduct: [],
     DeliveryOption: false,
     DeliveryInformation: false,
-    Cart_subTotal: ""
+    Cart_subTotal: "",
+    LoadingApi : false ,
 
 }
 
@@ -22,6 +23,7 @@ function Context(props) {
     const [state, dispatch] = useReducer(Reducer, initialUser)
     
     React.useEffect(() => {
+        dispatch({ type: 'LoadingApi', LoadingApi: true })
         const logi = cookies.get("Token_access")
         if (Boolean(logi)) {
             axios.get("http://52.3.255.128:8000/UserPanel/Get-Addtocart/", {
@@ -29,9 +31,10 @@ function Context(props) {
             }).then(async function (response) {
                 const CarTProduct = await response?.data;
                 dispatch({ type: 'AllProduct', AllProduct: CarTProduct })
+                dispatch({ type: 'LoadingApi', LoadingApi: false })
                 let AllTotal = 0
                 CarTProduct.map((data)=>{
-                  return  AllTotal += data.TotalPrice.toFixed()
+                  return  AllTotal += parseInt(data?.TotalPrice)
                 })
                 dispatch({ type: 'Cart_subTotal', Cart_subTotal: AllTotal })
             })
@@ -46,7 +49,7 @@ function Context(props) {
             let AllTotal = 0
             JSON.parse(length)?.map((data)=>{
                
-               return AllTotal += data.Price.SalePrice.toFixed()* data.Cart_Quantity.toFixed();
+               return AllTotal += parseInt(data.Price.SalePrice* data.Cart_Quantity);
             })
             dispatch({ type: 'Cart_subTotal', Cart_subTotal: AllTotal })
         }
