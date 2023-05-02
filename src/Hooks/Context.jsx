@@ -17,6 +17,8 @@ const initialUser = {
     Cart_subTotal: "",
     LoadingApi : false ,
     Order_place:false,
+    CheckOut_Loading:false,
+    Dispensories:[]
 
 }
 
@@ -45,17 +47,25 @@ function Context(props) {
         }
         else {
             const data =  localStorage?.getItem("items")
-             console.log( data === null)
-             const length =   data === null ? [] : data
+             const length =   data === null ? [] : JSON.parse(data) 
             
-            dispatch({ type: 'AllProduct', AllProduct: JSON.parse(length) })
-            let AllTotal = 0
-            JSON.parse(length)?.map((data)=>{
-               
-               return AllTotal += parseInt(data.Price.SalePrice* data.Cart_Quantity);
-            })
-            dispatch({ type: 'LoadingApi', LoadingApi: false })
-            dispatch({ type: 'Cart_subTotal', Cart_subTotal: AllTotal })
+            if(data === null){
+                dispatch({ type: 'AllProduct', AllProduct:[] })
+            }
+            else if (data.length === 0){
+                dispatch({ type: 'AllProduct', AllProduct: [] })
+            }
+            else {
+                const data =  localStorage?.getItem("items")
+                dispatch({ type: 'AllProduct', AllProduct: length })
+                let AllTotal = 0
+                JSON.parse(data)?.map((data)=>{
+                   
+                   return AllTotal += parseInt(data.Price.SalePrice* data.Cart_Quantity);
+                })
+                dispatch({ type: 'LoadingApi', LoadingApi: false })
+                dispatch({ type: 'Cart_subTotal', Cart_subTotal: AllTotal })
+            }
         }
     }, [state.ApiProduct])
     return (

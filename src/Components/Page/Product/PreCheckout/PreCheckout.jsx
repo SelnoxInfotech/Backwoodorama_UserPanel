@@ -5,7 +5,6 @@ import { Link } from "react-router-dom"
 
 const PreCheckout = () => {
     const { state } = React.useContext(Createcontext)
-    console.log(state.AllProduct)
     return (
         <>  
         {

@@ -46,7 +46,6 @@ const DeliveryInformation = ({ SetShowDeliveryInformation , Total  ,address}) =>
     };
 
     React.useEffect(()=>{
-        console.log(state.AllProduct , state.Order_place)
      if(state.Order_place === true) {
         const formdata = new FormData();
         formdata.append('IdCard', Dataimage);
@@ -61,25 +60,27 @@ const DeliveryInformation = ({ SetShowDeliveryInformation , Total  ,address}) =>
         })
         formdata.append('Store',state.AllProduct[0].Store_id);
         formdata.append('Address', address);
-        console.log(formdata)
         Axios.post(
             'http://52.3.255.128:8000/UserPanel/Add-Order/ ',
             formdata,
             config,
+          
             {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 }
-            }).then(response => {
-                console.log(response.data)
+            },
+            dispatch({ type: 'CheckOut_Loading', CheckOut_Loading: true })
+            ).then(response => {
+                dispatch({ type: 'CheckOut_Loading', CheckOut_Loading: false })
                 navigate("/PlaceOrder")
                 dispatch({ type: 'Order_place' , Order_place:!state.Order_place})
                 dispatch({ type: 'ApiProduct' , ApiProduct :!state.ApiProduct })
             }).catch(
                 function (error) {
                     // alert("Something Goes Wrong")
+                    dispatch({ type: 'CheckOut_Loading', CheckOut_Loading: false })
                 })
-   
      }
     },[state.Order_place])
 

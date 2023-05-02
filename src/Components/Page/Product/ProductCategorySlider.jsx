@@ -27,9 +27,7 @@ const ProductCategorySlider = ({ FilterCategory, Category }) => {
         display: flex;
         justify-content: center;
       }
-      .Driscription_{
-
-      }x`;
+      `;
     const settings = {
 
         dots: false,
@@ -93,7 +91,7 @@ const ProductCategorySlider = ({ FilterCategory, Category }) => {
     }
 
 
-    const ProductCategory = Category
+    // const ProductCategory = Category
     return (
 
         <>
@@ -101,7 +99,7 @@ const ProductCategorySlider = ({ FilterCategory, Category }) => {
                 <p>Shop by Category</p>
             </div>
             <ProductSlider  {...settings}>
-                {ProductCategory.map((ele, index) => {
+                {Category?.map((ele, index) => {
                     return (
                         <div className="col-12" key={index} onClick={(() => { FilterCategory(ele.id) })}>
                             <div className="col-2 mt-4 slick-slide slick-active slick-current" >

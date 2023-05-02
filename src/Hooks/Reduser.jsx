@@ -1,10 +1,4 @@
-import Cookies from 'universal-cookie';
-const cookies = new Cookies();
-const login = cookies.get("Token_access")
-const length = localStorage.getItem("items")
 
-const count = !login && JSON.parse(length)?.length
-console.log(count)
 const reducer = (state, action) => {
   switch (action.type) {
     case 'Login':
@@ -33,18 +27,26 @@ const reducer = (state, action) => {
       }
     case "Cart_subTotal":
       {
-        return { ...state, Cart_subTotal: action.Cart_subTotal } 
+        return { ...state, Cart_subTotal: action.Cart_subTotal }
       }
-      case "LoadingApi":
-        {
-          return { ...state, LoadingApi: action.LoadingApi } 
-        }
-        case "Order_place":
-          {
-            return { ...state, Order_place: action.Order_place } 
-          }
-    
-  
+    case "LoadingApi":
+      {
+        return { ...state, LoadingApi: action.LoadingApi }
+      }
+    case "Order_place":
+      {
+        return { ...state, Order_place: action.Order_place }
+      }
+    case "CheckOut_Loading":
+      {
+        return { ...state, CheckOut_Loading: action.CheckOut_Loading }
+      }
+    case "Dispensories":
+      {
+        return { ...state, Dispensories: action.Dispensories }
+      }
+
+
 
 
 

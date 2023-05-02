@@ -52,9 +52,6 @@ const Navbar = () => {
     dispatch({ type: 'Login', login: false })
     dispatch({ type: 'ApiProduct' })
   }
-
-
-  console.log(state.LoadingApi)
   return (
     <>
 
@@ -82,8 +79,8 @@ const Navbar = () => {
               <AiFillHeart size={22}></AiFillHeart>
               <IoIosNotifications size={22}></IoIosNotifications>
               <Link to="/AddToCart">  <MdOutlineShoppingCart size={22}></MdOutlineShoppingCart></Link>
-              <div  className={"border SliderLink_CartCount_div"+(state.LoadingApi  ? "animated bounce" : " ")} > 
-                {state.AllProduct?.length}
+              <div  className={"border SliderLink_CartCount_div"} > 
+               <span className={state.LoadingApi  ? "animated bounce" : " "}> {state.AllProduct?.length}</span>
               </div>
 
 
@@ -119,7 +116,7 @@ const Navbar = () => {
             }
           </Grid>
           <Grid xs={12} md={12} xl={12} >
-            <SliderLink state={state.AllProduct?.length}></SliderLink>
+            <SliderLink state={state}></SliderLink>
             <SideNavbar closeNav={closeNav} Open={Open}></SideNavbar>
           </Grid>
         </Grid>
