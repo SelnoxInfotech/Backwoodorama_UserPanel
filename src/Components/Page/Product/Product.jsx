@@ -21,6 +21,7 @@ import { Grid } from "@mui/material"
 import NewFlavourBanner from "../../Component/NewFlavour/NewFlavourBanner"
 import PreCheckout from "./PreCheckout/PreCheckout"
 import NewProductCategorySlider from "./NewProductCategorySlider"
+import ProductSearchResult from "./ProductSearchResult/ProductSearchResult"
 const Product = () => {
     const { dispatch } = React.useContext(Createcontext)
     const [Searchvalue, setSearchvalue] = React.useState()
@@ -132,11 +133,12 @@ const Product = () => {
 
 
     const flowerArray1 = [{ imgUrl: "/image/wee_img1.jpeg", title: "flower" }, { imgUrl: "/image/flower2.webp", title: "pre-roll" }, { imgUrl: "/image/flower2.webp", title: "flower" },
-    { imgUrl: "/image/flower2.webp" }, { imgUrl: "/image/flower2.webp" },
-    { imgUrl: "/image/flower2.webp", title: "flower" }, { imgUrl: "/image/flower2.webp",
-     title: "flower" }, { imgUrl: "/image/flower2.webp", title: "flower" }]
+    { imgUrl: "/image/flower2.webp", title: "pre-roll" }, { imgUrl: "/image/flower2.webp",title: "pre-roll"},
+
+    { imgUrl: "/image/flower2.webp", title: "flower" }, { imgUrl: "/image/flower2.webp",title: "flower" }, { imgUrl: "/image/flower2.webp", title: "flower" }]
+
      const flowerArray2 = [{ imgUrl: "/image/wee_img1.jpeg", title: "flower" }, { imgUrl: "/image/logo.webp", title: "pre-roll" }, { imgUrl: "/image/prod_cat_Slider3.png", title: "flower" },
-     { imgUrl: "/image/flower2.webp" }, { imgUrl: "/image/flower2.webp" },
+     { imgUrl: "/image/flower2.webp" , title: "pre-roll"}, { imgUrl: "/image/flower2.webp", title: "pre-roll" },
      { imgUrl: "/image/flower2.webp", title: "flower" }, { imgUrl: "/image/flower2.webp",
       title: "flower" }, { imgUrl: "/image/flower2.webp", title: "flower" }]
     return (
@@ -153,26 +155,40 @@ const Product = () => {
                         <NewProductCategorySlider flowerArray={flowerArray1}/>
 
                     </div>
+                    <div className="col-12 mt-4">
+                        <ProductSearchResult/>
+
+                    </div>
+                    <hr/>
+
                     <div className="col-12 mt-4 productSlider_headings fontStyle">
                         <h1>Edible</h1>
                         <NewProductCategorySlider flowerArray={flowerArray2}/>
 
                     </div>
+                    <hr/>
+
                     <div className="col-12 mt-4 productSlider_headings fontStyle">
                         <h1>Vape & Carts</h1>
                         <NewProductCategorySlider flowerArray={flowerArray2}/>
 
                     </div>
+                    <hr/>
+
                     <div className="col-12 mt-4 productSlider_headings fontStyle">
                         <h1>Concentrates</h1>
                         <NewProductCategorySlider flowerArray={flowerArray2}/>
 
                     </div>
+                    <hr/>
+
                     <div className="col-12 mt-4 productSlider_headings fontStyle">
                         <h1>CBD</h1>
                         <NewProductCategorySlider flowerArray={flowerArray2}/>
 
                     </div>
+                    <hr/>
+
 
                 </div>
 
