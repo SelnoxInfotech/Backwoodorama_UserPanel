@@ -63,12 +63,12 @@ const DispensoriesOpenResult = () => {
                                             <div className="col-8 dispenosries_card_content_div">
                                                 <div className="row">
                                     
-                                                   <div className="col-12 dispensories_content_Header_paragraphs">
-                                                        <p>{ele.Store_Name}</p>
+                                                   <div className="col-12 dispensories_content_Header_paragraphs text-truncate">
+                                                        <p className="text-truncate">{ele.Store_Name}</p>
 
                                                     </div>
                                                     <div className="col-12 dispensories_content_paragraphs">
-                                                        <p>{ele.Store_Address}</p>
+                                                        <p className="text-truncate">{ele.Store_Address}</p>
                                                     </div>
                                                     <div className="col-12 dispensories_buttonsContainer">
                                                         <button className="dispensories_open_res_btns">Closed</button>
