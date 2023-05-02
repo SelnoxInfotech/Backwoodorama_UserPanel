@@ -101,8 +101,12 @@ const ProductDetail = () => {
 
 
     async function PriceSelect(Product, Item) {
-        SetItem([{ Product_id: Product, Item_id: Item }])
+        SetPrice(Price => {
+            return Price.filter(Price => Price.Product_id !== Product)
+        })
+        SetPrice(Price => [...Price, { Product_id: Product, Item_id: Item }]);
     }
+
     const Addtocard = async (Event) => {
 
         if (token_data) {
@@ -213,6 +217,7 @@ const ProductDetail = () => {
                                                     if (data.id === Image) {
                                                         return <LazyLoadImage key={index} src={`http://52.3.255.128:8000/${data.image}`} alt="img_not_found" />
                                                     }
+                                                    
                                                 })
                                                 :
                                                 <LazyLoadImage src={`http://52.3.255.128:8000/${ele.images[0]?.image}`} alt="img_not_found" />
