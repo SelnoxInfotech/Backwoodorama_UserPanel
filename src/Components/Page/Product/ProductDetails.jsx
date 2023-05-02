@@ -11,11 +11,12 @@ import _ from "lodash";
 import Createcontext from "../../../Hooks/Context"
 import parse from 'html-react-parser';
 import NewFlavourBanner from "../../Component/NewFlavour/NewFlavourBanner";
+import PreCheckout from "./PreCheckout/PreCheckout";
 const ProductDetail = () => {
+    
     const location = useLocation()
     const { state, dispatch } = React.useContext(Createcontext)
-    console.log(location)
-    const { Id } = location.state
+    const  Id  = location.state
     const [Item, SetItem] = React.useState([])
     const [ProductDetails, SetProductDetails] = React.useState([])
     const [Image, SetImage] = React.useState()
@@ -29,23 +30,16 @@ const ProductDetail = () => {
         return initialValue || []
     })
 
-
+   const [Product,SetProduct] =  React.useState([])
 
     React.useEffect(() => {
         Axios(`http://52.3.255.128:8000/UserPanel/Get-ProductById/${Id}`, {
-
-
         }).then(response => {
             SetProductDetails(response.data)
-         
             Axios(`http://52.3.255.128:8000/UserPanel/Get-DispensaryByid/${response.data[0].Store_id}`, {
-
-
             }).then(response => {
                 SetStore_id(response.data)
-                // SetProduct(Product => ({ ...Product, Category: response.data?.data[0].id }))
             
-
             }).catch(
                 function (error) {
 
@@ -60,9 +54,29 @@ const ProductDetail = () => {
                 // SetProduct(Product => ({ ...Product, discount: "None" }))
             })
 
+         
+          Axios(`http://52.3.255.128:8000/UserPanel/Get-Product`, {
 
 
-    }, [])
+        }).then(response => {
+            SetProduct(response.data)
+            window.scrollTo({
+                top: 0, 
+                behavior: 'smooth'
+                /* you can also use 'auto' behaviour
+                   in place of 'smooth' */
+              });
+            // SetProduct(Product => ({ ...Product, Category: response.data?.data[0].id }))
+        
+
+        }).catch(
+            function (error) {
+
+                alert("Something Goes Wrong")
+                // SetProduct(Product => ({ ...Product, discount: "None" }))
+            })
+
+    }, [Id])
 
 
     React.useEffect(() => {
@@ -197,14 +211,14 @@ const ProductDetail = () => {
                                             <p>By {ele.StoreName}</p>
                                         </div>
                                         <div className="col-12  add_prod_btn">
-                                            {/* {addProdBtn.map((ele, index) => { */}
-                                            {/* return ( */}
+                                            {/* {addProdBtn.map((ele, index) => {
+                                            return (
                                             <div className="col-1 add_prod_inner_div" >
                                                 <button className="add_pro_btn add_prod_btn_font">{ele.category_name}</button>
 
                                             </div>
-                                            {/* ) */}
-                                            {/* })} */}
+                                            )
+                                            })} */}
 
 
                                         </div>
@@ -213,46 +227,46 @@ const ProductDetail = () => {
 
                                         </div>
                                         <div className="col-6 add_prod_quant_btn_div">
-                                            {ele.Prices.map((ele1, index) => {
-                                                return (
-                                                    ele1.Price?.map((data, index) => {
-                                                        let s = false               
-                                                        if (Item?.length === 0) {
-                                                            if (AddTOCard?.find(Add => Add.Price_index[0]?.Product_id === ele.id && Add.Price_index[0]?.Item_id === data.id)) {
-                                                                s = true
-
-                                                            }
-                                                            else {
-                                                                if (data.id === 1) {
-
+                                                {ele.Prices.map((ele1, index) => {
+                                                    return (
+                                                        ele1.Price?.map((data, index) => {
+                                                            let s = false               
+                                                            if (Item?.length === 0) {
+                                                                if (AddTOCard?.find(Add => Add.Price_index[0]?.Product_id === ele.id && Add.Price_index[0]?.Item_id === data.id)) {
                                                                     s = true
-                                                                }
-                                                            }
-                                                        }
-                                                        else {
-                                                            Item?.map((Price) => {
-                                                                if (ele.id === Price?.Product_id && data.id === Price?.Item_id) {
-                                                                    s = true
+
                                                                 }
                                                                 else {
+                                                                    if (data.id === 1) {
 
-                                                                    s = false
+                                                                        s = true
+                                                                    }
                                                                 }
-                                                                return s
-                                                            })
-                                                        }
-                                                        return (
-                                                            <div className="col-3 add_prod_quant_inner_div mt-2 " key={index}>
-                                                                <section id="productDetail_section" onClick={() => PriceSelect(ele.id, data.id)}
-                                                                    className={"add_prod_Quant_btn " + (s ? "active" : "")}>
-                                                                    {data.Weight || data.Unit}
-                                                                    <p className="rs">{data.Price}</p>
-                                                                </section>
-                                                            </div>
-                                                        )
-                                                    })
-                                                )
-                                            })}
+                                                            }
+                                                            else {
+                                                                Item?.map((Price) => {
+                                                                    if (ele.id === Price?.Product_id && data.id === Price?.Item_id) {
+                                                                        s = true
+                                                                    }
+                                                                    else {
+
+                                                                        s = false
+                                                                    }
+                                                                    return s
+                                                                })
+                                                            }
+                                                            return (
+                                                                <div className="col-3 add_prod_quant_inner_div mt-2 " key={index}>
+                                                                    <section id="productDetail_section" onClick={() => PriceSelect(ele.id, data.id)}
+                                                                        className={"add_prod_Quant_btn " + (s ? "active" : "")}>
+                                                                        {data.Weight || data.Unit}
+                                                                        <p className="rs">{parseInt(data.SalePrice)}</p>
+                                                                    </section>
+                                                                </div>
+                                                            )
+                                                        })
+                                                    )
+                                                })}
                                         </div>
                                         <div className="col-12 d-flex fontStyle add_prod_amount add_prod_rat">
                                             {
@@ -262,7 +276,7 @@ const ProductDetail = () => {
                                                             if (Item?.length === 0) {
                                                                 if (Prices?.id === 1) {
                                                                     return (
-                                                                        < div > <p>Amount</p> <p className="add_prod_span1">${Prices.Price}</p></div>
+                                                                        < div > <p>Amount</p> <p className="add_prod_span1">${parseInt(Prices.SalePrice)  }</p></div>
                                                                     )
                                                                 }
                                                             }
@@ -271,7 +285,7 @@ const ProductDetail = () => {
                                                                     Item?.map((Price) => {
                                                                         if (ele.id === Price?.Product_id && Prices.id === Price?.Item_id) {
                                                                             return (
-                                                                                < div > <p>Amount</p> <p className="add_prod_span1">${Prices.Price}</p></div>
+                                                                                < div > <p>Amount</p> <p className="add_prod_span1">${parseInt(Prices.SalePrice)}</p></div>
                                                                             )
                                                                         }
                                                                     })
@@ -389,7 +403,7 @@ const ProductDetail = () => {
 
                     </div>
                     <div className="col-12">
-                        <ProductList arr={state.AllProduct} />
+                        <ProductList  arr= {Product} />
 
                     </div>
 
@@ -399,7 +413,7 @@ const ProductDetail = () => {
 
 
 
-
+<PreCheckout></PreCheckout>
         </div >
     )
 }

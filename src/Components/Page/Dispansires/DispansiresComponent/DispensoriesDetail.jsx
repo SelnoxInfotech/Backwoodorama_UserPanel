@@ -57,29 +57,18 @@ export default function DispensoriesProduct() {
             var uniqueUsersByID = _.uniqBy(response.data, 'Category_id'); //removed if had duplicate id
             var uniqueUsers = _.uniqWith(response.data, _.isEqual);//removed complete duplicates
             SetCategory(uniqueUsers)
-
-
         }).catch(
             function (error) {
-
-
             })
     }, [id])
     const FilterCategory = async (id) => {
         axios(`http://52.3.255.128:8000/UserPanel/Get-ProductByCategory/${id}`, {
-
-
         }).then(response => {
-
             SetDespensariesProductData(response.data)
-
-            // SetProduct(Product => ({ ...Product, Category: response.data?.data[0].id }))
-
 
         }).catch(
             function (error) {
 
-                // SetProduct(Product => ({ ...Product, discount: "None" }))
             })
 
     }
