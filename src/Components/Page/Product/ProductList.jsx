@@ -231,7 +231,7 @@ const ProductList = ({ arr }) => {
                 })}
 
             </div>
-            {/* <PreCheckout /> */}
+            <PreCheckout />
         </>
     )
 }
