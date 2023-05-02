@@ -97,7 +97,7 @@ const PlaceOrder = () => {
                                 </div>
                                 <div className='row'>
                                     <div className='col-6 col-lg-2 col-md-2 col-sm-6 order_detail_paragraph fontStyle'>
-                                        <p>Sub total</p>
+                                        <p>Sub Total</p>
                                     </div>
                                     <div className='col-6 col-lg-2 col-md-2 col-sm-6 order_detail_paragraph fontStyle'>
                                         <p>$ {Order.subtotal}</p>
