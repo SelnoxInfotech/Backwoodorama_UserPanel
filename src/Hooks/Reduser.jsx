@@ -27,22 +27,26 @@ const reducer = (state, action) => {
       }
     case "Cart_subTotal":
       {
-        return { ...state, Cart_subTotal: action.Cart_subTotal } 
+        return { ...state, Cart_subTotal: action.Cart_subTotal }
       }
-      case "LoadingApi":
-        {
-          return { ...state, LoadingApi: action.LoadingApi } 
-        }
-        case "Order_place":
-          {
-            return { ...state, Order_place: action.Order_place } 
-          }
-          case "CheckOut_Loading":
-            {
-              return { ...state, CheckOut_Loading: action.CheckOut_Loading } 
-            }
-    
-  
+    case "LoadingApi":
+      {
+        return { ...state, LoadingApi: action.LoadingApi }
+      }
+    case "Order_place":
+      {
+        return { ...state, Order_place: action.Order_place }
+      }
+    case "CheckOut_Loading":
+      {
+        return { ...state, CheckOut_Loading: action.CheckOut_Loading }
+      }
+    case "Dispensories":
+      {
+        return { ...state, Dispensories: action.Dispensories }
+      }
+
+
 
 
 

@@ -4,18 +4,25 @@ import useStyles from "../../../../Style";
 import Box from '@mui/material/Box';
 import SearchBar from '@mkyy/mui-search-bar';
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import React from "react";
+import Axios from "axios";
+import { Link } from "react-router-dom";
 const DispensoriesOpenResult = () => {
     const classes = useStyles()
-    const DispensoriesArray = [{ img_url: "./image/logo2.png", head: "Canna Cabana", subHead: "Recreational" },
-    { img_url: "/image/logo.webp", head: "Canna Cabana", subHead: "Recreational" },
-    { img_url: "/image/latest_img.png", head: "Canna Cabana", subHead: "Recreational" },
-    { img_url: "/image/logo.webp", head: "Canna Cabana", subHead: "Recreational" },
-    { img_url: "/image/logo.webp", head: "Canna Cabana", subHead: "Recreational" },
+    const [Store, SetStore] = React.useState([])
+    React.useEffect(() => {
 
-
-
-
-    ]
+        Axios.get(
+            'http://52.3.255.128:8000/UserPanel/Get-Stores/',
+           
+            ).then(response => {
+                SetStore(response.data)
+            }).catch(
+                function (error) {
+          
+                   
+                })
+    }, [])
     return (
         <>
             <div className="container-fluid">
@@ -44,23 +51,24 @@ const DispensoriesOpenResult = () => {
                         </div>
 
 
-                        {DispensoriesArray.map((ele, index) => {
+                        {Store.map((ele, index) => {
                             return (
                                 <div className="row mt-2" key={index}>
                                     <div className="col-lg-12  col-md-12 col-sm-12 col-12 despensories_card_container">
                                         <div className="row">
                                             <div className="col-4 disensories_card_image_div">
-                                                <LazyLoadImage className="dispensories_card_image" src={ele.img_url} alt="image_not_found" />
+                                           <Link to={`/DispensoriesProduct/${ele.id}`}>     <LazyLoadImage id={ele.id} src={`http://52.3.255.128:8000/${ele.Store_Image}`} alt="img_not_found" className="dispensories_card_image" /></Link>
 
                                             </div>
                                             <div className="col-8 dispenosries_card_content_div">
                                                 <div className="row">
-                                                    <div className="col-12 dispensories_content_Header_paragraphs">
-                                                        <p>{ele.head}</p>
+                                    
+                                                   <div className="col-12 dispensories_content_Header_paragraphs">
+                                                        <p>{ele.Store_Name}</p>
 
                                                     </div>
                                                     <div className="col-12 dispensories_content_paragraphs">
-                                                        <p>{ele.subHead}</p>
+                                                        <p>{ele.Store_Address}</p>
                                                     </div>
                                                     <div className="col-12 dispensories_buttonsContainer">
                                                         <button className="dispensories_open_res_btns">Closed</button>

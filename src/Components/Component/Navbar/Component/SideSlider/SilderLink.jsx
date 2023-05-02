@@ -55,8 +55,8 @@ export default function DashBoardLink({ state }) {
 
               </Link>
 
-              <div className="border SliderLink_CartCount_div animated bounce" >
-                {state}
+              <div  className={"border SliderLink_CartCount_div"} > 
+               <span className={state.LoadingApi  ? "animated bounce" : " "}> {state.AllProduct?.length}</span>
               </div>
             </div>
           </Grid>

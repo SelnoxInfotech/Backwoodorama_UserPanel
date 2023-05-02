@@ -14,6 +14,7 @@ import NewFlavourBanner from "../../Component/NewFlavour/NewFlavourBanner";
 const ProductDetail = () => {
     const location = useLocation()
     const { state, dispatch } = React.useContext(Createcontext)
+    console.log(location)
     const { Id } = location.state
     const [Item, SetItem] = React.useState([])
     const [ProductDetails, SetProductDetails] = React.useState([])

@@ -26,43 +26,46 @@ export default function DispensoriesProduct() {
     const [Product, SetProduct] = React.useState('');
     const [Category, SetCategory] = React.useState([])
     const [DespensariesData, SetDespensariesProductData] = React.useState([])
-    const [Despen , SetDespens] = React.useState([])
+    const [Despen, SetDespens] = React.useState([])
     const handleChange = (event) => {
         SetProduct(event.target.value);
     };
 
 
 
-    React.useEffect(() => {
+    React.useEffect(  () => {
 
-        axios.get(`http://52.3.255.128:8000/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
-        }).then(response => {
 
-            SetDespensariesProductData(response.data)
-        })
-        axios.get(`http://52.3.255.128:8000/UserPanel/Get-DispensaryByid/${id}`, {
+   axios.get(`http://52.3.255.128:8000/UserPanel/Get-DispensaryByid/${id}`, {
         }).then(response => {
 
             SetDespens(response.data)
-            
-        })
-        axios("http://52.3.255.128:8000/UserPanel/CategoryOnProduct/ ", {
-
-
-
-    }).then(response => {
-        var uniqueUsersByID = _.uniqBy(response.data, 'Category_id'); //removed if had duplicate id
-        var uniqueUsers = _.uniqWith(response.data, _.isEqual);//removed complete duplicates
-        SetCategory(uniqueUsers)
-
-
-    }).catch(
-        function (error) {
-
+            console.log(response.data)
 
         })
-    }, [])
-    const FilterCategory = (id) => {
+      axios.get(`http://52.3.255.128:8000/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
+        }).then( response  =>  {
+
+           SetDespensariesProductData(response.data)
+            console.log(response.data)
+        })
+       axios.get("http://52.3.255.128:8000/UserPanel/CategoryOnProduct/ ", {
+
+
+
+        }).then(response => {
+            var uniqueUsersByID = _.uniqBy(response.data, 'Category_id'); //removed if had duplicate id
+            var uniqueUsers = _.uniqWith(response.data, _.isEqual);//removed complete duplicates
+            SetCategory(uniqueUsers)
+
+
+        }).catch(
+            function (error) {
+
+
+            })
+    }, [id])
+    const FilterCategory = async (id) => {
         axios(`http://52.3.255.128:8000/UserPanel/Get-ProductByCategory/${id}`, {
 
 
@@ -94,7 +97,7 @@ export default function DispensoriesProduct() {
                 <NewFlavourBanner delBtn={Despen}></NewFlavourBanner>
                 <div className="row">
                     <div className="col-12 mt-4">
-                    <ProductCategorySlider FilterCategory={FilterCategory} Category={Category}></ProductCategorySlider>
+                        <ProductCategorySlider FilterCategory={FilterCategory} Category={Category}></ProductCategorySlider>
 
                     </div>
 
@@ -103,27 +106,27 @@ export default function DispensoriesProduct() {
                 <div className="row center  mt-2 p-2">
                     <div className="col-12 mt-4 product_search_and_select">
                         <div className="col-2 product_search_bar">
-                        <SearchBar style={{ border: "1px solid #dee2e6" }} width={"100%"} />
+                            <SearchBar style={{ border: "1px solid #dee2e6" }} width={"100%"} />
 
                         </div>
                         <div className="col-10 product_select">
                             <Grid display={{ xs: "none", md: "contents", lg: "contents" }}>
-                            <FormControl sx={{ m: 1, minWidth: 120 }}>
-                                <Select
-                                    value={Product}
-                                    onChange={handleChange}
-                                    displayEmpty
-                                    inputProps={{ 'aria-label': 'Without label' }}
-                                    size="small"
-                                >
-                                    <MenuItem value="">
-                                        Sort by A to Z
-                                    </MenuItem>
-                                    <MenuItem value={"Sort by Z to A"}>Sort by Z to A</MenuItem>
-                                    <MenuItem value={"Price low to high"}>Price low to high</MenuItem>
-                                    <MenuItem value={"Price hight to low"}>Price hight to low</MenuItem>
-                                </Select>
-                            </FormControl>
+                                <FormControl sx={{ m: 1, minWidth: 120 }}>
+                                    <Select
+                                        value={Product}
+                                        onChange={handleChange}
+                                        displayEmpty
+                                        inputProps={{ 'aria-label': 'Without label' }}
+                                        size="small"
+                                    >
+                                        <MenuItem value="">
+                                            Sort by A to Z
+                                        </MenuItem>
+                                        <MenuItem value={"Sort by Z to A"}>Sort by Z to A</MenuItem>
+                                        <MenuItem value={"Price low to high"}>Price low to high</MenuItem>
+                                        <MenuItem value={"Price hight to low"}>Price hight to low</MenuItem>
+                                    </Select>
+                                </FormControl>
                             </Grid>
                         </div>
 

@@ -17,7 +17,8 @@ const initialUser = {
     Cart_subTotal: "",
     LoadingApi : false ,
     Order_place:false,
-    CheckOut_Loading:false
+    CheckOut_Loading:false,
+    Dispensories:[]
 
 }
 

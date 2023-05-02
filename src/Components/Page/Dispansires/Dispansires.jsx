@@ -105,8 +105,8 @@ export default function Dispansires() {
                             </TabPanel>
                             <TabPanel value={value} index={7}>
                                 <DispensoriesOpenResult />
-                            </TabPanel>
-                            <div className="Dispansires_map">
+                            </TabPanel> 
+                           <div className="Dispansires_map">
                                 <Map height={"800px"} Theme={Dispansires_MapTheme.Dispansires_MapTheme}></Map>
                             </div>
                         </Box>

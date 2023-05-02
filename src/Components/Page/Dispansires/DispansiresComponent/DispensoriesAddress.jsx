@@ -10,15 +10,17 @@ import styled from "styled-components";
 import { useEffect, useState } from 'react';
 import { Rating } from '@mui/material';
 import { Link } from 'react-router-dom';
-
+import Createcontext from '../../../../Hooks/Context';
 
 const DispensoriesAddress = () => {
+    const {dispatch} = React.useContext(Createcontext)
     const [Store, SetStore] = useState([])
     useEffect(() => {
         const fetchApiFun = async () => {
             const fetchApi = await fetch("http://52.3.255.128:8000/UserPanel/Get-Stores/");
             const data = await fetchApi.json();
             SetStore(data)
+            dispatch({ type: 'Dispensories' , Dispensories :data })
 
         }
         fetchApiFun()
