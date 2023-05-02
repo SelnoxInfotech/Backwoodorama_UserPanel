@@ -250,6 +250,11 @@ EmptyCartIcon:{
   fontSize: "60px",
   color:"gray" 
 },
+productSearchIcons:{
+  fontSize: "25px",
+  color:"gray" 
+
+}
 
 });
 

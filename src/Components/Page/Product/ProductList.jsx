@@ -169,7 +169,7 @@ const ProductList = ({ arr }) => {
                                         <p className='fontStyle common_sub_head'>{ele.StoreName}</p>
                                     </div>
                                     <div className="col-12 px-2 d-flex prod_para prod_sub_heading_height ellipsis" style={{ marginBottom: "0px" }}>
-                                        <p className='fontStyle common_sub_head'>Rating</p><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons} /></span>
+                                        <span className='fontStyle productlist_rating'>Rating</span><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons} /></span>
                                     </div>
                                     <div className="col-12   prod_cat_cont_btn px-2">
                                         {ele.Prices?.map((ele1, index) => {

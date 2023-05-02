@@ -9,7 +9,7 @@ const ProductSearchResult = () => {
     const classes = useStyles()
     const RelatedProductResult = [
         { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery dsfasfas asfdddddddddddddddddddddddddddd asfafafsdfa", subHeading: "by Tribe Tokes" },
-        { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
+        { imgUrl: "/image/weed.png", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
         { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
 
 
@@ -21,8 +21,10 @@ const ProductSearchResult = () => {
                     return (
                         <div className=" col-xl-2 col-lg-4 col-md-4 col-sm-6 col-12 mb-4 mx-1 productSearch_result_container">
                             <div className="row productsearch_result_inner_container">
-                                <div className="col-12 text-end">
+                                <div className="col-12 text-end productSearchRes_heart">
+                                    <Box className={classes.productSearchIcons}>
                                     <AiFillHeart />
+                                    </Box>
                                 </div>
                                 <div className="col-12  productSearchResultImage_container">
                                     <LazyLoadImage className="product_search_result_image" src={items.imgUrl} alt="image not found" height={"100px"} />
@@ -36,17 +38,18 @@ const ProductSearchResult = () => {
                                     <p className=" text-truncate">{items.subHeading}</p>
                                 </div>
                                 <div className="col-12 product_category_list">
+                                    
                                     <ol>
                                         <li className="product_searchPercentage_list fontStyle">
                                             <p>15% THC | 0.2% CBD</p>
                                         </li>
                                         <li className="Product_search_star_rating">
-                                           <p><IoMdStar /></p><span>4.5 rating</span>
+                                           <span className={classes.disPen_Icons}><IoMdStar /></span><span className="productSearchRating">4.5 rating</span>
                                         </li>
                                     </ol>
                                 </div>
                                 <div className="col-12">
-                                    <p className=" text-truncate">$80 per 1z</p>
+                                    <p className="productSearch text-truncate"><span className="productSearchPrice fontStyle">$80</span> per 1z</p>
                                 </div>
                                 <div className="col-12  my-2">
                                     <Box className={`center ${classes.loadingBtnTextAndBack}`}>
