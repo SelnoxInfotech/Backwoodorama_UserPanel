@@ -14,12 +14,10 @@ import SearchBar from '@mkyy/mui-search-bar';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import ProductCategorySlider from "./ProductCategorySlider"
 import _ from "lodash"
 import Createcontext from "../../../Hooks/Context"
 import { Grid } from "@mui/material"
 import NewFlavourBanner from "../../Component/NewFlavour/NewFlavourBanner"
-import PreCheckout from "./PreCheckout/PreCheckout"
 import NewProductCategorySlider from "./NewProductCategorySlider"
 const Product = () => {
     const { dispatch } = React.useContext(Createcontext)
@@ -70,21 +68,21 @@ const Product = () => {
         ]
 
     const FilterCategory = (id) => {
-        Axios(`http://52.3.255.128:8000/UserPanel/Get-ProductByCategory/${id}`, {
+        // Axios(`http://52.3.255.128:8000/UserPanel/Get-ProductByCategory/${id}`, {
 
 
-        }).then(response => {
+        // }).then(response => {
 
-            Setarr1(response.data)
+        //     Setarr1(response.data)
 
-            // SetProduct(Product => ({ ...Product, Category: response.data?.data[0].id }))
+        //     // SetProduct(Product => ({ ...Product, Category: response.data?.data[0].id }))
 
 
-        }).catch(
-            function (error) {
+        // }).catch(
+        //     function (error) {
 
-                // SetProduct(Product => ({ ...Product, discount: "None" }))
-            })
+        //         // SetProduct(Product => ({ ...Product, discount: "None" }))
+        //     })
 
     }
 
@@ -145,7 +143,7 @@ const Product = () => {
                 <NewFlavourBanner delBtn={delBtn}></NewFlavourBanner>
                 <div className="row">   
                     <div className="col-12 mt-4">
-                        <ProductCategorySlider FilterCategory={FilterCategory} Category={Category}></ProductCategorySlider>
+                        {/* <ProductCategorySlider FilterCategory={FilterCategory} Category={Category}></ProductCategorySlider>  */}
 
                     </div>
                     <div className="col-12 mt-4 productSlider_headings fontStyle">

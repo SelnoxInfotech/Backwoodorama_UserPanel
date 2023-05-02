@@ -44,7 +44,7 @@ const ProductList = ({ arr }) => {
                 PriceId: PriceIndex.id
 
             })
-            axios.post("http://52.3.255.128:8000/UserPanel/Add-AddtoCart/",
+           await axios.post("http://52.3.255.128:8000/UserPanel/Add-AddtoCart/",
 
                 {
                     Product_id: Event.id,
@@ -60,6 +60,7 @@ const ProductList = ({ arr }) => {
                 if (response.data === "Empty Add to Cart") {
                     SetCartClean(true)
                 }
+                dispatch({ type: 'ApiProduct' , ApiProduct :!state.ApiProduct })
             }).catch(
                 function (error) {
                 if(error.response.status === 406)
@@ -97,22 +98,25 @@ const ProductList = ({ arr }) => {
 
                             return Cart
                         }))
+                        dispatch({ type: 'ApiProduct' , ApiProduct :!state.ApiProduct })
                     }
                     else {
                         SetAddToCard([...AddTOCard, Arry])
+                        dispatch({ type: 'ApiProduct' , ApiProduct :!state.ApiProduct })
                     }
                 }
                 else {
                     SetCartClean(true)
                 }
             }
-            else (
+            else {
                 SetAddToCard([Arry])
-            )
+                dispatch({ type: 'ApiProduct' , ApiProduct :!state.ApiProduct })
+            }
            
             // dispatch({ type: 'Cart_subTotal' })
         }
-        dispatch({ type: 'ApiProduct' , ApiProduct :!state.ApiProduct })
+        // dispatch({ type: 'ApiProduct' , ApiProduct :!state.ApiProduct })
     }
 
 

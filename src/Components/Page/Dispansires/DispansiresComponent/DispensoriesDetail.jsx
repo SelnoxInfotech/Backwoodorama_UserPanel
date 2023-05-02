@@ -62,7 +62,6 @@ export default function DispensoriesProduct() {
 
         })
     }, [])
-    console.log(DespensariesData)
     const FilterCategory = (id) => {
         axios(`http://52.3.255.128:8000/UserPanel/Get-ProductByCategory/${id}`, {
 

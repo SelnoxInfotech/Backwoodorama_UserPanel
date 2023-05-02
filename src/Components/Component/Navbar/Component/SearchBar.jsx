@@ -4,7 +4,6 @@ import useStyles from "../../../../Style"
 import InputAdornment from '@material-ui/core/InputAdornment';
 import { BsSearch } from "react-icons/bs"
 import {IoLocationSharp} from "react-icons/io5"
-import Box from '@mui/material/Box';
 const SearchBar = () => {
     const classes = useStyles()
     return (

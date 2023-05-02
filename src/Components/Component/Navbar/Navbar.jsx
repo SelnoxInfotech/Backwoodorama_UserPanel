@@ -52,9 +52,6 @@ const Navbar = () => {
     dispatch({ type: 'Login', login: false })
     dispatch({ type: 'ApiProduct' })
   }
-
-
-  console.log(state.LoadingApi)
   return (
     <>
 

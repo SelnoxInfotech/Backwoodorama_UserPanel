@@ -71,7 +71,7 @@ const DispensoriesOpenResult = () => {
                                                         <button className="dispensories_pickup_btn">Pickup delivery</button>
                                                     </div>
                                                     <div className="col-12 d-flex dispensories_content_paragraphs">
-                                                        <p>Rating</p><span className="dis_open_result_star"><IoMdStar className={classes.disp_star_color} /></span>
+                                                       <div> <p>Rating</p><span className="dis_open_result_star"><IoMdStar className={classes.disp_star_color} /></span></div>
                                                     </div>
                                                     <div className="col-12">
                                                         <Box className={classes.loadingBtnTextAndBack}>
