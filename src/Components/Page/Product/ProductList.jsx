@@ -213,10 +213,10 @@ const ProductList = ({ arr }) => {
                                         style={{ width: "93%" }}
                                     >
 
-                                        <FlyingButton src={AiOutlineShoppingCart} targetTop={'00%'} targetLeft={'100%'}>
+                                        {/* <FlyingButton src={AiOutlineShoppingCart} targetTop={'00%'} targetLeft={'100%'}> */}
 
                                             <LoadingButton onClick={() => { Addtocard(ele) }} variant="outlined"> AddToCart</LoadingButton>
-                                        </FlyingButton>
+                                        {/* </FlyingButton> */}
                                     </Box>
 
                                     {

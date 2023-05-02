@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 
 const PreCheckout = () => {
     const { state } = React.useContext(Createcontext)
+    console.log(state.AllProduct)
     return (
         <>  
         {
@@ -20,7 +21,7 @@ const PreCheckout = () => {
 
                     <div className="center preCheck_price">
                         {
-                            state.LoadingApi ? <div class="loader"></div> : <p>{state.AllProduct.length} products ${state.Cart_subTotal}</p>
+                            state.LoadingApi ? <div className="loader"></div> : <p>{state.AllProduct.length} products ${state.Cart_subTotal}</p>
                         }
 
                     </div>

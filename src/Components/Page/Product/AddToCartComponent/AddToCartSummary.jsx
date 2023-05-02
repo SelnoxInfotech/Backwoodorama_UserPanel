@@ -176,7 +176,9 @@ const AddToCartSummary = () => {
 
                             >
                       
-                                        <LoadingButton variant="outlined"  onClick={CheckoutProcess}>Checkout</LoadingButton>
+                                        <LoadingButton variant="outlined" 
+                                        //  loading={state.Checkout} 
+                                         onClick={CheckoutProcess}>Checkout</LoadingButton>
                                      
                             </Box>
 
