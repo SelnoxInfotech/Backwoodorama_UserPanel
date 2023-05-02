@@ -3083,10 +3083,19 @@ border-radius: 6px 6px 0px 0px;
   height: 100px;
   width: 10rem;
 }
+.productSearchResultParagraph{
+  height: 35px;
+}
 .productSearchResultParagraph p{
   color: #000000;
   font-size: 20px;
   font-weight: bold;
+}
+.product_search_result_sub_heading{
+  height: 35px;
+}
+.productPriceDivHeight{
+  height: 35px;
 }
 .product_search_result_sub_heading p{
   color: #949494;
@@ -3111,5 +3120,7 @@ border-radius: 6px 6px 0px 0px;
 }
 .productSearchRating{
   margin-inline: 6px;
+  color: #949494;
+  margin-top: 5px;
 }
 /* end */

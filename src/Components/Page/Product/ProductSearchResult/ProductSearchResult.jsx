@@ -48,7 +48,7 @@ const ProductSearchResult = () => {
                                         </li>
                                     </ol>
                                 </div>
-                                <div className="col-12">
+                                <div className="col-12 productPriceDivHeight">
                                     <p className="productSearch text-truncate"><span className="productSearchPrice fontStyle">$80</span> per 1z</p>
                                 </div>
                                 <div className="col-12  my-2">
