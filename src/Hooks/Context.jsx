@@ -17,6 +17,7 @@ const initialUser = {
     Cart_subTotal: "",
     LoadingApi : false ,
     Order_place:false,
+    CheckOut_Loading:false
 
 }
 
@@ -48,10 +49,10 @@ function Context(props) {
              const length =   data === null ? [] : JSON.parse(data) 
             
             if(data === null){
-                dispatch({ type: 'AllProduct', AllProduct: state.AllProduct })
+                dispatch({ type: 'AllProduct', AllProduct:[] })
             }
             else if (data.length === 0){
-                dispatch({ type: 'AllProduct', AllProduct: state.AllProduct })
+                dispatch({ type: 'AllProduct', AllProduct: [] })
             }
             else {
                 const data =  localStorage?.getItem("items")
