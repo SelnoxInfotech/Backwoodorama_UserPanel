@@ -8,9 +8,7 @@ import _ from "lodash";
 import PreCheckout from "./PreCheckout/PreCheckout"
 import axios from "axios";
 import Cookies from 'universal-cookie';
-import FlyingButton from 'react-flying-item'
 import Createcontext from "../../../Hooks/Context"
-import { AiOutlineShoppingCart } from "react-icons/ai"
 import AddToCartPopUp from "./AddToCartPopUp/AddToCartPopUp"
 const ProductList = ({ arr }) => {
     const navigation = useNavigate()

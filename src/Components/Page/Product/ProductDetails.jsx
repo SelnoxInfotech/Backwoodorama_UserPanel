@@ -12,15 +12,18 @@ import Createcontext from "../../../Hooks/Context"
 import parse from 'html-react-parser';
 import NewFlavourBanner from "../../Component/NewFlavour/NewFlavourBanner";
 import PreCheckout from "./PreCheckout/PreCheckout";
+import axios from "axios";
+import Cookies from 'universal-cookie';
 const ProductDetail = () => {
-    
+    const cookies = new Cookies();
+    const token_data = cookies.get('Token_access')
     const location = useLocation()
     const { state, dispatch } = React.useContext(Createcontext)
-    const  Id  = location.state
+    const Id = location.state
     const [Item, SetItem] = React.useState([])
     const [ProductDetails, SetProductDetails] = React.useState([])
     const [Image, SetImage] = React.useState()
-    const [GetStore ,  SetStore_id ] =  React.useState([])
+    const [GetStore, SetStore_id] = React.useState([])
     const [Product_Quantity, SetProduct_Quantity] = React.useState({
         Product_quantity: 1
     })
@@ -29,9 +32,10 @@ const ProductDetail = () => {
         const initialValue = JSON.parse(saved);
         return initialValue || []
     })
-
-   const [Product,SetProduct] =  React.useState([])
-
+    const [Price, SetPrice] = React.useState([])
+    const [NewData, SetNewData] = React.useState([])
+    const [Product, SetProduct] = React.useState([])
+    const [CartClean, SetCartClean] = React.useState(false)
     React.useEffect(() => {
         Axios(`http://52.3.255.128:8000/UserPanel/Get-ProductById/${Id}`, {
         }).then(response => {
@@ -39,7 +43,7 @@ const ProductDetail = () => {
             Axios(`http://52.3.255.128:8000/UserPanel/Get-DispensaryByid/${response.data[0].Store_id}`, {
             }).then(response => {
                 SetStore_id(response.data)
-            
+
             }).catch(
                 function (error) {
 
@@ -54,26 +58,20 @@ const ProductDetail = () => {
                 // SetProduct(Product => ({ ...Product, discount: "None" }))
             })
 
-         
-          Axios(`http://52.3.255.128:8000/UserPanel/Get-Product`, {
+
+        Axios(`http://52.3.255.128:8000/UserPanel/Get-Product`, {
 
 
         }).then(response => {
             SetProduct(response.data)
             window.scrollTo({
-                top: 0, 
+                top: 0,
                 behavior: 'smooth'
-                /* you can also use 'auto' behaviour
-                   in place of 'smooth' */
-              });
-            // SetProduct(Product => ({ ...Product, Category: response.data?.data[0].id }))
-        
 
+            });
         }).catch(
             function (error) {
-
                 alert("Something Goes Wrong")
-                // SetProduct(Product => ({ ...Product, discount: "None" }))
             })
 
     }, [Id])
@@ -105,69 +103,104 @@ const ProductDetail = () => {
     async function PriceSelect(Product, Item) {
         SetItem([{ Product_id: Product, Item_id: Item }])
     }
-    function AddtoCard(Event) {
-        const Arry = {
-            Product_id: Event.id,
-            Product_Name: Event.Product_Name,
-            Prices: Event.Prices,
-            Store_id: Event.Store_id,
-            Image: Event.images,
-            Price_index: Item,
-            StoreName: Event.StoreName,
-            Product_Quantity: Product_Quantity.Product_quantity
-        }
-        // SetAddToCard([...AddTOCard, Arry])
-        const Status = AddTOCard.find((data) => {
-            if (data.Product_id === Event.id) {
-                return data
-            }
-            return false
-        })
-        const Store = AddTOCard.find((data) => {
-            if (data.Store_id === Event.Store_id) {
-                return true
-            }
-            return false
-        })
-        if (Store !== undefined) {
-            if (Status !== undefined) {
-                SetAddToCard(AddTOCard.map((Add) => {
+    const Addtocard = async (Event) => {
 
-                    if (Add.Product_id === Status.Product_id) {
-                        if (Item.length !== 0) {
-                            if (Item[0]?.Product_id === Add.Price_index[0]?.Item_id) {
+        if (token_data) {
+            const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
+            const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id);
+            let PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
+            const config = {
+                headers: { Authorization: `Bearer ${token_data}` }
+            };
+            SetNewData({
+                Product_id: Event.id,
+                Store_id: Event.Store_id,
+                Image_id: Event.images[0].id,
+                Price: PriceIndex,
+                Cart_Quantity: 1,
+                PriceId: PriceIndex.id
 
-                                return { ...Add, Product_Quantity: Product_Quantity.Product_quantity }
-                            }
-                            else {
-                                return { ...Add, Price_index: Item, Product_Quantity: Product_Quantity.Product_quantity }
-                            }
-                        }
-                        else {
+            })
+            await axios.post("http://52.3.255.128:8000/UserPanel/Add-AddtoCart/",
 
-                            return { ...Add, Product_Quantity: Product_Quantity.Product_quantity }
-                        }
+                {
+                    Product_id: Event.id,
+                    Store_id: Event.Store_id,
+                    Image_id: Event.images[0].id,
+                    Price: PriceIndex,
+                    Cart_Quantity: 1,
+                    PriceId: PriceIndex.id
+
+                }
+                , config
+            ).then(response => {
+                if (response.data === "Empty Add to Cart") {
+                    SetCartClean(true)
+                }
+                dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+            }).catch(
+                function (error) {
+                    if (error.response.status === 406) {
+                        alert("This Product" + error.response.data[0])
                     }
-
-                    return Add
-                }))
-            }
-            else (
-                SetAddToCard([...AddTOCard, Arry])
-            )
+                })
         }
         else {
-            SetAddToCard([Arry])
+            const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
+            const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id);
+            let PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
+
+            const Arry = {
+                Image: Event.images[0].image,
+                Product_id: Event.id,
+                Store_id: Event.Store_id,
+                Image_id: Event.images[0].id,
+                Price: PriceIndex,
+                Cart_Quantity: 1,
+                ProductName: Event.Product_Name
+            }
+            SetNewData(Arry)
+            if (AddTOCard.length !== 0) {
+                if (AddTOCard.find((data) => { return data.Store_id === Event.Store_id })) {
+                    const t = AddTOCard.filter((data) => { return data.Product_id === Event.id && data.Price.id === PriceIndex.id })
+                    if (t.length > 0) {
+
+
+                        SetAddToCard(AddTOCard.map((Cart) => {
+                            if (Cart.Product_id === Event.id && Cart.Price.id === PriceIndex.id) {
+
+                                return { ...Cart, Cart_Quantity: Cart.Cart_Quantity + 1 }
+                            }
+
+                            return Cart
+                        }))
+                        dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+                    }
+                    else {
+                        SetAddToCard([...AddTOCard, Arry])
+                        dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+                    }
+                }
+                else {
+                    SetCartClean(true)
+                }
+            }
+            else {
+                SetAddToCard([Arry])
+                dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+            }
+
+            // dispatch({ type: 'Cart_subTotal' })
         }
-
-
+        // dispatch({ type: 'ApiProduct' , ApiProduct :!state.ApiProduct })
     }
+
 
 
     return (
         <div className="container-fluid p-4  add_prod_cont">
             <div className="row center">
-                <NewFlavourBanner  delBtn={GetStore}></NewFlavourBanner>
+                <NewFlavourBanner delBtn={GetStore}></NewFlavourBanner>
                 <div className="col-10  add_product_main_cont mt-5">
                     {
                         ProductDetails?.map((ele, index) => {
@@ -227,46 +260,41 @@ const ProductDetail = () => {
 
                                         </div>
                                         <div className="col-6 add_prod_quant_btn_div">
-                                                {ele.Prices.map((ele1, index) => {
-                                                    return (
-                                                        ele1.Price?.map((data, index) => {
-                                                            let s = false               
-                                                            if (Item?.length === 0) {
-                                                                if (AddTOCard?.find(Add => Add.Price_index[0]?.Product_id === ele.id && Add.Price_index[0]?.Item_id === data.id)) {
-                                                                    s = true
+                                            {ele.Prices.map((ele1, index) => {
+                                                return (
+                                                    ele1.Price?.map((data, index) => {
+                                                        let s = false
+                                                        if (Price.length === 0) {
 
+                                                            if (data.id === 1) {
+                                                                s = true
+                                                            }
+
+                                                        }
+                                                        else (
+                                                            Price?.map((Price) => {
+                                                                if (ele.id === Price?.Product_id && data.id === Price?.Item_id) {
+                                                                    s = true
                                                                 }
                                                                 else {
-                                                                    if (data.id === 1) {
 
-                                                                        s = true
-                                                                    }
+                                                                    s = false
                                                                 }
-                                                            }
-                                                            else {
-                                                                Item?.map((Price) => {
-                                                                    if (ele.id === Price?.Product_id && data.id === Price?.Item_id) {
-                                                                        s = true
-                                                                    }
-                                                                    else {
-
-                                                                        s = false
-                                                                    }
-                                                                    return s
-                                                                })
-                                                            }
-                                                            return (
-                                                                <div className="col-3 add_prod_quant_inner_div mt-2 " key={index}>
-                                                                    <section id="productDetail_section" onClick={() => PriceSelect(ele.id, data.id)}
-                                                                        className={"add_prod_Quant_btn " + (s ? "active" : "")}>
-                                                                        {data.Weight || data.Unit}
-                                                                        <p className="rs">{parseInt(data.SalePrice)}</p>
-                                                                    </section>
-                                                                </div>
-                                                            )
-                                                        })
-                                                    )
-                                                })}
+                                                                return s
+                                                            })
+                                                        )
+                                                        return (
+                                                            <div className="col-3 add_prod_quant_inner_div mt-2 " key={index}>
+                                                                <section id="productDetail_section" onClick={() => PriceSelect(ele.id, data.id)}
+                                                                    className={"add_prod_Quant_btn " + (s ? "active" : "")}>
+                                                                    {data.Weight || data.Unit}
+                                                                    <p className="rs">{parseInt(data.SalePrice)}</p>
+                                                                </section>
+                                                            </div>
+                                                        )
+                                                    })
+                                                )
+                                            })}
                                         </div>
                                         <div className="col-12 d-flex fontStyle add_prod_amount add_prod_rat">
                                             {
@@ -276,7 +304,7 @@ const ProductDetail = () => {
                                                             if (Item?.length === 0) {
                                                                 if (Prices?.id === 1) {
                                                                     return (
-                                                                        < div > <p>Amount</p> <p className="add_prod_span1">${parseInt(Prices.SalePrice)  }</p></div>
+                                                                        < div > <p>Amount</p> <p className="add_prod_span1">${parseInt(Prices.SalePrice)}</p></div>
                                                                     )
                                                                 }
                                                             }
@@ -316,7 +344,7 @@ const ProductDetail = () => {
                                                 className={` add_product_btn addProduct_btn ${classes.loadingBtnTextAndBack}`}
 
                                             >
-                                                <LoadingButton onClick={() => { AddtoCard(ele) }} variant="outlined">Add To Cart</LoadingButton>
+                                                <LoadingButton onClick={() => { Addtocard(ele) }} variant="outlined">Add To Cart</LoadingButton>
                                             </Box>
 
                                         </div>
@@ -403,7 +431,7 @@ const ProductDetail = () => {
 
                     </div>
                     <div className="col-12">
-                        <ProductList  arr= {Product} />
+                        <ProductList arr={Product} />
 
                     </div>
 
@@ -413,7 +441,7 @@ const ProductDetail = () => {
 
 
 
-<PreCheckout></PreCheckout>
+            <PreCheckout></PreCheckout>
         </div >
     )
 }

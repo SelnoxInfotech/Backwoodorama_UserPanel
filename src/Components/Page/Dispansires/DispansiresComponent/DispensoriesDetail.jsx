@@ -33,23 +33,18 @@ export default function DispensoriesProduct() {
 
 
 
-    React.useEffect(  () => {
+    React.useEffect(() => {
 
 
-   axios.get(`http://52.3.255.128:8000/UserPanel/Get-DispensaryByid/${id}`, {
+        axios.get(`http://52.3.255.128:8000/UserPanel/Get-DispensaryByid/${id}`, {
         }).then(response => {
-
             SetDespens(response.data)
-            console.log(response.data)
-
         })
-      axios.get(`http://52.3.255.128:8000/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
-        }).then( response  =>  {
-
-           SetDespensariesProductData(response.data)
-            console.log(response.data)
+        axios.get(`http://52.3.255.128:8000/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
+        }).then(response => {
+            SetDespensariesProductData(response.data)
         })
-       axios.get("http://52.3.255.128:8000/UserPanel/CategoryOnProduct/ ", {
+        axios.get("http://52.3.255.128:8000/UserPanel/CategoryOnProduct/ ", {
 
 
 
@@ -61,6 +56,7 @@ export default function DispensoriesProduct() {
             function (error) {
             })
     }, [id])
+    
     const FilterCategory = async (id) => {
         axios(`http://52.3.255.128:8000/UserPanel/Get-ProductByCategory/${id}`, {
         }).then(response => {
