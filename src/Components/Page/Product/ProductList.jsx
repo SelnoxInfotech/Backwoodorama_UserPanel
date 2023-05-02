@@ -133,23 +133,20 @@ const ProductList = ({ arr }) => {
         SetPrice(Price => [...Price, { Product_id: Product, Item_id: Item }]);
     }
 
-    // function Product_Details(ele) {
-    //     navigation("/ProductDetail", { state: { Id: ele.id } })
-    // }
+
 
     const classes = useStyles()
     return (
         <>
             <div className="row" style={{ height: "auto" }}>
                 {arr?.map((ele, index) => {
-                    console.log(ele.id)
                     return (
                         <div className="col-12 col-xl-3 col-lg-4 col-md-4 col-sm-6  prod_inner_cont " key={index}>
                             <div className="row product_inner_row">
                                 <div className="col-4 prod_cat_cont" >
-                                    <Link to={{ pathname: "/ProductDetail", state: { Id: ele.id } }}>
-                                        <div className="col-10 p-2 prod_cat_img">
-                                            <img id={ele.id} src={`http://52.3.255.128:8000/${ele.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }} />
+                                    <Link    to={"/ProductDetail"} state={ ele.id }>
+                                        <div  className="col-10 p-2 prod_cat_img">
+                                            <img  src={`http://52.3.255.128:8000/${ele?.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }} />
                                             <div className="col prod_img_btn prodCat_gap d-flex">
                                                 <button className="mx-2 cat_prod_inner_btn btn2">THC 70%</button>
                                             </div>
