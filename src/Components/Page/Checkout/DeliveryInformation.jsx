@@ -5,25 +5,15 @@ import useStyles from "../../../Style"
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import Axios from "axios"
-import Cookies from 'universal-cookie';
-import Createcontext from "../../../Hooks/Context"
-import { useNavigate } from 'react-router-dom';
-const DeliveryInformation = ({ SetShowDeliveryInformation , Total  ,address}) => {
-    const {state, dispatch } = React.useContext(Createcontext)
-    const cookies = new Cookies();
-    const navigate =  useNavigate()
-    const token_data = cookies.get('Token_access')
+import Createcontext from "../../../Hooks/Context" ;
+const DeliveryInformation = ({ SetShowDeliveryInformation ,image ,setImage,Dataimage,setDataImage,Details,SetDetails    }) => {
+    const { dispatch } = React.useContext(Createcontext)
     const method = useForm()
-    const [image, setImage] = React.useState()
-    const [Dataimage, setDataImage] = React.useState()
     const [ShowRestDeliveryInformation, SetShowRestDeliveryInformation] = React.useState(true)
-    const [Details , SetDetails] =  React.useState({})
     const classes = useStyles()
-    const HandleDeliveryInformation = (data) => {
+    const HandleDeliveryInformation = () => {
         SetShowDeliveryInformation(true)
         SetShowRestDeliveryInformation(false)
-        // SubmitData(data)
         dispatch({ type: 'DeliveryInformation', DeliveryInformation: true })
     }
     const ShowAgainDeliverInformation = () => {
@@ -41,51 +31,8 @@ const DeliveryInformation = ({ SetShowDeliveryInformation , Total  ,address}) =>
             setDataImage(event.target.files[0])
         }
     }
-    const config = {
-        headers: { Authorization: `Bearer ${token_data}` }
-    };
+    
 
-    React.useEffect(()=>{
-     if(state.Order_place === true) {
-        const formdata = new FormData();
-        formdata.append('IdCard', Dataimage);
-        formdata.append('FirstName', Details.FirstName);
-        formdata.append('LastName', Details.LastName);
-        formdata.append('DateOfBirth', Details.Birthdate);
-        formdata.append('MobileNo', Details.Mobile);
-        formdata.append('MedicalMarijuanaNumber', Details.Id_Number);
-        formdata.append('subtotal', Total);
-        state.AllProduct?.map((data)=>{
-            return  formdata.append('AddtoCart',data.id);
-        })
-        formdata.append('Store',state.AllProduct[0].Store_id);
-        formdata.append('Address', address);
-        Axios.post(
-            'http://52.3.255.128:8000/UserPanel/Add-Order/ ',
-            formdata,
-            config,
-          
-            {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                }
-            },
-            dispatch({ type: 'CheckOut_Loading', CheckOut_Loading: true })
-            ).then(response => {
-                dispatch({ type: 'CheckOut_Loading', CheckOut_Loading: false })
-                navigate("/PlaceOrder")
-                dispatch({ type: 'Order_place' , Order_place:!state.Order_place})
-                dispatch({ type: 'ApiProduct' , ApiProduct :!state.ApiProduct })
-            }).catch(
-                function (error) {
-                    // alert("Something Goes Wrong")
-                    dispatch({ type: 'CheckOut_Loading', CheckOut_Loading: false })
-                })
-     }
-    },[state.Order_place])
-
-    function SubmitData(data) {
-    }
     function handleChange (event){
 
         SetDetails({
