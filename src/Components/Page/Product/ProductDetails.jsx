@@ -193,14 +193,8 @@ const ProductDetail = () => {
                 SetAddToCard([Arry])
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
             }
-
-            // dispatch({ type: 'Cart_subTotal' })
         }
-        // dispatch({ type: 'ApiProduct' , ApiProduct :!state.ApiProduct })
     }
-
-
-
     return (
         <div className="container-fluid p-4  add_prod_cont">
             <div className="row center">
