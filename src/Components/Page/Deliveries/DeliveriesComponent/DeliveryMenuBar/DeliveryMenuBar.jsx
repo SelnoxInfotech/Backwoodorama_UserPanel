@@ -6,7 +6,7 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import useStyles from '../../../../../Style';
 import DeliveryItemsCard from "./DeliveryItemsCards"
-const DeliveryMenuBar = () => {
+const DeliveryMenuBar = ({Deliverie}) => {
     const DeliveryItemsCardArray1 = [
         {
             imgurl: "/image/cat_prod_6.jpg", item_name: "Jaderoom delivery Irvine",
@@ -69,7 +69,7 @@ const DeliveryMenuBar = () => {
                                 </Box>
                                 <Box className={`${classes.deliverItemCardPadding}`}>
                                     <TabPanel value="1" >
-                                        <DeliveryItemsCard DeliveryItemsCardArray={DeliveryItemsCardArray1} />
+                                        <DeliveryItemsCard Deliverie={Deliverie}/>
                                     </TabPanel>
                                     <TabPanel value="2"><DeliveryItemsCard DeliveryItemsCardArray={DeliveryItemsCardArray2} /></TabPanel>
                                     <TabPanel value="3"><DeliveryItemsCard DeliveryItemsCardArray={DeliveryItemsCardArray3} /></TabPanel>

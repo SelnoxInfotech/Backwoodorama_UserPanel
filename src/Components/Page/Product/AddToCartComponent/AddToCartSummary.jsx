@@ -6,9 +6,9 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import useStyles from "../../../../Style"
 import Axios from "axios"
 import Createcontext from "../../../../Hooks/Context"
-const AddToCartSummary = () => {
+const AddToCartSummary = ({ SubmitData , CheckOut_Loading ,SetLoading}) => {
     const classes = useStyles()
-    const { state , dispatch } = React.useContext(Createcontext)
+    const { state} = React.useContext(Createcontext)
     const navigate = useNavigate()
     const location = useLocation();
     const [OpenDelivery, SetOpenDelivery] = React.useState(false);
@@ -62,8 +62,8 @@ const AddToCartSummary = () => {
           }
         }
         if(location.pathname === "/CheckOutMainPage"){
-
-            dispatch({ type: 'Order_place' , Order_place:!state.Order_place})
+            SetLoading(true)
+            SubmitData()
         }
     }
     return (
@@ -177,7 +177,7 @@ const AddToCartSummary = () => {
                             >
                       
                                         <LoadingButton variant="outlined" 
-                                         loading={state.CheckOut_Loading} 
+                                         loading={CheckOut_Loading} 
                                          onClick={CheckoutProcess}>Checkout</LoadingButton>
                                      
                             </Box>

@@ -37,10 +37,6 @@ const reducer = (state, action) => {
       {
         return { ...state, Order_place: action.Order_place }
       }
-    case "CheckOut_Loading":
-      {
-        return { ...state, CheckOut_Loading: action.CheckOut_Loading }
-      }
     case "Dispensories":
       {
         return { ...state, Dispensories: action.Dispensories }
