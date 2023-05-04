@@ -3149,4 +3149,16 @@ color: #949494;
 .prod_inc_dec_quant_heading h1{
   font-size: 24px;
 }
+.productInc_dec_image_cont{
+  height: 120px;
+  display: grid;
+  place-items: center;
+}
+.prod_inc_dec_image{
+  height: 100px;
+  width: 100px;
+}
+.productInc_dec_content{
+  height: auto;
+}
 /* end */
