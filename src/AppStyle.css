@@ -3176,14 +3176,25 @@ line-height: 36px;
 
 color: #949494;
 }
+.prod_price_font{
+  font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 48px;
+
+color: #282625;
+}
 @media(max-width:1330px){
   .prod_inc_dec_quant_heading h1{
-  font-size: 20px;
+  font-size: 18px;
 
   } 
   .prod_inc_dec_quant_heading h2{
-  font-size: 20px;
+  font-size: 18px;
 
+  }
+  .prod_price_font{
+    height: 16px;
   }
 }
 
@@ -3200,6 +3211,9 @@ color: #949494;
   .prod_inc_dec_image{
     height:120px;
     width: 100px;
+  }
+  .prod_price_font{
+    height: 16px;
   }
 }
 .productInc_dec_content{
@@ -3252,14 +3266,7 @@ line-height: 36px;
 
 color: #949494;
 }
-.prod_price_font{
-  font-style: normal;
-font-weight: 700;
-font-size: 24px;
-line-height: 48px;
 
-color: #282625;
-}
 .prod_quant_font{
   font-style: normal;
 font-weight: 400;
@@ -3275,4 +3282,5 @@ line-height: 36px;
 
 color: #949494;
 }
+
 /* end */

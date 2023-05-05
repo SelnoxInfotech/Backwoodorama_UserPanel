@@ -63,7 +63,7 @@ const ProductIncDecQuantity = () => {
                             <div className='col-12 col-md-8 col-sm-6 productInc_dec_content'>
                                 <div className='row'>
                                     <div className='col-12 prod_inc_dec_quant_heading'>
-                                        <h1>Uraban flavour Delivery</h1>
+                                        <h1 className='text-truncate'>Uraban flavour Delivery</h1>
 
                                     </div>
                                     <div className='col-12 prod_inc_dec_quant_heading'>

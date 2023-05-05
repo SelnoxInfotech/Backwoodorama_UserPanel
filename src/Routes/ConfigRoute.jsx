@@ -17,6 +17,7 @@ import StoreDetail from "../Components/Page/StoreDetail/StoreDetail"
 import Review from "../Components/Page/Review/Review";
 import EmptyCard from "../Components/Page/Product/EmptyCard/EmptyCard"
 import Deliveries from "../Components/Page/Deliveries/Deliveries"
+import Brand from "../Components/Page/Brand/Brand"
 const routesConfig = [
   
       {
@@ -66,7 +67,10 @@ const routesConfig = [
             path: "/ProductDetail",
             element: <ProductDetail></ProductDetail>,
           },
-        
+          {
+            path: "/Brand",
+            element: <Brand></Brand>,
+          },
           {
             path:"/AddToCart",
             element:<AddToCart/>
