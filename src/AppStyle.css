@@ -3284,3 +3284,20 @@ color: #949494;
 }
 
 /* end */
+/* VerifyBrands */
+.verify_brand_container{
+  height: auto;
+}
+.verifyBrand_row{
+  border: 1px solid #E7E7E7;
+
+}
+.verifyBrand_image_container{
+  height: 180px;
+}
+.product_search_result_image{
+  width: 80px;
+  height: 80px;
+}
+
+/* end */
