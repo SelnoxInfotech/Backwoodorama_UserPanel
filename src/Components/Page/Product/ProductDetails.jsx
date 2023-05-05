@@ -121,7 +121,7 @@ const ProductDetail = () => {
                 Store_id: Event.Store_id,
                 Image_id: Event.images[0].id,
                 Price: PriceIndex,
-                Cart_Quantity: 1,
+                Cart_Quantity: Product_Quantity.Product_quantity,
                 PriceId: PriceIndex.id
 
             })
@@ -132,7 +132,7 @@ const ProductDetail = () => {
                     Store_id: Event.Store_id,
                     Image_id: Event.images[0].id,
                     Price: PriceIndex,
-                    Cart_Quantity: 1,
+                    Cart_Quantity: Product_Quantity.Product_quantity,
                     PriceId: PriceIndex.id
 
                 }
@@ -145,7 +145,7 @@ const ProductDetail = () => {
             }).catch(
                 function (error) {
                     if (error.response.status === 406) {
-                        alert("This Product" + error.response.data[0])
+                        // alert("This Product" + error.response.data[0])
                     }
                 })
         }
@@ -160,7 +160,7 @@ const ProductDetail = () => {
                 Store_id: Event.Store_id,
                 Image_id: Event.images[0].id,
                 Price: PriceIndex,
-                Cart_Quantity: 1,
+                Cart_Quantity: Product_Quantity.Product_quantity,
                 ProductName: Event.Product_Name
             }
             SetNewData(Arry)
@@ -208,10 +208,10 @@ const ProductDetail = () => {
                                         <div className="col-12 add_prod_first_img">
                                             {Image ?
                                                 ele?.images.map((data, index) => {
-                                                    if (data.id === Image) {
-                                                        return <LazyLoadImage key={index} src={`http://52.3.255.128:8000/${data.image}`} alt="img_not_found" />
-                                                    }
-                                                    
+                                                    // if (data.id === Image) {
+                                                        return data.id === Image &&   <LazyLoadImage key={index} src={`http://52.3.255.128:8000/${data.image}`} alt="img_not_found" />
+                                                    // }
+
                                                 })
                                                 :
                                                 <LazyLoadImage src={`http://52.3.255.128:8000/${ele.images[0]?.image}`} alt="img_not_found" />
@@ -336,8 +336,10 @@ const ProductDetail = () => {
                                                     <button className="add_prod_amount_btn" onClick={decreaseQuantity}> <span>-</span> </button>
                                                 }
                                             </span>
+                                           
 
                                         </div>
+
                                         <div className="col-12">
                                             <Box
                                                 className={` add_product_btn addProduct_btn ${classes.loadingBtnTextAndBack}`}
@@ -347,6 +349,7 @@ const ProductDetail = () => {
                                             </Box>
 
                                         </div>
+
                                     </div>
 
                                 </>

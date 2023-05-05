@@ -4,6 +4,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useState } from 'react';
 import styled from "styled-components";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { Link } from 'react-router-dom';
 const CategoryProduct = () => {
     const [value, setValue] = useState([])
     useEffect(() => {
@@ -76,22 +78,21 @@ const CategoryProduct = () => {
 
     return (
         <>
-
             <div className='container-fluid '>
                 <div className='row'>
                     <div className='col-12 disp_head'>
                         <p>Shop by  category</p>
                     </div>
                 </div>
-
                 <SliderCategory {...settings}>
                     {value.map((ele, index) => {
                         return (
-
                             <div>
                              <div className='col-10'>
                              <div className='slider1'>
-                                    <img src={`http://52.3.255.128:8000/`+ ele.categoryImages} alt="glass_img" className='rounded-circle  Image_Width' />
+                                 <Link to="/">
+                                 <LazyLoadImage src={`http://52.3.255.128:8000/`+ ele.categoryImages} alt="glass_img" className='rounded-circle  Image_Width' />
+                                 </Link>
                                 </div>
                                 <div className='col-12 center '>
                                     <div className='col center Category_title' >
@@ -99,16 +100,7 @@ const CategoryProduct = () => {
                                     </div>
                                 </div>
                              </div>
-
                             </div>
-
-                            // <div className='cat_main_div' key={index} >
-                            //     <div className='image_Div'>
-
-                            //         
-                            //     </div>
-                            //     <h6>{ele.name.substr(0, 100)}</h6>
-                            // </div>
                         )
                     })}
                 </SliderCategory>

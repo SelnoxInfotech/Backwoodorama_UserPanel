@@ -1,6 +1,6 @@
 import React from "react"
 import { BsLayoutSplit } from "react-icons/bs"
-import { BsDropletHalf } from "react-icons/bs"
+import CategoryProduct from "../../../Components/Page/Home/Dashboard/ComponentDashboard/CategoryProduct"
 import { MdOutlineBrandingWatermark } from "react-icons/md"
 import { MdOutlinePriceChange } from "react-icons/md"
 import { BsStripe } from "react-icons/bs"
@@ -131,67 +131,65 @@ const Product = () => {
 
 
     const flowerArray1 = [{ imgUrl: "/image/wee_img1.jpeg", title: "flower" }, { imgUrl: "/image/flower2.webp", title: "pre-roll" }, { imgUrl: "/image/flower2.webp", title: "flower" },
-    { imgUrl: "/image/flower2.webp", title: "pre-roll" }, { imgUrl: "/image/flower2.webp",title: "pre-roll"},
+    { imgUrl: "/image/flower2.webp", title: "pre-roll" }, { imgUrl: "/image/flower2.webp", title: "pre-roll" },
 
-    { imgUrl: "/image/flower2.webp", title: "flower" }, { imgUrl: "/image/flower2.webp",title: "flower" }, { imgUrl: "/image/flower2.webp", title: "flower" }]
+    { imgUrl: "/image/flower2.webp", title: "flower" }, { imgUrl: "/image/flower2.webp", title: "flower" }, { imgUrl: "/image/flower2.webp", title: "flower" }]
 
-     const flowerArray2 = [{ imgUrl: "/image/wee_img1.jpeg", title: "flower" }, { imgUrl: "/image/logo.webp", title: "pre-roll" }, { imgUrl: "/image/prod_cat_Slider3.png", title: "flower" },
-     { imgUrl: "/image/flower2.webp" , title: "pre-roll"}, { imgUrl: "/image/flower2.webp", title: "pre-roll" },
-     { imgUrl: "/image/flower2.webp", title: "flower" }, { imgUrl: "/image/flower2.webp",
-      title: "flower" }, { imgUrl: "/image/flower2.webp", title: "flower" }]
+    const flowerArray2 = [{ imgUrl: "/image/wee_img1.jpeg", title: "flower" }, { imgUrl: "/image/logo.webp", title: "pre-roll" }, { imgUrl: "/image/prod_cat_Slider3.png", title: "flower" },
+    { imgUrl: "/image/flower2.webp", title: "pre-roll" }, { imgUrl: "/image/flower2.webp", title: "pre-roll" },
+    { imgUrl: "/image/flower2.webp", title: "flower" }, {
+        imgUrl: "/image/flower2.webp",
+        title: "flower"
+    }, { imgUrl: "/image/flower2.webp", title: "flower" }]
     return (
         <>
             <div className="container-fluid product_container" >
-                <NewFlavourBanner delBtn={delBtn}></NewFlavourBanner>
-                <div className="row">   
+                <div className="row">
                     <div className="col-12 mt-4">
-                        {/* <ProductCategorySlider FilterCategory={FilterCategory} Category={Category}></ProductCategorySlider>  */}
+                        <CategoryProduct></CategoryProduct>
 
                     </div>
                     <div className="col-12 mt-4 productSlider_headings fontStyle">
                         <h1>Flower</h1>
-                        <NewProductCategorySlider flowerArray={flowerArray1}/>
-
+                        <NewProductCategorySlider flowerArray={flowerArray1} />
                     </div>
-                    <div className="col-12 mt-4">
-                        <ProductSearchResult/>
 
-                    </div>
-                    <hr/>
+                    <hr />
 
                     <div className="col-12 mt-4 productSlider_headings fontStyle">
                         <h1>Edible</h1>
-                        <NewProductCategorySlider flowerArray={flowerArray2}/>
+                        {/* <NewProductCategorySlider flowerArray={flowerArray2}/> */}
 
                     </div>
-                    <hr/>
+                    <hr />
 
                     <div className="col-12 mt-4 productSlider_headings fontStyle">
                         <h1>Vape & Carts</h1>
-                        <NewProductCategorySlider flowerArray={flowerArray2}/>
+                        {/* <NewProductCategorySlider flowerArray={flowerArray2}/> */}
 
                     </div>
-                    <hr/>
+                    <hr />
 
                     <div className="col-12 mt-4 productSlider_headings fontStyle">
                         <h1>Concentrates</h1>
-                        <NewProductCategorySlider flowerArray={flowerArray2}/>
+                        {/* <NewProductCategorySlider flowerArray={flowerArray2}/> */}
 
                     </div>
-                    <hr/>
+                    <hr />
 
                     <div className="col-12 mt-4 productSlider_headings fontStyle">
                         <h1>CBD</h1>
-                        <NewProductCategorySlider flowerArray={flowerArray2}/>
+                        {/* <NewProductCategorySlider flowerArray={flowerArray2}/> */}
 
                     </div>
-                    <hr/>
+
+                    <hr />
 
 
                 </div>
 
                 <div className="row center  mt-2 p-2" >
-                    <div className="col-12 mt-4 product_search_and_select">
+                    {/* <div className="col-12 mt-4 product_search_and_select">
                         <div className="col-2 product_search_bar">
                             <SearchBar
                                 onChange={newValue => setSearchvalue(newValue)}
@@ -228,24 +226,28 @@ const Product = () => {
                             </Grid>
                         </div>
 
+                    </div> */}
+
+                    {/* <div className="col-12  productCat_cont"> */}
+
+                    {/* <ProductFilter ProductFilterData={ProductFilterData} Setarr1={Setarr1} /> */}
+                    {/* <div className="col-12   prod_cat_right_sec">         */}
+                    <div className="col-12 mt-4">
+                        <ProductSearchResult />
+                        {/* <ProductSearchResult/> */}
+
                     </div>
 
-                    <div className="col-12  productCat_cont">
 
-                        <ProductFilter ProductFilterData={ProductFilterData} Setarr1={Setarr1} />
-                        <div className="col-10  prod_cat_right_sec">
-                            <ProductList arr={arr1} />
+                    {/* </div>
+                    </div> */}
 
-
-                        </div>
-                    </div>
-                  
 
 
 
                 </div>
-                
-               
+
+
 
 
             </div>
