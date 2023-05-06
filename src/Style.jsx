@@ -203,13 +203,13 @@ delivery_menuBar:{
   }
 },
 open_dispensory_tab_background:{
-  "& .css-heg063-MuiTabs-flexContainer":{
+  "& .MuiTabs-flexContainer":{
   backgroundColor:"#F9F9F9",
   gap: '40px'
 
   },
   "@media(max-width:1280px)":{
-    "& .css-heg063-MuiTabs-flexContainer":{
+    "& .MuiTabs-flexContainer":{
       gap: '10px',
       overflowX:"scroll",
       overflowY:"hidden"

@@ -2016,7 +2016,10 @@
   font-size: 1.5rem;
   font-weight: 700;
 }
-
+.dispensaries_centers{
+  display: grid;
+  justify-content: center;
+}
 .dispensories_city {
   font-size: 1.5rem;
   color: rgb(96, 100, 111);
@@ -3032,6 +3035,10 @@
 .deliveries_container_height {
   height: auto;
 
+}
+.deliveries_centers{
+  display: grid;
+  justify-content: center;
 }
 
 /* end */

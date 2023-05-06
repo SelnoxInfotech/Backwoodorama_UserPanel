@@ -53,7 +53,7 @@ export default function Dispansires() {
         <>
             <div className="container-fluid">
 
-                <div className="row center">
+                <div className="row  dispensaries_centers">
                     <div className="col-12  col-md-10 col-sm-12">
                         {DispensorShopLocation.map((ele, index) => {
                             return (
