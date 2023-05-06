@@ -6,7 +6,7 @@ const VerifyBrands = () => {
     const classes = useStyles()
 
     const VerifyArrayData = [{ imgUrl: "/image/cat_pro_img4.png", name: "All American", num_prod: 112, },
-    { imgUrl: "/image/glass.png", name: "All American kmmmmmmmmm kmnkn nkknkk", num_prod: 112, },
+    { imgUrl: "/image/glass.png", name: "All American products wellee", num_prod: 112, },
     { imgUrl: "/image/flower2.webp", name: "All American", num_prod: 112, },
     { imgUrl: "/image/glass.png", name: "All American", num_prod: 112, },
     { imgUrl: "/image/flower2.webp", name: "All American", num_prod: 112, },
