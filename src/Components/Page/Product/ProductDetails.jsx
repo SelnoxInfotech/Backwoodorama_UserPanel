@@ -18,8 +18,8 @@ const ProductDetail = () => {
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
     const location = useLocation()
-    const { state, dispatch } = React.useContext(Createcontext)
     const Id = location.state
+    const { state, dispatch } = React.useContext(Createcontext)
     const [Item, SetItem] = React.useState([])
     const [ProductDetails, SetProductDetails] = React.useState([])
     const [Image, SetImage] = React.useState()
