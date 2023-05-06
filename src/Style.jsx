@@ -95,7 +95,6 @@ const useStyles = makeStyles({
   muiIcons: {
     fontSize: "large",
     color: "gray",
-
   },
   Signup_loading_btn_facebook: {
     "& .MuiButton-text": {
