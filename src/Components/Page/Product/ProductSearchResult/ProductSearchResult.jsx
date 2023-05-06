@@ -29,7 +29,7 @@ const ProductSearchResult = () => {
             <div className="row mx-2">
                 {RelatedProductResult.map((items, index) => {
                     return (
-                        <div className=" col-xxl-3  col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12 mb-4  productSearch_result_container">
+                        <div className=" col-xxl-3  col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12 mb-4  productSearch_result_container" key={index}>
                             <div className="row productsearch_result_inner_container mx-1">
 
                                 <div className="col-12  productSearchResultImage_container">

@@ -6,7 +6,7 @@ const VerifyBrands = () => {
     const classes = useStyles()
 
     const VerifyArrayData = [{ imgUrl: "/image/cat_pro_img4.png", name: "All American", num_prod: 112, },
-    { imgUrl: "/image/glass.png", name: "All American", num_prod: 112, },
+    { imgUrl: "/image/glass.png", name: "All American kmmmmmmmmm kmnkn nkknkk", num_prod: 112, },
     { imgUrl: "/image/flower2.webp", name: "All American", num_prod: 112, },
     { imgUrl: "/image/glass.png", name: "All American", num_prod: 112, },
     { imgUrl: "/image/flower2.webp", name: "All American", num_prod: 112, },
@@ -28,12 +28,12 @@ const VerifyBrands = () => {
                                 </div>
                                 <div className="col-8 verify_content_container">
                                     <div className="row">
-                                        <div className="col-12 verify_content_height verify_brands_heading">
-                                            <p>{items.name}</p>
+                                        <div className="col-12 verify_content_height verify_brands_heading ">
+                                            <p className="ellipsis">{items.name}</p>
 
                                         </div>
                                         <div className="col-12 verify_content_height verify_subHead">
-                                            <p>{items.num_prod}</p>
+                                            <p className="ellipsis">{items.num_prod}</p>
                                         </div>
                                         <div className="col-12 verify_ratings verify_content_height">
                                             <span className="verify_rating3"><IoMdStar className={classes.disPen_Icons}/></span><span className="verify_rating1 verify_rating_font">4.5</span><span  className="verify_rating_font verify_rating2">Rating</span>
