@@ -30,7 +30,6 @@ const VerifyBrands = () => {
                                     <div className="row">
                                         <div className="col-12 verify_content_height verify_brands_heading ">
                                             <p className="ellipsis">{items.name}</p>
-
                                         </div>
                                         <div className="col-12 verify_content_height verify_subHead">
                                             <p className="ellipsis">{items.num_prod}</p>
