@@ -936,7 +936,7 @@
   .add_product_content_cont {
     position: absolute;
     left: 0px !important;
-    top: 613px !important;
+    top: 879px !important;
   }
 
   .add_product_content_cont {
@@ -975,7 +975,7 @@
   .add_product_content_cont {
     position: absolute;
     left: 0px !important;
-    top: 480px !important;
+    top: 767px !important;
   }
 
   .add_prod_para {
@@ -3291,6 +3291,7 @@
 
 .productInc_dec_content {
   height: auto;
+  margin-bottom: 100px;
 }
 
 .prod_inc_plus_minus {
