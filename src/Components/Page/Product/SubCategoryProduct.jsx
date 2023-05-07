@@ -7,6 +7,7 @@ const SubcategoryProduct = () => {
     const Id = location.state
     const [Product, SetProduct] = React.useState([])
     const [Loading, SetLoading] = React.useState(true)
+    const [CategoryName ,  SetCategoryName] = React.useState([])
 
     React.useEffect(() => {
         SetLoading(true)
@@ -16,7 +17,7 @@ const SubcategoryProduct = () => {
 
         ).then(response => {
             SetProduct(response.data)
-            console.log(response.data)
+            SetCategoryName(response.data[0].category_name)
             SetLoading(false)
         }).catch(
             function (error) {
@@ -33,7 +34,7 @@ const SubcategoryProduct = () => {
                    <div className="loaderFLower"></div> 
                    : 
                    <div className="col-12 mt-4">
-                   <ProductSearchResult RelatedProductResult={Product}/>
+                   <ProductSearchResult RelatedProductResult={Product} CategoryName={CategoryName}/>
                   
 
                </div>

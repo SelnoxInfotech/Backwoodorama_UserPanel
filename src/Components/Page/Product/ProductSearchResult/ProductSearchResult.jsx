@@ -5,12 +5,16 @@ import Box from '@mui/material/Box';
 import useStyles from "../../../../Style";
 import { AiFillHeart } from "react-icons/ai"
 import ProductIncDecQuantity from "./ProductIncDecQuantity"
-const ProductSearchResult = ({ RelatedProductResult }) => {
+const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
     const classes = useStyles()
 
     return (
         <>
             <div className="row mx-2">
+                <div className="col-12 mt-4 productSlider_headings fontStyle">
+                    <h1>{CategoryName}</h1>
+                </div>
+
                 {RelatedProductResult.map((items, index) => {
                     return (
                         <div className=" col-xxl-3  col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12 mb-4  productSearch_result_container" key={index}>
@@ -23,7 +27,7 @@ const ProductSearchResult = ({ RelatedProductResult }) => {
                                         </Box>
                                     </div>
                                     <LazyLoadImage
-                                        
+
                                         className="product_search_result_image"
                                         src={`http://52.3.255.128:8000/${items?.image}`}
                                         height={"100px"}
