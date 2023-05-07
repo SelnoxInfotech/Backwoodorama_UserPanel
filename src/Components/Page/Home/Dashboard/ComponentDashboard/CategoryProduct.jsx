@@ -32,9 +32,6 @@ const CategoryProduct = () => {
         margin-inline: 10px;
 
       }
-      .Driscription_{
-
-      }
       `;
 
     const settings = {
@@ -90,7 +87,7 @@ const CategoryProduct = () => {
                             <div>
                              <div className='col-10'>
                              <div className='slider1'>
-                                 <Link to="/">
+                                 <Link to={`/CategoryProduct/${ele.name}`} state={ ele.id }>
                                  <LazyLoadImage src={`http://52.3.255.128:8000/`+ ele.categoryImages} alt="glass_img" className='rounded-circle  Image_Width' />
                                  </Link>
                                 </div>

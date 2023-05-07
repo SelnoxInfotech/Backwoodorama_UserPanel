@@ -85,14 +85,10 @@ const ProductList = ({ arr }) => {
                 if (AddTOCard.find((data) => { return data.Store_id === Event.Store_id })) {
                     const t = AddTOCard.filter((data) => { return data.Product_id === Event.id && data.Price.id === PriceIndex.id })
                     if (t.length > 0) {
-
-
                         SetAddToCard(AddTOCard.map((Cart) => {
                             if (Cart.Product_id === Event.id && Cart.Price.id === PriceIndex.id) {
-
                                 return { ...Cart, Cart_Quantity: Cart.Cart_Quantity + 1 }
                             }
-
                             return Cart
                         }))
                         dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
@@ -110,7 +106,6 @@ const ProductList = ({ arr }) => {
                 SetAddToCard([Arry])
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
             }
-
             // dispatch({ type: 'Cart_subTotal' })
         }
         // dispatch({ type: 'ApiProduct' , ApiProduct :!state.ApiProduct })
