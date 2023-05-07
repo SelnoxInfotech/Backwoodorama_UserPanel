@@ -5,25 +5,9 @@ import Box from '@mui/material/Box';
 import useStyles from "../../../../Style";
 import { AiFillHeart } from "react-icons/ai"
 import ProductIncDecQuantity from "./ProductIncDecQuantity"
-const ProductSearchResult = ({RelatedProductResult}) => {
+const ProductSearchResult = ({ RelatedProductResult }) => {
     const classes = useStyles()
-    // const RelatedProductResult = [
-    //     { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery dsfasfas asfdddddddddddddddddddddddddddd asfafafsdfa", subHeading: "by Tribe Tokes" },
-    //     { imgUrl: "/image/weed.png", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
-    //     { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
-    //     { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
 
-    //     { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
-
-    //     { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
-
-    //     { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
-
-    //     { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
-
-
-
-    // ]
     return (
         <>
             <div className="row mx-2">
@@ -38,8 +22,12 @@ const ProductSearchResult = ({RelatedProductResult}) => {
                                             <AiFillHeart />
                                         </Box>
                                     </div>
-
-                                    <LazyLoadImage className="product_search_result_image" src={items.imgUrl} alt="image not found" height={"100px"} />
+                                    <LazyLoadImage
+                                        
+                                        className="product_search_result_image"
+                                        src={`http://52.3.255.128:8000/${items?.image}`}
+                                        height={"100px"}
+                                    />
 
 
                                 </div>
@@ -52,9 +40,9 @@ const ProductSearchResult = ({RelatedProductResult}) => {
                                             <p className=" text-truncate">{items.subHeading}</p>
                                         </div>
                                         <div className="col-12 product_category_list">
-                                        <span className="product_search_result_span1">15% THC | 0.2% CBD</span>
-                                        <span className="product_search_result_span2"><span className={` ${classes.disp_star_color}`}><IoMdStar className="product_search_rating_star"/></span>4.5 rating</span>
-                                          
+                                            <span className="product_search_result_span1">15% THC | 0.2% CBD</span>
+                                            <span className="product_search_result_span2"><span className={` ${classes.disp_star_color}`}><IoMdStar className="product_search_rating_star" /></span>4.5 rating</span>
+
                                         </div>
 
                                         <div className="col-12 productPriceDivHeight">
@@ -62,7 +50,7 @@ const ProductSearchResult = ({RelatedProductResult}) => {
                                         </div>
                                         <div className="col-12  my-4">
                                             <Box className={`center ${classes.loadingBtnTextAndBack}`}>
-                                                <LoadingButton style={{ width: "60%", height: "30px", fontSize: "12px" }}><ProductIncDecQuantity/></LoadingButton>
+                                                <LoadingButton style={{ width: "60%", height: "30px", fontSize: "12px" }}><ProductIncDecQuantity /></LoadingButton>
                                             </Box>
                                         </div>
                                     </div>

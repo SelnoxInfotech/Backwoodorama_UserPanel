@@ -251,7 +251,7 @@ const Product = () => {
                     {/* <ProductFilter ProductFilterData={ProductFilterData} Setarr1={Setarr1} /> */}
                     {/* <div className="col-12   prod_cat_right_sec">         */}
                     <div className="col-12 mt-4">
-                        <ProductSearchResult RelatedProductResult={RelatedProductResult}/>
+                        {/* <ProductSearchResult RelatedProductResult={RelatedProductResult}/> */}
                         {/* <ProductSearchResult/> */}
 
                     </div>

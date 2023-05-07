@@ -1,4 +1,5 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Link } from "react-router-dom";
 
 const NewProductCategorySlider = ({ flowerArray }) => {
     return (
@@ -16,6 +17,7 @@ const NewProductCategorySlider = ({ flowerArray }) => {
                                     <div className="col-12 d-flex justify-content-center">
                                         <div className="newProduct_category_slider_image">
 
+                                            <Link to={`/Product/${items.name}`} state={ items.id }>
                                             <LazyLoadImage
                                                 onError={event => {
                                                     event.target.src = "/image/cat_pro_7.jpg"
@@ -23,6 +25,7 @@ const NewProductCategorySlider = ({ flowerArray }) => {
                                                 }}
                                                 className="newProductCategory_image"
                                                  src={`http://52.3.255.128:8000/${items?.image}`} />
+                                            </Link>
                                         </div>
                                     </div>
                                     <div className="col-12 d-flex justify-content-center newProductCategorySliderName">

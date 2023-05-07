@@ -19,6 +19,7 @@ import EmptyCard from "../Components/Page/Product/EmptyCard/EmptyCard"
 import Deliveries from "../Components/Page/Deliveries/Deliveries"
 import Brand from "../Components/Page/Brand/Brand"
 import CategoryProduct from "../Components/Page/Product/AllCategory";
+import SubcategoryProduct from "../Components/Page/Product/SubCategoryProduct";
 const routesConfig = [
   
       {
@@ -108,6 +109,11 @@ const routesConfig = [
           {
             path:"/CategoryProduct/:SubCategoryname",
             element:<CategoryProduct></CategoryProduct>
+          }
+          ,
+          {
+            path:"/Product/:SubCategoryname",
+            element:<SubcategoryProduct></SubcategoryProduct>
           }
         ],
       },

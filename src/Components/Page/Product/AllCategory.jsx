@@ -21,7 +21,7 @@ const  [ Loading  , SetLoading] = React.useState(true)
         }).catch(
             function (error) {
                 SetLoading(false)
-                // SetProduct(Product => ({ ...Product, discount: "None" }))
+               
             })
     },[Id])
     return (
