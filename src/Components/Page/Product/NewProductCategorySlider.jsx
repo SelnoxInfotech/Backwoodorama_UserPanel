@@ -21,7 +21,8 @@ const NewProductCategorySlider = ({ flowerArray }) => {
                                                     event.target.src = "/image/cat_pro_7.jpg"
                                                     event.onerror = null
                                                 }}
-                                                className="newProductCategory_image" src={`http://52.3.255.128:8000/${items?.image}`} />
+                                                className="newProductCategory_image"
+                                                 src={`http://52.3.255.128:8000/${items?.image}`} />
                                         </div>
                                     </div>
                                     <div className="col-12 d-flex justify-content-center newProductCategorySliderName">

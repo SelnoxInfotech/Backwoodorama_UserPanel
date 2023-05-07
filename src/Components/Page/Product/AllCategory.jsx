@@ -8,21 +8,32 @@ const CategoryFilter = () => {
     const location = useLocation()
     const Id = location.state
 const [Category , SetCategory] = React.useState([])
+const  [ Loading  , SetLoading] = React.useState(true)
     React.useEffect(() => {
+        SetLoading(true)
+
         Axios(`http://52.3.255.128:8000/UserPanel/Get-SubCategoryByCategory/${Id}`, {
-        }).then(response => {
+        }
+        
+        ).then(response => {
             SetCategory(response.data.data)
+            SetLoading(false)
         }).catch(
             function (error) {
-
-                alert("Something Goes Wrong")
+                SetLoading(false)
                 // SetProduct(Product => ({ ...Product, discount: "None" }))
             })
     },[Id])
     return (
         <div>
             <CategoryProduct></CategoryProduct>
-            <NewProductCategorySlider flowerArray={Category}></NewProductCategorySlider>
+            <div className="col-12 center">
+
+            {
+           
+            Loading ? <div className="loaderFLower"></div> :  <NewProductCategorySlider flowerArray={Category}></NewProductCategorySlider>
+            }
+            </div>
         </div>
     )
 }
