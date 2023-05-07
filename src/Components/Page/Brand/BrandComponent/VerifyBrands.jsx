@@ -18,7 +18,7 @@ const VerifyBrands = () => {
                 {VerifyArrayData.map((items, index) => {
                     return (
                         <div className="col-md-6 col-12 verify_brand_container" key={index}>
-                            <div className="row verifyBrand_row mx-1 my-1">
+                            <div className="row verifyBrand_row mx-1 my-3">
                                 <div className="col-12 text-end">
                                     <AiFillHeart  className={classes.muiIcons}/>
                                 </div>
