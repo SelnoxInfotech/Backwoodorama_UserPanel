@@ -128,7 +128,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
                                     <form onSubmit={method.handleSubmit(ShowHideDeliveryOptions)} >
                                         <div className='col-12 flex_for_delivery'>
                                             <div className='col-2 col-sm-2 col-md-2 col-lg-2  center'>
-                                                <input id="checkbox-id" onClick={CheckBox} checked={Checkbox.DeliveryTime} name='DeliveryTime' type='checkbox' required />
+                                                <input id="checkbox-id" onChange={CheckBox} checked={Checkbox.DeliveryTime} name='DeliveryTime' type='checkbox' required />
 
                                             </div>
                                             <div className='col-10  col-lg-10 col-md-10 col-sm-10  font_size_checkbox_paragraph'>
@@ -138,7 +138,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
                                         </div>
                                         <div className='col-12 flex_for_delivery'>
                                             <div className='col-2 col-sm-2 col-md-2 col-lg-2 center '>
-                                                <input checked={Checkbox.deliveryinstructions} onClick={CheckBox} name='deliveryinstructions' type='checkbox' required />
+                                                <input checked={Checkbox.deliveryinstructions} onChange={CheckBox} name='deliveryinstructions' type='checkbox' required />
                                             </div>
                                             <div className='col-10  col-lg-10 col-md-10 col-sm-10 font_size_checkbox_paragraph'>
                                                 <p>Please check this box if the information entered is for a caregiver. If so, please add the patient information
@@ -148,7 +148,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
                                         </div>
                                         <div className='col-12 flex_for_delivery'>
                                             <div className='col-2 col-sm-2 col-md-2 col-lg-2 center'>
-                                                <input checked={Checkbox.documented} onClick={CheckBox} name="documented" type='checkbox' required />
+                                                <input checked={Checkbox.documented} onChange={CheckBox} name="documented" type='checkbox' required />
                                             </div>
                                             <div className='col-10  col-lg-10 col-md-10 col-sm-10 justify-content-start font_size_checkbox_paragraph'>
                                                 <p>I confirm that all the customer information added is the information linked to my NYS issued medical marijuana card and agree to present

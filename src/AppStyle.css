@@ -2860,16 +2860,16 @@
 
 .marginPre_checkout_row {
   position: fixed;
-  width: 83.3%;
-  bottom: 10px;
-  height: 100px;
-  /* background: gainsboro; */
+  width: 100%;
+  bottom: 20px;
+  height: 70px;
   display: grid;
   place-items: center;
-  /* background: #fffeff; */
   background-color: rgb(255, 254, 255, .9);
   opacity: .9;
-  left: 17.3%;
+  padding: 0px;
+  margin: 0px;
+
 }
 
 @media(max-width:1020px) {

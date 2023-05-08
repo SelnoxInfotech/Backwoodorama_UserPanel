@@ -2,7 +2,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
 import TextField from '@mui/material/TextField';
-import { Link ,useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import Button from '@mui/material/Button';
 import React from 'react';
 import axios from 'axios';
@@ -18,6 +18,8 @@ import Createcontext from "../../../Hooks/Context"
 const Login = () => {
     const cookies = new Cookies();
     const method = useForm()
+    const location = useLocation();
+    console.log(location)
     const { state, dispatch } = React.useContext(Createcontext)
     const Navigate = useNavigate()
     const [loading, Setloading] = React.useState(false)
@@ -34,20 +36,29 @@ const Login = () => {
 
         },
         ).then(response => {
-            let date = new Date();
-            date.setTime(date.getTime() + (60 * 60 * 8000))
-            cookies.set('Token_access', response.data.tokens.access, { expires: date })
-            dispatch({type:'Login',login: true})
-            dispatch({ type: 'ApiProduct'  , ApiProduct :!state.ApiProduct })
-            Navigate(-1)
-            Setloading(false)
+
+           
+            if (location.pathname === "/CheckOutMainPage") {
+                if (state.AllProduct.length === 0) {
+                    Navigate("/Product")
+                }
+            }
+            else {
+                let date = new Date();
+                date.setTime(date.getTime() + (60 * 60 * 8000))
+                cookies.set('Token_access', response.data.tokens.access, { expires: date })
+                dispatch({ type: 'Login', login: true })
+                dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+                Navigate(-1)
+                Setloading(false)
+            }
 
 
         }).catch(
             function (error) {
-            Setloading(false)
-            alert(error.response.data.message)
-                
+                Setloading(false)
+                alert(error.response.data.message)
+
             })
     }
 
@@ -91,7 +102,7 @@ const Login = () => {
 
                                 <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
                                     <TextField
-                                    autoComplete="on"
+                                        autoComplete="on"
                                         type={showPassword ? 'text' : 'password'}
                                         placeholder="Enter Your Password"
                                         variant="outlined"
@@ -115,7 +126,7 @@ const Login = () => {
                                         }}
                                         inputRef={method.register({
                                             required: "password  is required*.",
-                                       
+
                                         },
                                         )}
                                         helperText={method.errors?.password?.message}
@@ -147,7 +158,7 @@ const Login = () => {
                         </form>
                         <div className='row  signup_margins_top'>
                             <div className='col-lg-12 signup_btn_height'>
-                              <LoginWithGoogle></LoginWithGoogle>
+                                <LoginWithGoogle></LoginWithGoogle>
                             </div>
 
                         </div>
