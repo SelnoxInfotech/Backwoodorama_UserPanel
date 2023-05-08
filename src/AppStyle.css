@@ -3464,16 +3464,18 @@ color: #000000;
   flex-wrap: nowrap;
   border-radius: 6px;
   color: #333;
-  /* background: #eee; */
   padding: 1rem;
   overflow-x: auto;  
-  /* height: 380px; */
+  overflow-y: hidden;
+  height: 380px;
 }
 .recentViewProductCard{
-  margin: .5rem;
+  margin:.5rem;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 2500ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  height: 320px;
+
 }
 .recentViewProductSlider::-webkit-scrollbar {
   display: none;
@@ -3488,5 +3490,25 @@ color: #000000;
 }
 .recentViewProductContent_container{
   height: 200px;
+}
+.recentViewProduct_heading h1{
+  font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 30px;
+
+color: #000000;
+}
+.recentView_place{
+  font-weight: 400;
+font-size: 15px;
+line-height: 22px;
+color: #000000;
+}
+.recentView_rating{
+  font-style: normal;
+font-weight: 400;
+font-size: 14px;
+color: #949494;
 }
 /* end */

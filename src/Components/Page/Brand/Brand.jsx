@@ -6,17 +6,12 @@ const Brand=()=>{
         { imgUrl: "/image/weed.png", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
         { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
         { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
-
+    ]
+    const RelatedProductResult2 = [
+        { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery dsfasfas asfdddddddddddddddddddddddddddd asfafafsdfa", subHeading: "by Tribe Tokes" },
+        { imgUrl: "/image/weed.png", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
         { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
-
         { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
-
-        { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
-
-        { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
-
-
-
     ]
     return(
         <>
@@ -29,6 +24,11 @@ const Brand=()=>{
                 <div className="col-10 brandHeading">
                     <h1>Shop Verify Brands</h1>
                     <ProductSearchResult RelatedProductResult={RelatedProductResult1}/>
+
+                </div>
+                <div className="col-10 brandHeading">
+                    <h1>Shop Verify flower Brands</h1>
+                    <ProductSearchResult RelatedProductResult={RelatedProductResult2}/>
 
                 </div>
 
