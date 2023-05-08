@@ -24,7 +24,7 @@ const NewProductCategorySlider = ({ flowerArray }) => {
                                                     event.onerror = null
                                                 }}
                                                 className="newProductCategory_image"
-                                                 src={`http://52.3.255.128:8000/${items?.image}`} />
+                                                 src={`http://52.3.255.128:8000/${items?.image}`}/>
                                             </Link>
                                         </div>
                                     </div>

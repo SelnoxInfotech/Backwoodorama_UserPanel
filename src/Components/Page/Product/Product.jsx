@@ -19,7 +19,9 @@ import Createcontext from "../../../Hooks/Context"
 import { Grid } from "@mui/material"
 import NewFlavourBanner from "../../Component/NewFlavour/NewFlavourBanner"
 import NewProductCategorySlider from "./NewProductCategorySlider"
+import AllProductCategory from "./AllProductCategory"
 import ProductSearchResult from "./ProductSearchResult/ProductSearchResult"
+import RecentViewProduct from "./RecentViewProduct/RecentViewProduct"
 const Product = () => {
     const { dispatch } = React.useContext(Createcontext)
     const [Searchvalue, setSearchvalue] = React.useState()
@@ -167,6 +169,16 @@ const Product = () => {
                         <CategoryProduct></CategoryProduct>
 
                     </div>
+                    <div className="col-12 mt-4 productSlider_headings fontStyle">
+                        <h1>flowers</h1>
+                        <AllProductCategory flowerArray={flowerArray1} />
+                    </div>
+                    <div className="col-12 mt-4">
+                        <p>Recent views</p>
+                        <RecentViewProduct/>
+
+                    </div>
+                
                     <div className="col-12 mt-4 productSlider_headings fontStyle">
                         <h1>Flower</h1>
                         <NewProductCategorySlider flowerArray={flowerArray1} />

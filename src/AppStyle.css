@@ -3048,12 +3048,8 @@
   flex-wrap: nowrap;
   border-radius: 6px;
   color: #333;
-  /* background: #eee; */
   padding: 1rem;
   overflow-x: auto;
-
-
-
 }
 
 .newProductCategorySliderContainer::-webkit-scrollbar {
@@ -3080,7 +3076,7 @@
   margin: .5rem;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 25000ms ease-in-out;
+  transition: all 2500ms ease-in-out;
 }
 
 .productSlider_headings h1 {
@@ -3447,3 +3443,50 @@ color: #000000;
   height: auto;
 }
 /* endss */
+/* AllproductCategory */
+.allProductCategory_image_container{
+  height: 130px;
+  width: 130px;
+  border-radius:65px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #31B665;
+}
+.allProduct_imageHeight{
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+}
+/* end */
+/* recentViewProduct */
+.recentViewProductSlider{
+  display: flex;
+  flex-wrap: nowrap;
+  border-radius: 6px;
+  color: #333;
+  /* background: #eee; */
+  padding: 1rem;
+  overflow-x: auto;  
+  /* height: 380px; */
+}
+.recentViewProductCard{
+  margin: .5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 2500ms ease-in-out;
+}
+.recentViewProductSlider::-webkit-scrollbar {
+  display: none;
+}
+
+.recentViewImageContainer{
+  height: 120px;
+}
+.recentView_images{
+  height: 110px;
+  width: 110px;
+}
+.recentViewProductContent_container{
+  height: 200px;
+}
+/* end */
