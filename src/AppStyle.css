@@ -3451,6 +3451,12 @@ color: #000000;
 .allProductCategoryContainer_height{
   height: 170px;
 }
+@media (max-width: 591px){
+  .allProductCategoryContainer_height{
+    flex: 0 0 auto;
+    width: 100%;
+}
+}
 .allProductCategory_image_container{
   height: 130px;
   width: 130px;
