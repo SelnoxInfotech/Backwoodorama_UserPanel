@@ -15,7 +15,7 @@ const AllProductCategory = ({ flowerArray }) => {
                 <div className="row center">
                     {flowerArray.map((items, index) => {
                         return (
-                            <div className="col-xl-2 col-lg-2  col-sm-3 col-6 mt-4" key={index}>
+                            <div className="col-xl-2 col-lg-2  col-sm-3 col-6 mt-4 allProductCategoryContainer_height" key={index}>
                                 <div className="row ">
                                     <div className="col-12  center">
                                         <div className="allProductCategory_image_container">
@@ -34,9 +34,11 @@ const AllProductCategory = ({ flowerArray }) => {
                                     <div className="col-12 center">
                                         <p>{items.name}</p>
                                     </div>
+                                
                                 </div>
 
                             </div>
+                          
                         )
                     })}
 
