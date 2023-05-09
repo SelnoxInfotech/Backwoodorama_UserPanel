@@ -40,7 +40,7 @@ const RecentViewProduct = () => {
     return (
         <div className="container-fluid">
             <div className="row">
-                <div className="col-12  recentViewProductSlider">
+                <div className="col-12   recentViewProductSlider">
                     {FlowerArray.map((items, index) => {
                         return (
                             <div className="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6  recentViewProductCard border" key={index}>

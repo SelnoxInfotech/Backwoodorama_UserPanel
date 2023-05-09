@@ -3511,4 +3511,8 @@ font-weight: 400;
 font-size: 14px;
 color: #949494;
 }
+.borderAllproductCategory{
+  border-bottom: 1px solid #949494;
+  width: 100%;
+}
 /* end */
