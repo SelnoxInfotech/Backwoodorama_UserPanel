@@ -2,16 +2,22 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { BsFillHeartFill } from "react-icons/bs";
 import { IoMdStar } from "react-icons/io";
 import useStyles from "../../../../Style";
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination } from "swiper";
 const NewProductDetails = () => {
+    const NewProductDetail_related_Image=[{imgUrl:"/image/images2.png"},{imgUrl:"/image/glass.png"},
+    {imgUrl:"/image/images2.png"},{imgUrl:"/image/glass.png"},{imgUrl:"/image/glass.png"},{imgUrl:"/image/glass.png"},{imgUrl:"/image/glass.png"},
+]
     const classes = useStyles()
     return (
         <div className="container-fluid">
-            <div className="row mx-4">
-                <div className="col-lg-8 newProductDetailsContainer">
+            <div className="row center px-2">
+                <div className="col-lg-8 col-sm-10 col-12 newProductDetailsContainer mt-4">
                     <div className="row">
                         <div className="col-12 mt-2 text-end">
-                            <BsFillHeartFill />
+                            <BsFillHeartFill color="grey" size={20} />
                         </div>
                         <div className="col-lg-4">
                             <div className="row">
@@ -19,7 +25,51 @@ const NewProductDetails = () => {
                                     <LazyLoadImage className="newProductDetails_upper_image" src="/image/flower2.webp" />
                                 </div>
                                 <div className="col-12 newProductDetailsLowerImage_container">
-                                  
+                                    <Swiper
+                                        slidesPerView={1}
+                                        spaceBetween={10}
+                                        pagination={{
+                                            clickable: true,
+                                        }}
+                                        breakpoints={{
+                                            640: {
+                                                slidesPerView: 2,
+                                                spaceBetween: 20,
+                                            },
+                                            768: {
+                                                slidesPerView: 4,
+                                                spaceBetween: 40,
+                                            },
+                                            1024: {
+                                                slidesPerView: 5,
+                                                spaceBetween: 50,
+                                            },
+                                        }}
+                                        modules={[Pagination]}
+                                        className="mySwiper"
+                                    >
+                                        {NewProductDetail_related_Image.map((items,index)=>{
+                                            return(
+                                                <SwiperSlide>
+                                               
+                                                        <div className="col-12 d-flex">
+                                                        <LazyLoadImage height={"100px"} src={items.imgUrl}/>
+
+                                                        </div>
+                                        
+                                                </SwiperSlide>
+
+                                            )
+                                        })}
+                                        {/* <SwiperSlide>Slide 2</SwiperSlide>
+                                        <SwiperSlide>Slide 3</SwiperSlide>
+                                        <SwiperSlide>Slide 4</SwiperSlide>
+                                        <SwiperSlide>Slide 5</SwiperSlide>
+                                        <SwiperSlide>Slide 6</SwiperSlide>
+                                        <SwiperSlide>Slide 7</SwiperSlide>
+                                        <SwiperSlide>Slide 8</SwiperSlide>
+                                        <SwiperSlide>Slide 9</SwiperSlide> */}
+                                    </Swiper>
                                 </div>
 
                             </div>

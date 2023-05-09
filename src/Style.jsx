@@ -253,7 +253,10 @@ productSearchIcons:{
   fontSize: "25px",
   color:"gray" 
 
-}
+},
+// NewproductHeart:{
+//  backgroundColor:"#949494" 
+// }
 
 });
 
