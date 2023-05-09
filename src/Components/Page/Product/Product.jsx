@@ -1,166 +1,124 @@
 import React from "react"
-import { BsLayoutSplit } from "react-icons/bs"
+// import { BsLayoutSplit } from "react-icons/bs"
 import CategoryProduct from "../../../Components/Page/Home/Dashboard/ComponentDashboard/CategoryProduct"
-import { MdOutlineBrandingWatermark } from "react-icons/md"
-import { MdOutlinePriceChange } from "react-icons/md"
-import { BsStripe } from "react-icons/bs"
-import { GiWeightScale } from "react-icons/gi"
-import { RiProductHuntLine } from "react-icons/ri"
-import ProductList from "./ProductList"
+// import { MdOutlineBrandingWatermark } from "react-icons/md"
+// import { MdOutlinePriceChange } from "react-icons/md"
+// import { BsStripe } from "react-icons/bs"
+// import { GiWeightScale } from "react-icons/gi"
+// import { RiProductHuntLine } from "react-icons/ri"
+// import ProductList from "./ProductList"
 import Axios from "axios"
-import ProductFilter from "./ProductFilter"
-import useStyles from "../../../Style"
-import SearchBar from '@mkyy/mui-search-bar';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import _ from "lodash"
-import Createcontext from "../../../Hooks/Context"
-import { Grid } from "@mui/material"
-import NewFlavourBanner from "../../Component/NewFlavour/NewFlavourBanner"
+// import ProductFilter from "./ProductFilter"
+// import useStyles from "../../../Style"
+// import SearchBar from '@mkyy/mui-search-bar';
+// import MenuItem from '@mui/material/MenuItem';
+// import FormControl from '@mui/material/FormControl';
+// import Select from '@mui/material/Select';
+// import _ from "lodash"
+// import Createcontext from "../../../Hooks/Context"
+// import { Grid } from "@mui/material"
+// import NewFlavourBanner from "../../Component/NewFlavour/NewFlavourBanner"
 import NewProductCategorySlider from "./NewProductCategorySlider"
-import AllProductCategory from "./AllProductCategory"
-import ProductSearchResult from "./ProductSearchResult/ProductSearchResult"
+// import AllProductCategory from "./AllProductCategory"
+// import ProductSearchResult from "./ProductSearchResult/ProductSearchResult"
 import RecentViewProduct from "./RecentViewProduct/RecentViewProduct"
 const Product = () => {
-    const { dispatch } = React.useContext(Createcontext)
-    const [Searchvalue, setSearchvalue] = React.useState()
-    const classes = useStyles()
-    const [Category, SetCategory] = React.useState([])
-    const [arr1, Setarr1] = React.useState([])
-    const [Product, SetProduct] = React.useState('');
+    // const { dispatch } = React.useContext(Createcontext)
+    // const [Searchvalue, setSearchvalue] = React.useState()
+    // // const classes = useStyles()
+    const [SubCategory, SetSubCategory] = React.useState([])
+    // const [arr1, Setarr1] = React.useState([])
+    // const [Product, SetProduct] = React.useState('');
     React.useEffect(() => {
-        Axios("http://52.3.255.128:8000/UserPanel/Get-Product/", {
+        Axios("http://52.3.255.128:8000/UserPanel/Get-AllSubCategory/", {
 
 
         }).then(response => {
-            Setarr1(response.data)
+            SetSubCategory(response.data)
 
         }).catch(
             function (error) {
 
             })
-        Axios("http://52.3.255.128:8000/UserPanel/CategoryOnProduct/ ", {
+        // Axios("http://52.3.255.128:8000/UserPanel/CategoryOnProduct/ ", {
 
-
-
-        }).then(response => {
-            var uniqueUsersByID = _.uniqBy(response.data, 'Category_id'); //removed if had duplicate id
-            var uniqueUsers = _.uniqWith(response.data, _.isEqual);//removed complete duplicates
-            SetCategory(uniqueUsers)
-
-
-        }).catch(
-            function (error) {
-
-
-            })
-    }, [])
-
-
-
-    const delBtn = [{ del: "Delivery Only" }]
-
-    const ProductFilterData =
-        [{ Id: 1, Name: "Category", Type1: "Flower", Type2: "CBD", Icons: <BsLayoutSplit className={classes.muiIcons} /> },
-        { Id: 2, Name: "Brand", Type1: "Leafly", Type2: "CBD", Icons: <MdOutlineBrandingWatermark className={classes.muiIcons} /> },
-        { Id: 3, Name: "Strain", Type1: "Indica", Type2: "Hybrid", Icons: <BsStripe className={classes.muiIcons} /> },
-        { Id: 4, Name: "Price", Type1: "Any", Type2: "$25", Price: "$100", Icons: <MdOutlinePriceChange className={classes.muiIcons} /> },
-        { Id: 5, Name: "Weight", Type1: "Any", Type2: "$25", Price: "$100", Icons: <GiWeightScale className={classes.muiIcons} /> },
-        { Id: 6, Name: "Product", Type1: "Medical", Type2: "Recreational", Icons: <RiProductHuntLine className={classes.muiIcons} /> },
-        ]
-
-    const FilterCategory = (id) => {
-        // Axios(`http://52.3.255.128:8000/UserPanel/Get-ProductByCategory/${id}`, {
 
 
         // }).then(response => {
+        //     var uniqueUsersByID = _.uniqBy(response.data, 'Category_id'); //removed if had duplicate id
+        //     var uniqueUsers = _.uniqWith(response.data, _.isEqual);//removed complete duplicates
 
-        //     Setarr1(response.data)
-
-        //     // SetProduct(Product => ({ ...Product, Category: response.data?.data[0].id }))
 
 
         // }).catch(
         //     function (error) {
 
-        //         // SetProduct(Product => ({ ...Product, discount: "None" }))
+
         //     })
-
-    }
-
-    const handleChange = (event) => {
-        SetProduct(event.target.value);
-    };
-    const Search = () => {
-        Axios(`http://52.3.255.128:8000/UserPanel/Get-SearchFilter/?search=${Searchvalue}`, {
+    }, [])
 
 
-        }).then(response => {
-
-            Setarr1(response.data)
-
+    // const FilterCategory = (id) => {
+    //     Axios(`http://52.3.255.128:8000/UserPanel/Get-ProductByCategory/${id}`, {
 
 
+    //     }).then(response => {
 
-        }).catch(
-            function (error) {
+    //         Setarr1(response.data)
 
-            })
-    }
-
-    const SearchA2Z = () => {
-        Axios(`http://52.3.255.128:8000/UserPanel/Get-SortingFilterAtoZ/`, {
+    //         // SetProduct(Product => ({ ...Product, Category: response.data?.data[0].id }))
 
 
-        }).then(response => {
+    //     }).catch(
+    //         function (error) {
 
-            Setarr1(response.data)
+    //             // SetProduct(Product => ({ ...Product, discount: "None" }))
+    //         })
 
+    // }
 
-
-        }).catch(
-            function (error) {
-
-
-            })
-
-    }
-
-    const SearchZ2A = () => {
-        Setarr1(arr1?.reverse())
-    }
+    // const handleChange = (event) => {
+    //     SetProduct(event.target.value);
+    // };
+    // const Search = () => {
+    //     Axios(`http://52.3.255.128:8000/UserPanel/Get-SearchFilter/?search=${Searchvalue}`, {
 
 
-    const flowerArray1 = [{ imgUrl: "/image/wee_img1.jpeg", title: "flower" }, { imgUrl: "/image/flower2.webp", title: "pre-roll" }, { imgUrl: "/image/flower2.webp", title: "flower" },
-    { imgUrl: "/image/flower2.webp", title: "pre-roll" }, { imgUrl: "/image/flower2.webp", title: "pre-roll" },
+    //     }).then(response => {
 
-    { imgUrl: "/image/flower2.webp", title: "flower" }, { imgUrl: "/image/flower2.webp", title: "flower" }, { imgUrl: "/image/flower2.webp", title: "flower" }]
-
-    const flowerArray2 = [{ imgUrl: "/image/wee_img1.jpeg", title: "flower" }, { imgUrl: "/image/logo.webp", title: "pre-roll" }, { imgUrl: "/image/prod_cat_Slider3.png", title: "flower" },
-    { imgUrl: "/image/flower2.webp", title: "pre-roll" }, { imgUrl: "/image/flower2.webp", title: "pre-roll" },
-    { imgUrl: "/image/flower2.webp", title: "flower" }, {
-        imgUrl: "/image/flower2.webp",
-        title: "flower"
-    }, { imgUrl: "/image/flower2.webp", title: "flower" }]
-
-    const RelatedProductResult = [
-        { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery dsfasfas asfdddddddddddddddddddddddddddd asfafafsdfa", subHeading: "by Tribe Tokes" },
-        { imgUrl: "/image/weed.png", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
-        { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
-        { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
-
-        { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
-
-        { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
-
-        { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
-
-        { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
+    //         Setarr1(response.data)
 
 
 
-    ]
+
+    //     }).catch(
+    //         function (error) {
+
+    //         })
+    // }
+
+    // const SearchA2Z = () => {
+    //     Axios(`http://52.3.255.128:8000/UserPanel/Get-SortingFilterAtoZ/`, {
+
+
+    //     }).then(response => {
+
+    //         Setarr1(response.data)
+
+
+
+    //     }).catch(
+    //         function (error) {
+
+
+    //         })
+
+    // }
+
+    // const SearchZ2A = () => {
+    //     Setarr1(arr1?.reverse())
+    // }
+
     return (
         <>
             <div className="container-fluid product_container" >
@@ -169,51 +127,56 @@ const Product = () => {
                         <CategoryProduct></CategoryProduct>
 
                     </div>
-                    <div className="col-12 mt-4 productSlider_headings fontStyle">
-                        <h1>flowers</h1>
-                        <AllProductCategory flowerArray={flowerArray1} />
-                    </div>
-                    <div className="col-12 mt-4">
-                        <p>Recent views</p>
-                        <RecentViewProduct/>
 
-                    </div>
-                
-                    <div className="col-12 mt-4 productSlider_headings fontStyle">
-                        <h1>Flower</h1>
-                        <NewProductCategorySlider flowerArray={flowerArray1} />
-                    </div>
+                    {
+                        SubCategory.map((data) => {
+                            return (
+                                <div>
+                                    <div className="col-12 mt-4 productSlider_headings fontStyle">
+                                        <h1>{data.name}</h1>
+                                        <NewProductCategorySlider flowerArray={data.subcategories} />
+                                    </div>
 
-                    <hr />
+                                    <hr />
+                                </div>
+                            )
+                        })
+                    }
 
-                    <div className="col-12 mt-4 productSlider_headings fontStyle">
+                    {/* <div className="col-12 mt-4 productSlider_headings fontStyle">
                         <h1>Edible</h1>
                         {/* <NewProductCategorySlider flowerArray={flowerArray2}/> */}
 
-                    </div>
+                    {/* </div>
                     <hr />
 
                     <div className="col-12 mt-4 productSlider_headings fontStyle">
                         <h1>Vape & Carts</h1>
                         {/* <NewProductCategorySlider flowerArray={flowerArray2}/> */}
 
-                    </div>
+                    {/* </div>
                     <hr />
 
                     <div className="col-12 mt-4 productSlider_headings fontStyle">
                         <h1>Concentrates</h1>
                         {/* <NewProductCategorySlider flowerArray={flowerArray2}/> */}
 
-                    </div>
+                    {/* </div>
                     <hr />
 
-                    <div className="col-12 mt-4 productSlider_headings fontStyle">
-                        <h1>CBD</h1>
-                        {/* <NewProductCategorySlider flowerArray={flowerArray2}/> */}
+                    // <div className="col-12 mt-4 productSlider_headings fontStyle">
+                    //     <h1>CBD</h1>
+                    //     {/* <NewProductCategorySlider flowerArray={flowerArray2}/> */}
+
+                    {/* // </div> */}
+
+                    {/* <hr /> */}
+
+                    <div className="col-12 mt-4">
+                        <p>Recent views</p>
+                        <RecentViewProduct />
 
                     </div>
-
-                    <hr />
 
 
                 </div>

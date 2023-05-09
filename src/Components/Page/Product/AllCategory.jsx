@@ -3,6 +3,7 @@ import CategoryProduct from "../Home/Dashboard/ComponentDashboard/CategoryProduc
 import { useLocation } from "react-router-dom";
 import  Axios  from "axios";
 import NewProductCategorySlider from "./NewProductCategorySlider";
+import AllProductCategory from "./AllProductCategory";
 const CategoryFilter = () => {
 
     const location = useLocation()
@@ -31,7 +32,7 @@ const  [ Loading  , SetLoading] = React.useState(true)
 
             {
            
-            Loading ? <div className="loaderFLower"></div> :  <NewProductCategorySlider flowerArray={Category}></NewProductCategorySlider>
+            Loading ? <div className="loaderFLower"></div> :  <AllProductCategory flowerArray={Category}></AllProductCategory>
             }
             </div>
         </div>

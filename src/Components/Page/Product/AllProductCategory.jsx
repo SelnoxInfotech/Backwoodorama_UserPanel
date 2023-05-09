@@ -1,14 +1,7 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 
-const AllProductCategory = ({ flowerArray }) => {
-    const FlowerArray = [{ imgUrl: "/image/cat_pro_img4.png", name: "flower" },
-    { imgUrl: "/image/glass.png", name: "Capsules" },
-    { imgUrl: "/image/flower2.webp", name: "All American" },
-    { imgUrl: "/image/glass.png", name: "All American" },
-    { imgUrl: "/image/flower2.webp", name: "All American" },
-    { imgUrl: "/image/glass.png", name: "All American" },
-    ]
+const AllProductCategory = ({flowerArray}) => {
     return (
         <>
             <div className="container-fluid">
