@@ -2,6 +2,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 
 const NewProductCategorySlider = ({ flowerArray }) => {
+ 
     return (
         <>
             <div className="container-fluid">
