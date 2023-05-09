@@ -9,6 +9,7 @@ import { Pagination } from "swiper";
 const NewProductDetails = () => {
     const NewProductDetail_related_Image=[{imgUrl:"/image/images2.png"},{imgUrl:"/image/glass.png"},
     {imgUrl:"/image/images2.png"},{imgUrl:"/image/glass.png"},{imgUrl:"/image/glass.png"},{imgUrl:"/image/glass.png"},{imgUrl:"/image/glass.png"},
+    
 ]
     const classes = useStyles()
     return (
