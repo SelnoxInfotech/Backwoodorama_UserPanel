@@ -10,6 +10,7 @@ const PlaceOrder = () => {
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
     const [Order , SetOrder] =React.useState([])
+
     React.useEffect( ()=>{
         const config = {
             headers: { Authorization: `Bearer ${token_data}` }
@@ -21,7 +22,6 @@ const PlaceOrder = () => {
         )
             .then((res) => {
                 SetOrder(res.data.reverse()[0])
-                console.log(res.data)
                 dispatch({ type: 'ApiProduct' , ApiProduct:!state.ApiProduct })
             })
             .catch((error) => {
