@@ -199,6 +199,7 @@ const ProductDetail = () => {
         <div className="container-fluid p-4  add_prod_cont">
             <div className="row center">
                 <NewFlavourBanner delBtn={GetStore}></NewFlavourBanner>
+
                 <div className="col-10  add_product_main_cont mt-5">
                     {
                         ProductDetails?.map((ele, index) => {
@@ -357,6 +358,7 @@ const ProductDetail = () => {
                         })
                     }
                 </div>
+                
 
 
                 {ProductDetails.map((ele, index) => {

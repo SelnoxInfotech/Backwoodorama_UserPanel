@@ -172,8 +172,8 @@ const Product = () => {
 
                     {/* <hr /> */}
 
-                    <div className="col-12 mt-4">
-                        <p>Recent views</p>
+                    <div className="col-12 mt-4 productSlider_headings fontStyle">
+                        <h1>Recent views</h1>
                         <RecentViewProduct />
 
                     </div>

@@ -20,6 +20,7 @@ import Deliveries from "../Components/Page/Deliveries/Deliveries"
 import Brand from "../Components/Page/Brand/Brand"
 import CategoryProduct from "../Components/Page/Product/AllCategory";
 import SubcategoryProduct from "../Components/Page/Product/SubCategoryProduct";
+import NewProductDetails from "../Components/Page/Product/NewProductDetails/NewProductDetails"
 const routesConfig = [
   
       {
@@ -70,6 +71,10 @@ const routesConfig = [
             element: <ProductDetail></ProductDetail>,
           },
           {
+            path: "/NewProductDetails",
+            element: <NewProductDetails></NewProductDetails>,
+          },
+          {
             path: "/Brand",
             element: <Brand></Brand>,
           },
@@ -115,6 +120,7 @@ const routesConfig = [
             path:"/Product/:SubCategoryname",
             element:<SubcategoryProduct></SubcategoryProduct>
           }
+          
         ],
       },
 ]

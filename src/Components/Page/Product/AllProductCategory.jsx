@@ -8,7 +8,7 @@ const AllProductCategory = ({flowerArray}) => {
                 <div className="row">
                     {flowerArray.map((items, index) => {
                         return (
-                            <div className="col-lg-2  col-sm-3 col-6 mt-4 borderAllproductCategory" key={index}>
+                            <div className="col-lg-2  col-sm-3 col-6 mt-4 " key={index}>
                                 <div className="row ">
                                     <div className="col-12  center">
                                         <div className="allProductCategory_image_container">
