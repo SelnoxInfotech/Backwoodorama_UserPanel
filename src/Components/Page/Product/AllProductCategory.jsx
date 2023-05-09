@@ -1,14 +1,21 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 
-const AllProductCategory = ({flowerArray}) => {
+const AllProductCategory = ({ flowerArray }) => {
     return (
         <>
             <div className="container-fluid">
                 <div className="row">
+                    <div className="col-lg-12  px-4 productSlider_headings fontStyle">
+                        <h1>Flower</h1>
+                    </div>
+
+                </div>
+
+                <div className="row center">
                     {flowerArray.map((items, index) => {
                         return (
-                            <div className="col-lg-2  col-sm-3 col-6 mt-4 " key={index}>
+                            <div className="col-xl-2 col-lg-2  col-sm-3 col-6 mt-4" key={index}>
                                 <div className="row ">
                                     <div className="col-12  center">
                                         <div className="allProductCategory_image_container">
@@ -28,7 +35,7 @@ const AllProductCategory = ({flowerArray}) => {
                                         <p>{items.name}</p>
                                     </div>
                                 </div>
-                            
+
                             </div>
                         )
                     })}
