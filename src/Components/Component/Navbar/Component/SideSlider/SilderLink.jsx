@@ -48,10 +48,10 @@ export default function DashBoardLink({ state }) {
 
           <Grid xs={6} md={2} xl={2} display={{ xs: "none", md: "block", lg: "block" }} >
             <div className=' col-12 Login_Sigup_button  '>
-              <AiFillHeart size={22}></AiFillHeart>
-              <IoIosNotifications size={23}></IoIosNotifications>
+              <AiFillHeart color="grey" size={22}></AiFillHeart>
+              <IoIosNotifications color="grey" size={23}></IoIosNotifications>
               <Link to="AddToCart">
-                <MdOutlineShoppingCart size={22}></MdOutlineShoppingCart>
+                <MdOutlineShoppingCart color="grey" size={22}></MdOutlineShoppingCart>
 
               </Link>
 
