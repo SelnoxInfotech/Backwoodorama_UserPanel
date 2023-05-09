@@ -3044,6 +3044,7 @@
 /* end */
 /* newProductCategorySliderContainer */
 .newProductCategorySliderContainer {
+  gap: 5%;
   display: flex;
   flex-wrap: nowrap;
   border-radius: 6px;
