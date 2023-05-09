@@ -125,9 +125,7 @@ const Product = () => {
                 <div className="row">
                     <div className="col-12 mt-4">
                         <CategoryProduct></CategoryProduct>
-
                     </div>
-
                     {
                         SubCategory.map((data) => {
                             return (
@@ -142,105 +140,11 @@ const Product = () => {
                             )
                         })
                     }
-
-                    {/* <div className="col-12 mt-4 productSlider_headings fontStyle">
-                        <h1>Edible</h1>
-                        {/* <NewProductCategorySlider flowerArray={flowerArray2}/> */}
-
-                    {/* </div>
-                    <hr />
-
-                    <div className="col-12 mt-4 productSlider_headings fontStyle">
-                        <h1>Vape & Carts</h1>
-                        {/* <NewProductCategorySlider flowerArray={flowerArray2}/> */}
-
-                    {/* </div>
-                    <hr />
-
-                    <div className="col-12 mt-4 productSlider_headings fontStyle">
-                        <h1>Concentrates</h1>
-                        {/* <NewProductCategorySlider flowerArray={flowerArray2}/> */}
-
-                    {/* </div>
-                    <hr />
-
-                    // <div className="col-12 mt-4 productSlider_headings fontStyle">
-                    //     <h1>CBD</h1>
-                    //     {/* <NewProductCategorySlider flowerArray={flowerArray2}/> */}
-
-                    {/* // </div> */}
-
-                    {/* <hr /> */}
-
                     <div className="col-12 mt-4">
                         <p>Recent views</p>
                         <RecentViewProduct />
-
                     </div>
-
-
                 </div>
-
-                <div className="row center  mt-2 p-2" >
-                    {/* <div className="col-12 mt-4 product_search_and_select">
-                        <div className="col-2 product_search_bar">
-                            <SearchBar
-                                onChange={newValue => setSearchvalue(newValue)}
-                                onSearch={Search}
-                                // callback={(Search) => console.log(Search)}
-
-                                style={{ border: "1px solid #dee2e6" }} width={"100%"} />
-
-
-                        </div>
-                        <div className="col-10 product_select">
-                            <Grid display={{ xs: "none", md: "contents", lg: "contents" }}>
-                                <FormControl sx={{Width: "160px",height:"36px"}}>
-                                    <Select
-                                        value={Product}
-                                        onChange={handleChange}
-                                        displayEmpty
-                                        inputProps={{ 'aria-label': 'Without label' }}
-                                        size="small"
-                                        style={{width:"160px",height:"36px"}}
-                                    >
-                                        <MenuItem value="" disabled>
-                                            Sort by
-                                        </MenuItem>
-                                        <MenuItem value={"Sort by A to Z"} onClick={SearchA2Z}>
-                                            Sort by A to Z
-                                        </MenuItem>
-                                        <MenuItem value={"Sort by Z to A"} onClick={SearchZ2A}>Sort by Z to A</MenuItem>
-                                        <MenuItem value={"Price low to high"}>Price low to high</MenuItem>
-                                        <MenuItem value={"Price hight to low"}>Price hight to low</MenuItem>
-                                    </Select>
-                                </FormControl>
-
-                            </Grid>
-                        </div>
-
-                    </div> */}
-
-                    {/* <div className="col-12  productCat_cont"> */}
-
-                    {/* <ProductFilter ProductFilterData={ProductFilterData} Setarr1={Setarr1} /> */}
-                    {/* <div className="col-12   prod_cat_right_sec">         */}
-                    <div className="col-12 mt-4">
-                        {/* <ProductSearchResult RelatedProductResult={RelatedProductResult}/> */}
-                        {/* <ProductSearchResult/> */}
-
-                    </div>
-
-
-                    {/* </div>
-                    </div> */}
-
-
-
-
-                </div>
-
-
 
 
             </div>

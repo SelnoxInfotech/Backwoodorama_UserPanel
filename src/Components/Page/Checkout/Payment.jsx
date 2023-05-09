@@ -36,7 +36,6 @@ const Payment = ({SetShowPlaceOrder}) => {
                             </div>
 
                         </div>
-                        {PaymentRestData?"":<p>Plan to pay deliver at cash</p>}
                         {PaymentRestData &&
 
                             <div>

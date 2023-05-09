@@ -26,17 +26,14 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
         SetTime(event.target.value);
     };
     const ShowHideDeliveryOptions = async () => {
-        await SetShowData(true)
-        await SetShowDeliveryRestData(false)
+        SetShowData(true)
+        // SetShowDeliveryRestData(false)
         await dispatch({ type: 'DeliveryOption', DeliveryOption: true })
     }
     const AddDeliveryInstruction = () => {
         SetShowDeliveryRestData(true)
     }
 
-    // SetStore({
-    //     ...AddStore, [event.target.name]: value
-    // });
     function CheckBox(event) {
 
         SetCheckbox({
@@ -58,7 +55,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
 
                                 {DeliveryOptionData?.map((ele, index) => {
                                     return (
-                                        <div key="index">
+                                        <div key={index}>
                                             <p >Your {ele?.address}</p>
                                         </div>
 

@@ -6,7 +6,7 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Createcontext from "../../../Hooks/Context" ;
-const DeliveryInformation = ({ SetShowDeliveryInformation ,image ,setImage,Dataimage,setDataImage,Details,SetDetails    }) => {
+const DeliveryInformation = ({ SetShowDeliveryInformation ,image ,setImage,setDataImage,Details,SetDetails    }) => {
     const { dispatch } = React.useContext(Createcontext)
     const method = useForm()
     const [ShowRestDeliveryInformation, SetShowRestDeliveryInformation] = React.useState(true)
@@ -41,7 +41,6 @@ const DeliveryInformation = ({ SetShowDeliveryInformation ,image ,setImage,Datai
     }
     return (
         <div className="container-fluid">
-
 
             <div className='row center deliver_row_margin'>
 
@@ -236,7 +235,8 @@ const DeliveryInformation = ({ SetShowDeliveryInformation ,image ,setImage,Datai
                                 </div>
 
                             </form>
-                        </div>}
+                        </div>
+                        }
 
                 </div>
 

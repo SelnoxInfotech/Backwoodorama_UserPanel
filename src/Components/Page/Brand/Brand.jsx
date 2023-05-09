@@ -23,12 +23,12 @@ const Brand=()=>{
                 </div>
                 <div className="col-10 brandHeading">
                     <h1>Shop Verify Brands</h1>
-                    <ProductSearchResult RelatedProductResult={RelatedProductResult1}/>
+                    {/* <ProductSearchResult RelatedProductResult={RelatedProductResult1}/> */}
 
                 </div>
                 <div className="col-10 brandHeading">
                     <h1>Shop Verify flower Brands</h1>
-                    <ProductSearchResult RelatedProductResult={RelatedProductResult2}/>
+                    {/* <ProductSearchResult RelatedProductResult={RelatedProductResult2}/> */}
 
                 </div>
 
