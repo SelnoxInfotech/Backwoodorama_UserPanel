@@ -3616,5 +3616,15 @@ color: #282625;
 }
 /* end */
 .mySwiper{
-  height: 100px;
+  height: 130px;
+}
+.NewProductDetails_image{
+  height: 60px;
+  width: 60px;
+}
+.NewProductDetails_image_container{
+  height: 70px;
+  border: 1px solid gray;
+  display: grid;
+  place-items: center;
 }

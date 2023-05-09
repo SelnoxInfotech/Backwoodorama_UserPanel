@@ -3,6 +3,7 @@ import { BsFillHeartFill } from "react-icons/bs";
 import { IoMdStar } from "react-icons/io";
 import useStyles from "../../../../Style";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Mousewheel } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper";
@@ -36,14 +37,24 @@ const NewProductDetails = () => {
                                             640: {
                                                 slidesPerView: 2,
                                                 spaceBetween: 20,
+                                                freeMode:true,
+
                                             },
                                             768: {
-                                                slidesPerView: 4,
+                                                slidesPerView: 3,
                                                 spaceBetween: 40,
+                                                freeMode:true,
+
                                             },
                                             1024: {
-                                                slidesPerView: 5,
-                                                spaceBetween: 50,
+                                                slidesPerView: 3,
+                                                spaceBetween: 40,
+                                                freeMode:true,
+                                                thumbs:true,
+                                                scrollbar:true,
+                                                Mousewheel:{
+                                                    enable:true
+                                                }, 
                                             },
                                         }}
                                         modules={[Pagination]}
@@ -53,8 +64,8 @@ const NewProductDetails = () => {
                                             return(
                                                 <SwiperSlide>
                                                
-                                                        <div className="col-12 d-flex">
-                                                        <LazyLoadImage height={"100px"} src={items.imgUrl}/>
+                                                        <div className="col-12 NewProductDetails_image_container">
+                                                        <LazyLoadImage className="NewProductDetails_image" height={"100px"} src={items.imgUrl}/>
 
                                                         </div>
                                         
