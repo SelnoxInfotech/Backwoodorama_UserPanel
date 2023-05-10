@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import styled from "styled-components";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Link } from 'react-router-dom';
-const CategoryProduct = () => {
+const CategoryProduct = ({ShowCategoryProduct}) => {
     const [value, setValue] = useState([])
     useEffect(() => {
         const fetchData = async () => {
@@ -87,9 +87,9 @@ const CategoryProduct = () => {
                             <div>
                              <div className='col-10'>
                              <div className='slider1'>
-                                 <Link to={`/CategoryProduct/${ele.name}`} state={ ele.id }>
-                                 <LazyLoadImage src={`http://52.3.255.128:8000/`+ ele.categoryImages} alt="glass_img" className='rounded-circle  Image_Width' />
-                                 </Link>
+                                 {/* <Link to={`/CategoryProduct/${ele.name}`} state={ ele.id }> */}
+                                 <LazyLoadImage onClick={()=>{ShowCategoryProduct(ele.id , ele.name)}} src={`http://52.3.255.128:8000/`+ ele.categoryImages} alt="glass_img" className='rounded-circle  Image_Width' />
+                                 {/* </Link> */}
                                 </div>
                                 <div className='col-12 center '>
                                     <div className='col center Category_title' >

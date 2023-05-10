@@ -22,7 +22,10 @@ import NewProductCategorySlider from "./NewProductCategorySlider"
 // import AllProductCategory from "./AllProductCategory"
 // import ProductSearchResult from "./ProductSearchResult/ProductSearchResult"
 import RecentViewProduct from "./RecentViewProduct/RecentViewProduct"
+import { useNavigate } from "react-router-dom"
 const Product = () => {
+    const navigate = useNavigate();
+
     // const { dispatch } = React.useContext(Createcontext)
     // const [Searchvalue, setSearchvalue] = React.useState()
     // // const classes = useStyles()
@@ -118,13 +121,16 @@ const Product = () => {
     // const SearchZ2A = () => {
     //     Setarr1(arr1?.reverse())
     // }
+    function ShowCategoryProduct (id ,name) {
+        navigate(`/CategoryProduct/${name}`, { state: {  id  } });
+    }
 
     return (
         <>
             <div className="container-fluid product_container" >
                 <div className="row">
                     <div className="col-12 mt-4">
-                        <CategoryProduct></CategoryProduct>
+                        <CategoryProduct ShowCategoryProduct={ShowCategoryProduct}></CategoryProduct>
                     </div>
                     {
                         SubCategory.map((data) => {

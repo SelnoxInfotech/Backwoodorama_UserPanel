@@ -102,10 +102,10 @@ const routesConfig = [
             path:"/StoreDetail",
             element:<StoreDetail/>
           },
-          {
-            path:"/Review",
-            element:<Review/>
-          },
+          // {
+          //   path:"/Review",
+          //   element:<Review/>
+          // },
           {
             path:"/EmptyCard",
             element:<EmptyCard/>

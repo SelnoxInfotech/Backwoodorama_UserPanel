@@ -6,14 +6,17 @@ import WeedProduct from "./ComponentDashboard/WeedProduct";
 import CommunityType from "./ComponentDashboard/CommunityType";
 import Footer from "../../../Component/Footer/Footer";
 import HomePageBanner from "./ComponentDashboard/HomePageBanner"
-// import Flavour from "../../Delivery/Flavour/Flavour";
-import light  from "../../../Component/Map/MapStyle"
+import { useNavigate } from "react-router-dom";
 export default function Dashboard() {
-
+    const Navigate =  useNavigate()
+    function ShowCategoryProduct (id ,name) {
+       
+        Navigate(`/CategoryProduct/${name}`, { state: {  id  } });
+    }
     return (
         <div className="    ">
              <HomePageBanner></HomePageBanner>
-            <CategoryProduct></CategoryProduct>
+            <CategoryProduct ShowCategoryProduct={ShowCategoryProduct}></CategoryProduct>
             <DispensoriesAddress></DispensoriesAddress>
             <div  className="col-12 mt-5" >
                 <Map height={"300px"}   ></Map>

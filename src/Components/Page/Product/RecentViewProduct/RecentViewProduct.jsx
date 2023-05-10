@@ -4,10 +4,10 @@ import {GoStar} from "react-icons/go"
 import useStyles from "../../../../Style"
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
-
+import React from "react"
 const RecentViewProduct = () => {
     const classes = useStyles()
-
+    const ref = React.useRef(null);
     const FlowerArray = [{ imgUrl: "/image/cat_pro_img4.png", name: "flower" },
     { imgUrl: "/image/glass.png", name: "Capsules" },
     { imgUrl: "/image/flower2.webp", name: "All American" },
@@ -37,13 +37,22 @@ const RecentViewProduct = () => {
 
 
     ]
+    // const scroll = (scrollOffset) => {
+   
+          
+    //   };
+    const scroll = () => {
+        const width = document.getElementById('width').clientWidth;
+        console.log(width)
+      };
     return (
-        <div className="container-fluid">
+       
+        <div className="container-fluid" >
             <div className="row">
-                <div className="col-12   recentViewProductSlider">
+                <div className="col-12   recentViewProductSlider"  id="width"ref={ref}>
                     {FlowerArray.map((items, index) => {
                         return (
-                            <div className="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6  recentViewProductCard border" key={index}>
+                            <div className="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6  recentViewProductCard border" key={index} >
                                 <div className="row">
                                     <div className="col-12 center recentViewImageContainer p-2">
                                         <LazyLoadImage className="recentView_images" src={items.imgUrl} alt="image not availble" />
@@ -82,8 +91,9 @@ const RecentViewProduct = () => {
                 </div>
 
             </div>
-
+            <button onClick={() => scroll(-20)}>LEFT</button>
         </div>
+                 
     )
 }
 export default RecentViewProduct

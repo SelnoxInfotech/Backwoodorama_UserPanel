@@ -17,9 +17,11 @@ import { BsStripe } from "react-icons/bs"
 import { GiWeightScale } from "react-icons/gi"
 import { RiProductHuntLine } from "react-icons/ri"
 import _ from "lodash"
-import { Grid } from "@mui/material";
 import NewFlavourBanner from "../../../Component/NewFlavour/NewFlavourBanner";
-
+import StoreDetailMenuItem from "../../StoreDetail/StoreDetailComponent/StoreDetailMenuItem";
+import CategoryProduct from "../../Home/Dashboard/ComponentDashboard/CategoryProduct";
+import ComponentStoreDetails from "../../StoreDetail/ComponentStoreDetails"
+import Review from "../../Review/Review";
 export default function DispensoriesProduct() {
     const { id } = useParams();
     const classes = useStyles()
@@ -27,6 +29,7 @@ export default function DispensoriesProduct() {
     const [Category, SetCategory] = React.useState([])
     const [DespensariesData, SetDespensariesProductData] = React.useState([])
     const [Despen, SetDespens] = React.useState([])
+    const [Tab, SetTab] = React.useState()
     const handleChange = (event) => {
         SetProduct(event.target.value);
     };
@@ -56,7 +59,7 @@ export default function DispensoriesProduct() {
             function (error) {
             })
     }, [id])
-    
+
     const FilterCategory = async (id) => {
         axios(`http://52.3.255.128:8000/UserPanel/Get-ProductByCategory/${id}`, {
         }).then(response => {
@@ -68,7 +71,13 @@ export default function DispensoriesProduct() {
             })
 
     }
-
+    function SelectionTab(item) {
+        SetTab(item)
+    }
+    function ShowCategoryProduct(Id, name) {
+        console.log(Id, id)
+        // navigate(`/CategoryProduct/${name}`, { state: {  id  } });
+    }
     const ProductFilterData = [{ Id: 1, Name: "Category", Type1: "Flower", Type2: "CBD", Icons: <BsLayoutSplit className={classes.muiIcons} /> },
     { Id: 2, Name: "Brand", Type1: "Leafly", Type2: "CBD", Icons: <MdOutlineBrandingWatermark className={classes.muiIcons} /> },
     { Id: 3, Name: "Strain", Type1: "Indica", Type2: "Hybrid", Icons: <BsStripe className={classes.muiIcons} /> },
@@ -78,23 +87,109 @@ export default function DispensoriesProduct() {
     ]
     return (
         <div>
-            <div className="container-fluid product_container" style={{ padding: "7px" }}>
+            <div className="container-fluid product_container" >
                 <NewFlavourBanner delBtn={Despen}></NewFlavourBanner>
                 <div className="row">
-                    <div className="col-12 mt-4">
-                        <ProductCategorySlider FilterCategory={FilterCategory} Category={Category}></ProductCategorySlider>
+                    <div className="col-12 mt-4 "   >
+                        <StoreDetailMenuItem SelectionTab={SelectionTab}></StoreDetailMenuItem>
+
 
                     </div>
+                    {
+                        Tab === 'Menu' &&
+                        <>
+                            <CategoryProduct ShowCategoryProduct={ShowCategoryProduct} ></CategoryProduct>
+                            <div className="col-12   productCat_cont">
 
+
+                                <ProductFilter ProductFilterData={ProductFilterData} />
+                                <div className="col-10  prod_cat_right_sec">
+                                    <ProductList arr={DespensariesData} />
+
+
+                                </div>
+                            </div>
+                        </>
+                    }
+                    {
+                        Tab === 'Store Details' && <ComponentStoreDetails></ComponentStoreDetails>
+                    }
+                    {
+                        Tab === 'Review' && <Review></Review>
+                    }
+                    {
+                        Tab === 'Deal' && <>78888888886</>
+                    }
+                    {
+                        Tab === 'Media' && <>44444444444444444444444444</>
+                    }
                 </div>
 
-                <div className="row center  mt-2 p-2">
-                    <div className="col-12 mt-4 product_search_and_select">
-                        <div className="col-2 product_search_bar">
-                            <SearchBar style={{ border: "1px solid #dee2e6" }} width={"100%"} />
+            </div>
+        </div>
+    )
+}
 
-                        </div>
-                        <div className="col-10 product_select">
+
+// {/* 
+
+//    <div className="row center  mt-2 p-2">
+//                 <div className="col-12 mt-4 product_search_and_select">
+//                     <div className="col-2 product_search_bar">
+{/* <SearchBar style={{ border: "1px solid #dee2e6" }} width={"100%"} /> */ }
+
+// </div>
+{/* <div className="col-10 product_select">
+                                <Grid display={{ xs: "none", md: "contents", lg: "contents" }}>
+                                    <FormControl sx={{ m: 1, minWidth: 120 }}>
+                                        <Select
+                                            value={Product}
+                                            onChange={handleChange}
+                                            displayEmpty
+                                            inputProps={{ 'aria-label': 'Without label' }}
+                                            size="small"
+                                        >
+                                            <MenuItem value="">
+                                                Sort by A to Z
+                                            </MenuItem>
+                                            <MenuItem value={"Sort by Z to A"}>Sort by Z to A</MenuItem>
+                                            <MenuItem value={"Price low to high"}>Price low to high</MenuItem>
+                                            <MenuItem value={"Price hight to low"}>Price hight to low</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Grid>
+                            </div> */}
+
+// </div>
+
+// <div className="col-12   productCat_cont">
+
+
+
+{/* <ProductFilter ProductFilterData={ProductFilterData} /> */ }
+// <div className="col-10  prod_cat_right_sec">
+{/* <ProductList arr={DespensariesData} /> */ }
+
+
+// </div>
+
+
+// </div>
+
+//                     // </div>
+
+// */}
+{/* </div> */ }
+
+{/* </div> */ }
+
+{/* <div className="row center  mt-2 p-2">
+                    <div className="col-12 mt-4 product_search_and_select">
+                        <div className="col-2 product_search_bar"> */}
+{/* <SearchBar style={{ border: "1px solid #dee2e6" }} width={"100%"} /> */ }
+
+{/* </div> */ }
+{/* <div className="col-10 product_select">
                             <Grid display={{ xs: "none", md: "contents", lg: "contents" }}>
                                 <FormControl sx={{ m: 1, minWidth: 120 }}>
                                     <Select
@@ -113,27 +208,17 @@ export default function DispensoriesProduct() {
                                     </Select>
                                 </FormControl>
                             </Grid>
-                        </div>
+                        </div> */}
 
-                    </div>
-
-                    <div className="col-12   productCat_cont">
-
-
-
-                        <ProductFilter ProductFilterData={ProductFilterData} />
-                        <div className="col-10  prod_cat_right_sec">
-                            <ProductList arr={DespensariesData} />
+{/* </div> */ }
+{/* 
+                    <div className="col-12   productCat_cont"> */}
 
 
-                        </div>
+
+{/* <ProductFilter ProductFilterData={ProductFilterData} /> */ }
+{/* <div className="col-10  prod_cat_right_sec"> */ }
+{/* <ProductList arr={DespensariesData} /> */ }
 
 
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    )
-}
+{/* </div> */ }

@@ -1,5 +1,5 @@
 
-const StoreDetailMenuItem = () => {
+const StoreDetailMenuItem = ({SelectionTab}) => {
 
     const StoreDetailMenuItem = [{ item: "Menu",color:"#31B665" }, { item: "Store Details",color:"#000000" }, { item: "Review",color:"#000000" },  { item: "Deal",color:"#000000" }, { item: "Media",color:"#000000" }]
 
@@ -12,7 +12,7 @@ const StoreDetailMenuItem = () => {
                         <ol className="store_detail_order_list">
                             {StoreDetailMenuItem.map((ele, index) => {
                                 return (
-                                    <li className="listfontStyle store_detail_list" style={{color:ele.color}} key={index}><span>{ele.item}</span></li>
+                                    <li className="listfontStyle store_detail_list" onClick={()=>{SelectionTab(ele.item)}} style={{color:ele.color}} key={index}><span>{ele.item}</span></li>
                                 )
                             })}
                         </ol>
