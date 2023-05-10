@@ -1,121 +1,30 @@
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import { BsFillHeartFill } from "react-icons/bs";
-import { IoMdStar } from "react-icons/io";
-import useStyles from "../../../../Style";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Mousewheel } from "swiper";
-import "swiper/css";
-import "swiper/css/pagination";
-import { Pagination } from "swiper";
+import NewProductDetailsCards from "./NewProductDetailsComponent/NewProductDetailsCards"
+import CategoryProduct from "../../Home/Dashboard/ComponentDashboard/CategoryProduct"
+import RelatedReview from "../../Review/ReviewComponent/RelatedReview"
+import OverAllReview from "../../Review/ReviewComponent/OverAllReview"
+import NewProductDescription from "./NewProductDetailsComponent/NewProductDescription"
+import NewProductAboutUs from "./NewProductDetailsComponent/NewProductAboutUs"
+import ProductSearchResult from "../ProductSearchResult/ProductSearchResult"
 const NewProductDetails = () => {
-    const NewProductDetail_related_Image=[{imgUrl:"/image/images2.png"},{imgUrl:"/image/glass.png"},
-    {imgUrl:"/image/images2.png"},{imgUrl:"/image/glass.png"},{imgUrl:"/image/glass.png"},{imgUrl:"/image/glass.png"},{imgUrl:"/image/glass.png"},
-    
-]
-    const classes = useStyles()
-    return (
-        <div className="container-fluid">
-            <div className="row center px-2">
-                <div className="col-lg-8 col-sm-10 col-12 newProductDetailsContainer mt-4">
-                    <div className="row">
-                        <div className="col-12 mt-2 text-end">
-                            <BsFillHeartFill color="grey" size={20} />
-                        </div>
-                        <div className="col-lg-4">
-                            <div className="row">
-                                <div className="col-12 newProductDetailsUpperimage_container">
-                                    <LazyLoadImage className="newProductDetails_upper_image" src="/image/flower2.webp" />
-                                </div>
-                                <div className="col-12 newProductDetailsLowerImage_container">
-                                    <Swiper
-                                        slidesPerView={1}
-                                        spaceBetween={10}
-                                        pagination={{
-                                            clickable: true,
-                                        }}
-                                        breakpoints={{
-                                            640: {
-                                                slidesPerView: 2,
-                                                spaceBetween: 20,
-                                                freeMode:true,
+  const RelatedProductResult1 = [
+    { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
+    { imgUrl: "/image/weed.png", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
+    { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
+    { imgUrl: "/image/wee_img1.jpeg", heading: "Urban flavour delivery", subHeading: "by Tribe Tokes" },
+  ]
+  return (
+    <div className="container-fluid">
+      <CategoryProduct />
+      <NewProductDetailsCards />
+      <NewProductDescription />
+      <NewProductAboutUs />
+      {/* <ProductSearchResult RelatedProductResult={RelatedProductResult1}/> */}
 
-                                            },
-                                            768: {
-                                                slidesPerView: 3,
-                                                spaceBetween: 40,
-                                                freeMode:true,
-
-                                            },
-                                            1024: {
-                                                slidesPerView: 3,
-                                                spaceBetween: 40,
-                                                freeMode:true,
-                                                thumbs:true,
-                                                scrollbar:true,
-                                                Mousewheel:{
-                                                    enable:true
-                                                }, 
-                                            },
-                                        }}
-                                        modules={[Pagination]}
-                                        className="mySwiper"
-                                    >
-                                        {NewProductDetail_related_Image.map((items,index)=>{
-                                            return(
-                                                <SwiperSlide>
-                                               
-                                                        <div className="col-12 NewProductDetails_image_container">
-                                                        <LazyLoadImage className="NewProductDetails_image" height={"100px"} src={items.imgUrl}/>
-
-                                                        </div>
-                                        
-                                                </SwiperSlide>
-
-                                            )
-                                        })}
-                                      
-                                    </Swiper>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div className="col-lg-8 newProductdetails_rightSideContent_container">
-                            <div className="row">
-                                <div className="col-12 newProductDetails_heading">
-                                    <h1>Urban Flavours Delivery</h1>
-                                </div>
-                                <div className="col-12 newProductDetails_paragraph">
-                                    <p>By Tribe Tokes</p>
-                                </div>
-                                <div className="col-12 newProductDetailsButon">
-                                    <button className="newProductdetailsButtonss">15% THC</button>
-                                    <button className="newProductdetailsButtonss">0.2% CBD</button>
-                                    <button className="newProductdetailsButtonss">INDICA</button>
+      <OverAllReview />
+      <RelatedReview />
 
 
-                                </div>
-                                <div className="col-12 ">
-                                    <p><span><IoMdStar className={classes.disp_star_color} /></span><span className="mx-2">4.5 Rating</span></p>
-                                </div>
-                                <div className="col-12 ">
-                                    <p><span className="newProduct_Weight">weight</span><span className="mx-3 newProd_grms">100gm</span></p>
-                                </div>
-                                <div className="col-12 ">
-                                    <p><span className="newProduct_Weight">Quantity</span><span className="mx-3 newProduct_Weight">1</span></p>
-                                </div>
-                                <div className="col-12 ">
-                                    <p><span className="newProduct_doller_price">$80.00</span><span className="mx-3 newProduct_Gms">Per 1 Z</span></p>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    )
+    </div>
+  )
 }
 export default NewProductDetails

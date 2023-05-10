@@ -25,12 +25,18 @@ const OverAllReview = () => {
 
     return (
         <>
-            <div className="row center">
+        <div className="container-fluid">
+
+            <div className="row center mt-4">
+                <div className="col-10 px-0 product_review">
+                    <h1>Product Review</h1>
+
+                </div>
 
                 <div className="col-10 col-sm-10 overall_review_container px-2">
                     <div className="row">
                         <div className="col-12 text-end my-2">
-                            <button className="overall_review_Button">Write review</button>
+                            <button className="overall_review_Button px-1">Write review</button>
                         </div>
                     
                     </div>
@@ -46,7 +52,7 @@ const OverAllReview = () => {
                                     <div style={{ width: 100, height: 100 }}>
                                         <CircularProgressbar    value={30} text="4.3"  />
                                     </div>
-                                    <p>Review 102</p>
+                                    <p>102 Review</p>
                                 </div>
 
                             </div>
@@ -75,6 +81,8 @@ const OverAllReview = () => {
 
                 </div>
             </div>
+        </div>
+
         </>
     )
 }

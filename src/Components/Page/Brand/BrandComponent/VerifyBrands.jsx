@@ -23,16 +23,16 @@ const VerifyBrands = () => {
             <div className="row">
                 {VerifyArrayData.map((items, index) => {
                     return (
-                        <div className="col-md-6 col-12 verify_brand_container" key={index}>
-                            <div className="row verifyBrand_row mx-1 my-3">
+                        <div className="col-xl-6 col-md-12 col-12 verify_brand_container" key={index}>
+                            <div className="row verifyBrand_row  my-3">
                                 <div className="col-12 text-end">
                                     <AiFillHeart className={classes.muiIcons} />
                                 </div>
-                                <div className="col-4  verifyBrand_image_container ">
+                                <div className="col-6  verifyBrand_image_container ">
                                     <LazyLoadImage className="verify_brand_image"  src={`http://52.3.255.128:8000/${items.Brand_Logo}`}  alt="image not found" />
 
                                 </div>
-                                <div className="col-8 verify_content_container">
+                                <div className="col-6 verify_content_container">
                                     <div className="row">
                                         <div className="col-12 verify_content_height verify_brands_heading ">
                                             <p className="ellipsis">{items.name}</p>

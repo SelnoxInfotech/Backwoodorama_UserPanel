@@ -132,7 +132,7 @@ const Product = () => {
                                 <div>
                                     <div className="col-12 mt-4 productSlider_headings fontStyle">
                                         <h1>{data.name}</h1>
-                                        <NewProductCategorySlider flowerArray={data.subcategories} />
+                                        <NewProductCategorySlider flowerArray={data.subcategories}/>
                                     </div>
 
                                     <hr />

@@ -78,8 +78,6 @@ const RelatedReview = () => {
                                             
                                         </div>
                                         <div className='col-12  related_review_Comment'>
-                                           {/* <p>{getText(ele.id)}</p> */}
-                                           
                                            <p>{getText()}</p>
 
                                         </div>
