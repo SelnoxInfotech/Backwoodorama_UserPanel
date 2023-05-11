@@ -633,9 +633,6 @@
   white-space: nowrap;
   /* keeps the text in a single line */
   overflow: hidden;
-  /* keeps the element from overflowing its parent */
-  /* width: 200px; */
-  /* text-overflow: ellipsis; */
 }
 
 
@@ -2356,7 +2353,7 @@
 {
   .StoreDetailMenuItem_container {
  display: flex;
- justify-content: end ;
+ justify-content:flex-end ;
 }
 }
 
@@ -3805,6 +3802,11 @@ font-size:12px;
 }
 /* end */
 /* bestDealCards */
+.bestDealsCard_Heading_offers h1{
+  font-weight: 700;
+  font-size: 36px;
+  color: #000000;
+}
 .bestDealCards{
   height: auto;
 }
@@ -3818,7 +3820,6 @@ font-size:12px;
 .bestDealsCardContainer{
   background: #FAFAFA;
   border: 1px solid #E7E7E7;
-  border-radius: 8px;
 }
 .bestDealsHead_container h1{
   font-weight: 700;
@@ -3840,8 +3841,16 @@ color: #949494;
   font-weight: 700;
 font-size: 36px;
 line-height: 54px;
-
 color: #000000;
+}
+@media(max-width:500px){
+  .bestDeals h1{
+font-size: 24px;
+}
+.bestDealsCard_Heading_offers h1{
+font-size: 24px;
+
+}
 }
 /* end */
 /* PromoCodeCard */
@@ -3868,5 +3877,10 @@ color: #000000;
   font-weight: 700;
 font-size: 36px;
 color: #000000;
+}
+@media(max-width:500px){
+.promocode_headings h1{
+  font-size: 24px;
+}
 }
 /* end */
