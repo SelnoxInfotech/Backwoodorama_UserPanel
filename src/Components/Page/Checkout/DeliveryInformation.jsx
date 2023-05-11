@@ -3,10 +3,15 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
 import React from 'react';
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import Createcontext from "../../../Hooks/Context" ;
-const DeliveryInformation = ({ SetShowDeliveryInformation ,image ,setImage,setDataImage,Details,SetDetails    }) => {
+import Createcontext from "../../../Hooks/Context";
+import DateFnsUtils from '@date-io/date-fns';
+import { MuiPickersUtilsProvider, DatePicker, } from "@material-ui/pickers";
+import dayjs from 'dayjs';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setDataImage, Details, SetDetails }) => {
     const { dispatch } = React.useContext(Createcontext)
     const method = useForm()
     const [ShowRestDeliveryInformation, SetShowRestDeliveryInformation] = React.useState(true)
@@ -20,25 +25,30 @@ const DeliveryInformation = ({ SetShowDeliveryInformation ,image ,setImage,setDa
         SetShowRestDeliveryInformation(true)
     }
 
-    const [focus, setFocused] = React.useState(false);
-    const [hasValue, setHasValue] = React.useState(false);
-    const onFocus = () => setFocused(true);
-    const onBlur = () => setFocused(false);
+    const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
 
+    const handleDateChange = (date) => {
+        setSelectedDate(date);
+        console.log(date.$d)
+        // SetDetails({
+        //     ...Details, [event.target.name]: event.target.value
+        // });
+    };
     function SelectImage(event) {
         if (event.target.files && event.target.files[0]) {
             setImage(URL.createObjectURL(event.target.files[0]));
             setDataImage(event.target.files[0])
         }
     }
-    
 
-    function handleChange (event){
+
+    function handleChange(event) {
 
         SetDetails({
-        ...Details, [event.target.name]: event.target.value
-    }); 
+            ...Details, [event.target.name]: event.target.value
+        });
     }
+    console.log(dayjs(new Date()))
     return (
         <div className="container-fluid">
 
@@ -79,7 +89,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation ,image ,setImage,setDa
                                 <div className='row'>
                                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
                                         <TextField
-                                        value={Details.FirstName}
+                                            value={Details.FirstName}
                                             label="First name on photo id"
                                             variant="standard"
                                             fullWidth
@@ -112,28 +122,89 @@ const DeliveryInformation = ({ SetShowDeliveryInformation ,image ,setImage,setDa
                                 </div>
                                 <div className='row'>
                                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
-                                        <TextField
-                                            id="outlined-number"
-                                            onFocus={onFocus}
-                                            value={Details.Birthdate}
-                                            onBlur={onBlur}
-                                            onChange={(e) => {
-                                                if (e.target.value) setHasValue(true);
-                                                else setHasValue(false);
-                                                SetDetails({
-                                                    ...Details, [e.target.name]: e.target.value
-                                                }); 
-                                            }}
-                                            type={hasValue || focus ? "date" : "text"}
-                                            label="Birth date" variant="standard" fullWidth
-                                            name='Birthdate'
-                                            inputRef={method.register({
-                                                required: "Birth date is required*.",
+                                        {/* <Box
+                                            sx={{
+                                                ".MuiFormControl-marginNormal": {
+                                                    marginTop: "0px"
+                                                }
+
+                                            }}>
+                                            <MuiPickersUtilsProvider utils={DateFnsUtils} >
+                                                <Controller
+                                                    render={(props) => (
+                                                        <DatePicker
+                                                            defaultValue={dayjs(new Date())}
+                                                            // maxDate={new Date()}
+                                                            inputVariant="outlined"
+                                                            variant="standard"
+                                                            format="MM/dd/yyyy"
+                                                            margin="normal"
+                                                            fullWidth
+                                                            value={props.value}
+                                                            onChange={props.onChange}
+                                                            name='Birthdate'
+                                                            // InputProps={{
+                                                            //     startAdornment: (
+                                                            //         <InputAdornment position="start">
+                                                            //             <FaBirthdayCake className='newSignup_icon' />
+                                                            //         </InputAdornment>
+                                                            //     ),
+                                                            // }}
+                                                            error={Boolean(method.errors.Birthdate)}
+                                                            helperText={method.errors.Birthdate?.message}
+                                                        />
+                                                    )}
+                                        
+
+                                                    control={method.control}
+                                                    rules={{
+                                                        required: "Date of birth required.",
+                                                    }}
+
+                                                />
+                                            </MuiPickersUtilsProvider>
+                                        </Box> */}
+                                          <Box
+                                        sx={{
+                                            ".MuiFormControl-marginNormal": {
+                                                marginTop: "0px"
                                             }
-                                            )}
-                                            helperText={method.errors?.Birthdate?.message}
-                                            error={Boolean(method.errors?.Birthdate)}
-                                        />
+
+                                        }}>
+                                        <MuiPickersUtilsProvider utils={DateFnsUtils} >
+                                            <Controller
+                                                render={(props) => (
+                                                    <DatePicker
+                                                    defaultValue={new Date()}
+                                                        // maxDate={new Date()}
+                                                        inputVariant="outlined"
+                                                        variant="standard"
+                                                        format="MM/dd/yyyy"
+                                                        margin="normal"
+                                                        fullWidth
+                                                        value={props.value}
+                                                        onChange={props.onChange}
+                                                        InputProps={{
+                                                            // startAdornment: (
+                                                            //     // <InputAdornment position="start">
+                                                            //     //     <FaBirthdayCake className='newSignup_icon' />
+                                                            //     // </InputAdornment>
+                                                            // ),
+                                                        }}
+                                                        // error={Boolean(method.errors?.DateOfBirth)}
+                                                        // helperText={method.errors.DateOfBirth?.message}
+                                                    />
+                                                )}
+                                                name="DateOfBirth"
+
+                                                control={method.control}
+                                                    rules={{
+                                                        required: "Date of birth required.",
+                                                    }}
+
+                                            />
+                                        </MuiPickersUtilsProvider>
+                                    </Box>
                                     </div>
                                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
                                         <TextField
@@ -205,8 +276,8 @@ const DeliveryInformation = ({ SetShowDeliveryInformation ,image ,setImage,setDa
                                 <div className='row mt-2'>
                                     <div className="col-12 height_del_information_inner_div font_size_paragraph_del font_color delivery_information_font_family">
                                         <TextField
-                                        onChange={handleChange}
-                                        value={Details.Id_Number}
+                                            onChange={handleChange}
+                                            value={Details.Id_Number}
                                             label="Medical Marijuana Number"
                                             variant="standard"
                                             fullWidth
@@ -236,7 +307,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation ,image ,setImage,setDa
 
                             </form>
                         </div>
-                        }
+                    }
 
                 </div>
 
