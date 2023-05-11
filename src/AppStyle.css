@@ -107,6 +107,7 @@
 .Image_Width {
   width: 100px;
   height: 100px;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 480px) {
@@ -2326,6 +2327,10 @@
   min-width: 90px;
 }
 
+.storeDetail_menu {
+  cursor: pointer;
+}
+
 .store_detail_order_list {
   display: flex;
   gap: 7%;
@@ -2461,7 +2466,8 @@
   border: 1px solid #DCD9D9;
 
 }
-.product_review h1{
+
+.product_review h1 {
   font-weight: 700;
   font-size: 24px;
   color: #000000;
@@ -3685,7 +3691,7 @@
 
 /* .NewProductDescription */
 .NewProductDescription_container {
-  height: 100%; 
+  height: 100%;
   background: #F8F8F8;
 }
 
@@ -3703,21 +3709,100 @@
 
 /* end */
 /* newProductAboutUs */
-.newProductAboutUs_container{
-  height: 100%; 
+.newProductAboutUs_container {
+  height: 100%;
   background: #F8F8F8;
 }
+
 /* end */
 /* newProductAboutUs */
-.newProductAboutUs_container h1{
+.newProductAboutUs_container h1 {
   font-weight: 400;
   font-size: 20px;
   color: #282625;
 }
-.newProductAboutUs_container p{
+
+.newProductAboutUs_container p {
   font-weight: 400;
   font-size: 16px;
-  color: #C0C0C0; 
+  color: #C0C0C0;
 }
 
+/* end */
+/* RelatedVerifyBrandBanner */
+.relatedVerifyBrand_Banner {
+  height: 100%;
+  background: #FFFFFF;
+  border: 1px solid #DEDCDC;
+}
+
+.RelatedVerifyBrandBanner_Image_container {
+  height: 140px;
+  margin-bottom: 10px;
+  display: grid;
+  place-items: center;
+}
+.realtedVerifyBanner_image_inner_container{
+  height: 160px;
+  width: 180px;
+}
+.related_verify_banner_img{
+  height: 150px;
+  width: 160px;
+}
+
+.relatedVerifyBrand_icons {
+  height: 40px;
+}
+.relatedVerifyBrandBanner_contentContainer{
+  height: 100%;
+
+}
+.relatedVerifyBrand_heading h1{
+  font-weight: 700;
+font-size: 32px;
+color: #3F3F3F;
+}
+@media(max-width:575px){
+  .relatedVerifyBrand_heading h1{
+font-size:24px;
+
+  }
+}
+.related_verify_paragraph{
+  height: 100%;
+}
+.related_verify_paragraph p{
+  font-weight: 400;
+font-size: 20px;
+line-height: 36px;
+
+color: #505050;
+}
+@media(max-width:575px){
+  .relatedVerifyBrand_heading h1{
+font-size:24px;
+
+  }
+  .related_verify_paragraph p{
+font-size:12px;
+
+  }
+}
+/* end */
+/* bestDealCards */
+.bestDealCards{
+  height: auto;
+}
+.BestDeals_image_container{
+  height: 350px;
+}
+.bestDeals_imageHeight{
+  height: 120px;
+}
+.bestDealsCardContainer{
+  background: #FAFAFA;
+  border: 1px solid #E7E7E7;
+  border-radius: 8px;
+}
 /* end */

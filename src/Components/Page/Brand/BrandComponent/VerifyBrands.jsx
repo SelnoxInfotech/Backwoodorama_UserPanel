@@ -4,6 +4,8 @@ import { IoMdStar } from "react-icons/io";
 import useStyles from "../../../../Style";
 import Axios from "axios";
 import React from "react";
+import { Link,  } from "react-router-dom"
+
 const VerifyBrands = () => {
     const classes = useStyles()
     const [VerifyArrayData, SetVerifyArrayData] = React.useState([])
@@ -24,12 +26,12 @@ const VerifyBrands = () => {
                 {VerifyArrayData.map((items, index) => {
                     return (
                         <div className="col-xl-6 col-md-12 col-12 verify_brand_container" key={index}>
-                            <div className="row verifyBrand_row  my-3">
+                            <div className="row verifyBrand_row mx-1 my-3">
                                 <div className="col-12 text-end">
                                     <AiFillHeart className={classes.muiIcons} />
                                 </div>
                                 <div className="col-6  verifyBrand_image_container ">
-                                    <LazyLoadImage className="verify_brand_image"  src={`http://52.3.255.128:8000/${items.Brand_Logo}`}  alt="image not found" />
+                                  <Link to="/RelatedVerifyBrand">  <LazyLoadImage className="verify_brand_image"  src={`http://52.3.255.128:8000/${items.Brand_Logo}`}  alt="image not found" /></Link>
 
                                 </div>
                                 <div className="col-6 verify_content_container">

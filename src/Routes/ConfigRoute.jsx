@@ -21,6 +21,8 @@ import Brand from "../Components/Page/Brand/Brand"
 import CategoryProduct from "../Components/Page/Product/AllCategory";
 import SubcategoryProduct from "../Components/Page/Product/SubCategoryProduct";
 import NewProductDetails from "../Components/Page/Product/NewProductDetails/NewProductDetails"
+import RelatedVerifyBrand from "../Components/Page/Brand/RelatedVerifyBrand/RelatedVerifyBrand";
+import Deals from "../Components/Page/Deals/Deals";
 const routesConfig = [
   
       {
@@ -97,15 +99,19 @@ const routesConfig = [
             element:<OpenDispansires/>
           }
           ,
+          {
+            path:"/RelatedVerifyBrand",
+            element:<RelatedVerifyBrand/>
+          },
 
           {
             path:"/StoreDetail",
             element:<StoreDetail/>
           },
-          // {
-          //   path:"/Review",
-          //   element:<Review/>
-          // },
+          {
+            path:"/Deals",
+            element:<Deals/>
+          },
           {
             path:"/EmptyCard",
             element:<EmptyCard/>

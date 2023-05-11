@@ -12,7 +12,7 @@ const StoreDetailMenuItem = ({SelectionTab}) => {
                         <ol className="store_detail_order_list">
                             {StoreDetailMenuItem.map((ele, index) => {
                                 return (
-                                    <li className="listfontStyle store_detail_list" onClick={()=>{SelectionTab(ele.item)}} style={{color:ele.color}} key={index}><span>{ele.item}</span></li>
+                                    <li className="listfontStyle store_detail_list" onClick={()=>{SelectionTab(ele.item)}} style={{color:ele.color}} key={index}><span className="storeDetail_menu">{ele.item}</span></li>
                                 )
                             })}
                         </ol>
