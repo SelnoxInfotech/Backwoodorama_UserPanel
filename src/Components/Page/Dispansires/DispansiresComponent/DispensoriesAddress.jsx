@@ -115,7 +115,7 @@ const DispensoriesAddress = () => {
                        
                         <div className='col-12 slider1' key={index} >
                             <div className='slider1'>
-                            <Link to={`/DispensoriesProduct/${ele.id}`}>
+                            <Link to={`/DispensoriesProduct/${ele.id}/${"Menu"}`}>
                                 <img src={`http://52.3.255.128:8000/${ele?.Store_Image}`} alt='img_not_found' className='img-responsive rounded center-block' width={"83%"} height={"170px"}  />
                                 </Link>
                             </div>

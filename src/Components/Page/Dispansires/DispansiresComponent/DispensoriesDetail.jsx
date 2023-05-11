@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams ,useNavigate } from "react-router-dom";
 import axios from "axios";
 import Flavour from "../../Delivery/Flavour/Flavour";
 import ProductCategorySlider from "../../Product/ProductCategorySlider";
@@ -23,7 +23,8 @@ import CategoryProduct from "../../Home/Dashboard/ComponentDashboard/CategoryPro
 import ComponentStoreDetails from "../../StoreDetail/ComponentStoreDetails"
 import Review from "../../Review/Review";
 export default function DispensoriesProduct() {
-    const { id } = useParams();
+    const navigate =  useNavigate()
+    const { id,tab } = useParams();
     const classes = useStyles()
     const [Product, SetProduct] = React.useState('');
     const [Category, SetCategory] = React.useState([])
@@ -73,6 +74,8 @@ export default function DispensoriesProduct() {
     }
     function SelectionTab(item) {
         SetTab(item)
+        navigate(`/DispensoriesProduct/${id}/${item}`)
+
     }
     function ShowCategoryProduct(Id, name) {
         console.log(Id, id)
@@ -91,15 +94,15 @@ export default function DispensoriesProduct() {
                 <NewFlavourBanner delBtn={Despen}></NewFlavourBanner>
                 <div className="row">
                     <div className="col-12 mt-4 "   >
-                        <StoreDetailMenuItem SelectionTab={SelectionTab}></StoreDetailMenuItem>
+                        <StoreDetailMenuItem tab={tab} SelectionTab={SelectionTab}></StoreDetailMenuItem>
 
 
                     </div>
                     {
-                        Tab === 'Menu' &&
+                        tab === 'Menu' &&
                         <>
                             <CategoryProduct ShowCategoryProduct={ShowCategoryProduct} ></CategoryProduct>
-                            <div className="col-12   productCat_cont">
+                            <div className="col-12   productCat_cont" style={{    display: "contents"}}>
 
 
                                 <ProductFilter ProductFilterData={ProductFilterData} />
@@ -112,16 +115,16 @@ export default function DispensoriesProduct() {
                         </>
                     }
                     {
-                        Tab === 'Store Details' && <ComponentStoreDetails></ComponentStoreDetails>
+                        tab === 'Store Details' && <ComponentStoreDetails></ComponentStoreDetails>
                     }
                     {
-                        Tab === 'Review' && <Review></Review>
+                        tab === 'Review' && <Review></Review>
                     }
                     {
-                        Tab === 'Deal' && <>78888888886</>
+                        tab === 'Deal' && <>78888888886</>
                     }
                     {
-                        Tab === 'Media' && <>44444444444444444444444444</>
+                        tab === 'Media' && <>44444444444444444444444444</>
                     }
                 </div>
 

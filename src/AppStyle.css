@@ -475,6 +475,7 @@
 }
 
 .product_search_and_select {
+  padding: 10px;
   display: flex;
   align-items: baseline;
   height: 60px;
@@ -2347,6 +2348,13 @@
   display: flex;
   justify-content: center;
 }
+@media (min-width: 992px)
+{
+  .StoreDetailMenuItem_container {
+ display: flex;
+ justify-content: end ;
+}
+}
 
 @media(max-width:688px) {
   .StoreDetailMenuItem_container {
@@ -2364,6 +2372,7 @@
 }
 
 .listfontStyle {
+  color: black;
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;

@@ -24,7 +24,7 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                     <div className='col-sm-8 col-12 delivery_image_content_Container_height'>
                                         <div className='row'>
                                             <div className='col-lg-5 col-5 delivery_items_card_img_container px-0'>
-                                               <Link to={`/DispensoriesProduct/${items.id}`}> 
+                                               <Link to={`/DispensoriesProduct/${items.id}/${"Menu"}`}> 
                                                <LazyLoadImage className='delivery_card_image_height' src={`http://52.3.255.128:8000/${items.Store_Image}`} alt='Image_not found' height={"100px"} />
                                                </Link>
                                             </div>
