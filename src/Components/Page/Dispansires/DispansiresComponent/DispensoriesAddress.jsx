@@ -123,7 +123,7 @@ const DispensoriesAddress = () => {
                                 <div className='col-12  slider1'>
 
                                     <div className=' col-10  dis_right_div'>
-                                        <p>{ ele.Store_Name.charAt(0).toUpperCase() + ele.Store_Name.slice(1)}</p>
+                                        <p className='ellipsis'>{ ele.Store_Name.charAt(0).toUpperCase() + ele.Store_Name.slice(1)}</p>
                                     </div>
                                 </div>
                                 <div className='col-12  slider1'>
@@ -134,7 +134,7 @@ const DispensoriesAddress = () => {
                                         </div>
 
                                         <div className='col-10'>
-                                            <span>{ele.city_name}/110 mi</span>
+                                            <span className='ellipsis'>{ele.city_name}/110 mi</span>
                                         </div>
                                     </div>
                                 </div>
@@ -146,7 +146,7 @@ const DispensoriesAddress = () => {
 
                                 <div className='col-12  slider1'>
                                     <div className=' col-10 Dispensaries_card_discription'>
-                                        <span>{ele.Store_Type}</span>
+                                        <span className='ellipsis'>{ele.Store_Type}</span>
                                     </div>
                                 </div>
                                 <div className='col-12  slider1'>
