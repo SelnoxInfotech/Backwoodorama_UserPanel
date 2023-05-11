@@ -634,7 +634,7 @@
   /* keeps the text in a single line */
   overflow: hidden;
   /* keeps the element from overflowing its parent */
-  width: 200px;
+  /* width: 200px; */
   /* text-overflow: ellipsis; */
 }
 
@@ -2327,6 +2327,10 @@
 .store_detail_list {
   min-width: 90px;
 }
+.storeDetalMenuItemCursor{
+  cursor: pointer;
+
+}
 
 .storeDetail_menu {
   cursor: pointer;
@@ -2664,13 +2668,14 @@
   justify-content: center;
   border: 1px solid white;
   background-color: white;
-
+  cursor: pointer;
 
 }
 
 .newFlavour_image {
   height: 115px;
   width: 115px;
+  cursor: pointer;
   /* border-radius: 50%; */
 }
 
@@ -3807,11 +3812,61 @@ font-size:12px;
   height: 350px;
 }
 .bestDeals_imageHeight{
-  height: 120px;
+  height: 350px;
+  width: 100%;
 }
 .bestDealsCardContainer{
   background: #FAFAFA;
   border: 1px solid #E7E7E7;
   border-radius: 8px;
+}
+.bestDealsHead_container h1{
+  font-weight: 700;
+font-size: 24px;
+color: #000000;
+}
+.bestDeal_subHeading p{
+  font-weight: 500;
+font-size: 16px;
+color: #949494;
+}
+.bestDealsHead_container{
+  height: 40px;
+}
+.bestDeal_subHeading{
+  height: 40px;
+}
+.bestDeals h1{
+  font-weight: 700;
+font-size: 36px;
+line-height: 54px;
+
+color: #000000;
+}
+/* end */
+/* PromoCodeCard */
+.promoCode_card_Outer_container{
+  height: auto;
+
+}
+.promoCode_card_inner_container{
+  background: #FAFAFA;
+  border: 1px solid #E7E7E7;
+  border-radius: 8px;
+}
+.promocode_image_container{
+  height: 300px;
+}
+.height_del_information_inner_div{
+  height: 300px;
+}
+.promocode_image{
+  height: 300px;
+  width: 100%; 
+}
+.promocode_headings h1{
+  font-weight: 700;
+font-size: 36px;
+color: #000000;
 }
 /* end */
