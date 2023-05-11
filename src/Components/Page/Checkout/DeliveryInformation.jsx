@@ -26,9 +26,6 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
     const ShowAgainDeliverInformation = () => {
         SetShowRestDeliveryInformation(true)
     }
-
-    const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
-
     const handleDateChange = (event) => {
         // setSelectedDate(date);
         console.log(event.target.value)
