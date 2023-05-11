@@ -20,7 +20,7 @@ const PromoCode = () => {
 
             {PromoCardArray.map((items, index) => {
                 return (
-                    <div className="col-xl-3 col-md-4 col-sm-6 promoCode_card_Outer_container">
+                    <div className="col-xl-3 col-md-4 col-sm-6 promoCode_card_Outer_container" key={index}>
                         <div className="row promoCode_card_inner_container mx-2 my-2">
                             <div className="col-12 promocode_image_container">
                               <LazyLoadImage className="promocode_image" src={items.imgUrl} alt="image not available"/>
