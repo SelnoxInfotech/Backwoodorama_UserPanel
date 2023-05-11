@@ -17,12 +17,14 @@ const DispensoriesOpenResult = () => {
            
             ).then(response => {
                 SetStore(response.data)
+                
             }).catch(
                 function (error) {
           
                    
                 })
     }, [])
+   
     return (
         <>
             <div className="container-fluid">
@@ -40,7 +42,7 @@ const DispensoriesOpenResult = () => {
                                         <p>Showing result</p>
                                     </div>
                                     <div className="col-6 text-end dispensories_result_head fontStyle">
-                                        <p>1 to 20</p>
+                                        <p>1 to {Store.length}</p>
                                     </div>
                                 </div>
 
@@ -57,7 +59,7 @@ const DispensoriesOpenResult = () => {
                                     <div className="col-lg-12  col-md-12 col-sm-12 col-12 despensories_card_container">
                                         <div className="row">
                                             <div className="col-4 disensories_card_image_div">
-                                           <Link to={`/DispensoriesProduct/${ele.id}`}>     <LazyLoadImage id={ele.id} src={`http://52.3.255.128:8000/${ele.Store_Image}`} alt="img_not_found" className="dispensories_card_image" /></Link>
+                                           <Link to={`/DispensoriesProduct/${ele.id}/${"Menu"}`}>     <LazyLoadImage id={ele.id} src={`http://52.3.255.128:8000/${ele.Store_Image}`} alt="img_not_found" className="dispensories_card_image" /></Link>
 
                                             </div>
                                             <div className="col-8 dispenosries_card_content_div">

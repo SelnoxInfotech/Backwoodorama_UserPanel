@@ -88,7 +88,7 @@ const routesConfig = [
           },
 
           {
-            path:"/DispensoriesProduct/:id",
+            path:"/DispensoriesProduct/:id/:tab",
             element:<DispensoriesProduct/>
           }
           ,
