@@ -9,17 +9,19 @@ import Createcontext from "../../../Hooks/Context";
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider, DatePicker, } from "@material-ui/pickers";
 import dayjs from 'dayjs';
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setDataImage, Details, SetDetails }) => {
     const { dispatch } = React.useContext(Createcontext)
     const method = useForm()
     const [ShowRestDeliveryInformation, SetShowRestDeliveryInformation] = React.useState(true)
     const classes = useStyles()
-    const HandleDeliveryInformation = () => {
+    const HandleDeliveryInformation = (data) => {
         SetShowDeliveryInformation(true)
         SetShowRestDeliveryInformation(false)
         dispatch({ type: 'DeliveryInformation', DeliveryInformation: true })
+        SetDetails({
+            ...Details, ["DateOfBirth"]: data.DateOfBirth
+        });
+
     }
     const ShowAgainDeliverInformation = () => {
         SetShowRestDeliveryInformation(true)
@@ -27,9 +29,9 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
 
     const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
 
-    const handleDateChange = (date) => {
-        setSelectedDate(date);
-        console.log(date.$d)
+    const handleDateChange = (event) => {
+        // setSelectedDate(date);
+        console.log(event.target.value)
         // SetDetails({
         //     ...Details, [event.target.name]: event.target.value
         // });
@@ -48,7 +50,8 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
             ...Details, [event.target.name]: event.target.value
         });
     }
-    console.log(dayjs(new Date()))
+
+
     return (
         <div className="container-fluid">
 
@@ -73,7 +76,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                     <p>Photo Id</p>
                                 </div>
                                 <div className='col-lg-10 col-md-10 col-sm-10 col-10'>
-                                    <input capture="camera" accept="image/*" type='file' onChange={SelectImage} />
+                                    <input  accept="image/*" type='file' onChange={SelectImage} />
                                 </div>
 
                             </div>
@@ -164,24 +167,27 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                                 />
                                             </MuiPickersUtilsProvider>
                                         </Box> */}
-                                          <Box
-                                        sx={{
-                                            ".MuiFormControl-marginNormal": {
-                                                marginTop: "0px"
-                                            }
+                                        <Box
+                                            sx={{
+                                                ".MuiFormControl-marginNormal": {
+                                                    marginTop: "8px"
+                                                }
 
-                                        }}>
-                                        <MuiPickersUtilsProvider utils={DateFnsUtils} >
+                                            }}>
+                                            <MuiPickersUtilsProvider utils={DateFnsUtils} >
                                             <Controller
-                                                render={(props) => (
-                                                    <DatePicker
-                                                    defaultValue={new Date()}
-                                                        // maxDate={new Date()}
+                                            
+                                         
+                                          
+                                            render={(props) => (
+                                                    <DatePicker  
+                                                    defaultValue={dayjs(new Date())}  
+                                                        maxDate={new Date()}
                                                         inputVariant="outlined"
-                                                        variant="standard"
+                                                      
                                                         format="MM/dd/yyyy"
                                                         margin="normal"
-                                                        fullWidth
+                                                        size="small"
                                                         value={props.value}
                                                         onChange={props.onChange}
                                                         InputProps={{
@@ -191,12 +197,13 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                                             //     // </InputAdornment>
                                                             // ),
                                                         }}
-                                                        // error={Boolean(method.errors?.DateOfBirth)}
-                                                        // helperText={method.errors.DateOfBirth?.message}
+                                                        error={Boolean(method.errors?.DateOfBirth)}
+                                                        helperText={method.errors.DateOfBirth?.message}
+                                                     
                                                     />
                                                 )}
                                                 name="DateOfBirth"
-
+                                         
                                                 control={method.control}
                                                     rules={{
                                                         required: "Date of birth required.",
@@ -204,7 +211,11 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
 
                                             />
                                         </MuiPickersUtilsProvider>
-                                    </Box>
+                                            {/* <input type="date" id="start" name="trip-start"
+                                    
+                                                value={selectedDate}
+                                                onChange={handleDateChange} /> */}
+                                        </Box>
                                     </div>
                                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
                                         <TextField

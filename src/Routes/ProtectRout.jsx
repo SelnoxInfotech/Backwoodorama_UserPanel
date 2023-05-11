@@ -8,7 +8,7 @@ export default function ProtectRout(props) {
     const login = cookies.get("Token_access")
     const Navigate = useNavigate()
     const { Component } = props;
-    const { state, dispatch } = React.useContext(Createcontext)
+    const { dispatch } = React.useContext(Createcontext)
     React.useEffect(() => {
 
         if (!login) {
@@ -25,7 +25,7 @@ export default function ProtectRout(props) {
 
 
 
-    }, [Component, Navigate, dispatch, login, state])
+    }, [login,Navigate , dispatch])
 
 
 

@@ -22,13 +22,14 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
         documented: ""
 
     })
+  
     const handleChange = (event) => {
         SetTime(event.target.value);
     };
     const ShowHideDeliveryOptions = async () => {
         SetShowData(true)
-        // SetShowDeliveryRestData(false)
-        await dispatch({ type: 'DeliveryOption', DeliveryOption: true })
+        SetShowDeliveryRestData(false)
+         dispatch({ type: 'DeliveryOption', DeliveryOption: true })
     }
     const AddDeliveryInstruction = () => {
         SetShowDeliveryRestData(true)
