@@ -6,18 +6,9 @@ import { useEffect, useState } from 'react';
 import styled from "styled-components";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Link } from 'react-router-dom';
-const CategoryProduct = ({ShowCategoryProduct}) => {
-    const [value, setValue] = useState([])
-    useEffect(() => {
-        const fetchData = async () => {
-            const apidata = await fetch("http://52.3.255.128:8000/UserPanel/Get-Categories/");
-            const data = await apidata.json()
-            setValue(data)
-
-        }
-        fetchData()
-
-    }, [])
+const CategoryProduct = ({ShowCategoryProduct , Category}) => {
+    // const [value, setValue] = useState(Category)
+ 
     const SliderCategory = styled(Slider)`
     .slick-next {
         right: 0px;
@@ -82,10 +73,10 @@ const CategoryProduct = ({ShowCategoryProduct}) => {
                     </div>
                 </div>
                 <SliderCategory {...settings}>
-                    {value.map((ele, index) => {
+                    {Category.map((ele, index) => {
                         return (
                             <div>
-                             <div className='col-10'>
+                             <div className='col-10 ' key={index}>
                              <div className='slider1'>
                                  {/* <Link to={`/CategoryProduct/${ele.name}`} state={ ele.id }> */}
                                  <LazyLoadImage onClick={()=>{ShowCategoryProduct(ele.id , ele.name)}} src={`http://52.3.255.128:8000/`+ ele.categoryImages} alt="glass_img" className='rounded-circle  Image_Width' />

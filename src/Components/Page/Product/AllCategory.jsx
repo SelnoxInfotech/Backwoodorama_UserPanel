@@ -9,7 +9,9 @@ const CategoryFilter = () => {
     const location = useLocation()
     const {id} = location.state
     console.log(location.state)
-const [Category , SetCategory] = React.useState([])
+    const [Category , SetCategory] = React.useState([])
+    
+        const [category , setCategory] = React.useState([])
 const  [ Loading  , SetLoading] = React.useState(true)
     React.useEffect(() => {
         SetLoading(true)
@@ -29,10 +31,19 @@ const  [ Loading  , SetLoading] = React.useState(true)
     function ShowCategoryProduct (id ,name) {
         navigate(`/CategoryProduct/${name}`, { state: {  id  } });
     }
+    React.useEffect(() => {
+        const fetchData = async () => {
+            const apidata = await fetch("http://52.3.255.128:8000/UserPanel/Get-Categories/");
+            const data = await apidata.json()
+            setCategory(data)
 
+        }
+        fetchData()
+
+    }, [])
     return (
         <div>
-            <CategoryProduct ShowCategoryProduct={ShowCategoryProduct}></CategoryProduct>
+            <CategoryProduct Category={category} ShowCategoryProduct={ShowCategoryProduct}></CategoryProduct>
             <div className="col-12 center">
 
             {

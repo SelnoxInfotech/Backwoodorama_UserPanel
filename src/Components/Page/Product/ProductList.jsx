@@ -223,7 +223,7 @@ const ProductList = ({ arr }) => {
                     )
                 })}
 
-            </div>
+            </div>  
             <PreCheckout />
         </>
     )
