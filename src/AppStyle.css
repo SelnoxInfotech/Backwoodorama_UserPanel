@@ -407,10 +407,8 @@
 }
 
 .prod_inner_cont {
-  /* height: 620px; */
   height: 588px;
   border: 1px solid #E7E7E7;
-
 }
 
 .prod_inner_cont:hover {
@@ -2883,7 +2881,7 @@
 
 .marginPre_checkout_row {
   position: fixed;
-  width: 100%;
+  width: 82%;
   bottom: 20px;
   height: 70px;
   display: grid;
