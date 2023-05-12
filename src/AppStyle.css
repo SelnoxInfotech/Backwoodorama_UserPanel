@@ -3075,10 +3075,12 @@
   color: #333;
   padding: 1rem;
   overflow-x: auto;
+  scrollbar-width: none;
 }
 
 .newProductCategorySliderContainer::-webkit-scrollbar {
   display: none;
+  scrollbar-width: none;
 }
 
 .newProduct_category_slider_image {
@@ -3506,6 +3508,7 @@
 /* end */
 /* recentViewProduct */
 .recentViewProductSlider {
+  scrollbar-width: none;
   display: flex;
   flex-wrap: nowrap;
   border-radius: 6px;

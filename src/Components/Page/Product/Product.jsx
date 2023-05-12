@@ -124,13 +124,25 @@ const Product = () => {
     function ShowCategoryProduct (id ,name) {
         navigate(`/CategoryProduct/${name}`, { state: {  id  } });
     }
+    const [Category, SetCategory] = React.useState([])
+    React.useEffect(() => {
+        const fetchData = async () => {
+            const apidata = await fetch("http://52.3.255.128:8000/UserPanel/Get-Categories/");
+            const data = await apidata.json()
+            SetCategory(data)
+            console.log(data)
+
+        }
+        fetchData()
+
+    }, [])
 
     return (
         <>
             <div className="container-fluid product_container" >
                 <div className="row">
                     <div className="col-12 mt-4">
-                        <CategoryProduct ShowCategoryProduct={ShowCategoryProduct}></CategoryProduct>
+                        <CategoryProduct  Category={Category} ShowCategoryProduct={ShowCategoryProduct}></CategoryProduct>
                     </div>
                     {
                         SubCategory.map((data) => {
