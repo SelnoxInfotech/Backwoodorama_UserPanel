@@ -45,8 +45,16 @@ export default function DispensoriesProduct() {
                 "Store_Id": parseInt(id)
 
             }
-        ).then(response => {
-            SetCategory(response.data)
+        ).then(async response => {
+            const d =[]
+            response.data.map((data) => {
+                  d.push(data[0])
+                  var uniqueUsersByID = _.uniqBy(d, 'id'); //removed if had duplicate id
+                  SetCategory(uniqueUsersByID)
+              })
+
+                // SetCategory(d)
+
         }).catch(
             function (error) {
             })
@@ -62,6 +70,7 @@ export default function DispensoriesProduct() {
         axios(`http://52.3.255.128:8000/UserPanel/Get-ProductByCategory/${id}`, {
         }).then(response => {
             SetDespensariesProductData(response.data)
+
 
         }).catch(
             function (error) {
@@ -85,6 +94,8 @@ export default function DispensoriesProduct() {
         ).then(response => {
             SetDespensariesProductData(response.data)
 
+
+
         }).catch(
             function (error) {
 
@@ -92,7 +103,7 @@ export default function DispensoriesProduct() {
 
         // navigate(`/CategoryProduct/${name}`, { state: {  id  } });
     }
-
+    Category.map((data) => { return data[0] })
 
     const ProductFilterData = [{ Id: 1, Name: "Category", Type1: "Flower", Type2: "CBD", Icons: <BsLayoutSplit className={classes.muiIcons} /> },
     { Id: 2, Name: "Brand", Type1: "Leafly", Type2: "CBD", Icons: <MdOutlineBrandingWatermark className={classes.muiIcons} /> },
@@ -114,11 +125,15 @@ export default function DispensoriesProduct() {
                     {
                         tab === 'Menu' &&
                         <>
-                            <CategoryProduct Category={Category} ShowCategoryProduct={ShowCategoryProduct} ></CategoryProduct>
+                            <CategoryProduct Category={Category} ShowCategoryProduct={ShowCategoryProduct}  ></CategoryProduct>
                             <div className="col-12   productCat_cont" style={{ display: "contents" }}>
 
 
-                                <ProductFilter Store_id={Despen[0]?.id} Category={Category} ProductFilterData={ProductFilterData} Setarr1={SetDespensariesProductData} />
+
+                                <ProductFilter Store_id={Despen[0]?.id}
+                                    ProductFilterData={ProductFilterData}
+
+                                    Setarr1={SetDespensariesProductData} />
                                 <div className="col-10  prod_cat_right_sec" style={{ width: "82%" }}>
                                     <ProductList arr={DespensariesData} />
 

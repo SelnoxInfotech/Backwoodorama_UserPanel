@@ -7,13 +7,14 @@ import _ from "lodash"
 import { FormControl, Grid, Menu, MenuItem, Select } from "@mui/material"
 import SearchBar from '@mkyy/mui-search-bar';
 
-const ProductFilter = ({ ProductFilterData, Setarr1, Category , Store_id }) => {
+const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
     const classes = useStyles()
     const [OpenEvent, SetOpenEvent] = React.useState(null);
     const [OpenSortedData, SetOpenSortedData] = React.useState(null);
     const [Searchvalue, setSearchvalue] = React.useState()
     const [Filter, SetFilter] = React.useState([])
     const [SubCategory, SetSubCategory] = React.useState([])
+
     const SortedArrayData = [{ Id: 1, name: "Sort by" }]
     const SortedData = [{ type: "Sort by A to Z" }, { type: "Sort by Z to A" }, { type: "Sort by low to high" }, { type: "Sort by high to low" }]
     const HandleOpenSortedData = (Id, name) => {
@@ -33,18 +34,24 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category , Store_id }) => {
         }
         SetOpenEvent(Id)
         if (Name === "Category") {
-            Axios(`http://52.3.255.128:8000/UserPanel/CategoryOnProduct`, {
+            Axios.post("http://52.3.255.128:8000/UserPanel/Get-CategoryByStore/ ",
+                {
 
+                    "Store_Id": parseInt(Store_id)
 
-            }).then(response => {
+                }
+            ).then(async response => {
+                const d =[]
+              response.data.map((data) => {
+                    d.push(data[0])
+                    var uniqueUsersByID = _.uniqBy(d, 'id'); //removed if had duplicate id
+                    SetFilter(uniqueUsersByID)
+                })
 
-                var uniqueUsers = _.uniqWith(response.data, _.isEqual);//removed complete duplicates
-                SetFilter(uniqueUsers)
             }).catch(
                 function (error) {
-
-                    alert("SomeThing Goes wrong")
                 })
+
 
         }
         else if (Name === "Brand") {
@@ -97,7 +104,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category , Store_id }) => {
 
 
             }).then(response => {
- 
+
                 Setarr1(response.data)
 
 
@@ -113,11 +120,11 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category , Store_id }) => {
 
 
     function FilterSubCategorydata(id) {
-    console.log(id)
+        console.log(id)
         Axios(`http://52.3.255.128:8000/UserPanel/Get-ProductBySubCategory/${id}`, {
 
 
-        }).then ( async response => {
+        }).then(async response => {
             Setarr1(response.data)
             console.log(response.data)
 
@@ -212,7 +219,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category , Store_id }) => {
             <div className="col-lg-2 col-md-12 prod_cat_left_sec  center">
 
                 {ProductFilterData.map((ele, index) => {
-                 
+
                     const { Id, Name, Icons } = ele;
                     return (
                         <div key={index}>
@@ -239,7 +246,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category , Store_id }) => {
                                     <div className="col-xl-10 col-xs-4 product_category_border product_category_dropdown" id="Related_Brand_Data" >
 
                                         {
-                                            Category?.map((data) => {
+                                            Filter?.map((data) => {
                                                 return (
                                                     <div>
                                                         <div className="col-10 px-2 product_category_dropdown_cursor">
