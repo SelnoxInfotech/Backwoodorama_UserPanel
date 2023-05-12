@@ -42,7 +42,7 @@ const ProductList = ({ arr }) => {
                 PriceId: PriceIndex.id
 
             })
-            await axios.post("http://52.3.255.128:8000/UserPanel/Add-AddtoCart/",
+            await axios.post("http://backend.sweede.net/UserPanel/Add-AddtoCart/",
 
                 {
                     Product_id: Event.id,
@@ -139,7 +139,7 @@ const ProductList = ({ arr }) => {
                                 <div className="col-4 prod_cat_cont" >
                                     <Link    to={"/ProductDetail"} state={ ele.id }>
                                         <div  className="col-10 p-2 prod_cat_img">
-                                            <img  src={`http://52.3.255.128:8000/${ele?.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }} />
+                                            <img  src={`http://backend.sweede.net/${ele?.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }} />
                                             <div className="col prod_img_btn prodCat_gap d-flex">
                                                 <button className="mx-2 cat_prod_inner_btn btn2">THC 70%</button>
                                             </div>

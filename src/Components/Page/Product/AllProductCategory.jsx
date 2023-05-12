@@ -30,7 +30,7 @@ const AllProductCategory = ({ flowerArray }) => {
                                                             event.target.src = "/image/cat_pro_7.jpg"
                                                             event.onerror = null
                                                         }}
-                                                        className="allProduct_imageHeight" src={`http://52.3.255.128:8000/${items?.image}`} alt="image not found" />
+                                                        className="allProduct_imageHeight" src={`http://backend.sweede.net/${items?.image}`} alt="image not found" />
                                                 </Link>
 
                                             </div>

@@ -11,7 +11,7 @@ const VerifyBrands = () => {
     const [VerifyArrayData, SetVerifyArrayData] = React.useState([])
     React.useEffect(() => {
         Axios.get(
-            'http://52.3.255.128:8000/UserPanel/Get-AllBrand/ ',
+            'http://backend.sweede.net/UserPanel/Get-AllBrand/ ',
 
         ).then(response => {
             SetVerifyArrayData(response.data)
@@ -31,7 +31,7 @@ const VerifyBrands = () => {
                                     <AiFillHeart className={classes.muiIcons} />
                                 </div>
                                 <div className="col-6  verifyBrand_image_container ">
-                                  <Link to="/RelatedVerifyBrand">  <LazyLoadImage className="verify_brand_image"  src={`http://52.3.255.128:8000/${items.Brand_Logo}`}  alt="image not found" /></Link>
+                                  <Link to="/RelatedVerifyBrand">  <LazyLoadImage className="verify_brand_image"  src={`http://backend.sweede.net/${items.Brand_Logo}`}  alt="image not found" /></Link>
 
                                 </div>
                                 <div className="col-6 verify_content_container">

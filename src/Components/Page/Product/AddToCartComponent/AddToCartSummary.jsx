@@ -29,7 +29,7 @@ const AddToCartSummary = ({ SubmitData , CheckOut_Loading ,SetLoading}) => {
             SetOpenPickup(true)
             SetOpenDelivery(false)
             const items = localStorage.getItem('items')
-            Axios(`http://52.3.255.128:8000/UserPanel/Get-DispensaryByid/${JSON.parse(items)[0].Store_id}`, {
+            Axios(`http://backend.sweede.net/UserPanel/Get-DispensaryByid/${JSON.parse(items)[0].Store_id}`, {
 
 
             }).then(response => {
