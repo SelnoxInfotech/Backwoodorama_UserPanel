@@ -11,6 +11,7 @@ const SearchBar = () => {
             <div className="col_Search">
                 <div className=" nav_search_bar_div ">
                     <TextField
+                    onChange={(event)=>{console.log(event)}}
                     style={{ borderRadius:" 16px 0px 0px 16px",top:"0px"}}
                      size="small" 
                      type="text" variant="outlined"
