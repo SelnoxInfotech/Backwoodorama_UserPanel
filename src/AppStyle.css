@@ -3412,17 +3412,9 @@
 }
 
 .verify_brand_image {
-  width: 183px;
-  height: 109px;
+  width: 226px;
+  height: 123px;
 }
-
-@media(max-width:500px) {
-  .verify_brand_image {
-    width: 80px;
-    height: 80px;
-  }
-}
-
 .verify_brands_heading p {
   font-style: normal;
   font-weight: 400;
@@ -3430,6 +3422,17 @@
 
   color: #525252;
 }
+@media(max-width:500px) {
+  .verify_brand_image {
+    width: 120px;
+    height: 80px;
+  }
+  .verify_brands_heading p{
+    font-size: 14px;
+  }
+}
+
+
 
 .verify_subHead p {
   font-weight: 400;
@@ -3487,6 +3490,9 @@
   .allProductCategoryContainer_height {
     flex: 0 0 auto;
     width: 100%;
+  }
+  .brandHeading h1{
+    font-size: 16px;
   }
 }
 

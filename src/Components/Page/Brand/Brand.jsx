@@ -17,16 +17,16 @@ const Brand=()=>{
         <>
         <div className="container-fluid">
             <div className="row center brands_containers_height">
-                <div className="col-10 brandHeading">
+                <div className="col-12 col-sm-10 brandHeading">
                     <h1>Verify Brands</h1>
                     <VerifyBrands/>
                 </div>
-                <div className="col-10 brandHeading">
+                <div className="col-12 col-sm-10 brandHeading">
                     <h1>Shop Verify Brands</h1>
                     {/* <ProductSearchResult RelatedProductResult={RelatedProductResult1}/> */}
 
                 </div>
-                <div className="col-10 brandHeading">
+                <div className="col-12 col-sm-10 brandHeading">
                     <h1>Shop Verify flower Brands</h1>
                     {/* <ProductSearchResult RelatedProductResult={RelatedProductResult2}/> */}
 
