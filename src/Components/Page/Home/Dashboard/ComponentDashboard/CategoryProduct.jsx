@@ -78,7 +78,7 @@ const CategoryProduct = ({ShowCategoryProduct , Category }) => {
                              <div className='col-10 ' key={index}>
                              <div className='slider1'>
                                  {/* <Link to={`/CategoryProduct/${ele.name}`} state={ ele.id }> */}
-                                 <LazyLoadImage onClick={()=>{ShowCategoryProduct(ele.id , ele.name)}} src={`http://52.3.255.128:8000/`+ ele.categoryImages} alt="glass_img" className='rounded-circle  Image_Width' />
+                                 <LazyLoadImage onClick={()=>{ShowCategoryProduct(ele.id , ele.name)}} src={`http://backend.sweede.net/`+ ele.categoryImages} alt="glass_img" className='rounded-circle  Image_Width' />
                                  {/* </Link> */}
                                 </div>
                                 <div className='col-12 center '>

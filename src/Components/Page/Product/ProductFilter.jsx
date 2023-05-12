@@ -34,15 +34,15 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
         }
         SetOpenEvent(Id)
         if (Name === "Category") {
-            Axios.post("http://52.3.255.128:8000/UserPanel/Get-CategoryByStore/ ",
+            Axios.post("http://backend.sweede.net/UserPanel/Get-CategoryByStore/ ",
                 {
 
                     "Store_Id": parseInt(Store_id)
 
                 }
             ).then(async response => {
-                const d =[]
-              response.data.map((data) => {
+                const d = []
+                response.data.map((data) => {
                     d.push(data[0])
                     var uniqueUsersByID = _.uniqBy(d, 'id'); //removed if had duplicate id
                     SetFilter(uniqueUsersByID)
@@ -55,7 +55,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
 
         }
         else if (Name === "Brand") {
-            Axios(`http://52.3.255.128:8000/UserPanel/Get-FilterBrand`, {
+            Axios(`http://backend.sweede.net/UserPanel/Get-FilterBrand`, {
 
 
             }).then(response => {
@@ -80,7 +80,8 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
     function Category_Drop(id, name) {
         console.log(id, name)
         if (name === "Category") {
-            Axios.post(`http://52.3.255.128:8000/UserPanel/Get-filterSubcategorybyStoreandCategory/`, {
+
+            Axios.post(`http://backend.sweede.net/UserPanel/Get-filterSubcategorybyStoreandCategory/`, {
 
                 "Store_Id": Store_id,
                 "Category_Id": id
@@ -100,7 +101,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
         }
 
         else if (name === "Brand") {
-            Axios(`http://52.3.255.128:8000/UserPanel/Get-ProductbyBrand/${id}`, {
+            Axios(`http://backend.sweede.net/UserPanel/Get-ProductbyBrand/${id}`, {
 
 
             }).then(response => {
@@ -121,12 +122,12 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
 
     function FilterSubCategorydata(id) {
         console.log(id)
-        Axios(`http://52.3.255.128:8000/UserPanel/Get-ProductBySubCategory/${id}`, {
+        Axios.post(`http://backend.sweede.net/UserPanel/Get-filterProductbyStoreandSubCategory/`, {
 
-
+            "Store_Id": Store_id,
+            "SubCategory_Id": id
         }).then(async response => {
             Setarr1(response.data)
-            console.log(response.data)
 
         }).catch(
             function (error) {
@@ -135,7 +136,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
 
     }
     const Search = () => {
-        Axios(`http://52.3.255.128:8000/UserPanel/Get-SearchFilter/?search=${Searchvalue}`, {
+        Axios(`http://backend.sweede.net/UserPanel/Get-SearchFilter/?search=${Searchvalue}`, {
 
 
         }).then(response => {
@@ -152,7 +153,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
     }
 
     const SearchA2Z = () => {
-        Axios(`http://52.3.255.128:8000/UserPanel/Get-SortingFilterAtoZ/`, {
+        Axios(`http://backend.sweede.net/UserPanel/Get-SortingFilterAtoZ/`, {
 
 
         }).then(response => {

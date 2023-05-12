@@ -49,7 +49,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
 
 
             })
-            await axios.post("http://52.3.255.128:8000/UserPanel/Add-AddtoCart/",
+            await axios.post("http://backend.sweede.net/UserPanel/Add-AddtoCart/",
 
                 {
                     Product_id: Event.id,
@@ -145,7 +145,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
                                     <LazyLoadImage
 
                                         className="product_search_result_image"
-                                        src={`http://52.3.255.128:8000/${items?.images[0].image}`}
+                                        src={`http://backend.sweede.net/${items?.images[0].image}`}
                                         height={"100px"}
                                     />
 

@@ -34,12 +34,12 @@ export default function DispensoriesProduct() {
     React.useEffect(() => {
 
 
-        axios.get(`http://52.3.255.128:8000/UserPanel/Get-DispensaryByid/${id}`, {
+        axios.get(`http://backend.sweede.net/UserPanel/Get-DispensaryByid/${id}`, {
         }).then(response => {
             SetDespens(response.data)
         })
 
-        axios.post("http://52.3.255.128:8000/UserPanel/Get-CategoryByStore/ ",
+        axios.post("http://backend.sweede.net/UserPanel/Get-CategoryByStore/ ",
             {
 
                 "Store_Id": parseInt(id)
@@ -60,14 +60,14 @@ export default function DispensoriesProduct() {
             })
 
 
-        axios.get(`http://52.3.255.128:8000/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
+        axios.get(`http://backend.sweede.net/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
         }).then(response => {
             SetDespensariesProductData(response.data)
         })
     }, [id])
 
     const FilterCategory = async (id) => {
-        axios(`http://52.3.255.128:8000/UserPanel/Get-ProductByCategory/${id}`, {
+        axios(`http://backend.sweede.net/UserPanel/Get-ProductByCategory/${id}`, {
         }).then(response => {
             SetDespensariesProductData(response.data)
 
@@ -85,7 +85,7 @@ export default function DispensoriesProduct() {
     }
     function ShowCategoryProduct(Id, name) {
 
-        axios.post(`http://52.3.255.128:8000/UserPanel/Get-filterProductbyStoreandCategory/`,
+        axios.post(`http://backend.sweede.net/UserPanel/Get-filterProductbyStoreandCategory/`,
 
             {
                 "Store_Id": parseInt(id),
@@ -103,7 +103,6 @@ export default function DispensoriesProduct() {
 
         // navigate(`/CategoryProduct/${name}`, { state: {  id  } });
     }
-    Category.map((data) => { return data[0] })
 
     const ProductFilterData = [{ Id: 1, Name: "Category", Type1: "Flower", Type2: "CBD", Icons: <BsLayoutSplit className={classes.muiIcons} /> },
     { Id: 2, Name: "Brand", Type1: "Leafly", Type2: "CBD", Icons: <MdOutlineBrandingWatermark className={classes.muiIcons} /> },

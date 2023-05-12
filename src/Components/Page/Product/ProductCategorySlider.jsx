@@ -104,7 +104,7 @@ const   ProductCategorySlider = ({ FilterCategory, Category }) => {
                         <div className="col-12" key={index} onClick={(() => { FilterCategory(ele.id) })}>
                             <div className="col-2 mt-4 slick-slide slick-active slick-current" >
 
-                                <img id="Product_category_image" src={`http://52.3.255.128:8000/${ele.category_Image}`} alt="image_not found" />
+                                <img id="Product_category_image" src={`http://backend.sweede.net/${ele.category_Image}`} alt="image_not found" />
 
 
                             </div>

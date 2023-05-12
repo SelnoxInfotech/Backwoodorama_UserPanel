@@ -29,7 +29,7 @@ const Login = () => {
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     function Submit(data) {
         Setloading(true)
-        axios.post("http://52.3.255.128:8000/UserPanel/Login/", {
+        axios.post("http://backend.sweede.net/UserPanel/Login/", {
 
             email: data.email,
             password: data.password

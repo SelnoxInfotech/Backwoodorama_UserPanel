@@ -19,7 +19,7 @@ const DeliveryPickupMenu = () => {
     const [Pickup , SetPickup] = React.useState([])
     React.useEffect(() => {
         axios.get(
-            'http://52.3.255.128:8000/UserPanel/Get-DeliveryStores/',
+            'http://backend.sweede.net/UserPanel/Get-DeliveryStores/',
         ).then(response => {
             
             SetDelivery(response.data)
@@ -28,7 +28,7 @@ const DeliveryPickupMenu = () => {
 
             })
             axios.get(
-                'http://52.3.255.128:8000/UserPanel/Get-PickupStores/',
+                'http://backend.sweede.net/UserPanel/Get-PickupStores/',
             ).then(response => {
                 
                 SetPickup(response.data)

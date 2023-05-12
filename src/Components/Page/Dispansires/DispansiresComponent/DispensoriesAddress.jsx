@@ -17,7 +17,7 @@ const DispensoriesAddress = () => {
     const [Store, SetStore] = useState([])
     useEffect(() => {
         const fetchApiFun = async () => {
-            const fetchApi = await fetch("http://52.3.255.128:8000/UserPanel/Get-Stores/");
+            const fetchApi = await fetch("http://backend.sweede.net/UserPanel/Get-Stores/");
             const data = await fetchApi.json();
             SetStore(data)
             dispatch({ type: 'Dispensories' , Dispensories :data })
@@ -116,7 +116,7 @@ const DispensoriesAddress = () => {
                         <div className='col-12 slider1' key={index} >
                             <div className='slider1'>
                             <Link to={`/DispensoriesProduct/${ele.id}/${"Menu"}`}>
-                                <img src={`http://52.3.255.128:8000/${ele?.Store_Image}`} alt='img_not_found' className='img-responsive rounded center-block' width={"83%"} height={"170px"}  />
+                                <img src={`http://backend.sweede.net/${ele?.Store_Image}`} alt='img_not_found' className='img-responsive rounded center-block' width={"83%"} height={"170px"}  />
                                 </Link>
                             </div>
                             <div>
