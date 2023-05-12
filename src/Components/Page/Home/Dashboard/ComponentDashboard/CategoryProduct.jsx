@@ -6,9 +6,8 @@ import { useEffect, useState } from 'react';
 import styled from "styled-components";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Link } from 'react-router-dom';
-const CategoryProduct = ({ShowCategoryProduct , Category}) => {
+const CategoryProduct = ({ShowCategoryProduct , Category }) => {
     // const [value, setValue] = useState(Category)
- 
     const SliderCategory = styled(Slider)`
     .slick-next {
         right: 0px;

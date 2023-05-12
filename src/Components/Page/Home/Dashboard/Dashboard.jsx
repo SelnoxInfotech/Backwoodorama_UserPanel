@@ -20,8 +20,6 @@ export default function Dashboard() {
             const apidata = await fetch("http://52.3.255.128:8000/UserPanel/Get-Categories/");
             const data = await apidata.json()
             SetCategory(data)
-            console.log(data)
-
         }
         fetchData()
 
