@@ -30,7 +30,7 @@ export default function DashBoardLink({ state }) {
                 <Link to="/Product"><li>Product</li></Link>
                 <Link to="/Deals"><li>Deals</li></Link>
                 <li>Learn</li>
-                <li>Strain</li>
+                <Link to="/Strain"><li>Strain</li></Link>
                <Link to="/StoreDetail"><li>Store</li></Link>
               </ul>
             </div>

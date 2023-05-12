@@ -23,6 +23,7 @@ import SubcategoryProduct from "../Components/Page/Product/SubCategoryProduct";
 import NewProductDetails from "../Components/Page/Product/NewProductDetails/NewProductDetails"
 import RelatedVerifyBrand from "../Components/Page/Brand/RelatedVerifyBrand/RelatedVerifyBrand";
 import Deals from "../Components/Page/Deals/Deals";
+import Strain from "../Components/Page/Strain/Strain";
 const routesConfig = [
   
       {
@@ -111,6 +112,10 @@ const routesConfig = [
           {
             path:"/Deals",
             element:<Deals/>
+          },
+          {
+            path:"/Strain",
+            element:<Strain/>
           },
           {
             path:"/EmptyCard",

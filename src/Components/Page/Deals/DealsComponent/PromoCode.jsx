@@ -23,7 +23,7 @@ const PromoCode = () => {
                 return (
                     <div className="col-xl-3 col-md-4 col-sm-6 promoCode_card_Outer_container" key={index}>
                         <div className="row promoCode_card_inner_container mx-2 my-2">
-                            <div className="col-12 promocode_image_container">
+                            <div className="col-12 promocode_image_container px-0">
                               <LazyLoadImage className="promocode_image" src={items.imgUrl} alt="image not available"/>
                             </div>
                         </div>

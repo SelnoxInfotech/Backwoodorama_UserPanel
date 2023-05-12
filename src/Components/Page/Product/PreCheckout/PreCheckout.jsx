@@ -12,13 +12,13 @@ const PreCheckout = () => {
                 <div className="row center marginPre_checkout_row ">
                     <Link to="/AddToCart">
 
-                        <div className="col-lg-3 col-md-6 col-sm-8 col-8 border preCheckout_container">
-                            <div className="center preCheck_heading">
+                        <div className="col-lg-3 col-md-6 col-sm-8 col-8  border preCheckout_container">
+                            <div className=" preCheck_heading">
                                 <h6>CHECKOUT</h6>
 
                             </div>
 
-                            <div className="center preCheck_price">
+                            <div className=" preCheck_price">
                                 {
                                     state.LoadingApi ? <div className="loader"></div> : <p>{state.AllProduct?.length} products ${state.Cart_subTotal}</p>
                                 }
