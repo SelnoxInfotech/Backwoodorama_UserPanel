@@ -19,7 +19,6 @@ const Login = () => {
     const cookies = new Cookies();
     const method = useForm()
     const location = useLocation();
-    console.log(location)
     const { state, dispatch } = React.useContext(Createcontext)
     const Navigate = useNavigate()
     const [loading, Setloading] = React.useState(false)

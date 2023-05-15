@@ -10,12 +10,6 @@ const AllProductCategory = ({ flowerArray }) => {
                         <h1>Flower</h1>
                     </div>
 
-
-
-      
-
-
-
                         {flowerArray.map((items, index) => {
                             return (
 
@@ -27,10 +21,10 @@ const AllProductCategory = ({ flowerArray }) => {
 
                                                     <LazyLoadImage
                                                         onError={event => {
-                                                            event.target.src = "/image/cat_pro_7.jpg"
+                                                            event.target.src = "/image/blankImage.jpg"
                                                             event.onerror = null
                                                         }}
-                                                        className="allProduct_imageHeight" src={`http://backend.sweede.net/${items?.image}`} alt="image not found" />
+                                                        className="allProduct_imageHeight" src={`http://backend.sweede.net/${items?.SubCategoryImage}`} alt="image not found" />
                                                 </Link>
 
                                             </div>

@@ -15,7 +15,6 @@ export default function DashBoardLink({ state }) {
     Setcurrent_route(location.pathname)
 
   },[location])
-   console.log(current_route === "/Dispansires" )
   return (
     <>
 

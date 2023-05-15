@@ -107,7 +107,7 @@ export default function Dispansires() {
                             </TabPanel>
 
                             <div className="Dispansires_map">
-                                <Map height={"800px"} Theme={Dispansires_MapTheme.Dispansires_MapTheme}></Map>
+                                <Map height={"740px"} Theme={Dispansires_MapTheme.Dispansires_MapTheme}></Map>
                             </div>
                         </Box>
 

@@ -4,7 +4,8 @@ import { IoMdStar } from "react-icons/io";
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "../../../../Style";
-import { AiFillHeart } from "react-icons/ai"
+import { AiOutlineHeart } from "react-icons/ai"
+import {AiFillHeart} from "react-icons/ai"
 import ProductIncDecQuantity from "./ProductIncDecQuantity"
 import PreCheckout from "../PreCheckout/PreCheckout";
 import axios from "axios";
@@ -12,8 +13,11 @@ import Cookies from 'universal-cookie';
 import Createcontext from "../../../../Hooks/Context"
 import _ from "lodash";
 import AddToCartPopUp from "../AddToCartPopUp/AddToCartPopUp";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEllipsisV } from '@fortawesome/free-solid-svg-icons/faEllipsisV';
+import IconButton from '@mui/material/IconButton';
 const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
-  
+
     const { state, dispatch } = React.useContext(Createcontext)
     const classes = useStyles()
     const cookies = new Cookies();
@@ -32,8 +36,8 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
         const PriceArrry = _.find(AddData[0].Price, Price => Price.id === SelectWeight);
         const FinalSelection = PriceArrry === undefined ? Event.Prices[0].Price[0] : PriceArrry
         const FinalPriceId = PriceArrry === undefined ? Event.Prices[0].Price[0].id : PriceArrry.id
-  
-        const FinalQuantity= counter === undefined ? 1 : counter
+
+        const FinalQuantity = counter === undefined ? 1 : counter
         if (token_data) {
             const config = {
                 headers: { Authorization: `Bearer ${token_data}` }
@@ -74,7 +78,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
                 })
         }
         else {
-  
+
             console.log(AddTOCard.length !== 0)
             const Arry = {
                 Image: Event.images[0].image,
@@ -139,7 +143,13 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
                                 <div className="col-12  productSearchResultImage_container">
                                     <div className="col-12 product_whish_list text-end">
                                         <Box className={classes.productSearchIcons}>
-                                            <AiFillHeart />
+                                            <IconButton aria-label="Example">
+                                                {
+                                                    false ? <AiFillHeart></AiFillHeart> :<AiOutlineHeart />
+                                                }
+                                                 
+                                            </IconButton>
+
                                         </Box>
                                     </div>
                                     <LazyLoadImage

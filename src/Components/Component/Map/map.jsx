@@ -30,6 +30,7 @@ export function MapContainer(props) {
     map.setOptions({
       styles: props.Theme
     });
+    map.setOptions({draggable: false, zoomControl: false, scrollwheel: false, disableDoubleClickZoom: true});
   }
 
 
@@ -44,9 +45,11 @@ export function MapContainer(props) {
             mapTypeId="google.maps.MapTypeId.ROADMAP"
             zoom={15}
             initialCenter={{ lat: 40.719074, lng: -74.050552 }}
-            streetViewControl={true}
+          
             fullscreenControl={false}
             onReady={(mapProps, map) => _mapLoaded(mapProps, map)}
+            streetViewControl=  {false}
+            mapTypeControl= {false}
           >
             {displayMarkers()}
           </Map>
