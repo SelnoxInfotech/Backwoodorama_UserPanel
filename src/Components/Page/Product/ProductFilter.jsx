@@ -258,7 +258,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
                                                                 return (
                                                                     SubCategory.category_id === data.id
                                                                     &&
-                                                                    <div className="col-10 px-2 py-0 " style={{ left: "33px", position: "relative" }} >
+                                                                    <div className="col-10 px-2 py-0 product_sub_category_dropDown_cursor" style={{ left: "33px", position: "relative" }} >
                                                                         <p onClick={() => { FilterSubCategorydata(SubCategory.id) }}>{SubCategory.name}</p>
 
                                                                     </div>

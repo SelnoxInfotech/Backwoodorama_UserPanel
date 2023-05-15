@@ -16,6 +16,7 @@ import StoreDetailMenuItem from "../../StoreDetail/StoreDetailComponent/StoreDet
 import CategoryProduct from "../../Home/Dashboard/ComponentDashboard/CategoryProduct";
 import ComponentStoreDetails from "../../StoreDetail/ComponentStoreDetails"
 import Review from "../../Review/Review";
+import Media from "../../Media/Media";
 export default function DispensoriesProduct() {
     const navigate = useNavigate()
     const { id, tab } = useParams();
@@ -151,7 +152,7 @@ export default function DispensoriesProduct() {
                         tab === 'Deal' && <>Deal</>
                     }
                     {
-                        tab === 'Media' && <>Media</>
+                        tab === 'Media' && <Media></Media>
                     }
                 </div>
 

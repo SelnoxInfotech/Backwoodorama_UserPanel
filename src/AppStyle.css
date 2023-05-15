@@ -492,6 +492,10 @@
 .product_category_dropdown_cursor p {
   cursor: pointer;
 }
+.product_sub_category_dropDown_cursor p{
+  cursor: pointer;
+
+}
 
 @media(max-width:771px) {
   .prod_cat_left_sec {
@@ -3965,5 +3969,23 @@
 font-weight: 700;
 font-size: 25px;
 color: #333333;
+}
+/* end */
+/* Media */
+.media_outer_container{
+  height:auto;
+}
+.media_image_container{
+  height: 300px;
+  width: 100%;
+}
+.media_row{
+  background: #FAFAFA;
+  border: 1px solid #E7E7E7;
+  border-radius: 8px;
+}
+.media_image{
+  height: 100%;
+  width: 100%;
 }
 /* end */
