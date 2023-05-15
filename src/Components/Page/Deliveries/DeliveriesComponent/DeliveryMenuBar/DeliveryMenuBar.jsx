@@ -55,7 +55,7 @@ const DeliveryMenuBar = ({Deliverie}) => {
                 <div className="row ">
                     <div className="col-lg-12 col-12 delivery_menuBar_container">
 
-                        <Box className={`px-0 ${classes}`} sx={{ width: '100%', typography: 'body1' }}>
+                        <Box className={`px-0`} sx={{ width: '100%', typography: 'body1' }}>
                             <TabContext value={value}>
                                 <Box className={`${classes.open_dispensory_tab_background} ${classes.open_dispensory_tab} `} sx={{borderBottom: 1, borderColor: 'divider' }}>
                                     <TabList  onChange={handleChange} aria-label="lab API tabs example">

@@ -125,7 +125,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
     }, [AddTOCard])
     return (
         <>
-            <div className="row mx-2">
+            <div className="row mx-2 marginProductSearchResult">
                 <div className="col-12 mt-4 productSlider_headings fontStyle">
                     <h1>{CategoryName}</h1>
                 </div>

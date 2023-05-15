@@ -9,24 +9,30 @@ const PreCheckout = () => {
         <>
             {
                 state.AllProduct?.length != 0 &&
-                <div className="row center marginPre_checkout_row ">
-                    <Link to="/AddToCart">
+                <div className="row">
+                    <div className="col-12 marginPre_checkout">
+                        <div className="row center">
+                            <Link to="/AddToCart">
 
-                        <div className="col-lg-3 col-md-6 col-sm-8 col-8  border preCheckout_container">
-                            <div className=" preCheck_heading">
-                                <h6>CHECKOUT</h6>
+                                <div className="col-lg-3 col-md-6 col-sm-8 col-8  border preCheckout_container">
+                                    <div className=" preCheck_heading">
+                                        <h6>CHECKOUT</h6>
 
-                            </div>
+                                    </div>
 
-                            <div className=" preCheck_price">
-                                {
-                                    state.LoadingApi ? <div className="loader"></div> : <p>{state.AllProduct?.length} products ${state.Cart_subTotal}</p>
-                                }
+                                    <div className=" preCheck_price">
+                                        {
+                                            state.LoadingApi ? <div className="loader"></div> : <p>{state.AllProduct?.length} products ${state.Cart_subTotal}</p>
+                                        }
 
-                            </div>
+                                    </div>
 
+                                </div>
+                            </Link>
                         </div>
-                    </Link>
+
+                    </div>
+
 
                 </div>
             }
