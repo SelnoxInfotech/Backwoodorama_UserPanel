@@ -207,7 +207,7 @@ const useStyles = makeStyles({
   open_dispensory_tab_background: {
     "& .MuiTabs-flexContainer": {
       backgroundColor: "#F9F9F9",
-      gap: '40px'
+      gap: '100px'
 
     },
     "@media(max-width:1280px)": {
