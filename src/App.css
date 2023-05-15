@@ -479,12 +479,12 @@ position: relative ;
 
 
 /* Navbar Select  tab*/
-  /* #Active  li{
-    opacity: 1;
-    color: #00b96a;
-    text-decoration: underline;
-    
-    } */
+#Active  li{
+  opacity: 1;
+  color: #00b96a;
+  text-decoration: underline;
+  
+  }
   /* opacity: 1;
   color: #00b96a;
   text-decoration: underline; */
