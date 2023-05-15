@@ -2883,7 +2883,10 @@ color: #707070;
   font-weight: 700;
 
 }
-
+.preCheckOut_center{
+  display: grid;
+  justify-content: center;
+}
 .marginPre_checkout {
   margin-top: 60px !important;
 }
@@ -2892,8 +2895,6 @@ color: #707070;
   position: fixed;
   bottom: 20px;
   height: 70px;
-  /* display: grid;
-  place-items: center; */
   background-color: rgb(255, 254, 255, .9);
   opacity: .9;
   padding: 0px;
