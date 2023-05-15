@@ -69,7 +69,7 @@ function Context(props) {
     }, [state.ApiProduct])
     return (
 
-        <Createcontext.Provider value={{ state, dispatch }} >
+        <Createcontext.Provider value={{ state, dispatch }}  container>
 
             {props.children}
         </Createcontext.Provider>

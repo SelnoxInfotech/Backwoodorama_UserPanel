@@ -190,7 +190,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
 
                 </div>
                 <div className="col-10 product_select">
-                    <Grid display={{ xs: "none", md: "contents", lg: "contents" }}>
+                    <Grid container display={{ xs: "none", md: "contents", lg: "contents" }}>
                         <FormControl sx={{ Width: "160px", height: "36px" }}>
                             <Select
                                 // value={Product}
@@ -286,7 +286,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
 
 
                 })}
-                <Grid display={{ xs: "block", md: "none", lg: "none" }}>
+                <Grid container display={{ xs: "block", md: "none", lg: "none" }}>
 
                     {SortedArrayData.map((ele, index) => {
                         const { Id, name } = ele

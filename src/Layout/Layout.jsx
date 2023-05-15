@@ -23,7 +23,7 @@ export default function BasicGrid() {
         <div >
 
             <Navbar></Navbar>
-            <Grid xs={12} md={12} xl={12}>
+            <Grid  item={true} xs={12} md={12} xl={12}>
 
                 <Outlet />
 

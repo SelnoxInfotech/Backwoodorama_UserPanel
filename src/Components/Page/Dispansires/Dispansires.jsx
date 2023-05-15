@@ -58,7 +58,7 @@ export default function Dispansires() {
                         {DispensorShopLocation.map((ele, index) => {
                             return (
                                 <div className="d-flex" key={index}>
-                                      <h1 className="dispensories_name">{ele.name}</h1><h1 className="dispensories_city">{ele.city}</h1>
+                                    <h1 className="dispensories_name">{ele.name}</h1><h1 className="dispensories_city">{ele.city}</h1>
                                 </div>
 
 
@@ -71,7 +71,7 @@ export default function Dispansires() {
                             <Box className={classes.open_dispensory_tab} sx={{ borderBottom: 1, borderColor: 'divider', }}>
                                 <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" >
 
-                             <Tab label="Open" {...a11yProps(0)} />
+                                    <Tab label="Open" {...a11yProps(0)} />
                                     <Tab label="Storefronts" {...a11yProps(1)} />
                                     <Tab label="delivery" {...a11yProps(2)} />
                                     <Tab label="Order online" {...a11yProps(3)} />
@@ -81,7 +81,6 @@ export default function Dispansires() {
                                     <Tab label="Amenities" {...a11yProps(7)} />
                                 </Tabs>
                             </Box>
-
                             <TabPanel value={value} index={0}>
                                 <DispensoriesOpenResult />
                             </TabPanel>
@@ -105,8 +104,9 @@ export default function Dispansires() {
                             </TabPanel>
                             <TabPanel value={value} index={7}>
                                 <DispensoriesOpenResult />
-                            </TabPanel> 
-                           <div className="Dispansires_map">
+                            </TabPanel>
+
+                            <div className="Dispansires_map">
                                 <Map height={"800px"} Theme={Dispansires_MapTheme.Dispansires_MapTheme}></Map>
                             </div>
                         </Box>

@@ -7,7 +7,7 @@ function LoginWithGoogle() {
     const classes = useStyles()
 
  const Login = useGoogleLogin({
-    onSuccess: codeResponse => console.log(codeResponse)
+    // onSuccess: codeResponse => console.log(codeResponse)
   });
 
     return (
