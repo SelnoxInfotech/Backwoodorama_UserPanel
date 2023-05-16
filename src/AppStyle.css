@@ -2843,6 +2843,7 @@
 /* end */
 /* preCheckout */
 .preCheckout_container {
+  text-align: center;
   height: 50px;
   border: 1px solid gray;
   z-index: 1;
