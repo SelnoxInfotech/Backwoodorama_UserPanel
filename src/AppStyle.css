@@ -3141,6 +3141,7 @@
 }
 
 .product_search_result_image {
+  object-fit: cover;
   height: 100px;
   width: 10rem;
 }

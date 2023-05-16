@@ -5,7 +5,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "../../../../Style";
 import { AiOutlineHeart } from "react-icons/ai"
-import {AiFillHeart} from "react-icons/ai"
+import { AiFillHeart } from "react-icons/ai"
 import ProductIncDecQuantity from "./ProductIncDecQuantity"
 import PreCheckout from "../PreCheckout/PreCheckout";
 import axios from "axios";
@@ -16,6 +16,7 @@ import AddToCartPopUp from "../AddToCartPopUp/AddToCartPopUp";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons/faEllipsisV';
 import IconButton from '@mui/material/IconButton';
+import { Link } from "react-router-dom";
 const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
 
     const { state, dispatch } = React.useContext(Createcontext)
@@ -145,26 +146,33 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
                                         <Box className={classes.productSearchIcons}>
                                             <IconButton aria-label="Example">
                                                 {
-                                                    false ? <AiFillHeart></AiFillHeart> :<AiOutlineHeart />
+                                                    false ? <AiFillHeart></AiFillHeart> : <AiOutlineHeart />
                                                 }
-                                                 
+
                                             </IconButton>
 
                                         </Box>
                                     </div>
-                                    <LazyLoadImage
+                                    <Link to={"/ProductDetail"} state={items.id}>
+                                        <LazyLoadImage
 
-                                        className="product_search_result_image"
-                                        src={`http://backend.sweede.net/${items?.images[0].image}`}
-                                        height={"100px"}
-                                    />
-
+                                            className="product_search_result_image"
+                                            onError={event => {
+                                                event.target.src = "/image/blankImage.jpg"
+                                                event.onerror = null
+                                            }}
+                                            src={`http://backend.sweede.net/${items?.images[0].image}`}
+                                            height={"100px"}
+                                        />
+                                    </Link>
 
                                 </div>
                                 <div className="col-12 product_search_result_content_div ">
                                     <div className="row gap-0">
                                         <div className="col-12 productSearchResultParagraph ">
-                                            <p className="text-truncate">{items.Product_Name}</p>
+                                            <Link to={"/ProductDetail"} state={items.id}>
+                                                <p className="text-truncate">{items.Product_Name}</p>
+                                            </Link>
                                         </div>
                                         <div className="col-12 product_search_result_sub_heading ">
                                             <p className=" text-truncate">by {items.StoreName}</p>
