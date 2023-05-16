@@ -1,7 +1,9 @@
 import StrainType from "./StrainComponent/StrainType"
+import PopularStrain from "./StrainComponent/PopularStrain"
 const Strain=()=>{
     return(
         <div className="container-fluid">
+          <PopularStrain/>
          <StrainType/>
            <div className="row">
             <div className="col-12">

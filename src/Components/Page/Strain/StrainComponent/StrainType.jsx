@@ -11,7 +11,7 @@ const StrainType = () => {
     ]
     return (
         <>
-            <div className="row">
+            <div className="row my-4">
                 <div className="col-sm-4 strainType_heading">
                     <h1 className="mx-2">Strain Type</h1>
                 </div>
@@ -24,8 +24,8 @@ const StrainType = () => {
             <div className="row">
                 {StrainTypeCardArray.map((items, index) => {
                     return (
-                        <div className="col-lg-3 col-md-4 col-sm-6 strainType_container" key={index}>
-                            <div className="row starinType_inner_row mx-2 my-2">
+                        <div className="col-xxl-3   col-lg-3 col-md-4 col-sm-6 strainType_container" key={index}>
+                            <div className="row starinType_inner_row mx-1 my-2">
                                 <div className="col-12 strainTypeInner_container px-0">
                                     <LazyLoadImage className="strainType_image" src={items.imgUrl} />
                                 </div>

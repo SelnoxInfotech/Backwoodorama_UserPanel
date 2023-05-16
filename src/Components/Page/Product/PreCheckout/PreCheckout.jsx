@@ -10,7 +10,7 @@ const PreCheckout = () => {
             {
                 state.AllProduct?.length != 0 &&
                 <div className="row">
-                    <div className="col-12 marginPre_checkout">
+                    <div className="col-12">
                         <div className="row preCheckOut_center">
                             <Link to="/AddToCart">
 
