@@ -8,7 +8,7 @@ const PreCheckout = () => {
     return (
         <>
             {
-                state.AllProduct?.length != 0 &&
+                state.AllProduct?.length !== 0 &&
                 <div className="row">
                     <div className="col-12 marginPre_checkout">
                         <div className="row preCheckOut_center">
