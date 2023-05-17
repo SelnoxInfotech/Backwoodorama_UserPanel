@@ -23,10 +23,10 @@ function btn (){
                     <ScrollContainer className="ScrollContainer">
                         {flowerArray?.map((items, index) => {
                             return (
-                                <div className="col newProductCard pt-2 " key={index}>
+                                <div className="col newProductCard  pt-2 " key={index}>
 
 
-                                    <div className="col-12 d-flex justify-content-center">
+                                    <div className="col-12">
                                         <div className="newProduct_category_slider_image">
 
                                             <Link to={`/Product/${items.name}`} state={ items.id }>
@@ -38,9 +38,12 @@ function btn (){
                                                 className="newProductCategory_image"
                                                  src={`http://backend.sweede.net/${items?.SubCategoryImage}`}/>
                                             </Link>
+                                            
                                         </div>
+
+                                        
                                     </div>
-                                    <div className="col-12 d-flex justify-content-center newProductCategorySliderName">
+                                    <div className="col-12 d-flex  newProductCategorySliderName">
                                         <p className=" text-truncate">{items.name}</p>
                                     </div>
                                 </div>
