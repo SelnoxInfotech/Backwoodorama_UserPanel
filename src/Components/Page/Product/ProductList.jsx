@@ -138,7 +138,7 @@ const ProductList = ({ arr }) => {
                             <div className="row product_inner_row">
                                 <div className="col-4 prod_cat_cont" >
                                     <Link    to={"/ProductDetail"} state={ ele.id }>
-                                        <div  className="col-10 p-2 prod_cat_img">
+                                        <div  className="col-12 p-2 prod_cat_img">
                                             <img  src={`http://backend.sweede.net/${ele?.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }} />
                                             <div className="col prod_img_btn prodCat_gap d-flex">
                                                 <button className="mx-2 cat_prod_inner_btn btn2">THC 70%</button>
