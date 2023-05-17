@@ -3537,7 +3537,7 @@
   border-radius: 6px;
   cursor: pointer;
   transition: all 250ms ease-in-out;
-  height: 320px;
+  height: 100%;
 
 }
 
