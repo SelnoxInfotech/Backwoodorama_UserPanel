@@ -3083,10 +3083,20 @@
 }
 
 .newProductCard {
+   -webkit-user-select: none;
+ -moz-user-select: none;
+ -ms-user-select: none;
+ user-select: none;
   margin: .5rem;
   border-radius: 6px;
   cursor: pointer;
   transition: all 2500ms ease-in-out;
+}
+.newProductCard:first-of-type {
+  margin-left:100px;
+}
+.newProductCard:last-of-type {
+  margin-right:100px;
 }
 
 .productSlider_headings h1 {

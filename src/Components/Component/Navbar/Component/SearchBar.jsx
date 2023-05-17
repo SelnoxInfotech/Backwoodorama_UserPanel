@@ -4,25 +4,63 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import { BsSearch } from "react-icons/bs"
 import { IoLocationSharp } from "react-icons/io5"
 import Autocomplete from '@mui/material/Autocomplete';
+import Geocode from "react-geocode";
 import Axios from "axios"
+import React from 'react';
 const SearchBar = () => {
+    const [SearchData , SetSearchData] =  React.useState([])
     const classes = useStyles()
     async function Search(event) {
-        await Axios.get(`http://backend.sweede.net/UserPanel/Get-HomePageFilter/`,
+        await Axios.post(`http://backend.sweede.net/UserPanel/Get-HomePageFilter/`,
             {
 
                 search: event.target.value
             }
         ).then(response => {
-            const objKeys = Object.entries(response?.data)
-            objKeys.forEach(key => console.log(key[1], key[0]))
-
-
+            // const objKeys = Object.entries(response?.data)
+            // let s 
+            // let h
+            // objKeys.forEach((key) => { s = key[1], h= key[0] })
+            // SetSearchData(SearchData => ({ ...SearchData, s: h }))
+            //    console.log(response?.data)
+            SetSearchData(response?.data.Brand)
+              
         }).catch(
             function (error) {
 
             })
     }
+    console.log(SearchData)
+    // React.useEffect(() => {
+    //     if (!geolocationAPI) {
+    //         console.log("Geolocation API is not available in your browser!");
+    //       } else {
+    //         geolocationAPI.getCurrentPosition(
+    //           (position) => {
+    //             const { coords } = position;
+    //             setLat(coords.latitude);
+    //             setLong(coords.longitude);
+    //             Geocode.setApiKey("AIzaSyC_MQE9O7OW5sM2Pvyzs5zjotWyqdshhjA");
+    //             Geocode.setLanguage("en");
+    //             Geocode.setRegion("es"); 
+    //             Geocode.setLocationType("ROOFTOP");
+    //             Geocode.enableDebug();
+    //             Geocode.fromLatLng(coords.latitude, coords.longitude).then(
+    //                 (response) => {
+    //                   const address = response.results[0].formatted_address;
+    //                   console.log(address);
+    //                 },
+    //                 (error) => {
+    //                   console.error(error);
+    //                 }
+    //               );
+    //           },
+    //           (error) => {
+    //             console.log("Something went wrong getting your position!");
+    //           }
+    //         );
+    //       }
+    // }, [geolocationAPI])
 
 
     const topFilms = () => [
@@ -48,7 +86,7 @@ const SearchBar = () => {
                         variant="outlined"
                         freeSolo
                         size="small"
-                        options={topFilms().map((option) => option.label)}
+                        options={SearchData?.map((option) => option.name + "y")}
                         sx={{ width: "100%" }}
                         renderInput={(params) => <TextField
                             {...params}
@@ -91,3 +129,6 @@ const SearchBar = () => {
     )
 }
 export default SearchBar
+
+
+// https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyC_MQE9O7OW5sM2Pvyzs5zjotWyqdshhjA

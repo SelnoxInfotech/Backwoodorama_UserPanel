@@ -5,6 +5,8 @@ import useStyles from "../../../../Style"
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import React from "react"
+import { ScrollContainer } from 'react-indiana-drag-scroll';
+import 'react-indiana-drag-scroll/dist/style.css'
 const RecentViewProduct = () => {
     const classes = useStyles()
     const ref = React.useRef(null);
@@ -37,22 +39,17 @@ const RecentViewProduct = () => {
 
 
     ]
-    // const scroll = (scrollOffset) => {
-   
-          
-    //   };
-    const scroll = () => {
-        const width = document.getElementById('width').clientWidth;
-        console.log(width)
-      };
+ 
     return (
        
         <div className="container-fluid" >
             <div className="row">
-                <div className="col-12   recentViewProductSlider"  id="width"ref={ref}>
+                <div className="col-12   recentViewProductSlider"    id="width"ref={ref}>
+            <ScrollContainer className="ScrollContainer">
                     {FlowerArray.map((items, index) => {
                         return (
-                            <div className="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6  recentViewProductCard border" key={index} >
+                        
+                            <div className="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6   recentViewProductCard border"    key={index} >
                                 <div className="row">
                                     <div className="col-12 center recentViewImageContainer p-2">
                                         <LazyLoadImage className="recentView_images" src={items.imgUrl} alt="image not availble" />
@@ -88,10 +85,10 @@ const RecentViewProduct = () => {
                             </div>
                         )
                     })}
+                </ScrollContainer>
                 </div>
-
             </div>
-            <button onClick={() => scroll(-20)}>LEFT</button>
+          
         </div>
                  
     )

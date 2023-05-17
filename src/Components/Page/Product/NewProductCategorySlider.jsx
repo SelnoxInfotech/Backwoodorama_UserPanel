@@ -1,18 +1,27 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
-
+import $ from 'jquery'; 
+import React from "react";
+import { Draggable } from "gsap/Draggable";
 const NewProductCategorySlider = ({ flowerArray }) => {
- 
+
+
+      const box =  document.querySelector(".newProductCard")
+function btn (){
+    let w = box.clientWidth
+    console.log(w)
+}
     return (
         <>
             <div className="container-fluid">
 
-                <div className="row ">
+                <div className="row  ">
 
-                    <div className="col-12 newProductCategorySliderContainer">
+                        
+                    <div className="col-12 newProductCategorySliderContainer  ">
                         {flowerArray?.map((items, index) => {
                             return (
-                                <div className="col newProductCard pt-2" key={index}>
+                                <div className="col newProductCard pt-2 " key={index}>
 
 
                                     <div className="col-12 d-flex justify-content-center">
@@ -36,7 +45,9 @@ const NewProductCategorySlider = ({ flowerArray }) => {
 
                             )
                         })}
-                    </div>
+                        </div>
+                  
+                    
 
 
 

@@ -130,8 +130,6 @@ const Product = () => {
             const apidata = await fetch("http://backend.sweede.net/UserPanel/Get-Categories/");
             const data = await apidata.json()
             SetCategory(data)
-            console.log(data)
-
         }
         fetchData()
 
