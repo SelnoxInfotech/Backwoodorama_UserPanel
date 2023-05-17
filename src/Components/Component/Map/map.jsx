@@ -36,11 +36,11 @@ export function MapContainer(props) {
 
   return (
 
-    <div className='container'>
-      <div className='row'>
-        <div className='col-12 center ' >
+    // <div className='container'>
+    //   <div className='row'>
+    //     <div className='col-12  ' >
           <Map
-            style={{ height: props.height, backgroundColor: 'black' }}
+            style={{ height: props.height, width: props.width ,backgroundColor: 'black' }}
             google={window.google}
             mapTypeId="google.maps.MapTypeId.ROADMAP"
             zoom={15}
@@ -53,9 +53,9 @@ export function MapContainer(props) {
           >
             {displayMarkers()}
           </Map>
-        </div>
-      </div>
-    </div>
+    //     </div>
+    //   </div>
+    // </div>
 
   );
 }

@@ -29,8 +29,9 @@ export default function Dashboard() {
              <HomePageBanner></HomePageBanner>
             <CategoryProduct Category={Category} ShowCategoryProduct={ShowCategoryProduct}></CategoryProduct>
             <DispensoriesAddress></DispensoriesAddress>
-            <div  className="col-12 mt-5" >
-                <Map height={"300px"}   ></Map>
+            <div  className="col-12 mt-3  border"  style={{    height: "300px" , position: "relative"}}>
+   
+                <Map height={"300px"} width={"100%"}   ></Map>
             </div>
              <WeedProduct></WeedProduct>
             <LatestServices></LatestServices>
