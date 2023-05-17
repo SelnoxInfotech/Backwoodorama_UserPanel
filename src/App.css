@@ -497,4 +497,12 @@ position: relative ;
 .ScrollContainer{
   width: 100%;
   display: inherit  ;
+  gap: 10%;
+  justify-content: space-around;
+}
+.ScrollContainerRelative{
+  width: 100%;
+  display: inherit  ;
+  gap: 2%;
+  justify-content: space-around;
 }

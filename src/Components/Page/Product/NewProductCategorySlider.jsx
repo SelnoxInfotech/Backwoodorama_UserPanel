@@ -2,7 +2,8 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 import $ from 'jquery'; 
 import React from "react";
-import { Draggable } from "gsap/Draggable";
+import { ScrollContainer } from 'react-indiana-drag-scroll';
+import 'react-indiana-drag-scroll/dist/style.css'
 const NewProductCategorySlider = ({ flowerArray }) => {
 
 
@@ -19,6 +20,7 @@ function btn (){
 
                         
                     <div className="col-12 newProductCategorySliderContainer  ">
+                    <ScrollContainer className="ScrollContainer">
                         {flowerArray?.map((items, index) => {
                             return (
                                 <div className="col newProductCard pt-2 " key={index}>
@@ -45,6 +47,7 @@ function btn (){
 
                             )
                         })}
+                         </ScrollContainer>
                         </div>
                   
                     
