@@ -97,7 +97,7 @@ const DispensoriesAddress = () => {
                                                 <Box
                                                     className={`${classes.loadingBtnTextAndBack}`}
                                                 >
-                                                    <LoadingButton>Order Pickup</LoadingButton>
+                                                    <LoadingButton style={{width:"80%"}}>Order Pickup</LoadingButton>
                                                 </Box>
                                             </div>
                                         </div>

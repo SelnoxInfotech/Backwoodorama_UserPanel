@@ -3530,6 +3530,7 @@
   overflow-x: auto;
   overflow-y: hidden;
   height: 380px;
+  padding-left: 14px;
 }
 
 .recentViewProductCard {
