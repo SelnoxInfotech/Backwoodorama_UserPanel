@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import styled from "styled-components";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Link } from 'react-router-dom';
-const CategoryProduct = ({ShowCategoryProduct , Category }) => {
+const CategoryProduct = ({ ShowCategoryProduct, Category }) => {
     // const [value, setValue] = useState(Category)
     const SliderCategory = styled(Slider)`
     .slick-next {
@@ -22,6 +22,7 @@ const CategoryProduct = ({ShowCategoryProduct , Category }) => {
         margin-inline: 10px;
 
       }
+      
       `;
 
     const settings = {
@@ -75,18 +76,18 @@ const CategoryProduct = ({ShowCategoryProduct , Category }) => {
                     {Category.map((ele, index) => {
                         return (
                             <div>
-                             <div className='col-10 ' key={index}>
-                             <div className='slider1'>
-                                 {/* <Link to={`/CategoryProduct/${ele.name}`} state={ ele.id }> */}
-                                 <LazyLoadImage onClick={()=>{ShowCategoryProduct(ele.id , ele.name)}} src={`http://backend.sweede.net/`+ ele.categoryImages} alt="glass_img" className='rounded-circle  Image_Width' />
-                                 {/* </Link> */}
-                                </div>
-                                <div className='col-12 center '>
-                                    <div className='col center Category_title' >
-                                        <p>{ele.name.substr(0, 100)}</p>
+                                <div className='col-10 ' key={index}>
+                                    <div className='slider1'>
+                                        {/* <Link to={`/CategoryProduct/${ele.name}`} state={ ele.id }> */}
+                                        <LazyLoadImage onClick={() => { ShowCategoryProduct(ele.id, ele.name) }} src={`http://backend.sweede.net/` + ele.categoryImages} alt="glass_img" className='rounded-circle  Image_Width' />
+                                        {/* </Link> */}
+                                    </div>
+                                    <div className='col-12 center '>
+                                        <div className='col center Category_title' >
+                                            <p>{ele.name.substr(0, 100)}</p>
+                                        </div>
                                     </div>
                                 </div>
-                             </div>
                             </div>
                         )
                     })}
