@@ -28,9 +28,9 @@ const DispensoriesAddress = () => {
     const classes = useStyles()
     return (
         <>
-            <div className="container-fluid">
+            <div className="container-fluid mt-4">
                 <div className='row'>
-                    <div className='col-12 ' >
+                    <div className='col-12  ' >
                         <div className="disp_head  ">
                             <p>Shop Dispensories near you</p>
                         </div>

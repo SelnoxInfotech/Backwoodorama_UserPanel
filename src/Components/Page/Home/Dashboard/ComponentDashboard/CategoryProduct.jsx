@@ -2,12 +2,9 @@ import * as React from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useEffect, useState } from 'react';
 import styled from "styled-components";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { Link } from 'react-router-dom';
 const CategoryProduct = ({ ShowCategoryProduct, Category }) => {
-    // const [value, setValue] = useState(Category)
     const SliderCategory = styled(Slider)`
     .slick-next {
         right: 0px;
@@ -34,7 +31,6 @@ const CategoryProduct = ({ ShowCategoryProduct, Category }) => {
         speed: 500,
         slidesToShow: 7,
         slidesToScroll: 1,
-        // autoplay: true,
         responsive: [
             {
                 breakpoint: 1024,
@@ -50,7 +46,6 @@ const CategoryProduct = ({ ShowCategoryProduct, Category }) => {
                 settings: {
                     slidesToShow: 4,
                     slidesToScroll: 2,
-                    // initialSlide: 2,
                     infinite: false,
 
                 }
@@ -81,9 +76,9 @@ const CategoryProduct = ({ ShowCategoryProduct, Category }) => {
                             <div>
                                 <div className='col-10 ' key={index}>
                                     <div className='slider1'>
-                                        {/* <Link to={`/CategoryProduct/${ele.name}`} state={ ele.id }> */}
+                                 
                                         <LazyLoadImage onClick={() => { ShowCategoryProduct(ele.id, ele.name) }} src={`http://backend.sweede.net/` + ele.categoryImages} alt="glass_img" className='rounded-circle  Image_Width' />
-                                        {/* </Link> */}
+                                    
                                     </div>
                                     <div className='col-12 center '>
                                         <div className='col center Category_title' >
