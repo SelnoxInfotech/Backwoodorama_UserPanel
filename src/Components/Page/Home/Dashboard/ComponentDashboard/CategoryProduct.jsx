@@ -22,6 +22,9 @@ const CategoryProduct = ({ ShowCategoryProduct, Category }) => {
         margin-inline: 10px;
 
       }
+      .slick-track{
+        margin-left: inherit;
+      }
       
       `;
 
