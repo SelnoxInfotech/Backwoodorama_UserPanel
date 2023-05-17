@@ -19,14 +19,14 @@ function btn (){
                 <div className="row  ">
 
                         
-                    <div className="col-12 newProductCategorySliderContainer  ">
-                    <ScrollContainer className="ScrollContainer">
+                    <div className="col-12 newProductCategorySliderContainer">
+                    <ScrollContainer className="ScrollContainer_newProductCtaegory">
                         {flowerArray?.map((items, index) => {
                             return (
-                                <div className="col newProductCard  pt-2 " key={index}>
+                                <div className="col-6 col-md-4 col-lg-2  newProductCard mx-0 NewProductCategory_slider pt-2 " key={index}>
 
 
-                                    <div className="col-12">
+                                    <div className="col-12 center">
                                         <div className="newProduct_category_slider_image">
 
                                             <Link to={`/Product/${items.name}`} state={ items.id }>
@@ -43,7 +43,7 @@ function btn (){
 
                                         
                                     </div>
-                                    <div className="col-12 d-flex  newProductCategorySliderName">
+                                    <div className="col-12 d-flex center newProductCategorySliderName">
                                         <p className=" text-truncate">{items.name}</p>
                                     </div>
                                 </div>

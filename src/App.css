@@ -504,5 +504,5 @@ position: relative ;
   width: 100%;
   display: inherit  ;
   /* gap: 2%; */
-  justify-content: space-around;
+  /* justify-content: space-around; */
 }

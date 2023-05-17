@@ -3534,7 +3534,7 @@
 }
 
 .recentViewProductCard {
-  margin: .5rem;
+  /* margin: .5rem; */
   border-radius: 6px;
   cursor: pointer;
   transition: all 250ms ease-in-out;
@@ -4019,3 +4019,9 @@ color: #333333;
 
 
 /* end */
+/* ScrollContainer_newProductCtaegory */
+.ScrollContainer_newProductCtaegory{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
