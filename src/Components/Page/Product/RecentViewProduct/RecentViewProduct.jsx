@@ -49,7 +49,7 @@ const RecentViewProduct = () => {
                     {FlowerArray.map((items, index) => {
                         return (
                         
-                            <div className="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12   recentViewProductCard "    key={index} >
+                            <div className="  recentViewProductCard "   key={index} >
                                 <div className="row border mx-1">
                                     <div className="col-12 center recentViewImageContainer p-2">
                                         <LazyLoadImage className="recentView_images" src={items.imgUrl} alt="image not availble" />
