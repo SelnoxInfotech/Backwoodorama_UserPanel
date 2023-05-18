@@ -50,7 +50,7 @@ const RecentViewProduct = () => {
                         return (
                         
                             <div className="recentViewProductCard "   key={index} >
-                                <div className="row border mx-1">
+                                <div className="row  mx-1">
                                     <div className="col-12 center recentViewImageContainer p-2">
                                         <LazyLoadImage className="recentView_images" src={items.imgUrl} alt="image not availble" />
                                     </div>

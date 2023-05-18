@@ -46,13 +46,13 @@ const DispensoriesAddress = () => {
                     {Store.map((ele, index) => {
                         return (
 
-                            <div className=' dispensoriesContainer px-2' key={index} >
+                            <div className='dispensoriesContainer' key={index} >
                                 <div className='col-12 dispensories_image_containerss'>
                                     <Link to={`/DispensoriesProduct/${ele.id}/${"Menu"}`}>
                                         <img src={`http://backend.sweede.net/${ele?.Store_Image}`} alt='img_not_found' className='img-responsive dispensories_image rounded center-block' />
                                     </Link>
                                 </div>
-                                <div>
+                                <div className='px-2'>
                                     <div className='col-12  '>
 
                                             <div className=' col-10  dis_right_div'>
@@ -60,7 +60,7 @@ const DispensoriesAddress = () => {
                                             </div>
                                         </div>
                                         <div className='col-12  '>
-
+                                            
                                             <div className=' col-10 Dispensaries_card_discription'>
                                                 <div className='col-2'>
                                                     <span className='span_nav'><BiMap className={classes.disPen_Icons} /></span>
@@ -79,7 +79,7 @@ const DispensoriesAddress = () => {
                                         </div>
                                     </div>
                                     <div className='col-12  '>
-
+                                      
                                         <div className=' col-10 Rating'>
                                             <div className='col-2 color'>
                                                 <span>Rating</span>
@@ -91,15 +91,13 @@ const DispensoriesAddress = () => {
                                             </div>
                                         </div>
 
-                                    <div className='col-12   mt-4'>
+                                    <div className='col-12  mt-4'>
 
-                                        <div className=' col-10  mb-2'>
                                             <Box
                                                 className={`${classes.loadingBtnTextAndBack}`}
                                             >
                                                 <LoadingButton style={{ width: "100%" }}>Order Pickup</LoadingButton>
                                             </Box>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

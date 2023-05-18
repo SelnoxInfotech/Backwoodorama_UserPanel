@@ -3550,6 +3550,8 @@
 
 .dispensoriesContainer {
   height: 100%;
+  border: 1px solid #E7E7E7;
+
 }
 
 .dispensories_image_containerss {
@@ -3557,19 +3559,19 @@
 }
 
 .dispensories_image {
-  width: 100%;
+  width: 310px;
   height: 170px;
 }
 
 .recentViewProductCard {
   /* margin: .5rem; */
-  width: 250px;
+  width: 306px;
   flex: 0 0 auto;
   border-radius: 6px;
   cursor: pointer;
   transition: all 250ms ease-in-out;
   height: 100%;
-
+  border: 1px solid #949494;
 }
 
 .recentViewProductSlider::-webkit-scrollbar {
