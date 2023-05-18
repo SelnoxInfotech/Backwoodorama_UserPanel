@@ -31,13 +31,12 @@ const SearchBar = () => {
                 const o = Object?.entries(response?.data).map((data, index, value) => {
                     return (data)
                 })
-                console.log(o)
-                const y = o.map((data) => {
-                    const z = [data[0], data[1]]
-                    return z
+                const z = []
+                const y = o?.map((data) => {
+                    
+                    return data[0]
                 });
-                   SetSearchData(y)
-            
+                SetSearchData(y);
             }
 
             else (
@@ -72,10 +71,10 @@ const SearchBar = () => {
     //        }
     //     }));
     //  };
- 
 
 
-    console.log(SearchData  )
+
+    console.log(SearchData?.map((option) => option))
     // React.useEffect(() => {
     //     if (!geolocationAPI) {
     //         console.log("Geolocation API is not available in your browser!");
@@ -106,20 +105,7 @@ const SearchBar = () => {
     //         );
     //       }
     // }, [geolocationAPI])
-    const topFilms = () => [
-        { label: 'The Shawshank Redemption', year: 1994 },
-        { label: 'The Godfather', year: 1972 },
-        { label: 'The Godfather: Part II', year: 1974 },
-        { label: 'The Dark Knight', year: 2008 },
-        { label: '12 Angry Men', year: 1957 },
-        { label: "Schindler's List", year: 1993 },
-        { label: 'Pulp Fiction', year: 1994 },
-        {
-            label: 'The Lord of the Rings: The Return of the King',
-            year: 2003,
-        },
-        { label: 'The Good, the Bad and the Ugly', year: 1966 }
-    ];
+    const topFilms = () => SearchData;
     return (
         <>
             <div className="col_Search">
@@ -129,7 +115,7 @@ const SearchBar = () => {
                         variant="outlined"
                         freeSolo
                         size="small"
-                        options={SearchData?.map((option) => option[0])}
+                        options={topFilms()?.map((option) => console.log(option))}
                         sx={{ width: "100%" }}
                         onClick={Search}
                         renderInput={(params) => <TextField
