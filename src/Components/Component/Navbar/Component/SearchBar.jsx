@@ -8,9 +8,10 @@ import Geocode from "react-geocode";
 import Axios from "axios"
 import React from 'react';
 const SearchBar = () => {
-    const [SearchData , SetSearchData] =  React.useState([])
+    const [SearchData, SetSearchData] = React.useState([])
     const classes = useStyles()
     async function Search(event) {
+        SetSearchData([])
         await Axios.post(`http://backend.sweede.net/UserPanel/Get-HomePageFilter/`,
             {
 
@@ -23,14 +24,58 @@ const SearchBar = () => {
             // objKeys.forEach((key) => { s = key[1], h= key[0] })
             // SetSearchData(SearchData => ({ ...SearchData, s: h }))
             //    console.log(response?.data)
-            SetSearchData(response?.data.Brand)
-              
+            if (response.status === 200) {
+                // SetSearchData(Object?.entries(response?.data).map((data, index, value) => {
+                //     return(data)
+                // }))
+                const o = Object?.entries(response?.data).map((data, index, value) => {
+                    return (data)
+                })
+                console.log(o)
+                const y = o.map((data) => {
+                    const z = [data[0], data[1]]
+                    return z
+                });
+                   SetSearchData(y)
+            
+            }
+
+            else (
+                SetSearchData([])
+            )
+
         }).catch(
             function (error) {
 
             })
     }
-    console.log(SearchData)
+    // console.log( Object?.entries(SearchData))
+    // console.log(Object.keys(SearchData))
+    // const y  =  SearchData.forEach((value, index, array) => {
+    //    return ( 
+    //     value[0]
+    // const y  =  SearchData?.map((data, index, value) => {
+    //     return(data)
+    // })
+    //    )
+    // `prop` is the property name
+    // `data[prop]` is the property value
+    //   });
+
+    // for (const key in SearchData) {
+    //     console.log(`${key}: ${SearchData}`);
+    // }
+    // const sortKeys = (obj) => {
+    //     return Object.assign(...Object.entries(obj).sort().map(([key, value]) => {
+    //        return {
+    //           [key]: value
+    //        }
+    //     }));
+    //  };
+ 
+
+
+    console.log(SearchData  )
     // React.useEffect(() => {
     //     if (!geolocationAPI) {
     //         console.log("Geolocation API is not available in your browser!");
@@ -61,8 +106,6 @@ const SearchBar = () => {
     //         );
     //       }
     // }, [geolocationAPI])
-
-
     const topFilms = () => [
         { label: 'The Shawshank Redemption', year: 1994 },
         { label: 'The Godfather', year: 1972 },
@@ -86,8 +129,9 @@ const SearchBar = () => {
                         variant="outlined"
                         freeSolo
                         size="small"
-                        options={SearchData?.map((option) => option.name + "y")}
+                        options={SearchData?.map((option) => option[0])}
                         sx={{ width: "100%" }}
+                        onClick={Search}
                         renderInput={(params) => <TextField
                             {...params}
                             onChange={Search}
