@@ -46,7 +46,7 @@ const DispensoriesAddress = () => {
                         {Store.map((ele, index) => {
                             return (
 
-                                <div className='col-lg-4 col-md-6 col-sm-6 col-12 dispensoriesContainer px-2' key={index} >
+                                <div className='col-lg-3 col-md-6 col-sm-6 col-12 dispensoriesContainer px-2' key={index} >
                                     <div className='col-12 dispensories_image_containerss'>
                                         <Link to={`/DispensoriesProduct/${ele.id}/${"Menu"}`}>
                                             <img src={`http://backend.sweede.net/${ele?.Store_Image}`} alt='img_not_found' className='img-responsive dispensories_image rounded center-block'  />
@@ -59,18 +59,16 @@ const DispensoriesAddress = () => {
                                                 <p className='ellipsis'>{ele.Store_Name.charAt(0).toUpperCase() + ele.Store_Name.slice(1)}</p>
                                             </div>
                                         </div>
-                                        <div className='col-12  '>
 
-                                            <div className=' col-10 Dispensaries_card_discription'>
-                                                <div className='col-2'>
+                                            <div className=' col-12 Dispensaries_card_discription'>
+                                                <div className='col-2 '>
                                                     <span className='span_nav'><BiMap className={classes.disPen_Icons} /></span>
                                                 </div>
 
                                                 <div className='col-10'>
-                                                    <span className='ellipsis'>{ele.city_name}/110 mi</span>
+                                                    <span className='ellipsis '>{ele.city_name}/110 mi</span>
                                                 </div>
                                             </div>
-                                        </div>
 
 
                                         <div className='col-12  '>
@@ -85,7 +83,7 @@ const DispensoriesAddress = () => {
                                                     <span>Rating</span>
                                                 </div>
 
-                                                <div className='col-10'>
+                                                <div className='col-10 disp_padding_left'>
                                                     <span> <Rating name="read-only" value={4} readOnly /></span>
                                                 </div>
                                             </div>
