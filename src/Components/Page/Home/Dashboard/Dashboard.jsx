@@ -37,7 +37,7 @@ export default function Dashboard() {
             <LatestServices></LatestServices>
             
             <CommunityType></CommunityType> 
-            <Footer></Footer>
+            {/* <Footer></Footer> */}
         </div>
     )
 }

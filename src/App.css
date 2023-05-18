@@ -493,7 +493,11 @@ position: relative ;
 /* end */
 
 
-
+#layout{
+  
+  padding-left: 0;
+      padding-right: 0;
+}
 .ScrollContainer{
   width: 100%;
   display: inherit  ;
