@@ -46,10 +46,10 @@ const DispensoriesAddress = () => {
                         {Store.map((ele, index) => {
                             return (
 
-                                <div className='col-lg-4 col-md-6 col-sm-12 col-12 ' key={index} >
-                                    <div className=''>
+                                <div className='col-lg-4 col-md-6 col-sm-6 col-12 dispensoriesContainer px-2' key={index} >
+                                    <div className='col-12 dispensories_image_containerss'>
                                         <Link to={`/DispensoriesProduct/${ele.id}/${"Menu"}`}>
-                                            <img src={`http://backend.sweede.net/${ele?.Store_Image}`} alt='img_not_found' className='img-responsive rounded center-block' width={"83%"} height={"170px"} />
+                                            <img src={`http://backend.sweede.net/${ele?.Store_Image}`} alt='img_not_found' className='img-responsive dispensories_image rounded center-block'  />
                                         </Link>
                                     </div>
                                     <div>
@@ -97,7 +97,7 @@ const DispensoriesAddress = () => {
                                                 <Box
                                                     className={`${classes.loadingBtnTextAndBack}`}
                                                 >
-                                                    <LoadingButton style={{width:"80%"}}>Order Pickup</LoadingButton>
+                                                    <LoadingButton style={{width:"100%"}}>Order Pickup</LoadingButton>
                                                 </Box>
                                             </div>
                                         </div>

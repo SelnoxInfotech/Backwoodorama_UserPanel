@@ -25,7 +25,7 @@ export default function Dashboard() {
 
     }, [])
     return (
-        <div className="container">
+        <div >
              <HomePageBanner></HomePageBanner>
             <CategoryProduct Category={Category} ShowCategoryProduct={ShowCategoryProduct}></CategoryProduct>
             <DispensoriesAddress></DispensoriesAddress>

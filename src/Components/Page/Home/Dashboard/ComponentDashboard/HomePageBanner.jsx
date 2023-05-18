@@ -28,6 +28,8 @@ const HomePageBanner = () => {
         position: relative;
         right: 0px;
         display: none;
+        background-color:white;
+        height:0px;
       } 
       .slick-prev {
         position: relative;
@@ -91,7 +93,7 @@ const HomePageBanner = () => {
         <SliderCategory {...settings}>
             {items.map((ele, index) => {
                 return (
-                    <div className='col-12'>
+                    <div className='col-12 '>
                         <LazyLoadImage src={ele.description} alt="glass_img" className='HomePageBanner_image' />
                     </div>
 

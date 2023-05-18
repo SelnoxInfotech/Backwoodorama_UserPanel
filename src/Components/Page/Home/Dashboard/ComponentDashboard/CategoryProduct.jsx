@@ -7,8 +7,12 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 const CategoryProduct = ({ ShowCategoryProduct, Category }) => {
     const SliderCategory = styled(Slider)`
     .slick-next {
+        position: relative;
         right: 0px;
-      } 
+        display: none;
+        background-color:white;
+        height:0px;
+      }
       .slick-prev {
         left: 0px;
       }
@@ -44,7 +48,7 @@ const CategoryProduct = ({ ShowCategoryProduct, Category }) => {
             {
                 breakpoint: 600,
                 settings: {
-                    slidesToShow: 4,
+                    slidesToShow: 3,
                     slidesToScroll: 2,
                     infinite: false,
 
@@ -53,7 +57,7 @@ const CategoryProduct = ({ ShowCategoryProduct, Category }) => {
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 4,
+                    slidesToShow: 3,
                     slidesToScroll: 1,
                     infinite: false,
 
@@ -64,7 +68,7 @@ const CategoryProduct = ({ ShowCategoryProduct, Category }) => {
 
     return (
         <>
-            <div className='container-fluid '>
+            <div className='container-fluid mt-4'>
                 <div className='row'>
                     <div className='col-12 disp_head'>
                         <p>Shop by  category</p>
