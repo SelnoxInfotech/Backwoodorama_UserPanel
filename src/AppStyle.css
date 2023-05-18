@@ -2043,10 +2043,12 @@
 
 /* end */
 /* HomePageBanner */
+.homePageBanner_container{
+  height: 100%;
+}
 .HomePageBanner_image {
   width: 100%;
   height: 285px;
-  object-fit: cover;
 }
 
 .homepage_carousal_container {

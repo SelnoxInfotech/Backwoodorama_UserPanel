@@ -46,7 +46,7 @@ const DispensoriesAddress = () => {
                     {Store.map((ele, index) => {
                         return (
 
-                            <div className='col-lg-3 col-md-6 col-sm-6 col-12 dispensoriesContainer px-2' key={index} >
+                            <div className=' dispensoriesContainer px-2' key={index} >
                                 <div className='col-12 dispensories_image_containerss'>
                                     <Link to={`/DispensoriesProduct/${ele.id}/${"Menu"}`}>
                                         <img src={`http://backend.sweede.net/${ele?.Store_Image}`} alt='img_not_found' className='img-responsive dispensories_image rounded center-block' />

@@ -93,7 +93,7 @@ const HomePageBanner = () => {
         <SliderCategory {...settings}>
             {items.map((ele, index) => {
                 return (
-                    <div className='col-12 '>
+                    <div className='col-12 homePageBanner_container'>
                         <LazyLoadImage src={ele.description} alt="glass_img" className='HomePageBanner_image' />
                     </div>
 
