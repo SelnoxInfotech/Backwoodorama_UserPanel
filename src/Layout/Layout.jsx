@@ -21,21 +21,15 @@ export default function BasicGrid() {
 
 
         <div>
-
             <Navbar></Navbar>
-            <div className='container-sm'>
-
-            <Grid  item={true} xs={12} md={12} xl={12}>
-
-                <Outlet />
-
-            </Grid>
+            <div className='container ' id='layout'>
+                <Grid item={true} xs={12} md={12} xl={12}>
+                    <Outlet />
+                </Grid>
             </div>
-
             {/* <div className='Snckerbar'>
                 gdfgg
             </div> */}
-
         </div>
 
     )
