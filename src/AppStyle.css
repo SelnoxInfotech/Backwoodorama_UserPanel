@@ -1793,7 +1793,6 @@
 
 @media screen and (min-width: 200px) and (max-width:1496px) {
   .delivery_information_container {
-    /* height: 1200px; */
     overflow-y: scroll;
     overflow-x: hidden;
 
@@ -1804,11 +1803,6 @@
   height: 50px;
   cursor: pointer;
 }
-
-.height_text_field {
-  /* height: 50px; */
-}
-
 .font_color {
   color: rgb(102, 102, 102);
   margin-top: 4px;
@@ -3557,6 +3551,7 @@
   /* border: 1px solid #E7E7E7; */
 
 }
+
 .dispensoriesAddressBorder{
   background: #FFFFFF;
 border: 1px solid #31B665;
@@ -3603,7 +3598,10 @@ border-radius: 10px;
 .recentViewImageContainer {
   height: 120px;
 }
+.recentViewContainer{
+  height: auto;
 
+}
 .recentView_images {
   height: 110px;
   width: 110px;
@@ -3612,16 +3610,27 @@ border-radius: 10px;
 .recentViewProductContent_container {
   height: 200px;
 }
-
+.recentViewProductBorder{
+  background: #FFFFFF;
+  border: 1px solid #31B665;
+  border-radius: 10px;
+}
 .recentViewProduct_heading h1 {
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
   line-height: 30px;
-
   color: #000000;
 }
-
+.recentViewProduct_heading{
+  height: 35px;
+}
+.recentViewProductParagraph{
+  height: 35px;
+}
+.recentViewProduct_BtnContainer{
+  height: 50px;
+}
 .recentView_place {
   font-weight: 400;
   font-size: 15px;
