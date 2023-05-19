@@ -133,7 +133,7 @@ a{
 
 /* navbar search */
 .nav_search_bar_div{
-  /* height: 40px; */
+ 
   margin-top: 4px;
 
   display: flex;
@@ -146,8 +146,12 @@ a{
   padding-left: 10px;
   background: rgb(238, 238, 238);
 }
+/* .Search_Section{
+  width: 50%;
+} */
 #Boder_left{  
     border-left: 1px solid gray;
+
 
 }
 /* .col_Search{
@@ -510,3 +514,5 @@ position: relative ;
   /* gap: 1%; */
   justify-content: start;
 }
+
+
