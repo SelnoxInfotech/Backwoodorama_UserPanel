@@ -71,9 +71,11 @@
   display: flex;
   height: max-content;
 }
-.disp_padding_left{
+
+.disp_padding_left {
   padding-left: 18px;
 }
+
 .Dispensaries_card_discription .col-2 {
   width: 25px;
 }
@@ -2043,9 +2045,10 @@
 
 /* end */
 /* HomePageBanner */
-.homePageBanner_container{
+.homePageBanner_container {
   height: 100%;
 }
+
 .HomePageBanner_image {
   width: 100%;
   height: 285px;
@@ -3544,24 +3547,43 @@
   padding: 1rem;
   overflow-x: auto;
   overflow-y: hidden;
-  height: 380px;
+  height: auto;
   padding-left: 14px;
+  margin-bottom: 40px;
 }
 
 .dispensoriesContainer {
-  height: 100%;
-  border: 1px solid #E7E7E7;
+  height: auto;
+  /* border: 1px solid #E7E7E7; */
 
 }
+.dispensoriesAddressBorder{
+  background: #FFFFFF;
+border: 1px solid #31B665;
+border-radius: 10px;
+}
 
-.dispensories_image_containerss {
-  height: 170px;
+.dispensoriesContentContainer {
+  height: 190px;
 }
 
 .dispensories_image {
-  width: 310px;
-  height: 170px;
+  /* width: 310px; */
+  width: 100%;
+  height: 100%;
 }
+
+.dispensories_image_containerss {
+  height: 240px;
+}
+
+@media(max-width:575px) {
+  .dispensories_image_containerss {
+    height: 215px;
+  }
+}
+
+
 
 .recentViewProductCard {
   /* margin: .5rem; */
@@ -4058,3 +4080,81 @@
   display: flex;
   justify-content: flex-start;
 }
+
+/* DeliveryServices */
+.delivery_services_heading {
+  height: 40px;
+}
+
+.delivery_services_heading h1 {
+  font-weight: 700;
+  font-size: 25px;
+  color: #000000;
+}
+
+.delivery_services_subheading h2 {
+  font-weight: 400;
+  font-size: 20px;
+  color: #000000;
+}
+.deliveryServicesBorder{
+  background: #FFFFFF;
+border: 1px solid #31B665;
+border-radius: 23px;
+}
+.deliveryServicesImage_container {
+  height: 280px;
+}
+
+.deliveryServicesImage {
+  width: 100%;
+  height: 100%;
+}
+
+.deliveryServicesContent_container {
+  height: 120px;
+}
+
+.deliveryServicesTitle p {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  color: #000000;
+}
+.deliveryServicesTitle{
+  height: 35px;
+}
+.deliveryServices_SubTitle p {
+  font-weight: 400;
+  font-size: 16px;
+  color: #000000;
+}
+.deliveryServices_SubTitle{
+  height: 35px;
+
+}
+.dispensoriesBanner{
+  background: #E8FFF1;
+  height: 130px;
+}
+.dispensoriesBannerHeading h5{
+  font-weight: 700;
+font-size: 32px;
+color: #535353;
+}
+.dispensoriesBannerSubHeading p{
+  font-weight: 700;
+  font-size: 32px;
+
+color:#31B665;
+}
+@media(max-width:600px){
+  .dispensoriesBannerHeading h5{
+    height: 16px;
+  } 
+  .dispensoriesBannerSubHeading p{
+    height: 16px;
+
+  }
+}
+/* end */

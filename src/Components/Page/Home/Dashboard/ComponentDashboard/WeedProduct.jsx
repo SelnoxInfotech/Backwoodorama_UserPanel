@@ -92,17 +92,7 @@ const WeedProduct = () => {
         <>
             <div className="container-fluid " style={{marginTop:"62px"}}>
 
-                <div className="row weed_had_btn mt-4">
-                    <div className='col-12 border'>
-                        <div className="col mt-4">
-                            <h5>Want to find weed deals near you and more?</h5>
-                            <p className='weed_paragraph'>Let's connect</p>
-
-                        </div>
-
-                    </div>
-
-                </div>
+           
 
                 <div className="row weed_had_btn mt-4">
                     <div className='col-12  d-flex '>

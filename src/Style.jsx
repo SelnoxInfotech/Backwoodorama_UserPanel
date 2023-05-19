@@ -251,6 +251,11 @@ const useStyles = makeStyles({
     fontSize: "60px",
     color: "gray"
   },
+homePageStarIcons:{
+  "&.MuiRating-root":{
+    color: "#31B665",
+  },
+},
   productSearchIcons: {
     fontSize: "25px",
     color: "gray"

@@ -9,7 +9,6 @@ import { Rating } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Createcontext from '../../../../Hooks/Context';
 import { ScrollContainer } from 'react-indiana-drag-scroll';
-
 const DispensoriesAddress = () => {
     const ref = React.useRef(null);
 
@@ -28,9 +27,19 @@ const DispensoriesAddress = () => {
     const classes = useStyles()
     return (
         <>
-            <div className="container-fluid mt-4">
+            <div className="container-fluid">
                 <div className='row'>
-                    <div className='col-12  ' >
+                    {/* <div className='col-12 dispensoriesBanner  center'>
+                        <div className=" mt-4 dispensoriesBannerHeading dispensoriesBannerSubHeading">
+                            <h5>Want to find weed deals near you and more?</h5>
+                            <p className='weed_paragraph'>Let's connect</p>
+
+                        </div>
+                    
+
+                    </div> */}
+
+                    <div className='col-12  mt-2' >
                         <div className="disp_head  ">
                             <p>Shop Dispensories near you</p>
                         </div>
@@ -46,21 +55,23 @@ const DispensoriesAddress = () => {
                     {Store.map((ele, index) => {
                         return (
 
-                            <div className='dispensoriesContainer' key={index} >
-                                <div className='col-12 dispensories_image_containerss'>
-                                    <Link to={`/DispensoriesProduct/${ele.id}/${"Menu"}`}>
-                                        <img src={`http://backend.sweede.net/${ele?.Store_Image}`} alt='img_not_found' className='img-responsive dispensories_image rounded center-block' />
-                                    </Link>
-                                </div>
-                                <div className='px-2'>
-                                    <div className='col-12  '>
+                            <div className='dispensoriesContainer col-12  col-sm-6 col-md-6 col-lg-4 col-xl-3' key={index}>
+                                <div className=' dispensoriesAddressBorder mx-1'>
+
+                                    <div className='col-12 dispensories_image_containerss'>
+                                        <Link to={`/DispensoriesProduct/${ele.id}/${"Menu"}`}>
+                                            <img src={`http://backend.sweede.net/${ele?.Store_Image}`} alt='img_not_found' className='img-responsive dispensories_image rounded center-block' />
+                                        </Link>
+                                    </div>
+                                    <div className='dispensoriesContentContainer px-2'>
+                                        <div className='col-12'>
 
                                             <div className=' col-10  dis_right_div'>
                                                 <p className='ellipsis'>{ele.Store_Name.charAt(0).toUpperCase() + ele.Store_Name.slice(1)}</p>
                                             </div>
                                         </div>
                                         <div className='col-12  '>
-                                            
+
                                             <div className=' col-10 Dispensaries_card_discription'>
                                                 <div className='col-2'>
                                                     <span className='span_nav'><BiMap className={classes.disPen_Icons} /></span>
@@ -73,31 +84,32 @@ const DispensoriesAddress = () => {
                                         </div>
 
 
-                                    <div className='col-12  '>
-                                        <div className=' col-10 Dispensaries_card_discription'>
-                                            <span className='ellipsis'>{ele.Store_Type}</span>
-                                        </div>
-                                    </div>
-                                    <div className='col-12  '>
-                                      
-                                        <div className=' col-10 Rating'>
-                                            <div className='col-2 color'>
-                                                <span>Rating</span>
+                                        <div className='col-12  '>
+                                            <div className=' col-10 Dispensaries_card_discription'>
+                                                <span className='ellipsis'>{ele.Store_Type}</span>
                                             </div>
+                                        </div>
+                                        <div className='col-12  '>
 
-                                                <div className='col-10'>
-                                                    <span> <Rating name="read-only" value={4} readOnly /></span>
+                                            <div className=' col-10 Rating'>
+                                                <div className='col-2 color'>
+                                                    <span>Rating</span>
+                                                </div>
+
+                                                <div className='col-10 '>
+                                                    <span className='mx-3'> <Rating className={classes.homePageStarIcons} color='green' name="read-only" value={4} readOnly /></span>
                                                 </div>
                                             </div>
                                         </div>
 
-                                    <div className='col-12  mt-4'>
+                                        <div className='col-12  mt-4'>
 
                                             <Box
                                                 className={`${classes.loadingBtnTextAndBack}`}
                                             >
                                                 <LoadingButton style={{ width: "100%" }}>Order Pickup</LoadingButton>
                                             </Box>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

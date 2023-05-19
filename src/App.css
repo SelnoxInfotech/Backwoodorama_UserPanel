@@ -506,7 +506,7 @@ position: relative ;
 }
 .ScrollContainerRelative{
   width: 100%;
-  display: inherit  ;
-  gap: 1%;
-  /* justify-content: space-around; */
+  display: flex  ;
+  /* gap: 1%; */
+  justify-content: start;
 }
