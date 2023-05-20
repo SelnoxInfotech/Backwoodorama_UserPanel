@@ -36,10 +36,22 @@ const SearchBar = () => {
                 })
                 const z = []
                 const y = o?.map((data) => {
-                    console.log(data)
+                    // console.log(data)
                     return data
                 });
-                SetSearchData(y);
+                // console.log(y)
+
+                y.map((data1) => {
+                    data1[1].map((data) => {
+                        //  console.log(data?.images[0]?.image)
+                        SetSearchData(SearchData => [...SearchData, { type: data1[0], value: data.name || data.Product_Name || data.Store_Name, id: data.id , image: data.Brand_Logo || data.categoryImages || data.Store_Image   || data.SubCategoryImage }]);
+                    }
+
+                    )
+
+
+                })
+                // SetSearchData(response?.data);
             }
 
             else (
@@ -52,87 +64,11 @@ const SearchBar = () => {
             })
     }
 
-    // React.useEffect(async ()=>{
-    //    await Search()
-    // },[])
-    // console.log( Object?.entries(SearchData))
-    // console.log(Object.keys(SearchData))
-    // const y  =  SearchData.forEach((value, index, array) => {
-    //    return ( 
-    //     value[0]
-    // const y  =  SearchData?.map((data, index, value) => {
-    //     return(data)
-    // })
-    //    )
-    // `prop` is the property name
-    // `data[prop]` is the property value
-    //   });
-
-    // for (const key in SearchData) {
-    //     console.log(`${key}: ${SearchData}`);
-    // }
-    // const sortKeys = (obj) => {
-    //     return Object.assign(...Object.entries(obj).sort().map(([key, value]) => {
-    //        return {
-    //           [key]: value
-    //        }
-    //     }));
-    //  };
     const [open, setOpen] = React.useState(false);
     const [options, setOptions] = React.useState([]);
     const loading = open && options.length === 0;
+      console.log(SearchData)
 
-
-    // SearchData.map((key, value, index) => {
-
-    // })
-    // console.log(SearchData.ma   
-    // React.useEffect(() => {
-    //     if (!geolocationAPI) {
-    //         console.log("Geolocation API is not available in your browser!");
-    //       } else {
-    //         geolocationAPI.getCurrentPosition(
-    //           (position) => {
-    //             const { coords } = position;
-    //             setLat(coords.latitude);
-    //             setLong(coords.longitude);
-    //             Geocode.setApiKey("AIzaSyC_MQE9O7OW5sM2Pvyzs5zjotWyqdshhjA");
-    //             Geocode.setLanguage("en");
-    //             Geocode.setRegion("es"); 
-    //             Geocode.setLocationType("ROOFTOP");
-    //             Geocode.enableDebug();
-    //             Geocode.fromLatLng(coords.latitude, coords.longitude).then(
-    //                 (response) => {
-    //                   const address = response.results[0].formatted_address;
-    //                   console.log(address);
-    //                 },
-    //                 (error) => {
-    //                   console.error(error);
-    //                 }
-    //               );
-    //           },
-    //           (error) => {
-    //             console.log("Something went wrong getting your position!");
-    //           }
-    //         );
-    //       }
-    // }, [geolocationAPI])
-    const top100Films = [
-        { title: 'The Shawshank Redemption', year: 1994 },
-        { title: 'The Godfather', year: 1972 },
-        { title: 'The Godfather: Part II', year: 1974 },
-        { title: 'The Dark Knight', year: 2008 },
-        { title: '12 Angry Men', year: 1957 },
-        { title: "Schindler's List", year: 1993 },
-        { title: 'Pulp Fiction', year: 1994 },
-        { title: 'The Lord of the Rings: The Return of the King', year: 2003 },
-        { title: 'The Good, the Bad and the Ugly', year: 1966 },
-        { title: 'Fight Club', year: 1999 },
-        { title: 'The Lord of the Rings: The Fellowship of the Ring', year: 2001 },
-        { title: 'Star Wars: Episode V - The Empire Strikes Back', year: 1980 },
-        { title: 'Forrest Gump', year: 1994 },
-        { title: 'Inception', year: 2010 },
-    ];
     return (
         <>
             <div className="col_Search">
@@ -142,40 +78,23 @@ const SearchBar = () => {
                         onOpen={() => {
                             setOpen(true);
                         }}
+                        onClick={Search}
                         filterOptions={x => x}
                         onClose={() => {
                             setOpen(false);
                         }}
-                        getOptionSelected={(option) => (option && option[1].map((data) => data.name || data.Product_Name || data.Store_Name ) )}
-
-                        getOptionLabel={(option) => (option && option[1].map((data) => data.name))}
+                        getOptionLabel={(option) => option.value}
                         options={SearchData}
-                        disableClearable
+                        groupBy={(option) => option.type}
                         renderOption={(props, t) => {
-                        console.log(t)
                             return (
-                                <div {...props}>
-                                    <div style={{ color: "red" }} >
-                                        {t[0]}
-
-                                        <ol>
-                                        {t[1]?.map((data) => {
-                                            return  <li>{data?.name || data.Product_Name || data.Store_Name }</li>
-                                        })}
-                                        </ol>
-                                    </div>
-                                 
+                                <div {...props} style={{ color: "green" }} >
+                                    <ul>
+                                        <li key={`${t.value}`} > {`${t.value}`} <img src={`http://backend.sweede.net/${t.image}` } style={{width:"50px" , height:"50px"}}></img> </li>
+                                    </ul>
                                 </div>
                             )
-                                    }}
-                            //     <div {...props}>
-                            //       {t[0]}
-                            //         {t[1].map((data) => {
-                            //             return <p> {data.name || data.Product_Name} <br></br></p>
-                            //         })}
-                            //     </div>
-                            // );
-                      
+                        }}
                         loading={loading}
                         sx={{ width: "100%" }}
                         renderInput={(params) => <TextField
@@ -205,7 +124,7 @@ const SearchBar = () => {
                     />
                     <div id="Boder_left"></div>
 
-                    {/* <Autocomplete
+                    <Autocomplete
                         // open={open}
                         // onOpen={() => {
                         //     setOpen(true);
@@ -245,7 +164,7 @@ const SearchBar = () => {
                                 ),
                             }}
                         />}
-                    /> */}
+                    />
 
                 </div>
             </div>
