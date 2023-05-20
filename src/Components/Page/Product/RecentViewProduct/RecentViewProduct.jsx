@@ -70,9 +70,9 @@ const RecentViewProduct = () => {
                                                 <div className="w-100 recentViewProductParagraph">
                                                     <p><span><GoStar className={`${classes.disp_star_color}`} /></span><span className="mx-1 recentView_rating">4.5 Rating</span></p>
                                                 </div>
-                                                <div className="w-100 recentViewProduct_BtnContainer mt-4">
+                                                <div className="w-100 recentViewProduct_BtnContainer">
                                                     <Box
-                                                        className={`mt-1  ${classes.loadingBtnTextAndBack}`}
+                                                        className={`  ${classes.loadingBtnTextAndBack}`}
                                                         style={{ width: "100%" }}
                                                     >
 

@@ -59,10 +59,10 @@
 }
 
 .dis_right_div {
-  height: 30px;
+  height: 40px;
   font-style: normal;
   font-weight: 700;
-  font-size: 17px;
+  font-size: 24px;
   color: black;
 }
 
@@ -3559,11 +3559,10 @@ border-radius: 10px;
 }
 
 .dispensoriesContentContainer {
-  height: 190px;
+  height: 204px;
 }
 
 .dispensories_image {
-  /* width: 310px; */
   width: 100%;
   height: 100%;
 }
@@ -3581,7 +3580,6 @@ border-radius: 10px;
 
 
 .recentViewProductCard {
-  /* margin: .5rem; */
   width: 306px;
   flex: 0 0 auto;
   border-radius: 6px;
@@ -3630,6 +3628,7 @@ border-radius: 10px;
 }
 .recentViewProduct_BtnContainer{
   height: 50px;
+  margin-top: 30px;
 }
 .recentView_place {
   font-weight: 400;
@@ -4159,16 +4158,16 @@ border: 1px solid #31B665;
 border-radius: 23px;
 }
 .deliveryServicesImage_container {
-  height: 280px;
+  height: 200px;
 }
 
 .deliveryServicesImage {
   width: 100%;
   height: 100%;
+  border-radius: 20px 20px 0px 0px;
 }
-
 .deliveryServicesContent_container {
-  height: 120px;
+  height: 140px;
 }
 
 .deliveryServicesTitle p {

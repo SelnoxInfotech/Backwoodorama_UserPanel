@@ -4,21 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from "styled-components";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-const HomePageBanner = () => {
-    var items = [
-        {
-            name: "Random Name #1",
-            description: "/image/banner1.jpg"
-        },
-        {
-            name: "Random Name #2",
-            description: "/image/banner2.jpg"
-        },
-        {
-            name: "Random Name #3",
-            description: "/image/b3.jpg"
-        }
-    ];
+const HomePageWeedBanner=()=>{
     const SliderCategory = styled(Slider)`
 
     .slick-arrow{
@@ -47,7 +33,7 @@ const HomePageBanner = () => {
             bottom: -12px
       }
       `;
-    const settings = {
+      const settings = {
         dots: true,
         infinite: false,
         speed: 500,
@@ -88,22 +74,18 @@ const HomePageBanner = () => {
             }
         ]
     };
-    return (
-
-        <SliderCategory {...settings}>
-            {items.map((ele, index) => {
+    const HomePageWeedBanner=[{imgUrl:"/image/HomePageBanner.jpg"},{imgUrl:"/image/HomePageBanner.jpg"}]
+    return(
+            <SliderCategory {...settings}>
+            {HomePageWeedBanner.map((ele, index) => {
                 return (
                     <div className='col-12 homePageBanner_container' key={index}>
-                        <LazyLoadImage src={ele.description} alt="glass_img" className='HomePageBanner_image'/>
+                        <LazyLoadImage src={ele.imgUrl} alt="glass_img" className='HomePageBanner_image'/>
                     </div>
 
                 )
             })}
         </SliderCategory>
-
-
-
     )
-
 }
-export default HomePageBanner
+export default HomePageWeedBanner

@@ -46,14 +46,14 @@ const DispensoriesAddress = () => {
                         return (
 
                             <div className='dispensoriesContainer col-12  col-sm-6 col-md-6 col-lg-4 col-xl-3' key={index}>
-                                <div className=' dispensoriesAddressBorder mx-1'>
+                                <div className=' dispensoriesAddressBorder mx-3'>
 
                                     <div className='col-12 dispensories_image_containerss'>
                                         <Link to={`/DispensoriesProduct/${ele.id}/${"Menu"}`}>
                                             <img src={`http://backend.sweede.net/${ele?.Store_Image}`} alt='img_not_found' className='img-responsive dispensories_image rounded center-block' />
                                         </Link>
                                     </div>
-                                    <div className='dispensoriesContentContainer px-2'>
+                                    <div className='dispensoriesContentContainer px-4'>
                                         <div className='col-12'>
 
                                             <div className=' col-10  dis_right_div'>
