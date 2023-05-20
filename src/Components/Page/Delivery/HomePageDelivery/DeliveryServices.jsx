@@ -37,7 +37,7 @@ const DeliveryServices = () => {
                                             <div className='col-12 deliveryServicesImage_container'>
                                                 <LazyLoadImage className='deliveryServicesImage' src={items.imgUrl} alt='image not available' />
                                             </div>
-                                            <div className='col-12 deliveryServicesContent_container px-1'>
+                                            <div className='col-12 deliveryServicesContent_container px-4'>
                                                 <div className='w-100  deliveryServicesTitle'>
                                                     <p className='ellipsis'>{items.heading}</p>
 

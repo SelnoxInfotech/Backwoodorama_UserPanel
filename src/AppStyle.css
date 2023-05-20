@@ -4081,6 +4081,53 @@ border-radius: 10px;
   color: #333333;
 }
 
+.popularStrainContent{
+  display: grid;
+  justify-content: center;
+}
+.popularStrain_Image {
+  width: 110px;
+  height: 110px;
+  border-radius: 55px;
+}
+.popularStrainName{
+  font-weight: 700;
+font-size: 20px;
+line-height: 30px;
+
+color: #1B1B1B;
+}
+.popularSttrainSecName{
+  font-weight: 400;
+font-size: 15px;
+line-height: 22px;
+
+color: #6D6D6D;
+}
+.popularStrainImageContainer {
+  display: grid;
+  width: 130px;
+  height: 130px;
+  border-radius: 65px;
+  place-items: center;
+}
+
+.popularStrainContainerSlider {
+  gap: 5%;
+  display: flex;
+  flex-wrap: nowrap;
+  border-radius: 6px;
+  color: #333;
+  padding: 1rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.popularStrainContainerSlider::-webkit-scrollbar {
+  display: none;
+  scrollbar-width: none;
+}
+
 
 /* end */
 /* ScrollContainer_newProductCtaegory */

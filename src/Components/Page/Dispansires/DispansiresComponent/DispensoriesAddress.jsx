@@ -29,16 +29,6 @@ const DispensoriesAddress = () => {
         <>
             <div className="container-fluid">
                 <div className='row'>
-                    {/* <div className='col-12 dispensoriesBanner  center'>
-                        <div className=" mt-4 dispensoriesBannerHeading dispensoriesBannerSubHeading">
-                            <h5>Want to find weed deals near you and more?</h5>
-                            <p className='weed_paragraph'>Let's connect</p>
-
-                        </div>
-                    
-
-                    </div> */}
-
                     <div className='col-12  mt-2' >
                         <div className="disp_head  ">
                             <p>Shop Dispensories near you</p>

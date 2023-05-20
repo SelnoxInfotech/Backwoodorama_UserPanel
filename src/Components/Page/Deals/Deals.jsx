@@ -5,7 +5,7 @@ const Deals=()=>{
         <div className="container-fluid">
             <div className="row ">
                 <div className="col-12  bestDeals">
-                <h1>Best Deals Near by You</h1>
+                <h1>Best Deals Near By You</h1>
                 </div>
 
             </div>
