@@ -83,7 +83,7 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                                 <Box
                                                     className={`${classes.loadingBtnTextAndBack}`}
                                                 >
-                                                    <LoadingButton style={{ width: "75%", height: "30px" }} variant="outlined">view menu</LoadingButton>
+                                                    <LoadingButton style={{ width: "100%", height: "30px" }} variant="outlined">view menu</LoadingButton>
 
                                                 </Box>
 

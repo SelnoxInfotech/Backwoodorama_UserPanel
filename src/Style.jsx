@@ -201,13 +201,14 @@ const useStyles = makeStyles({
   },
   delivery_menuBar: {
     "& .MuiTabPanel-root": {
-      paddingLeft: "0px"
+      paddingLeft: "0px",
+      paddingRight:"0px"
     }
   },
   open_dispensory_tab_background: {
     "& .MuiTabs-flexContainer": {
       backgroundColor: "#F9F9F9",
-      gap: '100px'
+      gap: '117px'
 
     },
     "@media(max-width:1280px)": {
@@ -225,7 +226,7 @@ const useStyles = makeStyles({
   },
   deliverItemCardPadding: {
     "& .MuiTabPanel-root": {
-      padding: "0px",
+      padding:"0px",
     }
   },
 

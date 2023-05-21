@@ -42,10 +42,10 @@ const DeliveryPickupMenu = () => {
 
     return (
         <>
-            <div className="col-lg-10 col-12">
+            <div className="col-lg-12 col-12">
                 <Box sx={{ width: '100%', typography: 'body1' }}>
                     <TabContext value={value}>
-                        <Box className={`deliveries_pickup_menu_fontSize ${classes.open_dispensory_tab}`} sx={{ borderBottom: 0, borderColor: 'divider' }}>
+                        <Box className={`deliveries_pickup_menu_fontSize ${classes.open_dispensory_tab_background} ${classes.open_dispensory_tab}`} sx={{ borderBottom: 0, borderColor: 'divider' }}>
                             <TabList onChange={handleChange} aria-label="lab API tabs example">
                                 <Tab label="Delivery" value="1" />
                                 <Tab label="Pickup" value="2" />

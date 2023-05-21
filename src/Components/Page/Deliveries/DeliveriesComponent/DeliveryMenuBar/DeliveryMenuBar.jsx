@@ -51,13 +51,13 @@ const DeliveryMenuBar = ({Deliverie}) => {
 
     return (
         <>
-            <div className="container-fluid">
+            <div className="container-fluid ">
                 <div className="row ">
-                    <div className="col-lg-12 col-12 delivery_menuBar_container">
+                    <div className="col-lg-12 col-12 delivery_menuBar_container px-0 mt-2">
 
-                        <Box className={`px-0`} sx={{ width: '100%', typography: 'body1' }}>
+                        <Box className={``} sx={{ width: '100%', typography: 'body1', }}>
                             <TabContext value={value}>
-                                <Box className={`${classes.open_dispensory_tab_background} ${classes.open_dispensory_tab} `} sx={{borderBottom: 1, borderColor: 'divider' }}>
+                                <Box className={`${classes.open_dispensory_tab_background} ${classes.open_dispensory_tab}`} sx={{borderBottom: 1, borderColor: 'divider' }}>
                                     <TabList  onChange={handleChange} aria-label="lab API tabs example">
                                         <Tab label="Order Online" value="1" />
                                         <Tab label="Order now" value="2" />
@@ -67,7 +67,7 @@ const DeliveryMenuBar = ({Deliverie}) => {
 
                                     </TabList>
                                 </Box>
-                                <Box className={`${classes.deliverItemCardPadding}`}>
+                                <Box  className={`${classes.deliverItemCardPadding}`}>
                                     <TabPanel value="1" >
                                         <DeliveryItemsCard Deliverie={Deliverie}/>
                                     </TabPanel>
