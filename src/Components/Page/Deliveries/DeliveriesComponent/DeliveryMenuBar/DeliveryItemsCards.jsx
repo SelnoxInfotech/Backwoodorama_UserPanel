@@ -30,18 +30,18 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                             </div>
                                             <div className='col-lg-7 col-7'>
                                                 <div className='row'>
-                                                    <div className='col-12 DeliveryItem_heading deliver_items_content_same_height ellipsis'>
-                                                        <h1>{items.Store_Name}</h1>
+                                                    <div className='col-12 DeliveryItem_heading deliver_items_content_same_height'>
+                                                        <h1 className='ellipsis'>{items.Store_Name}</h1>
                                                     </div>
                                                     <div className='col-12 delivery_item_paragraph delivery_items_card_flex deliver_items_content_same_height ellipsis'>
                                                         <span><AiFillStar /></span><p className='delivery_items_spanss'>5.0(27)</p>
 
                                                     </div>
-                                                    <div className='col-12 delivery_item_paragraph deliver_items_content_same_height ellipsis'>
-                                                        <p>{items.Store_Address}</p>
+                                                    <div className='col-12 delivery_item_paragraph deliver_items_content_same_height'>
+                                                        <p className='ellipsis'>{items.Store_Address}</p>
                                                     </div>
-                                                    <div className='col-12 delivery_item_paragraph deliver_items_content_same_height ellipsis'>
-                                                        <p>{items.address2}</p>
+                                                    <div className='col-12 delivery_item_paragraph deliver_items_content_same_height '>
+                                                        <p className='ellipsis'>{items.address2}</p>
                                                     </div>
                                                 </div>
 
@@ -52,7 +52,7 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                         <div className='row'>
 
                                             <div className='col-12 DeliveryItem_heading  total_items deliver_items_content_same_height'>
-                                                <h1>{items.total_items} Items</h1>
+                                                <h1 className='ellipsis'>{items.total_items} Items</h1>
                                             </div>
                                             <div className='col-12 delivery_item_paragraph delivery_items_card_flex deliver_items_content_same_height ellipsis'>
                                                 <span className='delivery_items_icons'><GiFlowerPot /></span><p>Concentrate {items.Number_of_items_type1} items</p>
