@@ -131,7 +131,7 @@ const ProductList = ({ arr }) => {
     const classes = useStyles()
     return (
         <>
-            <div className="row" style={{ height: "auto",marginBottom:"100px",marginLeft:"2px" }}>
+            <div className="row mx-2" style={{ height: "auto",marginBottom:"100px" }}>
                 {arr?.map((ele, index) => {
                     return (
                         <div className="col-12 col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6  prod_inner_cont " key={index}>

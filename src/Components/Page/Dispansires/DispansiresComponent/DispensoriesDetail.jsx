@@ -134,7 +134,7 @@ export default function DispensoriesProduct() {
                                     ProductFilterData={ProductFilterData}
 
                                     Setarr1={SetDespensariesProductData} />
-                                <div className="col-10  prod_cat_right_sec" style={{ width: "82%" }}>
+                                <div className="col-12 col-lg-10 prod_cat_right_sec">
                                     <ProductList arr={DespensariesData} />
 
 

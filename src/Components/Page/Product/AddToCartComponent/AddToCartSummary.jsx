@@ -93,7 +93,7 @@ const AddToCartSummary = ({ SubmitData , CheckOut_Loading ,SetLoading}) => {
                         </div>
 
                     </div>
-                    <div className="col-6">
+                    <div className="col-md-6 col-12">
                         {OpenDelivery && (<div className="col-12 mt-4 ">
 
                             <div className="col-lg-12 col-md-8 col-sm-8 addtocart_textfield mt-2">
