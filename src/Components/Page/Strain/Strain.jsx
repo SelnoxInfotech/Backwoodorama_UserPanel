@@ -7,7 +7,7 @@ const Strain=()=>{
          <StrainType/>
            <div className="row">
             <div className="col-12">
-              <h1 className="strainPopular_heading">Popular strains Products</h1>
+              <h1 className="strainPopular_heading">Popular strains products</h1>
             </div>
 
            </div>

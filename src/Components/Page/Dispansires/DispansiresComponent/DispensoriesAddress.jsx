@@ -31,7 +31,7 @@ const DispensoriesAddress = () => {
                 <div className='row'>
                     <div className='col-12  mt-2' >
                         <div className="disp_head  ">
-                            <p>Shop Dispensories near you</p>
+                            <p>Shop dispensories near you</p>
                         </div>
                     </div >
                 </div >
@@ -50,7 +50,7 @@ const DispensoriesAddress = () => {
 
                                     <div className='col-12 dispensories_image_containerss'>
                                         <Link to={`/DispensoriesProduct/${ele.id}/${"Menu"}`}>
-                                            <img src={`http://backend.sweede.net/${ele?.Store_Image}`} alt='img_not_found' className='img-responsive dispensories_image rounded center-block' />
+                                            <img src={`http://backend.sweede.net/${ele?.Store_Image}`} alt='img_not_found' className='img-responsive dispensories_image rounded center-block'/>
                                         </Link>
                                     </div>
                                     <div className='dispensoriesContentContainer px-4'>

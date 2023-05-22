@@ -74,13 +74,13 @@ const HomePageWeedBanner=()=>{
             }
         ]
     };
-    const HomePageWeedBanner=[{imgUrl:"/image/HomePageBanner.jpg"},{imgUrl:"/image/HomePageBanner.jpg"}]
+    const HomePageWeedBanner=[{imgUrl:"./image/HomePageBanner.jpg"},{imgUrl:"./image/HomePageBanner.jpg"}]
     return(
             <SliderCategory {...settings}>
             {HomePageWeedBanner.map((ele, index) => {
                 return (
                     <div className='col-12 homePageBanner_container' key={index}>
-                        <LazyLoadImage src={ele.imgUrl} alt="glass_img" className='HomePageBanner_image'/>
+                        <LazyLoadImage src={ele.imgUrl} alt="image not available" className='HomePageBanner_image'/>
                     </div>
 
                 )

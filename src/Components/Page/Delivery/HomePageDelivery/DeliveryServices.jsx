@@ -10,15 +10,6 @@ import { useState } from 'react';
 const DeliveryServices = () => {
     const [DeliveryService,SetDeliveryService]=useState([])
     const classes = useStyles()
-    const DeliveryServicesArray = [
-        { imgUrl: "/image/logo.webp", heading: "Vireio Queen Delivery", address: "Queen-North |4mi" },
-        { imgUrl: "/image/weed.png", heading: "Vireio Queen Delivery", address: "Queen-North |4mi" },
-        { imgUrl: "/image/logo.webp", heading: "Vireio Queen Delivery", address: "Queen-North |4mi" },
-        { imgUrl: "/image/logo.webp", heading: "Vireio Queen Delivery", address: "Queen-North |4mi" },
-        { imgUrl: "/image/weed.png", heading: "Vireio Queen Delivery", address: "Queen-North |4mi" },
-        { imgUrl: "/image/logo.webp", heading: "Vireio Queen Delivery", address: "Queen-North |4mi" },
-
-    ]
     const ref = React.useRef(null);
     React.useEffect(()=>{
         Axios(`http://backend.sweede.net/UserPanel/Get-DeliveryStores/`,{
@@ -29,7 +20,9 @@ const DeliveryServices = () => {
             SetDeliveryService(response.data)
         }
 
-        ).catch()
+        ).catch(()=>{
+
+        })
     },[])
 console.log(DeliveryService)
     return (
@@ -37,11 +30,11 @@ console.log(DeliveryService)
             <div className="container-fluid">
                 <div className="row mt-4">
                     <div className="col-12 delivery_services_heading">
-                        <h1>Delivery Services</h1>
+                        <h1>Delivery services</h1>
 
                     </div>
                     <div className="col-12 mt-2 delivery_services_subheading">
-                        <h2>Vireio Delivery-Queen North</h2>
+                        <h2>Vireio delivery-queen north</h2>
 
                     </div>
                     <div className="col-12   recentViewProductSlider" id="width" ref={ref}>

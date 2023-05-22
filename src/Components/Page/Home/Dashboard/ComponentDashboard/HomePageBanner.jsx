@@ -94,7 +94,7 @@ const HomePageBanner = () => {
             {items.map((ele, index) => {
                 return (
                     <div className='col-12 homePageBanner_container' key={index}>
-                        <LazyLoadImage src={ele.description} alt="glass_img" className='HomePageBanner_image'/>
+                        <LazyLoadImage src={ele.description} alt="Image not available" className='HomePageBanner_image'/>
                     </div>
 
                 )
