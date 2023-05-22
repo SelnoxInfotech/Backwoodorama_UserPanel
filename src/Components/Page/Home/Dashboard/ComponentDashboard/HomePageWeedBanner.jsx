@@ -74,7 +74,7 @@ const HomePageWeedBanner=()=>{
             }
         ]
     };
-    const HomePageWeedBanner=[{imgUrl:"./image/HomePageBanner.jpg"},{imgUrl:"./image/HomePageBanner.jpg"}]
+    const HomePageWeedBanner=[{imgUrl:"./image/homePageBanner.jpg"},{imgUrl:"./image/homePageBanner.jpg"}]
     return(
             <SliderCategory {...settings}>
             {HomePageWeedBanner.map((ele, index) => {
