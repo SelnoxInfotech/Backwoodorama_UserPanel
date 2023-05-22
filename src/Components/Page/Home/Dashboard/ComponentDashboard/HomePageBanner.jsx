@@ -4,21 +4,24 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from "styled-components";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import Axios from "axios"
+
 const HomePageBanner = () => {
-    var items = [
-        {
-            name: "Random Name #1",
-            description: "/image/banner1.jpg"
-        },
-        {
-            name: "Random Name #2",
-            description: "/image/banner2.jpg"
-        },
-        {
-            name: "Random Name #3",
-            description: "/image/b3.jpg"
+    const [HomePageBannerImage,SetHomePageBannerImage]=React.useState([])
+    
+    React.useEffect(()=>{
+        Axios(`http://backend.sweede.net/UserPanel/Get-AllHomePageBanner/`,{
+
         }
-    ];
+
+        ).then((response)=>{
+            SetHomePageBannerImage(response.data)
+        }
+
+        ).catch(()=>{
+
+        })
+    },[])
     const SliderCategory = styled(Slider)`
 
     .slick-arrow{
@@ -91,10 +94,10 @@ const HomePageBanner = () => {
     return (
 
         <SliderCategory {...settings}>
-            {items.map((ele, index) => {
+            {HomePageBannerImage.map((items, index) => {
                 return (
                     <div className='col-12 homePageBanner_container' key={index}>
-                        <LazyLoadImage src={ele.description} alt="Image not available" className='HomePageBanner_image'/>
+                        <LazyLoadImage  src={`http://backend.sweede.net/${items.Banner}`}  alt="Image not available" className='HomePageBanner_image'/>
                     </div>
 
                 )

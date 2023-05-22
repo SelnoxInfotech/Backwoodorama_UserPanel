@@ -1,5 +1,6 @@
 import BestDealCards from "./DealsComponent/BestDealCards"
 import PromoCode from "./DealsComponent/PromoCode"
+import Footer from "../../Component/Footer/Footer"
 const Deals=()=>{
     return(
         <div className="container-fluid">
@@ -11,6 +12,7 @@ const Deals=()=>{
             </div>
             <BestDealCards/>
             <PromoCode/>
+            <Footer/>
         </div>
     )
 }

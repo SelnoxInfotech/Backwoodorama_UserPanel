@@ -8,6 +8,7 @@ import useStyles from "../../../Style";
 import Map from "../../Component/Map/map"
 import DispensoriesOpenResult from "./DispansiresComponent/DispensoriesOpenResult"
 import Dispansires_MapTheme from "../../Component/Map/MapStyle"
+import Footer from "../../Component/Footer/Footer";
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
 
@@ -114,7 +115,7 @@ export default function Dispansires() {
                     </div>
 
                 </div>
-
+                <Footer/>
             </div>
 
         </>

@@ -1,5 +1,6 @@
 import StrainType from "./StrainComponent/StrainType"
 import PopularStrain from "./StrainComponent/PopularStrain"
+import Footer from "../../Component/Footer/Footer"
 const Strain=()=>{
     return(
         <div className="container-fluid">
@@ -11,6 +12,7 @@ const Strain=()=>{
             </div>
 
            </div>
+           <Footer/>
         </div>
     )
 }

@@ -23,7 +23,7 @@ function btn (){
                     <ScrollContainer className="ScrollContainer_newProductCtaegory">
                         {flowerArray?.map((items, index) => {
                             return (
-                                <div className="col-6 col-md-4 col-lg-2  newProductCard mx-0 NewProductCategory_slider pt-2 " key={index}>
+                                <div className="col-4 col-md-4 col-lg-2  newProductCard mx-0 NewProductCategory_slider pt-2 " key={index}>
 
 
                                     <div className="col-12 center">

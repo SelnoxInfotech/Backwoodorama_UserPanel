@@ -4,7 +4,6 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Rating } from '@mui/material';
 import useStyles from '../../../../Style';
 import Axios from "axios"
-import { useEffect } from 'react';
 import { useState } from 'react';
 
 const DeliveryServices = () => {
@@ -24,7 +23,6 @@ const DeliveryServices = () => {
 
         })
     },[])
-console.log(DeliveryService)
     return (
         <>
             <div className="container-fluid">
