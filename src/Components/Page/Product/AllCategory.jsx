@@ -4,13 +4,13 @@ import { useLocation , useNavigate } from "react-router-dom";
 import  Axios  from "axios";
 import NewProductCategorySlider from "./NewProductCategorySlider";
 import AllProductCategory from "./AllProductCategory";
-const CategoryFilter = () => {
+const AllCategory = () => {
     const navigate = useNavigate();
     const location = useLocation()
     const {id} = location.state
     console.log(location.state)
     const [Category , SetCategory] = React.useState([])
-    
+        
         const [category , setCategory] = React.useState([])
 const  [ Loading  , SetLoading] = React.useState(true)
     React.useEffect(() => {
@@ -57,4 +57,4 @@ const  [ Loading  , SetLoading] = React.useState(true)
 
 
 
-export default CategoryFilter; 
+export default AllCategory; 

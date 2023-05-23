@@ -16,7 +16,7 @@ const NewProductDetails = () => {
   const location = useLocation()
   const Id = location.state
   const Navigate = useNavigate()
-
+ console.log(Id)
   React.useEffect( () => {
     const fetchData = async () => {
       const apidata = await fetch("http://backend.sweede.net/UserPanel/Get-Categories/");

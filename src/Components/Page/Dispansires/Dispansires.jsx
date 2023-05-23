@@ -40,10 +40,10 @@ function a11yProps(index) {
         'aria-controls': `simple-tabpanel-${index}`,
     };
 }
+
+
+
 export default function Dispansires() {
-
-
-
     const [value, setValue] = React.useState(0);
     const DispensorShopLocation = [{ name: "Marijuana dispensaries", city: "in Aargau, AG" }]
     const handleChange = (event, newValue) => {

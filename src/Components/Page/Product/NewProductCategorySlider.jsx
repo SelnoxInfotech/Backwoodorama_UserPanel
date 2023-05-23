@@ -5,13 +5,6 @@ import React from "react";
 import { ScrollContainer } from 'react-indiana-drag-scroll';
 import 'react-indiana-drag-scroll/dist/style.css'
 const NewProductCategorySlider = ({ flowerArray }) => {
-    const ref = React.useRef(null);
-
-      const box =  document.querySelector(".newProductCard")
-function btn (){
-    let w = box.clientWidth
-    console.log(w)
-}
     return (
         <>
             <div className="container-fluid">
@@ -19,7 +12,7 @@ function btn (){
                 <div className="row  ">
 
                         
-                    <div className="col-12 newProductCategorySliderContainer" id="width" ref={ref}>
+                    <div className="col-12 newProductCategorySliderContainer" id="width">
                     <ScrollContainer className="ScrollContainer_newProductCtaegory">
                         {flowerArray?.map((items, index) => {
                             return (
