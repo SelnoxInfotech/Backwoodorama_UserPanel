@@ -71,7 +71,7 @@ const SearchBar = () => {
             if (response.data.Product  ) {
                 console.log(response.data)
                 const Id = response.data.Product[0].id 
-                Navigation(`/NewProductDetails/`, { state:  Id  });
+                Navigation(`/ProductDetail/`, { state:  Id  });
             }
            else if (response.data.Store) {
             

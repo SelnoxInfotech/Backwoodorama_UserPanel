@@ -11,7 +11,20 @@ function LoginWithGoogle() {
 
     const login = useGoogleLogin({
         onSuccess: (codeResponse) => {setUser(codeResponse)
-        console.log(codeResponse)
+        axios("http://backend.sweede.net/UserPanel/UserPanel/GoogleView// ", {
+
+
+
+        }).then(response => {
+    
+
+
+
+        }).catch(
+            function (error) {
+
+
+            })
         },
       
         onError: (error) => console.log('Login Failed:', error)
