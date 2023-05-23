@@ -101,7 +101,7 @@ const routesConfig = [
           }
           ,
           {
-            path:"/RelatedVerifyBrand",
+            path:"/RelatedVerifyBrand/:id",
             element:<RelatedVerifyBrand/>
           },
 

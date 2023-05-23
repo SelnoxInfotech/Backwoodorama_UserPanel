@@ -7,11 +7,11 @@ import Autocomplete from '@mui/material/Autocomplete';
 import Geocode from "react-geocode";
 import Axios from "axios"
 import React from 'react';
-import { Menu, MenuItem } from '@mui/material';
 import CircularProgress from "@material-ui/core/CircularProgress";
+import { useNavigate } from 'react-router-dom';
 const SearchBar = () => {
+    const Navigation = useNavigate()
     const [SearchData, SetSearchData] = React.useState([])
-    const [SelctionOption, SetSelctionOption] = React.useState()
     const classes = useStyles()
     function Search(event) {
         SetSearchData([])
@@ -21,31 +21,19 @@ const SearchBar = () => {
                 search: event.target.value
             }
         ).then(response => {
-            // const objKeys = Object.entries(response?.data)
-            // let s 
-            // let h
-            // objKeys.forEach((key) => { s = key[1], h= key[0] })
-            // SetSearchData(SearchData => ({ ...SearchData, s: h }))
-            //    console.log(response?.data)
             if (response.status === 200) {
-                // SetSearchData(Object?.entries(response?.data).map((data, index, value) => {
-                //     return(data)
-                // }))
+              
                 const o = Object?.entries(response?.data).map((data, index, value) => {
                     return (data)
                 })
                 const z = []
                 const y = o?.map((data) => {
-                    // console.log(data)
                     return data
                 });
-                // console.log(y)
+               
 
                 y.map((data1) => {
                     data1[1].map((data) => {
-                        // 
-                        // console.log( data?.images[0] )
-
                         return SetSearchData(SearchData => [...SearchData, { type: data1[0], value: data.name || data.Product_Name || data.Store_Name, id: data.id, image: data?.Brand_Logo || data?.categoryImages || data?.Store_Image || data?.SubCategoryImage }]);
 
                     }
@@ -80,11 +68,34 @@ const SearchBar = () => {
                 type: type
             }
         ).then((response) => {
-            // console.log()
-            if(response.data.Product)
-            {
-                console.log(response.data.Product[0].id)
+            if (response.data.Product  ) {
+                console.log(response.data)
+                const Id = response.data.Product[0].id 
+                Navigation(`/NewProductDetails/`, { state:  Id  });
             }
+           else if (response.data.Store) {
+            
+               Navigation(`/DispensoriesProduct/${ response.data.Store[0].id}/${"Menu"}`);
+               
+            }
+            else if (response.data.Brand) {
+                console.log(response)
+                Navigation(`/RelatedVerifyBrand/${response.data.Brand[0].id}`);
+                
+             }
+             else if (response.data.Category) {
+               const id = response.data.Category[0].id
+                Navigation(`/CategoryProduct/${response.data.Category[0].name}` , { state: {  id } }) ;
+                
+             }
+             else if ( response.data.Sub_Category) {
+                const Id =  response.data?.Sub_Category[0]?.id
+                const name = response.data?.Sub_Category[0]?.name
+                
+                 Navigation(`/Product/${name}`,  { state:   Id  } ) ;
+                 
+              }
+
         })
     }
     return (
@@ -96,23 +107,29 @@ const SearchBar = () => {
                         onOpen={() => {
                             setOpen(true);
                         }}
-                        onClick={Search}
+                        // onClick={Search}
                         filterOptions={x => x}
                         onClose={() => {
                             setOpen(false);
                         }}
                         ListboxProps={{ style: { maxHeight: 500 } }}
                         // componentsProps={{ popper: { style: { height: '100%' } } }}
-                        // onChange={Search}
+                          onChange={(event, value) => SearchAPi(value?.id, value?.type, )}
                         getOptionSelected={(option, value) => option.value}
                         getOptionLabel={(option) => option.value}
                         options={SearchData}
                         groupBy={(option) => option.type}
                         renderOption={(props, t) => {
                             return (
-                                <div {...props} style={{ color: "green" }} >
+                                <div {...props} style={{ color: "black" }} >
                                     <ul className='PopperLIst'>
-                                        <div >    <li onClick={((e) => SearchAPi(t.id, t.type))} key={`${t.value}`} > <img src={`http://backend.sweede.net/${t.image}`} style={{ width: "50px", height: "50px" }}></img> <span> {`${t.value}`}</span>  </li></div>
+
+                                        <div >    <li
+ 
+                                            onClick={((e) => SearchAPi(t.id, t.type, ))} key={`${t.value}`}
+                                        > <img src={`http://backend.sweede.net/${t.image}`} style={{ width: "50px", height: "50px" }}></img> <span> {`${t.value}`}</span>  </li></div>
+
+                                       
                                     </ul>
                                 </div>
                             )
@@ -124,6 +141,7 @@ const SearchBar = () => {
                             size="small"
                             onClick={Search}
                             onChange={Search}
+                        
                             placeholder="Products Brands Retailers and more"
                             className={`SearchBar nav_search_bar_div  ${classes.SearchBar_Text}`}
                             style={{ borderRadius: " 16px 0px 0px 16px", top: "0px" }}

@@ -34,7 +34,7 @@ const VerifyBrands = () => {
                                     </IconButton>
                                 </div>
                                 <div className="col-6  verifyBrand_image_container ">
-                                  <Link to="/RelatedVerifyBrand">  <LazyLoadImage className="verify_brand_image"  src={`http://backend.sweede.net/${items.Brand_Logo}`}  alt="image not found" /></Link>
+                                  <Link  to={`/RelatedVerifyBrand/${items.id}`}>  <LazyLoadImage className="verify_brand_image"  src={`http://backend.sweede.net/${items.Brand_Logo}`}  alt="image not found" /></Link>
 
                                 </div>
                                 <div className="col-6 verify_content_container">

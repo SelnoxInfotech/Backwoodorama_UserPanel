@@ -9,10 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper";
 const NewProductDetailsCards = ({Product}) => {
-    const NewProductDetail_related_Image = [{ imgUrl: "/image/images2.png" }, { imgUrl: "/image/glass.png" },
-    { imgUrl: "/image/images2.png" }, { imgUrl: "/image/glass.png" }, { imgUrl: "/image/glass.png" }, { imgUrl: "/image/glass.png" }, { imgUrl: "/image/glass.png" },
-
-    ] 
+  
      const p = Product?.images === undefined ? "" :Product?.images[0].image
       console.log(Product)
     const classes = useStyles()

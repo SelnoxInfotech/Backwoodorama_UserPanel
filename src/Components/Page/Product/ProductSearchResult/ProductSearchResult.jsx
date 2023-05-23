@@ -18,7 +18,6 @@ import { faEllipsisV } from '@fortawesome/free-solid-svg-icons/faEllipsisV';
 import IconButton from '@mui/material/IconButton';
 import { Link } from "react-router-dom";
 const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
-
     const { state, dispatch } = React.useContext(Createcontext)
     const classes = useStyles()
     const cookies = new Cookies();
