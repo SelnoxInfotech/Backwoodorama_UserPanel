@@ -3,6 +3,8 @@ import { BsFillHeartFill } from "react-icons/bs";
 import { IoMdStar } from "react-icons/io";
 import useStyles from "../../../../../Style";
 import { Swiper, SwiperSlide } from "swiper/react";
+import IconButton from '@mui/material/IconButton';
+
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper";
@@ -15,11 +17,11 @@ const NewProductDetailsCards = ({Product}) => {
       console.log(Product)
     const classes = useStyles()
     return (
-        <div className="row center ">
+        <div className="row center mx-1">
             <div className="col-lg-10 col-sm-10 col-12 newProductDetailsContainer mt-4">
                 <div className="row">
                     <div className="col-12 mt-2 text-end">
-                        <BsFillHeartFill color="grey" size={20} />
+                        <IconButton><BsFillHeartFill color="grey" size={20} /></IconButton>
                     </div>
                     <div className="col-lg-4">
                         <div className="row">

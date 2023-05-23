@@ -6,14 +6,14 @@ const HomePageDealsSignup = () => {
 
     return (
         <div className="container mt-4">
-            <div className="row">
+            <div className="row mx-1">
                 <div className="col-12 HomePageDealsSignupContainer">
                     <div className='w-100 homePageSignupHeight'>
                         <div className="row ">
-                            <div className="col-md-4 homePageSignup_paragraph">
+                            <div className="col-md-4 homePageSignup_paragraph mt-2">
                                 <p>Never miss deals!</p>
                             </div>
-                            <div className='col-md-6'>
+                            <div className='col-md-6 mt-2'>
                                 <TextField
                                  InputProps={{
                                     style: {
@@ -28,8 +28,8 @@ const HomePageDealsSignup = () => {
                                     size='small'
                                 />
                             </div>
-                            <div className='col-md-2 homePageSignupBtnMargin'>
-                            <Button className={classes.muiBtn} >Subscribe</Button>
+                            <div className='col-md-2'>
+                            <Button className={`mt-2 ${classes.muiBtn}`} >Subscribe</Button>
                             </div>
 
                         </div>

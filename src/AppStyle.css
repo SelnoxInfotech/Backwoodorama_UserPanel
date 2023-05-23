@@ -2553,6 +2553,8 @@
 .related_review_container {
   /* height: 202px; */
   height: auto;
+  background: #FFFFFF;
+border: 1px solid #DCD9D9;
 
 }
 
@@ -4260,7 +4262,7 @@ color:#31B665;
 /* end */
 /* HomePageDealsSignup */
 .HomePageDealsSignupContainer{
-height: 294px;
+height: 335px;
 background: #4E4E4E;
 display:flex;
 align-items: center;
@@ -4282,7 +4284,7 @@ color: #FFFFFF;
 }
 @media(max-width:767px){
 .homePageSignupBtnMargin{
-  margin-top: 20px;
+  margin-top:20px;
 }
 }
 .homePageSignipLink P{

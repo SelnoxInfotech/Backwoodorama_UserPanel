@@ -33,7 +33,7 @@ const OverAllReview = () => {
 
                 </div>
 
-                <div className="col-10 col-sm-10 overall_review_container px-2 ">
+                <div className="col-10 col-sm-10 overall_review_container ">
                     <div className="row">
                         <div className="col-12 text-end my-2">
                             <button className="overall_review_Button px-2">Write review</button>

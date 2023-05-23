@@ -24,11 +24,11 @@ const NewProductSearchResult = () => {
 
         <div className='container-fluid'>
             <div className='row center'>
-                <div className='col-10 newProductDetailsHeading'>
+                <div className='col-lg-10 col-12 newProductDetailsHeading'>
                     <p>You may also like</p>
 
                 </div>
-                <div className="col-10   recentViewProductSlider" id="width" ref={ref}>
+                <div className="col-lg-10 col-12   recentViewProductSlider" id="width" ref={ref}>
                     <ScrollContainer className="ScrollContainerRelative">
                         {NewProductSearchRseultArray.map((items, index) => {
                             return (
