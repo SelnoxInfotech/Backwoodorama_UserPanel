@@ -6,11 +6,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper";
-const NewProductDetailsCards = () => {
+const NewProductDetailsCards = ({Product}) => {
     const NewProductDetail_related_Image = [{ imgUrl: "/image/images2.png" }, { imgUrl: "/image/glass.png" },
     { imgUrl: "/image/images2.png" }, { imgUrl: "/image/glass.png" }, { imgUrl: "/image/glass.png" }, { imgUrl: "/image/glass.png" }, { imgUrl: "/image/glass.png" },
 
-    ]
+    ] 
+     const p = Product?.images === undefined ? "" :Product?.images[0].image
+      console.log(Product)
     const classes = useStyles()
     return (
         <div className="row center ">
@@ -22,7 +24,7 @@ const NewProductDetailsCards = () => {
                     <div className="col-lg-4">
                         <div className="row">
                             <div className="col-12 newProductDetailsUpperimage_container">
-                                <LazyLoadImage className="newProductDetails_upper_image" src="/image/flower2.webp" />
+                                <LazyLoadImage className="newProductDetails_upper_image" src={`http://backend.sweede.net/` + p} />
                             </div>
                             <div className="col-12 newProductDetailsLowerImage_container">
                                 <Swiper
@@ -67,12 +69,12 @@ const NewProductDetailsCards = () => {
                                     modules={[Pagination]}
                                     className="mySwiper"
                                 >
-                                    {NewProductDetail_related_Image.map((items, index) => {
+                                    {Product?.images?.map((items, index) => {
                                         return (
-                                            <SwiperSlide>
+                                            <SwiperSlide >
 
-                                                <div className="col-12 NewProductDetails_image_container">
-                                                    <LazyLoadImage className="NewProductDetails_image" height={"100px"} src={items.imgUrl} />
+                                                <div key={index} className="col-12 NewProductDetails_image_container">
+                                                    <LazyLoadImage className="NewProductDetails_image" height={"100px"} src={`http://backend.sweede.net/` + items.image}/>
 
                                                 </div>
 
@@ -89,10 +91,10 @@ const NewProductDetailsCards = () => {
                     <div className="col-lg-8 newProductdetails_rightSideContent_container">
                         <div className="row">
                             <div className="col-12 newProductDetails_heading">
-                                <h1>Urban Flavours Delivery</h1>
+                                <h1>{Product.Product_Name}</h1>
                             </div>
                             <div className="col-12 newProductDetails_paragraph">
-                                <p>By Tribe Tokes</p>
+                                <p>By {Product.StoreName}</p>
                             </div>
                             <div className="col-12 newProductDetailsButon">
                                 <button className="newProductdetailsButtonss">15% THC</button>

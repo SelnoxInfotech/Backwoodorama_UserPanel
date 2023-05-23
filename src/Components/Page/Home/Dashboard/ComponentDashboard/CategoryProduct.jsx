@@ -66,6 +66,7 @@ const CategoryProduct = ({ ShowCategoryProduct, Category }) => {
         ]
     };
 
+
     return (
         <>
             <div className='container-fluid mt-4'>

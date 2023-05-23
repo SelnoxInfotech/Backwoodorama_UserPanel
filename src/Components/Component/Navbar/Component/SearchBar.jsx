@@ -43,8 +43,11 @@ const SearchBar = () => {
 
                 y.map((data1) => {
                     data1[1].map((data) => {
-                        //  console.log(data?.images[0]?.image)
-                        SetSearchData(SearchData => [...SearchData, { type: data1[0], value: data.name || data.Product_Name || data.Store_Name, id: data.id , image: data.Brand_Logo || data.categoryImages || data.Store_Image   || data.SubCategoryImage }]);
+                        // 
+                        // console.log( data?.images[0] )
+
+                        return SetSearchData(SearchData => [...SearchData, { type: data1[0], value: data.name || data.Product_Name || data.Store_Name, id: data.id, image: data?.Brand_Logo || data?.categoryImages || data?.Store_Image || data?.SubCategoryImage }]);
+
                     }
 
                     )
@@ -65,10 +68,25 @@ const SearchBar = () => {
     }
 
     const [open, setOpen] = React.useState(false);
-    const [options, setOptions] = React.useState([]);
-    const loading = open && options.length === 0;
-      console.log(SearchData)
+    // const [options, setOptions] = React.useState([]);
+    const loading = open
 
+
+    function SearchAPi(id, type) {
+
+        Axios.post(`http://backend.sweede.net/UserPanel/Get-ResultHomeSearchFilter/`,
+            {
+                id: id,
+                type: type
+            }
+        ).then((response) => {
+            // console.log()
+            if(response.data.Product)
+            {
+                console.log(response.data.Product[0].id)
+            }
+        })
+    }
     return (
         <>
             <div className="col_Search">
@@ -83,14 +101,18 @@ const SearchBar = () => {
                         onClose={() => {
                             setOpen(false);
                         }}
+                        ListboxProps={{ style: { maxHeight: 500 } }}
+                        // componentsProps={{ popper: { style: { height: '100%' } } }}
+                        // onChange={Search}
+                        getOptionSelected={(option, value) => option.value}
                         getOptionLabel={(option) => option.value}
                         options={SearchData}
                         groupBy={(option) => option.type}
                         renderOption={(props, t) => {
                             return (
                                 <div {...props} style={{ color: "green" }} >
-                                    <ul>
-                                        <li key={`${t.value}`} > {`${t.value}`} <img src={`http://backend.sweede.net/${t.image}` } style={{width:"50px" , height:"50px"}}></img> </li>
+                                    <ul className='PopperLIst'>
+                                        <div >    <li onClick={((e) => SearchAPi(t.id, t.type))} key={`${t.value}`} > <img src={`http://backend.sweede.net/${t.image}`} style={{ width: "50px", height: "50px" }}></img> <span> {`${t.value}`}</span>  </li></div>
                                     </ul>
                                 </div>
                             )
@@ -100,7 +122,7 @@ const SearchBar = () => {
                         renderInput={(params) => <TextField
                             {...params}
                             size="small"
-
+                            onClick={Search}
                             onChange={Search}
                             placeholder="Products Brands Retailers and more"
                             className={`SearchBar nav_search_bar_div  ${classes.SearchBar_Text}`}

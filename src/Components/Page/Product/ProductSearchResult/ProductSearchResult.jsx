@@ -80,7 +80,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
         }
         else {
 
-            console.log(AddTOCard.length !== 0)
+            // console.log(AddTOCard.length !== 0)  
             const Arry = {
                 Image: Event.images[0].image,
                 Product_id: Event.id,
@@ -153,7 +153,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
 
                                         </Box>
                                     </div>
-                                    <Link to={"/ProductDetail"} state={items.id}>
+                                    <Link to={"/NewProductDetails"} state={items.id}>
                                         <LazyLoadImage
 
                                             className="product_search_result_image"
