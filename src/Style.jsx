@@ -78,7 +78,7 @@ const useStyles = makeStyles({
 
       color: "white",
       background: "#00b96a",
-      boxShadow: "2px 2px"
+      // boxShadow: "2px 2px"
 
     }
   },
@@ -262,6 +262,12 @@ homePageStarIcons:{
     color: "gray"
 
   },
+  muiSignupInputFileld:{
+    "&.MuiInputBase-root-MuiOutlinedInput-root":{
+      borderRadius:"20px",
+      backgroundColor:"white"
+    }
+  }
   // NewproductHeart:{
   //  backgroundColor:"#949494" 
   // }

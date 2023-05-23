@@ -10,6 +10,7 @@ import DeliveryServices from "../../Delivery/HomePageDelivery/DeliveryServices";
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import HomePageWeedBanner from "./ComponentDashboard/HomePageWeedBanner";
+import HomePageDealsSignup from "./ComponentDashboard/HomePageDealsSignup";
 export default function Dashboard() {
     const Navigate =  useNavigate()
     function ShowCategoryProduct (id ,name) {
@@ -37,6 +38,7 @@ export default function Dashboard() {
    
                 <Map height={"300px"} width={"100%"}   ></Map>
             </div>
+            <HomePageDealsSignup></HomePageDealsSignup>
              <WeedProduct></WeedProduct>
             <LatestServices></LatestServices>
             
