@@ -6,6 +6,7 @@ import OverAllReview from "../../Review/ReviewComponent/OverAllReview"
 import NewProductDescription from "./NewProductDetailsComponent/NewProductDescription"
 import NewProductAboutUs from "./NewProductDetailsComponent/NewProductAboutUs"
 import { useNavigate, useLocation } from "react-router-dom"
+import NewProductSearchResult from "./NewProductDetailsComponent/NewProductSearchResult"
 import Axios from "axios";
 
 const NewProductDetails = () => {
@@ -59,6 +60,7 @@ const NewProductDetails = () => {
       <NewProductDetailsCards Product={Product} />
       <NewProductDescription Product={Product.Product_Description} />
       <NewProductAboutUs />
+      <NewProductSearchResult/>
       {/* <ProductSearchResult RelatedProductResult={RelatedProductResult1}/> */}
 
       <OverAllReview />

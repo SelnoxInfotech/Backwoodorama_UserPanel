@@ -53,7 +53,7 @@ const RelatedReview = () => {
                       };
 
                     return (
-                        <div className=" col-sm-8 col-10 border related_review_container mt-4" key={index}>
+                        <div className="col-lg-10 col-sm-8 col-10 border related_review_container mt-4" key={index}>
                             <div className="row">
                                 <div className="col-3 col-sm-2 related_img_container">
                                     <div className="row">
