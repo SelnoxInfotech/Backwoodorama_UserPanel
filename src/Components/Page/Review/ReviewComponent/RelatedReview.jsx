@@ -22,7 +22,6 @@ const RelatedReview = () => {
                 {RelatedReview.map((ele, index) => {
                     const text=ele.review;
                     const getText = (getValue) => {
-                        console.log(getValue)
                         // For Text that is shorter than desired length
                         if (text.length <= 20) return text;
                         // If text is longer than desired length & showMore is true
