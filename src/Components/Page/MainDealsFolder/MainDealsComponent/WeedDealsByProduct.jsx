@@ -3,7 +3,7 @@ import { ScrollContainer } from 'react-indiana-drag-scroll';
 import 'react-indiana-drag-scroll/dist/style.css'
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-const PopularStrain = ({SliderDataArray,Heading}) => {
+const WeedDealsByProduct = ({SliderDataArray,Heading}) => {
   
     const ref = React.useRef(null);
     const box = document.querySelector(".newProductCard")
@@ -14,7 +14,7 @@ const PopularStrain = ({SliderDataArray,Heading}) => {
             <div className="row">
 
                 <div className="col-12 d-block popularStrainContainer  popularStrainContainerSlider popularStrain_heading" id="width" ref={ref}>
-                        <h1>{Heading}</h1>
+                        <h1>Weed deals By product</h1>
                     <ScrollContainer className="ScrollContainer_newProductCtaegory">
                         {SliderDataArray.map((items,index)=>{
                             return(
@@ -53,4 +53,4 @@ const PopularStrain = ({SliderDataArray,Heading}) => {
         </div>
     )
 }
-export default PopularStrain
+export default WeedDealsByProduct

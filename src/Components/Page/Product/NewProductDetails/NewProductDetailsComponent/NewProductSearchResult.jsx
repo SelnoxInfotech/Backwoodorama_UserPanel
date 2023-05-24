@@ -11,24 +11,20 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import { Rating } from '@mui/material';
 import useStyles from '../../../../../Style';
 import Axios from "axios"
-const NewProductSearchResult = () => {
+const NewProductSearchResult = ({NewProductSearchRseultArray,heading}) => {
     const classes = useStyles()
 
 
     const ref = React.useRef(null);
-    const NewProductSearchRseultArray = [{ imgUrl: "./image/social.png" }, { imgUrl: "./image/sativa.png" }, { imgUrl: "./image/sativa.png" },
-    { imgUrl: "./image/sativa.png" }, { imgUrl: "./image/sativa.png" }, { imgUrl: "./image/sativa.png" }, { imgUrl: "./image/sativa.png" }
-    ]
-
     return (
 
         <div className='container-fluid'>
             <div className='row center'>
-                <div className='col-lg-10 col-12 newProductDetailsHeading'>
-                    <p>You may also like</p>
+                <div className='col-lg-12 col-12 newProductDetailsHeading'>
+                    <p>{heading}</p>
 
                 </div>
-                <div className="col-lg-10 col-12   recentViewProductSlider" id="width" ref={ref}>
+                <div className="col-lg-12 col-12   recentViewProductSlider" id="width" ref={ref}>
                     <ScrollContainer className="ScrollContainerRelative">
                         {NewProductSearchRseultArray.map((items, index) => {
                             return (
