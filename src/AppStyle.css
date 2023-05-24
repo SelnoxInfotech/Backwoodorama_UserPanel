@@ -4140,10 +4140,12 @@
   background: #FAFAFA;
   border: 1px solid #E7E7E7;
 }
-.dealsByStrainTypeSliderContainer{
+
+.dealsByStrainTypeSliderContainer {
   height: 300px;
 
 }
+
 .popularStrain_heading h1 {
   font-weight: 700;
   font-size: 25px;
@@ -4312,6 +4314,9 @@
 
 .homePageSignupHeight {
   height: 100px;
+  height: 216px;
+  display: grid;
+  align-items: center;
 }
 
 .homePageSignup_paragraph p {
