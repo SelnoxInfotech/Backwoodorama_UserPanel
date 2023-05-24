@@ -16,7 +16,6 @@ const NewProductDetails = () => {
   const location = useLocation()
   const Id = location.state
   const Navigate = useNavigate()
- console.log(Id)
   React.useEffect( () => {
     const fetchData = async () => {
       const apidata = await fetch("http://backend.sweede.net/UserPanel/Get-Categories/");
@@ -44,7 +43,9 @@ const NewProductDetails = () => {
         alert("Something Goes Wrong")
 
       })
-  }, [])
+  }, [Id])
+
+
   function ShowCategoryProduct(id, name) {
 
     Navigate(`/CategoryProduct/${name}`, { state: { id } });
@@ -59,7 +60,7 @@ const NewProductDetails = () => {
       <CategoryProduct ShowCategoryProduct={ShowCategoryProduct} Category={Category} />
       <NewProductDetailsCards Product={Product} />
       <NewProductDescription Product={Product.Product_Description} />
-      <NewProductAboutUs />
+      <NewProductAboutUs/>
       <NewProductSearchResult/>
       {/* <ProductSearchResult RelatedProductResult={RelatedProductResult1}/> */}
 

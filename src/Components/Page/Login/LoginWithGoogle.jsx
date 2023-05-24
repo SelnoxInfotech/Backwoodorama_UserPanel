@@ -1,54 +1,49 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
-import { useGoogleLogin ,googleLogout} from '@react-oauth/google'
+import { useGoogleLogin } from '@react-oauth/google'
 import axios from 'axios';
+
+import { useNavigate, useLocation } from 'react-router-dom';
+import Cookies from 'universal-cookie';
+import Createcontext from "../../../Hooks/Context"
 function LoginWithGoogle() {
     const classes = useStyles()
-    const [ user, setUser ] = useState([]);
-    const [ profile, setProfile ] = useState([]);
-
+    const cookies = new Cookies();
+    const location = useLocation();
+    const Navigate = useNavigate()
+    const { state, dispatch } = React.useContext(Createcontext)
     const login = useGoogleLogin({
-        onSuccess: (codeResponse) => {setUser(codeResponse)
-        axios("http://backend.sweede.net/UserPanel/UserPanel/GoogleView// ", {
+        onSuccess: (codeResponse) => { GoogleAuth(codeResponse) },
+        onError: (error) =>alert('Login Failed:', error)
+
+    })
 
 
-
+    async function GoogleAuth(codeResponse) {
+       await axios.post("http://backend.sweede.net/UserPanel/GoogleView/ ", {
+            token: codeResponse.access_token
         }).then(response => {
-    
-
-
-
+            if (location.pathname === "/CheckOutMainPage") {
+                if (state.AllProduct.length === 0) {
+                    Navigate("/Product")
+                }
+            }
+            else {
+                let date = new Date();
+                date.setTime(date.getTime() + (60 * 60 * 8000))
+                cookies.set('Token_access', response.data.access_token, { expires: date })
+                dispatch({ type: 'Login', login: true })
+                dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+                Navigate(-1)
+            }
         }).catch(
             function (error) {
-
+                alert(error.response.data.message)
 
             })
-        },
-      
-        onError: (error) => console.log('Login Failed:', error)
-
-    });
-//   React.useEffect(
-    // () => {
-    //     if (user) {
-    //         axios
-    //             .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
-    //                 headers: {
-    //                     Authorization: `Bearer ${user.access_token}`,
-    //                     Accept: 'application/json'
-    //                 }
-    //             })
-    //             .then((res) => {
-    //                 setProfile(res.data);
-    //             console.log(res.data)
-    //             })
-    //             .catch((err) => console.log(err));
-    //     }
-    // },
-    // [ user ]
-// );
+    }
     return (
         <Box
             className={`  ${classes.Signup_loading_btn_facebook}`}
