@@ -4,7 +4,6 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import { BsSearch } from "react-icons/bs"
 import { IoLocationSharp } from "react-icons/io5"
 import Autocomplete from '@mui/material/Autocomplete';
-import Geocode from "react-geocode";
 import Axios from "axios"
 import React from 'react';
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -26,13 +25,13 @@ const SearchBar = () => {
                 const o = Object?.entries(response?.data).map((data, index, value) => {
                     return (data)
                 })
-                const z = []
                 const y = o?.map((data) => {
                     return data
                 });
                
 
                 y.map((data1) => {
+                 return (
                     data1[1].map((data) => {
                         return SetSearchData(SearchData => [...SearchData, { type: data1[0], value: data.name || data.Product_Name || data.Store_Name, id: data.id, image: data?.Brand_Logo || data?.categoryImages || data?.Store_Image || data?.SubCategoryImage }]);
 
@@ -40,6 +39,7 @@ const SearchBar = () => {
 
                     )
 
+                 )
 
                 })
                 // SetSearchData(response?.data);
@@ -127,7 +127,7 @@ const SearchBar = () => {
                                         <div >    <li
  
                                             onClick={((e) => SearchAPi(t.id, t.type, ))} key={`${t.value}`}
-                                        > <img src={`http://backend.sweede.net/${t.image}`} style={{ width: "50px", height: "50px" }}></img> <span> {`${t.value}`}</span>  </li></div>
+                                        > <img  src={`http://backend.sweede.net/${t.image}`} style={{ width: "50px", height: "50px" }} alt=''></img> <span> {`${t.value}`}</span>  </li></div>
 
                                        
                                     </ul>
