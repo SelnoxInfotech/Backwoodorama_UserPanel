@@ -74,7 +74,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                <Link to="/Deals"> <p onClick={closeNav}>Deals</p></Link>
+                <Link to="/MainDeals"> <p onClick={closeNav}>Deals</p></Link>
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >

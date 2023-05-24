@@ -22,8 +22,9 @@ import CategoryProduct from "../Components/Page/Product/AllCategory";
 import SubcategoryProduct from "../Components/Page/Product/SubCategoryProduct";
 import NewProductDetails from "../Components/Page/Product/NewProductDetails/NewProductDetails"
 import RelatedVerifyBrand from "../Components/Page/Brand/RelatedVerifyBrand/RelatedVerifyBrand";
-import Deals from "../Components/Page/Deals/Deals";
+import RelatedDeals from "../Components/Page/Deals/RelatedDeals";
 import Strain from "../Components/Page/Strain/Strain";
+import MainDeals from "../Components/Page/MainDealsFolder/MainDeals"
 const routesConfig = [
   
       {
@@ -110,8 +111,12 @@ const routesConfig = [
             element:<StoreDetail/>
           },
           {
-            path:"/Deals",
-            element:<Deals/>
+            path:"/RelatedDeals",
+            element:<RelatedDeals/>
+          },
+          {
+            path:"/MainDeals",
+            element:<MainDeals/>
           },
           {
             path:"/Strain",

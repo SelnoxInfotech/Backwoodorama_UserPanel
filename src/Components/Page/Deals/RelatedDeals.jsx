@@ -2,7 +2,7 @@ import BestDealCards from "./DealsComponent/BestDealCards"
 import PromoCode from "./DealsComponent/PromoCode"
 import Footer from "../../Component/Footer/Footer"
 import NewProductSearchResult from "../Product/NewProductDetails/NewProductDetailsComponent/NewProductSearchResult"
-const Deals=()=>{
+const RelatedDeals=()=>{
     const NewProductSearchRseultArray = [{ imgUrl: "./image/social.png" }, { imgUrl: "./image/sativa.png" }, { imgUrl: "./image/sativa.png" },
     { imgUrl: "./image/sativa.png" }, { imgUrl: "./image/sativa.png" }, { imgUrl: "./image/sativa.png" }, { imgUrl: "./image/sativa.png" }
     ]
@@ -38,4 +38,4 @@ const Deals=()=>{
         </div>
     )
 }
-export default Deals
+export default RelatedDeals

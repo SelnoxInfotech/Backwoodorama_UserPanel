@@ -10,6 +10,10 @@ import NewProductSearchResult from "./NewProductDetailsComponent/NewProductSearc
 import Axios from "axios";
 
 const NewProductDetails = () => {
+  const NewProductSearchRseultArray = [{ imgUrl: "./image/social.png" }, { imgUrl: "./image/sativa.png" }, { imgUrl: "./image/sativa.png" },
+  { imgUrl: "./image/sativa.png" }, { imgUrl: "./image/sativa.png" }, { imgUrl: "./image/sativa.png" }, { imgUrl: "./image/sativa.png" }
+  ]
+  const heading="You may also like"
   const [Category, SetCategory] = React.useState([])
   const [Product, SetProduct] = React.useState([])
   const [StoreProduct, SetStoreProduct] =  React.useState([])
@@ -61,7 +65,7 @@ const NewProductDetails = () => {
       <NewProductDetailsCards Product={Product} />
       <NewProductDescription Product={Product.Product_Description} />
       <NewProductAboutUs/>
-      <NewProductSearchResult/>
+      <NewProductSearchResult NewProductSearchRseultArray={NewProductSearchRseultArray} heading={heading}/>
       {/* <ProductSearchResult RelatedProductResult={RelatedProductResult1}/> */}
 
       <OverAllReview />

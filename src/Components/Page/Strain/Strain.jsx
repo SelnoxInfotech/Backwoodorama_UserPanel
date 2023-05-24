@@ -14,11 +14,20 @@ const Strain=()=>{
   { imgUrl: "./image/edibles.webp", name: "0G Kush", secName: "Hybrid" }
 
   ]
+  const StrainTypeCardArray = [
+    { imgUrl: "./image/indica.png", head1: "Indica" },
+    { imgUrl: "./image/sativa.png", head1: "Hybrid" },
+    { imgUrl: "./image/social.png", head1: "Sativa" },
+    { imgUrl: "./image/Leafly March Promo.png", head1: "Indica" },
+    { imgUrl: "./image/Leafly Promo.png", head1: "Hybrid" },
+    { imgUrl: "./image/Leafly Promo.png", head1: "Sativa" },
+]
+const strainHeading="Strain type"
   const popularStrainHeading="Popular strain"
     return(
         <div className="container-fluid">
           <PopularStrain SliderDataArray={PopularStrainArray} Heading={popularStrainHeading}/>
-         <StrainType/>
+         <StrainType ArrayData={StrainTypeCardArray} Heading={strainHeading}/>
            <div className="row">
             <div className="col-12">
               <h1 className="strainPopular_heading">Popular strains products</h1>

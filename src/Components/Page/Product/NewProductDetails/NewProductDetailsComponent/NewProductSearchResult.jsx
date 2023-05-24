@@ -7,7 +7,7 @@ import { AiFillHeart } from "react-icons/ai"
 import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 import LoadingButton from '@mui/lab/LoadingButton';
-
+import {IoShareSocialSharp} from "react-icons/io5"
 import { Rating } from '@mui/material';
 import useStyles from '../../../../../Style';
 import Axios from "axios"
@@ -43,6 +43,15 @@ const NewProductSearchResult = ({NewProductSearchRseultArray,heading}) => {
 
                                                 </Box>
                                             </div>
+                                            <div className="col-12 product_whish_list text-end ">
+                                                <Box className={classes.productSearchIcons}>
+                                                    <IconButton aria-label="Example">
+                                                    <IoShareSocialSharp/>
+
+                                                    </IconButton>
+
+                                                </Box>
+                                            </div>
 
                                             <LazyLoadImage
 
@@ -56,7 +65,7 @@ const NewProductSearchResult = ({NewProductSearchRseultArray,heading}) => {
                                             />
 
                                         </div>
-                                        <div className="col-12 product_search_result_content_div ">
+                                        <div className="col-12 product_search_result_content_div mt-4">
                                             <div className="row gap-0">
                                                 <div className="col-12 productSearchResultParagraph ">
                                                     <p className="text-truncate">Black runtz 5gm</p>
@@ -83,7 +92,7 @@ const NewProductSearchResult = ({NewProductSearchRseultArray,heading}) => {
 
                                                         <LoadingButton style={{ width: "60%", height: "30px", fontSize: "12px" }}
                                                         >
-                                                            Add To Cart
+                                                            Buy now
                                                         </LoadingButton>
 
 

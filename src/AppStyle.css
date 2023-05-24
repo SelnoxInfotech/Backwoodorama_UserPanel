@@ -3153,7 +3153,7 @@
 /* end */
 /* ProductSearchResult */
 .productSearch_result_container {
-  height: 400px;
+  height: 422px;
 }
 
 .productSearchResultImage_container {
@@ -4140,13 +4140,16 @@
   background: #FAFAFA;
   border: 1px solid #E7E7E7;
 }
+.dealsByStrainTypeSliderContainer{
+  height: 300px;
 
+}
 .popularStrain_heading h1 {
   font-weight: 700;
   font-size: 25px;
   line-height: 38px;
 
-  color: #333333;
+  color: #000000;
 }
 
 .popularStrainContent {

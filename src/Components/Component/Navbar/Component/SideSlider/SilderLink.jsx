@@ -27,7 +27,9 @@ export default function DashBoardLink({ state }) {
                 <Link to="/Deliveries" id={`${(current_route ===  "/Deliveries" ? "Active" : "")}`}><li>Deliveries</li></Link>
                 <Link to="/Brand" id={`${(current_route ===  "/Brand" ? "Active" : "")}`}> <li>Brand</li></Link>
                 <Link to="/Product" id={`${(current_route ===  "/Product" ? "Active" : "")}`}><li>Product</li></Link>
-                <Link to="/Deals"  id={`${(current_route ===  "/Deals" ? "Active" : "")}`}><li>Deals</li></Link>
+                {/* <Link to="/Deals"  id={`${(current_route ===  "/Deals" ? "Active" : "")}`}><li>Deals</li></Link> */}
+                <Link to="/MainDeals"  id={`${(current_route ===  "/MainDeals" ? "Active" : "")}`}><li>Deals</li></Link>
+
                 <li >Learn</li>
                 <Link to="/Strain" id={`${(current_route ===  "/Strain" ? "Active" : "")}`}><li>Strain</li></Link>
               </ul>

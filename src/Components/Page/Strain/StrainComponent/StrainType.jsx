@@ -2,7 +2,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import SearchBar from '@mkyy/mui-search-bar';
 import { ScrollContainer } from 'react-indiana-drag-scroll';
 import * as React from 'react';
-const StrainType = () => {
+const StrainType = ({ArrayData,Heading}) => {
     const ref = React.useRef(null);
 
     const StrainTypeCardArray = [
@@ -17,7 +17,7 @@ const StrainType = () => {
         <>
             <div className="row my-4">
                 <div className="col-sm-4 strainType_heading">
-                    <h1 className="mx-2">Strain type</h1>
+                    <h1 className="mx-2">{Heading}</h1>
                 </div>
                 <div className="col-sm-8 px-2">
                     <SearchBar style={{ background: "#FFFFF", border: "1px solid gray" }} width={"100%"} placeholder="Serch Strain Type" />
@@ -28,7 +28,7 @@ const StrainType = () => {
             <div className="col-lg-12 col-12   recentViewProductSlider" id="width" ref={ref}>
             <ScrollContainer className="ScrollContainerRelative">
 
-                {StrainTypeCardArray.map((items, index) => {
+                {ArrayData.map((items, index) => {
                     return (
                         <div className="col-xl-3 col-lg-4 col-sm-6 col-12 mb-4 strainType_container" key={index}>
                             <div className="row starinType_inner_row mx-1 my-2">
