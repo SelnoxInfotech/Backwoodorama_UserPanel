@@ -160,7 +160,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
                                                 event.target.src = "/image/blankImage.jpg"
                                                 event.onerror = null
                                             }}
-                                            src={`http://backend.sweede.net/${items?.images[0].image}`}
+                                            src={`http://backend.sweede.net/${items?.images[0]?.image}`}
                                             height={"100px"}
                                         />
                                     </Link>

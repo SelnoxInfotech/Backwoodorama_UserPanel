@@ -25,7 +25,11 @@
   text-overflow: ellipsis;
 
 }
-
+@media(max-width:480px){
+  .common_sub_head {
+    font-size: 12px;
+  }
+}
 .productlist_rating {
   color: #949494;
   font-size: 15px;
@@ -147,8 +151,10 @@
 
 @media screen and (max-width: 400px) {
   .Image_Width {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    /* border: 1px solid green; */
   }
 
   .Category_title {
@@ -2048,6 +2054,7 @@
 /* HomePageBanner */
 .homePageBanner_container {
   height: 100%;
+  margin-bottom: 12px;
 }
 
 .HomePageBanner_image {
@@ -3603,7 +3610,6 @@
   overflow-y: hidden;
   height: auto;
   padding-left: 14px;
-  margin-bottom: 40px;
 }
 
 .dispensoriesContainer {
@@ -3889,7 +3895,7 @@
 /* end */
 /* RelatedVerifyBrandBanner */
 .relatedVerifyBrand_Banner {
-  height: 100%;
+  height: auto;
   background: #FFFFFF;
   border: 1px solid #DEDCDC;
 }
@@ -3910,6 +3916,8 @@
   height: 150px;
   width: 160px;
 }
+
+@media(max-width:380px) {}
 
 .relatedVerifyBrand_icons {
   height: 40px;
@@ -4231,6 +4239,14 @@
   color: #000000;
 }
 
+@media(max-width:400px) {
+  .delivery_services_heading h1 {
+    font-size: 18px;
+  }
+
+  .delivery_services_subheading h2 {}
+}
+
 .deliveryServicesBorder {
   background: #FFFFFF;
   border: 1px solid #31B665;
@@ -4312,6 +4328,10 @@
   justify-content: center;
 }
 
+.homePageDealSignupContentHeight {
+  height: 48px;
+}
+
 .homePageSignupHeight {
   height: 100px;
   height: 216px;
@@ -4356,4 +4376,50 @@
   color: #000000;
 }
 
+@media(max-width:480px) {
+  .homePageSignup_paragraph p {
+    font-size: 20px;
+  }
+
+  .homePageSignipLink P {
+    font-size: 20px;
+
+  }
+}
+
+.dashBoard_strain_paragraph{
+  font-weight: 700;
+  font-size: 24px;
+  color: #000000;
+}
+
 /* end */
+/* FeaturedBrand */
+.FeaturedBrandImageContainer{
+  height: 120px;
+}
+.FeaturedBrandImage_height{
+  height: 120px;
+  width: 100%;
+}
+.FeaturedBrandContainer{
+  background: #FAFAFA;
+  border: 1px solid #E7E7E7;
+}
+.featuredBrandTitle h1{
+  font-weight: 700;
+font-size: 20px;
+line-height: 36px;
+
+color: #525252;
+}
+@media(max-width:576px){
+  .FeaturedBrandImageContainer{
+    height: 200px;
+  }
+  .FeaturedBrandImage_height{
+    height: 200px;
+    width: 100%;
+  }
+}
+/* end*/

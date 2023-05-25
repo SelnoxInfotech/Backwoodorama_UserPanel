@@ -1,9 +1,18 @@
 import { makeStyles } from '@mui/styles';
 const useStyles = makeStyles({
+  searchBarPadding:{
+    "&.MuiInputBase-sizeSmall":{
+      paddingTop:" 6px",
+      paddingBottom:"6px",
+      paddingLeft:"30px",
+    }
+  },
+
   SearchBar_Text: {
     "& .MuiOutlinedInput-notchedOutline": {
       border: "0px",
       paddingTop: '8.5px',
+      
 
     }
     ,
@@ -78,6 +87,23 @@ const useStyles = makeStyles({
 
       color: "white",
       background: "#00b96a",
+      // boxShadow: "2px 2px"
+
+    }
+  },
+  homePageButton:{
+    "&.MuiButtonBase-root": {
+      background:"#31B665",
+      color: "#FFFFFF",
+      border: "1px solid #31B665",
+      borderRadius: "25px 25px",
+      minWidth: "100%",
+      textTransform: "none",
+    },
+    "&.MuiButtonBase-root:hover": {
+
+      color: "white",
+      background:"#31B665",
       // boxShadow: "2px 2px"
 
     }

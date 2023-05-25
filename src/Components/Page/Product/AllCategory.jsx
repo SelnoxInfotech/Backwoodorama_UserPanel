@@ -8,7 +8,6 @@ const AllCategory = () => {
     const navigate = useNavigate();
     const location = useLocation()
     const {id} = location.state
-    console.log(location.state)
     const [Category , SetCategory] = React.useState([])
         
         const [category , setCategory] = React.useState([])

@@ -40,7 +40,7 @@ const LatestServices = () => {
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 3,
+                    slidesToShow: 2,
                     slidesToScroll: 1,
                     infinite: true,
                     dots: true,
@@ -99,7 +99,7 @@ const LatestServices = () => {
                     <div className="col-lg-12 ">
                         <div className="latest_services disp_head">
                             <p>Welcome to Backwoodaroma</p>
-                            <h6 className="fontStyle common_sub_head">Check our latest article to see our inspiring content for shopping</h6>
+                            <h6 className="fontStyle common_sub_head ellipsis">Check our latest article to see our inspiring content for shopping</h6>
                         </div>
                     </div>
 

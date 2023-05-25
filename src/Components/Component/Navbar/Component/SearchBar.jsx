@@ -143,7 +143,7 @@ const SearchBar = () => {
                             onChange={Search}
                         
                             placeholder="Products Brands Retailers and more"
-                            className={`SearchBar nav_search_bar_div  ${classes.SearchBar_Text}`}
+                            className={`px-3 SearchBar nav_search_bar_div  ${classes.SearchBar_Text}`}
                             style={{ borderRadius: " 16px 0px 0px 16px", top: "0px" }}
                             InputProps={{
                                 ...params.InputProps,
@@ -185,7 +185,7 @@ const SearchBar = () => {
                             size="small"
                             sx={{ width: "100%" }}
                             variant="outlined"
-                            className={`sec_input_search SearchBar ${classes.SearchBar_Text}`}
+                            className={`sec_input_search SearchBar px-2 ${classes.SearchBar_Text}`}
                             type="text"
                             placeholder="location"
                             InputProps={{

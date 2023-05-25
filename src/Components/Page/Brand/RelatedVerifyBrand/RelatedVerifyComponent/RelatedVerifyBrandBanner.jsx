@@ -3,7 +3,6 @@ import { MdShare } from "react-icons/md"
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const RelatedVerifyBanner = ({BrandDetails}) => {
-    console.log(BrandDetails)
     return (
         <div className="row center px-2">
             <div className="col-lg-10 relatedVerifyBrand_Banner py-4">
@@ -15,7 +14,9 @@ const RelatedVerifyBanner = ({BrandDetails}) => {
                     </div>
                     <div className="col-sm-4 RelatedVerifyBrandBanner_Image_container">
                         <div className="realtedVerifyBanner_image_inner_container">
-                            <LazyLoadImage className="related_verify_banner_img" src={`http://backend.sweede.net/` + BrandDetails.Brand_Logo}alt="Brand_Logo image not available" />
+                            <LazyLoadImage className="related_verify_banner_img"
+                            
+                             src={`http://backend.sweede.net/` + BrandDetails.Brand_Logo} alt="Brand_Logo image not available" />
 
                         </div>
 
@@ -27,7 +28,7 @@ const RelatedVerifyBanner = ({BrandDetails}) => {
                             </div>
                             <div className="col-12 related_verify_paragraph">
 
-                                <p  > <div  dangerouslySetInnerHTML={{ __html: BrandDetails.Brand_description }} /> </p>
+                                <p  > <div  dangerouslySetInnerHTML={{ __html: BrandDetails.Brand_description }} /></p>
                             </div>
 
                         </div>
