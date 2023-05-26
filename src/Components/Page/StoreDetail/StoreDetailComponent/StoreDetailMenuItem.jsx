@@ -1,14 +1,16 @@
 
 const StoreDetailMenuItem = ({SelectionTab , tab}) => {
 
-    const StoreDetailMenuItem = [{ item: "Menu",color:"#31B665" }, { item: "Store Details",color:"#31B665" }, { item: "Review",color:"#31B665" },  { item: "Deal",color:"#31B665" }, { item: "Media",color:"#31B665" }]
+    const StoreDetailMenuItem = [{ item: "Menu",color:"#31B665" }, { item: "Store Details",color:"#31B665" },
+     { item: "Review",color:"#31B665" },  { item: "Deal",color:"#31B665" }, { item: "Media",color:"#31B665" },
+    ]
 
 
     return (
         <>
             <div className="container-fluid">
                 <div className="row center">
-                    <div className="col-lg-12  col-md-12 col-sm-12 col-12 StoreDetailMenuItem_container">
+                    <div className="col-lg-12  col-md-12 col-sm-12 col-12 StoreDetailMenuItem_container center">
                         <ol className="store_detail_order_list">
                             {StoreDetailMenuItem.map((ele, index) => {
                                 return (

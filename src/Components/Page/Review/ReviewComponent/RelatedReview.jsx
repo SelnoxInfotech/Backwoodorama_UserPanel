@@ -18,7 +18,7 @@ const RelatedReview = () => {
         }]
     return (
         <>
-            <div className="row center mx-1">
+            <div className="row center ">
                 {RelatedReview.map((ele, index) => {
                     const text=ele.review;
                     const getText = (getValue) => {
