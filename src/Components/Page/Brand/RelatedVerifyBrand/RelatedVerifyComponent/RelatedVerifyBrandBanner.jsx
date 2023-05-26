@@ -12,7 +12,7 @@ const RelatedVerifyBanner = ({BrandDetails}) => {
                         <span className="mx-2"><MdShare color="#949494" size={20}/></span>
 
                     </div>
-                    <div className="col-sm-4 RelatedVerifyBrandBanner_Image_container">
+                    <div className="col-md-4 RelatedVerifyBrandBanner_Image_container">
                         <div className="realtedVerifyBanner_image_inner_container">
                             <LazyLoadImage className="related_verify_banner_img"
                             
@@ -21,7 +21,7 @@ const RelatedVerifyBanner = ({BrandDetails}) => {
                         </div>
 
                     </div>
-                    <div className="col-sm-8 relatedVerifyBrandBanner_contentContainer">
+                    <div className="col-md-8 relatedVerifyBrandBanner_contentContainer">
                         <div className="row">
                             <div className="col-12 relatedVerifyBrand_heading">
                                 <h1>{BrandDetails.name}</h1>

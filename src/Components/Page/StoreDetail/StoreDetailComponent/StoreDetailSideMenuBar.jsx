@@ -23,7 +23,9 @@ const StoreDetailSideMenuBar = () => {
     ]
     const classes=useStyles()
     return (
-        <div className="col-lg-2 storeDetail_container">
+        <div className="col-lg-2 storeDetail_container my-2">
+            <div className="">
+
             <div className="row">
                 <div className="col-12 center">
                 <p className="fontStyle store_detail_menu_heading">Mr nice guys DC</p>
@@ -61,6 +63,7 @@ const StoreDetailSideMenuBar = () => {
 
              
 
+            </div>
             </div>
 
         </div>

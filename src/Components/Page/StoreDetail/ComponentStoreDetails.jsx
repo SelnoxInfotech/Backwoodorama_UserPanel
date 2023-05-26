@@ -6,17 +6,20 @@ import Amenities from "./StoreDetailComponent/Amenities"
 const StoreDetail1 = () => {
     return (
         <>
-            <div className="row mt-4 center">
-                <div className="col-lg-10 store_detail_heading fontStyle">
+        <div className="container">
+
+            {/* <div className="row mt-4 center"> */}
+                <div className="col-lg-12 store_detail_heading fontStyle">
                     <p>Store details</p>
                 </div>
-            </div>
+            {/* </div> */}
             <hr />
             <Amenities />
-            <div className="row m-2 center storeDetailGap">
+            <div className="row mx-1 my-2">
                 <StoreDetailSideMenuBar />
                 <StoreDetailInformation />
                 <StoreDetailContact />
+            </div>
             </div>
 
 

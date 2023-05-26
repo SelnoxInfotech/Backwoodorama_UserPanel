@@ -72,7 +72,7 @@ const CategoryProduct = ({ ShowCategoryProduct, Category }) => {
             <div className='container-fluid mt-4'>
                 <div className='row'>
                     <div className='col-12 disp_head'>
-                        <p>Shop by  category</p>
+                        <h1>Shop by  category</h1>
                     </div>
                 </div>
                 <SliderCategory {...settings}>

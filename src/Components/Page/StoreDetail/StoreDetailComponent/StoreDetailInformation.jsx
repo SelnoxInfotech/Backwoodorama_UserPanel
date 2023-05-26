@@ -1,7 +1,9 @@
 const StoreDetailInformation=()=>{
     return(
         <>
-                    <div className="col-lg-6 store_detail_container">
+                    <div className="col-lg-8 store_detail_container my-2">
+                        <div className=" ">
+
                         <div className="row">
                             <div className="col-12 StoreDetail_paragraph fontStyle store_middle_content_top ">
                                 <p>Introduction</p>
@@ -47,7 +49,7 @@ const StoreDetailInformation=()=>{
 
                         </div>
 
-
+                        </div>
 
                     </div>
         </>

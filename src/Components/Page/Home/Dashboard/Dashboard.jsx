@@ -72,7 +72,7 @@ export default function Dashboard() {
 
 
 
-            <CommunityType></CommunityType>
+            {/* <CommunityType></CommunityType> */}
             <Footer></Footer>
         </div>
     )

@@ -13,7 +13,7 @@ const Amenities = () => {
         <>
             <div className="container-fluid">
                 <div className="row  center">
-                    <div className="col-lg-10 col-md-12 col-sm-12 col-12 amenities_container">
+                    <div className="col-lg-12 col-md-12 col-sm-12 col-12 amenities_container">
                         <div className="row center">
                             <div className="col-12 amenties_paragrap fontStyle">
                                 <p>Amenities</p>

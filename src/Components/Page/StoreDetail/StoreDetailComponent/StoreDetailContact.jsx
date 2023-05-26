@@ -14,7 +14,7 @@ const StoreDetailContact = () => {
     ]
     return (
         <>
-            <div className="col-lg-2 store_detail_container_right_container">
+            <div className="col-lg-2 store_detail_container_right_container my-2">
                 <div className="row">
                     <div className="col-lg-12 StoreDetailContactList">
                         <ol className="StoreDetailContactList">

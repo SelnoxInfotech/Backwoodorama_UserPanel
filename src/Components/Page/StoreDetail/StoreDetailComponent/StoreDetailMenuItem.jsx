@@ -8,7 +8,7 @@ const StoreDetailMenuItem = ({SelectionTab , tab}) => {
         <>
             <div className="container-fluid">
                 <div className="row center">
-                    <div className="col-lg-10  col-md-12 col-sm-12 col-12 StoreDetailMenuItem_container">
+                    <div className="col-lg-12  col-md-12 col-sm-12 col-12 StoreDetailMenuItem_container">
                         <ol className="store_detail_order_list">
                             {StoreDetailMenuItem.map((ele, index) => {
                                 return (

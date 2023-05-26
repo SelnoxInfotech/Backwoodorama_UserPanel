@@ -11,7 +11,7 @@ const HomePageDealsSignup = () => {
                     <div className='w-100 homePageSignupHeight'>
                         <form>
                             <div className="row ">
-                                <div className="col-md-4 homePageSignup_paragraph mt-2 homePageDealSignupContentHeight">
+                                <div className="col-md-4 homePageSignup_paragraph  homePageDealSignupContentHeight">
                                     <p>Never miss deals!</p>
                                 </div>
                                 <div className='col-md-6 mt-2 homePageDealSignupContentHeight'>

@@ -94,10 +94,10 @@
   font-weight: 400;
 }
 
-.disp_head p {
+.disp_head h1 {
   font-weight: 700;
   font-size: 25px;
-  /* margin-left: 20px; */
+  color: #333333;
 }
 
 .Rating {
@@ -105,7 +105,7 @@
 }
 
 @media(max-width:480px) {
-  .disp_head p {
+  .disp_head h1 {
     font-size: 16px;
   }
 }
@@ -2331,7 +2331,7 @@
 /* end */
 /* StoreDetailMenuItem */
 .store_detail_list {
-  min-width: 90px;
+  width: 90px;
 }
 
 .storeDetalMenuItemCursor {
@@ -2345,19 +2345,18 @@
 
 .store_detail_order_list {
   display: flex;
-  gap: 7%;
   list-style: none;
   color: #828282;
-  width: 80%;
+  width: 100%;
   align-items: center;
+  /* justify-content: space-around; */
   height: 100%;
+  gap: 16%;
 }
 
 .StoreDetailMenuItem_container {
   height: 50px;
   background-color: #F6F6F6;
-  display: flex;
-  justify-content: center;
 }
 
 @media (min-width: 992px) {
@@ -2371,6 +2370,9 @@
   .StoreDetailMenuItem_container {
     overflow-y: hidden;
     overflow-x: scroll;
+  }
+  .store_detail_order_list{
+    gap:2%;
   }
 }
 
@@ -2414,7 +2416,7 @@
 .Store_detail_list {
   display: flex;
   gap: 10px;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .store_detail_container {
@@ -3142,9 +3144,9 @@
 }
 
 .productSlider_headings h1 {
-  color: #000000;
+  font-weight: 700;
   font-size: 24px;
-  font-weight: bold;
+  color: #000000;
 }
 
 .marginProductSearchResult {
@@ -3156,7 +3158,14 @@
   font-size: 15px;
   color: #707070;
 }
-
+@media(max-width:480px){
+  .productSlider_headings h1{
+    font-size: 16px;
+  }
+  .newProductCategorySliderName p {
+    font-size: 10px;
+  }
+}
 /* end */
 /* ProductSearchResult */
 .productSearch_result_container {
@@ -3908,16 +3917,25 @@
 }
 
 .realtedVerifyBanner_image_inner_container {
-  height: 160px;
-  width: 180px;
+  height: 141px;
+  width: 198px;
 }
 
 .related_verify_banner_img {
-  height: 150px;
-  width: 160px;
+  height: 129px;
+  width: 166px;
 }
 
-@media(max-width:380px) {}
+@media(max-width:380px) {
+  .realtedVerifyBanner_image_inner_container {
+    height: 121px;
+    width: 224px;
+}
+.related_verify_banner_img {
+  height: 121px;
+  width: 224px;
+}
+}
 
 .relatedVerifyBrand_icons {
   height: 40px;

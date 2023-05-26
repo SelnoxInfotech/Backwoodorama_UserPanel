@@ -6,12 +6,13 @@ const FeaturedBrand = ({ CardDataArray }) => {
 
     return (
         <>
-            <div className="row">
+        <div className="container-fluid">
+            
+
                 <div className="col-12 bestDealsCard_Heading_offers mt-4">
                     <h1 className="ellipsis px-2">Featured Brands</h1>
                 </div>
 
-            </div>
             <div className="col-lg-12 col-12   recentViewProductSlider" id="width" ref={ref}>
                 <ScrollContainer className="ScrollContainerRelative">
                     {
@@ -37,6 +38,8 @@ const FeaturedBrand = ({ CardDataArray }) => {
                 </ScrollContainer>
 
             </div>
+        </div>
+
         </>
     )
 }
