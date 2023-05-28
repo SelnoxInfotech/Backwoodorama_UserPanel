@@ -18,6 +18,8 @@ const RelatedReview = () => {
         }]
     return (
         <>
+        <div className='container-fluid'>
+
             <div className="row center ">
                 {RelatedReview.map((ele, index) => {
                     const text=ele.review;
@@ -53,7 +55,7 @@ const RelatedReview = () => {
                       };
 
                     return (
-                        <div className="col-lg-10 col-sm-10 col-12  related_review_container mt-4" key={index}>
+                        <div className="col-lg-10 col-sm-10 col-10  related_review_container mt-4" key={index}>
                             <div className="row">
                                 <div className="col-3 col-sm-2 related_img_container">
                                     <div className="row">
@@ -103,6 +105,8 @@ const RelatedReview = () => {
                     )
                 })}
             </div>
+        </div>
+
         </>
     )
 }
