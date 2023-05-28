@@ -2266,7 +2266,7 @@
 
 
 .amenties_list_items {
-  min-width: 12%;
+  min-width: 11%;
 }
 
 .amenities_link {
@@ -2283,13 +2283,22 @@
   display: flex;
   list-style: none;
   color: #828282;
-  gap: 3%;
+  gap: 7%;
   width: 100%;
   /* align-items:center; */
 
 }
+@media(max-width:1199px){
+  .amenities_list{
+    gap:3%;
+  }
+  .amenties_list_items {
+    min-width: 13%;
+    font-size: 12px;
+  }
+}
 
-@media(max-width:688px) {
+@media(max-width:820px) {
   .ameitiesList_container_height {
     overflow-y: hidden;
     overflow-x: scroll;
@@ -2297,7 +2306,7 @@
   }
 
   .amenties_list_items {
-    min-width: 20%;
+    min-width: 24%;
   }
 
   .amenities_list {
