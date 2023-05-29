@@ -26,6 +26,7 @@ const Login = () => {
     const [dulicate, Setduplicate] = React.useState([])
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     function Submit(data) {
+       
         Setloading(true)
         axios.post("http://backend.sweede.net/UserPanel/Login/", {
 
@@ -59,21 +60,23 @@ const Login = () => {
 
             })
     }
+ 
 
     return (
         <>
             <div className="container signup_margins_top signup_margins_bottom">
                 <div className="row center">
-                    <div className="col-lg-4 col-md-6 col-sm-8 col-10 signup_padding_bottom login_signup_reset_container login_container_height">
+                    <div className="col-xl-4 col-lg-6 col-md-6 col-sm-8 col-11 signup_padding_bottom login_signup_reset_container login_container_height">
                         <div className='row'>
                             <div className='col-12 fontStyle signup_head'>
                                 <p>Login</p>
 
                             </div>
                         </div>
+                    
                         <form onSubmit={method.handleSubmit(Submit)}>
                             <div className='row'>
-                                <label>Email/Username</label>
+                                <label>Email</label>
 
                                 <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
                                     <TextField
@@ -136,7 +139,7 @@ const Login = () => {
                                 <div className='col-lg-8  col-md-8 col-sm-8 col-8 signup_btn text-end'>
                                     <p>Having trouble to access your account?</p>
                                 </div>
-                                <div className='col-lg-2 col-md-2 col-sm-2 col-2 Signup_already_btn'>
+                                <div className='col-lg-3 col-md-3 col-sm-3 col-3 Signup_already_btn'>
                                     <Link to="/ResetPassword"><p>Click here</p></Link>
                                 </div>
 
@@ -146,7 +149,7 @@ const Login = () => {
                             <div className='row  signup_margins_top'>
                                 <div className=' col-lg-12 signup_btn_height'>
                                     <Box
-                                        className={` ${classes.loadingBtnTextAndBack}`}
+                                        className={`${classes.loginBtnTextAndBackground}`}
                                     >
                                         <LoadingButton variant="outlined" loading={loading} type='submit'>LOGIN</LoadingButton>
                                     </Box>
@@ -154,24 +157,31 @@ const Login = () => {
 
                             </div>
                         </form>
-                        <div className='row  signup_margins_top'>
-                            <div className='col-lg-12 signup_btn_height'>
-                                <LoginWithGoogle></LoginWithGoogle>
-                            </div>
-
+                        <div className='w-100 d-flex mt-4 center'>
+                        <div className='login_horizontalLine '></div> <span className='px-2 login_OR'>OR</span> <div className='login_horizontalLine '></div>
                         </div>
                         <div className='row  signup_margins_top'>
                             <div className='col-lg-12 signup_btn_height'>
                                 <Box
-                                    className={`${classes.Signup_loading_btn_google}`}
+                                    className={`${classes.Signup_loading_btn_facebook}`}
                                 >
-                                    <LoadingButton variant="outlined">Continue with Facebook</LoadingButton>
+                                    <LoadingButton variant="outlined"><img className='loginGoogle_image' src="image/facebook_loginImage.png" alt="" style={{ pointerEvents: "none" }}/>Continue with Facebook</LoadingButton>
                                 </Box>
                             </div>
 
                         </div>
+                        <div className='row  signup_margins_top'>
+                            <div className='col-lg-12 signup_btn_height'>
+                                
+                                <LoginWithGoogle></LoginWithGoogle>
+                            </div>
 
+                        </div>
+                      
 
+                        <div className='w-100 center my-2 '>
+                            <p className='login_bottom'>New Backwoodaroma ?</p>
+                        </div>
 
 
                     </div>

@@ -46,9 +46,9 @@ function LoginWithGoogle() {
     }
     return (
         <Box
-            className={`  ${classes.Signup_loading_btn_facebook}`}
+            className={`${classes.Signup_loading_btn_Googles}`}
         >
-            <LoadingButton onClick={login} variant="outlined">Continue with Google</LoadingButton>
+            <LoadingButton onClick={login} variant="outlined"><img className='loginGoogle_image' src="image/google.png" alt="" style={{ pointerEvents: "none" }}></img> Continue with Google</LoadingButton>
         </Box>
     )
 }

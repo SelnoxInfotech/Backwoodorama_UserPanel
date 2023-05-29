@@ -122,22 +122,23 @@ const useStyles = makeStyles({
     fontSize: "large",
     color: "gray",
   },
-  Signup_loading_btn_facebook: {
+  Signup_loading_btn_Googles: {
     "& .MuiButton-text": {
       fontSize: ".6rem",
     },
     "& .MuiLoadingButton-root": {
-      // background: "#3A559F",
       textTransform: "none",
       width: "100%",
+      display:"flex",
+      justifyContent:"flex-start",
       height: "38px",
       borderRadius: "40px",
-      border: "2px solid #3A559F"
-
-
+      color: "#ffff",
+      backgroundColor: "#3A559F",
+      gap:"50px",
+      paddingLeft:"40px"
     },
     "& .MuiButtonBase-root:hover": {
-      color: "#ffff",
       backgroundColor: "#3A559F"
 
     }
@@ -147,7 +148,6 @@ const useStyles = makeStyles({
       fontSize: ".6rem",
     },
     "& .MuiLoadingButton-root": {
-      // background: "#3A559F",
       textTransform: "none",
       width: "100%",
       height: "38px",
@@ -164,19 +164,24 @@ const useStyles = makeStyles({
 
     }
   },
-  Signup_loading_btn_google: {
+  Signup_loading_btn_facebook: {
     "& .MuiButton-text": {
       fontSize: ".6rem",
     },
     "& .MuiLoadingButton-root": {
       // background: "#3A559F",
-      // textTransform: "none",
+      textTransform: "none",
       width: "100%",
+      display:"flex",
+      justifyContent:"flex-start",
+      gap:"50px",
+      paddingLeft:" 41px",
       height: "38px",
-
+      backgroundColor: "#3369C2",
+      color: "#ffff",
       borderRadius: "40px",
       borderSpacing: "2px",
-      border: "2px solid #3369C2"
+      // border: "2px solid #3369C2"
 
 
     },
@@ -198,6 +203,27 @@ const useStyles = makeStyles({
       color: "#31B665",
       textTransform: "none",
       border: "2px solid #31B665"
+    },
+    "& .MuiButtonBase-root:hover": {
+      color: "#ffff",
+      backgroundColor: "#00b96a",
+      border: "1px solid #31B665"
+    },
+  },
+  loginBtnTextAndBackground:{
+    "& .MuiButton-text": {
+      fontSize: ".5rem",
+    },
+    "& .MuiLoadingButton-root": {
+      width: "100%",
+      height: "38px",
+      borderRadius: "40px",
+      backgroundColor: "#ffff",
+      color: "#31B665",
+      textTransform: "none",
+      border: "2px solid #31B665",
+      color: "#ffff",
+      backgroundColor: "#00b96a",
     },
     "& .MuiButtonBase-root:hover": {
       color: "#ffff",

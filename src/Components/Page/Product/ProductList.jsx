@@ -134,7 +134,7 @@ const ProductList = ({ arr }) => {
             <div className="row mx-2" style={{ height: "auto",marginBottom:"100px" }}>
                 {arr?.map((ele, index) => {
                     return (
-                        <div className="col-12 col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6  prod_inner_cont " key={index}>
+                        <div className="col-12 col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12  prod_inner_cont " key={index}>
                             <div className="row product_inner_row">
                                 <div className="col-4 prod_cat_cont" >
                                     <Link    to={"/ProductDetail"} state={ ele.id }>
@@ -186,7 +186,7 @@ const ProductList = ({ arr }) => {
                                                         })
                                                     )
                                                     return (
-                                                        <div className="col-4 col-lg-3 col-md-4 col-sm-5 prod_cat_btn_cont mt-2 d-flex" id="" key={index} >
+                                                        <div className="col-4 col-lg-3 col-md-4  prod_cat_btn_cont mt-2 d-flex" id="" key={index} >
                                                             <section
                                                                 className={"prod_cat_btns " + (s ? "active" : "")}
                                                                 value={data.id} onClick={() => PriceSelect(ele.id, data.id)} >
