@@ -14,6 +14,8 @@ import { CiLock } from "react-icons/ci"
 import LoginWithGoogle from './LoginWithGoogle';
 import Cookies from 'universal-cookie';
 import Createcontext from "../../../Hooks/Context"
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 const Login = () => {
     const cookies = new Cookies();
     const method = useForm()
@@ -165,7 +167,7 @@ const Login = () => {
                                 <Box
                                     className={`${classes.Signup_loading_btn_facebook}`}
                                 >
-                                    <LoadingButton variant="outlined"><img className='loginGoogle_image' src="image/facebook_loginImage.png" alt="" style={{ pointerEvents: "none" }}/>Continue with Facebook</LoadingButton>
+                                    <LoadingButton variant="outlined">< LazyLoadImage className='loginGoogle_image' src="./image/facebook_loginImage.png" alt="image_not available" style={{ pointerEvents: "none" }}/>Continue with Facebook</LoadingButton>
                                 </Box>
                             </div>
 
