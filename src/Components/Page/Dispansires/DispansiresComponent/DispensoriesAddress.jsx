@@ -30,8 +30,8 @@ const DispensoriesAddress = () => {
             <div className="container-fluid">
                 <div className='row'>
                     <div className='col-12  mt-2' >
-                        <div className="disp_head  ">
-                            <p>Shop dispensories near you</p>
+                        <div className="disp_head">
+                            <h1>Shop dispensories near you</h1>
                         </div>
                     </div >
                 </div >
