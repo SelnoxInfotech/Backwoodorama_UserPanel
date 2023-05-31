@@ -23,7 +23,7 @@ export default function DashBoardLink({ state }) {
           <Grid  xs={8} md={8} xl={8} display={{ xs: "none", md: "block", lg: "block" }}>
             <div className="ccol  nav_list1">
               <ul>
-                <Link to="/Dispansires"  id={`${(current_route ===  "/Dispansires" ? "Active" : "")}`}> <li >Dispansires</li></Link>
+                <Link to="/Dispansires"  id={`${(current_route ===  "/Dispansires" ? "Active" : "")}`}> <li >Dispensaries </li></Link>
                 <Link to="/Deliveries" id={`${(current_route ===  "/Deliveries" ? "Active" : "")}`}><li>Deliveries</li></Link>
                 <Link to="/Brand" id={`${(current_route ===  "/Brand" ? "Active" : "")}`}> <li>Brand</li></Link>
                 <Link to="/Product" id={`${(current_route ===  "/Product" ? "Active" : "")}`}><li>Product</li></Link>

@@ -31,7 +31,7 @@ const DispensoriesAddress = () => {
                 <div className='row'>
                     <div className='col-12  mt-2' >
                         <div className="disp_head">
-                            <h1>Shop dispensories near you</h1>
+                            <h1>Shop Dispensaries  near you</h1>
                         </div>
                     </div >
                 </div >
