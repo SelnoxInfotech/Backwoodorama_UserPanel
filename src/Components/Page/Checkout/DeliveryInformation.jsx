@@ -47,7 +47,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
             ...Details, [event.target.name]: event.target.value
         });
     }
-
+console.log(Details)
 
     return (
         <div className="container-fluid">
@@ -89,7 +89,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                 <div className='row'>
                                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
                                         <TextField
-                                            value={Details.FirstName}
+                                            value={Details.FirstName||''}
                                             label="First name on photo id"
                                             variant="standard"
                                             fullWidth
@@ -107,7 +107,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                         <TextField
                                             label="Last name on photo id"
                                             variant="standard"
-                                            value={Details.LastName}
+                                            value={Details.LastName||''}
                                             onChange={handleChange}
                                             fullWidth
                                             name='LastName'
@@ -174,19 +174,22 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                             <MuiPickersUtilsProvider utils={DateFnsUtils} >
                                             <Controller
                                             
-                                         
+                                            defaultValue={dayjs(new Date())}  
                                           
                                             render={(props) => (
                                                     <DatePicker  
-                                                    defaultValue={dayjs(new Date())}  
+                                                    {...props}
+                                                    
                                                         maxDate={new Date()}
                                                         inputVariant="outlined"
-                                                      
+                                                        name={props.name}
                                                         format="MM/dd/yyyy"
                                                         margin="normal"
                                                         size="small"
                                                         value={props.value}
+                                                      
                                                         onChange={props.onChange}
+                                                        onBlur={props.onBlur}
                                                         InputProps={{
                                                             // startAdornment: (
                                                             //     // <InputAdornment position="start">
@@ -200,7 +203,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                                     />
                                                 )}
                                                 name="DateOfBirth"
-                                         
+                                                onClick={handleChange}
                                                 control={method.control}
                                                     rules={{
                                                         required: "Date of birth required.",

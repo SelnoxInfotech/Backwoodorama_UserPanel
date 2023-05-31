@@ -50,37 +50,36 @@ const DispensoriesAddress = () => {
 
                                     <div className='col-12 dispensories_image_containerss'>
                                         <Link to={`/DispensoriesProduct/${ele.id}/${"Menu"}`}>
-                                            <img src={`http://backend.sweede.net/${ele?.Store_Image}`} alt='img_not_found' className='img-responsive dispensories_image  center-block'/>
+                                            <img src={`http://backend.sweede.net/${ele?.Store_Image}`} alt='img_not_found' className='img-responsive dispensories_image  center-block' />
                                         </Link>
                                     </div>
                                     <div className='dispensoriesContentContainer px-4'>
-                                        <div className='col-12'>
+                                        <Link to={`/DispensoriesProduct/${ele.id}/${"Menu"}`}>
+                                            <div className='col-12'>
 
-                                            <div className=' col-10  dis_right_div'>
-                                                <p className='ellipsis'>{ele.Store_Name.charAt(0).toUpperCase() + ele.Store_Name.slice(1)}</p>
-                                            </div>
-                                        </div>
-                                        <div className='col-12  '>
-
-                                            <div className=' col-10 Dispensaries_card_discription'>
-                                                <div className='col-2'>
-                                                    <span className='span_nav'><BiMap className={classes.disPen_Icons} /></span>
-                                                </div>
-
-                                                <div className='col-10'>
-                                                    <span className='ellipsis'>{ele.city_name}/110 mi</span>
+                                                <div className=' col-10  dis_right_div'>
+                                                    <p className='ellipsis'>{ele.Store_Name.charAt(0).toUpperCase() + ele.Store_Name.slice(1)}</p>
                                                 </div>
                                             </div>
-                                        </div>
+                                            <div className='col-12  '>
 
+                                                <div className=' col-10 Dispensaries_card_discription'>
+                                                    <div className='col-2'>
+                                                        <span className='span_nav'><BiMap className={classes.disPen_Icons} /></span>
+                                                    </div>
 
-                                        <div className='col-12  '>
-                                            <div className=' col-10 Dispensaries_card_discription'>
-                                                <span className='ellipsis'>{ele.Store_Type}</span>
+                                                    <div className='col-10'>
+                                                        <span className='ellipsis'>{ele.city_name}/110 mi</span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
+                                            <div className='col-12  '>
+                                                <div className=' col-10 Dispensaries_card_discription'>
+                                                    <span className='ellipsis'>{ele.Store_Type}</span>
+                                                </div>
+                                            </div>
+                                        </Link>
                                         <div className='col-12  '>
-
                                             <div className=' col-10 Rating'>
                                                 <div className='col-2 color'>
                                                     <span>Rating</span>
@@ -106,8 +105,8 @@ const DispensoriesAddress = () => {
 
                         )
                     })}
-                </ScrollContainer>
-            </div>
+                </ScrollContainer >
+            </div >
 
 
 
