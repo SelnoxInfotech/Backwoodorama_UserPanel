@@ -62,8 +62,8 @@ const AddToCartSummary = ({ SubmitData , CheckOut_Loading ,SetLoading}) => {
           }
         }
         if(location.pathname === "/CheckOutMainPage"){
-            SetLoading(true)
             SubmitData()
+            // SetLoading(t rue)
         }
     }
     return (
