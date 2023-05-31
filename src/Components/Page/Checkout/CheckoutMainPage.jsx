@@ -38,7 +38,7 @@ const CheckOutMainPage = () => {
         formdata.append('MedicalMarijuanaNumber', Details.Id_Number);
         formdata.append('subtotal', abc);
         formdata.append('Product', JSON.stringify(state.AllProduct));
-        formdata.append('Store', state.AllProduct[0].Store_id);
+        formdata.append('Store', state.AllProduct[0]?.Store_id);
         formdata.append('Address', InputValues.delivery);
         await Axios.post(
             'http://backend.sweede.net/UserPanel/Add-Order/ ',
