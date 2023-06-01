@@ -11,6 +11,8 @@ import { useNavigate } from 'react-router-dom';
 const SearchBar = () => {
     const Navigation = useNavigate()
     const [SearchData, SetSearchData] = React.useState([])
+    const [SearchBarWidth, SetSearchBarWidth] = React.useState(window.innerWidth <= 900)
+    const [windowSize, setWindowSize] = React.useState()
     const classes = useStyles()
     function Search(event) {
         SetSearchData([])
@@ -21,25 +23,25 @@ const SearchBar = () => {
             }
         ).then(response => {
             if (response.status === 200) {
-              
+
                 const o = Object?.entries(response?.data).map((data, index, value) => {
                     return (data)
                 })
                 const y = o?.map((data) => {
                     return data
                 });
-               
+
 
                 y.map((data1) => {
-                 return (
-                    data1[1].map((data) => {
-                        return SetSearchData(SearchData => [...SearchData, { type: data1[0], value: data.name || data.Product_Name || data.Store_Name, id: data.id, image: data?.Brand_Logo || data?.categoryImages || data?.Store_Image || data?.SubCategoryImage }]);
+                    return (
+                        data1[1].map((data) => {
+                            return SetSearchData(SearchData => [...SearchData, { type: data1[0], value: data.name || data.Product_Name || data.Store_Name, id: data.id, image: data?.Brand_Logo || data?.categoryImages || data?.Store_Image || data?.SubCategoryImage }]);
 
-                    }
+                        }
+
+                        )
 
                     )
-
-                 )
 
                 })
                 // SetSearchData(response?.data);
@@ -56,8 +58,24 @@ const SearchBar = () => {
     }
 
     const [open, setOpen] = React.useState(false);
-    // const [options, setOptions] = React.useState([]);
+    const [openLocation, setOpenLocation] = React.useState(false);
     const loading = open
+    React.useEffect(() => {
+        const handleResize = () => {
+            setWindowSize(window.innerWidth)
+        }
+        window.addEventListener('resize', handleResize)
+        if (windowSize <= 900) {
+            SetSearchBarWidth(true)
+        }
+        else {
+            if (windowSize >= 900) {
+                SetSearchBarWidth(false)
+            }
+        }
+        return () => window.removeEventListener('resize', handleResize)
+    }, [windowSize])
+
 
 
     function SearchAPi(id, type) {
@@ -68,41 +86,47 @@ const SearchBar = () => {
                 type: type
             }
         ).then((response) => {
-            if (response.data.Product  ) {
-                console.log(response.data)
-                const Id = response.data.Product[0].id 
-                Navigation(`/ProductDetail/`, { state:  Id  });
+            if (response.data.Product) {
+                const Id = response.data.Product[0].id
+                Navigation(`/ProductDetail/`, { state: Id });
             }
-           else if (response.data.Store) {
-            
-               Navigation(`/DispensoriesProduct/${ response.data.Store[0].id}/${"Menu"}`);
-               
+            else if (response.data.Store) {
+
+                Navigation(`/DispensoriesProduct/${response.data.Store[0].id}/${"Menu"}`);
+
             }
             else if (response.data.Brand) {
                 console.log(response)
                 Navigation(`/RelatedVerifyBrand/${response.data.Brand[0].id}`);
-                
-             }
-             else if (response.data.Category) {
-               const id = response.data.Category[0].id
-                Navigation(`/CategoryProduct/${response.data.Category[0].name}` , { state: {  id } }) ;
-                
-             }
-             else if ( response.data.Sub_Category) {
-                const Id =  response.data?.Sub_Category[0]?.id
+
+            }
+            else if (response.data.Category) {
+                const id = response.data.Category[0].id
+                Navigation(`/CategoryProduct/${response.data.Category[0].name}`, { state: { id } });
+
+            }
+            else if (response.data.Sub_Category) {
+                const Id = response.data?.Sub_Category[0]?.id
                 const name = response.data?.Sub_Category[0]?.name
-                
-                 Navigation(`/Product/${name}`,  { state:   Id  } ) ;
-                 
-              }
+
+                Navigation(`/Product/${name}`, { state: Id });
+
+            }
 
         })
     }
+
+
+
+
     return (
         <>
             <div className="col_Search">
                 <div className=" nav_search_bar_div center ">
-                    <Autocomplete
+                    <Autocomplete      
+        freeSolo
+        id="free-solo-2-demo"
+        disableClearable
                         open={open}
                         onOpen={() => {
                             setOpen(true);
@@ -113,8 +137,8 @@ const SearchBar = () => {
                             setOpen(false);
                         }}
                         ListboxProps={{ style: { maxHeight: 500 } }}
-                        // componentsProps={{ popper: { style: { height: '100%' } } }}
-                          onChange={(event, value) => SearchAPi(value?.id, value?.type, )}
+                        componentsProps={{ popper: { style: { height: '100%' , width: SearchBarWidth ? "100%" : "30%" } } }}
+                        onChange={(event, value) => SearchAPi(value?.id, value?.type,)}
                         getOptionSelected={(option, value) => option.value}
                         getOptionLabel={(option) => option.value}
                         options={SearchData}
@@ -123,28 +147,33 @@ const SearchBar = () => {
                             return (
                                 <div {...props} style={{ color: "black" }} >
                                     <ul className='PopperLIst'>
+                                        <div>
+                                            <li onClick={((e) => SearchAPi(t.id, t.type,))} key={`${t.value}`}>
+                                                <img src={`http://backend.sweede.net/${t.image}`} style={{ width: "50px", height: "50px" }} alt=''></img>
+                                                <span> {`${t.value}`}</span>
+                                            </li>
+                                        </div>
 
-                                        <div >    <li
- 
-                                            onClick={((e) => SearchAPi(t.id, t.type, ))} key={`${t.value}`}
-                                        > <img  src={`http://backend.sweede.net/${t.image}`} style={{ width: "50px", height: "50px" }} alt=''></img> <span> {`${t.value}`}</span>  </li></div>
 
-                                       
                                     </ul>
                                 </div>
                             )
                         }}
                         loading={loading}
-                        sx={{ width: "100%" }}
+                        sx={{ width: open && SearchBarWidth ? "200%" : "100%" }}
                         renderInput={(params) => <TextField
                             {...params}
                             size="small"
                             onClick={Search}
                             onChange={Search}
-                        
+                            sx={{
+                                "& .MuiOutlinedInput-root": {
+                                    paddingRight: "10px!important",
+                                },
+                            }}
                             placeholder="Products Brands Retailers and more"
-                            className={`px-3 SearchBar nav_search_bar_div  ${classes.SearchBar_Text}`}
-                            style={{ borderRadius: " 16px 0px 0px 16px", top: "0px" }}
+                            className={` SearchBar nav_search_bar_div  ${classes.SearchBar_Text}`}
+                            style={{ borderRadius: (open && SearchBarWidth) ? " 16px 16px 16px 16px" : " 16px 0px 0px 16px", top: "0px", width: open && SearchBarWidth ? "150%" : "100%" }}
                             InputProps={{
                                 ...params.InputProps,
                                 startAdornment: (
@@ -165,25 +194,29 @@ const SearchBar = () => {
                     <div id="Boder_left"></div>
 
                     <Autocomplete
-                        // open={open}
-                        // onOpen={() => {
-                        //     setOpen(true);
-                        // }}
-                        // filterOptions={x => x}
-                        // onClose={() => {
-                        //     setOpen(false);
-                        // }}
+                        openLocation={openLocation}
+                        onOpen={() => {
+                            setOpenLocation(true);
+                        }}
+                        filterOptions={x => x}
+                        onClose={() => {
+                            setOpenLocation(false);
+                        }}
                         // getOptionSelected={(SearchData) => SearchData}
                         // getOptionLabel={SearchData => SearchData}
-                        options={SearchData}
-                        loading={loading}
+                        options={[]}
+                        loading={openLocation}
                         sx={{ width: "100%" }}
 
                         renderInput={(params) => <TextField
                             {...params}
-                            style={{ borderRadius: "0px 16px 16px 0px", top: "0px" }}
+                            style={{ borderRadius: "0px 16px 16px 0px", top: "0px", display: open && SearchBarWidth ? "none" : "inline-flex" }}
                             size="small"
-                            sx={{ width: "100%" }}
+                            sx={{
+                                width: "100%", "& .MuiOutlinedInput-root": {
+                                    paddingRight: "10px!important",
+                                },
+                            }}
                             variant="outlined"
                             className={`sec_input_search SearchBar px-2 ${classes.SearchBar_Text}`}
                             type="text"
@@ -197,13 +230,15 @@ const SearchBar = () => {
                                 ),
                                 endAdornment: (
                                     <React.Fragment>
-                                        {loading ? (
+                                        {openLocation ? (
                                             <CircularProgress color="inherit" size={20} />
                                         ) : null}
                                     </React.Fragment>
                                 ),
                             }}
-                        />}
+                        />
+                    
+                    }
                     />
 
                 </div>

@@ -78,7 +78,7 @@ const CategoryProduct = ({ ShowCategoryProduct, Category }) => {
                 <SliderCategory {...settings}>
                     {Category.map((ele, index) => {
                         return (
-                            <div>
+                         
                                 <div className='col-10 ' key={index}>
                                     <div className='slider1'>
                                  
@@ -91,7 +91,7 @@ const CategoryProduct = ({ ShowCategoryProduct, Category }) => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                         
                         )
                     })}
                 </SliderCategory>

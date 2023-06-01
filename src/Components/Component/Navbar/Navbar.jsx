@@ -12,6 +12,7 @@ import SliderLink from "./Component/SideSlider/SilderLink"
 import Createcontext from "../../../Hooks/Context"
 import Cookies from 'universal-cookie';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import CurrentLocation from './Component/CurrentLocation';
 
 const Navbar = () => {
   const cookies = new Cookies();
@@ -36,12 +37,6 @@ const Navbar = () => {
       }
     }
     return () => window.removeEventListener('resize', handleResize)
-
-
-
-
-
-
 
   }, [windowSize])
   function openNav() {
@@ -93,10 +88,10 @@ const Navbar = () => {
 
             }
           </Grid>
-          <Grid  xs={6} md={8} xl={8} display={{ xs: "none", md: "block", lg: "block" }}>
+          <Grid xs={6} md={8} xl={8} display={{ xs: "none", md: "block", lg: "block" }}>
             <SearchBar />
           </Grid>
-          <Grid  xs={10} md={2} xl={2} display={{ xs: "block", md: "none", lg: "none" }} >
+          <Grid xs={10} md={2} xl={2} display={{ xs: "block", md: "none", lg: "none" }} >
             <div className=' col-12 Login_Sigup_button  Heder_icon '>
               <AiFillHeart size={22}></AiFillHeart>
               <IoIosNotifications size={22}></IoIosNotifications>
@@ -108,14 +103,14 @@ const Navbar = () => {
 
             </div>
           </Grid>
-          <Grid  xs={4} md={2} xl={2} >
+          <Grid xs={4} md={2} xl={2} >
             {
               state.login === true
                 ?
 
                 <div className=' col-12 Login_Sigup_button '>
                   <div className='col-lg-4 col-sm-4'>
-                    <Grid  display={{ xs: "none", md: "block", lg: "block" }}>
+                    <Grid display={{ xs: "none", md: "block", lg: "block" }}>
                       <Button className={classes.muiBtn} onClick={Logout} >Logout</Button>
                     </Grid>
                   </div>
@@ -125,19 +120,19 @@ const Navbar = () => {
 
                 <div className=' col-12 Login_Sigup_button '>
                   <div className='col-lg-4 col-sm-4'>
-                    <Grid  display={{ xs: "none", md: "block", lg: "block" }}>
+                    <Grid display={{ xs: "none", md: "block", lg: "block" }}>
                       <NavLink to="/Login" >   <Button className={classes.muiBtn} >Login</Button></NavLink>
                     </Grid>
                   </div>
                   <div className='col-lg-4 col-sm-4'>
-                    <Grid  display={{ xs: "none", md: "block", lg: "block" }}>
+                    <Grid display={{ xs: "none", md: "block", lg: "block" }}>
                       <NavLink to="/Signup" >    <Button className={classes.muiBtn} >Signup</Button></NavLink>
                     </Grid>
                   </div>
                 </div>
             }
           </Grid>
-          <Grid   xs={12} md={12} xl={12} >
+          <Grid xs={12} md={12} xl={12} >
             <SliderLink state={state}></SliderLink>
             <SideNavbar closeNav={closeNav} Open={Open}></SideNavbar>
           </Grid>
@@ -145,7 +140,7 @@ const Navbar = () => {
 
       </div>
 
-
+      <CurrentLocation></CurrentLocation>
 
     </>
   )

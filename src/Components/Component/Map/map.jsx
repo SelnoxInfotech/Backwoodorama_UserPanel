@@ -1,7 +1,5 @@
 import { Map, GoogleApiWrapper, Marker, } from 'google-maps-react';
-import googleMapStyles from "./MapStyle"
-import { TbCannabis } from "react-icons/tb"
-import { FaBeer, Fa500Px } from "react-icons/fa";
+import {Fa500Px } from "react-icons/fa";
 export function MapContainer(props) {
   const locations = [
     { latitude: 40.727019, longitude: -74.037536, name: 'First Marker' },
