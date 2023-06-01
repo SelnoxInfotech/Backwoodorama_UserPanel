@@ -8,8 +8,7 @@ import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import Createcontext from "../../../Hooks/Context"
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-
+import {FcGoogle} from "react-icons/fc"
 function LoginWithGoogle() {
     const classes = useStyles()
     const cookies = new Cookies();
@@ -50,7 +49,7 @@ function LoginWithGoogle() {
         <Box
             className={`${classes.Signup_loading_btn_Googles}`}
         >
-            <LoadingButton onClick={login} variant="outlined"><LazyLoadImage className='loginGoogle_image' src="./image/google.png" alt="pic not available" style={{ pointerEvents: "none" }}/> Continue with Google</LoadingButton>
+            <LoadingButton onClick={login} variant="outlined"  loadingPosition="start"  startIcon={<FcGoogle />}> Continue with Google</LoadingButton>
         </Box>
     )
 }

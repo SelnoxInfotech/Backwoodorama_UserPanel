@@ -218,12 +218,27 @@ const useStyles = makeStyles({
       width: "100%",
       height: "38px",
       borderRadius: "40px",
-      backgroundColor: "#ffff",
-      color: "#31B665",
       textTransform: "none",
       border: "2px solid #31B665",
       color: "#ffff",
       backgroundColor: "#00b96a",
+    },
+    "& .MuiButtonBase-root:hover": {
+      color: "#ffff",
+      backgroundColor: "#00b96a",
+      border: "1px solid #31B665"
+    },
+  },
+  loginBtnTextAndBackgroundAfter:{
+  
+    "& .MuiLoadingButton-root": {
+      width: "100%",
+      height: "38px",
+      borderRadius: "40px",
+      textTransform: "none",
+      border: "2px solid #31B665",
+      color: "#ffff",
+      backgroundColor: "white",
     },
     "& .MuiButtonBase-root:hover": {
       color: "#ffff",

@@ -15,6 +15,7 @@ import LoginWithGoogle from './LoginWithGoogle';
 import Cookies from 'universal-cookie';
 import Createcontext from "../../../Hooks/Context"
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import {FaFacebookF } from "react-icons/fa";
 
 const Login = () => {
     const cookies = new Cookies();
@@ -28,7 +29,7 @@ const Login = () => {
     const [dulicate, Setduplicate] = React.useState([])
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     function Submit(data) {
-       
+
         Setloading(true)
         axios.post("http://backend.sweede.net/UserPanel/Login/", {
 
@@ -38,7 +39,7 @@ const Login = () => {
         },
         ).then(response => {
 
-           
+
             if (location.pathname === "/CheckOutMainPage") {
                 if (state.AllProduct.length === 0) {
                     Navigate("/Product")
@@ -62,7 +63,7 @@ const Login = () => {
 
             })
     }
- 
+
 
     return (
         <>
@@ -75,7 +76,7 @@ const Login = () => {
 
                             </div>
                         </div>
-                    
+
                         <form onSubmit={method.handleSubmit(Submit)}>
                             <div className='row'>
                                 <label>Email</label>
@@ -151,7 +152,7 @@ const Login = () => {
                             <div className='row  signup_margins_top'>
                                 <div className=' col-lg-12 signup_btn_height'>
                                     <Box
-                                        className={`${classes.loginBtnTextAndBackground}`}
+                                        className={ !loading ?`${classes.loginBtnTextAndBackground} ` : `${classes.loginBtnTextAndBackgroundAfter}`}
                                     >
                                         <LoadingButton variant="outlined" loading={loading} type='submit'>LOGIN</LoadingButton>
                                     </Box>
@@ -160,26 +161,24 @@ const Login = () => {
                             </div>
                         </form>
                         <div className='w-100 d-flex mt-4 center'>
-                        <div className='login_horizontalLine '></div> <span className='px-2 login_OR'>OR</span> <div className='login_horizontalLine '></div>
+                            <div className='login_horizontalLine '></div> <span className='px-2 login_OR'>OR</span> <div className='login_horizontalLine '></div>
                         </div>
                         <div className='row  signup_margins_top'>
                             <div className='col-lg-12 signup_btn_height'>
-                                <Box
-                                    className={`${classes.Signup_loading_btn_facebook}`}
-                                >
-                                    <LoadingButton variant="outlined">< LazyLoadImage className='loginGoogle_image' src="./image/facebook_loginImage.png" alt="image_not available" style={{ pointerEvents: "none" }}/>Continue with Facebook</LoadingButton>
+                                <Box className={`${classes.Signup_loading_btn_facebook}`}>
+                                   <LoadingButton variant='outlined'   loadingPosition="start"  startIcon={<FaFacebookF />}>Continue with Facebook</LoadingButton>
                                 </Box>
                             </div>
 
                         </div>
                         <div className='row  signup_margins_top'>
                             <div className='col-lg-12 signup_btn_height'>
-                                
+
                                 <LoginWithGoogle></LoginWithGoogle>
                             </div>
 
                         </div>
-                      
+
 
                         <div className='w-100 center my-2 '>
                             <p className='login_bottom'>New Backwoodaroma ?</p>
