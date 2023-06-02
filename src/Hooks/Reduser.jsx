@@ -41,7 +41,15 @@ const reducer = (state, action) => {
       {
         return { ...state, Dispensories: action.Dispensories }
       }
-
+    case "Location":
+      {
+        return { ...state, Location: action.Location }
+      }
+      case "LocationData":
+        {
+          return { ...state, LocationData: action.LocationData }
+        }
+  
 
 
 

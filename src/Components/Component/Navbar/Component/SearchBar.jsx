@@ -8,8 +8,12 @@ import Axios from "axios"
 import React from 'react';
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { useNavigate } from 'react-router-dom';
+import Createcontext from "../../../../Hooks/Context"
+import CloseIcon from '@mui/icons-material/Close';
+import axios from 'axios';
 const SearchBar = () => {
     const Navigation = useNavigate()
+    const { state, dispatch } = React.useContext(Createcontext)
     const [SearchData, SetSearchData] = React.useState([])
     const [SearchBarWidth, SetSearchBarWidth] = React.useState(window.innerWidth <= 900)
     const [windowSize, setWindowSize] = React.useState()
@@ -56,7 +60,7 @@ const SearchBar = () => {
 
             })
     }
-
+    console.log(state)
     const [open, setOpen] = React.useState(false);
     const [openLocation, setOpenLocation] = React.useState(false);
     const loading = open
@@ -116,17 +120,30 @@ const SearchBar = () => {
         })
     }
 
+//    function f (){
+    console.log("fffff")
+     axios.post(`https://maps.googleapis.com/maps/api/js?key=[AIzaSyCIKajdxnw25suNPzUQIVQzbBmxN9n4XrE]&libraries=p`,
 
+)
+    .then((res) => {
+     
+ console.log(res)
+    })
+    .catch((error) => {
+  
+    })
+
+//    }
 
 
     return (
         <>
             <div className="col_Search">
-                <div className=" nav_search_bar_div center ">
-                    <Autocomplete      
-        freeSolo
-        id="free-solo-2-demo"
-        disableClearable
+                <div className={` nav_search_bar_div center`} style={{ display: (openLocation && SearchBarWidth) && "block" }}>
+                    <Autocomplete
+                        freeSolo
+                        id="free-solo-2-demo"
+                        disableClearable
                         open={open}
                         onOpen={() => {
                             setOpen(true);
@@ -137,7 +154,7 @@ const SearchBar = () => {
                             setOpen(false);
                         }}
                         ListboxProps={{ style: { maxHeight: 500 } }}
-                        componentsProps={{ popper: { style: { height: '100%' , width: SearchBarWidth ? "100%" : "30%" } } }}
+                        componentsProps={{ popper: { style: { height: '100%', width: SearchBarWidth ? "100%" : "30%" } } }}
                         onChange={(event, value) => SearchAPi(value?.id, value?.type,)}
                         getOptionSelected={(option, value) => option.value}
                         getOptionLabel={(option) => option.value}
@@ -173,7 +190,7 @@ const SearchBar = () => {
                             }}
                             placeholder="Products Brands Retailers and more"
                             className={` SearchBar nav_search_bar_div  ${classes.SearchBar_Text}`}
-                            style={{ borderRadius: (open && SearchBarWidth) ? " 16px 16px 16px 16px" : " 16px 0px 0px 16px", top: "0px", width: open && SearchBarWidth ? "150%" : "100%" }}
+                            style={{ borderRadius: (open && SearchBarWidth) ? " 16px 16px 16px 16px" : " 16px 0px 0px 16px", top: "0px", display: openLocation && SearchBarWidth ? "none" : "inline-flex", width: open && SearchBarWidth ? "150%" : "100%" }}
                             InputProps={{
                                 ...params.InputProps,
                                 startAdornment: (
@@ -194,6 +211,7 @@ const SearchBar = () => {
                     <div id="Boder_left"></div>
 
                     <Autocomplete
+                        {...state.LocationData}
                         openLocation={openLocation}
                         onOpen={() => {
                             setOpenLocation(true);
@@ -201,22 +219,30 @@ const SearchBar = () => {
                         filterOptions={x => x}
                         onClose={() => {
                             setOpenLocation(false);
-                        }}
-                        // getOptionSelected={(SearchData) => SearchData}
-                        // getOptionLabel={SearchData => SearchData}
-                        options={[]}
-                        loading={openLocation}
+                        }} 
+                         getOptionSelected={(option, value) => option.value }
+                        options={state.LocationData || ''}
+                        getOptionLabel={(option) => option}
+                        onChange={(event, value) => { dispatch({ type: 'Location', Location: value }) }}
+                        loading={"openLocation"}
                         sx={{ width: "100%" }}
-
+                        defaultValue={state.Location || ''}
+                        value={state.Location|| ''}
+                        ListboxProps={{ style: { maxHeight: 500 } }}
+                        componentsProps={{ popper: { style: { height: '100%', width: SearchBarWidth ? "100%" : "30%" } } }}
                         renderInput={(params) => <TextField
                             {...params}
-                            style={{ borderRadius: "0px 16px 16px 0px", top: "0px", display: open && SearchBarWidth ? "none" : "inline-flex" }}
+                            // value={state.Location}
+                            // onChange={((e) => f)}
+                            onClick={((e) => { dispatch({ type: 'Location', Location: e.target.value }) })}
+                            style={{ borderRadius: (openLocation && SearchBarWidth) ? " 16px 16px 16px 16px" : " 0px 16px 16px 0px", top: "0px", display: open && SearchBarWidth ? "none" : "inline-flex", }}
                             size="small"
                             sx={{
                                 width: "100%", "& .MuiOutlinedInput-root": {
                                     paddingRight: "10px!important",
                                 },
                             }}
+
                             variant="outlined"
                             className={`sec_input_search SearchBar px-2 ${classes.SearchBar_Text}`}
                             type="text"
@@ -228,17 +254,17 @@ const SearchBar = () => {
                                         <IoLocationSharp color="gray" size={18} />
                                     </InputAdornment>
                                 ),
-                                endAdornment: (
-                                    <React.Fragment>
-                                        {openLocation ? (
-                                            <CircularProgress color="inherit" size={20} />
-                                        ) : null}
-                                    </React.Fragment>
-                                ),
+                                // endAdornment: (
+                                //     <React.Fragment>
+                                //         {openLocation ? (
+                                //             <CircularProgress color="inherit" size={20} />
+                                //         ) : <CloseIcon onClick={(()=>{ dispatch({type:'Location', Location:"" })})} color="inherit" size={20}></CloseIcon>}
+                                //     </React.Fragment>
+                                // ),
                             }}
                         />
-                    
-                    }
+
+                        }
                     />
 
                 </div>

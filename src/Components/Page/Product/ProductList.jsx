@@ -36,7 +36,7 @@ const ProductList = ({ arr }) => {
             SetNewData({
                 Product_id: Event.id,
                 Store_id: Event.Store_id,
-                Image_id: Event.images[0].id,
+                Image_id: Event?.images[0]?.id,
                 Price: PriceIndex,
                 Cart_Quantity: 1,
                 PriceId: PriceIndex.id

@@ -1,39 +1,54 @@
 import React from "react";
 import Geocode from "react-geocode";
+import Createcontext from "../../../../Hooks/Context"
+
+
 const CurrentLocation = () => {
-    Geocode.setApiKey("AIzaSyCIKajdxnw25suNPzUQIVQzbBmxN9n4XrE");
-    Geocode.enableDebug();
-    const location = window.navigator && window.navigator.geolocation
-    if (location) {
-        location.getCurrentPosition((position) => {
-            console.log(position.coords.latitude, position.coords.longitude)
-            // Geocode.fromLatLng(position.coords.latitude, position.coords.longitude).then(
-            //     response => {
-            //         const address = response.results[0].formatted_address;
-            //         console.log(address);
-            //     },
-            //     error => {
-            //         console.error(error);
-            //     }
-            // );
 
-
-            // fetch('https://maps.googleapis.com/maps/api/geocode/json?address=' + position.coords.latitude + ',' + position.coords.longitude + '&key=' + 'AIzaSyCIKajdxnw25suNPzUQIVQzbBmxN9n4XrE')
-            // .then((response) => response.json())
-            //     .then((responseJson) => {
-            //     // alert('error')
-            //     console.log('ADDRESS GEOCODE is BACK!! => ' + JSON.stringify(responseJson));
-    // })
-
-
-        })
-    }
-
-
+    const { state, dispatch } = React.useContext(Createcontext)
+    const [LocationArry, SetLocationArry] = React.useState([])
     return (
-        <>
+        React.useEffect(() => {
+            Geocode.setApiKey("AIzaSyB4vl80GbjoLGawT757RmLx5f2DlOED0Zo");
+            Geocode.enableDebug();
+            const location = window.navigator && window.navigator.geolocation
+            navigator.geolocation.getCurrentPosition(function (position) {
+                console.log(position)
+            });
+            if (location) {
+                location.getCurrentPosition((position) => {
+                  
+                    console.log(position.coords.latitude, position.coords.longitude)
+                    Geocode.fromLatLng(position.coords.latitude, position.coords.longitude).then(
+                        response => {
 
-        </>
+                            dispatch({ type: 'Location', Location: response?.plus_code?.compound_code.slice(8) })
+                            const address = response.results[0].formatted_address;
+                            const p = []
+                             response?.results?.map( async (data) => {
+                                 // SetLocationArry((LocationArry) => ({ ...LocationArry, name: data.formatted_address }))
+                                 p.push(    data.formatted_address)
+
+
+                            });
+                            dispatch({ type: 'LocationData', LocationData: p}) 
+                          
+
+
+                        },
+                        
+                        error => {
+                            console.error(error);
+                        }
+                    );
+              
+                })
+            }
+            // console.log(LocationArry)
+
+        }, [])
+
+
     )
 }
 
