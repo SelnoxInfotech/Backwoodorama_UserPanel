@@ -15,7 +15,7 @@ import CurrentLocation from './CurrentLocation';
 import _ from "lodash"
 import { Button, Paper } from '@mui/material';
 import MyLocationIcon from '@mui/icons-material/MyLocation';
-
+import AddressSearchapi from "./AddressSearchapi"
 const SearchBar = () => {
     const Navigation = useNavigate()
     const { state, dispatch } = React.useContext(Createcontext)
@@ -169,7 +169,7 @@ const SearchBar = () => {
             <CurrentLocation />
             <div className="col_Search">
                 <div className={` nav_search_bar_div center`} style={{ display: (openLocation && SearchBarWidth) && "block" }}>
-                    <Autocomplete
+                    {/* <Autocomplete
                         freeSolo
                         id="free-solo-2-demo"
                         disableClearable
@@ -236,9 +236,9 @@ const SearchBar = () => {
                                 ),
                             }}
                         />}
-                    />
+                    /> */}
                     <div id="Boder_left"></div>
-
+{/* 
                     {state.LocationData[0] &&
 
                         <Autocomplete
@@ -316,7 +316,8 @@ const SearchBar = () => {
                             }
                         />
 
-                    }
+                    } */}
+                    <AddressSearchapi></AddressSearchapi>
 
                 </div>
             </div>

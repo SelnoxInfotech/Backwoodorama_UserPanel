@@ -44,6 +44,7 @@
     "react-flying-item": "^1.1.2",
     "react-form-stepper": "^2.0.3",
     "react-geocode": "^0.2.3",
+    "react-google-autocomplete": "^2.7.3",
     "react-google-maps": "^9.4.5",
     "react-hook-form": "^6.15.8",
     "react-icons": "^4.8.0",
