@@ -1,7 +1,12 @@
 import SearchBar from '@mkyy/mui-search-bar';
 import * as React from 'react';
 import StrainTypeCards from "./StrainTypeCards";
+import Axios from "axios"
+
 const StrainType = () => {
+    const [type, SetType] = React.useState([{
+        type: "Strain"
+    }])
     const StrainTypeCardArray = [
         { imgUrl: "./image/indica.png", head1: "Indica" },
         { imgUrl: "./image/sativa.png", head1: "Hybrid" },
@@ -10,6 +15,14 @@ const StrainType = () => {
         { imgUrl: "./image/Leafly Promo.png", head1: "Hybrid" },
         { imgUrl: "./image/Leafly Promo.png", head1: "Sativa" },
     ]
+    // React.useEffect(() => {
+    //     Axios.post("http://backend.sweede.net/UserPanel/Get-StrainType/",
+    //     {"type":"Indica"})
+    //     .then((response)=>{
+    //     })
+    //     .catch((error)=>{
+    //     })
+    // }, [])
     return (
         <>
             <div className="row my-3">
@@ -22,7 +35,7 @@ const StrainType = () => {
                 </div>
 
             </div>
-            <StrainTypeCards ArrayData={StrainTypeCardArray}/>
+            <StrainTypeCards ArrayData={StrainTypeCardArray} />
         </>
     )
 }

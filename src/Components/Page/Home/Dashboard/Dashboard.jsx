@@ -13,7 +13,10 @@ import HomePageWeedBanner from "./ComponentDashboard/HomePageWeedBanner";
 import HomePageDealsSignup from "./ComponentDashboard/HomePageDealsSignup";
 import StrainTypeCards from "../../Strain/StrainComponent/StrainTypeCards";
 import FeaturedBrand from "./ComponentDashboard/FeaturedBrand";
+import Axios from "axios";
+
 export default function Dashboard() {
+    const [FeaturedBrandArray,SetFeaturedBrandArray]=React.useState([])
     const Navigate = useNavigate()
     function ShowCategoryProduct(id, name) {
 
@@ -29,6 +32,17 @@ export default function Dashboard() {
         fetchData()
 
     }, [])
+    React.useEffect(() => {
+        Axios("http://backend.sweede.net/UserPanel/Get-AllBrand/ ",{})
+        .then((response)=>{
+
+            SetFeaturedBrandArray(response.data)
+
+        })
+        .catch((error)=>{
+        })
+    }, [])
+
     const StrainTypeCardArray = [
         { imgUrl: "./image/indica.png", head1: "Indica" },
         { imgUrl: "./image/sativa.png", head1: "Hybrid" },
@@ -37,17 +51,17 @@ export default function Dashboard() {
         { imgUrl: "./image/Leafly Promo.png", head1: "Hybrid" },
         { imgUrl: "./image/Leafly Promo.png", head1: "Sativa" },
     ]
-    const FeaturedBrandCardArray = [
-        { imgUrl: "./image/Leafly March Promo.png", head1: "All American"},
-        { imgUrl: "./image/Leafly Promo.png", head1: "All American"},
-        { imgUrl: "./image/social.png", head1: "All American"},
-        { imgUrl: "./image/Leafly March Promo.png", head1: "All American"},
-        { imgUrl: "./image/Leafly Promo.png", head1: "All American"},
-        { imgUrl: "./image/Leafly Promo.png", head1: "All American"},
+    // const FeaturedBrandCardArray = [
+    //     { imgUrl: "./image/Leafly March Promo.png", head1: "All American" },
+    //     { imgUrl: "./image/Leafly Promo.png", head1: "All American" },
+    //     { imgUrl: "./image/social.png", head1: "All American" },
+    //     { imgUrl: "./image/Leafly March Promo.png", head1: "All American" },
+    //     { imgUrl: "./image/Leafly Promo.png", head1: "All American" },
+    //     { imgUrl: "./image/Leafly Promo.png", head1: "All American" },
 
-        { imgUrl: "/image/Leafly March Promo.png", head1: "All American"},
+    //     { imgUrl: "/image/Leafly March Promo.png", head1: "All American" },
 
-    ]
+    // ]
     return (
         <div >
             <HomePageBanner></HomePageBanner>
@@ -56,11 +70,9 @@ export default function Dashboard() {
             <HomePageWeedBanner></HomePageWeedBanner>
             <DispensoriesAddress></DispensoriesAddress>
             <div className="col-12 mt-2  border" style={{ height: "300px", position: "relative" }}>
-
-                <Map height={"300px"} width={"100%"}   ></Map>
+                <Map height={"300px"} width={"100%"}></Map>
             </div>
-            <FeaturedBrand CardDataArray={FeaturedBrandCardArray}/>
-
+            <FeaturedBrand CardDataArray={FeaturedBrandArray}/>
             <HomePageDealsSignup></HomePageDealsSignup>
             {/* <WeedProduct></WeedProduct> */}
             <LatestServices></LatestServices>

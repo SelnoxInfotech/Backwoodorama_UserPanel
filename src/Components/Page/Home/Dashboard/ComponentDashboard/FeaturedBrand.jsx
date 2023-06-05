@@ -18,16 +18,16 @@ const FeaturedBrand = ({ CardDataArray }) => {
                     {
                         CardDataArray.map((items, index) => {
                             return (
-                                <div className="col-xxl-2 col-xl-3 col-lg-2 col-sm-4 col-12 mb-4  bestDealCards" key={index}>
+                                <div className="col-xxl-3 col-xl-4 col-lg-3 col-sm-6 col-12 mb-4  bestDealCards" key={index}>
                                     <div className="row  FeaturedBrandContainer  mx-4 my-2">
                                         <div className="col-12 FeaturedBrandImageContainer px-0">
-                                            <LazyLoadImage className="FeaturedBrandImage_height" src={items.imgUrl} alt="image not available" />
+                                            <LazyLoadImage className="FeaturedBrandImage_height" src={`http://backend.sweede.net/${items.Brand_Logo}`} alt="image not available" />
                                         </div>
 
                                     </div>
                                     <div className="row">
-                                        <div className="col-12 featuredBrandTitle center ">
-                                            <h1 className="ellipsis mx-2">{items.head1}</h1>
+                                        <div className="col-12 featuredBrandTitle center">
+                                            <h1 className="ellipsis mx-2">{items.name}</h1>
                                         </div>
 
                                     </div>
