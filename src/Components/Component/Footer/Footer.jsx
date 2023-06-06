@@ -83,7 +83,7 @@ const Footer = () => {
                                                 <h5 className="fontStyle">More</h5>
                                                 {More.map((ele, index) => {
                                                     return (
-                                                        <Link to="/" key={index}> <li key="index">{ele.head}</li></Link>
+                                                        <Link to="/" key={index}> <li>{ele.head}</li></Link>
                                                     )
 
                                                 })}

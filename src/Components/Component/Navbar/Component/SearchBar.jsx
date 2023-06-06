@@ -60,7 +60,6 @@ const SearchBar = () => {
 
             })
     }
-    console.log(state)
     const [open, setOpen] = React.useState(false);
     const [openLocation, setOpenLocation] = React.useState(false);
     const loading = open
@@ -121,7 +120,6 @@ const SearchBar = () => {
     }
 
 //    function f (){
-    console.log("fffff")
      axios.post(`https://maps.googleapis.com/maps/api/js?key=[AIzaSyCIKajdxnw25suNPzUQIVQzbBmxN9n4XrE]&libraries=p`,
 
 )
