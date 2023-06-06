@@ -13,7 +13,7 @@ const DispensoriesOpenResult = () => {
     React.useEffect(() => {
 
         Axios.get(
-            'http://backend.sweede.net/UserPanel/Get-Stores/',
+            'http://backend.sweede.net/UserPanel/Get-Dispensaries/',
            
             ).then(response => {
                 SetStore(response.data)

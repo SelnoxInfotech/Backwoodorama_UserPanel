@@ -11,11 +11,18 @@ import { useNavigate } from 'react-router-dom';
 import Createcontext from "../../../../Hooks/Context"
 import CloseIcon from '@mui/icons-material/Close';
 import axios from 'axios';
+import CurrentLocation from './CurrentLocation';
+import _ from "lodash"
+import { Button, Paper } from '@mui/material';
+import MyLocationIcon from '@mui/icons-material/MyLocation';
+import AddressSearchapi from "./AddressSearchapi"
 const SearchBar = () => {
     const Navigation = useNavigate()
     const { state, dispatch } = React.useContext(Createcontext)
     const [SearchData, SetSearchData] = React.useState([])
     const [SearchBarWidth, SetSearchBarWidth] = React.useState(window.innerWidth <= 900)
+    // const [options , Setoption] = React.useState()
+    //  const [defaultValue , SetdefaultValue] =  React.useState()
     const [windowSize, setWindowSize] = React.useState()
     const classes = useStyles()
     function Search(event) {
@@ -77,6 +84,7 @@ const SearchBar = () => {
             }
         }
         return () => window.removeEventListener('resize', handleResize)
+
     }, [windowSize])
 
 
@@ -119,26 +127,49 @@ const SearchBar = () => {
         })
     }
 
-//    function f (){
-     axios.post(`https://maps.googleapis.com/maps/api/js?key=[AIzaSyCIKajdxnw25suNPzUQIVQzbBmxN9n4XrE]&libraries=p`,
 
-)
-    .then((res) => {
-     
- console.log(res)
-    })
-    .catch((error) => {
-  
-    })
+    function handleInputChange() {
+        //  console.log("hjj")
+        //         // con st apiKey = 'YOUR_API_KEY';
+        //         // const searchText = 'YOUR_SEARCH_TEXT';
 
-//    }
+        //         // const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent("searchText")}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`;
+        //         // var config = {
+        //         //     method: 'get',
+        //         //     url: 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants%20in%20Sydney&key=AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
+        //         //     headers: { }
+        //         //   };
+
+        //         //   axios(config)
+        //         //   .then(function (response) {
+        //         //     console.log(JSON.stringify(response.data));
+        //         //   })
+        //         //   .catch(function (error) {
+        //         //     console.log(error);
+        //         //   });
+
+        //         loadScript(
+        //             `https://maps.googleapis.com/maps/api/js?key=${'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU'}&libraries=places`,
+        //             () => handleScriptLoad(setQuery, autoCompleteRef)
+        //         );
+
+    }
 
 
+
+
+    const defaultProps = {
+        options: _.uniqBy(state.LocationData, function (o) {
+            return o.label;
+        }),
+        getOptionLabel: (option) => option?.label,
+    };
     return (
         <>
+            <CurrentLocation />
             <div className="col_Search">
                 <div className={` nav_search_bar_div center`} style={{ display: (openLocation && SearchBarWidth) && "block" }}>
-                    <Autocomplete
+                    {/* <Autocomplete
                         freeSolo
                         id="free-solo-2-demo"
                         disableClearable
@@ -205,68 +236,92 @@ const SearchBar = () => {
                                 ),
                             }}
                         />}
-                    />
+                    /> */}
                     <div id="Boder_left"></div>
+{/* 
+                    {state.LocationData[0] &&
 
-                    <Autocomplete
-                        {...state.LocationData}
-                        openLocation={openLocation}
-                        onOpen={() => {
-                            setOpenLocation(true);
-                        }}
-                        filterOptions={x => x}
-                        onClose={() => {
-                            setOpenLocation(false);
-                        }} 
-                         getOptionSelected={(option, value) => option.value }
-                        options={state.LocationData || ''}
-                        getOptionLabel={(option) => option}
-                        onChange={(event, value) => { dispatch({ type: 'Location', Location: value }) }}
-                        loading={"openLocation"}
-                        sx={{ width: "100%" }}
-                        defaultValue={state.Location || ''}
-                        value={state.Location|| ''}
-                        ListboxProps={{ style: { maxHeight: 500 } }}
-                        componentsProps={{ popper: { style: { height: '100%', width: SearchBarWidth ? "100%" : "30%" } } }}
-                        renderInput={(params) => <TextField
-                            {...params}
-                            // value={state.Location}
-                            // onChange={((e) => f)}
-                            onClick={((e) => { dispatch({ type: 'Location', Location: e.target.value }) })}
-                            style={{ borderRadius: (openLocation && SearchBarWidth) ? " 16px 16px 16px 16px" : " 0px 16px 16px 0px", top: "0px", display: open && SearchBarWidth ? "none" : "inline-flex", }}
-                            size="small"
-                            sx={{
-                                width: "100%", "& .MuiOutlinedInput-root": {
-                                    paddingRight: "10px!important",
-                                },
+                        <Autocomplete
+                            {...defaultProps}
+                            openLocation={openLocation}
+                            onOpen={() => {
+                                setOpenLocation(true);
+                            }}
+                            onClose={() => {
+                                setOpenLocation(false);
+                            }}
+                            autoSelect={true}
+                            onChange={(e, d) => console.log(e, d)}
+                            onInputChange={handleInputChange}
+                            defaultValue={state.Location[0]}
+                            sx={{ width: "100%" }}
+                            ListboxProps={{ style: { maxHeight: 500 } }}
+                            PaperComponent={({ children }) => {
+                                return (
+                                    <Paper>
+                                        <Button
+                                            color="primary"
+                                            fullWidth
+                                            sx={{ justifyContent: "center", pl: 2, color: "grey", height: "50px", textAlign: 'left', }}
+                                            onMouseDown={() => {
+                                                console.log("Add new");
+                                            }}
+
+                                            startIcon={< MyLocationIcon size={50} />}
+
+                                        >
+                                            + use my exact location
+                                        </Button>
+                                        {children}
+                                    </Paper>
+                                );
                             }}
 
-                            variant="outlined"
-                            className={`sec_input_search SearchBar px-2 ${classes.SearchBar_Text}`}
-                            type="text"
-                            placeholder="location"
-                            InputProps={{
-                                ...params.InputProps,
-                                startAdornment: (
-                                    <InputAdornment position="start">
-                                        <IoLocationSharp color="gray" size={18} />
-                                    </InputAdornment>
-                                ),
-                                // endAdornment: (
-                                //     <React.Fragment>
-                                //         {openLocation ? (
-                                //             <CircularProgress color="inherit" size={20} />
-                                //         ) : <CloseIcon onClick={(()=>{ dispatch({type:'Location', Location:"" })})} color="inherit" size={20}></CloseIcon>}
-                                //     </React.Fragment>
-                                // ),
-                            }}
+
+                            componentsProps={{ popper: { style: { height: '100%', width: SearchBarWidth ? "100%" : "30%" } } }}
+                            renderInput={(params) => <TextField
+                                {...params}
+                                // value={defaultValue.lat}
+                                // onChange={((e) => f)}
+                                // onClick={((e) => { dispatch({ type: 'Location', Location: e.target.value }) })}
+                                style={{ borderRadius: (openLocation && SearchBarWidth) ? " 16px 16px 16px 16px" : " 0px 16px 16px 0px", top: "0px", display: open && SearchBarWidth ? "none" : "inline-flex", }}
+                                size="small"
+                                sx={{
+                                    width: "100%", "& .MuiOutlinedInput-root": {
+                                        paddingRight: "10px!important",
+                                    },
+                                }}
+
+                                variant="outlined"
+                                className={`sec_input_search SearchBar px-2 ${classes.SearchBar_Text}`}
+                                type="text"
+                                placeholder="location"
+                                InputProps={{
+                                    ...params.InputProps,
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                            <IoLocationSharp color="gray" size={18} />
+                                        </InputAdornment>
+                                    ),
+                                    // endAdornment: (
+                                    //     <React.Fragment>
+                                    //         {openLocation ? (
+                                    //             <CircularProgress color="inherit" size={20} />
+                                    //         ) : <CloseIcon onClick={(()=>{ dispatch({type:'Location', Location:"" })})} color="inherit" size={20}></CloseIcon>}
+                                    //     </React.Fragment>
+                                    // ),
+                                }}
+                            />
+
+                            }
                         />
 
-                        }
-                    />
+                    } */}
+                    <AddressSearchapi></AddressSearchapi>
 
                 </div>
             </div>
+
         </>
     )
 }
