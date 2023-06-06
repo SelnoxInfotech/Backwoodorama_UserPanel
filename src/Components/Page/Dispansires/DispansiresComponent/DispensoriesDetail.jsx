@@ -35,7 +35,7 @@ export default function DispensoriesProduct() {
     React.useEffect(() => {
 
 
-        axios.get(`http://backend.sweede.net/UserPanel/Get-DispensaryByid/${id}`, {
+        axios.get(`http://backend.sweede.net/UserPanel/Get-StoreById/${id}`, {
         }).then(response => {
             SetDespens(response.data)
         })

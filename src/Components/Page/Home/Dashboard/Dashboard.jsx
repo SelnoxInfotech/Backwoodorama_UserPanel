@@ -51,17 +51,6 @@ export default function Dashboard() {
         { imgUrl: "./image/Leafly Promo.png", head1: "Hybrid" },
         { imgUrl: "./image/Leafly Promo.png", head1: "Sativa" },
     ]
-    // const FeaturedBrandCardArray = [
-    //     { imgUrl: "./image/Leafly March Promo.png", head1: "All American" },
-    //     { imgUrl: "./image/Leafly Promo.png", head1: "All American" },
-    //     { imgUrl: "./image/social.png", head1: "All American" },
-    //     { imgUrl: "./image/Leafly March Promo.png", head1: "All American" },
-    //     { imgUrl: "./image/Leafly Promo.png", head1: "All American" },
-    //     { imgUrl: "./image/Leafly Promo.png", head1: "All American" },
-
-    //     { imgUrl: "/image/Leafly March Promo.png", head1: "All American" },
-
-    // ]
     return (
         <div >
             <HomePageBanner></HomePageBanner>

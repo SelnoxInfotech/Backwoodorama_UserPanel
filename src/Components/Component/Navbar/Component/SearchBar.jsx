@@ -128,42 +128,10 @@ const SearchBar = () => {
     }
 
 
-    function handleInputChange() {
-        //  console.log("hjj")
-        //         // con st apiKey = 'YOUR_API_KEY';
-        //         // const searchText = 'YOUR_SEARCH_TEXT';
-
-        //         // const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent("searchText")}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`;
-        //         // var config = {
-        //         //     method: 'get',
-        //         //     url: 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants%20in%20Sydney&key=AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
-        //         //     headers: { }
-        //         //   };
-
-        //         //   axios(config)
-        //         //   .then(function (response) {
-        //         //     console.log(JSON.stringify(response.data));
-        //         //   })
-        //         //   .catch(function (error) {
-        //         //     console.log(error);
-        //         //   });
-
-        //         loadScript(
-        //             `https://maps.googleapis.com/maps/api/js?key=${'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU'}&libraries=places`,
-        //             () => handleScriptLoad(setQuery, autoCompleteRef)
-        //         );
-
-    }
 
 
 
 
-    const defaultProps = {
-        options: _.uniqBy(state.LocationData, function (o) {
-            return o.label;
-        }),
-        getOptionLabel: (option) => option?.label,
-    };
     return (
         <>
             <div className="col_Search">
