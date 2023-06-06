@@ -7,7 +7,8 @@ import Axios from "axios"
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const DeliveryServices = () => {
+const 
+DeliveryServices = () => {
     const [DeliveryService, SetDeliveryService] = useState([])
     const classes = useStyles()
     const ref = React.useRef(null);

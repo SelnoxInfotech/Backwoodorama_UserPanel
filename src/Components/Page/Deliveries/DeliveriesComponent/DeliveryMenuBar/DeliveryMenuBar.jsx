@@ -63,7 +63,6 @@ const DeliveryMenuBar = ({Deliverie}) => {
                                         <Tab label="Order now" value="2" />
                                         <Tab label="Best of Backwood aroma" value="3" />
                                         <Tab label="Recreational" value="4" />
-                                        <Tab label="Medical" value="5" />
 
                                     </TabList>
                                 </Box>
@@ -74,7 +73,6 @@ const DeliveryMenuBar = ({Deliverie}) => {
                                     <TabPanel value="2"><DeliveryItemsCard DeliveryItemsCardArray={DeliveryItemsCardArray2} /></TabPanel>
                                     <TabPanel value="3"><DeliveryItemsCard DeliveryItemsCardArray={DeliveryItemsCardArray3} /></TabPanel>
                                     <TabPanel value="4"><DeliveryItemsCard DeliveryItemsCardArray={DeliveryItemsCardArray4} /></TabPanel>
-                                    <TabPanel value="5"><DeliveryItemsCard DeliveryItemsCardArray={DeliveryItemsCardArray5} /></TabPanel>
                                 </Box>
                             </TabContext>
                         </Box>

@@ -3666,10 +3666,12 @@ color: #909090;
   background: #FFFFFF;
   border: 1px solid #31B665;
   border-radius: 10px;
+
 }
 
 .dispensoriesContentContainer {
-  height: 204px;
+  height: auto;
+  padding-bottom: 10px;
 }
 
 .dispensories_image {

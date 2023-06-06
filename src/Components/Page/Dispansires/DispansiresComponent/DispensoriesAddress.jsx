@@ -9,21 +9,40 @@ import { Rating } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Createcontext from '../../../../Hooks/Context';
 import { ScrollContainer } from 'react-indiana-drag-scroll';
+import Axios from "axios";
+
 const DispensoriesAddress = () => {
     const ref = React.useRef(null);
 
     const { dispatch } = React.useContext(Createcontext)
-    const [Store, SetStore] = useState([])
-    useEffect(() => {
-        const fetchApiFun = async () => {
-            const fetchApi = await fetch("http://backend.sweede.net/UserPanel/Get-Stores/");
-            const data = await fetchApi.json();
-            SetStore(data)
-            dispatch({ type: 'Dispensories', Dispensories: data })
+    // const [Store, SetStore] = useState([])
+    const [Store, SetStore] = React.useState([])
+    console.log(Store)
+    React.useEffect(() => {
 
-        }
-        fetchApiFun()
+        Axios.get(
+            'http://backend.sweede.net/UserPanel/Get-Dispensaries/',
+           
+            ).then(response => {
+                SetStore(response.data)
+                
+            }).catch(
+                function (error) {
+          
+                   
+                })
     }, [])
+    // useEffect(() => {
+    //     const fetchApiFun = async () => {
+    //         const fetchApi = await fetch("http://backend.sweede.net/UserPanel/Get-Stores/");
+    //         const data = await fetchApi.json();
+    //         SetStore(data)
+    //         dispatch({ type: 'Dispensories', Dispensories: data })
+
+    //     }
+    //     fetchApiFun()
+    // }, [])
+
     const classes = useStyles()
     return (
         <>
@@ -69,8 +88,9 @@ const DispensoriesAddress = () => {
                                                     </div>
 
                                                     <div className='col-10'>
-                                                        <span className='ellipsis'>{ele.city_name}/110 mi</span>
+                                                        <p className='ellipsis'>{ele.Store_Address}</p>
                                                     </div>
+                                                    
                                                 </div>
                                             </div>
                                             <div className='col-12  '>
@@ -78,6 +98,8 @@ const DispensoriesAddress = () => {
                                                     <span className='ellipsis'>{ele.Store_Type}</span>
                                                 </div>
                                             </div>
+                                            
+                                            
                                         </Link>
                                         <div className='col-12  '>
                                             <div className=' col-10 Rating'>
