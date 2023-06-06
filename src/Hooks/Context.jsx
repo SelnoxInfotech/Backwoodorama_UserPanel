@@ -79,7 +79,7 @@ function Context(props) {
     return (
 
         <Createcontext.Provider value={{ state, dispatch }} container>
-           
+           <CurrentLocation></CurrentLocation>
             {props.children}
         </Createcontext.Provider>
 

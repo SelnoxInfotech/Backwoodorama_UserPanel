@@ -20,7 +20,8 @@ export function MapContainer(props) {
           title="title"
           icon={Fa500Px}
           onClick={() => console.log("You clicked me!")}
-        />)
+        />
+        )
     })
   }
 
@@ -49,7 +50,7 @@ export function MapContainer(props) {
             streetViewControl={false}
             mapTypeControl={false}
           >
-            {displayMarkers()}
+            {/* {displayMarkers()} */}
           </Map>
     //     </div>
     //   </div>

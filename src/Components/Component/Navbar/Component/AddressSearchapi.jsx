@@ -75,6 +75,7 @@
 // }
 
 // export default App;
+import { Button, TextField } from "@mui/material";
 import { useRef, useEffect } from "react";
 // import "./styles.css";
 // const AutoComplete = () => {
@@ -103,10 +104,16 @@ import { useRef, useEffect } from "react";
 
 
 
-
+import React from "react";
 import { usePlacesWidget } from "react-google-autocomplete";
-
-export default () => {
+import useStyles from "../../../../Style"
+import Createcontext from "../../../../Hooks/Context"
+import InputAdornment from '@material-ui/core/InputAdornment';
+import { IoLocationSharp } from "react-icons/io5"
+export default ({openLocation,SearchBarWidth,open,setOpenLocation}) => {
+  const { state, dispatch } = React.useContext(Createcontext)
+  const [Default, Setdefault] = React.useState()
+  const classes = useStyles()
   const { ref } = usePlacesWidget({
     apiKey: 'AIzaSyB4vl80GbjoLGawT757RmLx5f2DlOED0Zo',
     onPlaceSelected: (place) => {
@@ -117,6 +124,46 @@ export default () => {
       // componentRestrictions: { country: "us" },
     },
   });
+  React.useEffect(() => {
+    Setdefault(state.Location)
+    // setOpenLocation(!openLocation)
+  }, [state])
+  function handleChange(event) {
+    Setdefault(event.target.value);
+  }
+  console.log(ref)
+  return (
+    <>
+  
+      <TextField 
+       size="small" 
+      value={Default}
+      inputRef={ref} 
+      onChange={handleChange}
+      // onClick={(()=>{setOpenLocation(!openLocation)})}
+      type="text" 
+      style={{ borderRadius: (openLocation && SearchBarWidth) ? " 16px 16px 16px 16px" : " 0px 16px 16px 0px", top: "0px", display: open && SearchBarWidth ? "none" : "inline-flex", }}
+      sx={{ width: "100%"}}
+      className={`sec_input_search SearchBar px-2 ${classes.SearchBar_Text}`}
+       placeholder="Enter Location.." 
+       InputProps={{
+        startAdornment: (
+            <InputAdornment position="start">
+                <IoLocationSharp color="gray" size={18} />
+            </InputAdornment>
+        ),
+        // endAdornment: (
+        //     <React.Fragment>
+        //         {openLocation ? (
+        //             <CircularProgress color="inherit" size={20} />
+        //         ) :''}
+        //     </React.Fragment>
+        // ),
+    }}
+       />
+      {/* </div> */}
 
-  return <input ref={ref} style={{ width: "90%" }} defaultValue="Amsterdam" />;
+      {/* <Button>hhhhhhhh</Button> */}
+    </>
+  );
 };

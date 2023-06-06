@@ -521,3 +521,23 @@ position: relative ;
   display: flex;
   gap: 10px;
 }
+
+
+.pac-container {
+  z-index: 2000 ;
+  width: auto ;
+  position: initial ;
+  left: 0 ;
+  right: 0 ;
+  display: block ;
+}
+.pac-container:empty{
+  display: none ;
+}
+.pac-icon {
+  /* background-image: url('./assets/locationMark.svg') !important; */
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 14px 18px;
+}
+.pac-container:after{display:none !important;}

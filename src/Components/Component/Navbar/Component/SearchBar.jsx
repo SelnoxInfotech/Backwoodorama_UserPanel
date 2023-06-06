@@ -166,10 +166,9 @@ const SearchBar = () => {
     };
     return (
         <>
-            <CurrentLocation />
             <div className="col_Search">
                 <div className={` nav_search_bar_div center`} style={{ display: (openLocation && SearchBarWidth) && "block" }}>
-                    {/* <Autocomplete
+                    <Autocomplete
                         freeSolo
                         id="free-solo-2-demo"
                         disableClearable
@@ -219,7 +218,7 @@ const SearchBar = () => {
                             }}
                             placeholder="Products Brands Retailers and more"
                             className={` SearchBar nav_search_bar_div  ${classes.SearchBar_Text}`}
-                            style={{ borderRadius: (open && SearchBarWidth) ? " 16px 16px 16px 16px" : " 16px 0px 0px 16px", top: "0px", display: openLocation && SearchBarWidth ? "none" : "inline-flex", width: open && SearchBarWidth ? "150%" : "100%" }}
+                            style={{ borderRadius: (open && SearchBarWidth) ? " 16px 16px 16px 16px" : " 16px 0px 0px 16px", top: "0px", display: openLocation && SearchBarWidth ? "none" : "inline-flex", width: open && SearchBarWidth ? "100%" : "100%" }}
                             InputProps={{
                                 ...params.InputProps,
                                 startAdornment: (
@@ -236,7 +235,7 @@ const SearchBar = () => {
                                 ),
                             }}
                         />}
-                    /> */}
+                    />
                     <div id="Boder_left"></div>
 {/* 
                     {state.LocationData[0] &&
@@ -317,7 +316,12 @@ const SearchBar = () => {
                         />
 
                     } */}
-                    <AddressSearchapi></AddressSearchapi>
+                    <AddressSearchapi
+                    openLocation={openLocation}
+                    SearchBarWidth={SearchBarWidth}
+                    setOpenLocation={setOpenLocation}
+                    open={open}
+                    ></AddressSearchapi>
 
                 </div>
             </div>
