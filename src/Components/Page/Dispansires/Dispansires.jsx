@@ -115,7 +115,6 @@ export default function Dispansires() {
                     </div>
 
                 </div>
-                <Footer/>
             </div>
 
         </>
