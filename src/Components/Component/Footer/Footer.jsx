@@ -4,18 +4,31 @@ import { FaInstagram } from "react-icons/fa"
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import useStyles from "../../../Style"
 import { Link } from "react-router-dom"
+import Axios from "axios"
+import React from "react";
 const Footer = () => {
     const classes = useStyles()
+    const [Categorys,SetCategorys]=React.useState([])
+    React.useEffect(()=>{
+        Axios.get("http://backend.sweede.net/UserPanel/Get-Categories/",{}).then(Response => {
+            console.log(Response)
+            SetCategorys(Response.data)
+
+        }).catch(()=>{
+
+        })
+    },[])
     const AboutUs = [{ head: "company" }, { head: "Investor" }, { head: "Help Center" }, { head: "Download App" }]
     const Category = [{ head: "Flower" }, { head: "CBD" }, { head: "Concentrate" }, { head: "Edible" }]
     const Legal = [{ head: "Term 7 conditions" }, { head: "Carrier" }, { head: "Privacy Policy" }]
     const More = [{ head: "Get started" }, { head: "Brand" }, { head: "Add business" }, { head: "Contact us" }]
+
     return (
         <>
             <div className="container-fluid">
                 <div className="row footer_Main_row">
                     <div className="col-12 footer_main_div_display">
-                        <div className="col-4 footer_logo_container">
+                        <div className="col-xl-3 col-4 footer_logo_container">
                             <div className="col-12 footer_logo footer_logo_height">
                                 <LazyLoadImage className="footer_logo_image" src="/image/logo.webp" alt="image_not found" />
                             </div>
@@ -34,7 +47,7 @@ const Footer = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-8 footer_content_container">
+                        <div className="col-xl-7 col-8 footer_content_container">
                             <div className="col-12  footer_inner_flex">
                                 <div className="col-6 footer_content_width_small">
                                     <div className="col-12 footer_inner_container">
@@ -43,7 +56,7 @@ const Footer = () => {
                                                 <h5 className="fontStyle">About us</h5>
                                                 {AboutUs.map((ele, index) => {
                                                     return (
-                                                        <Link to="/" key={index}><li>{ele.head}</li></Link>
+                                                        <Link to="/" key={index}><li className="footer_li">{ele.head}</li></Link>
                                                     )
                                                 })}
                                             </ol>
@@ -53,7 +66,7 @@ const Footer = () => {
                                                 <h5 className="fontStyle">Category</h5>
                                                 {Category.map((ele, index) => {
                                                     return (
-                                                        <Link to="/" > <li key={index}>{ele.head}</li></Link>
+                                                        <Link to="/" > <li className="footer_li" key={index}>{ele.head}</li></Link>
                                                     )
                                                 })}
                                             </ol>
@@ -71,7 +84,7 @@ const Footer = () => {
 
                                                 {Legal.map((ele, index) => {
                                                     return (
-                                                        <Link to="/" key={index}> <li>{ele.head}</li></Link>
+                                                        <Link to="/" key={index}> <li className="footer_li">{ele.head}</li></Link>
                                                     )
 
                                                 })}
@@ -83,7 +96,7 @@ const Footer = () => {
                                                 <h5 className="fontStyle">More</h5>
                                                 {More.map((ele, index) => {
                                                     return (
-                                                        <Link to="/" key={index}> <li>{ele.head}</li></Link>
+                                                        <Link to="/" key={index}> <li className="footer_li">{ele.head}</li></Link>
                                                     )
 
                                                 })}
