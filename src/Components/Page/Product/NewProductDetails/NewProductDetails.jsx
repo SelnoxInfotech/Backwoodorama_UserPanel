@@ -22,15 +22,15 @@ const NewProductDetails = () => {
   const Navigate = useNavigate()
   React.useEffect( () => {
     const fetchData = async () => {
-      const apidata = await fetch("http://backend.sweede.net/UserPanel/Get-Categories/");
+      const apidata = await fetch("https://backend.sweede.net/UserPanel/Get-Categories/");
       const data = await apidata.json()
       SetCategory(data)
     }
     fetchData()
-      Axios(`http://backend.sweede.net/UserPanel/Get-ProductById/${Id}`, {
+      Axios(`https://backend.sweede.net/UserPanel/Get-ProductById/${Id}`, {
     }).then( response =>  {
       SetProduct(response.data[0])
-      Axios(`http://backend.sweede.net/UserPanel/Get-ProductAccordingToDispensaries/${response.data[0].Store_id}`, {
+      Axios(`https://backend.sweede.net/UserPanel/Get-ProductAccordingToDispensaries/${response.data[0].Store_id}`, {
       }).then(response => {
         SetStoreProduct(response.data)
 

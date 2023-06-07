@@ -27,7 +27,7 @@ const SearchBar = () => {
     const classes = useStyles()
     function Search(event) {
         SetSearchData([])
-        Axios.post(`http://backend.sweede.net/UserPanel/Get-HomePageFilter/`,
+        Axios.post(`https://backend.sweede.net/UserPanel/Get-HomePageFilter/`,
             {
 
                 search: event.target.value
@@ -91,7 +91,7 @@ const SearchBar = () => {
 
     function SearchAPi(id, type) {
 
-        Axios.post(`http://backend.sweede.net/UserPanel/Get-ResultHomeSearchFilter/`,
+        Axios.post(`https://backend.sweede.net/UserPanel/Get-ResultHomeSearchFilter/`,
             {
                 id: id,
                 type: type
@@ -162,7 +162,7 @@ const SearchBar = () => {
                                     <ul className='PopperLIst'>
                                         <div>
                                             <li onClick={((e) => SearchAPi(t.id, t.type,))} key={`${t.value}`}>
-                                                <img src={`http://backend.sweede.net/${t.image}`} style={{ width: "50px", height: "50px" }} alt=''></img>
+                                                <img src={`https://backend.sweede.net/${t.image}`} style={{ width: "50px", height: "50px" }} alt=''></img>
                                                 <span> {`${t.value}`}</span>
                                             </li>
                                         </div>

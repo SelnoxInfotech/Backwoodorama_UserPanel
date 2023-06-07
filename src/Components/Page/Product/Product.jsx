@@ -33,7 +33,7 @@ const Product = () => {
     // const [arr1, Setarr1] = React.useState([])
     // const [Product, SetProduct] = React.useState('');
     React.useEffect(() => {
-        Axios("http://backend.sweede.net/UserPanel/Get-AllSubCategory/", {
+        Axios("https://backend.sweede.net/UserPanel/Get-AllSubCategory/", {
 
 
         }).then(response => {
@@ -43,7 +43,7 @@ const Product = () => {
             function (error) {
 
             })
-        // Axios("http://backend.sweede.net/UserPanel/CategoryOnProduct/ ", {
+        // Axios("https://backend.sweede.net/UserPanel/CategoryOnProduct/ ", {
 
 
 
@@ -62,7 +62,7 @@ const Product = () => {
 
 
     // const FilterCategory = (id) => {
-    //     Axios(`http://backend.sweede.net/UserPanel/Get-ProductByCategory/${id}`, {
+    //     Axios(`https://backend.sweede.net/UserPanel/Get-ProductByCategory/${id}`, {
 
 
     //     }).then(response => {
@@ -84,7 +84,7 @@ const Product = () => {
     //     SetProduct(event.target.value);
     // };
     // const Search = () => {
-    //     Axios(`http://backend.sweede.net/UserPanel/Get-SearchFilter/?search=${Searchvalue}`, {
+    //     Axios(`https://backend.sweede.net/UserPanel/Get-SearchFilter/?search=${Searchvalue}`, {
 
 
     //     }).then(response => {
@@ -101,7 +101,7 @@ const Product = () => {
     // }
 
     // const SearchA2Z = () => {
-    //     Axios(`http://backend.sweede.net/UserPanel/Get-SortingFilterAtoZ/`, {
+    //     Axios(`https://backend.sweede.net/UserPanel/Get-SortingFilterAtoZ/`, {
 
 
     //     }).then(response => {
@@ -127,7 +127,7 @@ const Product = () => {
     const [Category, SetCategory] = React.useState([])
     React.useEffect(() => {
         const fetchData = async () => {
-            const apidata = await fetch("http://backend.sweede.net/UserPanel/Get-Categories/");
+            const apidata = await fetch("https://backend.sweede.net/UserPanel/Get-Categories/");
             const data = await apidata.json()
             SetCategory(data)
         }

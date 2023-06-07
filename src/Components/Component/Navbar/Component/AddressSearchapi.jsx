@@ -116,19 +116,20 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
   const classes = useStyles()
   const { state } = React.useContext(Createcontext)
   const [Default, Setdefault] = React.useState()
-  const [CurrentLocation , SetCurrentLocation  ] =  React.useState('')
   const { ref } = usePlacesWidget({
     apiKey: 'AIzaSyB4vl80GbjoLGawT757RmLx5f2DlOED0Zo',
     onPlaceSelected: (place) => {
-      Setdefault(place.formatted_address);
+      Setdefault(place?.formatted_address);
+      
     
     },
     options: {
 
       // componentRestrictions: { country: "us" },
-      fields: ["address_components", "geometry", "icon", "longname"],
+      fields: ["address_components", "geometry", "icon","formatted_address"],
       strictBounds: false,
-      types: ["(cities)"],
+      // types: ["(establishment) "],
+      types: [ 'address']
     },
   });
   React.useEffect(() => {
@@ -137,6 +138,7 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
   }, [state])
   function handleChange(event) {
     Setdefault(event.target.value);
+    // console.log( event.target.setSelectionRange)
   }
   function current(event) {
     Setdefault(state.Location);
@@ -153,6 +155,7 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
         value={Default}
         inputRef={ref}
         onChange={handleChange}
+        // onClick={handleChange}
         autocomplete="on"
         type="text"
         style={{ width: "100%", borderRadius: (openLocation && SearchBarWidth) ? " 16px 16px 16px 16px" : " 0px 16px 16px 0px", top: "0px", display: open && SearchBarWidth ? "none" : "inline-flex", }}

@@ -35,12 +35,12 @@ export default function DispensoriesProduct() {
     React.useEffect(() => {
 
 
-        axios.get(`http://backend.sweede.net/UserPanel/Get-StoreById/${id}`, {
+        axios.get(`https://backend.sweede.net/UserPanel/Get-StoreById/${id}`, {
         }).then(response => {
             SetDespens(response.data)
         })
 
-        axios.post("http://backend.sweede.net/UserPanel/Get-CategoryByStore/ ",
+        axios.post("https://backend.sweede.net/UserPanel/Get-CategoryByStore/ ",
             {
 
                 "Store_Id": parseInt(id)
@@ -61,14 +61,14 @@ export default function DispensoriesProduct() {
             })
 
 
-        axios.get(`http://backend.sweede.net/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
+        axios.get(`https://backend.sweede.net/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
         }).then(response => {
             SetDespensariesProductData(response.data)
         })
     }, [id])
 
     const FilterCategory = async (id) => {
-        axios(`http://backend.sweede.net/UserPanel/Get-ProductByCategory/${id}`, {
+        axios(`https://backend.sweede.net/UserPanel/Get-ProductByCategory/${id}`, {
         }).then(response => {
             SetDespensariesProductData(response.data)
 
@@ -86,7 +86,7 @@ export default function DispensoriesProduct() {
     }
     function ShowCategoryProduct(Id, name) {
 
-        axios.post(`http://backend.sweede.net/UserPanel/Get-filterProductbyStoreandCategory/`,
+        axios.post(`https://backend.sweede.net/UserPanel/Get-filterProductbyStoreandCategory/`,
 
             {
                 "Store_Id": parseInt(id),

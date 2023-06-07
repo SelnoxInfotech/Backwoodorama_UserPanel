@@ -25,7 +25,7 @@ const AddToCartReview = () => {
 
   async  function  post() {
         if (state.login) {
-        //   await  axios.get("http://backend.sweede.net/UserPanel/Get-Addtocart/", {
+        //   await  axios.get("https://backend.sweede.net/UserPanel/Get-Addtocart/", {
         //         headers: { Authorization: `Bearer ${token_data}` }
         //     }).then(response => {
         //         SetLocalData(response.data)
@@ -58,7 +58,7 @@ const AddToCartReview = () => {
             const config = {
                 headers: { Authorization: `Bearer ${token_data}` }
             };
-           await Axios.delete(`http://backend.sweede.net/UserPanel/DeleteAddtoCart/${id}`,
+           await Axios.delete(`https://backend.sweede.net/UserPanel/DeleteAddtoCart/${id}`,
                 config,
                 SetLoadingDelete(true)
             )
@@ -103,7 +103,7 @@ const AddToCartReview = () => {
                 PriceId: Event.Price.id
 
             }
-          await  Axios.post(`http://backend.sweede.net/UserPanel/Update-AddtoCart/${Id}`,
+          await  Axios.post(`https://backend.sweede.net/UserPanel/Update-AddtoCart/${Id}`,
                 Arry,
                 config,
                 SetLoadingPluse(true)
@@ -144,7 +144,7 @@ const AddToCartReview = () => {
                 headers: { Authorization: `Bearer ${token_data}` }
             };
           
-           await Axios.post(`http://backend.sweede.net/UserPanel/Update-AddtoCart/${Id}`,
+           await Axios.post(`https://backend.sweede.net/UserPanel/Update-AddtoCart/${Id}`,
                 {
                     Product_id: Event.Product_id,
                     Store_id: Event.Store_id,
@@ -201,7 +201,7 @@ const AddToCartReview = () => {
                             <div className="col-12  Add_prod_item_image">
 
                                 <div className="col-1 Add_prod_item_image_cont">
-                                    <LazyLoadImage src={`http://backend.sweede.net//${ele.Image}`} alt="imag not found" />
+                                    <LazyLoadImage src={`https://backend.sweede.net//${ele.Image}`} alt="imag not found" />
                                 </div>
                                 <div className="col-8 Add_prod_content_cont p-2">
                                     <div className="col-12 fontStyle  add_prod_para_font">

@@ -16,7 +16,7 @@ import Cookies from 'universal-cookie';
 import Createcontext from "../../../Hooks/Context"
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import {FaFacebookF } from "react-icons/fa";
-
+import FaceBookLogin from "./FaceBookLogin"
 const Login = () => {
     const cookies = new Cookies();
     const method = useForm()
@@ -31,7 +31,7 @@ const Login = () => {
     function Submit(data) {
 
         Setloading(true)
-        axios.post("http://backend.sweede.net/UserPanel/Login/", {
+        axios.post("https://backend.sweede.net/UserPanel/Login/", {
 
             email: data.email,
             password: data.password
@@ -165,9 +165,10 @@ const Login = () => {
                         </div>
                         <div className='row  signup_margins_top'>
                             <div className='col-lg-12 signup_btn_height'>
-                                <Box className={`${classes.Signup_loading_btn_facebook}`}>
+                                {/* <Box className={`${classes.Signup_loading_btn_facebook}`}>
                                    <LoadingButton variant='outlined'   loadingPosition="start"  startIcon={<FaFacebookF />}>Continue with Facebook</LoadingButton>
-                                </Box>
+                                </Box> */}
+                                <FaceBookLogin></FaceBookLogin>
                             </div>
 
                         </div>

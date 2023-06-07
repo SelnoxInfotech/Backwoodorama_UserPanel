@@ -12,7 +12,7 @@ const SubcategoryProduct = () => {
     React.useEffect(() => {
         SetLoading(true)
 
-        Axios(`http://backend.sweede.net/UserPanel/Get-ProductBySubCategory/${Id}`, {
+        Axios(`https://backend.sweede.net/UserPanel/Get-ProductBySubCategory/${Id}`, {
         }
 
         ).then(response => {

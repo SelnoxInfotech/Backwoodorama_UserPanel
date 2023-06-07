@@ -82,7 +82,7 @@ const CategoryProduct = ({ ShowCategoryProduct, Category }) => {
                                 <div className='col-10 ' key={index}>
                                     <div className='slider1'>
                                  
-                                        <LazyLoadImage onClick={() => { ShowCategoryProduct(ele.id, ele.name) }} src={`http://backend.sweede.net/` + ele.categoryImages} alt="glass_img" className='rounded-circle  Image_Width' />
+                                        <LazyLoadImage onClick={() => { ShowCategoryProduct(ele.id, ele.name) }} src={`https://backend.sweede.net/` + ele.categoryImages} alt="glass_img" className='rounded-circle  Image_Width' />
                                     
                                     </div>
                                     <div className='col-12 center '>

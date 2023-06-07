@@ -19,7 +19,7 @@
 //     const [Pickup , SetPickup] = React.useState([])
 //     React.useEffect(() => {
 //         axios.get(
-//             'http://backend.sweede.net/UserPanel/Get-DeliveryStores/',
+//             'https://backend.sweede.net/UserPanel/Get-DeliveryStores/',
 //         ).then(response => {
             
 //             SetDelivery(response.data)
@@ -28,7 +28,7 @@
 
 //             })
 //             axios.get(
-//                 'http://backend.sweede.net/UserPanel/Get-PickupStores/',
+//                 'https://backend.sweede.net/UserPanel/Get-PickupStores/',
 //             ).then(response => {
                 
 //                 SetPickup(response.data)
