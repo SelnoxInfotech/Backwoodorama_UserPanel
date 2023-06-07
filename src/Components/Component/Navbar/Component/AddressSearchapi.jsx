@@ -105,10 +105,11 @@
 
 
 import React from "react";
-import { usePlacesWidget } from "react-google-autocomplete";
+import {usePlacesWidget} from "react-google-autocomplete";
 import useStyles from "../../../../Style"
 import Createcontext from "../../../../Hooks/Context"
 import { IoLocationSharp } from "react-icons/io5"
+import {MdOutlineMyLocation } from "react-icons/md"
 export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
   const classes = useStyles()
   const { state, dispatch } = React.useContext(Createcontext)
@@ -120,7 +121,7 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
       console.log(place);
     },
     options: {
-      types: ["(regions)"],
+      types: ['geocode', 'establishment'],
       // componentRestrictions: { country: "us" },
     },
   });
@@ -167,6 +168,7 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
       //     // ),
       // }}
       />
+      <i><MdOutlineMyLocation></MdOutlineMyLocation></i>
 
       {/* </div> */}
 
