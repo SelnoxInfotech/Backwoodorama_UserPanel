@@ -101,7 +101,11 @@
   font-size: 25px;
   color: #333333;
 }
-
+.latest_services_headings{
+  font-weight: 700;
+  font-size: 24px;
+  color:#000000;  
+}
 .Rating {
   display: flex;
 }

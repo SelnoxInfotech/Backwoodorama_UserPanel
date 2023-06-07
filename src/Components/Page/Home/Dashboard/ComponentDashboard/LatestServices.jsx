@@ -97,8 +97,8 @@ const LatestServices = () => {
             <div className="container-fluid   mt-4">
                 <div className="row">
                     <div className="col-lg-12 ">
-                        <div className="latest_services disp_head">
-                            <p>Welcome to Backwoodaroma</p>
+                        <div className="latest_services">
+                            <h1 className="latest_services_headings">Welcome to Backwoodaroma</h1>
                             <h6 className="fontStyle common_sub_head ellipsis">Check our latest article to see our inspiring content for shopping</h6>
                         </div>
                     </div>
