@@ -1,6 +1,5 @@
 import StrainType from "./StrainComponent/StrainType"
 import PopularStrain from "./StrainComponent/PopularStrain"
-import Footer from "../../Component/Footer/Footer"
 const Strain = () => {
   const PopularStrainArray = [{ imgUrl: "/image/glass.png", name: "0G Kush", secName: "Hybrid" },
   { imgUrl: "./image/social.png", name: "0G Galeto", secName: "Indica" },
@@ -26,7 +25,6 @@ const Strain = () => {
         </div>
 
       </div>
-      <Footer />
     </div>
   )
 }

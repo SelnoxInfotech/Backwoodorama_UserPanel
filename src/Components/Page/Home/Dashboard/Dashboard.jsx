@@ -4,7 +4,6 @@ import DispensoriesAddress from "../../Dispansires/DispansiresComponent/Dispenso
 import LatestServices from "./ComponentDashboard/LatestServices";
 import WeedProduct from "./ComponentDashboard/WeedProduct";
 import CommunityType from "./ComponentDashboard/CommunityType";
-import Footer from "../../../Component/Footer/Footer";
 import HomePageBanner from "./ComponentDashboard/HomePageBanner";
 import DeliveryServices from "../../Delivery/HomePageDelivery/DeliveryServices";
 import { useNavigate } from "react-router-dom";
@@ -74,7 +73,6 @@ export default function Dashboard() {
 
 
             {/* <CommunityType></CommunityType> */}
-            <Footer></Footer>
         </div>
     )
 }

@@ -5,7 +5,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Navbar from '../Components/Component/Navbar/Navbar';
 import { Outlet } from 'react-router-dom';
-
+import Footer from '../Components/Component/Footer/Footer';
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -27,6 +27,7 @@ export default function BasicGrid() {
                     <Outlet />
                 </Grid>
             </div>
+            <Footer/>
             {/* <div className='Snckerbar'>
                 gdfgg
             </div> */}

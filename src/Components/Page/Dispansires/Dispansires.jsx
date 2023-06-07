@@ -8,7 +8,6 @@ import useStyles from "../../../Style";
 import Map from "../../Component/Map/map"
 import DispensoriesOpenResult from "./DispansiresComponent/DispensoriesOpenResult"
 import Dispansires_MapTheme from "../../Component/Map/MapStyle"
-import Footer from "../../Component/Footer/Footer";
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
 
@@ -68,9 +67,9 @@ export default function Dispansires() {
 
                     </div>
                     <div className="col-12 col-lg-10 col-md-10 col-sm-12 mx-auto dispensory_menu my-2">
-                        <Box className={`dispensories_tabss ${classes.open_dispensory_tab_background}`} sx={{ width: '100%' }}>
+                        <Box className={`dispensories_tabss ${classes.dispensory_tab_background}`} sx={{ width: '100%' }}>
                             <Box className={classes.open_dispensory_tab} sx={{ borderBottom: 1, borderColor: 'divider', }}>
-                                <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" >
+                                <Tabs scrollButtons={false} variant="scrollable"  value={value} onChange={handleChange} aria-label="basic tabs example" >
 
                                     <Tab label="Open" {...a11yProps(0)} />
                                     <Tab label="Storefronts" {...a11yProps(1)} />

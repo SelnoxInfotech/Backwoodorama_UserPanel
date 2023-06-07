@@ -275,8 +275,8 @@ const useStyles = makeStyles({
   open_dispensory_tab_background: {
     "& .MuiTabs-flexContainer": {
       backgroundColor: "#F9F9F9",
-      gap: '117px'
-
+      gap: '217px',
+      minWidth:"max-content",
     },
     "@media(max-width:1280px)": {
       "& .MuiTabs-flexContainer": {
@@ -290,6 +290,25 @@ const useStyles = makeStyles({
     "& .MuiTabs-scroller": {
       // overflow: "scroll"
     }
+  },
+  dispensory_tab_background:{
+    "& .MuiTabs-flexContainer": {
+      backgroundColor: "#F9F9F9",
+      gap: '190px',
+      minWidth:"max-content",
+    },
+    "@media(max-width:1280px)": {
+      "& .MuiTabs-flexContainer": {
+        gap: '10px',
+        // overflowX: "scroll",
+        // overflowY: "hidden"
+
+      },
+    },
+
+    "& .MuiTabs-scroller": {
+      // overflow: "scroll"
+    } 
   },
   deliverItemCardPadding: {
     "& .MuiTabPanel-root": {

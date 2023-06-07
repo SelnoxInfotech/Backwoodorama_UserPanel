@@ -1,6 +1,5 @@
 import BestDealCards from "./DealsComponent/BestDealCards"
 import PromoCode from "./DealsComponent/PromoCode"
-import Footer from "../../Component/Footer/Footer"
 import NewProductSearchResult from "../Product/NewProductDetails/NewProductDetailsComponent/NewProductSearchResult"
 const RelatedDeals=()=>{
     const NewProductSearchRseultArray = [{ imgUrl: "./image/social.png" }, { imgUrl: "./image/sativa.png" }, { imgUrl: "./image/sativa.png" },
@@ -34,7 +33,6 @@ const RelatedDeals=()=>{
             <NewProductSearchResult NewProductSearchRseultArray={NewProductSearchRseultArray} heading={heading}/>
             <BestDealCards CardDataArray={BestDealsCardArray} Heading={bestDealsHeading}/>
             <PromoCode CardDataArray={PromoCardArray} Heading={promoCodeHeading}/>
-            <Footer/>
         </div>
     )
 }

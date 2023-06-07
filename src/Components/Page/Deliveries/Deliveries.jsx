@@ -1,5 +1,4 @@
 // import DeliveryPickupMenu from "./DeliveriesComponent/DeliveryPickupMenu"
-import Footer from "../../Component/Footer/Footer"
 import DeliveryMenuBar from "./DeliveriesComponent/DeliveryMenuBar/DeliveryMenuBar"
 const Deliveries=()=>{
     return(
@@ -16,7 +15,6 @@ const Deliveries=()=>{
              {/* <DeliveryPickupMenu/> */}
              <DeliveryMenuBar/>
             </div>
-            <Footer/>
 
         </div>
         </>

@@ -23,7 +23,6 @@ import NewProductCategorySlider from "./NewProductCategorySlider"
 // import ProductSearchResult from "./ProductSearchResult/ProductSearchResult"
 import RecentViewProduct from "./RecentViewProduct/RecentViewProduct"
 import { useNavigate } from "react-router-dom"
-import Footer from "../../Component/Footer/Footer"
 const Product = () => {
     const navigate = useNavigate();
 
@@ -162,8 +161,6 @@ const Product = () => {
                         <RecentViewProduct />
                     </div>
                 </div>
-                 <Footer/>
-
             </div>
         </>
     )

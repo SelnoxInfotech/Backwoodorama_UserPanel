@@ -14,7 +14,7 @@ const Footer = () => {
         <>
             <div className="container-fluid">
                 <div className="row footer_Main_row">
-                    <div className="col-12 footer_main_div_display mb-1">
+                    <div className="col-12 footer_main_div_display">
                         <div className="col-4 footer_logo_container">
                             <div className="col-12 footer_logo footer_logo_height">
                                 <LazyLoadImage className="footer_logo_image" src="/image/logo.webp" alt="image_not found" />
