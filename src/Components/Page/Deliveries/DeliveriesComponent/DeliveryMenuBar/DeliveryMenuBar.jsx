@@ -31,21 +31,7 @@ const DeliveryMenuBar = () => {
 
             })
     }, [])
-    const DeliveryItemsCardArray2 = [{
-        imgurl: "/image/edibles.webp", item_name: "Jaderoom delivery Irvine",
-        address: "Medical and recreational", address2: "Irvine", total_items: 1590,
-        Number_of_items_type1: 68, Number_of_items_type2: 200, Number_of_items_type3: 320, Number_of_items_type4: 201, Number_of_items_type5: 100
-    }]
-    const DeliveryItemsCardArray3 = [{
-        imgurl: "/image/cat_prod_5.jpg", item_name: "Jaderoom delivery Irvine",
-        address: "Medical and recreational", address2: "Irvine", total_items: 1590,
-        Number_of_items_type1: 68, Number_of_items_type2: 200, Number_of_items_type3: 320, Number_of_items_type4: 201, Number_of_items_type5: 100
-    }]
-    const DeliveryItemsCardArray4 = [{
-        imgurl: "/image/wee_img1.jpeg", item_name: "Jaderoom delivery Irvine",
-        address: "Medical and recreational", address2: "Irvine", total_items: 1590,
-        Number_of_items_type1: 68, Number_of_items_type2: 200, Number_of_items_type3: 320, Number_of_items_type4: 201, Number_of_items_type5: 100
-    }]
+
     const classes = useStyles()
     const [value, setValue] = React.useState('1');
 

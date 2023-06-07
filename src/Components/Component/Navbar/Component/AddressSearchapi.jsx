@@ -106,7 +106,7 @@
 
 import React from "react";
 import { usePlacesWidget } from "react-google-autocomplete";
- import useStyles from "../../../../Style"
+import useStyles from "../../../../Style"
 import Createcontext from "../../../../Hooks/Context"
 import { IoLocationSharp } from "react-icons/io5"
 export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
@@ -123,9 +123,6 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
       types: ["(regions)"],
       // componentRestrictions: { country: "us" },
     },
-    renderSuggestions:{
-
-    }
   });
   React.useEffect(() => {
     Setdefault(state.Location)
@@ -134,7 +131,7 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
   function handleChange(event) {
     Setdefault(event.target.value);
   }
-  console.log(ref)
+  console.log(ref )
 
   return (
 
