@@ -1477,6 +1477,10 @@
 .footer_main_div_display {
   display: flex;
   flex-wrap: wrap;
+  border: 1px solid #E7E7E7;
+  height: auto;
+  padding: 4px;
+  background-color: #f8f8f8;
 }
 
 .footer_heading p {

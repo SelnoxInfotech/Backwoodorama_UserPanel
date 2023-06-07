@@ -76,10 +76,7 @@ export default function Dispansires() {
                                     <Tab label="Storefronts" {...a11yProps(1)} />
                                     <Tab label="delivery" {...a11yProps(2)} />
                                     <Tab label="Order online" {...a11yProps(3)} />
-                                    <Tab label=" License type" {...a11yProps(4)} />
-                                    <Tab label="Curbside pickup " {...a11yProps(5)} />
-                                    <Tab label=" Amenities" {...a11yProps(6)} />
-                                    <Tab label="Amenities" {...a11yProps(7)} />
+                              
                                 </Tabs>
                             </Box>
                             <TabPanel value={value} index={0}>
@@ -94,19 +91,6 @@ export default function Dispansires() {
                             <TabPanel value={value} index={3}>
                                 <DispensoriesOpenResult />
                             </TabPanel>
-                            <TabPanel value={value} index={4}>
-                                <DispensoriesOpenResult />
-                            </TabPanel>
-                            <TabPanel value={value} index={5}>
-                                <DispensoriesOpenResult />
-                            </TabPanel>
-                            <TabPanel value={value} index={6}>
-                                <DispensoriesOpenResult />
-                            </TabPanel>
-                            <TabPanel value={value} index={7}>
-                                <DispensoriesOpenResult />
-                            </TabPanel>
-
                             <div className="Dispansires_map">
                                 <Map height={"740px"} Theme={Dispansires_MapTheme.Dispansires_MapTheme}></Map>
                             </div>

@@ -3,6 +3,7 @@ import NewProductSearchResult from "../Product/NewProductDetails/NewProductDetai
 import DealByStrainType from "./MainDealsComponent/DealByStrainType";
 import BestDealCards from "../Deals/DealsComponent/BestDealCards";
 import PromoCode from "../Deals/DealsComponent/PromoCode";
+import Footer from "../../Component/Footer/Footer";
 const MainDeals=()=>{
     const SliderDataArray=[{imgUrl:"./image/sativa.png",name:"flower"},{imgUrl:"./image/indica.png",name:"pre roll"},
     {imgUrl:"./image/sativa.png",name:"flower"},{imgUrl:"./image/indica.png",name:"pre roll"},
@@ -60,7 +61,7 @@ const MainDeals=()=>{
            <NewProductSearchResult NewProductSearchRseultArray={NewProductSearchRseultArray} heading={DispensoriesDealHeading}/>
            <BestDealCards CardDataArray={BestDealsCardArray} Heading={bestDealsHeading}/>
            <PromoCode CardDataArray={PromoCardArray} Heading={promoCodeHeading}/>
-
+            <Footer/>
         </div>
     )
 }
