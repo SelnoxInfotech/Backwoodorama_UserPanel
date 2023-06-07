@@ -4,16 +4,16 @@ import StrainTypeCards from "./StrainTypeCards";
 import Axios from "axios"
 
 const StrainType = () => {
-    const [type, SetType] = React.useState([{
-        type: "Strain"
-    }])
+ 
+
+
     const StrainTypeCardArray = [
         { imgUrl: "./image/indica.png", head1: "Indica" },
         { imgUrl: "./image/sativa.png", head1: "Hybrid" },
         { imgUrl: "./image/social.png", head1: "Sativa" },
-        { imgUrl: "./image/Leafly March Promo.png", head1: "Indica" },
-        { imgUrl: "./image/Leafly Promo.png", head1: "Hybrid" },
-        { imgUrl: "./image/Leafly Promo.png", head1: "Sativa" },
+        { imgUrl: "./image/Leafly March Promo.png", head1: "CBD" },
+        // { imgUrl: "./image/Leafly Promo.png", head1: "Hybrid" },
+        // { imgUrl: "./image/Leafly Promo.png", head1: "Sativa" },
     ]
     // React.useEffect(() => {
     //     Axios.post("http://backend.sweede.net/UserPanel/Get-StrainType/",
