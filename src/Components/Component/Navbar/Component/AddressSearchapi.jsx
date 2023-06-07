@@ -106,7 +106,7 @@
 
 // // // import React from "react";
 // // // import { usePlacesWidget } from "react-google-autocomplete";
-// // import useStyles from "../../../../Style"
+ import useStyles from "../../../../Style"
 // // import Createcontext from "../../../../Hooks/Context"
 // // // import { IoLocationSharp } from "react-icons/io5"
 // // // export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
@@ -365,6 +365,7 @@ import PlacesAutocomplete, {
 } from 'react-places-autocomplete';
 
 export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
+  const classes = useStyles()
 const [Address,SetAddress] = React.useState("")
 
  const handleChange = address => {
@@ -386,14 +387,14 @@ const handleSelect = address => {
       value={Address}
       onChange={handleChange}
       onSelect={handleSelect}
-      style={{ borderRadius: (open && SearchBarWidth) ? " 16px 16px 16px 16px" : " 16px 0px 0px 16px", top: "0px", display: openLocation && SearchBarWidth ? "none" : "inline-flex", width: open && SearchBarWidth ? "100%" : "100%" }}
+      styles={{ borderRadius: (open && SearchBarWidth) ? " 16px 16px 16px 16px" : " 16px 0px 0px 16px", top: "0px", display: openLocation && SearchBarWidth ? "none" : "inline-flex", width: open && SearchBarWidth ? "100%" : "100%" }}
     >
       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-        <div>
+        <div style={{width: "100%"}}>
           <input
             {...getInputProps({
               placeholder: 'Search Places ...',
-              className: ' SearchBar nav_search_bar_div',
+              className:  `SearchBar nav_search_bar_div  InputSearch${classes.SearchBar_Text}`,
             })}
           />
           <div className="autocomplete-dropdown-container">

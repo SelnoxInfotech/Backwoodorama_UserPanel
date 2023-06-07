@@ -141,7 +141,7 @@ a{
 }
 
 .SearchBar{
-  width:50%;
+  width:100%;
   border-style: hidden;
   padding-left: 10px;
   background: rgb(238, 238, 238);
@@ -160,7 +160,10 @@ a{
 .nav_search_bar_div input:focus{
   outline: none;
 }
-
+.InputSearch{
+height: 30px;
+    margin-top: 1px;
+}
 /* .search_icon{
   background-color: #00b96a;
   color: white;
