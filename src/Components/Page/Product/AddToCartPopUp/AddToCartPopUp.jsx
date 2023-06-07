@@ -27,7 +27,7 @@ const AddToCartPopUp = ({ CartClean, SetCartClean, NewData, SetAddToCard }) => {
                 headers: { Authorization: `Bearer ${token_data}` }
             };
 
-            axios.post("http://backend.sweede.net/UserPanel/ClearAddtoCart/",
+            axios.post("https://backend.sweede.net/UserPanel/ClearAddtoCart/",
             NewData,
             config,
             ).then(response => {

@@ -19,7 +19,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                                 <div className="row" key={data.id}>
                                     <div className="col-md-2 col-sm-4  col-4 newFlavour_image_container_height">
                                         <div className='newFlavourimage_div'>
-                                            <LazyLoadImage className='newFlavour_image' src={`http://backend.sweede.net/${data?.Store_Image}`} alt='not available' height={"100px"} />
+                                            <LazyLoadImage className='newFlavour_image' src={`https://backend.sweede.net/${data?.Store_Image}`} alt='not available' height={"100px"} />
 
                                         </div>
 

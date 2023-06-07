@@ -3,10 +3,11 @@ import { FaFacebook } from "react-icons/fa"
 import { FaInstagram } from "react-icons/fa"
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import useStyles from "../../../Style"
-import { Link } from "react-router-dom"
 import Axios from "axios"
 import React from "react";
+import { Link, useNavigate } from "react-router-dom"
 const Footer = () => {
+    const Navigate = useNavigate()
     const classes = useStyles()
     const [Categorys,SetCategorys]=React.useState([])
     React.useEffect(()=>{
@@ -22,6 +23,17 @@ const Footer = () => {
     const Category = [{ head: "Flower" }, { head: "CBD" }, { head: "Concentrate" }, { head: "Edible" }]
     const Legal = [{ head: "Term 7 conditions" }, { head: "Carrier" }, { head: "Privacy Policy" }]
     const More = [{ head: "Get started" }, { head: "Brand" }, { head: "Add business" }, { head: "Contact us" }]
+
+
+    function Redirect(title) {
+        if (title === "Brand") {
+
+            Navigate("/Brand")
+        }
+
+    }
+
+
 
     return (
         <>
@@ -96,7 +108,7 @@ const Footer = () => {
                                                 <h5 className="fontStyle">More</h5>
                                                 {More.map((ele, index) => {
                                                     return (
-                                                        <Link to="/" key={index}> <li className="footer_li">{ele.head}</li></Link>
+                                                        <li className="footer_li" key={index} onClick={() => Redirect(ele.head)}>{ele.head}</li>
                                                     )
 
                                                 })}

@@ -37,10 +37,10 @@ const ProductDetail = () => {
     const [Product, SetProduct] = React.useState([])
     const [CartClean, SetCartClean] = React.useState(false)
     React.useEffect(() => {
-        Axios(`http://backend.sweede.net/UserPanel/Get-ProductById/${Id}`, {
+        Axios(`https://backend.sweede.net/UserPanel/Get-ProductById/${Id}`, {
         }).then(response => {
             SetProductDetails(response.data)
-            Axios(`http://backend.sweede.net/UserPanel/Get-DispensaryByid/${response.data[0].Store_id}`, {
+            Axios(`https://backend.sweede.net/UserPanel/Get-DispensaryByid/${response.data[0].Store_id}`, {
             }).then(response => {
                 SetStore_id(response.data)
 
@@ -59,7 +59,7 @@ const ProductDetail = () => {
             })
 
 
-        Axios(`http://backend.sweede.net/UserPanel/Get-Product`, {
+        Axios(`https://backend.sweede.net/UserPanel/Get-Product`, {
 
 
         }).then(response => {
@@ -125,7 +125,7 @@ const ProductDetail = () => {
                 PriceId: PriceIndex.id
 
             })
-            await axios.post("http://backend.sweede.net/UserPanel/Add-AddtoCart/",
+            await axios.post("https://backend.sweede.net/UserPanel/Add-AddtoCart/",
 
                 {
                     Product_id: Event.id,
@@ -210,12 +210,12 @@ const ProductDetail = () => {
                                             {Image ?
                                                 ele?.images.map((data, index) => {
                                                     // if (data.id === Image) {
-                                                        return data.id === Image &&   <LazyLoadImage key={index} src={`http://backend.sweede.net/${data.image}`} alt="img_not_found" />
+                                                        return data.id === Image &&   <LazyLoadImage key={index} src={`https://backend.sweede.net/${data.image}`} alt="img_not_found" />
                                                     // }
 
                                                 })
                                                 :
-                                                <LazyLoadImage src={`http://backend.sweede.net/${ele.images[0]?.image}`} alt="img_not_found" />
+                                                <LazyLoadImage src={`https://backend.sweede.net/${ele.images[0]?.image}`} alt="img_not_found" />
 
                                             }
 
@@ -226,7 +226,7 @@ const ProductDetail = () => {
                                                 return (
                                                     <div className="col-3 p-2" key={index}>
                                                         <div className="col-12 add_prod_inner_img " onClick={(() => { ImageSet(eleImage.id) })}>
-                                                            <LazyLoadImage src={`http://backend.sweede.net/${eleImage?.image}`} alt="img_not_found" />
+                                                            <LazyLoadImage src={`https://backend.sweede.net/${eleImage?.image}`} alt="img_not_found" />
                                                         </div>
 
                                                     </div>

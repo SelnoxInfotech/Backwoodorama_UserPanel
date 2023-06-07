@@ -8,7 +8,7 @@ const LatestServices = () => {
     const [News,SetNews]=useState([])
     useEffect(()=>{
         const getApi=async ()=>{
-            const res=await fetch("http://backend.sweede.net/UserPanel/Get-News/");
+            const res=await fetch("https://backend.sweede.net/UserPanel/Get-News/");
             const data=await res.json();
             SetNews(data)
             // console.log(data)
@@ -113,7 +113,7 @@ const LatestServices = () => {
                                 <div className="col-10  latest_cont">
                                     <div className="col img_cont center_latest ">
                                         <div className="col-12  centerImg ">
-                                            <img src={`http://backend.sweede.net/${ele.Image}`} alt="img_not_found" style={{pointerEvents: "none"}}/>
+                                            <img src={`https://backend.sweede.net/${ele.Image}`} alt="img_not_found" style={{pointerEvents: "none"}}/>
 
                                         </div>
 

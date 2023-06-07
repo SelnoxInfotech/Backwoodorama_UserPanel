@@ -23,7 +23,7 @@ function LoginWithGoogle() {
 
 
     async function GoogleAuth(codeResponse) {
-       await axios.post("http://backend.sweede.net/UserPanel/GoogleView/ ", {
+       await axios.post("https://backend.sweede.net/UserPanel/GoogleView/ ", {
             token: codeResponse.access_token
         }).then(response => {
             if (location.pathname === "/CheckOutMainPage") {

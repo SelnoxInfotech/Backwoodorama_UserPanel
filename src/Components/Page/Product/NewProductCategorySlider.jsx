@@ -29,7 +29,7 @@ const NewProductCategorySlider = ({ flowerArray }) => {
                                                     event.onerror = null
                                                 }}
                                                 className="newProductCategory_image"
-                                                 src={`http://backend.sweede.net/${items?.SubCategoryImage}`}/>
+                                                 src={`https://backend.sweede.net/${items?.SubCategoryImage}`}/>
                                             </Link>
                                             
                                         </div>

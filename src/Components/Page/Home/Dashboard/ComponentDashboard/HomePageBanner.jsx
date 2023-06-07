@@ -10,7 +10,7 @@ const HomePageBanner = () => {
     const [HomePageBannerImage,SetHomePageBannerImage]=React.useState([])
     
     React.useEffect(()=>{
-        Axios(`http://backend.sweede.net/UserPanel/Get-AllHomePageBanner/`,{
+        Axios(`https://backend.sweede.net/UserPanel/Get-AllHomePageBanner/`,{
 
         }
 
@@ -97,7 +97,7 @@ const HomePageBanner = () => {
             {HomePageBannerImage.map((items, index) => {
                 return (
                     <div className='col-12 homePageBanner_container' key={index}>
-                        <LazyLoadImage  src={`http://backend.sweede.net/${items.Banner}`}  alt="Image not available" className='HomePageBanner_image'/>
+                        <LazyLoadImage  src={`https://backend.sweede.net/${items.Banner}`}  alt="Image not available" className='HomePageBanner_image'/>
                     </div>
 
                 )

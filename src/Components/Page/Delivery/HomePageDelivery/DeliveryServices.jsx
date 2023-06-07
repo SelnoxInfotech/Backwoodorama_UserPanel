@@ -13,7 +13,7 @@ DeliveryServices = () => {
     const classes = useStyles()
     const ref = React.useRef(null);
     React.useEffect(() => {
-        Axios(`http://backend.sweede.net/UserPanel/Get-DeliveryStores/`, {
+        Axios(`https://backend.sweede.net/UserPanel/Get-DeliveryStores/`, {
 
         }
 
@@ -45,7 +45,7 @@ DeliveryServices = () => {
                                         <div className=' deliveryServicesBorder mx-3'>
                                             <Link to={`/DispensoriesProduct/${items.id}/${"Menu"}`}>
                                                 <div className='col-12 deliveryServicesImage_container'>
-                                                    <LazyLoadImage className='deliveryServicesImage' src={`http://backend.sweede.net/${items.Store_Image}`} alt='image not available' />
+                                                    <LazyLoadImage className='deliveryServicesImage' src={`https://backend.sweede.net/${items.Store_Image}`} alt='image not available' />
                                                 </div>
                                             </Link>
                                             <div className='col-12 deliveryServicesContent_container px-4'>

@@ -16,7 +16,7 @@ const PlaceOrder = () => {
             headers: { Authorization: `Bearer ${token_data}` }
         };
       
-        Axios.get(`http://backend.sweede.net/UserPanel/Get-Order/`,
+        Axios.get(`https://backend.sweede.net/UserPanel/Get-Order/`,
             config,
 
         )

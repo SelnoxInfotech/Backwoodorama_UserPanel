@@ -24,7 +24,7 @@ export default function Dashboard() {
     const [Category, SetCategory] = React.useState([])
     React.useEffect(() => {
         const fetchData = async () => {
-            const apidata = await fetch("http://backend.sweede.net/UserPanel/Get-Categories/");
+            const apidata = await fetch("https://backend.sweede.net/UserPanel/Get-Categories/");
             const data = await apidata.json()
             SetCategory(data)
         }
@@ -32,7 +32,7 @@ export default function Dashboard() {
 
     }, [])
     React.useEffect(() => {
-        Axios("http://backend.sweede.net/UserPanel/Get-AllBrand/ ",{})
+        Axios("https://backend.sweede.net/UserPanel/Get-AllBrand/ ",{})
         .then((response)=>{
 
             SetFeaturedBrandArray(response.data)
