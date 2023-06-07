@@ -1563,7 +1563,10 @@
 .footer_logo_container {
   padding-left: 60px;
 }
-
+.footer_content_container{
+  display: grid;
+  align-items: center;
+}
 @media(max-width:800px) {
   .footer_logo_container {
     width: 100% !important;

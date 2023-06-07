@@ -281,14 +281,14 @@ const useStyles = makeStyles({
     "@media(max-width:1280px)": {
       "& .MuiTabs-flexContainer": {
         gap: '10px',
-        overflowX: "scroll",
-        overflowY: "hidden"
+        // overflowX: "scroll",
+        // overflowY: "hidden"
 
       },
     },
 
     "& .MuiTabs-scroller": {
-      overflow: "scroll"
+      // overflow: "scroll"
     }
   },
   deliverItemCardPadding: {
