@@ -108,6 +108,35 @@ const useStyles = makeStyles({
 
     }
   },
+  checAgeEliigiblityPopup:{
+    "&.MuiButtonBase-root": {
+      background:"#00C4FF",
+      color: "#FFFFFF",
+      border: "1px solid #00C4FF",
+      borderRadius: "8px",
+      minWidth: "100%",
+      textTransform: "none",
+    },
+    "&.MuiButtonBase-root:hover": {
+
+      color: "white",
+      background:"#00C4FF",
+    }
+  },
+  checkAgeEligibiltyAge_SecBtn:{
+    "&.MuiButtonBase-root": {
+      // background:"#00C4FF",
+      color: "#00C4FF",
+      border: "1px solid #00C4FF",
+      borderRadius: "8px",
+      minWidth: "100%",
+      textTransform: "none",
+    },
+    "&.MuiButtonBase-root:hover": {
+      color: "white",
+      background:"#00C4FF",
+    }
+  },
   muiIcon: {
     fontSize: "x-large",
     color: "#4267B2",

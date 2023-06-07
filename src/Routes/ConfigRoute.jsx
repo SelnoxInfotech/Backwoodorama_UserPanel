@@ -24,7 +24,8 @@ import NewProductDetails from "../Components/Page/Product/NewProductDetails/NewP
 import RelatedVerifyBrand from "../Components/Page/Brand/RelatedVerifyBrand/RelatedVerifyBrand";
 import RelatedDeals from "../Components/Page/Deals/RelatedDeals";
 import Strain from "../Components/Page/Strain/Strain";
-import MainDeals from "../Components/Page/MainDealsFolder/MainDeals"
+import MainDeals from "../Components/Page/MainDealsFolder/MainDeals";
+import CheckAge from "../Components/Page/CheckAgeEligblityPopup/checkAge";
 const routesConfig = [
   
       {
@@ -65,6 +66,10 @@ const routesConfig = [
           {
             path:"/Deliveries",
             element:<Deliveries></Deliveries>
+          },
+          {
+            path:"/CheckAge",
+            element:<CheckAge></CheckAge>
           },
           {
             path: "/Product",

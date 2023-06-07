@@ -1547,6 +1547,9 @@
   display: grid;
   gap: 10px;
 }
+.footer_li{
+  cursor: pointer;
+}
 .footer_li:hover{
   color:#31B665;
 }
@@ -1554,7 +1557,9 @@
 .footer_logo h5 {
   color: #31B665;
 }
-
+.footer_icons{
+  cursor: pointer;
+}
 .footer_icons:hover {
   color: #7ED19F;
 }
@@ -4500,3 +4505,29 @@ color: #909090;
 }
 
 /* end*/
+/* checkAgeEligiblityPopup */
+.checkAgeEligiblityPop_container{
+  height: 400px;
+  border: 1px solid green;
+}
+.checkAgeEligibilityCenter{
+  display: grid;
+  align-items: center;
+}
+.askCountry{
+  font-weight: 400;
+font-size: 18px;
+color: #363535;
+}
+.checkAgeEligibilty_label{
+  height: 40px;
+
+}
+.checkAgeEligibility_Select{
+  height: 75px;
+}
+.checkAgeEligibilty_btn_container{
+  height: 50px;
+
+}
+/* end */
