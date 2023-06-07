@@ -105,24 +105,30 @@
 
 
 import React from "react";
-import {usePlacesWidget} from "react-google-autocomplete";
+import { usePlacesWidget } from "react-google-autocomplete";
 import useStyles from "../../../../Style"
 import Createcontext from "../../../../Hooks/Context"
 import { IoLocationSharp } from "react-icons/io5"
-import {MdOutlineMyLocation } from "react-icons/md"
+import { MdOutlineMyLocation } from "react-icons/md"
+import { IconButton, InputAdornment, TextField } from "@mui/material";
+import { IconBase } from "react-icons";
 export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
   const classes = useStyles()
-  const { state, dispatch } = React.useContext(Createcontext)
+  const { state } = React.useContext(Createcontext)
   const [Default, Setdefault] = React.useState()
-
+  const [CurrentLocation , SetCurrentLocation  ] =  React.useState('')
   const { ref } = usePlacesWidget({
     apiKey: 'AIzaSyB4vl80GbjoLGawT757RmLx5f2DlOED0Zo',
     onPlaceSelected: (place) => {
-      console.log(place);
+      Setdefault(place.formatted_address);
+    
     },
     options: {
-      types: ['geocode', 'establishment'],
+
       // componentRestrictions: { country: "us" },
+      fields: ["address_components", "geometry", "icon", "longname"],
+      strictBounds: false,
+      types: ["(cities)"],
     },
   });
   React.useEffect(() => {
@@ -132,43 +138,41 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
   function handleChange(event) {
     Setdefault(event.target.value);
   }
-  console.log(ref )
+  function current(event) {
+    Setdefault(state.Location);
+  }
 
   return (
 
 
 
     <>
-      <i className="SearcchIcon" style={{ display: open && SearchBarWidth ? "none" : "inline-flex" }}>   <IoLocationSharp color="gray" size={18} /></i>
-      <input
+      {/* <i className="SearcchIcon" style={{ display: open && SearchBarWidth ? "none" : "inline-flex" }}>   <IoLocationSharp color="gray" size={18} /></i> */}
+      <TextField
         size="small"
         value={Default}
-        ref={ref}
+        inputRef={ref}
         onChange={handleChange}
         autocomplete="on"
-        // floatingLabelFixed={true}
-        // onClick={(()=>{setOpenLocation(!openLocation)})}
         type="text"
         style={{ width: "100%", borderRadius: (openLocation && SearchBarWidth) ? " 16px 16px 16px 16px" : " 0px 16px 16px 0px", top: "0px", display: open && SearchBarWidth ? "none" : "inline-flex", }}
         sx={{ width: "100%" }}
         className={`sec_input_search SearchBar Input ${classes.SearchBar_Text}`}
         placeholder="Enter Location.."
-      //    InputProps={{
-      //     startAdornment: (
-      //         <InputAdornment position="start">
-      //             <IoLocationSharp color="gray" size={18} />
-      //         </InputAdornment>
-      //     ),
-      //     // endAdornment: (
-      //     //     <React.Fragment>
-      //     //         {openLocation ? (
-      //     //             <CircularProgress color="inherit" size={20} />
-      //     //         ) :''}
-      //     //     </React.Fragment>
-      //     // ),
-      // }}
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <IoLocationSharp color="gray" size={18} />
+            </InputAdornment>
+          ),
+          endAdornment: (
+            <IconButton>
+              <MdOutlineMyLocation color="inherit" size={16}  style={{cursor:'pointer'}}  onClick={current}/>
+            </IconButton>
+          
+          ),
+        }}
       />
-      <i><MdOutlineMyLocation></MdOutlineMyLocation></i>
 
       {/* </div> */}
 
