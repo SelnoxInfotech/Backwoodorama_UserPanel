@@ -1,233 +1,426 @@
-// // // import React, { useState } from "react";
-// // // import { Autocomplete, useLoadScript } from "@react-google-maps/api";
-// // // import axios from "axios";
-// // // function App() {
-// // //   // const placesLibrary = ["places"];
-// // //   // const [searchResult, setSearchResult] = useState("Result: none");
+// // // // // import React, { useState } from "react";
+// // // // // import { Autocomplete, useLoadScript } from "@react-google-maps/api";
+// // // // // import axios from "axios";
+// // // // // function App() {
+// // // // //   // const placesLibrary = ["places"];
+// // // // //   // const [searchResult, setSearchResult] = useState("Result: none");
 
-// // //   // const { isLoaded } = useLoadScript({
-// // //   //   googleMapsApiKey:'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
-// // //   //   libraries: ["places"]
-// // //   // });
+// // // // //   // const { isLoaded } = useLoadScript({
+// // // // //   //   googleMapsApiKey:'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
+// // // // //   //   libraries: ["places"]
+// // // // //   // });
 
-// // //   // function onLoad(autocomplete) {
-// // //   //   setSearchResult(autocomplete);
-// // //   //   console.log(autocomplete)
-// // //   // }
+// // // // //   // function onLoad(autocomplete) {
+// // // // //   //   setSearchResult(autocomplete);
+// // // // //   //   console.log(autocomplete)
+// // // // //   // }
 
-// // //   // function onPlaceChanged() {
-// // //   //   if (searchResult != null) {
-// // //   //     const place = searchResult.getPlace();
-// // //   //     const name = place.name;
-// // //   //     const status = place.business_status;
-// // //   //     const formattedAddress = place.formatted_address;
-// // //   //     // console.log(place);
-// // //   //     console.log(`Name: ${name}`);
-// // //   //     console.log(`Business Status: ${status}`);
-// // //   //     console.log(`Formatted Address: ${formattedAddress}`);
-// // //   //   } else {
-// // //   //     alert("Please enter text");
-// // //   //   }
-// // //   // }
+// // // // //   // function onPlaceChanged() {
+// // // // //   //   if (searchResult != null) {
+// // // // //   //     const place = searchResult.getPlace();
+// // // // //   //     const name = place.name;
+// // // // //   //     const status = place.business_status;
+// // // // //   //     const formattedAddress = place.formatted_address;
+// // // // //   //     // console.log(place);
+// // // // //   //     console.log(`Name: ${name}`);
+// // // // //   //     console.log(`Business Status: ${status}`);
+// // // // //   //     console.log(`Formatted Address: ${formattedAddress}`);
+// // // // //   //   } else {
+// // // // //   //     alert("Please enter text");
+// // // // //   //   }
+// // // // //   // }
 
-// // //   // if (!isLoaded) {
-// // //   //   return <div>Loading...</div>;
-// // //   // }
-// // //   var config = {
-// // //     method: 'get',
-// // //     url: 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=Paris&types=geocode&key=AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
-// // //     headers: { }
-// // //   };
+// // // // //   // if (!isLoaded) {
+// // // // //   //   return <div>Loading...</div>;
+// // // // //   // }
+// // // // //   var config = {
+// // // // //     method: 'get',
+// // // // //     url: 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=Paris&types=geocode&key=AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
+// // // // //     headers: { }
+// // // // //   };
 
-// // //   axios(config)
-// // //   .then(function (response) {
-// // //     console.log(JSON.stringify(response.data));
-// // //   })
-// // //   .catch(function (error) {
-// // //     console.log(error);
+// // // // //   axios(config)
+// // // // //   .then(function (response) {
+// // // // //     console.log(JSON.stringify(response.data));
+// // // // //   })
+// // // // //   .catch(function (error) {
+// // // // //     console.log(error);
+// // // // //   });
+// // // // //   return (
+// // // // //     // <div className="App">
+// // // // //     //   <div id="searchColumn">
+// // // // //     //     <h2>Tide Forecast Options</h2>
+// // // // //     //     <Autocomplete onPlaceChanged={onPlaceChanged} onLoad={onLoad}>
+// // // // //     //       <input
+// // // // //     //         type="text"
+// // // // //     //         placeholder="Search for Tide Information"
+// // // // //     //         style={{
+// // // // //     //           boxSizing: `border-box`,
+// // // // //     //           border: `1px solid transparent`,
+// // // // //     //           width: `240px`,
+// // // // //     //           height: `32px`,
+// // // // //     //           padding: `0 12px`,
+// // // // //     //           borderRadius: `3px`,
+// // // // //     //           boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
+// // // // //     //           fontSize: `14px`,
+// // // // //     //           outline: `none`,
+// // // // //     //           textOverflow: `ellipses`
+// // // // //     //         }}
+// // // // //     //       />
+// // // // //     //     </Autocomplete>
+// // // // //     //   </div>
+// // // // //     // </div>
+// // // // //     <></>
+// // // // //   );
+// // // // // }
+
+// // // // // export default App;
+// // // // import { Button, TextField } from "@mui/material";
+// // // // import { useRef, useEffect } from "react";
+// // // // // import "./styles.css";
+// // // // // const AutoComplete = () => {
+// // // // //   const autoCompleteRef = useRef();
+// // // // //   const inputRef = useRef();
+// // // // //   const options = {
+// // // // //   };
+// // // // //   useEffect(() => {
+// // // // //     autoCompleteRef.current = new window.google.maps.places.Autocomplete(
+// // // // //       inputRef.current,
+// // // // //       options
+// // // // //     );
+// // // // //     autoCompleteRef.current.addListener("place_changed", async function () {
+// // // // //       const place = await autoCompleteRef.current.getPlace();
+// // // // //       console.log({ place });
+// // // // //     });
+// // // // //   }, []);
+// // // // //   return (
+// // // // //     <div>
+// // // // //       <label>enter address :</label>
+// // // // //       <input ref={inputRef} />
+// // // // //     </div>
+// // // // //   );
+// // // // // };
+// // // // // export default AutoComplete;
+
+
+
+// // // import React from "react";
+// // // import { usePlacesWidget } from "react-google-autocomplete";
+// // import useStyles from "../../../../Style"
+// // import Createcontext from "../../../../Hooks/Context"
+// // // import { IoLocationSharp } from "react-icons/io5"
+// // // export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
+// // //   const { state, dispatch } = React.useContext(Createcontext)
+// // //   const [Default, Setdefault] = React.useState()
+
+// // //   const { ref } = usePlacesWidget({
+// // //     apiKey: 'AIzaSyB4vl80GbjoLGawT757RmLx5f2DlOED0Zo',
+// // //     onPlaceSelected: (place) => {
+// // //       console.log(place);
+// // //     },
+// // //     options: {
+// // //       types: ["(regions)"],
+// // //       // componentRestrictions: { country: "us" },
+// // //     },
+// // //     renderSuggestions:{
+
+// // //     }
 // // //   });
-// // //   return (
-// // //     // <div className="App">
-// // //     //   <div id="searchColumn">
-// // //     //     <h2>Tide Forecast Options</h2>
-// // //     //     <Autocomplete onPlaceChanged={onPlaceChanged} onLoad={onLoad}>
-// // //     //       <input
-// // //     //         type="text"
-// // //     //         placeholder="Search for Tide Information"
-// // //     //         style={{
-// // //     //           boxSizing: `border-box`,
-// // //     //           border: `1px solid transparent`,
-// // //     //           width: `240px`,
-// // //     //           height: `32px`,
-// // //     //           padding: `0 12px`,
-// // //     //           borderRadius: `3px`,
-// // //     //           boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
-// // //     //           fontSize: `14px`,
-// // //     //           outline: `none`,
-// // //     //           textOverflow: `ellipses`
-// // //     //         }}
-// // //     //       />
-// // //     //     </Autocomplete>
-// // //     //   </div>
-// // //     // </div>
-// // //     <></>
-// // //   );
-// // // }
+// // //   React.useEffect(() => {
+// // //     Setdefault(state.Location)
+// // //     // setOpenLocation(!openLocation)
+// // //   }, [state])
+// // //   function handleChange(event) {
+// // //     Setdefault(event.target.value);
+// // //   }
+// // //   console.log(ref)
 
-// // // export default App;
-// // import { Button, TextField } from "@mui/material";
-// // import { useRef, useEffect } from "react";
-// // // import "./styles.css";
-// // // const AutoComplete = () => {
-// // //   const autoCompleteRef = useRef();
-// // //   const inputRef = useRef();
-// // //   const options = {
-// // //   };
-// // //   useEffect(() => {
-// // //     autoCompleteRef.current = new window.google.maps.places.Autocomplete(
-// // //       inputRef.current,
-// // //       options
-// // //     );
-// // //     autoCompleteRef.current.addListener("place_changed", async function () {
-// // //       const place = await autoCompleteRef.current.getPlace();
-// // //       console.log({ place });
-// // //     });
-// // //   }, []);
 // // //   return (
-// // //     <div>
-// // //       <label>enter address :</label>
-// // //       <input ref={inputRef} />
-// // //     </div>
+
+
+
+// // //     <>
+// // //       <i className="SearcchIcon" style={{ display: open && SearchBarWidth ? "none" : "inline-flex" }}>   <IoLocationSharp color="gray" size={18} /></i>
+// // //       <input
+// // //         size="small"
+// // //         value={Default}
+// // //         ref={ref}
+// // //         onChange={handleChange}
+// // //         autocomplete="on"
+// // //         // floatingLabelFixed={true}
+// // //         // onClick={(()=>{setOpenLocation(!openLocation)})}
+// // //         type="text"
+// // //         style={{ width: "100%", borderRadius: (openLocation && SearchBarWidth) ? " 16px 16px 16px 16px" : " 0px 16px 16px 0px", top: "0px", display: open && SearchBarWidth ? "none" : "inline-flex", }}
+// // //         sx={{ width: "100%" }}
+// // //         className={`sec_input_search SearchBar Input ${classes.SearchBar_Text}`}
+// // //         placeholder="Enter Location.."
+// // //       //    InputProps={{
+// // //       //     startAdornment: (
+// // //       //         <InputAdornment position="start">
+// // //       //             <IoLocationSharp color="gray" size={18} />
+// // //       //         </InputAdornment>
+// // //       //     ),
+// // //       //     // endAdornment: (
+// // //       //     //     <React.Fragment>
+// // //       //     //         {openLocation ? (
+// // //       //     //             <CircularProgress color="inherit" size={20} />
+// // //       //     //         ) :''}
+// // //       //     //     </React.Fragment>
+// // //       //     // ),
+// // //       // }}
+// // //       />
+
+// // //       {/* </div> */}
+
+
+// // //     </>
+
 // // //   );
 // // // };
-// // // export default AutoComplete;
 
 
 
-// import React from "react";
-// import { usePlacesWidget } from "react-google-autocomplete";
-import useStyles from "../../../../Style"
-import Createcontext from "../../../../Hooks/Context"
-// import { IoLocationSharp } from "react-icons/io5"
-// export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
-//   const { state, dispatch } = React.useContext(Createcontext)
-//   const [Default, Setdefault] = React.useState()
-  
-//   const { ref } = usePlacesWidget({
-//     apiKey: 'AIzaSyB4vl80GbjoLGawT757RmLx5f2DlOED0Zo',
-//     onPlaceSelected: (place) => {
-//       console.log(place);
-//     },
-//     options: {
-//       types: ["(regions)"],
-//       // componentRestrictions: { country: "us" },
-//     },
-//     renderSuggestions:{
 
+
+
+
+// // import React from 'react';
+// // import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
+// // // If you want to use the provided css
+// // import 'react-google-places-autocomplete/dist/index.min.css';
+// // import { Button } from "@mui/material";
+
+// // const Component = ({ openLocation, SearchBarWidth, open, setOpenLocation }) => (
+// //   // const classes = useStyles()
+
+// //   <GooglePlacesAutocomplete apiKey="AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"
+// //     onSelect={console.log}
+// //     styles={{
+// //       textInput: {
+// //         height: '100%', backgroundColor: '#eee',
+// //         marginVertical: 5
+// //       }
+// //     }}
+// //     onPress={(data, details = null) => console.log(data, details)}
+// //     onNotFound={() => console.log('no results')}
+
+// //     renderSuggestions={(active, suggestions, onSelectSuggestion) => (
+
+// //       <div className="suggestions-container">
+
+// //         {
+
+// //           suggestions.map((suggestion) => {
+// //             const style = {
+// //               backgroundColor: suggestion.active ? "#41b6e6" : "#fff"
+// //             };
+// //             return (
+
+// //               <div
+// //                 // style 
+// //                 className="suggestion"
+// //                 onClick={(event) => onSelectSuggestion(suggestion, event)}
+// //               >
+// //                 {suggestion.description}
+// //               </div>
+// //             )
+// //           })
+// //         }
+// //       </div>
+
+// //     )}
+// //     textInputProps={{
+// //       autoFocus: true,
+// //       blurOnSubmit: false,
+// //     }}
+// //     renderInput={(props) => (
+// //       <div>
+// //         <input
+// //           // Custom properties
+// //           {...props}
+// //           className={`sec_input_search SearchBar Input `}
+// //           style={{ width: "100%", height: '32px', borderRadius: (openLocation && SearchBarWidth) ? " 16px 16px 16px 16px" : " 0px 16px 16px 0px", top: "0px", display: open && SearchBarWidth ? "none" : "inline-flex", }}
+// //         />
+// //       </div>
+
+// //     )}
+// //   />
+
+// // );
+
+// // export default Component;
+
+
+// import React, { Component } from 'react';
+// import PlacesAutocomplete, {
+//   geocodeByAddress,
+//   // geocodeByPlaceId,
+//   getLatLng,
+// } from 'react-places-autocomplete';
+
+
+// class Example3 extends Component {
+//   constructor(props) {
+//     super(props)
+//     this.state = {
+//       lat: null,
+//       lng: null,
 //     }
-//   });
-//   React.useEffect(() => {
-//     Setdefault(state.Location)
-//     // setOpenLocation(!openLocation)
-//   }, [state])
-//   function handleChange(event) {
-//     Setdefault(event.target.value);
+//     this.handleSelect = this.handleSelect.bind(this)
 //   }
-//   console.log(ref)
 
-//   return (
+//   handleSelect(latLng) {
+//     this.setState({
+//       lat: latLng.lat,
+//       lng: latLng.lng,
+//     })
+//   }
+//   render() {
+//     return (
+//       <div>
+//         <h1>Example3</h1>
+//         lat = {this.state.lat} <br />
+//         lng = {this.state.lng} <br />
+//         <hr />
+//         <LocationSearchInput onSelect={this.handleSelect} />
+//       </div>
+//     );
+//   }
+// }
 
-
-
-//     <>
-//       <i className="SearcchIcon" style={{ display: open && SearchBarWidth ? "none" : "inline-flex" }}>   <IoLocationSharp color="gray" size={18} /></i>
-//       <input
-//         size="small"
-//         value={Default}
-//         ref={ref}
-//         onChange={handleChange}
-//         autocomplete="on"
-//         // floatingLabelFixed={true}
-//         // onClick={(()=>{setOpenLocation(!openLocation)})}
-//         type="text"
-//         style={{ width: "100%", borderRadius: (openLocation && SearchBarWidth) ? " 16px 16px 16px 16px" : " 0px 16px 16px 0px", top: "0px", display: open && SearchBarWidth ? "none" : "inline-flex", }}
-//         sx={{ width: "100%" }}
-//         className={`sec_input_search SearchBar Input ${classes.SearchBar_Text}`}
-//         placeholder="Enter Location.."
-//       //    InputProps={{
-//       //     startAdornment: (
-//       //         <InputAdornment position="start">
-//       //             <IoLocationSharp color="gray" size={18} />
-//       //         </InputAdornment>
-//       //     ),
-//       //     // endAdornment: (
-//       //     //     <React.Fragment>
-//       //     //         {openLocation ? (
-//       //     //             <CircularProgress color="inherit" size={20} />
-//       //     //         ) :''}
-//       //     //     </React.Fragment>
-//       //     // ),
-//       // }}
-//       />
-
-//       {/* </div> */}
-
-
-//     </>
-
-//   );
-// };
+// export default Example3;
 
 
 
+// class LocationSearchInput extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = { address: '' };
+//   }
 
+//   handleChange = address => {
+//     this.setState({ address });
+//     console.log(address)
+//   };
+
+//   handleSelect = address => {
+//     // geocodeByAddress(address)
+//     //   .then(results => getLatLng(results[0]))
+//     //   .then(latLng => this.props.onSelect(latLng))
+//     //   .catch(error => console.error('Error', error));
+//     console.log(address)
+//   };
+
+//   render() {
+//     return (
+//       <PlacesAutocomplete
+//         value={this.state.address}
+//         onChange={this.handleChange}
+//         onSelect={this.handleSelect}
+//       >
+//         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+//           <div>
+//             <input
+//               {...getInputProps({
+//                 placeholder: 'Search Places ...',
+//                 className: 'location-search-input',
+//               })}
+//             />
+//             <div className="autocomplete-dropdown-container">
+//               {loading && <div>Loading...</div>}
+//               {suggestions.map(suggestion => {
+//                 const className = suggestion.active
+//                   ? 'suggestion-item--active'
+//                   : 'suggestion-item';
+//                 // inline style for demonstration purpose
+//                 const style = suggestion.active
+//                   ? { backgroundColor: '#fafafa', cursor: 'pointer' }
+//                   : { backgroundColor: '#ffffff', cursor: 'pointer' };
+//                 return (
+//                   <div
+//                     {...getSuggestionItemProps(suggestion, {
+//                       className,
+//                       style,
+//                     })}
+
+//                   >
+//                     <span>{suggestion.description}</span>
+//                   </div>
+//                 );
+//               })}
+//             </div>
+//           </div>
+//         )}
+//       </PlacesAutocomplete>
+//     );
+//   }
+// }
 
 
 
 import React from 'react';
-import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
-// If you want to use the provided css
-import 'react-google-places-autocomplete/dist/index.min.css';
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng,
+} from 'react-places-autocomplete';
 
-const Component = ({openLocation, SearchBarWidth, open, setOpenLocation }) => (
-  // const classes = useStyles()
+export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
+const [Address,SetAddress] = React.useState("")
 
-    <GooglePlacesAutocomplete apiKey="AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"
-      onSelect={console.log}
-      styles={{
-        textInput:{height:'100%',backgroundColor: '#eee', 
-        marginVertical: 5 }
-    }}
+ const handleChange = address => {
+  console.log(address)
+    SetAddress( address );
+  };
 
-      
-      renderSuggestions={(active, suggestions, onSelectSuggestion) => (
-        <div className="suggestions-container">
-          {
-            suggestions.map((suggestion) => (
-              <div
-                className="suggestion"
-                onClick={(event) => onSelectSuggestion(suggestion, event)}
-              >
-                {suggestion.description}
-              </div>
-            ))
-          }
-        </div>
+const handleSelect = address => {
+  SetAddress( address )
+  // geocodeByAddress(address)
+  //   .then(results => getLatLng(results[0]))
+  //   .then(latLng => console.log('Success', latLng))
+  //   .catch(error => console.error('Error', error));
+};
 
-      )}
-      renderInput={(props) => (
-      <div>
+
+  return (
+    <PlacesAutocomplete
+      value={Address}
+      onChange={handleChange}
+      onSelect={handleSelect}
+      style={{ borderRadius: (open && SearchBarWidth) ? " 16px 16px 16px 16px" : " 16px 0px 0px 16px", top: "0px", display: openLocation && SearchBarWidth ? "none" : "inline-flex", width: open && SearchBarWidth ? "100%" : "100%" }}
+    >
+      {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+        <div>
           <input
-            // Custom properties
-            {...props}
-            className={`sec_input_search SearchBar Input `}
-            style={{ width: "100%",height: '32px',borderRadius: (openLocation && SearchBarWidth) ? " 16px 16px 16px 16px" : " 0px 16px 16px 0px", top: "0px", display: open && SearchBarWidth ? "none" : "inline-flex", }}
+            {...getInputProps({
+              placeholder: 'Search Places ...',
+              className: ' SearchBar nav_search_bar_div',
+            })}
           />
+          <div className="autocomplete-dropdown-container">
+            {loading && <div>Loading...</div>}
+            {suggestions.map(suggestion => {
+              const className = suggestion.active
+                ? 'suggestion-item--active'
+                : 'suggestion-item';
+              // inline style for demonstration purpose
+              const style = suggestion.active
+                ? { backgroundColor: '#fafafa', cursor: 'pointer' }
+                : { backgroundColor: '#ffffff', cursor: 'pointer' };
+              return (
+                <div
+                  {...getSuggestionItemProps(suggestion, {
+                    className,
+                    style,
+                  })}
+                >
+                  <span>{suggestion.description}</span>
+                </div>
+              );
+            })}
           </div>
-      
+        </div>
       )}
-    />
+    </PlacesAutocomplete>
+  );
 
-);
-
-export default Component;
+}
