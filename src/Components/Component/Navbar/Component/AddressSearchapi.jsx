@@ -104,79 +104,80 @@
 
 
 
-// // // import React from "react";
-// // // import { usePlacesWidget } from "react-google-autocomplete";
+import React from "react";
+import { usePlacesWidget } from "react-google-autocomplete";
  import useStyles from "../../../../Style"
-// // import Createcontext from "../../../../Hooks/Context"
-// // // import { IoLocationSharp } from "react-icons/io5"
-// // // export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
-// // //   const { state, dispatch } = React.useContext(Createcontext)
-// // //   const [Default, Setdefault] = React.useState()
+import Createcontext from "../../../../Hooks/Context"
+import { IoLocationSharp } from "react-icons/io5"
+export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
+  const classes = useStyles()
+  const { state, dispatch } = React.useContext(Createcontext)
+  const [Default, Setdefault] = React.useState()
 
-// // //   const { ref } = usePlacesWidget({
-// // //     apiKey: 'AIzaSyB4vl80GbjoLGawT757RmLx5f2DlOED0Zo',
-// // //     onPlaceSelected: (place) => {
-// // //       console.log(place);
-// // //     },
-// // //     options: {
-// // //       types: ["(regions)"],
-// // //       // componentRestrictions: { country: "us" },
-// // //     },
-// // //     renderSuggestions:{
+  const { ref } = usePlacesWidget({
+    apiKey: 'AIzaSyB4vl80GbjoLGawT757RmLx5f2DlOED0Zo',
+    onPlaceSelected: (place) => {
+      console.log(place);
+    },
+    options: {
+      types: ["(regions)"],
+      // componentRestrictions: { country: "us" },
+    },
+    renderSuggestions:{
 
-// // //     }
-// // //   });
-// // //   React.useEffect(() => {
-// // //     Setdefault(state.Location)
-// // //     // setOpenLocation(!openLocation)
-// // //   }, [state])
-// // //   function handleChange(event) {
-// // //     Setdefault(event.target.value);
-// // //   }
-// // //   console.log(ref)
+    }
+  });
+  React.useEffect(() => {
+    Setdefault(state.Location)
+    // setOpenLocation(!openLocation)
+  }, [state])
+  function handleChange(event) {
+    Setdefault(event.target.value);
+  }
+  console.log(ref)
 
-// // //   return (
-
-
-
-// // //     <>
-// // //       <i className="SearcchIcon" style={{ display: open && SearchBarWidth ? "none" : "inline-flex" }}>   <IoLocationSharp color="gray" size={18} /></i>
-// // //       <input
-// // //         size="small"
-// // //         value={Default}
-// // //         ref={ref}
-// // //         onChange={handleChange}
-// // //         autocomplete="on"
-// // //         // floatingLabelFixed={true}
-// // //         // onClick={(()=>{setOpenLocation(!openLocation)})}
-// // //         type="text"
-// // //         style={{ width: "100%", borderRadius: (openLocation && SearchBarWidth) ? " 16px 16px 16px 16px" : " 0px 16px 16px 0px", top: "0px", display: open && SearchBarWidth ? "none" : "inline-flex", }}
-// // //         sx={{ width: "100%" }}
-// // //         className={`sec_input_search SearchBar Input ${classes.SearchBar_Text}`}
-// // //         placeholder="Enter Location.."
-// // //       //    InputProps={{
-// // //       //     startAdornment: (
-// // //       //         <InputAdornment position="start">
-// // //       //             <IoLocationSharp color="gray" size={18} />
-// // //       //         </InputAdornment>
-// // //       //     ),
-// // //       //     // endAdornment: (
-// // //       //     //     <React.Fragment>
-// // //       //     //         {openLocation ? (
-// // //       //     //             <CircularProgress color="inherit" size={20} />
-// // //       //     //         ) :''}
-// // //       //     //     </React.Fragment>
-// // //       //     // ),
-// // //       // }}
-// // //       />
-
-// // //       {/* </div> */}
+  return (
 
 
-// // //     </>
 
-// // //   );
-// // // };
+    <>
+      <i className="SearcchIcon" style={{ display: open && SearchBarWidth ? "none" : "inline-flex" }}>   <IoLocationSharp color="gray" size={18} /></i>
+      <input
+        size="small"
+        value={Default}
+        ref={ref}
+        onChange={handleChange}
+        autocomplete="on"
+        // floatingLabelFixed={true}
+        // onClick={(()=>{setOpenLocation(!openLocation)})}
+        type="text"
+        style={{ width: "100%", borderRadius: (openLocation && SearchBarWidth) ? " 16px 16px 16px 16px" : " 0px 16px 16px 0px", top: "0px", display: open && SearchBarWidth ? "none" : "inline-flex", }}
+        sx={{ width: "100%" }}
+        className={`sec_input_search SearchBar Input ${classes.SearchBar_Text}`}
+        placeholder="Enter Location.."
+      //    InputProps={{
+      //     startAdornment: (
+      //         <InputAdornment position="start">
+      //             <IoLocationSharp color="gray" size={18} />
+      //         </InputAdornment>
+      //     ),
+      //     // endAdornment: (
+      //     //     <React.Fragment>
+      //     //         {openLocation ? (
+      //     //             <CircularProgress color="inherit" size={20} />
+      //     //         ) :''}
+      //     //     </React.Fragment>
+      //     // ),
+      // }}
+      />
+
+      {/* </div> */}
+
+
+    </>
+
+  );
+};
 
 
 
@@ -358,70 +359,70 @@
 
 
 
-import React from 'react';
-import PlacesAutocomplete, {
-  geocodeByAddress,
-  getLatLng,
-} from 'react-places-autocomplete';
+// import React from 'react';
+// import PlacesAutocomplete, {
+//   geocodeByAddress,
+//   getLatLng,
+// } from 'react-places-autocomplete';
 
-export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
-  const classes = useStyles()
-const [Address,SetAddress] = React.useState("")
+// export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
+//   const classes = useStyles()
+// const [Address,SetAddress] = React.useState("")
 
- const handleChange = address => {
-  console.log(address)
-    SetAddress( address );
-  };
+//  const handleChange = address => {
+//   console.log(address)
+//     SetAddress( address );
+//   };
 
-const handleSelect = address => {
-  SetAddress( address )
-  // geocodeByAddress(address)
-  //   .then(results => getLatLng(results[0]))
-  //   .then(latLng => console.log('Success', latLng))
-  //   .catch(error => console.error('Error', error));
-};
+// const handleSelect = address => {
+//   SetAddress( address )
+//   // geocodeByAddress(address)
+//   //   .then(results => getLatLng(results[0]))
+//   //   .then(latLng => console.log('Success', latLng))
+//   //   .catch(error => console.error('Error', error));
+// };
 
 
-  return (
-    <PlacesAutocomplete
-      value={Address}
-      onChange={handleChange}
-      onSelect={handleSelect}
-      styles={{ borderRadius: (open && SearchBarWidth) ? " 16px 16px 16px 16px" : " 16px 0px 0px 16px", top: "0px", display: openLocation && SearchBarWidth ? "none" : "inline-flex", width: open && SearchBarWidth ? "100%" : "100%" }}
-    >
-      {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-        <div style={{width: "100%"}}>
-          <input
-            {...getInputProps({
-              placeholder: 'Search Places ...',
-              className:  `SearchBar nav_search_bar_div  InputSearch${classes.SearchBar_Text}`,
-            })}
-          />
-          <div className="autocomplete-dropdown-container">
-            {loading && <div>Loading...</div>}
-            {suggestions.map(suggestion => {
-              const className = suggestion.active
-                ? 'suggestion-item--active'
-                : 'suggestion-item';
-              // inline style for demonstration purpose
-              const style = suggestion.active
-                ? { backgroundColor: '#fafafa', cursor: 'pointer' }
-                : { backgroundColor: '#ffffff', cursor: 'pointer' };
-              return (
-                <div
-                  {...getSuggestionItemProps(suggestion, {
-                    className,
-                    style,
-                  })}
-                >
-                  <span>{suggestion.description}</span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
-    </PlacesAutocomplete>
-  );
+//   return (
+//     <PlacesAutocomplete
+//       value={Address}
+//       onChange={handleChange}
+//       onSelect={handleSelect}
+//       styles={{ borderRadius: (open && SearchBarWidth) ? " 16px 16px 16px 16px" : " 16px 0px 0px 16px", top: "0px", display: openLocation && SearchBarWidth ? "none" : "inline-flex", width: open && SearchBarWidth ? "100%" : "100%" }}
+//     >
+//       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+//         <div style={{width: "100%"}}>
+//           <input
+//             {...getInputProps({
+//               placeholder: 'Search Places ...',
+//               className:  `SearchBar nav_search_bar_div  InputSearch${classes.SearchBar_Text}`,
+//             })}
+//           />
+//           <div className="autocomplete-dropdown-container">
+//             {loading && <div>Loading...</div>}
+//             {suggestions.map(suggestion => {
+//               const className = suggestion.active
+//                 ? 'suggestion-item--active'
+//                 : 'suggestion-item';
+//               // inline style for demonstration purpose
+//               const style = suggestion.active
+//                 ? { backgroundColor: '#fafafa', cursor: 'pointer' }
+//                 : { backgroundColor: '#ffffff', cursor: 'pointer' };
+//               return (
+//                 <div
+//                   {...getSuggestionItemProps(suggestion, {
+//                     className,
+//                     style,
+//                   })}
+//                 >
+//                   <span>{suggestion.description}</span>
+//                 </div>
+//               );
+//             })}
+//           </div>
+//         </div>
+//       )}
+//     </PlacesAutocomplete>
+//   );
 
-}
+// }
