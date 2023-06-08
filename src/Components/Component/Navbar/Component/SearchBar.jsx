@@ -3,18 +3,13 @@ import useStyles from "../../../../Style"
 import InputAdornment from '@material-ui/core/InputAdornment';
 import { BsSearch } from "react-icons/bs"
 import { IoLocationSharp } from "react-icons/io5"
-import Autocomplete from '@mui/material/Autocomplete';
+import AutoComplete from '@mui/material/Autocomplete';
 import Axios from "axios"
 import React from 'react';
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { useNavigate } from 'react-router-dom';
 import Createcontext from "../../../../Hooks/Context"
-import CloseIcon from '@mui/icons-material/Close';
-import axios from 'axios';
-import CurrentLocation from './CurrentLocation';
 import _ from "lodash"
-import { Button, Paper } from '@mui/material';
-import MyLocationIcon from '@mui/icons-material/MyLocation';
 import AddressSearchapi from "./AddressSearchapi"
 const SearchBar = () => {
     const Navigation = useNavigate()
@@ -102,14 +97,11 @@ const SearchBar = () => {
                 Navigation(`/ProductDetail/`, { state: Id });
             }
             else if (response.data.Store) {
-
                 Navigation(`/DispensoriesProduct/${response.data.Store[0].id}/${"Menu"}`);
-
             }
             else if (response.data.Brand) {
                 console.log(response)
                 Navigation(`/RelatedVerifyBrand/${response.data.Brand[0].id}`);
-
             }
             else if (response.data.Category) {
                 const id = response.data.Category[0].id
@@ -119,7 +111,6 @@ const SearchBar = () => {
             else if (response.data.Sub_Category) {
                 const Id = response.data?.Sub_Category[0]?.id
                 const name = response.data?.Sub_Category[0]?.name
-
                 Navigation(`/Product/${name}`, { state: Id });
 
             }
@@ -136,7 +127,7 @@ const SearchBar = () => {
         <>
             <div className="col_Search">
                 <div className={` nav_search_bar_div center`} style={{ display: (openLocation && SearchBarWidth) && "block" }}>
-                    <Autocomplete
+                    <AutoComplete
                         freeSolo
                         id="free-solo-2-demo"
                         disableClearable
@@ -201,85 +192,7 @@ const SearchBar = () => {
                         />}
                     />
                     <div id="Boder_left"></div>
-{/* 
-                    {state.LocationData[0] &&
 
-                        <Autocomplete
-                            {...defaultProps}
-                            openLocation={openLocation}
-                            onOpen={() => {
-                                setOpenLocation(true);
-                            }}
-                            onClose={() => {
-                                setOpenLocation(false);
-                            }}
-                            autoSelect={true}
-                            onChange={(e, d) => console.log(e, d)}
-                            onInputChange={handleInputChange}
-                            defaultValue={state.Location[0]}
-                            sx={{ width: "100%" }}
-                            ListboxProps={{ style: { maxHeight: 500 } }}
-                            PaperComponent={({ children }) => {
-                                return (
-                                    <Paper>
-                                        <Button
-                                            color="primary"
-                                            fullWidth
-                                            sx={{ justifyContent: "center", pl: 2, color: "grey", height: "50px", textAlign: 'left', }}
-                                            onMouseDown={() => {
-                                                console.log("Add new");
-                                            }}
-
-                                            startIcon={< MyLocationIcon size={50} />}
-
-                                        >
-                                            + use my exact location
-                                        </Button>
-                                        {children}
-                                    </Paper>
-                                );
-                            }}
-
-
-                            componentsProps={{ popper: { style: { height: '100%', width: SearchBarWidth ? "100%" : "30%" } } }}
-                            renderInput={(params) => <TextField
-                                {...params}
-                                // value={defaultValue.lat}
-                                // onChange={((e) => f)}
-                                // onClick={((e) => { dispatch({ type: 'Location', Location: e.target.value }) })}
-                                style={{ borderRadius: (openLocation && SearchBarWidth) ? " 16px 16px 16px 16px" : " 0px 16px 16px 0px", top: "0px", display: open && SearchBarWidth ? "none" : "inline-flex", }}
-                                size="small"
-                                sx={{
-                                    width: "100%", "& .MuiOutlinedInput-root": {
-                                        paddingRight: "10px!important",
-                                    },
-                                }}
-
-                                variant="outlined"
-                                className={`sec_input_search SearchBar px-2 ${classes.SearchBar_Text}`}
-                                type="text"
-                                placeholder="location"
-                                InputProps={{
-                                    ...params.InputProps,
-                                    startAdornment: (
-                                        <InputAdornment position="start">
-                                            <IoLocationSharp color="gray" size={18} />
-                                        </InputAdornment>
-                                    ),
-                                    // endAdornment: (
-                                    //     <React.Fragment>
-                                    //         {openLocation ? (
-                                    //             <CircularProgress color="inherit" size={20} />
-                                    //         ) : <CloseIcon onClick={(()=>{ dispatch({type:'Location', Location:"" })})} color="inherit" size={20}></CloseIcon>}
-                                    //     </React.Fragment>
-                                    // ),
-                                }}
-                            />
-
-                            }
-                        />
-
-                    } */}
                     <AddressSearchapi
                     openLocation={openLocation}
                     SearchBarWidth={SearchBarWidth}

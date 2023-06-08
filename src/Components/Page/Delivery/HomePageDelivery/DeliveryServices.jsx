@@ -6,10 +6,11 @@ import useStyles from '../../../../Style';
 import Axios from "axios"
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import Createcontext from "../../../../Hooks/Context"
 const 
 DeliveryServices = () => {
     const [DeliveryService, SetDeliveryService] = useState([])
+    const { state } = React.useContext(Createcontext)
     const classes = useStyles()
     const ref = React.useRef(null);
     React.useEffect(() => {
@@ -34,7 +35,7 @@ DeliveryServices = () => {
 
                     </div>
                     <div className="col-12 mt-2 delivery_services_subheading">
-                        <h2>Vireio delivery-queen north</h2>
+                        <h2>{state.Location}</h2>
 
                     </div>
                     <div className="col-12   recentViewProductSlider" id="width" ref={ref}>

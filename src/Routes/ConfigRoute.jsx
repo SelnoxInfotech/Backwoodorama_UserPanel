@@ -67,10 +67,7 @@ const routesConfig = [
             path:"/Deliveries",
             element:<Deliveries></Deliveries>
           },
-          {
-            path:"/CheckAge",
-            element:<CheckAge></CheckAge>
-          },
+          
           {
             path: "/Product",
             element: <Product></Product>,
@@ -141,6 +138,11 @@ const routesConfig = [
             path:"/Product/:SubCategoryname",
             element:<SubcategoryProduct></SubcategoryProduct>
           }
+          ,
+          {
+            path:"/CheckAge",
+            element:<CheckAge></CheckAge>
+          },
           
         ],
       },

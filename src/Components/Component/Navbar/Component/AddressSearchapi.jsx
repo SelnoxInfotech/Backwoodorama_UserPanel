@@ -113,23 +113,26 @@ import { MdOutlineMyLocation } from "react-icons/md"
 import { IconButton, InputAdornment, TextField } from "@mui/material";
 import { IconBase } from "react-icons";
 export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
+
   const classes = useStyles()
-  const { state } = React.useContext(Createcontext)
+  const { state, dispatch } = React.useContext(Createcontext)
   const [Default, Setdefault] = React.useState()
+  const [SelectValue, SetSelectvalue] = React.useState('')
   const { ref } = usePlacesWidget({
     apiKey: 'AIzaSyB4vl80GbjoLGawT757RmLx5f2DlOED0Zo',
     onPlaceSelected: (place) => {
       Setdefault(place?.formatted_address);
-      
-    
+      SetSelectvalue(place?.formatted_address);
+      dispatch({ type: 'Location', Location: place?.formatted_address })
+
     },
     options: {
 
       // componentRestrictions: { country: "us" },
-      fields: ["address_components", "geometry", "icon","formatted_address"],
+      fields: ["address_components", "geometry", "icon", "formatted_address"],
       strictBounds: false,
       // types: ["(establishment) "],
-      types: [ 'address']
+      types: ['address']
     },
   });
   React.useEffect(() => {
@@ -141,13 +144,32 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
     // console.log( event.target.setSelectionRange)
   }
   function current(event) {
-    Setdefault(state.Location);
+    navigator.geolocation.getCurrentPosition(function (position) {
+      fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&key=${"AIzaSyB4vl80GbjoLGawT757RmLx5f2DlOED0Zo"}`)
+        .then(res => res.json())
+        .then((response) => {
+          dispatch({ type: 'Location', Location: response?.plus_code?.compound_code.slice(9) });
+          Setdefault(response?.plus_code?.compound_code.slice(9))
+        }
+
+        )
+
+    });
+
+
   }
+  function OnBlur() {
+    // Setdefault(state.Location )
+    setOpenLocation(false)
+    // SearchBarWidth(true)
 
+  }
+  function onFocus() {
+    // Setdefault('')
+    setOpenLocation(true)
+    // SearchBarWidth(true)
+  }
   return (
-
-
-
     <>
       {/* <i className="SearcchIcon" style={{ display: open && SearchBarWidth ? "none" : "inline-flex" }}>   <IoLocationSharp color="gray" size={18} /></i> */}
       <TextField
@@ -155,7 +177,8 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
         value={Default}
         inputRef={ref}
         onChange={handleChange}
-        // onClick={handleChange}
+        onFocus={onFocus}
+        onBlur={OnBlur}
         autocomplete="on"
         type="text"
         style={{ width: "100%", borderRadius: (openLocation && SearchBarWidth) ? " 16px 16px 16px 16px" : " 0px 16px 16px 0px", top: "0px", display: open && SearchBarWidth ? "none" : "inline-flex", }}
@@ -170,9 +193,9 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
           ),
           endAdornment: (
             <IconButton>
-              <MdOutlineMyLocation color="inherit" size={16}  style={{cursor:'pointer'}}  onClick={current}/>
+              <MdOutlineMyLocation color="inherit" size={16} style={{ cursor: 'pointer' }} onClick={current} />
             </IconButton>
-          
+
           ),
         }}
       />

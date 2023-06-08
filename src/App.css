@@ -528,8 +528,8 @@ position: relative ;
 
 .pac-container {
   z-index: 2000 ;
-  width: auto ;
-  position: initial ;
+  width: 100%;
+  /* position: initial ; */
   left: 0 ;
   right: 0 ;
   display: block ;
@@ -537,6 +537,19 @@ position: relative ;
 .pac-container:empty{
   display: none ;
 }
+
+@media (max-width: 900px) {
+  .pac-container, .pac-item {
+    z-index: 10000 !important;
+      width: 90% !important;
+      /* position: initial !important; */
+      left: 23px !important;
+      right: 0 !important;
+      /* display: block !important; */
+  
+  }
+}
+
 .pac-icon {
   /* background-image: url('./assets/locationMark.svg') !important; */
   /* background-repeat: no-repeat;

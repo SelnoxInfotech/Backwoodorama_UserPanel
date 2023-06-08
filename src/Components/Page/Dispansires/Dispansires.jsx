@@ -8,7 +8,9 @@ import useStyles from "../../../Style";
 import Map from "../../Component/Map/map"
 import DispensoriesOpenResult from "./DispansiresComponent/DispensoriesOpenResult"
 import Dispansires_MapTheme from "../../Component/Map/MapStyle"
+import Createcontext from "../../../Hooks/Context"
 function TabPanel(props) {
+    
     const { children, value, index, ...other } = props;
 
     return (
@@ -43,8 +45,9 @@ function a11yProps(index) {
 
 
 export default function Dispansires() {
+    const { state } = React.useContext(Createcontext)
     const [value, setValue] = React.useState(0);
-    const DispensorShopLocation = [{ name: "Marijuana dispensaries", city: "in Aargau, AG" }]
+    const DispensorShopLocation = [{ name: "Marijuana dispensaries", city: state.Location }]
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
