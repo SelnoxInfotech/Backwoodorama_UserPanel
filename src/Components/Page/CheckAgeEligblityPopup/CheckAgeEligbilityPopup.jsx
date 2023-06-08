@@ -1,14 +1,7 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import useStyles from '../../../Style';
@@ -40,6 +33,7 @@ const CheckAgeEligbilityPopup = () => {
                     <div className='row'>
 
                         <div className='col-12 checkAgeEligiblityPop_container'>
+                            
                             <div className='row  mt-4'>
                                 <div className='col-12 checkAgeEligibilty_label'>
                                     <label className='askCountry'>Where are you from</label>

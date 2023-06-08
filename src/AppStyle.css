@@ -114,6 +114,9 @@
   .disp_head h1 {
     font-size: 16px;
   }
+  .latest_services_headings{
+    font-size: 18px;
+  }
 }
 
 /* end */

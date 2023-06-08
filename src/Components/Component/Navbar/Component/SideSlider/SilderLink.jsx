@@ -13,10 +13,13 @@ export default function DashBoardLink({ state }) {
   const [current_route, Setcurrent_route] = React.useState()
   const location = useLocation();
   React.useEffect(() => {
+
     Setcurrent_route(location.pathname)
+
   }, [location])
   return (
     <>
+
       <div className="container-fluid Top ">
         <Grid container spacing={2}  >
           <Grid xs={8} md={8} xl={8} display={{ xs: "none", md: "block", lg: "block" }}>
@@ -28,6 +31,7 @@ export default function DashBoardLink({ state }) {
                 <Link to="/Product" id={`${(current_route === "/Product" ? "Active" : "")}`}><li>Product</li></Link>
                 {/* <Link to="/Deals"  id={`${(current_route ===  "/Deals" ? "Active" : "")}`}><li>Deals</li></Link> */}
                 <Link to="/MainDeals" id={`${(current_route === "/MainDeals" ? "Active" : "")}`}><li>Deals</li></Link>
+
                 <li >Learn</li>
                 <Link to="/Strain" id={`${(current_route === "/Strain" ? "Active" : "")}`}><li>Strain</li></Link>
               </ul>
@@ -50,7 +54,7 @@ export default function DashBoardLink({ state }) {
                 <IoIosNotifications color="grey" size={23}></IoIosNotifications>
               </Badge>
               <Link to="AddToCart">
-                <Badge className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`} badgeContent={state.AllProduct?.length}>
+                <Badge className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`} badgeContent={state.AllProduct?.length<0?state.AllProduct?.length:"0"}>
                   <MdOutlineShoppingCart color="grey" size={22}></MdOutlineShoppingCart>
                 </Badge>
               </Link>

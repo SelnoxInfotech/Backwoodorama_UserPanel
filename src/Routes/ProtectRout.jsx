@@ -1,7 +1,7 @@
 
 import React from "react"
 import Createcontext from "../Hooks/Context"
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import Cookies from 'universal-cookie';
 export default function ProtectRout(props) {
     const cookies = new Cookies();
