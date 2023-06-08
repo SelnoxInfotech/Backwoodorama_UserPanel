@@ -219,7 +219,7 @@ const AddToCartReview = () => {
                                     <div className='col-12'>
                                         <div className='AddToCartReviewBtn d-flex' >
                                             <div className='addToCart_btn'>
-                                                <LoadingButton loading={Loadingmines} style={{ width: "15px" }}  > {Loadingmines || ele.Cart_Quantity > 1 && <GrFormSubtract onClick={() => { decreaseQuantity(ele.id, ele) }} />}</LoadingButton>
+                                                <LoadingButton loading={Loadingmines} style={{ width: "15px" }}  > {(Loadingmines || ele.Cart_Quantity )> 1 && <GrFormSubtract onClick={() => { decreaseQuantity(ele.id, ele) }} />}</LoadingButton>
 
 
                                             </div>
