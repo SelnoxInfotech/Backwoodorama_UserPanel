@@ -53,7 +53,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
 
 
             })
-            await axios.post("https://backend.sweede.net/UserPanel/Add-AddtoCart/",
+            await axios.post("https://sweede.app/UserPanel/Add-AddtoCart/",
 
                 {
                     Product_id: Event.id,
@@ -160,7 +160,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
                                                 event.target.src = "/image/blankImage.jpg"
                                                 event.onerror = null
                                             }}
-                                            src={`https://backend.sweede.net/${items?.images[0]?.image}`}
+                                            src={`https://sweede.app/${items?.images[0]?.image}`}
                                             height={"100px"}
                                         />
                                     </Link>

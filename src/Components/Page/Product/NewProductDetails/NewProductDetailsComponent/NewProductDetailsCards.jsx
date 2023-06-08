@@ -23,7 +23,7 @@ const NewProductDetailsCards = ({Product}) => {
                     <div className="col-lg-4">
                         <div className="row">
                             <div className="col-12 newProductDetailsUpperimage_container">
-                                <LazyLoadImage className="newProductDetails_upper_image" src={`https://backend.sweede.net/` + p} />
+                                <LazyLoadImage className="newProductDetails_upper_image" src={`https://sweede.app/` + p} />
                             </div>
                             <div className="col-12 newProductDetailsLowerImage_container">
                                 <Swiper
@@ -73,7 +73,7 @@ const NewProductDetailsCards = ({Product}) => {
                                             <SwiperSlide >
 
                                                 <div key={index} className="col-12 NewProductDetails_image_container">
-                                                    <LazyLoadImage className="NewProductDetails_image" height={"100px"} src={`https://backend.sweede.net/` + items.image}/>
+                                                    <LazyLoadImage className="NewProductDetails_image" height={"100px"} src={`https://sweede.app/` + items.image}/>
 
                                                 </div>
 

@@ -70,7 +70,7 @@ const ProductIncDecQuantity = ({ items, AddToCart }) => {
                         <div className='row'>
                             <div className='col-12 col-md-4  col-sm-6 productInc_dec_image_cont'>
                                 <LazyLoadImage className='prod_inc_dec_image'
-                                    src={`https://backend.sweede.net/${items?.images[0].image}`}
+                                    src={`https://sweede.app/${items?.images[0].image}`}
 
                                     alt="image not available" />
                             </div>

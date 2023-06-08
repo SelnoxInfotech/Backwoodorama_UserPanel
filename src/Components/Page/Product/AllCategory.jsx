@@ -15,7 +15,7 @@ const  [ Loading  , SetLoading] = React.useState(true)
     React.useEffect(() => {
         SetLoading(true)
 
-        Axios(`https://backend.sweede.net/UserPanel/Get-SubCategoryByCategory/${id}`, {
+        Axios(`https://sweede.app/UserPanel/Get-SubCategoryByCategory/${id}`, {
         }
         
         ).then(response => {
@@ -32,7 +32,7 @@ const  [ Loading  , SetLoading] = React.useState(true)
     }
     React.useEffect(() => {
         const fetchData = async () => {
-            const apidata = await fetch("https://backend.sweede.net/UserPanel/Get-Categories/");
+            const apidata = await fetch("https://sweede.app/UserPanel/Get-Categories/");
             const data = await apidata.json()
             setCategory(data)
 

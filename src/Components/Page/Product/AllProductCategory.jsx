@@ -24,7 +24,7 @@ const AllProductCategory = ({ flowerArray }) => {
                                                             event.target.src = "/image/blankImage.jpg"
                                                             event.onerror = null
                                                         }}
-                                                        className="allProduct_imageHeight" src={`https://backend.sweede.net/${items?.SubCategoryImage}`} alt="image not found" />
+                                                        className="allProduct_imageHeight" src={`https://sweede.app/${items?.SubCategoryImage}`} alt="image not found" />
                                                 </Link>
 
                                             </div>

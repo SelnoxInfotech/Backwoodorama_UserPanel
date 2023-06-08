@@ -4,7 +4,7 @@ const Brand=()=>{
     const [Category, SetCategory] = React.useState([])
     React.useEffect(() => {
         const fetchData = async () => {
-            const apidata = await fetch("https://backend.sweede.net/UserPanel/Get-Categories/");
+            const apidata = await fetch("https://sweede.app/UserPanel/Get-Categories/");
             const data = await apidata.json()
             SetCategory(data)
         }
