@@ -108,35 +108,7 @@ const useStyles = makeStyles({
 
     }
   },
-  checAgeEliigiblityPopup:{
-    "&.MuiButtonBase-root": {
-      background:"#00C4FF",
-      color: "#FFFFFF",
-      border: "1px solid #00C4FF",
-      borderRadius: "8px",
-      minWidth: "100%",
-      textTransform: "none",
-    },
-    "&.MuiButtonBase-root:hover": {
 
-      color: "white",
-      background:"#00C4FF",
-    }
-  },
-  checkAgeEligibiltyAge_SecBtn:{
-    "&.MuiButtonBase-root": {
-      // background:"#00C4FF",
-      color: "#00C4FF",
-      border: "1px solid #00C4FF",
-      borderRadius: "8px",
-      minWidth: "100%",
-      textTransform: "none",
-    },
-    "&.MuiButtonBase-root:hover": {
-      color: "white",
-      background:"#00C4FF",
-    }
-  },
   muiIcon: {
     fontSize: "x-large",
     color: "#4267B2",
@@ -382,7 +354,67 @@ homePageStarIcons:{
       borderRadius:"20px",
       backgroundColor:"white"
     }
+  },
+  checkAgeEligibility:{
+    "& .MuiDialog-container":{
+      "& .MuiPaper-root":{
+        maxWidth:"430px",
+        width: "100%",
+
+      }
+    }
+  },
+  checAgeEliigiblityPopup:{
+    "&.MuiButtonBase-root": {
+      background:"#31B665",
+      color: "#FFFFFF",
+      border: "1px solid #00C4FF",
+      borderRadius: "8px",
+      minWidth: "100%",
+      textTransform: "none",
+    },
+    "&.MuiButtonBase-root:hover": {
+
+      color: "white",
+      background:"#31B665",
+    }
+  },
+  checkAgeEligibiltyAge_SecBtn:{
+    "&.MuiButtonBase-root": {
+      // background:"#00C4FF",
+      color: "#31B665",
+      border: "1px solid #31B665",
+      borderRadius: "8px",
+      minWidth: "100%",
+      textTransform: "none",
+    },
+    "&.MuiButtonBase-root:hover": {
+      color: "white",
+      background:"#31B665",
+    }
+  },
+  checkAge_eligibility_Select:{
+    "&.MuiFormControl-root":{
+      width:"180px",
+      marginLeft:"0px"
+    }
+  },
+  checAgeEligibiltyHeight:{
+    "& .MuiOutlinedInput-root":{
+      height:"40px",
+    }
+  },
+  sliderLink_badge:{
+    "& .MuiBadge-badge":{
+      background: "#31B665",
+      color: "#FFFFFF"
+    }
+  },
+searchBar_padding:{
+  "& .MuiAutocomplete-root ":{
+    paddingLeft:"20px"
   }
+}
   // NewproductHeart:{
   //  backgroundColor:"#949494" 
   // }

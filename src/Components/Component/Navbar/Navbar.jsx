@@ -13,7 +13,7 @@ import Createcontext from "../../../Hooks/Context"
 import Cookies from 'universal-cookie';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import CurrentLocation from './Component/CurrentLocation';
-
+import Badge from '@mui/material/Badge';
 const Navbar = () => {
   const cookies = new Cookies();
   const ref = React.useRef(null);
@@ -44,15 +44,12 @@ const Navbar = () => {
   }
   function closeNav() {
     SetOpen(false)
-
   }
   function Logout() {
     cookies.remove('Token_access')
     dispatch({ type: 'Login', login: false })
     dispatch({ type: 'ApiProduct' })
   }
-
-
   React.useEffect(() => {
     const handleClickOutside = (event) => {
       if (ref.current && !ref.current.contains(event.target)) {
@@ -66,13 +63,8 @@ const Navbar = () => {
       document.removeEventListener('click', handleClickOutside, true);
     };
   }, [Open, windowSize]);
-
-
-
   return (
     <>
-
-
       <div ref={ref} className='sticky-top' style={{ background: "white", padding: "10px" }}>
         <Grid container spacing={0} rowSpacing={0.3}   >
           <Grid container xs={2} md={2} xl={2}>
@@ -93,14 +85,19 @@ const Navbar = () => {
           </Grid>
           <Grid xs={10} md={2} xl={2} display={{ xs: "block", md: "none", lg: "none" }} >
             <div className=' col-12 Login_Sigup_button  Heder_icon '>
-              <AiFillHeart size={22}></AiFillHeart>
-              <IoIosNotifications size={22}></IoIosNotifications>
-              <Link to="/AddToCart">  <MdOutlineShoppingCart size={22}></MdOutlineShoppingCart></Link>
-              <div className={"border SliderLink_CartCount_div"} >
-                <span className={state.LoadingApi ? "animated bounce" : " "}> {state.AllProduct?.length}</span>
-              </div>
+              <Badge badgeContent={4} className={classes.sliderLink_badge}>
+                <AiFillHeart color="grey" size={22}></AiFillHeart>
+              </Badge>
+              <Badge badgeContent={4} className={classes.sliderLink_badge}>
 
+                <IoIosNotifications color="grey" size={22}></IoIosNotifications>
+              </Badge>
+              <Link to="/AddToCart">
+                <Badge className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`} badgeContent={state.AllProduct?.length}>
 
+                  <MdOutlineShoppingCart color="grey" size={22}></MdOutlineShoppingCart>
+                </Badge>
+              </Link>
             </div>
           </Grid>
           <Grid xs={4} md={2} xl={2} >
@@ -115,9 +112,7 @@ const Navbar = () => {
                     </Grid>
                   </div>
                 </div>
-
                 :
-
                 <div className=' col-12 Login_Sigup_button '>
                   <div className='col-lg-4 col-sm-4'>
                     <Grid display={{ xs: "none", md: "block", lg: "block" }}>
@@ -137,10 +132,9 @@ const Navbar = () => {
             <SideNavbar closeNav={closeNav} Open={Open}></SideNavbar>
           </Grid>
         </Grid>
-
       </div>
 
-      
+
 
     </>
   )

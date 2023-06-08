@@ -179,19 +179,15 @@ const SearchBar = () => {
                             size="small"
                             onClick={Search}
                             onChange={Search}
-                            sx={{
-                                "& .MuiOutlinedInput-root": {
-                                    paddingRight: "10px!important",
-                                },
-                            }}
+                        
                             placeholder="Products Brands Retailers and more"
-                            className={` SearchBar nav_search_bar_div  ${classes.SearchBar_Text}`}
+                            className={` ${classes.searchBar_padding} SearchBar nav_search_bar_div  ${classes.SearchBar_Text}`}
                             style={{ borderRadius: (open && SearchBarWidth) ? " 16px 16px 16px 16px" : " 16px 0px 0px 16px", top: "0px", display: openLocation && SearchBarWidth ? "none" : "inline-flex", width: open && SearchBarWidth ? "100%" : "100%" }}
                             InputProps={{
                                 ...params.InputProps,
                                 startAdornment: (
                                     <InputAdornment position="start">
-                                        <BsSearch color="gray" />
+                                        <BsSearch color="gray"/>
                                     </InputAdornment>
                                 ),
                                 endAdornment: (

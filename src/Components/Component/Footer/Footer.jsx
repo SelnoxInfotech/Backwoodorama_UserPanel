@@ -40,26 +40,20 @@ const Footer = () => {
             <div className="container-fluid">
                 <div className="row footer_Main_row">
                     <div className="col-12 footer_main_div_display">
-                        <div className="col-xl-3 col-4 footer_logo_container">
-                            <div className="col-12 footer_logo footer_logo_height">
+                        <div className="col-xl-3 col-sm-4 footer_logo_container">
+                            <div className="col-12 footer_log_center footer_logo footer_logo_height">
                                 <LazyLoadImage className="footer_logo_image" src="/image/logo.webp" alt="image_not found" />
                             </div>
-                            <div className="col-12 footer_logo footer_log_heading_height">
+                            <div className="col-12 footer_logo footer_log_heading_height footer_log_center">
                                 <p>Build a modern and creative  website</p>
                             </div>
-                            <div className="col-4  footer_logo_icons_height">
-                                <div className="col-2">
-                                    <BsWhatsapp className={`footer_icons ${classes.footer_icons_color}`} />
-                                </div>
-                                <div className="col-2 ">
-                                    <FaFacebook className={` footer_icons ${classes.footer_icons_color}`} />
-                                </div>
-                                <div className="col-2">
-                                    <FaInstagram className={` footer_icons ${classes.footer_icons_color}`} />
-                                </div>
+                            <div className="col-12   footer_logo_icons_height">
+                            <BsWhatsapp className={`footer_icons ${classes.footer_icons_color}`} />
+                            <FaFacebook className={` footer_icons ${classes.footer_icons_color}`} />
+                            <FaInstagram className={` footer_icons ${classes.footer_icons_color}`} />
                             </div>
                         </div>
-                        <div className="col-xl-7 col-8 footer_content_container">
+                        <div className="col-xl-7 col-sm-8 footer_content_container">
                             <div className="col-12  footer_inner_flex">
                                 <div className="col-6 footer_content_width_small">
                                     <div className="col-12 footer_inner_container">
@@ -68,7 +62,7 @@ const Footer = () => {
                                                 <h5 className="fontStyle">About us</h5>
                                                 {AboutUs.map((ele, index) => {
                                                     return (
-                                                        <Link to="/" key={index}><li className="footer_li">{ele.head}</li></Link>
+                                                        <Link to="/" key={index}><li className="footer_li ellipsis">{ele.head}</li></Link>
                                                     )
                                                 })}
                                             </ol>
@@ -78,7 +72,7 @@ const Footer = () => {
                                                 <h5 className="fontStyle">Category</h5>
                                                 {Category.map((ele, index) => {
                                                     return (
-                                                        <Link to="/" > <li className="footer_li" key={index}>{ele.head}</li></Link>
+                                                        <Link to="/" > <li className="footer_li ellipsis" key={index}>{ele.head}</li></Link>
                                                     )
                                                 })}
                                             </ol>
@@ -96,7 +90,7 @@ const Footer = () => {
 
                                                 {Legal.map((ele, index) => {
                                                     return (
-                                                        <Link to="/" key={index}> <li className="footer_li">{ele.head}</li></Link>
+                                                        <Link to="/" key={index}> <li className="footer_li ellipsis">{ele.head}</li></Link>
                                                     )
 
                                                 })}
@@ -108,7 +102,7 @@ const Footer = () => {
                                                 <h5 className="fontStyle">More</h5>
                                                 {More.map((ele, index) => {
                                                     return (
-                                                        <li className="footer_li" key={index} onClick={() => Redirect(ele.head)}>{ele.head}</li>
+                                                        <li className="footer_li ellipsis" key={index} onClick={() => Redirect(ele.head)}>{ele.head}</li>
                                                     )
 
                                                 })}

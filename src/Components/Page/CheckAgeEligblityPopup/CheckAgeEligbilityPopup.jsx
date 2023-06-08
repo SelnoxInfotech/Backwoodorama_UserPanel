@@ -33,7 +33,9 @@ const CheckAgeEligbilityPopup = () => {
             <Button variant="outlined" onClick={handleClickOpen}>
                 Check age
             </Button>
-            <Dialog open={open} onClose={handleClose}>
+            <Dialog open={open} onClose={handleClose}
+            className={`${classes.checkAgeEligibility} ${classes.checAgeEligibiltyHeight}`}
+             >
                 <div className='container-fluid'>
                     <div className='row'>
 
@@ -43,7 +45,7 @@ const CheckAgeEligbilityPopup = () => {
                                     <label className='askCountry'>Where are you from</label>
                                 </div>
                                 <div className='col-12 checkAgeEligibility_Select'>
-                                    <FormControl sx={{ m: 1, minWidth: 180 }}>
+                                    <FormControl sx={{ m: 1,  }} className={`${classes.checkAge_eligibility_Select}`}>
                                         <Select
                                             value={age}
                                             id="SelectAge"
@@ -77,8 +79,8 @@ const CheckAgeEligbilityPopup = () => {
                             </div>
                             <div className='row'>
                                 <div className='col-12'>
-                                 <footer>
-                                  If you kee seeing this age prompt whenever you visit the selnoxInfotech.com.
+                                 <footer className='checkAgeEligibility_footer'>
+                                  If you kee seeing this age prompt whenever you visit the Sweede.net.
                                   Please enable the cookies in your web browser
                                  </footer>
                                 </div>

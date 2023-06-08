@@ -209,7 +209,7 @@ const AddToCartReview = () => {
 
                                     </div>
 
-                                    <div className="col-12TOtalAmount(ele.Price.SalePrice * ele.Cart_Quantity) fontStyle  add_prod_para_margin add_prod_cart_p">
+                                    <div className="col-12 TOtalAmount(ele.Price.SalePrice * ele.Cart_Quantity) fontStyle  add_prod_para_margin add_prod_cart_p">
                                         <p>{ele.StoreName}</p>
 
                                     </div>

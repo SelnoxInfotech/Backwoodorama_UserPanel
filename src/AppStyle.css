@@ -1511,14 +1511,14 @@
 }
 
 .footer_logo_image {
-  width: 40%;
+  width: 42%;
   height: 144px;
 }
-
-/* .footer_logo_image:hover{
-  background-color: #7ED19F;
-} */
-
+@media(max-width:480px){
+  .footer_logo_image {
+    width: 48%;
+  }
+}
 .Footer_fontStyle {
   font-family: 'Poppins';
   font-style: normal;
@@ -1542,7 +1542,10 @@
   color: #183B56;
   gap: 30px;
 }
-
+.footer_log_center{
+  display: grid;
+  place-items: center;
+}
 .footer_list_gap {
   display: grid;
   gap: 10px;
@@ -1552,6 +1555,7 @@
 }
 .footer_li:hover{
   color:#31B665;
+  text-decoration: underline;
 }
 
 .footer_logo h5 {
@@ -1570,7 +1574,7 @@
 }
 
 .footer_logo_container {
-  padding-left: 60px;
+  /* padding-left: 60px; */
 }
 .footer_content_container{
   display: grid;
@@ -1935,6 +1939,20 @@ color: #909090;
 
 /* end */
 /* SliderLink_CartCount_div */
+.slider_link_notification{
+  min-height: 20px;
+  min-width: 20px;
+  background-color: #31B665;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: #FFFFFF;
+  position: relative;
+  right: 27px;
+  top: -13px;
+}
 @media (max-width: 500px) {
   .SliderLink_CartCount_div {
     left: -17px;
@@ -1953,10 +1971,33 @@ color: #909090;
   font-size: 14px;
   color: #FFFFFF;
   position: relative;
-  right: 30px;
-  top: -9px;
+  right: 26px;
+  top: -13px;
 }
-
+.heart_link_counter{
+  min-height: 20px;
+  min-width: 20px;
+  background-color: #31B665;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: #FFFFFF;
+  position: relative;
+  right: 26px;
+  top: -13px;
+}
+@media(max-width:1400px){
+  .SliderLink_CartCount_div{
+    right: 15px;
+    top: -14px;
+  }
+.slider_link_notification{
+  right: 15px;
+  top: -14px;
+}
+}
 /* pickup */
 .pickup_div {
   /* background-color:#b7b7b71c; */
@@ -4417,7 +4458,7 @@ color: #909090;
 
 .homePageSignup_paragraph p {
   font-weight: 700;
-  font-size: 36px;
+  font-size: 24px;
   line-height: 54px;
   color: #FFFFFF;
 }
@@ -4507,8 +4548,9 @@ color: #909090;
 /* end*/
 /* checkAgeEligiblityPopup */
 .checkAgeEligiblityPop_container{
-  height: 400px;
+  height:auto;
   border: 1px solid green;
+  padding-bottom: 40px;
 }
 .checkAgeEligibilityCenter{
   display: grid;
@@ -4529,5 +4571,14 @@ color: #363535;
 .checkAgeEligibilty_btn_container{
   height: 50px;
 
+}
+.checkAgeEligibility_footer{
+  color: #B6B6B6;
+  font-size: 14px;
+}
+@media(max-width:400px){
+  .checkAgeEligibility_footer{
+    font-size: 10px;
+  } 
 }
 /* end */
