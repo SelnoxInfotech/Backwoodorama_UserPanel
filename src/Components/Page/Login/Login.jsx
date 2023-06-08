@@ -31,7 +31,7 @@ const Login = () => {
     function Submit(data) {
 
         Setloading(true)
-        axios.post("https://backend.sweede.net/UserPanel/Login/", {
+        axios.post("https://sweede.app/UserPanel/Login/", {
 
             email: data.email,
             password: data.password

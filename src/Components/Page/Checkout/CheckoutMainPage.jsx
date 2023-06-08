@@ -41,7 +41,7 @@ const CheckOutMainPage = () => {
         formdata.append('Store', state.AllProduct[0]?.Store_id);
         formdata.append('Address', InputValues.delivery);
         await Axios.post(
-            'https://backend.sweede.net/UserPanel/Add-Order/ ',
+            'https://sweede.app/UserPanel/Add-Order/ ',
             formdata,
             config,
 

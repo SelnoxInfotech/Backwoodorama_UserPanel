@@ -21,7 +21,7 @@ const DispensoriesAddress = () => {
     React.useEffect(() => {
 
         Axios.get(
-            'https://backend.sweede.net/UserPanel/Get-Dispensaries/',
+            'https://sweede.app/UserPanel/Get-Dispensaries/',
            
             ).then(response => {
                 SetStore(response.data)
@@ -34,7 +34,7 @@ const DispensoriesAddress = () => {
     }, [])
     // useEffect(() => {
     //     const fetchApiFun = async () => {
-    //         const fetchApi = await fetch("https://backend.sweede.net/UserPanel/Get-Stores/");
+    //         const fetchApi = await fetch("https://sweede.app/UserPanel/Get-Stores/");
     //         const data = await fetchApi.json();
     //         SetStore(data)
     //         dispatch({ type: 'Dispensories', Dispensories: data })
@@ -69,7 +69,7 @@ const DispensoriesAddress = () => {
 
                                     <div className='col-12 dispensories_image_containerss'>
                                         <Link to={`/DispensoriesProduct/${ele.id}/${"Menu"}`}>
-                                            <img src={`https://backend.sweede.net/${ele?.Store_Image}`} alt='img_not_found' className='img-responsive dispensories_image  center-block' />
+                                            <img src={`https://sweede.app/${ele?.Store_Image}`} alt='img_not_found' className='img-responsive dispensories_image  center-block' />
                                         </Link>
                                     </div>
                                     <div className='dispensoriesContentContainer px-4'>

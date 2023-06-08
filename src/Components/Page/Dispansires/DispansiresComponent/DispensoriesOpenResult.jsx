@@ -13,7 +13,7 @@ const DispensoriesOpenResult = () => {
     React.useEffect(() => {
 
         Axios.get(
-            'https://backend.sweede.net/UserPanel/Get-Dispensaries/',
+            'https://sweede.app/UserPanel/Get-Dispensaries/',
            
             ).then(response => {
                 SetStore(response.data)
@@ -59,7 +59,7 @@ const DispensoriesOpenResult = () => {
                                     <div className="col-lg-12  col-md-12 col-sm-12 col-12 despensories_card_container">
                                         <div className="row">
                                             <div className="col-4 disensories_card_image_div">
-                                           <Link to={`/DispensoriesProduct/${ele.id}/${"Menu"}`}>     <LazyLoadImage id={ele.id} src={`https://backend.sweede.net/${ele.Store_Image}`} alt="img_not_found" className="dispensories_card_image" /></Link>
+                                           <Link to={`/DispensoriesProduct/${ele.id}/${"Menu"}`}>     <LazyLoadImage id={ele.id} src={`https://sweede.app/${ele.Store_Image}`} alt="img_not_found" className="dispensories_card_image" /></Link>
 
                                             </div>
                                             <div className="col-8 dispenosries_card_content_div">

@@ -12,7 +12,7 @@ const VerifyBrands = () => {
     const [VerifyArrayData, SetVerifyArrayData] = React.useState([])
     React.useEffect(() => {
         Axios.get(
-            'https://backend.sweede.net/UserPanel/Get-AllBrand/ ',
+            'https://sweede.app/UserPanel/Get-AllBrand/ ',
 
         ).then(response => {
             SetVerifyArrayData(response.data)
@@ -34,7 +34,7 @@ const VerifyBrands = () => {
                                     </IconButton>
                                 </div>
                                 <div className="col-6  verifyBrand_image_container ">
-                                  <Link  to={`/RelatedVerifyBrand/${items.id}`}>  <LazyLoadImage className="verify_brand_image"  src={`https://backend.sweede.net/${items.Brand_Logo}`}  alt="image not found" /></Link>
+                                  <Link  to={`/RelatedVerifyBrand/${items.id}`}>  <LazyLoadImage className="verify_brand_image"  src={`https://sweede.app/${items.Brand_Logo}`}  alt="image not found" /></Link>
 
                                 </div>
                                 <div className="col-6 verify_content_container">

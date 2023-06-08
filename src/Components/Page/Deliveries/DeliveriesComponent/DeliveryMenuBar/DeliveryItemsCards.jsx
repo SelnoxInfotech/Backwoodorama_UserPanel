@@ -25,7 +25,7 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                         <div className='row'>
                                             <div className='col-lg-5 col-5 delivery_items_card_img_container px-0'>
                                                <Link to={`/DispensoriesProduct/${items.id}/${"Menu"}`}> 
-                                               <LazyLoadImage className='delivery_card_image_height' src={`https://backend.sweede.net/${items.Store_Image}`} alt='Image_not found' height={"100px"} />
+                                               <LazyLoadImage className='delivery_card_image_height' src={`https://sweede.app/${items.Store_Image}`} alt='Image_not found' height={"100px"} />
                                                </Link>
                                             </div>
                                             <div className='col-lg-7 col-7'>

@@ -34,7 +34,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
         }
         SetOpenEvent(Id)
         if (Name === "Category") {
-            Axios.post("https://backend.sweede.net/UserPanel/Get-CategoryByStore/ ",
+            Axios.post("https://sweede.app/UserPanel/Get-CategoryByStore/ ",
                 {
 
                     "Store_Id": parseInt(Store_id)
@@ -55,7 +55,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
 
         }
         else if (Name === "Brand") {
-            Axios(`https://backend.sweede.net/UserPanel/Get-FilterBrand`, {
+            Axios(`https://sweede.app/UserPanel/Get-FilterBrand`, {
 
 
             }).then(response => {
@@ -81,7 +81,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
         console.log(id, name)
         if (name === "Category") {
 
-            Axios.post(`https://backend.sweede.net/UserPanel/Get-filterSubcategorybyStoreandCategory/`, {
+            Axios.post(`https://sweede.app/UserPanel/Get-filterSubcategorybyStoreandCategory/`, {
 
                 "Store_Id": Store_id,
                 "Category_Id": id
@@ -101,7 +101,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
         }
 
         else if (name === "Brand") {
-            Axios(`https://backend.sweede.net/UserPanel/Get-ProductbyBrand/${id}`, {
+            Axios(`https://sweede.app/UserPanel/Get-ProductbyBrand/${id}`, {
 
 
             }).then(response => {
@@ -122,7 +122,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
 
     function FilterSubCategorydata(id) {
         console.log(id)
-        Axios.post(`https://backend.sweede.net/UserPanel/Get-filterProductbyStoreandSubCategory/`, {
+        Axios.post(`https://sweede.app/UserPanel/Get-filterProductbyStoreandSubCategory/`, {
 
             "Store_Id": Store_id,
             "SubCategory_Id": id
@@ -136,7 +136,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
 
     }
     const Search = () => {
-        Axios(`https://backend.sweede.net/UserPanel/Get-SearchFilter/?search=${Searchvalue}`, {
+        Axios(`https://sweede.app/UserPanel/Get-SearchFilter/?search=${Searchvalue}`, {
 
 
         }).then(response => {
@@ -153,7 +153,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
     }
 
     const SearchA2Z = () => {
-        Axios(`https://backend.sweede.net/UserPanel/Get-SortingFilterAtoZ/`, {
+        Axios(`https://sweede.app/UserPanel/Get-SortingFilterAtoZ/`, {
 
 
         }).then(response => {

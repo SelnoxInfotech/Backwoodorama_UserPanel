@@ -32,7 +32,7 @@ function Context(props) {
         const logi = cookies.get("Token_access")
         dispatch({ type: 'LoadingApi', LoadingApi: true })
         if (Boolean(logi)) {
-            axios.get("https://backend.sweede.net/UserPanel/Get-Addtocart/", {
+            axios.get("https://sweede.app/UserPanel/Get-Addtocart/", {
                 headers: { Authorization: `Bearer ${logi}` }
             }).then(async function (response) {
                 const CarTProduct = await response?.data;

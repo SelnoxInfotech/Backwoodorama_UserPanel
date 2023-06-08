@@ -9,11 +9,11 @@ const RelatedVerifyBrand = () => {
     const [BrandProduct, SetBrandProduct] = React.useState([])
     const [BrandDetails , GetBrandDetails] = React.useState([])
     React.useEffect(() => {
-        Axios.get(`https://backend.sweede.net/UserPanel/Get-ProductbyBrand/${id}`,
+        Axios.get(`https://sweede.app/UserPanel/Get-ProductbyBrand/${id}`,
         ).then(response => {
             SetBrandProduct(response.data)
         })
-        Axios.get(`https://backend.sweede.net/UserPanel/Get-BrandById/${id}`,
+        Axios.get(`https://sweede.app/UserPanel/Get-BrandById/${id}`,
         ).then(response => {
             GetBrandDetails(response.data[0])
         })

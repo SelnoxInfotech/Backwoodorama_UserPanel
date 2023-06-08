@@ -7,7 +7,7 @@ const StrainTypeCards = ({ ArrayData }) => {
     const ref = React.useRef(null);
 
     const StrainData = (items) => {
-        axios.post("https://backend.sweede.net/UserPanel/Get-StrainType/",
+        axios.post("https://sweede.app/UserPanel/Get-StrainType/",
         {
             type:items
         }

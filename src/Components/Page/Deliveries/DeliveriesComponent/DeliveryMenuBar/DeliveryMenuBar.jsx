@@ -13,7 +13,7 @@ const DeliveryMenuBar = () => {
     const [Pickup, SetPickup] = React.useState([])
     React.useEffect(() => {
         axios.get(
-            'https://backend.sweede.net/UserPanel/Get-DeliveryStores/',
+            'https://sweede.app/UserPanel/Get-DeliveryStores/',
         ).then(response => {
 
             SetDelivery(response.data)
@@ -22,7 +22,7 @@ const DeliveryMenuBar = () => {
 
             })
         axios.get(
-            'https://backend.sweede.net/UserPanel/Get-PickupStores/',
+            'https://sweede.app/UserPanel/Get-PickupStores/',
         ).then(response => {
 
             SetPickup(response.data)

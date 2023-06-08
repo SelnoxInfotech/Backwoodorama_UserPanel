@@ -16,7 +16,7 @@ const RelatedVerifyBanner = ({BrandDetails}) => {
                         <div className="realtedVerifyBanner_image_inner_container">
                             <LazyLoadImage className="related_verify_banner_img"
                             
-                             src={`https://backend.sweede.net/` + BrandDetails.Brand_Logo} alt="Brand_Logo image not available" />
+                             src={`https://sweede.app/` + BrandDetails.Brand_Logo} alt="Brand_Logo image not available" />
 
                         </div>
 

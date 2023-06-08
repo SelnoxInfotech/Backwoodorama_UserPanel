@@ -11,7 +11,7 @@ const Footer = () => {
     const classes = useStyles()
     const [Categorys,SetCategorys]=React.useState([])
     React.useEffect(()=>{
-        Axios.get("http://backend.sweede.net/UserPanel/Get-Categories/",{}).then(Response => {
+        Axios.get("https://sweede.app/UserPanel/Get-Categories/",{}).then(Response => {
             console.log(Response)
             SetCategorys(Response.data)
 
