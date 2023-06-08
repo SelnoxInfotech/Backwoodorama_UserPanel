@@ -69,9 +69,9 @@ export default function Dispansires() {
                         })}
 
                     </div>
-                    <div className="col-12 col-lg-10 col-md-10 col-sm-12 mx-auto dispensory_menu my-2">
+                    <div className="col-12 col-lg-10 col-md-10 col-sm-12  dispensory_menu my-2">
                         <Box className={`dispensories_tabss ${classes.dispensory_tab_background}`} sx={{ width: '100%' }}>
-                            <Box className={classes.open_dispensory_tab} sx={{ borderBottom: 1, borderColor: 'divider', }}>
+                            <Box className={classes.open_dispensory_tab} sx={{ borderBottom: 1, borderColor: 'divider'}}>
                                 <Tabs scrollButtons={false} variant="scrollable"  value={value} onChange={handleChange} aria-label="basic tabs example" >
 
                                     <Tab label="Open" {...a11yProps(0)} />
@@ -81,7 +81,8 @@ export default function Dispansires() {
                               
                                 </Tabs>
                             </Box>
-                            <TabPanel value={value} index={0}>
+                            <Box sx={{"& .MuiBox-root":{paddingLeft:"0px",paddingRight:"0px",paddingTop:"20px"}}}>
+                            <TabPanel sx={{p:0}} value={value} index={0}>
                                 <DispensoriesOpenResult />
                             </TabPanel>
                             <TabPanel value={value} index={1}>
@@ -93,6 +94,7 @@ export default function Dispansires() {
                             <TabPanel value={value} index={3}>
                                 <DispensoriesOpenResult />
                             </TabPanel>
+                            </Box>
                             <div className="Dispansires_map">
                                 <Map height={"740px"} Theme={Dispansires_MapTheme.Dispansires_MapTheme}></Map>
                             </div>

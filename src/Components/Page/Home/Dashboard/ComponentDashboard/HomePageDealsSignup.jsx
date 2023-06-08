@@ -16,9 +16,11 @@ const HomePageDealsSignup = () => {
                                 </div>
                                 <div className='col-md-6 mt-2 homePageDealSignupContentHeight'>
                                     <TextField
+                                    className={classes.homePageDealSignup_TextFields}
                                         InputProps={{
                                             style: {
                                                 borderRadius: "20px",
+                                                // border:"1px solid #31B665",
                                                 backgroundColor: "#FFFFFF"
                                             }
                                         }}

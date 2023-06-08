@@ -414,6 +414,11 @@ searchBar_padding:{
   "& .MuiAutocomplete-root ":{
     paddingLeft:"20px"
   }
+},
+homePageDealSignup_TextFields:{
+  "& fieldset":{
+    border: 'none',
+  }
 }
   // NewproductHeart:{
   //  backgroundColor:"#949494" 
