@@ -129,7 +129,7 @@ const routesConfig = [
           }
           ,
           {
-            path:"/CategoryProduct/:SubCategoryname",
+            path:"/CategoryProduct/:Categoryname",
             element:<CategoryProduct></CategoryProduct>
           }
           ,

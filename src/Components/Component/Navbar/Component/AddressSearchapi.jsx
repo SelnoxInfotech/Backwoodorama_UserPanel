@@ -173,7 +173,7 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
     <>
       {/* <i className="SearcchIcon" style={{ display: open && SearchBarWidth ? "none" : "inline-flex" }}>   <IoLocationSharp color="gray" size={18} /></i> */}
       <TextField
-        size="small"
+        // size="small"
         value={Default}
         inputRef={ref}
         onChange={handleChange}

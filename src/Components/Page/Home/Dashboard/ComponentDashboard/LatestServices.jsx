@@ -28,6 +28,15 @@ const LatestServices = () => {
         width: 90%;
        
     }
+    .slick-track {
+        gap: 10px;
+        position: relative;
+        top: 0;
+        left: 0;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+    }
       `;
     const settings = {
 
@@ -98,19 +107,19 @@ const LatestServices = () => {
                 <div className="row">
                     <div className="col-lg-12 ">
                         <div className="latest_services">
-                            <h1 className="latest_services_headings">Welcome to Backwoodaroma</h1>
-                            <h6 className="fontStyle common_sub_head ellipsis">Check our latest article to see our inspiring content for shopping</h6>
+                            <h1 className="latest_services_headings mt-2">Welcome to Backwoodaroma</h1>
+                            <h6 className="fontStyle common_sub_head ellipsis mt-2  mb-3">Check our latest article to see our inspiring content for shopping</h6>
                         </div>
                     </div>
 
-                </div>
-                <div className="row ">
-                    <SliderLatestService {...settings}>
+              
+                  <div className="col-12" style={{    padding: "0" ,     marginLeft: "-9px"}}>
+                  <SliderLatestService {...settings}>
                         {News.map((ele, index) => {
                             return (
                               <div key={index}>
-                                 <div className="col-12 center_latest" >
-                                <div className="col-10  latest_cont">
+                                 {/* <div className="col-12 center_latest" > */}
+                                <div className="col-12  latest_cont" >
                                     <div className="col img_cont center_latest ">
                                         <div className="col-12  centerImg ">
                                             <img src={`https://sweede.app/${ele.Image}`} alt="img_not_found" style={{pointerEvents: "none"}}/>
@@ -133,7 +142,7 @@ const LatestServices = () => {
 
 
 
-                                </div>
+                                {/* </div> */}
                                </div>
                               </div>
                             )
@@ -142,7 +151,7 @@ const LatestServices = () => {
                     </SliderLatestService>
 
 
-
+                    </div>
                 </div>
 
 

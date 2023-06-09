@@ -130,8 +130,8 @@
 }
 
 .Image_Width {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   cursor: pointer;
 }
 
@@ -3648,6 +3648,7 @@ color: #909090;
 /* end */
 /* recentViewProduct */
 .recentViewProductSlider {
+  
   scrollbar-width: none;
   display: flex;
   flex-wrap: nowrap;
@@ -3658,7 +3659,13 @@ color: #909090;
   overflow-y: hidden;
   height: auto;
   padding-left: 14px;
+  margin-left: -1px;
 }
+#width{
+  padding: 0px;
+}
+
+
 
 .dispensoriesContainer {
   height: auto;
@@ -3671,6 +3678,11 @@ color: #909090;
   border: 1px solid #31B665;
   border-radius: 10px;
 
+}
+@media (max-width:500px) {
+  .ScrollContainerRelative {
+       left: 0px;
+  }
 }
 
 .dispensoriesContentContainer {

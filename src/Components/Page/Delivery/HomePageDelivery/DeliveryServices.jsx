@@ -28,17 +28,17 @@ DeliveryServices = () => {
     }, [])
     return (
         <>
-            <div className="container-fluid">
-                <div className="row mt-4">
-                    <div className="col-12 delivery_services_heading">
+            <div className="container-fluid mt-5">
+                <div className="row mt-3">
+                    <div className="col-12 delivery_services_heading" style={{padding:"0"}}>
                         <h1>Delivery services</h1>
 
                     </div>
-                    <div className="col-12 mt-2 delivery_services_subheading">
+                    <div className="col-12 mt-3 delivery_services_subheading" style={{padding:"0"}}>
                         <h2>{state.Location}</h2>
 
                     </div>
-                    <div className="col-12   recentViewProductSlider" id="width" ref={ref}>
+                    <div className="col-12  mt-5 recentViewProductSlider" id="width" ref={ref}>
                         <ScrollContainer className="ScrollContainerRelative">
                             {DeliveryService.map((items, index) => {
                                 return (

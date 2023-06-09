@@ -1,13 +1,14 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { Link } from "react-router-dom";
+import { Link,useLocation } from "react-router-dom";
 
 const AllProductCategory = ({ flowerArray }) => {
+    const location = useLocation();    
     return (
         <>
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-lg-12  px-4 productSlider_headings fontStyle">
-                        <h1>Flower</h1>
+                        <h1>{location.pathname.slice(17).replace(/%20/g, " ")}</h1>
                     </div>
 
                         {flowerArray.map((items, index) => {

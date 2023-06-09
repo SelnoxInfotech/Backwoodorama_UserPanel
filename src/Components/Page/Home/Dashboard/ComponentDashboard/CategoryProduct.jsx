@@ -21,6 +21,7 @@ const CategoryProduct = ({ ShowCategoryProduct, Category }) => {
         display: flex;
         justify-content: center;
         margin-inline: 10px;
+        margin-top:83px
 
       }
       .slick-track{
@@ -33,13 +34,22 @@ const CategoryProduct = ({ ShowCategoryProduct, Category }) => {
         dots: false,
         infinite: false,
         speed: 500,
-        slidesToShow: 7,
+        slidesToShow: 6,
         slidesToScroll: 1,
         responsive: [
             {
-                breakpoint: 1024,
+                breakpoint: 1333,
                 settings: {
                     slidesToShow: 4,
+                    slidesToScroll: 1,
+                    infinite: false,
+                    dots: false
+                }
+            },
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
                     slidesToScroll: 1,
                     infinite: false,
                     dots: false
@@ -69,23 +79,23 @@ const CategoryProduct = ({ ShowCategoryProduct, Category }) => {
 
     return (
         <>
-            <div className='container-fluid mt-4'>
+            <div className='container-fluid mt-4 CategoryBordrr'>
                 <div className='row'>
-                    <div className='col-12 disp_head'>
-                        <h1>Shop by  category</h1>
+                    <div className='col-12 disp_head '>
+                        <h1 className='mt-9'>Shop by Category</h1>
                     </div>
-                </div>
-                <SliderCategory {...settings}>
+                
+                <SliderCategory {...settings} >
                     {Category.map((ele, index) => {
                         return (
                          
-                                <div className='col-10 ' key={index}>
+                                <div className='col-10  CategorySliderImageBlock  ' key={index}>
                                     <div className='slider1'>
                                  
                                         <LazyLoadImage onClick={() => { ShowCategoryProduct(ele.id, ele.name) }} src={`https://sweede.app/` + ele.categoryImages} alt="glass_img" className='rounded-circle  Image_Width' />
                                     
                                     </div>
-                                    <div className='col-12 center '>
+                                    <div className='col-12 center mt-3 '>
                                         <div className='col center Category_title' >
                                             <p>{ele.name.substr(0, 100)}</p>
                                         </div>
@@ -96,7 +106,7 @@ const CategoryProduct = ({ ShowCategoryProduct, Category }) => {
                     })}
                 </SliderCategory>
 
-
+                </div>
             </div>
         </>
     )

@@ -67,24 +67,29 @@ const Navbar = () => {
     <>
       <div ref={ref} className='sticky-top' style={{ background: "white", padding: "10px" }}>
         <Grid container spacing={0} rowSpacing={0.3}   >
-          <Grid container xs={2} md={2} xl={2}>
-            {
-              Hamburger ?
-                <span>
+          {
+            Hamburger ?
+              <Grid container xs={2} md={2} xl={2}
+                alignItems="center"
+                justifyContent="center"
+              >
+                <span >
                   <Link to="/"><LazyLoadImage className='navbar_logo_image' src='/image/logo.webp' /></Link>
-                </span> :
+                </span>
 
-                <div className='center'>
+              </Grid>
+              :
+              <Grid container xs={2} md={2} xl={2}>
+                <div className='center' style={{ marginLeft: "15px" }}>
                   <button className="openbtn Border" onClick={() => { openNav() }}>☰</button>
                 </div>
-
-            }
-          </Grid>
-          <Grid xs={6} md={8} xl={8} display={{ xs: "none", md: "block", lg: "block" }}>
+              </Grid>
+          }
+          <Grid xs={6} md={6} xl={7} display={{ xs: "none", md: "block", lg: "block" }}>
             <SearchBar />
           </Grid>
-          <Grid xs={10} md={2} xl={2} display={{ xs: "block", md: "none", lg: "none" }} >
-            <div className=' col-12 Login_Sigup_button  Heder_icon '>
+          <Grid xs={10} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }} >
+            <div className=' col-12 Login_Sigup_button  Heder_icon ' style={{ justifyContent: "end", marginLeft: "-20px" }}>
               <Badge badgeContent={4} className={classes.sliderLink_badge}>
                 <AiFillHeart color="grey" size={22}></AiFillHeart>
               </Badge>
@@ -100,7 +105,7 @@ const Navbar = () => {
               </Link>
             </div>
           </Grid>
-          <Grid xs={4} md={2} xl={2} >
+          <Grid xs={5} md={3} xl={3} >
             {
               state.login === true
                 ?
@@ -113,15 +118,15 @@ const Navbar = () => {
                   </div>
                 </div>
                 :
-                <div className=' col-12 Login_Sigup_button '>
+                <div className=' col-12 Login_Sigup_button  Sapceing'>
                   <div className='col-lg-4 col-sm-4'>
-                    <Grid display={{ xs: "none", md: "block", lg: "block" }}>
+                    <Grid display={{ xs: "none", md: "block", lg: "block", }} >
                       <NavLink to="/Login" >   <Button className={classes.muiBtn} >Login</Button></NavLink>
                     </Grid>
                   </div>
                   <div className='col-lg-4 col-sm-4'>
                     <Grid display={{ xs: "none", md: "block", lg: "block" }}>
-                      <NavLink to="/Signup" >    <Button className={classes.muiBtn} >Signup</Button></NavLink>
+                      <NavLink to="/Signup" >    <Button sx={{ boxShadow: 3 }} className={classes.muiBtn_Signup} >Signup</Button></NavLink>
                     </Grid>
                   </div>
                 </div>
