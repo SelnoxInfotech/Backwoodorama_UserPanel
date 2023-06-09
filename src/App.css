@@ -325,7 +325,13 @@ a {
 .addyocardIcon{
   gap: 28px;
 }
-
+@media(max-width:1076px){
+  .Login_Sigup_button {
+    /* justify-content: left;
+    display: flex; */
+    gap: 13%;
+}
+}
 
 
 

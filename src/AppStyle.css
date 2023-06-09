@@ -4572,6 +4572,20 @@ color: #363535;
 }
 .backwoodaroma_heading_container{
   height: 100px;
-  border: 1px solid gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #31B665;
+  border: 1px solid #31B665;
+}
+.backwoodar_heading{
+font-weight: 700;
+font-size: 24px;
+color: #FFFFFF;
+}
+@media(max-width:480px){
+  .backwoodar_heading{
+    font-size: 16px;
+    } 
 }
 /* end */
