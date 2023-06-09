@@ -17,7 +17,6 @@ const DispensoriesAddress = () => {
     const { dispatch } = React.useContext(Createcontext)
     // const [Store, SetStore] = useState([])
     const [Store, SetStore] = React.useState([])
-    console.log(Store)
     React.useEffect(() => {
 
         Axios.get(

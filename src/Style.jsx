@@ -364,6 +364,11 @@ homePageStarIcons:{
       }
     }
   },
+  checAgeEligibiltyHeight:{
+    "& .MuiOutlinedInput-root":{
+      height:"40px",
+    }
+  },
   checAgeEliigiblityPopup:{
     "&.MuiButtonBase-root": {
       background:"#31B665",
@@ -397,13 +402,13 @@ homePageStarIcons:{
     "&.MuiFormControl-root":{
       width:"180px",
       marginLeft:"0px"
+    },
+    "& .MuiOutlinedInput-notchedOutline ":{
+      border:"none",
+      outline:"1px solid #31B665"
     }
   },
-  checAgeEligibiltyHeight:{
-    "& .MuiOutlinedInput-root":{
-      height:"40px",
-    }
-  },
+
   sliderLink_badge:{
     "& .MuiBadge-badge":{
       background: "#31B665",
@@ -419,6 +424,9 @@ homePageDealSignup_TextFields:{
   "& fieldset":{
     border: 'none',
   }
+},
+check_age_selectTag:{
+
 }
   // NewproductHeart:{
   //  backgroundColor:"#949494" 

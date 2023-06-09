@@ -260,7 +260,7 @@ const ProductDetail = () => {
 
                                         </div>
                                         <div className="col-6 add_prod_quant_btn_div">
-                                            {ele.Prices.map((ele1, index) => {
+                                            {ele.Prices.map((ele1) => {
                                                 return (
                                                     ele1.Price?.map((data, index) => {
                                                         let s = false
@@ -300,20 +300,20 @@ const ProductDetail = () => {
                                             {
                                                 ele.Prices?.map((data) => {
                                                     return (
-                                                        data.Price?.map((Prices) => {
+                                                        data.Price?.map((Prices,index) => {
                                                             if (Item?.length === 0) {
                                                                 if (Prices?.id === 1) {
                                                                     return (
-                                                                        < div > <p>Amount</p> <p className="add_prod_span1">${parseInt(Prices.SalePrice)}</p></div>
+                                                                        < div key={index}> <p>Amount</p> <p className="add_prod_span1">${parseInt(Prices.SalePrice)}</p></div>
                                                                     )
                                                                 }
                                                             }
                                                             else {
                                                                 return (
-                                                                    Item?.map((Price) => {
+                                                                    Item?.map((Price,index) => {
                                                                         if (ele.id === Price?.Product_id && Prices.id === Price?.Item_id) {
                                                                             return (
-                                                                                < div > <p>Amount</p> <p className="add_prod_span1">${parseInt(Prices.SalePrice)}</p></div>
+                                                                                < div key={index}> <p>Amount</p> <p className="add_prod_span1">${parseInt(Prices.SalePrice)}</p></div>
                                                                             )
                                                                         }
                                                                     })

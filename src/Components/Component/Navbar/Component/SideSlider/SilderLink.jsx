@@ -54,7 +54,7 @@ export default function DashBoardLink({ state }) {
                 <IoIosNotifications color="grey" size={23}></IoIosNotifications>
               </Badge>
               <Link to="AddToCart">
-                <Badge className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`} badgeContent={state.AllProduct?.length<0?state.AllProduct?.length:"0"}>
+                <Badge className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`} badgeContent={state.AllProduct?.length>0?state.AllProduct?.length:"0"}>
                   <MdOutlineShoppingCart color="grey" size={22}></MdOutlineShoppingCart>
                 </Badge>
               </Link>

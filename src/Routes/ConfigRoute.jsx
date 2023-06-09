@@ -25,6 +25,7 @@ import RelatedDeals from "../Components/Page/Deals/RelatedDeals";
 import Strain from "../Components/Page/Strain/Strain";
 import MainDeals from "../Components/Page/MainDealsFolder/MainDeals";
 import CheckAge from "../Components/Page/CheckAgeEligblityPopup/checkAge";
+import AboutUs from "../Components/Page/AboutUs/AboutUs";
 const routesConfig = [
   
       {
@@ -142,7 +143,10 @@ const routesConfig = [
             path:"/CheckAge",
             element:<CheckAge></CheckAge>
           },
-          
+          {
+            path:"/AboutUs",
+            element:<AboutUs></AboutUs>
+          },
         ],
       },
 ]

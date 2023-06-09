@@ -120,11 +120,11 @@ const LatestServices = () => {
                                     </div>
                                     <div className="col latest_content_div ">
                                         <div className="col-10 mt-2">
-                                            <p className="fontStyle latest_font_size ">{ele.Title.slice(0,50)}</p>
+                                            <span className="fontStyle latest_font_size ">{ele.Title.slice(0,50)}</span>
 
                                         </div>
                                         <div className="col-10 ">
-                                        <p className="fontStyle common_sub_head">{parse(ele.Description.slice(0, 100))}</p>
+                                        <span className="fontStyle common_sub_head">{parse(ele.Description.slice(0, 100))}</span>
 
                                         </div>
 

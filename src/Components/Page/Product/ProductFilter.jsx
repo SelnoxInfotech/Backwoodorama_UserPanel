@@ -78,7 +78,6 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
 
     }
     function Category_Drop(id, name) {
-        console.log(id, name)
         if (name === "Category") {
 
             Axios.post(`https://sweede.app/UserPanel/Get-filterSubcategorybyStoreandCategory/`, {

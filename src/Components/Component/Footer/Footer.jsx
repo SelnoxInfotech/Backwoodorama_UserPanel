@@ -9,19 +9,18 @@ import { Link, useNavigate } from "react-router-dom"
 const Footer = () => {
     const Navigate = useNavigate()
     const classes = useStyles()
-    const [Categorys,SetCategorys]=React.useState([])
-    React.useEffect(()=>{
-        Axios.get("https://sweede.app/UserPanel/Get-Categories/",{}).then(Response => {
-            console.log(Response)
+    const [Categorys, SetCategorys] = React.useState([])
+    React.useEffect(() => {
+        Axios.get("https://sweede.app/UserPanel/Get-Categories/", {}).then(Response => {
             SetCategorys(Response.data)
 
-        }).catch(()=>{
+        }).catch(() => {
 
         })
-    },[])
+    }, [])
     const AboutUs = [{ head: "company" }, { head: "Investor" }, { head: "Help Center" }, { head: "Download App" }]
     const Category = [{ head: "Flower" }, { head: "CBD" }, { head: "Concentrate" }, { head: "Edible" }]
-    const Legal = [{ head: "Term 7 conditions" }, { head: "Carrier" }, { head: "Privacy Policy" }]
+    const Legal = [{ head: "Term & conditions" }, { head: "Carrier" }, { head: "Privacy Policy" }]
     const More = [{ head: "Get started" }, { head: "Brand" }, { head: "Add business" }, { head: "Contact us" }]
 
 
@@ -40,6 +39,12 @@ const Footer = () => {
             <div className="container-fluid">
                 <div className="row footer_Main_row">
                     <div className="col-12 footer_main_div_display">
+                        <div className="w-100 footer_center footer_head_height ">
+                            <h1 className="ellipsis footer_heading fontWeight_Seven_Hundred">BACKWOODAROMA</h1>
+                        </div>
+                        <div className="w-100 footer_center  footer_head_height">
+                            <h2 className="ellipsis footer_sub_heading fontWeight_Four_Hundred">A community connecting cannabis consumerretailers, doctors, and brands since 2008.</h2>
+                        </div>
                         <div className="col-xl-3 col-sm-4 footer_logo_container">
                             <div className="col-12 footer_log_center footer_logo footer_logo_height">
                                 <LazyLoadImage className="footer_logo_image" src="/image/logo.webp" alt="image_not found" />
@@ -48,9 +53,9 @@ const Footer = () => {
                                 <p>Build a modern and creative  website</p>
                             </div>
                             <div className="col-12   footer_logo_icons_height">
-                            <BsWhatsapp className={`footer_icons ${classes.footer_icons_color}`} />
-                            <FaFacebook className={` footer_icons ${classes.footer_icons_color}`} />
-                            <FaInstagram className={` footer_icons ${classes.footer_icons_color}`} />
+                                <BsWhatsapp className={`footer_icons ${classes.footer_icons_color}`} />
+                                <FaFacebook className={` footer_icons ${classes.footer_icons_color}`} />
+                                <FaInstagram className={` footer_icons ${classes.footer_icons_color}`} />
                             </div>
                         </div>
                         <div className="col-xl-7 col-sm-8 footer_content_container">
@@ -72,7 +77,7 @@ const Footer = () => {
                                                 <h5 className="fontStyle">Category</h5>
                                                 {Category.map((ele, index) => {
                                                     return (
-                                                        <Link to="/" > <li className="footer_li ellipsis" key={index}>{ele.head}</li></Link>
+                                                        <Link to="/" key={index}> <li className="footer_li ellipsis" >{ele.head}</li></Link>
                                                     )
                                                 })}
                                             </ol>
@@ -111,6 +116,21 @@ const Footer = () => {
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div className="col-12">
+                            <div className="col-3">
+
+                            </div>
+                            <div className="col-3">
+
+                            </div>
+                            <div className="col-3">
+
+                            </div>
+                            <div className="col-3">
+
+                            </div>
+
                         </div>
 
 

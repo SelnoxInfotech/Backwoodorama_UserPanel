@@ -2,13 +2,11 @@
   box-sizing: border-box;
 }
 
-.fontStyle {
-  font-style: normal;
-  font-weight: 700;
+.fontWeight_Seven_Hundred {
+  font-weight:700;
 }
 
-.fontStyle_weight_fourHundred {
-  font-style: normal;
+.fontWeight_Four_Hundred {
   font-weight: 400;
 }
 
@@ -784,7 +782,7 @@
 /* AddProduct */
 .add_product_main_cont {
   display: flex;
-
+  height: auto;
 }
 
 .add_prod_inner_div {
@@ -978,6 +976,7 @@
 
   .AllProd_fWidth {
     width: 100% !important;
+    height: auto;
   }
 
   .add_prod_inner_div {
@@ -1093,12 +1092,13 @@
 
 .product_desc_container {
   background: #F8F8F8;
-
+  height: auto;
 }
 
 @media(max-width:626px) {
   .product_desc_container {
     position: relative;
+    height: auto;
     top: 823px;
     width: 100% !important;
     margin-bottom: 10px !important;
@@ -1489,12 +1489,23 @@
   padding: 4px;
   background-color: #f8f8f8;
 }
-
-.footer_heading p {
-  color: #183B56;
+.footer_head_height{
+  height: 40px;
 }
-
-.footer_font_size p {
+.footer_heading{
+  color:#31B665;
+  font-size: 24px;
+}
+.footer_sub_heading{
+  font-size: 20px;
+color: #707070
+}
+.footer_center{
+  display: flex;
+justify-content: center;
+align-items: center;
+}
+.footer_font_size{
   font-size: 14px;
 }
 
@@ -1520,6 +1531,9 @@
 @media(max-width:480px){
   .footer_logo_image {
     width: 48%;
+  }
+  .footer_sub_heading{
+    font-size: 14px;
   }
 }
 .Footer_fontStyle {
@@ -2237,8 +2251,8 @@ color: #909090;
 
 .dispensories_result_head {
   color: #282625;
-  font-weight: bold;
-  font-size: 18px;
+  font-weight: 700;
+  font-size: 14px;
 }
 
 @media(max-width:400px) {
@@ -2407,7 +2421,7 @@ color: #909090;
     gap:12%;
   }
   .store_detail_list {
-    min-width: 85px;
+    min-width: 100px;
 }
   
 }
@@ -4394,6 +4408,7 @@ color: #909090;
 
 .homePageSignupHeight {
   height: 100px;
+  width: 92%;
   height: 216px;
   display: grid;
   align-items: center;
@@ -4405,7 +4420,9 @@ color: #909090;
   line-height: 54px;
   color: #FFFFFF;
 }
-
+.dealSignup_col_height{
+  height: 60px;
+}
 @media(max-width:992px) {
   .homePageSignup_paragraph p {
     font-size: 22px;
@@ -4425,7 +4442,9 @@ color: #909090;
   color: #FFFFFF;
   cursor: pointer;
 }
-
+.homePageSignipLink{
+  height: 50px;
+}
 .newProductDetailsHeading p {
   font-weight: 700;
   font-size: 32px;
@@ -4523,5 +4542,24 @@ color: #363535;
   .checkAgeEligibility_footer{
     font-size: 10px;
   } 
+}
+/* end */
+/* AboutUs */
+.about_us_image_container{
+  height: 300px;
+  /* border: 1px solid gray; */
+}
+.About_us_banner_image{
+  height: 300px;
+  width: 100%;
+}
+/* end */
+/* backwoodaromaByTheNumber */
+.backwoodaromaByTheNumber_container{
+  height: auto;
+}
+.backwoodaroma_heading_container{
+  height: 100px;
+  border: 1px solid gray;
 }
 /* end */

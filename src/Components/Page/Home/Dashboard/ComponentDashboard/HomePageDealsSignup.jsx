@@ -8,19 +8,18 @@ const HomePageDealsSignup = () => {
         <div className="container mt-4">
             <div className="row  mt-4">
                 <div className="col-12 HomePageDealsSignupContainer">
-                    <div className='w-100 homePageSignupHeight'>
+                    <div className='homePageSignupHeight'>
                         <form>
-                            <div className="row ">
-                                <div className="col-md-4 homePageSignup_paragraph  homePageDealSignupContentHeight">
+                            <div className="row center">
+                                <div className="col-md-4 homePageSignup_paragraph dealSignup_col_height  homePageDealSignupContentHeight">
                                     <p>Never miss deals!</p>
                                 </div>
-                                <div className='col-md-6 mt-2 homePageDealSignupContentHeight'>
+                                <div className='col-md-6 mt-2 dealSignup_col_height homePageDealSignupContentHeight'>
                                     <TextField
-                                    className={classes.homePageDealSignup_TextFields}
+                                        className={classes.homePageDealSignup_TextFields}
                                         InputProps={{
                                             style: {
                                                 borderRadius: "20px",
-                                                // border:"1px solid #31B665",
                                                 backgroundColor: "#FFFFFF"
                                             }
                                         }}
@@ -31,20 +30,22 @@ const HomePageDealsSignup = () => {
                                         size='small'
                                     />
                                 </div>
-                                <div className='col-md-2 homePageDealSignupContentHeight'>
+                                <div className='col-md-2 dealSignup_col_height homePageDealSignupContentHeight'>
                                     <Button className={`mt-2 ${classes.homePageButton}`} >Subscribe</Button>
                                 </div>
-
-                            </div>
-                            <div className='w-40 homePageSignipLink'>
-                                <p>Signup</p>
-                            </div>
-                        </form>
                     </div>
-                </div>
-
+                    <div className='row'>
+                    <div className='col-12 homePageSignipLink'>
+                        <p>Signup</p>
+                    </div>
+                    </div>
+                   
+                </form>
             </div>
         </div>
+
+            </div >
+        </div >
     )
 }
 export default HomePageDealsSignup
