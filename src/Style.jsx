@@ -1,3 +1,5 @@
+
+
 import { makeStyles } from '@mui/styles';
 const useStyles = makeStyles({
   searchBarPadding:{
@@ -76,12 +78,36 @@ const useStyles = makeStyles({
   muiBtn: {
     "&.MuiButtonBase-root": {
       backgroundColor: "white",
-      color: "#00b96a",
+      color: "#707070",
       // outline: "1px solid #00b96a",
       border: "1px solid #31B665",
-      borderRadius: "25px 25px",
+      borderRadius: " 71px  71px",
+     
       minWidth: "100%",
       textTransform: "none",
+      width:"120px" 
+      ,height:"45px"
+    },
+    "&.MuiButtonBase-root:hover": {
+
+      color: "white",
+      background: "#00b96a",
+      // boxShadow: "2px 2px"
+
+    }
+  },
+  muiBtn_Signup :{
+    "&.MuiButtonBase-root": {
+      backgroundColor: "white",
+      color: "white",
+      // outline: "1px solid #00b96a",
+     backgroundColor:"#00b96a",
+      borderRadius: " 71px  71px",
+      // boxShadow:"box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;",
+      minWidth: "100%",
+      textTransform: "none",
+      width:"120px" 
+      ,height:"45px"
     },
     "&.MuiButtonBase-root:hover": {
 
@@ -417,7 +443,7 @@ homePageStarIcons:{
   },
 searchBar_padding:{
   "& .MuiAutocomplete-root ":{
-    paddingLeft:"20px"
+    // paddingLeft:"20px"
   }
 },
 homePageDealSignup_TextFields:{

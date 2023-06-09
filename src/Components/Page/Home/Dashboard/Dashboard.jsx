@@ -56,7 +56,7 @@ export default function Dashboard() {
             <DeliveryServices></DeliveryServices>
             <HomePageWeedBanner></HomePageWeedBanner>
             <DispensoriesAddress></DispensoriesAddress>
-            <div className="col-12 mt-2  border" style={{ height: "300px", position: "relative" }}>
+            <div className="col-12 mt-5 border" style={{ height: "300px", position: "relative" }}>
                 <Map height={"300px"} width={"100%"}></Map>
             </div>
             <FeaturedBrand CardDataArray={FeaturedBrandArray}/>
@@ -64,7 +64,7 @@ export default function Dashboard() {
             {/* <WeedProduct></WeedProduct> */}
             <LatestServices></LatestServices>
             <div className="w-90">
-                <p className="mx-2 mt-4 dashBoard_strain_paragraph">Strain Type</p>
+                <p className=" mt-4 dashBoard_strain_paragraph">Strain Type</p>
                 <StrainTypeCards ArrayData={StrainTypeCardArray} />
 
             </div>

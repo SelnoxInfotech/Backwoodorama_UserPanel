@@ -47,17 +47,16 @@ const DispensoriesAddress = () => {
         <>
             <div className="container-fluid">
                 <div className='row'>
-                    <div className='col-12  mt-2' >
-                        <div className="disp_head">
+                    <div className='col-12  mt-4'  style={{    padding: "0"}}>
+                        <div className="disp_head" style={{top:"0"}}>
                             <h1>Shop Dispensaries  near you</h1>
                         </div>
                     </div >
-                </div >
+               
 
-            </div>
+        
 
-
-            <div className="col-12   recentViewProductSlider" id="width" ref={ref}>
+            <div className="col-12 mt-3  recentViewProductSlider" id="width" ref={ref}>
                 <ScrollContainer className="ScrollContainerRelative">
 
                     {Store.map((ele, index) => {
@@ -128,8 +127,8 @@ const DispensoriesAddress = () => {
                     })}
                 </ScrollContainer >
             </div >
-
-
+            </div >
+            </div>
 
         </>
     )

@@ -32,8 +32,9 @@ const Footer = () => {
 
     }
 
-
-
+    function ShowCategoryProduct (id ,name) {
+        Navigate(`/CategoryProduct/${name}`, { state: {  id  } });
+    }
     return (
         <>
             <div className="container-fluid">
@@ -75,9 +76,9 @@ const Footer = () => {
                                         <div className="col-6 footer_list">
                                             <ol className="footer_list_gap">
                                                 <h5 className="fontStyle">Category</h5>
-                                                {Category.map((ele, index) => {
+                                                {Categorys.map((ele, index) => {
                                                     return (
-                                                        <Link to="/" key={index}> <li className="footer_li ellipsis" >{ele.head}</li></Link>
+                                                         <li onClick={()=>ShowCategoryProduct(ele.id,ele.name)} className="footer_li ellipsis" key={index}>{ele.name}</li>
                                                     )
                                                 })}
                                             </ol>

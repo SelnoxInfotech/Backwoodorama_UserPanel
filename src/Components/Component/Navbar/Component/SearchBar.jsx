@@ -167,7 +167,7 @@ const SearchBar = () => {
                         sx={{ width: open && SearchBarWidth ? "200%" : "100%" }}
                         renderInput={(params) => <TextField
                             {...params}
-                            size="small"
+                            // size="small"
                             onClick={Search}
                             onChange={Search}
                         
