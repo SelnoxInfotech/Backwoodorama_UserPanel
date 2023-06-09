@@ -281,7 +281,11 @@ a {
   }
   
 }
-
+@media(max-width:900px){
+  .col_Search{
+    margin-bottom: 10px;
+  }
+}
 
 
 /* Top Navbar */
