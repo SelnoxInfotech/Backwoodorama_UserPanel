@@ -11,8 +11,8 @@ const AboutUsBanner=()=>{
         display: none;
     }
     .slick-next {
-        position: relative;
-        right: 0px;
+        // position: relative;
+        // right: 0px;
         display: none;
         background-color:white;
         height:0px;

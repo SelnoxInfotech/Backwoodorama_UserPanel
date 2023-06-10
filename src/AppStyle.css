@@ -4685,5 +4685,73 @@
     font-size: 10px;
   } 
 }
-
+.NumberText_container{
+  height: 100px;
+  background: #31B665;
+  border: 1px solid #31B665;
+}
+.NumberText_container ol{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 6%;
+}
+.NumberText_container ol li{
+  list-style: none;
+  color: #FFFFFF;
+  font-weight: 400;
+font-size: 16px;
+min-width:15%;
+}
+@media(max-width:992px){
+  .NumberText_container{
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+  .NumberText_container ol li {
+    font-size: 11px;
+    min-width: 17%;
+}
+}
+@media(max-width:768px){
+.NumberText_container ol li {
+    font-size: 9px;
+    min-width: 18%;
+}
+.NumberText_container{
+  padding-left: 20px;
+}
+.NumberText_container ol{
+  gap:4%;
+}
+}
+@media(max-width:488px){
+  .NumberText_container ol li {
+    font-size: 9px;
+    min-width: 21%;
+}
+.NumberText_container ol{
+  gap:3%;
+}
+}
+@media(max-width:425px){
+  .NumberText_container ol li {
+    font-size: 8px;
+    min-width: 22%;
+}
+.NumberText_container ol{
+  gap:2%;
+}
+}
+@media(max-width:372px){
+  .NumberText_container ol li {
+    font-size: 7px;
+    min-width: 26%;
+}
+.NumberText_container{
+  padding-left: 40px;
+}
+}
 /* end */

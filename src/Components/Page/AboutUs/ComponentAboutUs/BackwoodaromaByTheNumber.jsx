@@ -1,4 +1,5 @@
 const BackwoodaromaByTheNumber = () => {
+    const NumberOfVisits=[{visit:"60 MILLION"},{visit:"4+ MILLION"},{visit:"4,600+ MILLION"},{visit:"1.3 million"},{visit:"5,000+"}]
     return (
         <>
             <div className="col-12 backwoodaromaByTheNumber_container">
@@ -8,15 +9,33 @@ const BackwoodaromaByTheNumber = () => {
                     </div>
                     <div className="col-12 backwoodaroma_number_container px-0 bg-light mt-2 border ">
                         <ol>
-                            <li>60 MILLION</li>
-                            <li>4+ MILLION</li>
-                            <li>4,600+ MILLION</li>
-                            <li>1.3 million</li>
-                            <li>5,000+</li>
+                            {NumberOfVisits.map((items,index)=>{
+                                return(
+                                    <li>{items.visit}</li>
+
+                                )
+
+                            })}
+                         
 
                         </ol>
                     </div>
-                  
+                    <div className="col-12  NumberText_container">
+                        <ol>
+                            <li className="" style={{display:"flex",flexDirection:"column"}}><span>Visitors to Leafly</span>
+
+                               <span>every year</span>
+                                </li>
+                            <li>Orders placed
+                                annually</li>
+                            <li>Retailers online
+                                with Leafly</li>
+                            <li>Product reviews</li>
+                            <li>Strains in the
+                                Leafly database</li>
+                        </ol>
+                    </div>
+
                 </div>
 
 
