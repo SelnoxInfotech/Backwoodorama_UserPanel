@@ -259,7 +259,7 @@ const ProductDetail = () => {
                                             <p>Rating 3.2</p> <span><AiFillStar className={classes.disPen_Icons} /></span>
 
                                         </div>
-                                        <div className="col-6 add_prod_quant_btn_div">
+                                        <div className="col-xxl-7 col-lg-8 col-md-10 col-sm-10 col-12 add_prod_quant_btn_div">
                                             {ele.Prices.map((ele1) => {
                                                 return (
                                                     ele1.Price?.map((data, index) => {
@@ -284,7 +284,7 @@ const ProductDetail = () => {
                                                             })
                                                         )
                                                         return (
-                                                            <div className="col-3 add_prod_quant_inner_div mt-2 " key={index}>
+                                                            <div className="col-3  mt-2 " key={index}>
                                                                 <section id="productDetail_section" onClick={() => PriceSelect(ele.id, data.id)}
                                                                     className={"add_prod_Quant_btn " + (s ? "active" : "")}>
                                                                     {data.Weight || data.Unit}
@@ -429,7 +429,7 @@ const ProductDetail = () => {
                     </div>
 
                 </div>
-                <div className="col-10 mt-4 allProd_props AllProd_fWidth">
+                <div className="col-10 mt-4  AllProd_fWidth">
                     <div className="col-12 prod_des_head fontStyle AddProdLikePara">
                         <p>Like this products </p>
 

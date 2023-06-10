@@ -18,7 +18,7 @@ const AddToCart = () => {
 
                     <div className="row mt-4">
                         <div className="col-12 addTocard_main_container_height">
-                            <div className="col-12">
+                            <div className="col-12 addtoCart_headingss">
                                 <p>Your Items</p>
                             </div>
 
