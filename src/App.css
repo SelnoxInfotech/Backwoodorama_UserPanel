@@ -343,6 +343,7 @@ a {
   height: 10px;
   justify-content: flex-end;
   gap: 5%;
+  margin-top: 5px;
 }
 
 /* End */
