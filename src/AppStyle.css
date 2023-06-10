@@ -4755,3 +4755,33 @@ min-width:15%;
 }
 }
 /* end */
+/* AboutUsjourney*/
+.AboutUsjourney_container{
+  height: auto;
+}
+.about_us_heading_container{
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.About_Journey_heading{
+font-weight: 700;
+font-size: 24px;
+color: #000000;
+}
+@media(max-width:768px){
+.About_Journey_heading{
+font-size: 16px;
+
+}
+}
+.about_us_inner_section_container{
+  height: 100%;
+  border: 1px solid gray;
+}
+.journey_heading{
+font-size: 20px;
+font-weight: 700;
+}
+/* end */

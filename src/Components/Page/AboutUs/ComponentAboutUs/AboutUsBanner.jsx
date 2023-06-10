@@ -9,10 +9,11 @@ const AboutUsBanner=()=>{
 
     .slick-arrow{
         display: none;
+        visibility:hidden;
     }
     .slick-next {
-        // position: relative;
-        // right: 0px;
+        position: relative;
+        right: 0px;
         display: none;
         background-color:white;
         height:0px;
