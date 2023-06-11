@@ -210,7 +210,7 @@ const ProductDetail = () => {
                                             {Image ?
                                                 ele?.images.map((data, index) => {
                                                     // if (data.id === Image) {
-                                                        return data.id === Image &&   <LazyLoadImage key={index} src={`https://sweede.app/${data.image}`} alt="img_not_found" />
+                                                    return data.id === Image && <LazyLoadImage key={index} src={`https://sweede.app/${data.image}`} alt="img_not_found" />
                                                     // }
 
                                                 })
@@ -300,7 +300,7 @@ const ProductDetail = () => {
                                             {
                                                 ele.Prices?.map((data) => {
                                                     return (
-                                                        data.Price?.map((Prices,index) => {
+                                                        data.Price?.map((Prices, index) => {
                                                             if (Item?.length === 0) {
                                                                 if (Prices?.id === 1) {
                                                                     return (
@@ -310,7 +310,7 @@ const ProductDetail = () => {
                                                             }
                                                             else {
                                                                 return (
-                                                                    Item?.map((Price,index) => {
+                                                                    Item?.map((Price, index) => {
                                                                         if (ele.id === Price?.Product_id && Prices.id === Price?.Item_id) {
                                                                             return (
                                                                                 < div key={index}> <p>Amount</p> <p className="add_prod_span1">${parseInt(Prices.SalePrice)}</p></div>
@@ -329,15 +329,30 @@ const ProductDetail = () => {
 
 
 
-                                            <span className="add_prod_span">
+                                            {/* <span className="add_prod_span">
 
                                                 <button className="add_prod_amount_btn"><span className="add_prod_plus_sub" onClick={Quantity}>+</span></button><span className="add_prod_amoount_data">{Product_Quantity.Product_quantity}</span>
                                                 {
                                                     Product_Quantity.Product_quantity > 1 &&
                                                     <button className="add_prod_amount_btn" onClick={decreaseQuantity}> <span>-</span> </button>
                                                 }
-                                            </span>
-                                           
+                                            </span> */}
+                                            <div className=" border d-flex" style={{ height: "42px", width: "143px" }}>
+                                                <section className="minus_btn" style={{ height: "50px", width: "40px" }}>
+                                                    {
+                                                        Product_Quantity.Product_quantity > 1 &&
+                                                        <button className="add_prod_amount_btn" onClick={decreaseQuantity}> <span>-</span> </button>
+                                                    }
+                                                </section>
+                                                <section className="quantity" style={{ height: "50px", width: "40px" }}>
+                                                    <span className="add_prod_amoount_data" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>{Product_Quantity.Product_quantity}</span>
+                                                </section>
+                                                <section className="plus_btn" style={{ height: "40px", width: "50px" }}>
+                                                    <button className="add_prod_amount_btn"><span className="add_prod_plus_sub" onClick={Quantity}>+</span></button>
+                                                </section>
+
+                                            </div>
+
 
                                         </div>
 
@@ -358,7 +373,7 @@ const ProductDetail = () => {
                         })
                     }
                 </div>
-                
+
 
 
                 {ProductDetails.map((ele, index) => {
