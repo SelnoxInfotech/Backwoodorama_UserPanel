@@ -4615,7 +4615,7 @@
 @media(max-width:768px){
   .backwoodaroma_number_container ol li{
     /* min-width: 38%; */
-    font-size: 14px;
+    font-size: 12px;
   } 
 }
 @media(max-width:480px) {
@@ -4740,5 +4740,43 @@ font-size: 16px;
 .journey_heading{
 font-size: 20px;
 font-weight: 700;
+}
+/* end */
+/* ourValues */
+.ourValues_card_container{
+background: #FAFAFA;
+border-radius: 8px;
+height: 100%;
+}
+.ourvalues_icons_container{
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.values_heading_container{
+  height: 40px;
+}
+.values_heading{
+ font-weight: 700;
+font-size: 24px;
+color: #000000;
+}
+.values_paragraph_container{
+  height: 100%;
+  margin-top: 20px;
+}
+.values_paragraph{
+  font-weight: 400;
+  font-size: 16px;
+  color: #000000;
+}
+.ourValue_main_headings_container{
+  height: 50px;
+}
+.ourValue_main_headings{
+  font-weight: 700;
+font-size: 24px;
+color: #000000;
 }
 /* end */

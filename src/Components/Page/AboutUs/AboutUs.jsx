@@ -2,6 +2,7 @@ import AboutUsBanner from "./ComponentAboutUs/AboutUsBanner"
 import BackwoodaromaByTheNumber from "./ComponentAboutUs/BackwoodaromaByTheNumber"
 import AboutUsJourney from "./ComponentAboutUs/AboutUsJourney"
 import OurValues from "./ComponentAboutUs/OurValues"
+import HomePageDealsSignup from "../Home/Dashboard/ComponentDashboard/HomePageDealsSignup"
 const AboutUs=()=>{
     return(
         <div className="container">
@@ -11,6 +12,7 @@ const AboutUs=()=>{
              <AboutUsJourney/>
             </div>
              <OurValues/>
+             <HomePageDealsSignup/>
         </div>
     )
 }
