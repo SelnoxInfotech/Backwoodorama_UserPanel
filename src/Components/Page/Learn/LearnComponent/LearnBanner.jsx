@@ -75,7 +75,7 @@ const LearnBanner=()=>{
             }
         ]
     };
-    const LearnBannerArray = [{ imgUrl: "./image/about_us_banner.jpg" }, { imgUrl: "./image/about_us_banner.jpg" }]
+    const LearnBannerArray = [{ imgUrl: "./image/learnBanner.webp" }, { imgUrl: "./image/learnBanner2.jpg" }]
 
     return(
      <LearnSlider {...settings}>

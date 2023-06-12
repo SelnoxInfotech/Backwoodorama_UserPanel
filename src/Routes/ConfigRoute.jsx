@@ -27,6 +27,7 @@ import MainDeals from "../Components/Page/MainDealsFolder/MainDeals";
 import CheckAge from "../Components/Page/CheckAgeEligblityPopup/checkAge";
 import AboutUs from "../Components/Page/AboutUs/AboutUs";
 import Learn from "../Components/Page/Learn/Learn";
+import LearnTabs from "../Components/Page/Learn/LearnTabs";
 const routesConfig = [
   
       {
@@ -149,8 +150,8 @@ const routesConfig = [
             element:<AboutUs></AboutUs>
           },
           {
-            path:"/Learn",
-            element:<Learn/>
+            path:"/LearnTabs",
+            element:<LearnTabs/>
           },
         ],
       },

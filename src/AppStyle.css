@@ -4857,4 +4857,64 @@ border-radius: 37px;
   color: #FFFFFF;
   font: 24px;
 }
+.learnContent_container_height{
+  height: auto;
+}
+.learn_content_section_one{
+  margin-top: 20px;
+  height: 100%;
+}
+.learn_content_section_two{
+  margin-top: 20px;
+  height: 100%;
+  margin-top: 20px;
+}
+.learnCotent_paragraph{
+  font-weight: 400;
+font-size: 16px;
+color: #666666;
+}
+/* end */
+/* LearnCard */
+.learn_card_main_col{
+  height: auto;
+}
+.learn_card{
+  height: 300px;
+}
+.learn_image_section{
+  height: 290px;
+  width: 100%;
+  border: 1px solid #D6D6D6;
+
+}
+.learCard_image_div{
+  height: 255px;
+  border: 1px solid #D6D6D6;
+
+
+}
+.learnCard_title_container{
+  padding-left: 10px;
+  height:35px;
+  width: 100%;
+  border: 1px solid #D6D6D6;
+  background: #282625;
+}
+.learnCard_title{
+  font-weight: 700;
+font-size: 20px;
+color: #FFFFFF;
+}
+.learn_image{
+  height: 255px;
+  width: 100%;
+  font-size: 12px;
+  color:#D6D6D6;
+}
+@media(max-width:991px){
+  .learnCard_title{
+    font-size: 14px;
+  }
+}
 /* end */

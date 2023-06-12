@@ -453,7 +453,44 @@ homePageDealSignup_TextFields:{
 },
 check_age_selectTag:{
 
-}
+},
+learn_tab_background: {
+  "& .MuiTabs-flexContainer": {
+    gap: '217px',
+    minWidth:"max-content",
+  },
+  "@media(max-width:1280px)": {
+    "& .MuiTabs-flexContainer": {
+      gap: '10px',
+      // overflowX: "scroll",
+      // overflowY: "hidden"
+
+    },
+  },
+
+  "& .MuiTabs-scroller": {
+    // overflow: "scroll"
+  }
+},
+learn_tab: {
+  "& .MuiTabs-indicator": {
+    position: "absolute",
+    height: "2px",
+    bottom: "10px",
+    left: "0px",
+    width: "90px",
+    background: "#31B665",
+    display:"none"
+  },
+  "& .MuiTab-root.Mui-selected": {
+    color: "#31B665"
+  }
+},
+learnTabPadding: {
+  "& .MuiTabPanel-root": {
+    padding:"0px",
+  }
+},
   // NewproductHeart:{
   //  backgroundColor:"#949494" 
   // }
