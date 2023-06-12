@@ -4429,7 +4429,7 @@
 
 @media(max-width:992px) {
   .homePageSignup_paragraph p {
-    font-size: 22px;
+    font-size: 19px;
   }
 }
 
@@ -4790,5 +4790,71 @@ color: #000000;
   font-weight: 700;
 font-size: 24px;
 color: #000000;
+}
+/* end */
+/* clientPreach */
+.clientPreach_heading{
+font-weight: 700;
+font-size: 24px;
+color: #000000;
+}
+.client_preach_container{
+  height: 250px;
+background: #FFFFFF;
+border: 1px solid #D6D6D6;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 37px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.clientPreach_content_section{
+  width: 90%;
+  height: 100%;
+}
+.client_preach_content_center{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.clientPreach_paragraph{
+  color: #565656;
+  font-size: 16PX;
+}
+@media(max-width:500px){
+  .clientPreach_paragraph{
+    font-size: 12px;
+  }
+}
+.about_us_header{
+  position: relative;
+}
+.text-on-image{
+  position: absolute;
+  width: 100%;
+  right: 50%;
+  left: 50%;
+  bottom: 35%;
+}
+/* end */
+/* learn_image_slider */
+.learn_image_slider{
+  height:200px;
+}
+.learn_banner_header{
+  position: relative;
+}
+.text_on_Learn_banner{
+  position: absolute;
+  width: 100%;
+  left: 70%;
+  bottom: 35%;
+}
+.learn_banner_text{
+  color: #FFFFFF;
+  font: 24px;
 }
 /* end */

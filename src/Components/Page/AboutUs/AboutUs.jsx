@@ -3,6 +3,7 @@ import BackwoodaromaByTheNumber from "./ComponentAboutUs/BackwoodaromaByTheNumbe
 import AboutUsJourney from "./ComponentAboutUs/AboutUsJourney"
 import OurValues from "./ComponentAboutUs/OurValues"
 import HomePageDealsSignup from "../Home/Dashboard/ComponentDashboard/HomePageDealsSignup"
+import ClientPreachSlider from "./ComponentAboutUs/ClientPreachSlider"
 const AboutUs=()=>{
     return(
         <div className="container">
@@ -12,6 +13,7 @@ const AboutUs=()=>{
              <AboutUsJourney/>
             </div>
              <OurValues/>
+             <ClientPreachSlider/>
              <HomePageDealsSignup/>
         </div>
     )

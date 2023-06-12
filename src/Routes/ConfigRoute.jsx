@@ -26,6 +26,7 @@ import Strain from "../Components/Page/Strain/Strain";
 import MainDeals from "../Components/Page/MainDealsFolder/MainDeals";
 import CheckAge from "../Components/Page/CheckAgeEligblityPopup/checkAge";
 import AboutUs from "../Components/Page/AboutUs/AboutUs";
+import Learn from "../Components/Page/Learn/Learn";
 const routesConfig = [
   
       {
@@ -146,6 +147,10 @@ const routesConfig = [
           {
             path:"/AboutUs",
             element:<AboutUs></AboutUs>
+          },
+          {
+            path:"/Learn",
+            element:<Learn/>
           },
         ],
       },

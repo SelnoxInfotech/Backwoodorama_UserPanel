@@ -4,8 +4,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from "styled-components";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-const AboutUsBanner = () => {
-    const AboutUsSlider = styled(Slider)`
+const LearnBanner=()=>{
+    const LearnSlider = styled(Slider)`
 
     .slick-arrow{
         display: none;
@@ -31,11 +31,11 @@ const AboutUsBanner = () => {
 
       }
       .slick-dots{
-            bottom: -12px
+            bottom: -20px
       }
       `;
     const settings = {
-        dots: false,
+        dots: true,
         infinite: false,
         speed: 500,
         slidesToShow: 1,
@@ -48,13 +48,13 @@ const AboutUsBanner = () => {
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     infinite: false,
-                    dots: false
+                    dots: true
                 }
             },
             {
                 breakpoint: 600,
                 settings: {
-                    dots: false,
+                    dots: true,
                     slidesToShow: 1,
                     slidesToScroll: 2,
                     // initialSlide: 2,
@@ -66,7 +66,7 @@ const AboutUsBanner = () => {
                 breakpoint: 480,
                 settings: {
 
-                    dots: false,
+                    dots: true,
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     infinite: false,
@@ -75,24 +75,24 @@ const AboutUsBanner = () => {
             }
         ]
     };
-    const AboutUsBannerArray = [{ imgUrl: "./image/about_us_banner.jpg" }, { imgUrl: "./image/about_us_banner.jpg" }]
-    return (
-        <AboutUsSlider {...settings}>
-            {AboutUsBannerArray.map((items, index) => {
-                return (
-                    <div className='about_us_header'>
-                        <div className='col-12 about_us_image_container border' key={index}>
+    const LearnBannerArray = [{ imgUrl: "./image/about_us_banner.jpg" }, { imgUrl: "./image/about_us_banner.jpg" }]
 
-                            <LazyLoadImage src={items.imgUrl} alt='imgs not available' className='About_us_banner_image' />
-                            <div class='text-on-image'>
-                                <h3>About us</h3>
-                            </div>
-                        </div>
-                    </div>
+    return(
+     <LearnSlider {...settings}>
+        {LearnBannerArray.map((items,index)=>{
+            return(
+                <div className='learn_banner_header'>
+                <div className='col-12 learn_image_slider'>
+                  <LazyLoadImage src={items.imgUrl} alt='img_not_available'/>
+                </div>
+                <div className='text_on_Learn_banner'>
+                  <h1 className='learn_banner_text'>Learn</h1>
+                </div>
+                </div>
+            )
+        })}
 
-                )
-            })}
-        </AboutUsSlider>
+     </LearnSlider>
     )
 }
-export default AboutUsBanner
+export default LearnBanner;
