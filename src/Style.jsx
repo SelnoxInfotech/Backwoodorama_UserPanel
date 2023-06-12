@@ -483,7 +483,12 @@ learn_tab: {
     display:"none"
   },
   "& .MuiTab-root.Mui-selected": {
-    color: "#31B665"
+    color: "#31B665",
+  },
+  "& .MuiTab-root":{
+    textTransform:"none",
+    color:"#707070",
+    fontSize:"16px"
   }
 },
 learnTabPadding: {

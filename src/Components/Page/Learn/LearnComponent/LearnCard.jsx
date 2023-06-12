@@ -1,5 +1,5 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-
+import { Link } from 'react-router-dom';
 const LearnCards = () => {
     const LearnCard_Array = [
         { imgUrl: "./image/learn_img1.png", title: "First time smoking weeds start here" },
@@ -12,6 +12,7 @@ const LearnCards = () => {
                 {LearnCard_Array.map((items, index) => {
                     return (
                         <div className="col-sm-6 learn_card">
+                            <Link to="/LearnCardRelatedPage">
                             <section className='learn_image_section'>
                                 <div className='learCard_image_div'>
                                 <LazyLoadImage className="learn_image" src={items.imgUrl} alt='img_not_available' />
@@ -21,6 +22,7 @@ const LearnCards = () => {
                                     <p className='learnCard_title ellipsis'>{items.title}</p>
                                 </div>
                             </section>
+                            </Link>
                         </div>
                     )
                 })}

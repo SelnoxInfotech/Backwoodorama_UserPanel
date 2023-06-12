@@ -4918,3 +4918,87 @@ color: #FFFFFF;
   }
 }
 /* end */
+/* LearnCardRelatedBanner */
+.learnCard_Related_image_slider{
+  height: 400px;
+
+}
+.learnCard_related_imageBanner{
+  height: 400px;
+  width: 100%;
+}
+/* end */
+/* learnCardRelatedContent */
+.learnCardRelatedContent_Container{
+  height: auto;
+}
+.learnCardRelatedContent_section{
+  height:auto;
+  width: 100%;
+  border: 1px solid gray;
+}
+.learnCardRelatedContent_heading_container{
+  height: 50px;
+  border: 1px solid gray;
+}
+.learnCardRelatedContent_paragraph{
+  height: 100%;
+  border: 1px solid gray;
+}
+.learnCardRelatedCotent_headings{
+font-weight: 700;
+font-size: 24px;
+color: #000000;
+}
+.learnCardRelatedContent_paragraphs{
+  font-weight: 400;
+font-size: 16px;
+color: #666666;
+}
+.learnCardRelatedPageContent_section_two{
+  height: auto;
+}
+.learnCardRelatedPageContent_sec{
+  height:100%;
+  border: 1px solid gray;
+}
+.learnCardRelatedPageContent_sec_image_cont{
+  height: auto;
+  border: 1px solid gray;
+
+}
+.learnCardRelatedPageContent_sec_image{
+  height: 160px;
+  width: 100%;
+  border: 1px solid gray;
+
+}
+.Enabling_container{
+  height: 100%;
+  border: 1px solid gray;
+
+}
+.Enabling_heading{
+  font-weight: 700;
+font-size: 24px;
+color: #000000;
+}
+.Enabling_paragraph{
+  
+  font-weight: 400;
+font-size: 16px;
+color: #000000;
+}
+.Enabling_section{
+  height: auto;
+}
+.welcome_paragraph_cont{
+  height: auto;
+
+}
+.welcome_paragraph{
+font-weight: 400;
+font-size: 16px;
+color: #666666;
+}
+/* end */

@@ -28,6 +28,8 @@ import CheckAge from "../Components/Page/CheckAgeEligblityPopup/checkAge";
 import AboutUs from "../Components/Page/AboutUs/AboutUs";
 import Learn from "../Components/Page/Learn/Learn";
 import LearnTabs from "../Components/Page/Learn/LearnTabs";
+import LearnCardRelatedPage from "../Components/Page/Learn/LearnCardRelatedPage/LearnCardRelatedPage";
+import LearnCardRelatedPageBanner from "../Components/Page/Learn/LearnCardRelatedPage/LearnCardRelatedPageComponent/LearnCardRelatedPageBanner";
 const routesConfig = [
   
       {
@@ -153,6 +155,10 @@ const routesConfig = [
             path:"/LearnTabs",
             element:<LearnTabs/>
           },
+          {
+            path:"/LearnCardRelatedPage",
+            element:<LearnCardRelatedPage/>
+          }
         ],
       },
 ]
