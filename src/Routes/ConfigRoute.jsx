@@ -30,6 +30,7 @@ import Learn from "../Components/Page/Learn/Learn";
 import LearnTabs from "../Components/Page/Learn/LearnTabs";
 import LearnCardRelatedPage from "../Components/Page/Learn/LearnCardRelatedPage/LearnCardRelatedPage";
 import LearnCardRelatedPageBanner from "../Components/Page/Learn/LearnCardRelatedPage/LearnCardRelatedPageComponent/LearnCardRelatedPageBanner";
+import Profile from "../Components/Page/Profile/Profile";
 const routesConfig = [
   
       {
@@ -158,6 +159,10 @@ const routesConfig = [
           {
             path:"/LearnCardRelatedPage",
             element:<LearnCardRelatedPage/>
+          },
+          {
+            path:"/Profile",
+            element:<Profile/>
           }
         ],
       },

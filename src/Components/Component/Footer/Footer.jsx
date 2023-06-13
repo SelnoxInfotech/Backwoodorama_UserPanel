@@ -42,14 +42,14 @@ const Footer = () => {
         <>
             <div className="container-fluid">
                 <div className="row footer_Main_row">
-                    <div className="col-12 footer_main_div_display">
+                    <div className="col-12 footer_main_div_display px-0">
                         <div className="w-100 footer_center footer_head_height ">
                             <h1 className="ellipsis footer_heading fontWeight_Seven_Hundred">BACKWOODAROMA</h1>
                         </div>
                         <div className="w-100 footer_center  footer_head_height">
                             <h2 className="ellipsis footer_sub_heading fontWeight_Four_Hundred">A community connecting cannabis consumerretailers, doctors, and brands since 2008.</h2>
                         </div>
-                        <div className="col-xl-4 col-sm-4 footer_logo_container">
+                        <div className="col-xl-4 col-sm-4 footer_logo_container px-4">
                             <div className="col-12 footer_log_center footer_logo footer_logo_height">
                                 <LazyLoadImage className="footer_logo_image" src="/image/logo.webp" alt="image_not found" />
                             </div>
@@ -66,16 +66,13 @@ const Footer = () => {
                                 <div className="w-100 d-flex gap-2">
                                  <span><HiOutlineMail color="#31B665" size={18}/></span><span className="footer_middle_icons_text">backwoodaroma@gmail.com</span>
                                 </div>
-                                {/* <BsWhatsapp className={`footer_icons ${classes.footer_icons_color}`} />
-                                <FaFacebook className={` footer_icons ${classes.footer_icons_color}`} />
-                                <FaInstagram className={` footer_icons ${classes.footer_icons_color}`} /> */}
                             </div>
                         </div>
                         <div className="col-xl-8  col-sm-8 footer_content_container">
                             <div className="col-12  footer_inner_flex">
                                 <div className="col-8  footer_content_width_small">
                                     <div className="col-12 footer_inner_container">
-                                        <div className="col-6 footer_list">
+                                        <div className="col-6 footer_list px-4">
                                             <ol className="footer_list_gap">
                                                 <h5 className="footer_menu_heading">About Backwoodaroma</h5>
                                                 {AboutUs.map((ele, index) => {
@@ -85,7 +82,7 @@ const Footer = () => {
                                                 })}
                                             </ol>
                                         </div>
-                                        <div className="col-6 footer_list">
+                                        <div className="col-6 footer_list px-4">
                                             <ol className="footer_list_gap">
                                                 <h5 className="footer_menu_heading">Category</h5>
                                                 {Categorys.map((ele, index) => {
@@ -103,7 +100,7 @@ const Footer = () => {
                                 <div className="col-4 footer_content_width_small">
                                     <div className="col-12  footer_inner_container">
 
-                                        <div className="col-6 footer_list">
+                                        <div className="col-6 footer_list px-4">
                                             <ol className="footer_list_gap">
 
                                                 <h5 className="footer_menu_heading">More</h5>
@@ -119,9 +116,12 @@ const Footer = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-12 bottom_menu_items_mainCol">
+                        <div className="w-100 bottom_white_line">
 
-                            <div className="offset-lg-3 col-lg-6  col-12 bottom_menu_items">
+                        </div>
+                        <div className="col-12 bottom_menu_items_mainCol mt-2">
+
+                            <div className="offset-lg-3 col-lg-6  col-12 bottom_menu_items px-4">
                                 <ol className="px-0">
                                     {
                                         BottomMenuBar.map((val, index) => {
@@ -133,7 +133,7 @@ const Footer = () => {
                                     }
                                 </ol>
                             </div>
-                            <div className="col-lg-3 col-12 footer_icons_column">
+                            <div className="col-lg-3 col-12 footer_icons_column px-4">
                                 <ol className="px-0">
                                     <li>
                                         <BsWhatsapp className={`footer_icons ${classes.footer_icons_color}`} />
@@ -149,14 +149,15 @@ const Footer = () => {
                             </div>
 
                         </div>
-                        <div className="col-12  footer_bootom_headings_container">
-                            <h1 className="ellipsis footer_headingss">Design by Backwoodaroma 2023</h1>
 
-                        </div>
 
 
 
                     </div>
+                    <div className="col-12  footer_bootom_headings_container">
+                            <h1 className="ellipsis footer_headingss">Design by Backwoodaroma 2023</h1>
+
+                        </div>
 
                 </div>
 

@@ -1447,7 +1447,7 @@
   flex-wrap: wrap;
   border: 1px solid #E7E7E7;
   height: auto;
-  padding: 4px;
+  /* padding: 4px; */
   background-color: #f8f8f8;
   padding-top: 40px;
 }
@@ -1609,7 +1609,9 @@ color: #183B56;
 .bottom_menu_items{
   display: flex;
 }
-
+.bottom_white_line{
+  border: 2px solid #FFFFFF;
+}
 .footer_content_container {
   display: grid;
   align-items: center;
@@ -1627,6 +1629,9 @@ color: #183B56;
 .footer_content_width_small{
   margin-top: 20px;
 } 
+.footer_logo_container{
+  padding-left: 25px;
+}
 @media(max-width:500px){
   .footer_menu_heading{
   font-size: 12px;
@@ -1667,7 +1672,9 @@ color: #183B56;
     width: 100% !important;
     margin-top: 20px;
   }
-
+  .footer_logo_container{
+    padding-left: 8px;
+  }
   .footer_font_size p {
     font-size: 16px;
   }
@@ -5096,5 +5103,28 @@ color: #666666;
     font-size: 18px;
 
   }
+}
+/* end */
+/* profile */
+.profile_container{
+  height: 388px;
+background: #FFFFFF;
+border: 1px solid #E2E2E2;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.profile_list_items_section ol li{
+  list-style: none;
+  margin-left:30px;
+}
+.ProfileOrderList{
+  width:100%;
+  gap:100px
+}
+.profile_list_div{
+  width:100%;
+  gap: 20px;
+}
+.profileListItems{
+  margin-left: 15px;
 }
 /* end */

@@ -496,6 +496,25 @@ learnTabPadding: {
     padding:"0px",
   }
 },
+profileLoadingBtn:{
+  "& .MuiButton-text": {
+    fontSize: "1.5rem",
+  },
+  "& .MuiLoadingButton-root": {
+    width: "100%",
+    height: "38px",
+    // borderRadius: "40px",
+    textTransform: "none",
+    border: "2px solid #D9D9D9",
+    color: "#ffff",
+    backgroundColor: "#D9D9D9",
+  },
+  "& .MuiButtonBase-root:hover": {
+    color: "#ffff",
+    backgroundColor: "#D9D9D9",
+    border: "1px solid #D9D9D9"
+  },
+}
   // NewproductHeart:{
   //  backgroundColor:"#949494" 
   // }
