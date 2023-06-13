@@ -168,7 +168,7 @@ const Login = () => {
                                 {/* <Box className={`${classes.Signup_loading_btn_facebook}`}>
                                    <LoadingButton variant='outlined'   loadingPosition="start"  startIcon={<FaFacebookF />}>Continue with Facebook</LoadingButton>
                                 </Box> */}
-                                {/* <FaceBookLogin></FaceBookLogin> */}
+                                <FaceBookLogin></FaceBookLogin>
                             </div>
 
                         </div>
