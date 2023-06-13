@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import React from 'react';
 import FacebookLogin from 'react-facebook-login';
 import { IoLogoGoogle, IoLogoFacebook } from 'react-icons/io';
@@ -13,17 +14,17 @@ import { IoLogoGoogle, IoLogoFacebook } from 'react-icons/io';
 
     return (
       <FacebookLogin
-      appId="1930440197330648"
+      appId="218951724397904"
       // authType="Login"
       callback={responseFacebook}
-      fields="first_name, last_name, email"
+      fields="name, email"
       scope="public_profile, email"
-      // appSecret = "d476327ecaf008fbb82e5dbdab23a6d7" 
-      // render={renderProps => (
-      //     <IoLogoFacebook
-      //         onClick={renderProps.onClick}
-      //     />
-      // )}
+      render={renderProps => (
+          // <IoLogoFacebook
+          //     onClick={renderProps.onClick}
+          // 
+          <Button>ssss</Button>
+      )}
       
       />
     )
