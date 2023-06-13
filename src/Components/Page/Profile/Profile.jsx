@@ -43,8 +43,8 @@ const Profile = () => {
                             )
                         })}
                         </ol>
-                    </section>
-                        <Box className={`mt-4 ${classes.profileLoadingBtn}`}>
+                    </section> 
+                        <Box className={`mt-4 profileLodingBtn_position ${classes.profileLoadingBtn}`}>
                         <LoadingButton>Logout</LoadingButton>
                         </Box>
 
