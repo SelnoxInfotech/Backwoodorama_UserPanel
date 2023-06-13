@@ -28,7 +28,7 @@ const SideNavbar = ({ closeNav, Open }) => {
 
     return (
         <>
-            <div id="mySidebar" className="sidebar" style={{ width: Open ? "250px" : "0px" }}>
+            <div id="mySidebar" className="sidebar" style={{ width: Open ? "300px" : "0px" }}>
                 <div className=' col-12 Login_Sigup_button mt-4 mb-3 '>
                     {
                         !state.login ?
