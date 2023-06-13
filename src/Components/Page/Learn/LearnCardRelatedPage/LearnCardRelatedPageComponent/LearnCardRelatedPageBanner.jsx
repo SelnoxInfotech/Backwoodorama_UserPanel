@@ -75,7 +75,7 @@ const LearnCardRelatedPageBanner=()=>{
             }
         ]
     };
-    const LearnBannerArray = [{ imgUrl: "./image/learn_img1.png" }, { imgUrl: "./image/learnBanner2.jpg" }]
+    const LearnBannerArray = [{ imgUrl: "./image/learn_img1.png" }]
     return(
         <LearnSlider {...settings}>
         {LearnBannerArray.map((items,index)=>{

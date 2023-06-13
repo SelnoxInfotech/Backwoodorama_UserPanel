@@ -20,8 +20,8 @@ const LearnCardRelatedPageContent = () => {
             </section>
             <section className='learnCardRelatedPageContent_section_two'>
                 <div className="row mx-0">
-                    <div className="col-sm-8 learnCardRelatedPageContent_sec">
-                        <p>cannabis. We created Learn to offer reliable educat
+                    <div className="col-sm-8 learnCardRelatedPageContent_sec px-0">
+                        <p className='learnCardRelatedPageContent_sec_paragraph'>cannabis. We created Learn to offer reliable educat
                             ional resources for novice and connoisseur consum
                             ers alike. Like the plant we know and love, this section
                             will grow, so stay tuned for updates.
@@ -34,7 +34,7 @@ const LearnCardRelatedPageContent = () => {
                             ers alike. Like the plant we know and love, this section
                             will grow, so stay tuned for updates.</p>
                     </div>
-                    <div className="col-sm-4 learnCardRelatedPageContent_sec_image_cont px-0">
+                    <div className="col-sm-4 learnCardRelatedPageContent_sec_image_cont ">
                         <LazyLoadImage className='learnCardRelatedPageContent_sec_image' src='./image/learn_img1.png' alt='image_not_available' />
                     </div>
 
@@ -86,8 +86,8 @@ const LearnCardRelatedPageContent = () => {
                     <div className="col-sm-4 learnCardRelatedPageContent_sec_image_cont px-0">
                         <LazyLoadImage className='learnCardRelatedPageContent_sec_image' src='./image/learn_img1.png' alt='image_not_available' />
                     </div>
-                    <div className="col-sm-8 learnCardRelatedPageContent_sec">
-                        <p>cannabis. We created Learn to offer reliable educat
+                    <div className="col-sm-8 learnCardRelatedPageContent_sec px-0">
+                        <p className='welcome_paragraph'>cannabis. We created Learn to offer reliable educat
                             ional resources for novice and connoisseur consum
                             ers alike. Like the plant we know and love, this section
                             will grow, so stay tuned for updates.
@@ -103,7 +103,7 @@ const LearnCardRelatedPageContent = () => {
 
 
                 </div>
-                <div className='w-100 welcome_paragraph_cont'>
+                <div className='w-100 welcome_paragraph_cont mt-3'>
                     <p className='welcome_paragraph'>Welcome to Learn, your guide to understanding the essential topics and laws relating to cannabis. We create
                         Learn to offer reliable educational resources for novice and connoisseur consumers alike. Like the plant we
                         know and love, this section will grow, so stay tuned for updates.</p>
