@@ -502,22 +502,19 @@ profileLoadingBtn:{
   },
   "& .MuiLoadingButton-root": {
     width: "100%",
-    height: "38px",
-    // borderRadius: "40px",
+    height: "52px",
     textTransform: "none",
     border: "2px solid #D9D9D9",
-    color: "#ffff",
+    color: "#000000",
     backgroundColor: "#D9D9D9",
   },
   "& .MuiButtonBase-root:hover": {
-    color: "#ffff",
+    color: "#000000",
     backgroundColor: "#D9D9D9",
     border: "1px solid #D9D9D9"
   },
 }
-  // NewproductHeart:{
-  //  backgroundColor:"#949494" 
-  // }
+
 
 });
 

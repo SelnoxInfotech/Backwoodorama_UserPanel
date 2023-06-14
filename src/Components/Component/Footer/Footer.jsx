@@ -47,7 +47,7 @@ const Footer = () => {
                             <h1 className="ellipsis footer_heading fontWeight_Seven_Hundred">BACKWOODAROMA</h1>
                         </div>
                         <div className="w-100 footer_center  footer_head_height">
-                            <h2 className="ellipsis footer_sub_heading fontWeight_Four_Hundred">A community connecting cannabis consumerretailers, doctors, and brands since 2008.</h2>
+                            <h2 className="footer_sub_heading fontWeight_Four_Hundred">A community connecting cannabis consumerretailers, doctors, and brands since 2008.</h2>
                         </div>
                         <div className="col-xl-4 col-sm-4 footer_logo_container px-4">
                             <div className="col-12 footer_log_center footer_logo footer_logo_height">
@@ -72,7 +72,7 @@ const Footer = () => {
                             <div className="col-12  footer_inner_flex">
                                 <div className="col-8  footer_content_width_small">
                                     <div className="col-12 footer_inner_container">
-                                        <div className="col-6 footer_list px-4">
+                                        <div className="col-6 footer_list">
                                             <ol className="footer_list_gap">
                                                 <h5 className="footer_menu_heading">About Backwoodaroma</h5>
                                                 {AboutUs.map((ele, index) => {
@@ -82,7 +82,7 @@ const Footer = () => {
                                                 })}
                                             </ol>
                                         </div>
-                                        <div className="col-6 footer_list px-4">
+                                        <div className="col-6 footer_list">
                                             <ol className="footer_list_gap">
                                                 <h5 className="footer_menu_heading">Category</h5>
                                                 {Categorys.map((ele, index) => {
@@ -100,7 +100,7 @@ const Footer = () => {
                                 <div className="col-4 footer_content_width_small">
                                     <div className="col-12  footer_inner_container">
 
-                                        <div className="col-6 footer_list px-4">
+                                        <div className="col-6 footer_list">
                                             <ol className="footer_list_gap">
 
                                                 <h5 className="footer_menu_heading">More</h5>
@@ -155,7 +155,7 @@ const Footer = () => {
 
                     </div>
                     <div className="col-12  footer_bootom_headings_container">
-                            <h1 className="ellipsis footer_headingss">Design by Backwoodaroma 2023</h1>
+                            <h1 className="footer_headingss">Design by Backwoodaroma 2023</h1>
 
                         </div>
 

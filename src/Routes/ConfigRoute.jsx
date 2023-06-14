@@ -31,6 +31,7 @@ import LearnTabs from "../Components/Page/Learn/LearnTabs";
 import LearnCardRelatedPage from "../Components/Page/Learn/LearnCardRelatedPage/LearnCardRelatedPage";
 import LearnCardRelatedPageBanner from "../Components/Page/Learn/LearnCardRelatedPage/LearnCardRelatedPageComponent/LearnCardRelatedPageBanner";
 import Profile from "../Components/Page/Profile/Profile";
+import EditProfile from "../Components/Page/Profile/EditProfile/EditProfile";
 const routesConfig = [
   
       {
@@ -163,6 +164,10 @@ const routesConfig = [
           {
             path:"/Profile",
             element:<Profile/>
+          },
+          {
+            path:"/EditProfile",
+            element:<EditProfile/>
           }
         ],
       },
