@@ -5274,9 +5274,9 @@
 }
 
 .profile_images {
-  width: 50px;
-  height: 50px;
-  border-radius: 25px;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
 
 .profile_image {
@@ -5284,8 +5284,8 @@
   place-items: center;
   margin-top: 20px;
   margin-left: 40px;
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   border: 1px solid #E2E2E2;
   background: #31B665;
@@ -5322,6 +5322,21 @@
   position: absolute;
   bottom: 0px;
   width: 100%;
+}
+
+.profile_edit_text {
+  margin-top: 25px;
+  margin-left: 35px;
+}
+
+@media(max-width:500px) {
+  .profile_user_name {
+    font-size: 16px;
+  }
+
+  .profile_edit_text {
+    margin-left: 15px;
+  }
 }
 
 /* end */
@@ -5361,4 +5376,64 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.editProfileLogin_emailField_container {
+  height: 80px;
+}
+
+.editProfileLogin_emailField_container_edit {
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.editProfileLogin_padding_left {
+  padding-left: 10px;
+}
+
+.editProfile_label {
+  font-weight: 400;
+  font-size: 18px;
+  color: #000000;
+}
+
+.EditEmail_inner_container {
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.EditProfileLogin_mainColumns {
+  height: auto;
+}
+
+/* end */
+/* EditProfileOnlineOrder */
+.EditProfileOnlineOrder_main_column {
+  height: auto;
+}
+
+.online_order_heading {
+  font-weight: 700;
+  font-size: 24px;
+  color: #000000;
+}
+
+.EditProfileOnlineOrder_container {
+  height: 1026px;
+  background: #FFFFFF;
+  border: 1px solid #E2E2E2;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.EditProfilOnlineOrder_name_flelds{
+  height: 80px;
+
+}
+.EditProfileOnline_name{
+  height: 30px;
+}
+.EditProfilOnlineEdit_icons_flelds{
+  height: 50px;
+  display:flex;
+  justify-content: flex-end;
+}
 /* end */
