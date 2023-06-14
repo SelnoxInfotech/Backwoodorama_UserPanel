@@ -106,7 +106,6 @@ const Login = () => {
 
                                 <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
                                     <TextField
-                                        autoComplete="on"
                                         type={showPassword ? 'text' : 'password'}
                                         placeholder="Enter Your Password"
                                         variant="outlined"

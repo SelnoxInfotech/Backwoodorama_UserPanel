@@ -143,8 +143,8 @@ const SearchBar = () => {
                         ListboxProps={{ style: { maxHeight: 500 } }}
                         componentsProps={{ popper: { style: { height: '100%', width: SearchBarWidth ? "100%" : "30%" } } }}
                         onChange={(event, value) => SearchAPi(value?.id, value?.type,)}
-                        getOptionSelected={(option, value) => option.value}
-                        getOptionLabel={(option) => option.value}
+                        // getOptionSelected={(option, value) => option.value}
+                        getOptionLabel={(option ) => option.value}
                         options={SearchData}
                         groupBy={(option) => option.type}
                         renderOption={(props, t) => {
@@ -152,7 +152,7 @@ const SearchBar = () => {
                                 <div {...props} style={{ color: "black" }} >
                                     <ul className='PopperLIst'>
                                         <div>
-                                            <li onClick={((e) => SearchAPi(t.id, t.type,))} key={`${t.value}`}>
+                                            <li onClick={((e) => SearchAPi(t.id, t.type,))} key={t.value}>
                                                 <img src={`https://sweede.app/${t.image}`} style={{ width: "50px", height: "50px" }} alt=''></img>
                                                 <span> {`${t.value}`}</span>
                                             </li>

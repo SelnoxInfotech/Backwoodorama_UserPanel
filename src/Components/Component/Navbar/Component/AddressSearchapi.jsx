@@ -179,7 +179,6 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
         onChange={handleChange}
         onFocus={onFocus}
         onBlur={OnBlur}
-        autocomplete="on"
         type="text"
         style={{ width: "100%", borderRadius: (openLocation && SearchBarWidth) ? " 16px 16px 16px 16px" : " 0px 16px 16px 0px", top: "0px", display: open && SearchBarWidth ? "none" : "inline-flex", }}
         sx={{ width: "100%" }}
@@ -192,8 +191,8 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
             </InputAdornment>
           ),
           endAdornment: (
-            <IconButton>
-              <MdOutlineMyLocation color="inherit" size={16} style={{ cursor: 'pointer' }} onClick={current} />
+            <IconButton onClick={current}>
+              <MdOutlineMyLocation color="inherit" size={16} style={{ cursor: 'pointer' }}  />
             </IconButton>
 
           ),

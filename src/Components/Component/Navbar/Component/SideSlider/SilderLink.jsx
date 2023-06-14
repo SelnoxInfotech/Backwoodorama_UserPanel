@@ -25,7 +25,7 @@ export default function DashBoardLink({ state }) {
 
       <div className="container-fluid Top ">
         <Grid container spacing={2}  >
-          <Grid xs={8} md={8} xl={8.2} display={{ xs: "none", md: "block", lg: "block" }}>
+          <Grid xs={8} md={7.5} xl={8.2} display={{ xs: "none", md: "block", lg: "block" }}>
             <div className="ccol  nav_list1">
               <ul>
                 <Link to="/Dispansires" id={`${(current_route === "/Dispansires" ? "Active" : "")}`}> <li >Dispensaries </li></Link>
@@ -42,15 +42,15 @@ export default function DashBoardLink({ state }) {
             </div>
           </Grid>
           <Grid xs={6} md={2} xl={2} display={{ xs: "none", md: "block", lg: "block" }}>
-            <div className=' col-12 Login_Sigup_button  ' >
+            <div className=' col-12 Login_Sigup_button Login_Sigup_logo ' >
               <ImFacebook color={"#39569c"} size={25} style={{ pointerEvents: "none" }}></ImFacebook>
              <RiInstagramLine className="InstaColor" size={25} style={{ pointerEvents: "none" }}></RiInstagramLine>
               <BsWhatsapp color="green" size={22} style={{ pointerEvents: "none" }}></BsWhatsapp>
               <FcGoogle size={25} style={{ pointerEvents: "none" }}></FcGoogle>
             </div>
           </Grid>
-          <Grid xs={6} md={2} xl={1} display={{ xs: "none", md: "block", lg: "block" }} >
-            <div className=' col-12 Login_Sigup_button addyocardIcon  '>
+          <Grid xs={6} md={2} xl={1} spacing={2} display={{ xs: "none", md: "block", lg: "block" }} >
+            <div className=' col-12  addyocardIcon  '>
               <Badge badgeContent={4} className={classes.sliderLink_badge}>
                 <AiFillHeart color="grey" size={22}></AiFillHeart>
               </Badge>

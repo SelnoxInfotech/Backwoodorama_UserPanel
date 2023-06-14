@@ -95,6 +95,7 @@
 }
 
 .disp_head h1 {
+  margin-left: 32px;
   font-weight: 700;
   font-size: 25px;
   color: #333333;
@@ -3747,7 +3748,7 @@ color: #183B56;
 }
 
 #width {
-  padding: 10px;
+  padding: 0px;
 }
 
 
