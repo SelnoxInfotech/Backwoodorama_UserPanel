@@ -323,11 +323,15 @@ a {
     gap: 38px;
 } 
 .addyocardIcon{
-  justify-content: flex-start;
+  justify-content: center;
+}
+.Login_Sigup_logo {
+  justify-content: center;
 }
 }
 .addyocardIcon{
-  gap: 28px;
+  display: flex;
+  gap: 11%;
 }
 @media(max-width:1076px){
   .Login_Sigup_button {

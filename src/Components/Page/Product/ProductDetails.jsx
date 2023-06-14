@@ -205,7 +205,7 @@ const ProductDetail = () => {
                         ProductDetails?.map((ele, index) => {
                             return (
                                 <>
-                                    <div className="col-3  add_product_img_continer" key={index}>
+                                    <div className="col-3  add_product_img_continer" key={ele.id}>
                                         <div className="col-12 add_prod_first_img">
                                             {Image ?
                                                 ele?.images.map((data, index) => {
@@ -378,7 +378,7 @@ const ProductDetail = () => {
 
                 {ProductDetails.map((ele, index) => {
                     return (
-                        <div key={index} className="col-10  border mt-4 product_desc_container">
+                        <div key={ele.id} className="col-10  border mt-4 product_desc_container">
                             <div className="col-10  prod_des_head fontStyle ">
                                 <p>Product Description</p>
                             </div>
@@ -407,7 +407,7 @@ const ProductDetail = () => {
                     <div className="col-12">
                         {ProductDetails.map((ele, index) => {
                             return (
-                                <div className="col-12 prod_desc_review p-2 mt-4 mb-4" key={index}>
+                                <div key={index} className="col-12 prod_desc_review p-2 mt-4 mb-4" >
                                     <div className="col-12   prod_des_head fontStyle ">
                                         {/* <p>{ele.prevName}</p> */}
                                     </div>
