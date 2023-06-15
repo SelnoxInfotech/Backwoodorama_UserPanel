@@ -2,15 +2,11 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 import { Box } from "@mui/material"
 import useStyles from "../../../../../Style"
 import { IoCloseSharp } from "react-icons/io5"
 import LoadingButton from '@mui/lab/LoadingButton';
-
+import { MdEdit } from 'react-icons/md';
 const EditEmailPopup = () => {
     const classes = useStyles()
     const [open, setOpen] = React.useState(false);
@@ -25,7 +21,7 @@ const EditEmailPopup = () => {
     return (
 
         <div>
-            <Button variant="outlined" onClick={handleClickOpen}>
+            <Button  onClick={handleClickOpen} startIcon={<MdEdit/>}>
                 Edit
             </Button>
             <Dialog open={open} onClose={handleClose} className={classes.notification_dialogBox_width_height}>
@@ -37,7 +33,7 @@ const EditEmailPopup = () => {
                             <h1 className='EditEmail_pop_heading'>Email Edit</h1>
                         </div>
                         <div className='col-6 text-end mt-4 EditEmailPopup_col_height'>
-                            <IoCloseSharp />
+                            <IoCloseSharp size={"18px"} color='#707070'/>
                         </div>
 
 

@@ -31,7 +31,7 @@ const EditProfileLogin = () => {
                             </div>
                             <div className="col-6  editProfileLogin_emailField_container_edit">
                                 <div className="editSpan_div">
-                                   <EditEmailPopup><span><MdEdit color="#707070" size={18} /></span> <span className="editProfileLogin_padding_left edit_span_name">Edit</span></EditEmailPopup>
+                                   <EditEmailPopup/>
                                 </div>
                             </div>
 
