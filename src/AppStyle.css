@@ -5435,4 +5435,52 @@
   display:flex;
   justify-content: flex-end;
 }
+.edit_span_name{
+font-weight: 700;
+font-size: 12px;
+color: #707070;
+}
+.editSpan_div{
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+}
+.editProfile_name{
+  font-weight: 400;
+  font-size: 18px;
+  color: #000000; 
+}
+@media(max-width:600px){
+ .editProfile_name{
+  font-size: 12px;
+ } 
+ @media(max-width:450px){
+  .editProfile_name{
+    font-size: 10px;
+   } 
+   .editProfile_label{
+    font-size: 12px;
+   }
+ }
+}
+/* end */
+/*Notification */
+.email_notification{
+  height: 400px;
+  background: #FFFFFF;
+border: 1px solid #E2E2E2;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.EditEmail_pop_heading{
+  font-weight: 700;
+font-size: 24px;
+color: #000000;
+}
+.EditEmailPopup_col_height{
+  height: 60px;
+}
+.edit_emailPopUp_btn_container{
+  height: 60px;
+  margin-top: 20px;
+}
 /* end */

@@ -308,14 +308,10 @@ const useStyles = makeStyles({
     "@media(max-width:1280px)": {
       "& .MuiTabs-flexContainer": {
         gap: '10px',
-        // overflowX: "scroll",
-        // overflowY: "hidden"
-
       },
     },
 
     "& .MuiTabs-scroller": {
-      // overflow: "scroll"
     }
   },
   dispensory_tab_background:{
@@ -327,14 +323,10 @@ const useStyles = makeStyles({
     "@media(max-width:1280px)": {
       "& .MuiTabs-flexContainer": {
         gap: '10px',
-        // overflowX: "scroll",
-        // overflowY: "hidden"
-
       },
     },
 
     "& .MuiTabs-scroller": {
-      // overflow: "scroll"
     } 
   },
   deliverItemCardPadding: {
@@ -518,6 +510,65 @@ EditProfileTextFields_Outline:{
   "& fieldset":{
     border: 'none'
   }
+},
+notification_dialogBox_width_height:{
+  "& .MuiDialog-container": {
+    "& .MuiPaper-root": {
+      width: "50%",
+     height:"400px",  // Set your width here
+     borderRadius:"20px",
+     background:"#FFFFFF",
+    },
+  },
+  "@media(max-width:500px)":{
+    "& .MuiDialog-container": {
+      "& .MuiPaper-root": {
+        minWidth: "90%",
+      },
+    },
+  }
+},
+editEmail_loadingBtn: {
+  "& .MuiButton-text": {
+    fontSize: ".5rem",
+  },
+  "& .MuiLoadingButton-root": {
+    width: "100%",
+    height: "50px",
+    borderRadius: "5px",
+    backgroundColor: "#FFFFFF",
+    color: "#707070",
+    textTransform: "none",
+    border: "1px solid #31B665",
+    fontWeight:"700",
+    fontSize:"14px"
+  },
+  "& .MuiButtonBase-root:hover": {
+    color: "#707070",
+    backgroundColor: "#FFFFFF",
+    border: "1px solid #31B665"
+  },
+},
+editEmail_loadingBtn_cancel:{
+  "& .MuiButton-text": {
+    fontSize: ".5rem",
+  },
+  "& .MuiLoadingButton-root": {
+    width: "100%",
+    height: "50px",
+    borderRadius: "5px",
+    backgroundColor: "#C1C1C1",
+    color: "#434343",
+    textTransform: "none",
+    border: "1px solid #C1C1C1",
+    fontWeight:"700",
+    fontSize:"14px"
+  },
+  "& .MuiButtonBase-root:hover": {
+    color: "#434343",
+    backgroundColor: "#C1C1C1",
+    border: "1px solid #C1C1C1"
+  },
 }
 
 });

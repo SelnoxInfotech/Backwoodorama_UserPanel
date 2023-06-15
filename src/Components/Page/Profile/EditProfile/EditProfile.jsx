@@ -1,6 +1,7 @@
 import { IoChevronBackSharp } from "react-icons/io5"
 import EditProfileLogin from "./EditProfileComponent/EditProfileLogin"
 import EditProfileOnlineOrder from "./EditProfileComponent/EditProfileOnlineOrder"
+import Notification from "./EditProfileComponent/Notification"
 const EditProfile = () => {
     return (
         <div className="container">
@@ -15,6 +16,7 @@ const EditProfile = () => {
                 </div>
                 <EditProfileLogin/>
                 <EditProfileOnlineOrder/>
+                <Notification/>
             </div>
 
         </div>
