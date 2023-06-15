@@ -569,6 +569,23 @@ editEmail_loadingBtn_cancel:{
     backgroundColor: "#C1C1C1",
     border: "1px solid #C1C1C1"
   },
+},
+notification_user_dialogBox_width_height:{
+  "& .MuiDialog-container": {
+    "& .MuiPaper-root": {
+      width: "50%",
+     height:"490px",  // Set your width here
+     borderRadius:"20px",
+     background:"#FFFFFF",
+    },
+  },
+  "@media(max-width:500px)":{
+    "& .MuiDialog-container": {
+      "& .MuiPaper-root": {
+        minWidth: "90%",
+      },
+    },
+  }
 }
 
 });

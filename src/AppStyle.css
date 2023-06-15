@@ -5483,4 +5483,16 @@ color: #000000;
   height: 60px;
   margin-top: 20px;
 }
+.edit_UserPopUp_btn_container{
+  height: 60px;
+  margin-top: 20px;
+}
+.Edit_userName{
+  font-weight: 700;
+  font-size: 24px;
+  color: #000000;
+}
+.EditUser_col_div{
+  height: 60px;
+}
 /* end */

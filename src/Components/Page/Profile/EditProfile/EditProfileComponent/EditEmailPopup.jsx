@@ -27,10 +27,10 @@ const EditEmailPopup = () => {
             <Dialog open={open} onClose={handleClose} className={classes.notification_dialogBox_width_height}>
                 <div className='container-fluid px-4'>
                 
-
+                     <form>
                     <div className='row my-2'>
                         <div className='col-6 mt-4 EditEmailPopup_col_height'>
-                            <h1 className='EditEmail_pop_heading'>Email Edit</h1>
+                            <label className='EditEmail_pop_heading' htmlFor='edit email'>Email Edit</label>
                         </div>
                         <div className='col-6 text-end mt-4 EditEmailPopup_col_height'>
                             <IoCloseSharp size={"18px"} color='#707070'/>
@@ -40,7 +40,7 @@ const EditEmailPopup = () => {
                     </div>
                     <div className='row'>
                         <div className='col-12  EditEmailPopup_col_height'>
-                            <TextField id="filled-basic" fullWidth label="Filled" variant="filled" />
+                            <TextField id="edit email" fullWidth  placeholder='maxwel@gmail.com' variant="filled" />
                         </div>
 
                     </div>
@@ -56,6 +56,7 @@ const EditEmailPopup = () => {
                     >
                         <LoadingButton id='EditEmailSave' variant="outlined" >cancel</LoadingButton>
                     </Box>
+                    </form>
                     </div>
             </Dialog>
         </div>
