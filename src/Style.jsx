@@ -641,6 +641,43 @@ AddMobilePopup:{
 
   }
 }
+},
+addDeliverAddress:{
+  "& .MuiDialog-container": {
+    "& .MuiPaper-root": {
+      width: "50%",
+      height:"450px",
+      borderRadius: "20px",
+      background: "#FFFFFF",
+    }
+},
+"@media(max-width:500px)": {
+  "& .MuiDialog-container": {
+    "& .MuiPaper-root": {
+      minWidth: "90%"
+    }
+
+  }
+}
+}
+,
+addPhotoPopup:{
+  "& .MuiDialog-container": {
+    "& .MuiPaper-root": {
+      width: "50%",
+      height:"450px",
+      borderRadius: "20px",
+      background: "#FFFFFF",
+    }
+},
+"@media(max-width:500px)": {
+  "& .MuiDialog-container": {
+    "& .MuiPaper-root": {
+      minWidth: "90%"
+    }
+
+  }
+}
 }
 
 

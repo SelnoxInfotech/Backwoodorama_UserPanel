@@ -8,6 +8,7 @@ import { IoCloseCircle } from "react-icons/io5"
 import { MdEdit } from "react-icons/md"
 import MuiPhoneNumber from "material-ui-phone-number"
 import LoadingButton from "@mui/lab/LoadingButton"
+import { AiFillPlusCircle } from "react-icons/ai"
 const AddMobileNumberPopup = () => {
     const [Open, SetOpen] = React.useState(false)
     const classes = useStyles()
@@ -19,7 +20,7 @@ const AddMobileNumberPopup = () => {
     }
     return (
         <div>
-            <Button onClick={handleClickOpen} startIcon={<MdEdit color="#707070" size={20} />}>Add</Button>
+            <Button onClick={handleClickOpen} startIcon={<AiFillPlusCircle color="#707070" size={20} />}>Add</Button>
             <Dialog open={Open} onClose={handleClose} className={`${classes.AddMobilePopup}`}>
                 <div className="container-fluid py-4 px-4">
                     <div className="row">

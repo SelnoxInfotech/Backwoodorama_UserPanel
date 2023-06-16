@@ -4,6 +4,8 @@ import { AiFillPlusCircle } from "react-icons/ai"
 import useStyles from '../../../../../Style';
 import EditUserName from './EditProfileOnlineOrderComponent/EditUserName';
 import AddMobileNumberPopup from './EditProfileOnlineOrderComponent/AddMobileNumerPopup';
+import AddDeliveryAddressPopup from './EditProfileOnlineOrderComponent/AddDeliveryAddressPopup';
+import AddPhotoId from './EditProfileOnlineOrderComponent/AddPhotoId';
 const EditProfileOnlineOrder = () => {
     const classes = useStyles()
     return (
@@ -59,7 +61,8 @@ const EditProfileOnlineOrder = () => {
                         </div>
                         <div className="col-6 EditProfilOnlineEdit_icons_flelds">
                             <div className='EditProfileOnline_name'>
-                                <span><AiFillPlusCircle color="#707070" size={18} /></span> <span className="editProfileLogin_padding_left edit_span_name ">Add</span>
+                                <AddDeliveryAddressPopup/>
+                                {/* <span><AiFillPlusCircle color="#707070" size={18} /></span> <span className="editProfileLogin_padding_left edit_span_name ">Add</span> */}
 
                             </div>
                         </div>
@@ -76,7 +79,8 @@ const EditProfileOnlineOrder = () => {
                         </div>
                         <div className="col-6 EditProfilOnlineEdit_icons_flelds">
                             <div className='EditProfileOnline_name'>
-                                <span><AiFillPlusCircle color="#707070" size={18} /></span> <span className="editProfileLogin_padding_left edit_span_name">Add</span>
+                                <AddPhotoId/>
+                                {/* <span><AiFillPlusCircle color="#707070" size={18} /></span> <span className="editProfileLogin_padding_left edit_span_name">Add</span> */}
 
                             </div>
                         </div>
