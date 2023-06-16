@@ -2,12 +2,11 @@ import { MdEmail } from "react-icons/md";
 import React from "react";
 import { FaUser } from "react-icons/fa"
 import TextField from '@mui/material/TextField';
-import { MdEdit } from "react-icons/md"
 import { AiFillEye } from "react-icons/ai"
 import { AiOutlineEyeInvisible } from "react-icons/ai"
-import Button from '@mui/material/Button';
 import EditEmailPopup from "./EditEmailPopup";
 import EditUserPopup from "./EditUserPopup";
+import EditPasswordPopup from "./EditPasswordPopup";
 const EditProfileLogin = () => {
     const [activePassword, setAtivePassword] = React.useState(true);
     const passwordVisibility = () => {
@@ -67,7 +66,7 @@ const EditProfileLogin = () => {
                             </div>
                             <div className="col-6  editProfileLogin_emailField_container_edit">
                                 <div className="editSpan_div">
-                                    <span><MdEdit color="#707070" size={18} /></span> <span className="editProfileLogin_padding_left edit_span_name">Edit</span>
+                                    <EditPasswordPopup/>
                                 </div>
                             </div>
 

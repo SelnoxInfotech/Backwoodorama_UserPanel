@@ -3,12 +3,11 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
-import { IoCloseSharp } from "react-icons/io5"
 import { Box } from "@mui/material"
 import LoadingButton  from '@mui/lab/LoadingButton';
 import useStyles from '../../../../../Style';
 import { MdEdit } from "react-icons/md"
-
+import {RiCloseCircleFill} from "react-icons/ri"
 const EditUserPopup = () => {
     const classes=useStyles()
     const [open, setOpen] = React.useState(false);
@@ -26,17 +25,17 @@ const EditUserPopup = () => {
             <Button  onClick={handleClickOpen} startIcon={< MdEdit color="#707070" size={18}/>}>
                 Edit
             </Button>
-            <Dialog open={open} onClose={handleClose} className={`${classes.notification_dialogBox_width_height} ${classes.notification_user_dialogBox_width_height}`}>
+            <Dialog open={open} onClose={handleClose} className={`${classes.notification_user_dialogBox_width_height}`}>
                 <div className='container-fluid px-4'>
                     <div className='row'>
                         <div className='col-12 text-end mt-4 EditUser_col_div'>
-                           <LoadingButton  startIcon={<IoCloseSharp color='gray' size={"18"}/>}></LoadingButton>
+                           <LoadingButton  startIcon={<RiCloseCircleFill color='gray' size={24}/>}></LoadingButton>
                         </div>
                         <div className='col-12 mt-4 EditUser_col_div'>
                           <label className='Edit_userName' htmlFor='Edit User Name'>Edit User Name</label>
                         </div>
                         <div className='col-12 mt-4 EditUser_col_div'>
-                          <TextField placeholder='Maxwell' fullWidth variant="filled" id='Edit User Name'/>
+                          <TextField  InputProps={{disableUnderline:true}}  placeholder='Maxwell' fullWidth variant="filled" id='Edit User Name'/>
                         </div>
                     </div>
                     <Box

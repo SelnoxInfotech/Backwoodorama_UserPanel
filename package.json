@@ -36,6 +36,7 @@
     "gsap": "^3.11.5",
     "html-react-parser": "^3.0.15",
     "jquery": "^3.7.0",
+    "material-ui-phone-number": "^3.0.0",
     "material-ui-search-bar": "^1.0.0",
     "react": "^18.2.0",
     "react-alice-carousel": "^2.7.0",
@@ -74,7 +75,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -94,4 +94,3 @@
     ]
   }
 }
-    
