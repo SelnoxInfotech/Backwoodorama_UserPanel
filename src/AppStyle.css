@@ -5556,3 +5556,26 @@ color: #000000;
   }
 }
 /* end */
+/* deliveryAddress */
+.deliveryAddress_heading{
+  color: #000000;
+  font-size: 24px;
+  font-weight: 700;
+}
+.addDeliverAddress_col{
+  height: 50px;
+}
+.addDeliveryAddress_textfield_col{
+  height: 60px;
+}
+/* end */
+/* AddPhotoIdPoppup */
+.AddPhotoIdPoppup_col{
+height: 50px;
+}
+.photoId_heading{
+  font-size: 24px;
+  font-weight: 700;
+  color: #000000;
+}
+/* end */
