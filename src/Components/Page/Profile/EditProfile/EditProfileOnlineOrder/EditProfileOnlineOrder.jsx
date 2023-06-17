@@ -1,11 +1,11 @@
 import TextField from '@mui/material/TextField';
-import { MdEdit } from "react-icons/md"
-import { AiFillPlusCircle } from "react-icons/ai"
 import useStyles from '../../../../../Style';
 import EditUserName from './EditProfileOnlineOrderComponent/EditUserName';
 import AddMobileNumberPopup from './EditProfileOnlineOrderComponent/AddMobileNumerPopup';
 import AddDeliveryAddressPopup from './EditProfileOnlineOrderComponent/AddDeliveryAddressPopup';
 import AddPhotoId from './EditProfileOnlineOrderComponent/AddPhotoId';
+import MedicalCardDetailsPopup from './EditProfileOnlineOrderComponent/MedicalCardDetailsPopup';
+import AddDateOfBirth from './EditProfileOnlineOrderComponent/AddDateOfBirth';
 const EditProfileOnlineOrder = () => {
     const classes = useStyles()
     return (
@@ -44,7 +44,6 @@ const EditProfileOnlineOrder = () => {
                         <div className="col-6 EditProfilOnlineEdit_icons_flelds">
                             <div className='EditProfileOnline_name'>
                                 <AddMobileNumberPopup/>
-                                {/* <span><AiFillPlusCircle color="#707070" size={18} /></span> <span className="editProfileLogin_padding_left edit_span_name">Add</span> */}
 
                             </div>
                         </div>
@@ -62,7 +61,6 @@ const EditProfileOnlineOrder = () => {
                         <div className="col-6 EditProfilOnlineEdit_icons_flelds">
                             <div className='EditProfileOnline_name'>
                                 <AddDeliveryAddressPopup/>
-                                {/* <span><AiFillPlusCircle color="#707070" size={18} /></span> <span className="editProfileLogin_padding_left edit_span_name ">Add</span> */}
 
                             </div>
                         </div>
@@ -80,7 +78,6 @@ const EditProfileOnlineOrder = () => {
                         <div className="col-6 EditProfilOnlineEdit_icons_flelds">
                             <div className='EditProfileOnline_name'>
                                 <AddPhotoId/>
-                                {/* <span><AiFillPlusCircle color="#707070" size={18} /></span> <span className="editProfileLogin_padding_left edit_span_name">Add</span> */}
 
                             </div>
                         </div>
@@ -89,7 +86,7 @@ const EditProfileOnlineOrder = () => {
                     <div className="row mt-4 mx-0">
                         <div className="col-6 EditProfilOnlineOrder_name_flelds">
                             <div className='EditProfileOnline_name'>
-                                <label className='editProfile_name' htmlFor="Medical card number">Medical Card Number</label>
+                                <label className='editProfile_name' htmlFor="Medical card number">Medical Card Details</label>
                             </div>
                             <div className='EditProfileOnline_name'>
                                 <TextField className={classes.EditProfileTextFields_Outline} type="number" id="Medical card number" variant="standard" />
@@ -97,46 +94,12 @@ const EditProfileOnlineOrder = () => {
                         </div>
                         <div className="col-6 EditProfilOnlineEdit_icons_flelds">
                             <div className='EditProfileOnline_name'>
-                                <span><AiFillPlusCircle color="#707070" size={18} /></span> <span className="editProfileLogin_padding_left edit_span_name ">Add</span>
-
+                                <MedicalCardDetailsPopup/>
                             </div>
                         </div>
 
                     </div>
-                    <div className="row mt-4 mx-0">
-                        <div className="col-6 EditProfilOnlineOrder_name_flelds">
-                            <div className='EditProfileOnline_name'>
-                                <label className='editProfile_name' htmlFor="Medical Card Expiration">Medical Card Expiration</label>
-                            </div>
-                            <div className='EditProfileOnline_name'>
-                                <TextField className={classes.EditProfileTextFields_Outline} type="date" id="Medical Card Expiration" variant="standard" />
-                            </div>
-                        </div>
-                        <div className="col-6 EditProfilOnlineEdit_icons_flelds">
-                            <div className='EditProfileOnline_name'>
-                                <span><AiFillPlusCircle color="#707070" size={18} /></span> <span className="editProfileLogin_padding_left edit_span_name">Add</span>
-
-                            </div>
-                        </div>
-
-                    </div>
-                    <div className="row mt-4 mx-0">
-                        <div className="col-6 EditProfilOnlineOrder_name_flelds">
-                            <div className='EditProfileOnline_name'>
-                                <label className='editProfile_name' htmlFor="Medical Card State">Medical Card State</label>
-                            </div>
-                            <div className='EditProfileOnline_name'>
-                                <TextField className={classes.EditProfileTextFields_Outline} type="date" id="Medical Card State" variant="standard" />
-                            </div>
-                        </div>
-                        <div className="col-6 EditProfilOnlineEdit_icons_flelds">
-                            <div className='EditProfileOnline_name'>
-                                <span><AiFillPlusCircle color="#707070" size={18} /></span> <span className="editProfileLogin_padding_left edit_span_name">Add</span>
-
-                            </div>
-                        </div>
-
-                    </div>
+               
                     <div className="row mt-4 mx-0">
                         <div className="col-6 EditProfilOnlineOrder_name_flelds">
                             <div className='EditProfileOnline_name'>
@@ -148,7 +111,7 @@ const EditProfileOnlineOrder = () => {
                         </div>
                         <div className="col-6 EditProfilOnlineEdit_icons_flelds">
                             <div className='EditProfileOnline_name'>
-                                    <span><AiFillPlusCircle color="#707070" size={18} /></span> <span className="editProfileLogin_padding_left edit_span_name">Add</span>
+                                <AddDateOfBirth/>
                             </div>
                         </div>
 

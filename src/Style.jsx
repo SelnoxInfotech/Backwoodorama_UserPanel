@@ -678,8 +678,43 @@ addPhotoPopup:{
 
   }
 }
-}
+},
+medicalCardDetail_dialog:{
+  "& .MuiDialog-container": {
+    "& .MuiPaper-root": {
+      width: "50%",
+      height:"650px",
+      borderRadius: "20px",
+      background: "#FFFFFF",
+    }
+},
+"@media(max-width:500px)": {
+  "& .MuiDialog-container": {
+    "& .MuiPaper-root": {
+      minWidth: "90%"
+    }
 
+  }
+}
+},
+addDateOfBirthPopup:{
+  "& .MuiDialog-container": {
+    "& .MuiPaper-root": {
+      width: "50%",
+      height:"400px",
+      borderRadius: "20px",
+      background: "#FFFFFF",
+    }
+},
+"@media(max-width:500px)": {
+  "& .MuiDialog-container": {
+    "& .MuiPaper-root": {
+      minWidth: "90%"
+    }
+
+  }
+}
+}
 
 });
 

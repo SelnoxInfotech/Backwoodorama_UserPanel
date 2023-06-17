@@ -40,7 +40,7 @@ const EditEmailPopup = () => {
                     </div>
                     <div className='row'>
                         <div className='col-12  EditEmailPopup_col_height'>
-                            <TextField id="edit email" fullWidth  placeholder='maxwel@gmail.com' variant="filled" />
+                            <TextField id="edit email" fullWidth InputProps={{disableUnderline:true}}  placeholder='maxwel@gmail.com' variant="filled" />
                         </div>
 
                     </div>

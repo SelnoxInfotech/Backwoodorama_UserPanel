@@ -5418,164 +5418,280 @@
 }
 
 .EditProfileOnlineOrder_container {
-  height: 1026px;
+  height: 670px;
   background: #FFFFFF;
   border: 1px solid #E2E2E2;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.EditProfilOnlineOrder_name_flelds{
+
+.EditProfilOnlineOrder_name_flelds {
   height: 80px;
 
 }
-.EditProfileOnline_name{
+
+.EditProfileOnline_name {
   height: 30px;
 }
-.EditProfilOnlineEdit_icons_flelds{
+
+.EditProfilOnlineEdit_icons_flelds {
   height: 50px;
-  display:flex;
+  display: flex;
   justify-content: flex-end;
 }
-.edit_span_name{
-font-weight: 700;
-font-size: 12px;
-color: #707070;
+
+.edit_span_name {
+  font-weight: 700;
+  font-size: 12px;
+  color: #707070;
 }
-.editSpan_div{
+
+.editSpan_div {
   height: 50px;
   justify-content: center;
   align-items: center;
 }
-.editProfile_name{
+
+.editProfile_name {
   font-weight: 400;
   font-size: 18px;
-  color: #000000; 
+  color: #000000;
 }
-@media(max-width:600px){
- .editProfile_name{
-  font-size: 12px;
- } 
- @media(max-width:450px){
-  .editProfile_name{
-    font-size: 10px;
-   } 
-   .editProfile_label{
+
+@media(max-width:600px) {
+  .editProfile_name {
     font-size: 12px;
-   }
- }
+  }
+
+  @media(max-width:450px) {
+    .editProfile_name {
+      font-size: 10px;
+    }
+
+    .editProfile_label {
+      font-size: 12px;
+    }
+  }
 }
+
 /* end */
 /*Notification */
-.email_notification{
+.email_notification {
   height: 400px;
   background: #FFFFFF;
-border: 1px solid #E2E2E2;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid #E2E2E2;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.EditEmail_pop_heading{
-  font-weight: 700;
-font-size: 24px;
-color: #000000;
-}
-.EditEmailPopup_col_height{
-  height: 60px;
-}
-.edit_emailPopUp_btn_container{
-  height: 60px;
-  margin-top: 20px;
-}
-.edit_UserPopUp_btn_container{
-  height: 60px;
-  margin-top: 20px;
-}
-.Edit_userName{
+
+.EditEmail_pop_heading {
   font-weight: 700;
   font-size: 24px;
   color: #000000;
 }
-.EditUser_col_div{
+
+.EditEmailPopup_col_height {
   height: 60px;
 }
+
+.edit_emailPopUp_btn_container {
+  height: 60px;
+  margin-top: 20px;
+}
+
+.edit_UserPopUp_btn_container {
+  height: 60px;
+  margin-top: 20px;
+}
+
+.Edit_userName {
+  font-weight: 700;
+  font-size: 24px;
+  color: #000000;
+}
+
+.EditUser_col_div {
+  height: 60px;
+}
+
 /* end */
 /* EditpaswordPopup */
-.editPassword_Col{
+.editPassword_Col {
   height: 50px;
 }
-.editPassword_Col_textfield{
+
+.editPassword_Col_textfield {
   height: 57px;
 }
-.editPassword_heading{
+
+.editPassword_heading {
   color: #000000;
   font-weight: 700;
   font-size: 24px;
 }
-.editPassword_label{
+
+.editPassword_label {
   color: #000000;
   font-weight: 400;
   font-size: 18px;
 }
+
 /* end */
 /* EditUserPopup */
-.editUserLabel{
+.editUserLabel {
   color: #000000;
   font-weight: 400;
   font-size: 18px;
 }
-.editUserHeading{
+
+.editUserHeading {
   color: #000000;
   font-size: 24px;
   font-weight: 700;
 }
-.edit_userName_col{
+
+.edit_userName_col {
   height: 50px;
 }
-.edit_useName_col_textfield{
+
+.edit_useName_col_textfield {
   height: 75px;
 }
-.addMobileNumberPopup_heading{
+
+.addMobileNumberPopup_heading {
   color: #000000;
   font-size: 24px;
   font-weight: 700;
 }
+
 /* end */
 /* AddMobileNumberPopup */
-.AddMobileNo_col{
+.AddMobileNo_col {
   height: 50px;
   /* border: 1px solid black; */
 }
-.mobile_notification{
+
+.mobile_notification {
   height: 35px;
 }
-.mobile_send_code{
+
+.mobile_send_code {
   font-weight: 400;
   font-size: 18px;
   color: #000000
 }
-@media(max-width:881px){
-  .mobile_send_code{
+
+@media(max-width:881px) {
+  .mobile_send_code {
     font-size: 12px;
   }
 }
+
 /* end */
 /* deliveryAddress */
-.deliveryAddress_heading{
+.deliveryAddress_heading {
   color: #000000;
   font-size: 24px;
   font-weight: 700;
 }
-.addDeliverAddress_col{
+
+.addDeliverAddress_col {
   height: 50px;
 }
-.addDeliveryAddress_textfield_col{
+
+.addDeliveryAddress_textfield_col {
   height: 60px;
 }
+
 /* end */
 /* AddPhotoIdPoppup */
-.AddPhotoIdPoppup_col{
-height: 50px;
+.AddPhotoIdPoppup_col {
+  height: 50px;
 }
-.photoId_heading{
+
+.photoId_heading {
   font-size: 24px;
   font-weight: 700;
   color: #000000;
+}
+
+.addphoto_section {
+  display: flex;
+  width: auto;
+}
+
+.add_photo_label_div {
+  width: 90px;
+  padding-left: 8px;
+  height: 80px;
+  position: relative;
+}
+
+.add_photo_label {
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.add_photos_col_container {
+  display: flex;
+  justify-content: center;
+}
+
+.add_photo_size {
+  width: 78px;
+  height: 78px;
+  border-radius: 10px;
+}
+
+.add_photo_container {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #F0F0F0;
+  background: #F0F0F0;
+  border-radius: 10px;
+}
+
+.changePhoto_title {
+  font-size: 10px;
+  margin-left: 10px;
+  color: #707070;
+  font-weight: 400;
+}
+
+/* end */
+/* medicalCardInformation */
+.medicalCard_heading{
+  color: #000000;
+  font-size: 24px;
+  font-weight: 700;
+}
+.medicalCard_col_height{
+  height: 60px;
+}
+.MedicalCard_label_div{
+  height: 30px;
+}
+@media(max-width:500px){
+  .medicalCard_heading{
+    font-size: 16px;
+  }
+}
+/* end */
+/* AddDateOfBirth */
+.AddDateOfBirth_textField_col{
+  height: 55px;
+}
+.addDateOfBirth_label{
+  height: 30px;
+}
+.dob_heading{
+  color: #000000;
+  font-size: 24px;
+  font-weight: 700;
+}
+@media(max-width:500px){
+  .dob_heading{
+    font-size: 16px;
+  }
 }
 /* end */

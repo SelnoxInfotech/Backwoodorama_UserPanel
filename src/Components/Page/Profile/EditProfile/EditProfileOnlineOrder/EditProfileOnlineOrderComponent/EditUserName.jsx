@@ -32,6 +32,7 @@ const EditUserName = () => {
                         </div>
 
                     </div>
+                    <form>
                     <div className="row">
                         <div className="col-12 edit_userName_col">
                           <label className="editUserLabel" htmlFor="User Name">Name</label>
@@ -47,6 +48,7 @@ const EditUserName = () => {
                     <Box className={`mt-4 ${classes.editEmail_loadingBtn_cancel}`}>
                         <LoadingButton>Cancel</LoadingButton>
                     </Box>
+                    </form>
 
                 </div>
             </Dialog>

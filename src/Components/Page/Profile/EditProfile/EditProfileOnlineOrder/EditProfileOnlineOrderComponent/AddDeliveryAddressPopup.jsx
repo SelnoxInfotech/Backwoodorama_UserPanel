@@ -32,6 +32,7 @@ const AddDeliveryAddressPopup = () => {
                             <h1 className='deliveryAddress_heading'>Add delivery address</h1>
                         </div>
                     </div>
+                    <form>
                     <div className='row'>
                         <div className='col-12 addDeliverAddress_col'>
                             <label htmlFor='delivery address'>Delivery Address</label>
@@ -47,7 +48,7 @@ const AddDeliveryAddressPopup = () => {
                     <Box className={` mt-4 ${classes.editEmail_loadingBtn_cancel}`}>
                         <LoadingButton>Cancel</LoadingButton>
                     </Box>
-
+                    </form>
                 </div>
             </Dialog>
 
