@@ -14,6 +14,9 @@ import Cookies from 'universal-cookie';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import CurrentLocation from './Component/CurrentLocation';
 import Badge from '@mui/material/Badge';
+import Box from '@mui/material/Box';
+import LoadingButton from '@mui/lab/LoadingButton';
+
 const Navbar = () => {
   const cookies = new Cookies();
   const ref = React.useRef(null);
@@ -22,6 +25,9 @@ const Navbar = () => {
   const [Hamburger, SetHamburger] = React.useState(window.innerWidth >= 900)
   const classes = useStyles()
   const [Open, SetOpen] = React.useState(false)
+  const [DropDownState, SetDropDownState] = React.useState(null)
+  const ProfileList = [{ item: "My Order" }, { item: "Favorites" },
+  { item: "Review" }, { item: "Help" }]
   React.useEffect(() => {
 
     const handleResize = () => {
@@ -63,6 +69,11 @@ const Navbar = () => {
       document.removeEventListener('click', handleClickOutside, true);
     };
   }, [Open, windowSize]);
+  const handleClickDropdown = () => {
+    SetDropDownState((DropDownState) => {
+      return !DropDownState;
+    })
+  }
   return (
     <>
       <div ref={ref} className='sticky-top' style={{ background: "white", padding: "10px" }}>
@@ -98,7 +109,7 @@ const Navbar = () => {
                 <IoIosNotifications color="grey" size={22}></IoIosNotifications>
               </Badge>
               <Link to="/AddToCart">
-                <Badge className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`} badgeContent={state.AllProduct?.length>0?state.AllProduct?.length:"0"}>
+                <Badge className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`} badgeContent={state.AllProduct?.length > 0 ? state.AllProduct?.length : "0"}>
 
                   <MdOutlineShoppingCart color="grey" size={22}></MdOutlineShoppingCart>
                 </Badge>
@@ -115,6 +126,48 @@ const Navbar = () => {
                     <Grid display={{ xs: "none", md: "block", lg: "block" }}>
                       <Button className={classes.muiBtn} onClick={Logout} >Logout</Button>
                     </Grid>
+
+                  </div>
+                  <div className='col-lg-4 col-sm-4 navbarProfileDropDown_container'>
+                    <Grid display={{ xs: "none", md: "block", lg: "block" }}>
+                      {/* <Button className={classes.muiBtn} onClick={handleClickDropdown} >Dropdown</Button> */}
+                      <div className='Navbar_profile_logo_container'>
+                        <LazyLoadImage onClick={handleClickDropdown} src='./image/user.webp' className="Navbar_logo_imgs" />
+                      </div>
+                    </Grid>
+                    {DropDownState && (
+                      <div className='profileDropdown_container'>
+                        <section className='Navbar_proflie_image_name_section'>
+                          <div className='profile_image_container'>
+                            <LazyLoadImage src='./image/user.webp' className="Navbar_profile_imgs" />
+                          </div>
+                          <div className='profile_name_container'>
+                            <h1 className='profile_names'>Maxwell</h1>
+                            <p className='profile_viewAll'>View All</p>
+                          </div>
+
+                        </section>
+                        <hr />
+                        <section className='bg-light navbarProfileDropDownSection'>
+                          <ol className='navbar_profile_orderList px-0'>
+                            {ProfileList.map((value, index) => {
+                              return (
+                                <div>
+                                  <li className='profile_list'>{value.item}</li>
+                                  <hr />
+                                </div>
+                              )
+                            })}
+                          </ol>
+
+                        </section>
+                        <Box className={`mt-4 navbar_profileLodingBtn_position ${classes.navbarprofileLoadingBtn}`}>
+                            <LoadingButton>Logout</LoadingButton>
+                        </Box>
+                      </div>
+
+                    )}
+
                   </div>
                 </div>
                 :

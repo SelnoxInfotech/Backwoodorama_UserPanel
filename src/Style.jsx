@@ -777,7 +777,25 @@ fourZero_Three:{
     backgroundColor: "#FFFFFF",
     border: "1px solid #31B665"
   },
-}
+},
+navbarprofileLoadingBtn: {
+  "& .MuiButton-text": {
+    fontSize: "12px",
+  },
+  "& .MuiLoadingButton-root": {
+    width: "100%",
+    height: "52px",
+    textTransform: "none",
+    border: "2px solid #D9D9D9",
+    color: "#000000",
+    backgroundColor: "#D9D9D9",
+  },
+  "& .MuiButtonBase-root:hover": {
+    color: "#000000",
+    backgroundColor: "#D9D9D9",
+    border: "1px solid #D9D9D9"
+  },
+},
 
 });
 

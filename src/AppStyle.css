@@ -5887,3 +5887,66 @@
   }
 }
 /* end */
+/* navbarProfileDropDown_container */
+.navbarProfileDropDown_container{
+  position: relative;
+}
+.profileDropdown_container{
+  top: 60px;
+  right: 100px;
+  z-index: 2;
+  position: absolute;
+  height: 383px;
+width: 300px;
+background: #FFFFFF;
+border: 1px solid #E2E2E2;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.profile_image_container{
+  width:60px;
+  height: 60px;
+  border-radius: 30px;
+}
+.Navbar_proflie_image_name_section{
+  display: flex;
+  gap: 20px;
+  padding-left: 10px;
+  padding-top: 20px;
+}
+.profile_names{
+  font-weight: 700;
+font-size: 20px;
+color: #000000;
+}
+.profile_viewAll{
+  font-weight: 700;
+font-size: 12px;
+color: #707070;
+}
+.Navbar_profile_imgs{
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+}
+.Navbar_logo_imgs{
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+.Navbar_profile_logo_container{
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+.navbar_profile_orderList li{
+  list-style: none;
+}
+.profile_list{
+  margin-left: 8px;
+}
+.navbar_profileLodingBtn_position{
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+/* end */
