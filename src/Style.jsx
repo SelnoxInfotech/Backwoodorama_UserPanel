@@ -714,6 +714,69 @@ addDateOfBirthPopup:{
 
   }
 }
+},
+fourZeroFourBtn:{
+    "& .MuiButton-text": {
+      fontSize: ".5rem",
+    },
+    "& .MuiLoadingButton-root": {
+      width: "50%",
+      height: "50px",
+      borderRadius: "5px",
+      backgroundColor: "#FFFFFF",
+      color: "#434343",
+      textTransform: "none",
+      border: "1px solid #31B665",
+      fontWeight: "700",
+      fontSize: "14px"
+    },
+    "& .MuiButtonBase-root:hover": {
+      color: "#434343",
+      backgroundColor: "#FFFFFF",
+      border: "1px solid #31B665"
+    },
+},
+fiveZero_Three:{
+  "& .MuiButton-text": {
+    fontSize: ".5rem",
+  },
+  "& .MuiLoadingButton-root": {
+    width: "50%",
+    height: "50px",
+    borderRadius: "5px",
+    backgroundColor: "#FFFFFF",
+    color: "#434343",
+    textTransform: "none",
+    border: "1px solid #31B665",
+    fontWeight: "700",
+    fontSize: "14px"
+  },
+  "& .MuiButtonBase-root:hover": {
+    color: "#434343",
+    backgroundColor: "#FFFFFF",
+    border: "1px solid #31B665"
+  },
+},
+fourZero_Three:{
+  "& .MuiButton-text": {
+    fontSize: ".5rem",
+  },
+  "& .MuiLoadingButton-root": {
+    width: "50%",
+    height: "50px",
+    borderRadius: "5px",
+    backgroundColor: "#FFFFFF",
+    color: "#434343",
+    textTransform: "none",
+    border: "1px solid #31B665",
+    fontWeight: "700",
+    fontSize: "14px"
+  },
+  "& .MuiButtonBase-root:hover": {
+    color: "#434343",
+    backgroundColor: "#FFFFFF",
+    border: "1px solid #31B665"
+  },
 }
 
 });

@@ -32,6 +32,9 @@ import LearnCardRelatedPage from "../Components/Page/Learn/LearnCardRelatedPage/
 import LearnCardRelatedPageBanner from "../Components/Page/Learn/LearnCardRelatedPage/LearnCardRelatedPageComponent/LearnCardRelatedPageBanner";
 import Profile from "../Components/Page/Profile/Profile";
 import EditProfile from "../Components/Page/Profile/EditProfile/EditProfile";
+import FourZeroFour from "../Components/Page/ErrorPage/FourZeroFour";
+import FiveZeroThree from "../Components/Page/ErrorPage/FiveZeroThree";
+import FourZeroThree from "../Components/Page/ErrorPage/FourZeroThree";
 const routesConfig = [
   
       {
@@ -168,6 +171,18 @@ const routesConfig = [
           {
             path:"/EditProfile",
             element:<EditProfile/>
+          },
+          {
+            path:"/FourZeroFour",
+            element:<FourZeroFour/>
+          },
+          {
+            path:"/FiveZeroThree",
+            element:<FiveZeroThree/>
+          },
+          {
+            path:"/FourZeroThree",
+            element:<FourZeroThree/>
           }
         ],
       },
