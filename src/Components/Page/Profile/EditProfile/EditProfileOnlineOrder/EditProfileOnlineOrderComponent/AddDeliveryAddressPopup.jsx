@@ -19,7 +19,7 @@ const AddDeliveryAddressPopup = () => {
     }
     return (
         <div>
-            <Button onClick={handleClickOpen} startIcon={<AiFillPlusCircle size={18} color='#707070' />}>
+            <Button className={`${classes.EditProfileBtn_Color}`} onClick={handleClickOpen} startIcon={<AiFillPlusCircle size={18} color='#707070' />}>
                 Add
             </Button>
             <Dialog open={Open} onClose={handleClose} className={classes.addDeliverAddress}>

@@ -130,7 +130,6 @@ const Navbar = () => {
                   </div>
                   <div className='col-lg-4 col-sm-4 navbarProfileDropDown_container'>
                     <Grid display={{ xs: "none", md: "block", lg: "block" }}>
-                      {/* <Button className={classes.muiBtn} onClick={handleClickDropdown} >Dropdown</Button> */}
                       <div className='Navbar_profile_logo_container'>
                         <LazyLoadImage onClick={handleClickDropdown} src='./image/user.webp' className="Navbar_logo_imgs" />
                       </div>
@@ -152,7 +151,7 @@ const Navbar = () => {
                           <ol className='navbar_profile_orderList px-0'>
                             {ProfileList.map((value, index) => {
                               return (
-                                <div>
+                                <div key={index}>
                                   <li className='profile_list'>{value.item}</li>
                                   <hr />
                                 </div>
@@ -162,7 +161,7 @@ const Navbar = () => {
 
                         </section>
                         <Box className={`mt-4 navbar_profileLodingBtn_position ${classes.navbarprofileLoadingBtn}`}>
-                            <LoadingButton>Logout</LoadingButton>
+                          <LoadingButton>Logout</LoadingButton>
                         </Box>
                       </div>
 

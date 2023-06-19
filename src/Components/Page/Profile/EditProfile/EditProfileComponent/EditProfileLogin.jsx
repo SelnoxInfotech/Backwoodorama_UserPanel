@@ -26,7 +26,7 @@ const EditProfileLogin = () => {
                                     <span><MdEmail color="#707070" size={20} /></span><span className="editProfileLogin_padding_left editProfile_label"><label htmlFor="email">Email</label></span>
                                 </div>
                                 <div className=" EditEmail_inner_container">
-                                    <TextField type="email" id="email" variant="standard" />
+                                    <TextField type="email" id="email" value="maxwell@gmail.com" InputProps={{disableUnderline:true}} variant="standard" />
                                 </div>
                             </div>
                             <div className="col-6  editProfileLogin_emailField_container_edit">
@@ -43,7 +43,7 @@ const EditProfileLogin = () => {
                                     <span className="editProfileLogin_padding_left editProfile_label"><label htmlFor="userName">User Name</label></span>
                                 </div>
                                 <div className=" EditEmail_inner_container">
-                                    <TextField type="text" id="userName" variant="standard" />
+                                    <TextField type="text" id="userName" variant="standard" value="Maxwell" InputProps={{disableUnderline:true}}/>
                                 </div>
                             </div>
                             <div className="col-6  editProfileLogin_emailField_container_edit">
@@ -61,7 +61,7 @@ const EditProfileLogin = () => {
                                     <span className="editProfileLogin_padding_left editProfile_label"><label htmlFor="password">Password</label></span>
                                 </div>
                                 <div className=" EditEmail_inner_container">
-                                    <TextField type="password" id="password" variant="standard" />
+                                    <TextField type="password" id="password" value="maxwell@1w12" variant="standard" InputProps={{disableUnderline:true}}/>
                                 </div>
                             </div>
                             <div className="col-6  editProfileLogin_emailField_container_edit">

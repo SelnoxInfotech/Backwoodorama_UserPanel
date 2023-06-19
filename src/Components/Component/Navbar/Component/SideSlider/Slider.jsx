@@ -6,25 +6,35 @@ import { Link, useNavigate } from "react-router-dom"
 import styled from "styled-components";
 import Createcontext from "../../../../../Hooks/Context"
 import Cookies from 'universal-cookie';
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import LoadingButton from "@mui/lab/LoadingButton";
+import Box from "@mui/material/Box";
 const SideNavbar = ({ closeNav, Open }) => {
     const cookies = new Cookies();
-    const Navigate =  useNavigate()
+    const Navigate = useNavigate()
     const { state, dispatch } = React.useContext(Createcontext)
+    const [SliderStateDropDown, SetSliderStateDropdown] = React.useState(null)
+    const SliderProfileList = [{ item: "My Order" }, { item: "Favorites" },
+    { item: "Review" }, { item: "Help" }]
     const classes = useStyles()
     function Logout() {
         cookies.remove('Token_access')
         dispatch({ type: 'Login', login: false })
         dispatch({ type: 'ApiProduct' })
     }
-   function Login (){
-    Navigate("/login")
-    closeNav()
-   }
-   function Signup (){
-    Navigate("/Signup")
-    closeNav()
-   }
-
+    function Login() {
+        Navigate("/login")
+        closeNav()
+    }
+    function Signup() {
+        Navigate("/Signup")
+        closeNav()
+    }
+    const sliderProfileHandler = () => {
+        SetSliderStateDropdown((SliderStateDropDown) => {
+            return !SliderStateDropDown;
+        })
+    }
 
     return (
         <>
@@ -44,8 +54,43 @@ const SideNavbar = ({ closeNav, Open }) => {
 
                                 </div>
                             </> :
-                            <div className="col-6">
-                                <Button className={classes.muiBtn} onClick={Logout} >Logout</Button>
+                            <div className="col-6 sliderImageProfile_container_mainDiv" >
+                                {/* <Button className={classes.muiBtn} onClick={Logout} >Logout</Button> */}
+                                <div className="SliderImageProfile_container">
+                                    <LazyLoadImage src='./image/user.webp' className="Slidser_profile_imgs" onClick={sliderProfileHandler} />
+
+                                </div>
+                                {SliderStateDropDown &&
+                                    (<div className="sliderProfile_image_list_container">
+                                        <section className="image_name_section">
+                                            <div className="SliderImageProfile_container">
+                                                <LazyLoadImage src='./image/user.webp' className="Slider_inner_profile_imgs" />
+                                            </div>
+                                            <div className="slider_image_profile_names_conatiner">
+                                                <h1 className="slider_image_name_heading">Maxwell</h1>
+                                                <p className="slider_view_heading">View Profile</p>
+                                            </div>
+                                        </section>
+                                        <hr />
+                                        <section className="sliderProfile_list">
+                                            <ol className="px-0">
+                                                {SliderProfileList.map((items, index) => {
+                                                    return (
+                                                        <div>
+                                                            <li className="slider_profile_list">{items.item}</li>
+                                                            <hr />
+                                                        </div>
+
+                                                    )
+                                                })}
+                                            </ol>
+                                        </section>
+                                        <Box className={`sliderProfile_logout_btn ${classes.sliderProfile_loadingBtn}`}>
+                                            <LoadingButton >Logout</LoadingButton>
+                                        </Box>
+
+                                    </div>)
+                                }
                             </div>
 
                     }
@@ -74,18 +119,18 @@ const SideNavbar = ({ closeNav, Open }) => {
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                <Link to="/MainDeals"> <p onClick={closeNav}>Deals</p></Link>
+                    <Link to="/MainDeals"> <p onClick={closeNav}>Deals</p></Link>
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                <Link to="/LearnTabs"><p onClick={closeNav}>Learn</p></Link>
+                    <Link to="/LearnTabs"><p onClick={closeNav}>Learn</p></Link>
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                <Link to="/Strain"><p onClick={closeNav}>Strain</p></Link>
+                    <Link to="/Strain"><p onClick={closeNav}>Strain</p></Link>
                 </div>
                 <hr></hr>
-         
+
                 <div className="col-12 Slider_content_center " >
                     <p onClick={closeNav}>More</p>
                 </div>

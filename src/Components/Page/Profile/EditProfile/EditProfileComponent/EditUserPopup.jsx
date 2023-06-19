@@ -22,7 +22,7 @@ const EditUserPopup = () => {
 
     return (
         <div>
-            <Button  onClick={handleClickOpen} startIcon={< MdEdit color="#707070" size={18}/>}>
+            <Button className={`${classes.EditProfileBtn_Color}`} onClick={handleClickOpen} startIcon={< MdEdit color="#707070" size={18}/>}>
                 Edit
             </Button>
             <Dialog open={open} onClose={handleClose} className={`${classes.notification_user_dialogBox_width_height}`}>

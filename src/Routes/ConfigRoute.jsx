@@ -173,16 +173,16 @@ const routesConfig = [
             element:<EditProfile/>
           },
           {
-            path:"/FourZeroFour",
-            element:<FourZeroFour/>
-          },
-          {
             path:"/FiveZeroThree",
             element:<FiveZeroThree/>
           },
           {
             path:"/FourZeroThree",
             element:<FourZeroThree/>
+          },
+          {
+            path:"*",
+            element:<FourZeroFour/>
           }
         ],
       },

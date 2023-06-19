@@ -17,7 +17,7 @@ const MedicalCardDetailsPopup = () => {
     const classes = useStyles()
     return (
         <div>
-            <Button onClick={handleClick} startIcon={<AiFillPlusCircle color='#707070' size={20} />}>
+            <Button className={`${classes.EditProfileBtn_Color}`} onClick={handleClick} startIcon={<AiFillPlusCircle color='#707070' size={20} />}>
                 Add
             </Button>
             <Dialog open={Open} onClose={handleClose} className={classes.medicalCardDetail_dialog} >

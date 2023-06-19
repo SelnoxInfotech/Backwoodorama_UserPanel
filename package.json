@@ -61,6 +61,7 @@
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
     "react-store-locator": "^0.20.7",
+    "react-switch": "^7.0.0",
     "recompose": "^0.30.0",
     "serve": "^14.2.0",
     "slick-carousel": "^1.8.1",

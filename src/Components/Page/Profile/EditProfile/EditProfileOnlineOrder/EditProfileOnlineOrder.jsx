@@ -6,6 +6,7 @@ import AddDeliveryAddressPopup from './EditProfileOnlineOrderComponent/AddDelive
 import AddPhotoId from './EditProfileOnlineOrderComponent/AddPhotoId';
 import MedicalCardDetailsPopup from './EditProfileOnlineOrderComponent/MedicalCardDetailsPopup';
 import AddDateOfBirth from './EditProfileOnlineOrderComponent/AddDateOfBirth';
+import { Troubleshoot } from '@mui/icons-material';
 const EditProfileOnlineOrder = () => {
     const classes = useStyles()
     return (
@@ -21,7 +22,7 @@ const EditProfileOnlineOrder = () => {
                                 <label className='editProfile_name' htmlFor="user name">Name</label>
                             </div>
                             <div className='EditProfileOnline_name'>
-                                <TextField className={classes.EditProfileTextFields_Outline} type="text" id="user name" variant="standard" />
+                                <TextField className={classes.EditProfileTextFields_Outline} type="text" id="user name"value="Maxwell" InputProps={{disableUnderline:true}} variant="standard" />
                             </div>
                         </div>
                         <div className="col-6 EditProfilOnlineEdit_icons_flelds">
@@ -38,7 +39,7 @@ const EditProfileOnlineOrder = () => {
                                 <label className='editProfile_name' htmlFor="mobile no">Mobile Number</label>
                             </div>
                             <div className='EditProfileOnline_name'>
-                                <TextField className={classes.EditProfileTextFields_Outline} type="text" id="mobile no" variant="standard" />
+                                <TextField className={classes.EditProfileTextFields_Outline} type="text" id="mobile no" value="81818639200" InputProps={{disableUnderline:true}} variant="standard" />
                             </div>
                         </div>
                         <div className="col-6 EditProfilOnlineEdit_icons_flelds">
@@ -55,7 +56,7 @@ const EditProfileOnlineOrder = () => {
                                 <label className='editProfile_name' htmlFor="Delivery address">Delivery Address</label>
                             </div>
                             <div className='EditProfileOnline_name'>
-                                <TextField className={classes.EditProfileTextFields_Outline} type="text" id="Delivery address" variant="standard" />
+                                <TextField className={classes.EditProfileTextFields_Outline} type="text" id="Delivery address" value="Delivery Address" InputProps={{disableUnderline:true}} variant="standard" />
                             </div>
                         </div>
                         <div className="col-6 EditProfilOnlineEdit_icons_flelds">
@@ -72,7 +73,7 @@ const EditProfileOnlineOrder = () => {
                                 <label className='editProfile_name' htmlFor="Photo Id">Photo Id</label>
                             </div>
                             <div className='EditProfileOnline_name'>
-                                <TextField className={classes.EditProfileTextFields_Outline} type="text" id="Photo Id" variant="standard" />
+                                <TextField className={classes.EditProfileTextFields_Outline} type="text" id="Photo Id" value="Photo Id" InputProps={{disableUnderline:true}} variant="standard" />
                             </div>
                         </div>
                         <div className="col-6 EditProfilOnlineEdit_icons_flelds">
@@ -89,7 +90,7 @@ const EditProfileOnlineOrder = () => {
                                 <label className='editProfile_name' htmlFor="Medical card number">Medical Card Details</label>
                             </div>
                             <div className='EditProfileOnline_name'>
-                                <TextField className={classes.EditProfileTextFields_Outline} type="number" id="Medical card number" variant="standard" />
+                                <TextField className={classes.EditProfileTextFields_Outline} type="number" value="Add mediacl card number" InputProps={{disableUnderline:true}} id="Medical card number" variant="standard" />
                             </div>
                         </div>
                         <div className="col-6 EditProfilOnlineEdit_icons_flelds">
@@ -106,7 +107,7 @@ const EditProfileOnlineOrder = () => {
                                 <label className='editProfile_name' htmlFor="Add Date Of Birth">Add Date Of Birth</label>
                             </div>
                             <div className='EditProfileOnline_name'>
-                                <TextField className={classes.EditProfileTextFields_Outline} type="date" id="Add Date Of Birth" variant="standard" />
+                                <TextField className={classes.EditProfileTextFields_Outline} type="date" id="Add Date Of Birth" value="Add DOB" InputProps={{disableUnderline:true}} variant="standard" />
                             </div>
                         </div>
                         <div className="col-6 EditProfilOnlineEdit_icons_flelds">

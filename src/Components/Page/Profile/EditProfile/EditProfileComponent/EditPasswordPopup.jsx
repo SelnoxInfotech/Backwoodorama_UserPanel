@@ -21,7 +21,7 @@ const EditPasswordPopup = () => {
     }
     return (
         <div>
-            <Button  startIcon={<MdEdit color="#707070" size={18}/>} onClick={handleClickOpen}>
+            <Button className={`${classes.EditProfileBtn_Color}`} startIcon={<MdEdit color="#707070" size={18}/>} onClick={handleClickOpen}>
                 Edit
             </Button>
             <Dialog open={Open} onClose={handleClose} className={classes.editPwd_Popup_dialog}>

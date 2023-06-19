@@ -18,7 +18,7 @@ const EditUserName = () => {
     }
     return (
         <div>
-            <Button onClick={handleClickOpen} startIcon={<MdEdit color="#707070" size={20} />}>
+            <Button className={`${classes.EditProfileBtn_Color}`} onClick={handleClickOpen} startIcon={<MdEdit color="#707070" size={20} />}>
                 Edit
             </Button>
             <Dialog open={Open} onClose={handleClose} className={classes.EditUserNamePopup}>

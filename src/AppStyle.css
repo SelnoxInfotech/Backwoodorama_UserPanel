@@ -5512,6 +5512,45 @@
   height: 60px;
 }
 
+.notification_col_height2{
+  height: 100px;
+  display: grid;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid gray;
+}
+.notification_col_ReactSwitch{
+  border-bottom: 1px solid gray;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100px;
+}
+.notification_content_section{
+  height: 70%;
+  display: grid;
+  align-items: center;
+}
+.email_notification_headings{
+  font-size: 24px;
+  color: #000000;
+  font-weight: 700;
+}
+.email_notification_inner_headings{
+  color: #000000;
+  font-weight: 400;
+  font-size: 18px;
+}
+.email_notification_sub_headings{
+  color: #707070;
+  font-size: 14px;
+  font-weight: 400;
+}
+@media(max-width:500px){
+  .email_notification_sub_headings {
+    font-size: 12px;
+  }
+}
 /* end */
 /* EditpaswordPopup */
 .editPassword_Col {
@@ -5929,22 +5968,88 @@ color: #707070;
   border-radius: 30px;
 }
 .Navbar_logo_imgs{
-  width: 50px;
-  height: 50px;
-  border-radius: 25px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
 }
 .Navbar_profile_logo_container{
-  width: 50px;
-  height: 50px;
-  border-radius: 25px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
 }
 .navbar_profile_orderList li{
   list-style: none;
 }
 .profile_list{
   margin-left: 8px;
+  color: #707070;
+  font-size: 14px;
+  font-weight: 700;
 }
 .navbar_profileLodingBtn_position{
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+/* end */
+/* SliderImageProfile_container */
+.SliderImageProfile_container{
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+}
+.Slidser_profile_imgs{
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+}
+.Slider_inner_profile_imgs{
+  width: 40px;
+  height: 40px;
+  border-radius: 20px; 
+}
+.sliderImageProfile_container_mainDiv{
+  position: relative;
+  display: grid;
+  justify-content: center;
+}
+.sliderProfile_image_list_container{
+  position: absolute;
+width: 180px;
+height: 345px;
+left: 10px;
+top: 50px;
+z-index: 2;
+background: #FFFFFF;
+border: 1px solid #E2E2E2;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.image_name_section{
+  display: flex;
+  padding-left: 10px;
+  padding-top: 10px;
+  gap: 10px;
+}
+.slider_image_name_heading{
+  color: #000000;
+  font-weight: 700;
+  font-size: 12px;
+}
+.slider_view_heading{
+  color: #707070;
+  font-weight: 700;
+  font-size: 10px;
+}
+.sliderProfile_list ol li{
+  list-style: none;
+}
+.slider_profile_list{
+  margin-left: 8px;
+  color: #707070;
+  font-size: 12px;
+  font-weight: 700;
+}
+.sliderProfile_logout_btn{
   position: absolute;
   bottom: 0px;
   width: 100%;

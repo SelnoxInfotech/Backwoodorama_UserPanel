@@ -20,7 +20,7 @@ const AddMobileNumberPopup = () => {
     }
     return (
         <div>
-            <Button onClick={handleClickOpen} startIcon={<AiFillPlusCircle color="#707070" size={20} />}>Add</Button>
+            <Button className={`${classes.EditProfileBtn_Color}`} onClick={handleClickOpen} startIcon={<AiFillPlusCircle color="#707070" size={20} />}>Add</Button>
             <Dialog open={Open} onClose={handleClose} className={`${classes.AddMobilePopup}`}>
                 <div className="container-fluid py-4 px-4">
                     <div className="row">

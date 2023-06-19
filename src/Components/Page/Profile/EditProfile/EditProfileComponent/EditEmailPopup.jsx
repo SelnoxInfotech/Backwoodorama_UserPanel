@@ -21,7 +21,7 @@ const EditEmailPopup = () => {
     return (
 
         <div>
-            <Button  onClick={handleClickOpen} startIcon={<MdEdit/>}>
+            <Button className={`${classes.EditProfileBtn_Color}`} onClick={handleClickOpen} startIcon={<MdEdit/>}>
                 Edit
             </Button>
             <Dialog open={open} onClose={handleClose} className={classes.notification_dialogBox_width_height}>

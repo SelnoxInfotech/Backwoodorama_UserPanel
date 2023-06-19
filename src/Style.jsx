@@ -796,6 +796,30 @@ navbarprofileLoadingBtn: {
     border: "1px solid #D9D9D9"
   },
 },
+sliderProfile_loadingBtn:{
+  "& .MuiButton-text": {
+    fontSize: "12px",
+  },
+  "& .MuiLoadingButton-root": {
+    width: "100%",
+    height: "35px",
+    textTransform: "none",
+    border: "2px solid #D9D9D9",
+    color: "#000000",
+    backgroundColor: "#D9D9D9",
+  },
+  "& .MuiButtonBase-root:hover": {
+    color: "#000000",
+    backgroundColor: "#D9D9D9",
+    border: "1px solid #D9D9D9"
+  },
+},
+EditProfileBtn_Color:{
+  "&.MuiButtonBase-root":{
+    color:"#707070"
+  }
+}
+
 
 });
 
