@@ -25,7 +25,7 @@ const NewProductSearchResult = ({NewProductSearchRseultArray,heading}) => {
 
                 </div>
                 <div className="col-lg-12 col-12   recentViewProductSlider" id="width" ref={ref}>
-                    <ScrollContainer className="ScrollContainerRelative">
+                    <ScrollContainer className=" newProductSearchResult_ScrollContainerRelative">
                         {NewProductSearchRseultArray.map((items, index) => {
                             return (
                                 <div className=" col-xxl-3  col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-4  productSearch_result_container" key={index}>

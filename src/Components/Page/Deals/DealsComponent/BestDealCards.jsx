@@ -7,13 +7,13 @@ const BestDealCards = ({CardDataArray,Heading}) => {
     return (
         <>
             <div className="row">
-                <div className="col-12 bestDealsCard_Heading_offers">
+                <div className="col-12 bestDealsCard_Heading_offers mt-2">
                     <h1 className="ellipsis px-2">{Heading}</h1>
                 </div>
 
             </div>
             <div className="col-lg-12 col-12   recentViewProductSlider" id="width" ref={ref}>
-            <ScrollContainer className="ScrollContainerRelative">
+            <ScrollContainer className=" bestDealsCard_ScrollContainerRelative">
                 {
                     CardDataArray.map((items, index) => {
                         return (

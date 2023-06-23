@@ -45,7 +45,7 @@ const RecentViewProduct = () => {
         <div className="container-fluid" >
             <div className="row">
                 <div className="col-12   recentViewProductSlider" id="width" ref={ref}>
-                    <ScrollContainer className="ScrollContainerRelative">
+                    <ScrollContainer className=" RecentViewScrollContainerRelative">
                         {FlowerArray.map((items, index) => {
                             return (
 

@@ -16,7 +16,7 @@ import CurrentLocation from './Component/CurrentLocation';
 import Badge from '@mui/material/Badge';
 import Box from '@mui/material/Box';
 import LoadingButton from '@mui/lab/LoadingButton';
-
+import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
   const cookies = new Cookies();
   const ref = React.useRef(null);
@@ -26,8 +26,8 @@ const Navbar = () => {
   const classes = useStyles()
   const [Open, SetOpen] = React.useState(false)
   const [DropDownState, SetDropDownState] = React.useState(null)
-  const ProfileList = [{ item: "My Order" }, { item: "Favorites" },
-  { item: "Review" }, { item: "Help" }]
+  const ProfileList = [{id:1, item: "My Order" }, {id:2, item: "Favorites" },
+  {id:3, item: "Review" }, {id:4, item: "Help" }]
   React.useEffect(() => {
 
     const handleResize = () => {
@@ -74,6 +74,14 @@ const Navbar = () => {
       return !DropDownState;
     })
   }
+  const navigate=useNavigate()
+  const Redirect=(items)=>{
+    if(items==="My Order"){
+      navigate("/MyOrder")
+    }
+
+  }
+
   return (
     <>
       <div ref={ref} className='sticky-top' style={{ background: "white", padding: "10px" }}>
@@ -122,15 +130,10 @@ const Navbar = () => {
                 ?
 
                 <div className=' col-12 Login_Sigup_button '>
-                  <div className='col-lg-4 col-sm-4'>
-                    <Grid display={{ xs: "none", md: "block", lg: "block" }}>
-                      <Button className={classes.muiBtn} onClick={Logout} >Logout</Button>
-                    </Grid>
-
-                  </div>
+                
                   <div className='col-lg-4 col-sm-4 navbarProfileDropDown_container'>
                     <Grid display={{ xs: "none", md: "block", lg: "block" }}>
-                      <div className='Navbar_profile_logo_container'>
+                      <div className='Navbar_profile_logo_container' >
                         <LazyLoadImage onClick={handleClickDropdown} src='./image/user.webp' className="Navbar_logo_imgs" />
                       </div>
                     </Grid>
@@ -152,7 +155,7 @@ const Navbar = () => {
                             {ProfileList.map((value, index) => {
                               return (
                                 <div key={index}>
-                                  <li className='profile_list'>{value.item}</li>
+                                  <li className='profile_list' onClick={()=>{Redirect(value.item)}}>{value.item}</li>
                                   <hr />
                                 </div>
                               )
@@ -161,7 +164,7 @@ const Navbar = () => {
 
                         </section>
                         <Box className={`mt-4 navbar_profileLodingBtn_position ${classes.navbarprofileLoadingBtn}`}>
-                          <LoadingButton>Logout</LoadingButton>
+                          <LoadingButton onClick={Logout}>Logout</LoadingButton>
                         </Box>
                       </div>
 

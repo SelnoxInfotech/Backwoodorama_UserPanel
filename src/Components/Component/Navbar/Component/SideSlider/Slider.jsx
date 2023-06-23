@@ -86,7 +86,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                                             </ol>
                                         </section>
                                         <Box className={`sliderProfile_logout_btn ${classes.sliderProfile_loadingBtn}`}>
-                                            <LoadingButton >Logout</LoadingButton>
+                                            <LoadingButton onClick={Logout}>Logout</LoadingButton>
                                         </Box>
 
                                     </div>)

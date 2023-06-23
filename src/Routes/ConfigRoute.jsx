@@ -35,6 +35,7 @@ import EditProfile from "../Components/Page/Profile/EditProfile/EditProfile";
 import FourZeroFour from "../Components/Page/ErrorPage/FourZeroFour";
 import FiveZeroThree from "../Components/Page/ErrorPage/FiveZeroThree";
 import FourZeroThree from "../Components/Page/ErrorPage/FourZeroThree";
+import MyOrder from "../Components/Page/MyOrder/MyOrder";
 const routesConfig = [
   
       {
@@ -179,6 +180,10 @@ const routesConfig = [
           {
             path:"/FourZeroThree",
             element:<FourZeroThree/>
+          },
+          {
+            path:"/MyOrder",
+            element:<MyOrder/>
           },
           {
             path:"*",
