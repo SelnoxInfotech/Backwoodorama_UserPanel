@@ -1,7 +1,7 @@
 import React from "react"
 import { AiOutlineLeft } from "react-icons/ai"
 import SearchBar from '@mkyy/mui-search-bar';
-
+import AllOrder from "./MyOrderComponent/AllOrder";
 const MyOrder = () => {
     const [Selected,SetSelected]=React.useState(1)
     const MyOrderList=[{id:1,items:"All"},{id:2,items:"Order"},{id:3,items:"Shipped"},{id:4,items:"Delivered"},{id:5,items:"Cancelled"}]
@@ -12,7 +12,7 @@ const MyOrder = () => {
         <React.Fragment>
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-12 myOrder_columns">
+                    <div className="col-12 myOrder_columns ">
                         <AiOutlineLeft size={20} color="#000000" /><span className="My_order_span_name">My order</span>
 
                     </div>
@@ -39,9 +39,10 @@ const MyOrder = () => {
 
                     </div>
                     {Selected===1?
-                    (<div className="col-12" style={{paddingLeft:"30px"}}>
-                        <h1>All</h1>
-                        </div>):Selected===2?(<div className="col-12" style={{paddingLeft:"30px"}}><h1>Order</h1></div>):
+                    (
+                        <AllOrder/>
+                        )
+                        :Selected===2?(<div className="col-12" style={{paddingLeft:"30px"}}><h1>Order</h1></div>):
                            Selected===3?(<div><h1>Shipped</h1></div>):
                            Selected===4?(<div><h1>Delivered</h1></div>):
                            Selected===5?(<div><h1>Cancelled</h1></div>):""

@@ -57,14 +57,14 @@ const Footer = () => {
                                 <p>Build a modern and creative  website</p>
                             </div>
                             <div className="col-12   ">
-                                <div className="w-100 px-0 d-flex gap-2">
-                                   <span><IoLocationSharp color="#31B665" size={18}/></span><span className="footer_middle_icons_text">2917 Broadway Astoria, NY 11106</span>
+                                <div className="Footer_Left_side_menu w-100 px-0  gap-2">
+                                   <IoLocationSharp color="#31B665" size={18}/><span className="footer_middle_icons_text">2917 Broadway Astoria, NY 11106</span>
                                 </div>
-                                <div className="w-100 d-flex gap-2">
-                                  <span><CiMobile1 color="#31B665" size={18}/></span><span className="footer_middle_icons_text">+1 432(182)35</span>
+                                <div className="Footer_Left_side_menu w-100  gap-2">
+                                  <CiMobile1 color="#31B665" size={18}/><span className="footer_middle_icons_text">+1 432(182)35</span>
                                 </div>
-                                <div className="w-100 d-flex gap-2">
-                                 <span><HiOutlineMail color="#31B665" size={18}/></span><span className="footer_middle_icons_text">backwoodaroma@gmail.com</span>
+                                <div className="Footer_Left_side_menu w-100  gap-2">
+                                 <HiOutlineMail color="#31B665" size={18}/><span className="footer_middle_icons_text">backwoodaroma@gmail.com</span>
                                 </div>
                             </div>
                         </div>
