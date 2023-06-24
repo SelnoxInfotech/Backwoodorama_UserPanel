@@ -47,7 +47,7 @@ const Footer = () => {
                             <h1 className="ellipsis footer_heading fontWeight_Seven_Hundred">BACKWOODAROMA</h1>
                         </div>
                         <div className="w-100 footer_center  footer_head_height">
-                            <h2 className="footer_sub_heading fontWeight_Four_Hundred">A community connecting cannabis consumerretailers, doctors, and brands since 2008.</h2>
+                            <h2 className="footer_sub_heading fontWeight_Four_Hundred">A community connecting cannabis consumer retailers, doctors, and brands since 2008.</h2>
                         </div>
                         <div className="col-xl-4 col-sm-4 footer_logo_container px-4">
                             <div className="col-12 footer_log_center footer_logo footer_logo_height">
