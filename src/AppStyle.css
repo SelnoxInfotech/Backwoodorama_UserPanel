@@ -6179,32 +6179,103 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 /* AllOrder */
 .AllOrderContainer{
   height: auto;
-  border: 1px solid #707070;
+  border: 1px solid #DBDBDB;
 }
-/* .AllOrder_firstCol{
-  display: flex;
-  background-color: #31B665;
-  height: 40px;
-}
-.AllOrder_secondCol{
-  height:40px;
-  display: flex;
-} */
 .sellerName_date{
-  font-size: 24px;
+  font-size: 20px;
   color: #000000;
   font-weight: 700;
 }
 .AllOrderCol_height{
-  height: 40px;
+  display: grid;
+  align-items: center;
+  height: 80px;
 }
 .AllOrderCol1_height{
   height: 40px;
+  display: grid;
+  align-items: center;
   background-color: #31B665;
 }
 .orderId_heading{
   color: #FFFFFF;
-  font-size: 24px;
+  font-size: 20px;
+}
+.allOrderCard_container{
+  height: 200px;
+  display: grid;
+  align-items: center;
+  border-bottom: 1px solid #DBDBDB;
+  border-top: 1px solid #DBDBDB;
+
+}
+.Allorder_img_container{
+  width: 150px;
+  height: 130px;
+}
+.Allorder_img{
+  width: 150px;
+  height: 120px;
+}
+.imageSectionWrapper{
+  height: 90%;
+  width: 100%;
+  display: flex;
+}
+.allOrder_Card_Image_section{
+  height: 150px;
+  width: 20%;
+}
+.allOrder_Card_Content_section{
+  width: 80%;
+  height: 280px;
+  padding-top: 10px;
+
+}
+.allOrder_icons_container{
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.allOrder_icons_div{
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.AllOrder_heading{
+  color: #000000;
+  font-weight: 700;
+  font-size: 20px;
+}
+.allOrder_span_quantity{
+  color: #000000;
+  font: 20px;
+}
+.allOrder_span_quantity_div{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  height: 28px;
+}
+.allOrder_spanName{
+  font-size: 20px;
+  font-weight: 400;
+  color: #000000;
+}
+.Amount_price{
+  color: #000000;
+  font-size: 20px;
+  font-weight: 700;
+}
+@media(max-width:1196px){
+  .allOrder_Card_Image_section{
+    width: 30%;
+  }
+  .allOrder_Card_Content_section{
+    width: 70%;
+  }
 }
 @media(max-width:1024px){
   .orderId_heading{
@@ -6215,11 +6286,37 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 }
 @media(max-width:500px){
+.allOrder_Card_Content_section{
+padding-top: 0px;
+}
+  .allOrder_icons_container{
+    gap: 15px;
+  }
+  .Amount_price{
+    font-size: 12px;
+  }
+  .allOrder_spanName{
+    font-size: 12px;
+  }
+  .AllOrder_heading{
+    font-size: 14px;
+  }
+  .allOrder_span_quantity{
+    font-size: 12px;
+  }
   .orderId_heading{
     font-size: 12px;
   }
   .sellerName_date{
     font-size: 12px;
+  }
+  .Allorder_img_container{
+    width: 80px;
+    height: 90px;
+  }
+  .Allorder_img{
+    width: 80px;
+    height: 75px;
   }
 }
 /* end */
