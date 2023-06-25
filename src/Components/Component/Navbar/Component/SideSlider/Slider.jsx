@@ -35,7 +35,12 @@ const SideNavbar = ({ closeNav, Open }) => {
             return !SliderStateDropDown;
         })
     }
+    const Redirect=(items)=>{
+        if(items==="My Order"){
+            Navigate("/MyOrder")
+        }
 
+    }
     return (
         <>
             <div id="mySidebar" className="sidebar" style={{ width: Open ? "300px" : "0px" }}>
@@ -76,8 +81,8 @@ const SideNavbar = ({ closeNav, Open }) => {
                                             <ol className="px-0">
                                                 {SliderProfileList.map((items, index) => {
                                                     return (
-                                                        <div>
-                                                            <li className="slider_profile_list">{items.item}</li>
+                                                        <div key={index}>
+                                                            <li className="slider_profile_list" onClick={()=>Redirect(items.item)}>{items.item}</li>
                                                             <hr />
                                                         </div>
 

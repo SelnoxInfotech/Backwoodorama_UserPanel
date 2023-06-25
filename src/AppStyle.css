@@ -6269,6 +6269,31 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-size: 20px;
   font-weight: 700;
 }
+.viewOrderDetals{
+  height: 40px;
+  display: grid;
+  align-items: center;
+}
+.viewOrderDetals_container{
+  height: 25px;
+  width: 120px;
+  /* margin-left: 10px; */
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  outline: 1px solid #31B665;
+  cursor: pointer;
+}
+.allOrderTotals{
+  margin-right: 10px;
+  font-size: 22px;
+  color: #000000;
+  font-weight: 700;
+}
+.viewDetailsFont{
+  color: #000000;
+  font-size: 18px;
+}
 @media(max-width:1196px){
   .allOrder_Card_Image_section{
     width: 30%;
