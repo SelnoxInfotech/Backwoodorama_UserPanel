@@ -2,6 +2,8 @@ import {AiOutlineLeft} from "react-icons/ai"
 import AllOrder from "./MyOrderComponent/AllOrder"
 import MyOrderProductRating from "./MyOrderProductDetailComponent/MyOrderProductRating";
 import OrderTracking from "./MyOrderProductDetailComponent/OrderTracking";
+import OrderDetails from "./MyOrderProductDetailComponent/OrderDetails";
+import MyOrderDeliveryAddress from "./MyOrderProductDetailComponent/MyOrderDeliveryAddress";
 const MyOrderProductDetail=()=>{
     return(
         <div className="container-fluid">
@@ -24,6 +26,8 @@ const MyOrderProductDetail=()=>{
                 <AllOrder/>
                 <MyOrderProductRating/>
                 <OrderTracking/>
+                <OrderDetails/>
+                <MyOrderDeliveryAddress/>
 
             </div>
 

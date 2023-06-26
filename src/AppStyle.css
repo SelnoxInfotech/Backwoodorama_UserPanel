@@ -6227,13 +6227,13 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .allOrder_Card_Image_section{
   height: 150px;
-  width: 20%;
+  width: 25%;
 }
 .allOrder_Card_Content_section{
-  width: 80%;
+  width: 75%;
   height: 280px;
   padding-top: 10px;
-  padding-left: 20px;
+  padding-left: 40px;
 
 }
 .allOrder_icons_container{
@@ -6314,6 +6314,37 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   .sellerName_date{
     font-size: 16px;
   }
+}
+@media(max-width:768px){
+  .allOrder_Card_Content_section {
+    width: 75%;
+}
+.allOrder_Card_Content_section {
+    width: 75%;
+    height: 280px;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+.allOrder_span_quantity{
+font-size:14px;
+}
+.allOrder_spanName{
+font-size:14px;
+}
+.Amount_price{
+font-size:14px;
+}
+  .Allorder_img {
+    width: 121px;
+    height: 100px;
+}
+.allOrder_Card_Image_section{
+width:25%;
+}
+.Allorder_img_container {
+    width: 122px;
+    height: 113px;
+}
 }
 @media(max-width:500px){
   .MyOrder_list{
@@ -6423,4 +6454,75 @@ padding-left: 0px;
 .steperTextFont{
   color: #A5A5A5;
 }
+/* end */
+/* orderDetails */
+.orderDetails_container{
+  height: 230px;
+  border: 1px solid #DBDBDB;
+}
+.orderDetails_innerSection1{
+  height: 130px;
+  width: 100%;
+  padding: 0px 10px;
+  border-bottom: 1px solid #EFEFEF;
+}
+.orderDetails_innerSection2{
+  height: 100px;
+  width: 100%;
+  padding: 0px 10px;
+}
+.orderDetail_heading_container{
+  height: 80px;
+  padding-top: 20px;
+}
+.ordetailAmount_container{
+  height: 30px;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.orderDetails_headings{
+  font-size: 20px;
+  font-weight: 700;
+  color: #000000;
+}
+.amount_spanss{
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+}
+.totalAmounts{
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+}
+/* end */
+/* MyOrderDeliveryAddress */
+.MyOrderDeliveryAddress_Container{
+  height: 180px;
+  border:1px solid #EFEFEF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.MyOrderDeliveryAddress_headingss{
+  color: #000000;
+  font-weight: 700;
+  font-size: 20px;
+}
+.MyOrderDeliveryAddress_subHeading{
+  color: #000000;
+  font-weight: 400;
+  font-size: 16px;
+  }
+  .MyOrderDeliverSection{
+    height: 50%;
+    width: 98%;
+    display: grid;
+    align-items: center;
+
+  }
+  .MyOrderDeliveryAddress_head_cont{
+    height: 30px;
+  }
 /* end */
