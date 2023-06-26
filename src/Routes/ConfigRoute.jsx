@@ -36,6 +36,7 @@ import FourZeroFour from "../Components/Page/ErrorPage/FourZeroFour";
 import FiveZeroThree from "../Components/Page/ErrorPage/FiveZeroThree";
 import FourZeroThree from "../Components/Page/ErrorPage/FourZeroThree";
 import MyOrder from "../Components/Page/MyOrder/MyOrder";
+import MyOrderProductDetail from "../Components/Page/MyOrder/MyOrderProductDetail";
 const routesConfig = [
   
       {
@@ -186,9 +187,14 @@ const routesConfig = [
             element:<MyOrder/>
           },
           {
+            path:"/MyOrderProductDetail",
+            element:<MyOrderProductDetail/>
+          },
+          {
             path:"*",
             element:<FourZeroFour/>
           }
+        
         ],
       },
 ]

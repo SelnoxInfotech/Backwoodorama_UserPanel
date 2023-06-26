@@ -818,7 +818,47 @@ EditProfileBtn_Color:{
   "&.MuiButtonBase-root":{
     color:"#707070"
   }
+},
+myOrderRatingStarIcons: {
+  "&.MuiRating-root": {
+    color: "#31B665",
+    gap:"5px"
+  },
+},
+OrderTrackingCircleColor:{
+  '& .MuiStepLabel-root .Mui-completed':{
+    color:"#31B665"
+  },
+  "& $disabled":{
+    color:"pink"
+  },
+  "& .MuiStepLabel-root .Mui-active":{
+    color:"#707070"
+  }
+},
+
+OrderTrackingLoadingBtn: {
+  "& .MuiButton-text": {
+    fontSize: "1rem",
+  },
+  "& .MuiLoadingButton-root": {
+   
+    width: "45%",
+    height: "38px",
+    borderRadius: "4px",
+    textTransform: "none",
+    border: "1px solid #31B665",
+    color: "#8A8A8A",
+  },
+  "& .MuiButtonBase-root:hover": {
+    color: "#8A8A8A",
+    border: "1px solid #31B665"
+  },
+},
+OrderTrackingBtn:{
+  marginLeft:"10px"
 }
+
 
 
 });

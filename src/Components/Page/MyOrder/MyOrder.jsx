@@ -12,7 +12,7 @@ const MyOrder = () => {
         <React.Fragment>
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-12 myOrder_columns ">
+                    <div className="col-12 myOrder_columns px-0">
                         <AiOutlineLeft size={20} color="#000000" /><span className="My_order_span_name">My order</span>
 
                     </div>
@@ -45,7 +45,7 @@ const MyOrder = () => {
                         :Selected===2?(<div className="col-12" style={{paddingLeft:"30px"}}><h1>Order</h1></div>):
                            Selected===3?(<div><h1>Shipped</h1></div>):
                            Selected===4?(<div><h1>Delivered</h1></div>):
-                           Selected===5?(<div><h1>Cancelled</h1></div>):""
+                           Selected===5?(<div><h1><AllOrder/></h1></div>):""
                 }
 
                 </div>

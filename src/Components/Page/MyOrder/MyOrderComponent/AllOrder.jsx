@@ -1,6 +1,7 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { BsFillCircleFill } from "react-icons/bs";
 import React from "react";
+import { Link } from "react-router-dom";
 const AllOrder = () => {
     const AllOrdersData = [{ OrderID: "78248923658635", trackOrder: "Track Order" }, { OrderID: "78248923658636", trackOrder: "Track Order" },]
     const AllOrderCard = [
@@ -15,13 +16,18 @@ const AllOrder = () => {
                 {AllOrdersData.map((val, index) => {
                     return (
                         <React.Fragment key={index}>
-                            <div className="col-md-10 col-12  AllOrderContainer px-0 mt-4">
+                            <div className=" col-lg-10 col-xl-7   AllOrderContainer px-0 mt-4">
                                 <div className="row  mx-0">
                                     <div className="col-6 AllOrderCol1_height">
+                                 
                                         <h1 className="orderId_heading">Order ID :{val.OrderID}</h1>
+
+                                   
                                     </div>
                                     <div className="col-6 AllOrderCol1_height text-end">
+                                 
                                         <h1 className="orderId_heading">{val.trackOrder}</h1>
+                                 
                                     </div>
 
                                 </div>
@@ -78,7 +84,7 @@ const AllOrder = () => {
                                 <div className="row mx-0">
                                     <div className="col-6 viewOrderDetals">
                                         <div className="viewOrderDetals_container border">
-                                        <span className="viewDetailsFont">view details</span>
+                                        <Link to="/MyOrderProductDetail"><span className="viewDetailsFont">view details</span></Link>
 
                                         </div>
                                     </div>
