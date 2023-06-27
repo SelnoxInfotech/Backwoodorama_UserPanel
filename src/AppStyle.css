@@ -6620,7 +6620,7 @@ justify-content: center;
   height: 25px;
 }
 .strainProduct_images{
-  height: 100%;
+  height: 90%;
   width: 80%;
 }
 .strainProduct_content_head{
@@ -6660,5 +6660,61 @@ justify-content: center;
 .descriptionContainer{
   height: 100%;
   padding-top: 20px;
+}
+.descriptionContainer{
+  height: 100%;
+  width: 100%;
+}
+.StrainHomeSlider_scrollContainerRelative{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+}
+.strainHomeSlider{
+  scrollbar-width: none;
+  display: flex;
+  flex-wrap: nowrap;
+  border-radius: 6px;
+  color: #333;
+  padding: 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: auto;
+  padding-left: 14px;
+  margin-left: -1px;
+}
+.strainHomeSlider::-webkit-scrollbar {
+  display: none;
+}
+.strainHomeSlider_Inner_cont{
+  width: 90%;
+  height: 100%;
+  border-radius: 10px;
+  background:#FFFFFF;
+  border: 1px solid #DEDCDC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.strainHomeSlider_image{
+  width: 80%;
+  height: 80%;
+}
+.strainHomeSlider_container{
+  height: 150px;
+}
+@media(max-width:768px){
+  .StrainHomeSlider_scrollContainerRelative{
+    left: 17px;
+  }
+  .StrainHomeDes_heading{
+    margin-left: 8px;
+  }
+}
+@media(max-width:900px){
+.descriptionContainer{
+  padding: 0px 8px;
+}
 }
 /* end */

@@ -5,12 +5,12 @@ const StrainProduct = () => {
     return (
         <div className="container-fluid">
             <div className="row">
-                <div className="col-12 strainProduct_container">
+                <div className="col-lg-10 col-12 strainProduct_container mt-4">
                     <div className="strainProduct_inner_container">
                         <div className="w-100 text-end strainProduct_heart_div">
                             <AiFillHeart color="#707070" size={22} />
                         </div>
-                        <div className="col-12  strainProduct_img_content_section">
+                        <div className="col-lg-10 col-12  strainProduct_img_content_section">
                             <section className="strainProduct_img_section">
                                 <LazyLoadImage src="./image/indica.png" className="strainProduct_images" />
                             </section>
