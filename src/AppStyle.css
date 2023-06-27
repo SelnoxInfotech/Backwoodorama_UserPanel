@@ -6526,3 +6526,139 @@ padding-left: 0px;
     height: 30px;
   }
 /* end */
+/* MyOrderProductDetailStoreName */
+.MyOrderProductDetailStoreName_container{
+  height: 130px;
+  border:1px solid #EFEFEF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.MyOrderProductDetailStoreName_innercontainer{
+  height: 80px;
+  width: 98%;
+}
+.MyOrderProdDeta_storeNamediv{
+  height: 30px;
+}
+.MyOrderProdDeta_storeNamediv_head{
+  font-size: 20px;
+  font-weight: 700;
+  color: #000000;
+}
+.MyOrderProdDeta_storeNamediv_head_name{
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+}
+/* end */
+/* MyOrderProductDetailCustomerName */
+.MyOrderProductDetailCustomerName_cont{
+  height: 130px;
+  border:1px solid #EFEFEF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.MyOrderProductDetailCustomerName_inner_cont{
+  height: 80px;
+  width: 98%;
+}
+.MyOrderProductDetailCustomerName_div{
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+}
+.customerNameFontss{
+  font-size: 18px;
+  color: #000000;
+  font-weight: 700;
+}
+.customerName{
+  font-size: 18;
+  color: #000000;
+  font-weight: 400;
+}
+.customerNumber{
+  font-size: 18;
+  color: #000000;
+  font-weight: 400;
+}
+/* end */
+/* strainProduct */
+.strainProduct_container{
+border: 1px solid #DEDCDC;
+height: 214px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.strainProduct_inner_container{
+  height: 180px;
+  width: 95%;
+}
+.strainProduct_heart_div{
+  height: 40px;
+}
+.strainProduct_img_content_section{
+  height: 140px;
+  display: flex;
+}
+.strainProduct_img_section{
+  width: 25%;
+  height: 100%;
+}
+.strainProduct_content_section{
+  width: 75%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+}
+.strainProduct_content_head_div{
+  height: 25px;
+}
+.strainProduct_images{
+  height: 100%;
+  width: 80%;
+}
+.strainProduct_content_head{
+  font-size: 20px;
+  color: #000000;
+  font-weight: 700;
+}
+.strainProduct_content_subHead{
+  color: #6D6D6D;
+  font-size: 16px;
+  font-weight: 400;
+
+}
+.strainProduct_variety{
+  color: #C6C6C6;
+  font-size: 16px;
+  font-weight: 400;
+}
+@media(max-width:767px){
+  .strainProduct_images {
+    height: 40%;
+    width: 92%;
+}
+}
+/* end */
+/* strainHome */
+.StrainHome_decription_paragraph{
+  font-size: 12px;
+  color: #888888;
+  font-weight: 400;
+}
+.StrainHomeDes_heading{
+  color: #000000;
+  font-size: 20px;
+  font-weight: 700;
+}
+.descriptionContainer{
+  height: 100%;
+  padding-top: 20px;
+}
+/* end */

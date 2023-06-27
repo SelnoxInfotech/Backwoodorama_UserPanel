@@ -1,0 +1,21 @@
+import React from "react"
+const MyOrderProductDetailStoreName=()=>{
+    return(
+        <React.Fragment>
+            <div className="col-xl-7 col-lg-10 col-md-12 MyOrderProductDetailStoreName_container mt-4">
+                <div className="MyOrderProductDetailStoreName_innercontainer">
+                    <div className="w-100 MyOrderProdDeta_storeNamediv">
+                       <h1 className="MyOrderProdDeta_storeNamediv_head">Store Name</h1>
+                    </div>
+                    <div className="MyOrderProdDeta_storeNamediv">
+                        <h1 className="MyOrderProdDeta_storeNamediv_head_name">Cannabis</h1>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </React.Fragment>
+    )
+}
+export default MyOrderProductDetailStoreName

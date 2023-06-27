@@ -4,6 +4,8 @@ import MyOrderProductRating from "./MyOrderProductDetailComponent/MyOrderProduct
 import OrderTracking from "./MyOrderProductDetailComponent/OrderTracking";
 import OrderDetails from "./MyOrderProductDetailComponent/OrderDetails";
 import MyOrderDeliveryAddress from "./MyOrderProductDetailComponent/MyOrderDeliveryAddress";
+import MyOrderProductDetailStoreName from "./MyOrderProductDetailComponent/MyOrderProductDetailStoreName";
+import MyOrderProductDetailCustomerName from "./MyOrderProductDetailComponent/MyOrderProductDetailCustomerName";
 const MyOrderProductDetail=()=>{
     return(
         <div className="container-fluid">
@@ -28,6 +30,8 @@ const MyOrderProductDetail=()=>{
                 <OrderTracking/>
                 <OrderDetails/>
                 <MyOrderDeliveryAddress/>
+                <MyOrderProductDetailStoreName/>
+                <MyOrderProductDetailCustomerName/>
 
             </div>
 
