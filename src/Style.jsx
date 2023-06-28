@@ -864,14 +864,16 @@ strainTypSearchBar:{
      right:"0px",
      backgroundColor:"#31B665",
      color:"#FFFFFF",
-     width:"55px"
+     width:"55px",
+     borderRadius:"4px"
   },
   "& .css-1ywo31j ":{
     position:"absolute",
     left:"0px",
     backgroundColor:"#31B665",
     color:"#FFFFFF",
-    width:"35px"
+    width:"35px",
+    borderRadius:"4px"
   }
 
 },

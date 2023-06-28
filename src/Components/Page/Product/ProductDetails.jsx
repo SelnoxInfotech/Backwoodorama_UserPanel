@@ -337,7 +337,7 @@ const ProductDetail = () => {
                                                     <button className="add_prod_amount_btn" onClick={decreaseQuantity}> <span>-</span> </button>
                                                 }
                                             </span> */}
-                                            <div className=" border d-flex" style={{ height: "42px", width: "143px" }}>
+                                            <div className=" border d-flex" style={{ height: "42px", width: "124px" }}>
                                                 <section className="minus_btn" style={{ height: "50px", width: "40px" }}>
                                                     {
                                                         Product_Quantity.Product_quantity > 1 &&
@@ -347,7 +347,7 @@ const ProductDetail = () => {
                                                 <section className="quantity" style={{ height: "50px", width: "40px" }}>
                                                     <span className="add_prod_amoount_data" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>{Product_Quantity.Product_quantity}</span>
                                                 </section>
-                                                <section className="plus_btn" style={{ height: "40px", width: "50px" }}>
+                                                <section className="plus_btn" style={{ height: "40px", width: "40px" }}>
                                                     <button className="add_prod_amount_btn"><span className="add_prod_plus_sub" onClick={Quantity}>+</span></button>
                                                 </section>
 
