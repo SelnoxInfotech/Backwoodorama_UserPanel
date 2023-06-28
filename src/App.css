@@ -708,7 +708,7 @@ overflow-x: hidden; */
 .ScrollContainerRelative {
   width: 100%;
   display: flex;
-  /* gap: 1%; */
+  gap: 0%;
   justify-content: flex-start;
   left: -14px;
   position: relative;

@@ -35,11 +35,14 @@ const PopularStrain = ({SliderDataArray,Heading}) => {
 
                                     
                                 </div>
-                                <div className="w-100  popularStrainContent ">
+                                <div className="w-100  popularStrainContent  ">
                                     <p className="my-0 popularStrainName ellipsis">{items.name}</p>
-                                    <p className="popularSttrainSecName ellipsis">{items.secName}</p>
 
                                     
+                                </div>
+                                <div className="w-100 popularStrainContent ">
+                                <p className="popularSttrainSecName ellipsis">{items.secName}</p>
+
                                 </div>
 
                             </div>

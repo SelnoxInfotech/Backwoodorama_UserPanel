@@ -16,7 +16,7 @@ const StrainProduct = () => {
                             </section>
                             <section className="strainProduct_content_section">
                                 <div className="w-100 strainProduct_content_head_div">
-                                    <h1 className="strainProduct_content_head">0gm Kush</h1>
+                                    <h1 className="strainProduct_content_head">g</h1>
 
                                 </div>
                                 <div className="w-100 strainProduct_content_head_div">

@@ -5,25 +5,29 @@ import axios from 'axios';
 
 const StrainTypeCards = ({ ArrayData }) => {
     const ref = React.useRef(null);
+    
 
+     
     const StrainData = (items) => {
+
         axios.post("https://sweede.app/UserPanel/Get-StrainType/",
         {
             type:items
         }
         ).then(response => {
-            console.log(response)
+    
 
         }).catch(
             function (error) {
                 // SetLoading(false)
             })
     }
+ 
 
     return (
         <>
             <div className="col-lg-12 col-12   recentViewProductSlider" id="width" ref={ref}>
-                <ScrollContainer className="ScrollContainerRelative">
+                <ScrollContainer className=" StrainTypeCardRelative indiana-scroll-container">
 
                     {ArrayData.map((items, index) => {
                         return (

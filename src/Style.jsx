@@ -857,7 +857,28 @@ OrderTrackingLoadingBtn: {
 },
 OrderTrackingBtn:{
   marginLeft:"10px"
+},
+strainTypSearchBar:{
+  "& .css-y40w8":{
+     position:"absolute",
+     right:"0px",
+     backgroundColor:"#31B665",
+     color:"#FFFFFF",
+     width:"55px"
+  },
+  "& .css-1ywo31j ":{
+    position:"absolute",
+    left:"0px",
+    backgroundColor:"#31B665",
+    color:"#FFFFFF",
+    width:"35px"
+  }
+
+},
+strainTyleRemove:{
+
 }
+
 
 
 

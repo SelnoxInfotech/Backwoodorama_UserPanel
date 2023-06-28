@@ -1662,8 +1662,7 @@
 .footer_logo_container {
   padding-left: 25px;
 }
-
-@media(max-width:500px) {
+@media(max-width:1181px){
   .footer_menu_heading {
     font-size: 12px;
   }
@@ -1687,13 +1686,48 @@
   }
 
   .footer_sub_heading {
-    font-size: 8px;
+    font-size: 14px;
+  }
+  .footer_middle_icons_text{
+    font-size: 12px;
   }
 }
+@media(max-width:768px) {
+  .footer_menu_heading {
+    font-size: 12px;
+  }
+
+  .footer_list ol li {
+    font-size: 10px;
+
+  }
+
+  .bottom_menu_items ol li {
+    font-size: 10px;
+  }
+
+  .footer_headingss {
+    font-size: 16px;
+  }
+
+  .footer_heading {
+    font-size: 16px;
+
+  }
+
+  .footer_sub_heading {
+    font-size: 12px;
+    margin: 0px 20px;
+  }
+}
+
 
 @media(max-width:991px) {
   .bottom_menu_items_mainCol {
     display: block;
+  }
+  .footer_logo p{
+    font-size: 12px;
   }
 
   .footer_icons_column ol {
@@ -3200,6 +3234,9 @@
     height: 155px;
 
   }
+  .height_empty_div_paragraph p{
+    font-size: 11px;
+  }
 }
 
 .delivery_item_paragraphBtn {
@@ -3325,6 +3362,7 @@
   font-weight: 700;
   font-size: 24px;
   color: #000000;
+  margin-top: 10px;
 }
 
 .marginProductSearchResult {
@@ -3340,6 +3378,7 @@
 @media(max-width:480px) {
   .productSlider_headings h1 {
     font-size: 16px;
+  margin-top: 10px;
   }
 
   .newProductCategorySliderName p {
@@ -3844,6 +3883,13 @@
   /* gap: 1%; */
   justify-content: flex-start;
   left: 0px;
+  position: relative;
+}
+.StrainTypeCardRelative{
+  width: 100%;
+  display: flex;
+  /* gap: 1%; */
+  justify-content: flex-start;
   position: relative;
 }
 @media (max-width:500px) {
@@ -4398,11 +4444,14 @@
   font-size: 24px;
   line-height: 38px;
   color: #000000;
-  margin-left: 10px;
+  margin-left: 60px;
+  margin-top: 20px;
 }
 
 .popularStrainContent {
-  display: grid;
+  height: 30px;
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
 
@@ -6665,6 +6714,7 @@ justify-content: center;
   height: 100%;
   width: 100%;
 }
+
 .StrainHomeSlider_scrollContainerRelative{
   width: 100%;
   display: flex;
