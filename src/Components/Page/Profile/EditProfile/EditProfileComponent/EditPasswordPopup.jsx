@@ -35,6 +35,7 @@ const EditPasswordPopup = () => {
                         </div>
 
                     </div>
+                    <form>
                     <div className="row">
                         <div className="col-12 editPassword_Col">
                           <label className="editPassword_label" htmlFor="current password">Current Password</label>
@@ -77,7 +78,7 @@ const EditPasswordPopup = () => {
                     <Box className={`mt-4 ${classes.editEmail_loadingBtn_cancel}`}>
                         <LoadingButton>Cancel</LoadingButton>
                     </Box>
-                
+                    </form>
                 </div>
             </Dialog>
         </div>

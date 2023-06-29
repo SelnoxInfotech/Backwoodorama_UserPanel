@@ -865,6 +865,7 @@ strainTypSearchBar:{
      backgroundColor:"#31B665",
      color:"#FFFFFF",
      width:"55px",
+     borderRadius:"4px",
      cursor:"pointer"
   },
   "& .css-1ywo31j ":{

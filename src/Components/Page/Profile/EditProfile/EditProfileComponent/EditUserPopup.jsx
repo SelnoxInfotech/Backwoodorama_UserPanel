@@ -31,13 +31,13 @@ const EditUserPopup = () => {
                         <div className='col-12 text-end mt-4 EditUser_col_div'>
                            <LoadingButton  startIcon={<RiCloseCircleFill color='gray' size={24}/>}></LoadingButton>
                         </div>
+                        <form>
                         <div className='col-12 mt-4 EditUser_col_div'>
                           <label className='Edit_userName' htmlFor='Edit User Name'>Edit User Name</label>
                         </div>
                         <div className='col-12 mt-4 EditUser_col_div'>
                           <TextField  InputProps={{disableUnderline:true}}  placeholder='Maxwell' fullWidth variant="filled" id='Edit User Name'/>
                         </div>
-                    </div>
                     <Box
                         className={`edit_UserPopUp_btn_container mt-4 ${classes.editEmail_loadingBtn}`}
                     >
@@ -48,8 +48,10 @@ const EditUserPopup = () => {
                     >
                         <LoadingButton variant="outlined" >cancel</LoadingButton>
                     </Box>
-
+                    </form>
                 </div>
+                </div>
+
 
             </Dialog>
         </div>
