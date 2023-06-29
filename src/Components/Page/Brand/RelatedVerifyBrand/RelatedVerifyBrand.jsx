@@ -4,7 +4,9 @@ import ProductSearchResult from "../../Product/ProductSearchResult/ProductSearch
 import { useParams } from "react-router-dom";
 import React from "react";
 import Axios from "axios";
+import useStyles from "../../../../Style";
 const RelatedVerifyBrand = () => {
+    const classes=useStyles()
     let { id } = useParams();
     const [BrandProduct, SetBrandProduct] = React.useState([])
     const [BrandDetails , GetBrandDetails] = React.useState([])
@@ -21,9 +23,9 @@ const RelatedVerifyBrand = () => {
     return (
         <div className="container-fluid">
             <RelatedVerifyBanner BrandDetails={BrandDetails} />
-            <div className="row center  mt-4 mb-4">
-                <div className="col-lg-10">
-                    <SearchBar style={{ background: "#FFFFF", border: "1px solid gray" }} width={"100%"} placeholder="Search Menu" />
+            <div className="row  center mx-0 mt-4 mb-4">
+                <div className="col-lg-12 px-0">
+                    <SearchBar style={{ background: "#FFFFF", border: "1px solid #31B665" }} className={classes.strainTypSearchBar} width={"100%"} placeholder="Search Menu" />
                 </div>
 
             </div>

@@ -4174,23 +4174,48 @@
   background: #FFFFFF;
   border: 1px solid #DEDCDC;
 }
-
-.RelatedVerifyBrandBanner_Image_container {
-  height: 140px;
-  margin-bottom: 10px;
-  display: grid;
-  place-items: center;
+.related_verifyBrandBanner_maincol{
+  display: flex;
 }
+.RelatedVerifyBrandBanner_image_section{
+  width: 30%;
+  height: 160px;
+}
+.related_verify_banner_img {
+  height: 140px;
+  width: 90%;
+}
+.RelatedVerifyBanner_content_section{
+  width: 70%;
+  height: 100%;
+}
+@media(max-width:768px){
+  .related_verifyBrandBanner_maincol{
+    display: block;
+  }
+  .RelatedVerifyBrandBanner_image_section{
+    width: 100%;
+  }
+  .RelatedVerifyBanner_content_section{
+    width: 100%;
+  }
+  .related_verify_banner_img {
+    width: 100%;
+  }
+}
+
+
 
 .realtedVerifyBanner_image_inner_container {
   height: 141px;
-  width: 198px;
+  display: flex;
+  justify-content: center;
+  /* width: 30%; */
+
+  /* width: 198px; */
 }
 
-.related_verify_banner_img {
-  height: 129px;
-  width: 166px;
-}
+
 
 @media(max-width:380px) {
   .realtedVerifyBanner_image_inner_container {
@@ -4199,20 +4224,13 @@
   }
 
   .related_verify_banner_img {
-    height: 121px;
-    width: 224px;
+    width: 100%;
   }
 }
 
 .relatedVerifyBrand_icons {
   height: 40px;
 }
-
-.relatedVerifyBrandBanner_contentContainer {
-  height: 100%;
-
-}
-
 .relatedVerifyBrand_heading h1 {
   font-weight: 700;
   font-size: 32px;

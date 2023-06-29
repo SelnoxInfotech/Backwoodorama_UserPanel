@@ -11,6 +11,7 @@ import { Link, useLocation } from "react-router-dom";
 import SearchBar from "../../Component/SearchBar"
 import Badge from '@mui/material/Badge';
 import useStyles from "../../../../../Style";
+import IconButton  from "@mui/material/IconButton";
 export default function DashBoardLink({ state }) {
   const classes=useStyles()
   const [current_route, Setcurrent_route] = React.useState()
@@ -52,14 +53,14 @@ export default function DashBoardLink({ state }) {
           <Grid xs={6} md={2} xl={1} spacing={2} display={{ xs: "none", md: "block", lg: "block" }} >
             <div className=' col-12  addyocardIcon  '>
               <Badge badgeContent={4} className={classes.sliderLink_badge}>
-                <AiFillHeart color="grey" size={22}></AiFillHeart>
+                <IconButton aria-label="whislist"><AiFillHeart color="grey" size={22}></AiFillHeart></IconButton>
               </Badge>
               <Badge badgeContent={4} className={classes.sliderLink_badge}>
-                <IoIosNotifications color="grey" size={23}></IoIosNotifications>
+              <IconButton aria-label="notification"> <IoIosNotifications color="grey" size={23}></IoIosNotifications></IconButton>
               </Badge>
               <Link to="AddToCart">
                 <Badge className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`} badgeContent={state.AllProduct?.length>0?state.AllProduct?.length:"0"}>
-                  <MdOutlineShoppingCart color="grey" size={22}></MdOutlineShoppingCart>
+                  <IconButton aria-label="shopping-cart"><MdOutlineShoppingCart color="grey" size={22}></MdOutlineShoppingCart></IconButton>
                 </Badge>
               </Link>
             </div>

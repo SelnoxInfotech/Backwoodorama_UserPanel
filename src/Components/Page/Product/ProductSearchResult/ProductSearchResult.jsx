@@ -129,7 +129,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
     }, [AddTOCard])
     return (
         <>
-            <div className="row mx-2 marginProductSearchResult">
+            <div className="row mx-0 marginProductSearchResult">
                 <div className="col-12 mt-4 productSlider_headings fontStyle">
                     <h1>{CategoryName}</h1>
                 </div>
@@ -137,7 +137,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
                 {RelatedProductResult.map((items, index) => {
 
                     return (
-                        <div className=" col-xxl-3  col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-4  productSearch_result_container" key={index}>
+                        <div className=" col-xxl-3  col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-4 px-0 productSearch_result_container" key={index}>
                             <div className="row productsearch_result_inner_container mx-1">
 
                                 <div className="col-12  productSearchResultImage_container">

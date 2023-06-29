@@ -16,6 +16,7 @@ import CurrentLocation from './Component/CurrentLocation';
 import Badge from '@mui/material/Badge';
 import Box from '@mui/material/Box';
 import LoadingButton from '@mui/lab/LoadingButton';
+import  IconButton from '@mui/material/IconButton';
 import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
   const cookies = new Cookies();
@@ -110,16 +111,16 @@ const Navbar = () => {
           <Grid xs={10} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }} >
             <div className=' col-12 Login_Sigup_button  Heder_icon ' style={{ justifyContent: "end", marginLeft: "-20px" }}>
               <Badge badgeContent={4} className={classes.sliderLink_badge}>
-                <AiFillHeart color="grey" size={22}></AiFillHeart>
+              <IconButton aria-label='whishlist'><AiFillHeart color="grey" size={22}/></IconButton>
               </Badge>
               <Badge badgeContent={4} className={classes.sliderLink_badge}>
 
-                <IoIosNotifications color="grey" size={22}></IoIosNotifications>
+                <IconButton aria-label='notification'><IoIosNotifications color="grey" size={22}></IoIosNotifications></IconButton>
               </Badge>
               <Link to="/AddToCart">
                 <Badge className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`} badgeContent={state.AllProduct?.length > 0 ? state.AllProduct?.length : "0"}>
 
-                  <MdOutlineShoppingCart color="grey" size={22}></MdOutlineShoppingCart>
+                 <IconButton aria-label='shopping-cart'><MdOutlineShoppingCart color="grey" size={22}></MdOutlineShoppingCart></IconButton>
                 </Badge>
               </Link>
             </div>

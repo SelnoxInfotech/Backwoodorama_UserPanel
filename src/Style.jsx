@@ -864,20 +864,20 @@ strainTypSearchBar:{
      right:"0px",
      backgroundColor:"#31B665",
      color:"#FFFFFF",
-     width:"55px"
+     width:"55px",
+     cursor:"pointer"
   },
   "& .css-1ywo31j ":{
     position:"absolute",
     left:"0px",
     backgroundColor:"#31B665",
     color:"#FFFFFF",
-    width:"35px"
+    width:"35px",
+    cursor:"pointer"
   }
 
 },
-strainTyleRemove:{
 
-}
 
 
 
