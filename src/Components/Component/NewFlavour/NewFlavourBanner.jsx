@@ -10,7 +10,7 @@ const NewFlavourBanner = ({ delBtn }) => {
     const classes = useStyles()
     return (
         <>
-            <div className='container-fluid'>
+            {/* <div className='container-fluid'> */}
             <div className="row  newFlavour_row" >
                 <div className="col-12 newFlavour_container">
                     {
@@ -82,7 +82,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                 </div>
 
             </div>
-            </div>
+            {/* </div> */}
         </>
     )
 }

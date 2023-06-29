@@ -2455,6 +2455,8 @@
 
 .amenties_paragrap p {
   color: #000000;
+  font-size: 18px;
+  font-weight: 700;
   margin-left: 40px;
 }
 
@@ -2609,17 +2611,26 @@
 .store_detail_SideMenuBar_order_list {
   width: 100%;
   display: block;
-  gap: 20%;
+  /* gap: 20%; */
   list-style: none;
   color: #828282;
   margin-top: 10px;
+  padding-left: 0px;
+}
+.StoreDetailSidemenuBarList{
+  gap: 20px;
 }
 
 @media(max-width:991px) {
-  .store_detail_SideMenuBar_order_list {
-    display: flex;
+  .StoreDetailSidemenuBarList{
+  min-width: 30%;
+  }
+  .store_detail_SideMenuBar_container{
     overflow-x: scroll;
     overflow-y: hidden;
+  }
+  .store_detail_SideMenuBar_order_list {
+    display: flex;
   }
 
   .storeDetail_container {
@@ -2635,20 +2646,38 @@
 }
 
 .store_detail_container {
-  height: 700px;
-  border: 1px solid #DCD9D9;
+  height: 100%;
 }
-
-@media(max-width:600px) {
-  .store_detail_container {
-    overflow-y: auto;
-    overflow-x: hidden;
+.StoreDetailSideMenu_listItems{
+  height: 30px;
+  display: grid;
+  align-items: center;
+  font-size: 16px;
+}
+@media(max-width:768px) {
+  .StoreDetailSidemenuBarList {
+    min-width: 47%;
+}
+}
+@media(max-width:488px) {
+  .store_detail_container{
+    padding-left: 0px !important;
+  }
+  .StoreDetailSidemenuBarList {
+    min-width: 50%;
+    gap: 10px;
+}
+.StoreDetailSideMenu_listItems{
+  font-size: 10px;
+}
+}
+@media(max-width:1400px){
+  .StoreDetailSideMenu_listItems{
+    font-size: 12px;
   }
 }
-
 .store_detail_container_right_container {
   height: 500px;
-  border: 1px solid #DCD9D9;
 
 }
 
@@ -2662,6 +2691,7 @@
 .StoreDetail_paragraph p {
   color: #000000;
   font-size: 20px;
+  font-weight: 700;
 
 }
 
@@ -2676,12 +2706,14 @@
 .storeDetails p {
   color: #000000;
   font-size: 16px;
+  font-weight: 400;
 
 }
 
 .storeDetailGap {
   gap: 8px
 }
+
 
 /* StoreDetailContacts */
 .StoreDetailContactList {
@@ -2692,6 +2724,7 @@
   list-style: none;
   color: #828282;
   margin-top: 10px;
+  padding-left: 0px;
 }
 
 /* end */

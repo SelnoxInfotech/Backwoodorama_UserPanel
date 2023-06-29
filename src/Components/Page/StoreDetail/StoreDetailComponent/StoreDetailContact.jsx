@@ -15,22 +15,17 @@ const StoreDetailContact = () => {
     return (
         <>
             <div className="col-lg-2 store_detail_container_right_container my-2">
-                <div className="row">
-                    <div className="col-lg-12 StoreDetailContactList">
+                    <div className="col-lg-12 ">
                         <ol className="StoreDetailContactList">
                             {StoreDetailSideMenubarArray.map((ele, index) => {
                                 return (
-
-                                    <li key={index}>
-                                        <div className="row">
-                                            <div className="col-2">
-                                                <p style={{color:ele.color}}>{ele.icons}</p>
-                                            </div>
-                                            <div className="col-10">
-                                                <p>{ele.item}</p>
-                                            </div>
-
-                                        </div>
+                                    <li key={index} className="d-flex gap-2">
+                                        <span className="storeDetailContact_icons" style={{color:ele.color}}>
+                                        {ele.icons}
+                                        </span>
+                                        <span>
+                                        {ele.item}
+                                        </span>
                                     </li>
                                 )
                             })}
@@ -39,7 +34,6 @@ const StoreDetailContact = () => {
 
                     </div>
 
-                </div>
             </div>
         </>
     )
