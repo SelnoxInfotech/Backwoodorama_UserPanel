@@ -23,7 +23,7 @@ const StoreDetailContact = () => {
                                         <span className="storeDetailContact_icons" style={{color:ele.color}}>
                                         {ele.icons}
                                         </span>
-                                        <span>
+                                        <span className="StoreDetailContactList_itemss">
                                         {ele.item}
                                         </span>
                                     </li>

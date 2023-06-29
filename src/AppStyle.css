@@ -2726,7 +2726,11 @@
   margin-top: 10px;
   padding-left: 0px;
 }
-
+.StoreDetailContactList_itemss{
+  font-size: 18px;
+  font-weight: 400;
+  color: #828282;
+}
 /* end */
 
 /* OverAllReview */
