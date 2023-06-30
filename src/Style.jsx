@@ -14,6 +14,7 @@ const useStyles = makeStyles({
     "& .MuiOutlinedInput-notchedOutline": {
       border: "0px",
       paddingTop: '8.5px',
+      paddingLeft:"20px"
 
 
     }
@@ -223,6 +224,7 @@ const useStyles = makeStyles({
       fontSize: ".5rem",
     },
     "& .MuiLoadingButton-root": {
+      fontSize:"10px",
       width: "100%",
       height: "38px",
       borderRadius: "40px",
@@ -234,7 +236,7 @@ const useStyles = makeStyles({
     "& .MuiButtonBase-root:hover": {
       color: "#ffff",
       backgroundColor: "#00b96a",
-      border: "1px solid #31B665"
+      border: "2px solid #31B665"
     },
   },
   loginBtnTextAndBackground: {
@@ -289,14 +291,27 @@ const useStyles = makeStyles({
       width: "90px",
       background: "#31B665",
     },
+    "& .MuiTab-root":{
+      textTransform:"capitalize",
+      color:"#707070",
+      fontWeight:"400",
+      fontSize:"16px"
+    },
     "& .MuiTab-root.Mui-selected": {
-      color: "#31B665"
+      color: "#31B665",
+    },
+    "@media(Max-width:480px)":{
+      "& .MuiTab-root":{
+        fontSize:"12px"
+      }
     }
   },
   delivery_menuBar: {
     "& .MuiTabPanel-root": {
       paddingLeft: "0px",
-      paddingRight: "0px"
+      paddingRight: "0px",
+      textTransform:'none'
+
     }
   },
   open_dispensory_tab_background: {
@@ -434,8 +449,8 @@ const useStyles = makeStyles({
     }
   },
   searchBar_padding: {
-    "& .MuiAutocomplete-root ": {
-      // paddingLeft:"20px"
+    "&.MuiTextField-root": {
+      paddingLeft:"10px"
     }
   },
   homePageDealSignup_TextFields: {
@@ -878,7 +893,11 @@ strainTypSearchBar:{
   }
 
 },
-
+navBarButton_icons:{
+  "&.MuiIconButton-root":{
+    padding:"3px"
+  }
+}
 
 
 

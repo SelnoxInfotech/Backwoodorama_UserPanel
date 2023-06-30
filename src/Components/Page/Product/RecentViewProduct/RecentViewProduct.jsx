@@ -56,7 +56,7 @@ const RecentViewProduct = () => {
                                         <div className="col-12 center recentViewImageContainer p-2">
                                             <LazyLoadImage className="recentView_images" src={items.imgUrl} alt="image not availble" />
                                         </div>
-                                        <div className="col-12 recentViewProductContent_container px-1">
+                                        <div className="col-12 recentViewProductContent_container">
 
                                                 <div className="w-100 recentViewProduct_heading">
                                                     <h1>Urban flavour delivery</h1>
@@ -68,17 +68,18 @@ const RecentViewProduct = () => {
                                                 </div>
                                                 
                                                 <div className="w-100 recentViewProductParagraph">
-                                                    <p><span><GoStar className={`${classes.disp_star_color}`} /></span><span className="mx-1 recentView_rating">4.5 Rating</span></p>
+                                                <GoStar className={`${classes.disp_star_color}`} size={20}/><span className=" recentView_rating">4.5 Rating</span>
+                                                    {/* <p><span><GoStar className={`${classes.disp_star_color}`} size={16}/></span><span className="mx-1 recentView_rating">4.5 Rating</span></p> */}
                                                 </div>
                                                 <div className="w-100 recentViewProduct_BtnContainer">
                                                     <Box
-                                                        className={`  ${classes.loadingBtnTextAndBack}`}
+                                                        className={` center ${classes.loadingBtnTextAndBack}`}
                                                         style={{ width: "100%" }}
                                                     >
 
 
 
-                                                        <LoadingButton style={{ width: "100%" }} variant="outlined"> Order Now</LoadingButton>
+                                                        <LoadingButton style={{ width: "80%" }} variant="outlined"> Order Now</LoadingButton>
                                                     </Box>
                                                 </div>
                                         </div>

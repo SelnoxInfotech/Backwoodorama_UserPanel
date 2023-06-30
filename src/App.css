@@ -158,7 +158,6 @@ a {
 .SearchBar {
   width: 100%;
   border-style: hidden;
-  padding-left: 10px;
   background: rgb(238, 238, 238);
 }
 
@@ -344,10 +343,10 @@ a {
 
 
 .Heder_icon {
-  height: 10px;
+  height: 21px;
   justify-content: flex-end;
   gap: 5%;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 /* End */

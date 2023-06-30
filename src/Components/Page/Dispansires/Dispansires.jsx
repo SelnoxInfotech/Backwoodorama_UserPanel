@@ -61,7 +61,7 @@ export default function Dispansires() {
                         {DispensorShopLocation.map((ele, index) => {
                             return (
                                 <div className="d-flex" key={index}>
-                                    <h1 className="dispensories_name">{ele.name}</h1><h1 className="dispensories_city">{ele.city}</h1>
+                                    <span className="dispensories_name">{ele.name}</span><span className="dispensories_city">{ele.city}</span>
                                 </div>
 
 

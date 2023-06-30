@@ -24,9 +24,9 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                     <div className='col-sm-8 col-12 delivery_image_content_Container_height'>
                                         <div className='row'>
                                             <div className='col-lg-5 col-5 delivery_items_card_img_container px-0'>
-                                               <Link to={`/DispensoriesProduct/${items.id}/${"Menu"}`}> 
-                                               <LazyLoadImage className='delivery_card_image_height' src={`https://sweede.app/${items.Store_Image}`} alt='Image_not found' height={"100px"} />
-                                               </Link>
+                                                <Link to={`/DispensoriesProduct/${items.id}/${"Menu"}`}>
+                                                    <LazyLoadImage className='delivery_card_image_height' src={`https://sweede.app/${items.Store_Image}`} alt='Image_not found' height={"100px"} />
+                                                </Link>
                                             </div>
                                             <div className='col-lg-7 col-7'>
                                                 <div className='row'>
@@ -76,8 +76,10 @@ const DeliveryItemsCard = ({ Deliverie }) => {
 
                                     <div className='col-xl-8 col-lg-10 col-md-12 delivery_items_button_div bg-light'>
                                         <div className='row'>
-                                            <div className='col-lg-7 delivery_item_paragraphBtn delivery_btn_delivery delivery_items_card_flex'>
-                                                <span><MdShoppingCart /></span> <p>30 to 90 min |<span>Free delivery</span>|<span>$50 min</span></p>
+                                            <div className='col-lg-7 delivery_item_paragraphBtn delivery_btn_delivery delivery_items_card_flex center'>
+                                                <div className='deliverItemCard_icons'>
+                                                <MdShoppingCart color='#707070' size={16}/><span>30 to 90 min |</span><span>Free delivery</span>|<span>$50 min</span>
+                                                </div>
                                             </div>
                                             <div className='col-lg-5 delivery_btn_div'>
                                                 <Box

@@ -53,14 +53,14 @@ export default function DashBoardLink({ state }) {
           <Grid xs={6} md={2} xl={1} spacing={2} display={{ xs: "none", md: "block", lg: "block" }} >
             <div className=' col-12  addyocardIcon  '>
               <Badge badgeContent={4} className={classes.sliderLink_badge}>
-                <IconButton aria-label="whislist"><AiFillHeart color="grey" size={22}></AiFillHeart></IconButton>
+                <IconButton className={classes.navBarButton_icons} aria-label="whislist"><AiFillHeart color="#858585" size={22}></AiFillHeart></IconButton>
               </Badge>
               <Badge badgeContent={4} className={classes.sliderLink_badge}>
-              <IconButton aria-label="notification"> <IoIosNotifications color="grey" size={23}></IoIosNotifications></IconButton>
+              <IconButton className={classes.navBarButton_icons}  aria-label="notification"> <IoIosNotifications color="#858585" size={23}></IoIosNotifications></IconButton>
               </Badge>
               <Link to="AddToCart">
                 <Badge className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`} badgeContent={state.AllProduct?.length>0?state.AllProduct?.length:"0"}>
-                  <IconButton aria-label="shopping-cart"><MdOutlineShoppingCart color="grey" size={22}></MdOutlineShoppingCart></IconButton>
+                  <IconButton className={classes.navBarButton_icons}  aria-label="shopping-cart"><MdOutlineShoppingCart color="#858585" size={22}></MdOutlineShoppingCart></IconButton>
                 </Badge>
               </Link>
             </div>

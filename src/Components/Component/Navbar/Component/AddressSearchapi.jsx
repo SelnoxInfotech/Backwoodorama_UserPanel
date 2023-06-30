@@ -187,7 +187,7 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
-              <IoLocationSharp color="gray" size={18} />
+              <IoLocationSharp color="#858585" size={16} />
             </InputAdornment>
           ),
           endAdornment: (

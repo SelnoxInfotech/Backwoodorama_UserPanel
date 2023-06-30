@@ -2241,11 +2241,11 @@
 
 @media(max-width:440px) {
   .dispensories_name {
-    font-size: 1rem;
+    font-size: 12px;
   }
 
   .dispensories_city {
-    font-size: 1rem;
+    font-size: 12px;
 
   }
 }
@@ -2379,12 +2379,16 @@
 
 .dispensories_content_paragraphs p {
   color: #949494;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .dispensories_open_res_btns {
   border-style: none;
   font-size: 12px;
   color: #828282;
+  font-weight: 400;
+  padding: 0px 10px;
 }
 
 .dispensories_open_res_btns2 {
@@ -2392,6 +2396,8 @@
   margin-left: 10px;
   font-size: 12px;
   color: #828282;
+  padding: 0px 10px;
+
 }
 
 .dispensories_buttonsContainer {
@@ -2402,7 +2408,7 @@
   border-style: none;
   font-size: 12px;
   color: #828282;
-
+  padding: 0px 10px;
 }
 
 .dis_open_result_star {
@@ -2418,6 +2424,21 @@
 @media(max-width:400px) {
   .dispensories_result_head {
     font-size: 12px;
+  }
+  .dispensories_content_paragraphs p{
+    font-size: 12px;
+  }
+  .dispensories_content_Header_paragraphs p{
+    font-size: 12px;
+  }
+  .dispensories_open_res_btns {
+    font-size: 10px;
+  }
+  .dispensories_open_res_btns2 {
+    font-size: 10px;
+  }
+  .dispensories_pickup_btn{
+    font-size: 10px
   }
 }
 
@@ -3187,11 +3208,13 @@
 .Deliveries_Heading {
   font-size: 32px;
   color: #000000;
+  font-weight: 700;
 }
 
 .deliveries_sub_heading {
   color: #707070;
   font-size: 24px;
+  font-weight: 400;
 }
 
 .deliveries_pickup_menu_fontSize {
@@ -3262,6 +3285,12 @@
 }
 
 @media(max-width:450px) {
+  .Deliveries_Heading {
+    font-size: 16px;
+  }
+  .deliveries_sub_heading{
+    font-size: 12px;
+  }
   .delivery_items_card_img_container {
     height: 139px;
   }
@@ -3302,6 +3331,14 @@
 
 .delivery_btn_delivery {
   height: 50px;
+}
+.deliverItemCard_icons{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 8px;
+
 }
 
 .delivery_btn_div {
@@ -3402,22 +3439,25 @@
   font-weight: 700;
   font-size: 24px;
   color: #000000;
-  margin-top: 10px;
+  margin: 10px 0px;
 }
 
 .marginProductSearchResult {
   margin-bottom: 80px;
 }
-
+.newProductCategorySliderName{
+  margin-top: 10px;
+}
 .newProductCategorySliderName p {
   font-weight: 400;
   font-size: 15px;
   color: #707070;
+  margin-bottom: 0px;
 }
 
 @media(max-width:480px) {
   .productSlider_headings h1 {
-    font-size: 16px;
+    font-size: 12px;
   margin-top: 10px;
   }
 
@@ -3991,11 +4031,12 @@
 
 .recentViewProductContent_container {
   height: 200px;
+  padding: 2px 10px;
 }
 
 .recentViewProductBorder {
   background: #FFFFFF;
-  border: 1px solid #31B665;
+  border: 1px solid #E7E7E7;
   border-radius: 10px;
 }
 
@@ -4013,6 +4054,9 @@
 
 .recentViewProductParagraph {
   height: 35px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .recentViewProduct_BtnContainer {

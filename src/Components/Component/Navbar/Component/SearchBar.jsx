@@ -178,7 +178,7 @@ const SearchBar = () => {
                                 ...params.InputProps,
                                 startAdornment: (
                                     <InputAdornment position="start">
-                                        <BsSearch color="gray"/>
+                                        <BsSearch color="#858585" size={16}/>
                                     </InputAdornment>
                                 ),
                                 endAdornment: (
