@@ -11,7 +11,7 @@ const EditProfile = () => {
                         <h1 className="EditProfile_heading">Profile Setting</h1>
                     </div>
                     <div className="EditProfile_heading_cont">
-                     <span><IoChevronBackSharp color="#707070" /></span><span className="editProfile_backBtn">Back Profile</span>
+                     <span className="editProfile_backBtnIcon"><IoChevronBackSharp color="#707070" /></span><span className="editProfile_backBtn">Back Profile</span>
                     </div>
                 </div>
                 <EditProfileLogin/>

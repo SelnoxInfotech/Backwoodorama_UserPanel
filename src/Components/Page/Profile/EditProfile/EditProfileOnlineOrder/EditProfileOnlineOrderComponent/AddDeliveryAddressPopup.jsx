@@ -4,7 +4,8 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import { AiFillPlusCircle } from "react-icons/ai"
-import { IoCloseCircle } from "react-icons/io5"
+import IconButton from '@mui/material/IconButton';
+import {RiCloseCircleFill} from "react-icons/ri"
 import LoadingButton from '@mui/lab/LoadingButton';
 import useStyles from '../../../../../../Style';
 import { Box } from '@mui/system';
@@ -26,7 +27,7 @@ const AddDeliveryAddressPopup = () => {
                 <div className="container-fluid my-4 px-4">
                     <div className="row">
                         <div className='col-12 text-end addDeliverAddress_col'>
-                            <IoCloseCircle size={24} color='#707070' />
+                        <IconButton aria-label="closebutton"><RiCloseCircleFill color='#949494' size={24}/></IconButton>
                         </div>
                         <div className="col-12 addDeliverAddress_col">
                             <h1 className='deliveryAddress_heading'>Add delivery address</h1>

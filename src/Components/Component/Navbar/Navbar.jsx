@@ -82,6 +82,9 @@ const Navbar = () => {
     }
 
   }
+  const ViewProfiles=()=>{
+    navigate("/Profile")
+  }
 
   return (
     <>
@@ -146,7 +149,7 @@ const Navbar = () => {
                           </div>
                           <div className='profile_name_container'>
                             <h1 className='profile_names'>Maxwell</h1>
-                            <p className='profile_viewAll'>View All</p>
+                            <p className='profile_viewAll' onClick={ViewProfiles}>View Profile</p>
                           </div>
 
                         </section>

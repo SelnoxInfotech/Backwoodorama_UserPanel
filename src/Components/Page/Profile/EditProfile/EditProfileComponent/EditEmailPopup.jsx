@@ -4,9 +4,10 @@ import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import { Box } from "@mui/material"
 import useStyles from "../../../../../Style"
-import { IoCloseSharp } from "react-icons/io5"
 import LoadingButton from '@mui/lab/LoadingButton';
 import { MdEdit } from 'react-icons/md';
+import {RiCloseCircleFill} from "react-icons/ri"
+import IconButton from '@mui/material/IconButton';
 const EditEmailPopup = () => {
     const classes = useStyles()
     const [open, setOpen] = React.useState(false);
@@ -33,7 +34,8 @@ const EditEmailPopup = () => {
                             <label className='EditEmail_pop_heading' htmlFor='edit email'>Email Edit</label>
                         </div>
                         <div className='col-6 text-end mt-4 EditEmailPopup_col_height'>
-                            <IoCloseSharp size={"18px"} color='#707070'/>
+                        <IconButton aria-label="closebutton"><RiCloseCircleFill color='#949494' size={24}/></IconButton>
+
                         </div>
 
 

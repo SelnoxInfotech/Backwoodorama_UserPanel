@@ -41,6 +41,10 @@ const SideNavbar = ({ closeNav, Open }) => {
         }
 
     }
+    const ViewProfiles=()=>{
+    Navigate("/Profile")
+
+    }
     return (
         <>
             <div id="mySidebar" className="sidebar" style={{ width: Open ? "300px" : "0px" }}>
@@ -73,7 +77,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                                             </div>
                                             <div className="slider_image_profile_names_conatiner">
                                                 <h1 className="slider_image_name_heading">Maxwell</h1>
-                                                <p className="slider_view_heading">View Profile</p>
+                                                <p className="slider_view_heading" onClick={ViewProfiles}>View Profile</p>
                                             </div>
                                         </section>
                                         <hr />

@@ -4,9 +4,10 @@ import Button from "@mui/material/Button"
 import { MdEdit } from "react-icons/md"
 import TextField from "@mui/material/TextField"
 import useStyles from "../../../../../../Style"
-import { RiCloseCircleFill } from "react-icons/ri"
 import { Box } from "@mui/material"
 import  LoadingButton from "@mui/lab/LoadingButton"
+import {RiCloseCircleFill} from "react-icons/ri"
+import IconButton from '@mui/material/IconButton';
 const EditUserName = () => {
     const classes = useStyles()
     const [Open, SetOpen] = React.useState(false)
@@ -25,7 +26,7 @@ const EditUserName = () => {
                 <div className="container-fluid py-4 px-4">
                     <div className="row">
                         <div className="col-12 text-end edit_userName_col">
-                            <RiCloseCircleFill color="#707070" size={24} />
+                        <IconButton aria-label="closebutton"><RiCloseCircleFill color='#949494' size={24}/></IconButton>
                         </div>
                         <div className="col-12 edit_userName_col">
                             <h1 className="editUserHeading">Edit User</h1>

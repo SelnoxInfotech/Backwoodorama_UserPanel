@@ -8,6 +8,8 @@ import { AiFillPlusCircle } from "react-icons/ai"
 import { Box } from '@mui/system';
 import LoadingButton from "@mui/lab/LoadingButton"
 import useStyles from '../../../../../../Style';
+import IconButton from '@mui/material/IconButton';
+import { RiCloseCircleFill } from "react-icons/ri"
 const AddDateOfBirth=()=>{
     const classes=useStyles()
         const [Open, SetOpen] = React.useState(false)
@@ -25,8 +27,8 @@ const AddDateOfBirth=()=>{
             <Dialog open={Open} onClose={handleClose} className={classes.addDateOfBirthPopup} >
                 <div className='container-fluid py-4 px-4'>
                     <div className='row'>
-                        <div className='col-12 text-end'>
-                          <IoCloseCircle size={20} color='#707070'/>
+                        <div className='col-12 text-end dobCol'>
+                        <IconButton aria-label="closebutton"><RiCloseCircleFill color='#949494' size={24} /></IconButton>
                         </div>
                         <div className='col-12 addDateOfBirth_label mt-2'>
                             <h1 className='dob_heading'>Add Date of Birth</h1>

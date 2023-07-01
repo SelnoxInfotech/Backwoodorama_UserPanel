@@ -2,7 +2,9 @@ import React from "react"
 import { AiOutlineLeft } from "react-icons/ai"
 import SearchBar from '@mkyy/mui-search-bar';
 import AllOrder from "./MyOrderComponent/AllOrder";
+import useStyles from "../../../Style";
 const MyOrder = () => {
+    const classes=useStyles()
     const [Selected,SetSelected]=React.useState(1)
     const MyOrderList=[{id:1,items:"All"},{id:2,items:"Order"},{id:3,items:"Shipped"},{id:4,items:"Delivered"},{id:5,items:"Cancelled"}]
     const changeBackgroundFun=(itemId)=>{
@@ -20,7 +22,7 @@ const MyOrder = () => {
                         <section className="MyOrder_searchBar">
                             <span className="yourOrder_search">Your Order</span>
                             <div className="MyOrderSearchBar_container px-0">
-                                <SearchBar style={{ background: "#FFFFF", border: "1px solid #CACACA" }} width={"100%"} placeholder="Search by customer, product, order id" />
+                                <SearchBar className={`${classes.MyOrderSearchBar}`} style={{ background: "#FFFFF", border: "1px solid #CACACA" }} width={"100%"} placeholder="Search by customer, product, order id" />
                             </div>
                         </section>
 

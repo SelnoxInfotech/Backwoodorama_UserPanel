@@ -51,7 +51,7 @@ const Profile = () => {
                                 {ProfileList.map((val, index) => {
                                     return (
                                         <div className="profile_list_div" key={index}>
-                                            <li className="">
+                                            <li className="profileListItems_cursor">
                                                 <span>{val.icons}</span><span className="profileListItems">{val.item}</span>
                                             </li>
                                             <hr />

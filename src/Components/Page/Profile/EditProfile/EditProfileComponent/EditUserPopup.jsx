@@ -8,6 +8,7 @@ import LoadingButton  from '@mui/lab/LoadingButton';
 import useStyles from '../../../../../Style';
 import { MdEdit } from "react-icons/md"
 import {RiCloseCircleFill} from "react-icons/ri"
+import IconButton from '@mui/material/IconButton';
 const EditUserPopup = () => {
     const classes=useStyles()
     const [open, setOpen] = React.useState(false);
@@ -29,7 +30,7 @@ const EditUserPopup = () => {
                 <div className='container-fluid px-4'>
                     <div className='row'>
                         <div className='col-12 text-end mt-4 EditUser_col_div'>
-                           <LoadingButton  startIcon={<RiCloseCircleFill color='gray' size={24}/>}></LoadingButton>
+                        <IconButton aria-label="closebutton"><RiCloseCircleFill color='#949494' size={24}/></IconButton>
                         </div>
                         <form>
                         <div className='col-12 mt-4 EditUser_col_div'>

@@ -708,7 +708,7 @@ medicalCardDetail_dialog:{
   "& .MuiDialog-container": {
     "& .MuiPaper-root": {
       width: "50%",
-      height:"650px",
+      height:"700px",
       borderRadius: "20px",
       background: "#FFFFFF",
     }
@@ -907,11 +907,12 @@ navBarButton_icons:{
   "&.MuiIconButton-root":{
     padding:"3px"
   }
-}
-
-
-
-
+},
+MyOrderSearchBar:{
+  "& .css-y40w8":{
+    color:"#B0B0B0"
+  }
+},
 });
 
 export default useStyles

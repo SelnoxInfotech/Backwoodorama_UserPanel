@@ -3,7 +3,8 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import { AiFillPlusCircle } from "react-icons/ai"
-import { IoCloseCircle } from "react-icons/io5"
+import IconButton from '@mui/material/IconButton';
+import {RiCloseCircleFill} from "react-icons/ri"
 import { Box } from '@mui/system';
 import useStyles from '../../../../../../Style';
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -28,7 +29,7 @@ const AddPhotoId = () => {
                 <div className='container-fluid my-4 px-4'>
                     <div className='row'>
                         <div className='col-12 text-end AddPhotoIdPoppup_col'>
-                            <IoCloseCircle size={22} color='#707070' />
+                        <IconButton aria-label="closebutton"><RiCloseCircleFill color='#949494' size={24}/></IconButton>
                         </div>
                         <div className='col-12 AddPhotoIdPoppup_col'>
                             <h1 className='photoId_heading'>Photo Id Upload</h1>
