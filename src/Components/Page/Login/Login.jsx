@@ -79,13 +79,15 @@ const Login = () => {
 
                         <form onSubmit={method.handleSubmit(Submit)}>
                             <div className='row'>
-                                <label>Email</label>
+                                <label htmlFor='Email'>Email</label>
 
                                 <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
                                     <TextField
                                         placeholder="Enter Your Email"
                                         variant="outlined"
                                         fullWidth
+                                        className={`${classes.textFieldFocusBorderColor}`}
+                                        id='Email'
                                         name='email'
                                         size='small'
                                         inputRef={method.register({
@@ -102,7 +104,7 @@ const Login = () => {
                                 </div>
                             </div>
                             <div className='row signup_margins_top'>
-                                <label>Password</label>
+                                <label htmlFor='Password'>Password</label>
 
                                 <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
                                     <TextField
@@ -110,6 +112,8 @@ const Login = () => {
                                         placeholder="Enter Your Password"
                                         variant="outlined"
                                         fullWidth
+                                        className={`${classes.textFieldFocusBorderColor}`}
+                                        id='Password'
                                         size='small'
                                         name='password'
                                         InputProps={{

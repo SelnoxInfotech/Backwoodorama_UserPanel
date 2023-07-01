@@ -6,6 +6,9 @@ import Button from '@mui/material/Button';
 import { Link , useNavigate} from 'react-router-dom';
 import { useForm} from "react-hook-form";
 import Createcontext from "../../../Hooks/Context"
+import {IoLogoFacebook } from 'react-icons/io';
+import {FcGoogle} from "react-icons/fc"
+
 import React from 'react';
 const Signup = () => {
     const { state ,dispatch} = React.useContext(Createcontext)
@@ -30,11 +33,12 @@ const Signup = () => {
                             </div>
                        <form onSubmit={method.handleSubmit(Submit)}>
                        <div className='row'>
-                            <label>Email</label>
+                            <label htmlFor='Email'>Email</label>
 
-                            <div className='col-lg-12 signup_btn_height'>
+                            <div className='col-lg-12 signup_btn_height mt-2'>
                                 <TextField 
-                                 id="outlined-basic" 
+                                 id="Email" 
+                                 className={`${classes.textFieldFocusBorderColor}`}
                                  placeholder="Enter Your Email" 
                                  name='email' 
                                  variant="outlined" 
@@ -70,17 +74,20 @@ const Signup = () => {
                                 <p>Already a member?</p>
                                 </div>
                                 <div className='col-lg-2 col-md-2 col-sm-2 col-2 signup_btn_height'>
-                             <Link to="/Login"><p>Signin</p></Link>
+                             <Link to="/Login" className='signupLinkColor'><p>Signin</p></Link>
                                 </div>
 
 
+                        </div>
+                        <div className='w-100 d-flex mt-4 center'>
+                            <div className='login_horizontalLine '></div> <span className='px-2 login_OR'>OR</span> <div className='login_horizontalLine '></div>
                         </div>
                         <div className='row  signup_margins_top'>
                             <div className='col-lg-12 signup_btn_height'>
                                 <Box
                                     className={`  ${classes.Signup_loading_btn_facebook}`}
                                 >
-                                    <LoadingButton variant="outlined">Continue with Facebook</LoadingButton>
+                                    <LoadingButton variant="outlined" startIcon={<IoLogoFacebook/>}>Continue with Facebook</LoadingButton>
                                 </Box>
                             </div>
 
@@ -88,9 +95,9 @@ const Signup = () => {
                         <div className='signup_margins_top'>
                             <div className='col-lg-12 signup_btn_height'>
                                 <Box
-                                    className={`${classes.Signup_loading_btn_google}`}
+                                    className={`${classes.Signup_loading_btn_Googles}`}
                                 >
-                                    <LoadingButton variant="outlined">Continue with Google</LoadingButton>
+                                    <LoadingButton variant="outlined" startIcon={<FcGoogle/>}>Continue with Google</LoadingButton>
                                 </Box>
                             </div>
 

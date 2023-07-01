@@ -2,6 +2,16 @@
 
 import { makeStyles } from '@mui/styles';
 const useStyles = makeStyles({
+  textFieldFocusBorderColor:{
+    "& .MuiOutlinedInput-root": {
+      " &.Mui-focused fieldset": {
+         borderColor: "#31B665",
+       },
+       '&:hover fieldset': {
+        borderColor: '#31B665', // - Set the Input border when parent has :hover
+    },
+     }
+  },
   searchBarPadding: {
     "&.MuiInputBase-sizeSmall": {
       paddingTop: " 6px",

@@ -1820,7 +1820,7 @@
 }
 
 .signup_container_height {
-  height: 450px;
+  height: 500px;
 }
 
 .login_container_height {
@@ -1900,6 +1900,9 @@
 
 .signup_btn_height {
   height: 45px;
+}
+.signupLinkColor{
+  color:#31B665;
 }
 
 /* end */
