@@ -25,10 +25,11 @@ const ResetPassword = () => {
                             </div>
                         </div>
                         <div className='row'>
-                            <label>Email/Username</label>
+                            <label htmlFor='EmailUser'>Email/Username</label>
 
                             <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
-                                <TextField id="outlined-basic" placeholder="Enter Your Email" variant="outlined" fullWidth size='small' />
+                                <TextField id="EmailUser"  className={`${classes.textFieldFocusBorderColor}`}
+                                 placeholder="Enter Your Email" variant="outlined" fullWidth size='small' />
                             </div>
                         </div>
 

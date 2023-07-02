@@ -173,7 +173,7 @@ const useStyles = makeStyles({
       borderRadius: "40px",
       color: "#ffff",
       backgroundColor: "#3A559F",
-      gap: "50px",
+      gap: "25px",
       paddingLeft: "40px"
     },
     "& .MuiButtonBase-root:hover": {
@@ -212,7 +212,7 @@ const useStyles = makeStyles({
       width: "100%",
       display: "flex",
       justifyContent: "flex-start",
-      gap: "50px",
+      gap: "25px",
       paddingLeft: " 41px",
       height: "38px",
       backgroundColor: "#3369C2",
@@ -234,7 +234,7 @@ const useStyles = makeStyles({
       fontSize: ".5rem",
     },
     "& .MuiLoadingButton-root": {
-      fontSize:"10px",
+      fontSize:"14px",
       width: "100%",
       height: "38px",
       borderRadius: "40px",
