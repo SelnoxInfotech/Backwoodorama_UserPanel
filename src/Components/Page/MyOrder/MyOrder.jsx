@@ -13,9 +13,9 @@ const MyOrder = () => {
     return (
         <React.Fragment>
             <div className="container-fluid">
-                <div className="row">
+                <div className="row px-2">
                     <div className="col-12 myOrder_columns px-0">
-                        <AiOutlineLeft size={20} color="#000000" /><span className="My_order_span_name">My order</span>
+                        <span className="myOrderSpanIcons"><AiOutlineLeft size={20} color="#000000" style={{marginLeft:"-6px"}}/></span><span className="My_order_span_name">My order</span>
 
                     </div>
                     <div className="col-lg-10 col-12  searchBar_container  px-0">

@@ -5455,6 +5455,9 @@
   color: #707070;
   margin-left: 10px;
 }
+.profileEdit:hover{
+  color: #31B665;
+}
 
 .profile_container {
   height: 478px;
@@ -5475,7 +5478,9 @@
   color: #707070;
   font-weight: 400;
 }
-
+.nameChangeProfile:hover{
+  color: #31B665;
+}
 .profile_images {
   width: 100%;
   height: 100%;
@@ -5519,6 +5524,9 @@
   font-weight: 500;
   font-size: 12px;
   color: #707070;
+}
+.profileListItems:hover{
+  color: #31B665;
 }
 .profileListItems_cursor{
   cursor: pointer;
@@ -6190,6 +6198,9 @@ font-size: 12px;
 color: #707070;
 cursor: pointer;
 }
+.profile_viewAll:hover{
+  color: #31B665;
+} 
 .Navbar_profile_imgs{
   width: 60px;
   height: 60px;
@@ -6215,6 +6226,9 @@ cursor: pointer;
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
+}
+.profile_list:hover{
+  color: #31B665;
 }
 .navbar_profileLodingBtn_position{
   position: absolute;
@@ -6294,6 +6308,10 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-weight: 700;
   font-size: 20px;
   margin-left: 10px;
+  cursor: pointer;
+}
+.myOrderSpanIcons{
+  cursor: pointer;
 }
 .myOrder_columns{
   height: 30px;

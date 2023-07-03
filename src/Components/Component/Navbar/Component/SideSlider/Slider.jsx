@@ -10,6 +10,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import LoadingButton from "@mui/lab/LoadingButton";
 import Box from "@mui/material/Box";
 const SideNavbar = ({ closeNav, Open }) => {
+  const profileRef=React.useRef(null)
     const cookies = new Cookies();
     const Navigate = useNavigate()
     const { state, dispatch } = React.useContext(Createcontext)
@@ -30,11 +31,25 @@ const SideNavbar = ({ closeNav, Open }) => {
         Navigate("/Signup")
         closeNav()
     }
+    React.useEffect(() => {
+        const handleClickOutsideprofile = (event) => {
+          if (profileRef.current && !profileRef.current.contains(event.target)) {
+            if (SliderStateDropDown) {
+                SetSliderStateDropdown((SliderStateDropDown) => !SliderStateDropDown)
+            }
+          }
+        };
+        document.addEventListener('click', handleClickOutsideprofile, true);
+        return () => {
+          document.removeEventListener('click', handleClickOutsideprofile, true);
+        };
+      }, [SliderStateDropDown]);
     const sliderProfileHandler = () => {
         SetSliderStateDropdown((SliderStateDropDown) => {
             return !SliderStateDropDown;
         })
     }
+    
     const Redirect=(items)=>{
         if(items==="My Order"){
             Navigate("/MyOrder")
@@ -63,9 +78,9 @@ const SideNavbar = ({ closeNav, Open }) => {
 
                                 </div>
                             </> :
-                            <div className="col-6 sliderImageProfile_container_mainDiv" >
+                            <div className="col-6 sliderImageProfile_container_mainDiv" ref={profileRef}>
                                 {/* <Button className={classes.muiBtn} onClick={Logout} >Logout</Button> */}
-                                <div className="SliderImageProfile_container">
+                                <div className="SliderImageProfile_container" >
                                     <LazyLoadImage src='./image/user.webp' className="Slidser_profile_imgs" onClick={sliderProfileHandler} />
 
                                 </div>

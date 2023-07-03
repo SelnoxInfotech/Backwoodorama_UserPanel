@@ -21,6 +21,7 @@ import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
   const cookies = new Cookies();
   const ref = React.useRef(null);
+  const profileRef=React.useRef(null)
   const { state, dispatch } = React.useContext(Createcontext)
   const [windowSize, setWindowSize] = React.useState()
   const [Hamburger, SetHamburger] = React.useState(window.innerWidth >= 900)
@@ -70,6 +71,20 @@ const Navbar = () => {
       document.removeEventListener('click', handleClickOutside, true);
     };
   }, [Open, windowSize]);
+  React.useEffect(() => {
+    const handleClickOutsideprofile = (event) => {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        if (DropDownState) {
+          SetDropDownState((DropDownState) => !DropDownState)
+        }
+      }
+    };
+    document.addEventListener('click', handleClickOutsideprofile, true);
+    return () => {
+      document.removeEventListener('click', handleClickOutsideprofile, true);
+    };
+  }, [DropDownState]);
+
   const handleClickDropdown = () => {
     SetDropDownState((DropDownState) => {
       return !DropDownState;
@@ -135,9 +150,9 @@ const Navbar = () => {
 
                 <div className=' col-12 Login_Sigup_button '>
                 
-                  <div className='col-lg-4 col-sm-4 navbarProfileDropDown_container'>
+                  <div className='col-lg-4 col-sm-4 navbarProfileDropDown_container' ref={profileRef}>
                     <Grid display={{ xs: "none", md: "block", lg: "block" }}>
-                      <div className='Navbar_profile_logo_container' >
+                      <div className='Navbar_profile_logo_container'>
                         <LazyLoadImage onClick={handleClickDropdown} src='./image/user.webp' className="Navbar_logo_imgs" />
                       </div>
                     </Grid>
