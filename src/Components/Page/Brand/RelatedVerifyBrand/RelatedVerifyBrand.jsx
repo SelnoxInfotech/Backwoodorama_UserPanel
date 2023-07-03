@@ -29,7 +29,7 @@ const RelatedVerifyBrand = () => {
                 </div>
 
             </div>
-            <ProductSearchResult RelatedProductResult={BrandProduct} />
+            {/* <ProductSearchResult RelatedProductResult={BrandProduct} /> */}
         </div>
     )
 }

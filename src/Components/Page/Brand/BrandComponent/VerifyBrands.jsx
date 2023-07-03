@@ -24,7 +24,7 @@ const VerifyBrands = () => {
     return (
         <>
             <div className="row">
-                {VerifyArrayData.map((items, index) => {
+                {VerifyArrayData?.map((items, index) => {
                     return (
                         <div className="col-xl-6 col-md-12 col-12 verify_brand_container" key={index}>
                             <div className="row verifyBrand_row mx-1 my-3">
