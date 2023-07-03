@@ -27,7 +27,8 @@ const Navbar = () => {
   const [Hamburger, SetHamburger] = React.useState(window.innerWidth >= 900)
   const classes = useStyles()
   const [Open, SetOpen] = React.useState(false)
-  const [DropDownState, SetDropDownState] = React.useState(null)
+  const [DropDownState, SetDropDownState] = React.useState(null);
+  const [ProfileSlectedState,SetProfileSelectedState]=React.useState(1)
   const ProfileList = [{id:1, item: "My Order" }, {id:2, item: "Favorites" },
   {id:3, item: "Review" }, {id:4, item: "Help" }]
   React.useEffect(() => {
@@ -91,7 +92,8 @@ const Navbar = () => {
     })
   }
   const navigate=useNavigate()
-  const Redirect=(items)=>{
+  const Redirect=(items,listId)=>{
+    SetProfileSelectedState(listId)
     if(items==="My Order"){
       navigate("/MyOrder")
     }
@@ -174,7 +176,7 @@ const Navbar = () => {
                             {ProfileList.map((value, index) => {
                               return (
                                 <div key={index}>
-                                  <li className='profile_list' onClick={()=>{Redirect(value.item)}}>{value.item}</li>
+                                  <li className='profile_list' style={{color:ProfileSlectedState===value.id?"#31B665":""}} onClick={()=>{Redirect(value.item,value.id)}}>{value.item}</li>
                                   <hr />
                                 </div>
                               )

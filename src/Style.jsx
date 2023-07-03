@@ -522,13 +522,15 @@ const useStyles = makeStyles({
       height: "52px",
       textTransform: "none",
       border: "2px solid #D9D9D9",
+      borderRadius:"0px",
       color: "#000000",
       backgroundColor: "#D9D9D9",
     },
     "& .MuiButtonBase-root:hover": {
       color: "#000000",
       backgroundColor: "#D9D9D9",
-      border: "1px solid #D9D9D9"
+      border: "1px solid #D9D9D9",
+      borderRadius:"0px",
     },
   },
   EditProfileTextFields_Outline: {
@@ -812,13 +814,15 @@ navbarprofileLoadingBtn: {
     height: "52px",
     textTransform: "none",
     border: "2px solid #D9D9D9",
+    borderRadius:"0px",
     color: "#000000",
     backgroundColor: "#D9D9D9",
   },
   "& .MuiButtonBase-root:hover": {
     color: "#000000",
     backgroundColor: "#D9D9D9",
-    border: "1px solid #D9D9D9"
+    border: "1px solid #D9D9D9",
+    borderRadius:"0px",
   },
 },
 sliderProfile_loadingBtn:{
@@ -830,13 +834,15 @@ sliderProfile_loadingBtn:{
     height: "35px",
     textTransform: "none",
     border: "2px solid #D9D9D9",
+    borderRadius:"0px",
     color: "#000000",
     backgroundColor: "#D9D9D9",
   },
   "& .MuiButtonBase-root:hover": {
     color: "#000000",
     backgroundColor: "#D9D9D9",
-    border: "1px solid #D9D9D9"
+    border: "1px solid #D9D9D9",
+    borderRadius:"0px",
   },
 },
 EditProfileBtn_Color:{

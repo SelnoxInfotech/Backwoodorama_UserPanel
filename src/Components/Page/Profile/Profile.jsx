@@ -10,11 +10,28 @@ import Box from '@mui/material/Box';
 import useStyles from "../../../Style";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
+import Cookies from 'universal-cookie';
+import Createcontext from "../../../Hooks/Context";
+import { useNavigate } from "react-router-dom";
 const Profile = () => {
     const classes = useStyles()
-    const [IsProfileSelected, SeIsProfileSelected] = React.useState(true)
-    const ProfileList = [{ icons: <MdOutlineShoppingBasket color="#707070" size={22} />, item: "Order" }, { icons: <AiFillHeart color="#707070" size={22} />, item: "Favorite" },
-    { icons: <AiFillStar color="#707070" size={22} />, item: "Review" }, { icons: <IoIosSettings color="#707070" size={22} />, item: "Help" }]
+    const { state, dispatch } = React.useContext(Createcontext)
+    const cookies = new Cookies();
+    const Navigate=useNavigate()
+    const [ProfileListSelected, SetProfileListSelected] = React.useState(1)
+    const ProfileList = [{id:1, icons: <MdOutlineShoppingBasket color="#707070" size={22} />, item: "Order" },
+    {id:2, icons: <AiFillHeart color="#707070" size={22} />, item: "Favorite" },
+    {id:3, icons: <AiFillStar color="#707070" size={22} />, item: "Review" },
+     {id:4, icons: <IoIosSettings color="#707070" size={22} />, item: "Help" }]
+    function Logout() {
+        cookies.remove('Token_access')
+        dispatch({ type: 'Login', login: false })
+        dispatch({ type: 'ApiProduct' });
+        Navigate("/")
+    }
+    const handleProfileListAndRedirect=(listIds)=>{
+        SetProfileListSelected(listIds)
+    }
     return (
         <div className="container">
             <div className="row mx-2">
@@ -52,7 +69,8 @@ const Profile = () => {
                                     return (
                                         <div className="profile_list_div" key={index}>
                                             <li className="profileListItems_cursor">
-                                                <span>{val.icons}</span><span className="profileListItems">{val.item}</span>
+                                                <span>{val.icons}</span>
+                                                <span className="profileListItems" style={{color:ProfileListSelected===val.id?"#31B665":""}} onClick={()=>handleProfileListAndRedirect(val.id)}>{val.item}</span>
                                             </li>
                                             <hr />
                                         </div>
@@ -61,7 +79,7 @@ const Profile = () => {
                             </ol>
                         </section>
                         <Box className={`mt-4 profileLodingBtn_position ${classes.profileLoadingBtn}`}>
-                            <LoadingButton>Logout</LoadingButton>
+                            <LoadingButton onClick={Logout}>Logout</LoadingButton>
                         </Box>
                     </form>
                 </div>

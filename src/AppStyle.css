@@ -3563,10 +3563,14 @@
 
 .productSearchPrice {
   color: #282625;
-  font-weight: bold;
+  font-weight:700;
   font-size: 20px;
 }
-
+.productSearchPerDoller{
+  color: #282625;
+  font-weight: 500;
+  font-size: 20px;
+}
 .productSearch_quantity {
   color: #282625;
   font-size: 20px;
@@ -3594,7 +3598,15 @@
 .product_search_rating_star {
   margin-top: -6px;
 }
-
+@media(max-width:500px){
+  .productSearchPrice{
+    font-size: 12px;
+  }
+  .productSearchPerDoller{
+    font-size: 12px;
+  }
+}
+/* ends */
 /* ProductIncDecQuantity */
 .product_inc_dec_quantity_btn {
   border-style: none;
@@ -3762,7 +3774,11 @@
 
   color: #949494;
 }
-
+@media(max-width:500px){
+  .productSearchResultParagraph p {
+    font-size: 14px;
+  }
+}
 /* end */
 /* VerifyBrands */
 .verify_brand_container {
@@ -4435,8 +4451,14 @@
   }
 
   .bestDealsCard_Heading_offers h1 {
-    font-size: 24px;
+    font-size: 14px;
 
+  }
+  .bestDealsHead_container h1{
+    font-size: 14px;
+  }
+  .bestDeal_subHeading p{
+    font-size: 14px;
   }
 }
 
@@ -4474,7 +4496,7 @@
 
 @media(max-width:500px) {
   .promocode_headings h1 {
-    font-size: 24px;
+    font-size: 14px;
   }
 }
 
@@ -4626,8 +4648,6 @@
   display: none;
   scrollbar-width: none;
 }
-
-
 /* end */
 /* ScrollContainer_newProductCtaegory */
 .ScrollContainer_newProductCtaegory {
@@ -4658,7 +4678,7 @@
     font-size: 18px;
   }
 
-  .delivery_services_subheading h2 {}
+
 }
 
 .deliveryServicesBorder {
@@ -4807,6 +4827,17 @@
   .homePageSignipLink P {
     font-size: 20px;
 
+  }
+  .popularStrain_heading h1{
+    font-size: 14px;
+    margin-left: 40px;
+  }
+  .popularStrainName{
+    font-size: 12px;
+  }
+  .newProductDetailsHeading p{
+    font-size: 14px;
+    margin-left: 0px;
   }
 }
 
@@ -6224,7 +6255,7 @@ cursor: pointer;
   margin-left: 8px;
   color: #707070;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 500;
   cursor: pointer;
 }
 .profile_list:hover{
@@ -6286,6 +6317,9 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-size: 10px;
   cursor: pointer;
 }
+.slider_view_heading:hover{
+  color: #31B665;
+}
 .sliderProfile_list ol li{
   list-style: none;
 }
@@ -6295,6 +6329,9 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
+}
+.slider_profile_list:hover{
+  color: #31B665;
 }
 .sliderProfile_logout_btn{
   position: absolute;
@@ -6349,7 +6386,7 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   height: 100%;
   display: flex;
   align-items: center;
-  gap: 142px;
+  gap: 139px;
 }
 .MyOrder_list li{
   min-width:100px;

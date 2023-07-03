@@ -6,12 +6,12 @@ const BestDealCards = ({CardDataArray,Heading}) => {
     const ref = React.useRef(null);
     return (
         <>
-            <div className="row">
-                <div className="col-12 bestDealsCard_Heading_offers mt-2">
+       
+                <div className="col-12 bestDealsCard_Heading_offers mt-2 px-0">
                     <h1 className="ellipsis px-2">{Heading}</h1>
                 </div>
 
-            </div>
+     
             <div className="col-lg-12 col-12   recentViewProductSlider" id="width" ref={ref}>
             <ScrollContainer className=" bestDealsCard_ScrollContainerRelative">
                 {

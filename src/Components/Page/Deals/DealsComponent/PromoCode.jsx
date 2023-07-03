@@ -7,12 +7,12 @@ const PromoCode = ({CardDataArray,Heading}) => {
 
     return (
         <>
-        <div className="row">
+      
           <div className="col-12 promocode_headings">
             <h1 className="px-2">{Heading}</h1>
 
           </div>
-        </div>
+       
         <div className="col-lg-12 col-12   recentViewProductSlider" id="width" ref={ref}>
         <ScrollContainer className="ScrollContainerRelative">
 

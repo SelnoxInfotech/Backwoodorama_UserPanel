@@ -19,9 +19,9 @@ const NewProductSearchResult = ({NewProductSearchRseultArray,heading}) => {
     return (
 
         <div className='container-fluid'>
-            <div className='row center'>
-                <div className='col-lg-12 col-12 newProductDetailsHeading'>
-                    <p>{heading}</p>
+            <div className='row '>
+                <div className='col-lg-12 col-12 newProductDetailsHeading mx-0 px-0'>
+                    <p className='newProductDetailsParagraph'>{heading}</p>
 
                 </div>
                 <div className="col-lg-12 col-12   recentViewProductSlider" id="width" ref={ref}>
@@ -81,7 +81,7 @@ const NewProductSearchResult = ({NewProductSearchRseultArray,heading}) => {
 
                                                 <div className="col-12 productPriceDivHeight">
 
-                                                    <p className="productSearch text-truncate"><span className="productSearchPrice">$35</span> PER 1z</p>
+                                                    <p className="productSearch text-truncate"><span className="productSearchPrice">$35</span> <span className='productSearchPerDoller'>PER 1z</span></p>
 
 
 
