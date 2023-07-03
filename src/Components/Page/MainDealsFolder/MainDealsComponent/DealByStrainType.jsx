@@ -10,8 +10,8 @@ const DealByStrainType = ({ArrayData,heading}) => {
 
 
     return (
-        <div className="container-fluid">
-            <div className="row">
+        // <div className="container-fluid">
+        //     <div className="row">
 
                 <div className="col-12 d-block   popularStrainContainerSlider dealsByStrainTypeSliderContainer popularStrain_heading" id="width" ref={ref}>
                         <h1>{heading}</h1>
@@ -45,9 +45,9 @@ const DealByStrainType = ({ArrayData,heading}) => {
                     </ScrollContainer>
 
                 </div>
-            </div>
+        //     </div>
 
-        </div>
+        // </div>
     )
 }
 export default DealByStrainType

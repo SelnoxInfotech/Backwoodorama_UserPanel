@@ -8,7 +8,7 @@ const BestDealCards = ({CardDataArray,Heading}) => {
         <>
        
                 <div className="col-12 bestDealsCard_Heading_offers mt-2 px-0">
-                    <h1 className="ellipsis px-2">{Heading}</h1>
+                    <h1 className="ellipsis">{Heading}</h1>
                 </div>
 
      

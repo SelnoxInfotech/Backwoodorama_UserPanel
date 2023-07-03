@@ -3994,7 +3994,7 @@
   display: flex;
   /* gap: 1%; */
   justify-content: flex-start;
-  left: 0px;
+  left: -4px;
   position: relative;
 }
 .bestDealsCard_ScrollContainerRelative{
@@ -4002,7 +4002,7 @@
   display: flex;
   /* gap: 1%; */
   justify-content: flex-start;
-  left: 0px;
+  left: -4px;
   position: relative;
 }
 .StrainTypeCardRelative{
@@ -4014,6 +4014,12 @@
 }
 @media (max-width:500px) {
   .ScrollContainerRelative {
+    left: 0px;
+  }
+  .newProductSearchResult_ScrollContainerRelative{
+    left: 0px;
+  }
+  .bestDealsCard_ScrollContainerRelative{
     left: 0px;
   }
 }
@@ -4431,11 +4437,11 @@
 }
 
 .bestDealsHead_container {
-  height: 40px;
+  height: 35px;
 }
 
 .bestDeal_subHeading {
-  height: 40px;
+  height: 35px;
 }
 
 .bestDeals h1 {
@@ -4452,7 +4458,7 @@
 
   .bestDealsCard_Heading_offers h1 {
     font-size: 14px;
-
+    margin-left: 4px;
   }
   .bestDealsHead_container h1{
     font-size: 14px;
@@ -4497,6 +4503,7 @@
 @media(max-width:500px) {
   .promocode_headings h1 {
     font-size: 14px;
+    margin-left: 4px;
   }
 }
 
@@ -4837,7 +4844,7 @@
   }
   .newProductDetailsHeading p{
     font-size: 14px;
-    margin-left: 0px;
+    margin-left: 3px;
   }
 }
 

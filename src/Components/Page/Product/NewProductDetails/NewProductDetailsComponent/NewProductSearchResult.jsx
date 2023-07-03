@@ -18,8 +18,9 @@ const NewProductSearchResult = ({NewProductSearchRseultArray,heading}) => {
     const ref = React.useRef(null);
     return (
 
-        <div className='container-fluid'>
-            <div className='row '>
+        // <div className='container-fluid'>
+        //     <div className='row '>
+        <React.Fragment>
                 <div className='col-lg-12 col-12 newProductDetailsHeading mx-0 px-0'>
                     <p className='newProductDetailsParagraph'>{heading}</p>
 
@@ -31,7 +32,7 @@ const NewProductSearchResult = ({NewProductSearchRseultArray,heading}) => {
                                 <div className=" col-xxl-3  col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-4  productSearch_result_container" key={index}>
                                     <div className="row productsearch_result_inner_container mx-1">
 
-                                        <div className="col-12  productSearchResultImage_container">
+                                        <div className="col-12  productSearchResultImage_container px-0">
                                             <div className="col-12 product_whish_list text-end">
                                                 <Box className={classes.productSearchIcons}>
                                                     <IconButton aria-label="Example">
@@ -110,11 +111,13 @@ const NewProductSearchResult = ({NewProductSearchRseultArray,heading}) => {
                             )
                         })}
                     </ScrollContainer>
+                    
                 </div>
+                </React.Fragment>
 
-            </div>
+        //     </div>
 
-        </div>
+        // </div>
     )
 }
 export default NewProductSearchResult

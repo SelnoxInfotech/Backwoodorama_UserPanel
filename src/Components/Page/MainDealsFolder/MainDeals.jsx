@@ -54,12 +54,14 @@ const MainDeals=()=>{
     const promoCodeHeading="Promo code use"
     return(
         <div className="container">
+            <div className="row mx-2">
            <WeedDealsByProduct ArrayData={SliderDataArray} heading={weedDealsByProduct_heading}/>
            <NewProductSearchResult NewProductSearchRseultArray={NewProductSearchRseultArray} heading={NewProductSearchResult_Heading}/>
            <DealByStrainType ArrayData={DealByStrainTypeCardArray} heading={DealByStrainTypeHeading}/>
            <NewProductSearchResult NewProductSearchRseultArray={NewProductSearchRseultArray} heading={DispensoriesDealHeading}/>
            <BestDealCards CardDataArray={BestDealsCardArray} Heading={bestDealsHeading}/>
            <PromoCode CardDataArray={PromoCardArray} Heading={promoCodeHeading}/>
+        </div>
         </div>
     )
 }
