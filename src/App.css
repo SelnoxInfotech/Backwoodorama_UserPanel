@@ -520,6 +520,7 @@ overflow-x: hidden; */
   .Dispansires_map {
     position: relative;
     bottom: 0px;
+    height: 120vh;
   }
 }
 

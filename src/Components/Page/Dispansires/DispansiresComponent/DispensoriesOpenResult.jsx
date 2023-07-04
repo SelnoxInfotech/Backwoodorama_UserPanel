@@ -1,4 +1,3 @@
-import { IoMdStar } from "react-icons/io";
 import LoadingButton from '@mui/lab/LoadingButton';
 import useStyles from "../../../../Style";
 import Box from '@mui/material/Box';
@@ -10,21 +9,29 @@ import { Link } from "react-router-dom";
 const DispensoriesOpenResult = () => {
     const classes = useStyles()
     const [Store, SetStore] = React.useState([])
+    const [Search , SetSearch] =  React.useState([])
     React.useEffect(() => {
 
         Axios.get(
             'https://sweede.app/UserPanel/Get-Dispensaries/',
-           
-            ).then(response => {
-                SetStore(response.data)
-                
-            }).catch(
-                function (error) {
-          
-                   
-                })
+
+        ).then(response => {
+            SetStore(response.data)
+
+        }).catch(
+            function (error) {
+
+
+            })
     }, [])
-   
+    function search(e) {
+        console.log(Store)
+        const test = Store.filter(team => {
+            return team.Store_Name.toLowerCase().includes(e.toLowerCase());
+          });
+          SetSearch(test)
+    }
+
     return (
         <>
             <div className="container-fluid">
@@ -34,7 +41,16 @@ const DispensoriesOpenResult = () => {
                             <div className="col-12 dispensories_open_result_heading">
                                 <div className="row">
                                     <div className="col-12 dispensories_open_search_result mt-2">
-                                        <SearchBar style={{ background: "#FFFFF", border: "1px solid gray" }} width={"100%"} placeholder="Search dispensaries address" />
+                                        <SearchBar onChange={search} style={{ background: "#FFFFF", border: "1px solid gray" }} width={"100%"} placeholder="Search dispensaries address" />
+                                        {
+                                            Search.map((data)=>{
+                                            return (
+                                                <ul>
+                                                    <li>{data.Store_Name}</li>
+                                                </ul>
+                                            )
+                                            })
+                                        }
                                     </div>
                                 </div>
                                 <div className="row m-2">
@@ -59,13 +75,13 @@ const DispensoriesOpenResult = () => {
                                     <div className="col-lg-12  col-md-12 col-sm-12 col-12 despensories_card_container">
                                         <div className="row">
                                             <div className="col-4 disensories_card_image_div">
-                                           <Link to={`/DispensoriesProduct/${ele.id}/${"Menu"}`}>     <LazyLoadImage id={ele.id} src={`https://sweede.app/${ele.Store_Image}`} alt="img_not_found" className="dispensories_card_image" /></Link>
+                                                <Link to={`/DispensoriesProduct/${ele.id}/${"Menu"}`}>     <LazyLoadImage id={ele.id} src={`https://sweede.app/${ele.Store_Image}`} alt="img_not_found" className="dispensories_card_image" /></Link>
 
                                             </div>
                                             <div className="col-8 dispenosries_card_content_div">
                                                 <div className="row">
-                                    
-                                                   <div className="col-12 dispensories_content_Header_paragraphs text-truncate">
+
+                                                    <div className="col-12 dispensories_content_Header_paragraphs text-truncate">
                                                         <p className="text-truncate">{ele.Store_Name}</p>
 
                                                     </div>
@@ -81,7 +97,7 @@ const DispensoriesOpenResult = () => {
                                                         <button className="dispensories_pickup_btn">Pickup delivery</button>
                                                     </div>
                                                     <div className="col-12 d-flex dispensories_content_paragraphs">
-                                                       {/* <div> <p>Rating</p><span className="dis_open_result_star"><IoMdStar className={classes.disp_star_color} /></span></div> */}
+                                                        {/* <div> <p>Rating</p><span className="dis_open_result_star"><IoMdStar className={classes.disp_star_color} /></span></div> */}
                                                     </div>
                                                     <div className="col-12">
                                                         <Box className={classes.loadingBtnTextAndBack}>
