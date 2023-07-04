@@ -3,13 +3,14 @@ import { IoChevronBack } from "react-icons/io5"
 import SearchBar from '@mkyy/mui-search-bar';
 import useStyles from "../../../Style";
 import RecentPost from "./BlogComponent/RecentPost";
+import RecentPostComment from "./BlogComponent/RecentPostComment";
 const Blogs = () => {
     const classes = useStyles()
     return (
         <React.Fragment>
             <div className="container">
                 <div className="row mx-1">
-                    <div className="col-12 blog_searchBar_container bg-light px-0">
+                    <div className="col-12 blog_searchBar_container px-0">
                         <section className="backButton_section">
                             <div className="col-12 backBtnCol_searchBar_height">
                                 <span style={{ marginLeft: "-4px" }}> <IoChevronBack color="#000000" size={20} /></span><span className="blogBackSpan">Back</span>
@@ -34,6 +35,7 @@ const Blogs = () => {
 
                     </div>
                     <RecentPost/>
+                    <RecentPostComment/>
 
                 </div>
 

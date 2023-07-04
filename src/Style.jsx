@@ -919,6 +919,46 @@ MyOrderSearchBar:{
     color:"#B0B0B0"
   }
 },
+recentPostCancelBtn:{
+  "& .MuiButton-text": {
+    fontSize: ".6rem",
+  },
+  "& .MuiLoadingButton-root": {
+    textTransform: "none",
+    width: "100%",
+    display:"flex",
+    justifyContent:"center",
+    height: "40px",
+    borderRadius: "5px",
+    color: "#ffff",
+    backgroundColor: "#C1C1C1",
+    paddingLeft: "40px"
+  },
+  "& .MuiButtonBase-root:hover": {
+    backgroundColor: "#C1C1C1"
+
+  } 
+},
+recentPostCancelBtn2:{
+  "& .MuiButton-text": {
+    fontSize: ".6rem",
+  },
+  "& .MuiLoadingButton-root": {
+    textTransform: "none",
+    width: "100%",
+    display:"flex",
+    justifyContent:"center",
+    height: "40px",
+    borderRadius: "5px",
+    color: "#ffff",
+    backgroundColor: "#31B665",
+    paddingLeft: "40px"
+  },
+  "& .MuiButtonBase-root:hover": {
+    backgroundColor: "#31B665"
+
+  } 
+}
 });
 
 export default useStyles
