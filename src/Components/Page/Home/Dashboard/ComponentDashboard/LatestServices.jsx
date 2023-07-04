@@ -113,7 +113,7 @@ const LatestServices = () => {
                     </div>
 
               
-                  <div className="col-12" style={{    padding: "0" ,     marginLeft: "-9px"}}>
+                  <div className="w-100 px-0 latestServices_SliderCol">
                   <SliderLatestService {...settings}>
                         {News.map((ele, index) => {
                             return (

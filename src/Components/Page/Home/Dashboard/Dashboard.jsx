@@ -46,7 +46,7 @@ export default function Dashboard() {
         { imgUrl: "./image/indica.png", head1: "Indica" },
         { imgUrl: "./image/sativa.png", head1: "Hybrid" },
         { imgUrl: "./image/social.png", head1: "Sativa" },
-        { imgUrl: "./image/Leafly March Promo.png", head1: "CBD" },
+        { imgUrl: "./image/LeaflyMarchPromo.png", head1: "CBD" },
         
     ]
     return (
@@ -62,8 +62,10 @@ export default function Dashboard() {
             <FeaturedBrand CardDataArray={FeaturedBrandArray}/>
             <HomePageDealsSignup></HomePageDealsSignup>
             {/* <WeedProduct></WeedProduct> */}
+            <div className="dashBoardStrainType">
             <LatestServices></LatestServices>
-            <div className="w-90">
+            </div>
+            <div className="w-90 dashBoardStrainType">
                 <p className=" mt-4 dashBoard_strain_paragraph">Strain Type</p>
                 <StrainTypeCards ArrayData={StrainTypeCardArray} />
 

@@ -33,8 +33,9 @@ const VerifyBrands = () => {
                                     <AiFillHeart className={classes.muiIcons} />
                                     </IconButton>
                                 </div>
+                                <Link  to={`/RelatedVerifyBrand/${items.id}`}> 
                                 <div className="col-6  verifyBrand_image_container ">
-                                  <Link  to={`/RelatedVerifyBrand/${items.id}`}>  <LazyLoadImage className="verify_brand_image"  src={`https://sweede.app/${items.Brand_Logo}`}  alt="image not found" /></Link>
+                                  <LazyLoadImage className="verify_brand_image"  src={`https://sweede.app/${items.Brand_Logo}`}  alt="image not found" />
 
                                 </div>
                                 <div className="col-6 verify_content_container">
@@ -50,6 +51,7 @@ const VerifyBrands = () => {
                                         </div>
                                     </div>
                                 </div>
+                                </Link>
                             </div>
                         </div>
                     )

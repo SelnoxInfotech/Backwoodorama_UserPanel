@@ -11,7 +11,7 @@ const StrainType = () => {
         { imgUrl: "./image/indica.png", head1: "Indica" },
         { imgUrl: "./image/sativa.png", head1: "Hybrid" },
         { imgUrl: "./image/social.png", head1: "Sativa" },
-        { imgUrl: "./image/Leafly March Promo.png", head1: "CBD" },
+        { imgUrl: "./image/LeaflyMarchPromo.png", head1: "CBD" },
         // { imgUrl: "./image/Leafly Promo.png", head1: "Hybrid" },
         // { imgUrl: "./image/Leafly Promo.png", head1: "Sativa" },
     ]

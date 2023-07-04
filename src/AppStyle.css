@@ -23,11 +23,18 @@
   text-overflow: ellipsis;
 
 }
+.latestServices_SliderCol{
+  margin-left: -9px;
+}
 
 @media(max-width:480px) {
   .common_sub_head {
     font-size: 12px;
   }
+ 
+.latestServices_SliderCol{
+  margin-left: -4px;
+}
 }
 
 .productlist_rating {
@@ -114,6 +121,7 @@
 @media(max-width:480px) {
   .disp_head h1 {
     font-size: 16px;
+    margin-left: 14px;
   }
 
   .latest_services_headings {
@@ -4458,7 +4466,7 @@
 
   .bestDealsCard_Heading_offers h1 {
     font-size: 14px;
-    margin-left: 4px;
+    margin-left: 14px;
   }
   .bestDealsHead_container h1{
     font-size: 14px;
@@ -4683,6 +4691,7 @@
 @media(max-width:400px) {
   .delivery_services_heading h1 {
     font-size: 18px;
+    margin-left: 14px;
   }
 
 
@@ -4827,6 +4836,9 @@
 }
 
 @media(max-width:480px) {
+  .dashBoardStrainType{
+    padding: 0px 8px;
+  }
   .homePageSignup_paragraph p {
     font-size: 20px;
   }
@@ -6970,5 +6982,91 @@ justify-content: center;
 .descriptionContainer{
   padding: 0px 8px;
 }
+}
+/* end */
+/* Blog */
+.blog_searchBar_container{
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+.Blog_searchBar{
+  width: 100%;
+  border: 1px solid #31B665;
+}
+.backButton_section{
+  width: 30%;
+}
+.searchBar_section{
+  width: 70%;
+}
+.backBtnCol_searchBar_height{
+  height: 40px;
+  display:flex;
+  align-items: center;
+  gap: 10px;
+}
+.blogBackSpan{
+  color: #000000;
+  font-weight: 700;
+  font-size: 20px;
+}
+.blogEditorContainer{
+  border: 1px solid #E6E6E6;
+  height:100%; 
+}
+/* end */
+/* RecentPost */
+.Recentent_post_container{
+  border: #E6E6E6;
+  height: auto;
+}
+.RecentPostHeadingContainer{
+  height: 40px;
+}
+.RecentPostHeading{
+  color: #000000;
+  font-size: 20px;
+  font-weight: 700;
+}
+.recentPost_ScrollContainerRelative{
+  position: relative;
+  width: 100%;
+  left: 0px;
+  gap: 3%;
+  display: flex;
+  justify-content: flex-start;
+}
+.recentPostSlider{
+  scrollbar-width: none;
+  display: flex;
+  flex-wrap: nowrap;
+  border-radius: 6px;
+  color: #333;
+  padding: 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: auto;
+  padding-left: 14px;
+  margin-left: -1px;
+}
+.recentPostSlider::-webkit-scrollbar{
+  display: none;
+}
+.recentPostImages{
+  width: 70%;
+  height: 180px;
+
+}
+.recentPostCard{
+  width: 70%;
+}
+@media(max-width:500px){
+  .recentPostImages{
+    width: 100%;
+  }
+  .recentPostCard{
+    width: 100%;
+  }
 }
 /* end */
