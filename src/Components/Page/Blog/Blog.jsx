@@ -4,6 +4,7 @@ import SearchBar from '@mkyy/mui-search-bar';
 import useStyles from "../../../Style";
 import RecentPost from "./BlogComponent/RecentPost";
 import RecentPostComment from "./BlogComponent/RecentPostComment";
+import HomePageDealsSignup from "../Home/Dashboard/ComponentDashboard/HomePageDealsSignup";
 const Blogs = () => {
     const classes = useStyles()
     return (
@@ -36,7 +37,7 @@ const Blogs = () => {
                     </div>
                     <RecentPost/>
                     <RecentPostComment/>
-
+                    <HomePageDealsSignup/>
                 </div>
 
             </div>

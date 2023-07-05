@@ -932,11 +932,12 @@ recentPostCancelBtn:{
     borderRadius: "5px",
     color: "#ffff",
     backgroundColor: "#C1C1C1",
-    paddingLeft: "40px"
+    border:"1px solid #C1C1C1"
+
   },
   "& .MuiButtonBase-root:hover": {
-    backgroundColor: "#C1C1C1"
-
+    backgroundColor: "#C1C1C1",
+    border:"1px solid #C1C1C1"
   } 
 },
 recentPostCancelBtn2:{
@@ -952,11 +953,11 @@ recentPostCancelBtn2:{
     borderRadius: "5px",
     color: "#ffff",
     backgroundColor: "#31B665",
-    paddingLeft: "40px"
+    border:"1px solid #31B665"
   },
   "& .MuiButtonBase-root:hover": {
-    backgroundColor: "#31B665"
-
+    backgroundColor: "#31B665",
+    border:"1px solid #31B665"
   } 
 }
 });
