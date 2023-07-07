@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import parse from 'html-react-parser';
 import styled from "styled-components";
 import { useState,useEffect } from "react";
+import { Link } from "react-router-dom";
 const LatestServices = () => {
     const [News,SetNews]=useState([])
     useEffect(()=>{
@@ -118,7 +119,7 @@ const LatestServices = () => {
                         {News.map((ele, index) => {
                             return (
                               <div key={index}>
-                                 {/* <div className="col-12 center_latest" > */}
+                                 <Link to="/Blogs">
                                 <div className="col-12  latest_cont" >
                                     <div className="col img_cont center_latest ">
                                         <div className="col-12  centerImg ">
@@ -142,8 +143,8 @@ const LatestServices = () => {
 
 
 
-                                {/* </div> */}
                                </div>
+                                </Link>
                               </div>
                             )
                         })}
