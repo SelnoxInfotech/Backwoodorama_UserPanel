@@ -16,6 +16,7 @@ import Axios from "axios";
 
 export default function Dashboard() {
     const [FeaturedBrandArray,SetFeaturedBrandArray]=React.useState([])
+    const [Skeleton , SetSkeleton]= React.useState(true)
     const Navigate = useNavigate()
     function ShowCategoryProduct(id, name) {
 
@@ -24,9 +25,20 @@ export default function Dashboard() {
     const [Category, SetCategory] = React.useState([])
     React.useEffect(() => {
         const fetchData = async () => {
-            const apidata = await fetch("https://sweede.app/UserPanel/Get-Categories/");
-            const data = await apidata.json()
-            SetCategory(data)
+            // const apidata = await fetch("https://sweede.app/UserPanel/Get-Categories/");
+            // const data = await apidata.json()
+            // SetCategory(data)
+            Axios("https://sweede.app/UserPanel/Get-Categories/")
+        .then((response)=>{
+
+            SetCategory(response.data)
+            // CategorySkalaton
+            SetSkeleton(false)
+
+        })
+        .catch((error)=>{
+        })
+
         }
         fetchData()
 
@@ -52,7 +64,7 @@ export default function Dashboard() {
     return (
         <div >
             <HomePageBanner></HomePageBanner>
-            <CategoryProduct Category={Category} ShowCategoryProduct={ShowCategoryProduct}></CategoryProduct>
+            <CategoryProduct Category={Category} ShowCategoryProduct={ShowCategoryProduct} Skeleton={Skeleton}></CategoryProduct>
             <DeliveryServices></DeliveryServices>
             <HomePageWeedBanner></HomePageWeedBanner>
             <DispensoriesAddress></DispensoriesAddress>

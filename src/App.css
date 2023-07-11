@@ -804,3 +804,15 @@ overflow-x: hidden; */
   top: 32px;
 
 }
+
+
+
+
+/* Category Skeleton */
+.CategorySkeleton{
+  display: flex;
+  margin-inline: 19p;
+  gap: 228px;
+  padding-top: 59px;
+}
+/* end */

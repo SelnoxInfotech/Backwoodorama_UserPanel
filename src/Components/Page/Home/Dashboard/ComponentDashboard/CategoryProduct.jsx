@@ -4,7 +4,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from "styled-components";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-const CategoryProduct = ({ ShowCategoryProduct, Category }) => {
+import CategorySkeleton from "../../../../Component/Skeleton/CategorySkeleton"
+const CategoryProduct = ({ ShowCategoryProduct, Category,Skeleton }) => {
     const SliderCategory = styled(Slider)`
     .slick-next {
         position: relative;
@@ -81,33 +82,45 @@ const CategoryProduct = ({ ShowCategoryProduct, Category }) => {
         <>
             <div className='container-fluid mt-4 CategoryBordrr'>
                 <div className='row'>
-                    <div className='col-12 disp_head '>
-                        <h1 className='mt-9'>Shop by Category</h1>
-                    </div>
-                
-                <SliderCategory {...settings} >
-                    {Category.map((ele, index) => {
-                        return (
-                         
-                                <div className='col-10  CategorySliderImageBlock  ' key={index}>
-                                    <div className='slider1'>
-                                 
-                                        <LazyLoadImage onClick={() => { ShowCategoryProduct(ele.id, ele.name) }} src={`https://sweede.app/` + ele.categoryImages} alt="glass_img" className='rounded-circle  Image_Width' />
-                                    
-                                    </div>
-                                    <div className='col-12 center mt-3 '>
-                                        <div className='col center Category_title' >
-                                            <p>{ele.name.substr(0, 100)}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                         
-                        )
-                    })}
-                </SliderCategory>
 
-                </div>
+
+                    {
+                             !Skeleton?
+                             <>
+                             <div className='col-12 disp_head '>
+                                     <h1 className='mt-9'>Shop by Category</h1>
+                                 </div>
+                             
+                             <SliderCategory {...settings} >
+                                 {Category?.map((ele, index) => {
+                                     return (
+                                      
+                                             <div className='col-10  CategorySliderImageBlock  ' key={index}>
+                                                 <div className='slider1'>
+                                              
+                                                     <LazyLoadImage onClick={() => { ShowCategoryProduct(ele.id, ele.name) }} src={`https://sweede.app/` + ele.categoryImages} alt="glass_img" className='rounded-circle  Image_Width' />
+                                                 
+                                                 </div>
+                                                 <div className='col-12 center mt-3 '>
+                                                     <div className='col center Category_title' >
+                                                         <p>{ele.name.substr(0, 100)}</p>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                      
+                                     )
+                                 })}
+                                 
+                             </SliderCategory> 
+            
+                             </>
+                             :
+                         <CategorySkeleton></CategorySkeleton>
+             
+                    }
+                           </div>
             </div>
+
         </>
     )
 }
