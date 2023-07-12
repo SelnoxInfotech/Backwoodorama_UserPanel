@@ -14,6 +14,7 @@ import NewFlavourBanner from "../../Component/NewFlavour/NewFlavourBanner";
 import PreCheckout from "./PreCheckout/PreCheckout";
 import axios from "axios";
 import Cookies from 'universal-cookie';
+import AddToCartPopUp from "./AddToCartPopUp/AddToCartPopUp"
 const ProductDetail = () => {
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
@@ -32,6 +33,7 @@ const ProductDetail = () => {
         const initialValue = JSON.parse(saved);
         return initialValue || []
     })
+    
     const [Price, SetPrice] = React.useState([])
     const [NewData, SetNewData] = React.useState([])
     const [Product, SetProduct] = React.useState([])
@@ -57,8 +59,6 @@ const ProductDetail = () => {
                 alert("Something Goes Wrong")
                 // SetProduct(Product => ({ ...Product, discount: "None" }))
             })
-
-
         Axios(`https://sweede.app/UserPanel/Get-Product`, {
 
 
@@ -73,13 +73,14 @@ const ProductDetail = () => {
             function (error) {
                 alert("Something Goes Wrong")
             })
-
+          
     }, [Id])
 
 
     React.useEffect(() => {
         localStorage.setItem('items', JSON.stringify(AddTOCard))
         dispatch({ type: 'CartCount', CartCount: AddTOCard.length })
+       
     }, [AddTOCard])
 
 
@@ -244,16 +245,6 @@ const ProductDetail = () => {
                                             <p>By {ele.StoreName}</p>
                                         </div>
                                         <div className="col-12  add_prod_btn">
-                                            {/* {addProdBtn.map((ele, index) => {
-                                            return (
-                                            <div className="col-1 add_prod_inner_div" >
-                                                <button className="add_pro_btn add_prod_btn_font">{ele.category_name}</button>
-
-                                            </div>
-                                            )
-                                            })} */}
-
-
                                         </div>
                                         <div className="col-12  add_prod_rat mt-2">
                                             <p>Rating 3.2</p> <span><AiFillStar className={classes.disPen_Icons} /></span>
@@ -316,6 +307,7 @@ const ProductDetail = () => {
                                                                                 < div key={index}> <p>Amount</p> <p className="add_prod_span1">${parseInt(Prices.SalePrice)}</p></div>
                                                                             )
                                                                         }
+                                                                        
                                                                     })
                                                                 )
                                                             }
@@ -373,9 +365,6 @@ const ProductDetail = () => {
                         })
                     }
                 </div>
-
-
-
                 {ProductDetails.map((ele, index) => {
                     return (
                         <div key={ele.id} className="col-10  border mt-4 product_desc_container">
@@ -394,7 +383,9 @@ const ProductDetail = () => {
                         </div>
                     )
                 })
-
+                }
+                {
+                    CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />
                 }
                 <div className="col-10  border mt-4 product_desc_container">
                     <div className="col-10  prod_des_head fontStyle ">
@@ -455,11 +446,7 @@ const ProductDetail = () => {
                     </div>
 
                 </div>
-
             </div>
-
-
-
             <PreCheckout></PreCheckout>
         </div >
     )

@@ -87,7 +87,13 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
                 Image_id: Event.images[0].id,
                 Price: FinalSelection,
                 Cart_Quantity: counter || 1,
-                ProductName: Event.Product_Name
+                ProductName: Event.Product_Name,
+                StoreCurbsidePickup: Event.StoreCurbsidePickup,
+                StoreDelivery: Event.StoreDelivery,
+                StorePickup:Event.StorePickup,
+                StoreAddress:Event.StoreAddress
+
+
             }
             SetNewData(Arry)
             if (AddTOCard.length !== 0) {

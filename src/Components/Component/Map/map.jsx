@@ -41,7 +41,6 @@ export function MapContainer(props) {
           <Map
             style={{ height: props.height, width: props.width ,backgroundColor: 'black' }}
             google={window.google}
-            mapTypeId="google.maps.MapTypeId.ROADMAP"
             zoom={15}
             initialCenter={{ lat: 40.719074, lng: -74.050552 }}
 

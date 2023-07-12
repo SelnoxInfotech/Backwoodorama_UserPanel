@@ -13,7 +13,6 @@ import _ from "lodash"
 import AddressSearchapi from "./AddressSearchapi"
 const SearchBar = () => {
     const Navigation = useNavigate()
-    const { state, dispatch } = React.useContext(Createcontext)
     const [SearchData, SetSearchData] = React.useState([])
     const [SearchBarWidth, SetSearchBarWidth] = React.useState(window.innerWidth <= 900)
     // const [options , Setoption] = React.useState()

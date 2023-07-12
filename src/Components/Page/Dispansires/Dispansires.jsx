@@ -51,6 +51,9 @@ export default function Dispansires() {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+    React.useEffect(()=>{
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
+    },[])
     const classes = useStyles()
     return (
         <>

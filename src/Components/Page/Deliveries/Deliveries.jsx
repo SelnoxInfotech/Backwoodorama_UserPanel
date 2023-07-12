@@ -4,6 +4,9 @@ import Createcontext from "../../../Hooks/Context"
 import React from "react"
 const Deliveries=()=>{
     const { state } = React.useContext(Createcontext)
+    React.useEffect(()=>{
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
+    },[])
     return(
         <>
         <div className="container-fluid">

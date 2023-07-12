@@ -12,7 +12,7 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
 
   const classes = useStyles()
   const { state, dispatch } = React.useContext(Createcontext)
-  const [Default, Setdefault] = React.useState()
+  const [Default, Setdefault] = React.useState('')
   const [SelectValue, SetSelectvalue] = React.useState('')
   const { ref } = usePlacesWidget({
     apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
@@ -65,7 +65,7 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
       {/* <i className="SearcchIcon" style={{ display: open && SearchBarWidth ? "none" : "inline-flex" }}>   <IoLocationSharp color="gray" size={18} /></i> */}
       <TextField
         // size="small"
-        value={Default}
+        value={Default || ''}
         inputRef={ref}
         onChange={handleChange}
         onFocus={onFocus}

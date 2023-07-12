@@ -8,7 +8,7 @@ const CurrentLocation = () => {
     return (
         React.useEffect(() => {
             navigator.geolocation.getCurrentPosition(function (position) {
-                fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&key=${"AIzaSyB4vl80GbjoLGawT757RmLx5f2DlOED0Zo"}`)
+                fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
                     .then(res => res.json())
                     .then(response => dispatch({ type: 'Location', Location: response?.plus_code?.compound_code.slice(9) }))
             });

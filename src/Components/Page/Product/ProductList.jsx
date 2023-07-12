@@ -25,7 +25,6 @@ const ProductList = ({ arr }) => {
     const [NewData, SetNewData] = React.useState([])
 
     const Addtocard = async (Event) => {
-
         if (token_data) {
             const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
             const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id);
@@ -78,7 +77,15 @@ const ProductList = ({ arr }) => {
                 Image_id: Event.images[0].id,
                 Price: PriceIndex,
                 Cart_Quantity: 1,
-                ProductName: Event.Product_Name
+                ProductName: Event.Product_Name,
+                StoreCurbsidePickup: Event.StoreCurbsidePickup,
+                StoreDelivery: Event.StoreDelivery,
+                StorePickup:Event.StorePickup,
+                StoreAddress:Event.StoreAddress
+
+
+
+
             }
             SetNewData(Arry)
             if (AddTOCard.length !== 0) {
@@ -107,27 +114,17 @@ const ProductList = ({ arr }) => {
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
             }
             // dispatch({ type: 'Cart_subTotal' })
-        }
-        // dispatch({ type: 'ApiProduct' , ApiProduct :!state.ApiProduct })
+        } 
     }
-
-
     React.useEffect(() => {
-
         localStorage.setItem('items', JSON.stringify(AddTOCard))
     }, [AddTOCard])
-
-
-
     async function PriceSelect(Product, Item) {
         SetPrice(Price => {
             return Price.filter(Price => Price.Product_id !== Product)
         })
         SetPrice(Price => [...Price, { Product_id: Product, Item_id: Item }]);
     }
-
-
-
     const classes = useStyles()
     return (
         <>
