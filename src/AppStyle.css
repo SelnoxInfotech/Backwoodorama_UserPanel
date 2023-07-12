@@ -7156,3 +7156,20 @@ align-items: center;
   
 }
 /* end */
+/* deliveryServices */
+.deliverySkeletonBox{
+  height: 300px;
+}
+@media(max-width:1084px){
+  .deliverySkeletonBox{
+    overflow-y:hidden;
+    height: 290px;
+  } 
+}
+@media(max-width:572px){
+  .deliverySkeletonBox{
+    height: 300px;
+    overflow-y: hidden;
+  } 
+}
+/* end */

@@ -65,7 +65,7 @@ export default function Dashboard() {
         <div >
             <HomePageBanner></HomePageBanner>
             <CategoryProduct Category={Category} ShowCategoryProduct={ShowCategoryProduct} Skeleton={Skeleton}></CategoryProduct>
-            <DeliveryServices></DeliveryServices>
+            <DeliveryServices Skeleton={Skeleton}></DeliveryServices>
             <HomePageWeedBanner></HomePageWeedBanner>
             <DispensoriesAddress></DispensoriesAddress>
             <div className="col-12 mt-5 border" style={{ height: "300px", position: "relative" }}>

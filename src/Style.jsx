@@ -958,7 +958,12 @@ recentPostCancelBtn2:{
   "& .MuiButtonBase-root:hover": {
     backgroundColor: "#31B665",
     border:"1px solid #31B665"
-  } 
+  } ,
+  deliveryServiceBox:{
+    "& .css-y061pl":{
+      marginTop:"0px",
+    }
+  }
 }
 });
 

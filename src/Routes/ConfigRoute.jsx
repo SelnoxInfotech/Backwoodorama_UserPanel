@@ -37,6 +37,7 @@ import MyOrder from "../Components/Page/MyOrder/MyOrder";
 import MyOrderProductDetail from "../Components/Page/MyOrder/MyOrderProductDetail";
 import StrainProduct from "../Components/Page/Strain/StrainProduct";
 import Blogs from "../Components/Page/Blog/Blog";
+import DeliverServiceSkeleton from "../Components/Component/Skeleton/DeliveryServicesSkeleton";
 const routesConfig = [
   
       {
@@ -197,6 +198,10 @@ const routesConfig = [
           {
            path:"/Blogs",
            element:<Blogs/>
+          },
+          {
+            path:"/DeliverServiceSkeleton",
+            element:<DeliverServiceSkeleton/>
           },
           {
             path:"*",
