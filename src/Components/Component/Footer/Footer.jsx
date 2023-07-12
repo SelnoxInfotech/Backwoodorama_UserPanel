@@ -21,6 +21,7 @@ const Footer = () => {
 
         })
     }, [])
+    
     const AboutUs = [{ head: "About Us" }, { head: "company" }, { head: "Investor" }, { head: "Help Center" }, { head: "Download App" }]
     const Category = [{ head: "Flower" }, { head: "CBD" }, { head: "Concentrate" }, { head: "Edible" }]
     const Legal = [{ head: "Term & conditions" }, { head: "Carrier" }, { head: "Privacy Policy" }]
