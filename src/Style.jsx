@@ -963,6 +963,27 @@ recentPostCancelBtn2:{
     "& .css-y061pl":{
       marginTop:"0px",
     }
+  },
+  HomePageBaneerSkeletonGrid:{
+    "& .MuiSkeleton-root":{
+      width:"100%",
+      height:"400px"
+    }
+ 
+  },
+  dispensoriesAddressSkeletonHeading:{
+   "& .MuiSkeleton-text ":{
+    height:"10px",
+    width:"100px",
+    backgroundColor:"red"
+   }
+
+   
+  },
+  recatngularDispenAdd:{
+      height:"30px",
+      width:"100%",
+      backgroundColor:"red"
   }
 }
 });

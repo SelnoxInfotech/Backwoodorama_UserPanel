@@ -38,6 +38,8 @@ import MyOrderProductDetail from "../Components/Page/MyOrder/MyOrderProductDetai
 import StrainProduct from "../Components/Page/Strain/StrainProduct";
 import Blogs from "../Components/Page/Blog/Blog";
 import DeliverServiceSkeleton from "../Components/Component/Skeleton/DeliveryServicesSkeleton";
+import HomePageBannerSkeleton from "../Components/Component/Skeleton/DashBoardSkeleton/HomePageBannerSkeleton";
+import DispensoriesAddressSkeleton from "../Components/Component/Skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton";
 const routesConfig = [
   
       {
@@ -199,10 +201,20 @@ const routesConfig = [
            path:"/Blogs",
            element:<Blogs/>
           },
+          // Testing
           {
             path:"/DeliverServiceSkeleton",
             element:<DeliverServiceSkeleton/>
           },
+          {
+            path:"/HomePageBannerSkeleton",
+            element:<HomePageBannerSkeleton/>
+          },
+          {
+            path:"/DispensoriesAddressSkeleton",
+            element:<DispensoriesAddressSkeleton/>
+          },
+          // ends
           {
             path:"*",
             element:<FourZeroFour/>

@@ -6,7 +6,7 @@ const DeliverServiceSkeleton = () => {
     const data = [1, 2, 3, 4];
     return (
         <React.Fragment>
-            <div className='col-12 DeliveryServicesSkeleton px-2'>
+            <div className='col-12 DeliveryServicesSkeleton'>
 
                 <Box>
                     <Skeleton sx={{ width: "35%", height: "30px", marginTop: "10px" }} />

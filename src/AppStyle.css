@@ -7171,5 +7171,22 @@ align-items: center;
     height: 300px;
     overflow-y: hidden;
   } 
+  .DeliveryServicesSkeleton{
+    padding: 0px 10px;
+  }
+}
+/* end */
+/* dispensoriesAddressSkeleton */
+.dispensoriesAddressSkeletonPadding{
+  height: 400px;
+}
+@media(max-width:572px){
+  .dispensoriesAddressSkeletonPadding{
+    padding: 0px 10px;
+  }
+.dispensoriesAddressSkeletonPadding{
+  overflow-y: hidden;
+
+}
 }
 /* end */
