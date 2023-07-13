@@ -985,6 +985,11 @@ recentPostCancelBtn2:{
     margin: "auto",
     marginTop: "8px",
     height: "5%"
+  },
+  HomePageDealSignUpSkeleton:{
+    display:"flex",
+    justifyContent:"flex-end",
+    width:"90%"
   }
 }
 });

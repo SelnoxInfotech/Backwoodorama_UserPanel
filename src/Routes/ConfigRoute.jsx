@@ -42,6 +42,7 @@ import HomePageBannerSkeleton from "../Components/Component/Skeleton/DashBoardSk
 import DispensoriesAddressSkeleton from "../Components/Component/Skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton";
 import DashBoardMap from "../Components/Component/Skeleton/DashBoardSkeleton/DashBoardMap";
 import FeaturedBrandSkeleton from "../Components/Component/Skeleton/DashBoardSkeleton/FeaturedBrandSkeleton";
+import HomePageDealSignupSkeleton from "../Components/Component/Skeleton/DashBoardSkeleton/HomePageDealSignupSkeleton";
 const routesConfig = [
   
       {
@@ -223,6 +224,10 @@ const routesConfig = [
           {
             path:"/FeaturedBrandSkeleton",
             element:<FeaturedBrandSkeleton/>
+          },
+          {
+           path:"/HomePageDealSignupSkeleton",
+           element:<HomePageDealSignupSkeleton/>
           },
           // ends
           {

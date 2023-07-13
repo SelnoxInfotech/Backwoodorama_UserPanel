@@ -7201,6 +7201,25 @@ align-items: center;
 }
 /* end */
 /* featuredBrand */
+.featuredBrandPadding{
+  height: 267px;
+}
+@media(max-width:1200px){
+  .featuredBrandPadding{
+    height: 267px;
+    overflow-y: hidden;
+  }
 
+}
+@media(max-width:572px){
+  .featuredBrandPadding{
+    height: 267px;
+    overflow-y: hidden;
+    padding: 0px 10px;
+  }
+}
+
+/* end */
+/* .HomePageDealSignupSkeleton*/
 
 /* end */
