@@ -17,7 +17,7 @@ const DispensoriesAddressSkeleton = () => {
                 <Grid container columnSpacing={2} sx={{ height: "auto", marginTop: "20px" }}>
                     {DispensoriesAddressSkeletonArr.map((val, index) => {
                         return (
-                            <Grid item lg={3} md={6} sm={6} xs={6}  key={index} sx={{ height: "480px" }} className="bg-light">
+                            <Grid item lg={3} md={4} sm={6} xs={12}  key={index} sx={{ height: "480px" }}>
 
 
                                 <Paper sx={{ height: "450px" }}>

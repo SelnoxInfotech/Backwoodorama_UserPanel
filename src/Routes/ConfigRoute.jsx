@@ -40,6 +40,8 @@ import Blogs from "../Components/Page/Blog/Blog";
 import DeliverServiceSkeleton from "../Components/Component/Skeleton/DeliveryServicesSkeleton";
 import HomePageBannerSkeleton from "../Components/Component/Skeleton/DashBoardSkeleton/HomePageBannerSkeleton";
 import DispensoriesAddressSkeleton from "../Components/Component/Skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton";
+import DashBoardMap from "../Components/Component/Skeleton/DashBoardSkeleton/DashBoardMap";
+import FeaturedBrandSkeleton from "../Components/Component/Skeleton/DashBoardSkeleton/FeaturedBrandSkeleton";
 const routesConfig = [
   
       {
@@ -213,6 +215,14 @@ const routesConfig = [
           {
             path:"/DispensoriesAddressSkeleton",
             element:<DispensoriesAddressSkeleton/>
+          },
+          {
+            path:"/DashBoardMap",
+            element:<DashBoardMap/>
+          },
+          {
+            path:"/FeaturedBrandSkeleton",
+            element:<FeaturedBrandSkeleton/>
           },
           // ends
           {
