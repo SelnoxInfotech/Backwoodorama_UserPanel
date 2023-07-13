@@ -10,7 +10,7 @@ const HomePageDealSignupSkeleton = () => {
         <React.Fragment>
             <Paper variant="outlined" className="px-5" sx={{ display: "grid", alignItems: "center", JustifyContent: "center", height: "280px" }}>
 
-                <Grid container columnSpacing={2} sx={{ height: "100px"}}>
+                <Grid container rowSpacing={1} columnSpacing={2} sx={{ height: "100px"}}>
 
                     <Grid item md={4} xs={12}>
                         <Skeleton variant="text" sx={{ height: "30px", width: "80%", }}/>
