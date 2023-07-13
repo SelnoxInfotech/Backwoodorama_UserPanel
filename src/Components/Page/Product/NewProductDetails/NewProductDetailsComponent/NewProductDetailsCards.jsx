@@ -8,10 +8,8 @@ import IconButton from '@mui/material/IconButton';
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper";
-const NewProductDetailsCards = ({Product}) => {
-  
-     const p = Product?.images === undefined ? "" :Product?.images[0].image
-      console.log(Product)
+const NewProductDetailsCards = ({ Product }) => {
+    const p = Product?.images === undefined ? "" : Product?.images[0].image
     const classes = useStyles()
     return (
         <div className="row center mx-1">
@@ -73,7 +71,7 @@ const NewProductDetailsCards = ({Product}) => {
                                             <SwiperSlide >
 
                                                 <div key={index} className="col-12 NewProductDetails_image_container">
-                                                    <LazyLoadImage className="NewProductDetails_image" height={"100px"} src={`https://sweede.app/` + items.image}/>
+                                                    <LazyLoadImage className="NewProductDetails_image" height={"100px"} src={`https://sweede.app/` + items.image} />
 
                                                 </div>
 

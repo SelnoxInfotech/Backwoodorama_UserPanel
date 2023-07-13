@@ -2,26 +2,13 @@ import { ScrollContainer } from 'react-indiana-drag-scroll';
 import * as React from 'react';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const StrainTypeCards = ({ ArrayData }) => {
     const ref = React.useRef(null);
     
 
-     
-    const StrainData = (items) => {
 
-        axios.post("https://sweede.app/UserPanel/Get-StrainType/",
-        {
-            type:items
-        }
-        ).then(response => {
-    
-
-        }).catch(
-            function (error) {
-                // SetLoading(false)
-            })
-    }
  
 
     return (
@@ -34,7 +21,7 @@ const StrainTypeCards = ({ ArrayData }) => {
                             <div className="col-xl-3 col-lg-4 col-sm-6 col-12 mb-4 strainType_container" key={index}>
                                 <div className="row starinType_inner_row mx-1 my-2">
                                     <div className="col-12 strainTypeInner_container px-0">
-                                        <LazyLoadImage className="strainType_image" src={items.imgUrl} onClick={() => { StrainData(items.head1) }} />
+                                      <Link to={`/StrainProduct/${items.head1}`}  state={{ data: items.imgUrl }}>  <LazyLoadImage className="strainType_image" src={items.imgUrl}  /></Link>
                                     </div>
 
                                 </div>

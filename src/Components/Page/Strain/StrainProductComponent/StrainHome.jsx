@@ -1,13 +1,13 @@
 import React from "react"
 import StrainHomeSlider from "./StrainHomeSlider"
-const StrainHome = () => {
+const StrainHome = ({StrainProduct}) => {
     return (
         <React.Fragment>
             <div className="row">
                 <div className="col-lg-10 col-12 px-0 mt-4">
                     <h1 className="StrainHomeDes_heading">Strain Home</h1>
                 </div>
-                   <StrainHomeSlider/>
+                   <StrainHomeSlider StrainProduct={StrainProduct}/>
                 <div className="descriptionContainer col-lg-10 col-12 px-0">
                    <div className="descriptionContainer">
                    <span className="StrainHomeDes_heading">Description</span>

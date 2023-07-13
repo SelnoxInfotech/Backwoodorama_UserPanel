@@ -1,7 +1,29 @@
 import { AiFillHeart } from "react-icons/ai"
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import StrainHome from "./StrainProductComponent/StrainHome"
+import React from "react"
+import { useParams, useLocation } from 'react-router-dom';
+import axios from "axios";
 const StrainProduct = () => {
+    const location = useLocation();
+    const { type } = useParams();
+    const [StrainProduct, SetStrainProduct] = React.useState([])
+
+    React.useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+        axios.post("https://sweede.app/UserPanel/Get-StrainType/",
+            {
+                type: type
+            }
+        ).then(response => {
+            SetStrainProduct(response.data)
+
+        }).catch(
+            function (error) {
+                // SetLoading(false)
+            })
+
+    }, [type])
     return (
         <div className="container-fluid">
             <div className="row">
@@ -12,19 +34,15 @@ const StrainProduct = () => {
                         </div>
                         <div className="col-lg-10 col-12  strainProduct_img_content_section">
                             <section className="strainProduct_img_section">
-                                <LazyLoadImage src="./image/indica.png" className="strainProduct_images" />
+                                <LazyLoadImage src={location?.state?.data} className="strainProduct_images" />
                             </section>
                             <section className="strainProduct_content_section">
                                 <div className="w-100 strainProduct_content_head_div">
-                                    <h1 className="strainProduct_content_head">g</h1>
-
+                                    <h1 className="strainProduct_content_head">{type}</h1>
                                 </div>
-                                <div className="w-100 strainProduct_content_head_div">
-                                    <h1 className="strainProduct_content_subHead">Hybrid</h1>
-                                </div>
-                                <div className="w-100 strainProduct_content_head_div">
+                                {/* <div className="w-100 strainProduct_content_head_div">
                                     <h1 className="strainProduct_variety">AKA Original</h1>
-                                </div>
+                                </div> */}
 
                             </section>
 
@@ -36,7 +54,7 @@ const StrainProduct = () => {
                 </div>
 
             </div>
-            <StrainHome/>
+            <StrainHome StrainProduct={StrainProduct} />
 
         </div>
     )

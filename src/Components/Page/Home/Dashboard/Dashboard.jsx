@@ -25,9 +25,6 @@ export default function Dashboard() {
     const [Category, SetCategory] = React.useState([])
     React.useEffect(() => {
         const fetchData = async () => {
-            // const apidata = await fetch("https://sweede.app/UserPanel/Get-Categories/");
-            // const data = await apidata.json()
-            // SetCategory(data)
             Axios("https://sweede.app/UserPanel/Get-Categories/")
         .then((response)=>{
 
@@ -55,10 +52,10 @@ export default function Dashboard() {
     }, [])
 
     const StrainTypeCardArray = [
-        { imgUrl: "./image/indica.png", head1: "Indica" },
-        { imgUrl: "./image/sativa.png", head1: "Hybrid" },
-        { imgUrl: "./image/social.png", head1: "Sativa" },
-        { imgUrl: "./image/LeaflyMarchPromo.png", head1: "CBD" },
+        { imgUrl: "/image/indica.png", head1: "Indica", },
+        { imgUrl: "/image/sativa.png", head1: "Hybrid"},
+        { imgUrl: "/image/social.png", head1: "Sativa"},
+        { imgUrl: "/image/LeaflyMarchPromo.png", head1:"CBD"},
         
     ]
     return (
