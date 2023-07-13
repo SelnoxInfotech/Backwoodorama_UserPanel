@@ -5,10 +5,10 @@ import "slick-carousel/slick/slick-theme.css";
 import styled from "styled-components";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Axios from "axios"
-
+import HomePageBannerSkeleton from '../../../../Component/Skeleton/DashBoardSkeleton/HomePageBannerSkeleton';
 const HomePageBanner = () => {
     const [HomePageBannerImage,SetHomePageBannerImage]=React.useState([])
-    
+    const [Skeleton , SetSkeleton] = React.useState(true)
     React.useEffect(()=>{
         Axios(`https://sweede.app/UserPanel/Get-AllHomePageBanner/`,{
 
@@ -16,6 +16,8 @@ const HomePageBanner = () => {
 
         ).then((response)=>{
             SetHomePageBannerImage(response.data)
+            SetSkeleton(false)
+
         }
 
         ).catch(()=>{
@@ -93,7 +95,9 @@ const HomePageBanner = () => {
     };
     return (
 
-        <SliderCategory {...settings}>
+        !Skeleton ?
+            
+            <SliderCategory {...settings}>
             {HomePageBannerImage.map((items, index) => {
                 return (
                     <div className='col-12 homePageBanner_container' key={index}>
@@ -103,6 +107,8 @@ const HomePageBanner = () => {
                 )
             })}
         </SliderCategory>
+        :
+        <HomePageBannerSkeleton></HomePageBannerSkeleton>
 
 
 

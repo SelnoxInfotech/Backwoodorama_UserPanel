@@ -17,6 +17,7 @@ import Axios from "axios";
 export default function Dashboard() {
     const [FeaturedBrandArray,SetFeaturedBrandArray]=React.useState([])
     const [Skeleton , SetSkeleton]= React.useState(true)
+    const [BrandSkeleton , SetBrandSkeleton] = React.useState(true)
     const Navigate = useNavigate()
     function ShowCategoryProduct(id, name) {
 
@@ -45,7 +46,7 @@ export default function Dashboard() {
         .then((response)=>{
 
             SetFeaturedBrandArray(response.data)
-
+            SetBrandSkeleton(false)
         })
         .catch((error)=>{
         })
@@ -68,7 +69,7 @@ export default function Dashboard() {
             <div className="col-12 mt-5 border" style={{ height: "300px", position: "relative" }}>
                 <Map height={"200px"} width={"100%"}></Map>
             </div>
-            <FeaturedBrand CardDataArray={FeaturedBrandArray}/>
+            <FeaturedBrand CardDataArray={FeaturedBrandArray} BrandSkeleton={BrandSkeleton}/>
             <HomePageDealsSignup></HomePageDealsSignup>
             {/* <WeedProduct></WeedProduct> */}
             <div className="dashBoardStrainType">

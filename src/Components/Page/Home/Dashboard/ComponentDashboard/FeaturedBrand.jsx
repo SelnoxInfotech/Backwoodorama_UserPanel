@@ -1,14 +1,17 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { ScrollContainer } from 'react-indiana-drag-scroll';
 import * as React from 'react';
-const FeaturedBrand = ({ CardDataArray }) => {
+import FeaturedBrandSkeleton from "../../../../Component/Skeleton/DashBoardSkeleton/FeaturedBrandSkeleton";
+const FeaturedBrand = ({ CardDataArray ,BrandSkeleton}) => {
+    
     const ref = React.useRef(null);
 
     return (
+        !BrandSkeleton  ?
         <>
-    
              <div className="col-12 bestDealsCard_Heading_offers mt-4">
                     <h1 className="ellipsis">Featured Brands</h1>
+                   
                 </div>
 
             <div  ref={ref}>
@@ -39,6 +42,12 @@ const FeaturedBrand = ({ CardDataArray }) => {
           
 
         </>
+        :
+        <div className="col-12 bestDealsCard_Heading_offers mt-4">
+       
+        <FeaturedBrandSkeleton></FeaturedBrandSkeleton>
+    </div>
+
     )
 }
 export default FeaturedBrand

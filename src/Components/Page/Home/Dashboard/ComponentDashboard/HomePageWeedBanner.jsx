@@ -4,7 +4,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from "styled-components";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import HomePageBannerSkeleton from '../../../../Component/Skeleton/DashBoardSkeleton/HomePageBannerSkeleton';
 const HomePageWeedBanner=()=>{
+   
     const SliderCategory = styled(Slider)`
 
     .slick-arrow{

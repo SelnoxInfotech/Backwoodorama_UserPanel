@@ -205,18 +205,18 @@ const routesConfig = [
            element:<Blogs/>
           },
           // Testing
-          {
-            path:"/DeliverServiceSkeleton",
-            element:<DeliverServiceSkeleton/>
-          },
-          {
-            path:"/HomePageBannerSkeleton",
-            element:<HomePageBannerSkeleton/>
-          },
-          {
-            path:"/DispensoriesAddressSkeleton",
-            element:<DispensoriesAddressSkeleton/>
-          },
+          // {
+          //   path:"/DeliverServiceSkeleton",
+          //   element:<DeliverServiceSkeleton/>
+          // },
+          // {
+          //   path:"/HomePageBannerSkeleton",
+          //   element:<HomePageBannerSkeleton/>
+          // },
+          // {
+          //   path:"/DispensoriesAddressSkeleton",
+          //   element:<DispensoriesAddressSkeleton/>
+          // },
           {
             path:"/DashBoardMap",
             element:<DashBoardMap/>
