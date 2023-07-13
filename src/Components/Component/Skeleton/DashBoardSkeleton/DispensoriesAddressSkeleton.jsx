@@ -12,20 +12,30 @@ const DispensoriesAddressSkeleton = () => {
             <div className="dispensoriesAddressSkeletonPadding">
 
                 <Box>
-                    <Skeleton variant="text"  className={classes.dispensoriesAddressSkeletonHeading}/>
+                    <Skeleton variant="text" sx={{ width: "30%", height: "25px" }} className={classes.dispensoriesAddressSkeletonHeading} />
                 </Box>
                 <Grid container columnSpacing={2} sx={{ height: "auto", marginTop: "20px" }}>
                     {DispensoriesAddressSkeletonArr.map((val, index) => {
                         return (
-                            <Grid item xs={12} md={3} key={index} sx={{ height: "350px" }} className="bg-light">
+                            <Grid item lg={3} md={6} sm={6} xs={6}  key={index} sx={{ height: "480px" }} className="bg-light">
 
 
-                                <Paper sx={{height:"300px"}}>
+                                <Paper sx={{ height: "450px" }}>
                                     <Skeleton variant="rectangular" sx={{ width: "100%", height: "200px", borderRadius: "10px" }} />
-                                    <Box sx={{width:"100%",paddingLeft:"15px",marginTop:"10px"}}>
-                                    <Skeleton variant="rectangular" className={classes.recatngularDispenAdd}/>
-
-
+                                    <Box sx={{ width: "100%", paddingLeft: "15px", marginTop: "10px" }}>
+                                        <Skeleton variant="text" sx={{ width: "35%" }} />
+                                    </Box>
+                                    <Box sx={{ width: "100%", paddingLeft: "15px", marginTop: "10px" }}>
+                                        <Skeleton variant="text" sx={{ width: "70%" }} />
+                                    </Box>
+                                    <Box sx={{ width: "100%", paddingLeft: "15px", marginTop: "10px" }}>
+                                        <Skeleton variant="text" sx={{ width: "35%" }} />
+                                    </Box>
+                                    <Box sx={{ width: "100%", paddingLeft: "15px", marginTop: "10px" }}>
+                                        <Skeleton variant="text" sx={{ width: "70%" }} />
+                                    </Box>
+                                    <Box sx={{ width: "100%", paddingLeft: "15px",paddingRight:"15px", marginTop: "30px" }}>
+                                        <Skeleton variant="rectangular" sx={{ width: "100%",height:"35px",borderRadius:"30px" }} />
                                     </Box>
                                 </Paper>
 

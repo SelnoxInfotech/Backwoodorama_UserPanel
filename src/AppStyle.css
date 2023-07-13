@@ -7178,15 +7178,25 @@ align-items: center;
 /* end */
 /* dispensoriesAddressSkeleton */
 .dispensoriesAddressSkeletonPadding{
-  height: 400px;
+  height: 600px;
 }
 @media(max-width:572px){
   .dispensoriesAddressSkeletonPadding{
     padding: 0px 10px;
   }
+  .dispensoriesAddressSkeletonPadding {
+    height: 514px;
+  }
 .dispensoriesAddressSkeletonPadding{
   overflow-y: hidden;
 
 }
+}
+@media(max-width:1200px){
+  .dispensoriesAddressSkeletonPadding {
+    overflow-y: hidden;
+    height: 514px;
+
+  }
 }
 /* end */
