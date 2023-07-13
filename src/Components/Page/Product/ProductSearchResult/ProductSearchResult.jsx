@@ -13,8 +13,6 @@ import Cookies from 'universal-cookie';
 import Createcontext from "../../../../Hooks/Context"
 import _ from "lodash";
 import AddToCartPopUp from "../AddToCartPopUp/AddToCartPopUp";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEllipsisV } from '@fortawesome/free-solid-svg-icons/faEllipsisV';
 import IconButton from '@mui/material/IconButton';
 import { Link } from "react-router-dom";
 const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
@@ -130,7 +128,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
 
     }
     React.useEffect(() => {
-
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
         localStorage.setItem('items', JSON.stringify(AddTOCard))
     }, [AddTOCard])
     return (
@@ -158,7 +156,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
 
                                         </Box>
                                     </div>
-                                    <Link to={"/NewProductDetails"} state={items.id}>
+                                    <Link to={`/NewProductDetails/${items.id}`}>
                                         <LazyLoadImage
 
                                             className="product_search_result_image"

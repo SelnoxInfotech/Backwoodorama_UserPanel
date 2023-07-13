@@ -117,6 +117,7 @@ const ProductList = ({ arr }) => {
         } 
     }
     React.useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
         localStorage.setItem('items', JSON.stringify(AddTOCard))
     }, [AddTOCard])
     async function PriceSelect(Product, Item) {

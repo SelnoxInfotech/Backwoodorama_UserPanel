@@ -91,7 +91,7 @@ const routesConfig = [
             element: <ProductDetail></ProductDetail>,
           },
           {
-            path: "/NewProductDetails",
+            path: "/NewProductDetails/:id",
             element: <NewProductDetails></NewProductDetails>,
           },
           {
@@ -194,7 +194,7 @@ const routesConfig = [
             element:<MyOrderProductDetail/>
           },
           {
-            path:"/StrainProduct",
+            path:"/StrainProduct/:type",
             element:<StrainProduct/>
           },
           {
