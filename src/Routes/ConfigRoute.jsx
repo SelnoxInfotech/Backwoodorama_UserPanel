@@ -206,7 +206,6 @@ const routesConfig = [
             path:"/DeliverServiceSkeleton",
             element:<DeliverServiceSkeleton/>
           },
-          // end
           {
             path:"/HomePageBannerSkeleton",
             element:<HomePageBannerSkeleton/>

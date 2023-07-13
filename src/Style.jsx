@@ -980,10 +980,11 @@ recentPostCancelBtn2:{
 
    
   },
-  recatngularDispenAdd:{
-      height:"30px",
-      width:"100%",
-      backgroundColor:"red"
+  recatngularDispenAdd: {
+    width: "40%",
+    margin: "auto",
+    marginTop: "8px",
+    height: "5%"
   }
 }
 });
