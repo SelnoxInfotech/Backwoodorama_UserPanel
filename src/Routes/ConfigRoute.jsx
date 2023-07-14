@@ -43,6 +43,10 @@ import DispensoriesAddressSkeleton from "../Components/Component/Skeleton/DashBo
 import DashBoardMap from "../Components/Component/Skeleton/DashBoardSkeleton/DashBoardMap";
 import FeaturedBrandSkeleton from "../Components/Component/Skeleton/DashBoardSkeleton/FeaturedBrandSkeleton";
 import HomePageDealSignupSkeleton from "../Components/Component/Skeleton/DashBoardSkeleton/HomePageDealSignupSkeleton";
+import StrainTypeCardSkeleton from "../Components/Component/Skeleton/DashBoardSkeleton/StrainTypeCardSkeleton";
+import LatestServicesSkeleton from "../Components/Component/Skeleton/DashBoardSkeleton/LatestServicesSkeleton";
+import Variants from "../Components/Component/Skeleton/CategorySkeleton";
+import OpenDispensoriesSkeleton from "../Components/Component/Skeleton/DispensorieSkeleton/OpenDispensoriesSkeleton";
 const routesConfig = [
   
       {
@@ -228,6 +232,22 @@ const routesConfig = [
           {
            path:"/HomePageDealSignupSkeleton",
            element:<HomePageDealSignupSkeleton/>
+          },
+          {
+           path:"/StrainTypeCardSkeleton",
+           element:<StrainTypeCardSkeleton/>
+          },
+          {
+            path:"/LatestServicesSkeleton",
+            element:<LatestServicesSkeleton/>
+          },
+          {
+            path:"/Variants",
+            element:<Variants/>
+          },
+          {
+           path:"/OpenDispensoriesSkeleton",
+           element:<OpenDispensoriesSkeleton/>
           },
           // ends
           {

@@ -67,7 +67,7 @@ export default function Dashboard() {
             <HomePageWeedBanner></HomePageWeedBanner>
             <DispensoriesAddress></DispensoriesAddress>
             <div className="col-12 mt-5 border" style={{ height: "300px", position: "relative" }}>
-                <Map height={"200px"} width={"100%"}></Map>
+                <Map height={"297px"} width={"100%"}></Map>
             </div>
             <FeaturedBrand CardDataArray={FeaturedBrandArray} BrandSkeleton={BrandSkeleton}/>
             <HomePageDealsSignup></HomePageDealsSignup>

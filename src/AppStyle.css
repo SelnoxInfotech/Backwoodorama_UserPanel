@@ -7218,8 +7218,71 @@ align-items: center;
     padding: 0px 10px;
   }
 }
+/* StrainTypeCard */
+.StrainTypeCardSkeleton{
+  height: 333px;
+}
+@media(max-width:572px){
+  .StrainTypeCardSkeleton{
+    height: 333px;
+    padding: 0px 10px;
+    overflow-y: hidden;
+  }
+}
+@media(max-width:1200px){
+  .StrainTypeCardSkeleton{
+    height: 200px;
+    overflow-y: hidden;
+  }
 
+}
 /* end */
-/* .HomePageDealSignupSkeleton*/
+/* LatestServiceskeleton */
+.LatestServiceskeleton{
+  height: 350px;
+}
+@media(max-width:572px){
+  .LatestServiceskeleton{
+    height: 350px;
+    padding: 0px 10px;
+    overflow-y: hidden;
+  }
+}
+@media(max-width:1200px){
+  .LatestServiceskeleton{
+    height: 350px;
+    overflow-y: hidden;
+  }
+}
+/* end */
+/* CategorySkeleton */
+.CategorySkeletons{
+  height: 230px;
+}
 
+@media(max-width:1536px){
+  .CategorySkeletons{
+    overflow-y: hidden;
+    height: 199px;
+  }
+}
+@media(max-width:572px){
+  .CategorySkeletons{
+    height: 200px;
+    padding: 0px 10px;
+    overflow-y: hidden;
+  }
+}
+/* end */
+/* OpenDispensorieSkeleton */
+.OpenDispensorieSkeletonMain_Col{
+  height: 600px;
+  overflow-y:hidden;
+}
+.OpenDispensorieSkeleton_search{
+  height: 60px;
+}
+.dispensoriesSkeleton{
+  
+}
 /* end */
