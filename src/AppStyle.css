@@ -7276,13 +7276,18 @@ align-items: center;
 /* end */
 /* OpenDispensorieSkeleton */
 .OpenDispensorieSkeletonMain_Col{
-  height: 600px;
+  height: 680px;
   overflow-y:hidden;
 }
 .OpenDispensorieSkeleton_search{
   height: 60px;
 }
 .dispensoriesSkeleton{
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.openDispSkeletonBtn{
+  margin-top: 20px;
 }
 /* end */
