@@ -47,6 +47,7 @@ import StrainTypeCardSkeleton from "../Components/Component/Skeleton/DashBoardSk
 import LatestServicesSkeleton from "../Components/Component/Skeleton/DashBoardSkeleton/LatestServicesSkeleton";
 import Variants from "../Components/Component/Skeleton/CategorySkeleton";
 import OpenDispensoriesSkeleton from "../Components/Component/Skeleton/DispensorieSkeleton/OpenDispensoriesSkeleton";
+import DeliveryItemsCardSkeleton from "../Components/Component/Skeleton/Deliveries/DeliveriesComponent/DeliveryMenu/DeliveryItemsCardSkeleton";
 const routesConfig = [
   
       {
@@ -248,6 +249,10 @@ const routesConfig = [
           {
            path:"/OpenDispensoriesSkeleton",
            element:<OpenDispensoriesSkeleton/>
+          },
+          {
+            path:"/DeliveryItemsCardSkeleton",
+            element:<DeliveryItemsCardSkeleton/>
           },
           // ends
           {
