@@ -3,6 +3,7 @@ import Reducer from '../Hooks/Reduser'
 import Cookies from 'universal-cookie';
 import axios from 'axios';
 import CurrentLocation from '../Components/Component/Navbar/Component/CurrentLocation';
+import CheckAgeEligbilityPopup from '../Components/Page/CheckAgeEligblityPopup/CheckAgeEligbilityPopup';
 const Createcontext = createContext();
 const cookies = new Cookies();
 const login = cookies.get("Token_access")
@@ -26,9 +27,11 @@ const initialUser = {
 
 function Context(props) {
     const [state, dispatch] = useReducer(Reducer, initialUser)
-
+    const cookies = new Cookies();
+    const [CheckAge , SetCheckAge] =React.useState(true)
     React.useEffect(() => {
-        const cookies = new Cookies();
+        SetCheckAge(cookies.get("CheckAge"))
+        console.log(cookies.get("CheckAge"))
         const logi = cookies.get("Token_access")
         dispatch({ type: 'LoadingApi', LoadingApi: true })
         if (Boolean(logi)) {
@@ -80,6 +83,7 @@ function Context(props) {
 
         <Createcontext.Provider value={{ state, dispatch }} container>
            <CurrentLocation></CurrentLocation>
+           <CheckAgeEligbilityPopup value={cookies.get("CheckAge") === undefined ? true :false} ></CheckAgeEligbilityPopup>
             {props.children}
         </Createcontext.Provider>
 

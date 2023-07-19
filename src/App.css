@@ -816,3 +816,16 @@ overflow-x: hidden; */
   padding-top: 59px;
 }
 /* end */
+
+
+
+.AgeSetPOpup{
+  margin-top: 4px;
+  border-radius: 35px;
+  gap: 16px;
+  padding-left: 10px; 
+  background-color: #ffe791;
+  height: 70px;
+  align-items: center;
+  display: flex;
+}

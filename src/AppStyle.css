@@ -4922,11 +4922,15 @@
 
 .checkAgeEligibilty_label {
   height: 40px;
+  display: flex;
+  justify-content: center;
 
 }
 
 .checkAgeEligibility_Select {
   height: 75px;
+  display: flex;
+  justify-content: center;
 }
 
 .checkAgeEligibilty_btn_container {

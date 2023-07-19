@@ -5,35 +5,44 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import useStyles from '../../../Style';
-const CheckAgeEligbilityPopup = () => {
+import Cookies from 'universal-cookie';
+import {ImNotification} from "react-icons/im"
+const CheckAgeEligbilityPopup = ({value}) => {
+    console.log( value )
     const classes=useStyles()
-    const [open, setOpen] = React.useState(false);
-
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
-    };
-    const [age, setAge] = React.useState('');
-
+    const cookies = new Cookies();
+    const [open, setOpen] = React.useState(value);
+    const [Country, SetCountry] = React.useState('USA');
+    const [NotAgepop , SetNotAge] =  React.useState('')
+     const get =()=>{
+        setOpen(false)
+        let date = new Date();
+        date.setTime(date.getTime() + (60 * 60 * 8000))
+        cookies.set('CheckAge',0, { expires:  date })
+     }
     const handleChange = (event) => {
-        setAge(event.target.value);
+        // cookies.set('CheckAge', false)
+
+        SetCountry(event.target.value);
     };
+    const NotAge = () =>{
+           SetNotAge("You're not old enough to visit sweede.net")
+    }
+    console.log(NotAgepop ==="" )
     return (
         <div>
-            <Button variant="outlined" onClick={handleClickOpen}>
-                Check age
-            </Button>
-            <Dialog open={open} onClose={handleClose}
+            <Dialog open={open} 
             className={`${classes.checkAgeEligibility} ${classes.checAgeEligibiltyHeight}`}
              >
                 <div className='container-fluid'>
                     <div className='row'>
-
+        
                         <div className='col-12 checkAgeEligiblityPop_container'>
-                            
+                      {NotAgepop !=="" &&
+                          <div className='col-12 AgeSetPOpup' >
+                          <ImNotification ></ImNotification>  {NotAgepop}
+                       </div>
+                      }
                             <div className='row  mt-4'>
                                 <div className='col-12 checkAgeEligibilty_label'>
                                     <label className='askCountry'>Where are you from</label>
@@ -41,18 +50,15 @@ const CheckAgeEligbilityPopup = () => {
                                 <div className='col-12 checkAgeEligibility_Select'>
                                     <FormControl sx={{ m: 1,  }} className={`${classes.checkAge_eligibility_Select}`}>
                                         <Select
-                                            value={age}
+                                        defaultValue='USA'
+                                            value={Country}
                                             id="SelectAge"
                                             onChange={handleChange}
                                             displayEmpty
                                             inputProps={{ 'aria-label': 'Without label' }}
                                         >
-                                            <MenuItem value="">
-                                                <em>Select Country</em>
-                                            </MenuItem>
-                                            <MenuItem value={"India"}>India</MenuItem>
-                                            <MenuItem value={"UsA"}>USA</MenuItem>
-                                            <MenuItem value={"Germany"}>Germany</MenuItem>
+                                            <MenuItem value={"USA"}>USA</MenuItem>
+                                            <MenuItem value={"CANADA"}>CANADA</MenuItem>
                                         </Select>
                                     </FormControl>
 
@@ -60,14 +66,15 @@ const CheckAgeEligbilityPopup = () => {
 
                             </div>
                             <div className="row">
+                                
                                 <div className='col-12 checkAgeEligibilty_label'>
                                   <label>Are you 21 year older</label>
                                 </div>
                                 <div className='col-12 checkAgeEligibilty_btn_container'>
-                                 <Button className={`${classes.checAgeEliigiblityPopup}`}>Yes, I am</Button>
+                                 <Button className={`${classes.checAgeEliigiblityPopup}`} onClick={ get} >Yes, I am</Button>
                                 </div>
                                 <div className='col-12 checkAgeEligibilty_btn_container'>
-                                 <Button className={`${classes.checkAgeEligibiltyAge_SecBtn}`}>No,I'm not</Button>
+                                 <Button className={`${classes.checkAgeEligibiltyAge_SecBtn}`} onClick={NotAge}>No,I'm not</Button>
                                 </div>
 
                             </div>

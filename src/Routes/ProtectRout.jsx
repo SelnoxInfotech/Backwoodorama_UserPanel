@@ -32,6 +32,8 @@ export default function ProtectRout(props) {
 
     return (
 
-        <div><Component /></div>
+        <div>
+            <Component />
+            </div>
     )
 }

@@ -14,8 +14,6 @@ import { CiLock } from "react-icons/ci"
 import LoginWithGoogle from './LoginWithGoogle';
 import Cookies from 'universal-cookie';
 import Createcontext from "../../../Hooks/Context"
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import {FaFacebookF } from "react-icons/fa";
 import FaceBookLogin from "./FaceBookLogin"
 const Login = () => {
     const cookies = new Cookies();

@@ -37,9 +37,6 @@ import MyOrder from "../Components/Page/MyOrder/MyOrder";
 import MyOrderProductDetail from "../Components/Page/MyOrder/MyOrderProductDetail";
 import StrainProduct from "../Components/Page/Strain/StrainProduct";
 import Blogs from "../Components/Page/Blog/Blog";
-import DeliverServiceSkeleton from "../Components/Component/Skeleton/DeliveryServicesSkeleton";
-import HomePageBannerSkeleton from "../Components/Component/Skeleton/DashBoardSkeleton/HomePageBannerSkeleton";
-import DispensoriesAddressSkeleton from "../Components/Component/Skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton";
 import DashBoardMap from "../Components/Component/Skeleton/DashBoardSkeleton/DashBoardMap";
 import FeaturedBrandSkeleton from "../Components/Component/Skeleton/DashBoardSkeleton/FeaturedBrandSkeleton";
 import HomePageDealSignupSkeleton from "../Components/Component/Skeleton/DashBoardSkeleton/HomePageDealSignupSkeleton";
@@ -209,19 +206,7 @@ const routesConfig = [
            path:"/Blogs",
            element:<Blogs/>
           },
-          // Testing
-          // {
-          //   path:"/DeliverServiceSkeleton",
-          //   element:<DeliverServiceSkeleton/>
-          // },
-          // {
-          //   path:"/HomePageBannerSkeleton",
-          //   element:<HomePageBannerSkeleton/>
-          // },
-          // {
-          //   path:"/DispensoriesAddressSkeleton",
-          //   element:<DispensoriesAddressSkeleton/>
-          // },
+    
           {
             path:"/DashBoardMap",
             element:<DashBoardMap/>

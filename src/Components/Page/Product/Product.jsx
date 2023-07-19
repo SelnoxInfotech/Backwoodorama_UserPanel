@@ -1,37 +1,12 @@
 import React from "react"
-// import { BsLayoutSplit } from "react-icons/bs"
 import CategoryProduct from "../../../Components/Page/Home/Dashboard/ComponentDashboard/CategoryProduct"
-// import { MdOutlineBrandingWatermark } from "react-icons/md"
-// import { MdOutlinePriceChange } from "react-icons/md"
-// import { BsStripe } from "react-icons/bs"
-// import { GiWeightScale } from "react-icons/gi"
-// import { RiProductHuntLine } from "react-icons/ri"
-// import ProductList from "./ProductList"
 import Axios from "axios"
-// import ProductFilter from "./ProductFilter"
-// import useStyles from "../../../Style"
-// import MenuItem from '@mui/material/MenuItem';
-// import FormControl from '@mui/material/FormControl';
-// import Select from '@mui/material/Select';
-// import _ from "lodash"
-// import Createcontext from "../../../Hooks/Context"
-// import SearchBar from '@mkyy/mui-search-bar';
-// import { Grid } from "@mui/material"
-// import NewFlavourBanner from "../../Component/NewFlavour/NewFlavourBanner"
 import NewProductCategorySlider from "./NewProductCategorySlider"
-// import AllProductCategory from "./AllProductCategory"
-// import ProductSearchResult from "./ProductSearchResult/ProductSearchResult"
 import RecentViewProduct from "./RecentViewProduct/RecentViewProduct"
 import { useNavigate } from "react-router-dom"
 const Product = () => {
     const navigate = useNavigate();
-
-    // const { dispatch } = React.useContext(Createcontext)
-    // const [Searchvalue, setSearchvalue] = React.useState()
-    // // const classes = useStyles()
     const [SubCategory, SetSubCategory] = React.useState([])
-    // const [arr1, Setarr1] = React.useState([])
-    // const [Product, SetProduct] = React.useState('');
     React.useEffect(() => {
         Axios("https://sweede.app/UserPanel/Get-AllSubCategory/", {
 
@@ -43,21 +18,7 @@ const Product = () => {
             function (error) {
 
             })
-        // Axios("https://sweede.app/UserPanel/CategoryOnProduct/ ", {
-
-
-
-        // }).then(response => {
-        //     var uniqueUsersByID = _.uniqBy(response.data, 'Category_id'); //removed if had duplicate id
-        //     var uniqueUsers = _.uniqWith(response.data, _.isEqual);//removed complete duplicates
-
-
-
-        // }).catch(
-        //     function (error) {
-
-
-        //     })
+       
     }, [])
 
 
