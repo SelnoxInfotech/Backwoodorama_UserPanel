@@ -4,6 +4,7 @@ import Cookies from 'universal-cookie';
 import axios from 'axios';
 import CurrentLocation from '../Components/Component/Navbar/Component/CurrentLocation';
 import CheckAgeEligbilityPopup from '../Components/Page/CheckAgeEligblityPopup/CheckAgeEligbilityPopup';
+import CookiesAccept from '../Components/Component/CookiesAccept/CookiesAccept';
 const Createcontext = createContext();
 const cookies = new Cookies();
 const login = cookies.get("Token_access")
@@ -21,18 +22,22 @@ const initialUser = {
     Order_place: false,
     Dispensories: [],
     Location: "",
-    LocationData:[]
-
+    LocationData: [],
+    cookies: 1
 }
 
 function Context(props) {
     const [state, dispatch] = useReducer(Reducer, initialUser)
     const cookies = new Cookies();
-    const [CheckAge , SetCheckAge] =React.useState(true)
+
     React.useEffect(() => {
-        SetCheckAge(cookies.get("CheckAge"))
-        console.log(cookies.get("CheckAge"))
         const logi = cookies.get("Token_access")
+        let date = new Date();
+        date.setTime(date.getTime() + (60 * 60 * 8000))
+        if(!cookies.get('CookiesAcceptAll')){
+            cookies.set('CookiesAcceptAll', 1, { expires:  date })
+        }
+        dispatch({ type: 'Cookies', Cookies: cookies.get("CookiesAcceptAll") })
         dispatch({ type: 'LoadingApi', LoadingApi: true })
         if (Boolean(logi)) {
             axios.get("https://sweede.app/UserPanel/Get-Addtocart/", {
@@ -74,16 +79,16 @@ function Context(props) {
             }
         }
     }, [state.ApiProduct])
-
-
-
-
-
     return (
 
         <Createcontext.Provider value={{ state, dispatch }} container>
-           <CurrentLocation></CurrentLocation>
-           <CheckAgeEligbilityPopup value={cookies.get("CheckAge") === undefined ? true :false} ></CheckAgeEligbilityPopup>
+            <CurrentLocation></CurrentLocation>
+            <CheckAgeEligbilityPopup value={cookies.get("CheckAge") === undefined ? true : false} ></CheckAgeEligbilityPopup>
+            {
+                parseInt(state.Cookies) === 1 && <CookiesAccept></CookiesAccept>
+            }
+
+
             {props.children}
         </Createcontext.Provider>
 

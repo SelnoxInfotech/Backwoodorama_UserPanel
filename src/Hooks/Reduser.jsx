@@ -50,7 +50,11 @@ const reducer = (state, action) => {
           return { ...state, LocationData: action.LocationData }
         }
   
-
+        case "Cookies":
+          {
+            return { ...state, Cookies: action.Cookies }
+          }
+    
 
 
 
