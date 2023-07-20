@@ -89,6 +89,7 @@ console.log(Details)
                                 <div className='row'>
                                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
                                         <TextField
+                                            className={classes.deliveryInformationTextFildColor}
                                             value={Details.FirstName||''}
                                             label="First name on photo id"
                                             variant="standard"
@@ -105,6 +106,7 @@ console.log(Details)
                                     </div>
                                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
                                         <TextField
+                                          className={classes.deliveryInformationTextFildColor}
                                             label="Last name on photo id"
                                             variant="standard"
                                             value={Details.LastName||''}
@@ -120,7 +122,7 @@ console.log(Details)
                                         />
                                     </div>
                                 </div>
-                                <div className='row'>
+                                <div className='row my-4'>
                                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
                                         {/* <Box
                                             sx={{
@@ -167,7 +169,13 @@ console.log(Details)
                                         <Box
                                             sx={{
                                                 ".MuiFormControl-marginNormal": {
-                                                    marginTop: "8px"
+                                                    marginTop: "8px",
+                                                },
+                                                ".MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline ":{
+                                                      
+                                                },
+                                                "& .MuiOutlinedInput-notchedOutline.Mui-focused .MuiOutlinedInput-notchedOutline":{
+                                                  borderColor:"#31B665"
                                                 }
 
                                             }}>
@@ -178,8 +186,8 @@ console.log(Details)
                                           
                                             render={(props) => (
                                                     <DatePicker  
-                                                    {...props}
-                                                    
+                                                     className={classes.muiDatePicker}
+                                                    {...props}                                              
                                                         maxDate={new Date()}
                                                         inputVariant="outlined"
                                                         name={props.name}
@@ -219,6 +227,7 @@ console.log(Details)
                                     </div>
                                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
                                         <TextField
+                                          className={classes.deliveryInformationTextFildColor}
                                             label="Email"
                                             value={Details.Email}
                                             onChange={handleChange}
@@ -238,9 +247,10 @@ console.log(Details)
                                         />
                                     </div>
                                 </div>
-                                <div className='row'>
+                                <div className='row my-4'>
                                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
                                         <TextField
+                                          className={classes.deliveryInformationTextFildColor}
                                             type='mobile'
                                             onChange={handleChange}
                                             value={Details.Mobile}
@@ -268,7 +278,7 @@ console.log(Details)
                                     </div>
 
                                 </div>
-                                <div className='row mt-2'>
+                                <div className='row my-4'>
                                     <div className="col-12 height_del_information_inner_div font_size_paragraph_del">
                                         <p>Medical Marijuana</p>
 
@@ -276,7 +286,7 @@ console.log(Details)
                                     </div>
 
                                 </div>
-                                <div className='row mt-2'>
+                                <div className='row my-4'>
                                     <div className="col-12 height_del_information_inner_div font_size_paragraph_del font_color delivery_information_font_family">
                                         <p>Please enter the ID number from your valid Medical Marijuana ID. Include all dashes and special characters.</p>
 
@@ -284,9 +294,10 @@ console.log(Details)
                                     </div>
 
                                 </div>
-                                <div className='row mt-2'>
+                                <div className='row my-4'>
                                     <div className="col-12 height_del_information_inner_div font_size_paragraph_del font_color delivery_information_font_family">
                                         <TextField
+                                          className={classes.deliveryInformationTextFildColor}
                                             onChange={handleChange}
                                             value={Details.Id_Number}
                                             label="Medical Marijuana Number"
@@ -305,7 +316,7 @@ console.log(Details)
                                     </div>
 
                                 </div>
-                                <div className='row mt-4'>
+                                <div className='row my-4'>
                                     <div className='col-12 col-lg-4 height_delivery_information_btn'>
                                         <Box
                                             className={`  ${classes.loadingBtnTextAndBack}`}

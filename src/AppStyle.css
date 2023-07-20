@@ -7341,6 +7341,9 @@ align-items: center;
   justify-content: flex-end;
   gap: 30px;
 }
+.height_text_field{
+  height: 52px;
+}
 @media(max-width:576px){
   .deliveryItemRightSide{
     display: none;

@@ -1004,6 +1004,20 @@ const useStyles = makeStyles({
       justifyContent: "flex-end",
       width: "90%"
     }
+  },
+  deliveryInformationTextFildColor:{
+    "& .MuiInput-underline:after": {
+      borderBottomColor:"#31B665"
+    },
+    "& .MuiInputLabel-root.Mui-focused":{
+     color:"#31B665"
+
+    }
+  },
+  muiDatePicker:{
+    "& .MuiOutlinedInput-root .Mui-focused":{
+        borderColor:"#31B665"
+    }
   }
 });
 
