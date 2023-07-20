@@ -2,15 +2,15 @@
 
 import { makeStyles } from '@mui/styles';
 const useStyles = makeStyles({
-  textFieldFocusBorderColor:{
+  textFieldFocusBorderColor: {
     "& .MuiOutlinedInput-root": {
       " &.Mui-focused fieldset": {
-         borderColor: "#31B665",
-       },
-       '&:hover fieldset': {
+        borderColor: "#31B665",
+      },
+      '&:hover fieldset': {
         borderColor: '#31B665', // - Set the Input border when parent has :hover
-    },
-     }
+      },
+    }
   },
   searchBarPadding: {
     "&.MuiInputBase-sizeSmall": {
@@ -24,7 +24,7 @@ const useStyles = makeStyles({
     "& .MuiOutlinedInput-notchedOutline": {
       border: "0px",
       paddingTop: '8.5px',
-      paddingLeft:"20px"
+      paddingLeft: "20px"
 
 
     }
@@ -70,6 +70,18 @@ const useStyles = makeStyles({
       minWidth: "120px",
       margin: "1px"
       // border:"1px solid red"
+    },
+    "& .MuiInputLabel-root.Mui-focused ":{
+      color:"#31B665"
+   },
+    "& .MuiOutlinedInput-root": {
+      " &.Mui-focused fieldset": {
+        borderColor: "#31B665",
+      },
+
+      '&:hover fieldset': {
+        borderColor: '#31B665', // - Set the Input border when parent has :hover
+      },
     },
     "& .MuiInputBase-root": {
       width: "168px",
@@ -234,7 +246,7 @@ const useStyles = makeStyles({
       fontSize: ".5rem",
     },
     "& .MuiLoadingButton-root": {
-      fontSize:"14px",
+      fontSize: "14px",
       width: "100%",
       height: "38px",
       borderRadius: "40px",
@@ -301,18 +313,18 @@ const useStyles = makeStyles({
       width: "90px",
       background: "#31B665",
     },
-    "& .MuiTab-root":{
-      textTransform:"capitalize",
-      color:"#707070",
-      fontWeight:"400",
-      fontSize:"16px"
+    "& .MuiTab-root": {
+      textTransform: "capitalize",
+      color: "#707070",
+      fontWeight: "400",
+      fontSize: "16px"
     },
     "& .MuiTab-root.Mui-selected": {
       color: "#31B665",
     },
-    "@media(Max-width:480px)":{
-      "& .MuiTab-root":{
-        fontSize:"12px"
+    "@media(Max-width:480px)": {
+      "& .MuiTab-root": {
+        fontSize: "12px"
       }
     }
   },
@@ -320,7 +332,7 @@ const useStyles = makeStyles({
     "& .MuiTabPanel-root": {
       paddingLeft: "0px",
       paddingRight: "0px",
-      textTransform:'none'
+      textTransform: 'none'
 
     }
   },
@@ -403,7 +415,8 @@ const useStyles = makeStyles({
       "& .MuiPaper-root": {
         maxWidth: "430px",
         width: "100%",
-
+        borderRadius: "15px",
+        border: "1px solid #31B665"
       }
     }
   },
@@ -437,8 +450,8 @@ const useStyles = makeStyles({
       textTransform: "none",
     },
     "&.MuiButtonBase-root:hover": {
-      color: "white",
-      background: "#31B665",
+      color: "#31B665",
+      // background: "#31B665",
     }
   },
   checkAge_eligibility_Select: {
@@ -460,7 +473,7 @@ const useStyles = makeStyles({
   },
   searchBar_padding: {
     "&.MuiTextField-root": {
-      paddingLeft:"10px"
+      paddingLeft: "10px"
     }
   },
   homePageDealSignup_TextFields: {
@@ -522,7 +535,7 @@ const useStyles = makeStyles({
       height: "52px",
       textTransform: "none",
       border: "2px solid #D9D9D9",
-      borderRadius:"0px",
+      borderRadius: "0px",
       color: "#000000",
       backgroundColor: "#D9D9D9",
     },
@@ -530,7 +543,7 @@ const useStyles = makeStyles({
       color: "#000000",
       backgroundColor: "#D9D9D9",
       border: "1px solid #D9D9D9",
-      borderRadius:"0px",
+      borderRadius: "0px",
     },
   },
   EditProfileTextFields_Outline: {
@@ -618,131 +631,131 @@ const useStyles = makeStyles({
     "& .MuiDialog-container": {
       "& .MuiPaper-root": {
         width: "50%",
-        height:"600px",
+        height: "600px",
         borderRadius: "20px",
         background: "#FFFFFF",
       }
+    },
+    "@media(max-width:500px)": {
+      "& .MuiDialog-container": {
+        "& .MuiPaper-root": {
+          minWidth: "90%"
+        }
+
+      }
+    }
   },
-  "@media(max-width:500px)": {
+  EditUserNamePopup: {
     "& .MuiDialog-container": {
       "& .MuiPaper-root": {
-        minWidth: "90%"
+        width: "50%",
+        height: "450px",
+        borderRadius: "20px",
+        background: "#FFFFFF",
       }
+    },
+    "@media(max-width:500px)": {
+      "& .MuiDialog-container": {
+        "& .MuiPaper-root": {
+          minWidth: "90%"
+        }
 
+      }
+    }
+
+  },
+  AddMobilePopup: {
+    "& .MuiDialog-container": {
+      "& .MuiPaper-root": {
+        width: "50%",
+        height: "490px",
+        borderRadius: "20px",
+        background: "#FFFFFF",
+      }
+    },
+    "@media(max-width:500px)": {
+      "& .MuiDialog-container": {
+        "& .MuiPaper-root": {
+          minWidth: "90%"
+        }
+
+      }
+    }
+  },
+  addDeliverAddress: {
+    "& .MuiDialog-container": {
+      "& .MuiPaper-root": {
+        width: "50%",
+        height: "450px",
+        borderRadius: "20px",
+        background: "#FFFFFF",
+      }
+    },
+    "@media(max-width:500px)": {
+      "& .MuiDialog-container": {
+        "& .MuiPaper-root": {
+          minWidth: "90%"
+        }
+
+      }
     }
   }
-},
-EditUserNamePopup:{
-  "& .MuiDialog-container": {
-    "& .MuiPaper-root": {
-      width: "50%",
-      height:"450px",
-      borderRadius: "20px",
-      background: "#FFFFFF",
-    }
-},
-"@media(max-width:500px)": {
-  "& .MuiDialog-container": {
-    "& .MuiPaper-root": {
-      minWidth: "90%"
-    }
+  ,
+  addPhotoPopup: {
+    "& .MuiDialog-container": {
+      "& .MuiPaper-root": {
+        width: "50%",
+        height: "450px",
+        borderRadius: "20px",
+        background: "#FFFFFF",
+      }
+    },
+    "@media(max-width:500px)": {
+      "& .MuiDialog-container": {
+        "& .MuiPaper-root": {
+          minWidth: "90%"
+        }
 
-  }
-}
+      }
+    }
+  },
+  medicalCardDetail_dialog: {
+    "& .MuiDialog-container": {
+      "& .MuiPaper-root": {
+        width: "50%",
+        height: "700px",
+        borderRadius: "20px",
+        background: "#FFFFFF",
+      }
+    },
+    "@media(max-width:500px)": {
+      "& .MuiDialog-container": {
+        "& .MuiPaper-root": {
+          minWidth: "90%"
+        }
 
-},
-AddMobilePopup:{
-  "& .MuiDialog-container": {
-    "& .MuiPaper-root": {
-      width: "50%",
-      height:"490px",
-      borderRadius: "20px",
-      background: "#FFFFFF",
+      }
     }
-},
-"@media(max-width:500px)": {
-  "& .MuiDialog-container": {
-    "& .MuiPaper-root": {
-      minWidth: "90%"
-    }
+  },
+  addDateOfBirthPopup: {
+    "& .MuiDialog-container": {
+      "& .MuiPaper-root": {
+        width: "50%",
+        height: "400px",
+        borderRadius: "20px",
+        background: "#FFFFFF",
+      }
+    },
+    "@media(max-width:500px)": {
+      "& .MuiDialog-container": {
+        "& .MuiPaper-root": {
+          minWidth: "90%"
+        }
 
-  }
-}
-},
-addDeliverAddress:{
-  "& .MuiDialog-container": {
-    "& .MuiPaper-root": {
-      width: "50%",
-      height:"450px",
-      borderRadius: "20px",
-      background: "#FFFFFF",
+      }
     }
-},
-"@media(max-width:500px)": {
-  "& .MuiDialog-container": {
-    "& .MuiPaper-root": {
-      minWidth: "90%"
-    }
-
-  }
-}
-}
-,
-addPhotoPopup:{
-  "& .MuiDialog-container": {
-    "& .MuiPaper-root": {
-      width: "50%",
-      height:"450px",
-      borderRadius: "20px",
-      background: "#FFFFFF",
-    }
-},
-"@media(max-width:500px)": {
-  "& .MuiDialog-container": {
-    "& .MuiPaper-root": {
-      minWidth: "90%"
-    }
-
-  }
-}
-},
-medicalCardDetail_dialog:{
-  "& .MuiDialog-container": {
-    "& .MuiPaper-root": {
-      width: "50%",
-      height:"700px",
-      borderRadius: "20px",
-      background: "#FFFFFF",
-    }
-},
-"@media(max-width:500px)": {
-  "& .MuiDialog-container": {
-    "& .MuiPaper-root": {
-      minWidth: "90%"
-    }
-
-  }
-}
-},
-addDateOfBirthPopup:{
-  "& .MuiDialog-container": {
-    "& .MuiPaper-root": {
-      width: "50%",
-      height:"400px",
-      borderRadius: "20px",
-      background: "#FFFFFF",
-    }
-},
-"@media(max-width:500px)": {
-  "& .MuiDialog-container": {
-    "& .MuiPaper-root": {
-      minWidth: "90%"
-    }
-
-  }
-}
-},
-fourZeroFourBtn:{
+  },
+  fourZeroFourBtn: {
     "& .MuiButton-text": {
       fontSize: ".5rem",
     },
@@ -762,236 +775,236 @@ fourZeroFourBtn:{
       backgroundColor: "#FFFFFF",
       border: "1px solid #31B665"
     },
-},
-fiveZero_Three:{
-  "& .MuiButton-text": {
-    fontSize: ".5rem",
   },
-  "& .MuiLoadingButton-root": {
-    width: "50%",
-    height: "50px",
-    borderRadius: "5px",
-    backgroundColor: "#FFFFFF",
-    color: "#434343",
-    textTransform: "none",
-    border: "1px solid #31B665",
-    fontWeight: "700",
-    fontSize: "14px"
+  fiveZero_Three: {
+    "& .MuiButton-text": {
+      fontSize: ".5rem",
+    },
+    "& .MuiLoadingButton-root": {
+      width: "50%",
+      height: "50px",
+      borderRadius: "5px",
+      backgroundColor: "#FFFFFF",
+      color: "#434343",
+      textTransform: "none",
+      border: "1px solid #31B665",
+      fontWeight: "700",
+      fontSize: "14px"
+    },
+    "& .MuiButtonBase-root:hover": {
+      color: "#434343",
+      backgroundColor: "#FFFFFF",
+      border: "1px solid #31B665"
+    },
   },
-  "& .MuiButtonBase-root:hover": {
-    color: "#434343",
-    backgroundColor: "#FFFFFF",
-    border: "1px solid #31B665"
+  fourZero_Three: {
+    "& .MuiButton-text": {
+      fontSize: ".5rem",
+    },
+    "& .MuiLoadingButton-root": {
+      width: "50%",
+      height: "50px",
+      borderRadius: "5px",
+      backgroundColor: "#FFFFFF",
+      color: "#434343",
+      textTransform: "none",
+      border: "1px solid #31B665",
+      fontWeight: "700",
+      fontSize: "14px"
+    },
+    "& .MuiButtonBase-root:hover": {
+      color: "#434343",
+      backgroundColor: "#FFFFFF",
+      border: "1px solid #31B665"
+    },
   },
-},
-fourZero_Three:{
-  "& .MuiButton-text": {
-    fontSize: ".5rem",
+  navbarprofileLoadingBtn: {
+    "& .MuiButton-text": {
+      fontSize: "12px",
+    },
+    "& .MuiLoadingButton-root": {
+      width: "100%",
+      height: "52px",
+      textTransform: "none",
+      border: "2px solid #D9D9D9",
+      borderRadius: "0px",
+      color: "#000000",
+      backgroundColor: "#D9D9D9",
+    },
+    "& .MuiButtonBase-root:hover": {
+      color: "#000000",
+      backgroundColor: "#D9D9D9",
+      border: "1px solid #D9D9D9",
+      borderRadius: "0px",
+    },
   },
-  "& .MuiLoadingButton-root": {
-    width: "50%",
-    height: "50px",
-    borderRadius: "5px",
-    backgroundColor: "#FFFFFF",
-    color: "#434343",
-    textTransform: "none",
-    border: "1px solid #31B665",
-    fontWeight: "700",
-    fontSize: "14px"
+  sliderProfile_loadingBtn: {
+    "& .MuiButton-text": {
+      fontSize: "12px",
+    },
+    "& .MuiLoadingButton-root": {
+      width: "100%",
+      height: "35px",
+      textTransform: "none",
+      border: "2px solid #D9D9D9",
+      borderRadius: "0px",
+      color: "#000000",
+      backgroundColor: "#D9D9D9",
+    },
+    "& .MuiButtonBase-root:hover": {
+      color: "#000000",
+      backgroundColor: "#D9D9D9",
+      border: "1px solid #D9D9D9",
+      borderRadius: "0px",
+    },
   },
-  "& .MuiButtonBase-root:hover": {
-    color: "#434343",
-    backgroundColor: "#FFFFFF",
-    border: "1px solid #31B665"
-  },
-},
-navbarprofileLoadingBtn: {
-  "& .MuiButton-text": {
-    fontSize: "12px",
-  },
-  "& .MuiLoadingButton-root": {
-    width: "100%",
-    height: "52px",
-    textTransform: "none",
-    border: "2px solid #D9D9D9",
-    borderRadius:"0px",
-    color: "#000000",
-    backgroundColor: "#D9D9D9",
-  },
-  "& .MuiButtonBase-root:hover": {
-    color: "#000000",
-    backgroundColor: "#D9D9D9",
-    border: "1px solid #D9D9D9",
-    borderRadius:"0px",
-  },
-},
-sliderProfile_loadingBtn:{
-  "& .MuiButton-text": {
-    fontSize: "12px",
-  },
-  "& .MuiLoadingButton-root": {
-    width: "100%",
-    height: "35px",
-    textTransform: "none",
-    border: "2px solid #D9D9D9",
-    borderRadius:"0px",
-    color: "#000000",
-    backgroundColor: "#D9D9D9",
-  },
-  "& .MuiButtonBase-root:hover": {
-    color: "#000000",
-    backgroundColor: "#D9D9D9",
-    border: "1px solid #D9D9D9",
-    borderRadius:"0px",
-  },
-},
-EditProfileBtn_Color:{
-  "&.MuiButtonBase-root":{
-    color:"#707070"
-  }
-},
-myOrderRatingStarIcons: {
-  "&.MuiRating-root": {
-    color: "#31B665",
-    gap:"5px"
-  },
-},
-OrderTrackingCircleColor:{
-  '& .MuiStepLabel-root .Mui-completed':{
-    color:"#31B665"
-  },
-  "& $disabled":{
-    color:"pink"
-  },
-  "& .MuiStepLabel-root .Mui-active":{
-    color:"#707070"
-  }
-},
-
-OrderTrackingLoadingBtn: {
-  "& .MuiButton-text": {
-    fontSize: "1rem",
-  },
-  "& .MuiLoadingButton-root": {
-   
-    width: "45%",
-    height: "38px",
-    borderRadius: "4px",
-    textTransform: "none",
-    border: "1px solid #31B665",
-    color: "#8A8A8A",
-  },
-  "& .MuiButtonBase-root:hover": {
-    color: "#8A8A8A",
-    border: "1px solid #31B665"
-  },
-},
-OrderTrackingBtn:{
-  marginLeft:"10px"
-},
-strainTypSearchBar:{
-  "& .css-y40w8":{
-     position:"absolute",
-     right:"0px",
-     backgroundColor:"#31B665",
-     color:"#FFFFFF",
-     width:"55px",
-     borderRadius:"4px",
-     cursor:"pointer"
-  },
-  "& .css-1ywo31j ":{
-    position:"absolute",
-    left:"0px",
-    backgroundColor:"#31B665",
-    color:"#FFFFFF",
-    width:"35px",
-    cursor:"pointer"
-  }
-
-},
-navBarButton_icons:{
-  "&.MuiIconButton-root":{
-    padding:"3px"
-  }
-},
-MyOrderSearchBar:{
-  "& .css-y40w8":{
-    color:"#B0B0B0"
-  }
-},
-recentPostCancelBtn:{
-  "& .MuiButton-text": {
-    fontSize: ".6rem",
-  },
-  "& .MuiLoadingButton-root": {
-    textTransform: "none",
-    width: "100%",
-    display:"flex",
-    justifyContent:"center",
-    height: "40px",
-    borderRadius: "5px",
-    color: "#ffff",
-    backgroundColor: "#C1C1C1",
-    border:"1px solid #C1C1C1"
-
-  },
-  "& .MuiButtonBase-root:hover": {
-    backgroundColor: "#C1C1C1",
-    border:"1px solid #C1C1C1"
-  } 
-},
-recentPostCancelBtn2:{
-  "& .MuiButton-text": {
-    fontSize: ".6rem",
-  },
-  "& .MuiLoadingButton-root": {
-    textTransform: "none",
-    width: "100%",
-    display:"flex",
-    justifyContent:"center",
-    height: "40px",
-    borderRadius: "5px",
-    color: "#ffff",
-    backgroundColor: "#31B665",
-    border:"1px solid #31B665"
-  },
-  "& .MuiButtonBase-root:hover": {
-    backgroundColor: "#31B665",
-    border:"1px solid #31B665"
-  } ,
-  deliveryServiceBox:{
-    "& .css-y061pl":{
-      marginTop:"0px",
+  EditProfileBtn_Color: {
+    "&.MuiButtonBase-root": {
+      color: "#707070"
     }
   },
-  HomePageBaneerSkeletonGrid:{
-    "& .MuiSkeleton-root":{
-      width:"100%",
-      height:"400px"
+  myOrderRatingStarIcons: {
+    "&.MuiRating-root": {
+      color: "#31B665",
+      gap: "5px"
+    },
+  },
+  OrderTrackingCircleColor: {
+    '& .MuiStepLabel-root .Mui-completed': {
+      color: "#31B665"
+    },
+    "& $disabled": {
+      color: "pink"
+    },
+    "& .MuiStepLabel-root .Mui-active": {
+      color: "#707070"
     }
- 
   },
-  dispensoriesAddressSkeletonHeading:{
-   "& .MuiSkeleton-text ":{
-    height:"10px",
-    width:"100px",
-    backgroundColor:"red"
-   }
 
-   
+  OrderTrackingLoadingBtn: {
+    "& .MuiButton-text": {
+      fontSize: "1rem",
+    },
+    "& .MuiLoadingButton-root": {
+
+      width: "45%",
+      height: "38px",
+      borderRadius: "4px",
+      textTransform: "none",
+      border: "1px solid #31B665",
+      color: "#8A8A8A",
+    },
+    "& .MuiButtonBase-root:hover": {
+      color: "#8A8A8A",
+      border: "1px solid #31B665"
+    },
   },
-  recatngularDispenAdd: {
-    width: "40%",
-    margin: "auto",
-    marginTop: "8px",
-    height: "5%"
+  OrderTrackingBtn: {
+    marginLeft: "10px"
   },
-  HomePageDealSignUpSkeleton:{
-    display:"flex",
-    justifyContent:"flex-end",
-    width:"90%"
+  strainTypSearchBar: {
+    "& .css-y40w8": {
+      position: "absolute",
+      right: "0px",
+      backgroundColor: "#31B665",
+      color: "#FFFFFF",
+      width: "55px",
+      borderRadius: "4px",
+      cursor: "pointer"
+    },
+    "& .css-1ywo31j ": {
+      position: "absolute",
+      left: "0px",
+      backgroundColor: "#31B665",
+      color: "#FFFFFF",
+      width: "35px",
+      cursor: "pointer"
+    }
+
+  },
+  navBarButton_icons: {
+    "&.MuiIconButton-root": {
+      padding: "3px"
+    }
+  },
+  MyOrderSearchBar: {
+    "& .css-y40w8": {
+      color: "#B0B0B0"
+    }
+  },
+  recentPostCancelBtn: {
+    "& .MuiButton-text": {
+      fontSize: ".6rem",
+    },
+    "& .MuiLoadingButton-root": {
+      textTransform: "none",
+      width: "100%",
+      display: "flex",
+      justifyContent: "center",
+      height: "40px",
+      borderRadius: "5px",
+      color: "#ffff",
+      backgroundColor: "#C1C1C1",
+      border: "1px solid #C1C1C1"
+
+    },
+    "& .MuiButtonBase-root:hover": {
+      backgroundColor: "#C1C1C1",
+      border: "1px solid #C1C1C1"
+    }
+  },
+  recentPostCancelBtn2: {
+    "& .MuiButton-text": {
+      fontSize: ".6rem",
+    },
+    "& .MuiLoadingButton-root": {
+      textTransform: "none",
+      width: "100%",
+      display: "flex",
+      justifyContent: "center",
+      height: "40px",
+      borderRadius: "5px",
+      color: "#ffff",
+      backgroundColor: "#31B665",
+      border: "1px solid #31B665"
+    },
+    "& .MuiButtonBase-root:hover": {
+      backgroundColor: "#31B665",
+      border: "1px solid #31B665"
+    },
+    deliveryServiceBox: {
+      "& .css-y061pl": {
+        marginTop: "0px",
+      }
+    },
+    HomePageBaneerSkeletonGrid: {
+      "& .MuiSkeleton-root": {
+        width: "100%",
+        height: "400px"
+      }
+
+    },
+    dispensoriesAddressSkeletonHeading: {
+      "& .MuiSkeleton-text ": {
+        height: "10px",
+        width: "100px",
+        backgroundColor: "red"
+      }
+
+
+    },
+    recatngularDispenAdd: {
+      width: "40%",
+      margin: "auto",
+      marginTop: "8px",
+      height: "5%"
+    },
+    HomePageDealSignUpSkeleton: {
+      display: "flex",
+      justifyContent: "flex-end",
+      width: "90%"
+    }
   }
-}
 });
 
 export default useStyles

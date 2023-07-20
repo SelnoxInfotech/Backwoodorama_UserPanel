@@ -1984,7 +1984,6 @@
 .flex_for_delivery {
   display: flex;
 }
-
 .height_for_inner_div p {
   margin-left: 10px;
 }
@@ -4905,8 +4904,10 @@
 /* checkAgeEligiblityPopup */
 .checkAgeEligiblityPop_container {
   height: auto;
-  border: 1px solid green;
-  padding-bottom: 40px;
+  padding-top:60px;
+}
+.checkEligbiltyMarginTop{
+  margin-top: 20px;
 }
 
 .checkAgeEligibilityCenter {
@@ -4940,9 +4941,22 @@
 
 .checkAgeEligibility_footer {
   color: #B6B6B6;
-  font-size: 14px;
+  font-size: 11px;
+  margin-bottom: 0px;
+  padding: 0px 15px;
 }
-
+.checkEligibiltypopCol{
+  border-top: 1px solid #DCD9D9;
+  margin-top: 23px;
+  height: 78px;
+  padding-top: 10px;
+  background-color: #E7E7E7;
+}
+.checkAge_thankP{
+  text-align: center;
+  color: #B6B6B6;
+  font-size: 11px;
+}
 @media(max-width:400px) {
   .checkAgeEligibility_footer {
     font-size: 10px;

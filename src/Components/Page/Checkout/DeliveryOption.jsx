@@ -89,7 +89,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
                                     </div>
                                     <div className="col-12 height_for_time_div">
                                         <div className="col-12 col-lg-12 height_for_time_div">
-                                            <FormControl className={classes.muiSelect} size="small">
+                                            <FormControl className={`${classes.muiSelect}`} size="small">
                                                 <InputLabel id="demo-select-small">Time</InputLabel>
                                                 <Select
                                                     labelId="demo-select-small"
@@ -126,7 +126,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
                                     <form onSubmit={method.handleSubmit(ShowHideDeliveryOptions)} >
                                         <div className='col-12 flex_for_delivery'>
                                             <div className='col-2 col-sm-2 col-md-2 col-lg-2  center'>
-                                                <input id="checkbox-id" onChange={CheckBox} checked={Checkbox.DeliveryTime} name='DeliveryTime' type='checkbox' required />
+                                                <input id="checkbox-id" className='deliveryChecked' onChange={CheckBox} checked={Checkbox.DeliveryTime} name='DeliveryTime' type='checkbox' required />
 
                                             </div>
                                             <div className='col-10  col-lg-10 col-md-10 col-sm-10  font_size_checkbox_paragraph'>

@@ -219,7 +219,7 @@ const AddToCartReview = () => {
                                     <div className='col-12'>
                                         <div className='AddToCartReviewBtn d-flex' >
                                             <div className='addToCart_btn'>
-                                                <LoadingButton loading={Loadingmines} style={{ width: "15px" }}  > {(Loadingmines || ele.Cart_Quantity )> 1 && <GrFormSubtract onClick={() => { decreaseQuantity(ele.id, ele) }} />}</LoadingButton>
+                                                <LoadingButton loading={Loadingmines} style={{ width: "15px"}}  > {(Loadingmines || ele.Cart_Quantity )> 1 && <GrFormSubtract color='gray' onClick={() => { decreaseQuantity(ele.id, ele) }} />}</LoadingButton>
 
 
                                             </div>
@@ -228,7 +228,7 @@ const AddToCartReview = () => {
 
                                             </div>
                                             <div className='addToCart_btn'>
-                                                <LoadingButton loading={LoadingPlue} className="center" style={{ width: "15px" }} onClick={() => { Quantity(ele.id, ele.Cart_Quantity, ele) }} ><AiOutlinePlus /></LoadingButton>
+                                                <LoadingButton loading={LoadingPlue} className="center" style={{ width: "15px" }} onClick={() => { Quantity(ele.id, ele.Cart_Quantity, ele) }} ><AiOutlinePlus color='gray'/></LoadingButton>
 
                                             </div>
 
@@ -239,7 +239,7 @@ const AddToCartReview = () => {
                                 </div>
                                 <div className="col-3 ">
                                     <div className="col-10 fontStyle Add_prod_cart_amount  mt-4 ">
-                                        <LoadingButton loading={LoadingDelete} className="center" style={{ width: "15px" }} onClick={(() => { DeleteItem(ele.Product_id, ele.id) })}> <RiDeleteBin6Line size={20} /></LoadingButton>
+                                        <LoadingButton loading={LoadingDelete} className="center" style={{ width: "15px" }} onClick={(() => { DeleteItem(ele.Product_id, ele.id) })}> <RiDeleteBin6Line size={20} color='gray' /></LoadingButton>
                                     </div>
 
                                     <div className="col-10 fontStyle Add_prod_cart_amount_right_side   d-flex">
