@@ -8,6 +8,7 @@ import Axios from "axios"
 import Createcontext from "../../../../Hooks/Context"
 import DeliverAutoCompleteAddress from './DeliverAutoCompleteAddress';
 import { useForm, FormProvider, Controller } from "react-hook-form";
+import PromoCode from '../Promocode/Promocode';
 const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
     const classes = useStyles()
     const method = useForm()
@@ -107,7 +108,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
                                 <div className="col-lg-12 col-md-8 col-sm-8 addtocart_textfield mt-2">
                                     <label htmlFor="name-field">
                                         APARTMENT OR SUITE NUMBER
-                                        <TextField name='contact' value={InputValues.contact} onChange={InputFieldHandler} id="outlined-basic" placeholder="APARTMENT OR SUITE NUMBER" variant="outlined" fullWidth size='small' />
+                                        <TextField className={classes.textFieldFocusBorderColor} name='contact' value={InputValues.contact} onChange={InputFieldHandler} id="outlined-basic" placeholder="APARTMENT OR SUITE NUMBER" variant="outlined" fullWidth size='small' />
                                     </label>
                                 </div>
                             </div>)}
@@ -178,6 +179,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
                                 <p>Taxes are Shows</p>
 
                             </div>
+                            <PromoCode/>
                             <div className="col-6 AddProd_cart_center_btn">
                                 {(OpenDelivery || OpenPickup) &&
                                     <Box

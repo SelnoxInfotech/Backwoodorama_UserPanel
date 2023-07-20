@@ -2,7 +2,9 @@ import { TextField } from '@mui/material';
 import React from 'react'
 import { usePlacesWidget } from "react-google-autocomplete";
 import { useFormContext,Controller } from "react-hook-form";
+import useStyles from '../../../../Style';
 export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
+  const classes=useStyles()
   const { register, errors,control} = useFormContext()
   const { ref } = usePlacesWidget({
     apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
@@ -46,6 +48,7 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
       }}
         render={(field) => (
           <TextField
+          className={classes.textFieldFocusBorderColor}
           {...field}
             inputRef={ref}
             placeholder="Enter Your Delivery Location"
