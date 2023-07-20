@@ -1,0 +1,42 @@
+import { LoadingButton } from '@mui/lab'
+import { Box, Button } from '@mui/material'
+import React from 'react'
+ import style from "../../../Style"
+ import Cookies from 'universal-cookie';
+ import Createcontext from "../../../Hooks/Context"
+export default function CookiesAccept() {
+    const { state, dispatch } = React.useContext(Createcontext)
+    const classes =  style()
+    const cookies = new Cookies();
+    const handleCookies  =()=>{
+        let date = new Date();
+        date.setTime(date.getTime() + (60 * 60 * 8000))
+        cookies.set('CookiesAcceptAll', 0, { expires:  date })
+        dispatch({ type: 'Cookies', Cookies:  cookies.get('CookiesAcceptAll') })
+    }
+    return (
+        <div className='col-12 AcceptCookies'>
+            <div className='col-10 AcceptCookiesContent'>
+                <div className='row' style={{gap: '3px'}}>
+
+                <div className="col">
+                  <p>This website uses cookies to improve your browsing experience and to show you personalized content.By browsing our website you consent to all cookies in accordance with our cookie policies included in our </p>
+                </div>
+                <div className=" col-lg-2 col-md-auto MediaFCookiesAccept">
+                <Box className={classes.CookiesSetting}>
+                   <LoadingButton >COOKIES SETTINGS</LoadingButton>
+                   </Box>
+                </div>
+                <div className="col-lg-2">
+                    <Box className={classes.CookiesAccept}>
+
+
+                <LoadingButton  onClick={handleCookies}>ACCEPT ALL</LoadingButton>
+                    </Box>
+                </div>
+                </div>
+            </div>
+        </div>
+
+    )
+}

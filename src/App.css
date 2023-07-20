@@ -828,6 +828,7 @@ overflow-x: hidden; */
   height: 70px;
   align-items: center;
   display: flex;
+<<<<<<< HEAD
   color: #000000;
   font-weight: 700;
    padding-left: 20px;
@@ -840,3 +841,37 @@ overflow-x: hidden; */
 
   } 
 }
+=======
+}
+
+/* Cookies Accept */
+.AcceptCookies{
+  display: flex;
+  background-color: rgba(52,70,90,.87);
+  bottom: 0;
+  color: #fff;
+  font-size: 14px;
+  justify-content: center;
+  line-height: 1.5;
+  padding: 20px 32px;
+  position: fixed;
+  z-index: 1000;
+}
+.AcceptCookiesContent{
+  /* border: 1px solid black; */
+  text-align: center;
+}
+
+@media(min-width: 996px)
+{
+.MediaFCookiesAccept 
+  {
+    flex: 0 0 auto;
+    width: 16.66666667%;
+}
+}
+
+
+
+/* end */
+>>>>>>> 6086d80 (chnagrlk)
