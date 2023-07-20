@@ -6,16 +6,9 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import useStyles from '../../../Style';
 import Cookies from 'universal-cookie';
-<<<<<<< HEAD
-import { ImNotification } from "react-icons/im"
-const CheckAgeEligbilityPopup = ({ value }) => {
-    console.log(value)
-    const classes = useStyles()
-=======
 import {ImNotification} from "react-icons/im"
 const CheckAgeEligbilityPopup = ({value}) => {
     const classes=useStyles()
->>>>>>> 6086d80 (chnagrlk)
     const cookies = new Cookies();
     const [open, setOpen] = React.useState(value);
     const [Country, SetCountry] = React.useState('USA');
@@ -34,10 +27,6 @@ const CheckAgeEligbilityPopup = ({value}) => {
     const NotAge = () => {
         SetNotAge("You're not old enough to visit sweede.net")
     }
-<<<<<<< HEAD
-    console.log(NotAgepop === "")
-=======
->>>>>>> 6086d80 (chnagrlk)
     return (
         <div>
             <Dialog open={open}

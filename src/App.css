@@ -828,7 +828,6 @@ overflow-x: hidden; */
   height: 70px;
   align-items: center;
   display: flex;
-<<<<<<< HEAD
   color: #000000;
   font-weight: 700;
    padding-left: 20px;
@@ -841,8 +840,7 @@ overflow-x: hidden; */
 
   } 
 }
-=======
-}
+
 
 /* Cookies Accept */
 .AcceptCookies{
@@ -874,4 +872,3 @@ overflow-x: hidden; */
 
 
 /* end */
->>>>>>> 6086d80 (chnagrlk)
