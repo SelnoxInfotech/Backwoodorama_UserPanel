@@ -861,8 +861,49 @@ const useStyles = makeStyles({
   EditProfileBtn_Color: {
     "&.MuiButtonBase-root": {
       color: "#707070"
-    }
+    },
+    "& .MuiButtonBase-root:hover": {
+      color: "#434343",
+      backgroundColor: "#FFFFFF",
+      border: "1px solid #31B665"
+    },
   },
+ 
+  CookiesAccept:{
+    "& .MuiButton-text": {
+      fontSize: "12px",
+     
+    },
+    "& .MuiLoadingButton-root": {
+      width: "100%",
+      height: "52px",
+      textTransform: "none",
+      borderRadius:"10px",
+      color:"white",
+      backgroundColor: "#00b96a",
+    },
+    "& .MuiButtonBase-root:hover": {
+      backgroundColor: "#D9D9D9",
+      color:"Black",
+    },
+  },
+  CookiesSetting:{
+    "& .MuiButton-text": {
+      fontSize: "12px",
+    },
+    "& .MuiLoadingButton-root": {
+      width: "100%",
+      height: "52px",
+      textTransform: "none",
+      borderRadius:"10px",
+      color: "#000000",
+      backgroundColor: "#D9D9D9",
+    },
+    "& .MuiButtonBase-root:hover": {
+      backgroundColor: "#D9D9D9",
+    },
+  },
+
   myOrderRatingStarIcons: {
     "&.MuiRating-root": {
       color: "#31B665",

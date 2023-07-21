@@ -7,11 +7,11 @@ import useStyles from "../../../../Style"
 import Axios from "axios"
 import Createcontext from "../../../../Hooks/Context"
 import DeliverAutoCompleteAddress from './DeliverAutoCompleteAddress';
-import { useForm, FormProvider, Controller } from "react-hook-form";
+// import { useForm, FormProvider, Controller } from "react-hook-form";
 import PromoCode from '../Promocode/Promocode';
 const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
     const classes = useStyles()
-    const method = useForm()
+    // const method = useForm()
     const { state } = React.useContext(Createcontext)
     const navigate = useNavigate()
     const location = useLocation();
@@ -26,7 +26,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
         SetInputValues({ ...InputValues, [name]: value })
 
     }
-
+ 
     const HandlePickupAndDelivery = (e) => {
         SetOpenPickup(!OpenPickup)
         SetOpenDelivery(false)
@@ -39,7 +39,11 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
             SetOpenPickup(false)
         }
     }
-    const CheckoutProcess = (e, j) => {
+    const CheckoutProcess = (event, j) => {
+
+
+
+        console.log(event)
         if (location.pathname === "/AddToCart") {
 
             navigate("/CheckOutMainPage", { state: { InputValues, abc: state.Cart_subTotal } })
@@ -58,11 +62,13 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
         }
 
     }
+
+
+
     return (
         <>
             <div className="col-12   p-2 Add_product_cart_right_container_summary">
-                <FormProvider {...method}>
-                    <form onSubmit={method.handleSubmit(CheckoutProcess)} >
+      
                         <div className="col-12 fontStyle AddProdCartFont_weight">
                             <h5>Order Summary</h5>
 
@@ -179,26 +185,32 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
                                 <p>Taxes are Shows</p>
 
                             </div>
-                            <PromoCode/>
-                            <div className="col-6 AddProd_cart_center_btn">
-                                {(OpenDelivery || OpenPickup) &&
-                                    <Box
-                                        className={` add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
+                            <PromoCode />
 
-                                    >
-
-                                        <LoadingButton variant="outlined"
-                                            loading={CheckOut_Loading}
-                                            type='submit'
-                                        >Checkout</LoadingButton>
-
-                                    </Box>
-                                }
-
-                            </div>
                         </div>
-                    </form>
-                </FormProvider>
+                        <div className="col-6 AddProd_cart_center_btn">
+                            {(OpenDelivery || OpenPickup) &&
+                                <Box
+                                    className={` add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
+
+                                >
+
+                                    <LoadingButton variant="outlined"
+                                        loading={CheckOut_Loading}
+                                        onClick={(e) => {
+                                            CheckoutProcess(e)
+                            
+                                        }}
+
+                                        type='submit'
+                                    >Checkout</LoadingButton>
+
+                                </Box>
+                            }
+
+                        </div>
+                 
+
             </div>
         </>
     )
