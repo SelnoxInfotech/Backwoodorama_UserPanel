@@ -23,7 +23,9 @@ const initialUser = {
     Dispensories: [],
     Location: "",
     LocationData: [],
-    cookies: 1
+    cookies: 1,
+    DeliveryAddress : "",
+    selectDeliveryoptions :""
 }
 
 function Context(props) {

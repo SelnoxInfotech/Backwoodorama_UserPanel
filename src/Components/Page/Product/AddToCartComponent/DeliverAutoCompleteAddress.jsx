@@ -1,76 +1,71 @@
-import { TextField } from '@mui/material';
+import { InputAdornment, TextField } from '@mui/material';
 import React from 'react'
 import { usePlacesWidget } from "react-google-autocomplete";
-// import { useFormContext,Controller } from "react-hook-form";
+import { IoCheckmarkSharp } from "react-icons/io5"
+import { RiUserLocationLine } from "react-icons/ri"
+import { BiErrorCircle } from "react-icons/bi"
 import useStyles from '../../../../Style';
-import  Axios from 'axios';
+import Createcontext from "../../../../Hooks/Context"
+import Axios from 'axios';
 export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
   const classes = useStyles()
+  const { state ,dispatch } = React.useContext(Createcontext)
+  const [Address, SetAddress] = React.useState(state.DeliveryAddress)
   const [error, Seterror] = React.useState('')
   const { ref } = usePlacesWidget({
     apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
     onPlaceSelected: (place) => {
-      if (place.name) {
-        console.log(place);
+      if (place.address_components) {
+        try {
+          for (var i = 0; i < place?.address_components.length; i++) {
+            var component = place.address_components[i];
+            if (component.types.indexOf('postal_code') !== -1 || component.types.indexOf('street_number') !== -1) {
+
+              CheckPostal(component.long_name, place.name)
+              break;
+            }
+            else {
+              Seterror("not Street Address")
+            }
+
+          }
+        } catch (error) {
+          Seterror("not Street Address")
+        }
+      }
+      else {
         Axios(`https://maps.googleapis.com/maps/api/geocode/json?address=${place.name}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
           .then(response => {
-            console.log(response)
-            if(response.data.results.length !==0){
-              response.results[0]?.address_components.map((data) => {
-                console.log(data.types)
-                data.types.map((data1) => console.log(data1 === "postal_code"))
-              })
-            }
-            else
-            {
-              console.log('e')
+            try {
+              if (response.data.results.length !== 0) {
+                response.data.results[0]?.address_components?.map((data) => {
+                  return (
+                    data.types.map((data1) => {
+                      if (data1 === "postal_code" || data1 === "street_number") {
+
+                        return CheckPostal(data.long_name, place.name)
+
+                      }
+                      else {
+                        return data1
+                      }
+                    }
+                    )
+                  )
+
+                })
+              }
+              else {
+                Seterror('Not A street Address')
+                dispatch({ type: 'DeliveryAddress', DeliveryAddress: '' })
+              }
+            } catch (error) {
+              dispatch({ type: 'DeliveryAddress', DeliveryAddress: '' })
+
+              Seterror('Not A street Address')
             }
           })
-
-        // for (var i = 0; i < a.length; i++) {
-        //   console.log( a)
-        //   // console.log( a[i].types)
-        //   // var component = a[i].types;
-        //   for (var j = 0; j < a[i]?.types; j++) {
-        //     console.log(j)
-
-        //     // if (component["types"] === ["postal_code"]) {
-        //     //   console.log("4564884")
-        //     // }
-        //     // else {
-        //     //   console.log("abcd")
-        //     // }
-        //   }
-
-        // }
-        // a.map((data)=>{
-        //    console.log(data.types)
-        //    data.types.map((data1)=> console.log(data1==="postal_code"))
-        // })
-
-
-
-
-        // })
-
-        //  dispatch({ type: 'Location', Location: response?.plus_code?.compound_code.slice(9) })
-
       }
-      // else {
-      //   for (var i = 0; i < place?.address_components.length; i++) {
-      //     var component = place.address_components[i];
-      //     console.log(component)
-      //     if (component.types.indexOf('postal_code') !== -1) {
-
-      //       console.log(component)
-      //       break;
-      //     }
-      //     else {
-      //       Seterror("not Street Address")
-      //     }
-
-      //   }
-      // }
 
     },
     options: {
@@ -81,28 +76,60 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
     },
   });
 
-  const commentEnterSubmit = (e) => {
-    if (e.key === "Enter" && e.shiftKey === false) {
-      Seterror("fhhfkjhkjf")
+  // const commentEnterSubmit = (e) => {
+  //   if (e.key === "Enter" && e.shiftKey === false) {
+  //     Seterror("fhhfkjhkjf")
 
-    }
+  //   }
+  // }
+
+  function CheckPostal(data, name) {
+    Axios.post(`https://sweede.app/UserPanel/Get-GetDeliveryCheck/`,
+      {
+        "PinCode": data
+      }
+    )
+
+      .then(response => {
+        if (response.data === "Not Found") {
+          Seterror('Not A street Address')
+          dispatch({ type: 'DeliveryAddress', DeliveryAddress: '' })
+        }
+        else {
+          dispatch({ type: 'DeliveryAddress', DeliveryAddress: name })
+          Seterror(response.data)
+        }
+      })
   }
-
   return (
 
 
     <>
       <TextField
+        onChange={(e) => SetAddress(e.target.value)}
+        value={Address}
         className={classes.textFieldFocusBorderColor}
         inputRef={ref}
         placeholder="Enter Your Delivery Location"
         variant="outlined"
         fullWidth size='small'
-        onKeyDown={commentEnterSubmit}
+        // onKeyDown={commentEnterSubmit}
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <RiUserLocationLine />
+            </InputAdornment>
+          ),
+          endAdornment: <InputAdornment position="end">
 
+            {error === 'Not A street Address' || error === 'Not Found' ? <BiErrorCircle className='help-block'></BiErrorCircle> : <IoCheckmarkSharp />}
+
+          </InputAdornment>
+        }}
+        error={Boolean(error === 'Not A street Address' || error === 'Not Found')}
       />
       {
-        error !== "" && <span className="help-block">! Street Address not found </span>
+        error !== "" && <span className="help-block">{error}</span>
       }
     </>
   )

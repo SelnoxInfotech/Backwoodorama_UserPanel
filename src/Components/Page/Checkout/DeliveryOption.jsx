@@ -11,7 +11,7 @@ import useStyles from "../../../Style"
 import Createcontext from "../../../Hooks/Context"
 
 const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
-    const { dispatch } = React.useContext(Createcontext)
+    const {state,dispatch } = React.useContext(Createcontext)
     const method = useForm()
     const classes = useStyles()
     const [Time, SetTime] = React.useState('');
@@ -67,13 +67,14 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
                             </div>
                             <div className="col-12 height_for_inner_div_address flex_for_delivery marginTop_deliver p-2">
                                 <div className="col-6 col-sm-6 col-md-6">
-                                    <p>{address}</p>
+                                    {/* <p>{state.DeliveryAddress}</p> */}
+                                    <p>{state.selectDeliveryoptions === "pickup_btn" ? state.AllProduct[0]?.StoreAddress : state.DeliveryAddress}</p>
 
                                 </div>
-                                <div className="col-6 col-sm-6 col-md-6 position_right deliveroption_cursor">
+                                {/* <div className="col-6 col-sm-6 col-md-6 position_right deliveroption_cursor">
                                     <p>Change</p>
 
-                                </div>
+                                </div> */}
                             </div>
                             {ShowDeliveryRestData ? "" : <div className='showagain' onClick={AddDeliveryInstruction}>
                                 <p>Add delivery instructions</p>

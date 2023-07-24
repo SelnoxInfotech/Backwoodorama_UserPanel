@@ -6649,11 +6649,11 @@ padding-left: 0px;
   .allOrder_spanName{
     font-size: 12px;
   }
-  .AllOrder_heading{
-    font-size: 14px;
-  }
   .allOrder_span_quantity{
     font-size: 12px;
+  }
+  .AllOrder_heading{
+    font-size: 14px;
   }
   .orderId_heading{
     font-size: 10px;
@@ -7381,3 +7381,4 @@ align-items: center;
   color: #000000;
 }
 /* end */
+/* no repeat line in css */

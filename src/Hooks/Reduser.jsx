@@ -45,16 +45,23 @@ const reducer = (state, action) => {
       {
         return { ...state, Location: action.Location }
       }
-      case "LocationData":
+    case "LocationData":
+      {
+        return { ...state, LocationData: action.LocationData }
+      }
+
+    case "Cookies":
+      {
+        return { ...state, Cookies: action.Cookies }
+      }
+    case "DeliveryAddress":
+      {
+        return { ...state, DeliveryAddress: action.DeliveryAddress }
+      }
+      case "selectDeliveryoptions":
         {
-          return { ...state, LocationData: action.LocationData }
+          return { ...state, selectDeliveryoptions: action.selectDeliveryoptions }
         }
-  
-        case "Cookies":
-          {
-            return { ...state, Cookies: action.Cookies }
-          }
-    
 
 
 
