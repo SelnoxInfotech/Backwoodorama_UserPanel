@@ -7178,7 +7178,7 @@ align-items: center;
 /* end */
 /* deliveryServices */
 .deliverySkeletonBox{
-  height: 300px;
+  height: 360px;
 }
 @media(max-width:1084px){
   .deliverySkeletonBox{
