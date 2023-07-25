@@ -15,6 +15,7 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
   const { ref } = usePlacesWidget({
     apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
     onPlaceSelected: (place) => {
+      console.log(place)
       if (place.address_components) {
         try {
           for (var i = 0; i < place?.address_components.length; i++) {
@@ -84,6 +85,7 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
   // }
 
   function CheckPostal(data, name) {
+    console.log( data,name)
     Axios.post(`https://sweede.app/UserPanel/Get-GetDeliveryCheck/`,
       {
         "PinCode": data
