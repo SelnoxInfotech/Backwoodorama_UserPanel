@@ -2,6 +2,22 @@
 
 import { makeStyles } from '@mui/styles';
 const useStyles = makeStyles({
+  FilledTextFieldStyle:{
+    "& .MuiFilledInput-underline:after": {
+      borderBottomColor:"#31B665"
+    },
+    "& input::placeholder": {
+      fontSize: "12px"
+    },
+    " && .MuiFilledInput-underline:hover::before": {
+        borderColor: "#31B665",
+    },
+    "& input": {
+        "&:-webkit-autofill": {
+            WebkitBoxShadow: "0 0 0 1000px #FFFFFF inset"
+        }
+    }
+  },
   textFieldFocusBorderColor: {
     "& .MuiOutlinedInput-root": {
       " &.Mui-focused fieldset": {
