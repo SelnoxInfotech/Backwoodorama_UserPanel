@@ -457,7 +457,8 @@ const useStyles = makeStyles({
   checkAge_eligibility_Select: {
     "&.MuiFormControl-root": {
       width: "180px",
-      marginLeft: "0px"
+      marginLeft: "0px",
+      textAlign: 'center'
     },
     "& .MuiOutlinedInput-notchedOutline ": {
       border: "none",

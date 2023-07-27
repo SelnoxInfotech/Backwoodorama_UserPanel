@@ -62,11 +62,10 @@ export default function CookieSetting() {
     const cookies = new ookies();
     const [open, setOpen] = React.useState(false);
    const [Cookies, SetCookies] =  React.useState({
-    Marketing: state.CookiesMarketing ==="0"?false:true,
-    Analytical:state.CookiesAnalytical ==="0"?false:true
+    Marketing: state.CookiesMarketing ==="0"?true:false,
+    Analytical:state.CookiesAnalytical ==="0"?true:false,
    
 })
-console.log(state)
     const handleClickOpen = () => {
         setOpen(true);
     };
@@ -125,9 +124,6 @@ console.log(state)
       }));
       
   const handlechnage =(event)=>{
-    console.log(event.target.value)
-    const ame =  event.target.name
-
     if(event.target.name === "Marketing"){
     SetCookies({...Cookies , [event.target.name] :!Cookies.Marketing})
     }
