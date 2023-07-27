@@ -11,8 +11,6 @@ import IconButton from '@mui/material/IconButton';
 const EditEmailPopup = () => {
     const classes = useStyles()
     const [open, setOpen] = React.useState(false);
-    const [closePopup,SetclosePopup]=React.useState(true)
-
     const handleClickOpen = () => {
         setOpen(true);
     };
