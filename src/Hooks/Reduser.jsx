@@ -62,7 +62,15 @@ const reducer = (state, action) => {
         {
           return { ...state, selectDeliveryoptions: action.selectDeliveryoptions }
         }
-
+        case "CookiesMarketing":
+          {
+            return { ...state, CookiesMarketing: action.CookiesMarketing }
+          }
+          case "CookiesAnalytical":
+            {
+              return { ...state, CookiesAnalytical: action.CookiesAnalytical }
+            }
+      
 
 
     default: return state

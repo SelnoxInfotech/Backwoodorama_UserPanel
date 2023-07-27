@@ -24,8 +24,10 @@ const initialUser = {
     Location: "",
     LocationData: [],
     cookies: 1,
-    DeliveryAddress : "",
-    selectDeliveryoptions :""
+    CookiesMarketing: 1,
+    CookiesAnalytical: 1,
+    DeliveryAddress: "",
+    selectDeliveryoptions: ""
 }
 
 function Context(props) {
@@ -36,10 +38,18 @@ function Context(props) {
         const logi = cookies.get("Token_access")
         let date = new Date();
         date.setTime(date.getTime() + (60 * 60 * 8000))
-        if(!cookies.get('CookiesAcceptAll')){
-            cookies.set('CookiesAcceptAll', 1, { expires:  date })
+        if (!cookies.get('CookiesAcceptAll')) {
+            cookies.set('CookiesAcceptAll', 0, { expires: date })
+        }
+        if (!cookies.get('Marketing')) {
+            cookies.set('Marketing', 0, { expires: date })
+        }
+        if (!cookies.get('Analytical')) {
+            cookies.set('Analytical', 0, { expires: date })
         }
         dispatch({ type: 'Cookies', Cookies: cookies.get("CookiesAcceptAll") })
+        dispatch({ type: 'CookiesMarketing', CookiesMarketing: cookies.get("Marketing") })
+        dispatch({ type: 'CookiesAnalytical', CookiesAnalytical: cookies.get("Analytical") })
         dispatch({ type: 'LoadingApi', LoadingApi: true })
         if (Boolean(logi)) {
             axios.get("https://sweede.app/UserPanel/Get-Addtocart/", {
@@ -87,7 +97,7 @@ function Context(props) {
             <CurrentLocation></CurrentLocation>
             <CheckAgeEligbilityPopup value={cookies.get("CheckAge") === undefined ? true : false} ></CheckAgeEligbilityPopup>
             {
-                parseInt(state.Cookies) === 1 && <CookiesAccept></CookiesAccept>
+                parseInt(state.Cookies) === 0 && <CookiesAccept></CookiesAccept>
             }
 
 

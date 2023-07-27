@@ -860,6 +860,10 @@ overflow-x: hidden; */
   text-align: center;
 }
 
+.Cookiessetting{
+  margin-top: 20px;
+  font-size: 13px;
+}
 @media(min-width: 996px)
 {
 .MediaFCookiesAccept 
@@ -868,7 +872,23 @@ overflow-x: hidden; */
     width: 16.66666667%;
 }
 }
-
+.cookiesSetting_Typography{
+  font-weight: 700;
+  font-size: 14px;
+}
+.CookiesA{
+  align-items: center;
+  color: #727272;
+  color: var(--pot-grey-80);
+  display: flex;
+  flex: 2 0 46px;
+  font-size: 12px;
+  font-weight: 700;
+  justify-content: flex-end;
+  line-height: 16px;
+  /* margin-left: 32px; */
+  text-align: center;
+}
 
 .help-block{
   font-size: small;
