@@ -7,8 +7,8 @@ import Axios from "axios"
 import React from "react";
 import { Link, useNavigate } from "react-router-dom"
 import { IoLocationSharp } from "react-icons/io5"
-import {CiMobile1} from "react-icons/ci"
-import {HiOutlineMail} from "react-icons/hi"
+import { CiMobile1 } from "react-icons/ci"
+import { HiOutlineMail } from "react-icons/hi"
 const Footer = () => {
     const Navigate = useNavigate()
     const classes = useStyles()
@@ -21,24 +21,24 @@ const Footer = () => {
 
         })
     }, [])
-    
+
     const AboutUs = [{ head: "About Us" }, { head: "company" }, { head: "Investor" }, { head: "Help Center" }, { head: "Download App" }]
     const Category = [{ head: "Flower" }, { head: "CBD" }, { head: "Concentrate" }, { head: "Edible" }]
     const Legal = [{ head: "Term & conditions" }, { head: "Carrier" }, { head: "Privacy Policy" }]
     const More = [{ head: "Get started" }, { head: "Brand" }, { head: "Add business" }, { head: "Contact us" }]
     const BottomMenuBar = [{ item: "Term & Condition" }, { item: "Careers" }, { item: "Privacy Policy" }]
 
-    function Redirect(title) {
-        if (title === "Brand") {
+    // function Redirect(title) {
+    //     if (title === "Brand") {
 
-            Navigate("/Brand")
-        }
+    //         Navigate("/Brand")
+    //     }
 
-    }
+    // }
 
-    function ShowCategoryProduct(id, name) {
-        Navigate(`/CategoryProduct/${name}`, { state: { id } });
-    }
+    // function ShowCategoryProduct(id, name) {
+    //     Navigate(`/CategoryProduct/${name}`, { state: { id } });
+    // }
     return (
         <>
             <div className="container-fluid">
@@ -59,13 +59,13 @@ const Footer = () => {
                             </div>
                             <div className="col-12   ">
                                 <div className="Footer_Left_side_menu w-100 px-0  gap-2">
-                                   <IoLocationSharp color="#31B665" size={18}/><span className="footer_middle_icons_text">2917 Broadway Astoria, NY 11106</span>
+                                    <IoLocationSharp color="#31B665" size={18} /><span className="footer_middle_icons_text">2917 Broadway Astoria, NY 11106</span>
                                 </div>
                                 <div className="Footer_Left_side_menu w-100  gap-2">
-                                  <CiMobile1 color="#31B665" size={18}/><span className="footer_middle_icons_text">+1 432(182)35</span>
+                                    <CiMobile1 color="#31B665" size={18} /><span className="footer_middle_icons_text">+1 432(182)35</span>
                                 </div>
                                 <div className="Footer_Left_side_menu w-100  gap-2">
-                                 <HiOutlineMail color="#31B665" size={18}/><span className="footer_middle_icons_text">backwoodaroma@gmail.com</span>
+                                    <HiOutlineMail color="#31B665" size={18} /><span className="footer_middle_icons_text">backwoodaroma@gmail.com</span>
                                 </div>
                             </div>
                         </div>
@@ -88,7 +88,10 @@ const Footer = () => {
                                                 <h5 className="footer_menu_heading">Category</h5>
                                                 {Categorys.map((ele, index) => {
                                                     return (
-                                                        <li onClick={() => ShowCategoryProduct(ele.id, ele.name)} className="footer_li ellipsis" key={index}>{ele.name}</li>
+                                                        <Link to={`/CategoryProduct/${ele.name}`} state={ele.id} >
+                                                            <li className="footer_li ellipsis" key={index}>{ele.name}</li>
+
+                                                        </Link>
                                                     )
                                                 })}
                                             </ol>
@@ -107,7 +110,9 @@ const Footer = () => {
                                                 <h5 className="footer_menu_heading">More</h5>
                                                 {More.map((ele, index) => {
                                                     return (
-                                                        <li className="footer_li ellipsis" key={index} onClick={() => Redirect(ele.head)}>{ele.head}</li>
+                                                        <Link to={`/Brand`}   >
+                                                            <li className="footer_li ellipsis" key={index}>{ele.head}</li>
+                                                        </Link>
                                                     )
 
                                                 })}
@@ -127,7 +132,10 @@ const Footer = () => {
                                     {
                                         BottomMenuBar.map((val, index) => {
                                             return (
-                                                <li className="" key={index}>{val.item}</li>
+                                                <Link>
+                                                
+                                                <li className="footer_li" key={index}>{val.item}</li>
+                                                </Link>
 
                                             )
                                         })
@@ -156,9 +164,9 @@ const Footer = () => {
 
                     </div>
                     <div className="col-12  footer_bootom_headings_container">
-                            <h1 className="footer_headingss">Design by Backwoodaroma 2023</h1>
+                        <h1 className="footer_headingss">Design by Backwoodaroma 2023</h1>
 
-                        </div>
+                    </div>
 
                 </div>
 
