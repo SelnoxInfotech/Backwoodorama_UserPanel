@@ -203,7 +203,7 @@ const routesConfig = [
             element:<StrainProduct/>
           },
           {
-           path:"/Blogs",
+           path:"/Blogs/:id",
            element:<Blogs/>
           },
     

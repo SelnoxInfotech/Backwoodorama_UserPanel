@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const Notification = () => {
     const [Checked, SetChecked] = React.useState(true)
     const handleChange = (val) => {
+        console.log(val)
         SetChecked(val)
     }
     const EmailNotification = [{ heading: "News Letter", subHeading: "Weekly newsletter on the hottest topics and trends in the cannabis community." },
@@ -27,7 +28,7 @@ const Notification = () => {
 
                         </div>
                         <div className="col-2 notification_col_ReactSwitch">
-                            <ReactSwitch onColor={"#D9D9D9"}  onHandleColor={"#31B665"} height={20} width={60} uncheckedIcon={false} checkedIcon={false} checked={Checked} onChange={handleChange} />
+                            <ReactSwitch onColor={"#D9D9D9"}  onHandleColor={"#31B665"} name="Email" height={20} width={60} uncheckedIcon={false} checkedIcon={false} checked={Checked} onChange={handleChange} />
                         </div>
 
 
@@ -47,7 +48,7 @@ const Notification = () => {
 
                                     </div>
                                     <div className="col-2 notification_col_ReactSwitch">
-                                        <ReactSwitch onColor={"#D9D9D9"}  onHandleColor={"#31B665"} height={20} width={60} uncheckedIcon={false} checkedIcon={false} checked={Checked} onChange={handleChange} />
+                                        <ReactSwitch onColor={"#D9D9D9"}  onHandleColor={"#31B665"} height={20} width={60} uncheckedIcon={false} checkedIcon={false}  onChange={handleChange} />
                                     </div>
 
 
@@ -67,7 +68,7 @@ const Notification = () => {
 
                         </div>
                         <div className="col-2 notification_col_ReactSwitch">
-                            <ReactSwitch onColor={"#D9D9D9"}  onHandleColor={"#31B665"} height={20} width={60} uncheckedIcon={false} checkedIcon={false} checked={Checked} onChange={handleChange} />
+                            <ReactSwitch onColor={"#D9D9D9"}  onHandleColor={"#31B665"} height={20} width={60} uncheckedIcon={false} checkedIcon={false}  onChange={handleChange} />
                         </div>
 
 
@@ -84,7 +85,7 @@ const Notification = () => {
 
                         </div>
                         <div className="col-2 notification_col_ReactSwitch">
-                            <ReactSwitch onColor={"#D9D9D9"}  onHandleColor={"#31B665"} height={20} width={60} uncheckedIcon={false} checkedIcon={false} checked={Checked} onChange={handleChange} />
+                            <ReactSwitch onColor={"#D9D9D9"}  onHandleColor={"#31B665"} height={20} width={60} uncheckedIcon={false} checkedIcon={false}  onChange={handleChange} />
                         </div>
 
 
@@ -101,7 +102,7 @@ const Notification = () => {
 
                         </div>
                         <div className="col-2 notification_col_ReactSwitch">
-                            <ReactSwitch onColor={"#D9D9D9"}  onHandleColor={"#31B665"} height={20} width={60} uncheckedIcon={false} checkedIcon={false} checked={Checked} onChange={handleChange} />
+                            <ReactSwitch onColor={"#D9D9D9"}  onHandleColor={"#31B665"} height={20} width={60} uncheckedIcon={false} checkedIcon={false}  onChange={handleChange} />
                         </div>
 
 
@@ -120,7 +121,7 @@ const Notification = () => {
 
                                     </div>
                                     <div className="col-2 notification_col_ReactSwitch">
-                                        <ReactSwitch onColor={"#D9D9D9"}  onHandleColor={"#31B665"} height={20} width={60} uncheckedIcon={false} checkedIcon={false} checked={Checked} onChange={handleChange} />
+                                        <ReactSwitch onColor={"#D9D9D9"}  onHandleColor={"#31B665"} height={20} width={60} uncheckedIcon={false} checkedIcon={false}  onChange={handleChange} />
                                     </div>
 
 

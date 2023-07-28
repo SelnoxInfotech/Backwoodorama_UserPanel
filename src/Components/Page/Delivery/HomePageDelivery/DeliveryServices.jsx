@@ -45,7 +45,7 @@ import DeliverServiceSkeleton from '../../../Component/Skeleton/DeliveryServices
                                 {DeliveryService.map((items, index) => {
                                     return (
                                         <div className='dispensoriesContainer col-12  col-sm-6 col-md-6 col-lg-4 col-xl-3' key={index}>
-                                            <div className=' deliveryServicesBorder mx-3'>
+                                            <div className=' deliveryServicesBorder '>
                                                 <Link to={`/DispensoriesProduct/${items.id}/${"Menu"}`}>
                                                     <div className='col-12 deliveryServicesImage_container'>
                                                         <LazyLoadImage className='deliveryServicesImage' src={`https://sweede.app/${items.Store_Image}`} alt='image not available' />

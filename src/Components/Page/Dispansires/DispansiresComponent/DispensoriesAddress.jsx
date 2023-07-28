@@ -62,7 +62,7 @@ const DispensoriesAddress = () => {
                                 return (
 
                                     <div className='dispensoriesContainer col-12  col-sm-6 col-md-6 col-lg-4 col-xl-3' key={index}>
-                                        <div className=' dispensoriesAddressBorder mx-3'>
+                                        <div className=' dispensoriesAddressBorder'>
 
                                             <div className='col-12 dispensories_image_containerss'>
                                                 <Link to={`/DispensoriesProduct/${ele.id}/${"Menu"}`}>
