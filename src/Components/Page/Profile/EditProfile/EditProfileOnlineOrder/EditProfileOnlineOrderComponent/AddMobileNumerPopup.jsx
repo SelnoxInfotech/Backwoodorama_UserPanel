@@ -27,7 +27,7 @@ const AddMobileNumberPopup = () => {
                 <div className="container-fluid py-4 px-4">
                     <div className="row">
                         <div className="col-12 text-end AddMobileNo_col">
-                        <IconButton aria-label="closebutton"><RiCloseCircleFill color='#949494' size={24}/></IconButton>
+                        <IconButton onClick={handleClose} aria-label="closebutton"><RiCloseCircleFill color='#949494' size={24}/></IconButton>
                         </div>
                         <div className="col-12 AddMobileNo_col">
                             <h1 className="addMobileNumberPopup_heading">Add Mobile Number</h1>
@@ -42,19 +42,17 @@ const AddMobileNumberPopup = () => {
 
                         </div>
                         <div className="col-12 mt-2 AddMobileNo_col">
-                            <MuiPhoneNumber style={{outline:"0px 1px green"}} id="mobileNo"  defaultCountry="in" fullWidth="true" />
+                            <MuiPhoneNumber id="mobileNo"  defaultCountry="in" fullWidth="true" />
 
                         </div>
-                        <section className="mobile_notification ">
-                            <p className="mobile_send_code">We'll send you a code to verify your number </p>
-                        </section>
+                     
 
                     </div>
                     <Box className={` mt-4 ${classes.editEmail_loadingBtn}`}>
-                        <LoadingButton>Save</LoadingButton>
+                        <LoadingButton>Continue</LoadingButton>
                     </Box>
                     <Box className={`mt-4 ${classes.editEmail_loadingBtn_cancel}`}>
-                        <LoadingButton>Cancel</LoadingButton>
+                        <LoadingButton onClick={handleClose}>Cancel</LoadingButton>
                     </Box>
                     </form>
                 </div>

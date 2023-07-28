@@ -26,7 +26,7 @@ const MedicalCardDetailsPopup = () => {
                 <div className='container-fluid py-4 px-4'>
                     <div className='row'>
                         <div className='col-12 text-end AddPhotoIdPoppup_col '>
-                            <IconButton aria-label="closebutton"><RiCloseCircleFill color='#949494' size={24} /></IconButton>
+                            <IconButton aria-label="closebutton"><RiCloseCircleFill onClick={handleClose} color='#949494' size={24} /></IconButton>
                         </div>
                         <div className='col-12 medicalCard_col_height'>
                             <h1 className='medicalCard_heading'>Add Medical Card Informations</h1>
@@ -40,7 +40,10 @@ const MedicalCardDetailsPopup = () => {
                                 <label htmlFor='medical card number'>Medical Card Number*</label>
                             </div>
                             <div className='col-12 medicalCard_col_height mt-2'>
-                                <TextField type='number' id='medical card number' fullWidth variant='filled' InputProps={{ disableUnderline: true }} />
+                                <TextField type='number'
+                                 id='medical card number'
+                                 className={`${classes.FilledTextFieldStyle}`}
+                                  fullWidth variant='filled' />
                             </div>
 
                         </div>
@@ -49,7 +52,11 @@ const MedicalCardDetailsPopup = () => {
                                 <label htmlFor='ExpiryDates'>Medical Card Expiration*</label>
                             </div>
                             <div className='col-12 medicalCard_col_height mt-2'>
-                                <TextField type="date" id=" ExpiryDates" fullWidth variant='filled' InputProps={{ disableUnderline: true }} />
+                                <TextField type="date" 
+                                id="ExpiryDates" fullWidth 
+                                variant='filled'
+                                className={`${classes.FilledTextFieldStyle}`}
+                                 />
 
                             </div>
 
@@ -59,17 +66,23 @@ const MedicalCardDetailsPopup = () => {
                                 <label htmlFor='MedicalCardState'>Medical Card State*</label>
                             </div>
                             <div className='col-12 medicalCard_col_height mt-2'>
-                                <TextField type="text" id=" MedicalCardState" fullWidth variant='filled' InputProps={{ disableUnderline: true }} />
+                                <TextField type="text"
+                                 id="MedicalCardState" 
+                                 fullWidth variant='filled'
+                                 className={`${classes.FilledTextFieldStyle}`}
+                                  />
 
                             </div>
 
                         </div>
                         <Box className={` mt-4 ${classes.editEmail_loadingBtn}`}>
-                            <LoadingButton>Save</LoadingButton>
+                            <LoadingButton onClick={handleClose}>Save</LoadingButton>
                         </Box>
-                        <Box className={`mt-4 ${classes.editEmail_loadingBtn_cancel}`}>
-                            <LoadingButton>Cancel</LoadingButton>
+                        <Box className={`mt-5 ${classes.editEmail_loadingBtn_cancel}`}>
+                            <LoadingButton onClick={handleClose}>Cancel</LoadingButton>
                         </Box>
+                        
+                        
                     </form>
 
                 </div>

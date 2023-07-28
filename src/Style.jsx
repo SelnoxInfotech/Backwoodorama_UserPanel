@@ -2,20 +2,28 @@
 
 import { makeStyles } from '@mui/styles';
 const useStyles = makeStyles({
-  FilledTextFieldStyle:{
+
+  FilledTextFieldStyle: {
+    "& .MuiFilledInput-root:hover": {
+      background: "#F2F1F1"
+    },
+    "& .MuiInputBase-input.MuiFilledInput-input": {
+      padding: "18px"
+    },
     "& .MuiFilledInput-underline:after": {
-      borderBottomColor:"#31B665"
+      borderBottomColor: "#31B665"
     },
     "& input::placeholder": {
       fontSize: "12px"
     },
     " && .MuiFilledInput-underline:hover::before": {
-        borderColor: "#31B665",
+      borderColor: "#31B665",
     },
     "& input": {
-        "&:-webkit-autofill": {
-            WebkitBoxShadow: "0 0 0 1000px #FFFFFF inset"
-        }
+      "&:-webkit-autofill": {
+        WebkitBoxShadow: "0 0 0 1000px #F2F1F1 inset"
+
+      }
     }
   },
   textFieldFocusBorderColor: {
@@ -87,9 +95,9 @@ const useStyles = makeStyles({
       margin: "1px"
       // border:"1px solid red"
     },
-    "& .MuiInputLabel-root.Mui-focused ":{
-      color:"#31B665"
-   },
+    "& .MuiInputLabel-root.Mui-focused ": {
+      color: "#31B665"
+    },
     "& .MuiOutlinedInput-root": {
       " &.Mui-focused fieldset": {
         borderColor: "#31B665",
@@ -601,8 +609,8 @@ const useStyles = makeStyles({
       fontSize: "14px"
     },
     "& .MuiButtonBase-root:hover": {
-      color: "#707070",
-      backgroundColor: "#FFFFFF",
+      color: "#FFFFFF",
+      backgroundColor: "#31B665",
       border: "1px solid #31B665"
     },
   },
@@ -614,7 +622,6 @@ const useStyles = makeStyles({
       width: "100%",
       height: "50px",
       borderRadius: "5px",
-      backgroundColor: "#C1C1C1",
       color: "#434343",
       textTransform: "none",
       border: "1px solid #C1C1C1",
@@ -648,9 +655,10 @@ const useStyles = makeStyles({
     "& .MuiDialog-container": {
       "& .MuiPaper-root": {
         width: "50%",
-        height: "600px",
+        height: "auto",
         borderRadius: "20px",
         background: "#FFFFFF",
+        padding: "30px 0px"
       }
     },
     "@media(max-width:500px)": {
@@ -722,8 +730,9 @@ const useStyles = makeStyles({
     "& .MuiDialog-container": {
       "& .MuiPaper-root": {
         width: "50%",
-        height: "450px",
+        height: "auto",
         borderRadius: "20px",
+        padding:"20px",
         background: "#FFFFFF",
       }
     },
@@ -740,7 +749,8 @@ const useStyles = makeStyles({
     "& .MuiDialog-container": {
       "& .MuiPaper-root": {
         width: "50%",
-        height: "700px",
+        height: "auto",
+        padding:"20px",
         borderRadius: "20px",
         background: "#FFFFFF",
       }
@@ -758,7 +768,8 @@ const useStyles = makeStyles({
     "& .MuiDialog-container": {
       "& .MuiPaper-root": {
         width: "50%",
-        height: "400px",
+        height: "auto",
+        padding:"20px",
         borderRadius: "20px",
         background: "#FFFFFF",
       }
@@ -885,26 +896,26 @@ const useStyles = makeStyles({
       border: "1px solid #31B665"
     },
   },
- 
-  CookiesAccept:{
+
+  CookiesAccept: {
     "& .MuiButton-text": {
       fontSize: "12px",
-     
+
     },
     "& .MuiLoadingButton-root": {
       width: "100%",
       height: "52px",
       textTransform: "none",
-      borderRadius:"10px",
-      color:"white",
+      borderRadius: "10px",
+      color: "white",
       backgroundColor: "#00b96a",
     },
     "& .MuiButtonBase-root:hover": {
       backgroundColor: "#D9D9D9",
-      color:"Black",
+      color: "Black",
     },
   },
-  CookiesSetting:{
+  CookiesSetting: {
     "& .MuiButton-text": {
       fontSize: "12px",
     },
@@ -912,7 +923,7 @@ const useStyles = makeStyles({
       width: "100%",
       height: "52px",
       textTransform: "none",
-      borderRadius:"10px",
+      borderRadius: "10px",
       color: "#000000",
       backgroundColor: "#D9D9D9",
     },
@@ -1063,18 +1074,18 @@ const useStyles = makeStyles({
       width: "90%"
     }
   },
-  deliveryInformationTextFildColor:{
+  deliveryInformationTextFildColor: {
     "& .MuiInput-underline:after": {
-      borderBottomColor:"#31B665"
+      borderBottomColor: "#31B665"
     },
-    "& .MuiInputLabel-root.Mui-focused":{
-     color:"#31B665"
+    "& .MuiInputLabel-root.Mui-focused": {
+      color: "#31B665"
 
     }
   },
-  muiDatePicker:{
-    "& .MuiOutlinedInput-root .Mui-focused":{
-        borderColor:"#31B665"
+  muiDatePicker: {
+    "& .MuiOutlinedInput-root .Mui-focused": {
+      borderColor: "#31B665"
     }
   }
 });

@@ -55,12 +55,12 @@ const EditEmailPopup = () => {
                             <Box
                                 className={`edit_emailPopUp_btn_container ${classes.editEmail_loadingBtn}`}
                             >
-                                <LoadingButton id='EditEmailSave' variant="outlined" >Save</LoadingButton>
+                                <LoadingButton onClick={handleClose} id='EditEmailSave' variant="outlined" >Save</LoadingButton>
                             </Box>
                             <Box
                                 className={`edit_emailPopUp_btn_container ${classes.editEmail_loadingBtn_cancel}`}
                             >
-                                <LoadingButton id='EditEmailSave' variant="outlined" >cancel</LoadingButton>
+                                <LoadingButton onClick={handleClose} id='EditEmailSave' variant="outlined" >Cancel</LoadingButton>
                             </Box>
                             </form>
                             </div>

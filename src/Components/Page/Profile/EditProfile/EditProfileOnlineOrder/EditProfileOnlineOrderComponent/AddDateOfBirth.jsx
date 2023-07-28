@@ -28,7 +28,7 @@ const AddDateOfBirth=()=>{
                 <div className='container-fluid py-4 px-4'>
                     <div className='row'>
                         <div className='col-12 text-end dobCol'>
-                        <IconButton aria-label="closebutton"><RiCloseCircleFill color='#949494' size={24} /></IconButton>
+                        <IconButton aria-label="closebutton" onClick={handleClose}><RiCloseCircleFill color='#949494' size={24} /></IconButton>
                         </div>
                         <div className='col-12 addDateOfBirth_label mt-2'>
                             <h1 className='dob_heading'>Add Date of Birth</h1>
@@ -42,16 +42,17 @@ const AddDateOfBirth=()=>{
                            <label htmlFor='DOB'>Date of Birth</label>
                         </div>
                         <div className='col-12 AddDateOfBirth_textField_col mt-2'>
-                            <TextField id="DOB" fullWidth InputProps={{disableUnderline:true}} type='date' variant='filled'/>
-
+                            <TextField id="DOB" fullWidth
+                             className={`${classes.FilledTextFieldStyle}`}
+                              type='date' variant='filled'/>
                         </div>
 
                     </div>
-                    <Box className={` mt-4 ${classes.editEmail_loadingBtn}`}>
-                        <LoadingButton>Save</LoadingButton>
+                    <Box className={` mt-5 ${classes.editEmail_loadingBtn}`}>
+                        <LoadingButton onClick={handleClose}>Save</LoadingButton>
                     </Box>
-                    <Box className={`mt-4 ${classes.editEmail_loadingBtn_cancel}`}>
-                        <LoadingButton>Cancel</LoadingButton>
+                    <Box className={`mt-5 ${classes.editEmail_loadingBtn_cancel}`}>
+                        <LoadingButton onClick={handleClose}>Cancel</LoadingButton>
                     </Box>
                     </form>
 

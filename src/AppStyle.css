@@ -5644,6 +5644,10 @@
   font-size: 15px;
   color: #707070;
   cursor: pointer;
+  margin-left: 0px;
+}
+.editProfile_backBtn:hover{
+  color: #31B665;
 }
 .editProfile_backBtnIcon{
   cursor: pointer;
@@ -5686,7 +5690,14 @@
   display: flex;
   align-items: center;
 }
-
+.EditProfileLoginParagraph{
+  padding-left: 33px;
+}
+.editProfileLoginParaStyle{
+  font-size: 14px;
+  color: #707070;
+  font-weight: 400;
+}
 .EditProfileLogin_mainColumns {
   height: auto;
 }
@@ -5818,7 +5829,7 @@
   align-items: center;
 }
 .email_notification_headings{
-  font-size: 24px;
+  font-size: 20px;
   color: #000000;
   font-weight: 700;
 }
@@ -5872,7 +5883,14 @@
   font-weight: 400;
   font-size: 18px;
 }
-
+.forgotPwdLink{
+  color: #31B665;
+  font-size: 15px;
+}
+.pwdAtLeastChar{
+  color: #000000;
+  font-size: 15px;
+}
 /* end */
 /* EditUserPopup */
 .editUserLabel {
@@ -5905,24 +5923,8 @@
 /* AddMobileNumberPopup */
 .AddMobileNo_col {
   height: 50px;
-  /* border: 1px solid black; */
 }
 
-.mobile_notification {
-  height: 35px;
-}
-
-.mobile_send_code {
-  font-weight: 400;
-  font-size: 18px;
-  color: #000000
-}
-
-@media(max-width:881px) {
-  .mobile_send_code {
-    font-size: 12px;
-  }
-}
 
 /* end */
 /* deliveryAddress */
@@ -5947,7 +5949,7 @@
 }
 
 .photoId_heading {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
   color: #000000;
 }
@@ -5960,7 +5962,7 @@
 .add_photo_label_div {
   width: 90px;
   padding-left: 8px;
-  height: 80px;
+  height: 100px;
   position: relative;
 }
 
@@ -5983,11 +5985,14 @@
 }
 
 .add_photo_container {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border: 1px solid #F0F0F0;
   background: #F0F0F0;
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .changePhoto_title {
@@ -6004,7 +6009,7 @@
 }
 .medicalCard_heading {
   color: #000000;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
 }
 
@@ -6036,7 +6041,7 @@
 
 .dob_heading {
   color: #000000;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
 }
 

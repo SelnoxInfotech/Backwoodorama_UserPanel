@@ -26,7 +26,7 @@ const EditUserName = () => {
                 <div className="container-fluid py-4 px-4">
                     <div className="row">
                         <div className="col-12 text-end edit_userName_col">
-                        <IconButton aria-label="closebutton"><RiCloseCircleFill color='#949494' size={24}/></IconButton>
+                        <IconButton aria-label="closebutton"><RiCloseCircleFill onClick={handleClose} color='#949494' size={24}/></IconButton>
                         </div>
                         <div className="col-12 edit_userName_col">
                             <h1 className="editUserHeading">Edit User</h1>
@@ -36,18 +36,22 @@ const EditUserName = () => {
                     <form>
                     <div className="row">
                         <div className="col-12 edit_userName_col">
-                          <label className="editUserLabel" htmlFor="User Name">Name</label>
+                          <label className="editUserLabel" htmlFor="UserName">Name</label>
                         </div>
                         <div className="col-12 edit_userName_col_textfield">
-                             <TextField id="User Name" variant="filled" fullWidth InputProps={{disableUnderline:true}} placeholder="Maxwell"/>
+                             <TextField id="UserName"
+                              variant="filled" fullWidth 
+                               placeholder="Maxwell"
+                               className={`${classes.FilledTextFieldStyle}`}
+                               />
                         </div>
 
                     </div>
                     <Box className={`mt-4 ${classes.editEmail_loadingBtn}`}>
-                        <LoadingButton>Save</LoadingButton>
+                        <LoadingButton onClick={handleClose}>Save</LoadingButton>
                     </Box>
                     <Box className={`mt-4 ${classes.editEmail_loadingBtn_cancel}`}>
-                        <LoadingButton>Cancel</LoadingButton>
+                        <LoadingButton onClick={handleClose}>Cancel</LoadingButton>
                     </Box>
                     </form>
 

@@ -27,7 +27,7 @@ const AddDeliveryAddressPopup = () => {
                 <div className="container-fluid my-4 px-4">
                     <div className="row">
                         <div className='col-12 text-end addDeliverAddress_col'>
-                        <IconButton aria-label="closebutton"><RiCloseCircleFill color='#949494' size={24}/></IconButton>
+                        <IconButton onClick={handleClose} aria-label="closebutton"><RiCloseCircleFill color='#949494' size={24}/></IconButton>
                         </div>
                         <div className="col-12 addDeliverAddress_col">
                             <h1 className='deliveryAddress_heading'>Add delivery address</h1>
@@ -36,18 +36,20 @@ const AddDeliveryAddressPopup = () => {
                     <form>
                     <div className='row'>
                         <div className='col-12 addDeliverAddress_col'>
-                            <label htmlFor='delivery address'>Delivery Address</label>
+                            <label htmlFor='deliveryaddress'>Delivery Address</label>
                         </div>
                         <div className='col-12 addDeliveryAddress_textfield_col mt-2'>
-                            <TextField variant='filled' fullWidth id="delivery address" InputProps={{ disableUnderline: true }} />
+                            <TextField variant='filled' fullWidth id="deliveryaddress"
+                              className={`${classes.FilledTextFieldStyle}`}
+                             />
                         </div>
 
                     </div>
                     <Box className={` mt-4 ${classes.editEmail_loadingBtn}`}>
-                        <LoadingButton>Save</LoadingButton>
+                        <LoadingButton onClick={handleClose}>Save</LoadingButton>
                     </Box>
                     <Box className={` mt-4 ${classes.editEmail_loadingBtn_cancel}`}>
-                        <LoadingButton>Cancel</LoadingButton>
+                        <LoadingButton onClick={handleClose}>Cancel</LoadingButton>
                     </Box>
                     </form>
                 </div>

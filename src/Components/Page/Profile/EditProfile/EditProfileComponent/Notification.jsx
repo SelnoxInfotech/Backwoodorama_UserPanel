@@ -1,5 +1,6 @@
 import ReactSwitch from "react-switch";
 import React from "react";
+import { Link } from "react-router-dom";
 const Notification = () => {
     const [Checked, SetChecked] = React.useState(true)
     const handleChange = (val) => {

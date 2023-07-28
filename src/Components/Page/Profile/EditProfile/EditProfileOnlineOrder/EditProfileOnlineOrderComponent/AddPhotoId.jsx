@@ -29,7 +29,7 @@ const AddPhotoId = () => {
                 <div className='container-fluid my-4 px-4'>
                     <div className='row'>
                         <div className='col-12 text-end AddPhotoIdPoppup_col'>
-                        <IconButton aria-label="closebutton"><RiCloseCircleFill color='#949494' size={24}/></IconButton>
+                        <IconButton onClick={handleClose} aria-label="closebutton"><RiCloseCircleFill color='#949494' size={24}/></IconButton>
                         </div>
                         <div className='col-12 AddPhotoIdPoppup_col'>
                             <h1 className='photoId_heading'>Photo Id Upload</h1>
@@ -38,7 +38,7 @@ const AddPhotoId = () => {
                     </div>
                     <form>
                     <div className='row'>
-                        <div className='col-12 add_photos_col_container'>
+                        <div className='col-12 add_photos_col_container mt-4'>
                             <section className='addphoto_section'>
                                 <div className='add_photo_container'>
                                     <LazyLoadImage src='./image/user.webp'className='add_photo_size'/>
@@ -60,10 +60,10 @@ const AddPhotoId = () => {
 
                     </div>
                     <Box className={` mt-4 ${classes.editEmail_loadingBtn}`}>
-                        <LoadingButton>Save</LoadingButton>
+                        <LoadingButton onClick={handleClose}>Save</LoadingButton>
                     </Box>
-                    <Box className={`mt-4 ${classes.editEmail_loadingBtn_cancel}`}>
-                        <LoadingButton>Cancel</LoadingButton>
+                    <Box className={`mt-5 ${classes.editEmail_loadingBtn_cancel}`}>
+                        <LoadingButton onClick={handleClose}>Cancel</LoadingButton>
                     </Box>
                     </form>
                 </div>
