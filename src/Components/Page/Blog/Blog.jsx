@@ -7,6 +7,10 @@ import RecentPostComment from "./BlogComponent/RecentPostComment";
 import HomePageDealsSignup from "../Home/Dashboard/ComponentDashboard/HomePageDealsSignup";
 import { useParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom"
+import { RiFacebookLine } from "react-icons/ri"
+import { BsFillShareFill } from "react-icons/bs"
+import { IoEyeSharp } from "react-icons/io5"
+import {AiFillHeart} from "react-icons/ai"
 const Blogs = () => {
     const navigate = useNavigate()
     const { id } = useParams();
@@ -45,26 +49,61 @@ const Blogs = () => {
                     </div>
                     <div className="col-12 blogEditorContainer mt-4 p-0">
                         <div className="col-12 UserNmae_ d-flex">
-                            <div className="col-2">
+                            <div className="col-2 Box2">
                                 <div className="Col_BlogUSerIcon">
-                                    <span>S</span>
+                                    <h1>{News?.username?.slice(0, 1)}</h1>
                                 </div>
                             </div>
                             <div className="col-10 UserNmae  ">
-                            {News.username}
+                                <h6>{News?.username}</h6>
                             </div>
                         </div>
-                        <div className="col-10  BlogCol-1">
-                            <div className="blogEditerdata">
-                                <span>{News?.Title}</span>
+                        <div classname="col" id="center1" >
+                            <div className="col-10 border">
+                                <div className="">
+                                    <span>{News?.Title}</span>
+                                </div>
+                                <div>
+                                    <span>
+                                        <div dangerouslySetInnerHTML={{ __html: News?.Description }} /></span>
+                                </div>
                             </div>
-                            <div>
-                                <span>
-                                    <div dangerouslySetInnerHTML={{ __html: News?.Description }} /></span>
-                            </div>
+                        </div>
+                        <div classname="col" id="center1" >
+                            <div className="col-10 BlogLink">
+                                <div className="col-12 Linkofblog">
+                                    <RiFacebookLine></RiFacebookLine>
+                                    <RiFacebookLine></RiFacebookLine>
+                                    <BsFillShareFill></BsFillShareFill>
+                                </div>
+                                <div className=" col-12 Display_blog">
+                                    <div class="col viewsBlog">
+                                        <IoEyeSharp></IoEyeSharp>
+                                        <span>40 Views</span>
+                                    </div>
+                                    <div class="col-md-8 d-flex ">
+                                        <div class="col viewsBlog">
+                                            {/* <IoEyeSharp></IoEyeSharp> */}
+                                            <span>20</span>
+                                            <span>Comment</span>
+                                        </div>
+                                        <div class="col viewsBlog like">
+                                            <AiFillHeart></AiFillHeart>
+                                            <span>201</span>
+                                        </div>
+                                    </div>
 
+                                    <div class="col col-lg-2">
+                                    <div class="col viewsBlog like">
+                                            <span>Post</span>
+                                            <span>10/2/2023</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                     <RecentPost />
                     <RecentPostComment />
                     <HomePageDealsSignup />
