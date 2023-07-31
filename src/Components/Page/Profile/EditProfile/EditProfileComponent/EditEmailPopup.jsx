@@ -6,11 +6,19 @@ import { Box } from "@mui/material"
 import useStyles from "../../../../../Style"
 import LoadingButton from '@mui/lab/LoadingButton';
 import { MdEdit } from 'react-icons/md';
-import {RiCloseCircleFill} from "react-icons/ri"
+import { RiCloseCircleFill } from "react-icons/ri"
 import IconButton from '@mui/material/IconButton';
-const EditEmailPopup = () => {
+import { useForm } from "react-hook-form";
+import Cookies from 'universal-cookie';
+import Axios from 'axios';
+const EditEmailPopup = ({ email , Api, SetApi }) => {
+    const nam = email
+    const cookies = new Cookies();
+    const token_data = cookies.get('Token_access')
     const classes = useStyles()
+    const { register, handleSubmit, errors, reset ,setError} = useForm();
     const [open, setOpen] = React.useState(false);
+    const [Name, SetName] = React.useState('')
     const handleClickOpen = () => {
         setOpen(true);
     };
@@ -18,54 +26,96 @@ const EditEmailPopup = () => {
     const handleClose = () => {
         setOpen(false);
     };
-  
-  
+
+    const handleChnage = (event) => {
+        SetName(event.target.value)
+    }
+    const onSubmit = (data) => {
+
+
+        Axios.post(`https://sweede.app/UserPanel/Update-UpdateUserProfile/`,
+        {
+            email:data.Email
+        },
+            {
+                headers: {
+                    'Authorization': `Bearer ${token_data}`
+                }
+                ,
+            
+            }
+
+        )
+            .then((res) => {
+                reset()
+                setOpen(false);
+                SetApi(!Api)
+            })
+            .catch((error) => {
+                console.log(error.response.data.error.email[0])
+                setError("Email", {
+                    type: "manual",
+                    message:error.response.data.error.email[0],
+                  })
+            })
+    }
     return (
 
         <div>
-            <Button className={`${classes.EditProfileBtn_Color}`} onClick={handleClickOpen} startIcon={<MdEdit/>}>
+            <Button className={`${classes.EditProfileBtn_Color}`} onClick={handleClickOpen} startIcon={<MdEdit />}>
                 Edit
             </Button>
-                        <Dialog open={open} onClose={handleClose} className={classes.notification_dialogBox_width_height}>
-                        <div className='container-fluid px-4'>
-                        
-                             <form>
-                            <div className='row my-2'>
-                                <div className='col-6 mt-4 EditEmailPopup_col_height'>
-                                    <label className='EditEmail_pop_heading' htmlFor='edit email'>Email Edit</label>
-                                </div>
-                                <div className='col-6 text-end mt-4 EditEmailPopup_col_height'>
-                                <IconButton onClick={handleClose} aria-label="closebutton"><RiCloseCircleFill color='#949494' size={24}/></IconButton>
-        
-                                </div>
-        
-        
-                            </div>
-                            <div className='row'>
-                                <div className='col-12  EditEmailPopup_col_height'>
-                                    <TextField id="edit email" 
+            <Dialog open={open} onClose={handleClose} className={classes.notification_dialogBox_width_height}>
+                <div className='container-fluid px-4'>
+
+                    <div className='row my-2'>
+                        <div className='col-6 mt-4 EditEmailPopup_col_height'>
+                            <label className='EditEmail_pop_heading' htmlFor='edit email'>Email Edit</label>
+                        </div>
+                        <div className='col-6 text-end mt-4 EditEmailPopup_col_height'>
+                            <IconButton onClick={handleClose} aria-label="closebutton"><RiCloseCircleFill color='#949494' size={24} /></IconButton>
+
+                        </div>
+
+
+                    </div>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <div className='row'>
+                            <div className='col-12  EditEmailPopup_col_height'>
+                                <TextField id="edit email"
                                     className={`${classes.FilledTextFieldStyle}`}
                                     fullWidth
-                                    placeholder='maxwel@gmail.com' variant="filled" />
-                                </div>
-        
-                            </div>
-        
-        
-                            <Box
-                                className={`edit_emailPopUp_btn_container ${classes.editEmail_loadingBtn}`}
-                            >
-                                <LoadingButton onClick={handleClose} id='EditEmailSave' variant="outlined" >Save</LoadingButton>
-                            </Box>
-                            <Box
-                                className={`edit_emailPopUp_btn_container ${classes.editEmail_loadingBtn_cancel}`}
-                            >
-                                <LoadingButton onClick={handleClose} id='EditEmailSave' variant="outlined" >Cancel</LoadingButton>
-                            </Box>
-                            </form>
+                                    name="Email"
+                                    placeholder={nam}
+                                    value={Name}
+                                    onChange={handleChnage}
+                                    variant="filled"
+                                    inputRef={register({
+                                        required: "Email is required*.",
+
+                                    })}
+                                    helperText={errors.Email?.message}
+                                    error={Boolean(errors?.Email)}
+                                />
                             </div>
 
-                    </Dialog>
+                        </div>
+
+
+                        <Box
+                            className={`edit_emailPopUp_btn_container ${classes.editEmail_loadingBtn}`}
+                        >
+                            <LoadingButton type="submit" id='EditEmailSave' variant="outlined" >Save</LoadingButton>
+                        </Box>
+                    </form>
+                    <Box
+                        className={`edit_emailPopUp_btn_container ${classes.editEmail_loadingBtn_cancel}`}
+                    >
+                        <LoadingButton onClick={handleClose} id='EditEmailSave' variant="outlined" >Cancel</LoadingButton>
+                    </Box>
+                </div>
+
+            </Dialog>
 
         </div>
     )

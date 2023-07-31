@@ -972,13 +972,14 @@ overflow-x: hidden; */
   background: #00b96a;
   border-radius: 50px;
   justify-content: center;
-  display: flex;
+  display: flex;  
   align-items: center;
-  width: 50px;
-  height: 100%;
+  width: 40px;
+  height: 85%;
 }
 
 .Box2 {
+  align-items: center;
   width: 19.666667% !important;
   background-color: #F6F6F6;
   justify-content: center;
@@ -993,6 +994,7 @@ overflow-x: hidden; */
   align-items: center;
   font-size: 22px;
   font-weight: 700;
+  width: 80.333333% !important;
 }
 
 .UserNmae h6 {
@@ -1005,8 +1007,8 @@ overflow-x: hidden; */
 
   color: white;
   margin: 0px;
-  font-size: 23px;
-  font-weight: 900;
+  font-size: 22px;
+  font-weight: 700;
 }
 
 #center1 {

@@ -5,8 +5,8 @@ import { AiFillEye } from "react-icons/ai"
 import EditEmailPopup from "./EditEmailPopup";
 import EditUserPopup from "./EditUserPopup";
 import EditPasswordPopup from "./EditPasswordPopup";
-const EditProfileLogin = () => {
-   
+const EditProfileLogin = ({Profile, Api, SetApi}) => {
+     console.log(Profile?.username)
     return (
         <div className="col-12 EditProfileLogin_mainColumns">
             <div className="w-100">
@@ -21,12 +21,12 @@ const EditProfileLogin = () => {
                                     <span><MdEmail color="#707070" size={20} /></span><span className="editProfileLogin_padding_left editProfile_label"><label>Email</label></span>
                                 </div>
                                 <div className="EditProfileLoginParagraph">
-                                    <p className="editProfileLoginParaStyle">maxwell@gmail.com</p>
+                                    <p className="editProfileLoginParaStyle">{Profile?.email}</p>
                                 </div>
                             </div>
                             <div className="col-6  editProfileLogin_emailField_container_edit">
                                 <div className="editSpan_div">
-                                   <EditEmailPopup/>
+                                   <EditEmailPopup email={Profile?.email} Api={Api}  SetApi = {SetApi}/>
                                 </div>
                             </div>
 
@@ -38,13 +38,13 @@ const EditProfileLogin = () => {
                                     <span className="editProfileLogin_padding_left editProfile_label"><label>User Name</label></span>
                                 </div>
                                 <div className=" EditProfileLoginParagraph">
-                                    <p className="editProfileLoginParaStyle">Maxwell</p>
+                                    <p className="editProfileLoginParaStyle">{Profile?.username}</p>
                                 </div>
                             </div>
                             <div className="col-6  editProfileLogin_emailField_container_edit">
                                 <div className="editSpan_div">
 
-                                    <EditUserPopup></EditUserPopup>
+                                    <EditUserPopup username={Profile?.username} Api={Api}  SetApi = {SetApi}></EditUserPopup>
                                 </div>
                             </div>
 

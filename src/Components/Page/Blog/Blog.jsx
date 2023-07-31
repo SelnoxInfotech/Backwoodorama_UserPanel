@@ -11,6 +11,7 @@ import { RiFacebookLine } from "react-icons/ri"
 import { BsFillShareFill } from "react-icons/bs"
 import { IoEyeSharp } from "react-icons/io5"
 import {AiFillHeart} from "react-icons/ai"
+import {RiLinkedinLine} from "react-icons/ri"
 const Blogs = () => {
     const navigate = useNavigate()
     const { id } = useParams();
@@ -73,7 +74,7 @@ const Blogs = () => {
                             <div className="col-10 BlogLink">
                                 <div className="col-12 Linkofblog">
                                     <RiFacebookLine></RiFacebookLine>
-                                    <RiFacebookLine></RiFacebookLine>
+                                    <RiLinkedinLine></RiLinkedinLine>
                                     <BsFillShareFill></BsFillShareFill>
                                 </div>
                                 <div className=" col-12 Display_blog">
