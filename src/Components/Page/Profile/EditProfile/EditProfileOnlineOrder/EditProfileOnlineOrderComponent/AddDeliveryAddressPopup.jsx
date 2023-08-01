@@ -9,14 +9,46 @@ import {RiCloseCircleFill} from "react-icons/ri"
 import LoadingButton from '@mui/lab/LoadingButton';
 import useStyles from '../../../../../../Style';
 import { Box } from '@mui/system';
-const AddDeliveryAddressPopup = () => {
+import { useForm, Controller } from "react-hook-form";
+import Cookies from 'universal-cookie';
+import Axios from 'axios';
+const AddDeliveryAddressPopup = ({ DeliveryAddress, Api, SetApi }) => {
+    const cookies = new Cookies();
+    const token_data = cookies.get('Token_access')
+    const { register, handleSubmit, errors, control, reset ,setError} = useForm();
     const classes = useStyles()
+    const [Address ,  SetAddress] =  React.useState('')
     const [Open, SetOpen] = React.useState(false)
     const handleClickOpen = () => {
         SetOpen(true)
     }
     const handleClose = () => {
         SetOpen(false)
+    }
+    const onSubmit = (data) => {
+        Axios.post(`https://sweede.app/UserPanel/Update-UpdateUserProfile/`,
+            {
+                DeliveryAddress: data.DeliveryAddress
+            },
+            {
+                headers: {
+                    'Authorization': `Bearer ${token_data}`
+                }
+                ,
+            }
+        )
+            .then((res) => {
+                reset(Address)
+                SetOpen(false);
+                SetApi(!Api)
+            })
+            .catch((error) => {
+                console.log(error.response.data.error.username[0])
+                setError("Username", {
+                    type: "manual",
+                    message: error.response.data.error.username[0],
+                })
+            })
     }
     return (
         <div>
@@ -33,20 +65,33 @@ const AddDeliveryAddressPopup = () => {
                             <h1 className='deliveryAddress_heading'>Add delivery address</h1>
                         </div>
                     </div>
-                    <form>
+                    <form onSubmit={handleSubmit(onSubmit)}>
                     <div className='row'>
                         <div className='col-12 addDeliverAddress_col'>
                             <label htmlFor='deliveryaddress'>Delivery Address</label>
                         </div>
                         <div className='col-12 addDeliveryAddress_textfield_col mt-2'>
-                            <TextField variant='filled' fullWidth id="deliveryaddress"
-                              className={`${classes.FilledTextFieldStyle}`}
+                            <TextField 
+                            variant='filled'
+                            fullWidth 
+                            id="deliveryaddress"
+                            onChange={(e)=>SetAddress(e.target.value)}
+                            placeholder={DeliveryAddress}
+                            name='DeliveryAddress'
+                            inputRef={register({
+                                required: "Address is required*.",
+
+                            })}
+                            value={Address}
+                            className={`${classes.FilledTextFieldStyle}`}
+                            error={Boolean(errors?.DeliveryAddress)}
+                            helperText={errors.DeliveryAddress?.message}
                              />
                         </div>
 
                     </div>
                     <Box className={` mt-4 ${classes.editEmail_loadingBtn}`}>
-                        <LoadingButton onClick={handleClose}>Save</LoadingButton>
+                        <LoadingButton type='submit'>Save</LoadingButton>
                     </Box>
                     <Box className={` mt-4 ${classes.editEmail_loadingBtn_cancel}`}>
                         <LoadingButton onClick={handleClose}>Cancel</LoadingButton>

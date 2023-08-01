@@ -6352,9 +6352,10 @@
 }
 
 .profileDropdown_container {
-  top: 60px;
-  right: 100px;
-  z-index: 2;
+
+  /* top: 60px; */
+  right: -28%;
+    z-index: 2;
   position: absolute;
   height: 383px;
   width: 300px;

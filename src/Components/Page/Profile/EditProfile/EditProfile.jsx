@@ -7,7 +7,9 @@ import { IconButton } from "@mui/material"
 import { Link } from "react-router-dom"
 import Cookies from 'universal-cookie';
 import Axios from 'axios';
+import Createcontext from "../../../../Hooks/Context"
 const EditProfile = () => {
+    const { state, dispatch } = React.useContext(Createcontext)
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
    const [Profile ,SetProfile] =  React.useState([])
@@ -23,12 +25,12 @@ const EditProfile = () => {
         )
             .then((res) => {
                 SetProfile(res.data)
+                dispatch({ type: 'Profile', Profile:res.data })
             })
             .catch((error) => {
                 console.error(error)    
             })
-    },[Api])
-    console.log(Profile)    
+    },[Api])   
     return (
         <div className="container">
             <div className="row">
@@ -41,8 +43,8 @@ const EditProfile = () => {
                     </div>
                 </div>
                 <EditProfileLogin Profile ={Profile} Api={Api}  SetApi = {SetApi}/>
-                <EditProfileOnlineOrder/>
-                <Notification/>
+                <EditProfileOnlineOrder Profile ={Profile} Api={Api}  SetApi = {SetApi}/>
+                <Notification  Profile ={Profile} Api={Api}  SetApi = {SetApi}/>
             </div>
 
         </div>

@@ -1,12 +1,15 @@
 import ReactSwitch from "react-switch";
 import React from "react";
-const Notification = () => {
+import Cookies from 'universal-cookie';
+import Axios from 'axios';
+const Notification = ({ Profile, Api, SetApi }) => {
+    const cookies = new Cookies();
+    const token_data = cookies.get('Token_access')
     const [Checked, SetChecked] = React.useState({
         Email: false,
         News_Letter: false,
         Review_Suggestions: false,
     })
-
     const handleChange = (val) => {
         if (val === "Email" && Checked.Email === true) {
             SetChecked({ ...Checked, "Email": false, News_Letter: false, Review_Suggestions: false })
@@ -96,10 +99,53 @@ const Notification = () => {
                 return null
         }
     }
+    React.useEffect(() => {
+        Axios.post(`https://sweede.app/UserPanel/Update-UpdateUserProfile/`,
+            {
+                EmailBoolean: Checked.Email,
+                NewsLetter: Checked.News_Letter ? Checked.News_Letter : false,
+                ReviewSuggestions: Checked.Review_Suggestions ? Checked.Review_Suggestions : false,
+                PushNotification: Checked.Push_Notification ? Checked.Push_Notification : false,
+                Recommendations: Checked.Recommendations ? Checked.Recommendations : false,
+                Savings: Checked.Savings ? Checked.Savings : false,
+                OrderupdatePushNotification: Checked.Order_Updates_Push_Notifications ? Checked.Order_Updates_Push_Notifications : false,
+                OrderupdateSMSNotifications: Checked.Order_Updates_SMS_Notifications ? Checked.Order_Updates_SMS_Notifications : false
+            },
+            {
+                headers: {
+                    'Authorization': `Bearer ${token_data}`
+                }
+                ,
+            }
+        )
+            .then((res) => {
+                SetApi(!Api)
+            })
+            .catch((error) => {
 
+            })
+    }, [Checked])
+    React.useState(() => {
+        const config = {
+            headers: { Authorization: `Bearer ${token_data}` }
+        };
+      
+        Axios.get(`https://sweede.app/UserPanel/Get-GetUserProfile/`,
+            config,
 
+        )
+            .then((res) => {
+                SetChecked({ ...Checked, Email: res.data.EmailBoolean, News_Letter:res.data.NewsLetter,Review_Suggestions:res.data.ReviewSuggestions,
+                    Review_Suggestions:res.data.ReviewSuggestions,Push_Notification:res.data.PushNotification,Recommendations:res.data.Recommendations,
+                    Savings:res.data.Savings , Order_Updates_Push_Notifications:res.data.OrderupdatePushNotification,Order_Updates_SMS_Notifications:res.data.OrderupdateSMSNotifications
 
-
+                })
+                // SetProfile(res.data)
+            })
+            .catch((error) => {
+                console.error(error)    
+            })
+    },[])
     const EmailNotification = [{ heading: "News Letter", subHeading: "Weekly newsletter on the hottest topics and trends in the cannabis community.", Value: "News_Letter" },
     { Value: "Review_Suggestions", heading: "Review Suggestions", subHeading: "Reminders for you to share your experiences about the products and businesses you found on backaroma" }
     ]

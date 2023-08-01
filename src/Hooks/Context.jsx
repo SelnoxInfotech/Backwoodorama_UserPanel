@@ -27,7 +27,8 @@ const initialUser = {
     CookiesMarketing: 1,
     CookiesAnalytical: 1,
     DeliveryAddress: "",
-    selectDeliveryoptions: ""
+    selectDeliveryoptions: "",
+    Profile:[]
 }
 
 function Context(props) {
@@ -67,6 +68,22 @@ function Context(props) {
                 .catch(function (error) {
                     return error
                 })
+
+                axios.get(`https://sweede.app/UserPanel/Get-GetUserProfile/`,
+                {headers: { Authorization: `Bearer ${logi}` }}
+            )
+                .then((res) => {
+        
+                    dispatch({ type: 'Profile', Profile:res.data })
+                })
+                .catch((error) => {
+                    console.error(error)
+                })
+    
+
+
+
+
         }
         else {
             const data = localStorage?.getItem("items")

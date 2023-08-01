@@ -4,7 +4,7 @@ import AddDeliveryAddressPopup from './EditProfileOnlineOrderComponent/AddDelive
 import AddPhotoId from './EditProfileOnlineOrderComponent/AddPhotoId';
 import MedicalCardDetailsPopup from './EditProfileOnlineOrderComponent/MedicalCardDetailsPopup';
 import AddDateOfBirth from './EditProfileOnlineOrderComponent/AddDateOfBirth';
-const EditProfileOnlineOrder = () => {
+const EditProfileOnlineOrder = ({Profile,Api,SetApi}) => {
     return (
         <div className="col-12 EditProfileOnlineOrder_main_column mt-4">
             <div>
@@ -18,13 +18,13 @@ const EditProfileOnlineOrder = () => {
                                 <span className='editProfile_name'>Name</span>
                             </div>
                             <div className="EditProfileOnlineOrder">
-                                <p className="editProfileLoginParaStyle">Maxwell</p>
+                                <p className="editProfileLoginParaStyle">{Profile.username}</p>
                             </div>
 
                         </div>
                         <div className="col-6 EditProfilOnlineEdit_icons_flelds">
                             <div className='EditProfileOnline_name'>
-                                <EditUserName />
+                                <EditUserName Username={Profile.username} Api={Api} SetApi={SetApi} />
 
                             </div>
                         </div>
@@ -36,13 +36,13 @@ const EditProfileOnlineOrder = () => {
                                 <span className='editProfile_name'>Mobile Number</span>
                             </div>
                             <div className="EditProfileOnlineOrder">
-                                <p className="editProfileLoginParaStyle">81818639200</p>
+                                <p className="editProfileLoginParaStyle">{Profile.MobilePhone}</p>
                             </div>
 
                         </div>
                         <div className="col-6 EditProfilOnlineEdit_icons_flelds">
                             <div className='EditProfileOnline_name'>
-                                <AddMobileNumberPopup />
+                                <AddMobileNumberPopup  Mobile={Profile.MobilePhone} Api={Api} SetApi={SetApi}/>
 
                             </div>
                         </div>
@@ -54,12 +54,12 @@ const EditProfileOnlineOrder = () => {
                                 <span className='editProfile_name'>Delivery Address</span>
                             </div>
                             <div className="EditProfileOnlineOrder">
-                                <p className="editProfileLoginParaStyle">Delivery Address</p>
+                                <p className="editProfileLoginParaStyle">{Profile.DeliveryAddress !== null ? Profile.DeliveryAddress :'Delivery Address'}</p>
                             </div>
                         </div>
                         <div className="col-6 EditProfilOnlineEdit_icons_flelds">
                             <div className='EditProfileOnline_name'>
-                                <AddDeliveryAddressPopup />
+                                <AddDeliveryAddressPopup   DeliveryAddress={Profile.DeliveryAddress} Api={Api} SetApi={SetApi}/>
 
                             </div>
                         </div>
@@ -77,7 +77,7 @@ const EditProfileOnlineOrder = () => {
                         </div>
                         <div className="col-6 EditProfilOnlineEdit_icons_flelds">
                             <div className='EditProfileOnline_name'>
-                                <AddPhotoId />
+                                <AddPhotoId  image={Profile.image} Api={Api} SetApi={SetApi}/>
 
                             </div>
                         </div>
@@ -95,7 +95,7 @@ const EditProfileOnlineOrder = () => {
                         </div>
                         <div className="col-6 EditProfilOnlineEdit_icons_flelds">
                             <div className='EditProfileOnline_name'>
-                                <MedicalCardDetailsPopup />
+                                <MedicalCardDetailsPopup   Profile={Profile} Api={Api} SetApi={SetApi}/>
                             </div>
                         </div>
 
@@ -112,7 +112,7 @@ const EditProfileOnlineOrder = () => {
                         </div>
                         <div className="col-6 EditProfilOnlineEdit_icons_flelds">
                             <div className='EditProfileOnline_name'>
-                                <AddDateOfBirth />
+                                <AddDateOfBirth  Profile={Profile} Api={Api} SetApi={SetApi}/>
                             </div>
                         </div>
 

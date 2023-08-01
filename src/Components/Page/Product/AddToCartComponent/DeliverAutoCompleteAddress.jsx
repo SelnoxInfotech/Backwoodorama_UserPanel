@@ -85,7 +85,6 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
   // }
 
   function CheckPostal(data, name) {
-    console.log( data,name)
     Axios.post(`https://sweede.app/UserPanel/Get-GetDeliveryCheck/`,
       {
         "PinCode": data

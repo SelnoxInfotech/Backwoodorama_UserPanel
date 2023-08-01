@@ -17,19 +17,19 @@ const Profile = () => {
     const classes = useStyles()
     const { state, dispatch } = React.useContext(Createcontext)
     const cookies = new Cookies();
-    const Navigate=useNavigate()
+    const Navigate = useNavigate()
     const [ProfileListSelected, SetProfileListSelected] = React.useState(1)
-    const ProfileList = [{id:1, icons: <MdOutlineShoppingBasket color="#707070" size={22} />, item: "Order" },
-    {id:2, icons: <AiFillHeart color="#707070" size={22} />, item: "Favorite" },
-    {id:3, icons: <AiFillStar color="#707070" size={22} />, item: "Review" },
-     {id:4, icons: <IoIosSettings color="#707070" size={22} />, item: "Help" }]
+    const ProfileList = [{ id: 1, icons: <MdOutlineShoppingBasket color="#707070" size={22} />, item: "Order" },
+    { id: 2, icons: <AiFillHeart color="#707070" size={22} />, item: "Favorite" },
+    { id: 3, icons: <AiFillStar color="#707070" size={22} />, item: "Review" },
+    { id: 4, icons: <IoIosSettings color="#707070" size={22} />, item: "Help" }]
     function Logout() {
         cookies.remove('Token_access')
         dispatch({ type: 'Login', login: false })
         dispatch({ type: 'ApiProduct' });
         Navigate("/")
     }
-    const handleProfileListAndRedirect=(listIds)=>{
+    const handleProfileListAndRedirect = (listIds) => {
         SetProfileListSelected(listIds)
     }
     return (
@@ -41,18 +41,28 @@ const Profile = () => {
                             <div className="col-12  px-0 d-flex">
                                 <section className="profile_image_section">
                                     <div className="profile_image ">
-                                        <LazyLoadImage src="./image/user.webp" className="profile_images" />
+                                        <LazyLoadImage
+                                            onError={event => {
+                                                event.target.src = "./image/user.webp"
+                                                event.onerror = null
+                                            }}
+                                            src={`https://sweede.app/${state.Profile.image}`}
+                                            alt=''
+                                            className="profile_images"
+                                        />
                                     </div>
-                                    <div className="w-100 profileInput_container">
+                                    {/* 
+                                        <div className="w-100 profileInput_container">
                                         <label for="profile image" className="change_profile_container_padding">
                                             <input type="file" hidden id="profile image" />
                                             <AiFillCamera color="#707070" size={22} /><span className="nameChangeProfile">Change profile</span>
                                         </label>
-                                    </div>
+                                    </div>                                   
+                                   */}
                                 </section>
                                 <section className="profile_edit_text">
                                     <div className="ProfileName_container">
-                                        <h1 className="profile_user_name">Maxwell</h1>
+                                        <h1 className="profile_user_name">{state.Profile.username}</h1>
                                     </div>
                                     <div className="profileEdit_Icon">
                                         <Link to="/EditProfile"><span><MdEdit color="#707070" size={18} /></span><span className="profileEdit">Edit</span></Link>
@@ -70,7 +80,7 @@ const Profile = () => {
                                         <div className="profile_list_div" key={index}>
                                             <li className="profileListItems_cursor">
                                                 <span>{val.icons}</span>
-                                                <span className="profileListItems" style={{color:ProfileListSelected===val.id?"#31B665":""}} onClick={()=>handleProfileListAndRedirect(val.id)}>{val.item}</span>
+                                                <span className="profileListItems" style={{ color: ProfileListSelected === val.id ? "#31B665" : "" }} onClick={() => handleProfileListAndRedirect(val.id)}>{val.item}</span>
                                             </li>
                                             <hr />
                                         </div>

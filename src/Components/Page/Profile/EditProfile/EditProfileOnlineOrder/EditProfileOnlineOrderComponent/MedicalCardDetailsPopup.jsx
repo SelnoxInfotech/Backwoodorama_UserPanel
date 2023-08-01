@@ -8,7 +8,13 @@ import LoadingButton from "@mui/lab/LoadingButton"
 import useStyles from '../../../../../../Style';
 import IconButton from '@mui/material/IconButton';
 import { RiCloseCircleFill } from "react-icons/ri"
-const MedicalCardDetailsPopup = () => {
+import { useForm, Controller } from "react-hook-form";
+import Cookies from 'universal-cookie';
+import Axios from 'axios';
+const MedicalCardDetailsPopup = ({ Profile, Api, SetApi }) => {
+    const cookies = new Cookies();
+    const token_data = cookies.get('Token_access')
+    const { register, handleSubmit, errors, control, reset ,setError} = useForm();
     const [Open, SetOpen] = React.useState(false)
     const handleClick = () => {
         SetOpen(true)
@@ -17,6 +23,41 @@ const MedicalCardDetailsPopup = () => {
         SetOpen(false)
     }
     const classes = useStyles()
+
+
+    const onSubmit = (data) => {
+
+
+        Axios.post(`https://sweede.app/UserPanel/Update-UpdateUserProfile/`,
+        {
+            MedicalCardExpire:data.MedicalCardExpire,
+            MedicalCardNumber:data.MedicalCardNumber,
+            MedicalCardState:data.MedicalCardState
+
+        },
+            {
+                headers: {
+                    'Authorization': `Bearer ${token_data}`
+                }
+                ,
+            
+            }
+
+        )
+            .then((res) => {
+                reset()
+                SetOpen(false);
+                SetApi(!Api)
+            })
+            .catch((error) => {
+                console.log(error.response.data.error.email[0])
+                setError("Email", {
+                    type: "manual",
+                    message:error.response.data.error.email[0],
+                  })
+            })
+    }
+
     return (
         <div>
             <Button className={`${classes.EditProfileBtn_Color}`} onClick={handleClick} startIcon={<AiFillPlusCircle color='#707070' size={20} />}>
@@ -34,7 +75,7 @@ const MedicalCardDetailsPopup = () => {
                         </div>
 
                     </div>
-                    <form>
+                    <form  onSubmit={handleSubmit(onSubmit)}>
                         <div className='row'>
                             <div className='col-12 MedicalCard_label_div'>
                                 <label htmlFor='medical card number'>Medical Card Number*</label>
@@ -42,8 +83,17 @@ const MedicalCardDetailsPopup = () => {
                             <div className='col-12 medicalCard_col_height mt-2'>
                                 <TextField type='number'
                                  id='medical card number'
+                                 name='MedicalCardNumber'
+                                 placeholder={Profile.MedicalCardNumber}
                                  className={`${classes.FilledTextFieldStyle}`}
-                                  fullWidth variant='filled' />
+                                  fullWidth variant='filled'
+                                  inputRef={register({
+                                    required: "Medical Card Number is required*.",
+
+                                })}
+                                error={Boolean(errors?.MedicalCardNumber)}
+                                helperText={errors.MedicalCardNumber?.message}
+                                  />
                             </div>
 
                         </div>
@@ -55,7 +105,17 @@ const MedicalCardDetailsPopup = () => {
                                 <TextField type="date" 
                                 id="ExpiryDates" fullWidth 
                                 variant='filled'
+                                defaultValue={Profile.MedicalCardExpire}
+                                placeholder={Profile.MedicalCardExpire}
+                                name="MedicalCardExpire"
                                 className={`${classes.FilledTextFieldStyle}`}
+                             
+                                inputRef={register({
+                                    required: "Medical Card Expire is required*.",
+
+                                })}
+                                error={Boolean(errors?.MedicalCardExpire)}
+                                helperText={errors.MedicalCardExpire?.message}
                                  />
 
                             </div>
@@ -68,15 +128,23 @@ const MedicalCardDetailsPopup = () => {
                             <div className='col-12 medicalCard_col_height mt-2'>
                                 <TextField type="text"
                                  id="MedicalCardState" 
+                                 name="MedicalCardState"
                                  fullWidth variant='filled'
+                                 placeholder={Profile.MedicalCardState}
                                  className={`${classes.FilledTextFieldStyle}`}
+                                 inputRef={register({
+                                    required: "Medical Card State is required*.",
+
+                                })}
+                                error={Boolean(errors?.MedicalCardState)}
+                                helperText={errors.MedicalCardState?.message}
                                   />
 
                             </div>
 
                         </div>
                         <Box className={` mt-4 ${classes.editEmail_loadingBtn}`}>
-                            <LoadingButton onClick={handleClose}>Save</LoadingButton>
+                            <LoadingButton type='submit'>Save</LoadingButton>
                         </Box>
                         <Box className={`mt-5 ${classes.editEmail_loadingBtn_cancel}`}>
                             <LoadingButton onClick={handleClose}>Cancel</LoadingButton>

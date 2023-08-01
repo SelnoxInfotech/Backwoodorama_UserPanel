@@ -12,25 +12,27 @@ import SliderLink from "./Component/SideSlider/SilderLink"
 import Createcontext from "../../../Hooks/Context"
 import Cookies from 'universal-cookie';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import CurrentLocation from './Component/CurrentLocation';
 import Badge from '@mui/material/Badge';
 import Box from '@mui/material/Box';
 import LoadingButton from '@mui/lab/LoadingButton';
-import  IconButton from '@mui/material/IconButton';
+import IconButton from '@mui/material/IconButton';
 import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
   const cookies = new Cookies();
   const ref = React.useRef(null);
-  const profileRef=React.useRef(null)
+  const profileRef = React.useRef(null)
   const { state, dispatch } = React.useContext(Createcontext)
   const [windowSize, setWindowSize] = React.useState()
   const [Hamburger, SetHamburger] = React.useState(window.innerWidth >= 900)
   const classes = useStyles()
   const [Open, SetOpen] = React.useState(false)
   const [DropDownState, SetDropDownState] = React.useState(null);
-  const [ProfileSlectedState,SetProfileSelectedState]=React.useState(1)
-  const ProfileList = [{id:1, item: "My Order" }, {id:2, item: "Favorites" },
-  {id:3, item: "Review" }, {id:4, item: "Help" }]
+  const [ProfileSlectedState, SetProfileSelectedState] = React.useState(1)
+  const ProfileList = [{ id: 1, item: "My Order" }, { id: 2, item: "Favorites" },
+  { id: 3, item: "Review" }, { id: 4, item: "Help" }]
+
+
+
   React.useEffect(() => {
 
     const handleResize = () => {
@@ -72,6 +74,7 @@ const Navbar = () => {
       document.removeEventListener('click', handleClickOutside, true);
     };
   }, [Open, windowSize]);
+
   React.useEffect(() => {
     const handleClickOutsideprofile = (event) => {
       if (profileRef.current && !profileRef.current.contains(event.target)) {
@@ -91,18 +94,23 @@ const Navbar = () => {
       return !DropDownState;
     })
   }
-  const navigate=useNavigate()
-  const Redirect=(items,listId)=>{
+  const navigate = useNavigate()
+  const Redirect = (items, listId) => {
     SetProfileSelectedState(listId)
-    if(items==="My Order"){
+    if (items === "My Order") {
       navigate("/MyOrder")
+      SetDropDownState((DropDownState) => {
+        return !DropDownState;
+      })
     }
 
   }
-  const ViewProfiles=()=>{
+  const ViewProfiles = () => {
     navigate("/Profile")
+    SetDropDownState((DropDownState) => {
+      return !DropDownState;
+    })
   }
-
   return (
     <>
       <div ref={ref} className='sticky-top' style={{ background: "white", padding: "10px" }}>
@@ -131,16 +139,16 @@ const Navbar = () => {
           <Grid xs={10} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }} >
             <div className=' col-12 Login_Sigup_button  Heder_icon ' style={{ justifyContent: "end", marginLeft: "-20px" }}>
               <Badge badgeContent={4} className={classes.sliderLink_badge}>
-              <IconButton className={classes.navBarButton_icons} aria-label='whishlist'><AiFillHeart  color="#858585" size={22}/></IconButton>
+                <IconButton className={classes.navBarButton_icons} aria-label='whishlist'><AiFillHeart color="#858585" size={22} /></IconButton>
               </Badge>
               <Badge badgeContent={4} className={classes.sliderLink_badge}>
 
-                <IconButton className={classes.navBarButton_icons}  aria-label='notification'><IoIosNotifications color="#858585" size={22}></IoIosNotifications></IconButton>
+                <IconButton className={classes.navBarButton_icons} aria-label='notification'><IoIosNotifications color="#858585" size={22}></IoIosNotifications></IconButton>
               </Badge>
               <Link to="/AddToCart">
                 <Badge className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`} badgeContent={state.AllProduct?.length > 0 ? state.AllProduct?.length : "0"}>
 
-                 <IconButton  className={classes.navBarButton_icons} aria-label='shopping-cart'><MdOutlineShoppingCart color="#858585" size={22}></MdOutlineShoppingCart></IconButton>
+                  <IconButton className={classes.navBarButton_icons} aria-label='shopping-cart'><MdOutlineShoppingCart color="#858585" size={22}></MdOutlineShoppingCart></IconButton>
                 </Badge>
               </Link>
             </div>
@@ -151,21 +159,35 @@ const Navbar = () => {
                 ?
 
                 <div className=' col-12 Login_Sigup_button '>
-                
+
                   <div className='col-lg-4 col-sm-4 navbarProfileDropDown_container' ref={profileRef}>
                     <Grid display={{ xs: "none", md: "block", lg: "block" }}>
                       <div className='Navbar_profile_logo_container'>
-                        <LazyLoadImage onClick={handleClickDropdown} src='./image/user.webp' className="Navbar_logo_imgs" />
+                        <LazyLoadImage
+                          onError={event => {
+                            event.target.src = "./image/user.webp"
+                            event.onerror = null
+                          }}
+                          src={`https://sweede.app/${state.Profile.image}`}
+                          alt=''
+                          className="Navbar_logo_imgs"
+                          onClick={handleClickDropdown}
+                        />
                       </div>
                     </Grid>
                     {DropDownState && (
                       <div className='profileDropdown_container'>
                         <section className='Navbar_proflie_image_name_section'>
                           <div className='profile_image_container'>
-                            <LazyLoadImage src='./image/user.webp' className="Navbar_profile_imgs" />
+                            <LazyLoadImage onError={event => {
+                              event.target.src = "./image/user.webp"
+                              event.onerror = null
+                            }}
+                              src={`https://sweede.app/${state.Profile.image}`}
+                              alt='' className="Navbar_profile_imgs" />
                           </div>
                           <div className='profile_name_container'>
-                            <h1 className='profile_names'>Maxwell</h1>
+                            <h1 className='profile_names'>{state.Profile.username}</h1>
                             <p className='profile_viewAll' onClick={ViewProfiles}>View Profile</p>
                           </div>
 
@@ -176,7 +198,7 @@ const Navbar = () => {
                             {ProfileList.map((value, index) => {
                               return (
                                 <div key={index}>
-                                  <li className='profile_list' style={{color:ProfileSlectedState===value.id?"#31B665":""}} onClick={()=>{Redirect(value.item,value.id)}}>{value.item}</li>
+                                  <li className='profile_list' style={{ color: ProfileSlectedState === value.id ? "#31B665" : "" }} onClick={() => { Redirect(value.item, value.id) }}>{value.item}</li>
                                   <hr />
                                 </div>
                               )

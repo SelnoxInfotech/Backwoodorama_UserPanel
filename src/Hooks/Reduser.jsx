@@ -70,7 +70,11 @@ const reducer = (state, action) => {
             {
               return { ...state, CookiesAnalytical: action.CookiesAnalytical }
             }
-      
+            case "Profile":
+              {
+                return { ...state, Profile: action.Profile }
+              }
+        
 
 
     default: return state

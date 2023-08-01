@@ -17,7 +17,7 @@ const CheckOutMainPage = () => {
     const [ShowData, SetShowData] = React.useState(false)
     const [ShowDeliveryInformation, SetShowDeliveryInformation] = React.useState(false)
     const [DeliveryOptionData, SetDeliveryOptionData] = React.useState([])
-    const [ShowPlaceOrder, SetShowPlaceOrder] = React.useState(false)
+    // const [ShowPlaceOrder, SetShowPlaceOrder] = React.useState(false)
     const location = useLocation();
     const { InputValues, abc } = location?.state
     const [image, setImage] = React.useState()
