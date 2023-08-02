@@ -714,7 +714,7 @@
 
 
   .prod_inner_cont {
-    height: 296px !important;
+    height: 308px !important;
   }
 
   .prod_cat_img img {
@@ -798,10 +798,15 @@
 
 }
 
+
+.product_inner_rowspan{
+  justify-content: end;
+  display: flex !important;
+}
 /* end*/
 /* AddProduct */
 .add_product_main_cont {
-  display: flex;
+  display: flex ;
   height: auto;
 }
 

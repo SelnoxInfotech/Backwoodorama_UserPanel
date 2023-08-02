@@ -9,9 +9,10 @@ import Createcontext from "../../../../Hooks/Context"
 import Axios from 'axios';
 export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
   const classes = useStyles()
-  const { state ,dispatch } = React.useContext(Createcontext)
-  const [Address, SetAddress] = React.useState(state.DeliveryAddress)
-  const [error, Seterror] = React.useState('')
+  const { state, dispatch } = React.useContext(Createcontext)
+  const [Address, SetAddress] = React.useState('')
+  console.log(state.DeliveryAddress)
+  const [error, Seterror] = React.useState()
   const { ref } = usePlacesWidget({
     apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
     onPlaceSelected: (place) => {
@@ -22,10 +23,11 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
             var component = place.address_components[i];
             if (component.types.indexOf('postal_code') !== -1 || component.types.indexOf('street_number') !== -1) {
 
-              CheckPostal(component.long_name, place.name)
+              CheckPostal(component.long_name, place.formatted_address)
               break;
             }
             else {
+              dispatch({ type: 'DeliveryAddress', DeliveryAddress: place.formatted_address })
               Seterror("not Street Address")
             }
 
@@ -77,6 +79,12 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
     },
   });
 
+  // React.useState(()=>{
+  //   SetAddress(() => {
+  //     return state.DeliveryAddress;
+  //   })
+  // },[])
+  console.log(Address, state.DeliveryAddress)
   // const commentEnterSubmit = (e) => {
   //   if (e.key === "Enter" && e.shiftKey === false) {
   //     Seterror("fhhfkjhkjf")
@@ -97,17 +105,22 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
           dispatch({ type: 'DeliveryAddress', DeliveryAddress: '' })
         }
         else {
+          SetAddress(name)
           dispatch({ type: 'DeliveryAddress', DeliveryAddress: name })
           Seterror(response.data)
         }
       })
+  }
+  function handlechnage(e) {
+    console.log(e)
+    SetAddress(e.target.value)
   }
   return (
 
 
     <>
       <TextField
-        onChange={(e) => SetAddress(e.target.value)}
+        onChange={handlechnage}
         value={Address}
         className={classes.textFieldFocusBorderColor}
         inputRef={ref}

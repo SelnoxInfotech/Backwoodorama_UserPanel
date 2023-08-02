@@ -10,6 +10,9 @@ import axios from "axios";
 import Cookies from 'universal-cookie';
 import Createcontext from "../../../Hooks/Context"
 import AddToCartPopUp from "./AddToCartPopUp/AddToCartPopUp"
+import { AiOutlineHeart } from "react-icons/ai"
+import { AiFillHeart } from "react-icons/ai"
+import IconButton from '@mui/material/IconButton';
 const ProductList = ({ arr }) => {
     const navigation = useNavigate()
     const cookies = new Cookies();
@@ -80,8 +83,8 @@ const ProductList = ({ arr }) => {
                 ProductName: Event.Product_Name,
                 StoreCurbsidePickup: Event.StoreCurbsidePickup,
                 StoreDelivery: Event.StoreDelivery,
-                StorePickup:Event.StorePickup,
-                StoreAddress:Event.StoreAddress
+                StorePickup: Event.StorePickup,
+                StoreAddress: Event.StoreAddress
 
 
 
@@ -114,7 +117,7 @@ const ProductList = ({ arr }) => {
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
             }
             // dispatch({ type: 'Cart_subTotal' })
-        } 
+        }
     }
     React.useEffect(() => {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
@@ -129,15 +132,24 @@ const ProductList = ({ arr }) => {
     const classes = useStyles()
     return (
         <>
-            <div className="row mx-2" style={{ height: "auto",marginBottom:"100px" }}>
+            <div className="row mx-2" style={{ height: "auto", marginBottom: "100px" }}>
                 {arr?.map((ele, index) => {
                     return (
                         <div className="col-12 col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12  prod_inner_cont " key={index}>
                             <div className="row product_inner_row">
+
+                                    <spna className="product_inner_rowspan">
+                                    <IconButton aria-label="Example">
+                                                {
+                                                    false ? <AiFillHeart></AiFillHeart> : <AiOutlineHeart />
+                                                }
+
+                                            </IconButton>
+                                    </spna>
                                 <div className="col-4 prod_cat_cont" >
-                                    <Link    to={"/ProductDetail"} state={ ele.id }>
-                                        <div  className="col-12 p-2 prod_cat_img">
-                                            <img  src={`https://sweede.app/${ele?.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }} />
+                                    <Link to={"/ProductDetail"} state={ele.id}>
+                                        <div className="col-12 p-2 prod_cat_img">
+                                            <img src={`https://sweede.app/${ele?.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }} />
                                             <div className="col prod_img_btn prodCat_gap d-flex">
                                                 <button className="mx-2 cat_prod_inner_btn btn2">THC 70%</button>
                                             </div>
@@ -221,7 +233,7 @@ const ProductList = ({ arr }) => {
                     )
                 })}
 
-            </div>  
+            </div>
             <PreCheckout />
         </>
     )

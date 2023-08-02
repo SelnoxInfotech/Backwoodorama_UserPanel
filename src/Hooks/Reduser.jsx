@@ -58,23 +58,23 @@ const reducer = (state, action) => {
       {
         return { ...state, DeliveryAddress: action.DeliveryAddress }
       }
-      case "selectDeliveryoptions":
-        {
-          return { ...state, selectDeliveryoptions: action.selectDeliveryoptions }
-        }
-        case "CookiesMarketing":
-          {
-            return { ...state, CookiesMarketing: action.CookiesMarketing }
-          }
-          case "CookiesAnalytical":
-            {
-              return { ...state, CookiesAnalytical: action.CookiesAnalytical }
-            }
-            case "Profile":
-              {
-                return { ...state, Profile: action.Profile }
-              }
-        
+    case "selectDeliveryoptions":
+      {
+        return { ...state, selectDeliveryoptions: action.selectDeliveryoptions }
+      }
+    case "CookiesMarketing":
+      {
+        return { ...state, CookiesMarketing: action.CookiesMarketing }
+      }
+    case "CookiesAnalytical":
+      {
+        return { ...state, CookiesAnalytical: action.CookiesAnalytical }
+      }
+    case "Profile":
+      {
+        return { ...state, Profile: action.Profile }
+      }
+
 
 
     default: return state

@@ -10,7 +10,6 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import {IoShareSocialSharp} from "react-icons/io5"
 import { Rating } from '@mui/material';
 import useStyles from '../../../../../Style';
-import Axios from "axios"
 const NewProductSearchResult = ({NewProductSearchRseultArray,heading}) => {
     const classes = useStyles()
 
@@ -61,7 +60,8 @@ const NewProductSearchResult = ({NewProductSearchRseultArray,heading}) => {
                                                     event.target.src = "/image/blankImage.jpg"
                                                     event.onerror = null
                                                 }}
-                                                src={items.imgUrl}
+                                                src={`https://sweede.app/${items?.images[0]?.image}`}
+                                                // src={items.imgUrl}
                                                 height={"100px"}
                                             />
 

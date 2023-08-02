@@ -66,22 +66,17 @@ export default function Dispansires() {
                                 <div className="d-flex" key={index}>
                                     <span className="dispensories_name">{ele.name}</span><span className="dispensories_city">{ele.city}</span>
                                 </div>
-
-
                             )
                         })}
-
                     </div>
-                    <div className="col-12 col-lg-10 col-md-10 col-sm-12  dispensory_menu my-2">
+                    <div className="col-12 col-lg-10 col-md-10 col-sm-12 dispensory_menu my-2">
                         <Box className={`dispensories_tabss ${classes.dispensory_tab_background}`} sx={{ width: '100%' }}>
                             <Box className={classes.open_dispensory_tab} sx={{ borderBottom: 1, borderColor: 'divider'}}>
                                 <Tabs scrollButtons={false} variant="scrollable"  value={value} onChange={handleChange} aria-label="basic tabs example" >
-
                                     <Tab label="Open" {...a11yProps(0)} />
                                     <Tab label="Storefronts" {...a11yProps(1)} />
                                     <Tab label="delivery" {...a11yProps(2)} />
                                     <Tab label="Order online" {...a11yProps(3)} />
-                              
                                 </Tabs>
                             </Box>
                             <Box sx={{"& .MuiBox-root":{paddingLeft:"0px",paddingRight:"0px",paddingTop:"20px"}}}>

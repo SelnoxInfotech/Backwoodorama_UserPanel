@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import useStyles from "../../../../Style";
 import { AiOutlineHeart } from "react-icons/ai"
 import { AiFillHeart } from "react-icons/ai"
+import IconButton from '@mui/material/IconButton';
 import ProductIncDecQuantity from "./ProductIncDecQuantity"
 import PreCheckout from "../PreCheckout/PreCheckout";
 import axios from "axios";
@@ -13,7 +14,6 @@ import Cookies from 'universal-cookie';
 import Createcontext from "../../../../Hooks/Context"
 import _ from "lodash";
 import AddToCartPopUp from "../AddToCartPopUp/AddToCartPopUp";
-import IconButton from '@mui/material/IconButton';
 import { Link } from "react-router-dom";
 const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
     const { state, dispatch } = React.useContext(Createcontext)
