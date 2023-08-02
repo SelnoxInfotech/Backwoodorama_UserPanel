@@ -6,7 +6,7 @@ import { Paper } from '@mui/material';
 export default function Variants() {
   const VariantArrayList = [1, 2, 3, 4, 5, 6]
   return (
-    <div className='CategorySkeletons'>
+    <div className='CategorySkeletons mt-4'>
       <Paper  sx={{ width: "100%", height: "244px", paddingTop: "35px" }}>
 
         <Grid container rowGap={2} columnSpacing={2} sx={{ height: "auto" }}>
