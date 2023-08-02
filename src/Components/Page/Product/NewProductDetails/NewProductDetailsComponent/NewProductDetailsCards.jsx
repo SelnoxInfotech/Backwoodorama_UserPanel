@@ -135,7 +135,7 @@ const NewProductDetailsCards = ({ Product }) => {
                     <div className="col-12 mt-2 text-end">
                         <IconButton><BsFillHeartFill color="grey" size={20} /></IconButton>
                     </div>
-                    <div className="col-lg-4">
+                    <div className="col-lg-4 newProductDetailsCardLeftCol">
                         <div className="row">
                             <div className="col-12 newProductDetailsUpperimage_container">
                                 <LazyLoadImage className="newProductDetails_upper_image" src={`https://sweede.app/` + p} />
