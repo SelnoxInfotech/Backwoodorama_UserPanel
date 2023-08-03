@@ -790,7 +790,7 @@
 
 
 .product_inner_rowspan{
-  justify-content: end;
+  justify-content: flex-end;
   display: flex !important;
 }
 /* end*/
