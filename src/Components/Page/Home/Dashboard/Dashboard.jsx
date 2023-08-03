@@ -51,6 +51,10 @@ export default function Dashboard() {
         .catch((error)=>{
         })
     }, [])
+    React.useEffect(()=>{
+        window.scrollTo(0, 0)
+    },[])
+
 
     const StrainTypeCardArray = [
         { imgUrl: "/image/indica.png", head1: "Indica", },

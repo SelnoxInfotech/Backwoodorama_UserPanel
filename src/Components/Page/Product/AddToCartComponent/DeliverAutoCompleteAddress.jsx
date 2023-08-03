@@ -11,28 +11,29 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
   const classes = useStyles()
   const { state, dispatch } = React.useContext(Createcontext)
   const [Address, SetAddress] = React.useState('')
-  console.log(state.DeliveryAddress)
+
   const [error, Seterror] = React.useState()
   const { ref } = usePlacesWidget({
     apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
     onPlaceSelected: (place) => {
-      console.log(place)
       if (place.address_components) {
         try {
           for (var i = 0; i < place?.address_components.length; i++) {
             var component = place.address_components[i];
             if (component.types.indexOf('postal_code') !== -1 || component.types.indexOf('street_number') !== -1) {
-
               CheckPostal(component.long_name, place.formatted_address)
+              SetAddress(place.formatted_address)
               break;
             }
             else {
               dispatch({ type: 'DeliveryAddress', DeliveryAddress: place.formatted_address })
               Seterror("not Street Address")
+              SetAddress(place.formatted_address)
             }
 
           }
         } catch (error) {
+      
           Seterror("not Street Address")
         }
       }
@@ -79,18 +80,7 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
     },
   });
 
-  // React.useState(()=>{
-  //   SetAddress(() => {
-  //     return state.DeliveryAddress;
-  //   })
-  // },[])
-  console.log(Address, state.DeliveryAddress)
-  // const commentEnterSubmit = (e) => {
-  //   if (e.key === "Enter" && e.shiftKey === false) {
-  //     Seterror("fhhfkjhkjf")
 
-  //   }
-  // }
 
   function CheckPostal(data, name) {
     Axios.post(`https://sweede.app/UserPanel/Get-GetDeliveryCheck/`,
@@ -101,23 +91,23 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
 
       .then(response => {
         if (response.data === "Not Found") {
+          SetAddress(name)
           Seterror('Not A street Address')
           dispatch({ type: 'DeliveryAddress', DeliveryAddress: '' })
         }
         else {
-          SetAddress(name)
+          SetAddress((name)=>{
+            return name
+          })
           dispatch({ type: 'DeliveryAddress', DeliveryAddress: name })
           Seterror(response.data)
         }
       })
   }
   function handlechnage(e) {
-    console.log(e)
     SetAddress(e.target.value)
   }
   return (
-
-
     <>
       <TextField
         onChange={handlechnage}

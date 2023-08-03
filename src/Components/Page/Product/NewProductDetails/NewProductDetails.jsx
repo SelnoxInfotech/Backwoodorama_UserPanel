@@ -64,12 +64,6 @@ const NewProductDetails = () => {
 
 
   }, [id])
-  console.log(Product.Store_id)
-
-
-
-
-
   return (
     <div className="container-fluid">
       {/* <CategoryProduct ShowCategoryProduct={ShowCategoryProduct} Category={Category} /> */}

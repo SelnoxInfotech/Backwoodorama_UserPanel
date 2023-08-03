@@ -26,13 +26,13 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
     const ShowAgainDeliverInformation = () => {
         SetShowRestDeliveryInformation(true)
     }
-    const handleDateChange = (event) => {
-        // setSelectedDate(date);
-        console.log(event.target.value)
-        // SetDetails({
-        //     ...Details, [event.target.name]: event.target.value
-        // });
-    };
+    // const handleDateChange = (event) => {
+    //     // setSelectedDate(date);
+    //     console.log(event.target.value)
+    //     // SetDetails({
+    //     //     ...Details, [event.target.name]: event.target.value
+    //     // });
+    // };
     function SelectImage(event) {
         if (event.target.files && event.target.files[0]) {
             setImage(URL.createObjectURL(event.target.files[0]));

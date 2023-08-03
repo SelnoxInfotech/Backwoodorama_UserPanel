@@ -20,6 +20,10 @@ const Signup = () => {
         navigate("/SignupWithEmail", { state: { State } })
     }
 
+    React.useEffect(()=>{
+        window.scrollTo(0, 0)
+    },[])
+
     return (
         <>
             <div className="container signup_margins_top signup_margins_bottom">

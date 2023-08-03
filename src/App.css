@@ -1057,3 +1057,33 @@ overflow-x: hidden; */
 .like {
   width: 100%;
 }
+
+
+
+/* WhishList */
+.WhisListTop{
+  align-items: center;
+    display: flex;
+    justify-content: center;
+    color: rgb(255, 88, 93);
+}
+.TypographyWishList{
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.003125rem;
+  line-height: 1.75rem;
+}
+.TypographyWishList1{
+  padding: 0px;
+  font-size: 14px;
+  letter-spacing: 0.003125rem;
+  line-height: 1.25rem;
+}
+.TypographyWishList2{
+  gap: 10px;
+  display: flex;
+  margin: 0px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+/* end */

@@ -28,7 +28,8 @@ const initialUser = {
     CookiesAnalytical: 1,
     DeliveryAddress: "",
     selectDeliveryoptions: "",
-    Profile:[]
+    Profile:[],
+    WishList:[]
 }
 
 function Context(props) {

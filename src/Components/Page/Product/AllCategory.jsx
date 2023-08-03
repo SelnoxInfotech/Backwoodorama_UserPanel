@@ -2,7 +2,6 @@ import React from "react";
 import CategoryProduct from "../Home/Dashboard/ComponentDashboard/CategoryProduct"
 import { useLocation , useNavigate } from "react-router-dom";
 import  Axios  from "axios";
-import NewProductCategorySlider from "./NewProductCategorySlider";
 import AllProductCategory from "./AllProductCategory";
 const AllCategory = () => {
     const navigate = useNavigate();

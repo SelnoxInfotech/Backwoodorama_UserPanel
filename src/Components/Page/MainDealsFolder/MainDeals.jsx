@@ -44,12 +44,12 @@ const MainDeals=()=>{
     ]
     const bestDealsHeading="Near by offers"
     const PromoCardArray = [
-        { imgUrl: "./image/Leafly March Promo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
-        { imgUrl: "./image/Leafly Promo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
-        { imgUrl: "./image/social.png", head1: "25% off all products", sub_head: "claims deals & percent" },
-        { imgUrl: "./image/Leafly March Promo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
-        { imgUrl: "./image/Leafly Promo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
-        { imgUrl: "./image/Leafly Promo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
+        { imgUrl: "/image/Leafly March Promo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
+        { imgUrl: "/image/Leafly Promo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
+        { imgUrl: "/image/social.png", head1: "25% off all products", sub_head: "claims deals & percent" },
+        { imgUrl: "/image/Leafly March Promo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
+        { imgUrl: "/image/Leafly Promo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
+        { imgUrl: "/image/Leafly Promo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
     ]
     const promoCodeHeading="Promo code use"
     return(

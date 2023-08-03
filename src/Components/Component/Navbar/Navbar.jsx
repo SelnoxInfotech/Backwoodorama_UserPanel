@@ -2,7 +2,7 @@ import * as React from 'react';
 import Grid from '@mui/system/Unstable_Grid';
 import SideNavbar from "../Navbar/Component/SideSlider/Slider"
 import Button from '@mui/material/Button';
-import useStyles from "../../../Style"
+  import useStyles from "../../../Style"
 import SearchBar from "./Component/SearchBar"
 import { AiFillHeart } from "react-icons/ai"
 import { IoIosNotifications } from "react-icons/io"
