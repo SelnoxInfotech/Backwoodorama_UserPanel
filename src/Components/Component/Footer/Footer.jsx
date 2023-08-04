@@ -22,10 +22,10 @@ const Footer = () => {
         })
     }, [])
 
-    const AboutUs = [{ head: "About Us" }, { head: "company" }, { head: "Investor" }, { head: "Help Center" }, { head: "Download App" }]
+    const AboutUs = [{ head: "About Us" }, { head: "Company" }, { head: "Investor" }, { head: "Help Center" }, { head: "Download App" }]
     const Category = [{ head: "Flower" }, { head: "CBD" }, { head: "Concentrate" }, { head: "Edible" }]
-    const Legal = [{ head: "Term & conditions" }, { head: "Carrier" }, { head: "Privacy Policy" }]
-    const More = [{ head: "Get started" }, { head: "Brand" }, { head: "Add business" }, { head: "Contact us" }]
+    // const Legal = [{ head: "Term & Conditions" }, { head: "Carrier" }, { head: "Privacy Policy" }]
+    const More = [{ head: "Get Started" }, { head: "Brand" }, { head: "Add Business" }, { head: "Contact Us" }]
     const BottomMenuBar = [{ item: "Term & Condition" }, { item: "Careers" }, { item: "Privacy Policy" }]
 
     // function Redirect(title) {
