@@ -29,9 +29,9 @@ const AddPhotoId = ({ image, Api, SetApi }) => {
 
 
     const handleImage = (event) => {
-        const file = event.target.files[0];
+        const file = event?.target?.files[0];
         // console.log(file.size)
-        if (file.size <  76429) {
+        if (file?.size <  10240) {
 
             Setimage(event.target.files[0]);
             setSelectedImage(URL.createObjectURL(event.target.files[0]))
@@ -44,7 +44,7 @@ const AddPhotoId = ({ image, Api, SetApi }) => {
     }
     const Submit = () => {
         const formdata = new FormData();
-        formdata.append('image', image1);
+        formdata.append('PhotoId', image1);
         Axios.post(`https://sweede.app/UserPanel/Update-UpdateUserProfile/`,
             formdata,
             {
@@ -118,11 +118,7 @@ const AddPhotoId = ({ image, Api, SetApi }) => {
                                                 hidden
                                                 id="Add photo"
                                                 name="myImage"
-                                                onChange={(event) => {
-                                                    // Setimage(event.target.files[0]);
-                                                    // setSelectedImage(URL.createObjectURL(event.target.files[0])
-                                                    handleImage(event)
-                                                }}
+                                                onChange={(event) => { handleImage(event)}}
                                             />
                                         </label>
                                     </div>

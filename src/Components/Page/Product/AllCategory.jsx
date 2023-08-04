@@ -39,6 +39,12 @@ const  [ Loading  , SetLoading] = React.useState(true)
         fetchData()
 
     }, [])
+
+   React.useEffect(()=>{
+window.scroll(0,0)
+   },[])
+
+
     return (
         <div>
             <CategoryProduct Category={category} ShowCategoryProduct={ShowCategoryProduct}></CategoryProduct>

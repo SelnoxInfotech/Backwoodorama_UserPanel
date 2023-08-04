@@ -28,11 +28,7 @@ const VerifyBrands = () => {
                     return (
                         <div className="col-xl-6 col-md-12 col-12 verify_brand_container" key={index}>
                             <div className="row verifyBrand_row mx-1 my-3">
-                                <div className="col-12 text-end my-2">
-                                     <IconButton>
-                                    <AiFillHeart className={classes.muiIcons} />
-                                    </IconButton>
-                                </div>
+                           
                                 <Link  to={`/RelatedVerifyBrand/${items.id}`}> 
                                 <div className="col-6  verifyBrand_image_container ">
                                   <LazyLoadImage className="verify_brand_image"  src={`https://sweede.app/${items.Brand_Logo}`}  alt="image not found" />

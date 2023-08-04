@@ -77,7 +77,7 @@ const EditProfileOnlineOrder = ({Profile,Api,SetApi}) => {
                         </div>
                         <div className="col-6 EditProfilOnlineEdit_icons_flelds">
                             <div className='EditProfileOnline_name'>
-                                <AddPhotoId  image={Profile.image} Api={Api} SetApi={SetApi}/>
+                                <AddPhotoId  image={Profile.PhotoId} Api={Api} SetApi={SetApi}/>
 
                             </div>
                         </div>

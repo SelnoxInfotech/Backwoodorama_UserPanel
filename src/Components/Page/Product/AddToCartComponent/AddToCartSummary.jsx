@@ -155,7 +155,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
 
                     >
                         <LoadingButton style={{ backgroundColor: "#00b96a", color: "white" }} variant="outlined" id='pickup_btn' onClick={ChnageDeliveryAddress}>
-                            Chnage Address
+                            Change Address
 
                         </LoadingButton>
                     </Box>
@@ -247,7 +247,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
 
                 </div>
                 <div className="col-6 AddProd_cart_center_btn">
-                    {(OpenDelivery || OpenPickup) &&
+                    {location.pathname === "/AddToCart" ? (OpenDelivery || OpenPickup) &&
                         <Box
                             className={` add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
 
@@ -263,7 +263,23 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
                                 type='submit'
                             >Checkout</LoadingButton>
 
-                        </Box>
+                        </Box> : <Box
+                            className={` add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
+
+                        >
+
+                        <LoadingButton variant="outlined"
+                            loading={CheckOut_Loading}
+                            onClick={(e) => {
+                                CheckoutProcess(e)
+
+                            }}
+
+                            type='submit'
+                        >Checkout</LoadingButton>
+
+                    </Box>
+
                     }
 
                 </div>

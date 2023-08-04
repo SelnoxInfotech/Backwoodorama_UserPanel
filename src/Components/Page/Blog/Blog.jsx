@@ -27,6 +27,9 @@ const Blogs = () => {
         getApi()
 
     }, [])
+    React.useEffect(()=>{
+window.scroll(0,0)
+    },[])
 
     const classes = useStyles()
     return (

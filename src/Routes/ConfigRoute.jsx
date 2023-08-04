@@ -176,7 +176,7 @@ const routesConfig = [
           },
           {
             path:"/Profile",
-            element:<Profile/>
+            element:<ProtectRout Component={Profile}></ProtectRout>
           },
           {
             path:"/EditProfile",

@@ -13,10 +13,14 @@ import { Link } from "react-router-dom";
 import Cookies from 'universal-cookie';
 import Createcontext from "../../../Hooks/Context";
 import { useNavigate } from "react-router-dom";
+import Axios from 'axios';
 const Profile = () => {
     const classes = useStyles()
     const { state, dispatch } = React.useContext(Createcontext)
     const cookies = new Cookies();
+    const token_data = cookies.get("Token_access")
+    const [selectedImage, setSelectedImage] = React.useState(null);
+    const [Error, SetError] = React.useState('')
     const Navigate = useNavigate()
     const [ProfileListSelected, SetProfileListSelected] = React.useState(1)
     const ProfileList = [{ id: 1, icons: <MdOutlineShoppingBasket color="#707070" size={22} />, item: "Order" },
@@ -32,6 +36,48 @@ const Profile = () => {
     const handleProfileListAndRedirect = (listIds) => {
         SetProfileListSelected(listIds)
     }
+    const handleImage = (event) => {
+        const file = event.target.files[0];
+        // console.log(file.size)
+        if (file.size < 10240) {
+            setSelectedImage(URL.createObjectURL(event.target.files[0]))
+            SetError('')
+            Submit(event.target.files[0])
+        }
+        else {
+            SetError('File size large')
+        }
+
+    }
+
+    React.useEffect(() => {
+        window.scroll(0, 0)
+    }, [])
+    const Submit = (w) => {
+        const formdata = new FormData();
+        formdata.append('image', w);
+        Axios.post(`https://sweede.app/UserPanel/Update-UpdateUserProfile/`,
+            formdata,
+            {
+                headers: {
+                    'Authorization': `Bearer ${token_data}`
+                }
+                ,
+            }
+        )
+            .then((res) => {
+                dispatch({ type: 'Profile', Profile: res.data.data            })
+            })
+            .catch((error) => {
+                // console.log(error.response.data.error.username[0])
+                // setError("Username", {
+                //     type: "manual",
+                //     message: error.response.data.error.username[0],
+                // })
+            })
+    }
+
+
     return (
         <div className="container">
             <div className="row mx-2">
@@ -41,24 +87,30 @@ const Profile = () => {
                             <div className="col-12  px-0 d-flex">
                                 <section className="profile_image_section">
                                     <div className="profile_image ">
-                                        <LazyLoadImage
-                                            onError={event => {
-                                                event.target.src = "./image/user.webp"
-                                                event.onerror = null
-                                            }}
-                                            src={`https://sweede.app/${state.Profile.image}`}
-                                            alt=''
-                                            className="profile_images"
-                                        />
+                                    {
+                                            selectedImage !== null ? <LazyLoadImage src={selectedImage} alt=''    className="profile_images" />
+                                                :
+                                                <LazyLoadImage
+                                                    onError={event => {
+                                                        event.target.src = "./image/user.webp"
+                                                        event.onerror = null
+                                                    }}
+                                                    src={`https://sweede.app/${state.Profile.image}`}
+                                                    // src={image}
+                                                    alt=''
+                                                    className="profile_images"
+                                                />
+                                        }
                                     </div>
-                                    
-                                        <div className="w-100 profileInput_container">
+
+                                    <div className="w-100 profileInput_container">
                                         <label for="profile image" className="change_profile_container_padding">
-                                            <input type="file" hidden id="profile image" />
+                                            <input onChange={(event) => { handleImage(event) }} type="file" hidden id="profile image" />
                                             <AiFillCamera color="#707070" size={22} /><span className="nameChangeProfile">Change profile</span>
+                                            {Error !== '' && <p style={{color:"red",fontSize: 'x-small'}}>{Error}</p>}
                                         </label>
-                                    </div>                                   
-                                  
+                                    </div>
+
                                 </section>
                                 <section className="profile_edit_text">
                                     <div className="ProfileName_container">

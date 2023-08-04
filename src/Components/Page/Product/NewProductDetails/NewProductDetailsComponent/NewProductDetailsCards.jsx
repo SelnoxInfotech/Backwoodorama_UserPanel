@@ -133,7 +133,7 @@ const NewProductDetailsCards = ({ Product }) => {
             <div className="col-lg-10 col-sm-10 col-12 newProductDetailsContainer mt-4">
                 <div className="row">
                     <div className="col-12 mt-2 text-end">
-                        <IconButton><BsFillHeartFill color="grey" size={20} /></IconButton>
+                        {/* <IconButton><BsFillHeartFill color="grey" size={20} /></IconButton> */}
                     </div>
                     <div className="col-lg-4 newProductDetailsCardLeftCol">
                         <div className="row">
