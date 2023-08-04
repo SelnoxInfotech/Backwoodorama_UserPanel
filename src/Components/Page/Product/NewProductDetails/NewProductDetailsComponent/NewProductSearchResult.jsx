@@ -11,49 +11,30 @@ import { IoShareSocialSharp } from "react-icons/io5"
 import useStyles from '../../../../../Style';
 import { WhisList } from '../../../../Component/Whishlist/WhisList';
 import Createcontext from "../../../../../Hooks/Context"
-import { WishListPost, WishListget } from "../../../../Component/Whishlist/WishListApi_"
+import { WishListPost} from "../../../../Component/Whishlist/WishListApi_"
 const NewProductSearchResult = ({ NewProductSearchRseultArray, heading }) => {
     const classes = useStyles()
     const [Whishlist, SetWishList] = React.useState(false)
     const { state, dispatch } = React.useContext(Createcontext)
-    const [WhisProduct, SetWhisProduct] = React.useState([])
 
     const handleWhishList = (id) => {
-        console.log(id)
         if (state.login === false) {
-
             SetWishList(!Whishlist)
         }
         else {
-            WishListPost(id).then((res) => {
-                api()
+            WishListPost(id).then(async (res) => {
+                if (res.data.data === 'Remove From WishList') {
+                    dispatch({ type: 'WishList', WishList: { ...state.WishList, [id]: !state.WishList[id] } })
+                }
+                else {
+                    dispatch({ type: 'WishList', WishList: { ...state.WishList, [id]: true } })
+                }
             }).catch((err) => { });
-            const api = () => {
-                WishListget().then((res) => {
-                    console.log(res.data[0].product)
-                    const g = state.WishList
-                    const h = res.data[0].product
-                    g.push(h)
-                    console.log(g)
-                    dispatch({ type: 'WishList', WishList: g })
-                }).catch((err) => { });
-            }
         }
     }
-    console.log(state.WishList)
-    const handleWhishListRemove = (e) => {
-        console.log(state.WishList)
-        // const secondRemoved = state.WishList.filter((data) => data !== e);
-        // console.log(secondRemoved)
-        // dispatch({ type: 'WishList', WishList: secondRemoved })
-
-    }
-    console.log(state.WishList)
     const ref = React.useRef(null);
     return (
 
-        // <div className='container-fluid'>
-        //     <div className='row '>
         <React.Fragment>
             <div className='col-lg-12 col-12 newProductDetailsHeading mx-0 px-0'>
                 <p className='newProductDetailsParagraph'>{heading}</p>
@@ -61,16 +42,16 @@ const NewProductSearchResult = ({ NewProductSearchRseultArray, heading }) => {
             <div className="col-lg-12 col-12   recentViewProductSlider" id="width" ref={ref}>
                 <ScrollContainer className=" newProductSearchResult_ScrollContainerRelative">
                     {NewProductSearchRseultArray?.map((items, index) => {
-                        console.log(state.WishList[items.id])
+
                         return (
                             <div className=" col-xxl-3  col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-4  productSearch_result_container" key={index}>
                                 <div className="row productsearch_result_inner_container mx-1">
 
                                     <div className="col-12  productSearchResultImage_container px-0">
                                         <div className="col-12 product_whish_list text-end">
-                                            {state.WishList[index] === items.id ?
+                                            {state.WishList[items.id] ?
                                                 <Box className={classes.productSearchIcons}>
-                                                    <IconButton onClick={() => { handleWhishListRemove(items.id) }} aria-label="Example">
+                                                    <IconButton onClick={() => { handleWhishList(items.id) }} aria-label="Example">
 
                                                         <AiFillHeart></AiFillHeart>
 

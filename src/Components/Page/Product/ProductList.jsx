@@ -13,12 +13,15 @@ import AddToCartPopUp from "./AddToCartPopUp/AddToCartPopUp"
 import { AiOutlineHeart } from "react-icons/ai"
 import { AiFillHeart } from "react-icons/ai"
 import IconButton from '@mui/material/IconButton';
+import { WishListPost } from "../../Component/Whishlist/WishListApi_"
+import {WhisList} from "../../Component/Whishlist/WhisList"
 const ProductList = ({ arr }) => {
     const navigation = useNavigate()
     const cookies = new Cookies();
     const [CartClean, SetCartClean] = React.useState(false)
     const token_data = cookies.get('Token_access')
     const { state, dispatch } = React.useContext(Createcontext)
+    const [Whishlist, SetWishList] = React.useState(false)
     const [Price, SetPrice] = React.useState([])
     const [AddTOCard, SetAddToCard] = React.useState(() => {
         const saved = localStorage.getItem("items");
@@ -130,6 +133,25 @@ const ProductList = ({ arr }) => {
         SetPrice(Price => [...Price, { Product_id: Product, Item_id: Item }]);
     }
     const classes = useStyles()
+
+    const handleWhishList = (id) => {
+        if (state.login === false) {
+            SetWishList(!Whishlist)
+        }
+        else {
+            WishListPost(id).then(async (res) => {
+                if (res.data.data === 'Remove From WishList') {
+                    dispatch({ type: 'WishList', WishList: { ...state.WishList, [id]: !state.WishList[id] } })
+                }
+                else {
+                    dispatch({ type: 'WishList', WishList: { ...state.WishList, [id]: true } })
+                }
+            }).catch((err) => { });
+        }
+    }
+
+
+
     return (
         <>
             <div className="row mx-2" style={{ height: "auto", marginBottom: "100px" }}>
@@ -139,9 +161,9 @@ const ProductList = ({ arr }) => {
                             <div className="row product_inner_row">
 
                                     <spna className="product_inner_rowspan">
-                                    <IconButton aria-label="Example">
+                                    <IconButton  onClick={() => { handleWhishList(ele.id) }} aria-label="Example">
                                                 {
-                                                    false ? <AiFillHeart></AiFillHeart> : <AiOutlineHeart />
+                                                   state.WishList[ele.id]? <AiFillHeart></AiFillHeart> : <AiOutlineHeart />
                                                 }
 
                                             </IconButton>
@@ -234,6 +256,7 @@ const ProductList = ({ arr }) => {
                 })}
 
             </div>
+            {Whishlist && <WhisList open1={Whishlist} SetWishList={SetWishList}></WhisList>}
             <PreCheckout />
         </>
     )

@@ -56,10 +56,10 @@ const Navbar = () => {
   function closeNav() {
     SetOpen(false)
   }
-  function Logout() {
-    cookies.remove('Token_access')
-    dispatch({ type: 'Login', login: false })
-    dispatch({ type: 'ApiProduct' })
+ async function Logout () {
+  await  cookies.remove('Token_access')
+  await dispatch({ type: 'Login', login: false })
+  await  dispatch({ type: 'ApiProduct' })
   }
   React.useEffect(() => {
     const handleClickOutside = (event) => {

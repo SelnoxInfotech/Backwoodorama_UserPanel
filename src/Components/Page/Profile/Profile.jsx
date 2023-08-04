@@ -51,21 +51,21 @@ const Profile = () => {
                                             className="profile_images"
                                         />
                                     </div>
-                                    {/* 
+                                    
                                         <div className="w-100 profileInput_container">
                                         <label for="profile image" className="change_profile_container_padding">
                                             <input type="file" hidden id="profile image" />
                                             <AiFillCamera color="#707070" size={22} /><span className="nameChangeProfile">Change profile</span>
                                         </label>
                                     </div>                                   
-                                   */}
+                                  
                                 </section>
                                 <section className="profile_edit_text">
                                     <div className="ProfileName_container">
                                         <h1 className="profile_user_name">{state.Profile.username}</h1>
                                     </div>
                                     <div className="profileEdit_Icon">
-                                        <Link to="/EditProfile"><span><MdEdit color="#707070" size={18} /></span><span className="profileEdit">Edit</span></Link>
+                                        <Link to="/EditProfile"><span><MdEdit color="#707070" size={18} /></span><span className="profileEdit">Edit User Profile</span></Link>
                                     </div>
                                 </section>
                             </div>

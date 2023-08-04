@@ -15,6 +15,8 @@ import Createcontext from "../../../../Hooks/Context"
 import _ from "lodash";
 import AddToCartPopUp from "../AddToCartPopUp/AddToCartPopUp";
 import { Link } from "react-router-dom";
+import { WishListPost } from "../../../Component/Whishlist/WishListApi_"
+import {WhisList} from "../../../Component/Whishlist/WhisList"
 const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
     const { state, dispatch } = React.useContext(Createcontext)
     const classes = useStyles()
@@ -22,6 +24,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
     const token_data = cookies.get('Token_access')
     const [CartClean, SetCartClean] = React.useState(false)
     const [NewData, SetNewData] = React.useState([])
+    const [Whishlist, SetWishList] = React.useState(false)
     const [AddTOCard, SetAddToCard] = React.useState(() => {
         const saved = localStorage.getItem("items");
         const initialValue = JSON.parse(saved);
@@ -88,8 +91,8 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
                 ProductName: Event.Product_Name,
                 StoreCurbsidePickup: Event.StoreCurbsidePickup,
                 StoreDelivery: Event.StoreDelivery,
-                StorePickup:Event.StorePickup,
-                StoreAddress:Event.StoreAddress
+                StorePickup: Event.StorePickup,
+                StoreAddress: Event.StoreAddress
 
 
             }
@@ -131,34 +134,46 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
         localStorage.setItem('items', JSON.stringify(AddTOCard))
     }, [AddTOCard])
+
+    const handleWhishList = (id) => {
+        if (state.login === false) {
+            SetWishList(!Whishlist)
+        }
+        else {
+            WishListPost(id).then(async (res) => {
+                if (res.data.data === 'Remove From WishList') {
+                    dispatch({ type: 'WishList', WishList: { ...state.WishList, [id]: !state.WishList[id] } })
+                }
+                else {
+                    dispatch({ type: 'WishList', WishList: { ...state.WishList, [id]: true } })
+                }
+            }).catch((err) => { });
+        }
+    }
+
     return (
         <>
             <div className="row mx-0 marginProductSearchResult">
                 <div className="col-12 mt-4 productSlider_headings fontStyle">
                     <h1>{CategoryName}</h1>
                 </div>
-
                 {RelatedProductResult.map((items, index) => {
-
                     return (
                         <div className=" col-xxl-3  col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-4 px-0 productSearch_result_container" key={index}>
                             <div className="row productsearch_result_inner_container mx-1">
-
                                 <div className="col-12  productSearchResultImage_container">
                                     <div className="col-12 product_whish_list text-end">
+
                                         <Box className={classes.productSearchIcons}>
-                                            <IconButton aria-label="Example">
+                                            <IconButton onClick={() => { handleWhishList(items.id) }} aria-label="Example">
                                                 {
-                                                    false ? <AiFillHeart></AiFillHeart> : <AiOutlineHeart />
+                                                    state.WishList[items.id] ? <AiFillHeart></AiFillHeart> : <AiOutlineHeart />
                                                 }
-
                                             </IconButton>
-
                                         </Box>
                                     </div>
                                     <Link to={`/NewProductDetails/${items.id}`}>
                                         <LazyLoadImage
-
                                             className="product_search_result_image"
                                             onError={event => {
                                                 event.target.src = "/image/blankImage.jpg"
@@ -209,7 +224,6 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
                                                 {
                                                     CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />
                                                 }
-
                                             </Box>
                                         </div>
                                     </div>
@@ -223,6 +237,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
                     )
                 })}
             </div>
+            {Whishlist && <WhisList open1={Whishlist} SetWishList={SetWishList}></WhisList>}
             <PreCheckout />
         </>
     )

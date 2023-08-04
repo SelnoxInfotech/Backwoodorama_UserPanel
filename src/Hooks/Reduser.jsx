@@ -78,6 +78,7 @@ const reducer = (state, action) => {
         {
           return { ...state, WishList: action.WishList }
         }
+     
   
   
 

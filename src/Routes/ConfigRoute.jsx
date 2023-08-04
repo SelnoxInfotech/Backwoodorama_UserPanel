@@ -64,7 +64,7 @@ const routesConfig = [
           {
             path: "/",
             element: <Dashboard />,
-          },
+          }, 
          
           {
             path: "/SignupWithEmail",

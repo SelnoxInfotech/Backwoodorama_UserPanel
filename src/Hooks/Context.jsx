@@ -5,6 +5,7 @@ import axios from 'axios';
 import CurrentLocation from '../Components/Component/Navbar/Component/CurrentLocation';
 import CheckAgeEligbilityPopup from '../Components/Page/CheckAgeEligblityPopup/CheckAgeEligbilityPopup';
 import CookiesAccept from '../Components/Component/CookiesAccept/CookiesAccept';
+import { WishListget } from '../Components/Component/Whishlist/WishListApi_';
 const Createcontext = createContext();
 const cookies = new Cookies();
 const login = cookies.get("Token_access")
@@ -28,8 +29,8 @@ const initialUser = {
     CookiesAnalytical: 1,
     DeliveryAddress: "",
     selectDeliveryoptions: "",
-    Profile:[],
-    WishList:[]
+    Profile: [],
+    WishList: [],
 }
 
 function Context(props) {
@@ -70,17 +71,26 @@ function Context(props) {
                     return error
                 })
 
-                axios.get(`https://sweede.app/UserPanel/Get-GetUserProfile/`,
-                {headers: { Authorization: `Bearer ${logi}` }}
+            axios.get(`https://sweede.app/UserPanel/Get-GetUserProfile/`,
+                { headers: { Authorization: `Bearer ${logi}` } }
             )
                 .then((res) => {
-        
-                    dispatch({ type: 'Profile', Profile:res.data })
+
+                    dispatch({ type: 'Profile', Profile: res.data })
                 })
                 .catch((error) => {
                     console.error(error)
                 })
-    
+            WishListget().then((res) => {
+                let object = {};
+                res.data.map((data) => {
+                    const l = data.product
+                    object[l] = true
+                })
+                dispatch({ type: 'WishList', WishList: object })
+
+
+            }).catch((err) => { });
 
 
 
@@ -108,6 +118,9 @@ function Context(props) {
                 dispatch({ type: 'Cart_subTotal', Cart_subTotal: AllTotal })
             }
         }
+
+
+
     }, [state.ApiProduct])
     return (
 
