@@ -14,7 +14,6 @@ const WhisListCard = () => {
     const [GetApiData,SetGetApiData]=React.useState([])
     React.useEffect(()=>{
         WishListget().then((val)=>{
-            console.log(val)
             SetGetApiData(val.data)
         }).catch((error)=>{
             console.log(error)

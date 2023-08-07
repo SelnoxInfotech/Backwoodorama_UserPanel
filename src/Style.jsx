@@ -1098,7 +1098,6 @@ const useStyles = makeStyles({
       display: "flex",
       justifyContent: "center",
       height: "30px",
-      borderRadius: "5px",
       color: "#31B665",
       backgroundColor: "#FFFFFF",
       border: "1px solid #31B665",
