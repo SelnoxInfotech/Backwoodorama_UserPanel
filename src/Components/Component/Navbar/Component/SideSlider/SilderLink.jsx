@@ -52,9 +52,12 @@ export default function DashBoardLink({ state }) {
           </Grid>
           <Grid xs={6} md={2} xl={1} spacing={2} display={{ xs: "none", md: "block", lg: "block" }} >
             <div className=' col-12  addyocardIcon  '>
+              <Link to="/Whislists">
+             
               <Badge badgeContent={Object.values(state.WishList).reduce((a, item) => a + item, 0)} className={classes.sliderLink_badge}>
                 <IconButton className={classes.navBarButton_icons} aria-label="whislist"><AiFillHeart color="#858585" size={22}></AiFillHeart></IconButton>
               </Badge>
+              </Link>
               <Badge badgeContent={4} className={classes.sliderLink_badge}>
               <IconButton className={classes.navBarButton_icons}  aria-label="notification"> <IoIosNotifications color="#858585" size={23}></IoIosNotifications></IconButton>
               </Badge>

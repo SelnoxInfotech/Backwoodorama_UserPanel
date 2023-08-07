@@ -1,7 +1,14 @@
 * {
   box-sizing: border-box;
 }
-
+.multine-ellipsis {
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
 .fontWeight_Seven_Hundred {
   font-weight: 700;
 }
@@ -7717,3 +7724,97 @@
 
 /* end */
 /* no repeat line in css */
+/* whislist */
+.whislistLOginBtnCol{
+  display: flex;
+  gap: 15px;
+}
+/* end */
+/* whislists */
+.whislistBackBtn_Container{
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+.backprofileBtnname{
+  color: #000000;
+  font-size: 20px;
+}
+.productsCount{
+  color: #000000;
+  font-size: 20px;
+}
+.productsCountNumber{
+  margin-left: 15px;
+  font-size: 20px;
+  color: #000000;
+
+}
+.productsCount{
+  margin-left: 38px;
+  font-weight: 700;
+}
+.productsCount_container{
+  padding-left: 20px;
+}
+/* end */
+/* whislistCard */
+.whislistCard_Container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.whislistCard{
+  border: 1px solid #31B665;
+  border-radius: 10px;
+}
+.whislistImgCenter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border-bottom: 1px solid #707070; */
+}
+.whislist_innerImgContainer{
+  width: 50%;
+}
+.whislist_imageStyle{
+  width: 100%;
+  height: 120px;
+}
+.whislistCard_Content_Container{
+  height: 270px;
+  padding: 10px;
+}
+.roductWhislist_nameCol{
+  height: 60px;
+}
+.whislist_iconsContainer{
+  display: flex;
+  justify-content: flex-end;
+}
+.spaceIcons_content_Container{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.whislistProductName{
+  color: #282625;
+  font-weight: 700;
+  font-size: 18px;
+}
+.whislistAddress{
+  color: #949494;
+  font-size: 14px;
+}
+.whislistBtnCol{
+  margin: 20px 0px;
+}
+.WhishListCard_paddingLeft{
+  padding-left: 20px;
+}
+@media(min-width:1200px){
+  .col_xl_width{
+    width: 22% !important;
+  }
+}
+/* end */

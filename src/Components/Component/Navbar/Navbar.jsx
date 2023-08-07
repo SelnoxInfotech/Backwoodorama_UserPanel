@@ -138,9 +138,12 @@ const Navbar = () => {
           </Grid>
           <Grid xs={10} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }} >
             <div className=' col-12 Login_Sigup_button  Heder_icon ' style={{ justifyContent: "end", marginLeft: "-20px" }}>
-              <Badge badgeContent={4} className={classes.sliderLink_badge}>
+              <Link to="/WhisLists">
+             
+              <Badge badgeContent={Object.values(state.WishList).reduce((a, item) => a + item, 0)} className={classes.sliderLink_badge}>
                 <IconButton className={classes.navBarButton_icons} aria-label='whishlist'><AiFillHeart color="#858585" size={22} /></IconButton>
               </Badge>
+              </Link>
               <Badge badgeContent={4} className={classes.sliderLink_badge}>
 
                 <IconButton className={classes.navBarButton_icons} aria-label='notification'><IoIosNotifications color="#858585" size={22}></IoIosNotifications></IconButton>

@@ -26,6 +26,29 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '&, .MuiDialog-container ': {
         // maxWidth: '413px' // 100% is for full height or anything else what you need
     },
+    "& .MuiDialog-container": {
+        "& .MuiPaper-root": {
+          width: "50%",
+          height: "auto",  // Set your width here
+          borderRadius: "20px",
+          background: "#FFFFFF",
+          padding:"10px"
+        },
+      },
+      "@media(max-width:800px)": {
+        "& .MuiDialog-container": {
+          "& .MuiPaper-root": {
+            minWidth: "70%",
+          },
+        },
+      },
+      "@media(max-width:500px)": {
+        "& .MuiDialog-container": {
+          "& .MuiPaper-root": {
+            minWidth: "90%",
+          },
+        },
+      }
 }));
 
 function BootstrapDialogTitle(props) {
@@ -83,7 +106,7 @@ export function WhisList({ open1, SetWishList }) {
                         <AiFillHeart size={50}></AiFillHeart>
                     </div>
                 </BootstrapDialogTitle>
-                <div style={{ width: "413px" }}>
+                <div>
                     <DialogContent >
                         <Typography gutterBottom>
                             <p className='TypographyWishList'>  Save your favorites in one place</p>
@@ -110,17 +133,15 @@ export function WhisList({ open1, SetWishList }) {
                                 <span> Get notified when saved items are back in stock</span>
                             </p>
                         </Typography>
-
-
-
+                        
                     </DialogContent>
                 </div>
                 <DialogActions>
-                   <div className='col-12 center' >
-                   <Grid display={{ xs: "none", md: "block", lg: "block", }} >
+                   <div className='col-12 center whislistLOginBtnCol' >
+                   <Grid>
                       <NavLink to="/Login" >   <Button className={classes.muiBtn} >Login</Button></NavLink>
                     </Grid>
-                    <Grid display={{ xs: "none", md: "block", lg: "block" }}>
+                    <Grid>
                       <NavLink to="/Signup" >    <Button   onClick={handleClose} sx={{ boxShadow: 3 }} className={classes.muiBtn_Signup} >Signup</Button></NavLink>
                     </Grid>
                     

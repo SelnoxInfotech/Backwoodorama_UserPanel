@@ -1087,7 +1087,29 @@ const useStyles = makeStyles({
     "& .MuiOutlinedInput-root .Mui-focused": {
       borderColor: "#31B665"
     }
-  }
+  },
+ whishlistBtn: {
+    "& .MuiButton-text": {
+      fontSize: ".6rem",
+    },
+    "& .MuiLoadingButton-root": {
+      textTransform: "none",
+      width: "50%",
+      display: "flex",
+      justifyContent: "center",
+      height: "30px",
+      borderRadius: "5px",
+      color: "#31B665",
+      backgroundColor: "#FFFFFF",
+      border: "1px solid #31B665",
+      borderRadius:"20px"
+
+    },
+    "& .MuiButtonBase-root:hover": {
+      backgroundColor: "#FFFFFF",
+      border: "1px solid #31B665"
+    }
+  },
 });
 
 export default useStyles
