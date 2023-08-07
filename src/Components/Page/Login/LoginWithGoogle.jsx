@@ -26,19 +26,14 @@ function LoginWithGoogle() {
        await axios.post("https://sweede.app/UserPanel/GoogleView/ ", {
             token: codeResponse.access_token
         }).then(response => {
-            if (location.pathname === "/CheckOutMainPage") {
-                if (state.AllProduct.length === 0) {
-                    Navigate("/Product")
-                }
-            }
-            else {
+        
                 let date = new Date();
                 date.setTime(date.getTime() + (60 * 60 * 8000))
                 cookies.set('Token_access', response.data.access_token, { expires: date })
                 dispatch({ type: 'Login', login: true })
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
                 Navigate(-1)
-            }
+            
         }).catch(
             function (error) {
                 alert(error.response.data.message)

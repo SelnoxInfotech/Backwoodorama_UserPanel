@@ -109,7 +109,7 @@ const routesConfig = [
           },
           {
             path:"/CheckOutMainPage",
-            element:  <ProtectRout Component={CheckOutMainPage}></ProtectRout> 
+            element:  <ProtectRout Component={CheckOutMainPage}  path="/CheckOutMainPage"></ProtectRout> 
           },
 
           {

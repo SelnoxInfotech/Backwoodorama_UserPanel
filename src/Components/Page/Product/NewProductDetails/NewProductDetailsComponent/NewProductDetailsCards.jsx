@@ -206,7 +206,7 @@ const NewProductDetailsCards = ({ Product }) => {
 
                         <div className="col-12 newProductDetails_heading">
 
-                            <h1>{Product.Product_Name}</h1>
+                            <h1>{Product?.Product_Name}</h1>
 
 
                         </div>

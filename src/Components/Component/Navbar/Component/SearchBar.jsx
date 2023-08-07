@@ -2,7 +2,7 @@ import TextField from '@mui/material/TextField';
 import useStyles from "../../../../Style"
 import InputAdornment from '@material-ui/core/InputAdornment';
 import { BsSearch } from "react-icons/bs"
-import { IoLocationSharp } from "react-icons/io5"
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import AutoComplete from '@mui/material/Autocomplete';
 import Axios from "axios"
 import React from 'react';
@@ -40,7 +40,8 @@ const SearchBar = () => {
                 y.map((data1) => {
                     return (
                         data1[1].map((data) => {
-                            return SetSearchData(SearchData => [...SearchData, { type: data1[0], value: data.name || data.Product_Name || data.Store_Name, id: data.id, image: data?.Brand_Logo || data?.categoryImages || data?.Store_Image || data?.SubCategoryImage }]);
+                            console.log(data?.images[0]?.image)
+                            return SetSearchData(SearchData => [...SearchData, { type: data1[0], value: data.name || data.Product_Name || data.Store_Name, id: data.id, image: data?.Brand_Logo || data?.categoryImages || data?.Store_Image || data?.SubCategoryImage || data?.images[0]?.image}]);
 
                         }
 
@@ -127,6 +128,7 @@ const SearchBar = () => {
             <div className="col_Search">
                 <div className={` nav_search_bar_div center`} style={{ display: (openLocation && SearchBarWidth) && "block" }}>
                     <AutoComplete
+                
                         freeSolo
                         id="free-solo-2-demo"
                         disableClearable
@@ -152,7 +154,14 @@ const SearchBar = () => {
                                     <ul className='PopperLIst'>
                                         <div>
                                             <li onClick={((e) => SearchAPi(t.id, t.type,))} key={t.value}>
-                                                <img src={`https://sweede.app/${t.image}`} style={{ width: "50px", height: "50px" }} alt=''></img>
+
+                                                <LazyLoadImage
+                                                        onError={event => {
+                                                            event.target.src = "/image/blankImage.jpg"
+                                                            event.onerror = null
+                                                        }}
+                                                        style={{ width: "50px", height: "50px" }} alt='' src={`https://sweede.app/${t.image}`} />
+
                                                 <span> {`${t.value}`}</span>
                                             </li>
                                         </div>

@@ -54,6 +54,7 @@ function Context(props) {
         dispatch({ type: 'CookiesMarketing', CookiesMarketing: cookies.get("Marketing") })
         dispatch({ type: 'CookiesAnalytical', CookiesAnalytical: cookies.get("Analytical") })
         dispatch({ type: 'LoadingApi', LoadingApi: true })
+        
         if (Boolean(logi)) {
             axios.get("https://sweede.app/UserPanel/Get-Addtocart/", {
                 headers: { Authorization: `Bearer ${logi}` }

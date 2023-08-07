@@ -9,68 +9,35 @@ import Axios from 'axios';
 import Cookies from 'universal-cookie';
 import Createcontext from "../../../../Hooks/Context"
 import { LoadingButton } from '@mui/lab';
-import { cssNumber } from 'jquery';
+import { Link,useNavigate } from 'react-router-dom';
 const AddToCartReview = () => {
     const { state, dispatch } = React.useContext(Createcontext)
+    const navigate =  useNavigate()
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
     const [Loadingmines, SetLoadingmines] = React.useState(false)
-    const [LoadingPlue, SetLoadingPluse] = React.useState( false)
-    const [CartId, SetCartid] = React.useState()
-    const [LoadingDelete , SetLoadingDelete] =  React.useState(false) 
-    React.useEffect(() => {
-        post()
-    }, [])
+    const [LoadingPlue, SetLoadingPluse] = React.useState(false)
+    const [LoadingDelete, SetLoadingDelete] = React.useState(false)
 
 
-  async  function  post() {
-        if (state.login) {
-        //   await  axios.get("https://sweede.app/UserPanel/Get-Addtocart/", {
-        //         headers: { Authorization: `Bearer ${token_data}` }
-        //     }).then(response => {
-        //         SetLocalData(response.data)
-        //         // if (Total.length === 0) {
-        //         //     response.data?.map((data) => {
-        //         //         return (SetTotal(Total => [...Total, { Cart_id: data.id, Price: data.Price.SalePrice * data.Cart_Quantity, Cart_Quantity: data.Cart_Quantity, Amount: data.Price.SalePrice }]))
-        //         //     })
-
-
-        //         // }
-        //     }).catch(
-        //         function (error) {
-        //         })
-        }
-        else {
-            // SetLocalData(JSON.parse(localStorage.getItem("items")))
-            // if (Total.length === 0) {
-            //     const D = JSON.parse(localStorage.getItem("items"))
-            //     D?.map((data) => {
-            //         return (SetTotal(Total => [...Total, { Cart_id: data.Product_id, Price: data.Price.SalePrice * data.Cart_Quantity, Cart_Quantity: data.Cart_Quantity, Amount: data.Price.SalePrice }]))
-            //     })
-            // }
-
-        }
-    }
-
-
-   async function DeleteItem(Id, id) {
+    async function DeleteItem(Id, id) {
         if (state.login) {
             const config = {
                 headers: { Authorization: `Bearer ${token_data}` }
             };
-           await Axios.delete(`https://sweede.app/UserPanel/DeleteAddtoCart/${id}`,
+            await Axios.delete(`https://sweede.app/UserPanel/DeleteAddtoCart/${id}`,
                 config,
                 SetLoadingDelete(true)
             )
                 .then(async (res) => {
-                  await  dispatch({ type: 'ApiProduct', ApiProduct:!state.ApiProduct })
+                    await dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
                     SetLoadingDelete(false)
                 })
                 .catch((error) => {
                     console.error(error)
                     SetLoadingDelete(false)
                 })
-              
+
         }
         else {
             var obj = JSON.parse(localStorage.getItem("items"));
@@ -81,9 +48,9 @@ const AddToCartReview = () => {
                 }
             }
             localStorage.setItem("items", JSON.stringify(obj));
-    
+
         }
-        dispatch({ type: 'ApiProduct', ApiProduct:!state.ApiProduct })
+        dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
 
     }
 
@@ -103,15 +70,14 @@ const AddToCartReview = () => {
                 PriceId: Event.Price.id
 
             }
-          await  Axios.post(`https://sweede.app/UserPanel/Update-AddtoCart/${Id}`,
+            await Axios.post(`https://sweede.app/UserPanel/Update-AddtoCart/${Id}`,
                 Arry,
                 config,
                 SetLoadingPluse(true)
             )
                 .then((res) => {
-                    post()
                     SetLoadingPluse(false)
-                    dispatch({ type: 'ApiProduct', ApiProduct:!state.ApiProduct })
+                    dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
 
                 })
                 .catch((error) => {
@@ -133,18 +99,18 @@ const AddToCartReview = () => {
 
             })
             localStorage.setItem("items", JSON.stringify(s));
-   
+
         }
-        dispatch({ type: 'ApiProduct', ApiProduct:!state.ApiProduct })
+        dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
 
     }
-  async function decreaseQuantity(Id, Event) {
+    async function decreaseQuantity(Id, Event) {
         if (state.login || token_data) {
             const config = {
                 headers: { Authorization: `Bearer ${token_data}` }
             };
-          
-           await Axios.post(`https://sweede.app/UserPanel/Update-AddtoCart/${Id}`,
+
+            await Axios.post(`https://sweede.app/UserPanel/Update-AddtoCart/${Id}`,
                 {
                     Product_id: Event.Product_id,
                     Store_id: Event.Store_id,
@@ -155,17 +121,14 @@ const AddToCartReview = () => {
 
                 },
                 config,
-                
+
                 SetLoadingmines(true)
-                
+
             )
                 .then((res) => {
-               
-                    
-                        post()
-                        SetLoadingmines(false)
-                        dispatch({ type: 'ApiProduct', ApiProduct:!state.ApiProduct })
-                    
+                    SetLoadingmines(false)
+                    dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+
                 })
                 .catch((error) => {
                     console.error(error)
@@ -186,11 +149,16 @@ const AddToCartReview = () => {
 
             })
             localStorage.setItem("items", JSON.stringify(s));
- 
+
         }
 
-        dispatch({ type: 'ApiProduct', ApiProduct:!state.ApiProduct })
+        dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
     }
+      function Navigate (e){
+        navigate(`/NewProductDetails/${e}`)
+      }
+   
+console.log(state.AllProduct)
     return (
         <>
             <div className="col-12  AddProductCartContainerinner">
@@ -201,11 +169,19 @@ const AddToCartReview = () => {
                             <div className="col-12  Add_prod_item_image">
 
                                 <div className="col-1 Add_prod_item_image_cont">
-                                    <LazyLoadImage src={`https://sweede.app//${ele.Image}`} alt="imag not found" />
+                                    <Link to={`/NewProductDetails/${ele.Product_id}`}>
+                                 
+                                    <LazyLoadImage onError={event => {
+                                        event.target.src = "/image/blankImage.jpg"
+                                        event.onerror = null
+                                    }} src={`https://sweede.app//${ele.Image}`} alt="imag not found" />
+                                       </Link>
                                 </div>
                                 <div className="col-8 Add_prod_content_cont p-2">
                                     <div className="col-12 fontStyle  add_prod_para_font">
-                                        <h5>{ele.ProductName + "(" + ele.Price.Weight + ")"}</h5>
+                                 
+                                        <h5 onClick={()=>{Navigate(ele.Product_id)}}>{ele.ProductName + "(" + ele.Price.Weight + ")"}</h5>
+                                
 
                                     </div>
 
@@ -219,7 +195,7 @@ const AddToCartReview = () => {
                                     <div className='col-12'>
                                         <div className='AddToCartReviewBtn d-flex' >
                                             <div className='addToCart_btn'>
-                                                <LoadingButton loading={Loadingmines} style={{ width: "15px"}}  > {(Loadingmines || ele.Cart_Quantity )> 1 && <GrFormSubtract color='gray' onClick={() => { decreaseQuantity(ele.id, ele) }} />}</LoadingButton>
+                                                <LoadingButton loading={Loadingmines} style={{ width: "15px" }}  > {(Loadingmines || ele.Cart_Quantity) > 1 && <GrFormSubtract color='gray' onClick={() => { decreaseQuantity(ele.id, ele) }} />}</LoadingButton>
 
 
                                             </div>
@@ -228,7 +204,7 @@ const AddToCartReview = () => {
 
                                             </div>
                                             <div className='addToCart_btn'>
-                                                <LoadingButton loading={LoadingPlue} className="center" style={{ width: "15px" }} onClick={() => { Quantity(ele.id, ele.Cart_Quantity, ele) }} ><AiOutlinePlus color='gray'/></LoadingButton>
+                                                <LoadingButton loading={LoadingPlue} className="center" style={{ width: "15px" }} onClick={() => { Quantity(ele.id, ele.Cart_Quantity, ele) }} ><AiOutlinePlus color='gray' /></LoadingButton>
 
                                             </div>
 

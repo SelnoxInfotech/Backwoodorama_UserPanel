@@ -247,7 +247,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
 
                 </div>
                 <div className="col-6 AddProd_cart_center_btn">
-                    {location.pathname === "/AddToCart" ? (OpenDelivery || OpenPickup) &&
+                    {location.pathname === "/AddToCart"  ?(OpenDelivery || OpenPickup) &&
                         <Box
                             className={` add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
 

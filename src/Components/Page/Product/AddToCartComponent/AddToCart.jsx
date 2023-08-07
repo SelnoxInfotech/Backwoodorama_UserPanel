@@ -8,6 +8,10 @@ import EmptyCard from "../EmptyCard/EmptyCard"
 const AddToCart = () => {
     const { state } = React.useContext(Createcontext)
 
+
+    React.useEffect(()=>{
+        window.scroll(0,0)
+    })
     return (
 
         <div className="container">
