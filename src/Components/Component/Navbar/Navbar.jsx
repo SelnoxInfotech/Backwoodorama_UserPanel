@@ -2,7 +2,7 @@ import * as React from 'react';
 import Grid from '@mui/system/Unstable_Grid';
 import SideNavbar from "../Navbar/Component/SideSlider/Slider"
 import Button from '@mui/material/Button';
-  import useStyles from "../../../Style"
+import useStyles from "../../../Style"
 import SearchBar from "./Component/SearchBar"
 import { AiFillHeart } from "react-icons/ai"
 import { IoIosNotifications } from "react-icons/io"
@@ -26,7 +26,7 @@ const Navbar = () => {
   const [Hamburger, SetHamburger] = React.useState(window.innerWidth >= 900)
   const classes = useStyles()
   const [Open, SetOpen] = React.useState(false)
-  const [DropDownState, SetDropDownState] = React.useState(null);
+  const [DropDownState, SetDropDownState] = React.useState(false);
   const [ProfileSlectedState, SetProfileSelectedState] = React.useState(1)
   const ProfileList = [{ id: 1, item: "My Order" }, { id: 2, item: "Favorites" },
   { id: 3, item: "Review" }, { id: 4, item: "Help" }]
@@ -56,10 +56,10 @@ const Navbar = () => {
   function closeNav() {
     SetOpen(false)
   }
- async function Logout () {
-  await  cookies.remove('Token_access')
-  await dispatch({ type: 'Login', login: false })
-  await  dispatch({ type: 'ApiProduct' })
+  async function Logout() {
+    await cookies.remove('Token_access')
+    await dispatch({ type: 'Login', login: false })
+    await dispatch({ type: 'ApiProduct' })
   }
   React.useEffect(() => {
     const handleClickOutside = (event) => {

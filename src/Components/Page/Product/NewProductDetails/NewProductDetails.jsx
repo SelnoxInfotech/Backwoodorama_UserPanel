@@ -69,7 +69,7 @@ const NewProductDetails = () => {
       {/* <CategoryProduct ShowCategoryProduct={ShowCategoryProduct} Category={Category} /> */}
       <NewFlavourBanner delBtn={Despen}></NewFlavourBanner>
       <NewProductDetailsCards Product={Product} />
-      <NewProductDescription Product={Product.Product_Description} />
+      <NewProductDescription Product={Product?.Product_Description} />
       <NewProductAboutUs />
       <NewProductSearchResult NewProductSearchRseultArray={StoreProduct} heading={heading} />
       {/* <ProductSearchResult RelatedProductResult={RelatedProductResult1}/> */}

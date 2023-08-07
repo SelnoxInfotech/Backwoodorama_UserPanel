@@ -205,8 +205,8 @@ const ProductDetail = () => {
                     {
                         ProductDetails?.map((ele, index) => {
                             return (
-                                <>
-                                    <div className="col-3  add_product_img_continer" key={ele.id}>
+                                <React.Fragment key={index}>
+                                    <div className="col-3  add_product_img_continer" >
                                         <div className="col-12 add_prod_first_img">
                                             {Image ?
                                                 ele?.images.map((data, index) => {
@@ -295,7 +295,9 @@ const ProductDetail = () => {
                                                             if (Item?.length === 0) {
                                                                 if (Prices?.id === 1) {
                                                                     return (
-                                                                        < div key={index}> <p>Amount</p> <p className="add_prod_span1">${parseInt(Prices.SalePrice)}</p></div>
+                                                                        < div key={index}>
+                                                                             <p>Amount</p> <p className="add_prod_span1">${parseInt(Prices.SalePrice)}</p>
+                                                                             </div>
                                                                     )
                                                                 }
                                                             }
@@ -304,7 +306,9 @@ const ProductDetail = () => {
                                                                     Item?.map((Price, index) => {
                                                                         if (ele.id === Price?.Product_id && Prices.id === Price?.Item_id) {
                                                                             return (
-                                                                                < div key={index}> <p>Amount</p> <p className="add_prod_span1">${parseInt(Prices.SalePrice)}</p></div>
+                                                                                < div key={index}> 
+                                                                                <p>Amount</p> <p className="add_prod_span1">${parseInt(Prices.SalePrice)}</p>
+                                                                                </div>
                                                                             )
                                                                         }
                                                                         
@@ -360,7 +364,7 @@ const ProductDetail = () => {
 
                                     </div>
 
-                                </>
+                                </React.Fragment>
                             )
                         })
                     }
@@ -374,8 +378,7 @@ const ProductDetail = () => {
                             <div className="col-10 center product_des_para ">
 
 
-
-                                <p>{parse(ele.Product_Description)}</p>
+                            <span>{parse(ele.Product_Description)}</span>
 
 
 
@@ -407,14 +410,6 @@ const ProductDetail = () => {
 
                                     </div>
 
-                                    <div className="col-12 mt-4  product_des_para  p-2 ">
-
-                                        <p>
-                                            {/* {ele.res} */}
-
-                                        </p>
-
-                                    </div>
                                     <div className="col-12  add_prod_Help_Report_btn" >
                                         <div className="col-1  Add_prod_btn_div">
                                             <button className="add_prod_btn">Help</button>

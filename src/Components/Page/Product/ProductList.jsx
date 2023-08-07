@@ -160,14 +160,14 @@ const ProductList = ({ arr }) => {
                         <div className="col-12 col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12  prod_inner_cont " key={index}>
                             <div className="row product_inner_row">
 
-                                    <spna className="product_inner_rowspan">
+                                    <span className="product_inner_rowspan">
                                     <IconButton  onClick={() => { handleWhishList(ele.id) }} aria-label="Example">
                                                 {
                                                    state.WishList[ele.id]? <AiFillHeart></AiFillHeart> : <AiOutlineHeart />
                                                 }
 
                                             </IconButton>
-                                    </spna>
+                                    </span  >
                                 <div className="col-4 prod_cat_cont" >
                                     <Link to={"/ProductDetail"} state={ele.id}>
                                         <div className="col-12 p-2 prod_cat_img">
