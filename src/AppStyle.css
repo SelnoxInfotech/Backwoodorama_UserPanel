@@ -7780,6 +7780,7 @@
 .whislist_imageStyle{
   width: 100%;
   height: 120px;
+  cursor: pointer;
 }
 .whislistCard_Content_Container{
   height: 270px;
@@ -7787,6 +7788,7 @@
 }
 .roductWhislist_nameCol{
   height: 60px;
+  cursor: pointer;
 }
 .whislist_iconsContainer{
   display: flex;
