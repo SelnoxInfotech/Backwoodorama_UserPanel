@@ -14,6 +14,7 @@ import Createcontext from "../../../../../Hooks/Context"
 import { useNavigate } from "react-router-dom";
 import Cookies from 'universal-cookie'; 
 import AddToCartPopUp from "../../../../Page/Product/AddToCartPopUp/AddToCartPopUp";
+import _ from 'lodash';
 const cookies = new Cookies();
 const WhisListCard = () => {
     const { state, dispatch } = React.useContext(Createcontext)
@@ -29,6 +30,7 @@ const WhisListCard = () => {
         return initialValue || []
     })
     const [NewData, SetNewData] = React.useState([])
+const [Whishlist,SetWishList]=React.useState()
 
     React.useEffect(() => {
     if(state.login){

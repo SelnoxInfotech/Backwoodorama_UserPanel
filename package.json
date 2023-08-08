@@ -36,6 +36,7 @@
     "gsap": "^3.11.5",
     "html-react-parser": "^3.0.15",
     "jquery": "^3.7.0",
+    "lodash": "^4.17.21",
     "material-ui-phone-number": "^3.0.0",
     "material-ui-search-bar": "^1.0.0",
     "react": "^18.2.0",
