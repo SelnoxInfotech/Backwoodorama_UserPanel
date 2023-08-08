@@ -7739,6 +7739,7 @@
   align-items: center;
 }
 .backprofileBtnname{
+  cursor: pointer;
   color: #000000;
   font-size: 20px;
 }

@@ -167,7 +167,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
                                         <Box className={classes.productSearchIcons}>
                                             <IconButton onClick={() => { handleWhishList(items.id) }} aria-label="Example">
                                                 {
-                                                    state.WishList[items.id] ? <AiFillHeart></AiFillHeart> : <AiOutlineHeart />
+                                                 state.login ?   state.WishList[items.id] ? <AiFillHeart></AiFillHeart> : <AiOutlineHeart /> : <AiOutlineHeart />
                                                 }
                                             </IconButton>
                                         </Box>

@@ -54,7 +54,7 @@ export default function DashBoardLink({ state }) {
             <div className=' col-12  addyocardIcon  '>
               <Link to="/Whislists">
              
-              <Badge badgeContent={Object.values(state.WishList).reduce((a, item) => a + item, 0)} className={classes.sliderLink_badge}>
+              <Badge badgeContent={state.login ?Object.values(state.WishList).reduce((a, item) => a + item, 0) : 0} className={classes.sliderLink_badge}>
                 <IconButton className={classes.navBarButton_icons} aria-label="whislist"><AiFillHeart color="#858585" size={22}></AiFillHeart></IconButton>
               </Badge>
               </Link>

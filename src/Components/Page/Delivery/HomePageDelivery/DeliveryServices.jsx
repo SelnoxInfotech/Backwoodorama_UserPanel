@@ -8,9 +8,9 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Createcontext from "../../../../Hooks/Context"
 import DeliverServiceSkeleton from '../../../Component/Skeleton/DeliveryServicesSkeleton';
-import Grid from '@mui/material/Grid';
  const DeliveryServices = () => {
     const [DeliveryService, SetDeliveryService] = useState([])
+    const [Arrry, SetArry] = useState([])
     const { state } = React.useContext(Createcontext)
     const classes = useStyles()
     const [Skeleton, SetSkeleton] = React.useState(true)
@@ -21,17 +21,38 @@ import Grid from '@mui/material/Grid';
         ).then((response) => {
             SetDeliveryService(response.data)
             SetSkeleton(false)
+            // console.log(response.data)
+            // const k = response.data.map((data) => {
+            //     // console.log(data.Store_Name)
+            //     // const k = Arrry.map((data1) => {
+            //     // return  { [data.Store_Name]: data.Store_Name }
+            //     if(Arrry.length !==0){
+
+            //         const newData = Arrry.map(item => { 
+            //             return {...item,  [data.Store_Name]: data.Store_Name}
+            //         });
+            //         console.log(newData)
+            //         SetArry(newData);
+            //     }
+            //     else {
+            //         SetArry({...Arrry,  [data.Store_Name]: data.Store_Name});
+            //     }
+              
+            //     return data
+            //     // })
+            // })
         }
 
         ).catch(() => {
 
         })
     }, [])
+    console.log(Arrry)
     return (
         <>
             <div className="container-fluid mt-5">
                 <div className="row mt-3">
-                   { !Skeleton ? <React.Fragment>
+                    {!Skeleton ? <React.Fragment>
 
                         <div className="col-12 delivery_services_heading px-0">
                             <h1 className='deliveryServicesHEadingPadding'>Delivery services</h1>
@@ -77,8 +98,8 @@ import Grid from '@mui/material/Grid';
                         </div>
 
                     </React.Fragment> : <DeliverServiceSkeleton></DeliverServiceSkeleton>
-                    
-                }
+
+                    }
                 </div>
 
             </div>

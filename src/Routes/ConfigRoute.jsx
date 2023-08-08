@@ -242,7 +242,7 @@ const routesConfig = [
           },
           {
             path:"/WhisLists",
-            element:<WhisLists/>
+            element:<ProtectRout Component={WhisLists} ></ProtectRout> 
           },
           // ends
           {

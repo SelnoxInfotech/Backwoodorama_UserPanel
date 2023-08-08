@@ -157,8 +157,6 @@ const AddToCartReview = () => {
       function Navigate (e){
         navigate(`/NewProductDetails/${e}`)
       }
-   
-console.log(state.AllProduct)
     return (
         <>
             <div className="col-12  AddProductCartContainerinner">

@@ -24,7 +24,7 @@ const CheckOutMainPage = () => {
     const [Dataimage, setDataImage] = React.useState()
     const [Details, SetDetails] = React.useState({})
     const [CheckOut_Loading, SetLoading] = React.useState(false)
-
+    console.log(state)
     async function SubmitData() {
         const config = {
             headers: { Authorization: `Bearer ${token_data}` }

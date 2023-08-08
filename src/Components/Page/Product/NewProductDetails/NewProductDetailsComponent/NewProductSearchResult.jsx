@@ -11,7 +11,7 @@ import { IoShareSocialSharp } from "react-icons/io5"
 import useStyles from '../../../../../Style';
 import { WhisList } from '../../../../Component/Whishlist/WhisList';
 import Createcontext from "../../../../../Hooks/Context"
-import { WishListPost} from "../../../../Component/Whishlist/WishListApi_"
+import { WishListPost } from "../../../../Component/Whishlist/WishListApi_"
 const NewProductSearchResult = ({ NewProductSearchRseultArray, heading }) => {
     const classes = useStyles()
     const [Whishlist, SetWishList] = React.useState(false)
@@ -49,7 +49,7 @@ const NewProductSearchResult = ({ NewProductSearchRseultArray, heading }) => {
 
                                     <div className="col-12  productSearchResultImage_container px-0">
                                         <div className="col-12 product_whish_list text-end">
-                                            {state.WishList[items.id] ?
+                                            {state.login ? state.WishList[items.id] ?
                                                 <Box className={classes.productSearchIcons}>
                                                     <IconButton onClick={() => { handleWhishList(items.id) }} aria-label="Example">
 
@@ -64,7 +64,15 @@ const NewProductSearchResult = ({ NewProductSearchRseultArray, heading }) => {
                                                         <AiOutlineHeart />
 
                                                     </IconButton>
-                                                </Box>}
+                                                </Box> :
+                                                <Box className={classes.productSearchIcons}>
+                                                    <IconButton onClick={() => { handleWhishList(items.id) }} aria-label="Example">
+
+                                                        <AiOutlineHeart />
+
+                                                    </IconButton>
+                                                </Box>
+                                            }
                                         </div>
                                         <div className="col-12 product_whish_list text-end ">
                                             <Box className={classes.productSearchIcons}>

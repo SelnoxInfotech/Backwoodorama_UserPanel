@@ -85,8 +85,10 @@ function Context(props) {
             WishListget().then((res) => {
                 let object = {};
                 res.data.map((data) => {
-                    const l = data.product
+                    const l = data.id
                     object[l] = true
+                    return data
+
                 })
                 dispatch({ type: 'WishList', WishList: object })
 
@@ -122,7 +124,7 @@ function Context(props) {
 
 
 
-    }, [state.ApiProduct])
+    }, [state.ApiProduct,state.login])
     return (
 
         <Createcontext.Provider value={{ state, dispatch }} container>
