@@ -511,7 +511,7 @@ const useStyles = makeStyles({
   },
   learn_tab_background: {
     "& .MuiTabs-flexContainer": {
-      gap: '217px',
+      gap: '20px',
       minWidth: "max-content",
     },
     "@media(max-width:1280px)": {
@@ -585,7 +585,7 @@ const useStyles = makeStyles({
         background: "#FFFFFF",
       },
     },
-    "@media(max-width:500px)": {
+    "@media(max-width:576px)": {
       "& .MuiDialog-container": {
         "& .MuiPaper-root": {
           minWidth: "90%",

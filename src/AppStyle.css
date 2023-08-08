@@ -1778,7 +1778,9 @@
     width: 100% !important;
     margin-top: 20px;
   }
-
+  .footer_content_container {
+    padding-left: 30px;
+  }
   .footer_logo_container {
     padding-left: 8px;
   }
@@ -7817,5 +7819,85 @@
   .col_xl_width{
     width: 22% !important;
   }
+}
+/* end */
+/* deliveryServices */
+.DeliveryServices_ScrollContainerRelative {
+  width: 100%;
+  display: flex;
+  gap: 2.6%;
+  justify-content: normal;
+  position: relative;
+}
+
+@media(min-width:1200px){
+  .deliveryServicesEachCardOn_lg_Device{
+    width: 23% !important;
+  }
+}
+@media only screen  and (min-width: 992px)and (max-width:1199px){
+  .deliveryServicesEachCardOn_lg_Device{
+    width: 31.6% !important;
+  }
+}
+@media only screen  and (min-width: 768px)and (max-width:991px){
+  .deliveryServicesEachCardOn_lg_Device{
+    width: 48.7% !important;
+  }
+}
+@media only screen  and (min-width: 576px)and (max-width:767px){
+  .deliveryServicesEachCardOn_lg_Device{
+    width: 48.7% !important;
+  }
+}
+@media(max-width:575px){
+  .DeliveryServices_ScrollContainerRelative {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.deliveryServicesHEadingPadding{
+  margin-left: 30px;
+}
+
+}
+
+
+/* end */
+/* historyEditor */
+.historyFirstHeadingcol{
+  margin-top: 20px;
+}
+.historyHeadings{
+  color: #000000;
+  font-weight: 700;
+  font-size: 24px;
+}
+.historySubHeading{
+  color: #626262;
+  font-weight: 400;
+  font-size: 18px;
+}
+/* end */
+/* laws */
+.laws_ol{
+  list-style: none;
+  padding-left: 0px;
+}
+.lawsListStyle{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  border: 1px solid #E9E9E9;
+
+  margin: 10px 0px;
+}
+.lawsContainer{
+  margin-top: 100px;
+}
+.listCountryName{
+  color: #000000;
+  font-weight: 700;
+  font-size: 18px;
 }
 /* end */

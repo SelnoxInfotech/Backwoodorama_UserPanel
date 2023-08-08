@@ -5,7 +5,10 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import useStyles from '../../../Style';
+import Products from './Product/Products';
 import Learn from './Learn';
+import History from './History/History';
+import Laws from './Laws/Laws';
 const LearnTabs = () => {
     const classes = useStyles()
     const [value, setValue] = React.useState('1');
@@ -34,9 +37,9 @@ const LearnTabs = () => {
                             <TabPanel value="1" >
                                <Learn/>
                             </TabPanel>
-                            <TabPanel value="2">Product</TabPanel>
-                            <TabPanel value="3">History</TabPanel>
-                            <TabPanel value="4">Law</TabPanel>
+                            <TabPanel value="2"><Products/></TabPanel>
+                            <TabPanel value="3"><History/></TabPanel>
+                            <TabPanel value="4"><Laws/></TabPanel>
                         </Box>
                     </TabContext>
                 </Box>

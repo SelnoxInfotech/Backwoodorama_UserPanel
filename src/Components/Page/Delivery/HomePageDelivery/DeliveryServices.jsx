@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Createcontext from "../../../../Hooks/Context"
 import DeliverServiceSkeleton from '../../../Component/Skeleton/DeliveryServicesSkeleton';
+import Grid from '@mui/material/Grid';
  const DeliveryServices = () => {
     const [DeliveryService, SetDeliveryService] = useState([])
     const { state } = React.useContext(Createcontext)
@@ -32,20 +33,20 @@ import DeliverServiceSkeleton from '../../../Component/Skeleton/DeliveryServices
                 <div className="row mt-3">
                    { !Skeleton ? <React.Fragment>
 
-                        <div className="col-12 delivery_services_heading" style={{ padding: "0" }}>
-                            <h1>Delivery services</h1>
+                        <div className="col-12 delivery_services_heading px-0">
+                            <h1 className='deliveryServicesHEadingPadding'>Delivery services</h1>
 
                         </div>
-                        <div className="col-12 mt-3 delivery_services_subheading" style={{ padding: "0" }}>
-                            <h2>{state.Location}</h2>
+                        <div className="col-12 mt-3 delivery_services_subheading px-0">
+                            <h2 className='deliveryServicesHEadingPadding'>{state.Location}</h2>
 
                         </div>
                         <div className="col-12  mt-5 recentViewProductSlider" id="width" ref={ref}>
-                            <ScrollContainer className="ScrollContainerRelative">
+                            <ScrollContainer className="DeliveryServices_ScrollContainerRelative">
                                 {DeliveryService.map((items, index) => {
                                     return (
-                                        <div className='dispensoriesContainer col-12  col-sm-6 col-md-6 col-lg-4 col-xl-3' key={index}>
-                                            <div className=' deliveryServicesBorder '>
+                                        <div className='dispensoriesContainer col-12 col-sm-6   deliveryServicesEachCardOn_lg_Device' key={index}>
+                                            <div className='deliveryServicesBorder '>
                                                 <Link to={`/DispensoriesProduct/${items.id}/${"Menu"}`}>
                                                     <div className='col-12 deliveryServicesImage_container'>
                                                         <LazyLoadImage className='deliveryServicesImage' src={`https://sweede.app/${items.Store_Image}`} alt='image not available' />

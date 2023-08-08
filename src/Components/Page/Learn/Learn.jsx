@@ -4,7 +4,7 @@ import LearnCards from "./LearnComponent/LearnCard"
 import HomePageDealsSignup from "../Home/Dashboard/ComponentDashboard/HomePageDealsSignup"
 const Learn=()=>{
     return(
-        <div className="container">
+        <div className="container px-3">
          
             <LearnBanner/>
             <div className="row">

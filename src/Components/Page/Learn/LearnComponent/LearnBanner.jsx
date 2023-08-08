@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from "styled-components";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-const LearnBanner=()=>{
+const LearnBanner = () => {
     const LearnSlider = styled(Slider)`
 
     .slick-arrow{
@@ -77,22 +77,27 @@ const LearnBanner=()=>{
     };
     const LearnBannerArray = [{ imgUrl: "./image/learnBanner.webp" }, { imgUrl: "./image/learnBanner2.jpg" }]
 
-    return(
-     <LearnSlider {...settings}>
-        {LearnBannerArray.map((items,index)=>{
-            return(
-                <div className='learn_banner_header' key={index}>
-                <div className='col-12 learn_image_slider'>
-                  <LazyLoadImage src={items.imgUrl} alt='img_not_available'/>
-                </div>
-                <div className='text_on_Learn_banner'>
-                  <h1 className='learn_banner_text'>Learn</h1>
-                </div>
-                </div>
-            )
-        })}
+    return (
 
-     </LearnSlider>
+
+        <div className='col-12 '>
+            <LearnSlider {...settings}>
+                {LearnBannerArray.map((items, index) => {
+                    return (
+                        <div className='learn_banner_header' key={index}>
+                            <div className='col-12 learn_image_slider'>
+                                <LazyLoadImage src={items.imgUrl} alt='img_not_available' />
+                            </div>
+                            <div className='text_on_Learn_banner'>
+                                <h1 className='learn_banner_text'>Learn</h1>
+                            </div>
+                        </div>
+                    )
+                })}
+
+            </LearnSlider>
+        </div>
+
     )
 }
 export default LearnBanner;

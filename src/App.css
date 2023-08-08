@@ -271,7 +271,11 @@ a {
   }
 
 }
-
+@media(max-width:899px){
+  .Top{
+    margin-top: 0px;
+  }
+}
 @media (max-width:910px) {
   .nav_list1 {
     margin-left: 12px;
