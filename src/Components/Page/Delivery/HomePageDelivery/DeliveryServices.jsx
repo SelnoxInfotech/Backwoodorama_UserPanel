@@ -21,26 +21,26 @@ import DeliverServiceSkeleton from '../../../Component/Skeleton/DeliveryServices
         ).then((response) => {
             SetDeliveryService(response.data)
             SetSkeleton(false)
-            // console.log(response.data)
-            // const k = response.data.map((data) => {
-            //     // console.log(data.Store_Name)
-            //     // const k = Arrry.map((data1) => {
-            //     // return  { [data.Store_Name]: data.Store_Name }
-            //     if(Arrry.length !==0){
+            console.log(response.data)
+            const k = response.data.map((data) => {
+                // console.log(data.Store_Name)
+                // const k = Arrry.map((data1) => {
+                // return  { [data.Store_Name]: data.Store_Name }
+                if(Arrry.length !==0){
 
-            //         const newData = Arrry.map(item => { 
-            //             return {...item,  [data.Store_Name]: data.Store_Name}
-            //         });
-            //         console.log(newData)
-            //         SetArry(newData);
-            //     }
-            //     else {
-            //         SetArry({...Arrry,  [data.Store_Name]: data.Store_Name});
-            //     }
+                    const newData = Arrry.map(item => { 
+                        return {...item,  [data.Store_Name]: data.Store_Name}
+                    });
+                    console.log(newData)
+                    SetArry(newData);
+                }
+                else {
+                    SetArry({...Arrry,  [data.Store_Name]: data.Store_Name});
+                }
               
-            //     return data
-            //     // })
-            // })
+                return data
+                // })
+            })
         }
 
         ).catch(() => {

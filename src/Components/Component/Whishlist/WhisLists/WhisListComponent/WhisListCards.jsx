@@ -31,7 +31,6 @@ const WhisListCard = () => {
         return initialValue || []
     })
     const [NewData, SetNewData] = React.useState([])
-
     React.useEffect(() => {
     if(state.login){
         WishListget().then((val) => {
