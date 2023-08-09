@@ -38,7 +38,8 @@ import DeliverServiceSkeleton from '../../../Component/Skeleton/DeliveryServices
                     SetArry({...Arrry,  [data.Store_Name]: data.Store_Name});
                 }
               
-                return data
+                return data 
+                
                 // })
             })
         }
