@@ -14,10 +14,11 @@ import Createcontext from "../../../../../Hooks/Context"
 import { useNavigate } from "react-router-dom";
 import Cookies from 'universal-cookie'; 
 import AddToCartPopUp from "../../../../Page/Product/AddToCartPopUp/AddToCartPopUp";
-import _ from 'lodash';
 const cookies = new Cookies();
 const WhisListCard = () => {
+    const cookies = new Cookies();
     const { state, dispatch } = React.useContext(Createcontext)
+    const [Whishlist, SetWishList] = React.useState(false)
     const Navigate = useNavigate()
     const classes = useStyles()
     const [Price, SetPrice] = React.useState([])
@@ -221,6 +222,7 @@ return (
                             </div>
 
                         </div>
+                        {Whishlist && <WhisList open1={Whishlist} SetWishList={SetWishList}></WhisList>}
                     </React.Fragment>
                 )
             })}
