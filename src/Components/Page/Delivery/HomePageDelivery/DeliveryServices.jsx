@@ -8,47 +8,48 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Createcontext from "../../../../Hooks/Context"
 import DeliverServiceSkeleton from '../../../Component/Skeleton/DeliveryServicesSkeleton';
- const DeliveryServices = () => {
-    const [DeliveryService, SetDeliveryService] = useState([])
+const DeliveryServices = () => {
+    const [DeliveryService, SetDeliveryService] = useState({})
     const [Arrry, SetArry] = useState([])
+    const [da, Setda] = React.useState([])
     const { state } = React.useContext(Createcontext)
     const classes = useStyles()
     const [Skeleton, SetSkeleton] = React.useState(true)
     const ref = React.useRef(null);
+    const l = []
     React.useEffect(() => {
         Axios(`https://sweede.app/UserPanel/Get-DeliveryStores/`, {
         }
         ).then((response) => {
             SetDeliveryService(response.data)
             SetSkeleton(false)
-            console.log(response.data)
-            const k = response.data.map((data) => {
-                // console.log(data.Store_Name)
-                // const k = Arrry.map((data1) => {
-                // return  { [data.Store_Name]: data.Store_Name }
-                if(Arrry.length !==0){
-
-                    const newData = Arrry.map(item => { 
-                        return {...Arrry,  [data.Store_Name]: data.Store_Name}
-                    });
-                    console.log(newData)
-                    SetArry(newData);
-                }
-                else {
-                    SetArry({...Arrry,  [data.Store_Name]: data.Store_Name});
-                }
-              
-                return data 
-
-                // })
+            response.data.map((items) => {
+                const p = []
+                
+                 p.push({ "Store_Name ": items.Store_Name, id: items.id, Category: [{ [items.Category]: items.ProductCount }] })
+                  
+         
             })
+            //   k(items.Store_Name)
         }
 
         ).catch(() => {
 
         })
     }, [])
-    console.log(Arrry)
+
+
+    function k(pj) {
+        console.log(pj)
+        const isPresent = Arrry.find((p) => p.Store_Name === pj);
+        console.log(isPresent)
+
+
+    }
+    // 
+    // React.useEffect(()=>{
+
+    // },[p])
     return (
         <>
             <div className="container-fluid mt-5">
@@ -108,3 +109,98 @@ import DeliverServiceSkeleton from '../../../Component/Skeleton/DeliveryServices
     )
 }
 export default DeliveryServices
+
+
+
+
+
+
+        // Setda(response.data.map((items) => {})
+
+            // response.data.map((items) => {
+            //     p.push({ "Store_Name ": items.Store_Name, id: items.id, Category: [{ [items.Category]: items.ProductCount }] })
+            //     console.log(p)
+
+                // p.map((data)=>{
+                //     console.log(data.id === items.id)
+                //     if(data.id === items.id ){
+                //         console.log(data)
+                //     } 
+
+                //   })
+                // console.log(Arrry?.filter((id) => id.id))
+                // if (Arrry.find(({ id }) => id === items.id)) {
+                //     SetArry(
+                //         Arrry.map((f) => {
+
+                //             return [{ ...items, "Store_Name ": items.Store_Name, id: items.id, Category: [{ ...f.Category, [items.Category]: items.Category }] }]
+                //         })
+                //     )
+                // }
+                // else {
+                // }
+
+            // })
+            // k(p) 
+            // const d =  Arrry?.map((q,i)=>{
+            //     console.log(p[i])
+            //  })
+
+
+            // const c = []
+            // p.map((data) => {
+
+            //     if (c?.find((items) => items.id === data.id)) {
+            //         console.log(items)
+            //     }
+            //     else {
+            //         c.push(data)
+
+
+            //     }
+            // })
+
+
+            // return Setda(prevState => [...prevState, { "Store_Name ": items.Store_Name, id: items.id, Category: [{ [items.Category]: items.ProductCount }] }])
+
+
+
+
+            // if (Arrry.length === 0) {
+
+            //     SetArry(response.data.map((item) => ({
+            //         id: item.id,
+            //         Store_Name: item.Store_Name
+
+            //     }))
+            //     );
+            // }
+            // else {
+            // response.data.map((items) => {
+            //     console.log(items)
+            //     if (Arrry.length === 0) {
+            //         console.log(true)
+            //         SetArry([{...Arrry , ['Store_Name'] : items.Store_Name ,  "id" : items.id     }])
+            //     }
+            //     else {
+
+            //         // SetArry(
+            //         //     Arrry.map((id) => {
+            //         //         if (id.id === items.id) {
+            //         //             return { ...id, "Category": [{ ...id.Category, [id.Category]: ProductCount }] }
+            //         //         }
+            //         //         else {
+            //         //             return { ...id, id: items.id, Store_Name: items.Store_Name }
+            //         //         }
+            //         //     })
+            //         // )
+            //     }
+            // })
+
+
+
+
+
+
+
+            // }
