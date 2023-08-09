@@ -14,7 +14,7 @@ import Createcontext from "../../../../../Hooks/Context"
 import { useNavigate } from "react-router-dom";
 import Cookies from 'universal-cookie'; 
 import AddToCartPopUp from "../../../../Page/Product/AddToCartPopUp/AddToCartPopUp";
-const cookies = new Cookies();
+import _ from "lodash"
 const WhisListCard = () => {
     const cookies = new Cookies();
     const { state, dispatch } = React.useContext(Createcontext)
