@@ -29,7 +29,7 @@ import DeliverServiceSkeleton from '../../../Component/Skeleton/DeliveryServices
                 if(Arrry.length !==0){
 
                     const newData = Arrry.map(item => { 
-                        return {...item,  [data.Store_Name]: data.Store_Name}
+                        return {...Arrry,  [data.Store_Name]: data.Store_Name}
                     });
                     console.log(newData)
                     SetArry(newData);
@@ -39,7 +39,7 @@ import DeliverServiceSkeleton from '../../../Component/Skeleton/DeliveryServices
                 }
               
                 return data 
-                
+
                 // })
             })
         }
