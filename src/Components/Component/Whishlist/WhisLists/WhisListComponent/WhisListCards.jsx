@@ -31,7 +31,6 @@ const WhisListCard = () => {
         return initialValue || []
     })
     const [NewData, SetNewData] = React.useState([])
-const [Whishlist,SetWishList]=React.useState()
 
     React.useEffect(() => {
     if(state.login){
