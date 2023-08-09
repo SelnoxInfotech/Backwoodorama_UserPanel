@@ -88,8 +88,8 @@ const Footer = () => {
                                                 <h5 className="footer_menu_heading">Category</h5>
                                                 {Categorys.map((ele, index) => {
                                                     return (
-                                                        <Link to={`/CategoryProduct/${ele.name}`} state={ele.id} >
-                                                            <li className="footer_li ellipsis" key={index}>{ele.name}</li>
+                                                        <Link to={`/CategoryProduct/${ele.name}`} state={ele.id} key={index}>
+                                                            <li className="footer_li ellipsis" >{ele.name}</li>
 
                                                         </Link>
                                                     )
@@ -110,8 +110,8 @@ const Footer = () => {
                                                 <h5 className="footer_menu_heading">More</h5>
                                                 {More.map((ele, index) => {
                                                     return (
-                                                        <Link to={`/Brand`}   >
-                                                            <li className="footer_li ellipsis" key={index}>{ele.head}</li>
+                                                        <Link to={`/Brand`}   key={index}>
+                                                            <li className="footer_li ellipsis" >{ele.head}</li>
                                                         </Link>
                                                     )
 
@@ -132,9 +132,9 @@ const Footer = () => {
                                     {
                                         BottomMenuBar.map((val, index) => {
                                             return (
-                                                <Link>
+                                                <Link key={index}>
                                                 
-                                                <li className="footer_li" key={index}>{val.item}</li>
+                                                <li className="footer_li" >{val.item}</li>
                                                 </Link>
 
                                             )

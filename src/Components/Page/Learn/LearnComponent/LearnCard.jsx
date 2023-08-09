@@ -11,7 +11,7 @@ const LearnCards = () => {
             <div className="row">
                 {LearnCard_Array.map((items, index) => {
                     return (
-                        <div className="col-sm-6 learn_card">
+                        <div className="col-sm-6 learn_card" key={index}>
                             <Link to="/LearnCardRelatedPage">
                             <section className='learn_image_section'>
                                 <div className='learCard_image_div'>

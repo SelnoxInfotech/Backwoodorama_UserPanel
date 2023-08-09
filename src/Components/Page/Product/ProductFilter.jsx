@@ -190,7 +190,8 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
                 </div>
                 <div className="col-10 product_select">
                     <Grid container display={{ xs: "none", md: "contents", lg: "contents" }}>
-                        <FormControl sx={{ Width: "160px", height: "36px" }}>
+                            
+                        <FormControl className={classes.muiSelect}  >
                             <Select
                                 // value={Product}
                                 onChange={handleChange}

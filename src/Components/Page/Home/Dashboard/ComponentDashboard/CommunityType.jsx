@@ -5,15 +5,16 @@ const CommunityType = () => {
             <div className="container-fluid mb-4 mt-4">
                 <div className="row">
 
-                    <div className="col-12 d-flex" style={{ background: "#E8FFF1" ,height:"350px" }}>
+                    <div className="col-12 d-flex communityBannerContainer" style={{ background: "#E8FFF1" ,height:"350px" }}>
 
-                        <div className="col-6 Footer_head_image"  style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                        <div className="col-6 Footer_head_image"  style={{ display: "flex"}}>
 
-                           <div className="col-xs-2 col-md-4 col-xl-4">
+                           <div className="col-6 col-md-4 col-xl-4">
+                            
                            <img src="image/yt.png" alt='img_not_found' className="Footer_image"   />
                             
                            </div>
-                           <div className="col-xs-2  col-md-4 col-xl-4">
+                           <div className="col-6  col-md-4 col-xl-4">
                            <img src="image/yt.png" alt='img_not_found'  className="Footer_image"/>
 
                            </div>
@@ -29,7 +30,8 @@ const CommunityType = () => {
                                     </div>
                                 </div>
                                 <div className="col-12 comm_para">
-                                    <p>A community connecting canabis consumer retailers doctor and brands since 2008 </p>
+                                    <p>A community connecting canabis consumer  </p>
+                                    <p>retailers doctor and brands since 2008</p>
 
                                 </div>
                                 <div className="col-12  Social"  style={{ gap: "10px" }}>

@@ -199,7 +199,7 @@ return (
                                         <p className="whislistProductName multine-ellipsis">{items.ProductName}</p>
                                     </div>
                                     <div className="spaceIcons_content_Container" >
-                                        <MdOutlinePlace color="#31B665" /><span className="whislistAddress">{items.StoreAddress}</span>
+                                        <MdOutlinePlace size={18} color="#31B665" /><span className="whislistAddress">{items.StoreAddress}</span>
                                     </div>
                                     <div className="WhishListCard_paddingLeft">
                                         <p className="whislistAddress multine-ellipsis"> by {items.StoreName}</p>
