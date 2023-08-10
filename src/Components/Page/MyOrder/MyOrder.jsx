@@ -4,10 +4,10 @@ import SearchBar from '@mkyy/mui-search-bar';
 import AllOrder from "./MyOrderComponent/AllOrder";
 import useStyles from "../../../Style";
 const MyOrder = () => {
-    const classes=useStyles()
-    const [Selected,SetSelected]=React.useState(1)
-    const MyOrderList=[{id:1,items:"All"},{id:2,items:"Order"},{id:3,items:"Shipped"},{id:4,items:"Delivered"},{id:5,items:"Cancelled"}]
-    const changeBackgroundFun=(itemId)=>{
+    const classes = useStyles()
+    const [Selected, SetSelected] = React.useState(1)
+    const MyOrderList = [{ id: 1, items: "All" }, { id: 2, items: "Order" }, { id: 3, items: "Shipped" }, { id: 4, items: "Delivered" }, { id: 5, items: "Cancelled" }]
+    const changeBackgroundFun = (itemId) => {
         SetSelected(itemId)
     }
     return (
@@ -15,7 +15,7 @@ const MyOrder = () => {
             <div className="container-fluid">
                 <div className="row px-2">
                     <div className="col-12 myOrder_columns px-0">
-                        <span className="myOrderSpanIcons"><AiOutlineLeft size={20} color="#000000" style={{marginLeft:"-6px"}}/></span><span className="My_order_span_name">My order</span>
+                        <span className="myOrderSpanIcons"><AiOutlineLeft size={20} color="#000000" style={{ marginLeft: "-6px" }} /></span><span className="My_order_span_name">My order</span>
 
                     </div>
                     <div className="col-lg-10 col-12  searchBar_container  px-0">
@@ -30,25 +30,25 @@ const MyOrder = () => {
                     </div>
                     <div className="col-12 col-lg-10 MyOrder_tabs_list  mt-4 px-0 mx-0">
                         <ol className="MyOrder_list">
-                            {MyOrderList.map((val,index)=>{
-                                return(
+                            {MyOrderList.map((val, index) => {
+                                return (
                                     <React.Fragment key={index}>
-                                        <li style={{backgroundColor:Selected===val.id? "#D8FFE7":""}} onClick={()=>changeBackgroundFun(val.id)}>{val.items}</li>
+                                        <li style={{ backgroundColor: Selected === val.id ? "#D8FFE7" : "" }} onClick={() => changeBackgroundFun(val.id)}>{val.items}</li>
                                     </React.Fragment>
                                 )
                             })}
                         </ol>
 
                     </div>
-                    {Selected===1?
-                    (
-                        <AllOrder/>
+                    {Selected === 1 ?
+                        (
+                            <AllOrder />
                         )
-                        :Selected===2?(<div className="col-12" style={{paddingLeft:"30px"}}><h1>Order</h1></div>):
-                           Selected===3?(<div><h1>Shipped</h1></div>):
-                           Selected===4?(<div><h1>Delivered</h1></div>):
-                           Selected===5?(<div><h1><AllOrder/></h1></div>):""
-                }
+                        : Selected === 2 ? (<div className="col-12" style={{ paddingLeft: "30px" }}><h1>Order</h1></div>) :
+                            Selected === 3 ? (<div><h1>Shipped</h1></div>) :
+                                Selected === 4 ? (<div><h1>Delivered</h1></div>) :
+                                    Selected === 5 ? (<div><h1><AllOrder /></h1></div>) : ""
+                    }
 
                 </div>
             </div>
