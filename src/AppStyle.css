@@ -113,7 +113,7 @@
   font-weight: 400;
 }
 
-.disp_head h1 {
+.shopByCategoryHeading {
   margin-left: 32px;
   font-weight: 700;
   font-size: 25px;
@@ -131,7 +131,7 @@
 }
 
 @media(max-width:480px) {
-  .disp_head h1 {
+  .shopByCategoryHeading{
     font-size: 16px;
     margin-left: 14px;
   }
@@ -4750,24 +4750,26 @@
   height: 40px;
 }
 
-.delivery_services_heading h1 {
+
+.delivery_services_heading{
   font-weight: 700;
   font-size: 25px;
   color: #000000;
 }
-
-.delivery_services_subheading h2 {
+.delivery_services_subheading p {
   font-weight: 400;
   font-size: 20px;
   color: #000000;
 }
 
 @media(max-width:400px) {
-  .delivery_services_heading h1 {
+  .delivery_services_heading {
     font-size: 18px;
     margin-left: 14px;
   }
-
+  .delivery_services_subheading p{
+    font-size: 18px;
+  }
 
 }
 

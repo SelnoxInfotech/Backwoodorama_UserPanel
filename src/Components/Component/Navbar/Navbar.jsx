@@ -190,7 +190,7 @@ const Navbar = () => {
                               alt='' className="Navbar_profile_imgs" />
                           </div>
                           <div className='profile_name_container'>
-                            <h1 className='profile_names'>{state.Profile.username}</h1>
+                            <p className='profile_names'>{state.Profile.username}</p>
                             <p className='profile_viewAll' onClick={ViewProfiles}>View Profile</p>
                           </div>
 

@@ -37,12 +37,12 @@ const DeliveryServices = () => {
                 <div className="row mt-3">
                     {!Skeleton ? <React.Fragment>
 
-                        <div className="col-12 delivery_services_heading px-0">
-                            <h1 className='deliveryServicesHEadingPadding'>Delivery services</h1>
+                        <div className="col-12  px-0">
+                            <p className='deliveryServicesHEadingPadding delivery_services_heading'>Delivery services</p>
 
                         </div>
                         <div className="col-12 mt-3 delivery_services_subheading px-0">
-                            <h2 className='deliveryServicesHEadingPadding'>{state.Location}</h2>
+                            <p className='deliveryServicesHEadingPadding'>{state.Location}</p>
 
                         </div>
                         <div className="col-12  mt-5 recentViewProductSlider" id="width" ref={ref}>

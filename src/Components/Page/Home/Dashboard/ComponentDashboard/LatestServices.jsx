@@ -26,8 +26,8 @@ const LatestServices = () => {
                 <div className="row">
                     <div className="col-lg-12 ">
                         <div className="latest_services">
-                            <h1 className="latest_services_headings mt-2">Welcome to Backwoodaroma</h1>
-                            <h6 className="fontStyle common_sub_head mt-2  mb-3">Check our latest article to see our inspiring content for shopping</h6>
+                            <p className="latest_services_headings mt-2">Welcome to Backwoodaroma</p>
+                            <p className="fontStyle common_sub_head mt-2  mb-3">Check our latest article to see our inspiring content for shopping</p>
                         </div>
                     </div>
 
@@ -39,8 +39,8 @@ const LatestServices = () => {
                             <div className="BlogContainer">
                                 {News.map((ele, index) => {
                                     return (
-                                        <Link to={`/Blogs/${ele.id}`} > 
-                                        <section  key={index}>
+                                        <Link to={`/Blogs/${ele.id}`} key={index}> 
+                                        <section  >
                                             <div className="col img_cont center_latest ">
                                                 {/* <div className="centerImg "> */}
                                                    <img src={`https://sweede.app${ele.Image}`} alt="img_not_found" style={{ pointerEvents: "none" }} />
