@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Createcontext from "../../../../Hooks/Context"
 import DeliverServiceSkeleton from '../../../Component/Skeleton/DeliveryServicesSkeleton';
+import { es } from 'date-fns/locale';
 const DeliveryServices = () => {
     const [DeliveryService, SetDeliveryService] = useState({})
     const [Arrry, SetArry] = useState([])
@@ -23,21 +24,43 @@ const DeliveryServices = () => {
         ).then((response) => {
             SetDeliveryService(response.data)
             SetSkeleton(false)
-            response.data.map((items) => {
                 const p = []
+            // response.data.map((items) => {
                 
-                 p.push({ "Store_Name ": items.Store_Name, id: items.id, Category: [{ [items.Category]: items.ProductCount }] })
+            //      p.push({ "Store_Name ": items.Store_Name, id: items.id, Category: [{ [items.Category]: items.ProductCount }] })
                   
          
-            })
+            // })
+            // for(let i =0 ; i<response.data.length ; i++ ){
+            //     console.log(response.data[i])
+            // // p.push(response.data[i])
+            //  Setda(prevState => [...prevState, { "Store_Name ": response.data[i].Store_Name, id: response.data[i].id, Category: [{ [response.data[i].Category]: response.data[i].ProductCount }] }])
+            
+            // }
             //   k(items.Store_Name)
+            response.data.forEach(x => {
+                if(p.length!=0){
+                    p.forEach(y => {
+                        if (x.id === y.id) {
+                            console.log('1111111')
+                            // p.push(...x , { "Store_Name ": y.Store_Name, id: y.id, Category: [{ [y.Category]: y.ProductCount }] })
+                        }
+                        else{
+                            p.push({ "Store_Name ": x.Store_Name, id: x.id, Category: [{ [x.Category]: x.ProductCount }] })
+                        }
+                      })
+                }
+                else{
+                    p.push({ "Store_Name ": x.Store_Name, id: x.id, Category: [{ [x.Category]: x.ProductCount }] })
+                }
+              })
+              console.log(p)
         }
 
         ).catch(() => {
 
         })
     }, [])
-
 
     function k(pj) {
         console.log(pj)
