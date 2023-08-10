@@ -45,10 +45,10 @@ const Footer = () => {
                 <div className="row footer_Main_row">
                     <div className="col-12 footer_main_div_display px-0">
                         <div className="w-100 footer_center footer_head_height ">
-                            <h1 className="ellipsis footer_heading fontWeight_Seven_Hundred">BACKWOODAROMA</h1>
+                            <p className="ellipsis footer_heading fontWeight_Seven_Hundred">BACKWOODAROMA</p>
                         </div>
                         <div className="w-100 footer_center  footer_head_height">
-                            <h2 className="footer_sub_heading fontWeight_Four_Hundred">A community connecting cannabis consumer retailers, doctors, and brands since 2008.</h2>
+                            <p className="footer_sub_heading fontWeight_Four_Hundred">A community connecting cannabis consumer retailers, doctors, and brands since 2008.</p>
                         </div>
                         <div className="col-xl-4 col-sm-4 footer_logo_container px-4">
                             <div className="col-12 footer_log_center footer_logo footer_logo_height">
@@ -75,7 +75,7 @@ const Footer = () => {
                                     <div className="col-12 footer_inner_container">
                                         <div className="col-6 footer_list">
                                             <ol className="footer_list_gap">
-                                                <h5 className="footer_menu_heading">About Backwoodaroma</h5>
+                                                <p className="footer_menu_heading">About Backwoodaroma</p>
                                                 {AboutUs.map((ele, index) => {
                                                     return (
                                                         <Link to="/" key={index}><li className="footer_li ellipsis">{ele.head}</li></Link>
@@ -85,7 +85,7 @@ const Footer = () => {
                                         </div>
                                         <div className="col-6 footer_list">
                                             <ol className="footer_list_gap">
-                                                <h5 className="footer_menu_heading">Category</h5>
+                                                <p className="footer_menu_heading">Category</p>
                                                 {Categorys.map((ele, index) => {
                                                     return (
                                                         <Link to={`/CategoryProduct/${ele.name}`} state={ele.id} key={index}>
@@ -107,7 +107,7 @@ const Footer = () => {
                                         <div className="col-6 footer_list">
                                             <ol className="footer_list_gap">
 
-                                                <h5 className="footer_menu_heading">More</h5>
+                                                <p className="footer_menu_heading">More</p>
                                                 {More.map((ele, index) => {
                                                     return (
                                                         <Link to={`/Brand`}   key={index}>
@@ -164,7 +164,7 @@ const Footer = () => {
 
                     </div>
                     <div className="col-12  footer_bootom_headings_container">
-                        <h1 className="footer_headingss">Design by Backwoodaroma 2023</h1>
+                        <p className="footer_headingss">Design by Backwoodaroma 2023</p>
 
                     </div>
 

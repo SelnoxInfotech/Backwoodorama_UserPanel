@@ -10,12 +10,12 @@ const FeaturedBrand = ({ CardDataArray ,BrandSkeleton}) => {
         !BrandSkeleton  ?
         <>
              <div className="col-12 bestDealsCard_Heading_offers mt-4">
-                    <h1 className="ellipsis">Featured Brands</h1>
+                    <p className="ellipsis dispensariesShopHeading featuredBrandHeading">Featured Brands</p>
                    
                 </div>
 
             <div  ref={ref}>
-                <ScrollContainer className="ScrollContainerRelative">
+                <ScrollContainer className="featuredBrandScrollContainerRelative">
                     {
                         CardDataArray.map((items, index) => {
                             return (
@@ -27,8 +27,8 @@ const FeaturedBrand = ({ CardDataArray ,BrandSkeleton}) => {
 
                                     </div>
                                     <div className="row">
-                                        <div className="col-12 featuredBrandTitle center">
-                                            <h1 className="ellipsis mx-2">{items.name}</h1>
+                                        <div className="col-12  center">
+                                            <p className="ellipsis featuredBrandTitle mx-2">{items.name}</p>
                                         </div>
 
                                     </div>

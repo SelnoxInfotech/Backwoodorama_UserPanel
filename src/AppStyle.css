@@ -1629,6 +1629,7 @@
 .footer_headingss {
   color: #FFFFFF;
   font-size: 24px;
+  margin-bottom: 0px;
 }
 
 .bottom_menu_items_mainCol {
@@ -4024,7 +4025,16 @@
 }
 
 
-
+.dispensariesShopHeading{
+  font-weight: 700;
+  font-size: 25px;
+  color: #000000;
+}
+.featuredBrandHeading{
+  font-weight: 700;
+  font-size: 25px;
+  color: #000000;
+}
 .dispensoriesContainer {
   height: auto;
   /* border: 1px solid #E7E7E7; */
@@ -4084,6 +4094,14 @@
 
   .bestDealsCard_ScrollContainerRelative {
     left: 0px;
+  }
+  .dispensariesShopHeading{
+    font-size: 16px;
+    margin-left: 30px;
+  }
+  .featuredBrandHeading{
+    font-size: 16px;
+    margin-left: 20px;
   }
 }
 
@@ -4962,14 +4980,22 @@
   border: 1px solid #E7E7E7;
 }
 
-.featuredBrandTitle h1 {
+.featuredBrandTitle{
   font-weight: 700;
   font-size: 20px;
   line-height: 36px;
 
   color: #525252;
 }
-
+.featuredBrandScrollContainerRelative {
+  width: 100%;
+  display: flex;
+  gap: 4%;
+  justify-content: normal;
+  ;
+  left: -14px;
+  position: relative;
+}
 @media(max-width:576px) {
   .FeaturedBrandImageContainer {
     height: 200px;
