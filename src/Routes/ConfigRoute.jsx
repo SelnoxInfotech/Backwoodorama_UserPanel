@@ -7,7 +7,7 @@ import DispensoriesProduct from "../Components/Page/Dispansires/DispansiresCompo
 import Signup from "../Components/Page/Signup/Signup"
 import Login from "../Components/Page/Login/Login"
 import SignupWithEmail from "../Components/Page/Signup/SignupWithEmail"
-import ResetPassword from "../Components/Page/ResetPassword/ResetPassword"
+import ForgotPassword from "../Components/Page/ResetPassword/ForgotPassword"
 import CreatePassword from "../Components/Page/ResetPassword/CreatePassword"
 import CheckOutMainPage from "../Components/Page/Checkout/CheckoutMainPage"
 import ProtectRout from "../Routes/ProtectRout"
@@ -76,8 +76,8 @@ const routesConfig = [
             element: <Login></Login>,
           },
           {
-            path: "/ResetPassword",
-            element: <ResetPassword></ResetPassword>,
+            path: "/ForgotPassword",
+            element: <ForgotPassword></ForgotPassword>,
           },
           {
             path: "/CreatePassword",
