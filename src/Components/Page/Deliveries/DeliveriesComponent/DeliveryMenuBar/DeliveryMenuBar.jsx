@@ -15,8 +15,38 @@ const DeliveryMenuBar = () => {
         axios.get(
             'https://sweede.app/UserPanel/Get-DeliveryStores/',
         ).then(response => {
+            const k = response.data.reduce((acc, current) => {
+                const x = acc.find(item => item.id === current.id);
 
-            SetDelivery(response.data)
+                if (!x) {
+                  const newCurr = {
+                    Store_Name: current.Store_Name,
+                    Category: [{[current.Category]: current.ProductCount}],
+                    id:current.id,
+                    Store_Image:current.Store_Image,
+                    Store_Address:current.Store_Address
+
+                  }
+                  return acc.concat([newCurr]);
+                } else {
+                  const currData = x.Category.filter(d => d === current.Category);
+                  if (!currData.length) {
+                    const newData = x.Category.push({ [current.Category]: current.ProductCount });
+                    const newCurr = {
+                        Store_Name: current.Store_Name,
+                        Category: newData,
+                        id:current.id,
+                        Store_Image:current.Store_Image,
+                        Store_Address:current.Store_Address
+                    }
+                    return acc;
+                  } else {
+                    return acc;
+                  }
+                //   Category: [{ [y.Category]: y.ProductCount }] 
+                }
+              }, []);
+              SetDelivery(k)
         }).catch(
             function (error) {
 

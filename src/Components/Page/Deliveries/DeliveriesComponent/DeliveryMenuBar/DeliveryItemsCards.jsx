@@ -6,10 +6,6 @@ import Box from '@mui/material/Box';
 import useStyles from '../../../../../Style';
 import { MdShoppingCart } from "react-icons/md"
 import { GiFlowerPot } from "react-icons/gi"
-import { GiChocolateBar } from "react-icons/gi"
-import { GiSpotedFlower } from "react-icons/gi"
-import { FaPencilRuler } from "react-icons/fa"
-import { GiClothJar } from "react-icons/gi"
 import { Link } from 'react-router-dom';
 const DeliveryItemsCard = ({ Deliverie }) => {
     const classes = useStyles()
@@ -54,21 +50,18 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                             <div className='col-12 DeliveryItem_heading  total_items deliver_items_content_same_height'>
                                                 <h1 className='ellipsis'>{items.total_items} Items</h1>
                                             </div>
-                                            <div className='col-12 delivery_item_paragraph delivery_items_card_flex deliver_items_content_same_height ellipsis'>
-                                                <span className='delivery_items_icons'><GiFlowerPot /></span><p>Concentrate {items.Number_of_items_type1} items</p>
-                                            </div>
-                                            <div className='col-12 delivery_item_paragraph delivery_items_card_flex deliver_items_content_same_height ellipsis'>
-                                                <span className='delivery_items_icons'><GiChocolateBar /></span><p>Edible {items.Number_of_items_type2} items</p>
-                                            </div>
-                                            <div className='col-12 delivery_item_paragraph delivery_items_card_flex deliver_items_content_same_height ellipsis'>
-                                                <span className='delivery_items_icons'><GiSpotedFlower /></span><p>flower {items.Number_of_items_type3} items</p>
-                                            </div>
-                                            <div className='col-12 delivery_item_paragraph delivery_items_card_flex deliver_items_content_same_height ellipsis'>
-                                                <span className='delivery_items_icons'><FaPencilRuler /></span><p>Vape pens {items.Number_of_items_type4} items</p>
-                                            </div>
-                                            <div className='col-12 delivery_item_paragraph delivery_items_card_flex deliver_items_content_same_height ellipsis'>
-                                                <span className='delivery_items_icons'><GiClothJar /></span><p>others {items.Number_of_items_type5} items</p>
-                                            </div>
+                                            {
+                                                items?.Category?.map((data, index) => {
+                                                    return (
+
+                                                        <div className='col-12 delivery_item_paragraph delivery_items_card_flex deliver_items_content_same_height ellipsis'>
+                                                            <span className='delivery_items_icons'><GiFlowerPot /></span><p>{Object.keys(data)} ({Object.values(data)})</p>
+                                                        </div>
+                                                    )
+                                                })
+
+                                            }
+
                                         </div>
                                     </div>
                                 </div>
@@ -78,7 +71,7 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                         <div className='row'>
                                             <div className='col-lg-7 delivery_item_paragraphBtn delivery_btn_delivery delivery_items_card_flex center'>
                                                 <div className='deliverItemCard_icons'>
-                                                <MdShoppingCart color='#707070' size={16}/><span>30 to 90 min |</span><span>Free delivery</span>|<span>$50 min</span>
+                                                    <MdShoppingCart color='#707070' size={16} /><span>30 to 90 min |</span><span>Free delivery</span>|<span>$50 min</span>
                                                 </div>
                                             </div>
                                             <div className='col-lg-5 delivery_btn_div'>
