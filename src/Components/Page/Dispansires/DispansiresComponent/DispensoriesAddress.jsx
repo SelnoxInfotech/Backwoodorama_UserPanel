@@ -52,7 +52,7 @@ const DispensoriesAddress = () => {
                {!Skeleton? <div className='row'>
                     <div className='col-12  mt-4' style={{ padding: "0" }}>
                         <div className="disp_head" style={{ top: "0" }}>
-                            <p className='dispensariesShopHeading'>Shop Dispensaries  near you</p>
+                            <h3 className='dispensariesShopHeading'>Shop Dispensaries  near you</h3>
                         </div>
                     </div >
                     <div className="col-12 mt-3  recentViewProductSlider" id="width" ref={ref}>

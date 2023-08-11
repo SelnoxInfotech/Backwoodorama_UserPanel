@@ -10,7 +10,7 @@ const FeaturedBrand = ({ CardDataArray ,BrandSkeleton}) => {
         !BrandSkeleton  ?
         <>
              <div className="col-12 bestDealsCard_Heading_offers mt-5">
-                    <p className="ellipsis dispensariesShopHeading featuredBrandHeading">Featured Brands</p>
+                    <h3 className="ellipsis dispensariesShopHeading featuredBrandHeading">Featured Brands</h3>
                    
                 </div>
 

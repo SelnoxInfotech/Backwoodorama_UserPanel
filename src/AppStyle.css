@@ -3275,14 +3275,14 @@
 /* end */
 /* Deliveries */
 .Deliveries_Heading {
-  font-size: 32px;
+  font-size: 28px;
   color: #000000;
   font-weight: 700;
 }
 
 .deliveries_sub_heading {
   color: #707070;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
 }
 
@@ -4776,7 +4776,7 @@
   color: #000000;
   margin-bottom: 0px;
 }
-.delivery_services_subheading p {
+.delivery_services_subheading h3 {
   font-weight: 400;
   font-size: 20px;
   color: #000000;
@@ -4787,7 +4787,7 @@
     font-size: 18px;
     margin-left: 14px;
   }
-  .delivery_services_subheading p{
+  .delivery_services_subheading h3{
     font-size: 18px;
   }
 

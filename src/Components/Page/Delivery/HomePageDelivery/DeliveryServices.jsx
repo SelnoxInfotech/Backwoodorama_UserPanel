@@ -38,11 +38,11 @@ const DeliveryServices = () => {
                     {!Skeleton ? <React.Fragment>
 
                         <div className="col-12  px-0">
-                            <p className='deliveryServicesHEadingPadding delivery_services_heading'>Delivery services</p>
+                            <h2 className='deliveryServicesHEadingPadding delivery_services_heading'>Delivery services</h2>
 
                         </div>
                         <div className="col-12 delivery_services_subheading px-0">
-                            <p className='deliveryServicesHEadingPadding'>{state.Location}</p>
+                            <h3 className='deliveryServicesHEadingPadding'>{state.Location}</h3>
 
                         </div>
                         <div className="col-12  mt-2 recentViewProductSlider" id="width" ref={ref}>

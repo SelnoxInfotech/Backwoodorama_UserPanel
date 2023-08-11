@@ -88,7 +88,7 @@ const CategoryProduct = ({ ShowCategoryProduct, Category,Skeleton }) => {
                              !Skeleton?
                              <>
                              <div className='col-12 disp_head '>
-                                     <p className='mt-9 shopByCategoryHeading'>Shop by Category</p>
+                                     <h1 className='mt-9 shopByCategoryHeading'>Shop by Category</h1>
                                  </div>
                              
                              <SliderCategory {...settings} >

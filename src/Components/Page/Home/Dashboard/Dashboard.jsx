@@ -80,7 +80,7 @@ export default function Dashboard() {
             <LatestServices></LatestServices>
             </div>
             <div className="w-90 dashBoardStrainType">
-                <p className=" mt-4 dashBoard_strain_paragraph">Strain Type</p>
+                <h3 className=" mt-4 dashBoard_strain_paragraph">Strain Type</h3>
                 <StrainTypeCards ArrayData={StrainTypeCardArray} />
 
             </div>
