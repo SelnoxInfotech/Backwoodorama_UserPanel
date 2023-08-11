@@ -237,17 +237,17 @@ const ProductDetail = () => {
                                         </div>
                                     </div>
                                     <div className="col-7 add_product_content_cont ">
-                                        <div className="col-12 fontStyle add_prod_para">
-                                            <p>{ele.Product_Name}</p>
+                                        <div className="col-12 fontStyle ">
+                                            <h1 className="add_prod_para">{ele.Product_Name}</h1>
 
                                         </div>
-                                        <div className="col-12 add_prod_p">
-                                            <p>By {ele.StoreName}</p>
+                                        <div className="col-12 ">
+                                            <h2 className="productDetailSubHeading">By {ele.StoreName}</h2>
                                         </div>
                                         <div className="col-12  add_prod_btn">
                                         </div>
                                         <div className="col-12  add_prod_rat mt-2">
-                                            <p>Rating 3.2</p> <span><AiFillStar className={classes.disPen_Icons} /></span>
+                                            <p className="productDetailSubHeading">Rating 3.2</p> <span><AiFillStar className={classes.disPen_Icons} /></span>
 
                                         </div>
                                         <div className="col-xxl-7 col-lg-8 col-md-10 col-sm-10 col-12 add_prod_quant_btn_div">
@@ -295,8 +295,8 @@ const ProductDetail = () => {
                                                             if (Item?.length === 0) {
                                                                 if (Prices?.id === 1) {
                                                                     return (
-                                                                        < div key={index}>
-                                                                             <p>Amount</p> <p className="add_prod_span1">${parseInt(Prices.SalePrice)}</p>
+                                                                        < div className="amountDisplay" key={index}>
+                                                                             <span className="">Amount</span> <span className="add_prod_span1">${parseInt(Prices.SalePrice)}</span>
                                                                              </div>
                                                                     )
                                                                 }

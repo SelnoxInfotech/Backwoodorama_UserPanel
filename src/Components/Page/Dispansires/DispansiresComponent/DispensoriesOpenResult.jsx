@@ -6,6 +6,8 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import React from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
+import { Rating } from '@mui/material';
+
 const DispensoriesOpenResult = () => {
     const classes = useStyles()
     const [Store, SetStore] = React.useState([])
@@ -79,7 +81,7 @@ const DispensoriesOpenResult = () => {
 
                                             </div>
                                             <div className="col-8 dispenosries_card_content_div">
-                                                <div className="row">
+                                                {/* <div className="row"> */}
 
                                                     <div className="col-12 dispensories_content_Header_paragraphs text-truncate">
                                                         <h3 className="text-truncate dispensoriesHeadingName">{ele.Store_Name}</h3>
@@ -96,7 +98,10 @@ const DispensoriesOpenResult = () => {
                                                     <div className="col-12 dispensories_buttonsContainer mt-2">
                                                         <button className="dispensories_pickup_btn">Pickup delivery</button>
                                                     </div>
-                                                    <div className="col-12 d-flex dispensories_content_paragraphs">
+                                                    <div className="col-12 d-flex dispensories_content_paragraphs mt-2">
+                                                    <span className='disOPenResRating'>Rating</span>
+                                                    <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={4} readOnly />
+
                                                         {/* <div> <p>Rating</p><span className="dis_open_result_star"><IoMdStar className={classes.disp_star_color} /></span></div> */}
                                                     </div>
                                                     <div className="col-12">
@@ -104,7 +109,7 @@ const DispensoriesOpenResult = () => {
                                                             <LoadingButton style={{ width: "60%", height: "30px" }}>Order Pickup</LoadingButton>
                                                         </Box>
                                                     </div>
-                                                </div>
+                                                {/* </div> */}
                                             </div>
                                         </div>
 

@@ -9,8 +9,8 @@ const StoreDetailInformation=()=>{
                                 <p className="StoreDetail_paragraph">Introduction</p>
 
                             </div>
-                            <div className=" col-12 store_content_middle_Content storeDetails">
-                                <p className="storeDetail_paragraph">LeaflyweedNYC is the best place to buy marijuana online and
+                            <div className=" col-12 store_content_middle_Content ">
+                                <p className="storeDetails">LeaflyweedNYC is the best place to buy marijuana online and
                                     get the best delivery services in New York. Leaflyweednyc weed
                                     delivery services NYC is the best place to buy your favourite
                                     marijuana online. Fastest delivery with curbside and store
@@ -23,14 +23,14 @@ const StoreDetailInformation=()=>{
                                 <p>About Us</p>
 
                             </div>
-                            <div className="col-12 store_content_middle_Content">
+                            <div className="col-12 storeDetails store_content_middle_Content">
                                 <p>
                                     LeaflyweedNYC is the best place to buy marijuana online and get the best
                                     delivery services in New York. Leaflyweednyc weed delivery services NYC is the best
                                     place to buy your favourite marijuana online. Fastest delivery with curbside and store pickup.
                                 </p>
                             </div>
-                            <div className="col-12 store_content_middle_Content">
+                            <div className="col-12  store_content_middle_Content">
                                 <p>
                                     and get the best delivery services in New York. Leaflyweednyc
                                     weed delivery services NYC is the best place to buy your favourite

@@ -31,8 +31,8 @@ const NewFlavourBanner = ({ delBtn }) => {
                                             </div>
                                             <div className='col-12'>
 
-                                                <div className='new_flavour_flex New_flavour_font_size_paragraph '>
-                                                    <p><IoLocationSharp /></p><h4 id='NewFlav_margins' className='newFlavourBannerSubHead'>{data.Store_Address}</h4>
+                                                <div className='new_flavour_flex New_flavour_font_size_paragraph my-1'>
+                                                    <IoLocationSharp /><h4 id='NewFlav_margins' className='newFlavourBannerSubHead'>{data.Store_Address}</h4>
                                                 </div>
 
 

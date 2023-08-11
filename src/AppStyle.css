@@ -861,20 +861,26 @@
 }
 
 .add_prod_para {
-  font-size: 2rem;
-  ;
+  font-size:24px;
+  font-weight: 700;
+  color: #282625;
 }
-
+.productdetailSecSubHeading{
+  color: #949494;
+  font-size: 18px;
+  font-weight: 400;
+}
+.productDetailsAmount{
+  color: #000000;
+  font-weight: 700;
+  font-size: 20px;
+}
+.amountDisplay{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
 @media(max-width:1496px) {
-  .add_prod_para {
-    font-size: 1.2rem;
-    ;
-  }
-
-  .add_prod_amount p {
-    font-size: 18px !important;
-  }
-
   .add_prod_plus_sub {
     font-weight: 700;
     font-size: 28px;
@@ -1051,7 +1057,7 @@
 .add_prod_span1 {
   color: #31B665;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 16px;
 
 }
 
@@ -1060,9 +1066,7 @@
   font-size: 26px;
 }
 
-.add_prod_amount p {
-  font-size: 26px;
-}
+
 
 .add_prod_plus_sub {
   font-weight: 700;
@@ -1070,9 +1074,6 @@
 
 }
 
-.add_prod_p p {
-  margin-top: -13px;
-}
 
 .add_product_btn {
   margin-left: 10px;
@@ -1119,7 +1120,11 @@
 .AddProdLikePara p {
   font-size: 22px;
 }
-
+.productDetailSubHeading{
+  color: #949494;
+  font-size: 16px;
+  font-weight: 400x;
+}
 @media(max-width:850px) {
   .Add_prod_btn_div {
     width: 12% !important;
@@ -2390,25 +2395,27 @@
 }
 
 .despensories_card_container {
-  height: 210px;
+  height: auto;
   background: #FFFFFF;
+  padding: 15px 5px;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-@media(max-width:400px) {
-  .despensories_card_container {
-    height: 210px;
-  }
+.disOPenResRating{
+  color: #949494;
+  font-size: 16px;
+  font-weight: 400;
 }
-
 .disensories_card_image_div {
-  height: 200px;
+  height:auto;
+
   display: grid;
   place-items: center;
 }
 
 .dispenosries_card_content_div {
-  height: 200px;
+  height:auto;
+  padding: 5px;
 }
 
 .dispensories_card_image {
@@ -2478,6 +2485,9 @@
   .dispensories_result_head {
     font-size: 12px;
   }
+.disOPenResRating{
+  font-size: 12px;
+}
 
   .dispensorieAddressNames{
     font-size: 12px;
@@ -2794,7 +2804,7 @@
   height: 100%;
 }
 
-.storeDetails p {
+.storeDetails{
   color: #000000;
   font-size: 16px;
   font-weight: 400;
