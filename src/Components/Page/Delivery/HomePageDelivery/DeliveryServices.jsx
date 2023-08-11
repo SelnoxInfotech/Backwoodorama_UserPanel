@@ -41,11 +41,11 @@ const DeliveryServices = () => {
                             <p className='deliveryServicesHEadingPadding delivery_services_heading'>Delivery services</p>
 
                         </div>
-                        <div className="col-12 mt-3 delivery_services_subheading px-0">
+                        <div className="col-12 delivery_services_subheading px-0">
                             <p className='deliveryServicesHEadingPadding'>{state.Location}</p>
 
                         </div>
-                        <div className="col-12  mt-5 recentViewProductSlider" id="width" ref={ref}>
+                        <div className="col-12  mt-2 recentViewProductSlider" id="width" ref={ref}>
                             <ScrollContainer className="DeliveryServices_ScrollContainerRelative">
                                 {DeliveryService.map((items, index) => {
                                     return (

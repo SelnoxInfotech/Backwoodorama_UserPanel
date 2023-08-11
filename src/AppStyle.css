@@ -124,6 +124,7 @@
   font-weight: 700;
   font-size: 34px;
   color: #000000;
+  margin-bottom: 0px;
 }
 
 .Rating {
@@ -4029,11 +4030,13 @@
   font-weight: 700;
   font-size: 25px;
   color: #000000;
+  margin-bottom: 0px;
 }
 .featuredBrandHeading{
   font-weight: 700;
   font-size: 25px;
   color: #000000;
+  margin-bottom: 0px;
 }
 .dispensoriesContainer {
   height: auto;
@@ -4764,15 +4767,14 @@
 }
 
 /* DeliveryServices */
-.delivery_services_heading {
-  height: 40px;
-}
+
 
 
 .delivery_services_heading{
   font-weight: 700;
   font-size: 25px;
   color: #000000;
+  margin-bottom: 0px;
 }
 .delivery_services_subheading p {
   font-weight: 400;
@@ -4962,6 +4964,7 @@
   font-weight: 700;
   font-size: 24px;
   color: #000000;
+  margin-bottom: 0px;
 }
 
 /* end */
