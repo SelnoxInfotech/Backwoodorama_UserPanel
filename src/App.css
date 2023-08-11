@@ -1091,3 +1091,18 @@ overflow-x: hidden; */
   line-height: 1.25rem;
 }
 /* end */
+
+
+
+/* Forget _Otp */
+.login_otp_heads {
+  font-size: .7rem;
+}
+.otp_input input {
+  position: relative;
+  height: 2rem;
+  min-width: 25px;
+  background-color: #F7F7F7;
+  border: 1px solid green;
+}
+/* End */

@@ -732,7 +732,7 @@ const useStyles = makeStyles({
         width: "50%",
         height: "auto",
         borderRadius: "20px",
-        padding:"20px",
+        padding: "20px",
         background: "#FFFFFF",
       }
     },
@@ -750,7 +750,7 @@ const useStyles = makeStyles({
       "& .MuiPaper-root": {
         width: "50%",
         height: "auto",
-        padding:"20px",
+        padding: "20px",
         borderRadius: "20px",
         background: "#FFFFFF",
       }
@@ -769,7 +769,7 @@ const useStyles = makeStyles({
       "& .MuiPaper-root": {
         width: "50%",
         height: "auto",
-        padding:"20px",
+        padding: "20px",
         borderRadius: "20px",
         background: "#FFFFFF",
       }
@@ -1088,7 +1088,7 @@ const useStyles = makeStyles({
       borderColor: "#31B665"
     }
   },
- whishlistBtn: {
+  whishlistBtn: {
     "& .MuiButton-text": {
       fontSize: ".6rem",
     },
@@ -1101,12 +1101,56 @@ const useStyles = makeStyles({
       color: "#31B665",
       backgroundColor: "#FFFFFF",
       border: "1px solid #31B665",
-      borderRadius:"20px"
+      borderRadius: "20px"
 
     },
     "& .MuiButtonBase-root:hover": {
       backgroundColor: "#FFFFFF",
       border: "1px solid #31B665"
+    }
+  },
+
+  emailVer_title: {
+
+    "& .MuiTypography-root": {
+      color: "#000000",
+      fontSize: "25px",
+      fontWeight: 700,
+      marginTop: "20px",
+
+      display: 'flex',
+      justifyContent: "center",
+
+    }
+
+  },
+  muiDialogContent: {
+    "& .MuiDialogContent-root": {
+      padding: "10px 20px",
+
+
+    }
+  },
+  muiNormalBtn: {
+    "& .MuiButtonBase-root": {
+      textTransform: "none",
+
+    },
+    "& .MuiButton-text": {
+      fontSize: ".7rem",
+      color: "blue",
+
+    }
+  },
+  emailVerLoadingBtn: {
+    "& .MuiLoadingButton-root": {
+      textTransform: "none",
+
+    },
+    "& .MuiButton-text": {
+      fontSize: ".7rem",
+      color: "blue",
+
     }
   },
 });
