@@ -63,8 +63,8 @@ export default function Dispansires() {
                     <div className="col-12  col-md-10 col-sm-12">
                         {DispensorShopLocation.map((ele, index) => {
                             return (
-                                <div className="d-flex" key={index}>
-                                    <span className="dispensories_name">{ele.name}</span><span className="dispensories_city">{ele.city}</span>
+                                <div  key={index}>
+                                   <h1 className="d-flex"> <span className="dispensories_name">{ele.name}</span><span className="dispensories_city">{ele.city}</span></h1>
                                 </div>
                             )
                         })}

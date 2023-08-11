@@ -54,11 +54,11 @@ const DispensoriesOpenResult = () => {
                                     </div>
                                 </div>
                                 <div className="row m-2">
-                                    <div className="col-6 dispensories_result_head fontStyle">
-                                        <p>Showing result</p>
+                                    <div className="col-6  fontStyle">
+                                        <h2 className='dispensories_result_head'>Showing result</h2>
                                     </div>
-                                    <div className="col-6 text-end dispensories_result_head fontStyle">
-                                        <p>1 to {Store.length}</p>
+                                    <div className="col-6 text-end  fontStyle">
+                                        <h2 className='dispensories_result_head'>1 to {Store.length}</h2>
                                     </div>
                                 </div>
 
@@ -82,11 +82,11 @@ const DispensoriesOpenResult = () => {
                                                 <div className="row">
 
                                                     <div className="col-12 dispensories_content_Header_paragraphs text-truncate">
-                                                        <p className="text-truncate">{ele.Store_Name}</p>
+                                                        <h3 className="text-truncate dispensoriesHeadingName">{ele.Store_Name}</h3>
 
                                                     </div>
                                                     <div className="col-12 dispensories_content_paragraphs">
-                                                        <p className="text-truncate">{ele.Store_Address}</p>
+                                                        <h4 className="text-truncate dispensorieAddressNames">{ele.Store_Address}</h4>
                                                     </div>
                                                     <div className="col-12 dispensories_buttonsContainer">
                                                         <button className="dispensories_open_res_btns">Closed</button>

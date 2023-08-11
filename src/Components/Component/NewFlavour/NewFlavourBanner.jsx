@@ -26,13 +26,13 @@ const NewFlavourBanner = ({ delBtn }) => {
                                     </div>
                                     <div className="col-md-9 col-sm-8  col-8  newFlavourContent_height" style={{position:"0px"}}>
                                         <div className='row'>
-                                            <div className='col-12 New_flavour_font_size_paragraph New_flavour_font_size_head fontStyle'>
-                                                <p>{data.Store_Name}</p>
+                                            <div className='col-12 New_flavour_font_size_paragraph  fontStyle'>
+                                                <h2 className='New_flavour_font_size_head'>{data.Store_Name}</h2>
                                             </div>
                                             <div className='col-12'>
 
                                                 <div className='new_flavour_flex New_flavour_font_size_paragraph '>
-                                                    <p><IoLocationSharp /></p><p id='NewFlav_margins' className='fontStyle_weight_fourHundred'>{data.Store_Address}</p>
+                                                    <p><IoLocationSharp /></p><h4 id='NewFlav_margins' className='newFlavourBannerSubHead'>{data.Store_Address}</h4>
                                                 </div>
 
 
@@ -40,13 +40,13 @@ const NewFlavourBanner = ({ delBtn }) => {
                                             <div className='col-12 new_flavourList_container d-flex'>
 
                                                 <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph'>
-                                                    <p>4.5</p>
+                                                    <p className='newFlavBanerRatingFontStyle'>4.5</p>
                                                     <p className=''><AiFillStar className={classes.disp_star_color} id='NewFlav_margins' /></p>
                                                 </div>
 
                                                 <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph newFlav_margin'>
                                                     <p><TbCircleFilled id="new_flavCircle" /></p>
-                                                    <p id='NewFlav_margins'>Store details</p>
+                                                    <p className='marginLeftnewFlavStore '>Store details</p>
                                                 </div>
 
                                                 <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph newFlav_margin'>

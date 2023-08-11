@@ -711,11 +711,12 @@
   height: 36px;
 }
 
-.prod_para_name p {
-  font-size: 18px;
-  color: #000000;
-}
 
+.productListHeadings{
+  font-size: 16px;
+  color: #000000;
+  font-weight: 700;
+}
 .btn2 {
   background: rgb(19, 190, 235)
 }
@@ -2419,7 +2420,7 @@
   height: 30px;
 }
 
-.dispensories_content_Header_paragraphs p {
+.dispensoriesHeadingName {
   color: #282625;
   font-size: 18px;
   font-weight: bold;
@@ -2429,7 +2430,7 @@
   height: 30px;
 }
 
-.dispensories_content_paragraphs p {
+.dispensorieAddressNames {
   color: #949494;
   font-size: 14px;
   font-weight: 400;
@@ -2478,11 +2479,11 @@
     font-size: 12px;
   }
 
-  .dispensories_content_paragraphs p {
+  .dispensorieAddressNames{
     font-size: 12px;
   }
 
-  .dispensories_content_Header_paragraphs p {
+  .dispensoriesHeadingName {
     font-size: 12px;
   }
 
@@ -2531,11 +2532,12 @@
   height: 28px;
 }
 
-.amenties_paragrap p {
+.amenties_nameHeading {
   color: #000000;
   font-size: 18px;
   font-weight: 700;
   margin-left: 40px;
+  margin-top: 5px;
 }
 
 .amenities_list_item_paragrap {
@@ -2671,10 +2673,8 @@
 
 }
 
-.store_detail_heading p {
-
-  /* margin-left: 25px; */
-  font-weight: bold;
+.store_detail_heading{
+  font-weight: 700;
   font-size: 24px;
   margin-top: 20px;
 }
@@ -2772,6 +2772,8 @@
 .store_detail_menu_heading {
   color: #000000;
   font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 0px;
 }
 
 /* end */
@@ -3046,6 +3048,7 @@
 
 .New_flavour_font_size_head {
   font-size: 24px;
+  font-weight: 700;
 }
 
 .new_flavour_flex {
@@ -3091,7 +3094,22 @@
 .New_flav_btn {
   margin-left: 10px;
 }
-
+.newFlavourBannerSubHead{
+  font-size: 16px;
+  color: #000000;
+  font-weight: 400;
+}
+.newFlavBanerRatingFontStyle{
+  color:#949494;
+  font-size: 14px;
+  font-weight: 400;
+}
+.marginLeftnewFlavStore{
+  margin-left: 4px;
+  color:#949494;
+  font-size: 14px;
+  font-weight: 400;
+}
 @media(max-width:464px) {
   .New_flavour_font_size_paragraph {
     font-size: 12px;

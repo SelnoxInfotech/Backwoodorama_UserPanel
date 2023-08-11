@@ -183,9 +183,9 @@ const ProductList = ({ arr }) => {
 
                                 <div className="col-8 product_cat_allProduct">
 
-                                    <div className="col-12 px-2 prod_para_name ellipsis" style={{ marginBottom: "" }}>
+                                    <div className="col-12 px-2 prod_para_name" style={{ marginBottom: "" }}>
 
-                                        <p className='fontStyle common_sub_head '>{ele.Product_Name}</p>
+                                        <h3 className='productListHeadings ellipsis'>{ele.Product_Name}</h3>
                                     </div>
                                     <div className="col-12 px-2 prod_para prod_sub_heading_height ellipsis">
                                         <p className='fontStyle common_sub_head'>{ele.StoreName}</p>

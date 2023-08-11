@@ -11,12 +11,12 @@ const Amenities = () => {
     { item: "Medical",icon:<AiOutlinePlus/> ,color:"#000000"}, { item: "Security" ,icon:<MdSecurity/>,color:"#000000"}, { item: "Brand verify",icon:<SiBrandfolder/>,color:"#000000" }]
     return (
         <>
-            <div className="container-fluid">
+            {/* <div className="container-fluid"> */}
                 <div className="row  center">
                     <div className="col-lg-12 col-md-12 col-sm-12 col-12 amenities_container">
                         <div className="row center">
-                            <div className="col-12 amenties_paragrap fontStyle">
-                                <p>Amenities</p>
+                            <div className="col-12  fontStyle">
+                                <h2 className="amenties_nameHeading">Amenities</h2>
 
                             </div>
                         </div>
@@ -50,7 +50,7 @@ const Amenities = () => {
 
                 </div>
 
-            </div>
+            {/* </div> */}
         </>
     )
 }
