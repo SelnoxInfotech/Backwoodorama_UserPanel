@@ -1,6 +1,6 @@
 import RelatedVerifyBanner from "./RelatedVerifyComponent/RelatedVerifyBrandBanner"
 import SearchBar from '@mkyy/mui-search-bar';
-import ProductSearchResult from "../../Product/ProductSearchResult/ProductSearchResult";
+
 import { useParams } from "react-router-dom";
 import React from "react";
 import Axios from "axios";
@@ -8,7 +8,7 @@ import useStyles from "../../../../Style";
 const RelatedVerifyBrand = () => {
     const classes=useStyles()
     let { id } = useParams();
-    const [BrandProduct, SetBrandProduct] = React.useState([])
+    const [ SetBrandProduct] = React.useState([])
     const [BrandDetails , GetBrandDetails] = React.useState([])
     React.useEffect(() => {
         Axios.get(`https://sweede.app/UserPanel/Get-ProductbyBrand/${id}`,

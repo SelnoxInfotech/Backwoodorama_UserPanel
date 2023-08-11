@@ -1,6 +1,5 @@
 import DeliveryOption from "./DeliveryOption"
 import DeliveryInformation from "./DeliveryInformation"
-import PlaceOrder from "./PlaceOrder"
 import Payment from "./Payment"
 import React from "react"
 import AddToCartReview from "../Product/AddToCartComponent/AddToCartReview"

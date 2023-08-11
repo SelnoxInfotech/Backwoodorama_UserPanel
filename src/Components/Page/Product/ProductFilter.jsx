@@ -4,7 +4,7 @@ import { FiChevronLeft } from "react-icons/fi"
 import useStyles from "../../../Style"
 import Axios from "axios"
 import _ from "lodash"
-import { FormControl, Grid, Menu, MenuItem, Select } from "@mui/material"
+import { FormControl, Grid, MenuItem, Select } from "@mui/material"
 import SearchBar from '@mkyy/mui-search-bar';
 
 const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
@@ -46,6 +46,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
                     d.push(data[0])
                     var uniqueUsersByID = _.uniqBy(d, 'id'); //removed if had duplicate id
                     SetFilter(uniqueUsersByID)
+                    return data
                 })
 
             }).catch(

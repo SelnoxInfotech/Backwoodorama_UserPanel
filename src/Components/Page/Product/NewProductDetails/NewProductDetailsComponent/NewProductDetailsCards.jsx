@@ -1,10 +1,8 @@
 import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { BsFillHeartFill } from "react-icons/bs";
 import { IoMdStar } from "react-icons/io";
 import useStyles from "../../../../../Style";
 import { Swiper, SwiperSlide } from "swiper/react";
-import IconButton from '@mui/material/IconButton';
 import axios from "axios";
 import Cookies from 'universal-cookie';
 import Createcontext from "../../../../../Hooks/Context"
@@ -24,7 +22,7 @@ const NewProductDetailsCards = ({ Product }) => {
     const token_data = cookies.get('Token_access')
     const [CartClean, SetCartClean] = React.useState(false)
     const { state, dispatch } = React.useContext(Createcontext)
-    const [Price, SetPrice] = React.useState([])
+    const [Price] = React.useState([])
     const [AddTOCard, SetAddToCard] = React.useState(() => {
         const saved = localStorage.getItem("items");
         const initialValue = JSON.parse(saved);

@@ -6,8 +6,6 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 const WeedDealsByProduct = ({ArrayData,heading}) => {
   
     const ref = React.useRef(null);
-    const box = document.querySelector(".newProductCard")
-
 
     return (
         // <div className="container-fluid">

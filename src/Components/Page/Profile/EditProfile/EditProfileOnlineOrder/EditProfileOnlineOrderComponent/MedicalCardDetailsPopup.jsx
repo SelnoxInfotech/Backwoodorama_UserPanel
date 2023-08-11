@@ -8,13 +8,13 @@ import LoadingButton from "@mui/lab/LoadingButton"
 import useStyles from '../../../../../../Style';
 import IconButton from '@mui/material/IconButton';
 import { RiCloseCircleFill } from "react-icons/ri"
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import Cookies from 'universal-cookie';
 import Axios from 'axios';
 const MedicalCardDetailsPopup = ({ Profile, Api, SetApi }) => {
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
-    const { register, handleSubmit, errors, control, reset ,setError} = useForm();
+    const { register, handleSubmit, errors, reset ,setError} = useForm();
     const [Open, SetOpen] = React.useState(false)
     const handleClick = () => {
         SetOpen(true)

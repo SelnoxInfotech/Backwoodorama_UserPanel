@@ -3,7 +3,6 @@ import React from "react"
 import Button from '@mui/material/Button';
 import useStyles from "../../../../../Style"
 import { Link, useNavigate } from "react-router-dom"
-import styled from "styled-components";
 import Createcontext from "../../../../../Hooks/Context"
 import Cookies from 'universal-cookie';
 import { LazyLoadImage } from "react-lazy-load-image-component";

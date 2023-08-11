@@ -31,14 +31,14 @@ const DeliveryMenuBar = () => {
                 } else {
                   const currData = x.Category.filter(d => d === current.Category);
                   if (!currData.length) {
-                    const newData = x.Category.push({ [current.Category]: current.ProductCount });
-                    const newCurr = {
-                        Store_Name: current.Store_Name,
-                        Category: newData,
-                        id:current.id,
-                        Store_Image:current.Store_Image,
-                        Store_Address:current.Store_Address
-                    }
+                    // const newData = x.Category.push({ [current.Category]: current.ProductCount });
+                    // const newCurr = {
+                    //     Store_Name: current.Store_Name,
+                    //     Category: newData,
+                    //     id:current.id,
+                    //     Store_Image:current.Store_Image,
+                    //     Store_Address:current.Store_Address
+                    // }
                     return acc;
                   } else {
                     return acc;

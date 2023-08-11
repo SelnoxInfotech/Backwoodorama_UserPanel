@@ -3,7 +3,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import { AiFillStar } from "react-icons/ai";
 import useStyles from "../../../Style"
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import _ from "lodash";
 import PreCheckout from "./PreCheckout/PreCheckout"
 import axios from "axios";
@@ -16,7 +16,7 @@ import IconButton from '@mui/material/IconButton';
 import { WishListPost } from "../../Component/Whishlist/WishListApi_"
 import {WhisList} from "../../Component/Whishlist/WhisList"
 const ProductList = ({ arr }) => {
-    const navigation = useNavigate()
+  
     const cookies = new Cookies();
     const [CartClean, SetCartClean] = React.useState(false)
     const token_data = cookies.get('Token_access')

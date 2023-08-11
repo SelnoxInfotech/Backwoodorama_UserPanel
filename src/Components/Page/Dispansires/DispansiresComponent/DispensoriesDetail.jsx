@@ -21,14 +21,14 @@ export default function DispensoriesProduct() {
     const navigate = useNavigate()
     const { id, tab } = useParams();
     const classes = useStyles()
-    const [Product, SetProduct] = React.useState('');
+    // const [Product, SetProduct] = React.useState('');
     const [Category, SetCategory] = React.useState([])
     const [DespensariesData, SetDespensariesProductData] = React.useState([])
     const [Despen, SetDespens] = React.useState([])
     const [Tab, SetTab] = React.useState()
-    const handleChange = (event) => {
-        SetProduct(event.target.value);
-    };
+    // const handleChange = (event) => {
+    //     SetProduct(event.target.value);
+    // };
 
 
 
@@ -68,18 +68,18 @@ export default function DispensoriesProduct() {
         })
     }, [id])
 
-    const FilterCategory = async (id) => {
-        axios(`https://sweede.app/UserPanel/Get-ProductByCategory/${id}`, {
-        }).then(response => {
-            SetDespensariesProductData(response.data)
+    // const FilterCategory = async (id) => {
+    //     axios(`https://sweede.app/UserPanel/Get-ProductByCategory/${id}`, {
+    //     }).then(response => {
+    //         SetDespensariesProductData(response.data)
 
 
-        }).catch(
-            function (error) {
+    //     }).catch(
+    //         function (error) {
 
-            })
+    //         })
 
-    }
+    // }
     function SelectionTab(item) {
         SetTab(item)
         navigate(`/DispensoriesProduct/${id}/${item}`)

@@ -8,8 +8,6 @@ import Axios from "axios"
 import React from 'react';
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { useNavigate } from 'react-router-dom';
-import Createcontext from "../../../../Hooks/Context"
-import _ from "lodash"
 import AddressSearchapi from "./AddressSearchapi"
 const SearchBar = () => {
     const Navigation = useNavigate()

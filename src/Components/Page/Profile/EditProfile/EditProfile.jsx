@@ -9,7 +9,7 @@ import Cookies from 'universal-cookie';
 import Axios from 'axios';
 import Createcontext from "../../../../Hooks/Context"
 const EditProfile = () => {
-    const { state, dispatch } = React.useContext(Createcontext)
+    const { dispatch } = React.useContext(Createcontext)
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
    const [Profile ,SetProfile] =  React.useState([])

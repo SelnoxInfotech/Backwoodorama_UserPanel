@@ -6,7 +6,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 const PopularStrain = ({SliderDataArray,Heading}) => {
   
     const ref = React.useRef(null);
-    const box = document.querySelector(".newProductCard")
+
 
 
     return (

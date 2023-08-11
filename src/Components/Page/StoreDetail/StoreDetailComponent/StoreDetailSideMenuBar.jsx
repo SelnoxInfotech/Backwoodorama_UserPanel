@@ -8,7 +8,6 @@ import { MdEmail } from "react-icons/md"
 import { CgGlobeAlt } from "react-icons/cg"
 import { SlSocialSpotify } from "react-icons/sl"
 import { RiSettings2Fill } from "react-icons/ri"
-import useStyles from "../../../../Style"
 const StoreDetailSideMenuBar = () => {
     const StoreDetailSideMenubarArray = [{ icons: <HiCheckCircle  size={14}/>, item: "List Information", color: "#000000" },
     { icons: <FaCarAlt  size={14}/>, item: "StoreFront|Pickup", color: "#000000" },
@@ -21,7 +20,6 @@ const StoreDetailSideMenuBar = () => {
     { icons: <SlSocialSpotify size={14}/>, item: "Social Media", color: "#000000" },
     { icons: <RiSettings2Fill size={14}/>, item: "Support", color: "#000000" },
     ]
-    const classes = useStyles()
     return (
         <div className="col-lg-2 storeDetail_container my-2">
             <div className="">

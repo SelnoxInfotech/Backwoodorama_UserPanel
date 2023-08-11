@@ -1,8 +1,6 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import { IoCloseCircle } from "react-icons/io5"
-
 import Dialog from '@mui/material/Dialog';
 import { AiFillPlusCircle } from "react-icons/ai"
 import { Box } from '@mui/system';
@@ -10,13 +8,13 @@ import LoadingButton from "@mui/lab/LoadingButton"
 import useStyles from '../../../../../../Style';
 import IconButton from '@mui/material/IconButton';
 import { RiCloseCircleFill } from "react-icons/ri"
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import Cookies from 'universal-cookie';
 import Axios from 'axios';
 const AddDateOfBirth = ({ Profile, Api, SetApi }) => {
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
-    const { register, handleSubmit, errors, control, reset, setError } = useForm();
+    const { register, handleSubmit, errors, reset, setError } = useForm();
     const classes = useStyles()
     const [Open, SetOpen] = React.useState(false)
     const handleClick = () => {

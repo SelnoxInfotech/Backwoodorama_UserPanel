@@ -1,7 +1,6 @@
 import SearchBar from '@mkyy/mui-search-bar';
 import * as React from 'react';
 import StrainTypeCards from "./StrainTypeCards";
-import Axios from "axios"
 import useStyles from '../../../../Style';
 const StrainType = () => {
  const classes=useStyles()

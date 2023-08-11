@@ -2,7 +2,6 @@ import Map from "../../../Component/Map/map"
 import CategoryProduct from "./ComponentDashboard/CategoryProduct";
 import DispensoriesAddress from "../../Dispansires/DispansiresComponent/DispensoriesAddress";
 import LatestServices from "./ComponentDashboard/LatestServices";
-import WeedProduct from "./ComponentDashboard/WeedProduct";
 import CommunityType from "./ComponentDashboard/CommunityType";
 import HomePageBanner from "./ComponentDashboard/HomePageBanner";
 import DeliveryServices from "../../Delivery/HomePageDelivery/DeliveryServices";
