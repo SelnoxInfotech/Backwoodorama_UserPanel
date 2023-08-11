@@ -5,8 +5,8 @@ const StoreDetailInformation=()=>{
                         <div className=" ">
 
                         <div className="row">
-                            <div className="col-12 StoreDetail_paragraph fontStyle store_middle_content_top ">
-                                <p>Introduction</p>
+                            <div className="col-12  fontStyle store_middle_content_top ">
+                                <p className="StoreDetail_paragraph">Introduction</p>
 
                             </div>
                             <div className=" col-12 store_content_middle_Content storeDetails">

@@ -26,7 +26,7 @@ const StoreDetailSideMenuBar = () => {
 
                 <div className="row">
                     <div className="col-12">
-                        <p className="fontStyle store_detail_menu_heading">Mr nice guys DC</p>
+                        <h3 className="fontStyle store_detail_menu_heading">Mr nice guys DC</h3>
 
                     </div>
 

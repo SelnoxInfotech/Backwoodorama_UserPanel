@@ -22,7 +22,7 @@ const WhisListCard = () => {
     const [Whishlist, SetWishList] = React.useState(false)
     const Navigate = useNavigate()
     const classes = useStyles()
-    // const [Price, SetPrice] = React.useState([])
+    const [Price, SetPrice] = React.useState([])
     const token_data = cookies.get('Token_access')
     const [CartClean, SetCartClean] = React.useState(false)
     const [GetApiData, SetGetApiData] = React.useState([])
