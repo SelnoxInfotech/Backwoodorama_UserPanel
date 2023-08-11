@@ -10,13 +10,12 @@ import { LoadingButton } from '@mui/lab';
 import { Link,useNavigate } from 'react-router-dom';
 const AddToCartReview = () => {
     const { state, dispatch } = React.useContext(Createcontext)
-    const navigate =  useNavigate()
+    const navigate =  useNavigate();
     const cookies = new Cookies();
-    const token_data = cookies.get('Token_access')
-    const [Loadingmines, SetLoadingmines] = React.useState(false)
-    const [LoadingPlue, SetLoadingPluse] = React.useState(false)
-    const [LoadingDelete, SetLoadingDelete] = React.useState(false)
-
+    const token_data = cookies.get('Token_access');
+    const [Loadingmines, SetLoadingmines] = React.useState(false);
+    const [LoadingPlue, SetLoadingPluse] = React.useState(false);
+    const [LoadingDelete, SetLoadingDelete] = React.useState(false);
 
     async function DeleteItem(Id, id) {
         if (state.login) {

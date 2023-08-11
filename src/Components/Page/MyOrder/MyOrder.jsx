@@ -10,6 +10,9 @@ const MyOrder = () => {
     const changeBackgroundFun = (itemId) => {
         SetSelected(itemId)
     }
+    React.useEffect(()=>{
+   window.scroll(0,0)
+    },[])
     return (
         <React.Fragment>
             <div className="container-fluid">
