@@ -8,16 +8,14 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Createcontext from "../../../../Hooks/Context"
 import DeliverServiceSkeleton from '../../../Component/Skeleton/DeliveryServicesSkeleton';
-import { es } from 'date-fns/locale';
+
 const DeliveryServices = () => {
     const [DeliveryService, SetDeliveryService] = useState({})
-    const [Arrry, SetArry] = useState([])
-    const [da, Setda] = React.useState([])
+
     const { state } = React.useContext(Createcontext)
     const classes = useStyles()
     const [Skeleton, SetSkeleton] = React.useState(true)
     const ref = React.useRef(null);
-    const l = []
     React.useEffect(() => {
         Axios(`https://sweede.app/UserPanel/Get-GetDeliveryStoresHomepage/`, {
         }

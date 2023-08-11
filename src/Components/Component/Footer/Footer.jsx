@@ -5,12 +5,12 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import useStyles from "../../../Style"
 import Axios from "axios"
 import React from "react";
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { IoLocationSharp } from "react-icons/io5"
 import { CiMobile1 } from "react-icons/ci"
 import { HiOutlineMail } from "react-icons/hi"
 const Footer = () => {
-    const Navigate = useNavigate()
+
     const classes = useStyles()
     const [Categorys, SetCategorys] = React.useState([])
     React.useEffect(() => {
@@ -23,22 +23,12 @@ const Footer = () => {
     }, [])
 
     const AboutUs = [{ head: "About Us" }, { head: "Company" }, { head: "Investor" }, { head: "Help Center" }, { head: "Download App" }]
-    const Category = [{ head: "Flower" }, { head: "CBD" }, { head: "Concentrate" }, { head: "Edible" }]
-    // const Legal = [{ head: "Term & Conditions" }, { head: "Carrier" }, { head: "Privacy Policy" }]
+    
+    
     const More = [{ head: "Get Started" }, { head: "Brand" }, { head: "Add Business" }, { head: "Contact Us" }]
     const BottomMenuBar = [{ item: "Term & Condition" }, { item: "Careers" }, { item: "Privacy Policy" }]
 
-    // function Redirect(title) {
-    //     if (title === "Brand") {
-
-    //         Navigate("/Brand")
-    //     }
-
-    // }
-
-    // function ShowCategoryProduct(id, name) {
-    //     Navigate(`/CategoryProduct/${name}`, { state: { id } });
-    // }
+ 
     return (
         <>
             <div className="container-fluid">

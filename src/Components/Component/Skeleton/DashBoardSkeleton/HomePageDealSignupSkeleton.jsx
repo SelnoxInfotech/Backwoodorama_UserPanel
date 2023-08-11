@@ -1,6 +1,5 @@
 import React from "react"
 import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
 import { Paper } from "@mui/material";
 import useStyles from "../../../../Style";

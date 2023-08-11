@@ -1,7 +1,6 @@
 import { ScrollContainer } from 'react-indiana-drag-scroll';
 import * as React from 'react';
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const StrainTypeCards = ({ ArrayData }) => {

@@ -1,8 +1,8 @@
-import Slider from "react-slick";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import parse from 'html-react-parser';
-import styled from "styled-components";
+
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ScrollContainer } from 'react-indiana-drag-scroll';

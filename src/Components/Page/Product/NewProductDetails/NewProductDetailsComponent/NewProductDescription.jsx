@@ -1,4 +1,4 @@
-import parse from 'html-react-parser';
+
 const NewProductDescription = ({ Product }) => {
 
     return (

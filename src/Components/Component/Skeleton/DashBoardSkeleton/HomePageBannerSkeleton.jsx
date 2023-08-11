@@ -1,10 +1,9 @@
 import React from "react"
 import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
-import useStyles from "../../../../Style";
+
 const HomePageBannerSkeleton = () => {
-    const classes = useStyles()
+
     return (
         <React.Fragment>
             <Grid container  sx={{height:"auto"}}>

@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import { AiFillHeart } from "react-icons/ai"
 import { FaCannabis } from "react-icons/fa"
 import Grid from '@mui/system/Unstable_Grid';
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { BsFillTagFill } from "react-icons/bs"
 import {GrMail} from "react-icons/gr"  
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({

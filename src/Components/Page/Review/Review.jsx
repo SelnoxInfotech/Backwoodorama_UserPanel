@@ -1,6 +1,5 @@
 import OverAllReview from "./ReviewComponent/OverAllReview"
 import RelatedReview from "./ReviewComponent/RelatedReview"
-import NewFlavourBanner from "../../Component/NewFlavour/NewFlavourBanner"
 const Review = () => {
     return (
         <>

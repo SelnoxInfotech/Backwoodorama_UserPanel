@@ -3,18 +3,17 @@ import { BiMap } from "react-icons/bi"
 import LoadingButton from '@mui/lab/LoadingButton';
 import useStyles from "../../../../Style"
 import Box from '@mui/material/Box';
-import styled from "styled-components";
-import { useEffect, useState } from 'react';
+
+
 import { Rating } from '@mui/material';
 import { Link } from 'react-router-dom';
-import Createcontext from '../../../../Hooks/Context';
 import { ScrollContainer } from 'react-indiana-drag-scroll';
 import Axios from "axios";
 import DispensoriesAddressSkeleton from '../../../Component/Skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton';
 const DispensoriesAddress = () => {
     const ref = React.useRef(null);
 
-    const { dispatch } = React.useContext(Createcontext)
+    // const { dispatch } = React.useContext(Createcontext)
     // const [Store, SetStore] = useState([])
     const [Store, SetStore] = React.useState([])
     const [Skeleton, SetSkeleton] =React.useState(true)
@@ -28,10 +27,7 @@ const DispensoriesAddress = () => {
             SetSkeleton(false)
 
         }).catch(
-            function (error) {
-
-
-            })
+)
     }, [])
     // useEffect(() => {
     //     const fetchApiFun = async () => {

@@ -1,12 +1,12 @@
 import { LoadingButton } from '@mui/lab'
-import { Box, Button } from '@mui/material'
+import { Box } from '@mui/material'
 import React from 'react'
 import style from "../../../Style"
 import Cookies from 'universal-cookie';
 import Createcontext from "../../../Hooks/Context"
 import CookieSetting from './CookiesSetting';
 export default function CookiesAccept() {
-    const { state, dispatch } = React.useContext(Createcontext)
+    const {dispatch } = React.useContext(Createcontext)
     const classes = style()
     const cookies = new Cookies();
     const handleCookies = () => {

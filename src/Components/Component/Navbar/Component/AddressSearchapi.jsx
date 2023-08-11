@@ -7,18 +7,18 @@ import Createcontext from "../../../../Hooks/Context"
 import { IoLocationSharp } from "react-icons/io5"
 import { MdOutlineMyLocation } from "react-icons/md"
 import { IconButton, InputAdornment, TextField } from "@mui/material";
-import { IconBase } from "react-icons";
+
 export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
 
   const classes = useStyles()
   const { state, dispatch } = React.useContext(Createcontext)
   const [Default, Setdefault] = React.useState('')
-  const [SelectValue, SetSelectvalue] = React.useState('')
+  // const [SelectValue, SetSelectvalue] = React.useState('')
   const { ref } = usePlacesWidget({
     apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
     onPlaceSelected: (place) => {
       Setdefault(place?.formatted_address);
-      SetSelectvalue(place?.formatted_address);
+      // SetSelectvalue(place?.formatted_address);
       dispatch({ type: 'Location', Location: place?.formatted_address })
 
     },

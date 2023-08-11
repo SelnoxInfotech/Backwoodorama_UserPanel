@@ -1,16 +1,6 @@
 import VerifyBrands from "./BrandComponent/VerifyBrands"
 import React from "react";
 const Brand=()=>{
-    const [Category, SetCategory] = React.useState([])
-    React.useEffect(() => {
-        const fetchData = async () => {
-            const apidata = await fetch("https://sweede.app/UserPanel/Get-Categories/");
-            const data = await apidata.json()
-            SetCategory(data)
-        }
-        fetchData()
-
-    }, [])
     return(
         <>
         <div className="container-fluid">

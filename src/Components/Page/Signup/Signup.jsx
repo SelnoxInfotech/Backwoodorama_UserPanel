@@ -2,7 +2,6 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import Createcontext from "../../../Hooks/Context"
@@ -11,7 +10,7 @@ import { FcGoogle } from "react-icons/fc"
 
 import React from 'react';
 const Signup = () => {
-    const { state, dispatch } = React.useContext(Createcontext)
+    const { state } = React.useContext(Createcontext)
     console.log(state)
     const navigate = useNavigate()
     const method = useForm()

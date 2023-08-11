@@ -4,7 +4,6 @@ import React from "react"
 import Button from "@mui/material/Button"
 import { Box } from "@mui/material"
 import useStyles from "../../../../../../Style"
-import { MdEdit } from "react-icons/md"
 import MuiPhoneNumber from "material-ui-phone-number"
 import LoadingButton from "@mui/lab/LoadingButton"
 import { AiFillPlusCircle } from "react-icons/ai"
@@ -16,7 +15,7 @@ import Axios from 'axios';
 const AddMobileNumberPopup = ({ Mobile, Api, SetApi }) => {
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
-    const { register, handleSubmit, errors, control, reset ,setError} = useForm();
+    const {  handleSubmit, errors, control, reset ,setError} = useForm();
     const [Open, SetOpen] = React.useState(false)
     const classes = useStyles()
     const handleClickOpen = () => {

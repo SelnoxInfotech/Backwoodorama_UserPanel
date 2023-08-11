@@ -2,7 +2,7 @@
 // import { BiMap } from "react-icons/bi"
 import { AiFillStar } from "react-icons/ai";
 // import { AiFillHeart } from "react-icons/ai";
-import { MdOutlineShoppingCart } from "react-icons/md"
+
 import LoadingButton from '@mui/lab/LoadingButton';
 import styled from "styled-components";
 import Box from '@mui/material/Box';
