@@ -24,7 +24,7 @@ const Login = () => {
     const [loading, Setloading] = React.useState(false)
     const classes = useStyles()
     const [showPassword, setShowPassword] = React.useState(false);
-    const [dulicate, Setduplicate] = React.useState([])
+    const [dulicate] = React.useState([])
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     function Submit(data) {
 

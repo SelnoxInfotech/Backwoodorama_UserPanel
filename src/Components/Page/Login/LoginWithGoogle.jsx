@@ -5,14 +5,13 @@ import useStyles from "../../../Style"
 import { useGoogleLogin } from '@react-oauth/google'
 import axios from 'axios';
 
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import Createcontext from "../../../Hooks/Context"
 import {FcGoogle} from "react-icons/fc"
 function LoginWithGoogle() {
     const classes = useStyles()
     const cookies = new Cookies();
-    const location = useLocation();
     const Navigate = useNavigate()
     const { state, dispatch } = React.useContext(Createcontext)
     const login = useGoogleLogin({

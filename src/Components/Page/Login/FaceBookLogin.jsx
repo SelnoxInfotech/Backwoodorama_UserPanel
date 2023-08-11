@@ -1,8 +1,8 @@
 import { LoadingButton } from '@mui/lab';
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import React from 'react';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
-import { IoLogoGoogle, IoLogoFacebook } from 'react-icons/io';
+import {  IoLogoFacebook } from 'react-icons/io';
 import useStyles from "../../../Style"
 import axios from 'axios';
 const FaceBookLogin = () => {

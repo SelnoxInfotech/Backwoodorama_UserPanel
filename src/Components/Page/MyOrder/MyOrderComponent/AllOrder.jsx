@@ -5,13 +5,6 @@ import { Link } from "react-router-dom";
 import { order } from "../MyorderApi"
 const AllOrder = () => {
     const [AllOrder_data, SetAllOrder_data] = React.useState([])
-    const AllOrdersData = [{ OrderID: "78248923658635", trackOrder: "Track Order" }, { OrderID: "78248923658636", trackOrder: "Track Order" },]
-    const AllOrderCard = [
-        { productName: "Cannabis Flower", quantity: "20mg", brand: "Cannabis", amountPrice: "$100", productDeliverd: "Deliverd" },
-        { productName: "Cannabis Flower", quantity: "20mg", brand: "Cannabis", amountPrice: "$100", productDeliverd: "Deliverd" },
-        { productName: "Cannabis Flower", quantity: "20mg", brand: "Cannabis", amountPrice: "$100", productDeliverd: "Deliverd" },
-        { productName: "Cannabis Flower", quantity: "20mg", brand: "Cannabis", amountPrice: "$100", productDeliverd: "Deliverd" }
-    ]
     React.useEffect(() => {
         order().then((res) => {
             SetAllOrder_data(res.data.reverse())
