@@ -6,7 +6,7 @@ const Review = () => {
 
             <div className="row center">
                 <div className="col-10 fontStyle Review_paragraph">
-                    <p>Store details</p>
+                    {/* <p>Store details</p> */}
                 </div>
             </div>
             <OverAllReview />

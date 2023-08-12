@@ -26,18 +26,18 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                             </div>
                                             <div className='col-lg-7 col-7'>
                                                 <div className='row'>
-                                                    <div className='col-12 DeliveryItem_heading deliver_items_content_same_height'>
-                                                        <h1 className='ellipsis'>{items.Store_Name}</h1>
+                                                    <div className='col-12  deliver_items_content_same_height'>
+                                                        <h2 className='ellipsis DeliveryItem_heading'>{items.Store_Name}</h2>
                                                     </div>
-                                                    <div className='col-12 delivery_item_paragraph delivery_items_card_flex deliver_items_content_same_height ellipsis'>
-                                                        <span><AiFillStar /></span><p className='delivery_items_spanss'>5.0(27)</p>
+                                                    <div className='col-12  delivery_items_card_flex deliver_items_content_same_height ellipsis'>
+                                                        <AiFillStar color='#31B665'/><p className='delivery_item_paragraph delivery_items_spanss'>5.0(27)</p>
 
                                                     </div>
-                                                    <div className='col-12 delivery_item_paragraph deliver_items_content_same_height'>
-                                                        <p className='ellipsis'>{items.Store_Address}</p>
+                                                    <div className='col-12  deliver_items_content_same_height'>
+                                                        <p className='ellipsis delivery_item_paragraph'>{items.Store_Address}</p>
                                                     </div>
-                                                    <div className='col-12 delivery_item_paragraph deliver_items_content_same_height '>
-                                                        <p className='ellipsis'>{items.address2}</p>
+                                                    <div className='col-12  deliver_items_content_same_height '>
+                                                        <p className='ellipsis delivery_item_paragraph'>{items.address2}</p>
                                                     </div>
                                                 </div>
 
@@ -47,16 +47,18 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                     <div className='col-sm-4 col-12 delivery_items_right_side_container_height'>
                                         <div className='row'>
 
-                                            <div className='col-12 DeliveryItem_heading  total_items deliver_items_content_same_height'>
-                                                <h1 className='ellipsis'>{items.total_items} Items</h1>
+                                            <div className='col-12   total_items deliver_items_content_same_height'>
+                                                <h2 className='ellipsis DeliveryItem_heading'>{items.total_items} Items</h2>
                                             </div>
                                             {
                                                 items?.Category?.map((data, index) => {
                                                     return (
+                                                        <React.Fragment key={index}>
 
-                                                        <div className='col-12 delivery_item_paragraph delivery_items_card_flex deliver_items_content_same_height ellipsis'>
-                                                            <span className='delivery_items_icons'><GiFlowerPot /></span><p>{Object.keys(data)} ({Object.values(data)})</p>
+                                                        <div className='col-12  delivery_items_card_flex deliver_items_content_same_height ellipsis'>
+                                                            <span className='delivery_items_icons'><GiFlowerPot /></span><p className='delivery_item_paragraph'>{Object.keys(data)} ({Object.values(data)})</p>
                                                         </div>
+                                                        </React.Fragment>
                                                     )
                                                 })
 

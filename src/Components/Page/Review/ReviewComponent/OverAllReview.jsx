@@ -29,11 +29,11 @@ const OverAllReview = () => {
 
                 <div className="row center mt-4">
                     <div className="col-10 px-0 product_review">
-                        <h1>Product Review</h1>
+                        <h1>Store Details</h1>
 
                     </div>
 
-                    <div className="col-10 col-sm-10 overall_review_container ">
+                    <div className="col-10 col-sm-10 overall_review_container mt-2">
                         <div className="row">
                             <div className="col-12 text-end my-2">
                                 <button className="overall_review_Button px-2">Write review</button>

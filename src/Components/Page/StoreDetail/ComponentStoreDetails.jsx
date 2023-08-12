@@ -8,10 +8,13 @@ const StoreDetail1 = () => {
         <>
         <div className="container-fluid">
 
-                <div className="col-lg-12  fontStyle">
+            <div className="row">
+            <div className="col-lg-12  fontStyle px-0">
                     <h1 className="store_detail_heading">Store details</h1>
                 </div>
             <hr />
+
+            </div>
             <Amenities />
             <div className="row  my-2">
                 <StoreDetailSideMenuBar />

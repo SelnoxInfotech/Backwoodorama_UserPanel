@@ -1,33 +1,34 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
-
+import React from "react"
 const Media = () => {
     const PromoCardArray = [
-        { imgUrl: "/image/Leafly March Promo.png" },
-        { imgUrl: "/image/Leafly Promo.png" },
+        { imgUrl: "/image/LeaflyMarchPromo.png" },
+        { imgUrl: "/image/LeaflyMarchPromo.png" },
         { imgUrl: "/image/social.png" },
-        { imgUrl: "/image/Leafly March Promo.png" },
-        { imgUrl: "/image/Leafly Promo.png" },
-        { imgUrl: "/image/Leafly Promo.png" },
+        { imgUrl: "/image/LeaflyPromo.png" },
+        { imgUrl: "/image/LeaflyPromo.png" },
+        { imgUrl: "/image/LeaflyPromo.png" },
     ]
     return (
-        <div className="container-fluid">
-            <div className="row center">
+            <div className="row mx-0">
+                <h1 className="mediaHeadingss mt-3">Media</h1>
                 {PromoCardArray.map((items, index) => {
                     return (
-                        <div className="col-lg-4  col-sm-6 col-112 media_outer_container">
-                            <div className="row media_row mx-4 mt-4">
-                                <div className="col-12 media_image_container px-0">
-                                    <LazyLoadImage className="media_image" src={items.imgUrl}/>
+                        <React.Fragment key={index}>
+                            <div className="col-lg-4  col-sm-6 col-12 media_outer_container">
+                                <div className="row media_row mx-1 mt-2">
+                                    <div className="col-12 media_image_container px-0">
+                                        <LazyLoadImage className="media_image" src={items.imgUrl} />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </React.Fragment>
                     )
                 })}
-              
+
 
             </div>
 
-        </div>
     )
 }
 export default Media
