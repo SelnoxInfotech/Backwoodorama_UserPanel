@@ -107,8 +107,8 @@ const Product = () => {
                         SubCategory.map((data) => {
                             return (
                                 <div>
-                                    <div className="col-12 mt-4 productSlider_headings fontStyle">
-                                        <h1>{data.name}</h1>
+                                    <div className="col-12 mt-4  fontStyle">
+                                        <h2 className="productSlider_headings">{data.name}</h2>
                                         <NewProductCategorySlider flowerArray={data.subcategories}/>
                                     </div>
 
@@ -117,8 +117,8 @@ const Product = () => {
                             )
                         })
                     }
-                    <div className="col-12 mt-4  productSlider_headings fontStyle">
-                        <h1>Recent views</h1>
+                    <div className="col-12 mt-4   fontStyle">
+                        <h3 className="productSlider_headings">Recent views</h3>
                         <RecentViewProduct />
                     </div>
                 </div>

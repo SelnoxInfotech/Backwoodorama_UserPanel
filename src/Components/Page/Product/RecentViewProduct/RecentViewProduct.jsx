@@ -58,8 +58,8 @@ const RecentViewProduct = () => {
                                         </div>
                                         <div className="col-12 recentViewProductContent_container">
 
-                                                <div className="w-100 recentViewProduct_heading">
-                                                    <h1>Urban flavour delivery</h1>
+                                                <div className="w-100 ">
+                                                    <h4 className="recentViewProduct_heading">Urban flavour delivery</h4>
 
                                                 </div>
                                                 <div className="w-100 recentViewProductParagraph">

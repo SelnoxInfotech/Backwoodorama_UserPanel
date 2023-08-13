@@ -7,8 +7,8 @@ const AllProductCategory = ({ flowerArray }) => {
         <>
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-lg-12  px-4 productSlider_headings fontStyle">
-                        <h1>{location.pathname.slice(17).replace(/%20/g, " ")}</h1>
+                    <div className="col-lg-12  px-4  fontStyle">
+                        <h2 className="productSlider_headings">{location.pathname.slice(17).replace(/%20/g, " ")}</h2>
                     </div>
 
                         {flowerArray.map((items, index) => {

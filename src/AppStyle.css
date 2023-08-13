@@ -3539,7 +3539,7 @@
   margin-right: 100px;
 }
 
-.productSlider_headings h1 {
+.productSlider_headings{
   font-weight: 700;
   font-size: 24px;
   color: #000000;
@@ -3562,7 +3562,7 @@
 }
 
 @media(max-width:480px) {
-  .productSlider_headings h1 {
+  .productSlider_headings{
     font-size: 12px;
     margin-top: 10px;
   }
@@ -3897,7 +3897,7 @@
   object-fit: cover;
 }
 
-.verify_brands_heading p {
+.verify_brands_heading{
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -3921,7 +3921,7 @@
 
   }
 
-  .verify_brands_heading p {
+  .verify_brands_heading{
     font-size: 14px;
   }
 }
@@ -4201,7 +4201,7 @@
   border-radius: 10px;
 }
 
-.recentViewProduct_heading h1 {
+.recentViewProduct_heading{
   font-style: normal;
   font-weight: 700;
   font-size: 20px;

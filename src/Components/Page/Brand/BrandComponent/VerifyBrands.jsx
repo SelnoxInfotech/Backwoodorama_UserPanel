@@ -36,8 +36,8 @@ const VerifyBrands = () => {
                                 </div>
                                 <div className="col-6 verify_content_container">
                                     <div className="row">
-                                        <div className="col-12 verify_content_height verify_brands_heading ">
-                                            <p className="ellipsis">{items.name}</p>
+                                        <div className="col-12 verify_content_height  ">
+                                            <h2 className="ellipsis verify_brands_heading">{items.name}</h2>
                                         </div>
                                         <div className="col-12 verify_content_height verify_subHead">
                                             <p className="ellipsis">{items.num_prod}</p>

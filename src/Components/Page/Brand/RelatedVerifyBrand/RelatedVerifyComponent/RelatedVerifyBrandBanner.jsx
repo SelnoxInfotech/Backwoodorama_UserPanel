@@ -27,7 +27,7 @@ const RelatedVerifyBanner = ({ BrandDetails }) => {
                             </div>
                             <div className="col-12 related_verify_paragraph">
 
-                                <p  > <div dangerouslySetInnerHTML={{ __html: BrandDetails.Brand_description }} /></p>
+                                <div dangerouslySetInnerHTML={{ __html: BrandDetails.Brand_description }} />
                             </div>
                         </section>
                     </div>                

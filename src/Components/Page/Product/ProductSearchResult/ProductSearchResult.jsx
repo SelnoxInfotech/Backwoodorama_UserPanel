@@ -154,8 +154,8 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
     return (
         <>
             <div className="row mx-0 marginProductSearchResult">
-                <div className="col-12 mt-4 productSlider_headings fontStyle">
-                    <h1>{CategoryName}</h1>
+                <div className="col-12 mt-4  fontStyle">
+                    <h1 className="productSlider_headings">{CategoryName}</h1>
                 </div>
                 {RelatedProductResult.map((items, index) => {
                     return (
