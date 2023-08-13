@@ -202,15 +202,15 @@ const NewProductDetailsCards = ({ Product }) => {
                     </div>
                     <div className="col-lg-8 newProductdetails_rightSideContent_container">
 
-                        <div className="col-12 newProductDetails_heading">
+                        <div className="col-12 ">
 
-                            <h1>{Product?.Product_Name}</h1>
+                            <h2 className="newProductDetails_heading">{Product?.Product_Name}</h2>
 
 
                         </div>
-                        <div className="col-12 newProductDetails_paragraph">
+                        <div className="col-12 ">
                             <Link to={`/DispensoriesProduct/${Product.Store_id}/${"Menu"}`}>
-                                <p>By {Product.StoreName}</p>
+                                <h3 className="newProductDetails_subHeadingss">By {Product.StoreName}</h3>
                             </Link>
                         </div>
                         <div className="col-12 newProductDetailsButon">

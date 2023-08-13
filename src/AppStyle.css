@@ -4271,14 +4271,14 @@
   width: 150px;
 }
 
-.newProductDetails_heading h1 {
+.newProductDetails_heading{
   font-style: normal;
   font-weight: 700;
   font-size: 36px;
   color: #000000;
 }
 
-.newProductDetails_paragraph p {
+.newProductDetails_subHeadingss {
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -4316,11 +4316,11 @@
 }
 
 @media(max-width:500px) {
-  .newProductDetails_heading h1 {
+  .newProductDetails_heading{
     font-size: 24px;
   }
 
-  .newProductDetails_paragraph p {
+  .newProductDetails_subHeadingss{
     font-size: 20px;
 
   }
@@ -4386,7 +4386,7 @@
   background: #F8F8F8;
 }
 
-.NewProductDescription_container h1 {
+.NewProductDescription_headingss {
   font-weight: 400;
   font-size: 20px;
   color: #282625;
@@ -4407,13 +4407,13 @@
 
 /* end */
 /* newProductAboutUs */
-.newProductAboutUs_container h1 {
+.newProductAboutUs_headings{
   font-weight: 400;
   font-size: 20px;
   color: #282625;
 }
 
-.newProductAboutUs_container p {
+.newProductAboutUs_container_para {
   font-weight: 400;
   font-size: 16px;
   color: #C0C0C0;
