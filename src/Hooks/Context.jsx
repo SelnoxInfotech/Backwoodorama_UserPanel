@@ -35,9 +35,9 @@ const initialUser = {
 
 function Context(props) {
     const [state, dispatch] = useReducer(Reducer, initialUser)
-    const cookies = new Cookies();
-
+    
     React.useEffect(() => {
+        const cookies = new Cookies();
         const logi = cookies.get("Token_access")
         let date = new Date();
         date.setTime(date.getTime() + (60 * 60 * 8000))
