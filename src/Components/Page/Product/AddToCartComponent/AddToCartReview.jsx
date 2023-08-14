@@ -59,6 +59,7 @@ const AddToCartReview = () => {
             };
             let Arry =
             {
+                Brand_Name:Event.Brand_Name,
                 Product_id: Event.Product_id,
                 Store_id: Event.Store_id,
                 Image_id: Event.Image_id,

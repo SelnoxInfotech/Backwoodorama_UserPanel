@@ -40,10 +40,12 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
 
         const FinalQuantity = counter === undefined ? 1 : counter
         if (token_data) {
+            console.log(Event)
             const config = {
                 headers: { Authorization: `Bearer ${token_data}` }
             };
             SetNewData({
+                
                 Product_id: Event.id,
                 Store_id: Event.Store_id,
                 Image_id: Event.images[0].id,
@@ -57,6 +59,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
             await axios.post("https://sweede.app/UserPanel/Add-AddtoCart/",
 
                 {
+                    Brand_Id:Event.Brand_id,
                     Product_id: Event.id,
                     Store_id: Event.Store_id,
                     Image_id: Event.images[0].id,
@@ -119,7 +122,6 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
                 }
             }
             else {
-                console.log(Arry)
                 SetAddToCard([Arry])
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
             }

@@ -14,19 +14,12 @@ const NewProductDetails = () => {
   const { id } = useParams();
 
   const heading = "You may also like"
-  const [Category, SetCategory] = React.useState([])
   const [Product, SetProduct] = React.useState([])
   const [StoreProduct, SetStoreProduct] = React.useState([])
   const [Despen, SetDespens] = React.useState([])
   // const Navigate = useNavigate()
   React.useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
-    const fetchData = async () => {
-      const apidata = await fetch("https://sweede.app/UserPanel/Get-Categories/");
-      const data = await apidata.json()
-      SetCategory(data)
-    }
-    fetchData()
     Axios(`https://sweede.app/UserPanel/Get-ProductById/${id}`, {
     }).then(response => {
       SetProduct(response.data[0])

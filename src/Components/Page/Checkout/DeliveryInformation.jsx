@@ -3,12 +3,10 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
 import React from 'react';
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Createcontext from "../../../Hooks/Context";
-import DateFnsUtils from '@date-io/date-fns';
-import { MuiPickersUtilsProvider, DatePicker, } from "@material-ui/pickers";
-import dayjs from 'dayjs';
+
 const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setDataImage, Details, SetDetails }) => {
     const { dispatch } = React.useContext(Createcontext)
     const method = useForm()
@@ -209,10 +207,10 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                                     required: "Birthdate is required*.",
                                                 }
                                                 )}
-                                                inputProps={{
-                                                    // min: "2020-08-10",
-                                                    max: new Date().getFullYear() -18
-                                                  }}
+                                                // inputProps={{
+                                                //     // min: "2020-08-10",
+                                                //     max: new Date().getFullYear() -18
+                                                //   }}
                                                 helperText={method.errors?.Birthdate?.message}
                                                 error={Boolean(method.errors?.Birthdate)}
 
