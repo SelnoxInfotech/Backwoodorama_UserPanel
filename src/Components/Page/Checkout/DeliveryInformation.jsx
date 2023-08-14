@@ -1,4 +1,4 @@
-import TextField from '@mui/material/TextField';
+import TextField from "@material-ui/core/TextField";
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
@@ -72,7 +72,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                     <p>Photo Id</p>
                                 </div>
                                 <div className='col-lg-10 col-md-10 col-sm-10 col-10'>
-                                    <input  accept="image/*" type='file' onChange={SelectImage} />
+                                    <input accept="image/*" type='file' onChange={SelectImage} />
                                 </div>
 
                             </div>
@@ -89,7 +89,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
                                         <TextField
                                             className={classes.deliveryInformationTextFildColor}
-                                            value={Details.FirstName||''}
+                                            value={Details.FirstName || ''}
                                             label="First name on photo id"
                                             variant="standard"
                                             fullWidth
@@ -105,10 +105,10 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                     </div>
                                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
                                         <TextField
-                                          className={classes.deliveryInformationTextFildColor}
+                                            className={classes.deliveryInformationTextFildColor}
                                             label="Last name on photo id"
                                             variant="standard"
-                                            value={Details.LastName||''}
+                                            value={Details.LastName || ''}
                                             onChange={handleChange}
                                             fullWidth
                                             name='LastName'
@@ -170,15 +170,54 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                                 ".MuiFormControl-marginNormal": {
                                                     marginTop: "8px",
                                                 },
-                                                ".MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline ":{
-                                                      
+                                                ".MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline ": {
+
                                                 },
-                                                "& .MuiOutlinedInput-notchedOutline.Mui-focused .MuiOutlinedInput-notchedOutline":{
-                                                  borderColor:"#31B665"
+                                                "& .MuiOutlinedInput-notchedOutline.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                                                    borderColor: "#31B665"
                                                 }
 
                                             }}>
-                                            <MuiPickersUtilsProvider utils={DateFnsUtils} >
+                                            {/* <TextField
+                                          className={classes.deliveryInformationTextFildColor}
+                                            label="date"
+                                            value={Details.Birthdate}
+                                            onChange={handleChange}
+                                
+                                            fullWidth
+                                            InputLabelProps={{ shrink: true, required: true }}
+                                            name='Birthdate'
+                                            inputRef={method.register({
+                                                required: "Birthdate is required*.",
+                                                // pattern: {
+                                                //     // value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                                //     message: "invalid email address"
+                                                // }
+                                            }
+                                            )}
+                                            helperText={method.errors?.Birthdate?.message}
+                                            error={Boolean(method.errors?.Birthdate)}
+                                        /> */}
+                                            <TextField
+                                                className={classes.deliveryInformationTextFildColor}
+                                                name="Birthdate"
+                                                fullWidth
+                                                label="Birth date"
+                                                InputLabelProps={{ shrink: true, required: true }}
+                                                type="date"
+                                                inputRef={method.register({
+                                                    required: "Birthdate is required*.",
+                                                }
+                                                )}
+                                                inputProps={{
+                                                    // min: "2020-08-10",
+                                                    max: new Date().getFullYear() -18
+                                                  }}
+                                                helperText={method.errors?.Birthdate?.message}
+                                                error={Boolean(method.errors?.Birthdate)}
+
+                                            />
+                                            {/* <MuiPickersUtilsProvider utils={DateFnsUtils} >
                                             <Controller
                                             
                                             defaultValue={dayjs(new Date())}  
@@ -217,7 +256,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                                     }}
 
                                             />
-                                        </MuiPickersUtilsProvider>
+                                        </MuiPickersUtilsProvider> */}
                                             {/* <input type="date" id="start" name="trip-start"
                                     
                                                 value={selectedDate}
@@ -226,7 +265,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                     </div>
                                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
                                         <TextField
-                                          className={classes.deliveryInformationTextFildColor}
+                                            className={classes.deliveryInformationTextFildColor}
                                             label="Email"
                                             value={Details.Email}
                                             onChange={handleChange}
@@ -249,7 +288,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                 <div className='row my-4'>
                                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
                                         <TextField
-                                          className={classes.deliveryInformationTextFildColor}
+                                            className={classes.deliveryInformationTextFildColor}
                                             type='mobile'
                                             onChange={handleChange}
                                             value={Details.Mobile}
@@ -296,7 +335,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                 <div className='row my-4'>
                                     <div className="col-12 height_del_information_inner_div font_size_paragraph_del font_color delivery_information_font_family">
                                         <TextField
-                                          className={classes.deliveryInformationTextFildColor}
+                                            className={classes.deliveryInformationTextFildColor}
                                             onChange={handleChange}
                                             value={Details.Id_Number}
                                             label="Medical Marijuana Number"

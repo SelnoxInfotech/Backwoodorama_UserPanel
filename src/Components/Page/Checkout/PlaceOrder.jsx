@@ -28,10 +28,6 @@ const PlaceOrder = () => {
                 console.error(error)    
             })
     },[])
-
-
-
-
     return (
         <>
             <div className="container-fluid">
@@ -41,7 +37,7 @@ const PlaceOrder = () => {
                             <div className='col-12 top_container '>
                                 <div className='row'>
                                     <div className="col-12 ThankYouOrder_paragraph ">
-                                        <p>Thank you Maxwell</p>
+                                        <p>Thank you {state?.Profile.username}</p>
 
                                     </div>
                                     <div className="col-12">

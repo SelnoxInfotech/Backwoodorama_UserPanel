@@ -16,14 +16,19 @@ const CheckOutMainPage = () => {
     const [ShowData, SetShowData] = React.useState(false)
     const [ShowDeliveryInformation, SetShowDeliveryInformation] = React.useState(false)
     const [DeliveryOptionData, SetDeliveryOptionData] = React.useState([])
-    // const [ShowPlaceOrder, SetShowPlaceOrder] = React.useState(false)
     const location = useLocation();
     const { InputValues, abc } = location?.state
     const [image, setImage] = React.useState()
     const [Dataimage, setDataImage] = React.useState()
     const [Details, SetDetails] = React.useState({})
     const [CheckOut_Loading, SetLoading] = React.useState(false)
-    console.log(state)
+    
+    React.useEffect(() => {
+        window.scroll(0, 0)
+    }, [ShowData,ShowDeliveryInformation,DeliveryOptionData])
+
+         console.log(state.DeliveryAddress)
+
     async function SubmitData() {
         const config = {
             headers: { Authorization: `Bearer ${token_data}` }
@@ -38,7 +43,7 @@ const CheckOutMainPage = () => {
         formdata.append('subtotal', abc);
         formdata.append('Product', JSON.stringify(state.AllProduct));
         formdata.append('Store', state.AllProduct[0]?.Store_id);
-        formdata.append('Address', InputValues.delivery);
+        formdata.append('Address', state.DeliveryAddress);
         await Axios.post(
             'https://sweede.app/UserPanel/Add-Order/ ',
             formdata,
@@ -94,7 +99,7 @@ const CheckOutMainPage = () => {
                             </div>
 
                         </div>
-                     
+
                         <div className="row m-2">
                             <div className="col-lg-12 mx-auto checkout_main_page_addtocart_review fontStyle font_size_paragraph">
                                 <p>Review</p>
