@@ -10,7 +10,10 @@ import Axios from 'axios';
 export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
   const classes = useStyles()
   const { state, dispatch } = React.useContext(Createcontext)
-  const [Address, SetAddress] = React.useState('')
+  const [Address, SetAddress] = React.useState(()=>{
+       const g =  state.DeliveryAddress
+     return  g === "" ? '' : g
+  })
 
   const [error, Seterror] = React.useState()
   const { ref } = usePlacesWidget({
@@ -23,6 +26,7 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
             if (component.types.indexOf('postal_code') !== -1 || component.types.indexOf('street_number') !== -1) {
               CheckPostal(component.long_name, place.formatted_address)
               SetAddress(place.formatted_address)
+              dispatch({ type: 'DeliveryAddress', DeliveryAddress: place.formatted_address })
               break;
             }
             else {

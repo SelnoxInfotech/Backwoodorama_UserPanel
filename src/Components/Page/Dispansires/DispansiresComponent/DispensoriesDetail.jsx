@@ -33,19 +33,14 @@ export default function DispensoriesProduct() {
 
 
     React.useEffect(() => {
-
-
         axios.get(`https://sweede.app/UserPanel/Get-StoreById/${id}`, {
         }).then(response => {
             SetDespens(response.data)
-            window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
         })
 
         axios.post("https://sweede.app/UserPanel/Get-CategoryByStore/ ",
             {
-
                 "Store_Id": parseInt(id)
-
             }
         ).then(async response => {
             const d =[]
