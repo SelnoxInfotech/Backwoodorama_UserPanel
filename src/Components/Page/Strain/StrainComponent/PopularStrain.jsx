@@ -13,8 +13,8 @@ const PopularStrain = ({SliderDataArray,Heading}) => {
         <div className="container-fluid">
             <div className="row">
 
-                <div className="col-12 d-block popularStrainContainer  popularStrainContainerSlider popularStrain_heading" id="width" ref={ref}>
-                        <h1>{Heading}</h1>
+                <div className="col-12 d-block popularStrainContainer  popularStrainContainerSlider " id="width" ref={ref}>
+                        <h1 className="popularStrain_heading">{Heading}</h1>
                     <ScrollContainer className="ScrollContainer_newProductCtaegory">
                         {SliderDataArray.map((items,index)=>{
                             return(

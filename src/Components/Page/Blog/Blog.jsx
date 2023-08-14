@@ -63,7 +63,7 @@ window.scroll(0,0)
                             </div>
                         </div>
                         <div classname="col" id="center1" >
-                            <div className="col-10 border">
+                            <div className="col-10 blogEditorPaddings border ">
                                 <div className="">
                                     <span>{News?.Title}</span>
                                 </div>
@@ -74,7 +74,7 @@ window.scroll(0,0)
                             </div>
                         </div>
                         <div classname="col" id="center1" >
-                            <div className="col-10 BlogLink">
+                            <div className="col-10 BlogLink mt-2">
                                 <div className="col-12 Linkofblog">
                                     <RiFacebookLine></RiFacebookLine>
                                     <RiLinkedinLine></RiLinkedinLine>

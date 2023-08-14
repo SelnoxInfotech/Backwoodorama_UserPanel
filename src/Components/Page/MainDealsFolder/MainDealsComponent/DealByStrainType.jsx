@@ -8,11 +8,10 @@ const DealByStrainType = ({ArrayData,heading}) => {
     const ref = React.useRef(null);
 
     return (
-        // <div className="container-fluid">
-        //     <div className="row">
 
-                <div className="col-12 d-block   popularStrainContainerSlider dealsByStrainTypeSliderContainer popularStrain_heading" id="width" ref={ref}>
-                        <h1>{heading}</h1>
+
+                <div className="col-12 d-block   popularStrainContainerSlider dealsByStrainTypeSliderContainer " id="width" ref={ref}>
+                        <h3 className="popularStrain_heading">{heading}</h3>
                     <ScrollContainer className="ScrollContainer_newProductCtaegory">
                         {ArrayData.map((items,index)=>{
                             return(
@@ -43,9 +42,7 @@ const DealByStrainType = ({ArrayData,heading}) => {
                     </ScrollContainer>
 
                 </div>
-        //     </div>
 
-        // </div>
     )
 }
 export default DealByStrainType

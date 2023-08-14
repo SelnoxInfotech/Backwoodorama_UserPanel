@@ -2,10 +2,10 @@ const HistoryEditorData = () => {
     return (
         <div className="col-12 historyEditorData_Container">
             <div className="col-12 historyFirstHeadingcol">
-                <p className="historyHeadings">History</p>
+                <h1 className="historyHeadings">History</h1>
             </div>
             <div className="col-12">
-                <p className="historySubHeading">A primer on the history of cannabis prohibition and legalization</p>
+                <h4 className="historySubHeading">A primer on the history of cannabis prohibition and legalization</h4>
             </div>
             <div className="placeForHistory_EditorData">
 

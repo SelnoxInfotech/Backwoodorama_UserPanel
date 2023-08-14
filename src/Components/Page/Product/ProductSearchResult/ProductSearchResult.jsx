@@ -187,9 +187,9 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
                                 </div>
                                 <div className="col-12 product_search_result_content_div ">
                                     <div className="row gap-0">
-                                        <div className="col-12 productSearchResultParagraph ">
+                                        <div className="col-12  ">
                                             <Link to={"/ProductDetail"} state={items.id}>
-                                                <p className="text-truncate">{items.Product_Name}</p>
+                                                <p className="productSearchResultParagraph text-truncate">{items.Product_Name}</p>
                                             </Link>
                                         </div>
                                         <div className="col-12 product_search_result_sub_heading ">

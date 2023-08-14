@@ -8,8 +8,8 @@ const PromoCode = ({CardDataArray,Heading}) => {
     return (
         <>
       
-          <div className="col-12 promocode_headings px-0">
-            <h1 className="">{Heading}</h1>
+          <div className="col-12  px-0">
+            <h3 className="promocode_headings">{Heading}</h3>
 
           </div>
        

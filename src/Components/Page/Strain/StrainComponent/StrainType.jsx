@@ -25,8 +25,8 @@ const StrainType = () => {
     return (
         <>
             <div className="row my-3 mx-0 px-0">
-                <div className="col-sm-4 strainType_heading px-0">
-                    <h1 className="">Strain Type</h1>
+                <div className="col-sm-4  px-0">
+                    <h2 className="strainType_heading">Strain Type</h2>
                 </div>
                 <div className="col-sm-8 px-0">
                     <SearchBar style={{ background: "#FFFFF", border: "1px solid #31B665" }}  width={"100%"} className={`${classes.strainTypSearchBar} ${classes.strainTyleRemove}`} placeholder="Serch Strain Type" />

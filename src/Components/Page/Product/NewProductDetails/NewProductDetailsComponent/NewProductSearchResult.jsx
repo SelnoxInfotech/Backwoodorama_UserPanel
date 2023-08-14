@@ -37,7 +37,7 @@ const NewProductSearchResult = ({ NewProductSearchRseultArray, heading }) => {
 
         <React.Fragment>
             <div className='col-lg-12 col-12 newProductDetailsHeading mx-0 px-0'>
-                <p className='newProductDetailsParagraph'>{heading}</p>
+                <h2 className=' newProductDetailsHeading'>{heading}</h2>
             </div>
             <div className="col-lg-12 col-12   recentViewProductSlider" id="width" ref={ref}>
                 <ScrollContainer className=" newProductSearchResult_ScrollContainerRelative">
@@ -97,8 +97,8 @@ const NewProductSearchResult = ({ NewProductSearchRseultArray, heading }) => {
                                     </div>
                                     <div className="col-12 product_search_result_content_div mt-4">
                                         <div className="row gap-0">
-                                            <div className="col-12 productSearchResultParagraph ">
-                                                <p className="text-truncate">Black runtz 5gm</p>
+                                            <div className="col-12  ">
+                                                <h3 className="productSearchResultParagraph text-truncate">Black runtz 5gm</h3>
                                             </div>
                                             <div className="col-12 product_search_result_sub_heading ">
                                                 <p className=" text-truncate">by Good weed Nyc</p>

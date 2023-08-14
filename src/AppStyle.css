@@ -3618,7 +3618,7 @@
   height: 35px;
 }
 
-.productSearchResultParagraph p {
+.productSearchResultParagraph  {
   color: #000000;
   font-style: normal;
   font-weight: 700;
@@ -3863,7 +3863,7 @@
 }
 
 @media(max-width:500px) {
-  .productSearchResultParagraph p {
+  .productSearchResultParagraph  {
     font-size: 14px;
   }
 }
@@ -4531,7 +4531,7 @@
 
 /* end */
 /* bestDealCards */
-.bestDealsCard_Heading_offers h1 {
+.bestDealsCard_Heading_offers  {
   font-weight: 700;
   font-size: 36px;
   color: #000000;
@@ -4555,7 +4555,7 @@
   border: 1px solid #E7E7E7;
 }
 
-.bestDealsHead_container h1 {
+.bestDealsHead_container  {
   font-weight: 700;
   font-size: 24px;
   color: #000000;
@@ -4587,12 +4587,12 @@
     font-size: 24px;
   }
 
-  .bestDealsCard_Heading_offers h1 {
+  .bestDealsCard_Heading_offers  {
     font-size: 14px;
     margin-left: 14px;
   }
 
-  .bestDealsHead_container h1 {
+  .bestDealsHead_container {
     font-size: 14px;
   }
 
@@ -4627,14 +4627,14 @@
   width: 100%;
 }
 
-.promocode_headings h1 {
+.promocode_headings  {
   font-weight: 700;
-  font-size: 36px;
+  font-size: 28px;
   color: #000000;
 }
 
 @media(max-width:500px) {
-  .promocode_headings h1 {
+  .promocode_headings  {
     font-size: 14px;
     margin-left: 4px;
   }
@@ -4661,7 +4661,7 @@
   width: 100%;
 }
 
-.strainType_heading h1 {
+.strainType_heading  {
   font-weight: 700;
   font-size: 28px;
   color: #000000;
@@ -4675,7 +4675,7 @@
 }
 
 @media(max-width:440px) {
-  .strainType_heading h1 {
+  .strainType_heading  {
     font-size: 14px;
 
   }
@@ -4688,7 +4688,7 @@
 
 .strainPopular_heading {
   font-weight: 700;
-  font-size: 25px;
+  font-size: 28px;
   color: #333333;
 }
 
@@ -4731,7 +4731,7 @@
 
 }
 
-.popularStrain_heading h1 {
+.popularStrain_heading  {
   font-weight: 700;
   font-size: 24px;
   line-height: 38px;
@@ -4892,7 +4892,9 @@
   .dispensoriesBannerHeading h5 {
     height: 16px;
   }
-
+.strainPopular_heading{
+  font-size: 14px;
+}
   .dispensoriesBannerSubHeading p {
     height: 16px;
 
@@ -4956,9 +4958,9 @@
   height: 50px;
 }
 
-.newProductDetailsHeading p {
+.newProductDetailsHeading  {
   font-weight: 700;
-  font-size: 32px;
+  font-size: 28px;
   line-height: 48px;
   /* identical to box height */
 
@@ -4980,7 +4982,7 @@
 
   }
 
-  .popularStrain_heading h1 {
+  .popularStrain_heading  {
     font-size: 14px;
     margin-left: 40px;
   }
@@ -4989,7 +4991,7 @@
     font-size: 12px;
   }
 
-  .newProductDetailsHeading p {
+  .newProductDetailsHeading  {
     font-size: 14px;
     margin-left: 3px;
   }
@@ -7975,5 +7977,11 @@
 .lawssoptionStyle{
   list-style: none;
   padding-left: 0px;
+}
+/* end */
+/* blog */
+.blogEditorPaddings{
+  padding: 10px;
+  margin-top: 15px;
 }
 /* end */

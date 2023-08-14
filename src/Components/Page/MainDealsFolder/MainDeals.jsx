@@ -20,36 +20,36 @@ const MainDeals=()=>{
         { imgUrl: "./image/indica.png", name: "Indica" },
         { imgUrl: "./image/sativa.png", name: "Hybrid" },
         { imgUrl: "./image/social.png", name: "Sativa" },
-        { imgUrl: "./image/Leafly March Promo.png", name: "Indica" },
-        { imgUrl: "./image/Leafly Promo.png", name: "Hybrid" },
-        { imgUrl: "./image/Leafly Promo.png", name: "Sativa" },
+        { imgUrl: "./image/LeaflyMarchPromo.png", name: "Indica" },
+        { imgUrl: "./image/LeaflyPromo.png", name: "Hybrid" },
+        { imgUrl: "./image/LeaflyPromo.png", name: "Sativa" },
         { imgUrl: "./image/sativa.png", name: "Hybrid" },
         { imgUrl: "./image/social.png", name: "Sativa" },
-        { imgUrl: "./image/Leafly March Promo.png", name: "Indica" },
-        { imgUrl: "./image/Leafly Promo.png", name: "Hybrid" },
-        { imgUrl: "./image/Leafly Promo.png", name: "Sativa" },
+        { imgUrl: "./image/LeaflyMarch Promo.png", name: "Indica" },
+        { imgUrl: "./image/LeaflyPromo.png", name: "Hybrid" },
+        { imgUrl: "./image/LeaflyPromo.png", name: "Sativa" },
     ]
     const DealByStrainTypeHeading="Deals by strain type"
     const DispensoriesDealHeading="Find dispensories deals"
     const BestDealsCardArray = [
-        { imgUrl: "./image/Leafly March Promo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
-        { imgUrl: "./image/Leafly Promo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
+        { imgUrl: "./image/LeaflyMarchPromo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
+        { imgUrl: "./image/LeaflyPromo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
         { imgUrl: "./image/social.png", head1: "25% off all products", sub_head: "claims deals & percent" },
-        { imgUrl: "./image/Leafly March Promo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
-        { imgUrl: "./image/Leafly Promo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
-        { imgUrl: "./image/Leafly Promo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
+        { imgUrl: "./image/LeaflyMarchPromo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
+        { imgUrl: "./image/LeaflyPromo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
+        { imgUrl: "./image/LeaflyPromo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
 
-        { imgUrl: "/image/Leafly March Promo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
+        { imgUrl: "/image/LeaflyMarchPromo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
 
     ]
     const bestDealsHeading="Near by offers"
     const PromoCardArray = [
-        { imgUrl: "/image/Leafly March Promo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
-        { imgUrl: "/image/Leafly Promo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
+        { imgUrl: "/image/LeaflyMarchPromo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
+        { imgUrl: "/image/LeaflyPromo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
         { imgUrl: "/image/social.png", head1: "25% off all products", sub_head: "claims deals & percent" },
-        { imgUrl: "/image/Leafly March Promo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
-        { imgUrl: "/image/Leafly Promo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
-        { imgUrl: "/image/Leafly Promo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
+        { imgUrl: "/image/LeaflyMarchPromo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
+        { imgUrl: "/image/LeaflyPromo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
+        { imgUrl: "/image/LeaflyPromo.png", head1: "25% off all products", sub_head: "claims deals & percent" },
     ]
     const promoCodeHeading="Promo code use"
     return(

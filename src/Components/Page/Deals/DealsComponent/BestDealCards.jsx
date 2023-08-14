@@ -7,8 +7,8 @@ const BestDealCards = ({CardDataArray,Heading}) => {
     return (
         <>
        
-                <div className="col-12 bestDealsCard_Heading_offers mt-2 px-0">
-                    <h1 className="ellipsis">{Heading}</h1>
+                <div className="col-12  mt-2 px-0">
+                    <h3 className="ellipsis bestDealsCard_Heading_offers">{Heading}</h3>
                 </div>
 
      
@@ -25,8 +25,8 @@ const BestDealCards = ({CardDataArray,Heading}) => {
 
                                 </div>
                                 <div className="row">
-                                    <div className="col-12 bestDealsHead_container ">
-                                        <h1 className="ellipsis mx-2">{items.head1}</h1>
+                                    <div className="col-12  ">
+                                        <h4 className="bestDealsHead_container ellipsis mx-2">{items.head1}</h4>
                                     </div>
                                     <div className="col-12 bestDeal_subHeading ">
                                         <p className="ellipsis mx-2">{items.sub_head}</p>
