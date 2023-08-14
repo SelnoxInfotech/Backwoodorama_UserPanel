@@ -60,6 +60,7 @@ function Context(props) {
                 headers: { Authorization: `Bearer ${logi}` }
             }).then(async function (response) {
                 const CarTProduct = await response?.data;
+                console.log(CarTProduct)
                 dispatch({ type: 'AllProduct', AllProduct: CarTProduct })
                 dispatch({ type: 'LoadingApi', LoadingApi: false })
                 let AllTotal = 0

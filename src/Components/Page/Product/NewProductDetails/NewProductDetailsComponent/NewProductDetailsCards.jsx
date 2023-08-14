@@ -31,6 +31,7 @@ const NewProductDetailsCards = ({ Product }) => {
     const [NewData, SetNewData] = React.useState([])
 
     const Addtocard = async (Event) => {
+        console.log(Event)
         if (token_data) {
             const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
             const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id);
@@ -39,6 +40,7 @@ const NewProductDetailsCards = ({ Product }) => {
                 headers: { Authorization: `Bearer ${token_data}` }
             };
             SetNewData({
+                Brand_Name:Event.Brand_Name,
                 Product_id: Event.id,
                 Store_id: Event.Store_id,
                 Image_id: Event?.images[0]?.id,

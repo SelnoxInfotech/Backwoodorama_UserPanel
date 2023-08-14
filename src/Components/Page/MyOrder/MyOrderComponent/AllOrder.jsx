@@ -66,10 +66,10 @@ const AllOrder = () => {
                                                             </div>
                                                             <div className="w-100  allOrder_span_quantity_div">
                                                                 <span className="allOrder_span_quantity">Quantity : {items.Cart_Quantity}</span>
-                                                                <span className="allOrder_span_quantity">Brand : {items.brand}</span>
+                                                                <span className="allOrder_span_quantity">Brand : {items?.Brand_Name}</span>
                                                             </div>
                                                             <div className="w-100 allOrder_icons_container">
-                                                                <span className="allOrder_spanName">Amount :<span className="Amount_price">{items.amountPrice}</span></span>
+                                                                <span className="allOrder_spanName">Amount :<span className="Amount_price"> {items.Price.SalePrice}</span></span>
                                                                 <div className="allOrder_icons_div">
                                                                     <BsFillCircleFill color="#31B665" size={20} />
                                                                     <span className="allOrder_spanName">{val.Order_Status}</span>

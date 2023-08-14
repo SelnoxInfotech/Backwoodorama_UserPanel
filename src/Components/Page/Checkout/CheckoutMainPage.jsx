@@ -27,7 +27,7 @@ const CheckOutMainPage = () => {
         window.scroll(0, 0)
     }, [ShowData,ShowDeliveryInformation,DeliveryOptionData])
 
-         console.log(state.DeliveryAddress)
+         console.log(state , Details)
 
     async function SubmitData() {
         const config = {
@@ -40,7 +40,7 @@ const CheckOutMainPage = () => {
         formdata.append('DateOfBirth', Details.Birthdate);
         formdata.append('MobileNo', Details.Mobile);
         formdata.append('MedicalMarijuanaNumber', Details.Id_Number);
-        formdata.append('subtotal', abc);
+        formdata.append('subtotal', state?.Cart_subTotal);
         formdata.append('Product', JSON.stringify(state.AllProduct));
         formdata.append('Store', state.AllProduct[0]?.Store_id);
         formdata.append('Address', state.DeliveryAddress);

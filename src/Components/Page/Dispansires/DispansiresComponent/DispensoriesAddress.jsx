@@ -6,13 +6,13 @@ import Box from '@mui/material/Box';
 
 
 import { Rating } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ScrollContainer } from 'react-indiana-drag-scroll';
 import Axios from "axios";
 import DispensoriesAddressSkeleton from '../../../Component/Skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton';
 const DispensoriesAddress = () => {
     const ref = React.useRef(null);
-
+    const Navigate = useNavigate();
     // const { dispatch } = React.useContext(Createcontext)
     // const [Store, SetStore] = useState([])
     const [Store, SetStore] = React.useState([])
@@ -111,7 +111,7 @@ const DispensoriesAddress = () => {
                                                     <Box
                                                         className={`${classes.loadingBtnTextAndBack}`}
                                                     >
-                                                        <LoadingButton style={{ width: "100%" }}>Order Pickup</LoadingButton>
+                                                        <LoadingButton onClick={()=>{Navigate(`/DispensoriesProduct/${ele.id}/${"Menu"}`)}} style={{ width: "100%" }}>Order Pickup</LoadingButton>
                                                     </Box>
                                                 </div>
                                             </div>

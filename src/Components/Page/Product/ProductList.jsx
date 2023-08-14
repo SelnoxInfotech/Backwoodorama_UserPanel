@@ -50,6 +50,7 @@ const ProductList = ({ arr }) => {
             await axios.post("https://sweede.app/UserPanel/Add-AddtoCart/",
 
                 {
+                    Brand_Id:Event.Brand_id,
                     Product_id: Event.id,
                     Store_id: Event.Store_id,
                     Image_id: Event.images[0].id,
