@@ -21,7 +21,7 @@ const EditProfileLogin = ({Profile, Api, SetApi}) => {
                                     <span><MdEmail color="#707070" size={20} /></span><span className="editProfileLogin_padding_left editProfile_label"><label>Email</label></span>
                                 </div>
                                 <div className="EditProfileLoginParagraph">
-                                    <p className="editProfileLoginParaStyle">{Profile?.email}</p>
+                                    <p className="editProfileLoginParaStyle ellipsis">{Profile?.email}</p>
                                 </div>
                             </div>
                             <div className="col-6  editProfileLogin_emailField_container_edit">
@@ -38,7 +38,7 @@ const EditProfileLogin = ({Profile, Api, SetApi}) => {
                                     <span className="editProfileLogin_padding_left editProfile_label"><label>User Name</label></span>
                                 </div>
                                 <div className=" EditProfileLoginParagraph">
-                                    <p className="editProfileLoginParaStyle">{Profile?.username}</p>
+                                    <p className="editProfileLoginParaStyle ellipsis">{Profile?.username}</p>
                                 </div>
                             </div>
                             <div className="col-6  editProfileLogin_emailField_container_edit">

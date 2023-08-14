@@ -10,7 +10,6 @@ import { IoLocationSharp } from "react-icons/io5"
 import { CiMobile1 } from "react-icons/ci"
 import { HiOutlineMail } from "react-icons/hi"
 const Footer = () => {
-   console.log(3+8)
     const classes = useStyles()
     const [Categorys, SetCategorys] = React.useState([])
     React.useEffect(() => {

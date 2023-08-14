@@ -90,7 +90,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                                                 <LazyLoadImage src='./image/user.webp' className="Slider_inner_profile_imgs" />
                                             </div>
                                             <div className="slider_image_profile_names_conatiner">
-                                                <h1 className="slider_image_name_heading">Maxwell</h1>
+                                                <h1 className="slider_image_name_heading ellipsis">Maxwell rtwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww</h1>
                                                 <p className="slider_view_heading" onClick={ViewProfiles}>View Profile</p>
                                             </div>
                                         </section>

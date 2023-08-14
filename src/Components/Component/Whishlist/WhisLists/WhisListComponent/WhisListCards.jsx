@@ -202,7 +202,7 @@ return (
                                         <MdOutlinePlace size={18} color="#31B665" /><span className="whislistAddress">{items.StoreAddress}</span>
                                     </div>
                                     <div className="WhishListCard_paddingLeft">
-                                        <p className="whislistAddress multine-ellipsis"> by {items.StoreName}</p>
+                                        <h3 className="whislistAddress multine-ellipsis"> by {items.StoreName}</h3>
                                     </div>
                                     <div className="spaceIcons_content_Container WhishListCard_paddingLeft">
                                         <span className="whislistAddress">Rating</span><Rating name="read-only" className={classes.homePageStarIcons} value={4} readOnly />

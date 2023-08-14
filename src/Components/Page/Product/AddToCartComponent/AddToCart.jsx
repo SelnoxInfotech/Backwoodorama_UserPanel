@@ -23,7 +23,7 @@ const AddToCart = () => {
                     <div className="row mt-4">
                         <div className="col-12 addTocard_main_container_height">
                             <div className="col-12 addtoCart_headingss">
-                                <p>Your Items</p>
+                                <h1 className="addToCartHeadingss">Your Items</h1>
                             </div>
 
 

@@ -15,7 +15,7 @@ const WhisLists = () => {
 
                 </div>
                 <div className="col-12 productsCount_container">
-                    <p className="productsCount">Products<span className="productsCountNumber">{Object.values(state.WishList).reduce((a, item) => a + item, 0)}</span></p>
+                    <h1 className="productsCount">Products<span className="productsCountNumber">{Object.values(state.WishList).reduce((a, item) => a + item, 0)}</span></h1>
                 </div>
                 <WhisListCard/>
             </div>

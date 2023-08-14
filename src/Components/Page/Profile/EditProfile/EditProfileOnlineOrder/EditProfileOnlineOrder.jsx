@@ -18,7 +18,7 @@ const EditProfileOnlineOrder = ({Profile,Api,SetApi}) => {
                                 <span className='editProfile_name'>Name</span>
                             </div>
                             <div className="EditProfileOnlineOrder">
-                                <p className="editProfileLoginParaStyle">{Profile.username}</p>
+                                <p className="editProfileLoginParaStyle ellipsis">{Profile.username}</p>
                             </div>
 
                         </div>
@@ -54,7 +54,7 @@ const EditProfileOnlineOrder = ({Profile,Api,SetApi}) => {
                                 <span className='editProfile_name'>Delivery Address</span>
                             </div>
                             <div className="EditProfileOnlineOrder">
-                                <p className="editProfileLoginParaStyle">{Profile.DeliveryAddress !== null ? Profile.DeliveryAddress :'Delivery Address'}</p>
+                                <p className="editProfileLoginParaStyle ellipsis">{Profile.DeliveryAddress !== null ? Profile.DeliveryAddress :'Delivery Address'}</p>
                             </div>
                         </div>
                         <div className="col-6 EditProfilOnlineEdit_icons_flelds">
@@ -89,7 +89,7 @@ const EditProfileOnlineOrder = ({Profile,Api,SetApi}) => {
                                 <span className='editProfile_name'>Medical Card Details</span>
                             </div>
                             <div className="EditProfileOnlineOrder">
-                                <p className="editProfileLoginParaStyle">Medical Card Details</p>
+                                <p className="editProfileLoginParaStyle ellipsis">Medical Card Details</p>
                             </div>
                            
                         </div>
