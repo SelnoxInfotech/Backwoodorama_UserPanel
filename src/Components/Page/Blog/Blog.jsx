@@ -55,7 +55,7 @@ window.scroll(0,0)
                         <div className="col-12 UserNmae_ d-flex">
                             <div className="col-2 Box2">
                                 <div className="Col_BlogUSerIcon">
-                                    <h1>{News?.username?.slice(0, 1)}</h1>
+                                    <h2>{News?.username?.slice(0, 1)}</h2>
                                 </div>
                             </div>
                             <div className="col-10 UserNmae  ">

@@ -9,7 +9,7 @@ const RecentPostComment = () => {
             <div className="col-12 recentPost_comment_container px-0">
                 <div className="recentPost_commentInner_cont">
                     <div className="mt-2 recentPostComment_head_cont">
-                        <h1 className="recentPostComment_head">Comment</h1>
+                        <h2 className="recentPostComment_head">Comment</h2>
                     </div>
                     <div className="recentPostComment_editor_cont mt-2">
 
