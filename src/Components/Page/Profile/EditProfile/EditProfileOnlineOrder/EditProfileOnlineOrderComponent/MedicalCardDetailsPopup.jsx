@@ -70,7 +70,7 @@ const MedicalCardDetailsPopup = ({ Profile, Api, SetApi }) => {
                             <IconButton aria-label="closebutton"><RiCloseCircleFill onClick={handleClose} color='#949494' size={24} /></IconButton>
                         </div>
                         <div className='col-12 medicalCard_col_height'>
-                            <h1 className='medicalCard_heading'>Add Medical Card Informations</h1>
+                            <h2 className='medicalCard_heading'>Add Medical Card Informations</h2>
 
                         </div>
 

@@ -8,7 +8,7 @@ const EditProfileOnlineOrder = ({Profile,Api,SetApi}) => {
     return (
         <div className="col-12 EditProfileOnlineOrder_main_column mt-4">
             <div>
-                <h1 className="online_order_heading">Online Order</h1>
+                <h2 className="online_order_heading">Online Order</h2>
             </div>
             <div className="row mx-0">
                 <div className="col-12 col-lg-8 EditProfileOnlineOrder_container">

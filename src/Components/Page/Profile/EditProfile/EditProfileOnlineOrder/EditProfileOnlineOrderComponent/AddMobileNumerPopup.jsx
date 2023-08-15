@@ -61,7 +61,7 @@ const AddMobileNumberPopup = ({ Mobile, Api, SetApi }) => {
                             <IconButton onClick={handleClose} aria-label="closebutton"><RiCloseCircleFill color='#949494' size={24} /></IconButton>
                         </div>
                         <div className="col-12 AddMobileNo_col">
-                            <h1 className="addMobileNumberPopup_heading">Add Mobile Number</h1>
+                            <h2 className="addMobileNumberPopup_heading">Add Mobile Number</h2>
 
                         </div>
 

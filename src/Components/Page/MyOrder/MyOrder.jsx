@@ -3,6 +3,7 @@ import { AiOutlineLeft } from "react-icons/ai"
 import SearchBar from '@mkyy/mui-search-bar';
 import AllOrder from "./MyOrderComponent/AllOrder";
 import useStyles from "../../../Style";
+import { IconButton } from "@mui/material";
 const MyOrder = () => {
     const classes = useStyles()
     const [Selected, SetSelected] = React.useState(1)
@@ -18,7 +19,7 @@ const MyOrder = () => {
             <div className="container-fluid">
                 <div className="row px-2">
                     <div className="col-12 myOrder_columns px-0">
-                        <span className="myOrderSpanIcons"><AiOutlineLeft size={20} color="#000000" style={{ marginLeft: "-6px" }} /></span><span className="My_order_span_name">My order</span>
+                        <h1 className="myorderHeadings"><IconButton><AiOutlineLeft className="myOrderSpanIcons" size={20} color="#000000" style={{ marginLeft: "-6px" }} /></IconButton><span className="My_order_span_name">My order</span></h1>
 
                     </div>
                     <div className="col-lg-10 col-12  searchBar_container  px-0">
@@ -47,10 +48,10 @@ const MyOrder = () => {
                         (
                             <AllOrder />
                         )
-                        : Selected === 2 ? (<div className="col-12" style={{ paddingLeft: "30px" }}><h1>Order</h1></div>) :
-                            Selected === 3 ? (<div><h1>Shipped</h1></div>) :
-                                Selected === 4 ? (<div><h1>Delivered</h1></div>) :
-                                    Selected === 5 ? (<div><h1><AllOrder /></h1></div>) : ""
+                        : Selected === 2 ? (<div className="col-12" style={{ paddingLeft: "30px" }}><h2>Order</h2></div>) :
+                            Selected === 3 ? (<div><h2>Shipped</h2></div>) :
+                                Selected === 4 ? (<div><h2>Delivered</h2></div>) :
+                                    Selected === 5 ? (<div><h2><AllOrder /></h2></div>) : ""
                     }
 
                 </div>

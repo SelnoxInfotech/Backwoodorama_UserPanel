@@ -60,7 +60,7 @@ const AddDateOfBirth = ({ Profile, Api, SetApi }) => {
                             <IconButton aria-label="closebutton" onClick={handleClose}><RiCloseCircleFill color='#949494' size={24} /></IconButton>
                         </div>
                         <div className='col-12 addDateOfBirth_label mt-2'>
-                            <h1 className='dob_heading'>Add Date of Birth</h1>
+                            <h2 className='dob_heading'>Add Date of Birth</h2>
 
                         </div>
 

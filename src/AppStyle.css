@@ -4127,7 +4127,9 @@
   .ScrollContainerRelative {
     left: 0px;
   }
-
+  .dispensoriesContainer{
+    padding: 10px;
+  }
   .newProductSearchResult_ScrollContainerRelative {
     left: 0px;
   }
@@ -4137,7 +4139,7 @@
   }
   .dispensariesShopHeading{
     font-size: 16px;
-    margin-left: 30px;
+    margin-left: 10px;
   }
   .featuredBrandHeading{
     font-size: 16px;
@@ -4595,7 +4597,6 @@
 
   .bestDealsCard_Heading_offers  {
     font-size: 14px;
-    margin-left: 14px;
   }
 
   .bestDealsHead_container {
@@ -5039,14 +5040,16 @@
   gap: 4%;
   justify-content: normal;
   ;
-  left: -14px;
+  /* left: -14px; */
   position: relative;
 }
 @media(max-width:576px) {
   .FeaturedBrandImageContainer {
     height: 200px;
   }
-
+.featuredBrandScrollContainerRelative{
+  left: 0px;
+}
   .FeaturedBrandImage_height {
     height: 200px;
     width: 100%;
@@ -6608,7 +6611,7 @@
   color: #000000;
   font-weight: 700;
   font-size: 20px;
-  margin-left: 10px;
+  margin-left: 5px;
   cursor: pointer;
 }
 
@@ -6621,7 +6624,11 @@
   display: flex;
   align-items: center;
 }
-
+.myorderHeadings{
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px;
+}
 .searchBar_container {
   height: 50px;
 }
@@ -7933,8 +7940,8 @@
 }
 @media(max-width:575px){
   .DeliveryServices_ScrollContainerRelative {
-    margin-left: 30px;
-    margin-right: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .deliveryServicesHEadingPadding{
   margin-left: 30px;

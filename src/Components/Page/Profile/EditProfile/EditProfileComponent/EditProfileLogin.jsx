@@ -10,7 +10,7 @@ const EditProfileLogin = ({Profile, Api, SetApi}) => {
     return (
         <div className="col-12 EditProfileLogin_mainColumns">
             <div className="w-100">
-                <h1 className="editProfileLogin_heading">Login</h1>
+                <h2 className="editProfileLogin_heading">Login</h2>
             </div>
             <div className="row mx-0">
                 <div className="col-12 col-lg-8 EditProfileLogin_container border py-4">

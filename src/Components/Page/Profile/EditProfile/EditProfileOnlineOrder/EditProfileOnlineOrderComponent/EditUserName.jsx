@@ -62,7 +62,7 @@ const EditUserName = ({ Username, Api, SetApi }) => {
                             <IconButton aria-label="closebutton"><RiCloseCircleFill onClick={handleClose} color='#949494' size={24} /></IconButton>
                         </div>
                         <div className="col-12 edit_userName_col">
-                            <h1 className="editUserHeading">Edit User</h1>
+                            <h2 className="editUserHeading">Edit User</h2>
                         </div>
 
                     </div>

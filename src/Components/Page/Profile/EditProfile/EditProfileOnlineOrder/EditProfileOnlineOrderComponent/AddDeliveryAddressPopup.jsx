@@ -62,7 +62,7 @@ const AddDeliveryAddressPopup = ({ DeliveryAddress, Api, SetApi }) => {
                         <IconButton onClick={handleClose} aria-label="closebutton"><RiCloseCircleFill color='#949494' size={24}/></IconButton>
                         </div>
                         <div className="col-12 addDeliverAddress_col">
-                            <h1 className='deliveryAddress_heading'>Add delivery address</h1>
+                            <h2 className='deliveryAddress_heading'>Add delivery address</h2>
                         </div>
                     </div>
                     <form onSubmit={handleSubmit(onSubmit)}>

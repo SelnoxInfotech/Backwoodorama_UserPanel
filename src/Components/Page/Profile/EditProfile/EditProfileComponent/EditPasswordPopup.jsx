@@ -51,7 +51,7 @@ const EditPasswordPopup = () => {
                             <IconButton onClick={handleClose} aria-label="closebutton"><RiCloseCircleFill color='#949494' size={24} /></IconButton>
                         </div>
                         <div className="col-12 mt-4 editPassword_Col">
-                            <h1 className="editPassword_heading">Edit password</h1>
+                            <h2 className="editPassword_heading">Edit password</h2>
                         </div>
 
                     </div>

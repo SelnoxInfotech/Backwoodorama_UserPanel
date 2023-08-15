@@ -79,7 +79,7 @@ const AddPhotoId = ({ image, Api, SetApi }) => {
                             <IconButton onClick={handleClose} aria-label="closebutton"><RiCloseCircleFill color='#949494' size={24} /></IconButton>
                         </div>
                         <div className='col-12 AddPhotoIdPoppup_col'>
-                            <h1 className='photoId_heading'>Photo Id Upload</h1>
+                            <h2 className='photoId_heading'>Photo Id Upload</h2>
                         </div>
 
                     </div>
