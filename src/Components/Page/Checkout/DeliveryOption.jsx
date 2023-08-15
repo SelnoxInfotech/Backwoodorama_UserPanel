@@ -46,8 +46,8 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
                 <div className="row">
                     <div className="col-12 center">
                         <div className="col-12 col-lg-12 col-md-12 col-sm-12  DeliveryOption_container">
-                            <div className="col-12 height_for_inner_div fontStyle font_size_paragraph">
-                                <p>Delivery Options</p>
+                            <div className="col-12 height_for_inner_div fontStyle ">
+                                <h1 className='font_size_paragraph'>Delivery Options</h1>
 
                             </div>
                             <div className="col-12 height_for_inner_div">

@@ -2025,8 +2025,10 @@
   margin-right: 10px;
 }
 
-.font_size_paragraph p {
+.font_size_paragraph{
   font-size: 20px;
+  color: #000000;
+  font-weight: 700;
 }
 
 .deliveroption_cursor p {
