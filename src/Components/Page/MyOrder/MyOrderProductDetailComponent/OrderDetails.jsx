@@ -1,5 +1,6 @@
 import React from "react"
-const OrderDetails = () => {
+const OrderDetails = ({props}) => {
+  
     return (
         <React.Fragment>
             <div className="col-xl-7 col-lg-10 col-md-12 orderDetails_container px-0 mt-4">
@@ -8,12 +9,12 @@ const OrderDetails = () => {
                         <h1 className="orderDetails_headings">Order  Details</h1>
                     </div>
                     <div className="ordetailAmount_container">
-                        <span className="amount_spanss">Amount</span><span className="amount_spanss">$300</span>
+                        <span className="amount_spanss">Amount</span><span className="amount_spanss">$ {props[0]?.subtotal}</span>
                     </div>
                 </section>
                 <section className="orderDetails_innerSection2">
                     <div className="ordetailAmount_container">
-                        <span className="amount_spanss">Total</span><span className="totalAmounts">$300</span>
+                        <span className="amount_spanss">Total</span><span className="totalAmounts">$ {props[0]?.subtotal}</span>
                     </div>
 
                 </section>

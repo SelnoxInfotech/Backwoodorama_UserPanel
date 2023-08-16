@@ -196,7 +196,7 @@ const routesConfig = [
             element:<MyOrder/>
           },
           {
-            path:"/MyOrderProductDetail",
+            path:"/MyOrderProductDetail/:id",
             element:<MyOrderProductDetail/>
           },
           {

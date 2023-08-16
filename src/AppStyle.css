@@ -6966,6 +6966,7 @@
 /* end */
 /* MyOrderProductDetails */
 .productDetails_headings {
+  cursor: pointer;
   font-size: 24px;
   margin-left: 10px;
   color: #000000;
