@@ -11,9 +11,9 @@ const MyOrder = () => {
     const changeBackgroundFun = (itemId) => {
         SetSelected(itemId)
     }
-    React.useEffect(()=>{
-   window.scroll(0,0)
-    },[])
+    React.useEffect(() => {
+        window.scroll(0, 0)
+    }, [])
     return (
         <React.Fragment>
             <div className="container-fluid">
@@ -49,9 +49,9 @@ const MyOrder = () => {
                             <AllOrder />
                         )
                         : Selected === 2 ? (<div className="col-12" style={{ paddingLeft: "30px" }}><h2>Order</h2></div>) :
-                            Selected === 3 ? (<div><h2>Shipped</h2></div>) :
-                                Selected === 4 ? (<div><h2>Delivered</h2></div>) :
-                                    Selected === 5 ? (<div><h2><AllOrder /></h2></div>) : ""
+                        Selected === 3 ? (<div><h2>Shipped</h2></div>) :
+                       Selected === 4 ? (<div><h2>Delivered</h2></div>) :
+                         Selected === 5 ? (<div><h2><AllOrder /></h2></div>) : ""
                     }
 
                 </div>

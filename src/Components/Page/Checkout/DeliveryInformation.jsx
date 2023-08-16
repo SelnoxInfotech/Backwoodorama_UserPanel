@@ -45,7 +45,6 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
             ...Details, [event.target.name]: event.target.value
         });
     }
-
     return (
         <div className="container-fluid">
 
