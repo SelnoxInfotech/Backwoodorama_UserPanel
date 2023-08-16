@@ -130,14 +130,14 @@ const SearchBar = () => {
                         freeSolo
                         id="free-solo-2-demo"
                         disableClearable
-                        open={true}
+                        open={open}
                         onOpen={() => {
                             setOpen(true);
                         }}
                         // onClick={Search}
                         filterOptions={x => x}
                         onClose={() => {
-                            setOpen(true);
+                            setOpen(false);
                         }}
                         ListboxProps={{ style: { maxHeight: 500 } }}
                         componentsProps={{ popper: { style: { height: '100%', width: SearchBarWidth ? "100%" : "30%" }}}}
