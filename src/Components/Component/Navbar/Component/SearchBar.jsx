@@ -11,6 +11,8 @@ import { useNavigate } from 'react-router-dom';
 import Createcontext from "../../../../Hooks/Context"
 import _ from "lodash"
 import AddressSearchapi from "./AddressSearchapi"
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 const SearchBar = () => {
     const Navigation = useNavigate()
     const [SearchData, SetSearchData] = React.useState([])
@@ -143,7 +145,7 @@ const SearchBar = () => {
                         componentsProps={{ popper: { style: { height: '100%', width: SearchBarWidth ? "100%" : "30%" } } }}
                         onChange={(event, value) => SearchAPi(value?.id, value?.type,)}
                         // getOptionSelected={(option, value) => option.value}
-                        getOptionLabel={(option ) => option.value}
+                        getOptionLabel={(option) => option.value}
                         options={SearchData}
                         groupBy={(option) => option.type}
                         renderOption={(props, t) => {
@@ -151,9 +153,13 @@ const SearchBar = () => {
                                 <div {...props} style={{ color: "black" }} >
                                     <ul className='PopperLIst'>
                                         <div>
-                                            <li onClick={((e) => SearchAPi(t.id, t.type,))} key={t.value}>
-                                                <img src={`https://sweede.app/${t.image}`} style={{ width: "50px", height: "50px" }} alt=''></img>
-                                                <span> {`${t.value}`}</span>
+                                            <li className='searchBarListStyles' onClick={((e) => SearchAPi(t.id, t.type,))} key={t.value}>
+                                                <LazyLoadImage
+                                                    onError={event => {
+                                                        event.target.src = "/image/blankImage.jpg"                                                      
+                                                    }}
+                                                    className='searchBarImageStyles' src={`https://sweede.app/${t.image}`} alt=''></LazyLoadImage>
+                                                <span className='searchBarSpanValue'> {`${t.value}`}</span>
                                             </li>
                                         </div>
 
@@ -169,7 +175,7 @@ const SearchBar = () => {
                             // size="small"
                             onClick={Search}
                             onChange={Search}
-                        
+
                             placeholder="Products Brands Retailers and more"
                             className={` ${classes.searchBar_padding} SearchBar nav_search_bar_div  ${classes.SearchBar_Text}`}
                             style={{ borderRadius: (open && SearchBarWidth) ? " 16px 16px 16px 16px" : " 16px 0px 0px 16px", top: "0px", display: openLocation && SearchBarWidth ? "none" : "inline-flex", width: open && SearchBarWidth ? "100%" : "100%" }}
@@ -177,7 +183,7 @@ const SearchBar = () => {
                                 ...params.InputProps,
                                 startAdornment: (
                                     <InputAdornment position="start">
-                                        <BsSearch color="#858585" size={16}/>
+                                        <BsSearch color="#858585" size={16} />
                                     </InputAdornment>
                                 ),
                                 endAdornment: (
@@ -193,10 +199,10 @@ const SearchBar = () => {
                     <div id="Boder_left"></div>
 
                     <AddressSearchapi
-                    openLocation={openLocation}
-                    SearchBarWidth={SearchBarWidth}
-                    setOpenLocation={setOpenLocation}
-                    open={open}
+                        openLocation={openLocation}
+                        SearchBarWidth={SearchBarWidth}
+                        setOpenLocation={setOpenLocation}
+                        open={open}
                     ></AddressSearchapi>
 
                 </div>
