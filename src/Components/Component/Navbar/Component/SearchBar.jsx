@@ -42,14 +42,10 @@ const SearchBar = () => {
                 y.map((data1) => {
                     return (
                         data1[1].map((data) => {
-                            return SetSearchData(SearchData => [...SearchData, { type: data1[0], value: data.name || data.Product_Name || data.Store_Name, id: data.id, image: data?.Brand_Logo || data?.categoryImages || data?.Store_Image || data?.SubCategoryImage }]);
-
+                            return SetSearchData(SearchData => [...SearchData, { type: data1[0], value: data.name || data.Product_Name || data.Store_Name, id: data.id, image: data?.Brand_Logo || data?.categoryImages || data?.Store_Image || data?.SubCategoryImage}]);
                         }
-
                         )
-
                     )
-
                 })
                 // SetSearchData(response?.data);
             }
@@ -113,7 +109,6 @@ const SearchBar = () => {
                 const Id = response.data?.Sub_Category[0]?.id
                 const name = response.data?.Sub_Category[0]?.name
                 Navigation(`/Product/${name}`, { state: Id });
-
             }
 
         })

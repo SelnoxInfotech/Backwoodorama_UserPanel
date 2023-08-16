@@ -10,7 +10,7 @@ const MyOrder = () => {
     const navigate =  useNavigate()
     const classes = useStyles()
     const [Selected, SetSelected] = React.useState(1)
-    const MyOrderList = [{ id: 1, items: "All" }, { id: 2, items: "Order" }, { id: 3, items: "Shipped" }, { id: 4, items: "Delivered" }, { id: 5, items: "Cancelled" }]
+    const MyOrderList = [{ id: 1, items: "All" }, { id: 2, items: "Pending" }, { id: 3, items: "Shipped" }, { id: 4, items: "Delivered" }, { id: 5, items: "Cancelled" }]
     const changeBackgroundFun = (itemId) => {
         SetSelected(itemId)
     }

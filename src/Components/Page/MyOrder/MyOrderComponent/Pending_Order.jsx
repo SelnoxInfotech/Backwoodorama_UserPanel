@@ -44,6 +44,7 @@ const Pending_Order = () => {
                                     </div>
 
                                 </div>
+                           
                                 <div className="row mx-0">
                                     {val.Product.map((items, index) => {
                                         return (
@@ -90,8 +91,12 @@ const Pending_Order = () => {
                                         )
                                     })}
 
-
+                               
+<div>Cencell</div>
                                 </div>
+                          
+
+
                                 <div className="row mx-0">
                                     <div className="col-6 viewOrderDetals">
                                         <div className="viewOrderDetals_container border">
