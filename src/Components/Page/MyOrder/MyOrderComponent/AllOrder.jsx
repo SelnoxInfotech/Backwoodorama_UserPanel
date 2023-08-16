@@ -3,21 +3,21 @@ import { BsFillCircleFill } from "react-icons/bs";
 import React from "react";
 import { Link } from "react-router-dom";
 import { order } from "../MyorderApi"
-const AllOrder = ({props}) => {
+import { useLocation } from 'react-router-dom';
+
+const AllOrder = ({ props }) => {
     const [AllOrder_data, SetAllOrder_data] = React.useState([])
-    
+    const location = useLocation();
     React.useEffect(() => {
-        window.scroll(0,0)
+        window.scroll(0, 0)
         order().then((res) => {
             SetAllOrder_data(res.data.reverse())
         }).catch()
     }, [])
-    console.log(props)
-
     return (
         <div className="container-fluid">
             <div className="row">
-                { (props === undefined ? AllOrder_data : props).map((val, index) => {
+                {(props === undefined ? AllOrder_data : props).map((val, index) => {
                     return (
                         <React.Fragment key={index}>
                             <div className=" col-lg-10 col-xl-7   AllOrderContainer px-0 mt-4">
@@ -53,13 +53,13 @@ const AllOrder = ({props}) => {
                                                         <section className="allOrder_Card_Image_section">
                                                             <div className="Allorder_img_container">
                                                                 <LazyLoadImage
-                                                                   className="Allorder_img"
+                                                                    className="Allorder_img"
                                                                     onError={event => {
                                                                         event.target.src = "/image/blankImage.jpg"
                                                                         event.onerror = null
                                                                     }}
                                                                     src={`https://sweede.app/${items?.Image}`}
-                                                                  
+
                                                                 />
                                                             </div>
                                                         </section>
@@ -94,10 +94,9 @@ const AllOrder = ({props}) => {
                                 </div>
                                 <div className="row mx-0">
                                     <div className="col-6 viewOrderDetals">
-                                        <div className="viewOrderDetals_container border">
-                                            <Link to="/MyOrderProductDetail"><span className="viewDetailsFont">view details</span></Link>
-
-                                        </div>
+                                        {location.pathname.slice(0, 21) === "/MyOrderProductDetail" ? "" : <div className="viewOrderDetals_container border">
+                                            <Link to={`/MyOrderProductDetail/${val.OrderId}`}><span className="viewDetailsFont">view details</span></Link>
+                                        </div>}
                                     </div>
                                     <div className="col-6 text-end viewOrderDetals">
                                         <h1 className="allOrderTotals">{val.subtotal}</h1>

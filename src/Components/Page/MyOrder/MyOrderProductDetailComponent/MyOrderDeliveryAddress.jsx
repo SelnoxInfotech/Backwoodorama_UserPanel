@@ -1,5 +1,5 @@
 import React from "react"
-const MyOrderDeliveryAddress = () => {
+const MyOrderDeliveryAddress = ({props}) => {
     return (
         <React.Fragment>
             <div className="col-xl-7 col-lg-10 col-md-12 MyOrderDeliveryAddress_Container mt-4 px-0">
@@ -8,7 +8,7 @@ const MyOrderDeliveryAddress = () => {
                     <h1 className="MyOrderDeliveryAddress_headingss">Delivery Address</h1>
                 </div>
                 <div className="w-100 MyOrderDeliveryAddress_head_cont">
-                    <h1 className="MyOrderDeliveryAddress_subHeading">58 Highland Ave, Jersey City, NJ 07306, United States</h1>
+                    <h1 className="MyOrderDeliveryAddress_subHeading">{props[0]?.Address}</h1>
                 </div>
                </section>
 

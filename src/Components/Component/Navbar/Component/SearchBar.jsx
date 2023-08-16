@@ -36,10 +36,10 @@ const SearchBar = () => {
 
 
                 y.map((data1) => {
+                    
                     return (
                         data1[1].map((data) => {
-                            console.log(data?.images[0]?.image)
-                            return SetSearchData(SearchData => [...SearchData, { type: data1[0], value: data.name || data.Product_Name || data.Store_Name, id: data.id, image: data?.Brand_Logo || data?.categoryImages || data?.Store_Image || data?.SubCategoryImage || data?.images[0]?.image}]);
+                            return SetSearchData(SearchData => [...SearchData, { type: data1[0], value: data.name || data.Product_Name || data.Store_Name, id: data.id, image: data?.Brand_Logo || data?.categoryImages || data?.Store_Image || data?.SubCategoryImage }]);
 
                         }
 
@@ -130,14 +130,14 @@ const SearchBar = () => {
                         freeSolo
                         id="free-solo-2-demo"
                         disableClearable
-                        open={open}
+                        open={true}
                         onOpen={() => {
                             setOpen(true);
                         }}
                         // onClick={Search}
                         filterOptions={x => x}
                         onClose={() => {
-                            setOpen(false);
+                            setOpen(true);
                         }}
                         ListboxProps={{ style: { maxHeight: 500 } }}
                         componentsProps={{ popper: { style: { height: '100%', width: SearchBarWidth ? "100%" : "30%" }}}}
