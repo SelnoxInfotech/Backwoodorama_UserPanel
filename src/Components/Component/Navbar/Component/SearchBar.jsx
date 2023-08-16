@@ -130,7 +130,7 @@ const SearchBar = () => {
                         freeSolo
                         id="free-solo-2-demo"
                         disableClearable
-                        open={open}
+                        open={true}
                         onOpen={() => {
                             setOpen(true);
                         }}
