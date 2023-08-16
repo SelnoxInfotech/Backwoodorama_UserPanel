@@ -2,12 +2,14 @@ import TextField from '@mui/material/TextField';
 import useStyles from "../../../../Style"
 import InputAdornment from '@material-ui/core/InputAdornment';
 import { BsSearch } from "react-icons/bs"
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import { IoLocationSharp } from "react-icons/io5"
 import AutoComplete from '@mui/material/Autocomplete';
 import Axios from "axios"
 import React from 'react';
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { useNavigate } from 'react-router-dom';
+import Createcontext from "../../../../Hooks/Context"
+import _ from "lodash"
 import AddressSearchapi from "./AddressSearchapi"
 const SearchBar = () => {
     const Navigation = useNavigate()
@@ -36,7 +38,6 @@ const SearchBar = () => {
 
 
                 y.map((data1) => {
-                    
                     return (
                         data1[1].map((data) => {
                             return SetSearchData(SearchData => [...SearchData, { type: data1[0], value: data.name || data.Product_Name || data.Store_Name, id: data.id, image: data?.Brand_Logo || data?.categoryImages || data?.Store_Image || data?.SubCategoryImage }]);
@@ -126,21 +127,20 @@ const SearchBar = () => {
             <div className="col_Search">
                 <div className={` nav_search_bar_div center`} style={{ display: (openLocation && SearchBarWidth) && "block" }}>
                     <AutoComplete
-                
                         freeSolo
                         id="free-solo-2-demo"
                         disableClearable
-                        open={true}
+                        open={open}
                         onOpen={() => {
                             setOpen(true);
                         }}
                         // onClick={Search}
                         filterOptions={x => x}
                         onClose={() => {
-                            setOpen(true);
+                            setOpen(false);
                         }}
                         ListboxProps={{ style: { maxHeight: 500 } }}
-                        componentsProps={{ popper: { style: { height: '100%', width: SearchBarWidth ? "100%" : "30%" }}}}
+                        componentsProps={{ popper: { style: { height: '100%', width: SearchBarWidth ? "100%" : "30%" } } }}
                         onChange={(event, value) => SearchAPi(value?.id, value?.type,)}
                         // getOptionSelected={(option, value) => option.value}
                         getOptionLabel={(option ) => option.value}
@@ -148,20 +148,12 @@ const SearchBar = () => {
                         groupBy={(option) => option.type}
                         renderOption={(props, t) => {
                             return (
-                                <div {...props} style={{ color: "black" }} className='px-3' >
+                                <div {...props} style={{ color: "black" }} >
                                     <ul className='PopperLIst'>
                                         <div>
-                                            <li className='searchBarListStyles ' onClick={((e) => SearchAPi(t.id, t.type,))} key={t.value}>
-
-                                                <LazyLoadImage
-                                                className='searchBarImageStyles'
-                                                        onError={event => {
-                                                            event.target.src = "/image/blankImage.jpg"
-                                                            event.onerror = null
-                                                        }}
-                                                       alt='' src={`https://sweede.app/${t.image}`} />
-
-                                                <span className='searchBarSpanValue'> {`${t.value}`}</span>
+                                            <li onClick={((e) => SearchAPi(t.id, t.type,))} key={t.value}>
+                                                <img src={`https://sweede.app/${t.image}`} style={{ width: "50px", height: "50px" }} alt=''></img>
+                                                <span> {`${t.value}`}</span>
                                             </li>
                                         </div>
 
