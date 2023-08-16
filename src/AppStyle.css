@@ -3343,6 +3343,7 @@
   background: #FFFFFF;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  padding-top: 10px;
 }
 
 .delivery_image_content_Container_height {
@@ -8004,5 +8005,25 @@
 .blogEditorPaddings{
   padding: 10px;
   margin-top: 15px;
+}
+/* end */
+/* searchbar */
+.searchBarListStyles{
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.searchBarSpanValue{
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #000000;
+  font-weight: 400;
+}
+.searchBarImageStyles{
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
 }
 /* end */

@@ -140,7 +140,7 @@ const SearchBar = () => {
                             setOpen(false);
                         }}
                         ListboxProps={{ style: { maxHeight: 500 } }}
-                        componentsProps={{ popper: { style: { height: '100%', width: SearchBarWidth ? "100%" : "30%" } } }}
+                        componentsProps={{ popper: { style: { height: '100%', width: SearchBarWidth ? "100%" : "30%" }}}}
                         onChange={(event, value) => SearchAPi(value?.id, value?.type,)}
                         // getOptionSelected={(option, value) => option.value}
                         getOptionLabel={(option ) => option.value}
@@ -148,19 +148,20 @@ const SearchBar = () => {
                         groupBy={(option) => option.type}
                         renderOption={(props, t) => {
                             return (
-                                <div {...props} style={{ color: "black" }} >
+                                <div {...props} style={{ color: "black" }} className='px-3' >
                                     <ul className='PopperLIst'>
                                         <div>
-                                            <li onClick={((e) => SearchAPi(t.id, t.type,))} key={t.value}>
+                                            <li className='searchBarListStyles ' onClick={((e) => SearchAPi(t.id, t.type,))} key={t.value}>
 
                                                 <LazyLoadImage
+                                                className='searchBarImageStyles'
                                                         onError={event => {
                                                             event.target.src = "/image/blankImage.jpg"
                                                             event.onerror = null
                                                         }}
-                                                        style={{ width: "50px", height: "50px" }} alt='' src={`https://sweede.app/${t.image}`} />
+                                                       alt='' src={`https://sweede.app/${t.image}`} />
 
-                                                <span> {`${t.value}`}</span>
+                                                <span className='searchBarSpanValue'> {`${t.value}`}</span>
                                             </li>
                                         </div>
 
