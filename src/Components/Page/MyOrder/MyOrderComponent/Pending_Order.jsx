@@ -2,12 +2,13 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { BsFillCircleFill } from "react-icons/bs";
 import React from "react";
 import { Link } from "react-router-dom";
-import { order } from "../MyorderApi"
-const AllOrder = () => {
+import { PendingOrder } from "../MyorderApi"
+const Pending_Order = () => {
     const [AllOrder_data, SetAllOrder_data] = React.useState([])
     
     React.useEffect(() => {
-        order().then((res) => {
+        PendingOrder().then((res) => {
+         
             SetAllOrder_data(res.data.reverse())
         }).catch()
     }, [])
@@ -117,4 +118,4 @@ const AllOrder = () => {
         </div>
     )
 }
-export default AllOrder
+export default Pending_Order

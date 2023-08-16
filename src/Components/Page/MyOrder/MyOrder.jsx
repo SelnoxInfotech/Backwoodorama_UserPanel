@@ -4,7 +4,10 @@ import SearchBar from '@mkyy/mui-search-bar';
 import AllOrder from "./MyOrderComponent/AllOrder";
 import useStyles from "../../../Style";
 import { IconButton } from "@mui/material";
+import Pending_Order from "../MyOrder/MyOrderComponent/Pending_Order"
+import { useNavigate } from "react-router-dom";
 const MyOrder = () => {
+    const navigate =  useNavigate()
     const classes = useStyles()
     const [Selected, SetSelected] = React.useState(1)
     const MyOrderList = [{ id: 1, items: "All" }, { id: 2, items: "Order" }, { id: 3, items: "Shipped" }, { id: 4, items: "Delivered" }, { id: 5, items: "Cancelled" }]
@@ -19,7 +22,7 @@ const MyOrder = () => {
             <div className="container-fluid">
                 <div className="row px-2">
                     <div className="col-12 myOrder_columns px-0">
-                        <h1 className="myorderHeadings"><IconButton><AiOutlineLeft className="myOrderSpanIcons" size={20} color="#000000" style={{ marginLeft: "-6px" }} /></IconButton><span className="My_order_span_name">My order</span></h1>
+                        <h1  className="myorderHeadings"><IconButton ><AiOutlineLeft onClick={()=>navigate(-1)} className="myOrderSpanIcons" size={20} color="#000000" style={{ marginLeft: "-6px" }} /></IconButton><span onClick={(()=>navigate(-1))} className="My_order_span_name">My order</span></h1>
 
                     </div>
                     <div className="col-lg-10 col-12  searchBar_container  px-0">
@@ -48,7 +51,7 @@ const MyOrder = () => {
                         (
                             <AllOrder />
                         )
-                        : Selected === 2 ? (<div className="col-12" style={{ paddingLeft: "30px" }}><h2>Order</h2></div>) :
+                        : Selected === 2 ? (<div className="col-12" style={{ paddingLeft: "30px" }}><h2><Pending_Order></Pending_Order></h2></div>) :
                         Selected === 3 ? (<div><h2>Shipped</h2></div>) :
                        Selected === 4 ? (<div><h2>Delivered</h2></div>) :
                          Selected === 5 ? (<div><h2><AllOrder /></h2></div>) : ""

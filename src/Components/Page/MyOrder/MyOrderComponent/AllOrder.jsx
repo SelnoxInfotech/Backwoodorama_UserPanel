@@ -3,20 +3,21 @@ import { BsFillCircleFill } from "react-icons/bs";
 import React from "react";
 import { Link } from "react-router-dom";
 import { order } from "../MyorderApi"
-const AllOrder = () => {
+const AllOrder = ({props}) => {
     const [AllOrder_data, SetAllOrder_data] = React.useState([])
     
     React.useEffect(() => {
+        window.scroll(0,0)
         order().then((res) => {
             SetAllOrder_data(res.data.reverse())
         }).catch()
     }, [])
-
+    console.log(props)
 
     return (
         <div className="container-fluid">
             <div className="row">
-                {AllOrder_data.map((val, index) => {
+                { (props === undefined ? AllOrder_data : props).map((val, index) => {
                     return (
                         <React.Fragment key={index}>
                             <div className=" col-lg-10 col-xl-7   AllOrderContainer px-0 mt-4">
