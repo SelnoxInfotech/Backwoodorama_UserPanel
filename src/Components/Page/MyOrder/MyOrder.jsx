@@ -6,16 +6,21 @@ import useStyles from "../../../Style";
 import { IconButton } from "@mui/material";
 import Pending_Order from "../MyOrder/MyOrderComponent/Pending_Order"
 import { useNavigate } from "react-router-dom";
+import {GetCancelOrder} from "../MyOrder/MyorderApi"
 const MyOrder = () => {
     const navigate =  useNavigate()
     const classes = useStyles()
     const [Selected, SetSelected] = React.useState(1)
+    const [AllOrder_data, SetAllOrder_data] = React.useState([])
     const MyOrderList = [{ id: 1, items: "All" }, { id: 2, items: "Pending" }, { id: 3, items: "Shipped" }, { id: 4, items: "Delivered" }, { id: 5, items: "Cancelled" }]
     const changeBackgroundFun = (itemId) => {
         SetSelected(itemId)
     }
     React.useEffect(() => {
         window.scroll(0, 0)
+        GetCancelOrder().then((res) => {
+            SetAllOrder_data(res.data.reverse())
+        }).catch()
     }, [])
     return (
         <React.Fragment>
@@ -54,7 +59,7 @@ const MyOrder = () => {
                         : Selected === 2 ? (<div className="col-12" style={{ paddingLeft: "30px" }}><h2><Pending_Order></Pending_Order></h2></div>) :
                         Selected === 3 ? (<div><h2>Shipped</h2></div>) :
                        Selected === 4 ? (<div><h2>Delivered</h2></div>) :
-                         Selected === 5 ? (<div><h2><AllOrder /></h2></div>) : ""
+                         Selected === 5 ? (<div><h2><AllOrder props={AllOrder_data} /></h2></div>) : ""
                     }
 
                 </div>

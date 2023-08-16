@@ -2,17 +2,33 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { BsFillCircleFill } from "react-icons/bs";
 import React from "react";
 import { Link } from "react-router-dom";
-import { PendingOrder } from "../MyorderApi"
+import { PendingOrder, Cancel } from "../MyorderApi"
+import useStyles from "../../../../Style"
+import { LoadingButton } from "@mui/lab";
+import Box from '@mui/material/Box';
+import SaveIcon from "@mui/icons-material/Save";
 const Pending_Order = () => {
+    const classes = useStyles()
     const [AllOrder_data, SetAllOrder_data] = React.useState([])
-    
+    const [Loading, SetLoading] = React.useState(false)
+    const [icon, Seticon] = React.useState(false)
     React.useEffect(() => {
         PendingOrder().then((res) => {
-         
             SetAllOrder_data(res.data.reverse())
         }).catch()
     }, [])
 
+
+    function CencelOrder(id) {
+        SetLoading(true)
+        Cancel(id).then((res) => {
+            SetAllOrder_data(res.data.reverse())
+            PendingOrder().then((res) => {
+                SetAllOrder_data(res.data.reverse())
+            }).catch()
+        }).catch(SetLoading(false))
+        SetLoading(false)
+    }
 
     return (
         <div className="container-fluid">
@@ -44,7 +60,7 @@ const Pending_Order = () => {
                                     </div>
 
                                 </div>
-                           
+
                                 <div className="row mx-0">
                                     {val.Product.map((items, index) => {
                                         return (
@@ -54,13 +70,13 @@ const Pending_Order = () => {
                                                         <section className="allOrder_Card_Image_section">
                                                             <div className="Allorder_img_container">
                                                                 <LazyLoadImage
-                                                                   className="Allorder_img"
+                                                                    className="Allorder_img"
                                                                     onError={event => {
                                                                         event.target.src = "/image/blankImage.jpg"
                                                                         event.onerror = null
                                                                     }}
                                                                     src={`https://sweede.app/${items?.Image}`}
-                                                                  
+
                                                                 />
                                                             </div>
                                                         </section>
@@ -91,10 +107,21 @@ const Pending_Order = () => {
                                         )
                                     })}
 
-                               
-<div>Cencell</div>
+
+                                    {/* <div className="center"> */}
+                                    <Box className={`  ${classes.Cencell}  `}
+                                        sx={{
+                                            display: "flex",
+                                            justifyContent: "center",
+                                            marginTop: "10px"
+
+                                        }}
+                                    >
+                                        <LoadingButton loading={Loading} onClick={() => { CencelOrder(val.OrderId) }}>Cancel </LoadingButton>
+                                    </Box>
+                                    {/* </div> */}
                                 </div>
-                          
+
 
 
                                 <div className="row mx-0">

@@ -285,6 +285,28 @@ const useStyles = makeStyles({
       border: "2px solid #31B665"
     },
   },
+  Cencell: {
+    "& .MuiButton-text": {
+      fontSize: ".5rem",
+    },
+ 
+
+    "& .MuiLoadingButton-root": {
+      fontSize: "14px",
+      width: "30%",
+      height: "30px",
+      // borderRadius: "40px",
+      backgroundColor: "#ffff",
+      color: "#31B665",
+      textTransform: "none",
+      border: "2px solid #31B665"
+    },
+    "& .MuiButtonBase-root:hover": {
+      color: "#ffff",
+      backgroundColor: "#00b96a",
+      border: "2px solid #31B665"
+    },
+  },
   loginBtnTextAndBackground: {
     "& .MuiButton-text": {
       fontSize: ".5rem",
