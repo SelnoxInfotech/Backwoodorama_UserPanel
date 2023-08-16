@@ -36,8 +36,8 @@ const PlaceOrder = () => {
                         <div className="row p-2">
                             <div className='col-12 top_container '>
                                 <div className='row'>
-                                    <div className="col-12 ThankYouOrder_paragraph ">
-                                        <p>Thank you {state?.Profile.username}</p>
+                                    <div className="col-12  ">
+                                        <h1 className='ThankYouOrder_paragraph'>Thank you {state?.Profile.username}</h1>
 
                                     </div>
                                     <div className="col-12">
