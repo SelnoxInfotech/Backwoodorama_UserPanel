@@ -8,7 +8,8 @@ const useStyles = makeStyles({
       background: "#F2F1F1"
     },
     "& .MuiInputBase-input.MuiFilledInput-input": {
-      padding: "18px"
+      padding: "18px",
+      borderRadius:"20px"
     },
     "& .MuiFilledInput-underline:after": {
       borderBottomColor: "#31B665"
@@ -1174,6 +1175,46 @@ const useStyles = makeStyles({
       color: "blue",
 
     }
+  },
+  WriteReviewDialog: {
+    "& .MuiDialog-container": {
+      "& .MuiPaper-root": {
+        width: "50%",
+        height: "auto",  // Set your width here
+        borderRadius: "20px",
+        background: "#FFFFFF",
+      },
+    },
+    "@media(max-width:991px)": {
+      "& .MuiDialog-container": {
+        "& .MuiPaper-root": {
+          minWidth: "70%",
+        },
+      },
+    },
+    "@media(max-width:600px)": {
+      "& .MuiDialog-container": {
+        "& .MuiPaper-root": {
+          minWidth: "90%",
+        },
+      },
+    }
+  },
+  WriteReviewBtn_Color: {
+    "&.MuiButtonBase-root": {
+      color: "#707070",
+      border:"1px solid #f0f0f0"
+    },
+    "& .MuiButtonBase-root:hover": {
+      color: "#434343",
+      backgroundColor: "#FFFFFF",
+      border: "1px solid #31B665"
+    },
+  },
+  WriteReviewStarIcons: {
+    "&.MuiRating-root": {
+      color: "#C0C3C1",
+    },
   },
 });
 

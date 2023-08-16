@@ -8028,3 +8028,47 @@
   border-radius: 10px;
 }
 /* end */
+/* writeReview */
+.writeReviewCloseIconContainer{
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+.writeReviewContainer{
+  padding: 20px 20px;
+}
+.writeReviewTextCenter{
+  text-align: center;
+  border-bottom: 1px solid #ECECEC;
+}
+.writeReviewHeadings{
+  color: #000000;
+  font-weight: 700;
+  font-size: 32px;
+}
+.secRatingHeadings{
+  color: #000000;
+  font-weight: 700;
+  font-size: 24px;
+}
+.textinput{
+  width: 100%;
+  padding: 10px;
+  min-height: 120px;
+  background-color: #EFEFEF;
+  border-radius: 10px;
+  border: 1px solid #F0F0F0;
+}
+.textinput:focus{
+  outline: 1px solid #31B665;
+}
+.writeReviewLabel{
+  color: #363535;
+  font-size: 20px;
+  margin-bottom: 7px;
+  font-weight: 400;
+}
+.writReviewMarginTop{
+  margin-top: 30px;
+}
+/* end */

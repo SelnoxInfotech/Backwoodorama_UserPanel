@@ -4,7 +4,7 @@ import React from "react";
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import useStyles from "../../../../Style"
-
+import WriteReviewPopup from "../WriteReview/WriteReviewPopup";
 const OverAllReview = () => {
     const classes = useStyles()
 
@@ -36,7 +36,8 @@ const OverAllReview = () => {
                     <div className="col-10 col-sm-10 overall_review_container mt-2">
                         <div className="row">
                             <div className="col-12 text-end my-2">
-                                <button className="overall_review_Button px-2">Write review</button>
+                                <WriteReviewPopup/>
+                                {/* <button className="overall_review_Button px-2">Write review</button> */}
                             </div>
 
                         </div>
