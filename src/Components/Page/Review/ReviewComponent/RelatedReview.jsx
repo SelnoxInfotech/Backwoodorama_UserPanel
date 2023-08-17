@@ -15,22 +15,6 @@ const RelatedReview = ({Product}) => {
             console.error(e)
         })
     }, [])
-
-
-    console.log(Review)
-    const RelatedReview = [
-        {
-            id: 1,
-            imgs: "/image/flower.png", head: "Mr Nice guys", r_date: "2 year ago", rate: "4.3",
-            review: "Good peeps. Happy vibes. Smart pharmacists. My crew!Good peeps. Happy vibes. Smart pharmacists. My crew! Good peeps. Happy vibes. Smart pharmacists. My crew! Good peeps. Happy vibes. Smart pharmacists. My crew! ",
-            footer_h1: "Help", footer_h2: "Report"
-        },
-        {
-            id: 2,
-            imgs: "/image/glass.png", head: "Mr Nice guys", r_date: "2 year ago", rate: "4.3",
-            review: "Good peeps. Happy vibes. Smart pharmacists. My crew!Good peeps. Happy vibes. Smart pharmacists. My crew! Good peeps. Happy vibes.Good peeps. Happy vibes. Smart pharmacists. My crew!Good peeps. Happy vibes. Smart pharmacists. My crew! Good peeps. Happy vibes.",
-            footer_h1: "Help", footer_h2: "Report"
-        }]
     return (
         <>
             <div className='container-fluid'>
