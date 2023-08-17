@@ -65,8 +65,8 @@ const NewProductDetails = () => {
       <NewProductSearchResult NewProductSearchRseultArray={StoreProduct} heading={heading} />
       {/* <ProductSearchResult RelatedProductResult={RelatedProductResult1}/> */}
 
-      <OverAllReview />
-      <RelatedReview />
+      <OverAllReview Product={Product}/>
+      <RelatedReview Product={Product} />
 
 
     </div>

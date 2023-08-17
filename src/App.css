@@ -1100,10 +1100,10 @@ overflow-x: hidden; */
   font-size: .7rem;
 }
 .otp_input input {
-  position: relative;
-  height: 2rem;
-  min-width: 25px;
-  background-color: #F7F7F7;
-  border: 1px solid green;
+    position: relative;
+    height: 2rem;
+    min-width: 25px;
+    background-color: #F7F7F7;
+    border: 1px solid green;
 }
 /* End */
