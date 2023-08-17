@@ -14,7 +14,7 @@ const RelatedReview = ({Product}) => {
         }).catch((e) => {
             console.error(e)
         })
-    }, [])
+    }, [id])
     return (
         <>
             <div className='container-fluid'>
@@ -74,7 +74,7 @@ const RelatedReview = ({Product}) => {
                                                 <p>{ele.created_at.slice(0,10)}</p>
                                             </div>
                                             <div className='col-12  related_review_rate_star_flex RelatedReview_TextCol_height related_review_paragraph ellipsis'>
-                                                <p>{ele. rating}</p><span><AiFillStar className={classes.disp_star_color} /></span>
+                                                <p>{ele.rating}</p><span><AiFillStar className={classes.disp_star_color} /></span>
 
                                             </div>
                                             <div className='col-12  related_review_Comment'>

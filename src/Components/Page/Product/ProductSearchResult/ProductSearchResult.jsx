@@ -133,9 +133,12 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
 
     }
     React.useEffect(() => {
-        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+       
         localStorage.setItem('items', JSON.stringify(AddTOCard))
     }, [AddTOCard])
+    React.useEffect(()=>{
+ window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+    },[])
 
     const handleWhishList = (id) => {
         if (state.login === false) {

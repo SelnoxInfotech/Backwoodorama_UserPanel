@@ -31,6 +31,7 @@ const WriteReviewPopup = ({Product}) => {
 
     const handleClose = () => {
         setOpen(false);
+        setValue(0)
     };
     
     const onSubmit = (data) => {

@@ -5,7 +5,7 @@ import RelatedReview from "../../Review/ReviewComponent/RelatedReview"
 import OverAllReview from "../../Review/ReviewComponent/OverAllReview"
 import NewProductDescription from "./NewProductDetailsComponent/NewProductDescription"
 import NewProductAboutUs from "./NewProductDetailsComponent/NewProductAboutUs"
-
+import ProductSearchResult from "../ProductSearchResult/ProductSearchResult"
 import NewProductSearchResult from "./NewProductDetailsComponent/NewProductSearchResult"
 import Axios from "axios";
 import { useParams } from 'react-router-dom';
@@ -62,8 +62,8 @@ const NewProductDetails = () => {
       <NewProductDetailsCards Product={Product} />
       <NewProductDescription Product={Product?.Product_Description} />
       <NewProductAboutUs />
-      <NewProductSearchResult NewProductSearchRseultArray={StoreProduct} heading={heading} />
-      {/* <ProductSearchResult RelatedProductResult={RelatedProductResult1}/> */}
+      {/* <NewProductSearchResult NewProductSearchRseultArray={StoreProduct} heading={heading} /> */}
+      <ProductSearchResult RelatedProductResult={StoreProduct} CategoryName={heading}/>
 
       <OverAllReview Product={Product}/>
       <RelatedReview Product={Product} />
