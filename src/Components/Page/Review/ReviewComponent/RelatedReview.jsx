@@ -2,6 +2,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { AiFillStar } from "react-icons/ai"
 import useStyles from "../../../../Style"
 import React from 'react';
+import ReportReviewPopup from '../ReviewPopup/ReportReviewPopup';
 const RelatedReview = () => {
     const [showMore, setShowMore] = React.useState(false);
     const classes=useStyles()
@@ -9,12 +10,12 @@ const RelatedReview = () => {
         { id:1,
             imgs: "/image/flower.png", head: "Mr Nice guys", r_date: "2 year ago", rate: "4.3",
             review: "Good peeps. Happy vibes. Smart pharmacists. My crew!Good peeps. Happy vibes. Smart pharmacists. My crew! Good peeps. Happy vibes. Smart pharmacists. My crew! Good peeps. Happy vibes. Smart pharmacists. My crew! ",
-            footer_h1: "Help", footer_h2: "Report"
+            footer_h2: "Report"
         },
         { id:2,
             imgs: "/image/glass.png", head: "Mr Nice guys", r_date: "2 year ago", rate: "4.3",
             review: "Good peeps. Happy vibes. Smart pharmacists. My crew!Good peeps. Happy vibes. Smart pharmacists. My crew! Good peeps. Happy vibes.Good peeps. Happy vibes. Smart pharmacists. My crew!Good peeps. Happy vibes. Smart pharmacists. My crew! Good peeps. Happy vibes.",
-            footer_h1: "Help", footer_h2: "Report"
+            footer_h2: "Report"
         }]
     return (
         <>
@@ -91,11 +92,8 @@ const RelatedReview = () => {
                                 <div className='offset-sm-2  col-sm-10 offset-2 col-10 related_review_footer '>
                                     <div className='row'>
                                         <div className='col-3 col-sm-3 col-lg-1 my-2 related_review_footer_paragraph ellipsis'>
-                                            <p>{ele.footer_h1}</p>
-
-                                        </div>
-                                        <div className='col-3 col-sm-3 col-lg-1 my-2 related_review_footer_paragraph ellipsis'>
-                                            <p>{ele.footer_h2}</p>
+                                            <ReportReviewPopup/>
+                                            {/* <p>{ele.footer_h2}</p> */}
                                         </div>
 
                                     </div>

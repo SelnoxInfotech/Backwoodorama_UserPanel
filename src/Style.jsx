@@ -1203,12 +1203,19 @@ const useStyles = makeStyles({
   WriteReviewBtn_Color: {
     "&.MuiButtonBase-root": {
       color: "#707070",
-      border:"1px solid #f0f0f0"
+      border:"1px solid #f0f0f0",
+      borderRadius:"14px",
+      textTransform:"none",
+      height:"26px",
+      fontSize:"12px"
     },
-    "& .MuiButtonBase-root:hover": {
-      color: "#434343",
-      backgroundColor: "#FFFFFF",
-      border: "1px solid #31B665"
+    "&.MuiButtonBase-root:hover": {
+
+      color: "#707070",
+      border: "1px solid #f0f0f0",
+      background: "#FFFFFF",
+     
+
     },
   },
   WriteReviewStarIcons: {

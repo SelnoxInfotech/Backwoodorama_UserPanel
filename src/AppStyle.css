@@ -8044,12 +8044,12 @@
 .writeReviewHeadings{
   color: #000000;
   font-weight: 700;
-  font-size: 32px;
+  font-size: 28px;
 }
 .secRatingHeadings{
   color: #000000;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 20px;
 }
 .textinput{
   width: 100%;
@@ -8070,5 +8070,34 @@
 }
 .writReviewMarginTop{
   margin-top: 30px;
+}
+/* end */
+/* ReportReviewPopup */
+
+.closeBtnAndHeading{
+  display: flex;
+  justify-content: space-between;
+}
+.reportReviewCloseIcons{
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 30px;
+}
+.closeBtnAndHeading{
+  border-bottom: 1px solid #F0F0F0;
+}
+.reportPopupHeading{
+  color: #000000;
+  font-weight: 700;
+  font-size: 20px;
+  margin-left: 30px;
+}
+.reportReviewContentContainer{
+  padding: 30px;
+}
+.reportWarningHeading{
+  color: #9F9F9F;
+  font-weight: 400;
+  font-size: 18px;
 }
 /* end */
