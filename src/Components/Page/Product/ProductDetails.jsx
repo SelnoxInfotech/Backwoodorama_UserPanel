@@ -45,7 +45,6 @@ const ProductDetail = () => {
             Axios(`https://sweede.app/UserPanel/Get-DispensaryByid/${response.data[0].Store_id}`, {
             }).then(response => {
                 SetStore_id(response.data)
-
             }).catch(
                 function (error) {
 
@@ -59,7 +58,7 @@ const ProductDetail = () => {
                 alert("Something Goes Wrong")
                 // SetProduct(Product => ({ ...Product, discount: "None" }))
             })
-        Axios(`https://sweede.app/UserPanel/Get-Product`, {
+            Axios(`https://sweede.app/UserPanel/Get-Dispensary_Product`, {
 
 
         }).then(response => {

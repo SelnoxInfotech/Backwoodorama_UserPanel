@@ -1220,7 +1220,8 @@ const useStyles = makeStyles({
   },
   WriteReviewStarIcons: {
     "&.MuiRating-root": {
-      color: "#C0C3C1",
+      color: "#31B665",
+      fontSize: '35px',
     },
   },
 });

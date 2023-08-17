@@ -6,6 +6,7 @@ import useStyles from "../../../Style"
 import { Link } from "react-router-dom";
 import _ from "lodash";
 import PreCheckout from "./PreCheckout/PreCheckout"
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import axios from "axios";
 import Cookies from 'universal-cookie';
 import Createcontext from "../../../Hooks/Context"
@@ -29,7 +30,6 @@ const ProductList = ({ arr }) => {
         return initialValue || []
     })
     const [NewData, SetNewData] = React.useState([])
-
     const Addtocard = async (Event) => {
         if (token_data) {
             const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
@@ -150,9 +150,6 @@ const ProductList = ({ arr }) => {
             }).catch((err) => { });
         }
     }
-
-
-
     return (
         <>
             <div className="row mx-2" style={{ height: "auto", marginBottom: "100px" }}>
@@ -172,11 +169,20 @@ const ProductList = ({ arr }) => {
                                 <div className="col-4 prod_cat_cont" >
                                     <Link to={"/ProductDetail"} state={ele.id}>
                                         <div className="col-12 p-2 prod_cat_img">
-                                            <img src={`https://sweede.app/${ele?.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }} />
+                                        <LazyLoadImage
+                                            className="product_search_result_image"
+                                            onError={event => {
+                                                event.target.src = "/image/blankImage.jpg"
+                                                event.onerror = null
+                                            }}
+                                            src={`https://sweede.app/${ele?.images[0]?.image}`}
+                                           
+                                        />
+                                            {/* // <img src={`https://sweede.app/${ele?.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }} /> */}
                                             <div className="col prod_img_btn prodCat_gap d-flex">
-                                                <button className="mx-2 cat_prod_inner_btn btn2">THC 70%</button>
+                                                <button className="mx-2 cat_prod_inner_btn btn2">THC {ele.THC}%</button>
                                             </div>
-                                            <button className="cat_prod_inner_btn btn1">Indica</button>
+                                            <button className="cat_prod_inner_btn btn1">{ele.strain}</button>
 
                                         </div>
                                     </Link>
