@@ -5,24 +5,33 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import useStyles from "../../../../Style"
 import WriteReviewPopup from "../ReviewPopup/WriteReviewPopup"
-const OverAllReview = ({Product}) => {
+import { OverAllGet_Review } from "../ReviewApi"
+const OverAllReview = ({ Product, api, SetApi }) => {
+    const [Rating, SetRating] = React.useState()
     const classes = useStyles()
-
+    const Id = Product.id
     // const [completed, setCompleted] = React.useState(0);
 
     // React.useEffect(() => {
     //   setInterval(() => setCompleted(Math.floor(Math.random() * 100) + 1), 2000);
     // }, []);
     const testData = [
-        { starValue: 5, bgcolor: "#31B665", completed: 60 },
-        { starValue: 4, bgcolor: "#31B665", completed: 30 },
-        { starValue: 3, bgcolor: "#31B665", completed: 53 },
-        { starValue: 2, bgcolor: "#31B665", completed: 53 },
+        { starValue: 5, bgcolor: "#31B665", completed: Rating?.FiveStar    },
+        { starValue: 4, bgcolor: "#31B665", completed: Rating?.FourStar    },
+        { starValue: 3, bgcolor: "#31B665", completed: Rating?.ThreeStar },
+        { starValue: 2, bgcolor: "#31B665", completed: Rating?.TwoStar },
 
-        { starValue: 1, bgcolor: "#31B665", completed: 53 },
+        { starValue: 1, bgcolor: "#31B665", completed: Rating?.OneStar },
 
     ];
 
+    React.useEffect(() => {
+        OverAllGet_Review(Id).then((res) => {
+            SetRating(res?.data)
+        }).catch(() => { })
+    }, [Id, api])
+
+    console.log(Rating)
     return (
         <>
             <div className="container-fluid">
@@ -36,7 +45,7 @@ const OverAllReview = ({Product}) => {
                     <div className="col-10 col-sm-10 overall_review_container mt-2">
                         <div className="row">
                             <div className="col-12 text-end my-2">
-                                <WriteReviewPopup Product={Product}/>
+                                <WriteReviewPopup Product={Product} api={api} SetApi={SetApi} />
                                 {/* <button className="overall_review_Button px-2">Write review</button> */}
                             </div>
 
@@ -51,9 +60,9 @@ const OverAllReview = ({Product}) => {
 
                                     <div className="col-lg-12 left_circularbar">
                                         <div style={{ width: 100, height: 100 }}>
-                                            <CircularProgressbar value={30} text="4.3" />
+                                            <CircularProgressbar value={Rating?.AverageReview} text={Rating?.AverageReview} />
                                         </div>
-                                        <p>102 Review</p>
+                                        <p>{Rating?.TotalReview} Review</p>
                                     </div>
 
                                 </div>

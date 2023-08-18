@@ -17,6 +17,7 @@ const NewProductDetails = () => {
   const [Product, SetProduct] = React.useState([])
   const [StoreProduct, SetStoreProduct] = React.useState([])
   const [Despen, SetDespens] = React.useState([])
+  const [api , SetApi ] = React.useState(false)
   // const Navigate = useNavigate()
   React.useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
@@ -28,24 +29,16 @@ const NewProductDetails = () => {
         SetDespens(response.data)
         // window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
       })
-
-
       Axios.post(`https://sweede.app/UserPanel/YouMayAlsoLike/`,
       {
         category:response.data[0].category_id,
         store_id:response.data[0].Store_id
         }
       ).then(response => {
-        // SetStoreProduct(response.data)
         SetStoreProduct(response.data)
-
       }).catch(
         function (error) {
-
-          // alert("Something Goes Wrong")
-          // SetProduct(Product => ({ ...Product, discount: "None" }))
         })
-
     }).catch(
       function (error) {
 
@@ -65,8 +58,8 @@ const NewProductDetails = () => {
       {/* <NewProductSearchResult NewProductSearchRseultArray={StoreProduct} heading={heading} /> */}
       <ProductSearchResult RelatedProductResult={StoreProduct} CategoryName={heading}/>
 
-      <OverAllReview Product={Product}/>
-      <RelatedReview Product={Product} />
+      <OverAllReview Product={Product} api ={api} SetApi ={ SetApi}/>
+      <RelatedReview Product={Product} api ={api} SetApi ={ SetApi}/>
 
 
     </div>

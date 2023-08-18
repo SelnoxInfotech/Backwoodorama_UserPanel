@@ -3,25 +3,28 @@ import { AiFillStar } from "react-icons/ai"
 import useStyles from "../../../../Style"
 import React from 'react';
 import { Get_Review } from "../ReviewApi"
-const RelatedReview = ({Product}) => {
+const RelatedReview = ({Product , api}) => {
     const id = Product.id
     const [showMore, setShowMore] = React.useState(false);
     const [Review, SetReview] =  React.useState([])
     const classes = useStyles()
+
+
+
     React.useEffect(() => {
         Get_Review(id).then((res) => {
             SetReview(res.data)
         }).catch((e) => {
             console.error(e)
         })
-    }, [id])
+    }, [id, api])
     return (
         <>
             <div className='container-fluid'>
 
                 <div className="row center ">
                     {Review?.map((ele, index) => {
-                        const text = ele.Title;
+                        const text = ele.comment;
                         const getText = (getValue) => {
                             // For Text that is shorter than desired length
                             if (text.length <= 20) return text;
@@ -39,10 +42,10 @@ const RelatedReview = ({Product}) => {
                                 );
                             }
                             // If text is longer than desired length & showMore is false
-                            if (text.length > 20) {
+                            if (ele?.comment.length > 20) {
                                 return (
                                     <>
-                                        <p>{ele.comment.slice(0, 20)}</p>
+                                        <p>{ele?.comment.slice(0, 20)}</p>
 
                                         <button className='related_review_view_less_more_button'
                                             onClick={() => setShowMore(true)}>
@@ -59,7 +62,19 @@ const RelatedReview = ({Product}) => {
                                     <div className="col-3 col-sm-2 related_img_container">
                                         <div className="row">
                                             <div className="col-12 related_review_image">
-                                                <LazyLoadImage className='realted_review_images' src={ele.imgs} />
+                                            {/* onError={event => {
+                                                    event.target.src = "/image/blankImage.jpg"
+                                                    event.onerror = null
+                                                }}
+                                                className="newProductCategory_image"
+                                                 src={`https://sweede.app/${items?.SubCategoryImage}`} */}
+                                                <LazyLoadImage 
+                                                onError={event => {
+                                                    event.target.src = "/image/user.webp"
+                                                    event.onerror = null
+                                                }}
+                                                className='realted_review_images'
+                                                src={`https://sweede.app/${ele.userImage}`} />
 
                                             </div>
 
@@ -75,6 +90,10 @@ const RelatedReview = ({Product}) => {
                                             </div>
                                             <div className='col-12  related_review_rate_star_flex RelatedReview_TextCol_height related_review_paragraph ellipsis'>
                                                 <p>{ele.rating}</p><span><AiFillStar className={classes.disp_star_color} /></span>
+
+                                            </div>
+                                            <div className='col-12  related_review_Comment'>
+                                                <p>{ele.Title}</p>
 
                                             </div>
                                             <div className='col-12  related_review_Comment'>

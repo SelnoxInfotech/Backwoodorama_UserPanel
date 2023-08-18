@@ -11,15 +11,18 @@ import { Box } from "@mui/material"
 import { useForm } from "react-hook-form";
 import Createcontext from "../../../../Hooks/Context"
 import { useNavigate } from 'react-router-dom';
-import {Add_Review} from "../ReviewApi"
-const WriteReviewPopup = ({Product}) => {
+import {Add_Review,Get_UserComment,Get_Review} from "../ReviewApi"
+const WriteReviewPopup = ({Product,api,  SetApi}) => {
     const navigate =  useNavigate()
     const { state } = React.useContext(Createcontext)
+    const userId =  state.Profile.id
+    const id = Product?.id 
     const { register, handleSubmit, errors, control, reset } = useForm();
     const classes = useStyles()
     const [open, setOpen] = React.useState(false);
     const [value, setValue] = React.useState(0);
     const [comment, setcomment] = React.useState('');
+    const [Title,SetTitle] =  React.useState('')
     const handleClickOpen = () => {
         if (state.login) {
             setOpen(true);
@@ -35,25 +38,38 @@ const WriteReviewPopup = ({Product}) => {
     };
     
     const onSubmit = (data) => {
-        console.log(data);
        const  Review ={
             product:Product.id            ,
             rating:value,
-            Title:data.title,
+            Title:Title,
             comment:comment
          }
-    
-
         Add_Review(Review).then((res)=>{
            setOpen(false);
            setValue(0)
+         SetApi(!api)
         }).catch(()=>{
 
         })
     };
+
     const handlecomment = (e) => {
         setcomment(e.target.value)
     }
+    
+    React.useEffect( ()=>{
+        Get_UserComment(userId , id).then((res)=>{
+            if(res.data.length !== 0 )
+            {   
+                setValue(()=>{
+                    return res.data[0]?.rating
+                })
+                setcomment(res.data[0]?.comment)
+                SetTitle(res.data[0]?.Title)
+            }
+        })
+    },[userId,id,open])
+
     return (
         <>
             <Button className={classes.WriteReviewBtn_Color} variant="outlined" onClick={handleClickOpen}>
@@ -86,6 +102,8 @@ const WriteReviewPopup = ({Product}) => {
                                             className={`${classes.FilledTextFieldStyle}`}
                                             size='small'
                                             id="title"
+                                            value={Title}
+                                            onChange={((e)=>{SetTitle(e.target.value)})}
                                             name="title"
                                             placeholder='Title'
                                             variant='filled'
@@ -104,13 +122,13 @@ const WriteReviewPopup = ({Product}) => {
                                             )}
                                             helperText={errors.title?.message}
                                             error={Boolean(errors?.title)}
-
                                         />
                                     </div>
                                     <div className='col-12 writReviewMarginTop'>
                                         <label className='writeReviewLabel' htmlFor='review'>Review</label>
                                         <textarea
                                             name='Comment'
+                                            value={comment}
                                             onChange={handlecomment}
                                             id="review"
                                             className="textinput" placeholder="Comment"></textarea>

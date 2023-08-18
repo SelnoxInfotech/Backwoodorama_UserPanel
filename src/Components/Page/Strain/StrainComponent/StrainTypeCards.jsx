@@ -5,11 +5,7 @@ import { Link } from 'react-router-dom';
 
 const StrainTypeCards = ({ ArrayData }) => {
     const ref = React.useRef(null);
-    
-
-
- 
-
+   
     return (
         <>
             <div className="col-lg-12 col-12   recentViewProductSlider" id="width" ref={ref}>

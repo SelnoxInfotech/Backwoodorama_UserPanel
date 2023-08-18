@@ -12,11 +12,12 @@ import HomePageDealsSignup from "./ComponentDashboard/HomePageDealsSignup";
 import StrainTypeCards from "../../Strain/StrainComponent/StrainTypeCards";
 import FeaturedBrand from "./ComponentDashboard/FeaturedBrand";
 import Axios from "axios";
+import {HomePageSco} from "../../ScoPage/HomePageSco"
 
 export default function Dashboard() {
-    const [FeaturedBrandArray,SetFeaturedBrandArray]=React.useState([])
-    const [Skeleton , SetSkeleton]= React.useState(true)
-    const [BrandSkeleton , SetBrandSkeleton] = React.useState(true)
+    const [FeaturedBrandArray, SetFeaturedBrandArray] = React.useState([])
+    const [Skeleton, SetSkeleton] = React.useState(true)
+    const [BrandSkeleton, SetBrandSkeleton] = React.useState(true)
     const Navigate = useNavigate()
     function ShowCategoryProduct(id, name) {
 
@@ -26,57 +27,60 @@ export default function Dashboard() {
     React.useEffect(() => {
         const fetchData = async () => {
             Axios("https://sweede.app/UserPanel/Get-Categories/")
-        .then((response)=>{
+                .then((response) => {
 
-            SetCategory(response.data)
-            // CategorySkalaton
-            SetSkeleton(false)
+                    SetCategory(response.data)
+                    // CategorySkalaton
+                    SetSkeleton(false)
 
-        })
-        .catch((error)=>{
-        })
+                })
+                .catch((error) => {
+                })
 
         }
         fetchData()
 
     }, [])
     React.useEffect(() => {
-        Axios("https://sweede.app/UserPanel/Get-AllBrand/ ",{})
-        .then((response)=>{
+        Axios("https://sweede.app/UserPanel/Get-AllBrand/ ", {})
+            .then((response) => {
 
-            SetFeaturedBrandArray(response.data)
-            SetBrandSkeleton(false)
-        })
-        .catch((error)=>{
-        })
+                SetFeaturedBrandArray(response.data)
+                SetBrandSkeleton(false)
+            })
+            .catch((error) => {
+            })
     }, [])
-    React.useEffect(()=>{
+    React.useEffect(() => {
         window.scrollTo(0, 0)
-    },[])
+    }, [])
 
 
     const StrainTypeCardArray = [
         { imgUrl: "/image/indica.png", head1: "Indica", },
-        { imgUrl: "/image/sativa.png", head1: "Hybrid"},
-        { imgUrl: "/image/social.png", head1: "Sativa"},
-        { imgUrl: "/image/LeaflyMarchPromo.png", head1:"CBD"},
-        
+        { imgUrl: "/image/sativa.png", head1: "Hybrid" },
+        { imgUrl: "/image/social.png", head1: "Sativa" },
+        { imgUrl: "/image/LeaflyMarchPromo.png", head1: "CBD" },
     ]
+
+     console.log(HomePageSco)
+
     return (
         <div >
+             <HomePageSco></HomePageSco>
             <HomePageBanner></HomePageBanner>
             <CategoryProduct Category={Category} ShowCategoryProduct={ShowCategoryProduct} Skeleton={Skeleton}></CategoryProduct>
             <DeliveryServices Skeleton={Skeleton}></DeliveryServices>
             <HomePageWeedBanner></HomePageWeedBanner>
             <DispensoriesAddress></DispensoriesAddress>
-            <div className="col-12 border" style={{ height: "300px", position: "relative",top:"15px" }}>
+            <div className="col-12 border" style={{ height: "300px", position: "relative", top: "15px" }}>
                 <Map height={"297px"} width={"100%"}></Map>
             </div>
-            <FeaturedBrand CardDataArray={FeaturedBrandArray} BrandSkeleton={BrandSkeleton}/>
+            <FeaturedBrand CardDataArray={FeaturedBrandArray} BrandSkeleton={BrandSkeleton} />
             <HomePageDealsSignup></HomePageDealsSignup>
             {/* <WeedProduct></WeedProduct> */}
             <div className="dashBoardStrainType">
-            <LatestServices></LatestServices>
+                <LatestServices></LatestServices>
             </div>
             <div className="w-90 dashBoardStrainType">
                 <h3 className=" mt-4 dashBoard_strain_paragraph">Strain Type</h3>

@@ -24,12 +24,12 @@ const NewProductCategorySlider = ({ flowerArray }) => {
 
                                             <Link to={`/Product/${items.name}`} state={ items.id }>
                                             <LazyLoadImage
-                                                onError={event => {
-                                                    event.target.src = "/image/blankImage.jpg"
-                                                    event.onerror = null
-                                                }}
-                                                className="newProductCategory_image"
-                                                 src={`https://sweede.app/${items?.SubCategoryImage}`}/>
+                                                    onError={event => {
+                                                        event.target.src = "/image/blankImage.jpg"
+                                                        event.onerror = null
+                                                    }}
+                                                    className="newProductCategory_image"
+                                                    src={`https://sweede.app/${items?.SubCategoryImage}`}/>
                                             </Link>
                                             
                                         </div>
