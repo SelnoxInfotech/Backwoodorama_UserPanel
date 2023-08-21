@@ -27,6 +27,7 @@ const Navbar = () => {
   const classes = useStyles()
   const [Open, SetOpen] = React.useState(false)
   const [DropDownState, SetDropDownState] = React.useState(false);
+  const [ProfileImage, SetProfileImage] =  React.useState('')
   const [ProfileSlectedState, SetProfileSelectedState] = React.useState(1)
   const ProfileList = [{ id: 1, item: "My Order" }, { id: 2, item: "Favorites" },
   { id: 3, item: "Review" }, { id: 4, item: "Help" }]
@@ -111,8 +112,11 @@ const Navbar = () => {
       return !DropDownState;
     })
   }
-    
-
+     
+  React.useEffect(()=>{
+  SetProfileImage(state?.Profile?.image)
+  },[])
+   
 
   return (
     <>
@@ -174,7 +178,7 @@ const Navbar = () => {
                             event.target.src = "./image/user.webp"
                             event.onerror = null
                           }}
-                          src={`https://sweede.app/${state?.Profile?.image}`}
+                          src={`https://sweede.app/${ProfileImage}`}
                           alt=''
                           className="Navbar_logo_imgs"
                           onClick={handleClickDropdown}
@@ -189,7 +193,7 @@ const Navbar = () => {
                               event.target.src = "./image/user.webp"
                               event.onerror = null
                             }}
-                              src={`https://sweede.app/${state?.Profile?.image}`}
+                              src={`https://sweede.app/${ProfileImage}`}
                               alt='' className="Navbar_profile_imgs" />
                           </div>
                           <div className='profile_name_container'>
