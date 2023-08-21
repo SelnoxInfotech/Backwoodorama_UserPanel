@@ -16,8 +16,8 @@ const OverAllReview = ({ Product, api, SetApi }) => {
     //   setInterval(() => setCompleted(Math.floor(Math.random() * 100) + 1), 2000);
     // }, []);
     const testData = [
-        { starValue: 5, bgcolor: "#31B665", completed: Rating?.FiveStar    },
-        { starValue: 4, bgcolor: "#31B665", completed: Rating?.FourStar    },
+        { starValue: 5, bgcolor: "#31B665", completed: Rating?.FiveStar },
+        { starValue: 4, bgcolor: "#31B665", completed: Rating?.FourStar },
         { starValue: 3, bgcolor: "#31B665", completed: Rating?.ThreeStar },
         { starValue: 2, bgcolor: "#31B665", completed: Rating?.TwoStar },
 
@@ -60,7 +60,8 @@ const OverAllReview = ({ Product, api, SetApi }) => {
 
                                     <div className="col-lg-12 left_circularbar">
                                         <div style={{ width: 100, height: 100 }}>
-                                            <CircularProgressbar value={Rating?.AverageReview} text={Rating?.AverageReview} />
+                                            <CircularProgressbar 
+                                                 value={ Rating?.AverageReview *100 /5 } text={Rating?.AverageReview} />
                                         </div>
                                         <p>{Rating?.TotalReview} Review</p>
                                     </div>
@@ -77,7 +78,7 @@ const OverAllReview = ({ Product, api, SetApi }) => {
                                                 <span>{item.starValue}</span> <span><AiFillStar className={classes.disp_star_color} /></span>
                                             </div>
                                             <div className="col-10 overAll_Progress_center over_col_height ">
-                                                <ProgressBar key={idx} bgcolor={item.bgcolor} completed={item.completed} />
+                                                <ProgressBar key={idx} bgcolor={item.bgcolor} completed={item.completed *100 /5} />
 
                                             </div>
 
