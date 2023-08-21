@@ -111,6 +111,9 @@ const Navbar = () => {
       return !DropDownState;
     })
   }
+    
+
+
   return (
     <>
       <div ref={ref} className='sticky-top' style={{ background: "white", padding: "10px" }}>
@@ -171,7 +174,7 @@ const Navbar = () => {
                             event.target.src = "./image/user.webp"
                             event.onerror = null
                           }}
-                          src={`https://sweede.app/${state.Profile.image}`}
+                          src={`https://sweede.app/${state?.Profile?.image}`}
                           alt=''
                           className="Navbar_logo_imgs"
                           onClick={handleClickDropdown}
@@ -186,7 +189,7 @@ const Navbar = () => {
                               event.target.src = "./image/user.webp"
                               event.onerror = null
                             }}
-                              src={`https://sweede.app/${state.Profile.image}`}
+                              src={`https://sweede.app/${state?.Profile?.image}`}
                               alt='' className="Navbar_profile_imgs" />
                           </div>
                           <div className='profile_name_container'>
