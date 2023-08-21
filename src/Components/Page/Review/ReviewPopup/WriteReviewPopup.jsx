@@ -58,16 +58,17 @@ const WriteReviewPopup = ({Product,api,  SetApi}) => {
     }
     
     React.useEffect( ()=>{
-        Get_UserComment(userId , id).then((res)=>{
-            if(res.data.length !== 0 )
-            {   
-                setValue(()=>{
-                    return res.data[0]?.rating
-                })
-                setcomment(res.data[0]?.comment)
-                SetTitle(res.data[0]?.Title)
-            }
-        })
+        if(userId !== undefined && id !== undefined){
+            Get_UserComment(userId , id).then((res)=>{
+                if(res.data.length !== 0 )
+                {   
+                    setValue(()=>{
+                        return res.data[0]?.rating})
+                    setcomment(res.data[0]?.comment)
+                    SetTitle(res.data[0]?.Title)
+                }
+            })
+        }
     },[userId,id,open])
 
     return (

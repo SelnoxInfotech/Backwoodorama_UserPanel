@@ -114,6 +114,7 @@ const Navbar = () => {
   }
      
   React.useEffect(()=>{
+    console.log(state)
   SetProfileImage(state?.Profile?.image)
   },[])
    
@@ -175,10 +176,10 @@ const Navbar = () => {
                       <div className='Navbar_profile_logo_container'>
                         <LazyLoadImage
                           onError={event => {
-                            event.target.src = "./image/user.webp"
+                            event.target.src = "/image/user.webp"
                             event.onerror = null
                           }}
-                          src={`https://sweede.app/${ProfileImage}`}
+                          src={`https://sweede.app/${state?.Profile?.image}`}
                           alt=''
                           className="Navbar_logo_imgs"
                           onClick={handleClickDropdown}
@@ -189,15 +190,15 @@ const Navbar = () => {
                       <div className='profileDropdown_container'>
                         <section className='Navbar_proflie_image_name_section'>
                           <div className='profile_image_container'>
-                            <LazyLoadImage onError={event => {
-                              event.target.src = "./image/user.webp"
+                            {/* <LazyLoadImage onError={event => {
+                              event.target.src = "/image/user.webp"
                               event.onerror = null
                             }}
-                              src={`https://sweede.app/${ProfileImage}`}
-                              alt='' className="Navbar_profile_imgs" />
+                              src={`https://sweede.app/${state?.Profile?.image}`}
+                              alt='' className="Navbar_profile_imgs" /> */}
                           </div>
                           <div className='profile_name_container'>
-                            <p className='profile_names ellipsis'>{state.Profile.username}</p>
+                            <p className='profile_names ellipsis'>{state?.Profile?.username}</p>
                             <p className='profile_viewAll' onClick={ViewProfiles}>View Profile</p>
                           </div>
 

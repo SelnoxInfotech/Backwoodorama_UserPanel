@@ -71,12 +71,13 @@ const RelatedReview = ({Product , api}) => {
                                                  src={`https://sweede.app/${items?.SubCategoryImage}`} */}
                                                 <LazyLoadImage 
                                                 onError={event => {
-                                                    event.target.src = "/image/user.webp"
+                                                    event.target.src = "./image/user.webp"
                                                     event.onerror = null
                                                 }}
                                                 className='realted_review_images'
-                                                src={`https://sweede.app/${ele.userImage}`} />
-
+                                                src={`https://sweede.app/${ele?.userImage}`} 
+                                                alt="userImage"
+                                                />
                                             </div>
 
                                         </div>
