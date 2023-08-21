@@ -3,6 +3,7 @@ import { AiFillStar } from "react-icons/ai"
 import useStyles from "../../../../Style"
 import React from 'react';
 import { Get_Review } from "../ReviewApi"
+import ReportReviewPopup from '../ReviewPopup/ReportReviewPopup';
 const RelatedReview = ({Product , api}) => {
     const id = Product.id
     const [showMore, setShowMore] = React.useState(false);
@@ -113,7 +114,8 @@ const RelatedReview = ({Product , api}) => {
 
                                             </div>
                                             <div className='col-3 col-sm-3 col-lg-1 my-2 related_review_footer_paragraph ellipsis'>
-                                                <p>{ele.footer_h2}</p>
+                                                {/* <p>{ele.footer_h2}</p> */}
+                                                <ReportReviewPopup/>
                                             </div>
 
                                         </div>

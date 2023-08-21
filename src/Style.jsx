@@ -345,7 +345,7 @@ const useStyles = makeStyles({
     },
   },
   disPen_Icons: {
-    fontSize: "large",
+    fontSize: "17px",
     color: "#31B665",
 
   },
@@ -444,6 +444,7 @@ const useStyles = makeStyles({
   homePageStarIcons: {
     "&.MuiRating-root": {
       color: "#31B665",
+      fontSize:"18px"
     },
   },
   productSearchIcons: {

@@ -82,13 +82,15 @@
 }
 
 .dis_right_div {
-  height: 40px;
+
+}
+.dispensoriesHeadings{
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
   color: black;
+  margin-bottom: 0px;
 }
-
 .Dispensaries_card_discription {
   font-size: 18px;
   display: flex;
@@ -106,7 +108,25 @@
 .Dispensaries_card_discription .col-10 {
   color: #949494;
 }
-
+.dispensoriesAlignedCenter{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.dispensoriesLinkStyles{
+  text-decoration: none;
+}
+.dispensoriesAddressRatingCol{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.dispensoriesAddressHeadings{
+  color: #000000;
+  font-weight: 400;
+  font-size: 14px;
+  margin-bottom: 0px;
+}
 .Dispensaries_card_discription span {
   color: #949494;
   font-size: 14px;
@@ -4126,12 +4146,12 @@
   position: relative;
 }
 
-@media (max-width:500px) {
+@media (max-width:600px) {
   .ScrollContainerRelative {
     left: 0px;
   }
   .dispensoriesContainer{
-    padding: 10px;
+    padding: 14px;
   }
   .newProductSearchResult_ScrollContainerRelative {
     left: 0px;
@@ -4328,11 +4348,11 @@
 
 @media(max-width:500px) {
   .newProductDetails_heading{
-    font-size: 24px;
+    font-size: 16px;
   }
 
   .newProductDetails_subHeadingss{
-    font-size: 20px;
+    font-size: 14px;
 
   }
   .newProduct_doller_price{
@@ -4855,7 +4875,7 @@
 }
 
 .deliveryServicesContent_container {
-  height: 140px;
+  height: 100px;
 }
 
 .deliveryServicesTitle p {
@@ -4873,12 +4893,14 @@
   font-weight: 400;
   font-size: 16px;
   color: #000000;
+  margin-bottom: 0px;
+}
+.DeliveryServicesRatingTitle{
+  color: #949494;
+  font-weight: 400;
+  font-size: 17px;
 }
 
-.deliveryServices_SubTitle {
-  height: 35px;
-
-}
 
 .dispensoriesBanner {
   background: #E8FFF1;
@@ -7944,8 +7966,9 @@
 }
 @media(max-width:575px){
   .DeliveryServices_ScrollContainerRelative {
-    margin-left: 10px;
-    margin-right: 10px;
+    /* margin-left: 10px;
+    margin-right: 10px; */
+    gap: 0px;
 }
 .deliveryServicesHEadingPadding{
   margin-left: 30px;
@@ -8099,5 +8122,29 @@
   color: #9F9F9F;
   font-weight: 400;
   font-size: 18px;
+}
+/* end */
+/* reportReviewF */
+.reportReviewFirstLAbelDiv{
+  padding-top: 20px;
+}
+.reportReviewfirstLabel{
+  font-size: 16px;
+  color: #9F9F9F;
+  font-weight: 400;
+}
+.headingTypeLabelContainer{
+  margin-top: 20px;
+}
+.HeadingTypeReview_subLabel{
+  font-weight: 400;
+  font-size: 12px;
+  color: #9F9F9F;
+}
+.HeadingTypeLabel{
+  color: #000000;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 0px;
 }
 /* end */

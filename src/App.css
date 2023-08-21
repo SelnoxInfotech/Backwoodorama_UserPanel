@@ -479,18 +479,26 @@ overflow-x: hidden; */
 } */
 .BlogContainer {
   display: flex;
-  gap: 50px;
+  gap: 30px;
 }
 
 .BlogContainer section {
-  width: 360px;
+  width: 306px;
   border-radius: 10px;
   height: 423px;
   padding: 14px;
   background: #f2f4f6;
-  ;
 }
-
+@media(max-width:991px){
+  .BlogContainer section{
+    width: 342px;
+  }
+}
+@media(max-width:540px){
+  .BlogContainer section{
+    width: 251px;
+  } 
+}
 @media (max-width:480px) {
   .BlogContainer section {
     width: 95vw;
@@ -762,7 +770,7 @@ overflow-x: hidden; */
 .ScrollContainerRelative {
   width: 100%;
   display: flex;
-  gap: 4%;
+  gap: 2.6%;
   justify-content: normal;
   ;
   /* left: -14px; */

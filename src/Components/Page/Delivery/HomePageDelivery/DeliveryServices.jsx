@@ -65,7 +65,7 @@ const DeliveryServices = () => {
                                                         </div>
                                                     </Link>
                                                     <div className='w-100 d-flex align-items-center'>
-                                                        <span>Rating</span>
+                                                        <span className='DeliveryServicesRatingTitle'>Rating</span>
                                                         <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={4} readOnly />
 
 

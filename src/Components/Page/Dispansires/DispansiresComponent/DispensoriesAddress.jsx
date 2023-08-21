@@ -16,7 +16,7 @@ const DispensoriesAddress = () => {
     // const { dispatch } = React.useContext(Createcontext)
     // const [Store, SetStore] = useState([])
     const [Store, SetStore] = React.useState([])
-    const [Skeleton, SetSkeleton] =React.useState(true)
+    const [Skeleton, SetSkeleton] = React.useState(true)
     React.useEffect(() => {
 
         Axios.get(
@@ -27,7 +27,7 @@ const DispensoriesAddress = () => {
             SetSkeleton(false)
 
         }).catch(
-)
+        )
     }, [])
     // useEffect(() => {
     //     const fetchApiFun = async () => {
@@ -45,7 +45,7 @@ const DispensoriesAddress = () => {
 
         <>
             <div className="container-fluid">
-               {!Skeleton? <div className='row'>
+                {!Skeleton ? <div className='row'>
                     <div className='col-12  mt-4' style={{ padding: "0" }}>
                         <div className="disp_head" style={{ top: "0" }}>
                             <h3 className='dispensariesShopHeading'>Shop Dispensaries  near you</h3>
@@ -57,7 +57,7 @@ const DispensoriesAddress = () => {
                             {Store.map((ele, index) => {
                                 return (
 
-                                    <div className='dispensoriesContainer col-12  col-sm-6 col-md-6 col-lg-4 col-xl-3' key={index}>
+                                    <div className='dispensoriesContainer col-12  col-sm-6 col-md-6 col-lg-4 deliveryServicesEachCardOn_lg_Device' key={index}>
                                         <div className=' dispensoriesAddressBorder'>
 
                                             <div className='col-12 dispensories_image_containerss'>
@@ -66,14 +66,16 @@ const DispensoriesAddress = () => {
                                                 </Link>
                                             </div>
                                             <div className='dispensoriesContentContainer px-4'>
-                                                <Link to={`/DispensoriesProduct/${ele.id}/${"Menu"}`}>
+                                                <Link className='dispensoriesLinkStyles' to={`/DispensoriesProduct/${ele.id}/${"Menu"}`}>
                                                     <div className='col-12'>
 
                                                         <div className=' col-10  dis_right_div'>
-                                                            <p className='ellipsis'>{ele.Store_Name.charAt(0).toUpperCase() + ele.Store_Name.slice(1)}</p>
+                                                            <p className='ellipsis dispensoriesHeadings'>{ele.Store_Name.charAt(0).toUpperCase() + ele.Store_Name.slice(1)}</p>
                                                         </div>
                                                     </div>
-                                                    <div className='col-12  '>
+                                                    <div className='col-12 '>
+                                                    {/* <BiMap   className={classes.disPen_Icons} />
+                                                    <p className=' dispensoriesAddressHeadings ellipsis'>{ele.Store_Address}</p> */}
 
                                                         <div className=' col-10 Dispensaries_card_discription'>
                                                             <div className='col-2'>
@@ -81,7 +83,7 @@ const DispensoriesAddress = () => {
                                                             </div>
 
                                                             <div className='col-10'>
-                                                                <p className='ellipsis'>{ele.Store_Address}</p>
+                                                                <p className='ellipsis mb-0'>{ele.Store_Address}</p>
                                                             </div>
 
                                                         </div>
@@ -94,8 +96,11 @@ const DispensoriesAddress = () => {
 
 
                                                 </Link>
-                                                <div className='col-12  '>
-                                                    <div className=' col-10 Rating'>
+                                                <div className='col-12 dispensoriesAddressRatingCol '>
+                                                <span>Rating</span>
+                                                <Rating className={classes.homePageStarIcons} color='green' name="read-only" value={4} readOnly />
+
+                                                    {/* <div className=' col-10 Rating'>
                                                         <div className='col-2 color'>
                                                             <span>Rating</span>
                                                         </div>
@@ -103,7 +108,7 @@ const DispensoriesAddress = () => {
                                                         <div className='col-10 '>
                                                             <span className='mx-3'> <Rating className={classes.homePageStarIcons} color='green' name="read-only" value={4} readOnly /></span>
                                                         </div>
-                                                    </div>
+                                                    </div> */}
                                                 </div>
 
                                                 <div className='col-12  mt-4'>
@@ -111,7 +116,7 @@ const DispensoriesAddress = () => {
                                                     <Box
                                                         className={`${classes.loadingBtnTextAndBack}`}
                                                     >
-                                                        <LoadingButton onClick={()=>{Navigate(`/DispensoriesProduct/${ele.id}/${"Menu"}`)}} style={{ width: "100%" }}>Order Pickup</LoadingButton>
+                                                        <LoadingButton onClick={() => { Navigate(`/DispensoriesProduct/${ele.id}/${"Menu"}`) }} style={{ width: "100%" }}>Order Pickup</LoadingButton>
                                                     </Box>
                                                 </div>
                                             </div>
@@ -123,8 +128,8 @@ const DispensoriesAddress = () => {
                         </ScrollContainer >
                     </div >
                 </div >
-                :
-                <DispensoriesAddressSkeleton></DispensoriesAddressSkeleton>}
+                    :
+                    <DispensoriesAddressSkeleton></DispensoriesAddressSkeleton>}
             </div>
 
         </>
