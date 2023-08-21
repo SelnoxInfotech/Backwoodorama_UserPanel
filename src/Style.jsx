@@ -1225,6 +1225,51 @@ const useStyles = makeStyles({
       fontSize: '35px',
     },
   },
+  reportReviewPopupCancelBtn: {
+    "& .MuiButton-text": {
+      fontSize: ".5rem",
+    },
+    "& .MuiLoadingButton-root": {
+      fontSize: "14px",
+      width: "100%",
+      height: "38px",
+      borderRadius: "10px",
+      backgroundColor: "#FFFFFF",
+      color: "#000000",
+      textTransform: "none",
+      border: "2px solid #C1C1C1"
+    },
+    "& .MuiButtonBase-root:hover": {
+      color: "#000000",
+      backgroundColor: "#C1C1C1",
+      border: "2px solid #C1C1C1"
+    },
+  },
+  reportSubmitBtn: {
+    "& .MuiButton-text": {
+      fontSize: ".5rem",
+    },
+    "& .MuiLoadingButton-root": {
+      fontSize: "14px",
+      width: "100%",
+      height: "38px",
+      borderRadius: "10px",
+      backgroundColor: "#ffff",
+      color: "#31B665",
+      textTransform: "none",
+      border: "2px solid #31B665"
+    },
+    "& .MuiButtonBase-root:hover": {
+      color: "#ffff",
+      backgroundColor: "#00b96a",
+      border: "2px solid #31B665"
+    },
+  },
+  reportCheckBox:{
+    "& .MuiSvgIcon-root": {
+      fill: "#31B665",
+    },
+   },
 });
 
 export default useStyles
