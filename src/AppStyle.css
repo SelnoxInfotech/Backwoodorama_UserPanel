@@ -8128,10 +8128,11 @@
 /* end */
 /* reportReviewF */
 .reportReviewFirstLAbelDiv{
-  padding-top: 20px;
+  padding-top: 8px;
+
 }
 .reportReviewfirstLabel{
-  font-size: 16px;
+  font-size: 14px;
   color: #9F9F9F;
   font-weight: 400;
 }
@@ -8145,6 +8146,7 @@
   font-weight: 400;
   font-size: 14px;
   color: #9F9F9F;
+  
 }
 .ReportHeadAlignCenter{
   display: flex;
@@ -8158,6 +8160,24 @@
 @media(max-width:500px){
   .HeadingTypeReview_subLabel{
     font-size: 12px;
+  }
+  .reportReviewfirstLabel{
+    font-size: 12px;
+  }
+  .reportReviewFirstLAbelDiv{
+    padding-top: 17px;
+  
+  }
+  .headingTypeLabelContainer{
+    padding-top: 38px;
+  }
+  .headingTypeLabelContainerThirdFourth{
+   padding-top: 42px;
+  }
+}
+@media(max-width:375px){
+  .headingTypeLabelContainerThirdFourth{
+    padding-top: 54px;
   }
 }
 /* end */

@@ -44,6 +44,7 @@ const ReportReviewPopup = () => {
                                     <div className="col-12">
                                         <FormGroup>
                                             <FormControlLabel
+                                           
                                                 control={<Checkbox
                                                     className={classes.reportCheckBox}
                                                 />}
