@@ -119,7 +119,7 @@ const routesConfig = [
           }
           ,
           {
-            path:"/Dispansires",
+            path:"/Dispansires/in/:Country/:state/:city",
             element:<OpenDispansires/>
           }
           ,

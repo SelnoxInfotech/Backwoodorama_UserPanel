@@ -114,7 +114,6 @@ const Navbar = () => {
   }
      
   React.useEffect(()=>{
-    console.log(state)
   SetProfileImage(state?.Profile?.image)
   },[])
    

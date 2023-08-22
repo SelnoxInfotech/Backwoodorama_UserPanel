@@ -32,19 +32,19 @@ const ProductList = ({ arr }) => {
     const [NewData, SetNewData] = React.useState([])
     const Addtocard = async (Event) => {
         if (token_data) {
-            const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
-            const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id);
-            let PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
+            const AddData = _.filter(Price, Price => Price?.Product_id === Event?.id);
+            const PriceArrry = _.find(Event?.Prices[0]?.Price, Price => AddData[0]?.Product_id === Event?.id && AddData[0]?.Item_id === Price?.id);
+            let PriceIndex = PriceArrry === undefined ? Event?.Prices[0]?.Price[0] : PriceArrry;
             const config = {
                 headers: { Authorization: `Bearer ${token_data}` }
             };
             SetNewData({
-                Product_id: Event.id,
-                Store_id: Event.Store_id,
+                Product_id: Event?.id,
+                Store_id: Event?.Store_id,
                 Image_id: Event?.images[0]?.id,
                 Price: PriceIndex,
                 Cart_Quantity: 1,
-                PriceId: PriceIndex.id
+                PriceId: PriceIndex?.id
 
             })
             await axios.post("https://sweede.app/UserPanel/Add-AddtoCart/",
@@ -56,7 +56,7 @@ const ProductList = ({ arr }) => {
                     Image_id: Event.images[0].id,
                     Price: PriceIndex,
                     Cart_Quantity: 1,
-                    PriceId: PriceIndex.id
+                    PriceId: PriceIndex?.id
 
                 }
                 , config

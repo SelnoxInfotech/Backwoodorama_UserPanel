@@ -63,8 +63,6 @@ export default function Dashboard() {
         { imgUrl: "/image/LeaflyMarchPromo.png", head1: "CBD" },
     ]
 
-     console.log(HomePageSco)
-
     return (
         <div >
              <HomePageSco></HomePageSco>

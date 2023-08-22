@@ -31,6 +31,9 @@ const initialUser = {
     selectDeliveryoptions: "",
     Profile: [],
     WishList: [],
+    Country:"",
+    State:"",
+    City:""
 }
 
 function Context(props) {

@@ -7,7 +7,7 @@ import React from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
 import { Rating } from '@mui/material';
-
+import {DispensariesSco} from "../../ScoPage/DispensariesSco"
 const DispensoriesOpenResult = () => {
     const classes = useStyles()
     const [Store, SetStore] = React.useState([])
@@ -36,6 +36,7 @@ const DispensoriesOpenResult = () => {
 
     return (
         <>
+        <DispensariesSco></DispensariesSco>
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-xl-4 col-lg-6 col-md-8 col-sm-10 col-12 dispensories_main_container">

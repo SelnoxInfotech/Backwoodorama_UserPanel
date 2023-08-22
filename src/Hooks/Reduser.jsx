@@ -74,13 +74,24 @@ const reducer = (state, action) => {
       {
         return { ...state, Profile: action.Profile }
       }
-      case "WishList":
-        {
-          return { ...state, WishList: action.WishList }
-        }
-     
-  
-  
+    case "WishList":
+      {
+        return { ...state, WishList: action.WishList }
+      }
+    case "Country":
+      {
+        return { ...state, Country: action.Country }
+      }
+    case "State":
+      {
+        return { ...state, State: action.State }
+      }
+    case "City":
+      {
+        return { ...state, City: action.City }
+      }
+
+
 
 
     default: return state

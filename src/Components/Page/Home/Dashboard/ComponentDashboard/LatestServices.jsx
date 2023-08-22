@@ -37,7 +37,7 @@ const LatestServices = () => {
                     <div className="col-12" style={{padding: '0px'}}>
                         <ScrollContainer className="ScrollContainerRelative">
                             <div className="BlogContainer">
-                                {News.map((ele, index) => {
+                                {News?.map((ele, index) => {
                                     return (
                                         <Link to={`/Blogs/${ele.id}`} key={index}> 
                                         <section  >
@@ -56,7 +56,7 @@ const LatestServices = () => {
 
                                                 {/* </div> */}
                                                 <div className="mt-1 ">
-                                                    <span className="fontStyle  common_sub_head">{parse(ele.Description.slice(0,50) + "...")}</span>
+                                                    <span className="fontStyle  common_sub_head">{parse(ele?.Description?.slice(0,50) + "...")}</span>
 
                                                 </div>
 

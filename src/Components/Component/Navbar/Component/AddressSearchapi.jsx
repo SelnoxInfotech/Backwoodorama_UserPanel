@@ -20,7 +20,18 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
       Setdefault(place?.formatted_address);
       // SetSelectvalue(place?.formatted_address);
       dispatch({ type: 'Location', Location: place?.formatted_address })
-
+      place?.address_components?.map((data) => {
+        if (data.types.indexOf('country') !== -1) {
+          return dispatch({ type: 'Country', Country: data?.long_name.replace(/\s/g, '-') })
+        }
+        if (data.types.indexOf('administrative_area_level_1') !== -1) {
+          return dispatch({ type: 'State', State: data?.long_name.replace(/\s/g, '-') })
+        }
+        if (data.types.indexOf('locality') !== -1 || data.types.indexOf('administrative_area_level_3') !== -1) {
+          return dispatch({ type: 'City', City: data?.long_name.replace(/\s/g, '-') })
+        }
+        return data
+      })
     },
     options: {
 
@@ -46,13 +57,33 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
         .then((response) => {
           dispatch({ type: 'Location', Location: response?.plus_code?.compound_code.slice(9) });
           Setdefault(response?.plus_code?.compound_code.slice(9))
+          response?.results?.map((data) => {
+            if (data.types.indexOf('country') !== -1) {
+               dispatch({ type: 'Country', Country: data?.formatted_address.replace(/\s/g, '-') })
+            }
+            if (data.types.indexOf('administrative_area_level_1') !== -1) {
+              data.address_components.map((state) => {
+                if (state.types.indexOf('administrative_area_level_1') !== -1) {
+                  dispatch({ type: 'State', State: state?.long_name.replace(/\s/g, '-') })
+                }
+              })
+            }
+            if (data.types.indexOf('administrative_area_level_3') !== -1) {
+              data.address_components.map((city) => {
+                if (city.types.indexOf('administrative_area_level_3') !== -1 || city.types.indexOf('locality') !== -1) {
+                  dispatch({ type: 'City', City: city?.long_name?.replace(/\s/g, '-') })
+                }
+              })
+
+            }
+
+
+          })
         }
 
         )
 
     });
-
-
   }
   function OnBlur() {
     setOpenLocation(false)
@@ -83,7 +114,7 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
           ),
           endAdornment: (
             <IconButton onClick={current}>
-              <MdOutlineMyLocation color="inherit" size={16} style={{ cursor: 'pointer' }}  />
+              <MdOutlineMyLocation color="inherit" size={16} style={{ cursor: 'pointer' }} />
             </IconButton>
 
           ),
