@@ -80,17 +80,17 @@ const SideNavbar = ({ closeNav, Open }) => {
                             <div className="col-6 sliderImageProfile_container_mainDiv" ref={profileRef}>
                                 {/* <Button className={classes.muiBtn} onClick={Logout} >Logout</Button> */}
                                 <div className="SliderImageProfile_container" >
-                                    <LazyLoadImage src='./image/user.webp' className="Slidser_profile_imgs" onClick={sliderProfileHandler} />
+                                    <LazyLoadImage src='/image/user.webp' className="Slidser_profile_imgs" onClick={sliderProfileHandler} />
 
                                 </div>
                                 {SliderStateDropDown &&
                                     (<div className="sliderProfile_image_list_container">
                                         <section className="image_name_section">
                                             <div className="SliderImageProfile_container">
-                                                <LazyLoadImage src='./image/user.webp' className="Slider_inner_profile_imgs" />
+                                                <LazyLoadImage src='/image/user.webp' className="Slider_inner_profile_imgs" />
                                             </div>
                                             <div className="slider_image_profile_names_conatiner">
-                                                <h1 className="slider_image_name_heading ellipsis">Maxwell rtwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww</h1>
+                                                <h1 className="slider_image_name_heading ellipsis">Maxwell rtwwwww</h1>
                                                 <p className="slider_view_heading" onClick={ViewProfiles}>View Profile</p>
                                             </div>
                                         </section>
@@ -124,7 +124,7 @@ const SideNavbar = ({ closeNav, Open }) => {
 
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                    <Link to="/Dispansires"><p onClick={closeNav}>Dispensaries</p></Link>
+                    <Link to={`/Dispansires/in/${state.Country}/${state.State}/${state.City}`}><p onClick={closeNav}>Dispensaries</p></Link>
                 </div>
 
                 <hr></hr>

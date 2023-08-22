@@ -27,7 +27,6 @@ const DispensoriesOpenResult = () => {
             })
     }, [])
     function search(e) {
-        console.log(Store)
         const test = Store.filter(team => {
             return team.Store_Name.toLowerCase().includes(e.toLowerCase());
           });

@@ -47,7 +47,7 @@ function a11yProps(index) {
 export default function Dispansires() {
     const { state } = React.useContext(Createcontext)
     const [value, setValue] = React.useState(0);
-    const DispensorShopLocation = [{ name: "Marijuana dispensaries", city: state.Location }]
+    const DispensorShopLocation = [{ name: "Weed Dispensaries", city: state.Location }]
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
