@@ -21,6 +21,14 @@ const LegislationHistory = () => {
 
                 </p>
             </div>
+            <div className="col-12 LeigislationHistoryCol">
+            <h2 id="LegislationHistory" className="isweedLegalHeading">Possession and Cultivation Limits?</h2>
+
+                <p className="isWeedLegalParagraph">
+                For recreational users, possession of marijuana remains illegal in Alabama. The Compassion Act introduced possession limits for medical marijuana patients, allowing them to possess up to 70 daily dosages of medical cannabis. 
+                Cultivation by patients or caregivers is still prohibited under Alabama law.
+                </p>
+            </div>
 
         </>
     )

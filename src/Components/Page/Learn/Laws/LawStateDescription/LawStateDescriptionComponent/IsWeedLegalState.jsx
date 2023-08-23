@@ -1,4 +1,5 @@
-const IsWeedLegalState = () => {
+const IsWeedLegalState = ({elementRef}) => {
+    
     return (
         <>
             <div className="col-12">
@@ -10,14 +11,14 @@ const IsWeedLegalState = () => {
                     </p>
                 </div>
                 <div className="weedDescriptionContainer">
-                    <h3>Introduction</h3>
+                    <h3 className="isweedLegalHeading">Introduction</h3>
                     <div className="col-12">
                         <p className="isWeedLegalParagraph">In the southeastern corner of the United States, Alabama stands as a state known for its rich history and cultural tapestry. However, when it comes to marijuana, the state's legal landscape is not as diverse. It sheds light on Alabama's marijuana laws,
                             exploring its legality, legislative journey, possession limits, purchasing options, consumption restrictions, lab testing protocols.</p>
                     </div>
 
                 </div>
-                <h2 id="isweedLegalHeadings" className="isweedLegalHeading">Is weed legal in Alabama?</h2>
+                <h2 id="isweedLegalHeadings" ref={elementRef} className="isweedLegalHeading">Is weed legal in Alabama?</h2>
 
                 <div className="col-12">
                     <p className="isWeedLegalParagraph">

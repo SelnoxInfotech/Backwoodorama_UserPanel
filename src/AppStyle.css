@@ -8379,5 +8379,25 @@
   font-weight: 400;
   font-size: 18px;
 }
-
+.caontentSocialIcon_Ol{
+  display: flex;
+  list-style: none;
+  padding-left: 0px;
+  height: 60px;
+  align-items: center;
+  margin-bottom: 0px;
+  background-color: #31B665;
+}
+.LawStateContentsContainer{
+  margin-left: 20px;
+  border:  1px solid #9F9F9F;
+}
+@media(max-width:992px){
+  .lawStateDescription_Laws_Content{
+    display: block;
+  }
+  .LawStateContentsContainer{
+    margin-left: 0px;
+  }
+}
 /* end */
