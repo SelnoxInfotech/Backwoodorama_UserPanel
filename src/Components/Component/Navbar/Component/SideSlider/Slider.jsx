@@ -124,13 +124,13 @@ const SideNavbar = ({ closeNav, Open }) => {
 
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                    <Link to={`/Dispansires/in/${state.Country}/${state.State}/${state.City}`}><p onClick={closeNav}>Dispensaries</p></Link>
+                    <Link to={`/Weed-Dispansires/in/${state.Country}/${state.State}/${state.City}`}><p onClick={closeNav}>Dispensaries</p></Link>
                 </div>
 
                 <hr></hr>
 
                 <div className="col-12 Slider_content_center ">
-                    <Link to="/Deliveries"><p onClick={closeNav}>Deliveries</p></Link>
+                    <Link to={`/Weed-Deliveries/in/${state.Country}/${state.State}/${state.City}`}><p onClick={closeNav}>Deliveries</p></Link>
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
