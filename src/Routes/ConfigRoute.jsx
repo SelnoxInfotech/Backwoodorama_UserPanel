@@ -46,6 +46,7 @@ import Variants from "../Components/Component/Skeleton/CategorySkeleton";
 import OpenDispensoriesSkeleton from "../Components/Component/Skeleton/DispensorieSkeleton/OpenDispensoriesSkeleton";
 import DeliveryItemsCardSkeleton from "../Components/Component/Skeleton/Deliveries/DeliveriesComponent/DeliveryMenu/DeliveryItemsCardSkeleton";
 import WhisLists from "../Components/Component/Whishlist/WhisLists/WhisLists";
+import LawStateDescription from "../Components/Page/Learn/Laws/LawStateDescription/LawStateDescription";
 const routesConfig = [
   
       {
@@ -239,6 +240,10 @@ const routesConfig = [
           {
             path:"/DeliveryItemsCardSkeleton",
             element:<DeliveryItemsCardSkeleton/>
+          },
+          {
+            path:"/LawStateDescription",
+            element:<LawStateDescription/>
           },
           {
             path:"/WhisLists",
