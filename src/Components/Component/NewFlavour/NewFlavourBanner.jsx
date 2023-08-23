@@ -15,7 +15,6 @@ const NewFlavourBanner = ({ delBtn }) => {
                 <div className="col-12 newFlavour_container">
                     {
                         delBtn?.map((data) => {
-                            console.log(data)
                             return (
                                 <div className="row" key={data.id}>
                                     <div className="col-md-2 col-sm-4  col-4 newFlavour_image_container_height">

@@ -104,9 +104,9 @@ const Product = () => {
                         <CategoryProduct  Category={Category} ShowCategoryProduct={ShowCategoryProduct}></CategoryProduct>
                     </div>
                     {
-                        SubCategory.map((data) => {
+                        SubCategory.map((data , index) => {
                             return (
-                                <div>
+                                <div key={index}>
                                     <div className="col-12 mt-4  fontStyle">
                                         <h2 className="productSlider_headings">{data.name}</h2>
                                         <NewProductCategorySlider flowerArray={data.subcategories}/>

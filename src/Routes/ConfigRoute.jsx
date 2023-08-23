@@ -85,7 +85,7 @@ const routesConfig = [
             element: <CreatePassword></CreatePassword>,
           },
           {
-            path:"/Deliveries",
+            path:"/Weed-Deliveries/in/:Country/:state/:city",
             element:<Deliveries></Deliveries>
           },
           
@@ -120,7 +120,7 @@ const routesConfig = [
           }
           ,
           {
-            path:"/Dispansires/in/:Country/:state/:city",
+            path:"/Weed-Dispansires/in/:Country/:state/:city",
             element:<OpenDispansires/>
           }
           ,

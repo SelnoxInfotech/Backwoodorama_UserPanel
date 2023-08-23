@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet"
+import { Helmet } from 'react-helmet-async';
 import Createcontext from "../../../Hooks/Context"
 import React from "react"
 function DispensariesSco() {
