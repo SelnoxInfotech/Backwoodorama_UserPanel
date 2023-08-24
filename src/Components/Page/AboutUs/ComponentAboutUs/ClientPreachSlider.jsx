@@ -69,15 +69,15 @@ const ClientPreachSlider = () => {
             }
         ]
     };
-    const AboutUsBannerArray = [{ content: "“  Backwoodaroma has not only been a pleasure to work with, but has been very beneficial to our organization. Throughout the last year we have seen significant improvement in our organic rankings. With MMX’s thorough reporting we are able to analyze all of our  marketing   platforms and their ROI to optimize our marketing budget. I would recommen them to anyone seeking exceptional marketing services.  “" },
-    { content: "“  Backwoodaroma has not only been a pleasure to work with, but has been very beneficial to our organization. Throughout the last year we have seen significant improvement in our organic rankings. With MMX’s thorough reporting we are able to analyze all of our  marketing   platforms and their ROI to optimize our marketing budget. I would recommen them to anyone seeking exceptional marketing services.  “" }
+    const AboutUsBannerArray = [{ content: "“  WeedX has not only been a pleasure to work with, but has been very beneficial to our organization. Throughout the last year we have seen significant improvement in our organic rankings. With MMX’s thorough reporting we are able to analyze all of our  marketing   platforms and their ROI to optimize our marketing budget. I would recommen them to anyone seeking exceptional marketing services.  “" },
+    { content: "“  WeedX has not only been a pleasure to work with, but has been very beneficial to our organization. Throughout the last year we have seen significant improvement in our organic rankings. With MMX’s thorough reporting we are able to analyze all of our  marketing   platforms and their ROI to optimize our marketing budget. I would recommen them to anyone seeking exceptional marketing services.  “" }
             
 ]
 
     return (
         <div className='row'>
             <div className='w-100 mt-2 center'>
-                <h1 className='clientPreach_heading'>Clients preach the Backwoodaroma</h1>
+                <h1 className='clientPreach_heading'>Clients preach the WeedX</h1>
             </div>
             <ClientPreachSlider {...settings}>
                 {AboutUsBannerArray.map((items, index) => {

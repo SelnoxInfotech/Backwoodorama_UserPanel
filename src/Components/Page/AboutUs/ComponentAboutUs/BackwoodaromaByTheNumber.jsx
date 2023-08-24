@@ -5,7 +5,7 @@ const BackwoodaromaByTheNumber = () => {
             <div className="col-12 backwoodaromaByTheNumber_container">
                 <div className="row mx-0">
                     <div className="col-12 backwoodaroma_heading_container">
-                        <h1 className="backwoodar_heading">BACKWOODAROMA  by the numbers</h1>
+                        <h1 className="backwoodar_heading">WeedX  by the numbers</h1>
                     </div>
                     <div className="col-12 backwoodaroma_number_container px-0 bg-light mt-2 border ">
                         <ol>
