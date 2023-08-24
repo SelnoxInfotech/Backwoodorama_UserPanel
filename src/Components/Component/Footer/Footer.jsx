@@ -41,7 +41,7 @@ const Footer = () => {
                         </div>
                         <div className="col-xl-4 col-sm-4 footer_logo_container px-4">
                             <div className="col-12 footer_log_center footer_logo footer_logo_height">
-                                <LazyLoadImage className="footer_logo_image" src="/image/logo.webp" alt="image_not found" />
+                                <LazyLoadImage className="footer_logo_image" src="https://sweede.app/image/images/download/media/BlankImage/3.png" alt="image_not found" />
                             </div>
                             <div className="col-12 footer_logo footer_log_heading_height footer_log_center">
                                 <p>Build a modern and creative  website</p>
