@@ -12,13 +12,21 @@
   top: 0px;
 }
 
-.Image_blog_Image_section{
+.blog_Image{
+  height: 17rem;
+  width: 100%;
   background-position:center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-.blog_Image{
   background-image: url("https://sweede.app/image/images/download/media/BlankImage/b1_2.png");
+}
+.blog_Title{
+  font-weight: 800;
+  font-size: 20px;
+  justify-content: center;
+  display: flex;
+  top: 50%;
+  position: relative;
 }
 
 
@@ -992,7 +1000,8 @@ overflow-x: hidden; */
 }
 
 .Col_BlogUSerIcon {
-
+right: 30px;
+position: relative;
   background: #00b96a;
   border-radius: 50px;
   justify-content: center;
@@ -1006,7 +1015,7 @@ overflow-x: hidden; */
   align-items: center;
   width: 19.666667% !important;
   background-color: #F6F6F6;
-  justify-content: center;
+  justify-content: end;
   display: flex;
 }
 
@@ -1049,7 +1058,7 @@ overflow-x: hidden; */
   display: flex;
   vertical-align: middle;
   align-items: center;
-  gap: 40px;
+  gap: 10px;
   height: 50px;
   background: #F6F6F6;
 }

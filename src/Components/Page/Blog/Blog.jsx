@@ -62,9 +62,9 @@ window.scroll(0,0)
                                 <h6>{News?.username}</h6>
                             </div>
                         </div>
-                       <section className="" >
-                       {/* <span className="blog_Image "></span> */}
-                       <img src ="https://sweede.app/image/images/download/media/BlankImage/b1_2.png"  style={{width:"100%" , height:"250px"}}alt="blog image"></img>
+                       <section className="blog_Image" >
+                       <span className="blog_Title ">WeedX.io - Your Pathway to Premium Cannabis Experiences</span>
+                       {/* <img src ="https://sweede.app/image/images/download/media/BlankImage/b1_2.png"  style={{width:"100%" , height:"250px"}}alt="blog image"></img> */}
                        </section>
                         <div classname="col" id="center1" >
                             <div className="col-12 blogEditorPaddings ">
@@ -80,34 +80,28 @@ window.scroll(0,0)
                         <div classname="col" id="center1" >
                             <div className="col-10 BlogLink mt-2">
                                 <div className="col-12 Linkofblog">
+                                    <div className="col Linkofblog">
                                     <RiFacebookLine></RiFacebookLine>
                                     <RiLinkedinLine></RiLinkedinLine>
                                     <BsFillShareFill></BsFillShareFill>
-                                </div>
-                                <div className=" col-12 Display_blog">
-                                    <div class="col viewsBlog">
+                                    </div>
+                                    <div className="col viewsBlog">
                                         <IoEyeSharp></IoEyeSharp>
                                         <span>40 Views</span>
                                     </div>
-                                    <div class="col-md-8 d-flex ">
-                                        <div class="col viewsBlog">
+                                    <div className="col-md-8 d-flex ">
+                                        <div className="col viewsBlog">
                                             {/* <IoEyeSharp></IoEyeSharp> */}
                                             <span>20</span>
                                             <span>Comment</span>
                                         </div>
-                                        <div class="col viewsBlog like">
+                                        <div className="col viewsBlog like">
                                             <AiFillHeart></AiFillHeart>
                                             <span>201</span>
                                         </div>
-                                    </div>
-
-                                    <div class="col col-lg-2">
-                                    <div class="col viewsBlog like">
-                                            <span>Post</span>
-                                            <span>10/2/2023</span>
                                         </div>
-                                    </div>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>
