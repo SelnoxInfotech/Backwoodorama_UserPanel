@@ -69,7 +69,7 @@ const DeliveryMenuBar = () => {
 
     return (
         <>
-            <div className="col-lg-12 col-11 delivery_menuBar_container px-0 mt-2">
+            <div className="col-lg-12 col-11 delivery_menuBar_container px-0 mt-4">
 
                 <Box className={``} sx={{ width: '100%', typography: 'body1', }}>
                     <TabContext value={value}>
@@ -77,7 +77,7 @@ const DeliveryMenuBar = () => {
                             <TabList scrollButtons={false} variant="scrollable" onChange={handleChange} aria-label="lab API tabs example">
                                 <Tab label="Order Online" value="1" />
                                 <Tab label="Order now" value="2" />
-                                <Tab label="Best of Backwood aroma" value="3" />
+                                <Tab label="Best of WeedX" value="3" />
                                 <Tab label="Recreational" value="4" />
 
                             </TabList>
