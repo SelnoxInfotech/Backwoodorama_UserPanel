@@ -1,5 +1,5 @@
 import React from "react"
-import USA from "../LawContents"
+
 import LawStateDescriptionHeading from "./LawStateDescriptionComponent/LawStateDescriptionHeading"
 import LawStateContent from "./LawStateDescriptionComponent/LawStateContent"
 import IsWeedLegalState from "./LawStateDescriptionComponent/IsWeedLegalState"
@@ -10,10 +10,11 @@ import FrequentlyAskedQuestion from "./LawStateDescriptionComponent/FrequentlyAs
 import LawStateDecriptionBanner from "./LawStateDescriptionComponent/LawStateDecriptionBanner"
 import DescriptionAndIntro from "./LawStateDescriptionComponent/DescriptionAndIntro"
 import { useRef } from "react"
-
+import { useLocation } from 'react-router-dom';
 const LawStateDescription = () => {
-    console.log(USA)
 
+    const location = useLocation()
+    console.log(location)
     const elementRef = useRef(null)
 
     const alabamaHeading = "Alabama"

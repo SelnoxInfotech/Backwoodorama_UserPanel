@@ -62,8 +62,12 @@ window.scroll(0,0)
                                 <h6>{News?.username}</h6>
                             </div>
                         </div>
+                       <section className="" >
+                       {/* <span className="blog_Image "></span> */}
+                       <img src ="https://sweede.app/image/images/download/media/BlankImage/b1_2.png"  style={{width:"100%" , height:"250px"}}alt="blog image"></img>
+                       </section>
                         <div classname="col" id="center1" >
-                            <div className="col-10 blogEditorPaddings border ">
+                            <div className="col-12 blogEditorPaddings ">
                                 <div className="">
                                     <span>{News?.Title}</span>
                                 </div>

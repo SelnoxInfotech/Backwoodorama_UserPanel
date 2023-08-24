@@ -12,7 +12,14 @@
   top: 0px;
 }
 
-
+.Image_blog_Image_section{
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.blog_Image{
+  background-image: url("https://sweede.app/image/images/download/media/BlankImage/b1_2.png");
+}
 
 
 
