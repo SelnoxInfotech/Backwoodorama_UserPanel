@@ -34,7 +34,7 @@ const Footer = () => {
                 <div className="row footer_Main_row">
                     <div className="col-12 footer_main_div_display px-0">
                         <div className="w-100 footer_center footer_head_height ">
-                            <h2 className="ellipsis footer_heading fontWeight_Seven_Hundred">BACKWOODAROMA</h2>
+                            <h2 className="ellipsis footer_heading fontWeight_Seven_Hundred">WeedX</h2>
                         </div>
                         <div className="w-100 footer_center  footer_head_height">
                             <h3 className="footer_sub_heading fontWeight_Four_Hundred">A community connecting cannabis consumer retailers, doctors, and brands since 2008.</h3>
@@ -54,7 +54,7 @@ const Footer = () => {
                                     <CiMobile1 color="#31B665" size={18} /><span className="footer_middle_icons_text">+1 432(182)35</span>
                                 </div>
                                 <div className="Footer_Left_side_menu w-100  gap-2">
-                                    <HiOutlineMail color="#31B665" size={18} /><span className="footer_middle_icons_text">backwoodaroma@gmail.com</span>
+                                    <HiOutlineMail color="#31B665" size={18} /><span className="footer_middle_icons_text">weedx@gmail.com</span>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@ const Footer = () => {
                                     <div className="col-12 footer_inner_container">
                                         <div className="col-6 footer_list">
                                             <ol className="footer_list_gap">
-                                                <p className="footer_menu_heading">About Backwoodaroma</p>
+                                                <p className="footer_menu_heading">About WeedX</p>
                                                 {AboutUs.map((ele, index) => {
                                                     return (
                                                         <Link to="/" key={index}><li className="footer_li ellipsis">{ele.head}</li></Link>
@@ -153,7 +153,7 @@ const Footer = () => {
 
                     </div>
                     <div className="col-12  footer_bootom_headings_container">
-                        <p className="footer_headingss">Design by Backwoodaroma 2023</p>
+                        <p className="footer_headingss">Design by WeedX 2023</p>
 
                     </div>
 

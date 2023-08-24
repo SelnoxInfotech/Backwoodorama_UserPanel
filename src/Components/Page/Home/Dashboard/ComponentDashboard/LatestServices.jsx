@@ -26,7 +26,7 @@ const LatestServices = () => {
                 <div className="row">
                     <div className="col-lg-12 ">
                         <div className="latest_services">
-                            <h2 className="latest_services_headings mt-2">Welcome to Backwoodaroma</h2>
+                            <h2 className="latest_services_headings mt-2">Welcome to WeedX</h2>
                             <h3 className="fontStyle common_sub_head mt-2  mb-3">Check our latest article to see our inspiring content for shopping</h3>
                         </div>
                     </div>

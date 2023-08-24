@@ -8361,18 +8361,32 @@
 .isweedLegalHeading{
   color: #000000;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 28px;
+}
+.frequentlySubHeading{
+  color: #000000;
+  font-weight: 700;
+  font-size: 22px;  
 }
 .LawStateDescriptionHeading{
   color: #6B6B6B;
   font-weight: 700;
-  font-size: 28px;
+  font-size: 32px;
+}
+.LawStateContentOls{
+  /* list-style: none; */
+  padding-left: 0px;
+}
+.LawStateContentOls li{
+  padding-left: 10px;
+  /* border-bottom: 1px solid #E0E0E0; */
 }
 .isWeedLegalParagraph{
-  font-size:16px;
+  font-size:18px;
   color: #6B6B6B;
   font-weight:400;
   text-align: justify;
+  padding-bottom: 24px;
 }
 .lawStateContentLinkStyle{
   color: #000000;
@@ -8386,11 +8400,29 @@
   height: 60px;
   align-items: center;
   margin-bottom: 0px;
+  padding-left: 0px;
+  /* background-color: #31B665; */
+}
+.LawStateContentOlsCol{
+  padding-left: 32px;
+}
+.socialIconsContainer{
   background-color: #31B665;
+  display: flex;
+}
+.sharIcons{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 10px;
+}
+.lawStateDescBannerCol{
+  margin-bottom: 30px;
 }
 .LawStateContentsContainer{
   margin-left: 20px;
-  border:  1px solid #9F9F9F;
+  border:  1px solid #BEBEBE;
+
 }
 @media(max-width:992px){
   .lawStateDescription_Laws_Content{
@@ -8398,6 +8430,11 @@
   }
   .LawStateContentsContainer{
     margin-left: 0px;
+  }
+}
+@media(max-width:500px){
+  .LawStateDescriptionHeading{
+    font-size: 24px;
   }
 }
 /* end */

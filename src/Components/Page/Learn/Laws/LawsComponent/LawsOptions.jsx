@@ -132,7 +132,9 @@ const LawsOptions = () => {
                                     <ol className="lawssoptionStyle law_Inner_OPtionList_Ol">
                                         {items.key2.map((val, index) => {
                                             return (
+                                       
                                                 <Link to="/LawStateDescription">
+
                                                     <li key={index}>
                                                         <LazyLoadImage src={blankImage} className="lawOPtionListImage" alt="image-not-found" />
                                                         <span>{val.state}</span>

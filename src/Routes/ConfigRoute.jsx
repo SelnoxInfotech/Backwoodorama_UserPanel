@@ -244,7 +244,7 @@ const routesConfig = [
           {
             path:"/LawStateDescription",
             element:<LawStateDescription/>
-          },
+          },        
           {
             path:"/WhisLists",
             element:<ProtectRout Component={WhisLists} ></ProtectRout> 

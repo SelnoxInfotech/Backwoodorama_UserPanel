@@ -25,7 +25,7 @@ const CommunityType = () => {
 
                                 <div className="col-12  mt-4 ">
                                     <div className="col-10 comm_para1">
-                                        <p>BACKWOODAROMA</p>
+                                        <p>WeedX</p>
 
                                     </div>
                                 </div>

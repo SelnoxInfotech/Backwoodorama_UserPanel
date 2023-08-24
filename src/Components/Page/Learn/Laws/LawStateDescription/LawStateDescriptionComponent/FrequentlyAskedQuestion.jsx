@@ -25,11 +25,12 @@ const FrequentlyAskedQuestion = () => {
     ]
     return (
         <>
+        <h2 className="isweedLegalHeading">Frequently asked questions</h2>
             <div className="col-12 CannabisSafeStatePurchase_Col">
                 {FrequentlyAskedQuestion.map((val, index) => {
                     return (
-                        <React.Fragment>
-                            <h2 id="LegislationHistory" className="isweedLegalHeading">{val.head}</h2>
+                        <React.Fragment key={index}>
+                            <h2 id="LegislationHistory" className="frequentlySubHeading">{val.head}</h2>
                             <p className="isWeedLegalParagraph">
                                {val.paragraph}
                             </p>
