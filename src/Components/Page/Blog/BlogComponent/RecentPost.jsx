@@ -1,6 +1,7 @@
 import React from "react";
 import { ScrollContainer } from "react-indiana-drag-scroll"
 import parse from 'html-react-parser';
+import { Link } from "react-router-dom";
 const RecentPost = () => {
 
    const [News, SetNews] = React.useState([])
@@ -27,7 +28,7 @@ const RecentPost = () => {
                             <div className="BlogContainer mb-2">
                                 {News?.map((ele, index) => {
                                     return (
-                                        // <Link to={`/Blogs/${ele.id}`} > 
+                                        <Link to={`/Blogs/${ele.id}`} > 
                                         <section  key={index}>
                                             <div className="col img_cont center_latest ">
                                                 {/* <div className="centerImg "> */}
@@ -50,7 +51,7 @@ const RecentPost = () => {
 
                                             </div>
                                         </section>
-                                        // </Link>
+                                        </Link>
                                     )
                                 })}
 

@@ -6,7 +6,7 @@ import parse from 'html-react-parser';
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ScrollContainer } from 'react-indiana-drag-scroll';
-const LatestServices = () => {
+const NewsBlog = () => {
     const [News, SetNews] = useState([])
     useEffect(() => {
         const getApi = async () => {
@@ -80,4 +80,4 @@ const LatestServices = () => {
         </>
     )
 }
-export default LatestServices
+export default NewsBlog

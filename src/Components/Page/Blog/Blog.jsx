@@ -10,8 +10,8 @@ import { useNavigate } from "react-router-dom"
 import { RiFacebookLine } from "react-icons/ri"
 import { BsFillShareFill } from "react-icons/bs"
 import { IoEyeSharp } from "react-icons/io5"
-import {AiFillHeart} from "react-icons/ai"
-import {RiLinkedinLine} from "react-icons/ri"
+import { AiFillHeart } from "react-icons/ai"
+import { RiLinkedinLine } from "react-icons/ri"
 const Blogs = () => {
     const navigate = useNavigate()
     const { id } = useParams();
@@ -26,10 +26,10 @@ const Blogs = () => {
         }
         getApi()
 
-    }, [])
-    React.useEffect(()=>{
-window.scroll(0,0)
-    },[])
+    }, [id])
+    React.useEffect(() => {
+        window.scroll(0, 0)
+    }, [id])
 
     const classes = useStyles()
     return (
@@ -62,10 +62,10 @@ window.scroll(0,0)
                                 <h6>{News?.username}</h6>
                             </div>
                         </div>
-                       <section className="blog_Image" >
-                       <span className="blog_Title ">WeedX.io - Your Pathway to Premium Cannabis Experiences</span>
-                       {/* <img src ="https://sweede.app/image/images/download/media/BlankImage/b1_2.png"  style={{width:"100%" , height:"250px"}}alt="blog image"></img> */}
-                       </section>
+                        <section className="blog_Image" >
+                            <span className="blog_Title ">{News?.Title}</span>
+                            {/* <img src ="https://sweede.app/image/images/download/media/BlankImage/b1_2.png"  style={{width:"100%" , height:"250px"}}alt="blog image"></img> */}
+                        </section>
                         <div classname="col" id="center1" >
                             <div className="col-12 blogEditorPaddings ">
                                 <div className="">
@@ -81,9 +81,9 @@ window.scroll(0,0)
                             <div className="col-10 BlogLink mt-2">
                                 <div className="col-12 Linkofblog">
                                     <div className="col Linkofblog">
-                                    <RiFacebookLine></RiFacebookLine>
-                                    <RiLinkedinLine></RiLinkedinLine>
-                                    <BsFillShareFill></BsFillShareFill>
+                                        <RiFacebookLine></RiFacebookLine>
+                                        <RiLinkedinLine></RiLinkedinLine>
+                                        <BsFillShareFill></BsFillShareFill>
                                     </div>
                                     <div className="col viewsBlog">
                                         <IoEyeSharp></IoEyeSharp>
@@ -99,9 +99,9 @@ window.scroll(0,0)
                                             <AiFillHeart></AiFillHeart>
                                             <span>201</span>
                                         </div>
-                                        </div>
+                                    </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>

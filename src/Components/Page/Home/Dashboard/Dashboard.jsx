@@ -1,7 +1,7 @@
 import Map from "../../../Component/Map/map"
 import CategoryProduct from "./ComponentDashboard/CategoryProduct";
 import DispensoriesAddress from "../../Dispansires/DispansiresComponent/DispensoriesAddress";
-import LatestServices from "./ComponentDashboard/LatestServices";
+import NewsBlog from "./ComponentDashboard/NewsBlog";
 import CommunityType from "./ComponentDashboard/CommunityType";
 import HomePageBanner from "./ComponentDashboard/HomePageBanner";
 import DeliveryServices from "../../Delivery/HomePageDelivery/DeliveryServices";
@@ -78,7 +78,7 @@ export default function Dashboard() {
             <HomePageDealsSignup></HomePageDealsSignup>
             {/* <WeedProduct></WeedProduct> */}
             <div className="dashBoardStrainType">
-                <LatestServices></LatestServices>
+                <NewsBlog></NewsBlog>
             </div>
             <div className="w-90 dashBoardStrainType">
                 <h3 className=" mt-4 dashBoard_strain_paragraph">Strain Type</h3>
