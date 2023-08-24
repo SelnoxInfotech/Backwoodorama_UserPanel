@@ -67,7 +67,7 @@ const Footer = () => {
                                                 <p className="footer_menu_heading">About WeedX</p>
                                                 {AboutUs.map((ele, index) => {
                                                     return (
-                                                        <Link to="/" key={index}><li className="footer_li ellipsis">{ele.head}</li></Link>
+                                                        <Link to="/AboutUs" key={index}><li className="footer_li ellipsis">{ele.head}</li></Link>
                                                     )
                                                 })}
                                             </ol>

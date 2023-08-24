@@ -4,7 +4,11 @@ import AboutUsJourney from "./ComponentAboutUs/AboutUsJourney"
 import OurValues from "./ComponentAboutUs/OurValues"
 import HomePageDealsSignup from "../Home/Dashboard/ComponentDashboard/HomePageDealsSignup"
 import ClientPreachSlider from "./ComponentAboutUs/ClientPreachSlider"
+import React from "react"
 const AboutUs=()=>{
+    React.useEffect(()=>{
+         window.scroll(0,0)
+    },[])
     return(
         <div className="container">
             <div className="row">
