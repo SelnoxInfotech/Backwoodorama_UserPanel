@@ -129,7 +129,7 @@ const Navbar = () => {
                 justifyContent="center"
               >
                 <span >
-                  <Link to="/"><LazyLoadImage className='navbar_logo_image' src='/image/logo.webp' /></Link>
+                  <Link to="/"><LazyLoadImage className='navbar_logo_image' src='https://sweede.app/image/images/download/media/BlankImage/3.png' /></Link>
                 </span>
 
               </Grid>
