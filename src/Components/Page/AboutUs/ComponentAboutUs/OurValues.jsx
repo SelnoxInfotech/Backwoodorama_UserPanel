@@ -3,9 +3,10 @@ import {BsGraphUpArrow} from "react-icons/bs"
 import {MdSettingsSuggest} from "react-icons/md"
 
 const OurValues=()=>{
-    const OurValuesArray=[{head:"Data-Driven Approach",icons:<AiOutlineSetting color="#27BE72" size={35}/>,paragraph:"We make all of our decisions based on data and analytics. We continuously test and iterate to ensure that we are making ."}
-    ,{head:"Result-Oriented",icons:<BsGraphUpArrow color="#27BE72" size={35}/>,paragraph:"We focus on achieving the best results for our clients in the most efficient way. This is possible thanks to the great professionalism of our team and strict adherence to the company values."},
-    {head:"Result-Oriented",icons:<MdSettingsSuggest color="#27BE72" size={35}/>,paragraph:"We focus on achieving the best results for our clients in the most efficient way. This is possible thanks to the great professionalism of our team and strict adherence to the company values."}]
+    const OurValuesArray=[{head:"Data-Driven Approach",icons:<AiOutlineSetting color="#27BE72" size={35}/>,paragraph:"Our decisions are driven by data and analytics, guiding our continuous testing and improvement efforts."}
+    ,{head:"Result-Oriented",icons:<BsGraphUpArrow color="#27BE72" size={35}/>,paragraph:"We prioritize achieving optimal outcomes for clients by harnessing our team's professionalism and upholding company values."},
+    {head:"Optimize your marketing",icons:<MdSettingsSuggest color="#27BE72" size={35}/>,
+    paragraph:"Enhance your business by gaining deeper insights into your existing and potential customers, optimizing your marketing strategies."}]
     return(
         <div className="row">
             <div className="center  ourValue_main_headings_container mt-4"><h1 className="ourValue_main_headings">Our Values</h1></div>
