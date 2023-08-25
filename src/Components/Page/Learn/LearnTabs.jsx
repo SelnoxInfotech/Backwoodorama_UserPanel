@@ -16,7 +16,9 @@ const LearnTabs = () => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-
+React.useEffect(()=>{
+window.scroll(0,0)
+},[])
 
     return (
         <div className='container-fluid'>

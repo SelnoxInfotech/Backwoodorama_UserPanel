@@ -1,10 +1,10 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import {FaFacebookF} from "react-icons/fa"
-import {IoMailSharp} from "react-icons/io5"
+import { FaFacebookF } from "react-icons/fa"
+import { IoMailSharp } from "react-icons/io5"
 import { IconButton } from "@mui/material"
 import { ImShare2 } from "react-icons/im"
-const LawStateContent = ({ elementRef }) => {
+const LawStateContent = ({ head }) => {
     const [Selected, SetSelected] = React.useState(1)
     const LawSelectedFun = (ids) => {
         SetSelected(ids)
@@ -12,8 +12,6 @@ const LawStateContent = ({ elementRef }) => {
 
     }
 
-    const lawStateContents = [{ id: 1, name: " Is weed legal in Alabama?" }, { id: 2, name: " Legislation history" },
-    { id: 3, name: "  Where is it safe to purchase?" }, { id: 4, name: " Where is it safe to consume?" }]
 
     return (
         <>
@@ -33,17 +31,17 @@ const LawStateContent = ({ elementRef }) => {
 
                 </div>
                 <div className="col-12 LawStateContentOlsCol">
-                    <ol className="LawStateContentOls">{lawStateContents.map((items, index) => {
-                       
+                    <ol className="LawStateContentOls">{head.map((items, index) => {
+
                         return (
                             <React.Fragment key={index}>
                                 <div>
-                                    <Link className="lawStateContentLinkStyle" to={items.id === 1 ? "#isweedLegalHeadings" : items.id === 2 ? "#LegislationHistory" : ""}>
-                                        <li className="py-3" style={{ color: Selected === items.id ? "#31B665" : "" }} onClick={() => LawSelectedFun(items.id)}>{items.name}</li>
-                                    </Link>
+
+                                    <a href={'#'+items.title}> <li className="py-3" style={{ color: Selected === items.id ? "#31B665" : "" }} onClick={() => LawSelectedFun(items.id)}>{items.title}</li>
+                                    </a>
                                 </div>
-                                 
-                              
+
+
 
                             </React.Fragment>
                         )

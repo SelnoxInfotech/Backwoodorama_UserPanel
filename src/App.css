@@ -1081,7 +1081,8 @@ position: relative;
 
 .viewsBlog {
   /* justify-content: center; */
-  gap: 15px;
+  gap: 2px;
+  font-size: 15px;
   height: 50px;
   align-items: center;
   display: inline-flex;

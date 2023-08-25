@@ -75,14 +75,14 @@ const LearnBanner = () => {
             }
         ]
     };
-    const LearnBannerArray = [{ imgUrl: "./image/learnBanner.webp" }, { imgUrl: "./image/learnBanner2.jpg" }]
+    const LearnBannerArray = [{ imgUrl:" ./image/learnBanner.webp" }, { imgUrl: "./image/learnBanner2.jpg" }]
 
     return (
 
 
         <div className='col-12 '>
             <LearnSlider {...settings}>
-                {LearnBannerArray.map((items, index) => {
+                {LearnBannerArray?.map((items, index) => {
                     return (
                         <div className='learn_banner_header' key={index}>
                             <div className='col-12 learn_image_slider'>

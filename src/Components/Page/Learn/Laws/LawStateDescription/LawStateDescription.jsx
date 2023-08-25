@@ -10,39 +10,95 @@ import FrequentlyAskedQuestion from "./LawStateDescriptionComponent/FrequentlyAs
 import LawStateDecriptionBanner from "./LawStateDescriptionComponent/LawStateDecriptionBanner"
 import DescriptionAndIntro from "./LawStateDescriptionComponent/DescriptionAndIntro"
 import { useRef } from "react"
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
+import Content from "../LawContentsJson"
+import _ from "lodash"
 const LawStateDescription = () => {
-
     const location = useLocation()
-    console.log(location)
-    const elementRef = useRef(null)
+    const [GetContant, SetContant] = React.useState([])
 
-    const alabamaHeading = "Alabama"
+    React.useEffect(() => {
+        Content.filter((data, index) => {
+            return (
+                data.state.map((d) => {
+                    if (d.id === location?.state?.id) {
+
+                        SetContant(d)
+                    }
+                    return d
+                })
+            )
+        })
+
+    }, [])
+
     return (
         <React.Fragment>
-            {/* <div className="container-fluid">
+            <div className="container-fluid">
                 <div className="row">
                     <LawStateDecriptionBanner />
-                    <LawStateDescriptionHeading heading={alabamaHeading} />
-                    <DescriptionAndIntro description1={alabamadescription} description2={secAlabamadesc} />
-                    <div className="col-12 lawStateDescription_Laws_Content">
-                        <div className="col-lg-8 col-md-12 lawStateLeftSideCol">
-                            <IsWeedLegalState head={isWeedLegal} elementRef={elementRef} />
-                            <LegislationHistory />
-                            <CannabisSafeStatePurchase />
-                            <LabTestings />
-                            <FrequentlyAskedQuestion />
-                        </div>
-                        <div className="col-xxl-3 col-lg-4 col-md-12 lawStateRightSideCol  ">
-                            <LawStateContent elementRef={elementRef} />
+                    <LawStateDescriptionHeading heading={GetContant?.name} />
+                    {
+                        GetContant?.content?.map((data1, index) => {
+                            return (
+                                <>
+                                    <DescriptionAndIntro description1={index === 0 && data1.title} description2={index === 0 && data1.content} />
+                                    <div className="col-12 d-flex">
+                                        <div className="col-8" style={{alignSelf: 'center'}}>
+                                            <IsWeedLegalState head={data1.title} description2={data1.content} />
+                                        </div>
+                                        <div className="col-4">
+                                            {index === 0 && <LawStateContent head={GetContant?.content} />}
+                                        </div>
+                                    </div>
 
-                        </div>
 
-                    </div>
+
+
+
+                                    {/* <div className="col-12 lawStateDescription_Laws_Content">
+                                  
+                                    // <div className="col-lg-8 col-md-12 lawStateLeftSideCol"> */}
+                                    {/* <div className="col-lg-8 col-md-12 lawStateLeftSideCol">  */}
+                                    {/* <IsWeedLegalState head={index !== 0 && data1.title} description2={index !== 0 && data1.content} /> */}
+
+                                    {/* </div> */}
+                                    {/* <div className="col-xxl-3 col-lg-4 col-md-12 lawStateRightSideCol  "> */}
+
+
+                                    {/* </div> */}
+                                    {/* </div> */}
+
+                                </>
+                            )
+                        })
+                    }
+                    {/* {
+                        GetContant?.content?.map((data1, index) => {
+                            return (
+                                <div className="col-12 lawStateDescription_Laws_Content">
+                                    <div className="col-lg-8 col-md-12 lawStateLeftSideCol">
+                                        <IsWeedLegalState head={index !== 0 && data1.title} description2={index !== 0 && data1.content} />
+
+                                    </div>
+                                    <div className="col-xxl-3 col-lg-4 col-md-12 lawStateRightSideCol  ">
+                                        {index === 0 && <LawStateContent head={GetContant?.content} />}
+
+                                    </div>
+                                </div>
+                            )
+
+                        })
+                    } */}
+
+
+
+
+
                 </div>
 
-            </div> */}
-        </React.Fragment>
+            </div>
+        </React.Fragment >
     )
 }
 export default LawStateDescription

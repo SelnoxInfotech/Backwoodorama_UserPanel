@@ -1,15 +1,14 @@
-const IsWeedLegalState = ({elementRef,head}) => {
-    
+const IsWeedLegalState = ({head , description2}) => {
+
     return (
         <>
             <div className="col-12">
  
-                <h2 id="isweedLegalHeadings" ref={elementRef} className="isweedLegalHeading">{head}</h2>
+                <h2 id="isweedLegalHeadings" className="isweedLegalHeading">{head}</h2>
 
-                <div className="col-12">
+                <div className="col-12" id={head} >
                     <p className="isWeedLegalParagraph">
-                        Recreational marijuana is not legal in Alabama. The state has maintained its stance against recreational use, adhering to a strict prohibition.
-                        Possession of marijuana in personal quantities is a misdemeanor, while repeated possession or possession with intent to sell is a felony.
+                       {description2}
                     </p>
                 </div>
 
