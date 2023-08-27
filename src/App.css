@@ -1015,7 +1015,7 @@ position: relative;
   align-items: center;
   width: 19.666667% !important;
   background-color: #F6F6F6;
-  justify-content: end;
+  justify-content: flex-end;
   display: flex;
 }
 

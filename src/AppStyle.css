@@ -5416,6 +5416,7 @@
 
 .about_us_inner_section_container {
   height: 100%;
+  padding-top: 10px;
   border: 1px solid gray;
 }
 
