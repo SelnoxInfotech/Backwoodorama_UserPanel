@@ -3633,7 +3633,7 @@
 /* end */
 /* ProductSearchResult */
 .productSearch_result_container {
-  height: 422px;
+  height: auto;
 }
 
 .productSearchResultImage_container {
