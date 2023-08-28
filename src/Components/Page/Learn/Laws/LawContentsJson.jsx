@@ -240,6 +240,61 @@ const Content = [
                 
                  </div>
             },
+            {
+                title:"Patient registry process",
+                content:<div>
+                    <h2>To join the Alaska Medical Marijuana Registry, patients must complete the following steps:</h2>
+                </div>,
+                list:[{data:"Submit the application."},{data:"Submit the signed physician's statement form stating that the patient has been diagnosed with a qualifying debilitating medical condition."},
+                      {data:"Submit a photocopy of an Alaska driver's license or identification card of the patient and caregiver(s)"},
+                      {data:"Pay a $25 registration fee for original card, or $20 for a renewal. Payments can be made by check or money order."}
+            ],
+         
+            },
+            {
+                title:"Caregiver qualifications",
+                content:<div>
+                    <h2>To become a qualified medical marijuana caregiver, Alaska residents must meet the following requirements:</h2>
+                </div>,
+                list:[{data:"Caregivers must be at least 21 years of age and be a permanent resident of Alaska."},
+                      {data:"Caregivers must be listed by the patient as either the primary caregiver or an alternate caregiver."},
+                      {data:"A person may be a primary caregiver or alternate caregiver for only one patient at a time, unless the primary caregiver or alternate caregiver is simultaneously caring for two or more patients who are related to the caregiver by blood or marriage."},
+                      {data:"The caregiver must not have been convicted of a felony controlled substance offense."}
+            ]
+        
+        },
+        {
+            title:"Registry process",
+            content:<p>Alaska residents seeking to become qualified caregivers must include their name on their designated patient's application for the Medical Marijuana Registry. They must also include a sworn statement they are at least 21 years old,
+                 with proof on a photo ID, and that they have never been convicted of a felony controlled substance offense.</p>
+    },
+    {
+        title:"Reciprocity",
+        content:<div>
+            <h2>Visitors 21 and older with a valid ID can purchase the same amount as state residents.</h2>
+            <h2>Alaska marijuana laws do not recognize medical marijuana cards issued by other states.</h2>
+        </div>
+    },
+    {
+        title:"Licensing for growers, manufacturers, processors, retailers, etc. ",
+        content:<div>
+            <p>MCB grants licenses to cultivators, processors, dispensaries,
+                 and testing labs that pay a non-refundable application fee and renewal fee as well an annual licensing fee.</p>
+                 <p>Alaska marijuana laws require that all cannabis offered for sale in licensed stores be tested by state-licensed testing facilities.
+                     Licensed cultivation facilities are responsible for submitting all cannabis products for testing.</p>
+        </div>
+    },
+    {
+        title:"Frequently asked questions",
+        content:<div>
+           <h2>When did Alaska legalize recreational weed?</h2>
+           <p>With the passage of Measure 2 in 2014, Alaska became the third state to legalize recreational cannabis. </p>
+           <h2>What policy made it recreational to smoke weed in Alaska?</h2>
+           <p>Measure 2, which passed in 2014, legalized cannabis for recreational use in Alaska. </p>
+           <h2>Are dabs legal in Alaska?</h2>
+           <p>Adults can consume flower, edibles, concentrates, oils, tinctures, salves, drinks, patches, and topical cannabis products. So, yes, dabs are legal.</p>
+        </div>
+    }
             // {
             //     title: "Legislation History",
             //     content: <div>
