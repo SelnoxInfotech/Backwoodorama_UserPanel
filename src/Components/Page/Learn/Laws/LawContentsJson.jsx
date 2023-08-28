@@ -221,97 +221,90 @@ const Content = [
                 {
                     title: "Medical marijuana registry",
                     content: <div>
-                    <p>Alaska's Department of Health and Social Services runs the Medical Marijuana Registry.
-                        Patient and caregiver application forms are available on the agency's website.</p>
-                    <h2>Qualifying conditions</h2>
-                </div>,
-                    list: [{ name: "Cachexia, or wasting syndrome" },{name:"Cancer"},{name:"Chronic or severe pain"},{name:"Glaucoma"},{name:"HIV/ AIDS"},
-                    {name:"Multiple sclerosis"},{name:"Persistent muscle spasms"},{name:"Seizures, including those characteristic of epilepsy"},{name:"Severe nausea"}],
+                        <p>Alaska's Department of Health and Social Services runs the Medical Marijuana Registry.
+                            Patient and caregiver application forms are available on the agency's website.</p>
+                        <h2>Qualifying conditions</h2>
+                    </div>,
+                    list: [{ name: "Cachexia, or wasting syndrome" }, { name: "Cancer" }, { name: "Chronic or severe pain" }, { name: "Glaucoma" }, { name: "HIV/ AIDS" },
+                    { name: "Multiple sclerosis" }, { name: "Persistent muscle spasms" }, { name: "Seizures, including those characteristic of epilepsy" }, { name: "Severe nausea" }],
 
                 },
-                {title:"Patient qualifications",
-                 content:<div>
-                    <p>Patients must be diagnosed with one of the above debilitating conditions to qualify for medical marijuana use.
-                        To apply, patients must obtain a signed physician's statement and have received an examination in the 16 months prior to application</p>
-                     <p>If a patient is a minor, a parent or guardian must submit a signed statement that the physician has explained the risks and benefits of medical marijuana.
-                         Also, the parent or guardian must be the patient's primary caregiver, apply for a Medical Marijuana Registry card, and control patient access to medical cannabis.</p>
-                      <p>All registry forms and documents are confidential. Insurance companies do not cover medical marijuana expenses. Patients are required to have a Medical Marijuana Registry ID card to receive protected status. No correctional facility,
-                         medical facility, employer, school campus or recreation center is required to accommodate medical cannabis use.</p>    
-                
-                 </div>
-            },
-            {
-                title:"Patient registry process",
-                content:<div>
-                    <h2>To join the Alaska Medical Marijuana Registry, patients must complete the following steps:</h2>
-                </div>,
-                list:[{data:"Submit the application."},{data:"Submit the signed physician's statement form stating that the patient has been diagnosed with a qualifying debilitating medical condition."},
-                      {data:"Submit a photocopy of an Alaska driver's license or identification card of the patient and caregiver(s)"},
-                      {data:"Pay a $25 registration fee for original card, or $20 for a renewal. Payments can be made by check or money order."}
-            ],
-         
-            },
-            {
-                title:"Caregiver qualifications",
-                content:<div>
-                    <h2>To become a qualified medical marijuana caregiver, Alaska residents must meet the following requirements:</h2>
-                </div>,
-                list:[{data:"Caregivers must be at least 21 years of age and be a permanent resident of Alaska."},
-                      {data:"Caregivers must be listed by the patient as either the primary caregiver or an alternate caregiver."},
-                      {data:"A person may be a primary caregiver or alternate caregiver for only one patient at a time, unless the primary caregiver or alternate caregiver is simultaneously caring for two or more patients who are related to the caregiver by blood or marriage."},
-                      {data:"The caregiver must not have been convicted of a felony controlled substance offense."}
-            ]
-        
-        },
-        {
-            title:"Registry process",
-            content:<p>Alaska residents seeking to become qualified caregivers must include their name on their designated patient's application for the Medical Marijuana Registry. They must also include a sworn statement they are at least 21 years old,
-                 with proof on a photo ID, and that they have never been convicted of a felony controlled substance offense.</p>
-    },
-    {
-        title:"Reciprocity",
-        content:<div>
-            <h2>Visitors 21 and older with a valid ID can purchase the same amount as state residents.</h2>
-            <h2>Alaska marijuana laws do not recognize medical marijuana cards issued by other states.</h2>
-        </div>
-    },
-    {
-        title:"Licensing for growers, manufacturers, processors, retailers, etc. ",
-        content:<div>
-            <p>MCB grants licenses to cultivators, processors, dispensaries,
-                 and testing labs that pay a non-refundable application fee and renewal fee as well an annual licensing fee.</p>
-                 <p>Alaska marijuana laws require that all cannabis offered for sale in licensed stores be tested by state-licensed testing facilities.
-                     Licensed cultivation facilities are responsible for submitting all cannabis products for testing.</p>
-        </div>
-    },
-    {
-        title:"Frequently asked questions",
-        content:<div>
-           <h2>When did Alaska legalize recreational weed?</h2>
-           <p>With the passage of Measure 2 in 2014, Alaska became the third state to legalize recreational cannabis. </p>
-           <h2>What policy made it recreational to smoke weed in Alaska?</h2>
-           <p>Measure 2, which passed in 2014, legalized cannabis for recreational use in Alaska. </p>
-           <h2>Are dabs legal in Alaska?</h2>
-           <p>Adults can consume flower, edibles, concentrates, oils, tinctures, salves, drinks, patches, and topical cannabis products. So, yes, dabs are legal.</p>
-        </div>
-    }
-            // {
-            //     title: "Legislation History",
-            //     content: <div>
-            //         <p>In 2014, Governor Robert Bentley introduced a modification to Alabama's criminal code, referred to as Carly's Law. This amendment allowed the University of Alabama at Birmingham (UAB) to administer non-psychoactive CBD oil to children suffering from seizures for a clinical study.</p>
+                {
+                    title: "Patient qualifications",
+                    content: <div>
+                        <p>Patients must be diagnosed with one of the above debilitating conditions to qualify for medical marijuana use.
+                            To apply, patients must obtain a signed physician's statement and have received an examination in the 16 months prior to application</p>
+                        <p>If a patient is a minor, a parent or guardian must submit a signed statement that the physician has explained the risks and benefits of medical marijuana.
+                            Also, the parent or guardian must be the patient's primary caregiver, apply for a Medical Marijuana Registry card, and control patient access to medical cannabis.</p>
+                        <p>All registry forms and documents are confidential. Insurance companies do not cover medical marijuana expenses. Patients are required to have a Medical Marijuana Registry ID card to receive protected status. No correctional facility,
+                            medical facility, employer, school campus or recreation center is required to accommodate medical cannabis use.</p>
 
-            //         <p>In the subsequent year, Senator Bobby Singleton proposed the Medical Marijuana Patient Safe Access Act, which aimed to grant patients with 25 severe medical conditions access to medical cannabis. Unfortunately, this bill did not progress to a Senate floor vote.</p>
-            //         <p>Fast forward to July 1, 2016, when Leni's Law was enacted as an amendment to Carly's Law. This revision granted the permanent use and possession of CBD oil to individuals diagnosed with debilitating medical conditions, as determined by their physicians.</p>
-            //     </div>
-            // },
+                    </div>
+                },
+                {
+                    title: "Patient registry process",
+                    content: <div>
+                        <h2>To join the Alaska Medical Marijuana Registry, patients must complete the following steps:</h2>
+                    </div>,
+                    list: [{ data: "Submit the application." }, { data: "Submit the signed physician's statement form stating that the patient has been diagnosed with a qualifying debilitating medical condition." },
+                    { data: "Submit a photocopy of an Alaska driver's license or identification card of the patient and caregiver(s)" },
+                    { data: "Pay a $25 registration fee for original card, or $20 for a renewal. Payments can be made by check or money order." }
+                    ],
 
-        ]
-    }
-],
+                },
+                {
+                    title: "Caregiver qualifications",
+                    content: <div>
+                        <h2>To become a qualified medical marijuana caregiver, Alaska residents must meet the following requirements:</h2>
+                    </div>,
+                    list: [{ data: "Caregivers must be at least 21 years of age and be a permanent resident of Alaska." },
+                    { data: "Caregivers must be listed by the patient as either the primary caregiver or an alternate caregiver." },
+                    { data: "A person may be a primary caregiver or alternate caregiver for only one patient at a time, unless the primary caregiver or alternate caregiver is simultaneously caring for two or more patients who are related to the caregiver by blood or marriage." },
+                    { data: "The caregiver must not have been convicted of a felony controlled substance offense." }
+                    ],
+                    content2: <div>
+                        <h2>Registry process</h2>
+                        <p>Alaska residents seeking to become qualified caregivers must include their name on their designated patient's application for the Medical Marijuana Registry. They must also include a sworn statement they are at least 21 years old,
+                            with proof on a photo ID, and that they have never been convicted of a felony controlled substance offense.</p>
+                        <h3>Reciprocity</h3>
+                        <h2>Visitors 21 and older with a valid ID can purchase the same amount as state residents.</h2>
+                        <h2>Alaska marijuana laws do not recognize medical marijuana cards issued by other states.</h2>
+                        <h3>Licensing for growers, manufacturers, processors, retailers, etc. </h3>
+                        <p>MCB grants licenses to cultivators, processors, dispensaries,
+                            and testing labs that pay a non-refundable application fee and renewal fee as well an annual licensing fee.</p>
+                        <p>Alaska marijuana laws require that all cannabis offered for sale in licensed stores be tested by state-licensed testing facilities.
+                            Licensed cultivation facilities are responsible for submitting all cannabis products for testing.</p>
+                    </div>
+
+                },
+                {
+                    title: "Frequently asked questions",
+                    content: <div>
+                        <h2>When did Alaska legalize recreational weed?</h2>
+                        <p>With the passage of Measure 2 in 2014, Alaska became the third state to legalize recreational cannabis. </p>
+                        <h2>What policy made it recreational to smoke weed in Alaska?</h2>
+                        <p>Measure 2, which passed in 2014, legalized cannabis for recreational use in Alaska. </p>
+                        <h2>Are dabs legal in Alaska?</h2>
+                        <p>Adults can consume flower, edibles, concentrates, oils, tinctures, salves, drinks, patches, and topical cannabis products. So, yes, dabs are legal.</p>
+                    </div>
+                }
+                    // {
+                    //     title: "Legislation History",
+                    //     content: <div>
+                    //         <p>In 2014, Governor Robert Bentley introduced a modification to Alabama's criminal code, referred to as Carly's Law. This amendment allowed the University of Alabama at Birmingham (UAB) to administer non-psychoactive CBD oil to children suffering from seizures for a clinical study.</p>
+
+                    //         <p>In the subsequent year, Senator Bobby Singleton proposed the Medical Marijuana Patient Safe Access Act, which aimed to grant patients with 25 severe medical conditions access to medical cannabis. Unfortunately, this bill did not progress to a Senate floor vote.</p>
+                    //         <p>Fast forward to July 1, 2016, when Leni's Law was enacted as an amendment to Carly's Law. This revision granted the permanent use and possession of CBD oil to individuals diagnosed with debilitating medical conditions, as determined by their physicians.</p>
+                    //     </div>
+                    // },
+
+                ]
+            }
+        ],
     },
 
-{
-    name: 'India', id: 2,
+    {
+        name: 'India', id: 2,
         state: [{
             id: 3,
             name: "Alabama",
@@ -340,7 +333,7 @@ const Content = [
             ]
         },
         ]
-}
+    }
 
 
 
