@@ -293,8 +293,215 @@ const Content = [
                         <p>Adults can consume flower, edibles, concentrates, oils, tinctures, salves, drinks, patches, and topical cannabis products. So, yes, dabs are legal.</p>
                     </div>
                 }
-                
 
+
+                ]
+            },
+            {
+                id: 3,
+                name: "Arizona",
+                content: [{
+                    title: "Is weed legal in Arizona?",
+                    content: <div>
+                        <p>Yes. Cannabis is legal for anyone over the age of 21 and patients of any age with qualifying conditions. Adults can possess up to 1 ounce (28 grams) at a time and grow six plants.
+
+                        </p>
+                    </div>
+                },
+                {
+                    title: "Legislation history",
+                    content: <div>
+                        <p>Medical marijuana was first approved by Arizona voters in 1996 through an initiative allowing seriously or terminally ill patients to possess medical marijuana with a doctor's prescription.
+                            This provision was overturned due to the word “prescribe” conflicting with federal law forbidding marijuana prescriptions.
+                        </p>
+                        <p>Arizona tried again to legalize medical cannabis in 2002, with Proposition 203, but it only earned 42.7% of the vote. A viable solution was not approved until nearly 10 years later. Voters in 2010 passed the Arizona
+                            Medical Marijuana Question, a much-revised Proposition 203, by a slim margin — 50.13% of the vote. After Proposition 203 passed, the first medical marijuana sales didn't take place until December 2012. </p>
+                        <p>Proposition 203 named the Arizona Department of Health Services (ADHS) as the agency responsible for developing and implementing rules and regulations for the Arizona medical cannabis program. The initiative set out certain parameters used by ADHS for qualifying patients and caregivers to receive access to medical marijuana as well as operating regulations for licensed cannabis dispensaries.</p>
+                        <p>The Smart and Safe Act appeared as Proposition 207 on the general election ballot in Arizona in November 2020.
+                            Arizonans voted in favor of legalizing recreational marijuana for adults 21 and older. The passage of this ballot initiative allowed adults over age 21 to possess 1 ounce (28 grams) of marijuana with no more than 5 grams of cannabis concentrates and to cultivate up to six cannabis plants at their primary residence. The ballot initiative also imposed a 16% excise tax on cannabis and allowed for the expungement of some criminal records for marijuana possession. Sales began in January 2021, marking the fastest move from voter approval to sales of any US state.
+
+                        </p>
+                    </div>
+                },
+                {
+                    title: "Purchasing cannabis",
+                    content: <div>
+                        <p>Adults 21 and older and patients and caregivers in the ADHS registry can purchase marijuana from a nonprofit state-licensed dispensary.
+                            Both groups may purchase cannabis flower, extracts, edibles, topicals, salves, and capsules.</p>
+                        <p>Adults can buy up to 1 ounce (28 grams) of cannabis with no more than 5 grams in the form of concentrates from a “marijuana establishment.”
+                            Recreational consumers pay 16% sales tax on purchases. Delivery is not available for recreational users. </p>
+                        <p>Patients can purchase an amount of cannabis that would result in their possessing up to 2.5 ounces (70 grams) in a 14-day period. Dispensaries use a state-provided tracking system. If patients are unable to make the purchase themselves, they may designate a caregiver or use a delivery service. Patients are subject to a 6.6% state tax, in addition to an optional tax of 2 to 3% levied by cities.
+                            Many nonprofit dispensaries offer discounts for patients in financial need</p>
+                        <p>Dispensaries are allowed one retail location for every 10 pharmacies registered in Arizona. Patients located far from their closest dispensary may opt to use a medical cannabis delivery service.
+                            These services will deliver medical cannabis directly to a registered patient's or designated caregiver's residence.</p>
+                        <h2>Finding licensed dispensaries in Arizona</h2>
+                        <p>
+                            Adult-use and medical marijuana card holders can find licensed dispensaries in Arizona and search by major metro areas including Phoenix, Tempe, and Tucson. Some dispensaries in Arizona offer delivery and curbside pickup services in addition to storefront sales.
+                        </p>
+                    </div>
+
+                },
+                {
+                    title: "Where is it safe to consume cannabis?",
+                    content: <div>
+                        <p>It is legal for medical patients or adults to consume cannabis in private. Patients may consume edibles in public. </p>
+                        <p>It is illegal for drivers and passengers to consume cannabis in any type of vehicle. Driving under the influence is also prohibited</p>
+                        <p>Any nursing care institution may adopt reasonable rules to regulate the use of medical cannabis by their residents. However, they may not unreasonably limit a registered patient's medical cannabis use unless doing so would cause the facility to lose monetary or licensing-related benefits under federal regulations.</p>
+                    </div>
+                },
+                {
+                    title: "Possessing cannabis",
+                    content: <div>
+                        <p>While adult-use and medical marijuana is legal in Arizona, there are still legal limits to how much one may possess. </p>
+                        <p>Adults 21 and older may possess up to 1 ounce (28 grams) of marijuana or cannabis-infused products with no more than 5 grams of it in concentrate form. </p>
+                        <p>Adults may also give away up to 1 ounce (28 grams) of cannabis to another adult 21. </p>
+                        <p>Qualifying patients and their caregivers may legally possess up to 2.5 ounces (70 grams) of cannabis. </p>
+                        <p>Patients or caregivers may offer medical cannabis to another registered patient or designated caregiver as long as nothing of value is exchanged and possession limits are not exceeded.Is</p>
+                    </div>
+                },
+                {
+                    title: "Is home cultivation allowed in Arizona?",
+                    content: <div>
+                        <p>Adults can grow up to six plants at home. If there are two or more adults in the home, they can grow a maximum of 12 plants total. Plants must be grown out of public view. </p>
+                        <p>Registered patients and designated caregivers may cultivate up to 12 plants per registered patient. These plants must be kept in an enclosed, locked container out of public view.</p>
+                        <p>No landlord may refuse to lease to or otherwise penalize a person solely for their status as a medical cannabis cardholder.</p>
+                    </div>
+                },
+
+                {
+                    title: "Medical marijuana registry",
+                    content: <div>
+                        <p>Adults and patients younger than 18 must meet certain requirements for ADHS approval before being placed on the medical marijuana registry. For minors, the parent or legal guardian must be designated as their caregiver.</p>
+                        <p>Adults are not required to designate a caregiver, but can choose to designate one as needed. A registered patient may designate a caregiver to assist with medical marijuana purchases and deliveries, as well as administration and cultivation of medical marijuana. Arizona law specifies that only a qualified patient can apply for a designated caregiver.</p>
+                        <h2>Qualifying conditions</h2>
+                        <ul>
+                            <li>Alzheimer's disease</li><li>Cancer</li><li>Crohn's Disease</li><li>Glaucoma</li>
+                            <li>Hepatitis C</li><li>HIV/AIDS</li><li>Post-traumatic stress disorder (PTSD)</li>
+                            <li>A chronic or debilitating disease or medical condition, or the treatment of such a condition that includes:
+                                <ul>
+                                    <li>Cachexia, or wasting syndrome</li>
+                                    <li>Seizures, including those characteristic of epilepsy</li>
+                                    <li>Severe and chronic pain</li>
+                                    <li>Severe nausea</li>
+                                    <li>Severe or persistent muscle spasms, including those characteristic of multiple sclerosis</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <h2>The public may petition ADHS to add debilitating medical conditions to this list.</h2>
+                        <h2>Patient qualifications</h2>
+                        <p>Qualifying patients must be 18 or older to apply for a registry identification card. Minors seeking to apply for a medical cannabis registry identification card must meet the following requirements:</p>
+                        <ul>
+                            <li>The qualifying patient's physician has explained both the risks and benefits of medical cannabis use to the patient's parent or legal guardian.</li>
+                            <li>The patient's parent or legal guardian must submit a written certification from two physicians.</li>
+                            <li>The patient's parent or legal guardian must agree to serve as the patient's designated caregiver and control the acquisition, dosage, and use of medical cannabis.</li>
+                        </ul>
+                        <h2>Registry process</h2>
+                        <ol>
+                            <li>Receive a written certification of a qualifying debilitating condition from an Arizona-licensed physician. The written certification has to be on a form provided by ADHS and completed within 90 days of submitting an application for a registry identification card.</li>
+                            <li>Complete the online patient registry application.</li>
+                            <li>Provide a valid Arizona driver's license or state identification card to establish residency.</li>
+                            <li>Designate a caregiver, if applicable.</li>
+                            <li>Request authorization for home cultivation, if applicable.</li>
+                            <li>Pay a $150 fee for a medical marijuana registry identification card. The cards expire one year after the date of issue and must be renewed for $150 annually. Patients must apply for renewals at least 30 days before the card expires.</li>
+                        </ol>
+                        <p>The department will approve or deny an application or renewal within 10 days of receiving a completed application or renewal. A registry identification card is issued within five days following approval. All application or renewal records are confidential.</p>
+                        <h2>Caregiver qualifications</h2>
+                        <p>Arizona law specifies that only a qualifying patient can apply for a designated caregiver. Registered caregivers must be age 21 or older, a resident of Arizona, and meet all eligibility requirements prior to ADHS approval. A designated caregiver may provide care for up to five patients and hold a registry identification card for each patient.</p>
+                        <p>Caregivers are eligible to be reimbursed for costs incurred while assisting patients with access and use of medical marijuana.</p>
+                        <h2>Registry process</h2>
+                        <ol>
+                            <li>Caregivers must provide proof of residency.</li>
+                            <li>Caregivers must complete a mandatory criminal background check conducted by ADHS.</li>
+                            <li>Once approved, designated caregivers must print, sign, and date the Medical Marijuana Caregiver Attestation form and submit a copy of the form online before receiving a registry identification card.</li>
+                            <li>A $150 identification card fee must also be paid to ADHS. The registry ID card will expire one year after the date it was issued. The qualifying patient must apply for renewal at least 30 days before the expiration date.</li>
+                        </ol>
+                        <p>The department will approve or deny an application or renewal within 10 days of receiving a completed application or renewal. A registry identification card is issued within five days following approval. All application or renewal records are confidential.</p>
+                    </div>
+                },
+                {
+                    title: "Reciprocity",
+                    content: <div>
+                        <p>ADHS recognizes out-of-state medical marijuana registration, offering the same legal protections for visiting patients as those offered to state residents. Out-of-state patients may not purchase from Arizona state-licensed dispensaries, but are allowed to possess up to 2.5 ounces (70 grams) of usable cannabis. </p>
+
+                    </div>
+                },
+                {
+                    title: "Lab testing",
+                    content: <div>
+                        <p>Cannabis grown and processed in Arizona must be tested for the following:</p>
+                        <ul>
+                            <li>Cannabinoids and potency</li>
+                            <li>Harmful bacteria </li>
+                            <li>Heavy metal</li>
+                            <li>Herbicides</li>
+                            <li>Mold</li>
+                            <li>Mycotoxins</li>
+                            <li> Pesticides and growth regulators</li>
+                            <li>Pesticides and growth regulators</li>
+                            <li> Residual solvents</li>
+                        </ul>
+                    </div>
+                },
+                {
+                    title: "Frequently asked questions",
+                    content: <div>
+                        <h2>When is weed going to be legal in Arizona?</h2>
+                        <p>On November 3, 2020, Arizona voters passed the Smart and Safe Act, or Proposition 207, legalizing recreational marijuana use for adults 21 and older. Adults without a medical marijuana card can purchase cannabis legally. </p>
+                        <h2>What are the laws of possession of marijuana in Arizona? </h2>
+                        <p>Patients can possess up to 2.5 ounces (70 grams) in a 14-day period. Allowed forms include flower, edibles, topicals, salves, and capsules, along with consumption accessories. Adults 21 and older can possess up to 1 ounce (28 grams) of marijuana with no more than 5 grams of cannabis concentrates and cultivate up to 6 cannabis plants at their primary residence.</p>
+                        <h2>What are the laws for smoking medical marijuana in Arizona?</h2>
+                        <p>Smoking cannabis in any public place is prohibited. Patients and adults 21 and older can smoke in private as long as it's not a place where tobacco smoking is prohibited. </p>
+                        <h2>What are the laws on medical marijuana use in the workplace in Arizona?</h2>
+                        <p>Arizona's medical marijuana statute does not allow employers to discriminate against a medical marijuana cardholder when hiring, firing, or penalizing based solely on their status as a cardholder unless the employer would lose federal benefits by not doing so. A positive drug test can't be held against a patient unless they used, possessed, or were impaired by cannabis while at work or on the premises during working hours. However, being a medical marijuana patient does not allow anyone to do anything while under the influence that could be considered negligence or professional malpractice. Patients also can't possess or use medical marijuana on any school property, including buses, or in a jail or prison. Operating a vehicle, plane, or boat while impaired is illegal. </p>
+                        <h2>How much marijuana is legal in Arizona?</h2>
+                        <p>Patients can possess up to 2.5 ounces (70 grams) in a 14-day period. Adults over age 21 can possess 1 ounce (28 grams) of marijuana with no more than 5 grams being cannabis concentrates.</p>
+                        <h2>What type of marijuana is legal in Arizona?</h2>
+                        <p>Allowed forms include flower, edibles, topicals, salves, and capsules, along with consumption accessories.</p>
+                        <h2>What are the weed laws in Arizona for growing your own cannabis?</h2>
+                        <p>Registered patients and designated caregivers may cultivate 12 cannabis plants for medical use if there is no non-profit cannabis dispensary within 25 miles (40 kilometers) of their home address. Adults 21 and older may grow six plants at their primary residence. Households with two or more adults may grow up to 12 plants. </p>
+                        <h2>Can you go into a dispensary without a card in Arizona?</h2>
+                        <p>Arizona law doesn't require a medical marijuana card to enter a dispensary but dispensaries may ask for cards at the door or require advanced orders. Patients who wish to purchase more than the 1-ounce recreational limit will need to show a card or be in the registry.  </p>
+                        <h2>Can anyone buy CBD oil in Arizona?</h2>
+                        <p>Yes</p>
+                        <p>This page was last updated January 22, 2021.</p>
+
+                    </div>
+                }
+                ]
+            },
+            {
+                id: 4,
+                name: "Arkansas",
+                content: [
+                    {
+                        title: "Is weed legal in Arkansas?",
+                        content: <div>
+                            <p>Adult-use cannabis is prohibited in Arkansas, though patients with qualifying conditions and their doctors' approval may consume medical marijuana.</p>
+                             <p>In 2020, the Arkansas Recreational Marijuana Initiative failed to receive enough signatures to appear on the general election ballot. If passed, the initiative would have legalized marijuana use in Arkansas for adults age 21 and over. The measure may be revisited in the 2022 election cycle. </p>
+                        </div>
+
+                    },
+                    {
+                        title:"Legislation history",
+                        content:<div>
+                            <p>Prior to Arkansas' legalization of medical cannabis, the city of Eureka Springs passed a voter initiative in 2006 to make marijuana crime enforcement a low priority. Fayetteville passed a similar voter initiative in 2007.</p>
+                            <p>Arkansas voters approved the Arkansas Medical Marijuana Amendment (AMMA), or Issue 6, with 53% of the vote on Nov. 8, 2016. The law allows seriously ill patients to obtain and consume medical marijuana with a doctor's approval and establishes licenses for state cultivation facilities and dispensaries.</p>
+                            <h2>Regulation authority</h2>
+                            <p>The Arkansas Department of Health (ADH) issues medical marijuana ID cards for patients and caregivers. The state's Alcoholic Beverage Control Division regulates dispensaries and has issued regulations for dispensing and cultivation. The Arkansas Medical Marijuana Commission has also been created under the AMMA to regulate licensing of dispensaries and cultivation facilities and support the Alcoholic Beverage Control Division in implementing regulations. </p>
+                        </div>
+                    },
+                    {
+                        title:"Regulation authority",
+                        content:<div>
+                            <p>All medical marijuana products must be purchased through medical marijuana dispensaries registered with the state. Patients must show their medical marijuana ID card to purchase from a dispensary. Caregivers are allowed to purchase medical marijuana for their designated patient, provided they show their designated caregiver registry card.</p>
+                        </div>
+                    },
+                    {
+                        title:"Finding licensed dispensaries in Arkansas",
+                        content:<div>
+                            <p></p>
+                        </div>
+                    }
                 ]
             }
         ],
@@ -367,46 +574,46 @@ const Content = [
                         The government has set equivalencies for one gram of dried cannabis to equal five (5) grams of fresh cannabis; 15 grams, or 0.53 ounces, of edibles; 70 milliliters of liquid; 0.25 grams of concentrate; and one plant seed.
                     </p>
                     <p>Premade edibles and extract will not be available until one year after the legislation is passed, although consumers can create their own edibles.</p>
-                     <p>Penalties for possession over the limit is range from a fine up to five (5) years in jail.</p>
-                     <p>No limit has been established for the amount of cannabis that can be stored in a home.</p>
-                     <h2>Medical</h2>
-                     <p>Patients using medical marijuana are allowed to have up to 150 grams, or 5.3 ounces — 30 times the daily dose prescribed by an authorized health-care practitioner — of dried marijuana or its equivalent.</p>
+                    <p>Penalties for possession over the limit is range from a fine up to five (5) years in jail.</p>
+                    <p>No limit has been established for the amount of cannabis that can be stored in a home.</p>
+                    <h2>Medical</h2>
+                    <p>Patients using medical marijuana are allowed to have up to 150 grams, or 5.3 ounces — 30 times the daily dose prescribed by an authorized health-care practitioner — of dried marijuana or its equivalent.</p>
                 </div>
             },
             {
-                title:"Is home cultivation allowed in Alberta?",
-                content:<div>
+                title: "Is home cultivation allowed in Alberta?",
+                content: <div>
                     <p>Alberta follows federal guidelines, authorizing adults to grow up to four (4) plants up to one (1) meter, or 3.28 feet, in height per household.
-                         The limits are in addition to the authorized limit of licensed growing of medical marijuana</p>
+                        The limits are in addition to the authorized limit of licensed growing of medical marijuana</p>
 
                 </div>
             },
             {
-                title:"Medical marijuana in Alberta",
-                content:<div>
+                title: "Medical marijuana in Alberta",
+                content: <div>
                     <p>Thousands of Canadians are federally licensed to possess and use medical marijuana.
-                         Canadians must the qualify for the Access to Cannabis for Medical Purposes Regulations (ACMPR), which came into effect August 24, 2016.</p>
-                         <p>Recipients must provide medical documentation confirming the diagnosis by a health-care practitioner, either an authorized physician or nurse practitioner.</p>
-                         <p>Patients must not be convicted of a marijuana-related offense and be registered only once at a time.</p>
-                         <h2>Qualifying conditions</h2>
-                         <p>Generally, patients can qualify for medical marijuana under two categories. One is to allow for compassionate end-of-life care, 
-                            for pain symptoms ranging from seizures to spinal cord injury to side effects from cancer or HIV/AIDS medications. 
-                            The second category is for patients suffering from other persistent debilitating symptoms. Among the ailments Health Canada lists as possibly qualifying are:</p>
-                            <ul>
-                                <li>Attention deficit or attention deficit-hyperactivity disorders (ADD/ADHD)</li>
-                                <li>Alzheimer's disease</li>
-                                <li>Anxiety</li>
-                                <li>Arthritis</li><li>Back and neck conditions</li><li>Brain injury</li><li>Cancer</li><li>Cancer</li><li>Chronic nausea</li><li>Chronic pain</li>
-                                <li>Colitis</li><li>Depression</li><li>Eating disorders</li><li>Epilepsy</li><li>Fibromyalgia</li><li>Gastrointestinal disorders</li>
-                                <li>Crohn's disease</li><li>Irritable bowel syndrome</li><li>Hepatitis C</li><li>HIV/AIDS</li><li>Kidney failure, including patients receiving dialysis</li>
-                                <li> Migraines</li><li>Multiple sclerosis</li><li>Muscle spasms</li><li>Muscular dystrophy</li><li>Parkinson's disease</li><li>Post-traumatic stress disorder (PTSD)</li>
-                                <li>Severe arthritis</li><li>Sexual dysfunction</li><li>Sleep disorders</li><li>Vehicular crashes</li>
-                            </ul>
-                            <h2>Application process</h2>
-                            <p>Information on eligibility and applying is available at Canada's official medical marijuana website</p>
-                            <h2>Caregiving</h2>
-                            <p>Authorized caregivers are allowed to possess fresh or dried marijuana or cannabis oil, and may transfer or administer the substance or provide a medical document.
-                                 They may also transfer substance to an individual who is responsible for the patient under their professional treatment</p>
+                        Canadians must the qualify for the Access to Cannabis for Medical Purposes Regulations (ACMPR), which came into effect August 24, 2016.</p>
+                    <p>Recipients must provide medical documentation confirming the diagnosis by a health-care practitioner, either an authorized physician or nurse practitioner.</p>
+                    <p>Patients must not be convicted of a marijuana-related offense and be registered only once at a time.</p>
+                    <h2>Qualifying conditions</h2>
+                    <p>Generally, patients can qualify for medical marijuana under two categories. One is to allow for compassionate end-of-life care,
+                        for pain symptoms ranging from seizures to spinal cord injury to side effects from cancer or HIV/AIDS medications.
+                        The second category is for patients suffering from other persistent debilitating symptoms. Among the ailments Health Canada lists as possibly qualifying are:</p>
+                    <ul>
+                        <li>Attention deficit or attention deficit-hyperactivity disorders (ADD/ADHD)</li>
+                        <li>Alzheimer's disease</li>
+                        <li>Anxiety</li>
+                        <li>Arthritis</li><li>Back and neck conditions</li><li>Brain injury</li><li>Cancer</li><li>Cancer</li><li>Chronic nausea</li><li>Chronic pain</li>
+                        <li>Colitis</li><li>Depression</li><li>Eating disorders</li><li>Epilepsy</li><li>Fibromyalgia</li><li>Gastrointestinal disorders</li>
+                        <li>Crohn's disease</li><li>Irritable bowel syndrome</li><li>Hepatitis C</li><li>HIV/AIDS</li><li>Kidney failure, including patients receiving dialysis</li>
+                        <li> Migraines</li><li>Multiple sclerosis</li><li>Muscle spasms</li><li>Muscular dystrophy</li><li>Parkinson's disease</li><li>Post-traumatic stress disorder (PTSD)</li>
+                        <li>Severe arthritis</li><li>Sexual dysfunction</li><li>Sleep disorders</li><li>Vehicular crashes</li>
+                    </ul>
+                    <h2>Application process</h2>
+                    <p>Information on eligibility and applying is available at Canada's official medical marijuana website</p>
+                    <h2>Caregiving</h2>
+                    <p>Authorized caregivers are allowed to possess fresh or dried marijuana or cannabis oil, and may transfer or administer the substance or provide a medical document.
+                        They may also transfer substance to an individual who is responsible for the patient under their professional treatment</p>
 
                 </div>
             }
