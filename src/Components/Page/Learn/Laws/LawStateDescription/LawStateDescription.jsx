@@ -42,13 +42,13 @@ const LawStateDescription = () => {
                         GetContant?.content?.map((data1, index) => {
                             return (
                                 <>
-                                    <DescriptionAndIntro description1={index === 0 && data1.title} description2={index === 0 && data1.content} />
+                                    {/* <DescriptionAndIntro description1={index === 0 && data1.title} description2={index === 0 && data1.content} /> */}
                                     <div className="col-12 d-flex">
-                                        <div className="col-8" style={{alignSelf: 'center'}}>
+                                        <div className= {index === 0 && data1.title ?"col-12":"col-8"} style={{alignSelf: 'center'}}>
                                             <IsWeedLegalState head={data1.title} description2={data1.content} />
                                         </div>
-                                        <div className="col-4">
-                                            {index === 0 && <LawStateContent head={GetContant?.content} />}
+                                        <div className={index === 1  && "col-4"}>
+                                            { index === 1 &&<LawStateContent head={GetContant?.content} />}
                                         </div>
                                     </div>
 
