@@ -43,7 +43,7 @@ const DispensoriesAddress = () => {
     const classes = useStyles()
     return (
 
-        <>
+        <React.Fragment>
             <div className="container-fluid">
                 {!Skeleton ? <div className='row'>
                     <div className='col-12  mt-4' style={{ padding: "0" }}>
@@ -132,7 +132,7 @@ const DispensoriesAddress = () => {
                     <DispensoriesAddressSkeleton></DispensoriesAddressSkeleton>}
             </div>
 
-        </>
+        </React.Fragment>
     )
 }
 export default DispensoriesAddress

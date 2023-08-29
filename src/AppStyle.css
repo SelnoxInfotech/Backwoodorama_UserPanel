@@ -2487,6 +2487,8 @@
 
 .dispensories_content_paragraphs {
   height:auto;
+  display: flex;
+  align-items: center;
 }
 
 .dispensorieAddressNames {
