@@ -11,7 +11,7 @@ const LawStateContent = ({ head }) => {
         // elementRef.current.scrollIntoView()
 
     }
-
+console.log(head)
 
     return (
         <>
@@ -31,7 +31,7 @@ const LawStateContent = ({ head }) => {
 
                 </div>
                 <div className="col-12 LawStateContentOlsCol">
-                    <ol className="LawStateContentOls">{head.map((items, index) => {
+                    <ol className="LawStateContentOls">{head?.map((items, index) => {
 
                         return (
                             <React.Fragment key={index}>

@@ -38,60 +38,28 @@ const LawStateDescription = () => {
                 <div className="row">
                     <LawStateDecriptionBanner />
                     <LawStateDescriptionHeading heading={GetContant?.name} />
-                    {
-                        GetContant?.content?.map((data1, index) => {
-                            return (
-                                <>
-                                    {/* <DescriptionAndIntro description1={index === 0 && data1.title} description2={index === 0 && data1.content} /> */}
-                                    <div className="col-12 d-flex">
-                                        <div className= {index === 0 && data1.title ?"col-12":"col-8"} style={{alignSelf: 'center'}}>
+                    <div className="col-12 d-flex">
+                        <div className={"col-xl-8 col-md-12"} >
+                            {
+                                GetContant?.content?.map((data1, index) => {
+                                    console.log(data1)
+                                    return (
+                                        <>
+                                            {/* <DescriptionAndIntro description1={index === 0 && data1.title} description2={index === 0 && data1.content} /> */}
+
                                             <IsWeedLegalState head={data1.title} description2={data1.content} />
-                                        </div>
-                                        <div className={index === 1  && "col-4"}>
-                                            { index === 1 &&<LawStateContent head={GetContant?.content} />}
-                                        </div>
-                                    </div>
 
 
+                                        </>
+                                    )
+                                })
+                            }
+                        </div>
 
-
-
-                                    {/* <div className="col-12 lawStateDescription_Laws_Content">
-                                  
-                                    // <div className="col-lg-8 col-md-12 lawStateLeftSideCol"> */}
-                                    {/* <div className="col-lg-8 col-md-12 lawStateLeftSideCol">  */}
-                                    {/* <IsWeedLegalState head={index !== 0 && data1.title} description2={index !== 0 && data1.content} /> */}
-
-                                    {/* </div> */}
-                                    {/* <div className="col-xxl-3 col-lg-4 col-md-12 lawStateRightSideCol  "> */}
-
-
-                                    {/* </div> */}
-                                    {/* </div> */}
-
-                                </>
-                            )
-                        })
-                    }
-                    {/* {
-                        GetContant?.content?.map((data1, index) => {
-                            return (
-                                <div className="col-12 lawStateDescription_Laws_Content">
-                                    <div className="col-lg-8 col-md-12 lawStateLeftSideCol">
-                                        <IsWeedLegalState head={index !== 0 && data1.title} description2={index !== 0 && data1.content} />
-
-                                    </div>
-                                    <div className="col-xxl-3 col-lg-4 col-md-12 lawStateRightSideCol  ">
-                                        {index === 0 && <LawStateContent head={GetContant?.content} />}
-
-                                    </div>
-                                </div>
-                            )
-
-                        })
-                    } */}
-
-
+                        <div className={"col-4 hidiingBLog "}>
+                            <LawStateContent head={GetContant?.content} />
+                        </div>
+                    </div>
 
 
 

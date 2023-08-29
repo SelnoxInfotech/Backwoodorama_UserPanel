@@ -8425,6 +8425,9 @@
 .LawStateContentsContainer{
   margin-left: 20px;
   border:  1px solid #BEBEBE;
+  position: sticky;
+  top:200px
+
 
 }
 @media(max-width:992px){

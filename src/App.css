@@ -1078,6 +1078,15 @@ position: relative;
 
   }
 }
+@media (max-width:996px) {
+  .hidiingBLog{
+    display: none;
+  }
+  .SizeBlog{
+    width: 100%;
+  }
+  
+}
 
 .viewsBlog {
   /* justify-content: center; */
