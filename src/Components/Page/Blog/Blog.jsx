@@ -13,25 +13,67 @@ import { IoEyeSharp } from "react-icons/io5"
 import { AiFillHeart } from "react-icons/ai"
 import { RiLinkedinLine } from "react-icons/ri"
 import { IconButton } from "@mui/material"
+import Createcontext from "../../../Hooks/Context"
+import { BlogLike, Post_BlogLike ,Get_Comment} from "../../../Api/Api"
+import _ from "lodash"
+import { WhisList } from "../../Component/Whishlist/WhisList";
 const Blogs = () => {
     const navigate = useNavigate()
+    const { state, dispatch } = React.useContext(Createcontext)
+    const [value, SetValue] = React.useState([])
+    const [Getlikes, SetLikes] = React.useState([])
+    const [Getcommnet, Setcommnet] = React.useState([])
     const { id } = useParams();
     const [News, SetNews] = React.useState({})
+    const [WishList, SetWishList] = React.useState(false)
     React.useEffect(() => {
         const getApi = async () => {
             const res = await fetch(`https://sweede.app/UserPanel/Get-GetNewsById/${id}`);
             const data = await res.json();
             SetNews(data[0])
-
-
+            await BlogLike(data[0].id).then((res) => {
+                SetLikes(res.data.Like)
+                SetValue({ ...value, ["LinkCount"]: res.data.LikeCount })
+            }).catch((error) => {
+                console.error(error)
+            })
+            await Get_Comment(data[0].id).then((res) => {
+                Setcommnet({ ...Getcommnet, ["CommentCounts"]: res.data.CommentCounts })
+            }).catch((error) => {
+                console.error(error)
+            })
+    
         }
         getApi()
-
     }, [id])
     React.useEffect(() => {
         window.scroll(0, 0)
-    }, [id])
+        
+    }, [])
+    function PostLike(like) {
+        if (state.login) {
+            Post_BlogLike(News?.id, !like).then((res) => {
+                BlogLike(News.id).then((res) => {
+                    SetLikes(res.data.Like)
+                    SetValue({ ...value, ["LinkCount"]: res.data.LikeCount })
+                }).catch((error) => {
+                    console.error(error)
+                })
+            }).catch(() => {
 
+            })
+        }
+        else {
+            SetWishList(true)
+        }
+    }
+    function color() {
+        const l = _.find(Getlikes, function (n) {
+            return n?.user === state?.Profile?.id;
+        })
+        return l
+
+    }
     const classes = useStyles()
     return (
         <React.Fragment>
@@ -79,7 +121,7 @@ const Blogs = () => {
                             </div>
                         </div>
                         <div classname="col" id="center1" >
-                            <div className="col-10 BlogLink mt-2">
+                            <div className="col-12 BlogLink mt-2">
                                 <div className="col-12 Linkofblog">
                                     <div className="col Linkofblog">
                                         <RiFacebookLine></RiFacebookLine>
@@ -92,17 +134,17 @@ const Blogs = () => {
                                         </IconButton>
                                         <span>40 Views</span>
                                     </div>
-                                    <div className="col-md-8 d-flex ">
+                                    <div className="col-md-8 d-flex center">
                                         <div className="col viewsBlog">
                                             {/* <IoEyeSharp></IoEyeSharp> */}
-                                            <span>20</span>
+                                            <span>{Getcommnet.CommentCounts}</span>
                                             <span>Comment</span>
                                         </div>
                                         <div className="col viewsBlog like">
-                                            <IconButton>
-                                                <AiFillHeart></AiFillHeart>
+                                            <IconButton onClick={(() => { PostLike(color()?.like) })}>
+                                                <AiFillHeart color={state?.login && color()?.like && "red"}></AiFillHeart>
                                             </IconButton>
-                                            <span>201</span>
+                                            <span>{value?.LinkCount}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -110,10 +152,11 @@ const Blogs = () => {
                             </div>
                         </div>
                     </div>
-
+                    {WishList && <WhisList open1={WishList} SetWishList={SetWishList}></WhisList>}
                     <RecentPost />
                     <RecentPostComment />
                     <HomePageDealsSignup />
+
                 </div>
 
             </div>
