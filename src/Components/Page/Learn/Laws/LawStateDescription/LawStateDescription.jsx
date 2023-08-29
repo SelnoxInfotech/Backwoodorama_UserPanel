@@ -43,7 +43,6 @@ const LawStateDescription = () => {
                                 })
                             }
                         </div>
-
                         <div className={"col-4 hidiingBLog "}>
                             <LawStateContent head={GetContant?.content} />
                         </div>
