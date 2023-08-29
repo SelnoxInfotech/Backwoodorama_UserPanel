@@ -900,122 +900,122 @@ const Content = [
         ],
     },
 
-    // {
-    //     name: 'Canada', id: 2,
-    //     state: [
-    //         {
-    //             id: 1,
-    //             name: "Alberta",
-    //             content: [{
-    //                 title: "Is weed legal in Alberta?",
-    //                 content: <div>
-    //                     <p>Since the introduction of legislation in April 2017 to allow adult-use cannabis in Canada, Alberta marijuana laws have changed and legalization arrived on Oct. 17, 2018.</p>
-    //                     <p>Despite what many observers say is a relatively conservative political climate in the province, Albertans have been strong consumers of cannabis. According to Statistics Canada's 2017 Cannabis Provincial and Territorial Economic Accounts,
-    //                         Alberta cannabis consumption per capita stands at No. 3 among 13 provinces and territories. Alberta leads the nation by far in consumption of medical marijuana compared with its overall use.</p>
-    //                     <p>However, not all towns in the province are taking as strict an approach. In the 5,000 population mountain resort town of Jasper, the City Council in August 2018 voted to put no limits on the number of cannabis stores, allow them to remain open until midnight and asked to remove the provincial 100-meter buffer zone between retailers and schools or hospitals.</p>
-    //                     <p>Meanwhile, in Banff, the local government is banning smoking or vaping in public and placing a number of restrictions on cannabis stores.</p>
-    //                     <p>After the national bill was passed, Alberta produced a framework for cannabis in fall 2017, and in November 2017 passed acts to control and regulate cannabis and reduce marijuana- and alcohol-related driving. In 2018, gaming and liquor statutes were amended to account for adult-use cannabis. On March 6, 2018, the province began accepting applications for retail licenses.</p>
-    //                     <p>The provincial government has enacted fairly strict regulations on stores and added penalties for impaired driving beyond federal penalties.</p>
-    //                     <p>Under Alberta marijuana laws, medical marijuana has been legal since 2001, and regulations for medicinal use remain in effect.</p>
-    //                     <p>The province took steps to increase penalties for driving while impaired.</p>
-    //                     <p>Driving while impaired is illegal nationally, and Alberta has imposed additional penalties and regulations. Alberta has adopted a zero-tolerance policy for the presence of THC for new drivers without regular licenses and in the process of the Graduated License Program. Penalties include a 30-day license suspension and seizure of the vehicle for seven days.</p>
-    //                     <p>Drivers suspected of impaired driving  who do not provide a fluid sample, or are over the legal limits for alcohol, cannabis, or combination of the two, face:</p>
-    //                     <ul>
-    //                         <li>an immediate 90-day license suspension</li>
-    //                         <li>three (3)-day vehicle seizure, or seven (7)  days for a second occurrence</li>
-    //                         <li>a mandatory education program, and</li>
-    //                         <li>one-year participation in a provincial ignition interlock program, or one (1)-year license suspension.</li>
-    //                     </ul>
-    //                     <p>According to Alberta marijuana laws, the legal limit for THC in the bloodstream is 2 nanograms per milliliter. A nanogram is one-billionth of a gram. Concentrations between two (2) and five (5) nonograms result in a fine up to $1,000. Concentrations of five (5) or more nanograms will result in a $1,000 minimum fine on the first offense, imprisonment of 30 days or more for a second offense, and 120 days or more on a third offense.
-    //                         Penalties for drug-impaired driving crashes can range from 18 months to as much as life in a fatal accident.</p>
-    //                     <p>In Alberta, possession of fewer than five (5) grams by anyone younger than 18 will not be criminal but will result in the marijuana being seized, parents being notified, and a ticket.
-    //                         Possession by a minor of more than five grams will result in criminal prosecution for minors.</p>
-    //                     <p>Providing marijuana to a minor is punishable by a $5,000 fine and up to 14 years in jail.</p>
-    //                 </div>
-    //             },
-    //             {
-    //                 title: "Where is it safe to purchase weed in Alberta?",
-    //                 content: <div>
-    //                     <p>Cannabis will be sold in privately owned, government-monitored stores that must acquire their cannabis from a federally-approved supplier. The businesses must be cannabis and accessory specialty stores and separate from alcohol, tobacco, and pharmaceuticals.
-    //                         Adult use consumers can also purchase their cannabis online.</p>
-    //                     <p>No cap has yet been set on the number of stores. However, they must be outside a 100-meter buffer zone from other dispensaries, hospitals and schools. To avoid monopolization,
-    //                         no owner or entity may have more than 15 percent of the existing business licenses at a time.</p>
-    //                     <p>The maximum allowable hours of operation are 10 a.m. to 2 a.m., seven days a week,
-    //                         but can be reduced by municipalities. Stores can only buy cannabis wholesale from the Alberta Gaming and Liquor Commission (AGLC).</p>
-    //                     <p>The AGLC will be responsible for all online adult-use cannabis sales beginning the first day of national legalization, set for Oct. 17, 2018. Any other online sales are illegal.</p>
-    //                     <p>Retail stores will be permitted to sell a maximum of 30 grams, or 1.06 ounces, of dried cannabis to an individual in a single transaction.</p>
-    //                     <p>Mandatory background checks are required for all retailers and workers, who must be at least 18 years old and complete the province's Sell Safe program. Licenses will not be given to applicants with links to organized crime or convictions for crimes such as drug trafficking</p>
+    {
+        name: 'Canada', id: 2,
+        state: [
+            {
+                id: 3,
+                name: "Alberta",
+                content: [{
+                    title: "Is weed legal in Alberta?",
+                    content: <div>
+                        <p>Since the introduction of legislation in April 2017 to allow adult-use cannabis in Canada, Alberta marijuana laws have changed and legalization arrived on Oct. 17, 2018.</p>
+                        <p>Despite what many observers say is a relatively conservative political climate in the province, Albertans have been strong consumers of cannabis. According to Statistics Canada's 2017 Cannabis Provincial and Territorial Economic Accounts,
+                            Alberta cannabis consumption per capita stands at No. 3 among 13 provinces and territories. Alberta leads the nation by far in consumption of medical marijuana compared with its overall use.</p>
+                        <p>However, not all towns in the province are taking as strict an approach. In the 5,000 population mountain resort town of Jasper, the City Council in August 2018 voted to put no limits on the number of cannabis stores, allow them to remain open until midnight and asked to remove the provincial 100-meter buffer zone between retailers and schools or hospitals.</p>
+                        <p>Meanwhile, in Banff, the local government is banning smoking or vaping in public and placing a number of restrictions on cannabis stores.</p>
+                        <p>After the national bill was passed, Alberta produced a framework for cannabis in fall 2017, and in November 2017 passed acts to control and regulate cannabis and reduce marijuana- and alcohol-related driving. In 2018, gaming and liquor statutes were amended to account for adult-use cannabis. On March 6, 2018, the province began accepting applications for retail licenses.</p>
+                        <p>The provincial government has enacted fairly strict regulations on stores and added penalties for impaired driving beyond federal penalties.</p>
+                        <p>Under Alberta marijuana laws, medical marijuana has been legal since 2001, and regulations for medicinal use remain in effect.</p>
+                        <p>The province took steps to increase penalties for driving while impaired.</p>
+                        <p>Driving while impaired is illegal nationally, and Alberta has imposed additional penalties and regulations. Alberta has adopted a zero-tolerance policy for the presence of THC for new drivers without regular licenses and in the process of the Graduated License Program. Penalties include a 30-day license suspension and seizure of the vehicle for seven days.</p>
+                        <p>Drivers suspected of impaired driving  who do not provide a fluid sample, or are over the legal limits for alcohol, cannabis, or combination of the two, face:</p>
+                        <ul>
+                            <li>an immediate 90-day license suspension</li>
+                            <li>three (3)-day vehicle seizure, or seven (7)  days for a second occurrence</li>
+                            <li>a mandatory education program, and</li>
+                            <li>one-year participation in a provincial ignition interlock program, or one (1)-year license suspension.</li>
+                        </ul>
+                        <p>According to Alberta marijuana laws, the legal limit for THC in the bloodstream is 2 nanograms per milliliter. A nanogram is one-billionth of a gram. Concentrations between two (2) and five (5) nonograms result in a fine up to $1,000. Concentrations of five (5) or more nanograms will result in a $1,000 minimum fine on the first offense, imprisonment of 30 days or more for a second offense, and 120 days or more on a third offense.
+                            Penalties for drug-impaired driving crashes can range from 18 months to as much as life in a fatal accident.</p>
+                        <p>In Alberta, possession of fewer than five (5) grams by anyone younger than 18 will not be criminal but will result in the marijuana being seized, parents being notified, and a ticket.
+                            Possession by a minor of more than five grams will result in criminal prosecution for minors.</p>
+                        <p>Providing marijuana to a minor is punishable by a $5,000 fine and up to 14 years in jail.</p>
+                    </div>
+                },
+                {
+                    title: "Where is it safe to purchase weed in Alberta?",
+                    content: <div>
+                        <p>Cannabis will be sold in privately owned, government-monitored stores that must acquire their cannabis from a federally-approved supplier. The businesses must be cannabis and accessory specialty stores and separate from alcohol, tobacco, and pharmaceuticals.
+                            Adult use consumers can also purchase their cannabis online.</p>
+                        <p>No cap has yet been set on the number of stores. However, they must be outside a 100-meter buffer zone from other dispensaries, hospitals and schools. To avoid monopolization,
+                            no owner or entity may have more than 15 percent of the existing business licenses at a time.</p>
+                        <p>The maximum allowable hours of operation are 10 a.m. to 2 a.m., seven days a week,
+                            but can be reduced by municipalities. Stores can only buy cannabis wholesale from the Alberta Gaming and Liquor Commission (AGLC).</p>
+                        <p>The AGLC will be responsible for all online adult-use cannabis sales beginning the first day of national legalization, set for Oct. 17, 2018. Any other online sales are illegal.</p>
+                        <p>Retail stores will be permitted to sell a maximum of 30 grams, or 1.06 ounces, of dried cannabis to an individual in a single transaction.</p>
+                        <p>Mandatory background checks are required for all retailers and workers, who must be at least 18 years old and complete the province's Sell Safe program. Licenses will not be given to applicants with links to organized crime or convictions for crimes such as drug trafficking</p>
 
-    //                 </div>
-    //             },
-    //             {
-    //                 title: "Where is it safe to consume cannabis?",
-    //                 content: <div>
-    //                     <p>In Alberta cannabis smoking will be allowed on private property and residences with the landowner's approval. For rental properties, landlords can write-in or continue cannabis smoking restrictions similar to those for smoking tobacco and other substances.
-    //                         Landlords can also add restrictions to grow beyond those imposed by the federal government.</p>
-    //                     <p>Smoking marijuana outdoors and public spaces is left up to municipalities, with some, such as Edmonton,
-    //                         tightening restrictions on all smoking and others, such as Calgary, implementing complete public smoking bans.</p>
-    //                     <p>Provincewide, prohibited areas include hospital, school or child-care property, within the prescribed proximity of a playground, sports or playing field, skate or bike park, zoo, outdoor theater, or outdoor pool.</p>
-    //                     <p>It is illegal to consume cannabis while operating a vehicle for both drivers and passengers. The law applies regardless of whether the vehicle is in motion. Parked RVs being used as temporary residences are an exception</p>
-    //                 </div>
-    //             },
-    //             {
-    //                 title: "Possessing cannabis",
-    //                 content: <div>
-    //                     <h2>Adult-use</h2>
-    //                     <p>Consumers will be limited to 30 grams, or 1.06 ounces, of cannabis per transaction. Consumer education will be embedded in the retail of cannabis, and retail outlets will display point-of-purchase signs and other materials to educate customers about making responsible choices about cannabis.</p>
-    //                     <p>The province allows possession by adults of up to 30 grams of cannabis in a public place. In a vehicle, cannabis must be stored in a sealed container that is not accessible during transport to the driver or passengers.
-    //                         The government has set equivalencies for one gram of dried cannabis to equal five (5) grams of fresh cannabis; 15 grams, or 0.53 ounces, of edibles; 70 milliliters of liquid; 0.25 grams of concentrate; and one plant seed.
-    //                     </p>
-    //                     <p>Premade edibles and extract will not be available until one year after the legislation is passed, although consumers can create their own edibles.</p>
-    //                     <p>Penalties for possession over the limit is range from a fine up to five (5) years in jail.</p>
-    //                     <p>No limit has been established for the amount of cannabis that can be stored in a home.</p>
-    //                     <h2>Medical</h2>
-    //                     <p>Patients using medical marijuana are allowed to have up to 150 grams, or 5.3 ounces — 30 times the daily dose prescribed by an authorized health-care practitioner — of dried marijuana or its equivalent.</p>
-    //                 </div>
-    //             },
-    //             {
-    //                 title: "Is home cultivation allowed in Alberta?",
-    //                 content: <div>
-    //                     <p>Alberta follows federal guidelines, authorizing adults to grow up to four (4) plants up to one (1) meter, or 3.28 feet, in height per household.
-    //                         The limits are in addition to the authorized limit of licensed growing of medical marijuana</p>
+                    </div>
+                },
+                {
+                    title: "Where is it safe to consume cannabis?",
+                    content: <div>
+                        <p>In Alberta cannabis smoking will be allowed on private property and residences with the landowner's approval. For rental properties, landlords can write-in or continue cannabis smoking restrictions similar to those for smoking tobacco and other substances.
+                            Landlords can also add restrictions to grow beyond those imposed by the federal government.</p>
+                        <p>Smoking marijuana outdoors and public spaces is left up to municipalities, with some, such as Edmonton,
+                            tightening restrictions on all smoking and others, such as Calgary, implementing complete public smoking bans.</p>
+                        <p>Provincewide, prohibited areas include hospital, school or child-care property, within the prescribed proximity of a playground, sports or playing field, skate or bike park, zoo, outdoor theater, or outdoor pool.</p>
+                        <p>It is illegal to consume cannabis while operating a vehicle for both drivers and passengers. The law applies regardless of whether the vehicle is in motion. Parked RVs being used as temporary residences are an exception</p>
+                    </div>
+                },
+                {
+                    title: "Possessing cannabis",
+                    content: <div>
+                        <h2>Adult-use</h2>
+                        <p>Consumers will be limited to 30 grams, or 1.06 ounces, of cannabis per transaction. Consumer education will be embedded in the retail of cannabis, and retail outlets will display point-of-purchase signs and other materials to educate customers about making responsible choices about cannabis.</p>
+                        <p>The province allows possession by adults of up to 30 grams of cannabis in a public place. In a vehicle, cannabis must be stored in a sealed container that is not accessible during transport to the driver or passengers.
+                            The government has set equivalencies for one gram of dried cannabis to equal five (5) grams of fresh cannabis; 15 grams, or 0.53 ounces, of edibles; 70 milliliters of liquid; 0.25 grams of concentrate; and one plant seed.
+                        </p>
+                        <p>Premade edibles and extract will not be available until one year after the legislation is passed, although consumers can create their own edibles.</p>
+                        <p>Penalties for possession over the limit is range from a fine up to five (5) years in jail.</p>
+                        <p>No limit has been established for the amount of cannabis that can be stored in a home.</p>
+                        <h2>Medical</h2>
+                        <p>Patients using medical marijuana are allowed to have up to 150 grams, or 5.3 ounces — 30 times the daily dose prescribed by an authorized health-care practitioner — of dried marijuana or its equivalent.</p>
+                    </div>
+                },
+                {
+                    title: "Is home cultivation allowed in Alberta?",
+                    content: <div>
+                        <p>Alberta follows federal guidelines, authorizing adults to grow up to four (4) plants up to one (1) meter, or 3.28 feet, in height per household.
+                            The limits are in addition to the authorized limit of licensed growing of medical marijuana</p>
 
-    //                 </div>
-    //             },
-    //             {
-    //                 title: "Medical marijuana in Alberta",
-    //                 content: <div>
-    //                     <p>Thousands of Canadians are federally licensed to possess and use medical marijuana.
-    //                         Canadians must the qualify for the Access to Cannabis for Medical Purposes Regulations (ACMPR), which came into effect August 24, 2016.</p>
-    //                     <p>Recipients must provide medical documentation confirming the diagnosis by a health-care practitioner, either an authorized physician or nurse practitioner.</p>
-    //                     <p>Patients must not be convicted of a marijuana-related offense and be registered only once at a time.</p>
-    //                     <h2>Qualifying conditions</h2>
-    //                     <p>Generally, patients can qualify for medical marijuana under two categories. One is to allow for compassionate end-of-life care,
-    //                         for pain symptoms ranging from seizures to spinal cord injury to side effects from cancer or HIV/AIDS medications.
-    //                         The second category is for patients suffering from other persistent debilitating symptoms. Among the ailments Health Canada lists as possibly qualifying are:</p>
-    //                     <ul>
-    //                         <li>Attention deficit or attention deficit-hyperactivity disorders (ADD/ADHD)</li>
-    //                         <li>Alzheimer's disease</li>
-    //                         <li>Anxiety</li>
-    //                         <li>Arthritis</li><li>Back and neck conditions</li><li>Brain injury</li><li>Cancer</li><li>Cancer</li><li>Chronic nausea</li><li>Chronic pain</li>
-    //                         <li>Colitis</li><li>Depression</li><li>Eating disorders</li><li>Epilepsy</li><li>Fibromyalgia</li><li>Gastrointestinal disorders</li>
-    //                         <li>Crohn's disease</li><li>Irritable bowel syndrome</li><li>Hepatitis C</li><li>HIV/AIDS</li><li>Kidney failure, including patients receiving dialysis</li>
-    //                         <li> Migraines</li><li>Multiple sclerosis</li><li>Muscle spasms</li><li>Muscular dystrophy</li><li>Parkinson's disease</li><li>Post-traumatic stress disorder (PTSD)</li>
-    //                         <li>Severe arthritis</li><li>Sexual dysfunction</li><li>Sleep disorders</li><li>Vehicular crashes</li>
-    //                     </ul>
-    //                     <h2>Application process</h2>
-    //                     <p>Information on eligibility and applying is available at Canada's official medical marijuana website</p>
-    //                     <h2>Caregiving</h2>
-    //                     <p>Authorized caregivers are allowed to possess fresh or dried marijuana or cannabis oil, and may transfer or administer the substance or provide a medical document.
-    //                         They may also transfer substance to an individual who is responsible for the patient under their professional treatment</p>
+                    </div>
+                },
+                {
+                    title: "Medical marijuana in Alberta",
+                    content: <div>
+                        <p>Thousands of Canadians are federally licensed to possess and use medical marijuana.
+                            Canadians must the qualify for the Access to Cannabis for Medical Purposes Regulations (ACMPR), which came into effect August 24, 2016.</p>
+                        <p>Recipients must provide medical documentation confirming the diagnosis by a health-care practitioner, either an authorized physician or nurse practitioner.</p>
+                        <p>Patients must not be convicted of a marijuana-related offense and be registered only once at a time.</p>
+                        <h2>Qualifying conditions</h2>
+                        <p>Generally, patients can qualify for medical marijuana under two categories. One is to allow for compassionate end-of-life care,
+                            for pain symptoms ranging from seizures to spinal cord injury to side effects from cancer or HIV/AIDS medications.
+                            The second category is for patients suffering from other persistent debilitating symptoms. Among the ailments Health Canada lists as possibly qualifying are:</p>
+                        <ul>
+                            <li>Attention deficit or attention deficit-hyperactivity disorders (ADD/ADHD)</li>
+                            <li>Alzheimer's disease</li>
+                            <li>Anxiety</li>
+                            <li>Arthritis</li><li>Back and neck conditions</li><li>Brain injury</li><li>Cancer</li><li>Cancer</li><li>Chronic nausea</li><li>Chronic pain</li>
+                            <li>Colitis</li><li>Depression</li><li>Eating disorders</li><li>Epilepsy</li><li>Fibromyalgia</li><li>Gastrointestinal disorders</li>
+                            <li>Crohn's disease</li><li>Irritable bowel syndrome</li><li>Hepatitis C</li><li>HIV/AIDS</li><li>Kidney failure, including patients receiving dialysis</li>
+                            <li> Migraines</li><li>Multiple sclerosis</li><li>Muscle spasms</li><li>Muscular dystrophy</li><li>Parkinson's disease</li><li>Post-traumatic stress disorder (PTSD)</li>
+                            <li>Severe arthritis</li><li>Sexual dysfunction</li><li>Sleep disorders</li><li>Vehicular crashes</li>
+                        </ul>
+                        <h2>Application process</h2>
+                        <p>Information on eligibility and applying is available at Canada's official medical marijuana website</p>
+                        <h2>Caregiving</h2>
+                        <p>Authorized caregivers are allowed to possess fresh or dried marijuana or cannabis oil, and may transfer or administer the substance or provide a medical document.
+                            They may also transfer substance to an individual who is responsible for the patient under their professional treatment</p>
 
-    //                 </div>
-    //             }
+                    </div>
+                }
 
-    //             ]
-    //         },
-    //     ]
-    // }
+                ]
+            },
+        ]
+    }
 
 
 
