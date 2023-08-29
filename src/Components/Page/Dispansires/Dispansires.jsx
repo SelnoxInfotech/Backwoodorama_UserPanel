@@ -9,6 +9,7 @@ import Map from "../../Component/Map/map"
 import DispensoriesOpenResult from "./DispansiresComponent/DispensoriesOpenResult"
 import Dispansires_MapTheme from "../../Component/Map/MapStyle"
 import Createcontext from "../../../Hooks/Context"
+import { Paper } from "@mui/material";
 function TabPanel(props) {
     
     const { children, value, index, ...other } = props;
@@ -23,7 +24,7 @@ function TabPanel(props) {
         >
             {value === index && (
                 <Box sx={{ p: 3 }}>
-                    <Typography>{children}</Typography>
+                    <Typography variant="div">{children}</Typography>
                 </Box>
             )}
         </div>
@@ -72,7 +73,7 @@ export default function Dispansires() {
                     <div className="col-12 col-lg-10 col-md-10 col-sm-12 dispensory_menu my-2">
                         <Box className={`dispensories_tabss ${classes.dispensory_tab_background}`} sx={{ width: '100%' }}>
                             <Box className={classes.open_dispensory_tab} sx={{ borderBottom: 1, borderColor: 'divider'}}>
-                                <Tabs scrollButtons={false} variant="scrollable"  value={value} onChange={handleChange} aria-label="basic tabs example" >
+                                <Tabs scrollButtons={false} variant="scrollable"  value={value} onChange={handleChange} aria-label="basic tabs example">
                                     <Tab label="Open" {...a11yProps(0)} />
                                     <Tab label="Storefronts" {...a11yProps(1)} />
                                     <Tab label="delivery" {...a11yProps(2)} />
@@ -80,8 +81,8 @@ export default function Dispansires() {
                                 </Tabs>
                             </Box>
                             <Box sx={{"& .MuiBox-root":{paddingLeft:"0px",paddingRight:"0px",paddingTop:"20px"}}}>
-                            <TabPanel sx={{p:0}} value={value} index={0}>
-                                <DispensoriesOpenResult />
+                            <TabPanel  value={value} index={0}>                      
+                            <DispensoriesOpenResult />
                             </TabPanel>
                             <TabPanel value={value} index={1}>
                                 <DispensoriesOpenResult />
