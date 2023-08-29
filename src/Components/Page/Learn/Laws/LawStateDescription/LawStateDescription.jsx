@@ -35,11 +35,10 @@ const LawStateDescription = () => {
                         <div className={"col-xl-8 col-md-12"} >
                             {
                                 GetContant?.content?.map((data1, index) => {
-                                    console.log(data1)
                                     return (
-                                        <>
+                                        <React.Fragment key={index}>
                                             <IsWeedLegalState head={data1.title} description2={data1.content} />
-                                        </>
+                                        </React.Fragment>
                                     )
                                 })
                             }

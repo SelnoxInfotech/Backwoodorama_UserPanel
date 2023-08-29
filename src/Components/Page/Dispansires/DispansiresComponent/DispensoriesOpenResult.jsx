@@ -55,14 +55,18 @@ const DispensoriesOpenResult = () => {
                                         }
                                     </div>
                                 </div>
-                                <div className="row m-2">
+                                <div className='col-12 dispensoriesOpenResultHeadingss py-2'>
+                                   <span className='dispensories_result_head'>Showing result</span>
+                                   <span className='dispensories_result_head'>{Store.length}</span>
+                                </div>
+                                {/* <div className="row m-2">
                                     <div className="col-6  fontStyle">
                                         <h2 className='dispensories_result_head'>Showing result</h2>
                                     </div>
                                     <div className="col-6 text-end  fontStyle">
                                         <h2 className='dispensories_result_head'>1 to {Store.length}</h2>
                                     </div>
-                                </div>
+                                </div> */}
 
                             </div>
 
@@ -83,7 +87,6 @@ const DispensoriesOpenResult = () => {
 
                                             </div>
                                             <div className="col-8 dispenosries_card_content_div">
-                                                {/* <div className="row"> */}
 
                                                     <div className="col-12 dispensories_content_Header_paragraphs text-truncate">
                                                         <h3 className="text-truncate dispensoriesHeadingName">{ele.Store_Name}</h3>
@@ -104,14 +107,12 @@ const DispensoriesOpenResult = () => {
                                                     <span className='disOPenResRating'>Rating</span>
                                                     <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={4} readOnly />
 
-                                                        {/* <div> <p>Rating</p><span className="dis_open_result_star"><IoMdStar className={classes.disp_star_color} /></span></div> */}
                                                     </div>
                                                     <div className="col-12">
                                                         <Box className={classes.loadingBtnTextAndBack}>
                                                             <LoadingButton style={{ width: "60%", height: "30px" }}>Order Pickup</LoadingButton>
                                                         </Box>
                                                     </div>
-                                                {/* </div> */}
                                             </div>
                                         </div>
 

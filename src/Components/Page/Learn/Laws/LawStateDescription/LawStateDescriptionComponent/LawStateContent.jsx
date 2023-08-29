@@ -11,7 +11,7 @@ const LawStateContent = ({ head }) => {
         // elementRef.current.scrollIntoView()
 
     }
-console.log(head)
+// console.log(head)
 
     return (
         <>

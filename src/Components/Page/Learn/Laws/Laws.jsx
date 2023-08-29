@@ -5,6 +5,7 @@ const Laws = () => {
   return (
     <div className="container-fluid">
       <div className="row px-2">
+        <h1 className="canabisLawMainHeadings">Cannabis Law in USA, Canada & Internationals</h1>
         <LearnBanner />
         <LawsOptions />
 

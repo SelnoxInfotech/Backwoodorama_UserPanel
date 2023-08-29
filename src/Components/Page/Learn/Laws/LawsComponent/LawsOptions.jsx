@@ -6,17 +6,13 @@ import { Link } from "react-router-dom"
 import Content from "../LawContentsJson"
 const LawsOptions = () => {
     const [Values, SetValues] = React.useState([])
-
-
-
-    console.log(Content)
     return (
         <div className="col-12 lawsContainer my-4">
 
             {Content?.map((items ,index) => {
                 return (
-                    <ol className="laws_ol">
-                        <li className="lawoptionMainList " key={index}>
+                    <ol className="laws_ol" key={index}>
+                        <li className="lawoptionMainList " >
                             <div className="col-12 lawsListStyle px-2" onClick={() => SetValues({ ...Values, [items.id]: !Values[items.id] })}>
                                 <span className="listCountryName">{items.name}</span><span><MdOutlineKeyboardArrowDown color="#707070" size={22} /></span>
                             </div>
@@ -31,9 +27,10 @@ const LawsOptions = () => {
 
                                                 }}
                                                     state={{ id: val.id }}
+                                                    key={index}
                                                 >
 
-                                                    <li key={index}>
+                                                    <li >
                                                         <LazyLoadImage src={blankImage} className="lawOPtionListImage" alt="image-not-found" />
                                                         <span>{val.name}</span>
                                                     </li>
