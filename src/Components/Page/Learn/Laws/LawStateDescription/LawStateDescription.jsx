@@ -1,16 +1,9 @@
 import React from "react"
-
 import LawStateDescriptionHeading from "./LawStateDescriptionComponent/LawStateDescriptionHeading"
 import LawStateContent from "./LawStateDescriptionComponent/LawStateContent"
 import IsWeedLegalState from "./LawStateDescriptionComponent/IsWeedLegalState"
-import LegislationHistory from "./LawStateDescriptionComponent/LegislationHistory"
-import CannabisSafeStatePurchase from "./LawStateDescriptionComponent/CannabisSafeStatePurchase"
-import LabTestings from "./LawStateDescriptionComponent/LabTestings"
-import FrequentlyAskedQuestion from "./LawStateDescriptionComponent/FrequentlyAskedQuestion"
 import LawStateDecriptionBanner from "./LawStateDescriptionComponent/LawStateDecriptionBanner"
-import DescriptionAndIntro from "./LawStateDescriptionComponent/DescriptionAndIntro"
-import { useRef } from "react"
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation} from 'react-router-dom';
 import Content from "../LawContentsJson"
 import _ from "lodash"
 const LawStateDescription = () => {
@@ -45,11 +38,7 @@ const LawStateDescription = () => {
                                     console.log(data1)
                                     return (
                                         <>
-                                            {/* <DescriptionAndIntro description1={index === 0 && data1.title} description2={index === 0 && data1.content} /> */}
-
                                             <IsWeedLegalState head={data1.title} description2={data1.content} />
-
-
                                         </>
                                     )
                                 })
