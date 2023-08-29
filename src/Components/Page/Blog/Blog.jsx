@@ -12,6 +12,7 @@ import { BsFillShareFill } from "react-icons/bs"
 import { IoEyeSharp } from "react-icons/io5"
 import { AiFillHeart } from "react-icons/ai"
 import { RiLinkedinLine } from "react-icons/ri"
+import { IconButton } from "@mui/material"
 const Blogs = () => {
     const navigate = useNavigate()
     const { id } = useParams();
@@ -86,7 +87,9 @@ const Blogs = () => {
                                         <BsFillShareFill></BsFillShareFill>
                                     </div>
                                     <div className="col viewsBlog">
-                                        <IoEyeSharp></IoEyeSharp>
+                                        <IconButton>
+                                            <IoEyeSharp></IoEyeSharp>
+                                        </IconButton>
                                         <span>40 Views</span>
                                     </div>
                                     <div className="col-md-8 d-flex ">
@@ -96,7 +99,9 @@ const Blogs = () => {
                                             <span>Comment</span>
                                         </div>
                                         <div className="col viewsBlog like">
-                                            <AiFillHeart></AiFillHeart>
+                                            <IconButton>
+                                                <AiFillHeart></AiFillHeart>
+                                            </IconButton>
                                             <span>201</span>
                                         </div>
                                     </div>

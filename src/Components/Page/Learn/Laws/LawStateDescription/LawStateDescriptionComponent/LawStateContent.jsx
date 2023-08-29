@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "react-router-dom"
 import { FaFacebookF } from "react-icons/fa"
 import { IoMailSharp } from "react-icons/io5"
 import { IconButton } from "@mui/material"
@@ -11,8 +10,6 @@ const LawStateContent = ({ head }) => {
         // elementRef.current.scrollIntoView()
 
     }
-console.log(head)
-
     return (
         <>
             <div className="col-lg-11 col-md-12 LawStateContentsContainer ">
@@ -37,7 +34,7 @@ console.log(head)
                             <React.Fragment key={index}>
                                 <div>
 
-                                    <a href={'#'+items.title}> <li className="py-3" style={{ color: Selected === items.id ? "#31B665" : "" }} onClick={() => LawSelectedFun(items.id)}>{items.title}</li>
+                                    <a href={'#'+items.title}> <li className="py-3" onClick={() => LawSelectedFun(items.id)}  style={{ color: Selected === items.id ? "#31B665" : "" }} >{items.title}</li>
                                     </a>
                                 </div>
 

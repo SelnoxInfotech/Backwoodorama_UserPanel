@@ -34,8 +34,7 @@ const LawStateDescription = () => {
                     <div className="col-12 d-flex">
                         <div className={"col-xl-8 col-md-12"} >
                             {
-                                GetContant?.content?.map((data1, index) => {
-                                    console.log(data1)
+                                GetContant?.content?.map((data1) => {
                                     return (
                                         <>
                                             <IsWeedLegalState head={data1.title} description2={data1.content} />
@@ -44,7 +43,6 @@ const LawStateDescription = () => {
                                 })
                             }
                         </div>
-
                         <div className={"col-4 hidiingBLog "}>
                             <LawStateContent head={GetContant?.content} />
                         </div>
