@@ -33,12 +33,12 @@ const Blogs = () => {
             SetNews(data[0])
             await BlogLike(data[0].id).then((res) => {
                 SetLikes(res.data.Like)
-                SetValue({ ...value, ["LinkCount"]: res.data.LikeCount })
+                SetValue({ ...value, "LinkCount": res.data.LikeCount })
             }).catch((error) => {
                 console.error(error)
             })
             await Get_Comment(data[0].id).then((res) => {
-                Setcommnet({ ...Getcommnet, ["CommentCounts"]: res.data.CommentCounts })
+                Setcommnet({ ...Getcommnet, "CommentCounts": res.data.CommentCounts })
             }).catch((error) => {
                 console.error(error)
             })
@@ -55,7 +55,7 @@ const Blogs = () => {
             Post_BlogLike(News?.id, !like).then((res) => {
                 BlogLike(News.id).then((res) => {
                     SetLikes(res.data.Like)
-                    SetValue({ ...value, ["LinkCount"]: res.data.LikeCount })
+                    SetValue({ ...value, "LinkCount": res.data.LikeCount })
                 }).catch((error) => {
                     console.error(error)
                 })
