@@ -879,7 +879,7 @@ const Content = [
                     {
                         title: "Frequently Asked Questions",
                         content: <div>
-                            <h2></h2>Can I travel with medical marijuana within Florida?
+                            <h2>Can I travel with medical marijuana within Florida?</h2>
                             <p>Yes, registered patients can travel with their medical marijuana within the state, as long as they adhere to possession limits and guidelines.</p>
 
                             <h2>Can I use my out-of-state medical marijuana card in Florida?</h2>
@@ -894,6 +894,130 @@ const Content = [
                             <p>No, adult-use or recreational marijuana is not legal in Florida. The state has only legalized medical marijuana for specific medical conditions and qualified patients.</p>
                         </div>
 
+                    },
+
+                ]
+            },
+            {
+                id: 9,
+                name: "Georgia",
+                content: [
+                    {
+                        title: "Is Weed Legal in Georgia?",
+                        content: <p>Marijuana legalisation has been a topic of ongoing debate across the United States, and Georgia is no exception. As of my last update in September 2021, recreational marijuana remains illegal in the state of Georgia. However, the landscape for medical marijuana has seen significant changes in recent years.</p>
+                    },
+                    {
+                        titile: "Legislation History",
+                        content: <div>
+                            <p>Georgia's journey in cannabis legislation witnessed pivotal moments that reshaped the landscape of medical access. The enactment of HB 1, often referred to as the Haleigh's Hope Act, served as a catalyst by establishing a patient registry designed for those with qualifying conditions, granting them permission to possess oil containing less than 5% THC by weight. Governor Nathan Deal's endorsement of this bill in April 2015 marked a turning point, though it notably omitted provisions for in-state sales of the oil.</p>
+                            <p>In a subsequent move on May 9, 2018, Governor Deal endorsed SB 16, a milestone in broadening patient access to low-THC oil. Taking effect in July 2018, this legislation not only expanded the scope of qualifying conditions but also extended the privilege to Georgia's hospice care residents to procure low-THC oil, further emphasizing the state's commitment to compassionate care.</p>
+                            <p>Another leap occurred with the introduction of Georgia's Hope Act, HB 324, in July 2019. This pivotal legislation ushered in the legalization of purchasing low-THC oil by registered patients. Beyond that, it established an integrated system for cultivation, production, and dispensation within the state's borders. Oversight was entrusted to the Georgia Access to Medical Cannabis Commission, operating under the Secretary of State's purview. Moreover, the act defined a maximum possession limit of 20 fluid ounces of oil, solidifying the regulatory framework for patient access.</p>
+                        </div>
+                    },
+                    {
+                        title: "Cannabis Possession in Georgia",
+                        content: <div>
+                            <p>Possession of marijuana for recreational use remains illegal in Georgia. The possession of even small amounts can lead to legal consequences, including fines and potential jail time. The severity of penalties can vary depending on the amount of marijuana and the individual's previous criminal history.</p>
+                        </div>
+                    },
+                    {
+                        title: "Medical Marijuana in Georgia",
+                        content:
+                            <p>Georgia's medical marijuana program is limited to individuals with certain medical conditions, including but not limited to epilepsy, multiple sclerosis, Parkinson's disease, and certain types of cancer. To be eligible, patients must obtain a recommendation from a qualified physician and register with the state. The program aims to provide relief to those suffering from debilitating conditions, but its scope remains narrow.</p>
+                    },
+                    {
+                        title: "Where to Purchase Medical Cannabis in Georgia?",
+                        content: <p>Georgia's medical marijuana program has been expanding, but it remains one of the more restrictive in the country. Qualified patients are allowed to possess low-THC cannabis oil, but the state does not currently allow for the legal sale or cultivation of medical marijuana. This has presented challenges for patients seeking consistent access to their medication.</p>
+                    },
+                    {
+                        title: "Lab Testing",
+                        content: <p>Quality control and safety are paramount in any legalized marijuana market. In states with legalized medical or recreational marijuana, rigorous lab testing is often required to ensure that products are free from contaminants and accurately labeled in terms of potency. While Georgia's medical marijuana program is limited, lab testing would still be essential to maintain patient safety and product consistency.</p>
+                    },
+                    {
+                        title: "Frequently Asked Questions",
+                        content: <div>
+                            <h2>Can I legally possess recreational marijuana in Georgia?</h2>
+                            <p>No, recreational marijuana is illegal in Georgia.</p>
+                            <h2>What medical conditions qualify for the use of medical cannabis in Georgia?</h2>
+                            <p>Conditions such as epilepsy, multiple sclerosis, Parkinson's disease, and certain types of cancer qualify for the use of low-THC cannabis oil.</p>
+                            <h2>Can I purchase medical cannabis from dispensaries in Georgia?</h2>
+                            <p>No, the state currently does not permit the sale or cultivation of medical marijuana.</p>
+                            <h2>What are the penalties for marijuana possession in Georgia?</h2>
+                            <p>Penalties vary based on the amount of marijuana and an individual's criminal history, but they can include fines and potential jail time.</p>
+                            <h2>Are there efforts to expand Georgia's medical marijuana program?</h2>
+                            <p>Efforts to expand the program have been ongoing, with advocates pushing for broader access and more qualifying conditions.</p>
+                        </div>
+                    }
+                ]
+            },
+            {
+                id: 10,
+                name: "Guam",
+                content: [
+                    {
+                        title: "Is Weed Legal in Guam?",
+                        content: <p>The landscape of marijuana laws is continually evolving across the globe, and Guam is no exception. As of my last update in September 2021, marijuana is legal for both medical and adult-use (recreational) purposes in Guam, marking a significant departure from its historical stance on cannabis.
+                        </p>
+                    },
+                    {
+                        title: "Legislation History",
+                        content: <div>
+                            <p>The history of marijuana legislation in Guam is nothing short of a transformative tale. It began with the decriminalisation of minor cannabis quantities in 2014, laying the foundation for what would follow. Momentum surged with the enactment of the "Nurse Joaquin" Compassionate Cannabis Use Act in 2018, a defining moment in Guam's commitment to facilitating medical access to cannabis. The territory, however, etched its name in history in 2019 with the Guam Cannabis Industry Act, marking a giant stride toward adult-use cannabis legality.</p>
+                            <p>The 2014 milestone arrived with the Joaquin (KC) Concepcion II Compassionate Cannabis Use Act, empowering patients with qualifying medical conditions to possess and consume cannabis. This pivotal law directed the Department of Health and Human Services (DHHS) to establish a patient registry issuing ID cards and a framework for producing and distributing medical marijuana within the territory. Born from a 2013 proposal, validated by voter approval in 2014, and inked by the governor in 2015, this law set the precedent.</p>
+                            <p>In 2016, Bill No. 343-33 emerged, broadening the scope of qualifying conditions, enabling physicians to recommend marijuana to patients they believed would benefit. It delineated possession limits, established the Medical Cannabis Regulation Commission, mandated comprehensive marijuana testing, and introduced optional patient registry cards while requiring them for caregivers.</p>
+                            <p>The legislative landscape further evolved in 2018 with Public Law 34-125, permitting patients and caregivers to cultivate cannabis at home while dispensaries were in the works.</p>
+                            <p>The pivotal year of 2019 saw the passage of Bill 32-35, the Guam Cannabis Industry Act (Public Law 35-5). A watershed moment, this act legalized buying, selling, consuming, and sharing cannabis for adults aged 21 and above. With visionary foresight, the law established the Cannabis Control Board (CCB), entrusted with the responsibility of overseeing and regulating cultivation, production, transportation, and retail sales across the island.</p>
+                            <p>This chronicle of Guam's marijuana legislation journey underscores a transformation that spans patient access, medical provisions, caregiver roles, cultivation liberties, and the historic opening of the adult-use cannabis frontier. The story of Guam's cannabis laws continues to unfold, shaped by its dedication to creating a balanced framework for both medical patients and responsible adult users.</p>
+                        </div>
+                    },
+                    {
+                        title: "Cannabis Possession in Guam",
+                        content: <p>In the context of adult-use cannabis, individuals aged 21 and older are allowed to possess up to an ounce of marijuana flower or eight grams of concentrated cannabis. This possession limit extends to private residences, making it a milestone in personal freedom. However, it's vital to stay within legal boundaries and respect public consumption restrictions.</p>
+                    },
+                    {
+                        title: "Where to Purchase Cannabis in Guam?",
+                        content: <p>Licensed dispensaries play a pivotal role in providing access to legal cannabis in Guam. These establishments are regulated and authorized to sell marijuana products to individuals who meet the legal age requirement. Dispensaries offer a variety of products, from flower to edibles, catering to both medical patients and recreational users</p>
+                    },
+                    {
+                        title: "Where is it Safe to Consume in Guam?",
+                        content: <div>
+                            <p>While cannabis is legal, consuming it in public spaces remains prohibited. It's crucial to consume responsibly in the confines of private spaces to adhere to the law and respect others' preferences. Choosing the right setting ensures a positive experience for all.</p>
+                            <h2>*Headline 6: Is Home Cultivation Allowed in Guam?*</h2>
+                            <p>Home cultivation of cannabis is legal in Guam, with certain limitations. Individuals can grow up to six mature plants and six immature plants for personal use. This provision empowers individuals to have greater control over their cannabis supply while staying within the limits set by the law.</p>
+                        </div>
+                    },
+                    {
+                        title:"Medical Marijuana in Guam",
+                        content:<div>
+                            <p>Guam has embraced the medical potential of cannabis. Qualified patients with debilitating medical conditions can access medical marijuana through a regulated system. This system ensures that patients receive the care they need while maintaining quality standards for medical cannabis products.</p>
+                        <h2>Caregiving</h2>
+                        <p>In Guam's medical marijuana program, caregivers play an indispensable role, standing as pillars of support for qualifying patients seeking relief through cannabis. Endowed with the authority to aid patients in accessing and utilizing medical cannabis, caregivers are integral to the program's success. They embark on a carefully orchestrated registration journey, a process meticulously designed to ensure the security and wellness of patients. These caregivers must be Guam residents aged 21 or above and are permitted to assist up to five patients, acting as dedicated guides in the realm of medical cannabis.</p>
+                        <p>As a testament to Guam's commitment to responsible caregiving, while patient registration remains voluntary, caregivers are mandated to register and carry their registration card at all times—whether they're procuring, cultivating, or transporting cannabis on behalf of their patients. The meticulous approach safeguards the integrity of the program and fortifies the bond between caregivers and patients.</p>
+                       <p>In scenarios where caregivers cultivate plants for multiple patients, stringent guidelines are enforced. The plants must either flourish within the homes of patients or caregivers or be centralized at a single cultivation site. This stipulation ensures accountable cultivation practices and adheres to the essence of patient-focused caregiving.</p>
+                        <p>Distinguishing between cultivation scopes, caregivers are authorized to nurture plants for up to three patients sans the need for a cultivation license. For those caring for a larger number—up to five patients—a special commercial cultivation license comes into play, requiring a nominal fee of $10 per patient. This pragmatic approach echoes Guam's dedication to fostering a responsible and inclusive medical marijuana framework.</p>
+                        <p>Caregivers stand as guardians of wellness, forging a crucial bridge between patients and the benefits of medical cannabis. Their pivotal role, fortified by stringent regulations, signifies Guam's unwavering commitment to patient-centered care within the realm of medical marijuana. </p>
+                        </div>
+                    },
+                    {
+                        title:"Lab Testing",
+                        content:
+                            <p>Quality and safety are paramount in Guam's cannabis market. Rigorous lab testing is conducted on cannabis products to ensure they meet safety standards and are accurately labeled. This practice safeguards consumers and promotes transparency within the industry.</p>                
+                    },
+                    {
+                        title:"Frequently Asked Questions",
+                        content:<div>
+                            <h2>Can I possess marijuana in Guam?</h2>
+                            <p>Yes, adults aged 21 and older can possess limited amounts of marijuana for personal use</p>
+                       <h2>Can I purchase cannabis in Guam?</h2>
+                       <p>Yes, licensed dispensaries offer legal cannabis products to eligible individuals.</p>
+                       <h2>Is home cultivation allowed?</h2>
+                        <p>Yes, residents can cultivate a limited number of cannabis plants for personal use.</p>
+                      <h2>What about medical marijuana?</h2>
+                       <p>Qualified patients can access medical marijuana through a regulated system.</p>
+                      <h2>Where can I consume cannabis?</h2>
+                      <p>Consumption should take place in private spaces; public consumption is prohibited.</p>
+                      <p>As the legal landscape for marijuana continues to evolve, staying informed is crucial. The information presented here offers a snapshot of Guam's marijuana laws, but it's essential to stay up-to-date with the latest developments and adhere to the regulations in place.</p>
+                        </div>
                     }
                 ]
             }
@@ -1014,6 +1138,15 @@ const Content = [
 
                 ]
             },
+            {
+                id:4,
+                name:"British Columbia",
+                content:[
+                    {
+                        title:"Is weed legal in British Columbia?"
+                    }
+                ]
+            }
         ]
     }
 
