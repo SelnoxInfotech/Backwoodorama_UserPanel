@@ -146,12 +146,12 @@ const ProductIncDecQuantity = ({ items, AddToCart }) => {
                                     </div>
                                     <div className='col-12'>
                                         {
-                                            items?.Prices[0]?.Price.map((data) => {
+                                            items?.Prices[0]?.Price.map((data,index) => {
                                                 return (
                                                     SelectWeight === data.id &&
-                                                    <>
+                                                    <React.Fragment key={index}>
                                                         <span className='prod_price_font'>${parseInt(data.SalePrice)}</span><span className='mx-4 prod_quant_font'>PER 1Z</span>
-                                                    </>
+                                                    </React.Fragment>
                                                 )
                                             })
                                         }
