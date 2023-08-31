@@ -14,15 +14,17 @@ import { AiFillHeart } from "react-icons/ai"
 import { RiLinkedinLine } from "react-icons/ri"
 import { IconButton } from "@mui/material"
 import Createcontext from "../../../Hooks/Context"
-import { BlogLike, Post_BlogLike ,Get_Comment} from "../../../Api/Api"
+import { BlogLike, Post_BlogLike ,Get_Comment,Post_Comment} from "../../../Api/Api"
 import _ from "lodash"
 import { WhisList } from "../../Component/Whishlist/WhisList";
 const Blogs = () => {
+    const classes = useStyles()
     const navigate = useNavigate()
     const { state, dispatch } = React.useContext(Createcontext)
     const [value, SetValue] = React.useState([])
     const [Getlikes, SetLikes] = React.useState([])
     const [Getcommnet, Setcommnet] = React.useState([])
+    const [GetUserComment ,SetUserComment  ] =React.useState([])
     const { id } = useParams();
     const [News, SetNews] = React.useState({})
     const [WishList, SetWishList] = React.useState(false)
@@ -38,7 +40,8 @@ const Blogs = () => {
                 console.error(error)
             })
             await Get_Comment(data[0].id).then((res) => {
-                Setcommnet({ ...Getcommnet, "CommentCounts": res.data.CommentCounts })
+                // SetUserComment(res.data.Comments)    
+                Setcommnet({ ...Getcommnet, "CommentCounts": res.data.CommentCounts, 'UserComment':res.data.Comments[0].comment })
             }).catch((error) => {
                 console.error(error)
             })
@@ -74,7 +77,7 @@ const Blogs = () => {
         return l
 
     }
-    const classes = useStyles()
+   
     return (
         <React.Fragment>
             <div className="container">
@@ -154,7 +157,7 @@ const Blogs = () => {
                     </div>
                     {WishList && <WhisList open1={WishList} SetWishList={SetWishList}></WhisList>}
                     <RecentPost />
-                    <RecentPostComment />
+                    <RecentPostComment id={id} GetUserComment={Getcommnet} SetUserComment={Setcommnet} />
                     <HomePageDealsSignup />
 
                 </div>
