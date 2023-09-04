@@ -907,7 +907,7 @@ const Content = [
                         content: <p>Marijuana legalisation has been a topic of ongoing debate across the United States, and Georgia is no exception. As of my last update in September 2021, recreational marijuana remains illegal in the state of Georgia. However, the landscape for medical marijuana has seen significant changes in recent years.</p>
                     },
                     {
-                        titile: "Legislation History",
+                        title: "Legislation History",
                         content: <div>
                             <p>Georgia's journey in cannabis legislation witnessed pivotal moments that reshaped the landscape of medical access. The enactment of HB 1, often referred to as the Haleigh's Hope Act, served as a catalyst by establishing a patient registry designed for those with qualifying conditions, granting them permission to possess oil containing less than 5% THC by weight. Governor Nathan Deal's endorsement of this bill in April 2015 marked a turning point, though it notably omitted provisions for in-state sales of the oil.</p>
                             <p>In a subsequent move on May 9, 2018, Governor Deal endorsed SB 16, a milestone in broadening patient access to low-THC oil. Taking effect in July 2018, this legislation not only expanded the scope of qualifying conditions but also extended the privilege to Georgia's hospice care residents to procure low-THC oil, further emphasizing the state's commitment to compassionate care.</p>
@@ -987,40 +987,652 @@ const Content = [
                         </div>
                     },
                     {
-                        title:"Medical Marijuana in Guam",
-                        content:<div>
+                        title: "Medical Marijuana in Guam",
+                        content: <div>
                             <p>Guam has embraced the medical potential of cannabis. Qualified patients with debilitating medical conditions can access medical marijuana through a regulated system. This system ensures that patients receive the care they need while maintaining quality standards for medical cannabis products.</p>
-                        <h2>Caregiving</h2>
-                        <p>In Guam's medical marijuana program, caregivers play an indispensable role, standing as pillars of support for qualifying patients seeking relief through cannabis. Endowed with the authority to aid patients in accessing and utilizing medical cannabis, caregivers are integral to the program's success. They embark on a carefully orchestrated registration journey, a process meticulously designed to ensure the security and wellness of patients. These caregivers must be Guam residents aged 21 or above and are permitted to assist up to five patients, acting as dedicated guides in the realm of medical cannabis.</p>
-                        <p>As a testament to Guam's commitment to responsible caregiving, while patient registration remains voluntary, caregivers are mandated to register and carry their registration card at all times—whether they're procuring, cultivating, or transporting cannabis on behalf of their patients. The meticulous approach safeguards the integrity of the program and fortifies the bond between caregivers and patients.</p>
-                       <p>In scenarios where caregivers cultivate plants for multiple patients, stringent guidelines are enforced. The plants must either flourish within the homes of patients or caregivers or be centralized at a single cultivation site. This stipulation ensures accountable cultivation practices and adheres to the essence of patient-focused caregiving.</p>
-                        <p>Distinguishing between cultivation scopes, caregivers are authorized to nurture plants for up to three patients sans the need for a cultivation license. For those caring for a larger number—up to five patients—a special commercial cultivation license comes into play, requiring a nominal fee of $10 per patient. This pragmatic approach echoes Guam's dedication to fostering a responsible and inclusive medical marijuana framework.</p>
-                        <p>Caregivers stand as guardians of wellness, forging a crucial bridge between patients and the benefits of medical cannabis. Their pivotal role, fortified by stringent regulations, signifies Guam's unwavering commitment to patient-centered care within the realm of medical marijuana. </p>
+                            <h2>Caregiving</h2>
+                            <p>In Guam's medical marijuana program, caregivers play an indispensable role, standing as pillars of support for qualifying patients seeking relief through cannabis. Endowed with the authority to aid patients in accessing and utilizing medical cannabis, caregivers are integral to the program's success. They embark on a carefully orchestrated registration journey, a process meticulously designed to ensure the security and wellness of patients. These caregivers must be Guam residents aged 21 or above and are permitted to assist up to five patients, acting as dedicated guides in the realm of medical cannabis.</p>
+                            <p>As a testament to Guam's commitment to responsible caregiving, while patient registration remains voluntary, caregivers are mandated to register and carry their registration card at all times—whether they're procuring, cultivating, or transporting cannabis on behalf of their patients. The meticulous approach safeguards the integrity of the program and fortifies the bond between caregivers and patients.</p>
+                            <p>In scenarios where caregivers cultivate plants for multiple patients, stringent guidelines are enforced. The plants must either flourish within the homes of patients or caregivers or be centralized at a single cultivation site. This stipulation ensures accountable cultivation practices and adheres to the essence of patient-focused caregiving.</p>
+                            <p>Distinguishing between cultivation scopes, caregivers are authorized to nurture plants for up to three patients sans the need for a cultivation license. For those caring for a larger number—up to five patients—a special commercial cultivation license comes into play, requiring a nominal fee of $10 per patient. This pragmatic approach echoes Guam's dedication to fostering a responsible and inclusive medical marijuana framework.</p>
+                            <p>Caregivers stand as guardians of wellness, forging a crucial bridge between patients and the benefits of medical cannabis. Their pivotal role, fortified by stringent regulations, signifies Guam's unwavering commitment to patient-centered care within the realm of medical marijuana. </p>
                         </div>
                     },
                     {
-                        title:"Lab Testing",
+                        title: "Lab Testing",
                         content:
-                            <p>Quality and safety are paramount in Guam's cannabis market. Rigorous lab testing is conducted on cannabis products to ensure they meet safety standards and are accurately labeled. This practice safeguards consumers and promotes transparency within the industry.</p>                
+                            <p>Quality and safety are paramount in Guam's cannabis market. Rigorous lab testing is conducted on cannabis products to ensure they meet safety standards and are accurately labeled. This practice safeguards consumers and promotes transparency within the industry.</p>
                     },
                     {
-                        title:"Frequently Asked Questions",
-                        content:<div>
+                        title: "Frequently Asked Questions",
+                        content: <div>
                             <h2>Can I possess marijuana in Guam?</h2>
                             <p>Yes, adults aged 21 and older can possess limited amounts of marijuana for personal use</p>
-                       <h2>Can I purchase cannabis in Guam?</h2>
-                       <p>Yes, licensed dispensaries offer legal cannabis products to eligible individuals.</p>
-                       <h2>Is home cultivation allowed?</h2>
-                        <p>Yes, residents can cultivate a limited number of cannabis plants for personal use.</p>
-                      <h2>What about medical marijuana?</h2>
-                       <p>Qualified patients can access medical marijuana through a regulated system.</p>
-                      <h2>Where can I consume cannabis?</h2>
-                      <p>Consumption should take place in private spaces; public consumption is prohibited.</p>
-                      <p>As the legal landscape for marijuana continues to evolve, staying informed is crucial. The information presented here offers a snapshot of Guam's marijuana laws, but it's essential to stay up-to-date with the latest developments and adhere to the regulations in place.</p>
+                            <h2>Can I purchase cannabis in Guam?</h2>
+                            <p>Yes, licensed dispensaries offer legal cannabis products to eligible individuals.</p>
+                            <h2>Is home cultivation allowed?</h2>
+                            <p>Yes, residents can cultivate a limited number of cannabis plants for personal use.</p>
+                            <h2>What about medical marijuana?</h2>
+                            <p>Qualified patients can access medical marijuana through a regulated system.</p>
+                            <h2>Where can I consume cannabis?</h2>
+                            <p>Consumption should take place in private spaces; public consumption is prohibited.</p>
+                            <p>As the legal landscape for marijuana continues to evolve, staying informed is crucial. The information presented here offers a snapshot of Guam's marijuana laws, but it's essential to stay up-to-date with the latest developments and adhere to the regulations in place.</p>
                         </div>
                     }
                 ]
-            }
+            },
+            {
+                id: 11,
+                name: "Hawaii",
+                content: [{
+                    title: "Is weed legal in Hawaii?",
+                    content: <div>
+                        <p>When it comes to the legalization of marijuana, the laws in the United States have been undergoing significant changes in recent years. Hawaii, known for its stunning landscapes and relaxed atmosphere, has also seen shifts in its stance towards cannabis. But what exactly are the marijuana laws in the Aloha State? Let's dive into the details.</p>
+                    </div>
+                },
+                {
+                    title: "Legislation history",
+                    content: <div>
+                        <p>Hawaii has been on a journey of marijuana law reform. In 2000, the state legalized medical marijuana with the passage of Senate Bill 862. This allowed patients with qualifying conditions to use cannabis for medical purposes under the supervision of a physician. The legislation established a framework for the use, cultivation, and distribution of medical marijuana.</p>
+                        <p></p>In 2015, Hawaii took another step forward by decriminalizing the possession of small amounts of cannabis. Possession of up to 3 grams was reduced to a civil violation, resulting in a fine rather than criminal charges. This move aimed to reduce the burden on the criminal justice system and the impact of convictions for minor cannabis-related offenses.
+                    </div>
+                },
+                {
+                    title: "Cannabis Possession in Hawaii",
+                    content: <div>
+                        <p>As of the decriminalization law in 2015, possessing a small amount of marijuana in Hawaii is no longer a criminal offense. Possession of 3 grams or less is treated as a civil violation, punishable by a fine. However, it's important to note that possessing larger amounts of marijuana can still lead to criminal charges, so it's essential to understand the limits and regulations.</p>
+                    </div>
+                },
+                {
+                    title: "Where to purchase cannabis in Hawaii?",
+                    content: <p>Hawaii has also legalized recreational cannabis for adults aged 21 and older. This means that adults can purchase cannabis from licensed dispensaries in the state. These dispensaries are regulated and licensed by the Hawaii Department of Health. It's crucial to buy from legal and licensed establishments to ensure product safety and adherence to regulations.</p>
+                },
+                {
+                    title: "Where is it Safe to Consume in Hawaii?",
+                    content: <p>While cannabis may be legal to purchase and possess, consumption is restricted in certain areas. Public consumption of cannabis is generally prohibited. It's important to consume cannabis in private spaces to avoid legal issues. This might include private residences where consumption is allowed, but it's recommended to confirm with property owners or landlords.</p>
+                },
+                {
+                    title: "Finding Licensed Dispensaries in Hawaii",
+                    content: <p>For those holding a valid medical marijuana card in Hawaii, relief is within reach through licensed dispensaries spread across islands like Kauai, Oahu, Molokai, Maui, and Hawaii. This journey to wellness is further facilitated by the tech-savvy nature of these dispensaries, as many provide the convenience of online ordering alongside their brick-and-mortar operations, although delivery services remain off the table as per regulations. To secure legal cannabis in Hawaii, a visit to one of these authorized dispensaries is a must. These establishments boast an array of cannabis products, encompassing everything from the classic flower to tempting edibles and potent concentrates. Prioritizing due diligence in confirming a dispensary's legitimacy is not only prudent but pivotal, assuring both the caliber of your chosen products and your alignment with legal standards, thus nurturing a secure and satisfying cannabis experience.</p>
+                },
+                {
+                    title: "Is Home Cultivation Allowed in Hawaii?",
+                    content: <p>As of the current laws in Hawaii, home cultivation of cannabis for recreational use is not permitted. Only licensed medical marijuana patients are allowed to cultivate a limited number of plants for personal use. It's essential to understand the regulations around cultivation to avoid legal consequences.</p>
+                },
+                {
+                    title: "Medical Marijuana in Hawaii",
+                    content: <p>Hawaii's medical marijuana program allows patients with qualifying conditions to access and use medical cannabis. Patients must obtain a recommendation from a licensed physician and register with the state to receive a medical marijuana card. This card grants them legal access to medical cannabis products from licensed dispensaries.
+                    </p>
+                },
+                {
+                    title: "Caregiving",
+                    content: <p>Qualified patients who need assistance with obtaining and using medical cannabis can designate a caregiver. Caregivers are individuals who are approved by the state to help patients with their medical marijuana needs. This provision ensures that patients who may have difficulty accessing or using cannabis on their own still have a pathway to treatment.</p>
+                },
+                {
+                    title: "Lab Testing",
+                    content: <p>One of the important aspects of Hawaii's cannabis regulations is the requirement for lab testing. Cannabis products sold in dispensaries must undergo rigorous testing for potency, contaminants, and quality. This ensures that consumers are getting safe and accurately labeled products.</p>
+                },
+                {
+                    title: "Frequently Asked Questions",
+                    content: <div>
+                        <ol>
+                            <li>Can tourists purchase cannabis in Hawaii?</li>
+                            <p>Yes, as long as they are 21 or older and purchase from licensed dispensaries.</p>
+                            <li>Are there limits to how much cannabis an adult can possess?</li>
+                            <p>Yes, adults can possess up to one ounce (28 grams) of cannabis.</p>
+                            <li>. **Can I consume cannabis on beaches or in parks?**</li>
+                            <p> No, public consumption is not allowed. Consume cannabis in private spaces.</p>
+                            <li> **What medical conditions qualify for medical marijuana in Hawaii?**</li>
+                            <p>   Qualifying conditions include cancer, epilepsy, HIV/AIDS, multiple sclerosis, and more. Check the updated list from the Department of Health.</p>
+                            <li>. **Can I grow cannabis at home for medical use?**</li>
+                            <p> Only registered medical marijuana patients are allowed to cultivate a limited number of plants at home.</p>
+                            <p>Navigating Hawaii's marijuana laws requires a clear understanding of the regulations to ensure compliance. Whether you're a resident seeking medical treatment or a visitor interested in recreational use, staying informed is key to enjoying cannabis responsibly in the Aloha State. Remember, laws and regulations can evolve, so it's always a good idea to check for updates from official sources.</p>
+                        </ol>
+                    </div>
+                }
+
+                ]
+            },
+            {
+                id: 12,
+                name: "Idaho",
+                content: [
+                    {
+                        title: "IdaIs Weed Legal in Idaho?ho",
+                        content: <p>The United States' shifting stance on marijuana has sparked a multitude of discussions across the nation. Among the states, Idaho stands firm as one that maintains strict regulations around cannabis. In the Gem State, understanding the marijuana laws is crucial for residents and visitors alike.</p>
+
+                    },
+                    {
+                        title: "Cannabis Possession in Idaho",
+                        content: <p>Possession of even small amounts of marijuana can lead to serious legal consequences in Idaho. The state does not differentiate between personal use and distribution when it comes to penalties. Any possession of cannabis, whether for recreational or medical purposes, is considered a criminal offence, subjecting individuals to fines and potential incarceration.</p>
+                    },
+                    {
+                        title: "Finding Licensed Dispensaries in Idaho",
+                        content: <p>Unlike states that have embraced marijuana for medical or recreational use, Idaho does not have licensed dispensaries. The state's laws prohibit the sale and distribution of cannabis, making it essential for individuals to be aware of and respect these limitations.</p>
+                    },
+                    {
+                        title: "Medical Marijuana in Idaho",
+                        content: <p>As of the current state of affairs, medical marijuana is not legal in Idaho. The state has yet to establish a medical marijuana program, and patients with qualifying conditions do not have legal access to cannabis treatments. It's crucial for those seeking alternative medical options to explore options available in states with legalized medical marijuana.</p>
+                    },
+                    {
+                        title: "Lab Testing",
+                        content: <p>Given the stringent stance on marijuana in Idaho, lab testing for cannabis products is not a concern within the state. The absence of legal markets for cannabis makes testing irrelevant in this context.</p>
+                    },
+                    {
+                        title: "Frequently Asked Questions",
+                        content: <div>
+                            <ol>
+                                <li>Can I use medical marijuana in Idaho if I have a qualifying condition?</li>
+                                <p>No, medical marijuana is not legal in Idaho, regardless of the medical condition.</p>
+                                <li>What are the penalties for possessing marijuana in Idaho?</li>
+                                <p>Possession of any amount of marijuana can lead to criminal charges, fines, and potentially incarceration.</p>
+                                <li>Can I purchase marijuana from licensed dispensaries in Idaho?</li>
+                                <p>No, licensed dispensaries for marijuana do not exist in the state.</p>
+                                <li>Are there any exceptions for medical use?</li>
+                                <p>As of now, there are no exceptions for medical marijuana use in Idaho.</p>
+                                <li>Is CBD legal in Idaho?</li>
+                                <p>CBD products derived from industrial hemp and containing less than 0.3% THC are legal in Idaho. However, any products with higher THC content are illegal.</p>
+                            </ol>
+
+                        </div>
+                    }
+                ]
+            },
+            {
+                id: 13,
+                name: "Illinois",
+                content: [
+                    {
+                        title: "Cannabis Law in Illinois",
+                        content: <p>In recent years, the legal landscape surrounding marijuana has undergone significant changes across the United States. One state that has been at the forefront of this movement is Illinois. With evolving legislation, regulations, and guidelines, it's important to have a clear understanding of the marijuana laws in the Land of Lincoln. Whether you're a resident, a traveller, or just curious about the topic, this comprehensive guide will help you navigate through the complexities of marijuana laws in Illinois.</p>
+                    },
+                    {
+                        title: "Is Weed Legal in Illinois?",
+                        content: <p>Yes, marijuana is legal for both medical and adult-use (recreational) purposes in Illinois. The state passed the Illinois Cannabis Regulation and Tax Act (CRTA) in 2019, which legalized the possession, consumption, and sale of marijuana for adults aged 21 and older. However, like any legal matter, there are specific rules and regulations in place to ensure responsible use and distribution.</p>
+                    },
+                    {
+                        title: "Legislation History in Illinois",
+                        content: <div>
+                            <p>Illinois's journey towards modern cannabis legislation has been a remarkable evolution. The state's first encounter with cannabis laws dates back to 1931, when it criminalized recreational marijuana. Decades later, the Cannabis Control Act of 1978 brought about a significant shift, marking the inception of legalized medical cannabis, albeit without clear regulations from key departments. It wasn't until 2013 that Illinois made a substantial leap forward with the enactment of the Compassionate Use of Medical Cannabis Pilot Program Act, ushering in a comprehensive framework for the cultivation, sale, and utilization of medical marijuana. Dispensaries initiated their inaugural sales to eligible patients in November 2015, and subsequent legislative amendments widened the program's scope, accommodating more patients and conditions. Notably, the decriminalization of possession up to 10 grams in 2016 was a pivotal step, replacing jail time with fines.</p>
+                            <p>The turning point arrived in 2019, as Governor JB Pritzker's signature on the Illinois Cannabis Regulation and Tax Act paved the way for adult-use cannabis legalization. The state boldly became the 11th in the nation to achieve this milestone, breaking new ground by legalizing cannabis via legislation rather than a public referendum. This historic move triggered the expungement of countless records related to cannabis possession under 30 grams prior to the legalization. On January 1, 2020, the law formally took effect, ushering in a new era of regulated cannabis sales, consumption, and possession. Illinois's intricate journey through the evolution of its cannabis laws showcases a progressive shift towards a more enlightened and comprehensive approach to marijuana regulation, reflecting changing attitudes and a commitment to responsible use.</p>
+                        </div>
+                    },
+                    {
+                        title: "Regulation Authority",
+                        content: <p>The Illinois Department of Financial and Professional Regulation (IDFPR) is the regulatory authority responsible for overseeing the cannabis industry in the state. They issue licenses to businesses, regulate distribution, and ensure compliance with the law.</p>
+                    },
+                    {
+                        title: "Cannabis Possession in Illinois",
+                        content: <div>
+                            <p>In Illinois, the guidelines for medical marijuana possession are thoughtfully designed to ensure patient well-being and safety. Within a 14-day span, patients are allowed to possess up to 2.5 ounces (71 grams) of cannabis or cannabis products, with the flexibility to request an extended recommendation from their doctor should their medical needs demand it. To maintain secure transportation practices, medical marijuana cardholders are permitted to carry cannabis in securely sealed containers, stowed away and inaccessible while driving. It's important to note that both drivers and passengers are prohibited from consuming cannabis within a vehicle, prioritizing responsible consumption habits.</p>
+                            <p>The state of Illinois underscores its commitment to equal rights by legislating against discrimination. Schools, employers, and landlords are prohibited from denying enrollment, employment, or apartment leasing to medical marijuana consumers based solely on their status as a patient or caregiver. This ensures that patients can access necessary medical treatment without fear of unwarranted consequences. Additionally, while patients are restricted from giving away medical cannabis, caregivers are empowered to purchase and possess cannabis medicine solely for their designated patients. For adults over the age of 21, limited sharing is allowed, with cannabis gifts permissible as long as they involve no monetary exchange. Illinois's possession limits for both residents and out-of-state visitors over 21 foster a balanced approach: residents can possess 30 grams of raw cannabis flower, up to 500 milligrams of THC in cannabis-infused products, and 5 grams of cannabis concentrates, while out-of-state visitors are allowed 15 grams of flower, no more than 250 milligrams of THC in cannabis-infused products, and 2.5 grams of cannabis concentrates. These regulations encapsulate Illinois's dedication to equitable access and responsible use within the realm of cannabis.</p>
+                        </div>
+                    },
+                    {
+                        title: "Where is it Safe to Purchase Weed in Illinois?",
+                        content: <p>Licensed dispensaries are the only legal places to purchase marijuana in Illinois. These dispensaries are authorized by the state and follow strict regulations to ensure the quality and safety of the products they sell.</p>
+                    },
+                    {
+                        title: "Where is it Safe to Consume Cannabis?",
+                        content:
+                            <div>
+                                <p>In Illinois, a well-structured framework governs the purchasing of cannabis, whether for medical or recreational use. Registered medical patients and caregivers are granted the legal privilege to acquire medical cannabis from licensed dispensaries. This process, however, involves a 1% pharmaceutical tax on medical patients, whereas cultivators and dispensaries are mandated to contribute a 7% tax based on the sales price per ounce. Within a 14-day timeframe, medical patients and caregivers are entitled to purchase up to 2.5 ounces (71 grams) of usable cannabis. Notably, patients can select a preferred dispensary during their initial registry application and can adjust this choice as needed through the Medical Cannabis Selection Form, without incurring any charges.</p>
+                                <p>For adults aged 18 and above seeking recreational cannabis, Illinois boasts an array of adult-use dispensaries to choose from. Parallel to the medical sector, growers within the adult-use domain contribute a 7% tax, but exclusively on their initial sale. Dispensaries in the recreational sphere, however, adhere to varying tax rates based on THC content and product type, paying 10% tax on items with less than 35% THC, 25% on those exceeding 35% THC, and 20% on infused products. While medical dispensaries enjoy exemption from local taxes, adult-use establishments are subject to the state's 6.25% tax, coupled with potential local taxes capped at 3% for cities and 3.75% for counties. It's essential for consumers to anticipate these taxes factored into the overall product cost, ensuring a transparent purchasing experience.</p>
+                            </div>
+                    },
+                    {
+                        title: "Is Home Cultivation Allowed in Illinois?",
+                        content: <div>
+                            <p>In the realm of cannabis cultivation, Illinois imposes clear guidelines that exclusively permit registered patients and caregivers to engage in this practice. These regulations outline stringent criteria that medicinal cultivators must adhere to. Specifically, cultivation spaces must be securely enclosed and locked, ensuring a controlled environment for the growth of cannabis. Moreover, the number of plants exceeding 5 inches in height should not exceed five in a given garden. The significance of privacy is underscored, with the requirement that these cultivation areas remain hidden from public view. Importantly, this cultivation is restricted to residential properties owned by the cultivator or with the explicit consent of the property owner, reinforcing responsible and legal cultivation practices.</p>
+                            <p>In this comprehensive framework, Illinois strikes a balance between individual cultivation rights and community standards. By mandating specific parameters for cannabis cultivation, the state ensures that registered patients and caregivers engage in this practice responsibly, safeguarding both their own interests and those of the larger community.</p>
+                        </div>
+                    },
+                    {
+                        title: "Medical Marijuana in Illinois",
+                        content: <div>
+                            <p>The administration of Illinois's Medical Cannabis Patient Registry Program falls under the jurisdiction of the Illinois Department of Public Health. Aspiring patients have the option to apply online or utilize a printable application that can be sent by mail. To be eligible for the program, patients must be at least 18 years old and must not hold specific licenses such as a school bus driver permit or a commercial driver's license. Active duty law enforcement officers, correctional officers, probation officers, and firefighters are also ineligible.</p>
+                            <p>The eligibility criteria encompass both qualifying conditions and patient qualifications. Residents of Illinois who possess one of the qualifying conditions must acquire a written certification from a licensed physician in the state. Veterans under the care of the Veterans Affairs (VA) office are exempt from submitting a physician's certification but must instead provide the last 12 months of VA treatment records. Minors seeking medical marijuana must obtain a physician's certification for a qualifying condition, with a reviewing physician subsequently confirming the diagnosis. Minors can designate one caregiver at no cost and potentially add more by submitting a caregiver application along with the required fee. Overall, the program's structure reflects Illinois's commitment to ensuring that medical cannabis access is well-regulated and accessible to those in genuine need.</p>
+                        </div>
+                    },
+                    {
+                        title: "Caregiver Qualifications",
+                        content: <div>
+                            <p>medical cannabis caregiving, Illinois institutes specific qualifications to ensure responsible and appropriate assistance for registered patients. To qualify as a registered caregiver, individuals must be residents of Illinois, at least 21 years old, and committed to aiding the registered patient, as affirmed in written consent. The state's stringent approach involves conducting background checks to uphold safety standards. Notably, caregivers are limited to assisting only one patient at a time and are prohibited from receiving compensation for their services, emphasizing their role as supportive aids rather than commercial entities.</p>
+                            <p>The caregiver registry process in Illinois entails a series of steps designed to establish the legitimacy and credibility of caregivers. These steps include the submission of a caregiver application either alongside the designated patient's application or as an independent submission at a later point. An application fee is applicable, with options for one-, two-, or three-year cards. The inclusion of a passport-size photograph taken against a plain white background is mandatory, and proof of Illinois residency via two separate documents is required. Additionally, caregivers must verify their age and identity by providing a copy of a valid government-issued photo ID. Through this comprehensive process, Illinois ensures that registered caregivers are equipped to provide reliable and responsible assistance to those in need of medical cannabis support.</p>
+                        </div>
+                    },
+                    {
+                        title: "Lab Testing",
+                        content: <p>The CRTA mandates strict testing regulations for cannabis products sold in dispensaries. Products are tested for potency, contaminants, and quality to ensure consumer safety.</p>
+                    },
+                    {
+                        title: "Frequently Asked Questions",
+                        content: <div>
+                            <ol>
+                                <li>Can I travel with marijuana in Illinois?</li>
+                                <p>Yes, as long as you are within possession limits and following all legal guidelines within the state.</p>
+                                <li>Can I sell marijuana without a license?</li>
+                                <p>No, selling marijuana without a licence is illegal and can result in criminal charges.</p>
+                                <li> Can out-of-state visitors purchase marijuana?</li>
+                                <p>Yes, visitors aged 21 and older can purchase and possess marijuana, but they must adhere to possession limits.</p>
+                                <li>Can I use marijuana in my apartment if it's smoke-free?</li>
+                                <p>Landlords have the right to prohibit marijuana use on their property, even if it's legal. Check your lease agreement and local laws.</p>
+                                <li> Is driving under the influence of marijuana legal?</li>
+                                <p>No, driving while impaired by marijuana is illegal and can result in DUI charges.</p>
+                            </ol>
+                        </div>
+                    }
+                ]
+            },
+            {
+                id: 14,
+                name: "Indiana",
+                content: [
+                    {
+                        title: "Cannabis Law in Indiana",
+                        content: <div>
+                            <h2>Introduction</h2>
+                            <p>As the landscape of marijuana laws continues to evolve across the United States, it's important to understand the specific regulations that govern each state. Indiana, known for its conservative stance on cannabis, has unique laws and policies surrounding its use and possession. Whether you're an Indiana resident or simply curious about the legal framework, this comprehensive guide will shed light on the marijuana laws in the Hoosier State.</p>
+                        </div>
+                    },
+                    {
+                        title: "Is Weed Legal in Indiana?",
+                        content: <div>
+                            <p>No, recreational marijuana is not legal in Indiana. The state has some of the strictest marijuana laws in the country, with both medical and recreational use prohibited. Possession, sale, and cultivation of marijuana for recreational purposes are illegal and can result in serious legal consequences.</p>
+                        </div>
+                    },
+                    {
+                        title: "Legislation History in Indiana",
+                        content: <div>
+                            <p>Indiana's journey through the realm of cannabis legislation is a tale of evolving perspectives and gradual changes. Dating back to 1913, Indiana was among the early adopters of stringent regulations, banning the sale of marijuana without a prescription. The transformative influence of Harry Anslinger's Marihuana Tax Act in 1937 further solidified Indiana's conservative stance, paving the way for some of the nation's most stringent cannabis laws.    </p>
+                            <p>The push for legislative change gained momentum in 2013, though initial attempts to decriminalize small amounts of marijuana faced setbacks. It wasn't until April 2017 that a breakthrough occurred with Governor Eric Holcomb's signing of HB 1148, allowing the use of CBD oil with minimal THC content for patients grappling with uncontrollable seizures. While this law marked a significant step forward, the absence of clear purchasing pathways led to subsequent refinement. In a positive stride, the landscape shifted in March 2018 with the introduction of SB 52. This comprehensive legislation not only expanded CBD access for diverse purposes, as long as THC content remained below 0.3%, but also established stringent testing and labeling standards. Effective from July 1, 2018, SB 52 underscored Indiana's journey towards a nuanced cannabis landscape that emphasizes patient needs and safety.</p>
+                        </div>
+                    },
+                    {
+                        title: "Cannabis Possession in Indiana",
+                        content: <p>Possession of even small amounts of marijuana is considered a crime in Indiana. Any possession of marijuana, including paraphernalia, is classified as a misdemeanor or even a felony depending on the amount. The penalties can include fines, probation, and incarceration.</p>
+                    },
+                    {
+                        title: "Where is it Safe to Purchase Weed in Indiana?",
+                        content: <p>Marijuana remains illegal for both medical and recreational use in Indiana, thus there are no licensed dispensaries to purchase cannabis products. It's crucial to be aware that attempting to purchase marijuana from illegal sources can lead to serious legal consequences.</p>
+                    },
+                    {
+                        title: "Is Home Cultivation Allowed in Indiana?",
+                        content: <p>No, home cultivation of marijuana is not permitted in Indiana. Regardless of the purpose, growing cannabis plants at home is considered illegal and can result in criminal charges.</p>
+                    },
+                    {
+                        title: "Finding Licensed Dispensaries in Indiana",
+                        content: "As marijuana is not legal for either medical or recreational use in Indiana, there are no licensed dispensaries operating in the state. It's important to stay informed about the laws and regulations surrounding marijuana to avoid any legal complications."
+                    },
+                    {
+                        title: "Medical Marijuana in Indiana?",
+                        content: <p>Indiana has not legalized medical marijuana, and there is no legal framework for patients to access medical cannabis as a treatment option. Residents with debilitating medical conditions do not have the option to obtain medical marijuana prescriptions.</p>
+                    },
+                    {
+                        title: "Frequently Asked Questions",
+                        content: <div>
+                            <ol>
+                                <li>Can I possess a small amount of marijuana in Indiana for personal use?</li>
+                                <p>No, possession of any amount of marijuana is illegal in Indiana.</p>
+                                <li>Are there any circumstances under which medical marijuana is allowed?</li>
+                                <p>As of now, medical marijuana is not legally allowed in Indiana.</p>
+                                <li>Can I grow a few marijuana plants at home for personal use?</li>
+                                <p>Home cultivation of marijuana is not allowed in Indiana.</p>
+                                <li>Are there any pending bills to legalize marijuana in Indiana?</li>
+                                <p>There have been discussions about potential changes to marijuana laws in Indiana, but as of now, marijuana remains illegal for both medical and recreational use.</p>
+                                <li>What are the penalties for possessing marijuana in Indiana?</li>
+                                <p>Penalties for marijuana possession in Indiana vary based on the amount and can range from fines to incarceration.</p>
+                            </ol>
+                        </div>
+                    }
+                ]
+            },
+            {
+                id: 15,
+                name: "Kansas",
+                content: [
+                    {
+                        title: "Is weed legal in Kansas?",
+                        content: <p>The question of whether marijuana is legal in Kansas often sparks confusion due to the evolving nature of cannabis legislation across the United States. To put it succinctly, marijuana remains illegal for both recreational and medical use in the state of Kansas. The possession, sale, and cultivation of marijuana are subject to stringent legal penalties, making it crucial for residents and visitors alike to understand the intricacies of Kansas' marijuana laws. </p>
+                    },
+                    {
+                        title: "Legislation History in Kansas",
+                        content: <div>
+                            <p>Before the 2018 legislative session, Kansas stood as one of the strictest enforcers of anti-cannabis laws across the United States, its approach mirroring the trend that saw most states west of the Mississippi River instituting marijuana bans in 1927. Through the years, the state's stance on the plant scarcely wavered, maintaining an unyielding prohibitionist outlook.</p>
+                            <p>However, a turning point emerged on April 20, 2018, when Governor Jeff Colyer inked SB 263 into law, a bill often referred to as the Alternative Crop Research Act. This pivotal legislation directed the Kansas Department of Agriculture (KDA) to collaborate with public universities in launching a comprehensive program dedicated to exploring the potential of industrial hemp. This crop, defined as cannabis containing no more than 0.3% THC, the psychoactive compound in marijuana, opened a pathway toward expanded research and a glimmer of change in Kansas' cannabis landscape. Swiftly following this, on May 24, 2018, Colyer's signature graced SB 282, which specifically redefined marijuana's legal boundaries to exclude cannabidiol (CBD). This strategic move effectively legalized the widespread use of CBD products, provided they contained absolutely no THC.</p>
+                            <p>Governor Laura Kelly added another layer to this evolving cannabis narrative in 2019 with the endorsement of SB 28, fondly known as Claire and Lola's Law. This legislation introduced an "affirmative defense" mechanism designed to shield patients, as well as parents or guardians of patients, who possessed and used CBD oil boasting less than 5% THC content. While this defense offers protection, it doesn't eliminate the risk of arrest, charges, or pre-trial detention. To avail themselves of this safeguard, those affected must possess a doctor's letter, issued by a Kansas-licensed physician, detailing the patient's "debilitating medical condition." This documentation, printed on official letterhead and dated within the past 15 months, doesn't specify a list of conditions but emphasizes the requirement for a medically diagnosed ailment impeding strength or function, including seizure disorders. This step marked a small but notable stride toward a more nuanced approach to cannabis in the state.</p>
+                        </div>
+                    },
+                    {
+                        title: "Medical Marijuana in Kansas?",
+                        content:
+                            <p>As of my last knowledge update in September 2021, Kansas had not legalised medical marijuana. However, it's important to stay updated on legislative changes, as attitudes and laws regarding cannabis are shifting across the country. At that time, patients seeking medical cannabis had to explore options in neighbouring states where medical marijuana programs were established.</p>
+                    },
+                    {
+                        title: "Where is it safe to consume cannabis in Kansas?",
+                        content:
+                            <p>Kansas' strict marijuana laws extend to consumption as well. The state's "zero tolerance" policy prohibits the consumption of marijuana in any form. Public consumption, even of a small amount, can lead to criminal charges. It's essential to understand that while attitudes toward cannabis may be shifting in some parts of the U.S., Kansas remains firm in its stance against recreational use.</p>
+                    },
+                    {
+                        title: "Lab Testing",
+                        content: <p>In states where marijuana is legal, lab testing ensures the safety and quality of cannabis products. However, due to Kansas' strict laws, there is no legal market for cannabis products, and thus, the need for lab testing in this context is not applicable.</p>
+                    },
+                    {
+                        title: "Frequently Asked Questions",
+                        content: <div>
+                            <ol>
+                                <li>Can I possess a small amount of marijuana for personal use in Kansas?</li>
+                                <p>No, possession of marijuana, regardless of quantity, is illegal in Kansas.</p>
+                                <li>Can I use medical marijuana if I have a valid prescription from another state?</li>
+                                <p>Kansas does not recognize out-of-state medical marijuana prescriptions. Possession and use of marijuana, even for medical purposes, remain illegal.</p>
+                                <li>What are the penalties for marijuana possession in Kansas?</li>
+
+                                <p>Penalties for marijuana possession in Kansas can range from fines to potential jail time, depending on the amount and circumstances.</p>
+                                <li>Is there any hope for marijuana legalization in Kansas in the future?</li>
+                                <p>While the possibility of legalization is always present, as of my last update in September 2021, there were no significant moves toward marijuana legalization in Kansas. However, the landscape of cannabis legislation can change, so it's important to stay informed about potential changes.</p>
+                            </ol>
+                        </div>
+                    },
+
+                ]
+            },
+            {
+                id: 16,
+                name: "Kentucky",
+                content: [
+                    {
+                        title: "Is Weed Legal in Kentucky?",
+                        content: <p>The status of marijuana legality in the United States has undergone significant changes over the past decade, but as of now, marijuana remains illegal for both recreational and most medical uses in Kentucky. The Bluegrass State has upheld strict regulations on cannabis, making it essential for residents and visitors to grasp the complexities of Kentucky's marijuana laws.</p>
+                    },
+                    {
+                        title: "Legislation History in Kentucky",
+                        content: <div>
+                            <p>Long before President Richard Nixon's infamous "war on drugs," Kentucky held a distinct reputation as a prolific source of hemp crops within the continental United States. Dating back to 1775, the state pioneered hemp cultivation and maintained its status as a primary supplier well into the 20th century. An integral part of Kentucky's agricultural heritage, hemp was interwoven into the fabric of the state's history.</p>
+                            <p>However, the tide of anti-cannabis sentiment surged in the late 1930s, prompting the eradication of hemp in Kentucky. This wave of propaganda prevailed despite a temporary resurgence during the 1940s when the state encouraged hemp cultivation to counter the import of jute from Asia. Cannabis, in various forms, remained under prohibition until 2014 when the cultivation of hemp gained legality through the passage of the 2014 Farm Bill. Simultaneously, in a stride toward medical accessibility, Governor Steve Beshear signed SB 124 into law, permitting patients to utilize non-intoxicating cannabidiol (CBD) products under the guidance of a physician's written order.</p>
+                            <p>In 2017, a new chapter in Kentucky's cannabis narrative began as lawmakers ushered in HB 333, a milestone legislation that broadly legalized the consumption and retail sale of hemp and hemp-derived CBD products containing 0.3% THC or less. This marked a noteworthy shift from the state's earlier anti-cannabis stance and aligned with the broader nationwide discourse surrounding the potential benefits of cannabis-derived products. Kentucky's trajectory from being a hemp haven to introducing legislative reforms exemplifies the evolving attitudes and policies that are shaping the cannabis landscape in the state and beyond.</p>
+                        </div>
+                    },
+                    {
+                        title: "Medical Marijuana in Kentucky?",
+                        content:
+                            <p>As of my last update in September 2021, Kentucky had introduced limited provisions for medical marijuana use. In 2014, the state passed a law allowing the use of low-THC cannabidiol (CBD) oil for specific medical conditions. However, the law was restrictive in its scope, and broader medical marijuana programs had not been implemented at that time. It's important to stay informed about any developments in Kentucky's medical marijuana legislation, as attitudes and laws are evolving across the nation.</p>
+                    },
+                    {
+                        title: "Where is it Safe to Consume Cannabis in Kentucky?",
+                        content:
+                            <p>Kentucky maintains strict laws against public consumption of cannabis. Whether for medical or recreational use, it is illegal to consume marijuana in public spaces. Private property is typically the only permissible location for consumption, but even then, it's crucial to be aware of potential legal and social ramifications.</p>
+                    },
+                    {
+                        title: "Lab Testing",
+                        content:
+                            <p>In states with legal marijuana markets, lab testing plays a pivotal role in ensuring the safety and quality of cannabis products. However, due to Kentucky's current laws, there is no legal framework for cannabis sales, which renders the issue of lab testing largely irrelevant within the state's context.</p>
+                    },
+
+                    {
+                        title: "Frequently Asked Questions",
+                        content: <div>
+                            <ol>
+                                <li>Can I possess a small amount of marijuana for personal use in Kentucky?</li>
+                                <p>No, possession of marijuana for recreational use is illegal in Kentucky and can result in legal penalties.</p>
+                                <li>What medical conditions qualify for the use of CBD oil in Kentucky?</li>
+                                <p>As of my last update, Kentucky allowed the use of low-THC CBD oil for individuals diagnosed with intractable epilepsy or related disorders. The list of qualifying conditions may have evolved, so it's important to stay informed.</p>
+                                <li>Are there any efforts to legalize recreational marijuana in Kentucky?</li>
+
+                                <p>As of my last update, there were no significant moves toward recreational marijuana legalization in Kentucky. However, the landscape of cannabis legislation can change, so it's advisable to stay informed about potential developments. </p>
+                                <li>Can I travel to a neighboring state with legalized marijuana and bring it back to Kentucky?</li>
+                                <p>No, transporting marijuana across state lines, even from a legalized state, remains illegal according to federal law. This could lead to serious legal consequences.</p>
+                            </ol>
+                        </div>
+                    },
+
+                ]
+            },
+            {
+                id: 17,
+                name: "Louisiana",
+                content: [
+                    {
+                        title: "Is Weed Legal in Louisiana?",
+                        content:
+                            <p>Navigating the intricate web of marijuana laws across the United States can be challenging. As of my last update in September 2021, Louisiana maintains a nuanced stance on marijuana. While the state has taken steps toward medical cannabis legalization, recreational use remains illegal. Understanding the nuances of Louisiana's marijuana laws is essential to avoid legal complications.</p>
+                    },
+                    {
+                        title: "Legislation History in Louisiana",
+                        content: <div>
+                            <p>In 1991, Act No. 874 marked a pivotal moment in Louisiana's medical marijuana journey by legalizing its use. However, the wording of the law, specifically the term "prescribe," created a clash with federal law enforcement, leaving doctors in a complex situation. Despite this step, the legislation lacked provisions for distribution, sale, and possession of medical cannabis, presenting challenges for patients in need.</p>
+                            <p>Subsequent legislation, notably SB No. 541, aimed to refine the state's medical marijuana framework. It tasked the Department of Health and Hospitals (DHH) with overseeing the Therapeutic Marijuana Utilization Board and streamlining the licensing of doctors, producers, and pharmacies. Nonetheless, these efforts fell short of effectively delivering medical cannabis to patients, leaving them in a state of uncertainty.</p>
+                            <p>The turning point came in 2016 when Gov. John Bel Edwards signed SB 271 into law, establishing Louisiana as the first Deep South state to develop a comprehensive medical marijuana program. By removing the term "prescribe," the legislation allowed physicians to recommend cannabis to patients, aligning with federal regulations that categorize marijuana as a Schedule I drug. This pivotal move was accompanied by a mandate for medical cannabis to be provided in processed, non-smokable forms and distributed through a limited number of pharmacies. LSU and Southern University were granted the first opportunity to become licensed marijuana production centers, with provisions for an additional producer. However, the program's implementation faced delays due to legislative alterations, supply chain challenges, and a dearth of testing facilities.</p>
+                            <p>In 2018, Louisiana's medical marijuana landscape continued to evolve as Governor Edwards signed HB 579 and HB 627 into law. These bills expanded the range of qualifying conditions for medical cannabis use and empowered LSU and Southern University to conduct research on the medicinal benefits of marijuana. The following year, the Louisiana Board of Medical Examiners abolished a restriction that limited doctors to treating a maximum of 100 patients through the state's medical marijuana program. Additionally, the requirement for patients to renew their medical cannabis orders every 90 days was eliminated.</p>
+                            <p>The year 2020 brought about further changes despite the challenges posed by the global pandemic. Louisiana passed three laws relevant to its medical marijuana program. HB 211, HB 418, and HB 819 collectively aimed to protect medical professionals, hospitals, and patients. HB 819 proved particularly transformative by broadening the list of qualifying conditions and granting physicians the authority to recommend marijuana for any debilitating condition they are qualified to treat, provided they believe the patient will benefit.
+
+                                Louisiana's journey with medical marijuana showcases the gradual evolution of its laws, from the initial hurdles to the progressive changes that have expanded patient access and medical research opportunities. As the legal landscape continues to shift, Louisiana remains a testament to the power of legislative adaptability and the growing recognition of cannabis' potential therapeutic value.
+                            </p>
+                        </div>
+                    },
+                    {
+                        title: "Cannabis Possession in Louisiana",
+                        content:
+                            <p>Possession of marijuana, even in small quantities, remains illegal in Louisiana for recreational use. However, medical marijuana patients registered with the state are permitted to possess specific amounts as determined by their treatment plan.</p>
+                    },
+                    {
+                        title: "Where is it Safe to Purchase Weed in Louisiana?",
+                        content:
+                            <p>As of my last update, Louisiana had established a framework for medical marijuana dispensaries, but there were no legal avenues for purchasing marijuana for recreational use. Only registered medical marijuana patients can access state-licensed dispensaries.</p>
+                    },
+                    {
+                        title: "Where is it Safe to Consume Cannabis in Louisiana?",
+                        content:
+                            <p>Louisiana's strict laws extend to consumption as well. Public consumption of marijuana is illegal and can lead to legal consequences. Consumption should be confined to private spaces.</p>
+                    },
+                    {
+                        title: "Is Home Cultivation Allowed in Louisiana?",
+                        content:
+                            <p>Louisiana does not permit home cultivation of marijuana plants, even for medical purposes. Medical marijuana is only available through state-licensed dispensaries.</p>
+                    },
+                    {
+                        title: "Finding Licensed Dispensaries in Louisiana",
+                        content:
+                            <p>Registered medical marijuana patients in Louisiana have access to a limited number of licensed dispensaries. These dispensaries provide a range of medical cannabis products, subject to strict regulations and oversight.</p>
+                    },
+                    {
+                        title: "Medical Marijuana in Louisiana?",
+                        content:
+                            <p>Louisiana established a medical marijuana program in 2015, allowing patients with specific medical conditions to access medical cannabis. The program is tightly regulated, and patients must be approved by a qualified physician and registered with the state.</p>
+                    },
+                    {
+                        title: "Caregivers in Louisiana",
+                        content:
+                            <p>Qualified patients in Louisiana can designate a caregiver to assist with obtaining and administering medical marijuana. Caregivers undergo a registration process and play a crucial role in supporting patients' medical needs.</p>
+                    },
+
+                    {
+                        title: "Lab Testing",
+                        content: <p>In states with legal marijuana programs, lab testing is a vital aspect of ensuring the safety and quality of cannabis products. Similar protocols are in place for medical cannabis in Louisiana, with products undergoing rigorous lab testing to meet regulatory standards.</p>
+                    },
+                    {
+                        title: "Frequently Asked Questions",
+                        content: <div>
+                            <ol>
+                                <li>Can I possess a small amount of marijuana for personal use in Louisiana?</li>
+                                <p>Recreational use of marijuana remains illegal in Louisiana, and possession can result in legal consequences.</p>
+                                <li>How can I access medical marijuana in Louisiana?</li>
+                                <p>Qualified patients must be diagnosed with specific medical conditions and obtain a recommendation from a registered physician. Registration with the state's medical marijuana program is required.</p>
+                                <li>Can I grow my own marijuana plants if I'm a registered medical marijuana patient?</li>
+                                <p>A: No, home cultivation is not allowed in Louisiana. Medical marijuana is only available through licensed dispensaries.</p>
+                                <li>Are there specific medical conditions that qualify for medical marijuana in Louisiana?</li>
+                                <p>Yes, the state has a list of qualifying medical conditions, including conditions like cancer, epilepsy, and multiple sclerosis. However, it's important to consult the most up-to-date list as it may evolve over time.</p>
+                                <li>Can I consume medical marijuana in public places?</li>
+                                <p>No, public consumption of marijuana, whether medical or recreational, is illegal in Louisiana. Consumption should be limited to private spaces.</p>
+                            </ol>
+                        </div>
+                    },
+
+                ]
+            },
+            {
+                id: 18,
+                name: "lowa",
+                content: [
+                    {
+                        title: "Cannabis Law In lowa",
+                        content: <p>As states across the nation grapple with the evolving landscape of marijuana legislation, Iowa maintains a distinct approach to cannabis. Whether you're an Iowa resident or curious about the state's stance, this comprehensive guide sheds light on the intricacies of marijuana laws in the Hawkeye State.</p>
+                    },
+                    {
+                        title: "Is Weed Legal in Iowa?",
+                        content: <div>
+                            <p>No, marijuana is not legal for recreational use in Iowa. The state maintains strict regulations against the possession, sale, and use of marijuana for non-medical purposes. However, Iowa has taken steps to provide access to medical marijuana for qualifying patients.</p>
+                        </div>
+                    },
+                    {
+                        title: "Legislation History in Iowa",
+                        content:
+                            <div>
+                                <p>In Iowa, the legal status of marijuana underscores a clear distinction between recreational and medical use. Recreational marijuana remains prohibited, with stringent regulations governing possession, sale, and consumption. Despite this stance, Iowa has proactively introduced measures to grant access to medical marijuana for individuals who meet specific criteria.</p>
+                                <p>The journey towards medical marijuana in Iowa began with the passage of the Medical Cannabidiol Act (SF 2360) in 2014. This pivotal legislation empowered licensed neurologists to certify patients suffering from intractable epilepsy for the use of CBD products containing 3% or less THC. Although this decriminalized the possession of cannabis oil tailored exclusively for chronic epilepsy treatment, avenues for its acquisition remained unaddressed. Building on this foundation, Gov. Terry Branstad's endorsement of the 2017 Medical Cannabidiol Act (HF 524) expanded the scope. This act not only introduced additional qualifying conditions but also tasked the Iowa Department of Public Health (IDPH) with the licensing of dispensaries, creating a more comprehensive framework</p>
+                                <p>In subsequent years, Iowa's legislature deliberated potential amendments to the Medical Cannabidiol Act, although none were officially adopted. However, a significant breakthrough emerged in June 2020, when Gov. Kim Reynolds signed HF 2589 into law. This transformative legislation not only broadened the range of qualifying conditions but also extended the list of authorized medical professionals who could recommend medical cannabis. Notably, the law also revised the permissible THC content, shifting from products with 3% or less THC to a cumulative total of 4.5 grams of THC over a 90-day period. This progressive evolution showcases Iowa's commitment to expanding medical marijuana accessibility while maintaining a measured and regulated approach.</p>
+                            </div>
+                    },
+                    {
+                        title: "Cannabis Possession in Iowa",
+                        content:
+                            <p>Iowa has some of the nation's strictest possession laws. Any form of marijuana possession for recreational use is considered a serious criminal offense. Possession of any amount can result in severe penalties, including fines and potential incarceration. Medical marijuana patients, however, are afforded certain possession allowances under the state's medical cannabis program.</p>
+                    },
+                    {
+                        title: "Where is it Safe to Purchase Weed in Iowa?",
+                        content:
+                            <div>
+                                <p>In Iowa's regulated medical CBD landscape, registered patients and caregivers gain access to therapeutic options through licensed dispensaries. A noteworthy aspect of this system is the provision that permits the purchase of medical CBD products containing up to 4.5 grams of total THC within a 90-day interval. This quantity can be augmented based on recommendations from treating physicians, particularly for patients facing terminal illnesses or those who require additional relief beyond the standard limit.</p>
+                                <p>Iowa's approach to approved products showcases a methodical and comprehensive framework. Sourced from a single manufacturer, these products are available in varying CBD to THC ratios, including 20:1, 2:1, 1:1, and 1:20. The administration methods approved for medical CBD encompass a range of options, from nebulizable forms suitable for nebulizers, to oral methods such as capsules, liquids, and tablets. Patients can also choose from sublingual, suppository, rectal, vaginal, and topical forms such as creams, gels, lotions, ointments, and transdermal patches. Vaporizable options, including vapes, are also part of the array. However, it's important to note that CBD flower is not legally permissible, and cultivation is strictly prohibited under Iowa's regulations. This intricately structured approach ensures that registered individuals have access to a diverse range of medical CBD options while upholding responsible and safe consumption practices.</p>
+                            </div>
+                    },
+                    {
+                        title: "Is Home Cultivation Allowed in Iowa?",
+                        content:
+                            <p>Home cultivation of marijuana for both medical and recreational use is not permitted in Iowa. The state does not allow individuals to grow their own cannabis plants.</p>
+                    },
+                    {
+                        title: "inding Licensed Dispensaries in Iowa",
+                        content:
+                            <p>For medical marijuana patients, finding licensed dispensaries is essential. The Iowa Department of Public Health oversees the registration of dispensaries, ensuring that patients have access to regulated and safe cannabis products.</p>
+                    },
+                    {
+                        title: "Medical Marijuana in Iowa?",
+                        content:
+                            <p>Iowa operates a limited medical cannabis program. Qualifying patients with certain medical conditions can apply for a medical marijuana card, allowing them to obtain cannabis products from licensed dispensaries.</p>
+                    },
+                    {
+                        title: "Caregivers in Iowa",
+                        content: <div>
+                            <p>In Iowa's medical CBD program, the inclusion of caregivers is a significant aspect, ensuring that patients, particularly minors, receive the necessary support. For adult patients, the process involves designating a caregiver during their registration application. This step is followed by providing the caregiver with the patient's application number, which the caregiver utilizes for their own registration process. In the case of minor patients, the healthcare practitioner form suffices, with the designated caregiver's name specified. </p>
+                            <p>With either the patient's application number or the minor patient's practitioner form in hand, the caregiver can proceed with their own application submission. This requires the inclusion of a valid photo ID, such as a driver's license from eligible states like Iowa, Illinois, Minnesota, Missouri, Nebraska, South Dakota, or Wisconsin, as well as the Iowa state ID card. A payment of $25 completes the application process, culminating in the issuance of temporary caregiver cards via email, while permanent cards are subsequently mailed.</p>
+                            <p>The inclusion of caregivers underscores Iowa's commitment to catering to a range of patient needs, especially those who require assistance, whether due to their age or medical condition. By streamlining the caregiver application process and ensuring clarity in the required documentation, Iowa's program aims to provide patients and their designated caregivers with a straightforward pathway to accessing medical CBD products. This approach emphasizes patient well-being and support while maintaining regulatory integrity.</p>
+                        </div>
+                    },
+
+                    {
+                        title: "Lab Testing",
+                        content: <p>Iowa's medical cannabis program emphasizes patient safety through rigorous lab testing of cannabis products. This testing ensures that products are free from contaminants and meet quality standards.</p>
+
+                    },
+                    {
+                        title: "Frequently Asked Questions",
+                        content: <div>
+                            <ol>
+                                <li>Can I use marijuana for recreational purposes in Iowa?</li>
+                                <p>No, recreational use of marijuana is illegal in Iowa.</p>
+                                <li>Can I grow my own marijuana plants at home?</li>
+                                <p>Home cultivation is not allowed in Iowa, whether for medical or recreational use.</p>
+                                <li>How can I become a medical marijuana patient in Iowa?</li>
+                                <p>Qualified patients with specific medical conditions can apply for a medical marijuana card through the state's registration process.</p>
+                                <li> Where can I find licensed dispensaries in Iowa?</li>
+                                <p>The Iowa Department of Public Health provides information about registered dispensaries.</p>
+                                <li> What medical conditions qualify for the medical marijuana program in Iowa?</li>
+                                <p>The specific list of qualifying conditions is determined by the state's Medical Cannabidiol Board and may change over time.</p>
+                            </ol>
+                        </div>
+                    },
+
+                ]
+            },
+            {
+                id: 19,
+                name: "Maine",
+                content: [
+                    {
+                        title: "Is Weed Legal in Maine?",
+                        content: <p>The landscape of marijuana laws in the United States is a complex tapestry, and Maine has woven its unique pattern within this fabric. As of my last update in September 2021, Maine has legalized both recreational and medical use of marijuana for adults. However, understanding the intricacies of Maine's marijuana laws is essential to navigate this evolving terrain. </p>
+                    },
+                    {
+                        title: "Legislation History in Maine",
+                        content: <div>
+                            <p>On November 2, 1999, Ballot Question 2, also known as the Maine Medical Marijuana for Specific Illnesses, was approved by 61% of the voters, heralding a significant step in the state's approach to medical cannabis. This marked the legalization of medical marijuana for individuals grappling with severe health conditions. A decade later, in 2009, Maine took further strides with the passage of the Maine Medical Marijuana Act, broadening the existing program and decriminalizing possession of up to 2.5 ounces (71 grams) of cannabis. This legislation established the Maine Medical Use of Marijuana Program (MMMP) and introduced a framework for nonprofit dispensaries and cultivators to operate within.</p>
+                            <p>Subsequently, on November 8, 2016, a pivotal moment arrived when Maine voters approved An Act to Legalize Marijuana, permitting adults aged 21 and above to possess, consume, and cultivate marijuana for personal use. However, the path to this approval was not without challenges. After the initial legislation's passage, a series of amendments and negotiations, including overcoming vetoes, led to the eventual enactment of an amended law, LD 1719. This revised law introduced regulations for recreational cannabis sales, outlined the parameters for home cultivation, and deferred the consideration of cannabis social clubs until 2023, making private property the sole venue for recreational cannabis consumption. Notably, the revised law aimed to prioritize Mainers in obtaining commercial licenses for cannabis businesses, a provision that was eventually challenged and struck down in 2020 due to legal disputes. The complexities and adjustments in Maine's journey culminated in the issuance of recreational retail licenses in September 2020, reflecting the evolving and often intricate nature of marijuana legislation in the state.</p>
+                        </div>
+                    },
+                    {
+                        title: "Cannabis Possession in Maine",
+                        content:<p>Qualified patients and caregivers in Maine are granted specific possession allowances, including up to 2.5 ounces (71 grams) of prepared marijuana, six mature plants, 12 immature female plants, an unlimited number of seedlings, and a maximum of 8 pounds (3.6 kilograms) of dried marijuana. For recreational users, possession limits entail 2.5 ounces (71 grams) of marijuana and up to 5 grams of concentrate, as well as the privilege to cultivate three mature plants, 12 immature plants, and an unlimited number of seedlings. Moreover, recreational users can gift up to six immature plants, given that the recipients are adults aged 21 or above and no charge is involved. These regulations highlight the distinctions between medical and recreational marijuana allowances, delineating the parameters within which users can legally possess and share cannabis in the state of Maine.</p>
+                          
+                    },
+                    {
+                        title: "Where is it Safe to Purchase Weed in Maine?",
+                        content:
+                        <p>Maine has established a system for licensed marijuana dispensaries where adults can legally purchase recreational cannabis. These dispensaries adhere to strict regulations and guidelines to ensure safety and quality.</p>
+                    },
+                    {
+                        title: "Where is it Safe to Consume Cannabis in Maine?",
+                        content:
+                            <div>
+                                <p>While the consumption of recreational marijuana is legal in Maine, it's important to follow consumption guidelines. Public consumption is prohibited, and marijuana use is limited to private spaces such as one's home. It's essential to be respectful of local regulations and the comfort of those around you.</p>
+                            </div>
+                    },
+                    {
+                        title: "Is Home Cultivation Allowed in Maine?",
+                        content:<p>Maine allows adults to cultivate their own marijuana plants for personal use. Adults aged 21 and older can grow up to three mature plants, three immature plants, and possess an unlimited amount of seedlings.</p>
+                    },
+                    {
+                        title: "Finding Licensed Dispensaries in Maine",
+                        content:<p>Licensed dispensaries are scattered across Maine, providing safe access to quality cannabis products for recreational users. These dispensaries are regulated by the state and adhere to strict quality control measures.</p>
+                    },
+                    {
+                        title: "Medical Marijuana in Maine?",
+                        content:<p>Maine has long recognized the benefits of medical marijuana. Qualified patients with debilitating medical conditions can access medical cannabis with a valid recommendation from a registered physician. This program provides patients with options tailored to their medical needs.
+                        </p>
+                    },
+                    {
+                        title: "Caregivers in Iowa",
+                        content: <div>
+                            <p>In Iowa's medical CBD program, the inclusion of caregivers is a significant aspect, ensuring that patients, particularly minors, receive the necessary support. For adult patients, the process involves designating a caregiver during their registration application. This step is followed by providing the caregiver with the patient's application number, which the caregiver utilizes for their own registration process. In the case of minor patients, the healthcare practitioner form suffices, with the designated caregiver's name specified. </p>
+                            <p>With either the patient's application number or the minor patient's practitioner form in hand, the caregiver can proceed with their own application submission. This requires the inclusion of a valid photo ID, such as a driver's license from eligible states like Iowa, Illinois, Minnesota, Missouri, Nebraska, South Dakota, or Wisconsin, as well as the Iowa state ID card. A payment of $25 completes the application process, culminating in the issuance of temporary caregiver cards via email, while permanent cards are subsequently mailed.</p>
+                            <p>The inclusion of caregivers underscores Iowa's commitment to catering to a range of patient needs, especially those who require assistance, whether due to their age or medical condition. By streamlining the caregiver application process and ensuring clarity in the required documentation, Iowa's program aims to provide patients and their designated caregivers with a straightforward pathway to accessing medical CBD products. This approach emphasizes patient well-being and support while maintaining regulatory integrity.</p>
+                        </div>
+                    },
+
+                    {
+                        title: "Lab Testing",
+                        content: <p>Iowa's medical cannabis program emphasizes patient safety through rigorous lab testing of cannabis products. This testing ensures that products are free from contaminants and meet quality standards.</p>
+
+                    },
+                    {
+                        title: "Frequently Asked Questions",
+                        content: <div>
+                            <ol>
+                                <li>Can I use marijuana for recreational purposes in Iowa?</li>
+                                <p>No, recreational use of marijuana is illegal in Iowa.</p>
+                                <li>Can I grow my own marijuana plants at home?</li>
+                                <p>Home cultivation is not allowed in Iowa, whether for medical or recreational use.</p>
+                                <li>How can I become a medical marijuana patient in Iowa?</li>
+                                <p>Qualified patients with specific medical conditions can apply for a medical marijuana card through the state's registration process.</p>
+                                <li> Where can I find licensed dispensaries in Iowa?</li>
+                                <p>The Iowa Department of Public Health provides information about registered dispensaries.</p>
+                                <li> What medical conditions qualify for the medical marijuana program in Iowa?</li>
+                                <p>The specific list of qualifying conditions is determined by the state's Medical Cannabidiol Board and may change over time.</p>
+                            </ol>
+                        </div>
+                    },
+
+                ]
+            },
         ],
     },
 
@@ -1139,11 +1751,11 @@ const Content = [
                 ]
             },
             {
-                id:2,
-                name:"British Columbia",
-                content:[
+                id: 2,
+                name: "British Columbia",
+                content: [
                     {
-                        title:"Is weed legal in British Columbia?"
+                        title: "Is weed legal in British Columbia?"
                     }
                 ]
             }
