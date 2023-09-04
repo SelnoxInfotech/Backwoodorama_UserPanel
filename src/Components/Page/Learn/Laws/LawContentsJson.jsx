@@ -1571,13 +1571,13 @@ const Content = [
                     },
                     {
                         title: "Cannabis Possession in Maine",
-                        content:<p>Qualified patients and caregivers in Maine are granted specific possession allowances, including up to 2.5 ounces (71 grams) of prepared marijuana, six mature plants, 12 immature female plants, an unlimited number of seedlings, and a maximum of 8 pounds (3.6 kilograms) of dried marijuana. For recreational users, possession limits entail 2.5 ounces (71 grams) of marijuana and up to 5 grams of concentrate, as well as the privilege to cultivate three mature plants, 12 immature plants, and an unlimited number of seedlings. Moreover, recreational users can gift up to six immature plants, given that the recipients are adults aged 21 or above and no charge is involved. These regulations highlight the distinctions between medical and recreational marijuana allowances, delineating the parameters within which users can legally possess and share cannabis in the state of Maine.</p>
-                          
+                        content: <p>Qualified patients and caregivers in Maine are granted specific possession allowances, including up to 2.5 ounces (71 grams) of prepared marijuana, six mature plants, 12 immature female plants, an unlimited number of seedlings, and a maximum of 8 pounds (3.6 kilograms) of dried marijuana. For recreational users, possession limits entail 2.5 ounces (71 grams) of marijuana and up to 5 grams of concentrate, as well as the privilege to cultivate three mature plants, 12 immature plants, and an unlimited number of seedlings. Moreover, recreational users can gift up to six immature plants, given that the recipients are adults aged 21 or above and no charge is involved. These regulations highlight the distinctions between medical and recreational marijuana allowances, delineating the parameters within which users can legally possess and share cannabis in the state of Maine.</p>
+
                     },
                     {
                         title: "Where is it Safe to Purchase Weed in Maine?",
                         content:
-                        <p>Maine has established a system for licensed marijuana dispensaries where adults can legally purchase recreational cannabis. These dispensaries adhere to strict regulations and guidelines to ensure safety and quality.</p>
+                            <p>Maine has established a system for licensed marijuana dispensaries where adults can legally purchase recreational cannabis. These dispensaries adhere to strict regulations and guidelines to ensure safety and quality.</p>
                     },
                     {
                         title: "Where is it Safe to Consume Cannabis in Maine?",
@@ -1588,45 +1588,445 @@ const Content = [
                     },
                     {
                         title: "Is Home Cultivation Allowed in Maine?",
-                        content:<p>Maine allows adults to cultivate their own marijuana plants for personal use. Adults aged 21 and older can grow up to three mature plants, three immature plants, and possess an unlimited amount of seedlings.</p>
+                        content: <p>Maine allows adults to cultivate their own marijuana plants for personal use. Adults aged 21 and older can grow up to three mature plants, three immature plants, and possess an unlimited amount of seedlings.</p>
                     },
                     {
                         title: "Finding Licensed Dispensaries in Maine",
-                        content:<p>Licensed dispensaries are scattered across Maine, providing safe access to quality cannabis products for recreational users. These dispensaries are regulated by the state and adhere to strict quality control measures.</p>
+                        content: <p>Licensed dispensaries are scattered across Maine, providing safe access to quality cannabis products for recreational users. These dispensaries are regulated by the state and adhere to strict quality control measures.</p>
                     },
                     {
                         title: "Medical Marijuana in Maine?",
-                        content:<p>Maine has long recognized the benefits of medical marijuana. Qualified patients with debilitating medical conditions can access medical cannabis with a valid recommendation from a registered physician. This program provides patients with options tailored to their medical needs.
+                        content: <p>Maine has long recognized the benefits of medical marijuana. Qualified patients with debilitating medical conditions can access medical cannabis with a valid recommendation from a registered physician. This program provides patients with options tailored to their medical needs.
                         </p>
                     },
                     {
-                        title: "Caregivers in Iowa",
+                        title: "Caregivers in Maine",
                         content: <div>
-                            <p>In Iowa's medical CBD program, the inclusion of caregivers is a significant aspect, ensuring that patients, particularly minors, receive the necessary support. For adult patients, the process involves designating a caregiver during their registration application. This step is followed by providing the caregiver with the patient's application number, which the caregiver utilizes for their own registration process. In the case of minor patients, the healthcare practitioner form suffices, with the designated caregiver's name specified. </p>
-                            <p>With either the patient's application number or the minor patient's practitioner form in hand, the caregiver can proceed with their own application submission. This requires the inclusion of a valid photo ID, such as a driver's license from eligible states like Iowa, Illinois, Minnesota, Missouri, Nebraska, South Dakota, or Wisconsin, as well as the Iowa state ID card. A payment of $25 completes the application process, culminating in the issuance of temporary caregiver cards via email, while permanent cards are subsequently mailed.</p>
-                            <p>The inclusion of caregivers underscores Iowa's commitment to catering to a range of patient needs, especially those who require assistance, whether due to their age or medical condition. By streamlining the caregiver application process and ensuring clarity in the required documentation, Iowa's program aims to provide patients and their designated caregivers with a straightforward pathway to accessing medical CBD products. This approach emphasizes patient well-being and support while maintaining regulatory integrity.</p>
+                            <p>Maine's medical marijuana program includes provisions for caregivers who assist patients in accessing and administering medical cannabis. Caregivers play a crucial role in supporting patients' medical needs.</p>
                         </div>
                     },
 
                     {
                         title: "Lab Testing",
-                        content: <p>Iowa's medical cannabis program emphasizes patient safety through rigorous lab testing of cannabis products. This testing ensures that products are free from contaminants and meet quality standards.</p>
+                        content: <p>Lab testing is an integral part of Maine's regulated cannabis industry. Both medical and recreational cannabis products undergo rigorous testing to ensure quality, safety, and accurate labeling.</p>
 
                     },
                     {
                         title: "Frequently Asked Questions",
                         content: <div>
                             <ol>
-                                <li>Can I use marijuana for recreational purposes in Iowa?</li>
-                                <p>No, recreational use of marijuana is illegal in Iowa.</p>
-                                <li>Can I grow my own marijuana plants at home?</li>
-                                <p>Home cultivation is not allowed in Iowa, whether for medical or recreational use.</p>
-                                <li>How can I become a medical marijuana patient in Iowa?</li>
-                                <p>Qualified patients with specific medical conditions can apply for a medical marijuana card through the state's registration process.</p>
-                                <li> Where can I find licensed dispensaries in Iowa?</li>
-                                <p>The Iowa Department of Public Health provides information about registered dispensaries.</p>
-                                <li> What medical conditions qualify for the medical marijuana program in Iowa?</li>
-                                <p>The specific list of qualifying conditions is determined by the state's Medical Cannabidiol Board and may change over time.</p>
+                                <li>Can I purchase recreational marijuana from any dispensary in Maine?</li>
+                                <p>Yes, as long as you are 21 or older, you can purchase recreational marijuana from licensed dispensaries in the state.</p>
+                                <li>Are there limitations on the amount of marijuana I can possess as a recreational user?</li>
+                                <p>Yes, adults aged 21 and older can possess up to 2.5 ounces of marijuana or marijuana concentrate in public spaces and up to 10 ounces at home.</p>
+                                <li>Can I consume marijuana in public places in Maine?</li>
+                                <p>No, public consumption of marijuana is prohibited. Consumption should be limited to private spaces.</p>
+                                <li>Can I grow my own marijuana plants for recreational use in Maine?</li>
+                                <p>Yes, adults aged 21 and older can grow their own marijuana plants for personal use, following state cultivation limits.</p>
+                                <li>How do I become a registered medical marijuana patient in Maine?</li>
+                                <p>Qualified patients with debilitating medical conditions can obtain a medical marijuana recommendation from a registered physician to access medical cannabis.</p>
+                            </ol>
+                        </div>
+                    },
+
+                ]
+            },
+            {
+                id: 20,
+                name: "Maryland",
+                content: [
+                    {
+                        title: "Is Weed Legal in Maryland?",
+                        content: <p>The landscape of marijuana laws in the United States is diverse, and Maryland has established its unique stance within this intricate tapestry. As of my last update in September 2021, Maryland has taken steps toward both medical and decriminalized recreational use of marijuana. However, understanding the nuances of Maryland's marijuana laws is essential for residents and visitors alike.</p>
+                    },
+                    {
+                        title: "Legislation History in Maryland",
+                        content: <div>
+                            <p>Maryland's journey towards a comprehensive medical marijuana program took a significant stride with the enactment of HB 881, known as the Natalie M. LaPrade Medical Marijuana Commission legislation, in 2014 under the leadership of Gov. Martin O'Malley. This legislation marked the creation of the Natalie M. LaPrade Maryland Medical Cannabis Commission (MMCC), entrusted with the pivotal responsibility of formulating regulations governing the legal consumption, cultivation, possession, and distribution of cannabis products to patients aged 18 and older</p>
+                            <p>In a crucial step forward, the MMCC unveiled regulatory amendments in August 2019 that expanded the list of eligible providers to include dentists, certified nurse midwives, nurse practitioners, and podiatrists. These changes, accompanied by administrative adjustments, reflected the commission's commitment to ensuring a comprehensive and inclusive medical cannabis program for Maryland's residents.</p>
+                            <p>Playing a pivotal role in Maryland's medical marijuana landscape, the MMCC's oversight encompasses licensing, registration, inspection, and testing associated with the state's medical marijuana program. This includes the management of patient and caregiver registries, along with a vigilant focus on ensuring the safe and effective availability of medical marijuana to qualified individuals. As the state continues to refine its approach to medical cannabis, the MMCC stands as a crucial pillar in safeguarding the well-being of patients and the integrity of Maryland's medical marijuana program.</p>
+                        </div>
+                    },
+                    {
+                        title: "Cannabis Possession in Maryland",
+                        content: <div>
+                            <p>In Maryland, the legal possession of medical cannabis is strictly reserved for patients registered in the state's medical marijuana registry and their designated caregivers. Within each 30-day period, qualifying patients have the authority to possess a maximum of 120 grams (4 ounces) of dried cannabis or up to 36 grams (1 ounce) of THC in infused products. Health care providers have the flexibility to recommend less on the certification, while MMCC regulations prohibit home cultivation for both patients and caregivers.</p>
+                            <p>For those using cannabis for adult or recreational purposes, the state imposes specific possession limits and penalties. Possessing less than 10 grams of cannabis constitutes a civil offense, resulting in a fine that can amount to up to $100. Subsequent offenses can incur higher fines. However, possessing more than 10 grams or committing a fourth offense elevates the charge to a misdemeanor. This carries the potential penalty of up to one year in prison along with a fine of $1,000.</p>
+                            <p>Maryland's approach to marijuana legislation reflects a broader trend seen in many states, whereby the possession of small amounts of marijuana is decriminalized, leading to fines rather than criminal charges. These regulations seek to balance personal use with the necessity of adhering to legal limits, fostering a legal environment that promotes responsible consumption while minimizing undue legal consequences.</p>
+                        </div>
+
+                    },
+                    {
+                        title: "Where is it Safe to Purchase Weed in Maryland?",
+                        content: <p>Maryland has established a framework for licensed medical marijuana dispensaries, where registered patients can legally obtain medical cannabis products. These dispensaries adhere to stringent regulations to ensure the safety and quality of products.</p>
+                    },
+                    {
+                        title: "Where is it Safe to Consume Cannabis in Maryland?",
+                        content: <p>While Maryland has taken steps toward legalization, public consumption of marijuana remains illegal. Consumption is generally confined to private spaces such as one's home.</p>
+                    },
+                    {
+                        title: "Is Home Cultivation Allowed in Maryland?",
+                        content: <p>As of my last update, home cultivation of marijuana for personal use is not allowed in Maryland, even for medical purposes. All cannabis must be obtained through licensed dispensaries.</p>
+                    },
+                    {
+                        title: "Finding Licensed Dispensaries in Maryland",
+                        content: <p>Licensed medical marijuana dispensaries are scattered across Maryland, providing registered patients with access to a variety of cannabis products tailored to their medical needs. These dispensaries play a crucial role in ensuring patients receive safe and quality products.</p>
+                    },
+                    {
+                        title: "Medical Marijuana in Maryland?",
+                        content: <p>Maryland introduced a medical marijuana program to provide patients with qualifying conditions access to medical cannabis products. Qualified patients with a physician's recommendation can apply for a medical marijuana card, allowing them to purchase products from licensed dispensaries.</p>
+
+                    },
+                    {
+                        title: "Caregivers in Maryland",
+                        content: <p>Maryland's medical marijuana program includes provisions for caregivers who can assist patients in obtaining and administering medical cannabis. Caregivers play an important role in supporting patients' medical needs.</p>
+                    },
+
+                    {
+                        title: "Lab Testing",
+                        content: <p>In line with many states with legal marijuana markets, lab testing is a key component of Maryland's regulated cannabis industry. Products undergo rigorous testing to ensure safety, quality, and accurate labeling</p>
+                    },
+                    {
+                        title: "Frequently Asked Questions",
+                        content: <div>
+                            <ol>
+                                <li>Can I possess a small amount of marijuana for personal use in Maryland?</li>
+                                <p>Yes, possession of up to 10 grams of marijuana for personal use is considered a civil offense, subject to a fine.</p>
+                                <li>Can I purchase medical marijuana from any dispensary in Maryland?</li>
+                                <p>Registered patients can purchase medical marijuana products from licensed dispensaries in Maryland.</p>
+                                <li>Is public consumption of marijuana allowed in Maryland?</li>
+                                <p>A: No, public consumption of marijuana remains illegal. Consumption should be limited to private spaces.</p>
+                                <li>Can I grow my own marijuana plants for personal use in Maryland?</li>
+                                <p>A: No, home cultivation of marijuana is not allowed in Maryland, even for medical purposes.</p>
+                                <li>How can I become a registered medical marijuana patient in Maryland?</li>
+                                <p>Qualified patients with specific medical conditions can apply for a medical marijuana card by obtaining a physician's recommendation and following the application process.</p>
+                            </ol>
+                        </div>
+                    },
+
+                ]
+            },
+            {
+                id: 21,
+                name: "Massachusetts",
+                content: [
+                    {
+                        title: "Is Weed Legal in Massachusetts?",
+                        content: <p>Yes, marijuana is legal in Massachusetts, both for recreational and medical use. The state has seen significant changes in its cannabis laws in recent years, making it important to understand the current regulations to stay compliant.</p>
+                    },
+                    {
+                        title: "Legislation History in Massachusetts",
+                        content: <div>
+                            <p>The road to marijuana legalization in Massachusetts has been marked by several milestones:</p>
+                            <p>Decriminalization (2008): Massachusetts decriminalized the possession of small amounts of marijuana in 2008. This meant that possessing an ounce or less of cannabis would result in a civil penalty, rather than criminal charges.</p>
+                            <p>Medical Marijuana (2012): In 2012, Massachusetts voters approved a ballot initiative allowing the use of medical marijuana for patients with qualifying conditions. This paved the way for the establishment of medical cannabis dispensaries.</p>
+                            <p>Recreational Legalization (2016): In November 2016, Massachusetts voters approved Question 4, legalizing recreational marijuana for adults aged 21 and older. This allowed for the possession, use, and cultivation of limited amounts of cannabis.</p>
+                            <p>Commercial Sales (2018): Retail sales of recreational marijuana began in Massachusetts on November 20, 2018. The Cannabis Control Commission (CCC) oversees the licensing and regulation of the state's cannabis industry.</p>
+                        </div>
+                    },
+                    {
+                        title: "Cannabis Possession in Massachusetts",
+                        content: <div>
+                            <p>Recreational marijuana users in Massachusetts enjoy the freedom to possess up to one ounce (28 grams) of cannabis when out in public, with the added privilege of keeping up to ten ounces (280 grams) within the comfort of their homes. Nonetheless, it's imperative to keep in mind that public consumption remains firmly off-limits, and smoking in public spaces is a generally prohibited practice. This ensures that the liberty to possess cannabis doesn't infringe on the rights and comfort of those who choose not to partake.</p>
+                            <p>Moreover, the possession limits in Massachusetts vary depending on the context. For adults aged 21 and older, as well as patients and their caregivers, the legal boundaries are set at 10 ounces (283 grams) within the confines of one's home, while less than 1 ounce (28 grams) is the permissible limit in public spaces. Medical patients are allowed a 60-day supply of cannabis concentrates, with adults able to possess up to 1 ounce of concentrates when in public or up to 1.5 ounces within their own homes. Additionally, adults have the right to cultivate up to six cannabis plants per person, with a cap of 12 plants per household, all within the privacy of their own residences. These nuanced limits cater to the diverse needs and preferences of marijuana users in Massachusetts.
+                                Despite the legal status of both medical and adult-use cannabis in the state, it is essential to stay vigilant and adhere to the stipulated regulations. Violations, such as public cannabis consumption or smoking in areas where tobacco use is prohibited, can result in fines, including a $100 penalty for public consumption and a $500 fine for possessing an open container of cannabis in a vehicle. These measures are in place to ensure that the coexistence of cannabis enthusiasts and non-users remains respectful and harmonious within the bounds of Massachusetts law.
+                            </p>
+                        </div>
+
+                    },
+                    {
+                        title: "Where is it safe to purchase weed in Massachusetts?",
+                        content: <p>Licensed cannabis dispensaries are the only legal places to purchase marijuana for recreational use in Massachusetts. These dispensaries offer a variety of products, including flowers, edibles, concentrates, and more. To buy from a dispensary, you must be at least 21 years old and have a valid ID.</p>
+                    },
+                    {
+                        title: "Where is it safe to consume cannabis in Massachusetts?",
+                        content: <div>
+                            <p>In Massachusetts, the rules regarding the consumption of cannabis are crystal clear: it is strictly prohibited in public spaces, which includes areas like parks and sidewalks. Instead, the legal confines for enjoying marijuana are primarily limited to private residences or private property with the owner's consent. It's worth noting that specific municipalities may have their own local ordinances that establish designated consumption areas, so it's crucial to be well-informed about the regulations in your specific area. While cannabis use on private property is permitted, it's important to emphasize that marijuana products cannot be smoked, eaten, or vaped in public spaces, and they certainly cannot be used where tobacco smoking is disallowed. Ensuring that these guidelines are followed is essential to maintaining a harmonious coexistence between cannabis enthusiasts and those who choose not to partake.</p>
+                            <p>Additionally, it's vital to remember that consuming cannabis while driving is a serious offense. Driving under the influence of marijuana is illegal, and neither drivers nor passengers are allowed to indulge in cannabis within a vehicle. While public consumption is generally banned, the Massachusetts Cannabis Control Commission does grant local jurisdictions the autonomy to establish their own rules regarding venues like cafes or smoke rooms for social cannabis consumption. Staying informed about the evolving regulations, both at the state and local levels, is crucial for responsible and lawful cannabis use in Massachusetts. To further assist individuals in understanding the nuances of adult consumption, the Commission offers a fact sheet on this topic, providing valuable insights into the legal framework surrounding cannabis consumption in the state.</p>
+                        </div>
+                    },
+                    {
+                        title: "Is home cultivation allowed in Massachusetts?",
+                        content: <p>In Massachusetts, the law grants adults aged 21 and older the privilege of cultivating their own cannabis plants. Each adult is allowed to grow up to six cannabis plants per person, and if there are multiple adults living in the same household, they can collectively cultivate a maximum of 12 plants. However, it's crucial to emphasize that these plants must be cultivated in a secure and private location, ensuring that they are not visible from public view. This privacy measure is in place to maintain the security and discretion of home cultivation. It's important to note that the cannabis grown through home cultivation does not count towards the 10 ounces of marijuana that adults are allowed to possess at home. For those interested in cultivating their own cannabis, the Massachusetts Cannabis Control Commission offers comprehensive guidelines to ensure compliance with the law. Additionally, qualifying patients who require medical marijuana for their conditions may apply for a hardship registration to cultivate their own cannabis or designate a caregiver to grow it on their behalf. These patients can cultivate the number of plants necessary to provide a 60-day supply of cannabis, offering them a valuable option for obtaining their medicine.
+                        </p>
+                    },
+                    {
+                        title: "Finding licensed dispensaries in Massachusetts",
+                        content: <p>The Cannabis Control Commission maintains a list of licensed recreational and medical marijuana dispensaries on their website. You can use this resource to find dispensaries near you and learn about their hours of operation, products, and other details.</p>
+                    },
+                    {
+                        title: "Medical marijuana in Massachusetts?",
+                        content: <div>
+                            <p>In Massachusetts, medical marijuana continues to be a viable and compassionate option for individuals dealing with qualifying medical conditions. To gain access to medical cannabis in the state, interested patients must follow a well-defined process. It all begins with obtaining a certification from a healthcare provider that confirms the presence of at least one qualifying medical condition. These conditions include but are not limited to amyotrophic lateral sclerosis (ALS), cancer, Crohn's disease, glaucoma, hepatitis C, HIV/AIDS, multiple sclerosis, Parkinson's disease, and any other condition deemed debilitating by the patient's healthcare provider.</p>
+                            <p>Once the certification is secured, patients will receive a personal identification number (PIN) from their physician, which is essential for registering with the Medical Use of Marijuana Program (MMP). Alongside the PIN, patients must provide a valid state-issued identification card as proof of Massachusetts residency, along with a recent photo that adheres to the program's registration guidelines. For those who require assistance with managing their medical cannabis use, designating a caregiver is an option. The entire process, from obtaining the physician's certification to registering with the MMP, is aimed at ensuring that patients in need can access medical marijuana safely and in accordance with state regulations. Furthermore, it's important to note that there are no registration fees for patients or caregivers, making this vital healthcare resource accessible to those who need it most.</p>
+                        </div>
+
+                    },
+                    {
+                        title: "Caregivers in Massachusetts",
+                        content: <p>Registered patients may designate a caregiver to help manage their medical cannabis use, especially if they have difficulty accessing dispensaries or cultivating their own marijuana. Caregivers must also register with the state and undergo a background check.</p>
+                    },
+
+                    {
+                        title: "Lab Testing",
+                        content: <p>All cannabis products sold in Massachusetts must undergo rigorous testing for potency, contaminants, and other factors. This ensures that consumers receive safe and accurately labeled products.</p>
+                    },
+                    {
+                        title: "Frequently Asked Questions",
+                        content: <div>
+                            <ol>
+                                <li> Q1.Can I smoke weed in public parks or on the streets in Massachusetts?</li>
+                                <p>A1. No, public consumption of cannabis is illegal in Massachusetts. You can only consume cannabis in private residences or on private property with the owner's permission.</p>
+                                <li>Q2. What are the penalties for underage possession of marijuana in Massachusetts?</li>
+                                <p>A2. Possession of marijuana by individuals under 21 can result in fines and mandatory drug education programs, but it does not lead to criminal charges.</p>
+                                <li>Q3. Can I transport marijuana in my car in Massachusetts?</li>
+                                <p>A3. Yes, you can transport marijuana in your car, but it must be in a sealed container or stored in the trunk or a locked glove compartment.</p>
+                                <li>Q4. Is weed legal in Boston?</li>
+                                <p>A4. Yes, it's legal throughout Massachusetts.</p>
+                            </ol>
+                        </div>
+                    },
+
+                ]
+            },
+            {
+                id: 22,
+                name: "Michigan",
+                content: [
+                    {
+                        title: "Is weed legal in Michigan?",
+                        content: <p>Yes, marijuana is indeed legal in Michigan, both for medical and recreational use. Michigan's journey towards cannabis legalization has been a significant and evolving one, offering residents a carefully regulated market for marijuana consumption.</p>
+                    },
+                    {
+                        title: "Legislation History in Michigan",
+                        content: <div>
+                            <h2>Michigan's path to marijuana legalization has witnessed transformative changes:</h2>
+                            <ol>
+                                <li>Medical Marijuana (2008): In 2008, Michigan voters approved the Michigan Compassionate Care Initiative, legalizing medical marijuana for patients with qualifying conditions. This marked the beginning of a regulated medical cannabis program.</li>
+                                <li>Recreational Legalization (2018): In November 2018, Proposal 1, also known as the Michigan Regulation and Taxation of Marihuana Act, was passed, allowing recreational marijuana for adults aged 21 and older. This legislation established the framework for regulating and taxing the adult-use cannabis market.</li>
+                            </ol>
+                        </div>
+                    },
+                    {
+                        title: "Cannabis Possession in Michigan",
+                        content: <div>
+                            <p>Michigan's cannabis possession laws are clearly defined, catering to both recreational users and medical patients. For adults aged 21 and older, the legal limit for cannabis possession stands at 2.5 ounces (71 grams), with an additional allowance of up to 15 grams in concentrate form. This enables responsible adults to enjoy a variety of cannabis products while maintaining a clear legal boundary.</p>
+                            <p>In public, recreational users in Michigan can legally possess up to 2.5 ounces (71 grams) of marijuana. However, when within the comfort of their homes, adults have the freedom to keep up to 10 ounces (283 grams) of marijuana, provided it is stored securely. This ensures that individuals can have a reasonable supply of cannabis without infringing on the law's provisions. Meanwhile, patients in the state's medical marijuana program, along with their primary caregivers, can also possess up to 10 ounces, providing essential relief and access to those who depend on cannabis as medicine. These well-defined possession limits reflect Michigan's commitment to balancing individual freedom and public safety in the realm of cannabis consumption.</p>
+                        </div>
+
+                    },
+                    {
+                        title: "Where is it safe to purchase weed in Michigan?",
+                        content: <p>Licensed cannabis dispensaries are the only legal places to purchase marijuana for recreational use in Michigan. These establishments provide a variety of cannabis products, including flowers, edibles, concentrates, and more.</p>
+                    },
+                    {
+                        title: "Where is it safe to consume cannabis in Michigan?",
+                        content: <div>
+                            <p>While marijuana consumption is legal in private residences, public consumption is strictly prohibited. It's essential to enjoy cannabis responsibly and discreetly in the privacy of your own home to avoid potential legal issues.</p>
+                        </div>
+                    },
+                    {
+                        title: "Is home cultivation allowed in Michigan?",
+                        content: <div>
+                            <p>Michigan's marijuana laws extend to personal cultivation, granting residents aged 21 and older the right to grow their cannabis plants. The state allows individuals to cultivate up to 12 marijuana plants per household for personal use. Moreover, those keen on nurturing their cannabis crops at home are entitled to possess the harvest from these plants, with an upper limit of 10 ounces (284 grams) within their residences. It's important to note that while adults can share small quantities of cannabis, they are not permitted to sell it without the requisite licensing. To ensure compliance with the law, it's vital for home growers to maintain the privacy and security of their cultivation space, ensuring that the plants are not visible from public view.</p>
+                            <p>For patients and primary caregivers registered under Michigan's medical marijuana program, the rules align with those for personal cultivation. These individuals can possess up to 10 ounces of cannabis and may cultivate and possess the harvest from a maximum of 12 cannabis plants at any given time. However, it's crucial for patients to indicate their intent to grow cannabis on their registry application. To adhere to regulations, home-cultivated plants must be securely kept in a locked and enclosed space, guaranteeing their safe and responsible management. If caregivers wish to cultivate larger quantities, they must apply for a Michigan commercial cultivation license, underscoring the state's commitment to responsible and regulated cannabis production.</p>
+                        </div>
+                    },
+                    {
+                        title: "Finding licensed dispensaries in Michigan",
+                        content: <p>The Marijuana Regulatory Agency (MRA) oversees the licensing and regulation of cannabis businesses in Michigan. You can check their website for a list of licensed recreational and medical marijuana dispensaries, allowing you to find a reputable and legal source for your cannabis needs.</p>
+                    },
+                    {
+                        title: "Medical marijuana in Michigan?",
+                        content: <div>
+                            <p>The Michigan Medical Marihuana Program (MMMP) stands as a beacon of hope for individuals dealing with debilitating medical conditions, offering them legal access to medical marijuana through a carefully regulated process. Patients seeking this vital resource must be 18 years or older to qualify under the current MMMP laws. Additionally, if patients choose to designate a primary caregiver, it's essential to list the caregiver on their registry application. To serve as a primary caregiver, one must be at least 21 years old and must not have a history of violent or drug-related felonies, with a clean record for the past 10 years. A primary caregiver is permitted to care for up to five qualifying patients, ensuring those in need receive the necessary support.</p>
+                            <p>The MMMP focuses on providing access to medical cannabis for patients battling specific debilitating medical conditions, including but not limited to Alzheimer's disease, ALS, cancer, Crohn's disease, glaucoma, hepatitis C, HIV/AIDS, and nail-patella syndrome. The program also extends its support to individuals dealing with chronic or debilitating conditions or treatments that manifest as cachexia (wasting syndrome), seizures (including epilepsy-related seizures), severe and chronic pain, severe nausea, and severe and persistent muscle spasms (such as those seen in multiple sclerosis). The application process for medical marijuana certification in Michigan involves several key steps, including obtaining a recommendation from a qualified physician, submitting the MMMP application form, providing proof of Michigan residency, paying a $60 fee for the registry card, designating a caregiver if needed, and paying a $25 caregiver application fee while submitting a copy of the caregiver's ID. It's crucial for Michigan patients to be aware that a valid registry ID card, when presented alongside another state-issued ID like a driver's license, is the only form of identification that ensures protection from potential arrest in the state. This emphasizes the importance of adhering to the program's official procedures to secure legal access to medical cannabis.</p>
+                        </div>
+
+                    },
+                    {
+                        title: "Caregivers in Massachusetts",
+                        content: <p>Registered patients may designate a caregiver to help manage their medical cannabis use, especially if they have difficulty accessing dispensaries or cultivating their own marijuana. Caregivers must also register with the state and undergo a background check.</p>
+                    },
+
+                    {
+                        title: "Lab Testing",
+                        content: <p>To ensure the safety and quality of cannabis products in Michigan, all products must undergo rigorous lab testing for potency, contaminants, and other factors. This testing guarantees that consumers receive safe and accurately labelled products.</p>
+                    },
+                    {
+                        title: "Frequently Asked Questions",
+                        content: <div>
+                            <ol>
+                                <li>Can I smoke weed in public in Michigan?</li>
+                                <p>- No, public consumption of cannabis is illegal in Michigan. It should only be consumed in private residences.</p>
+                                <li>What are the penalties for underage possession of marijuana in Michigan?</li>
+                                <p>- Possession of marijuana by individuals under 21 can result in fines and mandatory drug education programs, but it does not lead to criminal charges.</p>
+                                <li> Can I transport marijuana in my car in Michigan?</li>
+                                <p>   - Yes, you can transport marijuana in your car, but it must be in a sealed container in the trunk or a locked glove compartment.</p>
+                                <li>Can you go to a dispensary in Michigan without a card?</li>
+                                <p>No, to enter a medical marijuana dispensary, you need an MMMP card. But cannabis is legal for adults 21 and older in the state so you can go to any recreational retailer.</p>
+                            </ol>
+                        </div>
+                    },
+
+                ]
+            },
+            {
+                id: 23,
+                name: "Minnesota",
+                content: [
+                    {
+                        title: "Is weed legal in Minnesota?",
+                        content: <p>No, marijuana is not fully legal in Minnesota. The state has legalized medical marijuana under strict regulations, but recreational use remains illegal. Minnesota's marijuana laws have seen significant changes over the years, making it crucial to stay informed about the current regulations.</p>
+                    },
+                    {
+                        title: "Legislation History in Minnesota",
+                        content: <div>
+                            <h2>Minnesota's journey towards marijuana legalization has been a gradual process:</h2>
+                            <ol>
+                                <li> Medical Marijuana (2014): In 2014, Minnesota enacted a medical marijuana program allowing access to medical cannabis for patients with qualifying conditions. This marked the first step towards legal cannabis in the state.</li>
+                                <li> Expansion of Medical Program (2020): The medical marijuana program expanded in 2020 to include more qualifying conditions, provide easier access for patients, and allow cannabis in various forms, including edibles and flower.</li>
+                            </ol>
+                        </div>
+                    },
+                    {
+                        title: "Cannabis Possession in Minnesota",
+                        content: <div>
+                            <p>For recreational users, possessing any amount of marijuana in Minnesota is illegal and can result in criminal charges. However, medical marijuana patients are allowed to possess a 30-day supply of cannabis, but the form and amount may vary depending on their qualifying condition.</p>
+                        </div>
+
+                    },
+                    {
+                        title: "Where is it safe to purchase weed in Minnesota?",
+                        content: <div>
+                            <p>In Minnesota, the legal framework for cannabis is strictly medical, and thus, recreational dispensaries do not exist. Instead, authorized medical marijuana dispensaries cater exclusively to registered patients with qualifying conditions. These dispensaries offer a range of medical cannabis products, ensuring that patients have access to their medicine in various forms, including capsules, liquid, lozenges, oral sprays, pills, tablets, tinctures, topicals, and vaporization cartridges. Patients can also acquire vaporization devices, commonly known as vape pens, to facilitate the consumption of their prescribed cannabis medication.</p>
+                            <p>To purchase medical marijuana at these authorized dispensaries, patients need to follow a specific procedure. They must provide a summary of their doctor's visit and a list of prescribed medications, which will be furnished to them by their certifying healthcare provider. Additionally, a self-evaluation form may need to be completed in-store if it hasn't been done online. Once these documents are in order, an on-site pharmacist will guide patients through the selection process, recommending an appropriate cannabis dosage tailored to their specific medical needs. This rigorous approach ensures that patients receive the right treatment and dosage under the supervision of healthcare professionals, prioritizing their health and well-being throughout their medical marijuana journey in Minnesota.</p>
+                        </div>
+                    },
+                    {
+                        title: "Where is it safe to consume cannabis in Minnesota?",
+                        content: <div>
+                            <p>Public consumption of cannabis is illegal in Minnesota, and it is only legal to use medical marijuana in private residences. Smoking cannabis in public spaces is strictly prohibited.</p>
+                        </div>
+                    },
+                    {
+                        title: "Is home cultivation allowed in Minnesota?",
+                        content: <div>
+                            <p>Home cultivation of marijuana is not allowed in Minnesota, whether for medical or recreational purposes. All cannabis products must be obtained through authorized dispensaries.</p>
+                        </div>
+                    },
+                    {
+                        title: "Finding Licensed Dispensaries in Minnesota",
+                        content: <p>To access medical marijuana in Minnesota, patients must register with the state's Medical Cannabis Program. Once registered, they can locate authorized dispensaries through the state's official website.</p>
+                    },
+                    {
+                        title: "Medical marijuana in Michigan?",
+                        content: <div>
+                            <p>The Michigan Medical Marihuana Program (MMMP) stands as a beacon of hope for individuals dealing with debilitating medical conditions, offering them legal access to medical marijuana through a carefully regulated process. Patients seeking this vital resource must be 18 years or older to qualify under the current MMMP laws. Additionally, if patients choose to designate a primary caregiver, it's essential to list the caregiver on their registry application. To serve as a primary caregiver, one must be at least 21 years old and must not have a history of violent or drug-related felonies, with a clean record for the past 10 years. A primary caregiver is permitted to care for up to five qualifying patients, ensuring those in need receive the necessary support.</p>
+                            <p>The MMMP focuses on providing access to medical cannabis for patients battling specific debilitating medical conditions, including but not limited to Alzheimer's disease, ALS, cancer, Crohn's disease, glaucoma, hepatitis C, HIV/AIDS, and nail-patella syndrome. The program also extends its support to individuals dealing with chronic or debilitating conditions or treatments that manifest as cachexia (wasting syndrome), seizures (including epilepsy-related seizures), severe and chronic pain, severe nausea, and severe and persistent muscle spasms (such as those seen in multiple sclerosis). The application process for medical marijuana certification in Michigan involves several key steps, including obtaining a recommendation from a qualified physician, submitting the MMMP application form, providing proof of Michigan residency, paying a $60 fee for the registry card, designating a caregiver if needed, and paying a $25 caregiver application fee while submitting a copy of the caregiver's ID. It's crucial for Michigan patients to be aware that a valid registry ID card, when presented alongside another state-issued ID like a driver's license, is the only form of identification that ensures protection from potential arrest in the state. This emphasizes the importance of adhering to the program's official procedures to secure legal access to medical cannabis.</p>
+                        </div>
+
+                    },
+                    {
+                        title: "Caregivers in Minnesota",
+                        content: <p>Registered patients in Minnesota can designate a caregiver to assist with their medical marijuana needs. Caregivers must also register with the state and undergo background checks.</p>
+                    },
+
+                    {
+                        title: "Lab Testing",
+                        content: <p>Minnesota requires rigorous lab testing for all medical marijuana products to ensure their safety, quality, and accuracy in labeling.</p>
+                    },
+                    {
+                        title: "Frequently Asked Questions",
+                        content: <div>
+                            <ol>
+                                <li> Can I use marijuana recreationally in Minnesota?</li>
+                                <p>   - No, recreational marijuana use is illegal in Minnesota.</p>
+                                <li> What are the qualifying conditions for medical marijuana in Minnesota?</li>
+                                <p>   - Qualifying conditions include cancer, glaucoma, HIV/AIDS, intractable pain, and several other chronic or debilitating conditions. The list of qualifying conditions may change over time, so it's essential to check the latest updates from the Medical Cannabis Program.</p>
+                                <li>Can I grow my own cannabis in Minnesota for medical use?</li>
+                                <p>   - No, home cultivation is not allowed in Minnesota, even for medical purposes. All medical marijuana must be obtained through authorized dispensaries.</p>
+                            </ol>
+                        </div>
+                    },
+
+                ]
+            },
+            {
+                id: 24,
+                name: "Washington",
+                content: [
+                    {
+                        title: "Is weed legal in Washington?",
+                        content: <p>Yes, recreational marijuana has been legal in Washington since November 2012, following a historic vote. Adults aged 21 and older can legally purchase and possess marijuana in the state. Washington, along with Colorado, played a pioneering role in the legalisation of recreational cannabis in the United States. This move represented a significant departure from the era of cannabis prohibition and marked a progressive shift in drug policy. </p>
+                    },
+                    {
+                        title: "Legislation History in Washington",
+                        content: <div>
+                            <p>Washington, D.C., has undergone a significant evolution in its cannabis laws, reflecting a progressive shift in the nation's capital. The legislative history showcases the city's changing approach to marijuana, encompassing both medical and recreational use.</p>
+                            <p>The journey towards cannabis reform commenced in 1998 with the approval of Initiative 59, permitting the medical use of marijuana. However, due to congressional interference, the program was delayed until 2010, marking the initial step in cannabis reform.</p>
+                            <p>A pivotal moment occurred in 2014 with the passage of Initiative 71, legalising the possession, use, and cultivation of limited amounts of marijuana for adults aged 21 and above. This historic move, while permitting personal use and cultivation, did not establish a regulated retail market for recreational sales, setting D.C. apart from other jurisdictions.</p>
+                            <p>Unique to D.C. is the influence of congressional oversight due to its status as the nation's capital. Congressional restrictions impacted the District's ability to fully implement and regulate recreational cannabis sales, resulting in the legalisation of possession and use.</p>
+                            <p>The legislative history of cannabis laws in Washington, D.C., highlights its progressive approach to cannabis reform, characterised by medical marijuana legalisation and limited recreational use, all within the distinctive context of congressional oversight.</p>
+                        </div>
+                    },
+                    {
+                        title: "Medical Marijuana Legalisation:",
+                        content: <div>
+                            <p>In 2010, the Medical Marijuana Program finally became operational, allowing patients with qualifying conditions to access medical cannabis with a physician's recommendation. The program aimed to provide relief to patients suffering from various medical conditions, including HIV/AIDS, cancer, and chronic pain.</p>
+                        </div>
+
+                    },
+                    {
+                        title: "Recreational Marijuana Legalisation:",
+                        content: <div>
+                            <p>In Minnesota, the legal framework for cannabis is strictly medical, and thus, recreational dispensaries do not exist. Instead, authorized medical marijuana dispensaries cater exclusively to registered patients with qualifying conditions. These dispensaries offer a range of medical cannabis products, ensuring that patients have access to their medicine in various forms, including capsules, liquid, lozenges, oral sprays, pills, tablets, tinctures, topicals, and vaporization cartridges. Patients can also acquire vaporization devices, commonly known as vape pens, to facilitate the consumption of their prescribed cannabis medication.</p>
+                            <p>To purchase medical marijuana at these authorized dispensaries, patients need to follow a specific procedure. They must provide a summary of their doctor's visit and a list of prescribed medications, which will be furnished to them by their certifying healthcare provider. Additionally, a self-evaluation form may need to be completed in-store if it hasn't been done online. Once these documents are in order, an on-site pharmacist will guide patients through the selection process, recommending an appropriate cannabis dosage tailored to their specific medical needs. This rigorous approach ensures that patients receive the right treatment and dosage under the supervision of healthcare professionals, prioritizing their health and well-being throughout their medical marijuana journey in Minnesota.</p>
+                        </div>
+                    },
+                    {
+                        title: "Where is it safe to consume cannabis in Minnesota?",
+                        content: <div>
+                            <p>Public consumption of cannabis is illegal in Minnesota, and it is only legal to use medical marijuana in private residences. Smoking cannabis in public spaces is strictly prohibited.</p>
+                        </div>
+                    },
+                    {
+                        title: "Is home cultivation allowed in Minnesota?",
+                        content: <div>
+                            <p>Home cultivation of marijuana is not allowed in Minnesota, whether for medical or recreational purposes. All cannabis products must be obtained through authorized dispensaries.</p>
+                        </div>
+                    },
+                    {
+                        title: "Finding Licensed Dispensaries in Minnesota",
+                        content: <p>To access medical marijuana in Minnesota, patients must register with the state's Medical Cannabis Program. Once registered, they can locate authorized dispensaries through the state's official website.</p>
+                    },
+                    {
+                        title: "Medical marijuana in Michigan?",
+                        content: <div>
+                            <p>The Michigan Medical Marihuana Program (MMMP) stands as a beacon of hope for individuals dealing with debilitating medical conditions, offering them legal access to medical marijuana through a carefully regulated process. Patients seeking this vital resource must be 18 years or older to qualify under the current MMMP laws. Additionally, if patients choose to designate a primary caregiver, it's essential to list the caregiver on their registry application. To serve as a primary caregiver, one must be at least 21 years old and must not have a history of violent or drug-related felonies, with a clean record for the past 10 years. A primary caregiver is permitted to care for up to five qualifying patients, ensuring those in need receive the necessary support.</p>
+                            <p>The MMMP focuses on providing access to medical cannabis for patients battling specific debilitating medical conditions, including but not limited to Alzheimer's disease, ALS, cancer, Crohn's disease, glaucoma, hepatitis C, HIV/AIDS, and nail-patella syndrome. The program also extends its support to individuals dealing with chronic or debilitating conditions or treatments that manifest as cachexia (wasting syndrome), seizures (including epilepsy-related seizures), severe and chronic pain, severe nausea, and severe and persistent muscle spasms (such as those seen in multiple sclerosis). The application process for medical marijuana certification in Michigan involves several key steps, including obtaining a recommendation from a qualified physician, submitting the MMMP application form, providing proof of Michigan residency, paying a $60 fee for the registry card, designating a caregiver if needed, and paying a $25 caregiver application fee while submitting a copy of the caregiver's ID. It's crucial for Michigan patients to be aware that a valid registry ID card, when presented alongside another state-issued ID like a driver's license, is the only form of identification that ensures protection from potential arrest in the state. This emphasizes the importance of adhering to the program's official procedures to secure legal access to medical cannabis.</p>
+                        </div>
+
+                    },
+                    {
+                        title: "Caregivers in Minnesota",
+                        content: <p>Registered patients in Minnesota can designate a caregiver to assist with their medical marijuana needs. Caregivers must also register with the state and undergo background checks.</p>
+                    },
+
+                    {
+                        title: "Lab Testing",
+                        content: <p>Minnesota requires rigorous lab testing for all medical marijuana products to ensure their safety, quality, and accuracy in labeling.</p>
+                    },
+                    {
+                        title: "Frequently Asked Questions",
+                        content: <div>
+                            <ol>
+                                <li> Can I use marijuana recreationally in Minnesota?</li>
+                                <p>   - No, recreational marijuana use is illegal in Minnesota.</p>
+                                <li> What are the qualifying conditions for medical marijuana in Minnesota?</li>
+                                <p>   - Qualifying conditions include cancer, glaucoma, HIV/AIDS, intractable pain, and several other chronic or debilitating conditions. The list of qualifying conditions may change over time, so it's essential to check the latest updates from the Medical Cannabis Program.</p>
+                                <li>Can I grow my own cannabis in Minnesota for medical use?</li>
+                                <p>   - No, home cultivation is not allowed in Minnesota, even for medical purposes. All medical marijuana must be obtained through authorized dispensaries.</p>
                             </ol>
                         </div>
                     },
