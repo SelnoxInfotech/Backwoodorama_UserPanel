@@ -39,7 +39,8 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
       fields: ["address_components", "geometry", "icon", "formatted_address"],
       strictBounds: false,
       // types: ["(establishment) "],
-      types: ['address']
+      types: ['address'],
+      componentRestrictions: ['in']
     },
   });
   React.useEffect(() => {

@@ -61,7 +61,6 @@ const routesConfig = [
             path: "/PlaceOrder",
             element: <PlaceOrder></PlaceOrder>,
           },
-         
           {
             path: "/",
             element: <Dashboard />,

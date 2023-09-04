@@ -18,6 +18,7 @@ const CheckAgeEligbilityPopup = ({value}) => {
         let date = new Date();
         date.setTime(date.getTime() + (60 * 60 * 8000))
         cookies.set('CheckAge', 0, { expires: date })
+        cookies.set('Location', Country, { expires: date })
     }
     const handleChange = (event) => {
         // cookies.set('CheckAge', false)
