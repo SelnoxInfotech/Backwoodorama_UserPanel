@@ -61,6 +61,7 @@ const Navbar = () => {
     await cookies.remove('Token_access')
     await dispatch({ type: 'Login', login: false })
     await dispatch({ type: 'ApiProduct' })
+    await dispatch({ type: 'Profile' , Profile :[] })
   }
   React.useEffect(() => {
     const handleClickOutside = (event) => {
