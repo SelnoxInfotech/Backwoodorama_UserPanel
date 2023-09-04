@@ -51,7 +51,7 @@ const RecentPostComment = ({ id, GetUserComment, SetUserComment }) => {
                         <Box
                             className={`recentPostBox_width2 ${classes.recentPostCancelBtn2}`}
                         >
-                            <LoadingButton disabled={state.login === false ?true :false} onClick={PostComment} variant="outlined">Save</LoadingButton>
+                            <LoadingButton disabled={state.login === false ?true :false} onClick={PostComment} variant="outlined">Post</LoadingButton>
                         </Box>
                     </div>
 

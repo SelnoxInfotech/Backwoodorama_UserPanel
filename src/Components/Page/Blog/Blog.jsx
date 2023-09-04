@@ -17,6 +17,7 @@ import Createcontext from "../../../Hooks/Context"
 import { BlogLike, Post_BlogLike ,Get_Comment,Post_Comment} from "../../../Api/Api"
 import _ from "lodash"
 import { WhisList } from "../../Component/Whishlist/WhisList";
+import BlogsCommentsCard from "./BlogComponent/BlogsCommentsCard"
 const Blogs = () => {
     const classes = useStyles()
     const navigate = useNavigate()
@@ -156,6 +157,7 @@ const Blogs = () => {
                     {WishList && <WhisList open1={WishList} SetWishList={SetWishList}></WhisList>}
                     <RecentPost />
                     <RecentPostComment id={id} GetUserComment={Getcommnet} SetUserComment={Setcommnet} />
+                    <BlogsCommentsCard/>
                     <HomePageDealsSignup />
 
                 </div>

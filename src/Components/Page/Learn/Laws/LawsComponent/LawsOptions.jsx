@@ -32,7 +32,7 @@ const LawsOptions = () => {
 
                                                     <li >
                                                         <LazyLoadImage src={blankImage} className="lawOPtionListImage" alt="image-not-found" />
-                                                        <span>{val.name}</span>
+                                                        <span className="lawOptionCountry_state_List">{val.name}</span>
                                                     </li>
                                                 </Link>
                                             )

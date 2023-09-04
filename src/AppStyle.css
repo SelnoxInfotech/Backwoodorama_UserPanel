@@ -8107,7 +8107,7 @@
 .listCountryName {
   color: #000000;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 22px;
 }
 
 .lawsDropDownList {
@@ -8135,7 +8135,7 @@
 }
 .law_Inner_OPtionList_Ol li span{
   color: #000000;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 16px;
 }
 .lawoptionMainList{
@@ -8147,6 +8147,7 @@
   height: 30px;
   border: 1px solid #E9E9E9;
 }
+
 .lawssoptionStyle {
   list-style: none;
   padding-left: 0px;
@@ -8444,5 +8445,26 @@
   .LawStateDescriptionHeading{
     font-size: 24px;
   }
+}
+/* end */
+/* blogsComment */
+.blogsCommentCountCol{
+  display: flex;
+  height: 100px;
+  align-items: center;
+}
+.blogCommentCardArrowBtn{
+  display: flex;
+  justify-content: flex-end;
+}
+.blogsCommentheadings{
+  color: #000000;
+  font-size: 20px;
+  font-weight: 700;
+}
+.blogsCommentImages{
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
 }
 /* end */
