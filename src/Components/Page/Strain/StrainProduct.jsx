@@ -34,7 +34,7 @@ const StrainProduct = () => {
                         </div>
                         <div className="col-lg-10 col-12  strainProduct_img_content_section">
                             <section className="strainProduct_img_section">
-                                <LazyLoadImage src={location?.state?.data} className="strainProduct_images" />
+                                <LazyLoadImage src={'/image/social.png'} className="strainProduct_images" />
                             </section>
                             <section className="strainProduct_content_section">
                                 <div className="w-100 strainProduct_content_head_div">

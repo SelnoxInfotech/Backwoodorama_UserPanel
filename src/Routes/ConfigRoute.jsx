@@ -3,7 +3,7 @@ import Dashboard from "../Components/Page/Home/Dashboard/Dashboard";
 import Product from "../Components/Page/Product/Product";
 import ProductDetail from "../Components/Page/Product/ProductDetails"
 import AddToCart from "../Components/Page/Product/AddToCartComponent/AddToCart"
-import DispensoriesProduct from "../Components/Page/Dispansires/DispansiresComponent/DispensoriesDetail"
+import DispensoriesDetails from "../Components/Page/Dispansires/DispansiresComponent/DispensoriesDetail"
 import Signup from "../Components/Page/Signup/Signup"
 import Login from "../Components/Page/Login/Login"
 import SignupWithEmail from "../Components/Page/Signup/SignupWithEmail"
@@ -24,7 +24,6 @@ import RelatedVerifyBrand from "../Components/Page/Brand/RelatedVerifyBrand/Rela
 import RelatedDeals from "../Components/Page/Deals/RelatedDeals";
 import Strain from "../Components/Page/Strain/Strain";
 import MainDeals from "../Components/Page/MainDealsFolder/MainDeals";
-import CheckAge from "../Components/Page/CheckAgeEligblityPopup/checkAge";
 import AboutUs from "../Components/Page/AboutUs/AboutUs";
 import LearnTabs from "../Components/Page/Learn/LearnTabs";
 import LearnCardRelatedPage from "../Components/Page/Learn/LearnCardRelatedPage/LearnCardRelatedPage";
@@ -114,9 +113,14 @@ const routesConfig = [
             element:  <ProtectRout Component={CheckOutMainPage}  path="/CheckOutMainPage"></ProtectRout> 
           },
 
+          // {
+          //   path:"/Weed-DispensoriesDetails/:id/:tab",
+          //   element:<DispensoriesDetails/>
+          // }
+          
           {
-            path:"/DispensoriesProduct/:id/:tab",
-            element:<DispensoriesProduct/>
+            path:"/Weed-DispensoriesDetails/:id/:tab/:StoreName",
+            element:<DispensoriesDetails/>
           }
           ,
           {
@@ -160,10 +164,6 @@ const routesConfig = [
             element:<SubcategoryProduct></SubcategoryProduct>
           }
           ,
-          {
-            path:"/CheckAge",
-            element:<CheckAge></CheckAge>
-          },
           {
             path:"/AboutUs",
             element:<AboutUs></AboutUs>

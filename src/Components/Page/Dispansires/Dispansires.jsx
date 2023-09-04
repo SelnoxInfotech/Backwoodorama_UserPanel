@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import useStyles from "../../../Style";
 import Map from "../../Component/Map/map"
-import DispensoriesOpenResult from "./DispansiresComponent/DispensoriesOpenResult"
+import WeedDispansires from "./DispansiresComponent/Weed_Dispansires"
 import Dispansires_MapTheme from "../../Component/Map/MapStyle"
 import Createcontext from "../../../Hooks/Context"
 import { Paper } from "@mui/material";
@@ -42,13 +42,10 @@ function a11yProps(index) {
         'aria-controls': `simple-tabpanel-${index}`,
     };
 }
-
-
-
 export default function Dispansires() {
     const { state } = React.useContext(Createcontext)
     const [value, setValue] = React.useState(0);
-    const DispensorShopLocation = [{ name: "Weed Dispensaries in", city: state.Location }]
+    const DispensorShopLocation = [{ name: "Weed Dispensaries in", city: state.Location}]
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
@@ -82,16 +79,16 @@ export default function Dispansires() {
                             </Box>
                             <Box sx={{"& .MuiBox-root":{paddingLeft:"0px",paddingRight:"0px",paddingTop:"20px"}}}>
                             <TabPanel  value={value} index={0}>                      
-                            <DispensoriesOpenResult />
+                            <WeedDispansires />
                             </TabPanel>
                             <TabPanel value={value} index={1}>
-                                <DispensoriesOpenResult />
+                                <WeedDispansires />
                             </TabPanel>
                             <TabPanel value={value} index={2}>
-                                <DispensoriesOpenResult />
+                                <WeedDispansires />
                             </TabPanel>
                             <TabPanel value={value} index={3}>
-                                <DispensoriesOpenResult />
+                                <WeedDispansires />
                             </TabPanel>
                             </Box>
                             <div className="Dispansires_map">

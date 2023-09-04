@@ -8,23 +8,17 @@ import Axios from "axios";
 import { Link } from "react-router-dom";
 import { Rating } from '@mui/material';
 import { DispensariesSco } from "../../ScoPage/DispensariesSco"
-const DispensoriesOpenResult = () => {
+const Weed_Dispansires = () => {
     const classes = useStyles()
     const [Store, SetStore] = React.useState([])
     const [Search, SetSearch] = React.useState([])
     React.useEffect(() => {
-
         Axios.get(
             'https://sweede.app/UserPanel/Get-Dispensaries/',
-
         ).then(response => {
             SetStore(response.data)
-
         }).catch(
-            function (error) {
-
-
-            })
+            function (error) {})
     }, [])
     function search(e) {
         const test = Store.filter(team => {
@@ -70,7 +64,7 @@ const DispensoriesOpenResult = () => {
                                     <div className="col-lg-12  col-md-12 col-sm-12 col-12 despensories_card_container">
                                         <div className="row">
                                             <div className="col-4 disensories_card_image_div">
-                                                <Link to={`/DispensoriesProduct/${ele.id}/${"Menu"}`}>
+                                                <Link  to={`/Weed-DispensoriesDetails/${ele.id}/${"Menu"}/${ele.Store_Name.replace(/\s/g,'-')}`}>
                                                     <LazyLoadImage id={ele.id} src={`https://sweede.app/${ele.Store_Image}`} alt="img_not_found" className="dispensories_card_image" />
                                                 </Link>
 
@@ -119,4 +113,4 @@ const DispensoriesOpenResult = () => {
         </React.Fragment>
     )
 }
-export default DispensoriesOpenResult
+export default Weed_Dispansires

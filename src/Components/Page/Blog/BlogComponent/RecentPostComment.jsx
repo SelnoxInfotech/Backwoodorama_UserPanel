@@ -30,7 +30,7 @@ const RecentPostComment = ({ id, GetUserComment, SetUserComment }) => {
     React.useEffect(() => {
         SetComment( _.find(GetUserComment.UserComment, (o) => { return o?.user === state?.Profile?.id })?.comment  === undefined ? "" : _.find(GetUserComment.UserComment, (o) => { return o?.user === state?.Profile?.id })?.comment)
     }, [GetUserComment ,state])
-   
+
     return (
         <React.Fragment>
             <div className="col-12 recentPost_comment_container px-0">

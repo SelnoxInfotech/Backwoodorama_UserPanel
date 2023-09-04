@@ -1,6 +1,6 @@
 import OverAllReview from "./ReviewComponent/OverAllReview"
 import RelatedReview from "./ReviewComponent/RelatedReview"
-const Review = () => {
+const Review = ({Product, api ,SetApi} ) => {
     return (
         <>
 
@@ -9,11 +9,8 @@ const Review = () => {
                     {/* <p>Store details</p> */}
                 </div>
             </div>
-            <OverAllReview />
-            <RelatedReview />
-
-
-
+            <OverAllReview Product={Product} api ={api} SetApi ={ SetApi}/>
+            <RelatedReview Product={Product} api ={api} SetApi ={ SetApi} />
         </>
     )
 }

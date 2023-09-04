@@ -71,7 +71,7 @@ const RelatedReview = ({Product , api}) => {
                                                  src={`https://sweede.app/${items?.SubCategoryImage}`} */}
                                                 <LazyLoadImage 
                                                 onError={event => {
-                                                    event.target.src = "./image/user.webp"
+                                                    event.target.src = "/image/user.webp"
                                                     event.onerror = null
                                                 }}
                                                 className='realted_review_images'
@@ -88,7 +88,7 @@ const RelatedReview = ({Product , api}) => {
                                                 <p>{ele.username}</p>
                                             </div>
                                             <div className='col-12 RelatedReview_TextCol_height related_review_paragraph ellipsis'>
-                                                <p>{ele.created_at.slice(0,10)}</p>
+                                                <p>{ele.created_at.slice(0,10).split("-").reverse().join("-")}</p>
                                             </div>
                                             <div className='col-12  related_review_rate_star_flex RelatedReview_TextCol_height related_review_paragraph ellipsis'>
                                                 <p>{ele.rating}</p><span><AiFillStar className={classes.disp_star_color} /></span>

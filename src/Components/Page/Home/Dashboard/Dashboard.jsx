@@ -1,6 +1,6 @@
 import Map from "../../../Component/Map/map"
 import CategoryProduct from "./ComponentDashboard/CategoryProduct";
-import DispensoriesAddress from "../../Dispansires/DispansiresComponent/DispensoriesAddress";
+import Dispensories from "../../Dispansires/DispansiresComponent/DispensoriesSlider";
 import NewsBlog from "./ComponentDashboard/NewsBlog";
 import CommunityType from "./ComponentDashboard/CommunityType";
 import HomePageBanner from "./ComponentDashboard/HomePageBanner";
@@ -70,7 +70,7 @@ export default function Dashboard() {
             <CategoryProduct Category={Category} ShowCategoryProduct={ShowCategoryProduct} Skeleton={Skeleton}></CategoryProduct>
             <DeliveryServices Skeleton={Skeleton}></DeliveryServices>
             <HomePageWeedBanner></HomePageWeedBanner>
-            <DispensoriesAddress></DispensoriesAddress>
+            <Dispensories></Dispensories>
             <div className="col-12 border" style={{ height: "300px", position: "relative", top: "15px" }}>
                 <Map height={"297px"} width={"100%"}></Map>
             </div>

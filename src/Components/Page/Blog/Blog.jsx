@@ -123,26 +123,26 @@ const Blogs = () => {
                             </div>
                         </div>
                         <div className="col" id="center1" >
-                            <div className="col-12 BlogLink mt-2">
-                                <div className="col-12 Linkofblog">
-                                    <div className="col Linkofblog">
+                            {/* <div className="col-12 BlogLink"> */}
+                                <div className="col-12 Linkofblog ">
+                                    <div className="col BlogSocal" id="center1">
                                         <RiFacebookLine></RiFacebookLine>
                                         <RiLinkedinLine></RiLinkedinLine>
                                         <BsFillShareFill></BsFillShareFill>
                                     </div>
-                                    <div className="col viewsBlog">
+                                    <div className="col viewsBlog" id="center1">
                                         <IconButton>
                                             <IoEyeSharp></IoEyeSharp>
                                         </IconButton>
                                         <span>40 Views</span>
                                     </div>
                                     <div className="col-md-8 d-flex center">
-                                        <div className="col viewsBlog">
+                                        <div className="col viewsBlog" id="center1">
                                             {/* <IoEyeSharp></IoEyeSharp> */}
                                             <span>{Getcommnet.CommentCounts}</span>
                                             <span>Comment</span>
                                         </div>
-                                        <div className="col viewsBlog like">
+                                        <div className="col viewsBlog like" id="center1">
                                             <IconButton onClick={(() => { PostLike(color()?.like) })}>
                                                 <AiFillHeart color={state?.login && color()?.like && "red"}></AiFillHeart>
                                             </IconButton>
@@ -151,7 +151,7 @@ const Blogs = () => {
                                     </div>
                                 </div>
 
-                            </div>
+                            {/* </div> */}
                         </div>
                     </div>
                     {WishList && <WhisList open1={WishList} SetWishList={SetWishList}></WhisList>}

@@ -9,7 +9,7 @@ import { OverAllGet_Review } from "../ReviewApi"
 const OverAllReview = ({ Product, api, SetApi }) => {
     const [Rating, SetRating] = React.useState()
     const classes = useStyles()
-    const Id = Product.id
+    const Id = Product?.id
     // const [completed, setCompleted] = React.useState(0);
 
     // React.useEffect(() => {
@@ -30,8 +30,6 @@ const OverAllReview = ({ Product, api, SetApi }) => {
             SetRating(res?.data)
         }).catch(() => { })
     }, [Id, api])
-
-    console.log(Rating)
     return (
         <>
             <div className="container-fluid">
@@ -78,7 +76,7 @@ const OverAllReview = ({ Product, api, SetApi }) => {
                                                 <span>{item.starValue}</span> <span><AiFillStar className={classes.disp_star_color} /></span>
                                             </div>
                                             <div className="col-10 overAll_Progress_center over_col_height ">
-                                                <ProgressBar key={idx} bgcolor={item.bgcolor} completed={item.completed *100 /5} />
+                                                <ProgressBar  key={idx}  bgcolor={item.bgcolor} completed={item.completed *100 /5} />
 
                                             </div>
 

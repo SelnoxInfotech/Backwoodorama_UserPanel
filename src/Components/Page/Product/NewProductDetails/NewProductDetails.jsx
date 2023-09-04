@@ -10,6 +10,7 @@ import NewProductSearchResult from "./NewProductDetailsComponent/NewProductSearc
 import Axios from "axios";
 import { useParams } from 'react-router-dom';
 import NewFlavourBanner from "../../../Component/NewFlavour/NewFlavourBanner"
+import Review from "../../Review/Review"
 const NewProductDetails = () => {
   const { id } = useParams();
 
@@ -57,9 +58,10 @@ const NewProductDetails = () => {
       <NewProductAboutUs />
       {/* <NewProductSearchResult NewProductSearchRseultArray={StoreProduct} heading={heading} /> */}
       <ProductSearchResult RelatedProductResult={StoreProduct} CategoryName={heading}/>
-
+{/* 
       <OverAllReview Product={Product} api ={api} SetApi ={ SetApi}/>
-      <RelatedReview Product={Product} api ={api} SetApi ={ SetApi}/>
+      <RelatedReview Product={Product} api ={api} SetApi ={ SetApi}/> */}
+      <Review Product={Product} api ={api} SetApi ={ SetApi}></Review>
 
 
     </div>

@@ -3,7 +3,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import LoadingButton from "@mui/lab/LoadingButton";
 import useStyles from "../../../Style";
 import Box from '@mui/material/Box';
-
+import { Link } from "react-router-dom";
 const FourZeroThree=()=>{
     const classes=useStyles()
     return(
@@ -12,7 +12,7 @@ const FourZeroThree=()=>{
                 <div className="col-12 FourZeroThree_container">
                     <div className="col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12">
                     <section className="FourZeroThree_Image_section ">
-                            <LazyLoadImage src="./image/FourZeroThree.png" className="fourZeroThree_image" />
+                            <LazyLoadImage src="/image/FourZeroThree.png" className="fourZeroThree_image" />
                         </section>
                         <section className="fourZeroThree_content_section mt-2">
                             
@@ -28,7 +28,7 @@ const FourZeroThree=()=>{
 
                         </section>
                         <Box className={`center mt-4 ${classes.fourZero_Three}`}>
-                            <LoadingButton>Go To Home Page</LoadingButton>
+                        <Link to={'/'} >     <LoadingButton >Go To Home Page</LoadingButton></Link>
                         </Box>
                     </div>
 

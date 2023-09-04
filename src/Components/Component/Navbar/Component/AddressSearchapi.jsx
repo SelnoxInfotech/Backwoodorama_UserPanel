@@ -51,40 +51,49 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
     // console.log( event.target.setSelectionRange)
   }
   function current(event) {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
-        .then(res => res.json())
-        .then((response) => {
-          dispatch({ type: 'Location', Location: response?.plus_code?.compound_code.slice(9) });
-          Setdefault(response?.plus_code?.compound_code.slice(9))
-          response?.results?.map((data) => {
-            if (data.types.indexOf('country') !== -1) {
-               dispatch({ type: 'Country', Country: data?.formatted_address.replace(/\s/g, '-') })
-            }
-            if (data.types.indexOf('administrative_area_level_1') !== -1) {
-              data.address_components.map((state) => {
-                if (state.types.indexOf('administrative_area_level_1') !== -1) {
-                  dispatch({ type: 'State', State: state?.long_name.replace(/\s/g, '-') })
+    navigator.permissions.query({ name: 'geolocation' }).then(permissionStatus => {
+      if (permissionStatus.state === 'denied') {
+        alert('Please allow location access.');
+      } else {
+        navigator.geolocation.getCurrentPosition(function (position) {
+          fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
+            .then(res => res.json())
+            .then((response) => {
+              dispatch({ type: 'Location', Location: response?.plus_code?.compound_code.slice(9) });
+              Setdefault(response?.plus_code?.compound_code.slice(9))
+              response?.results?.map((data) => {
+                if (data.types.indexOf('country') !== -1) {
+                  dispatch({ type: 'Country', Country: data?.formatted_address.replace(/\s/g, '-') })
                 }
+                if (data.types.indexOf('administrative_area_level_1') !== -1) {
+                  data.address_components.map((state) => {
+                    if (state.types.indexOf('administrative_area_level_1') !== -1) {
+                      dispatch({ type: 'State', State: state?.long_name.replace(/\s/g, '-') })
+                    }
+                  })
+                }
+                if (data.types.indexOf('administrative_area_level_3') !== -1) {
+                  data.address_components.map((city) => {
+                    if (city.types.indexOf('administrative_area_level_3') !== -1 || city.types.indexOf('locality') !== -1) {
+                      dispatch({ type: 'City', City: city?.long_name?.replace(/\s/g, '-') })
+                    }
+                  })
+
+                }
+
+
               })
             }
-            if (data.types.indexOf('administrative_area_level_3') !== -1) {
-              data.address_components.map((city) => {
-                if (city.types.indexOf('administrative_area_level_3') !== -1 || city.types.indexOf('locality') !== -1) {
-                  dispatch({ type: 'City', City: city?.long_name?.replace(/\s/g, '-') })
-                }
-              })
 
-            }
+            )
 
-
-          })
-        }
-
-        )
-
+        });
+      }
     });
   }
+
+
+
   function OnBlur() {
     setOpenLocation(false)
   }

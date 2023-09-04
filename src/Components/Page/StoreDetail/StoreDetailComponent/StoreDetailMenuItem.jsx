@@ -14,7 +14,7 @@ const StoreDetailMenuItem = ({SelectionTab , tab}) => {
                         <ol className="store_detail_order_list">
                             {StoreDetailMenuItem.map((ele, index) => {
                                 return (
-                                    <li className="listfontStyle store_detail_list" onClick={()=>{SelectionTab(ele.item)}}
+                                    <li className="listfontStyle store_detail_list" onClick={()=>{SelectionTab(ele.item )}}
                                      style={{color: tab === ele.item && ele.color}}     
                                       key={index}><span className="storeDetalMenuItemCursor">{ele.item}</span></li>
                                 )

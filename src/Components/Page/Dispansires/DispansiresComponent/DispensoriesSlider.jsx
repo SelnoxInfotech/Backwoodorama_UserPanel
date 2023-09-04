@@ -10,7 +10,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ScrollContainer } from 'react-indiana-drag-scroll';
 import Axios from "axios";
 import DispensoriesAddressSkeleton from '../../../Component/Skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton';
-const DispensoriesAddress = () => {
+const Dispensories = () => {
     const ref = React.useRef(null);
     const Navigate = useNavigate();
     // const { dispatch } = React.useContext(Createcontext)
@@ -42,7 +42,6 @@ const DispensoriesAddress = () => {
 
     const classes = useStyles()
     return (
-
         <React.Fragment>
             <div className="container-fluid">
                 {!Skeleton ? <div className='row'>
@@ -61,12 +60,12 @@ const DispensoriesAddress = () => {
                                         <div className=' dispensoriesAddressBorder'>
 
                                             <div className='col-12 dispensories_image_containerss'>
-                                                <Link to={`/DispensoriesProduct/${ele.id}/${"Menu"}`}>
+                                                <Link  to={`/Weed-DispensoriesDetails/${ele.id}/${"Menu"}/${ele.Store_Name.replace(/\s/g,'-')}`}>
                                                     <img src={`https://sweede.app/${ele?.Store_Image}`} alt='img_not_found' className='img-responsive dispensories_image  center-block' />
                                                 </Link>
                                             </div>
                                             <div className='dispensoriesContentContainer px-4'>
-                                                <Link className='dispensoriesLinkStyles' to={`/DispensoriesProduct/${ele.id}/${"Menu"}`}>
+                                                <Link className='dispensoriesLinkStyles' to={`/Weed-DispensoriesDetails/${ele.id}/${"Menu"}/${ele.Store_Name.replace(/\s/g,'-')}`}>
                                                     <div className='col-12'>
 
                                                         <div className=' col-10  dis_right_div'>
@@ -116,7 +115,7 @@ const DispensoriesAddress = () => {
                                                     <Box
                                                         className={`${classes.loadingBtnTextAndBack}`}
                                                     >
-                                                        <LoadingButton onClick={() => { Navigate(`/DispensoriesProduct/${ele.id}/${"Menu"}`) }} style={{ width: "100%" }}>Order Pickup</LoadingButton>
+                                                        <LoadingButton onClick={() => { Navigate(`/DispensoriesDetails/${ele.id}/${"Menu"}`) }} style={{ width: "100%" }}>Order Pickup</LoadingButton>
                                                     </Box>
                                                 </div>
                                             </div>
@@ -135,4 +134,4 @@ const DispensoriesAddress = () => {
         </React.Fragment>
     )
 }
-export default DispensoriesAddress
+export default Dispensories

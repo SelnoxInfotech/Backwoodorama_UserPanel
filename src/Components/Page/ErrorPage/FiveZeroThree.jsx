@@ -12,7 +12,7 @@ const FiveZeroThree = () => {
                 <div className="col-12 fiveZeroThree_container">
                     <div className="col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12">
                         <section className="FiveZero_Image_section ">
-                            <LazyLoadImage src="./image/FiveZeroThree.png" className="fiveZero_image" />
+                            <LazyLoadImage src="/image/FiveZeroThree.png" className="fiveZero_image" />
                         </section>
                         <section className="fiveZero_content_section mt-2">
                             

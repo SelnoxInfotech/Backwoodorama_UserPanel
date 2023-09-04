@@ -17,7 +17,7 @@ import CategoryProduct from "../../Home/Dashboard/ComponentDashboard/CategoryPro
 import ComponentStoreDetails from "../../StoreDetail/ComponentStoreDetails"
 import Review from "../../Review/Review";
 import Media from "../../Media/Media";
-export default function DispensoriesProduct() {
+export default function DispensoriesDetails() {
     const navigate = useNavigate()
     const { id, tab } = useParams();
     const classes = useStyles()
@@ -26,16 +26,13 @@ export default function DispensoriesProduct() {
     const [DespensariesData, SetDespensariesProductData] = React.useState([])
     const [Despen, SetDespens] = React.useState([])
     const [Tab, SetTab] = React.useState()
-    // const handleChange = (event) => {
-    //     SetProduct(event.target.value);
-    // };
-
 
 
     React.useEffect(() => {
         axios.get(`https://sweede.app/UserPanel/Get-StoreById/${id}`, {
         }).then(response => {
             SetDespens(response.data)
+            //  navigate(`/Weed-DispensoriesDetails/${id}/${"Menu"}/${response.data[0].Store_Name.replace(/\s/g,'-')}`)
         })
 
         axios.post("https://sweede.app/UserPanel/Get-CategoryByStore/ ",
@@ -43,14 +40,15 @@ export default function DispensoriesProduct() {
                 "Store_Id": parseInt(id)
             }
         ).then(async response => {
-            const d =[]
+            const d = []
             response.data.map((data) => {
-                  d.push(data[0])
-                  var uniqueUsersByID = _.uniqBy(d, 'id'); //removed if had duplicate id
-                  SetCategory(uniqueUsersByID)
-              })
+                d.push(data[0])
+                var uniqueUsersByID = _.uniqBy(d, 'id'); //removed if had duplicate id
+                SetCategory(uniqueUsersByID)
+                return data
+            })
 
-                // SetCategory(d)
+            // SetCategory(d)
 
         }).catch(
             function (error) {
@@ -75,12 +73,17 @@ export default function DispensoriesProduct() {
     //         })
 
     // }
-    function SelectionTab(item) {
+    function SelectionTab(item,Store_Name) {
         SetTab(item)
-        navigate(`/DispensoriesProduct/${id}/${item}`)
+        navigate(`/Weed-DispensoriesDetails/${id}/${item.replace(/\s/g,'-')}/${Despen[0].Store_Name.replace(/\s/g,'-')}`)
 
     }
-    function ShowCategoryProduct(Id, name) {
+
+//  React.useEffect(()=>{
+//     navigate(`/DispensoriesDetails/${id}/${item}/${StoreName}`)
+//  },[])
+
+    function ShowCategoryProduct(Id) {
 
         axios.post(`https://sweede.app/UserPanel/Get-filterProductbyStoreandCategory/`,
 
@@ -91,14 +94,10 @@ export default function DispensoriesProduct() {
         ).then(response => {
             SetDespensariesProductData(response.data)
 
-
-
         }).catch(
             function (error) {
 
             })
-
-        // navigate(`/CategoryProduct/${name}`, { state: {  id  } });
     }
 
     const ProductFilterData = [{ Id: 1, Name: "Category", Type1: "Flower", Type2: "CBD", Icons: <BsLayoutSplit className={classes.muiIcons} /> },
@@ -121,7 +120,7 @@ export default function DispensoriesProduct() {
                     {
                         tab === 'Menu' &&
                         <>
-                            <CategoryProduct Category={Category} ShowCategoryProduct={ShowCategoryProduct}  ></CategoryProduct>
+                            <CategoryProduct Category={Category} ShowCategoryProduct={ShowCategoryProduct}> </CategoryProduct>
                             <div className="col-12   productCat_cont" style={{ display: "contents" }}>
 
 
@@ -129,7 +128,7 @@ export default function DispensoriesProduct() {
                                 <ProductFilter Store_id={Despen[0]?.id}
                                     ProductFilterData={ProductFilterData}
                                     Setarr1={SetDespensariesProductData} />
-                                    
+
                                 <div className="col-12 col-lg-10 prod_cat_right_sec">
                                     <ProductList arr={DespensariesData} />
 
@@ -139,7 +138,7 @@ export default function DispensoriesProduct() {
                         </>
                     }
                     {
-                        tab === 'Store Details' && <ComponentStoreDetails></ComponentStoreDetails>
+                        tab === 'Store-Details' && <ComponentStoreDetails></ComponentStoreDetails>
                     }
                     {
                         tab === 'Review' && <Review></Review>
