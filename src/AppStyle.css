@@ -8467,4 +8467,40 @@
   width: 80px;
   border-radius: 50%;
 }
+.blogCommentFlex{
+  display: flex;
+  align-items: center;
+  
+}
+.blogCommentName{
+  color: #000000;
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 0px;
+}
+.blogUserComments{
+  color: #000000;
+  font-weight: 400;
+  font-size: 16px;
+  margin-top: 8px;
+}
+.commentCardImages{
+  height: 118px;
+  width: 167px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.blogCommentEachCards{
+  padding: 4px;
+  margin-top: 12px;
+}
+.pageNumberLists{
+  margin-inline: 20px;
+}
+.Blog_paginateList{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
 /* end */
