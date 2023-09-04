@@ -2,26 +2,35 @@ import React from "react";
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "../../../../Style";
-import {Post_Comment} from "../../../../Api/Api"
-const RecentPostComment = ({id , GetUserComment , SetUserComment }) => {
+import { Post_Comment } from "../../../../Api/Api"
+import Createcontext from "../../../../Hooks/Context"
+import _ from "lodash"
+const RecentPostComment = ({ id, GetUserComment, SetUserComment }) => {
+    const { state } = React.useContext(Createcontext)
+    const [GetComment, SetComment] = React.useState('')
     const classes = useStyles()
     function WriteComment(e) {
-        SetUserComment({...GetUserComment,"UserComment":e.target.value})
-    }
-    console.log(GetUserComment)
-    const PostComment = async()=>{
-        console.log(GetUserComment.UserComment )
+        if (state.login) {
 
-    await Post_Comment(id,GetUserComment.UserComment).then((res) => {
-            console.log(res)
-            // SetUserComment(res.data.Comments)    
+            SetComment(e.target.value)
+        }
+        else{
+            alert("Please first login")
+        }
+    }
+    const PostComment = async () => {
+        
+        await Post_Comment(id, GetComment).then((res) => {
+                  SetUserComment({ ...GetUserComment, "CommentCounts": res.data.CommentCounts, 'UserComment':[res.data.data] })
         }).catch((error) => {
             console.log(error)
         })
 
     }
-
-
+    React.useEffect(() => {
+        SetComment( _.find(GetUserComment.UserComment, (o) => { return o?.user === state?.Profile?.id })?.comment  === undefined ? "" : _.find(GetUserComment.UserComment, (o) => { return o?.user === state?.Profile?.id })?.comment)
+    }, [GetUserComment ,state])
+   
     return (
         <React.Fragment>
             <div className="col-12 recentPost_comment_container px-0">
@@ -30,10 +39,7 @@ const RecentPostComment = ({id , GetUserComment , SetUserComment }) => {
                         <h2 className="recentPostComment_head">Comment</h2>
                     </div>
                     <div className="recentPostComment_editor_cont mt-2">
-                        <textarea value={GetUserComment.UserComment} onChange={WriteComment} className="BolgCommentBOx" rows="4" cols="50">
-                            {/* {GetUserComment} */}
-                            {/* {'0'} */}
-                        </textarea>
+                        <textarea type="text" value={GetComment} onChange={WriteComment} className="BolgCommentBOx" rows="4" cols="50"></textarea>
                     </div>
                     <div className="col-12 p x-0  recentPostBtnCenter mt-4">
 
@@ -45,7 +51,7 @@ const RecentPostComment = ({id , GetUserComment , SetUserComment }) => {
                         <Box
                             className={`recentPostBox_width2 ${classes.recentPostCancelBtn2}`}
                         >
-                            <LoadingButton onClick={PostComment} variant="outlined">Save</LoadingButton>
+                            <LoadingButton disabled={state.login === false ?true :false} onClick={PostComment} variant="outlined">Save</LoadingButton>
                         </Box>
                     </div>
 

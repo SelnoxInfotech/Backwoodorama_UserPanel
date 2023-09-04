@@ -28,8 +28,8 @@ const RecentPost = () => {
                             <div className="BlogContainer mb-2">
                                 {News?.map((ele, index) => {
                                     return (
-                                        <Link to={`/Blogs/${ele.id}`} > 
-                                        <section  key={index}>
+                                        <Link  key={index} to={`/Blogs/${ele.id}`} > 
+                                        <section >
                                             <div className="col img_cont center_latest ">
                                                 {/* <div className="centerImg "> */}
                                                    <img src={`https://sweede.app${ele?.Image}`} alt="img_not_found" style={{ pointerEvents: "none" }} />

@@ -1759,7 +1759,6 @@ const Content = [
                     }
                 ]
             }
-            // yeha data dalne k pehle ye beta yeha canada wale state ke object ki id tune 3 se kyu chalu ki thi 
         ]
     }
 

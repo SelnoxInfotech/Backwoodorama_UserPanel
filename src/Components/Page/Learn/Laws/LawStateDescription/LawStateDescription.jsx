@@ -15,7 +15,7 @@ const LawStateDescription = () => {
             return (
                 data.state.map((d) => {
                     if (d.id === location?.state?.id) {
-
+                        
                         SetContant(d)
                     }
                     return d

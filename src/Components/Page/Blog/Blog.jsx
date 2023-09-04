@@ -20,11 +20,10 @@ import { WhisList } from "../../Component/Whishlist/WhisList";
 const Blogs = () => {
     const classes = useStyles()
     const navigate = useNavigate()
-    const { state, dispatch } = React.useContext(Createcontext)
+    const { state } = React.useContext(Createcontext)
     const [value, SetValue] = React.useState([])
     const [Getlikes, SetLikes] = React.useState([])
     const [Getcommnet, Setcommnet] = React.useState([])
-    const [GetUserComment ,SetUserComment  ] =React.useState([])
     const { id } = useParams();
     const [News, SetNews] = React.useState({})
     const [WishList, SetWishList] = React.useState(false)
@@ -39,9 +38,9 @@ const Blogs = () => {
             }).catch((error) => {
                 console.error(error)
             })
-            await Get_Comment(data[0].id).then((res) => {
-                // SetUserComment(res.data.Comments)    
-                Setcommnet({ ...Getcommnet, "CommentCounts": res.data.CommentCounts, 'UserComment':res.data.Comments[0].comment })
+            await Get_Comment(data[0].id).then((res) => {  
+            
+                Setcommnet({ ...Getcommnet, "CommentCounts": res.data.CommentCounts, 'UserComment':res.data.Comments })
             }).catch((error) => {
                 console.error(error)
             })
@@ -76,8 +75,7 @@ const Blogs = () => {
         })
         return l
 
-    }
-   
+    }   
     return (
         <React.Fragment>
             <div className="container">
@@ -112,7 +110,7 @@ const Blogs = () => {
                             <span className="blog_Title ">{News?.Title}</span>
                             {/* <img src ="https://sweede.app/image/images/download/media/BlankImage/b1_2.png"  style={{width:"100%" , height:"250px"}}alt="blog image"></img> */}
                         </section>
-                        <div classname="col" id="center1" >
+                        <div className="col" id="center1" >
                             <div className="col-12 blogEditorPaddings ">
                                 <div className="">
                                     <span>{News?.Title}</span>
@@ -123,7 +121,7 @@ const Blogs = () => {
                                 </div>
                             </div>
                         </div>
-                        <div classname="col" id="center1" >
+                        <div className="col" id="center1" >
                             <div className="col-12 BlogLink mt-2">
                                 <div className="col-12 Linkofblog">
                                     <div className="col Linkofblog">
