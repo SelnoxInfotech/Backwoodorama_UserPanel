@@ -7571,7 +7571,8 @@
 }
 
 .recentPost_comment_container {
-  height: 380px;
+  height: auto;
+  padding: 20px;
   background-color: #F5F5F5;
   display: flex;
   justify-content: center;
@@ -7579,7 +7580,6 @@
 }
 
 .recentPostComment_editor_cont {
-  height: 180px;
   background-color: #FFFFFF;
 }
 
@@ -8558,5 +8558,9 @@ color:#777777;
   align-items: center;
   list-style: none;
 }
-
+@media(max-width:500px){
+  .blogUserComments{
+    font-size: 12px;
+  }
+}
 /* end */

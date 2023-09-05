@@ -97,7 +97,6 @@ export function WhisList({ open1, SetWishList }) {
                 onClose={handleClose}
                 aria-labelledby="customized-dialog-title"
                 open={open1}
-                contentStyle={{ width: "10%", maxWidth: "none" }}
                 PaperProps={{
                     style: { borderRadius: '1rem' }   }}
             >
@@ -109,7 +108,7 @@ export function WhisList({ open1, SetWishList }) {
                 <div>
                     <DialogContent >
                         <Typography gutterBottom>
-                            <p className='TypographyWishList'>  Save your favorites in one place</p>
+                            <span className='TypographyWishList'>  Save your favorites in one place</span>
                         </Typography>
                         <Typography gutterBottom  >
                             <span className='TypographyWishList1'>
@@ -117,21 +116,21 @@ export function WhisList({ open1, SetWishList }) {
                                 strains and dispensaries across all devices
                             </span>
                         </Typography>
-                        <Typography gutterBottom>
-                            <p className='TypographyWishList2'> <span><FaCannabis></FaCannabis></span> <span>Save products to browse another time</span></p>
+                        <Typography gutterBottom component={'div'}>
+                            <h2 className='TypographyWishList2'> <span><FaCannabis></FaCannabis></span> <span>Save products to browse another time</span></h2>
                         </Typography>
-                        <Typography gutterBottom>
-                            <p className='TypographyWishList2' >
+                        <Typography gutterBottom component={'div'}>
+                            <h2 className='TypographyWishList2' >
                                 <span><BsFillTagFill></BsFillTagFill></span>
                                 <span>Learn about latest deals on saved items</span>
-                            </p>
+                            </h2>
 
                         </Typography>
-                        <Typography gutterBottom>
-                            <p className='TypographyWishList2' >
+                        <Typography gutterBottom component={'div'}>
+                            <h2 className='TypographyWishList2' >
                                 <span><GrMail></GrMail></span>
                                 <span> Get notified when saved items are back in stock</span>
-                            </p>
+                            </h2>
                         </Typography>
                         
                     </DialogContent>
