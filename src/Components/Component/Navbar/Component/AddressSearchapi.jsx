@@ -35,12 +35,10 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
     },
     options: {
 
-      // componentRestrictions: { country: "us" },
-      fields: ["address_components", "geometry", "icon", "formatted_address"],
-      strictBounds: false,
-      // types: ["(establishment) "],
-      types: ['address'],
-      componentRestrictions: ['in']
+      fields: ["address_components", "formatted_address"],
+      types: ['locality', ],
+      componentRestrictions: {country:[ 'us' , "ca"]}
+      // types: ['city']
     },
   });
   React.useEffect(() => {
