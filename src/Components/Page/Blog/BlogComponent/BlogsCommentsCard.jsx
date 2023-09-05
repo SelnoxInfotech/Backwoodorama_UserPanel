@@ -1,4 +1,5 @@
 import { IoIosArrowDown } from "react-icons/io"
+import {IoIosArrowUp} from "react-icons/io"
 import { IconButton } from "@material-ui/core";
 // import { LazyLoadImage } from "react-lazy-load-image-component";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -10,9 +11,9 @@ const BlogsCommentsCard = () => {
     const CommentCardArray = [
         { name: "Mr nice guys", comments: "Good peeps. Happy vibes. Smart pharmacists. My crew!" },
         { name: "Mr nice guys", comments: "Good peeps. Happy vibes. Smart pharmacists. My crew!" },
+        { name: "Mr Nancy guys", comments: "Good peeps. Happy vibes. Smart pharmacists. My crew!" },
         { name: "Mr nice guys", comments: "Good peeps. Happy vibes. Smart pharmacists. My crew!" },
-        { name: "Mr nice guys", comments: "Good peeps. Happy vibes. Smart pharmacists. My crew!" },
-        { name: "Mr nice guys", comments: "Good peeps. Happy vibes. Smart pharmacists. My crew!" },
+        { name: "Mr Voltas guys", comments: "Good peeps. Happy vibes. Smart pharmacists. My crew!" },
         { name: "Mr nice guys", comments: "Good peeps. Happy vibes. Smart pharmacists. My crew!" },
         { name: "Mr nice guys", comments: "Good peeps. Happy vibes. Smart pharmacists. My crew!" },
         { name: "Mr nice guys", comments: "Good peeps. Happy vibes. Smart pharmacists. My crew!" },
@@ -42,10 +43,16 @@ const BlogsCommentsCard = () => {
         <section className="px-0">
             <div className="col-12 blogsCommentCountCol">
                 <div className="col-6">
-                    <h2 className="blogsCommentheadings">Comments(41)</h2>
+                    <h2 className="blogsCommentheadings">Comments ({CommentCardArray.length})</h2>
                 </div>
                 <div className="col-6 blogCommentCardArrowBtn">
-                    <IconButton onClick={() => SetShowCards(!ShowCards)}><IoIosArrowDown /></IconButton>
+                    {ShowCards?(
+                        <IconButton onClick={() => SetShowCards(!ShowCards)}><IoIosArrowUp /></IconButton>
+                    ):(
+                        <IconButton onClick={() => SetShowCards(!ShowCards)}><IoIosArrowDown /></IconButton>
+
+                    )}
+                    
                 </div>
             </div>
             {
@@ -58,7 +65,7 @@ const BlogsCommentsCard = () => {
                                         <div className="border blogCommentEachCards">
 
                                             <div className="col-12" style={{ display: "flex", justifyContent: "flex-end" }}>
-                                                <span>04-09-2023</span>
+                                                <span className="blogsCommentCardDate">04-09-2023</span>
                                             </div>
                                             <div className="col-12 blogCommentFlex " >
                                                 <section className="commentCardImages">

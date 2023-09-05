@@ -2477,7 +2477,7 @@
 }
 
 .dispensories_content_paragraphs {
-  height:auto;
+  height: auto;
   display: flex;
   align-items: center;
 }
@@ -2519,11 +2519,13 @@
 .dis_open_result_star {
   margin-inline: 10px;
 }
-.dispensoriesOpenResultHeadingss{
+
+.dispensoriesOpenResultHeadingss {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .dispensories_result_head {
   color: #282625;
   font-weight: 700;
@@ -8100,6 +8102,7 @@
   height: 50px;
   margin: 10px 0px;
 }
+
 .lawsContainer {
   margin-top: 100px;
 }
@@ -8123,7 +8126,8 @@
   list-style: none;
   padding-left: 0px;
 }
-.law_Inner_OPtionList_Ol li{
+
+.law_Inner_OPtionList_Ol li {
 
   width: 30%;
   display: flex;
@@ -8131,19 +8135,22 @@
   padding: 17px 0px;
   align-items: center;
 
- 
+
 }
-.law_Inner_OPtionList_Ol li span{
+
+.law_Inner_OPtionList_Ol li span {
   color: #000000;
   font-weight: 700;
   font-size: 16px;
 }
-.lawoptionMainList{
+
+.lawoptionMainList {
   border: 1px solid #E9E9E9;
   margin-top: 10px;
 }
-.lawOPtionListImage{
-  width:30px;
+
+.lawOPtionListImage {
+  width: 30px;
   height: 30px;
   border: 1px solid #E9E9E9;
 }
@@ -8152,21 +8159,26 @@
   list-style: none;
   padding-left: 0px;
 }
-@media(max-width:1199px){
- .law_Inner_OPtionList_Ol{
-  flex-direction: column;
- }
-.law_Inner_OPtionList_Ol li{
-  border-bottom: 1px solid #E9E9E9;
-  width: 100%;
-}
+
+@media(max-width:1199px) {
+  .law_Inner_OPtionList_Ol {
+    flex-direction: column;
+  }
+
+  .law_Inner_OPtionList_Ol li {
+    border-bottom: 1px solid #E9E9E9;
+    width: 100%;
+  }
 
 }
+
 /* end */
 /* blog */
 .blogEditorPaddings {
   line-height: 1;
-  font-size: 33px;
+  font-size: 24px;
+  color: #000000;
+  font-weight: 400;
   padding: 10px;
   margin-top: 15px;
 }
@@ -8353,48 +8365,57 @@
 
 /* end */
 /* lawStateDescriptionHeadings */
-.lawStateDescriptionHeadings{
+.lawStateDescriptionHeadings {
   height: auto;
 }
-.lawStateDescription_Laws_Content{
+
+.lawStateDescription_Laws_Content {
   display: flex;
 }
-.isweedLegalHeading{
+
+.isweedLegalHeading {
   color: #000000;
   font-weight: 700;
   font-size: 28px;
 }
-.frequentlySubHeading{
+
+.frequentlySubHeading {
   color: #000000;
   font-weight: 700;
-  font-size: 22px;  
+  font-size: 22px;
 }
-.LawStateDescriptionHeading{
+
+.LawStateDescriptionHeading {
   color: #6B6B6B;
   font-weight: 700;
   font-size: 32px;
 }
-.LawStateContentOls{
+
+.LawStateContentOls {
   /* list-style: none; */
   padding-left: 0px;
 }
-.LawStateContentOls li{
+
+.LawStateContentOls li {
   padding-left: 10px;
   /* border-bottom: 1px solid #E0E0E0; */
 }
-.isWeedLegalParagraph{
-  font-size:18px;
+
+.isWeedLegalParagraph {
+  font-size: 18px;
   color: #6B6B6B;
-  font-weight:400;
+  font-weight: 400;
   text-align: justify;
   padding-bottom: 24px;
 }
-.lawStateContentLinkStyle{
+
+.lawStateContentLinkStyle {
   color: #000000;
   font-weight: 400;
   font-size: 18px;
 }
-.caontentSocialIcon_Ol{
+
+.caontentSocialIcon_Ol {
   display: flex;
   list-style: none;
   padding-left: 0px;
@@ -8404,103 +8425,138 @@
   padding-left: 0px;
   /* background-color: #31B665; */
 }
-.LawStateContentOlsCol{
+
+.LawStateContentOlsCol {
   padding-left: 32px;
 }
-.socialIconsContainer{
+
+.socialIconsContainer {
   background-color: #31B665;
   display: flex;
 }
-.sharIcons{
+
+.sharIcons {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding-right: 10px;
 }
-.lawStateDescBannerCol{
+
+.lawStateDescBannerCol {
   margin-bottom: 30px;
 }
-.LawStateContentsContainer{
+
+.LawStateContentsContainer {
   margin-left: 20px;
-  border:  1px solid #BEBEBE;
+  border: 1px solid #BEBEBE;
   position: sticky;
-  top:200px
-
-
+  top: 200px
 }
-.canabisLawMainHeadings{
+
+.canabisLawMainHeadings {
   font-size: 24px;
   font-weight: 700;
   color: #000000;
 }
-@media(max-width:992px){
-  .lawStateDescription_Laws_Content{
+
+@media(max-width:992px) {
+  .lawStateDescription_Laws_Content {
     display: block;
   }
-  .LawStateContentsContainer{
+
+  .LawStateContentsContainer {
     margin-left: 0px;
   }
 }
-@media(max-width:500px){
-  .LawStateDescriptionHeading{
+
+@media(max-width:500px) {
+  .LawStateDescriptionHeading {
     font-size: 24px;
   }
 }
+
 /* end */
 /* blogsComment */
-.blogsCommentCountCol{
+.blogsCommentCountCol {
   display: flex;
   height: 100px;
   align-items: center;
 }
-.blogCommentCardArrowBtn{
+
+.blogCommentCardArrowBtn {
   display: flex;
   justify-content: flex-end;
 }
-.blogsCommentheadings{
+
+.blogsCommentheadings {
   color: #000000;
   font-size: 20px;
   font-weight: 700;
 }
-.blogsCommentImages{
+
+.blogsCommentImages {
   height: 80px;
   width: 80px;
   border-radius: 50%;
 }
-.blogCommentFlex{
+
+.blogCommentFlex {
   display: flex;
   align-items: center;
-  
+
 }
-.blogCommentName{
+
+.blogCommentName {
   color: #000000;
   font-weight: 700;
   font-size: 20px;
   margin-bottom: 0px;
 }
-.blogUserComments{
+
+.blogUserComments {
   color: #000000;
   font-weight: 400;
   font-size: 16px;
   margin-top: 8px;
 }
-.commentCardImages{
+
+.commentCardImages {
   height: 118px;
   width: 167px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.blogCommentEachCards{
+
+.blogCommentEachCards {
   padding: 4px;
   margin-top: 12px;
 }
-.pageNumberLists{
-  margin-inline: 20px;
-}
-.Blog_paginateList{
+
+.pageNumberLists {
+color:#777777;
+  font-size: 12px;
   display: flex;
   justify-content: center;
+  align-items: center;
+
+}
+.blogsCommentCardDate{
+  color: #A8A8A8;
+  font-size: 18px
+}
+.Blog_paginateList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
   margin-top: 20px;
 }
+
+.Blog_pagination_UL {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
 /* end */

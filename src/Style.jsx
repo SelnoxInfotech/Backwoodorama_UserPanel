@@ -1276,6 +1276,22 @@ const useStyles = makeStyles({
     "&.MuiFormControlLabel-root":{
       alignItems:"baseline"
     }
+   },
+   blogPaginateIconButton:{
+    "&.MuiIconButton-root":{
+      padding:"4px"
+    }
+   },
+   blogPaginateIconButtonNumber:{
+    "&.MuiIconButton-root":{
+      padding:"2px",
+      width:"20px",
+      height:"20px",
+      borderRadius:"50%",
+      backgroundColor:"#D9D9D9",
+      marginInline:"4px",
+
+    }
    }
 });
 
