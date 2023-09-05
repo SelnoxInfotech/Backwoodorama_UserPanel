@@ -6,6 +6,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import useStyles from '../../../Style';
 import Cookies from 'universal-cookie';
+import Createcontext from "../../../Hooks/Context"
 import {ImNotification} from "react-icons/im"
 const CheckAgeEligbilityPopup = ({value}) => {
     const classes=useStyles()
@@ -13,12 +14,20 @@ const CheckAgeEligbilityPopup = ({value}) => {
     const [open, setOpen] = React.useState(value);
     const [Country, SetCountry] = React.useState('USA');
     const [NotAgepop, SetNotAge] = React.useState('')
+    const {state, dispatch } = React.useContext(Createcontext)
     const get = () => {
         setOpen(false)
         let date = new Date();
         date.setTime(date.getTime() + (60 * 60 * 8000))
         cookies.set('CheckAge', 0, { expires: date })
-        cookies.set('Location', Country, { expires: date })
+        if (Country === "USA"){
+            cookies.set('Location', JSON.stringify("New York"), { expires: date })
+            dispatch({ type: 'DefalutLocation', DefalutLocation: 'New York' })
+        }
+        else {
+            cookies.set('Location', JSON.stringify("Canada"), { expires: date })
+            dispatch({ type: 'DefalutLocation', DefalutLocation: '"Canada"' })
+        }
     }
     const handleChange = (event) => {
         // cookies.set('CheckAge', false)

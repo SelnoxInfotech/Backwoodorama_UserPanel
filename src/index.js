@@ -4,11 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Context} from "./Hooks/Context"
+import CurrentLocation from "./Components/Component/Navbar/Component/CurrentLocation"
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
     <Context>
         <App />
+        <CurrentLocation></CurrentLocation>
     </Context>
 );
 

@@ -46,217 +46,231 @@ import OpenDispensoriesSkeleton from "../Components/Component/Skeleton/Dispensor
 import DeliveryItemsCardSkeleton from "../Components/Component/Skeleton/Deliveries/DeliveriesComponent/DeliveryMenu/DeliveryItemsCardSkeleton";
 import WhisLists from "../Components/Component/Whishlist/WhisLists/WhisLists";
 import LawStateDescription from "../Components/Page/Learn/Laws/LawStateDescription/LawStateDescription";
+import RoutingDespen from "../Routes/RoutingDespen"
+
 const routesConfig = [
-  
+
+  {
+    element: <Layout />,
+
+
+    children: [
       {
-        element: <Layout />,
-      
-        
-        children: [
-          {
-            path: "/Signup",
-            element: <Signup></Signup>,
-          },
-          {
-            path: "/PlaceOrder",
-            element: <PlaceOrder></PlaceOrder>,
-          },
-          {
-            path: "/",
-            element: <Dashboard />,
-          }, 
-         
-          {
-            path: "/SignupWithEmail",
-            element: <SignupWithEmail></SignupWithEmail>,
-          },
-          {
-            path: "/Login",
-            element: <Login></Login>,
-          },
-          {
-            path: "/ForgotPassword",
-            element: <ForgotPassword></ForgotPassword>,
-          },
-          {
-            path: "/CreatePassword",
-            element: <CreatePassword></CreatePassword>,
-          },
-          {
-            path:"/Weed-Deliveries/in/:Country/:state/:city",
-            element:<Deliveries></Deliveries>
-          },
-          
-          {
-            path: "/Product",
-            element: <Product></Product>,
-          },
-          {
-            path: "/ProductDetail",
-            element: <ProductDetail></ProductDetail>,
-          },
-          {
-            path: "/NewProductDetails/:id",
-            element: <NewProductDetails></NewProductDetails>,
-          },
-          {
-            path: "/Brand",
-            element: <Brand></Brand>,
-          },
-          {
-            path:"/AddToCart",
-            element:<AddToCart/>
-          },
-          {
-            path:"/CheckOutMainPage",
-            element:  <ProtectRout Component={CheckOutMainPage}  path="/CheckOutMainPage"></ProtectRout> 
-          },
-
-          // {
-          //   path:"/Weed-DispensoriesDetails/:id/:tab",
-          //   element:<DispensoriesDetails/>
-          // }
-          
-          {
-            path:"/Weed-DispensoriesDetails/:id/:tab/:StoreName",
-            element:<DispensoriesDetails/>
-          }
-          ,
-          {
-            path:"/Weed-Dispansires/in/:Country/:state/:city",
-            element:<OpenDispansires/>
-          }
-          ,
-          {
-            path:"/RelatedVerifyBrand/:id",
-            element:<RelatedVerifyBrand/>
-          },
-
-          {
-            path:"/StoreDetail",
-            element:<StoreDetail/>
-          },
-          {
-            path:"/RelatedDeals",
-            element:<RelatedDeals/>
-          },
-          {
-            path:"/MainDeals",
-            element:<MainDeals/>
-          },
-          {
-            path:"/Strain",
-            element:<Strain/>
-          },
-          {
-            path:"/EmptyCard",
-            element:<EmptyCard/>
-          }
-          ,
-          {
-            path:"/CategoryProduct/:Categoryname",
-            element:<CategoryProduct></CategoryProduct>
-          }
-          ,
-          {
-            path:"/Product/:SubCategoryname",
-            element:<SubcategoryProduct></SubcategoryProduct>
-          }
-          ,
-          {
-            path:"/AboutUs",
-            element:<AboutUs></AboutUs>
-          },
-          {
-            path:"/LearnTabs",
-            element:<LearnTabs/>
-          },
-          {
-            path:"/LearnCardRelatedPage",
-            element:<LearnCardRelatedPage/>
-          },
-          {
-            path:"/Profile",
-            element:<ProtectRout Component={Profile}></ProtectRout>
-          },
-          {
-            path:"/EditProfile",
-            element:<EditProfile/>
-          },
-          {
-            path:"/FiveZeroThree",
-            element:<FiveZeroThree/>
-          },
-          {
-            path:"/FourZeroThree",
-            element:<FourZeroThree/>
-          },
-          {
-            path:"/MyOrder",
-            element:<MyOrder/>
-          },
-          {
-            path:"/MyOrderProductDetail/:id",
-            element:<MyOrderProductDetail/>
-          },
-          {
-            path:"/StrainProduct/:type",
-            element:<StrainProduct/>
-          },
-          {
-           path:"/Blogs/:id",
-           element:<Blogs/>
-          },
-    
-          {
-            path:"/DashBoardMap",
-            element:<DashBoardMap/>
-          },
-          {
-            path:"/FeaturedBrandSkeleton",
-            element:<FeaturedBrandSkeleton/>
-          },
-          {
-           path:"/HomePageDealSignupSkeleton",
-           element:<HomePageDealSignupSkeleton/>
-          },
-          {
-           path:"/StrainTypeCardSkeleton",
-           element:<StrainTypeCardSkeleton/>
-          },
-          {
-            path:"/LatestServicesSkeleton",
-            element:<LatestServicesSkeleton/>
-          },
-          {
-            path:"/Variants",
-            element:<Variants/>
-          },
-          {
-           path:"/OpenDispensoriesSkeleton",
-           element:<OpenDispensoriesSkeleton/>
-          },
-          {
-            path:"/DeliveryItemsCardSkeleton",
-            element:<DeliveryItemsCardSkeleton/>
-          },
-          {
-            path:"/LawStateDescription",
-            element:<LawStateDescription/>
-          },        
-          {
-            path:"/WhisLists",
-            element:<ProtectRout Component={WhisLists} ></ProtectRout> 
-          },
-          // ends
-          {
-            path:"*",
-            element:<FourZeroFour/>
-          }
-         
-        
-        ],
+        path: "/Signup",
+        element: <Signup></Signup>,
       },
+      {
+        path: "/PlaceOrder",
+        element: <PlaceOrder></PlaceOrder>,
+      },
+      {
+        path: "/",
+        element: <Dashboard />,
+      },
+
+      {
+        path: "/SignupWithEmail",
+        element: <SignupWithEmail></SignupWithEmail>,
+      },
+      {
+        path: "/Login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/ForgotPassword",
+        element: <ForgotPassword></ForgotPassword>,
+      },
+      {
+        path: "/CreatePassword",
+        element: <CreatePassword></CreatePassword>,
+      },
+      {
+        path: "/Weed-Deliveries/in/:Country/:state/:city",
+        element: <Deliveries></Deliveries>
+      },
+
+      {
+        path: "/Product",
+        element: <Product></Product>,
+      },
+      {
+        path: "/ProductDetail",
+        element: <ProductDetail></ProductDetail>,
+      },
+      {
+        path: "/NewProductDetails/:id",
+        element: <NewProductDetails></NewProductDetails>,
+      },
+      {
+        path: "/Brand",
+        element: <Brand></Brand>,
+      },
+      {
+        path: "/AddToCart",
+        element: <AddToCart />
+      },
+      {
+        path: "/CheckOutMainPage",
+        element: <ProtectRout Component={CheckOutMainPage} path="/CheckOutMainPage"></ProtectRout>
+      },
+
+      // {
+      //   path:"/Weed-DispensoriesDetails/:id/:tab",
+      //   element:<DispensoriesDetails/>
+      // }
+
+      {
+        path: "/Weed-DispensoriesDetails/:id/:tab/:StoreName",
+        element: <DispensoriesDetails />
+      }
+      ,
+      //  Weed Dispensires 
+      {
+        path: "/Weed-Dispansires/in/:Country/:state/:city",
+        element: <RoutingDespen Component={OpenDispansires} ></RoutingDespen>
+      },
+      {
+        path: "/Weed-Dispansires/in/:Country/",
+        element: <RoutingDespen Component={OpenDispansires} ></RoutingDespen>
+      },
+      {
+        path: "/Weed-Dispansires/in/:Country/:state/",
+        element: <RoutingDespen Component={OpenDispansires} ></RoutingDespen>
+      }
+      // End
+
+
+      ,
+      {
+        path: "/RelatedVerifyBrand/:id",
+        element: <RelatedVerifyBrand />
+      },
+
+      {
+        path: "/StoreDetail",
+        element: <StoreDetail />
+      },
+      {
+        path: "/RelatedDeals",
+        element: <RelatedDeals />
+      },
+      {
+        path: "/MainDeals",
+        element: <MainDeals />
+      },
+      {
+        path: "/Strain",
+        element: <Strain />
+      },
+      {
+        path: "/EmptyCard",
+        element: <EmptyCard />
+      }
+      ,
+      {
+        path: "/CategoryProduct/:Categoryname",
+        element: <CategoryProduct></CategoryProduct>
+      }
+      ,
+      {
+        path: "/Product/:SubCategoryname",
+        element: <SubcategoryProduct></SubcategoryProduct>
+      }
+      ,
+      {
+        path: "/AboutUs",
+        element: <AboutUs></AboutUs>
+      },
+      {
+        path: "/LearnTabs",
+        element: <LearnTabs />
+      },
+      {
+        path: "/LearnCardRelatedPage",
+        element: <LearnCardRelatedPage />
+      },
+      {
+        path: "/Profile",
+        element: <ProtectRout Component={Profile}></ProtectRout>
+      },
+      {
+        path: "/EditProfile",
+        element: <EditProfile />
+      },
+      {
+        path: "/FiveZeroThree",
+        element: <FiveZeroThree />
+      },
+      {
+        path: "/FourZeroThree",
+        element: <FourZeroThree />
+      },
+      {
+        path: "/MyOrder",
+        element: <MyOrder />
+      },
+      {
+        path: "/MyOrderProductDetail/:id",
+        element: <MyOrderProductDetail />
+      },
+      {
+        path: "/StrainProduct/:type",
+        element: <StrainProduct />
+      },
+      {
+        path: "/Blogs/:id",
+        element: <Blogs />
+      },
+
+      {
+        path: "/DashBoardMap",
+        element: <DashBoardMap />
+      },
+      {
+        path: "/FeaturedBrandSkeleton",
+        element: <FeaturedBrandSkeleton />
+      },
+      {
+        path: "/HomePageDealSignupSkeleton",
+        element: <HomePageDealSignupSkeleton />
+      },
+      {
+        path: "/StrainTypeCardSkeleton",
+        element: <StrainTypeCardSkeleton />
+      },
+      {
+        path: "/LatestServicesSkeleton",
+        element: <LatestServicesSkeleton />
+      },
+      {
+        path: "/Variants",
+        element: <Variants />
+      },
+      {
+        path: "/OpenDispensoriesSkeleton",
+        element: <OpenDispensoriesSkeleton />
+      },
+      {
+        path: "/DeliveryItemsCardSkeleton",
+        element: <DeliveryItemsCardSkeleton />
+      },
+      {
+        path: "/LawStateDescription",
+        element: <LawStateDescription />
+      },
+      {
+        path: "/WhisLists",
+        element: <ProtectRout Component={WhisLists} ></ProtectRout>
+      },
+      // ends
+      {
+        path: "*",
+        element: <FourZeroFour />
+      }
+
+
+    ],
+  },
 ]
 
-  export default routesConfig
+export default routesConfig

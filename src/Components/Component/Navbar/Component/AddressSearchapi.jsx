@@ -17,6 +17,7 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
   const { ref } = usePlacesWidget({
     apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
     onPlaceSelected: (place) => {
+      console.log(place)
       Setdefault(place?.formatted_address);
       // SetSelectvalue(place?.formatted_address);
       dispatch({ type: 'Location', Location: place?.formatted_address })
@@ -36,7 +37,7 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
     options: {
 
       fields: ["address_components", "formatted_address"],
-      types: ['locality', ],
+      "types" : [ 'locality' ,'route',"postal_code",'administrative_area_level_2' ],
       componentRestrictions: {country:[ 'us' , "ca"]}
       // types: ['city']
     },
@@ -95,9 +96,13 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
 
   function OnBlur() {
     setOpenLocation(false)
+    Setdefault(state.Location)
+                                 
   }
   function onFocus() {
+    console.log(":fff")
     setOpenLocation(true)
+    Setdefault('')
   }
   return (
     <>
@@ -135,4 +140,8 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
     </>
 
   );
+
+
+
+
 };

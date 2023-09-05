@@ -22,6 +22,7 @@ const initialUser = {
     LoadingApi: false,
     Order_place: false,
     Dispensories: [],
+    DefalutLocation:"",
     Location: "",
     LocationData: [],
     cookies: 1,
@@ -42,6 +43,7 @@ function Context(props) {
     React.useEffect(() => {
         const cookies = new Cookies();
         const logi = cookies.get("Token_access")
+        console.log(cookies.get("Location"))
         let date = new Date();
         date.setTime(date.getTime() + (60 * 60 * 8000))
         if (!cookies.get('CookiesAcceptAll')) {
@@ -56,6 +58,7 @@ function Context(props) {
         dispatch({ type: 'Cookies', Cookies: cookies.get("CookiesAcceptAll") })
         dispatch({ type: 'CookiesMarketing', CookiesMarketing: cookies.get("Marketing") })
         dispatch({ type: 'CookiesAnalytical', CookiesAnalytical: cookies.get("Analytical") })
+        dispatch({ type: 'DefalutLocation', DefalutLocation: cookies.get("Location") })
         dispatch({ type: 'LoadingApi', LoadingApi: true })
         
         if (Boolean(logi)) {
@@ -130,7 +133,6 @@ function Context(props) {
     return (
 
         <Createcontext.Provider value={{ state, dispatch }} container>
-            <CurrentLocation></CurrentLocation>
             <CheckAgeEligbilityPopup value={cookies.get("CheckAge") === undefined ? true : false} ></CheckAgeEligbilityPopup>
             {
                 parseInt(state.Cookies) === 0 && <CookiesAccept></CookiesAccept>
