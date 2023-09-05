@@ -1052,6 +1052,7 @@ position: relative;
 .BolgCommentBOx{
   width: 100%;
   min-height: 150px;
+  padding: 8px;
 }
 .Linkofblog {
   display: flex;
