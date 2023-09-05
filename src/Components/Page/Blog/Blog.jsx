@@ -28,6 +28,7 @@ const Blogs = () => {
     const { id } = useParams();
     const [News, SetNews] = React.useState({})
     const [WishList, SetWishList] = React.useState(false)
+    // console.log(Getcommnet)
     React.useEffect(() => {
         const getApi = async () => {
             const res = await fetch(`https://sweede.app/UserPanel/Get-GetNewsById/${id}`);
@@ -157,7 +158,7 @@ const Blogs = () => {
                     {WishList && <WhisList open1={WishList} SetWishList={SetWishList}></WhisList>}
                     <RecentPost />
                     <RecentPostComment id={id} GetUserComment={Getcommnet} SetUserComment={Setcommnet} />
-                    <BlogsCommentsCard/>
+                    <BlogsCommentsCard Getcommnet={Getcommnet}/>
                     <HomePageDealsSignup />
 
                 </div>

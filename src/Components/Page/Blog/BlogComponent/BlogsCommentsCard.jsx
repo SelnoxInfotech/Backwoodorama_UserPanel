@@ -6,24 +6,19 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import flower2 from "../BlogImage/flower2.webp"
 import React from "react";
 import BlogPaginate from "./BlogPaginate";
-const BlogsCommentsCard = () => {
+const BlogsCommentsCard = ({Getcommnet}) => {
     const [ShowCards, SetShowCards] = React.useState(false)
-    const CommentCardArray = [
-        { name: "Mr nice guys", comments: "Good peeps. Happy vibes. Smart pharmacists. My crew!" },
-        { name: "Mr nice guys", comments: "Good peeps. Happy vibes. Smart pharmacists. My crew!" },
-        { name: "Mr Nancy guys", comments: "Good peeps. Happy vibes. Smart pharmacists. My crew!" },
-        { name: "Mr nice guys", comments: "Good peeps. Happy vibes. Smart pharmacists. My crew!" },
-        { name: "Mr Voltas guys", comments: "Good peeps. Happy vibes. Smart pharmacists. My crew!" },
-        { name: "Mr nice guys", comments: "Good peeps. Happy vibes. Smart pharmacists. My crew!" },
-        { name: "Mr nice guys", comments: "Good peeps. Happy vibes. Smart pharmacists. My crew!" },
-        { name: "Mr nice guys", comments: "Good peeps. Happy vibes. Smart pharmacists. My crew!" },
+    const [CommentCardArrays,SetCommentCardArray]=React.useState()
+    React.useEffect(()=>{
+        SetCommentCardArray(Getcommnet.UserComment)
 
-    ]
+    },[Getcommnet.UserComment])
+
     const [currentPage, setCurrentPage] = React.useState(1);
     const [postsPerPage] = React.useState(5);
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const currentPosts = CommentCardArray.slice(indexOfFirstPost, indexOfLastPost);
+    const currentPosts = CommentCardArrays?.slice(indexOfFirstPost, indexOfLastPost);
 
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber);
@@ -35,7 +30,7 @@ const BlogsCommentsCard = () => {
     };
 
     const nextPage = () => {
-        if (currentPage !== Math.ceil(CommentCardArray.length / postsPerPage)) {
+        if (currentPage !== Math.ceil(CommentCardArrays?.length / postsPerPage)) {
             setCurrentPage(currentPage + 1);
         }
     };
@@ -43,7 +38,7 @@ const BlogsCommentsCard = () => {
         <section className="px-0">
             <div className="col-12 blogsCommentCountCol">
                 <div className="col-6">
-                    <h2 className="blogsCommentheadings">Comments ({CommentCardArray.length})</h2>
+                    <h2 className="blogsCommentheadings">Comments ({CommentCardArrays?.length})</h2>
                 </div>
                 <div className="col-6 blogCommentCardArrowBtn">
                     {ShowCards?(
@@ -59,13 +54,13 @@ const BlogsCommentsCard = () => {
                 ShowCards && (
                     <section>
                         <>
-                            {currentPosts.map((val, index) => {
+                            {currentPosts?.map((val, index) => {
                                 return (
                                     <React.Fragment key={index}>
                                         <div className="border blogCommentEachCards">
 
                                             <div className="col-12 blogsCommentCardDateCol">
-                                                <span className="blogsCommentCardDate">04-09-2023</span>
+                                                <span className="blogsCommentCardDate">{val.created_at.slice(0,10)}</span>
                                             </div>
                                             <div className="col-12 blogCommentFlex " >
                                                 <section className="commentCardImages">
@@ -74,8 +69,8 @@ const BlogsCommentsCard = () => {
                                                     </div>
                                                 </section>
                                                 <section className="commentCradContentSection">
-                                                    <h2 className="blogCommentName">{val.name}</h2>
-                                                    <h3 className="blogUserComments">{val.comments}</h3>
+                                                    <h2 className="blogCommentName">{val.username}</h2>
+                                                    <h3 className="blogUserComments">{val.comment}</h3>
                                                 </section>
 
 
@@ -87,7 +82,7 @@ const BlogsCommentsCard = () => {
                             })}
                             <BlogPaginate
                                 postsPerPage={postsPerPage}
-                                totalPosts={CommentCardArray.length}
+                                totalPosts={CommentCardArrays.length}
                                 paginate={paginate}
                                 previousPage={previousPage}
                                 nextPage={nextPage}
