@@ -64,7 +64,7 @@ const BlogsCommentsCard = () => {
                                     <React.Fragment key={index}>
                                         <div className="border blogCommentEachCards">
 
-                                            <div className="col-12" style={{ display: "flex", justifyContent: "flex-end" }}>
+                                            <div className="col-12 blogsCommentCardDateCol">
                                                 <span className="blogsCommentCardDate">04-09-2023</span>
                                             </div>
                                             <div className="col-12 blogCommentFlex " >

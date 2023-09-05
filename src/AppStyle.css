@@ -8545,6 +8545,10 @@ color:#777777;
   color: #A8A8A8;
   font-size: 18px
 }
+.blogsCommentCardDateCol{
+  display: flex;
+  justify-content: flex-end;
+}
 .Blog_paginateList {
   display: flex;
   justify-content: center;
