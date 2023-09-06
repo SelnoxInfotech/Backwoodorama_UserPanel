@@ -71,12 +71,12 @@ const OverAllReview = ({ Product, api, SetApi }) => {
 
                                 {testData.map((item, idx) => {
                                     return (
-                                        <div className="row  mt-2 px-4">
+                                        <div className="row  mt-2 px-4" key={idx}>
                                             <div className="col-1 overall_flex ">
                                                 <span>{item.starValue}</span> <span><AiFillStar className={classes.disp_star_color} /></span>
                                             </div>
                                             <div className="col-10 overAll_Progress_center over_col_height ">
-                                                <ProgressBar  key={idx}  bgcolor={item.bgcolor} completed={item.completed *100 /5} />
+                                                <ProgressBar    bgcolor={item.bgcolor} completed={item.completed *100 /5} />
 
                                             </div>
 

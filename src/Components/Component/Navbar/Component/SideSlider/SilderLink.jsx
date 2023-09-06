@@ -44,10 +44,10 @@ export default function DashBoardLink({ state }) {
           </Grid>
           <Grid xs={6} md={2} xl={2} display={{ xs: "none", md: "block", lg: "block" }}>
             <div className=' col-12 Login_Sigup_button Login_Sigup_logo ' >
-              <ImFacebook color={"#39569c"} size={25} style={{ pointerEvents: "none" }}></ImFacebook>
-              <RiInstagramLine className="InstaColor" size={25} style={{ pointerEvents: "none" }}></RiInstagramLine>
-              <BsWhatsapp color="green" size={22} style={{ pointerEvents: "none" }}></BsWhatsapp>
-              <FcGoogle size={25} style={{ pointerEvents: "none" }}></FcGoogle>
+               <Link to={"https://www.facebook.com/profile.php?id=61550742531174"}><ImFacebook color={"#39569c"} size={25} ></ImFacebook></Link>
+             <Link to={"https://www.instagram.com/weedx_io"}> <RiInstagramLine className="InstaColor" size={25} ></RiInstagramLine></Link>
+              <BsWhatsapp color="green" size={22} ></BsWhatsapp>
+              <FcGoogle size={25} ></FcGoogle>
             </div>
           </Grid>
           <Grid xs={6} md={2} xl={1} spacing={2} display={{ xs: "none", md: "block", lg: "block" }} >

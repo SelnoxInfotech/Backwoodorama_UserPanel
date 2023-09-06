@@ -18,6 +18,7 @@ import { BlogLike, Post_BlogLike ,Get_Comment,Post_Comment} from "../../../Api/A
 import _ from "lodash"
 import { WhisList } from "../../Component/Whishlist/WhisList";
 import BlogsCommentsCard from "./BlogComponent/BlogsCommentsCard"
+import { Link } from "react-router-dom";
 const Blogs = () => {
     const classes = useStyles()
     const navigate = useNavigate()
@@ -127,7 +128,8 @@ const Blogs = () => {
                             {/* <div className="col-12 BlogLink"> */}
                                 <div className="col-12 Linkofblog ">
                                     <div className="col BlogSocal" id="center1">
-                                        <RiFacebookLine></RiFacebookLine>
+
+                                        <Link to={"https://www.facebook.com/profile.php?id=61550742531174"}><RiFacebookLine></RiFacebookLine></Link>
                                         <RiLinkedinLine></RiLinkedinLine>
                                         <BsFillShareFill></BsFillShareFill>
                                     </div>

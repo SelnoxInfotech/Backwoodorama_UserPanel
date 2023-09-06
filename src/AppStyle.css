@@ -8562,6 +8562,11 @@ color:#777777;
   align-items: center;
   list-style: none;
 }
+.BlogCommentEdit{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
 @media(max-width:500px){
   .blogUserComments{
     font-size: 12px;

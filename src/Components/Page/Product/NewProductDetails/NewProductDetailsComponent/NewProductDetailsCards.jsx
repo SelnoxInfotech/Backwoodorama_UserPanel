@@ -185,9 +185,9 @@ const NewProductDetailsCards = ({ Product }) => {
                                 >
                                     {Product?.images?.map((items, index) => {
                                         return (
-                                            <SwiperSlide >
+                                            <SwiperSlide key={index}>
 
-                                                <div key={index} className="col-12 NewProductDetails_image_container">
+                                                <div  className="col-12 NewProductDetails_image_container">
                                                     <LazyLoadImage className="NewProductDetails_image" height={"100px"} src={`https://sweede.app/` + items.image} />
 
                                                 </div>

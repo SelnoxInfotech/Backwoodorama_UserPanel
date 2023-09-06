@@ -114,7 +114,7 @@ const RelatedReview = ({Product , api}) => {
                                                 <p>{ele.footer_h1}</p>
 
                                             </div>
-                                            <div className='col-3 col-sm-3 col-lg-1 my-2 related_review_footer_paragraph ellipsis'>
+                                            <div className='col-3 col-sm-3 col-lg-1 my-2 related_review_footer_paragraph ellipsis px-0'>
                                                 {/* <p>{ele.footer_h2}</p> */}
                                                 <ReportReviewPopup/>
                                             </div>

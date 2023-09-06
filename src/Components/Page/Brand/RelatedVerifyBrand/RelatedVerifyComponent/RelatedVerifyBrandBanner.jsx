@@ -1,4 +1,3 @@
-import { AiFillHeart } from "react-icons/ai"
 import { MdShare } from "react-icons/md"
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import  IconButton  from "@mui/material/IconButton";
@@ -8,7 +7,6 @@ const RelatedVerifyBanner = ({ BrandDetails }) => {
             <div className="col-lg-12 relatedVerifyBrand_Banner py-4">
                 <div className="row">
                     <div className="col-12 text-end mt-2 mb-2 relatedVerifyBrand_icons">
-                        <IconButton aria-label="whish list"><AiFillHeart color="#949494" size={20} /></IconButton>
                         <IconButton  aria-label="share icons" className="mx-2"><MdShare color="#949494" size={20} /></IconButton>
 
                     </div>
