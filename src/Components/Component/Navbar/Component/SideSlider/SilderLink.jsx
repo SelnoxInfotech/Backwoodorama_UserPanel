@@ -12,15 +12,24 @@ import SearchBar from "../../Component/SearchBar"
 import Badge from '@mui/material/Badge';
 import useStyles from "../../../../../Style";
 import IconButton from "@mui/material/IconButton";
+import { useParams  ,useNavigate } from "react-router-dom";
 export default function DashBoardLink({ state }) {
   const classes = useStyles()
+  const Params =  useParams()
   const [current_route, Setcurrent_route] = React.useState()
   const location = useLocation();
+  const Navigate =  useNavigate()
   React.useEffect(() => {
 
     Setcurrent_route(location.pathname)
 
   }, [location])
+
+ function  Route(){
+  console.log(Params , location)
+  // if
+  // Navigate ()
+  }
   return (
     <>
 
@@ -28,8 +37,7 @@ export default function DashBoardLink({ state }) {
         <Grid container spacing={2}  >
           <Grid xs={8} md={7.5} xl={8.2} display={{ xs: "none", md: "block", lg: "block" }}>
             <div className="ccol  nav_list1">
-              <ul>
-                <Link to={`/Weed-Dispansires/in/${state.Country}/${state.State}/${state.City}`} id={`${(current_route?.slice(0,16) === "/Weed-Dispansire" ? "Active" : "")}`}> <li >Dispensaries </li></Link>
+              <ul> <li id={`${(current_route?.slice(0,16) === "/Weed-Dispansire" ? "Active" : "")}`} onClick={Route} >Dispensaries </li>
                 <Link to={`/Weed-Deliveries/in/${state.Country}/${state.State}/${state.City}`} id={`${(current_route?.slice(0,16) === "/Weed-Deliveries" ? "Active" : "")}`}><li>Deliveries</li></Link>
                 <Link to="/Brand" id={`${(current_route === "/Brand" ? "Active" : "")}`}> <li>Brand</li></Link>
                 <Link to="/Product" id={`${(current_route === "/Product" ? "Active" : "")}`}><li>Product</li></Link>

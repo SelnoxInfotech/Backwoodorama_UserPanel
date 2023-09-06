@@ -22,7 +22,9 @@ const initialUser = {
     LoadingApi: false,
     Order_place: false,
     Dispensories: [],
-    DefalutLocation:"",
+    // Set location From Check Age 
+    DefalutLocation: "",
+    // Set Location From  Google  AutoComplete
     Location: "",
     LocationData: [],
     cookies: 1,
@@ -32,18 +34,18 @@ const initialUser = {
     selectDeliveryoptions: "",
     Profile: [],
     WishList: [],
-    Country:"",
-    State:"",
-    City:""
+    // Get For Routing 
+    Country: "",
+    State: "",
+    City: ""
+    // End
 }
 
 function Context(props) {
     const [state, dispatch] = useReducer(Reducer, initialUser)
-    
     React.useEffect(() => {
         const cookies = new Cookies();
         const logi = cookies.get("Token_access")
-        console.log(cookies.get("Location"))
         let date = new Date();
         date.setTime(date.getTime() + (60 * 60 * 8000))
         if (!cookies.get('CookiesAcceptAll')) {
@@ -60,7 +62,7 @@ function Context(props) {
         dispatch({ type: 'CookiesAnalytical', CookiesAnalytical: cookies.get("Analytical") })
         dispatch({ type: 'DefalutLocation', DefalutLocation: cookies.get("Location") })
         dispatch({ type: 'LoadingApi', LoadingApi: true })
-        
+
         if (Boolean(logi)) {
             axios.get("https://sweede.app/UserPanel/Get-Addtocart/", {
                 headers: { Authorization: `Bearer ${logi}` }
@@ -126,13 +128,11 @@ function Context(props) {
                 dispatch({ type: 'Cart_subTotal', Cart_subTotal: AllTotal })
             }
         }
-
-
-
-    }, [state.ApiProduct,state.login])
+    }, [state.ApiProduct, state.login])
     return (
 
         <Createcontext.Provider value={{ state, dispatch }} container>
+             {/* <CurrentLocation></CurrentLocation> */}
             <CheckAgeEligbilityPopup value={cookies.get("CheckAge") === undefined ? true : false} ></CheckAgeEligbilityPopup>
             {
                 parseInt(state.Cookies) === 0 && <CookiesAccept></CookiesAccept>

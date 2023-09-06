@@ -47,7 +47,7 @@ import DeliveryItemsCardSkeleton from "../Components/Component/Skeleton/Deliveri
 import WhisLists from "../Components/Component/Whishlist/WhisLists/WhisLists";
 import LawStateDescription from "../Components/Page/Learn/Laws/LawStateDescription/LawStateDescription";
 import RoutingDespen from "../Routes/RoutingDespen"
-
+import RoutingList from "../Routes/RoutingList"
 const routesConfig = [
 
   {
@@ -65,7 +65,8 @@ const routesConfig = [
       },
       {
         path: "/",
-        element: <Dashboard />,
+        element:  <RoutingList Component={Dashboard} ></RoutingList>,
+       
       },
 
       {
@@ -127,15 +128,15 @@ const routesConfig = [
       //  Weed Dispensires 
       {
         path: "/Weed-Dispansires/in/:Country/:state/:city",
-        element: <RoutingDespen Component={OpenDispansires} ></RoutingDespen>
+        element: <RoutingDespen Component={OpenDispansires}  ></RoutingDespen>
       },
       {
         path: "/Weed-Dispansires/in/:Country/",
-        element: <RoutingDespen Component={OpenDispansires} ></RoutingDespen>
+        element: <RoutingDespen Component={OpenDispansires}  path="/Weed-Dispansires/in/" ></RoutingDespen>
       },
       {
         path: "/Weed-Dispansires/in/:Country/:state/",
-        element: <RoutingDespen Component={OpenDispansires} ></RoutingDespen>
+        element: <RoutingDespen Component={OpenDispansires}  path="/Weed-Dispansires/in/" ></RoutingDespen>
       }
       // End
 

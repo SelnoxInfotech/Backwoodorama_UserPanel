@@ -7,19 +7,16 @@ import Createcontext from "../../../../Hooks/Context"
 import { IoLocationSharp } from "react-icons/io5"
 import { MdOutlineMyLocation } from "react-icons/md"
 import { IconButton, InputAdornment, TextField } from "@mui/material";
-
+import CurrentLocation from "./CurrentLocation";
 export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
-
   const classes = useStyles()
   const { state, dispatch } = React.useContext(Createcontext)
   const [Default, Setdefault] = React.useState('')
-  // const [SelectValue, SetSelectvalue] = React.useState('')
+  // console.log(state.Location)
   const { ref } = usePlacesWidget({
     apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
     onPlaceSelected: (place) => {
-      console.log(place)
       Setdefault(place?.formatted_address);
-      // SetSelectvalue(place?.formatted_address);
       dispatch({ type: 'Location', Location: place?.formatted_address })
       place?.address_components?.map((data) => {
         if (data.types.indexOf('country') !== -1) {
@@ -37,14 +34,14 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
     options: {
 
       fields: ["address_components", "formatted_address"],
-      "types" : [ 'locality' ,'route',"postal_code",'administrative_area_level_2' ],
-      componentRestrictions: {country:[ 'us' , "ca"]}
+      "types": ['locality', 'route', "postal_code", 'administrative_area_level_2'],
+      componentRestrictions: { country: ['us', "ca"] }
       // types: ['city']
     },
   });
   React.useEffect(() => {
     Setdefault(state.Location)
-    // setOpenLocation(!openLocation)
+    console.log(state)
   }, [state])
   function handleChange(event) {
     Setdefault(event.target.value);
@@ -91,24 +88,18 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
       }
     });
   }
-
-
-
   function OnBlur() {
     setOpenLocation(false)
     Setdefault(state.Location)
-                                 
+
   }
   function onFocus() {
-    console.log(":fff")
     setOpenLocation(true)
     Setdefault('')
   }
   return (
     <>
-      {/* <i className="SearcchIcon" style={{ display: open && SearchBarWidth ? "none" : "inline-flex" }}>   <IoLocationSharp color="gray" size={18} /></i> */}
       <TextField
-        // size="small"
         value={Default || ''}
         inputRef={ref}
         onChange={handleChange}
@@ -134,9 +125,9 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
         }}
       />
 
-      {/* </div> */}
-
-
+      {
+        // state.Location !== "" ||     state.Location !==  undefined && <CurrentLocation></CurrentLocation>
+      }
     </>
 
   );

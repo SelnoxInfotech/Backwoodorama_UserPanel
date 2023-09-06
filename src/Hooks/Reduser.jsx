@@ -45,10 +45,10 @@ const reducer = (state, action) => {
       {
         return { ...state, Location: action.Location }
       }
-      case "DefalutLocation":
-        {
-          return { ...state, DefalutLocation: action.DefalutLocation }
-        }
+    case "DefalutLocation":
+      {
+        return { ...state, DefalutLocation: action.DefalutLocation }
+      }
     case "LocationData":
       {
         return { ...state, LocationData: action.LocationData }
@@ -94,7 +94,7 @@ const reducer = (state, action) => {
       {
         return { ...state, City: action.City }
       }
-
+   
 
 
 
