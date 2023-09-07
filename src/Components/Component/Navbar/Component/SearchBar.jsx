@@ -13,7 +13,7 @@ import _ from "lodash"
 import AddressSearchapi from "./AddressSearchapi"
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-const SearchBar = () => {
+const SearchBar = ({path}) => {
     const Navigation = useNavigate()
     const [SearchData, SetSearchData] = React.useState([])
     const [SearchBarWidth, SetSearchBarWidth] = React.useState(window.innerWidth <= 900)
@@ -198,6 +198,7 @@ const SearchBar = () => {
                         SearchBarWidth={SearchBarWidth}
                         setOpenLocation={setOpenLocation}
                         open={open}
+                        path={path}
                     ></AddressSearchapi>
 
                 </div>

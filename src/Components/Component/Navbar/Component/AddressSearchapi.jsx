@@ -8,7 +8,7 @@ import { IoLocationSharp } from "react-icons/io5"
 import { MdOutlineMyLocation } from "react-icons/md"
 import { IconButton, InputAdornment, TextField } from "@mui/material";
 import { useNavigate, useLocation ,useParams } from "react-router-dom";
-export default function AddressSearch({ openLocation, SearchBarWidth, open, setOpenLocation }) {
+export default function AddressSearch({ openLocation, SearchBarWidth, open, setOpenLocation,path }) {
   const classes = useStyles()
   const params =  useParams()
   const navigate = useNavigate();
@@ -40,10 +40,13 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
         }
         return data
       })
-      Rout(Coun,sta,ci)
+      console.log(current_route  )
+      // Rout(Coun,sta,ci)
       // if (Location.pathname.slice(0, 16) === '/Weed-Deliveries') {
       //   Navigate(`/Weed-Deliveries/in/${Coun}/${sta}/${ci}`)
       // }
+      current_route?.slice(0, 17 ) === '/Weed-Deliveries/' &&  navigate(`/Weed-Deliveries/in/${Coun}/${sta}/${ci}`)
+
     },
     options: {
 
@@ -53,14 +56,18 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
       // types: ['city']
     },
   });
+  React.useEffect(()=>{
+    Setcurrent_route(location.pathname)
+  },[location])
 
-    function Rout (Coun,sta,ci){
-      console.log(location)
-      if (location.pathname?.slice(0, 17) === "/Weed-Dispansires/") {
-        navigate(`/Weed-Dispansires/in/${Coun}/${sta}/${ci}`)
-        console.log("...")
-      }
-    }
+  console.log(current_route  )
+    // function Rout (Coun,sta,ci){
+      
+    //   if (path.slice(0, 17) === "/Weed-Dispansires/") {
+    //     navigate(`/Weed-Dispansires/in/${Coun}/${sta}/${ci}`)
+    //     console.log("...")
+    //   }
+    // }
 
   React.useEffect(() => {
 

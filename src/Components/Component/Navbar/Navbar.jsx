@@ -16,11 +16,13 @@ import Badge from '@mui/material/Badge';
 import Box from '@mui/material/Box';
 import LoadingButton from '@mui/lab/LoadingButton';
 import IconButton from '@mui/material/IconButton';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , useLocation } from 'react-router-dom';
+
 const Navbar = () => {
   const cookies = new Cookies();
   const ref = React.useRef(null);
   const profileRef = React.useRef(null)
+  const Location = useLocation()
   const { state, dispatch } = React.useContext(Createcontext)
   const [windowSize, setWindowSize] = React.useState()
   const [Hamburger, SetHamburger] = React.useState(window.innerWidth >= 900)
@@ -142,7 +144,7 @@ const Navbar = () => {
               </Grid>
           }
           <Grid xs={6} md={6} xl={7} display={{ xs: "none", md: "block", lg: "block" }}>
-            <SearchBar />
+            <SearchBar path={Location.pathname}/>
           </Grid>
           <Grid xs={10} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }} >
             <div className=' col-12 Login_Sigup_button  Heder_icon ' style={{ justifyContent: "end", marginLeft: "-20px" }}>
