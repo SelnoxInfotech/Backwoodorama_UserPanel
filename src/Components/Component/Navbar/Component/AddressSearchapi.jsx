@@ -7,21 +7,24 @@ import Createcontext from "../../../../Hooks/Context"
 import { IoLocationSharp } from "react-icons/io5"
 import { MdOutlineMyLocation } from "react-icons/md"
 import { IconButton, InputAdornment, TextField } from "@mui/material";
-import { useNavigate ,useLocation } from "react-router-dom";
-export default function  AddressSearch ({ openLocation, SearchBarWidth, open, setOpenLocation }) {
+import { useNavigate, useLocation ,useParams } from "react-router-dom";
+export default function AddressSearch({ openLocation, SearchBarWidth, open, setOpenLocation }) {
   const classes = useStyles()
-  const Navigate = useNavigate()
-  const Location =  useLocation()
+  const params =  useParams()
+  const navigate = useNavigate();
+  const location = useLocation()
+  const [current_route, Setcurrent_route] = React.useState()
   const { state, dispatch } = React.useContext(Createcontext)
   const [Default, Setdefault] = React.useState('')
+   console.log(location)
   const { ref } = usePlacesWidget({
     apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
     onPlaceSelected: (place) => {
       Setdefault(place?.formatted_address);
       dispatch({ type: 'Location', Location: place?.formatted_address })
-      var Coun 
-      var sta 
-      var ci 
+      var Coun
+      var sta
+      var ci
       place?.address_components?.map((data) => {
         if (data.types.indexOf('country') !== -1) {
           Coun = data?.long_name.replace(/\s/g, '-')
@@ -32,19 +35,15 @@ export default function  AddressSearch ({ openLocation, SearchBarWidth, open, se
           return dispatch({ type: 'State', State: data?.long_name.replace(/\s/g, '-') })
         }
         if (data.types.indexOf('locality') !== -1 || data.types.indexOf('administrative_area_level_3') !== -1) {
-          ci =  data?.long_name.replace(/\s/g, '-')
+          ci = data?.long_name.replace(/\s/g, '-')
           return dispatch({ type: 'City', City: data?.long_name.replace(/\s/g, '-') })
         }
         return data
       })
-  if(Location.pathname.slice(0,17) === "/Weed-Dispansires" )
-  {
-    Navigate(`/Weed-Dispansires/in/${Coun}/${sta}/${ci}`)
-  }
-  if(Location.pathname.slice(0,16) ===  '/Weed-Deliveries')
-  {
-    Navigate(`/Weed-Deliveries/in/${Coun}/${sta}/${ci}`)
-  }
+      Rout(Coun,sta,ci)
+      // if (Location.pathname.slice(0, 16) === '/Weed-Deliveries') {
+      //   Navigate(`/Weed-Deliveries/in/${Coun}/${sta}/${ci}`)
+      // }
     },
     options: {
 
@@ -54,10 +53,24 @@ export default function  AddressSearch ({ openLocation, SearchBarWidth, open, se
       // types: ['city']
     },
   });
+
+    function Rout (Coun,sta,ci){
+      console.log(location)
+      if (location.pathname?.slice(0, 17) === "/Weed-Dispansires/") {
+        navigate(`/Weed-Dispansires/in/${Coun}/${sta}/${ci}`)
+        console.log("...")
+      }
+    }
+
   React.useEffect(() => {
+
     Setdefault(state.Location)
- 
+
   }, [state])
+
+
+
+
   function handleChange(event) {
     Setdefault(event.target.value);
     // console.log( event.target.setSelectionRange)

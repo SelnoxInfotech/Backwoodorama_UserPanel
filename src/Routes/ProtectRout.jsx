@@ -3,6 +3,7 @@ import React from "react"
 import Createcontext from "../Hooks/Context"
 import { useNavigate } from "react-router-dom";
 import Cookies from 'universal-cookie';
+import CurrentLocation from "../Components/Component/Navbar/Component/CurrentLocation"
 export default function ProtectRout(props) {
 
     const cookies = new Cookies();
@@ -47,6 +48,7 @@ export default function ProtectRout(props) {
 
         <div>
             <Component />
+            {state?.Country ==='' &&<CurrentLocation Country={state?.Country }></CurrentLocation> }
         </div>
     )
 }

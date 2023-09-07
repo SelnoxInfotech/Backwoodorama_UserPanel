@@ -57,11 +57,11 @@ const routesConfig = [
     children: [
       {
         path: "/Signup",
-        element: <Signup></Signup>,
+        element: <RoutingList Component={Signup} ></RoutingList> 
       },
       {
         path: "/PlaceOrder",
-        element: <PlaceOrder></PlaceOrder>,
+        element: <RoutingList Component={PlaceOrder} ></RoutingList>,
       },
       {
         path: "/",
@@ -71,19 +71,19 @@ const routesConfig = [
 
       {
         path: "/SignupWithEmail",
-        element: <SignupWithEmail></SignupWithEmail>,
+        element:<RoutingList Component={SignupWithEmail} ></RoutingList>,
       },
       {
         path: "/Login",
-        element: <Login></Login>,
+        element: <RoutingList Component={Login} ></RoutingList> ,
       },
       {
         path: "/ForgotPassword",
-        element: <ForgotPassword></ForgotPassword>,
+        element:  <RoutingList Component={ForgotPassword} ></RoutingList> ,
       },
       {
         path: "/CreatePassword",
-        element: <CreatePassword></CreatePassword>,
+        element:  <RoutingList Component={CreatePassword} ></RoutingList>,
       },
       // {
       //   path: "/Weed-Deliveries/in/:Country/:state/:city",
@@ -92,23 +92,23 @@ const routesConfig = [
 
       {
         path: "/Product",
-        element: <Product></Product>,
+        element: <RoutingList Component={Product} ></RoutingList> ,
       },
       {
         path: "/ProductDetail",
-        element: <ProductDetail></ProductDetail>,
+        element: <RoutingList Component={ProductDetail} ></RoutingList> ,
       },
       {
         path: "/NewProductDetails/:id",
-        element: <NewProductDetails></NewProductDetails>,
+        element: <RoutingList Component={NewProductDetails} ></RoutingList> ,
       },
       {
         path: "/Brand",
-        element: <Brand></Brand>,
+        element:  <RoutingList Component={Brand} ></RoutingList> ,
       },
       {
         path: "/AddToCart",
-        element: <AddToCart />
+        element: <RoutingList Component={AddToCart} ></RoutingList>
       },
       {
         path: "/CheckOutMainPage",
@@ -121,8 +121,8 @@ const routesConfig = [
       // }
 
       {
-        path: "/Weed-DispensoriesDetails/:id/:tab/:StoreName",
-        element: <DispensoriesDetails />
+        path: "/Weed-Dispensories/:StoreName/:tab/:id/",
+        element: <RoutingList Component={DispensoriesDetails} ></RoutingList> 
       }
       ,
       //  Weed Dispensires 
@@ -158,51 +158,51 @@ const routesConfig = [
       
       {
         path: "/RelatedVerifyBrand/:id",
-        element: <RelatedVerifyBrand />
+        element: <RoutingList Component={RelatedVerifyBrand} ></RoutingList> 
       },
 
       {
         path: "/StoreDetail",
-        element: <StoreDetail />
+        element:  <RoutingList Component={StoreDetail} ></RoutingList> 
       },
       {
         path: "/RelatedDeals",
-        element: <RelatedDeals />
+        element:  <RoutingList Component={RelatedDeals} ></RoutingList>  
       },
       {
         path: "/MainDeals",
-        element: <MainDeals />
+        element:   <RoutingList Component={MainDeals} ></RoutingList>
       },
       {
         path: "/Strain",
-        element: <Strain />
+        element:   <RoutingList Component={Strain} ></RoutingList> 
       },
       {
         path: "/EmptyCard",
-        element: <EmptyCard />
+        element:  <RoutingList Component={EmptyCard} ></RoutingList>   
       }
       ,
       {
         path: "/CategoryProduct/:Categoryname",
-        element: <CategoryProduct></CategoryProduct>
+        element: <RoutingList Component={CategoryProduct} ></RoutingList>   
       }
       ,
       {
         path: "/Product/:SubCategoryname",
-        element: <SubcategoryProduct></SubcategoryProduct>
+        element: <RoutingList Component={SubcategoryProduct} ></RoutingList> 
       }
       ,
       {
         path: "/AboutUs",
-        element: <AboutUs></AboutUs>
+        element: <RoutingList Component={AboutUs} ></RoutingList> 
       },
       {
         path: "/LearnTabs",
-        element: <LearnTabs />
+        element:  <RoutingList Component={LearnTabs} ></RoutingList>  
       },
       {
         path: "/LearnCardRelatedPage",
-        element: <LearnCardRelatedPage />
+        element:  <RoutingList Component={LearnCardRelatedPage} ></RoutingList> 
       },
       {
         path: "/Profile",
@@ -210,68 +210,40 @@ const routesConfig = [
       },
       {
         path: "/EditProfile",
-        element: <EditProfile />
+        element: <RoutingList Component={EditProfile} ></RoutingList>  
       },
       {
         path: "/FiveZeroThree",
-        element: <FiveZeroThree />
+        element:  <RoutingList Component={FiveZeroThree} ></RoutingList>  
       },
       {
         path: "/FourZeroThree",
-        element: <FourZeroThree />
+        element:   <RoutingList Component={FourZeroThree} ></RoutingList> 
       },
       {
         path: "/MyOrder",
-        element: <MyOrder />
+        element:  <RoutingList Component={MyOrder} ></RoutingList>  
       },
       {
         path: "/MyOrderProductDetail/:id",
-        element: <MyOrderProductDetail />
+        element:  <RoutingList Component={MyOrderProductDetail} ></RoutingList>   
       },
       {
         path: "/StrainProduct/:type",
-        element: <StrainProduct />
+        element:  <RoutingList Component={StrainProduct} ></RoutingList> 
       },
       {
         path: "/Blogs/:id",
-        element: <Blogs />
+        element:   <RoutingList Component={Blogs} ></RoutingList>  
       },
 
-      {
-        path: "/DashBoardMap",
-        element: <DashBoardMap />
-      },
-      {
-        path: "/FeaturedBrandSkeleton",
-        element: <FeaturedBrandSkeleton />
-      },
-      {
-        path: "/HomePageDealSignupSkeleton",
-        element: <HomePageDealSignupSkeleton />
-      },
-      {
-        path: "/StrainTypeCardSkeleton",
-        element: <StrainTypeCardSkeleton />
-      },
-      {
-        path: "/LatestServicesSkeleton",
-        element: <LatestServicesSkeleton />
-      },
-      {
-        path: "/Variants",
-        element: <Variants />
-      },
-      {
-        path: "/OpenDispensoriesSkeleton",
-        element: <OpenDispensoriesSkeleton />
-      },
-      {
-        path: "/DeliveryItemsCardSkeleton",
-        element: <DeliveryItemsCardSkeleton />
-      },
+      // {
+      //   path: "/DashBoardMap",
+      //   element:  <RoutingList Component={DashBoardMap} ></RoutingList>   
+      // },
       {
         path: "/LawStateDescription",
-        element: <LawStateDescription />
+        element:   <RoutingList Component={LawStateDescription} ></RoutingList>
       },
       {
         path: "/WhisLists",
@@ -280,7 +252,7 @@ const routesConfig = [
       // ends
       {
         path: "*",
-        element: <FourZeroFour />
+        element:  <RoutingList Component={FourZeroFour} ></RoutingList>
       }
 
 
