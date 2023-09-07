@@ -11,8 +11,9 @@ const CurrentLocation = ({ Country, State1 }) => {
       if (navigator?.geolocation) {
         navigator.permissions.query({ name: 'geolocation' }).then(permissionStatus => {
           if (permissionStatus.state === 'denied') {
-            if (Country === '' || Country === undefined) {
-              fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${cookies.get("Location") ? cookies.get("Location") : "New York"}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
+            console.log(Country !== '')
+            if (Country === '') {
+              fetch(`https://maps.googleapis.com/maps/api/geocode/jsoLocationn?address=${cookies.get("Location") ? cookies.get("Location") : "New York"}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
                 .then(res => res.json())
                 .then(response => {
                   dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address })
@@ -36,7 +37,9 @@ const CurrentLocation = ({ Country, State1 }) => {
             } else {
               if (State1 !== "") {
                 dispatch({ type: 'Location', Location: State1 })
-              } else {
+                dispatch({ type: 'Country', Country:Country })
+              }
+              else {
 
                 dispatch({ type: 'Location', Location: Country })
               } 

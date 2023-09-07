@@ -20,6 +20,9 @@ export default function RoutingDespen(props) {
             if (params?.state !== undefined) {
                 Set1(params?.state)
             }
+            if (params?.city !== undefined) {
+                Set2(params?.city)
+            }
         }
 
     }, [])

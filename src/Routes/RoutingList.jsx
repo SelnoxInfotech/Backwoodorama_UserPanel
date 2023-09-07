@@ -1,7 +1,5 @@
 
 import React from "react"
-import { useNavigate, useParams, useLocation } from "react-router-dom";
-import Cookies from 'universal-cookie';
 import CurrentLocation from "../Components/Component/Navbar/Component/CurrentLocation"
 import Createcontext from "../Hooks/Context"
 export default function RoutingList(props) {
@@ -12,7 +10,7 @@ export default function RoutingList(props) {
 
         <div>
             <Component />
-            <CurrentLocation Country={state?.Location } State1={''} ></CurrentLocation>
+            <CurrentLocation Country={state?.Location } State1={state?.State} ></CurrentLocation>
         </div>
     )
 }

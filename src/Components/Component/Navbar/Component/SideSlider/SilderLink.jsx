@@ -37,7 +37,8 @@ export default function DashBoardLink({ state }) {
         <Grid container spacing={2}  >
           <Grid xs={8} md={7.5} xl={8.2} display={{ xs: "none", md: "block", lg: "block" }}>
             <div className="ccol  nav_list1">
-              <ul> <li id={`${(current_route?.slice(0,16) === "/Weed-Dispansire" ? "Active" : "")}`} onClick={Route} >Dispensaries </li>
+              <ul> 
+              <Link to={`/Weed-Dispansires/in/${state.Country}/${state.State}/${state.City}`} id={`${(current_route?.slice(0,16) === "/Weed-Dispansire" ? "Active" : "")}`}> <li >Dispensaries </li></Link>
                 <Link to={`/Weed-Deliveries/in/${state.Country}/${state.State}/${state.City}`} id={`${(current_route?.slice(0,16) === "/Weed-Deliveries" ? "Active" : "")}`}><li>Deliveries</li></Link>
                 <Link to="/Brand" id={`${(current_route === "/Brand" ? "Active" : "")}`}> <li>Brand</li></Link>
                 <Link to="/Product" id={`${(current_route === "/Product" ? "Active" : "")}`}><li>Product</li></Link>
