@@ -155,7 +155,7 @@ const routesConfig = [
       // End
 
 
-      ,
+      
       {
         path: "/RelatedVerifyBrand/:id",
         element: <RelatedVerifyBrand />

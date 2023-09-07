@@ -8,7 +8,7 @@ import { IoLocationSharp } from "react-icons/io5"
 import { MdOutlineMyLocation } from "react-icons/md"
 import { IconButton, InputAdornment, TextField } from "@mui/material";
 import { useNavigate ,useLocation } from "react-router-dom";
-export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
+export default function  AddressSearch ({ openLocation, SearchBarWidth, open, setOpenLocation }) {
   const classes = useStyles()
   const Navigate = useNavigate()
   const Location =  useLocation()
@@ -33,7 +33,6 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
         }
         if (data.types.indexOf('locality') !== -1 || data.types.indexOf('administrative_area_level_3') !== -1) {
           ci =  data?.long_name.replace(/\s/g, '-')
-          console.log(data?.long_name.replace(/\s/g, '-'))
           return dispatch({ type: 'City', City: data?.long_name.replace(/\s/g, '-') })
         }
         return data
