@@ -18,7 +18,6 @@ export default function DashBoardLink({ state }) {
   const Params =  useParams()
   const [current_route, Setcurrent_route] = React.useState()
   const location = useLocation();
-  const Navigate =  useNavigate()
   React.useEffect(() => {
 
     Setcurrent_route(location.pathname)

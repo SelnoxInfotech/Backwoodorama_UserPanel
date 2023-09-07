@@ -5,25 +5,43 @@ import { useNavigate, useParams, useLocation } from "react-router-dom";
 import Cookies from 'universal-cookie';
 import CurrentLocation from "../Components/Component/Navbar/Component/CurrentLocation"
 export default function RoutingDespen(props) {
+    const { state } = React.useContext(Createcontext)
     const params = useParams()
     const { Component } = props;
 
     const [L, Set] = React.useState('')
     const [s, Set1] = React.useState('')
     const [c, Set2] = React.useState('')
-    console.log(params , params?.city === undefined)
     React.useEffect(() => {
         if (params?.city === undefined) {
-            if (params.Country !== undefined) {
-                Set(params?.Country)
+            if (params?.state === undefined) {
+                if (params.Country !== undefined) {
+                    Set(params?.Country)
+                }
+
             }
-            if (params?.state !== undefined) {
+            else {
+                if (state.State !== params.state) {
+
+                    Set1(params?.state)
+                    Set(params?.Country)
+                }
+            }
+            // if (params?.city !== undefined) {
+            //     Set2(params?.city)
+            // }
+        }
+        else {
+            if (state.City !== params.city) {
+
                 Set1(params?.state)
-            }
-            if (params?.city !== undefined) {
+                Set(params?.Country)
                 Set2(params?.city)
             }
+            // Set(state.Country)
         }
+
+
 
     }, [])
 
@@ -32,7 +50,7 @@ export default function RoutingDespen(props) {
         <div>
             <Component />
             {
-                L !== "" && <CurrentLocation Country={L} State1={L + " " + s}></CurrentLocation>
+                L !== "" && <CurrentLocation Country={L} State1={s} city={c}></CurrentLocation>
             }
         </div>
     )

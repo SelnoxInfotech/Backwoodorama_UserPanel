@@ -85,10 +85,10 @@ const routesConfig = [
         path: "/CreatePassword",
         element: <CreatePassword></CreatePassword>,
       },
-      {
-        path: "/Weed-Deliveries/in/:Country/:state/:city",
-        element: <Deliveries></Deliveries>
-      },
+      // {
+      //   path: "/Weed-Deliveries/in/:Country/:state/:city",
+      //   element: <Deliveries></Deliveries>
+      // },
 
       {
         path: "/Product",
@@ -137,7 +137,21 @@ const routesConfig = [
       {
         path: "/Weed-Dispansires/in/:Country/:state/",
         element: <RoutingDespen Component={OpenDispansires}  path="/Weed-Dispansires/in/" ></RoutingDespen>
-      }
+      },
+      {
+        path: "/Weed-Deliveries/in/:Country/",
+        element:  <RoutingDespen Component={Deliveries}  path="/Weed-Deliveries/in/" ></RoutingDespen>
+      },
+      {
+        path: "/Weed-Deliveries/in/:Country/:state/",
+        element:  <RoutingDespen Component={Deliveries}  path="/Weed-Deliveries/in/" ></RoutingDespen>
+      },
+      {
+        path: "/Weed-Deliveries/in/:Country/:state/:city",
+        element:  <RoutingDespen Component={Deliveries}  path="/Weed-Deliveries/in/" ></RoutingDespen>
+      },
+
+
       // End
 
 

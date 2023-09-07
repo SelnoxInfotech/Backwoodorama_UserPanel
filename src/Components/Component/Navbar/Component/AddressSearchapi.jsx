@@ -7,29 +7,45 @@ import Createcontext from "../../../../Hooks/Context"
 import { IoLocationSharp } from "react-icons/io5"
 import { MdOutlineMyLocation } from "react-icons/md"
 import { IconButton, InputAdornment, TextField } from "@mui/material";
-import CurrentLocation from "./CurrentLocation";
+import { useNavigate ,useLocation } from "react-router-dom";
 export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
   const classes = useStyles()
+  const Navigate = useNavigate()
+  const Location =  useLocation()
   const { state, dispatch } = React.useContext(Createcontext)
   const [Default, Setdefault] = React.useState('')
-  // console.log(state.Location)
   const { ref } = usePlacesWidget({
     apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
     onPlaceSelected: (place) => {
       Setdefault(place?.formatted_address);
       dispatch({ type: 'Location', Location: place?.formatted_address })
+      var Coun 
+      var sta 
+      var ci 
       place?.address_components?.map((data) => {
         if (data.types.indexOf('country') !== -1) {
+          Coun = data?.long_name.replace(/\s/g, '-')
           return dispatch({ type: 'Country', Country: data?.long_name.replace(/\s/g, '-') })
         }
         if (data.types.indexOf('administrative_area_level_1') !== -1) {
+          sta = data?.long_name.replace(/\s/g, '-')
           return dispatch({ type: 'State', State: data?.long_name.replace(/\s/g, '-') })
         }
         if (data.types.indexOf('locality') !== -1 || data.types.indexOf('administrative_area_level_3') !== -1) {
+          ci =  data?.long_name.replace(/\s/g, '-')
+          console.log(data?.long_name.replace(/\s/g, '-'))
           return dispatch({ type: 'City', City: data?.long_name.replace(/\s/g, '-') })
         }
         return data
       })
+  if(Location.pathname.slice(0,17) === "/Weed-Dispansires" )
+  {
+    Navigate(`/Weed-Dispansires/in/${Coun}/${sta}/${ci}`)
+  }
+  if(Location.pathname.slice(0,16) ===  '/Weed-Deliveries')
+  {
+    Navigate(`/Weed-Deliveries/in/${Coun}/${sta}/${ci}`)
+  }
     },
     options: {
 
@@ -41,7 +57,7 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
   });
   React.useEffect(() => {
     Setdefault(state.Location)
-    console.log(state)
+ 
   }, [state])
   function handleChange(event) {
     Setdefault(event.target.value);
@@ -60,24 +76,26 @@ export default ({ openLocation, SearchBarWidth, open, setOpenLocation }) => {
               Setdefault(response?.plus_code?.compound_code.slice(9))
               response?.results?.map((data) => {
                 if (data.types.indexOf('country') !== -1) {
-                  dispatch({ type: 'Country', Country: data?.formatted_address.replace(/\s/g, '-') })
+                  return dispatch({ type: 'Country', Country: data?.formatted_address.replace(/\s/g, '-') })
                 }
                 if (data.types.indexOf('administrative_area_level_1') !== -1) {
                   data.address_components.map((state) => {
                     if (state.types.indexOf('administrative_area_level_1') !== -1) {
-                      dispatch({ type: 'State', State: state?.long_name.replace(/\s/g, '-') })
+                      return dispatch({ type: 'State', State: state?.long_name.replace(/\s/g, '-') })
                     }
+                    return state
                   })
                 }
                 if (data.types.indexOf('administrative_area_level_3') !== -1) {
                   data.address_components.map((city) => {
                     if (city.types.indexOf('administrative_area_level_3') !== -1 || city.types.indexOf('locality') !== -1) {
-                      dispatch({ type: 'City', City: city?.long_name?.replace(/\s/g, '-') })
+                      return dispatch({ type: 'City', City: city?.long_name?.replace(/\s/g, '-') })
                     }
+                    return city
                   })
 
                 }
-
+                return data
 
               })
             }

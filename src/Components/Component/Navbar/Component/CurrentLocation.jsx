@@ -1,19 +1,17 @@
 import React from "react";
 import Createcontext from "../../../../Hooks/Context"
 import Cookies from 'universal-cookie';
-const CurrentLocation = ({ Country, State1 }) => {
+const CurrentLocation = ({ Country, State1, city }) => {
   const { dispatch } = React.useContext(Createcontext)
   const cookies = new Cookies();
-  console.log(Country, State1)
   return (
     React.useEffect(() => {
 
       if (navigator?.geolocation) {
         navigator.permissions.query({ name: 'geolocation' }).then(permissionStatus => {
           if (permissionStatus.state === 'denied') {
-            console.log(Country !== '')
             if (Country === '') {
-              fetch(`https://maps.googleapis.com/maps/api/geocode/jsoLocationn?address=${cookies.get("Location") ? cookies.get("Location") : "New York"}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
+              fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${cookies.get("Location") ? cookies.get("Location") : "New York"}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
                 .then(res => res.json())
                 .then(response => {
                   dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address })
@@ -33,16 +31,28 @@ const CurrentLocation = ({ Country, State1 }) => {
                       }
                     }
                   })
+                }).catch((error) => {
+                  console.log(error)
                 })
             } else {
               if (State1 !== "") {
-                dispatch({ type: 'Location', Location: State1 })
-                dispatch({ type: 'Country', Country:Country })
+                if (city !== "") {
+                  dispatch({ type: 'Location', Location: Country + "" + State1 + "" + city })
+                  dispatch({ type: 'Country', Country: Country })
+                  dispatch({ type: 'State', State: State1 })
+                  dispatch({ type: 'City', City: city })
+                }
+                else {
+                  dispatch({ type: 'Location', Location: Country + State1 })
+                  dispatch({ type: 'Country', Country: Country })
+                  dispatch({ type: 'State', State: State1 })
+                }
               }
               else {
 
                 dispatch({ type: 'Location', Location: Country })
-              } 
+                dispatch({ type: 'Country', Country: Country })
+              }
             }
           } else {
             if (Country === '' || Country === undefined) {
@@ -76,12 +86,23 @@ const CurrentLocation = ({ Country, State1 }) => {
             }
             else {
               if (State1 !== "") {
-                dispatch({ type: 'Location', Location: State1 })
-              } else {
+                if (city !== "") {
+                  dispatch({ type: 'Location', Location: Country + "" + State1 + "" + city })
+                  dispatch({ type: 'Country', Country: Country })
+                  dispatch({ type: 'State', State: State1 })
+                  dispatch({ type: 'City', City: city })
+                }
+                else {
+                  dispatch({ type: 'Location', Location: Country + State1 })
+                  dispatch({ type: 'Country', Country: Country })
+                  dispatch({ type: 'State', State: State1 })
+                }
+              }
+              else {
 
                 dispatch({ type: 'Location', Location: Country })
+                dispatch({ type: 'Country', Country: Country })
               }
-
             }
 
           }
