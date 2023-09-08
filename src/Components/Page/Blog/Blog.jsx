@@ -14,14 +14,16 @@ import { AiFillHeart } from "react-icons/ai"
 import { RiLinkedinLine } from "react-icons/ri"
 import { IconButton } from "@mui/material"
 import Createcontext from "../../../Hooks/Context"
-import { BlogLike, Post_BlogLike ,Get_Comment,Post_Comment} from "../../../Api/Api"
+import { BlogLike, Post_BlogLike, Get_Comment, Post_Comment, ViewCountApi } from "../../../Api/Api"
 import _ from "lodash"
+import { RWebShare } from "react-web-share";
 import { WhisList } from "../../Component/Whishlist/WhisList";
 import BlogsCommentsCard from "./BlogComponent/BlogsCommentsCard"
-import { Link } from "react-router-dom";
+import { Link , useLocation } from "react-router-dom";
 const Blogs = () => {
     const classes = useStyles()
     const navigate = useNavigate()
+    const Location  = useLocation()
     const { state } = React.useContext(Createcontext)
     const [value, SetValue] = React.useState([])
     const [Getlikes, SetLikes] = React.useState([])
@@ -29,7 +31,7 @@ const Blogs = () => {
     const { id } = useParams();
     const [News, SetNews] = React.useState({})
     const [WishList, SetWishList] = React.useState(false)
-    // console.log(Getcommnet)
+    const [ViewCount, SetViewCount] = React.useState(0)
     React.useEffect(() => {
         const getApi = async () => {
             const res = await fetch(`https://sweede.app/UserPanel/Get-GetNewsById/${id}`);
@@ -41,20 +43,27 @@ const Blogs = () => {
             }).catch((error) => {
                 console.error(error)
             })
-            await Get_Comment(data[0].id).then((res) => {  
-            
-                Setcommnet({ ...Getcommnet, "CommentCounts": res.data.CommentCounts, 'UserComment':res.data.Comments })
-            }).catch((error) => {
-                console.error(error)
+            GetComment(data[0].id)
+            await ViewCountApi(id).then((res) => { SetViewCount(res.data.data) }).catch(() => {
+
             })
-    
+
         }
         getApi()
     }, [id])
     React.useEffect(() => {
         window.scroll(0, 0)
-        
+
     }, [])
+    async function GetComment(id) {
+        await Get_Comment(id).then((res) => {
+
+            Setcommnet({ ...Getcommnet, "CommentCounts": res.data.CommentCounts, 'UserComment': res.data.Comments })
+        }).catch((error) => {
+            console.error(error)
+        })
+    }
+
     function PostLike(like) {
         if (state.login) {
             Post_BlogLike(News?.id, !like).then((res) => {
@@ -78,7 +87,7 @@ const Blogs = () => {
         })
         return l
 
-    }   
+    }
     return (
         <React.Fragment>
             <div className="container">
@@ -126,41 +135,49 @@ const Blogs = () => {
                         </div>
                         <div className="col" id="center1" >
                             {/* <div className="col-12 BlogLink"> */}
-                                <div className="col-12 Linkofblog ">
-                                    <div className="col BlogSocal" id="center1">
+                            <div className="col-12 Linkofblog ">
+                                <div className="col BlogSocal" id="center1">
 
-                                        <Link to={"https://www.facebook.com/profile.php?id=61550742531174"}><RiFacebookLine></RiFacebookLine></Link>
-                                        <RiLinkedinLine></RiLinkedinLine>
+                                    <Link to={"https://www.facebook.com/profile.php?id=61550742531174"}><RiFacebookLine></RiFacebookLine></Link>
+                                    <RiLinkedinLine></RiLinkedinLine>
+                                    <RWebShare
+                                        data={{url: "https://www.weedx.io/" + Location.pathname }}
+                                        sites={["facebook" , "twitter" , "whatsapp" , "telegram" , "linkedin" , 'mail' , 'copy']}
+                                        onClick={() => console.info("share successful!")}
+                                      
+                                    >
                                         <BsFillShareFill></BsFillShareFill>
-                                    </div>
+                                    </RWebShare>
+
+                                </div>
+                                <div className="col viewsBlog" id="center1">
+                                    <IconButton>
+                                        <IoEyeSharp></IoEyeSharp>
+                                    </IconButton>
+                                    <span>{ViewCount?.ViewCount} Views</span>
+                                </div>
+                                <div className="col-md-8 d-flex center">
                                     <div className="col viewsBlog" id="center1">
-                                        <IconButton>
-                                            <IoEyeSharp></IoEyeSharp>
-                                        </IconButton>
-                                        <span>40 Views</span>
+                                        {/* <IoEyeSharp></IoEyeSharp> */}
+                                        <span>{Getcommnet.CommentCounts}</span>
+                                        <span>Comment</span>
                                     </div>
-                                    <div className="col-md-8 d-flex center">
-                                        <div className="col viewsBlog" id="center1">
-                                            {/* <IoEyeSharp></IoEyeSharp> */}
-                                            <span>{Getcommnet.CommentCounts}</span>
-                                            <span>Comment</span>
-                                        </div>
-                                        <div className="col viewsBlog like" id="center1">
-                                            <IconButton onClick={(() => { PostLike(color()?.like) })}>
-                                                <AiFillHeart color={state?.login && color()?.like && "red"}></AiFillHeart>
-                                            </IconButton>
-                                            <span>{value?.LinkCount}</span>
-                                        </div>
+                                    <div className="col viewsBlog like" id="center1">
+                                        <IconButton onClick={(() => { PostLike(color()?.like) })}>
+                                            <AiFillHeart color={state?.login && color()?.like && "red"}></AiFillHeart>
+                                        </IconButton>
+                                        <span>{value?.LinkCount}</span>
                                     </div>
                                 </div>
+                            </div>
 
                             {/* </div> */}
                         </div>
                     </div>
                     {WishList && <WhisList open1={WishList} SetWishList={SetWishList}></WhisList>}
                     <RecentPost />
-                    <RecentPostComment id={id} GetUserComment={Getcommnet} SetUserComment={Setcommnet} />
-                    <BlogsCommentsCard Getcommnet={Getcommnet}/>
+                    <RecentPostComment id={id} GetUserComment={Getcommnet} SetUserComment={Setcommnet} Get={GetComment} />
+                    <BlogsCommentsCard Getcommnet={Getcommnet} />
                     <HomePageDealsSignup />
 
                 </div>

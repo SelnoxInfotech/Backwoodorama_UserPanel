@@ -11,7 +11,12 @@
 .jss1 {
   top: 0px;
 }
+/* Share Link Css Blog Section */
+.rws-backdrop {
 
+  justify-content: center;
+}
+/*  */
 .blog_Image{
   height: 17rem;
   width: 100%;
@@ -1149,3 +1154,6 @@ position: relative;
     border: 1px solid green;
 }
 /* End */
+
+
+

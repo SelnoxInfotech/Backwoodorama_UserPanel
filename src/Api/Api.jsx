@@ -73,6 +73,15 @@ export function Post_Comment(id, Comment) {
     );
     return data;
 }
+export function ViewCountApi (id){
+    let data = axios.post(`https://sweede.app/UserPanel/Add-BlogView/`,
+    {
+        blog: id
+    },
+);
+return data;
+}
+
 
 
 // Store Review Api   Dispensaries   

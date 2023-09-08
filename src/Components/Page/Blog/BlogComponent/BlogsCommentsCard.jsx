@@ -5,12 +5,9 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import React from "react";
 import BlogPaginate from "./BlogPaginate";
 import { BsThreeDotsVertical } from "react-icons/bs"
-import Cookies from 'universal-cookie';
-
+import Createcontext from "../../../../Hooks/Context"
 const BlogsCommentsCard = ({ Getcommnet }) => {
-    const cookies = new Cookies();
-    const login = cookies.get("Token_access")
-    console.log(login)
+    const { state } = React.useContext(Createcontext)
     const [ShowCards, SetShowCards] = React.useState(false)
     const [CommentCardArrays, SetCommentCardArray] = React.useState()
     React.useEffect(() => {
@@ -38,6 +35,7 @@ const BlogsCommentsCard = ({ Getcommnet }) => {
             setCurrentPage(currentPage + 1);
         }
     };
+    console.log(state?.Profile?.id)
     return (
         <section className="px-0">
             <div className="col-12 blogsCommentCountCol">
@@ -83,7 +81,7 @@ const BlogsCommentsCard = ({ Getcommnet }) => {
                                                     <h2 className="blogCommentName">{val.username}</h2>
                                                     <h3 className="blogUserComments">{val.comment}</h3>
                                                 </section>
-                                                {login && (
+                                                {state.login &&  state?.Profile?.id === val.user && (
                                                     <div className="col BlogCommentEdit">
                                                         <IconButton> <BsThreeDotsVertical color="#31B665" size={20} /></IconButton>
 

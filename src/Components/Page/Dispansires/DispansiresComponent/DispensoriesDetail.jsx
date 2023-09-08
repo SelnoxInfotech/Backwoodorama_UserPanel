@@ -75,7 +75,7 @@ export default function DispensoriesDetails() {
     // }
     function SelectionTab(item,Store_Name) {
         SetTab(item)
-        navigate(`/Weed-DispensoriesDetails/${id}/${item.replace(/\s/g,'-')}/${Despen[0].Store_Name.replace(/\s/g,'-')}`)
+        navigate(`/Weed-Dispensories/${Despen[0].Store_Name.replace(/\s/g,'-')}/${item.replace(/\s/g,'-')}/${id}`)
 
     }
 
