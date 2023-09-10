@@ -29,7 +29,6 @@ const Navbar = () => {
   const classes = useStyles()
   const [Open, SetOpen] = React.useState(false)
   const [DropDownState, SetDropDownState] = React.useState(false);
-  const [ProfileImage, SetProfileImage] =  React.useState('')
   const [ProfileSlectedState, SetProfileSelectedState] = React.useState(1)
   const ProfileList = [{ id: 1, item: "My Order" }, { id: 2, item: "Favorites" },
   { id: 3, item: "Review" }, { id: 4, item: "Help" }]
@@ -116,13 +115,10 @@ const Navbar = () => {
     })
   }
      
-  React.useEffect(()=>{
-  SetProfileImage(state?.Profile?.image)
-  },[])
    
 
   return (
-    <>
+    <React.Fragment>
       <div ref={ref} className='sticky-top' style={{ background: "white", padding: "10px" }}>
         <Grid container spacing={0} rowSpacing={0.3}   >
           {
@@ -159,7 +155,7 @@ const Navbar = () => {
                 <IconButton className={classes.navBarButton_icons} aria-label='notification'><IoIosNotifications color="#858585" size={22}></IoIosNotifications></IconButton>
               </Badge>
               <Link to="/AddToCart">
-                <Badge className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`} badgeContent={state.AllProduct?.length > 0 ? state.AllProduct?.length : "0"}>
+                <Badge className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`} badgeContent={state.AllProduct.length > 0 ? state.AllProduct.length : "0"}>
 
                   <IconButton className={classes.navBarButton_icons} aria-label='shopping-cart'><MdOutlineShoppingCart color="#858585" size={22}></MdOutlineShoppingCart></IconButton>
                 </Badge>
@@ -181,7 +177,7 @@ const Navbar = () => {
                             event.target.src = "/image/user.webp"
                             event.onerror = null
                           }}
-                          src={`https://sweede.app/${state?.Profile?.image}`}
+                          src={`https://sweede.app/${state.Profile.image}`}
                           alt=''
                           className="Navbar_logo_imgs"
                           onClick={handleClickDropdown}
@@ -200,7 +196,7 @@ const Navbar = () => {
                               alt='' className="Navbar_profile_imgs" /> */}
                           </div>
                           <div className='profile_name_container'>
-                            <p className='profile_names ellipsis'>{state?.Profile?.username}</p>
+                            <p className='profile_names ellipsis'>{state.Profile.username}</p>
                             <p className='profile_viewAll' onClick={ViewProfiles}>View Profile</p>
                           </div>
 
@@ -252,7 +248,7 @@ const Navbar = () => {
 
 
 
-    </>
+    </React.Fragment>
   )
 }
 export default Navbar
