@@ -66,7 +66,7 @@ const CheckOutMainPage = () => {
 
     }
     return (
-        <>
+        <React.Fragment>
             <div className="container">
 
 
@@ -128,7 +128,7 @@ const CheckOutMainPage = () => {
 
 
             </div>
-        </>
+        </React.Fragment>
     )
 }
 export default CheckOutMainPage

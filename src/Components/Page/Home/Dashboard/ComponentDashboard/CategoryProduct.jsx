@@ -79,14 +79,14 @@ const CategoryProduct = ({ ShowCategoryProduct, Category,Skeleton }) => {
 
 
     return (
-        <>
+        <React.Fragment>
             <div className='container-fluid mt-4 CategoryBordrr'>
                 <div className='row'>
 
 
                     {
                              !Skeleton?
-                             <>
+                             <React.Fragment>
                              <div className='col-12 disp_head '>
                                      <h1 className='mt-9 shopByCategoryHeading'>Shop by Category</h1>
                                  </div>
@@ -113,7 +113,7 @@ const CategoryProduct = ({ ShowCategoryProduct, Category,Skeleton }) => {
                                  
                              </SliderCategory> 
             
-                             </>
+                             </React.Fragment>
                              :
                          <CategorySkeleton></CategorySkeleton>
              
@@ -121,7 +121,7 @@ const CategoryProduct = ({ ShowCategoryProduct, Category,Skeleton }) => {
                            </div>
             </div>
 
-        </>
+        </React.Fragment>
     )
 }
 export default CategoryProduct

@@ -8,7 +8,7 @@ const Deliveries=()=>{
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
     },[])
     return(
-        <>
+        <React.Fragment>
         <div className="container-fluid">
             <div className="row  deliveries_centers">
                 <div className="col-lg-12 col-11 deliveries_container_height px-0 mt-2">
@@ -24,7 +24,7 @@ const Deliveries=()=>{
             </div>
 
         </div>
-        </>
+        </React.Fragment>
     )
 }
 export default Deliveries

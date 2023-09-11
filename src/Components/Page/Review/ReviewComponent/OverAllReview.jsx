@@ -31,7 +31,7 @@ const OverAllReview = ({ Product, api, SetApi }) => {
         }).catch(() => { })
     }, [Id, api])
     return (
-        <>
+        <React.Fragment>
             <div className="container-fluid">
 
                 <div className="row center mt-4">
@@ -92,7 +92,7 @@ const OverAllReview = ({ Product, api, SetApi }) => {
                 </div>
             </div>
 
-        </>
+        </React.Fragment>
     )
 }
 export default OverAllReview

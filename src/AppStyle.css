@@ -23,7 +23,9 @@
   font-size: 20px;
   color: #282625;
 }
-
+.LinkColor{
+  color: #000000;
+}
 .common_sub_head {
   display: block;
   /* height: 86px; */
@@ -2339,13 +2341,13 @@
   margin-left: 10px;
 }
 
-@media(max-width:440px) {
+@media(max-width:535px) {
   .dispensories_name {
     font-size: 12px;
   }
 
   .dispensories_city {
-    font-size: 12px;
+    font-size: 14px;
 
   }
 }
@@ -2806,9 +2808,7 @@
 }
 
 @media(max-width:488px) {
-  .store_detail_container {
-    padding-left: 0px !important;
-  }
+
 
   .StoreDetailSidemenuBarList {
     min-width: 50%;

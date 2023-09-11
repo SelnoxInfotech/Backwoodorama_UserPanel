@@ -112,7 +112,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
 
 
     return (
-        <>
+        <React.Fragment>
             <div className="col-12   p-2 Add_product_cart_right_container_summary">
 
                 <div className="col-12 fontStyle AddProdCartFont_weight">
@@ -285,7 +285,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
 
 
             </div>
-        </>
+        </React.Fragment>
     )
 }
 export default AddToCartSummary

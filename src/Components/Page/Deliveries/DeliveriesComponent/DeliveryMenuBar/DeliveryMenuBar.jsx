@@ -68,7 +68,7 @@ const DeliveryMenuBar = () => {
     };
 
     return (
-        <>
+        <React.Fragment>
             <div className="col-lg-12 col-11 delivery_menuBar_container px-0 mt-4">
 
                 <Box className={``} sx={{ width: '100%', typography: 'body1', }}>
@@ -95,7 +95,7 @@ const DeliveryMenuBar = () => {
             </div>
 
 
-        </>
+        </React.Fragment>
     )
 }
 export default DeliveryMenuBar

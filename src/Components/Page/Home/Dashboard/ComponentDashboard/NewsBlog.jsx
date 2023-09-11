@@ -21,7 +21,7 @@ const NewsBlog = () => {
     }, [])
   
     return (
-        <>
+        <React.Fragment>
             <div className="container-fluid   mt-4">
                 <div className="row">
                     <div className="col-lg-12 ">
@@ -77,7 +77,7 @@ const NewsBlog = () => {
 
 
             </div >
-        </>
+        </React.Fragment>
     )
 }
 export default NewsBlog

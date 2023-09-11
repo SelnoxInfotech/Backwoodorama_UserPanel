@@ -2,7 +2,7 @@ import { FaCarAlt } from "react-icons/fa"
 import { GiPlainCircle } from "react-icons/gi"
 import { BiMobileAlt } from "react-icons/bi"
 import { MdAssistantNavigation } from "react-icons/md";
-
+import React from "react";
 const StoreDetailContact = () => {
     const StoreDetailSideMenubarArray = [
         { icons: <MdAssistantNavigation />, item: "California", color: "#000000" },
@@ -13,7 +13,7 @@ const StoreDetailContact = () => {
 
     ]
     return (
-        <>
+        <React.Fragment>
             <div className="col-lg-2 store_detail_container_right_container my-2">
                     <div className="col-lg-12 ">
                         <ol className="StoreDetailContactList">
@@ -35,7 +35,7 @@ const StoreDetailContact = () => {
                     </div>
 
             </div>
-        </>
+        </React.Fragment>
     )
 }
 export default StoreDetailContact

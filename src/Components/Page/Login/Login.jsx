@@ -68,7 +68,7 @@ const Login = () => {
 
 
     return (
-        <>
+        <React.Fragment>
             <div className="container signup_margins_top signup_margins_bottom">
                 <div className="row center">
                     <div className="col-xl-4 col-lg-6 col-md-6 col-sm-8 col-11 signup_padding_bottom login_signup_reset_container login_container_height">
@@ -191,7 +191,7 @@ const Login = () => {
                 </div>
 
             </div>
-        </>
+        </React.Fragment>
     )
 }
 export default Login

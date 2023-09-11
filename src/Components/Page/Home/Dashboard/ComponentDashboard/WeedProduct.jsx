@@ -10,6 +10,7 @@ import useStyles from "../../../../../Style"
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import React from "react";
 const WeedProduct = () => {
     const classes = useStyles()
     const SliderWeed = styled(Slider)`
@@ -89,7 +90,7 @@ const WeedProduct = () => {
     { quant: "1gms", rs: "2$" },
     { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" }, { quant: "1gms", rs: "2$" }]
     return (
-        <>
+        <React.Fragment>
             <div className="container-fluid " style={{marginTop:"62px"}}>
 
            
@@ -175,7 +176,7 @@ const WeedProduct = () => {
 
 
             </div>
-        </>
+        </React.Fragment>
     )
 }
 export default WeedProduct

@@ -8,7 +8,7 @@ const FeaturedBrand = ({ CardDataArray ,BrandSkeleton}) => {
 
     return (
         !BrandSkeleton  ?
-        <>
+        <React.Fragment>
              <div className="col-12 bestDealsCard_Heading_offers mt-5">
                     <h3 className="ellipsis dispensariesShopHeading featuredBrandHeading">Featured Brands</h3>
                    
@@ -41,7 +41,7 @@ const FeaturedBrand = ({ CardDataArray ,BrandSkeleton}) => {
             </div>
           
 
-        </>
+        </React.Fragment>
         :
         <div className="col-12 bestDealsCard_Heading_offers mt-4">
        

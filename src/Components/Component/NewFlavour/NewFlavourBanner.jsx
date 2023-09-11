@@ -5,11 +5,11 @@ import { TbCircleFilled } from "react-icons/tb"
 import useStyles from '../../../Style';
 import Box from '@mui/material/Box';
 import LoadingButton from '@mui/lab/LoadingButton';
-
+import React from 'react';
 const NewFlavourBanner = ({ delBtn }) => {
     const classes = useStyles()
     return (
-        <>
+        <React.Fragment>
             {/* <div className='container-fluid'> */}
             <div className="row  newFlavour_row" >
                 <div className="col-12 newFlavour_container">
@@ -83,7 +83,7 @@ const NewFlavourBanner = ({ delBtn }) => {
 
             </div>
             {/* </div> */}
-        </>
+        </React.Fragment>
     )
 }
 export default NewFlavourBanner

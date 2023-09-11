@@ -2,7 +2,7 @@ import VerifyBrands from "./BrandComponent/VerifyBrands"
 import React from "react";
 const Brand=()=>{
     return(
-        <>
+        <React.Fragment>
         <div className="container-fluid">
             {/* <CategoryProduct  Category={Category}/> */}
             <div className="row center brands_containers_height">
@@ -13,7 +13,7 @@ const Brand=()=>{
             </div>
 
         </div>
-        </>
+        </React.Fragment>
     )
 }
 export default Brand

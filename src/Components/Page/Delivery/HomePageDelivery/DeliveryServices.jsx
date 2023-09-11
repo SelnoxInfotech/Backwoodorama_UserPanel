@@ -30,7 +30,7 @@ const DeliveryServices = () => {
     }, [])
 
     return (
-        <>
+        <React.Fragment>
             <div className="container-fluid mt-5">
                 <div className="row mt-3">
                     {!Skeleton ? <React.Fragment>
@@ -84,7 +84,7 @@ const DeliveryServices = () => {
                 </div>
 
             </div>
-        </>
+        </React.Fragment>
     )
 }
 export default DeliveryServices

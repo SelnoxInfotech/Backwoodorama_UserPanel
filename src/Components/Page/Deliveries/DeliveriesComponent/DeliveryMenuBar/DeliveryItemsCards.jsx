@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 const DeliveryItemsCard = ({ Deliverie }) => {
     const classes = useStyles()
     return (
-        <>
+        <React.Fragment>
             <div className="container-fluid">
                 <div className="row">
                     {Deliverie?.map((items, index) => {
@@ -99,7 +99,7 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                 </div>
 
             </div>
-        </>
+        </React.Fragment>
     )
 }
 export default DeliveryItemsCard

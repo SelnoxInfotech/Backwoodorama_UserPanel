@@ -41,7 +41,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
         });
     }
     return (
-        <>
+        <React.Fragment>
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-12 center">
@@ -184,7 +184,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
                 </div>
 
             </div>
-        </>
+        </React.Fragment>
     )
 }
 export default DeliveryOption

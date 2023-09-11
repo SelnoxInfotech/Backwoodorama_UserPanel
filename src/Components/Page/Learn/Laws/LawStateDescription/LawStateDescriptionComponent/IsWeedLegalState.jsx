@@ -1,7 +1,8 @@
+import React from "react"
 const IsWeedLegalState = ({head , description2}) => {
 
     return (
-        <>
+        <React.Fragment>
             <div className="col-12">
  
                 <h2 id="isweedLegalHeadings" className="isweedLegalHeading">{head}</h2>
@@ -14,7 +15,7 @@ const IsWeedLegalState = ({head , description2}) => {
 
             </div>
 
-        </>
+        </React.Fragment>
     )
 }
 export default IsWeedLegalState

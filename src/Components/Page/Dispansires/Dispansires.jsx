@@ -54,7 +54,7 @@ export default function Dispansires() {
     },[])
     const classes = useStyles()
     return (
-        <>
+        <React.Fragment>
             <div className="container-fluid">
 
                 <div className="row  dispensaries_centers">
@@ -101,7 +101,7 @@ export default function Dispansires() {
                 </div>
             </div>
 
-        </>
+        </React.Fragment>
     )
 
 

@@ -112,7 +112,7 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
     SetAddress(e.target.value)
   }
   return (
-    <>
+    <React.Fragment>
       <TextField
         onChange={handlechnage}
         value={Address}
@@ -139,7 +139,7 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
       {
         error !== "" && <span className="help-block">{error}</span>
       }
-    </>
+    </React.Fragment>
   )
 
 }

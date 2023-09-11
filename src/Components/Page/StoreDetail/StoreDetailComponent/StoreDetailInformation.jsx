@@ -1,6 +1,7 @@
+import React from "react"
 const StoreDetailInformation=()=>{
     return(
-        <>
+        <React.Fragment>
                     <div className="col-lg-8 store_detail_container my-2">
                         <div className=" ">
 
@@ -52,7 +53,7 @@ const StoreDetailInformation=()=>{
                         </div>
 
                     </div>
-        </>
+        </React.Fragment>
     )
 }
 export default StoreDetailInformation

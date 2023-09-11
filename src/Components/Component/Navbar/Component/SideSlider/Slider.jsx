@@ -52,15 +52,12 @@ const SideNavbar = ({ closeNav, Open }) => {
     const Redirect=(items)=>{
         if(items==="My Order"){
             Navigate("/MyOrder")
+            closeNav()
         }
 
     }
-    const ViewProfiles=()=>{
-    Navigate("/Profile")
-
-    }
     return (
-        <>
+        <React.Fragment>
             <div id="mySidebar" className="sidebar" style={{ width: Open ? "300px" : "0px" }}>
                 <div className=' col-12 Login_Sigup_button mt-4 mb-3 '>
                     {
@@ -90,8 +87,10 @@ const SideNavbar = ({ closeNav, Open }) => {
                                                 <LazyLoadImage src='/image/user.webp' className="Slider_inner_profile_imgs" />
                                             </div>
                                             <div className="slider_image_profile_names_conatiner">
-                                                <h1 className="slider_image_name_heading ellipsis">Maxwell rtwwwww</h1>
-                                                <p className="slider_view_heading" onClick={ViewProfiles}>View Profile</p>
+                                                <h1 className="slider_image_name_heading ellipsis">{state.Profile.username}</h1>
+                                                {/* <p className="slider_view_heading" onClick={ViewProfiles}>View Profile</p> */}
+                                                <Link to={"/Profile"}><p className="slider_view_heading" onClick={closeNav}>View Profile</p></Link>
+
                                             </div>
                                         </section>
                                         <hr />
@@ -119,38 +118,38 @@ const SideNavbar = ({ closeNav, Open }) => {
                     }
                 </div>
                 <div className="col-12 Slider_content_center " >
-                    <Link to="/"><p onClick={closeNav}>Home</p></Link>
+                    <Link to="/" className="LinkColor"><p onClick={closeNav}>Home</p></Link>
                 </div>
 
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                    <Link to={`/Weed-Dispansires/in/${state.Country}/${state.State}/${state.City}`}><p onClick={closeNav}>Dispensaries</p></Link>
+                    <Link className="LinkColor" to={`/Weed-Dispansires/in/${state.Country}/${state.State}/${state.City}`}><p onClick={closeNav}>Dispensaries</p></Link>
                 </div>
 
                 <hr></hr>
 
                 <div className="col-12 Slider_content_center ">
-                    <Link to={`/Weed-Deliveries/in/${state.Country}/${state.State}/${state.City}`}><p onClick={closeNav}>Deliveries</p></Link>
+                    <Link className="LinkColor" to={`/Weed-Deliveries/in/${state.Country}/${state.State}/${state.City}`}><p onClick={closeNav}>Deliveries</p></Link>
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                    <Link to="/Brand"><p onClick={closeNav}>Brand</p></Link>
+                    <Link className="LinkColor" to="/Brand"><p onClick={closeNav}>Brand</p></Link>
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                    <Link to="/Product"> <p onClick={closeNav}>Products</p></Link>
+                    <Link className="LinkColor" to="/Product"> <p onClick={closeNav}>Products</p></Link>
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                    <Link to="/MainDeals"> <p onClick={closeNav}>Deals</p></Link>
+                    <Link className="LinkColor" to="/MainDeals"> <p onClick={closeNav}>Deals</p></Link>
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                    <Link to="/LearnTabs"><p onClick={closeNav}>Learn</p></Link>
+                    <Link className="LinkColor" to="/LearnTabs"><p onClick={closeNav}>Learn</p></Link>
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                    <Link to="/Strain"><p onClick={closeNav}>Strain</p></Link>
+                    <Link className="LinkColor" to="/Strain"><p onClick={closeNav}>Strain</p></Link>
                 </div>
                 <hr></hr>
 
@@ -158,7 +157,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                     <p onClick={closeNav}>More</p>
                 </div>
             </div>
-        </>
+        </React.Fragment>
     )
 }
 export default SideNavbar

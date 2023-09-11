@@ -5,7 +5,7 @@ import * as React from 'react';
 const BestDealCards = ({CardDataArray,Heading}) => {
     const ref = React.useRef(null);
     return (
-        <>
+        <React.Fragment>
        
                 <div className="col-12  mt-2 px-0">
                     <h3 className="ellipsis bestDealsCard_Heading_offers">{Heading}</h3>
@@ -39,7 +39,7 @@ const BestDealCards = ({CardDataArray,Heading}) => {
                 </ScrollContainer>
 
             </div>
-        </>
+        </React.Fragment>
     )
 }
 export default BestDealCards

@@ -5,7 +5,7 @@ import StoreDetailSideMenuBar from "./StoreDetailComponent/StoreDetailSideMenuBa
 import Amenities from "./StoreDetailComponent/Amenities"
 const StoreDetail1 = () => {
     return (
-        <>
+        <React.Fragment>
         <div className="container-fluid">
 
             <div className="row">
@@ -25,7 +25,7 @@ const StoreDetail1 = () => {
 
 
 
-        </>
+        </React.Fragment>
     )
 }
 export default StoreDetail1

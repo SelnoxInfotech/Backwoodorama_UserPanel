@@ -119,7 +119,7 @@ export default function DispensoriesDetails() {
                     </div>
                     {
                         tab === 'Menu' &&
-                        <>
+                        <React.Fragment>
                             <CategoryProduct Category={Category} ShowCategoryProduct={ShowCategoryProduct}> </CategoryProduct>
                             <div className="col-12   productCat_cont" style={{ display: "contents" }}>
 
@@ -135,7 +135,7 @@ export default function DispensoriesDetails() {
 
                                 </div>
                             </div>
-                        </>
+                        </React.Fragment>
                     }
                     {
                         tab === 'Store-Details' && <ComponentStoreDetails></ComponentStoreDetails>

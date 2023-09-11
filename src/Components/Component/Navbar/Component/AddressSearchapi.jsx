@@ -133,7 +133,7 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
     Setdefault('')
   }
   return (
-    <>
+    <React.Fragment>
       <TextField
         value={Default || ''}
         inputRef={ref}
@@ -163,7 +163,7 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
       {
         // state.Location !== "" ||     state.Location !==  undefined && <CurrentLocation></CurrentLocation>
       }
-    </>
+    </React.Fragment>
 
   );
 

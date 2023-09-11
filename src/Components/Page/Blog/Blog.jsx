@@ -138,7 +138,7 @@ const Blogs = () => {
                             <div className="col-12 Linkofblog ">
                                 <div className="col BlogSocal" id="center1">
 
-                                    <Link to={"https://www.facebook.com/profile.php?id=61550742531174"}><RiFacebookLine></RiFacebookLine></Link>
+                                    <Link className=" LinkColor" to={"https://www.facebook.com/profile.php?id=61550742531174"}><RiFacebookLine></RiFacebookLine></Link>
                                     <RiLinkedinLine></RiLinkedinLine>
                                     <RWebShare
                                         data={{url: "https://www.weedx.io/" + Location.pathname }}

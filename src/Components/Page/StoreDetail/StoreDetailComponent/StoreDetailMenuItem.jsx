@@ -1,4 +1,5 @@
 
+import React from "react"
 const StoreDetailMenuItem = ({SelectionTab , tab}) => {
 
     const StoreDetailMenuItem = [{ item: "Menu",color:"#31B665" }, { item: "Store Details",color:"#31B665" },
@@ -7,7 +8,7 @@ const StoreDetailMenuItem = ({SelectionTab , tab}) => {
 
 
     return (
-        <>
+        <React.Fragment>
             <div className="container-fluid px-0">
                 <div className="row center">
                     <div className="col-lg-12  col-md-12 col-sm-12 col-12 StoreDetailMenuItem_container center">
@@ -25,7 +26,7 @@ const StoreDetailMenuItem = ({SelectionTab , tab}) => {
                 </div>
 
             </div>
-        </>
+        </React.Fragment>
     )
 }
 export default StoreDetailMenuItem

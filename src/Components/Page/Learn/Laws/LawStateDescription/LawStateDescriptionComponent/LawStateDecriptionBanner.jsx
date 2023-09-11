@@ -78,7 +78,7 @@ const LawStateDecriptionBanner = () => {
     const LearnBannerArray = [{ imgUrl: "/image/learnBanner.webp" }, { imgUrl: "/image/learnBanner2.jpg" }]
 
     return (
-        <>
+        <React.Fragment>
             <div className='col-12 lawStateDescBannerCol'>
                 <LawStateDecriptionBanner {...settings}>
                     {LearnBannerArray.map((items, index) => {
@@ -96,7 +96,7 @@ const LawStateDecriptionBanner = () => {
 
                 </LawStateDecriptionBanner>
             </div>
-        </>
+        </React.Fragment>
     )
 }
 export default LawStateDecriptionBanner

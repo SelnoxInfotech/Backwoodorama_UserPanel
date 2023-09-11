@@ -25,7 +25,7 @@ const Payment = ({SetShowPlaceOrder}) => {
         setValue(event.target.value);
     };
     return (
-        <>
+        <React.Fragment>
             <div className="container-fluid">
                 <div className="row center deliver_row_margin">
                     <div className="col-lg-12 col-md-12 col-sm-12 col-12 payment_container">
@@ -84,7 +84,7 @@ const Payment = ({SetShowPlaceOrder}) => {
                 </div>
 
             </div >
-        </>
+        </React.Fragment>
     )
 }
 export default Payment

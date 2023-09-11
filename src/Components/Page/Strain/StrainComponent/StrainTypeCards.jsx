@@ -7,7 +7,7 @@ const StrainTypeCards = ({ ArrayData }) => {
     const ref = React.useRef(null);
    
     return (
-        <>
+        <React.Fragment>
             <div className="col-lg-12 col-12   recentViewProductSlider" id="width" ref={ref}>
                 <ScrollContainer className=" StrainTypeCardRelative indiana-scroll-container">
 
@@ -30,7 +30,7 @@ const StrainTypeCards = ({ ArrayData }) => {
                     })}
                 </ScrollContainer>
             </div>
-        </>
+        </React.Fragment>
     )
 }
 export default StrainTypeCards

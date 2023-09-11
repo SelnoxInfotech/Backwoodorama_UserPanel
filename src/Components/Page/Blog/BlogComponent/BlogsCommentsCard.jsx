@@ -54,8 +54,7 @@ const BlogsCommentsCard = ({ Getcommnet }) => {
             </div>
             {
                 ShowCards && (
-                    <section>
-                        <>
+                    <section>    
                             {currentPosts?.map((val, index) => {
                                 const CommentDate = val.created_at.slice(0, 10).split("-").reverse().join("-")
                                 return (
@@ -107,7 +106,6 @@ const BlogsCommentsCard = ({ Getcommnet }) => {
                                 previousPage={previousPage}
                                 nextPage={nextPage}
                             />
-                        </>
                     </section>
                 )}
 

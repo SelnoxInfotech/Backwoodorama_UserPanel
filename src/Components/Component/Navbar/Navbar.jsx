@@ -178,7 +178,7 @@ const Navbar = () => {
                             event.onerror = null
                           }}
                           src={`https://sweede.app/${state.Profile.image}`}
-                          alt=''
+                          alt='image not available'
                           className="Navbar_logo_imgs"
                           onClick={handleClickDropdown}
                         />
@@ -188,12 +188,12 @@ const Navbar = () => {
                       <div className='profileDropdown_container'>
                         <section className='Navbar_proflie_image_name_section'>
                           <div className='profile_image_container'>
-                            {/* <LazyLoadImage onError={event => {
+                            <LazyLoadImage onError={event => {
                               event.target.src = "/image/user.webp"
                               event.onerror = null
                             }}
                               src={`https://sweede.app/${state?.Profile?.image}`}
-                              alt='' className="Navbar_profile_imgs" /> */}
+                              alt='' className="Navbar_profile_imgs" />
                           </div>
                           <div className='profile_name_container'>
                             <p className='profile_names ellipsis'>{state.Profile.username}</p>

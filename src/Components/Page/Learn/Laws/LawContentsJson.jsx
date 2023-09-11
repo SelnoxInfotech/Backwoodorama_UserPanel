@@ -2234,7 +2234,7 @@ const Content = [
         name: 'Canada', id: 2,
         state: [
             {
-                id: 1,
+                id: 28,
                 name: "Alberta",
                 content: [{
                     title: "Is weed legal in Alberta?",
@@ -2345,7 +2345,7 @@ const Content = [
                 ]
             },
             {
-                id: 2,
+                id: 29,
                 name: "British Columbia",
                 content: [
                     {

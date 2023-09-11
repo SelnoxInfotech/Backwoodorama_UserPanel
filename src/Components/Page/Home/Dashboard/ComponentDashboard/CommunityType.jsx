@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom"
+import React from "react"
 const CommunityType = () => {
     return (
-        <>
+        <React.Fragment>
             <div className="container-fluid mb-4 mt-4">
                 <div className="row">
 
@@ -55,7 +56,7 @@ const CommunityType = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </React.Fragment>
     )
 }
 export default CommunityType

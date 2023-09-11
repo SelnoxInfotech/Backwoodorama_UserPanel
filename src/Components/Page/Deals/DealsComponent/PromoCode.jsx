@@ -6,7 +6,7 @@ const PromoCode = ({CardDataArray,Heading}) => {
 
 
     return (
-        <>
+        <React.Fragment>
       
           <div className="col-12  px-0">
             <h3 className="promocode_headings">{Heading}</h3>
@@ -30,7 +30,7 @@ const PromoCode = ({CardDataArray,Heading}) => {
             })}
             </ScrollContainer>
         </div>
-        </>
+        </React.Fragment>
     )
 }
 export default PromoCode

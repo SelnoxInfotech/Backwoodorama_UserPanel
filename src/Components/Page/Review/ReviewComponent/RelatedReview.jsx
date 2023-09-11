@@ -20,7 +20,7 @@ const RelatedReview = ({Product , api}) => {
         })
     }, [id, api])
     return (
-        <>
+        <React.Fragment>
             <div className='container-fluid'>
 
                 <div className="row center ">
@@ -45,14 +45,14 @@ const RelatedReview = ({Product , api}) => {
                             // If text is longer than desired length & showMore is false
                             if (ele?.comment.length > 20) {
                                 return (
-                                    <>
+                                    <React.Fragment>
                                         <p>{ele?.comment.slice(0, 20)}</p>
 
                                         <button className='related_review_view_less_more_button'
                                             onClick={() => setShowMore(true)}>
                                             Show Full Description
                                         </button>
-                                    </>
+                                    </React.Fragment>
                                 );
                             }
                         };
@@ -128,7 +128,7 @@ const RelatedReview = ({Product , api}) => {
                 </div>
             </div>
 
-        </>
+        </React.Fragment>
     )
 }
 export default RelatedReview

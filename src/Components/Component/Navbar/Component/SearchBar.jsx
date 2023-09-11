@@ -120,7 +120,7 @@ const SearchBar = ({path}) => {
 
 
     return (
-        <>
+        <React.Fragment>
             <div className="col_Search">
                 <div className={` nav_search_bar_div center`} style={{ display: (openLocation && SearchBarWidth) && "block" }}>
                     <AutoComplete
@@ -204,7 +204,7 @@ const SearchBar = ({path}) => {
                 </div>
             </div>
 
-        </>
+        </React.Fragment>
     )
 }
 export default SearchBar

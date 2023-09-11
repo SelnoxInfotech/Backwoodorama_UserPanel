@@ -53,7 +53,7 @@ const SignupWithEmail = () => {
 
     // console.log(dulicate)
     return (
-        <>
+        <React.Fragment>
             <div className="container signup_margins_top signup_margins_bottom">
                 <div className="row center">
                     <div className="col-lg-4 col-md-6 col-sm-8 col-10 signup_padding_bottom login_signup_reset_container signup_container_height">
@@ -181,7 +181,7 @@ const SignupWithEmail = () => {
                 </div>
 
             </div>
-        </>
+        </React.Fragment>
     )
 }
 export default SignupWithEmail

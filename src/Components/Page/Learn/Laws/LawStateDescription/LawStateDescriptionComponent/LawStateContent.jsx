@@ -11,7 +11,7 @@ const LawStateContent = ({ head }) => {
 
     }
     return (
-        <>
+        <React.Fragment>
             <div className="col-lg-11 col-md-12 LawStateContentsContainer ">
 
                 <div className="col-12  socialIconsContainer">
@@ -51,7 +51,7 @@ const LawStateContent = ({ head }) => {
 
 
             </div>
-        </>
+        </React.Fragment>
     )
 }
 export default LawStateContent

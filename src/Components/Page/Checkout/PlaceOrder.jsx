@@ -29,7 +29,7 @@ const PlaceOrder = () => {
             })
     },[])
     return (
-        <>
+        <React.Fragment>
             <div className="container-fluid">
                 <div className="row center p-2">
                     <div className="col-12 col-lg-8 col-md-10 col-sm-10 ThanYouOrder_Container_height">
@@ -111,7 +111,7 @@ const PlaceOrder = () => {
 
 
             </div>
-        </>
+        </React.Fragment>
     )
 }
 export default PlaceOrder

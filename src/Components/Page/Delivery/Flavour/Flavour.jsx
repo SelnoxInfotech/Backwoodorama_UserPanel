@@ -3,12 +3,12 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import { AiFillStar } from "react-icons/ai";
 import useStyles from "../../../../Style"
 import Box from '@mui/material/Box';
-
+import React from 'react';
 const Flavour = (Deta) => {
     const classes = useStyles()
 
     return (
-        <>
+        <React.Fragment>
             <div className="container-fluid" >
                 <div className='row'>
                     <div className=' flavour_New_container'>
@@ -57,7 +57,7 @@ const Flavour = (Deta) => {
 
 
             </div>
-        </>
+        </React.Fragment>
     )
 }
 export default Flavour

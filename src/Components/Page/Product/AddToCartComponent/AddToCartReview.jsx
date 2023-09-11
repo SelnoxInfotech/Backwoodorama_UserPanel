@@ -156,7 +156,7 @@ const AddToCartReview = () => {
         navigate(`/NewProductDetails/${e}`)
       }
     return (
-        <>
+        <React.Fragment>
             <div className="col-12  AddProductCartContainerinner">
                 {state.AllProduct?.map((ele, index) => {
                     return (
@@ -225,7 +225,7 @@ const AddToCartReview = () => {
                     )
                 })}
             </div>
-        </>
+        </React.Fragment>
     )
 }
 export default AddToCartReview

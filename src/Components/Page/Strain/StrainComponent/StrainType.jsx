@@ -23,7 +23,7 @@ const StrainType = () => {
     //     })
     // }, [])
     return (
-        <>
+        <React.Fragment>
             <div className="row my-3 mx-0 px-0">
                 <div className="col-sm-4  px-0">
                     <h2 className="strainType_heading">Strain Type</h2>
@@ -35,7 +35,7 @@ const StrainType = () => {
 
             </div>
             <StrainTypeCards ArrayData={StrainTypeCardArray} />
-        </>
+        </React.Fragment>
     )
 }
 export default StrainType
