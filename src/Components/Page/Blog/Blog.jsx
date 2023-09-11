@@ -32,6 +32,8 @@ const Blogs = () => {
     const [News, SetNews] = React.useState({})
     const [WishList, SetWishList] = React.useState(false)
     const [ViewCount, SetViewCount] = React.useState(0)
+    const [BlogReviewCount,SetBlogReviewCount]=React.useState()
+    console.log(BlogReviewCount)
     React.useEffect(() => {
         const getApi = async () => {
             const res = await fetch(`https://sweede.app/UserPanel/Get-GetNewsById/${id}`);
@@ -44,7 +46,10 @@ const Blogs = () => {
                 console.error(error)
             })
             GetComment(data[0].id)
-            await ViewCountApi(id).then((res) => { SetViewCount(res.data.data) }).catch(() => {
+            await ViewCountApi(id).then((res) => {
+                 SetViewCount(res.data.data)
+                 SetBlogReviewCount(res.data.ViewCount)
+             }).catch(() => {
 
             })
 
@@ -154,7 +159,10 @@ const Blogs = () => {
                                     <IconButton>
                                         <IoEyeSharp></IoEyeSharp>
                                     </IconButton>
-                                    <span className="blogViewCounts">{ViewCount?.ViewCount} Views</span>
+                                 
+                                    <span className="blogViewCounts">{BlogReviewCount} Views</span>
+
+                                   
                                 </div>
                                 <div className="col-md-8 d-flex center">
                                     <div className="col viewsBlog" id="center1">
