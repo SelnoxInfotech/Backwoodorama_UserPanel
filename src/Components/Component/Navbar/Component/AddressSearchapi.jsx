@@ -16,7 +16,6 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
   const [current_route, Setcurrent_route] = React.useState()
   const { state, dispatch } = React.useContext(Createcontext)
   const [Default, Setdefault] = React.useState('')
-   console.log(location)
   const { ref } = usePlacesWidget({
     apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
     onPlaceSelected: (place) => {
@@ -60,7 +59,6 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
     Setcurrent_route(location.pathname)
   },[location])
 
-  console.log(current_route  )
     // function Rout (Coun,sta,ci){
       
     //   if (path.slice(0, 17) === "/Weed-Dispansires/") {

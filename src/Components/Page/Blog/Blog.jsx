@@ -154,19 +154,19 @@ const Blogs = () => {
                                     <IconButton>
                                         <IoEyeSharp></IoEyeSharp>
                                     </IconButton>
-                                    <span>{ViewCount?.ViewCount} Views</span>
+                                    <span className="blogViewCounts">{ViewCount?.ViewCount} Views</span>
                                 </div>
                                 <div className="col-md-8 d-flex center">
                                     <div className="col viewsBlog" id="center1">
                                         {/* <IoEyeSharp></IoEyeSharp> */}
-                                        <span>{Getcommnet.CommentCounts}</span>
-                                        <span>Comment</span>
+                                        <span className="blogViewCounts">{Getcommnet.CommentCounts} Comment</span>
+                                        {/* <span className="blogViewCounts">Comment</span> */}
                                     </div>
                                     <div className="col viewsBlog like" id="center1">
                                         <IconButton onClick={(() => { PostLike(color()?.like) })}>
                                             <AiFillHeart color={state?.login && color()?.like && "red"}></AiFillHeart>
                                         </IconButton>
-                                        <span>{value?.LinkCount}</span>
+                                        <span className="blogViewCounts">{value?.LinkCount}</span>
                                     </div>
                                 </div>
                             </div>

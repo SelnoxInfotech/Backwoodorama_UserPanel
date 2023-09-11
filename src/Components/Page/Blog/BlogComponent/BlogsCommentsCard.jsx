@@ -35,7 +35,7 @@ const BlogsCommentsCard = ({ Getcommnet }) => {
             setCurrentPage(currentPage + 1);
         }
     };
-    console.log(state?.Profile?.id)
+    // console.log(state?.Profile?.id)
     return (
         <section className="px-0">
             <div className="col-12 blogsCommentCountCol">
@@ -79,7 +79,10 @@ const BlogsCommentsCard = ({ Getcommnet }) => {
                                                 </section>
                                                 <section className="commentCradContentSection">
                                                     <h2 className="blogCommentName">{val.username}</h2>
-                                                    <h3 className="blogUserComments">{val.comment}</h3>
+                                                    <div className="col-12">
+                                                    <p className="blogUserComments">{val.comment}</p>
+                                                    </div>
+                                                   
                                                 </section>
                                                 {state.login &&  state?.Profile?.id === val.user && (
                                                     <div className="col BlogCommentEdit">

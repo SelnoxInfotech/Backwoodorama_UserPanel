@@ -8518,6 +8518,7 @@
   font-weight: 400;
   font-size: 16px;
   margin-top: 8px;
+  word-break: break-word;
 }
 
 .commentCardImages {
@@ -8562,10 +8563,18 @@ color:#777777;
   align-items: center;
   list-style: none;
 }
+.blogViewCounts{
+  font-size: 16px;
+  color: #000000;
+  font-weight: 400;
+}
 .BlogCommentEdit{
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+.commentCradContentSection{
+  padding-left: 20px;
 }
 @media(max-width:500px){
   .blogUserComments{
@@ -8573,6 +8582,9 @@ color:#777777;
   }
   .blogCommentName{
     font-size: 16px;
+  }
+  .blogViewCounts{
+    font-size: 10px;
   }
 }
 /* end */

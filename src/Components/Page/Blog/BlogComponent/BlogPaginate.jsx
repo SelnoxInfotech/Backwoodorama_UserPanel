@@ -2,6 +2,7 @@ import { BiChevronLeft } from "react-icons/bi"
 import { BiChevronRight } from "react-icons/bi"
 import { IconButton } from "@material-ui/core";
 import useStyles from "../../../../Style";
+import React from "react";
 const BlogPaginate = ({ postsPerPage, totalPosts, paginate, previousPage, nextPage }) => {
     const classes = useStyles()
     const pageNumbers = [];
@@ -11,7 +12,7 @@ const BlogPaginate = ({ postsPerPage, totalPosts, paginate, previousPage, nextPa
     }
 
     return (
-        <>
+        <React.Fragment>
             <div className="Blog_paginateList">
                 <ul className="Blog_pagination_UL">
                     <li onClick={previousPage} className="page-number">
@@ -36,7 +37,7 @@ const BlogPaginate = ({ postsPerPage, totalPosts, paginate, previousPage, nextPa
                 </ul>
             </div>
 
-        </>
+        </React.Fragment>
     )
 }
 export default BlogPaginate
