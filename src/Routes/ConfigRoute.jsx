@@ -123,6 +123,10 @@ const routesConfig = [
       {
         path: "/Weed-Dispensories/:StoreName/:tab/:id/",
         element: <RoutingList Component={DispensoriesDetails} ></RoutingList> 
+      },
+      {
+        path: "/Weed-Deliveries/:StoreName/:tab/:id/",
+        element: <RoutingList Component={DispensoriesDetails} ></RoutingList> 
       }
       ,
       //  Weed Dispensires 

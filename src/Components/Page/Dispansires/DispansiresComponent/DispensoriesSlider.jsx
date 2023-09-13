@@ -60,12 +60,12 @@ const Dispensories = () => {
                                         <div className=' dispensoriesAddressBorder'>
 
                                             <div className='col-12 dispensories_image_containerss'>
-                                                <Link  to={`/Weed-DispensoriesDetails/${ele.id}/${"Menu"}/${ele.Store_Name.replace(/\s/g,'-')}`}>
+                                                <Link  to={`/Weed-Dispensories/${ele.Store_Name.replace(/\s/g,'-')}/${"Menu"}/${ele.id}`}>
                                                     <img src={`https://sweede.app/${ele?.Store_Image}`} alt='img_not_found' className='img-responsive dispensories_image  center-block' />
                                                 </Link>
                                             </div>
                                             <div className='dispensoriesContentContainer px-4'>
-                                                <Link className='dispensoriesLinkStyles' to={`/Weed-DispensoriesDetails/${ele.id}/${"Menu"}/${ele.Store_Name.replace(/\s/g,'-')}`}>
+                                                <Link className='dispensoriesLinkStyles' to={`/Weed-Dispensories/${ele.Store_Name.replace(/\s/g,'-')}/${"Menu"}/${ele.id}`}>
                                                     <div className='col-12'>
 
                                                         <div className=' col-10  dis_right_div'>
@@ -115,7 +115,7 @@ const Dispensories = () => {
                                                     <Box
                                                         className={`${classes.loadingBtnTextAndBack}`}
                                                     >
-                                                        <LoadingButton onClick={() => { Navigate(`/DispensoriesDetails/${ele.id}/${"Menu"}`) }} style={{ width: "100%" }}>Order Pickup</LoadingButton>
+                                                        <LoadingButton onClick={() => { Navigate(`/Weed-Dispensories/${ele.Store_Name.replace(/\s/g,'-')}/${"Menu"}/${ele.id}`) }} style={{ width: "100%" }}>Order Pickup</LoadingButton>
                                                     </Box>
                                                 </div>
                                             </div>

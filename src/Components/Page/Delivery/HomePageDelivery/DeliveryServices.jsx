@@ -49,13 +49,13 @@ const DeliveryServices = () => {
                                     return (
                                         <div className='dispensoriesContainer col-12 col-sm-6   deliveryServicesEachCardOn_lg_Device' key={index}>
                                             <div className='deliveryServicesBorder '>
-                                                <Link to={`/DispensoriesProduct/${items.id}/${"Menu"}`}>
+                                                <Link to={`/Weed-Deliveries/${items.Store_Name.replace(/\s/g,'-')}/${"Menu"}/${items.id}`}>
                                                     <div className='col-12 deliveryServicesImage_container'>
                                                         <LazyLoadImage className='deliveryServicesImage' src={`https://sweede.app/${items.Store_Image}`} alt='image not available' />
                                                     </div>
                                                 </Link>
                                                 <div className='col-12 deliveryServicesContent_container px-4'>
-                                                    <Link to={`/DispensoriesProduct/${items.id}/${"Menu"}`}>
+                                                    <Link to={`/Weed-Deliveries/${items.Store_Name.replace(/\s/g,'-')}/${"Menu"}/${items.id}`}>
                                                         <div className='w-100  deliveryServicesTitle'>
                                                             <p className='ellipsis'>{items.Store_Name}</p>
 

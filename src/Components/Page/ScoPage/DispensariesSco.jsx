@@ -5,7 +5,7 @@ function DispensariesSco() {
     const { state } = React.useContext(Createcontext)
     return (
         <Helmet>
-            <title>{`${state.Location} , Weed Dispensaries Near Me | weedx.io |`}</title>
+            <title>{`${state.Location.replace(/-/g, " ")} , Weed Dispensaries Near Me | weedx.io |`}</title>
             <meta name='description' content={`find Nearby Dispensaries in ${state.Location} for Recreational & Medical weed. Browse Top Cannabis Products and Place Orders from Trusted Local Dispensaries.`} />
             {/* Facebook tags */}
             <meta property="og:type" content={"Marijuana"} />
