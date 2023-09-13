@@ -125,7 +125,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
                         {state.AllProduct[0]?.StoreDelivery &&
                             <div className="col-6">
                                 <Box
-                                    className={` add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
+                                    className={`px-1 add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
 
                                 >
                                     <LoadingButton style={{ backgroundColor: OpenDelivery && "#00b96a", color: OpenDelivery && "white" }} onClick={HandlePickupAndDelivery} id='delivery_btn' variant="outlined">Delivery</LoadingButton>
@@ -137,7 +137,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
                             {(state.AllProduct[0]?.StoreCurbsidePickup || state.AllProduct[0]?.StorePickup) &&
 
                                 <Box
-                                    className={`add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
+                                    className={`px-1 add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
 
                                 >
                                     <LoadingButton style={{ backgroundColor: OpenPickup && "#00b96a", color: OpenPickup && "white" }} variant="outlined" id='pickup_btn' onClick={HandlePickupAndDelivery}>
