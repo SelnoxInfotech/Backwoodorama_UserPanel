@@ -118,7 +118,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
                                     <div className="col-12 height_for_delivery_instruction_textarea_div ">
                                         <div className='col-12  text_area_margin height_for_delivery_instruction_textarea_div'>
 
-                                            <textarea className="form-control" id="textAreaExample4" rows="3"></textarea>
+                                            <textarea className="textAreaDeliveryOptions" id="textAreaExample4"></textarea>
                                         </div>
 
                                     </div>
