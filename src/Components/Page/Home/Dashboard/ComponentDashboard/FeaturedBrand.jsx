@@ -2,6 +2,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { ScrollContainer } from 'react-indiana-drag-scroll';
 import * as React from 'react';
 import FeaturedBrandSkeleton from "../../../../Component/Skeleton/DashBoardSkeleton/FeaturedBrandSkeleton";
+import { Link,  } from "react-router-dom"
 const FeaturedBrand = ({ CardDataArray ,BrandSkeleton}) => {
     
     const ref = React.useRef(null);
@@ -20,6 +21,7 @@ const FeaturedBrand = ({ CardDataArray ,BrandSkeleton}) => {
                         CardDataArray.map((items, index) => {
                             return (
                                 <div className="col-xxl-3 col-xl-4 col-lg-3 col-sm-6 col-12 mb-4  bestDealCards" key={index}>
+                                      <Link  to={`/Brand/${items.name.replace(/\s/g, '')}/${items.id}`}> 
                                     <div className="row  FeaturedBrandContainer  mx-0 my-2">
                                         <div className="col-12 FeaturedBrandImageContainer px-0">
                                             <LazyLoadImage className="FeaturedBrandImage_height" src={`https://sweede.app/${items.Brand_Logo}`} alt="image not available" />
@@ -32,6 +34,7 @@ const FeaturedBrand = ({ CardDataArray ,BrandSkeleton}) => {
                                         </div>
 
                                     </div>
+                                    </Link>
                                 </div>
                             )
                         })

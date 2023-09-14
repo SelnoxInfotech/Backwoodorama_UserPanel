@@ -36,14 +36,6 @@ import MyOrder from "../Components/Page/MyOrder/MyOrder";
 import MyOrderProductDetail from "../Components/Page/MyOrder/MyOrderProductDetail";
 import StrainProduct from "../Components/Page/Strain/StrainProduct";
 import Blogs from "../Components/Page/Blog/Blog";
-import DashBoardMap from "../Components/Component/Skeleton/DashBoardSkeleton/DashBoardMap";
-import FeaturedBrandSkeleton from "../Components/Component/Skeleton/DashBoardSkeleton/FeaturedBrandSkeleton";
-import HomePageDealSignupSkeleton from "../Components/Component/Skeleton/DashBoardSkeleton/HomePageDealSignupSkeleton";
-import StrainTypeCardSkeleton from "../Components/Component/Skeleton/DashBoardSkeleton/StrainTypeCardSkeleton";
-import LatestServicesSkeleton from "../Components/Component/Skeleton/DashBoardSkeleton/LatestServicesSkeleton";
-import Variants from "../Components/Component/Skeleton/CategorySkeleton";
-import OpenDispensoriesSkeleton from "../Components/Component/Skeleton/DispensorieSkeleton/OpenDispensoriesSkeleton";
-import DeliveryItemsCardSkeleton from "../Components/Component/Skeleton/Deliveries/DeliveriesComponent/DeliveryMenu/DeliveryItemsCardSkeleton";
 import WhisLists from "../Components/Component/Whishlist/WhisLists/WhisLists";
 import LawStateDescription from "../Components/Page/Learn/Laws/LawStateDescription/LawStateDescription";
 import RoutingDespen from "../Routes/RoutingDespen"
@@ -103,7 +95,7 @@ const routesConfig = [
         element: <RoutingList Component={NewProductDetails} ></RoutingList> ,
       },
       {
-        path: "/Brand",
+        path: "/brand",
         element:  <RoutingList Component={Brand} ></RoutingList> ,
       },
       {
@@ -161,7 +153,7 @@ const routesConfig = [
 
       
       {
-        path: "/RelatedVerifyBrand/:id",
+        path: "/Brand/:Name/:id",
         element: <RoutingList Component={RelatedVerifyBrand} ></RoutingList> 
       },
 
@@ -201,7 +193,7 @@ const routesConfig = [
         element: <RoutingList Component={AboutUs} ></RoutingList> 
       },
       {
-        path: "/LearnTabs",
+        path: "/learn",
         element:  <RoutingList Component={LearnTabs} ></RoutingList>  
       },
       {

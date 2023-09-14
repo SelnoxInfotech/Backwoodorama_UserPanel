@@ -1,8 +1,7 @@
 
 import React from "react"
 import Createcontext from "../Hooks/Context"
-import { useNavigate, useParams, useLocation } from "react-router-dom";
-import Cookies from 'universal-cookie';
+import {  useParams } from "react-router-dom";
 import CurrentLocation from "../Components/Component/Navbar/Component/CurrentLocation"
 export default function RoutingDespen(props) {
     const { state } = React.useContext(Createcontext)
@@ -43,7 +42,7 @@ export default function RoutingDespen(props) {
 
 
 
-    }, [])
+    }, [state , params])
 
     return (
 
