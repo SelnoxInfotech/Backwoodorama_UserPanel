@@ -29,16 +29,6 @@ const Dispensories = () => {
         }).catch(
         )
     }, [])
-    // useEffect(() => {
-    //     const fetchApiFun = async () => {
-    //         const fetchApi = await fetch("https://sweede.app/UserPanel/Get-Stores/");
-    //         const data = await fetchApi.json();
-    //         SetStore(data)
-    //         dispatch({ type: 'Dispensories', Dispensories: data })
-
-    //     }
-    //     fetchApiFun()
-    // }, [])
 
     const classes = useStyles()
     return (
