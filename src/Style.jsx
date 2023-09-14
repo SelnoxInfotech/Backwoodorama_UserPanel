@@ -1292,6 +1292,14 @@ const useStyles = makeStyles({
       marginInline:"4px",
 
     }
+   },
+   deliveryOptionRadioBtn:{
+    "& .MuiSvgIcon-root": {
+      color: "#31B665",
+  },
+  ".MuiTypography-body1": {
+      fontSize: "1rem"
+  }
    }
 });
 

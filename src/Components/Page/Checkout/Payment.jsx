@@ -8,7 +8,7 @@ import useStyles from "../../../Style"
 import Box from '@mui/material/Box';
 
 
-const Payment = ({SetShowPlaceOrder}) => {
+const Payment = ({ SetShowPlaceOrder }) => {
     const classes = useStyles()
 
     const [value, setValue] = React.useState('');
@@ -17,7 +17,7 @@ const Payment = ({SetShowPlaceOrder}) => {
         SetPaymentRestData(false)
         SetShowPlaceOrder(true)
     }
-    const ShowAgainPaymentRestData=()=>{
+    const ShowAgainPaymentRestData = () => {
         SetPaymentRestData(true)
     }
 
@@ -31,7 +31,7 @@ const Payment = ({SetShowPlaceOrder}) => {
                     <div className="col-lg-12 col-md-12 col-sm-12 col-12 payment_container">
                         <div className="row">
                             <div className="col-12">
-                                <p onClick={ShowAgainPaymentRestData}>Payment</p>
+                                <p className='font_size_paragraph' onClick={ShowAgainPaymentRestData}>Payment</p>
 
                             </div>
 
@@ -46,13 +46,16 @@ const Payment = ({SetShowPlaceOrder}) => {
 
                                     </div>
                                     <div className=" col-lg-6 col-md-6 col-sm-6 col-12 text-end">
-                                       <p>Change</p>
+                                        <p className='paymentChange'>Change</p>
 
                                     </div>
 
                                 </div>
                                 <div className="row">
                                     <div className="col-12">
+                                        <Box
+                                        className={classes.deliveryOptionRadioBtn}
+                                        >
                                         <FormControl>
                                             <RadioGroup
                                                 aria-labelledby="demo-controlled-radio-buttons-group"
@@ -61,10 +64,10 @@ const Payment = ({SetShowPlaceOrder}) => {
                                                 onChange={handleChange}
                                             >
                                                 <FormControlLabel value="I plan to pay delivery at cash" control={<Radio />} label="We Accept Cash On Delivery" />
-                                               
+
                                             </RadioGroup>
                                         </FormControl>
-
+                                         </Box>
                                     </div>
                                 </div>
                                 <div className='row mt-4'>

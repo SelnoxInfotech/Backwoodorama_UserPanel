@@ -82,7 +82,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                             </div>
 
                             <form onSubmit={method.handleSubmit(HandleDeliveryInformation)} >
-                                <div className='row'>
+                                <div className='row my-2'>
                                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
                                         <TextField
                                             className={classes.deliveryInformationTextFildColor}
@@ -313,15 +313,15 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                     </div>
 
                                 </div>
-                                <div className='row my-4'>
+                                <div className='row'>
                                     <div className="col-12 height_del_information_inner_div font_size_paragraph_del">
-                                        <p>Medical Marijuana</p>
+                                        <p className="deliveryInfoPara">Medical Marijuana</p>
 
 
                                     </div>
 
                                 </div>
-                                <div className='row my-4'>
+                                <div className='row'>
                                     <div className="col-12 height_del_information_inner_div font_size_paragraph_del font_color delivery_information_font_family">
                                         <p>Please enter the ID number from your valid Medical Marijuana ID. Include all dashes and special characters.</p>
 

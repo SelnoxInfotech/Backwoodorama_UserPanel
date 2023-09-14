@@ -1271,6 +1271,8 @@ input[type=checkbox] {
   border: 1px solid #dee2e6;
   width: 160px;
   height: 28px;
+  display: flex;
+  align-items: center;
 }
 
 .addToCart_btn {
@@ -2125,8 +2127,14 @@ input[type=checkbox] {
 .font_size_checkbox_paragraph p {
   font-size: 15px;
   margin-right: 10px;
+  text-align: justify;
 }
-
+.addToCartCountNumber{
+  color: #000000;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 0px;
+}
 .height_delivery_option_buttton {
   height: 44px;
 }
@@ -2160,7 +2168,6 @@ input[type=checkbox] {
 }
 
 .height_del_information_inner_div {
-  height: 50px;
   cursor: pointer;
 }
 
@@ -2173,7 +2180,12 @@ input[type=checkbox] {
 .height_delivery_information_btn {
   height: 50px;
 }
-
+.paymentChange{
+  color: #000000;
+  font-weight: 400;
+  font-size: 20px;
+  cursor: pointer;
+}
 .delivery_option_img_div_height {
   height: 120px;
 }
@@ -4709,10 +4721,12 @@ input[type=checkbox] {
 .promocode_image_container {
   height: 300px;
 }
-
-.height_del_information_inner_div {
-  height: 60px;
+.deliveryInfoPara{
+  font-size: 20px;
+  color: #000000;
+  font-weight: 400;
 }
+
 
 .promocode_image {
   height: 300px;

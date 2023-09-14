@@ -189,14 +189,14 @@ const AddToCartReview = () => {
                                         <span className="add_prod_span_amount fontStyle">${parseInt(ele.Price.SalePrice)}</span>
                                     </div>
                                     <div className='col-12'>
-                                        <div className='AddToCartReviewBtn d-flex' >
+                                        <div className='AddToCartReviewBtn ' >
                                             <div className='addToCart_btn'>
                                                 <LoadingButton loading={Loadingmines} style={{ width: "15px" }}  onClick={() => { decreaseQuantity(ele.id, ele) }} > {(Loadingmines || ele.Cart_Quantity) > 1 && <GrFormSubtract color='gray' />}</LoadingButton>
 
 
                                             </div>
                                             <div className='AddToCartCount' style={{ width: "20px" }}>
-                                                <p>{ele.Cart_Quantity}</p>
+                                                <p className='addToCartCountNumber'>{ele.Cart_Quantity}</p>
 
                                             </div>
                                             <div className='addToCart_btn'>

@@ -8,9 +8,8 @@ import { useForm } from "react-hook-form";
 import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
 import Createcontext from "../../../Hooks/Context"
-
 const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
-    const {state,dispatch } = React.useContext(Createcontext)
+    const { state, dispatch } = React.useContext(Createcontext)
     const method = useForm()
     const classes = useStyles()
     const [Time, SetTime] = React.useState('');
@@ -21,14 +20,14 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
         documented: ""
 
     })
-  
+
     const handleChange = (event) => {
         SetTime(event.target.value);
     };
     const ShowHideDeliveryOptions = async () => {
         SetShowData(true)
         SetShowDeliveryRestData(false)
-         dispatch({ type: 'DeliveryOption', DeliveryOption: true })
+        dispatch({ type: 'DeliveryOption', DeliveryOption: true })
     }
     const AddDeliveryInstruction = () => {
         SetShowDeliveryRestData(true)
@@ -102,8 +101,8 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
                                                         Saturday 10 to 1pm
                                                     </MenuItem>
                                                     <MenuItem value={"Saturday 10 to 1pm"}>Saturday 10 to 1pm</MenuItem>
-                                                    <MenuItem value={"Saturday 10 to 1pm"}>"Saturday 10 to 1pm"</MenuItem>
-                                                    <MenuItem value={"Saturday 10 to 1pm"}>"Saturday 10 to 1pm"</MenuItem>
+                                                    <MenuItem value={"Saturday 10 to 1pm"}>Saturday 10 to 1pm</MenuItem>
+                                                    <MenuItem value={"Saturday 10 to 1pm"}>Saturday 10 to 1pm</MenuItem>
                                                 </Select>
                                             </FormControl>
                                         </div>
@@ -124,9 +123,17 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
                                     </div>
 
                                     <form onSubmit={method.handleSubmit(ShowHideDeliveryOptions)} >
+
                                         <div className='col-12 flex_for_delivery'>
                                             <div className='col-2 col-sm-2 col-md-2 col-lg-2  center'>
-                                                <input id="checkbox-id" onChange={CheckBox} checked={Checkbox.DeliveryTime} name='DeliveryTime' type='checkbox' required />
+                                             
+                                                <input id="checkbox-id"
+                                                    onChange={CheckBox}
+                                                    checked={Checkbox.DeliveryTime}
+                                                    name='DeliveryTime'
+                                                    type='checkbox'
+                                                     required
+                                                />
 
                                             </div>
                                             <div className='col-10  col-lg-10 col-md-10 col-sm-10  font_size_checkbox_paragraph'>
