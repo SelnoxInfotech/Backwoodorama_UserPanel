@@ -49,7 +49,7 @@ const routesConfig = [
     children: [
       {
         path: "/Signup",
-        element: <RoutingList Component={Signup} ></RoutingList> 
+        element: <RoutingList Component={Signup} ></RoutingList>
       },
       {
         path: "/PlaceOrder",
@@ -57,25 +57,25 @@ const routesConfig = [
       },
       {
         path: "/",
-        element:  <RoutingList Component={Dashboard} ></RoutingList>,
-       
+        element: <RoutingList Component={Dashboard} ></RoutingList>,
+
       },
 
       {
         path: "/SignupWithEmail",
-        element:<RoutingList Component={SignupWithEmail} ></RoutingList>,
+        element: <RoutingList Component={SignupWithEmail} ></RoutingList>,
       },
       {
         path: "/Login",
-        element: <RoutingList Component={Login} ></RoutingList> ,
+        element: <RoutingList Component={Login} ></RoutingList>,
       },
       {
         path: "/ForgotPassword",
-        element:  <RoutingList Component={ForgotPassword} ></RoutingList> ,
+        element: <RoutingList Component={ForgotPassword} ></RoutingList>,
       },
       {
         path: "/CreatePassword",
-        element:  <RoutingList Component={CreatePassword} ></RoutingList>,
+        element: <RoutingList Component={CreatePassword} ></RoutingList>,
       },
       // {
       //   path: "/Weed-Deliveries/in/:Country/:state/:city",
@@ -84,19 +84,19 @@ const routesConfig = [
 
       {
         path: "/Product",
-        element: <RoutingList Component={Product} ></RoutingList> ,
+        element: <RoutingList Component={Product} ></RoutingList>,
       },
       {
         path: "/ProductDetail",
-        element: <RoutingList Component={ProductDetail} ></RoutingList> ,
+        element: <RoutingList Component={ProductDetail} ></RoutingList>,
       },
       {
         path: "/NewProductDetails/:id",
-        element: <RoutingList Component={NewProductDetails} ></RoutingList> ,
+        element: <RoutingList Component={NewProductDetails} ></RoutingList>,
       },
       {
         path: "/brand",
-        element:  <RoutingList Component={Brand} ></RoutingList> ,
+        element: <RoutingList Component={Brand} ></RoutingList>,
       },
       {
         path: "/AddToCart",
@@ -114,11 +114,11 @@ const routesConfig = [
 
       {
         path: "/Weed-Dispensories/:StoreName/:tab/:id/",
-        element: <RoutingList Component={DispensoriesDetails} ></RoutingList> 
+        element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
       },
       {
         path: "/Weed-Deliveries/:StoreName/:tab/:id/",
-        element: <RoutingList Component={DispensoriesDetails} ></RoutingList> 
+        element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
       }
       ,
       //  Weed Dispensires 
@@ -128,77 +128,73 @@ const routesConfig = [
       },
       {
         path: "/Weed-Dispansires/in/:Country/",
-        element: <RoutingDespen Component={OpenDispansires}  path="/Weed-Dispansires/in/" ></RoutingDespen>
+        element: <RoutingDespen Component={OpenDispansires} path="/Weed-Dispansires/in/" ></RoutingDespen>
       },
       {
         path: "/Weed-Dispansires/in/:Country/:state/",
-        element: <RoutingDespen Component={OpenDispansires}  path="/Weed-Dispansires/in/" ></RoutingDespen>
+        element: <RoutingDespen Component={OpenDispansires} path="/Weed-Dispansires/in/" ></RoutingDespen>
       },
       {
         path: "/Weed-Deliveries/in/:Country/",
-        element:  <RoutingDespen Component={Deliveries}  path="/Weed-Deliveries/in/" ></RoutingDespen>
+        element: <RoutingDespen Component={Deliveries} path="/Weed-Deliveries/in/" ></RoutingDespen>
       },
       {
         path: "/Weed-Deliveries/in/:Country/:state/",
-        element:  <RoutingDespen Component={Deliveries}  path="/Weed-Deliveries/in/" ></RoutingDespen>
+        element: <RoutingDespen Component={Deliveries} path="/Weed-Deliveries/in/" ></RoutingDespen>
       },
       {
         path: "/Weed-Deliveries/in/:Country/:state/:city",
-        element:  <RoutingDespen Component={Deliveries}  path="/Weed-Deliveries/in/" ></RoutingDespen>
+        element: <RoutingDespen Component={Deliveries} path="/Weed-Deliveries/in/" ></RoutingDespen>
       },
 
 
       // End
 
 
-      
+
       {
         path: "/Brand/:Name/:id",
-        element: <RoutingList Component={RelatedVerifyBrand} ></RoutingList> 
+        element: <RoutingList Component={RelatedVerifyBrand} ></RoutingList>
       },
 
       {
         path: "/StoreDetail",
-        element:  <RoutingList Component={StoreDetail} ></RoutingList> 
+        element: <RoutingList Component={StoreDetail} ></RoutingList>
       },
       {
         path: "/RelatedDeals",
-        element:  <RoutingList Component={RelatedDeals} ></RoutingList>  
+        element: <RoutingList Component={RelatedDeals} ></RoutingList>
       },
       {
         path: "/MainDeals",
-        element:   <RoutingList Component={MainDeals} ></RoutingList>
+        element: <RoutingList Component={MainDeals} ></RoutingList>
       },
       {
         path: "/Strain",
-        element:   <RoutingList Component={Strain} ></RoutingList> 
+        element: <RoutingList Component={Strain} ></RoutingList>
       },
       {
         path: "/EmptyCard",
-        element:  <RoutingList Component={EmptyCard} ></RoutingList>   
+        element: <RoutingList Component={EmptyCard} ></RoutingList>
       }
       ,
       {
         path: "/CategoryProduct/:Categoryname",
-        element: <RoutingList Component={CategoryProduct} ></RoutingList>   
+        element: <RoutingList Component={CategoryProduct} ></RoutingList>
       }
       ,
       {
         path: "/Product/:SubCategoryname",
-        element: <RoutingList Component={SubcategoryProduct} ></RoutingList> 
+        element: <RoutingList Component={SubcategoryProduct} ></RoutingList>
       }
       ,
       {
         path: "/AboutUs",
-        element: <RoutingList Component={AboutUs} ></RoutingList> 
-      },
-      {
-        path: "/learn",
-        element:  <RoutingList Component={LearnTabs} ></RoutingList>  
+        element: <RoutingList Component={AboutUs} ></RoutingList>
       },
       {
         path: "/LearnCardRelatedPage",
-        element:  <RoutingList Component={LearnCardRelatedPage} ></RoutingList> 
+        element: <RoutingList Component={LearnCardRelatedPage} ></RoutingList>
       },
       {
         path: "/Profile",
@@ -206,49 +202,64 @@ const routesConfig = [
       },
       {
         path: "/EditProfile",
-        element: <RoutingList Component={EditProfile} ></RoutingList>  
+        element: <RoutingList Component={EditProfile} ></RoutingList>
       },
       {
         path: "/FiveZeroThree",
-        element:  <RoutingList Component={FiveZeroThree} ></RoutingList>  
+        element: <RoutingList Component={FiveZeroThree} ></RoutingList>
       },
       {
         path: "/FourZeroThree",
-        element:   <RoutingList Component={FourZeroThree} ></RoutingList> 
+        element: <RoutingList Component={FourZeroThree} ></RoutingList>
       },
       {
         path: "/MyOrder",
-        element:  <RoutingList Component={MyOrder} ></RoutingList>  
+        element: <RoutingList Component={MyOrder} ></RoutingList>
       },
       {
         path: "/MyOrderProductDetail/:id",
-        element:  <RoutingList Component={MyOrderProductDetail} ></RoutingList>   
+        element: <RoutingList Component={MyOrderProductDetail} ></RoutingList>
       },
       {
         path: "/StrainProduct/:type",
-        element:  <RoutingList Component={StrainProduct} ></RoutingList> 
+        element: <RoutingList Component={StrainProduct} ></RoutingList>
+      },
+      //  Learn Rout
+      {
+        path: "/learn",
+        element: <RoutingList Component={LearnTabs} ></RoutingList>
       },
       {
+        path: "/learn/laws-and-regulation/",
+        element: <RoutingList Component={LearnTabs} ></RoutingList>
+      },
+      {
+        path: "/learn/laws-and-regulation/:State/:id",
+        element: <RoutingList Component={LawStateDescription} ></RoutingList>
+      },
+      // {
+      //   path: "/LawStateDescription",
+      //   element: <RoutingList Component={LawStateDescription} ></RoutingList>
+      // },
+      // end
+      {
         path: "/Blogs/:id",
-        element:   <RoutingList Component={Blogs} ></RoutingList>  
+        element: <RoutingList Component={Blogs} ></RoutingList>
       },
 
       // {
       //   path: "/DashBoardMap",
       //   element:  <RoutingList Component={DashBoardMap} ></RoutingList>   
       // },
-      {
-        path: "/LawStateDescription",
-        element:   <RoutingList Component={LawStateDescription} ></RoutingList>
-      },
-      {
-        path: "/WhisLists",
-        element: <ProtectRout Component={WhisLists} ></ProtectRout>
-      },
+  
+      // {
+      //   path: "/WhisLists",
+      //   element: <ProtectRout Component={WhisLists} ></ProtectRout>
+      // },
       // ends
       {
         path: "*",
-        element:  <RoutingList Component={FourZeroFour} ></RoutingList>
+        element: <RoutingList Component={FourZeroFour} ></RoutingList>
       }
 
 

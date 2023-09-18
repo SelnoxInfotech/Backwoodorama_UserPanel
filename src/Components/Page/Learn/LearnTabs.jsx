@@ -9,42 +9,48 @@ import Products from './Product/Products';
 import Learn from './Learn';
 import History from './History/History';
 import Laws from './Laws/Laws';
+import { Link, useLocation , useNavigate} from 'react-router-dom';
 const LearnTabs = () => {
+    const Location = useLocation()
+    const Naviagte =  useNavigate()
+    console.log(Location)
     const classes = useStyles()
-    const [value, setValue] = React.useState('1');
-
+    const [value, setValue] = React.useState(Location.pathname);
     const handleChange = (event, newValue) => {
+        console.log(newValue)
         setValue(newValue);
-    };
-React.useEffect(()=>{
-window.scroll(0,0)
-},[])
+        Naviagte(newValue)
 
+    };
+    React.useEffect(() => {
+        window.scroll(0, 0)
+    }, [])
+    // /learn/laws-and-regulation/:State
     return (
         <div className='container-fluid'>
             <div className='row'>
                 <div className='col-12'>
-                <Box className={``} sx={{ width: '100%', typography: 'body1', }}>
-                    <TabContext value={value}>
-                        <Box className={`${classes.learn_tab_background} ${classes.learn_tab}`} sx={{ marginLeft: "-5px", borderColor: 'divider' }}>
-                            <TabList scrollButtons={false} variant="scrollable" onChange={handleChange} aria-label="lab API tabs example">
-                                <Tab label="Learn" value="1" />
-                                <Tab label="Product" value="2" />
-                                <Tab label="History" value="3" />
-                                <Tab label="Law" value="4" />
+                    <Box className={``} sx={{ width: '100%', typography: 'body1', }}>
+                        <TabContext value={value}>
+                            <Box className={`${classes.learn_tab_background} ${classes.learn_tab}`} sx={{ marginLeft: "-5px", borderColor: 'divider' }}>
+                                <TabList scrollButtons={false} variant="scrollable" onChange={handleChange} aria-label="lab API tabs example">
+                                    <Tab label="Learn" value="/Learn" />
+                                    <Tab label="Product" value="/Product" />
+                                    <Tab label="History" value="/History" />
+                                    <Tab label="Law" value="/learn/laws-and-regulation" />
 
-                            </TabList>
-                        </Box>
-                        <Box className={`${classes.learnTabPadding}`}>
-                            <TabPanel value="1" >
-                               <Learn/>
-                            </TabPanel>
-                            <TabPanel value="2"><Products/></TabPanel>
-                            <TabPanel value="3"><History/></TabPanel>
-                            <TabPanel value="4"><Laws/></TabPanel>
-                        </Box>
-                    </TabContext>
-                </Box>
+                                </TabList>
+                            </Box>
+                            <Box className={`${classes.learnTabPadding}`}>
+                                <TabPanel value="/Learn" >
+                                    <Learn />
+                                </TabPanel>
+                                <TabPanel value="/Product"><Products /></TabPanel>
+                                <TabPanel value="/History"><History /></TabPanel>
+                                <TabPanel value="/learn/laws-and-regulation"><Laws /></TabPanel>
+                            </Box>
+                        </TabContext>
+                    </Box>
                 </div>
 
             </div>

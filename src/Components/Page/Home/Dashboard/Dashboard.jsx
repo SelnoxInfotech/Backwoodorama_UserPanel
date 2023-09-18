@@ -12,7 +12,7 @@ import HomePageDealsSignup from "./ComponentDashboard/HomePageDealsSignup";
 import StrainTypeCards from "../../Strain/StrainComponent/StrainTypeCards";
 import FeaturedBrand from "./ComponentDashboard/FeaturedBrand";
 import Axios from "axios";
-import {HomePageSco} from "../../ScoPage/HomePageSco"
+import {HomePageSco} from "../../../Component/ScoPage/HomePageSco"
 
 export default function Dashboard() {
     const [FeaturedBrandArray, SetFeaturedBrandArray] = React.useState([])

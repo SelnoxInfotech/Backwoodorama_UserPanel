@@ -18,5 +18,4 @@ function HomePageSco() {
         </Helmet>
     )
 }
-
 export { HomePageSco }

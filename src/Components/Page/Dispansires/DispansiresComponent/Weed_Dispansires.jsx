@@ -7,7 +7,7 @@ import React from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
 import { Rating } from '@mui/material';
-import { DispensariesSco } from "../../ScoPage/DispensariesSco"
+import { DispensariesSco } from "../../../Component/ScoPage/DispensariesSco"
 const Weed_Dispansires = () => {
     const classes = useStyles()
     const [Store, SetStore] = React.useState([])

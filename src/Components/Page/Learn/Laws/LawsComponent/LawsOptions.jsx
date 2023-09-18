@@ -23,10 +23,9 @@ const LawsOptions = () => {
                                             return (
 
                                                 <Link to={{
-                                                    pathname: `/LawStateDescription`,
+                                                    pathname: `/learn/laws-and-regulation/${'Cannabis-Law-in-'+val.name}/${val.id }`,
 
                                                 }}
-                                                    state={{ id: val.id }}
                                                     key={index}
                                                 >
 

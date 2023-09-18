@@ -75,7 +75,7 @@ const LearnBanner = () => {
             }
         ]
     };
-    const LearnBannerArray = [{ imgUrl:" ./image/learnBanner.webp" }, { imgUrl: "./image/learnBanner2.jpg" }]
+    const LearnBannerArray = [{ imgUrl:" /image/learnBanner.webp" }, { imgUrl: "/image/learnBanner2.jpg" }]
 
     return (
 
