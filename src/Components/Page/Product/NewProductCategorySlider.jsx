@@ -1,6 +1,5 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
-
 import React from "react";
 import { ScrollContainer } from 'react-indiana-drag-scroll';
 import 'react-indiana-drag-scroll/dist/style.css'
@@ -22,7 +21,7 @@ const NewProductCategorySlider = ({ flowerArray }) => {
                                     <div className="col-12 center">
                                         <div className="newProduct_category_slider_image">
 
-                                            <Link to={`/Product/${items.name}`} state={ items.id }>
+                                            <Link to={`/product/${items.name}/${items.id}`} >
                                             <LazyLoadImage
                                                     onError={event => {
                                                         event.target.src = "/image/blankImage.jpg"

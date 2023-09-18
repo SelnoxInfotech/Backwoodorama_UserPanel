@@ -1,10 +1,10 @@
 import React from "react"
-import { useLocation } from "react-router-dom";
+import { useLocation,useParams } from "react-router-dom";
 import Axios from "axios";
 import ProductSearchResult from "./ProductSearchResult/ProductSearchResult";
 const SubcategoryProduct = () => {
-    const location = useLocation()
-    const Id = location.state 
+    const Params = useParams()
+    const Id = Params.id
     const [Product, SetProduct] = React.useState([])
     const [Loading, SetLoading] = React.useState(true)
     const [CategoryName ,  SetCategoryName] = React.useState([])

@@ -25,6 +25,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
     const [CartClean, SetCartClean] = React.useState(false)
     const [NewData, SetNewData] = React.useState([])
     const [Whishlist, SetWishList] = React.useState(false)
+    
     const [AddTOCard, SetAddToCard] = React.useState(() => {
         const saved = localStorage.getItem("items");
         const initialValue = JSON.parse(saved);
@@ -156,8 +157,10 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
         }
     }
 
+
+
     return (
-        <>
+        <React.Fragment>
             <div className="row mx-0 marginProductSearchResult">
                 <div className="col-12 mt-4  fontStyle">
                     <h1 className="productSlider_headings">{CategoryName}</h1>
@@ -177,7 +180,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
                                             </IconButton>
                                         </Box>
                                     </div>
-                                    <Link to={`/NewProductDetails/${items.id}`}>
+                                    <Link to={`/products/${items.category_name}/${items.Product_Name.replace(/%20| /g, "-")  }/${items.id}`}>
                                         <LazyLoadImage
                                             className="product_search_result_image"
                                             onError={event => {
@@ -244,7 +247,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
             </div>
             {Whishlist && <WhisList open1={Whishlist} SetWishList={SetWishList}></WhisList>}
             <PreCheckout />
-        </>
+        </React.Fragment>
     )
 }
 export default ProductSearchResult

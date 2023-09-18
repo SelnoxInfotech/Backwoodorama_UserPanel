@@ -1,7 +1,12 @@
 import LearnBanner from "../LearnComponent/LearnBanner";
 import HistoryEditorData from "./HistoryComponent/HistoryEditorData";
 import HomePageDealsSignup from "../../Home/Dashboard/ComponentDashboard/HomePageDealsSignup";
+import React from "react";
 const History = () => {
+
+
+
+ 
     return (
         <div className="container-fluid">
             <div className="row px-2">

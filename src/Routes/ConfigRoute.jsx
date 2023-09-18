@@ -82,18 +82,27 @@ const routesConfig = [
       //   element: <Deliveries></Deliveries>
       // },
 
-      {
-        path: "/Product",
-        element: <RoutingList Component={Product} ></RoutingList>,
-      },
-      {
-        path: "/ProductDetail",
-        element: <RoutingList Component={ProductDetail} ></RoutingList>,
-      },
-      {
-        path: "/NewProductDetails/:id",
-        element: <RoutingList Component={NewProductDetails} ></RoutingList>,
-      },
+  // Product
+  {
+    path: "/Product",
+    element: <RoutingList Component={Product} ></RoutingList>,
+  },
+  {
+    path: "/product/:SubCategoryname/:id",
+    element: <RoutingList Component={SubcategoryProduct} ></RoutingList>
+  },
+  {
+    path: "/products/:CategoryName/:ProductName/:id",     // NewProductDetails
+    element: <RoutingList Component={NewProductDetails} ></RoutingList>,
+  },
+
+  {
+    path: "/ProductDetail",
+    element: <RoutingList Component={ProductDetail} ></RoutingList>,
+  },
+
+,
+  // End
       {
         path: "/brand",
         element: <RoutingList Component={Brand} ></RoutingList>,
@@ -106,12 +115,7 @@ const routesConfig = [
         path: "/CheckOutMainPage",
         element: <ProtectRout Component={CheckOutMainPage} path="/CheckOutMainPage"></ProtectRout>
       },
-
-      // {
-      //   path:"/Weed-DispensoriesDetails/:id/:tab",
-      //   element:<DispensoriesDetails/>
-      // }
-
+       //  Weed Dispensires
       {
         path: "/Weed-Dispensories/:StoreName/:tab/:id/",
         element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
@@ -121,7 +125,6 @@ const routesConfig = [
         element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
       }
       ,
-      //  Weed Dispensires 
       {
         path: "/Weed-Dispansires/in/:Country/:state/:city",
         element: <RoutingDespen Component={OpenDispansires}  ></RoutingDespen>
@@ -181,11 +184,6 @@ const routesConfig = [
       {
         path: "/CategoryProduct/:Categoryname",
         element: <RoutingList Component={CategoryProduct} ></RoutingList>
-      }
-      ,
-      {
-        path: "/Product/:SubCategoryname",
-        element: <RoutingList Component={SubcategoryProduct} ></RoutingList>
       }
       ,
       {
@@ -252,10 +250,10 @@ const routesConfig = [
       //   element:  <RoutingList Component={DashBoardMap} ></RoutingList>   
       // },
   
-      // {
-      //   path: "/WhisLists",
-      //   element: <ProtectRout Component={WhisLists} ></ProtectRout>
-      // },
+      {
+        path: "/WhisLists",
+        element: <ProtectRout Component={WhisLists} ></ProtectRout>
+      },
       // ends
       {
         path: "*",

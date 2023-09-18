@@ -167,7 +167,7 @@ const ProductList = ({ arr }) => {
                                             </IconButton>
                                     </span  >
                                 <div className="col-4 prod_cat_cont" >
-                                    <Link to={"/ProductDetail"} state={ele.id}>
+                                    <Link to={`/products/${ele.category_name}/${ele.Product_Name.replace(/%20| /g, "-")  }/${ele.id}`}>
                                         <div className="col-12 p-2 prod_cat_img">
                                         <LazyLoadImage
                                             className="product_search_result_image"
