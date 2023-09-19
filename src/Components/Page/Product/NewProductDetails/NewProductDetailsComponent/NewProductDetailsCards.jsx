@@ -18,7 +18,7 @@ const NewProductDetailsCards = ({ Product }) => {
     const cookies = new Cookies();
     const p = Product?.images === undefined ? "" : Product?.images[0].image
     const classes = useStyles()
-
+    console.log(Product ,'Product')
     const token_data = cookies.get('Token_access')
     const [CartClean, SetCartClean] = React.useState(false)
     const { state, dispatch } = React.useContext(Createcontext)
@@ -31,7 +31,7 @@ const NewProductDetailsCards = ({ Product }) => {
     const [NewData, SetNewData] = React.useState([])
 
     const Addtocard = async (Event) => {
-        console.log(Event)
+      
         if (token_data) {
             const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
             const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id);
@@ -129,57 +129,45 @@ const NewProductDetailsCards = ({ Product }) => {
         localStorage.setItem('items', JSON.stringify(AddTOCard))
     }, [AddTOCard])
     return (
-        <div className="row center mx-1">
-            <div className="col-lg-10 col-sm-10 col-12 newProductDetailsContainer mt-4">
-                <div className="row">
-                    <div className="col-12 mt-2 text-end">
-                        {/* <IconButton><BsFillHeartFill color="grey" size={20} /></IconButton> */}
-                    </div>
-                    <div className="col-lg-4 newProductDetailsCardLeftCol">
-                        <div className="row">
-                            <div className="col-12 newProductDetailsUpperimage_container">
+        <div className=" mx-1 w-100">
+            <div className=" newProductDetailsContainer  mt-4">                  
+                    <div className="newProductDetailsCardLeftCol">
+                        <div className="">
+                            <div className="newProductDetailsUpperimage_container">
                                 <LazyLoadImage className="newProductDetails_upper_image" src={`https://sweede.app/` + p} />
                             </div>
-                            <div className="col-12 newProductDetailsLowerImage_container">
+                            {
+                                Product?.images?.length >  1 ?   <div className=" newProductDetailsLowerImage_container">
                                 <Swiper
-                                    slidesPerView={1}
+                                breakpoints={{
+                                    540: {
+                                        slidesPerView: 3,
+                                        spaceBetween: 20,
+                                    },
+                                    768: {
+                                        slidesPerView: 4,
+                                        spaceBetween: 40,
+                                    },
+                                    991: {
+                                        slidesPerView: 3,
+                                        spaceBetween: 20,
+                                    },
+                                    1124: {
+                                        slidesPerView: 4,
+                                        spaceBetween: 10,
+                                    },
+                                    1490: {
+                                        slidesPerView: 4,
+                                        spaceBetween: 20,
+                                    },
+                                }}
+                                    slidesPerView={4}
                                     spaceBetween={10}
                                     pagination={{
                                         clickable: false,
                                     }}
 
-                                    breakpoints={{
-                                        540: {
-                                            slidesPerView: 3,
-                                            spaceBetween: 20,
-                                            freeMode: true,
-
-                                        },
-                                        768: {
-                                            slidesPerView: 3,
-                                            spaceBetween: 40,
-                                            freeMode: true,
-
-                                        },
-                                        991: {
-                                            slidesPerView: 2,
-                                            spaceBetween: 20,
-                                            freeMode: true,
-
-                                        },
-                                        1124: {
-                                            slidesPerView: 2,
-                                            spaceBetween: 20,
-                                            freeMode: true,
-
-                                        },
-                                        1490: {
-                                            slidesPerView: 4,
-                                            spaceBetween: 20,
-                                            freeMode: true,
-
-                                        },
-                                    }}
+                                    
                                     modules={[Pagination]}
                                     className="mySwiper"
                                 >
@@ -198,24 +186,20 @@ const NewProductDetailsCards = ({ Product }) => {
                                     })}
 
                                 </Swiper>
-                            </div>
+                              </div> : ""
+                            }
+                         
 
                         </div>
                     </div>
-                    <div className="col-lg-8 newProductdetails_rightSideContent_container">
-
-                        <div className="col-12 ">
-
+                    <div className="newProductdetails_rightSideContent_container">
                             <h2 className="newProductDetails_heading">{Product?.Product_Name}</h2>
-
-
-                        </div>
-                        <div className="col-12 ">
+                        <div className=" ">
                             <Link to={`/DispensoriesProduct/${Product.Store_id}/${"Menu"}`}>
                                 <h3 className="newProductDetails_subHeadingss">By {Product.StoreName}</h3>
                             </Link>
                         </div>
-                        <div className="col-12 newProductDetailsButon">
+                        <div className="newProductDetailsButon">
                             <button className="newProductdetailsButtonss">{Product.THC}% THC</button>
                             <button className="newProductdetailsButtonss">{Product.CBD}% CBD</button>
                             <button className="newProductdetailsButtonss">{Product.strain}</button>
@@ -229,17 +213,17 @@ const NewProductDetailsCards = ({ Product }) => {
                             <p><span className="newProduct_Weight">weight</span><span className="mx-3 newProd_grms">100gm</span></p>
                         </div>
                         <div className="col-12 ">
-                            <p><span className="newProduct_Weight">Quantity</span><span className="mx-3 newProduct_Weight">1</span></p>
+                            <p><span className="newProduct_Weight">Quantity</span><span className="mx-3 newProd_grms">1</span></p>
                         </div>
                         <div className="col-12 ">
                             <p><span className="newProduct_doller_price">$80.00</span><span className="mx-3 newProduct_Gms">Per 1 Z</span></p>
                         </div>
                         <div className="col-12">
                             <Box
-                                className={` add_product_btn addProduct_btn ${classes.loadingBtnTextAndBack}`}
+                                className={`   ${classes.loadingBtnTextAndBack}`}
 
                             >
-                                <LoadingButton onClick={() => { Addtocard(Product) }} variant="outlined">Add To Cart</LoadingButton>
+                                <LoadingButton onClick={() => { Addtocard(Product) }} variant="outlined" >Add To Cart</LoadingButton>
                             </Box>
 
                             {
@@ -250,11 +234,8 @@ const NewProductDetailsCards = ({ Product }) => {
 
 
 
-                    </div>
-
-                </div>
+                    </div>              
             </div>
-
         </div>
     )
 }

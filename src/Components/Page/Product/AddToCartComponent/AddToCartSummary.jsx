@@ -126,7 +126,6 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
                             <div className="col-6">
                                 <Box
                                     className={`px-1 add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
-
                                 >
                                     <LoadingButton style={{ backgroundColor: OpenDelivery && "#00b96a", color: OpenDelivery && "white" }} onClick={HandlePickupAndDelivery} id='delivery_btn' variant="outlined">Delivery</LoadingButton>
                                 </Box>

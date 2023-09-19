@@ -65,7 +65,7 @@ export default function Dashboard() {
 
     return (
         <div >
-             <HomePageSco></HomePageSco>
+            <HomePageSco></HomePageSco>
             <HomePageBanner></HomePageBanner>
             <CategoryProduct Category={Category} ShowCategoryProduct={ShowCategoryProduct} Skeleton={Skeleton}></CategoryProduct>
             <DeliveryServices Skeleton={Skeleton}></DeliveryServices>

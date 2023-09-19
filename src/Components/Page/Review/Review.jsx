@@ -5,11 +5,12 @@ const Review = ({Product, api ,SetApi} ) => {
     return (
         <React.Fragment>
 
-            <div className="row center">
+            <div className="">
                 <div className="col-10 fontStyle Review_paragraph">
                     {/* <p>Store details</p> */}
                 </div>
             </div>
+            
             <OverAllReview Product={Product} api ={api} SetApi ={ SetApi}/>
             <RelatedReview Product={Product} api ={api} SetApi ={ SetApi} />
         </React.Fragment>

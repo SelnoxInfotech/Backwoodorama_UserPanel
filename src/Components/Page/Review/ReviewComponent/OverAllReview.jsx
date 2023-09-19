@@ -34,13 +34,13 @@ const OverAllReview = ({ Product, api, SetApi }) => {
         <React.Fragment>
             <div className="container-fluid">
 
-                <div className="row center mt-4">
-                    <div className="col-10 px-0 product_review">
+                <div className="w-100 mt-4">
+                    <div className=" px-0 product_review">
                         <h1>Store Details</h1>
 
                     </div>
 
-                    <div className="col-10 col-sm-10 overall_review_container mt-2">
+                    <div className="overall_review_container mt-2">
                         <div className="row">
                             <div className="col-12 text-end my-2">
                                 <WriteReviewPopup Product={Product} api={api} SetApi={SetApi} />

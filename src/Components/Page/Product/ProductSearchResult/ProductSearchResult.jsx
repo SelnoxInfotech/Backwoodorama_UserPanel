@@ -17,7 +17,8 @@ import AddToCartPopUp from "../AddToCartPopUp/AddToCartPopUp";
 import { Link } from "react-router-dom";
 import { WishListPost } from "../../../Component/Whishlist/WishListApi_"
 import {WhisList} from "../../../Component/Whishlist/WhisList"
-const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
+const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProductID  }) => {
+  console.log(RelatedProductResult ,'text12345')
     const { state, dispatch } = React.useContext(Createcontext)
     const classes = useStyles()
     const cookies = new Cookies();
@@ -166,6 +167,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
                     <h1 className="productSlider_headings">{CategoryName}</h1>
                 </div>
                 {RelatedProductResult.map((items, index) => {
+                  if(items.id !== currentProductID){
                     return (
                         <div className=" col-xxl-3  col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-4 px-0 productSearch_result_container" key={index}>
                             <div className="row productsearch_result_inner_container mx-1">
@@ -243,6 +245,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName }) => {
                             </div>
                         </div>
                     )
+                 }
                 })}
             </div>
             {Whishlist && <WhisList open1={Whishlist} SetWishList={SetWishList}></WhisList>}

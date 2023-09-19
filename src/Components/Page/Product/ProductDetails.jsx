@@ -44,6 +44,7 @@ const ProductDetail = () => {
             SetProductDetails(response.data)
             Axios(`https://sweede.app/UserPanel/Get-DispensaryByid/${response.data[0].Store_id}`, {
             }).then(response => {
+              
                 SetStore_id(response.data)
             }).catch(
                 function (error) {
