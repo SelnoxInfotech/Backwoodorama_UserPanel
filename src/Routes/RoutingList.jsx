@@ -9,7 +9,7 @@ export default function RoutingList(props) {
 
         <div>
             <Component />
-        {state?.Country ==='' &&<CurrentLocation Country={state?.Country }></CurrentLocation> }
+        {state?.Country ==='' &&<CurrentLocation Country={state?.Country}></CurrentLocation> }
         </div>
     )
 }

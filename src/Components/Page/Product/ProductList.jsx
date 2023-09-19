@@ -230,7 +230,7 @@ const ProductList = ({ arr }) => {
                                                                 className={"prod_cat_btns " + (s ? "active" : "")}
                                                                 value={data.id} onClick={() => PriceSelect(ele.id, data.id)} >
                                                                 {data.Weight || data.Unit}
-                                                                <p className="rs">${data.SalePrice.toFixed()}</p>
+                                                                <p className="rs">${data?.SalePrice?.toFixed()}</p>
                                                             </section>
                                                         </div>
                                                     )

@@ -9,6 +9,8 @@ import { Link } from "react-router-dom"
 import { IoLocationSharp } from "react-icons/io5"
 import { CiMobile1 } from "react-icons/ci"
 import { HiOutlineMail } from "react-icons/hi"
+import Button from '@mui/material/Button';
+import Mailto from 'reactv16-mailto';
 const Footer = () => {
     const classes = useStyles()
     const [Categorys, SetCategorys] = React.useState([])
@@ -22,12 +24,14 @@ const Footer = () => {
     }, [])
 
     const AboutUs = [{ head: "About Us" }, { head: "Company" }, { head: "Investor" }, { head: "Help Center" }, { head: "Download App" }]
-    
-    
+
+
     const More = [{ head: "Get Started" }, { head: "Brand" }, { head: "Add Business" }, { head: "Contact Us" }]
     const BottomMenuBar = [{ item: "Term & Condition" }, { item: "Careers" }, { item: "Privacy Policy" }]
-
- 
+    function sendEmail() 
+    {
+        window.location = "mailto://xyz@yourapplicationdomain.com";
+    }
     return (
         <>
             <div className="container-fluid">
@@ -43,18 +47,17 @@ const Footer = () => {
                             <div className="col-12 footer_log_center footer_logo footer_logo_height">
                                 <LazyLoadImage className="footer_logo_image" src="https://sweede.app/image/images/download/media/BlankImage/3.png" alt="image_not found" />
                             </div>
-                            <div className="col-12 footer_logo footer_log_heading_height footer_log_center">
-                                <p>Build a modern and creative  website</p>
-                            </div>
+
                             <div className="col-12   ">
                                 <div className="Footer_Left_side_menu w-100 px-0  gap-2">
-                                    <IoLocationSharp color="#31B665" size={18} /><span className="footer_middle_icons_text">2917 Broadway Astoria, NY 11106</span>
+                                    <IoLocationSharp color="#31B665" size={18} /><span className="footer_middle_icons_text">United States , Canada</span>
                                 </div>
                                 <div className="Footer_Left_side_menu w-100  gap-2">
-                                    <CiMobile1 color="#31B665" size={18} /><span className="footer_middle_icons_text">+1 432(182)35</span>
+                                    <a href="tel:+1 (209) 655-0360">  <CiMobile1 color="#31B665" size={18} /><span className="footer_middle_icons_text">+1 (209) 655-0360</span></a>
                                 </div>
                                 <div className="Footer_Left_side_menu w-100  gap-2">
-                                    <HiOutlineMail color="#31B665" size={18} /><span className="footer_middle_icons_text">weedx@gmail.com</span>
+                              
+                                    <Link   to={'https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=weedxselnox@gmail.com'}>    <HiOutlineMail color="#31B665" size={18} /><span className="footer_middle_icons_text">weedxselnox@gmail.com</span></Link>
                                 </div>
                             </div>
                         </div>
@@ -99,7 +102,7 @@ const Footer = () => {
                                                 <p className="footer_menu_heading">More</p>
                                                 {More.map((ele, index) => {
                                                     return (
-                                                        <Link to={`/Brand`}   key={index}>
+                                                        <Link to={`/Brand`} key={index}>
                                                             <li className="footer_li ellipsis" >{ele.head}</li>
                                                         </Link>
                                                     )
@@ -122,8 +125,8 @@ const Footer = () => {
                                         BottomMenuBar.map((val, index) => {
                                             return (
                                                 <Link key={index}>
-                                                
-                                                <li className="footer_li" >{val.item}</li>
+
+                                                    <li className="footer_li" >{val.item}</li>
                                                 </Link>
 
                                             )
@@ -153,7 +156,7 @@ const Footer = () => {
 
                     </div>
                     <div className="col-12  footer_bootom_headings_container">
-                        <p className="footer_headingss">Design by WeedX 2023</p>
+                        <p className="footer_headingss">Copyright © 2023 weedx.io</p>
 
                     </div>
 
