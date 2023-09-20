@@ -18,7 +18,6 @@ const NewProductDetailsCards = ({ Product }) => {
     const cookies = new Cookies();
     const p = Product?.images === undefined ? "" : Product?.images[0].image
     const classes = useStyles()
-    console.log(Product ,'Product')
     const token_data = cookies.get('Token_access')
     const [CartClean, SetCartClean] = React.useState(false)
     const { state, dispatch } = React.useContext(Createcontext)

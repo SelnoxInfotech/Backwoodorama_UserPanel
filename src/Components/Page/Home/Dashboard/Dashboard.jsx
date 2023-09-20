@@ -1,6 +1,6 @@
 import Map from "../../../Component/Map/map"
 import CategoryProduct from "./ComponentDashboard/CategoryProduct";
-import Dispensories from "../../Dispansires/DispansiresComponent/DispensoriesSlider";
+import Dispensorieslider from "../../Dispansires/DispansiresComponent/DispensoriesSlider";
 import NewsBlog from "./ComponentDashboard/NewsBlog";
 import CommunityType from "./ComponentDashboard/CommunityType";
 import HomePageBanner from "./ComponentDashboard/HomePageBanner";
@@ -54,15 +54,12 @@ export default function Dashboard() {
     React.useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
-
-
     const StrainTypeCardArray = [
         { imgUrl: "/image/indica.png", head1: "Indica", },
         { imgUrl: "/image/sativa.png", head1: "Hybrid" },
         { imgUrl: "/image/social.png", head1: "Sativa" },
         { imgUrl: "/image/LeaflyMarchPromo.png", head1: "CBD" },
     ]
-
     return (
         <div >
             <HomePageSco></HomePageSco>
@@ -70,7 +67,7 @@ export default function Dashboard() {
             <CategoryProduct Category={Category} ShowCategoryProduct={ShowCategoryProduct} Skeleton={Skeleton}></CategoryProduct>
             <DeliveryServices Skeleton={Skeleton}></DeliveryServices>
             <HomePageWeedBanner></HomePageWeedBanner>
-            <Dispensories></Dispensories>
+            <Dispensorieslider></Dispensorieslider>
             <div className="col-12 border" style={{ height: "300px", position: "relative", top: "15px" }}>
                 <Map height={"297px"} width={"100%"}></Map>
             </div>
@@ -81,14 +78,14 @@ export default function Dashboard() {
                 <NewsBlog></NewsBlog>
             </div>
             <div className="w-90 dashBoardStrainType">
-                <h3 className=" mt-4 dashBoard_strain_paragraph">Strain Type</h3>
+                <h3 className=" mt-4 section_main_title">Strain Type</h3>
                 <StrainTypeCards ArrayData={StrainTypeCardArray} />
 
             </div>
 
 
 
-            <CommunityType></CommunityType>
+            {/* <CommunityType></CommunityType> */}
         </div>
     )
 }

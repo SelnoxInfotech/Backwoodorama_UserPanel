@@ -1,0 +1,240 @@
+  @media(max-width:992px) {
+    .NumberText_container {
+      overflow-x: scroll;
+      overflow-y: hidden;
+    }
+    .backwoodaroma_number_container {
+      overflow-y: hidden;
+      overflow-x: scroll;
+    }
+    .backwoodaroma_number_container ol li {
+      min-width: 27%;
+    }
+    .homePageSignup_paragraph p {
+      font-size: 19px;
+    }
+    .NumberText_container ol li {
+      font-size: 11px;
+      min-width: 17%;
+    }
+  }
+  @media(max-width:768px) {
+    .DeliveryServicesRatingTitle {
+      font-size: 16px;
+    }
+    .CategorySliderImageBlock {
+      width: 100%;
+    }
+    .dispensoriesHeadings {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    .Dispensaries_card_discription p {
+      font-size: 14px;
+  }
+    .NumberText_container ol li {
+      font-size: 9px;
+      min-width: 18%;
+    }
+    .backwoodaroma_number_container ol li {
+      font-size: 12px;
+    }
+    .NumberText_container ol {
+      gap: 4%;
+    }
+    .homePageSignupBtnMargin {
+      margin-top: 20px;
+    }
+    .Category_title {
+      font-size: 16px;
+      margin-top: 15px;
+    }
+    .catagoriesTabImg{
+      width: 100px;
+      height: 100px;
+      cursor: pointer;
+    }
+  }
+  @media(max-width:600px) {
+    .dispensoriesBannerHeading h5 {
+      height: 16px;
+    }
+  
+    .strainPopular_heading {
+      font-size: 14px;
+    }
+  
+    .dispensoriesBannerSubHeading p {
+      height: 16px;
+  
+    }
+  }
+  @media(max-width:576px) {
+    .FeaturedBrandImageContainer {
+      height: 200px;
+    }
+  
+    .featuredBrandScrollContainerRelative {
+      left: 0px;
+    }
+  
+    .FeaturedBrandImage_height {
+      height: 200px;
+      width: 100%;
+    }
+  }
+ 
+  @media only screen and (min-width: 992px)and (max-width:1199px) {
+   
+    .dispensories_image {
+      height: 240px;
+    }
+    .CategorySliderImageBlock {
+      width: 20%;
+      height: 200px;
+    }
+  }
+  @media only screen and (min-width: 768px)and (max-width:991px) {
+   
+    .dispensories_image {
+      height: 220px;
+    }
+  }
+  @media only screen and (min-width: 480px)and (max-width:767px) {
+   
+    .dispensories_image {
+      height: 200px;
+    }
+  }
+  @media only screen and (max-width:480px) {
+    .DeliveryServicesRatingTitle{
+       font-size: 14px;
+    }
+    .strainTypeInner_container {
+      height: 160px;
+  }
+    .catagoriesTabImg{
+      width: 75px;
+      height: 75px;
+      cursor: pointer;
+  }
+   
+    .dispensories_image {
+      height: 200px;
+    }
+    .dispensoriesContentContainer {
+      padding: 10px;
+  }
+  .dispensoriesHeadings {
+    font-size: 16px;
+  }
+  .deliveryServicesTitle p {
+  font-size: 16px;
+  margin: 0;
+  }
+  .deliveryServices_SubTitle p {
+    font-size: 14px;
+   margin: 0;
+  }
+  .DeliveryServicesRatingTitle {
+    
+    font-size: 14px;
+  }
+  .deliveryServicesContent_container {
+    padding:10px;
+  }
+  
+    .section_main_title {
+      font-size: 20px;
+    }
+    .section_main_subtitle { 
+        font-size: 16px;
+    }
+    .backwoodar_heading {
+      font-size: 16px;
+    }
+    .NumberText_container ol li {
+      font-size: 9px;
+      min-width: 21%;
+    }
+  
+    .NumberText_container ol {
+      gap: 3%;
+    }
+    .dashBoardStrainType {
+      padding: 0px 8px;
+    }
+  
+    .homePageSignup_paragraph p {
+      font-size: 20px;
+    }
+  
+    .homePageSignipLink P {
+      font-size: 20px;
+  
+    }
+  
+    .popularStrain_heading {
+      font-size: 14px;
+      margin-left: 40px;
+    }
+  
+    .popularStrainName {
+      font-size: 12px;
+    }
+  
+    .newProductDetailsHeading {
+      font-size: 14px;
+      margin-left: 3px;
+    }
+ 
+    .allProductCategory_image_container {
+      height: 80px;
+      width: 80px;
+      border-radius: 40px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #31B665;
+    }
+  
+    .allProduct_imageHeight {
+      height: 70px;
+      width: 70px;
+      border-radius: 35px;
+    }
+    .allProductCategoryParagraph {
+      font-size: 10px;
+    }
+  }
+  @media(max-width:425px) {
+    .NumberText_container ol li {
+      font-size: 8px;
+      min-width: 22%;
+    }
+  
+    .NumberText_container ol {
+      gap: 7%;
+    }
+  
+  
+    .Category_title {
+      font-size: 12px;
+    }
+  }
+  @media(max-width:408px) {
+    .backwoodaroma_number_container ol li {
+      min-width: 29%;
+      font-size: 10px;
+    }
+  }
+  @media(max-width:372px) {
+    .NumberText_container ol li {
+      font-size: 7px;
+      min-width: 26%;
+    }
+ 
+  
+    .Category_title {
+      font-size: 10px;
+    }
+  }

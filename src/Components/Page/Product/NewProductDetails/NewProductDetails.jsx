@@ -28,7 +28,6 @@ const NewProductDetails = () => {
       SetProduct(response.data[0])
       Axios.get(`https://sweede.app/UserPanel/Get-StoreById/${response.data[0]?.Store_id}`, {
       }).then(response => {
-        console.log(response.data[0] ,'deps')
         SetDespens(response.data[0])
         // window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
       })
@@ -59,7 +58,7 @@ const NewProductDetails = () => {
     <div className="container-fluid">
       {/* <CategoryProduct ShowCategoryProduct={ShowCategoryProduct} Category={Category} /> */}
       {/* <NewFlavourBanner delBtn={Despen}></NewFlavourBanner> */}
-      <span onClick={() => navigate(-1)} className="BackPageBtn"> <AiOutlineLeft size={18}/> <span className="backPgBtnImg"><img src={`https://sweede.app${Despen.Store_Image}`} alt="" /></span> {Despen.Store_Name}</span>
+      <span onClick={() => navigate(-1)} className="BackPageBtn"> <AiOutlineLeft size={22}/> <span className="backPgBtnImg"><img src={`https://sweede.app${Despen.Store_Image}`} alt="" /></span> {Despen.Store_Name}</span>
       <NewProductDetailsCards Product={Product} />
       {/* <NewProductDescription Product={Product?.Product_Description} /> */}
       <NewProductinfoText  Product={{heading:"Product Description",text:Product?.Product_Description}} />
@@ -70,7 +69,7 @@ const NewProductDetails = () => {
 {/* 
       <OverAllReview Product={Product} api ={api} SetApi ={ SetApi}/>
       <RelatedReview Product={Product} api ={api} SetApi ={ SetApi}/> */}
-      <Review Product={Product} api ={api} SetApi ={ SetApi}></Review>
+      <Review Product={Product} api ={api} SetApi ={SetApi}></Review>
 
 
     </div>

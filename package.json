@@ -69,6 +69,7 @@
     "react-store-locator": "^0.20.7",
     "react-switch": "^7.0.0",
     "react-web-share": "^2.0.2",
+    "reactv16-mailto": "^0.4.4",
     "recompose": "^0.30.0",
     "serve": "^14.2.0",
     "slick-carousel": "^1.8.1",

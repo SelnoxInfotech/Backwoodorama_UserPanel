@@ -34,10 +34,10 @@ const Dispensories = () => {
     return (
         <React.Fragment>
             <div className="container-fluid">
-                {!Skeleton ? <div className='row'>
+                {!Skeleton ? <div className=''>
                     <div className='col-12  mt-4' style={{ padding: "0" }}>
                         <div className="disp_head" style={{ top: "0" }}>
-                            <h3 className='dispensariesShopHeading'>Shop Dispensaries  near you</h3>
+                            <h3 className='section_main_title'>Shop Dispensaries  near you</h3>
                         </div>
                     </div >
                     <div className="col-12 mt-3  recentViewProductSlider" id="width" ref={ref}>
@@ -46,15 +46,14 @@ const Dispensories = () => {
                             {Store.map((ele, index) => {
                                 return (
 
-                                    <div className='dispensoriesContainer col-12  col-sm-6 col-md-6 col-lg-4 deliveryServicesEachCardOn_lg_Device' key={index}>
+                                    <div className='dispensoriesContainer  dispensoriesCard' key={index}>
                                         <div className=' dispensoriesAddressBorder'>
-
-                                            <div className='col-12 dispensories_image_containerss'>
+                                            <div className='dispensoriesAddresCardimg'>
                                                 <Link  to={`/Weed-Dispensories/${ele.Store_Name.replace(/\s/g,'-')}/${"Menu"}/${ele.id}`}>
-                                                    <img src={`https://sweede.app/${ele?.Store_Image}`} alt='img_not_found' className='img-responsive dispensories_image  center-block' />
+                                                    <img src={`https://sweede.app/${ele?.Store_Image}`} alt='img_not_found' className=' dispensories_image  center-block' />
                                                 </Link>
                                             </div>
-                                            <div className='dispensoriesContentContainer px-4'>
+                                            <div className='dispensoriesContentContainer'>
                                                 <Link className='dispensoriesLinkStyles' to={`/Weed-Dispensories/${ele.Store_Name.replace(/\s/g,'-')}/${"Menu"}/${ele.id}`}>
                                                     <div className='col-12'>
 
@@ -63,11 +62,9 @@ const Dispensories = () => {
                                                         </div>
                                                     </div>
                                                     <div className='col-12 '>
-                                                    {/* <BiMap   className={classes.disPen_Icons} />
-                                                    <p className=' dispensoriesAddressHeadings ellipsis'>{ele.Store_Address}</p> */}
-
+                                                   
                                                         <div className=' col-10 Dispensaries_card_discription'>
-                                                            <div className='col-2'>
+                                                            <div className=''>
                                                                 <span className='span_nav'><BiMap className={classes.disPen_Icons} /></span>
                                                             </div>
 
@@ -85,19 +82,9 @@ const Dispensories = () => {
 
 
                                                 </Link>
-                                                <div className='col-12 dispensoriesAddressRatingCol '>
-                                                <span>Rating</span>
-                                                <Rating className={classes.homePageStarIcons} color='green' name="read-only" value={4} readOnly />
-
-                                                    {/* <div className=' col-10 Rating'>
-                                                        <div className='col-2 color'>
-                                                            <span>Rating</span>
-                                                        </div>
-
-                                                        <div className='col-10 '>
-                                                            <span className='mx-3'> <Rating className={classes.homePageStarIcons} color='green' name="read-only" value={4} readOnly /></span>
-                                                        </div>
-                                                    </div> */}
+                                                <div className=' dispensoriesAddressRatingCol '>
+                                                    <span className='rating_title'>Rating</span>
+                                                    <Rating className={classes.homePageStarIcons} color='green' name="read-only" value={4} readOnly />
                                                 </div>
 
                                                 <div className='col-12  mt-4'>

@@ -32,22 +32,18 @@ const DeliveryServices = () => {
     return (
         <React.Fragment>
             <div className="container-fluid mt-5">
-                <div className="row mt-3">
-                    {!Skeleton ? <React.Fragment>
-
-                        <div className="col-12  px-0">
-                            <h2 className='deliveryServicesHEadingPadding delivery_services_heading'>Delivery services</h2>
-
-                        </div>
-                        <div className="col-12 delivery_services_subheading px-0">
-                            <h3 className='deliveryServicesHEadingPadding'>{state.Location}</h3>
+                <div >
+                    {!Skeleton ? <React.Fragment> 
+                        <div className="">
+                        <h2 className='section_main_title'>Delivery services</h2>
+                        <h3 className='section_main_subtitle'>{state.Location}</h3>
 
                         </div>
-                        <div className="col-12  mt-2 recentViewProductSlider" id="width" ref={ref}>
+                        <div className="col-12  my-4 recentViewProductSlider" id="width" ref={ref}>
                             <ScrollContainer className="DeliveryServices_ScrollContainerRelative">
                                 {DeliveryService.map((items, index) => {
                                     return (
-                                        <div className='dispensoriesContainer col-12 col-sm-6   deliveryServicesEachCardOn_lg_Device' key={index}>
+                                        <div className='deliveryServicesCard' key={index}>
                                             <div className='deliveryServicesBorder '>
                                                 <Link to={`/Weed-Deliveries/${items.Store_Name.replace(/\s/g,'-')}/${"Menu"}/${items.id}`}>
                                                     <div className='col-12 deliveryServicesImage_container'>
@@ -58,7 +54,6 @@ const DeliveryServices = () => {
                                                     <Link to={`/Weed-Deliveries/${items.Store_Name.replace(/\s/g,'-')}/${"Menu"}/${items.id}`}>
                                                         <div className='w-100  deliveryServicesTitle'>
                                                             <p className='ellipsis'>{items.Store_Name}</p>
-
                                                         </div>
                                                         <div className='w-100 deliveryServices_SubTitle'>
                                                             <p className='ellipsis'>{items.Store_Address}</p>
@@ -77,9 +72,7 @@ const DeliveryServices = () => {
                                 })}
                             </ScrollContainer>
                         </div>
-
                     </React.Fragment> : <DeliverServiceSkeleton></DeliverServiceSkeleton>
-
                     }
                 </div>
 

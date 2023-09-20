@@ -13,7 +13,7 @@ const StrainTypeCards = ({ ArrayData }) => {
 
                     {ArrayData.map((items, index) => {
                         return (
-                            <div className="col-xl-3 col-lg-4 col-sm-6 col-12 mb-4 strainType_container" key={index}>
+                            <div className="col-lg-3 col-sm-6 col-6 col-mb-4 strainType_container" key={index}>
                                 <div className="row starinType_inner_row mx-1 my-2">
                                     <div className="col-12 strainTypeInner_container px-0">
                                       <Link to={`/StrainProduct/${items.head1}`}  state={{ data: items.imgUrl }}>  <LazyLoadImage className="strainType_image" src={items.imgUrl}  /></Link>

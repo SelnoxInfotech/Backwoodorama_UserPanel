@@ -58,7 +58,7 @@ const RelatedReview = ({Product , api}) => {
                         };
 
                         return (
-                            <div className="col-lg-10 col-sm-10 col-10  related_review_container mt-4" key={index}>
+                            <div className="mx-1">                            <div className="w-100 related_review_container mt-4" key={index}>
                                 <div className="row">
                                     <div className="col-3 col-sm-2 related_img_container">
                                         <div className="row">
@@ -123,6 +123,8 @@ const RelatedReview = ({Product , api}) => {
                                     </div>
                                 </div>
                             </div>
+                            </div>
+
                         )
                     })}
                 </div>

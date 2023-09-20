@@ -1,8 +1,9 @@
 import './App.css';
-import "./AppStyle.css"
-import 'bootstrap/dist/js/bootstrap.bundle'
+import "./AppStyle.css";
+import './mediaQuery.css';
+import 'bootstrap/dist/js/bootstrap.bundle';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import { GoogleOAuthProvider } from '@react-oauth/google'
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 

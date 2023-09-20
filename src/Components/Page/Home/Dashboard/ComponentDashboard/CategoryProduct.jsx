@@ -22,7 +22,8 @@ const CategoryProduct = ({ ShowCategoryProduct, Category,Skeleton }) => {
         display: flex;
         justify-content: center;
         margin-inline: 10px;
-        margin-top:83px
+        margin-top:83px;
+        gap:20px;
 
       }
       .slick-track{
@@ -84,39 +85,37 @@ const CategoryProduct = ({ ShowCategoryProduct, Category,Skeleton }) => {
                 <div className='row'>
 
 
-                    {
+                       {
                              !Skeleton?
-                             <React.Fragment>
-                             <div className='col-12 disp_head '>
-                                     <h1 className='mt-9 shopByCategoryHeading'>Shop by Category</h1>
-                                 </div>
-                             
-                             <SliderCategory {...settings} >
-                                 {Category?.map((ele, index) => {
-                                     return (
-                                      
-                                             <div className='col-10  CategorySliderImageBlock  ' key={index}>
-                                                 <div className='slider1'>
-                                              
-                                                     <LazyLoadImage onClick={() => { ShowCategoryProduct(ele.id, ele.name) }} src={`https://sweede.app/` + ele.categoryImages} alt="glass_img" className='rounded-circle  Image_Width' />
-                                                 
-                                                 </div>
-                                                 <div className='col-12 center mt-3 '>
-                                                     <div className='col center Category_title' >
-                                                         <p>{ele.name.substr(0, 100)}</p>
-                                                     </div>
-                                                 </div>
-                                             </div>
-                                      
-                                     )
-                                 })}
-                                 
-                             </SliderCategory> 
-            
-                             </React.Fragment>
+                           
+                                <div className="catagoryTabs_section">
+                                    <div className='col-12 disp_head '>
+                                        <h1 className='mt-9 shopByCategoryHeading'>Shop by Category</h1>
+                                    </div>
+                                    <SliderCategory {...settings} >
+                                        {Category?.map((ele, index) => {
+                                            return (
+                                            <div >
+                                                    <div className='CategorySliderImageBlock' key={index}>
+                                                        <div className='slider1'>
+                                                    
+                                                            <LazyLoadImage onClick={() => { ShowCategoryProduct(ele.id, ele.name) }} src={`https://sweede.app/` + ele.categoryImages} alt="glass_img" className='rounded-circle catagoriesTabImg' />
+                                                        
+                                                        </div>
+                                                        <div className='col center Category_title' >
+                                                                <p>{ele.name.substr(0, 100)}</p>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    </div>
+                                            )
+                                        })}
+                                        
+                                    </SliderCategory> 
+                             </div>
+                            
                              :
-                         <CategorySkeleton></CategorySkeleton>
-             
+                             <CategorySkeleton></CategorySkeleton>
                     }
                            </div>
             </div>
