@@ -9,8 +9,6 @@ import { Link } from "react-router-dom"
 import { IoLocationSharp } from "react-icons/io5"
 import { CiMobile1 } from "react-icons/ci"
 import { HiOutlineMail } from "react-icons/hi"
-import Button from '@mui/material/Button';
-import Mailto from 'reactv16-mailto';
 import "./Footer.css";
 const Footer = () => {
     const classes = useStyles()
