@@ -79,7 +79,7 @@ export default function Dispansires() {
                             </Box>
                             <Box sx={{"& .MuiBox-root":{paddingLeft:"0px",paddingRight:"0px",paddingTop:"20px"}}}>
                             <TabPanel  value={value} index={0}>                      
-                            <WeedDispansires />
+                               <WeedDispansires />
                             </TabPanel>
                             <TabPanel value={value} index={1}>
                                 <WeedDispansires />

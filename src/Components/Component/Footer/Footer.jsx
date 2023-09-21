@@ -42,7 +42,7 @@ const Footer = () => {
                             <h3 className="footer_sub_heading ">A community connecting cannabis consumer retailers, doctors, and brands since 2008.</h3>
                        
                        
-                        <div className="row">
+                        <div className="row main_content_logo">
                                 <div className=" footer_logo_container">
                                     <div className="footerLogo">
                                         <LazyLoadImage className="footer_logo_image" src="https://sweede.app/image/images/download/media/BlankImage/3.png" alt="image_not found" />
@@ -62,8 +62,8 @@ const Footer = () => {
                                     </div>
                                 </div>
                                 <div className="footer_list">
-                                                    <ol className="footer_list_gap">
-                                                        <p className="footer_menu_heading">About WeedX</p>
+                                                    <ol className="footer_main_list">
+                                                        <p className="footer_menu_heading">About</p>
                                                         {AboutUs.map((ele, index) => {
                                                             return (
                                                                 <Link to="/AboutUs" key={index}><li className="footer_li ellipsis">{ele.head}</li></Link>
@@ -72,7 +72,7 @@ const Footer = () => {
                                                     </ol>
                                 </div>
                                 <div className="footer_list">
-                                    <ol className="footer_list_gap">
+                                    <ol className="footer_main_list">
                                         <p className="footer_menu_heading">Category</p>
                                         {Categorys.map((ele, index) => {
                                             return (
@@ -86,7 +86,7 @@ const Footer = () => {
 
                                 </div>
                                 <div className="footer_list">
-                                                    <ol className="footer_list_gap">
+                                                    <ol className="footer_main_list">
 
                                                         <p className="footer_menu_heading">More</p>
                                                         {More.map((ele, index) => {
@@ -105,8 +105,8 @@ const Footer = () => {
 
                         </div>
                         <div className=" row bottom_menu_items_mainCol mt-2">
-                            <div className="col-sm-3"></div>
-                            <div className=" col-sm-6  col-6 bottom_menu_items px-4">
+                            <div className="col-lg-3 col-12"></div>
+                            <div className=" col-lg-6  col-sm-9 bottom_menu_items ">
                                 <ul className="px-0 row">
                                     {
                                         BottomMenuBar.map((val, index) => {
@@ -121,7 +121,7 @@ const Footer = () => {
                                     }
                                 </ul>
                             </div>
-                            <div className="col-sm-3 col-3 footer_icons_column px-4">
+                            <div className="col-lg-3 col-sm-3 footer_icons_column ">
                                 <ol className="px-0">
                                     <li>
                                         <BsWhatsapp className={`footer_icons ${classes.footer_icons_color}`} />
@@ -143,7 +143,7 @@ const Footer = () => {
 
                     </div>
                     <div className=" footer_bootom_headings_container">
-                        <p className="footer_headingss">Copyright © 2023 weedx.io</p>
+                        <p className="copyright_title">Copyright © 2023 weedx.io</p>
 
                     </div>
 

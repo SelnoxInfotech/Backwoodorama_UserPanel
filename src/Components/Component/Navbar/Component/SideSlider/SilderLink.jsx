@@ -1,10 +1,10 @@
 import React from "react";
 import Grid from '@mui/system/Unstable_Grid';
-import { BsWhatsapp } from "react-icons/bs"
+import {  BsLinkedin  } from "react-icons/bs"
 import { AiFillHeart } from "react-icons/ai"
+// import { RiTwitterXFill } from "react-icons/ri"
 import { IoIosNotifications } from "react-icons/io"
 import { MdOutlineShoppingCart } from "react-icons/md"
-import { FcGoogle } from "react-icons/fc"
 import { ImFacebook } from "react-icons/im"
 import { RiInstagramLine } from "react-icons/ri"
 import { Link, useLocation } from "react-router-dom";
@@ -12,7 +12,7 @@ import SearchBar from "../../Component/SearchBar"
 import Badge from '@mui/material/Badge';
 import useStyles from "../../../../../Style";
 import IconButton from "@mui/material/IconButton";
-import { useParams  ,useNavigate } from "react-router-dom";
+import { useParams  } from "react-router-dom";
 export default function DashBoardLink({ state }) {
   const classes = useStyles()
   const Params =  useParams()
@@ -24,11 +24,7 @@ export default function DashBoardLink({ state }) {
 
   }, [location])
 
- function  Route(){
-  console.log(Params , location)
-  // if
-  // Navigate ()
-  }
+
   return (
     <React.Fragment>
 
@@ -52,9 +48,12 @@ export default function DashBoardLink({ state }) {
           <Grid xs={6} md={2} xl={2} display={{ xs: "none", md: "block", lg: "block" }}>
             <div className=' col-12 Login_Sigup_button Login_Sigup_logo ' >
                <Link to={"https://www.facebook.com/profile.php?id=61550742531174"}><ImFacebook color={"#39569c"} size={25} ></ImFacebook></Link>
-             <Link to={"https://www.instagram.com/weedx_io"}> <RiInstagramLine className="InstaColor" size={25} ></RiInstagramLine></Link>
-              <BsWhatsapp color="green" size={22} ></BsWhatsapp>
-              <FcGoogle size={25} ></FcGoogle>
+               <Link to={"https://www.instagram.com/weedx_io"}> <RiInstagramLine className="InstaColor" size={25} ></RiInstagramLine></Link>
+               <BsLinkedin size={22} color='#0072b1' ></BsLinkedin>
+               <span className="x_icon">
+                   <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+               </span>
+               {/* <RiTwitterXFill size={22} color="#00acee"></RiTwitterXFill> */}
             </div>
           </Grid>
           <Grid xs={6} md={2} xl={1} spacing={2} display={{ xs: "none", md: "block", lg: "block" }} >

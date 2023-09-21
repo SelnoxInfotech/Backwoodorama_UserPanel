@@ -81,7 +81,19 @@ export function ViewCountApi (id){
 );
 return data;
 }
-
+export function DespensioriesItem(){
+   let data = axios.get(
+        'https://sweede.app/UserPanel/Get-Dispensaries/',
+    ).then(response => {
+        return response.data
+    }).then((res)=>{
+        return res
+    }).catch(
+        function (error) {}
+    )
+   
+    return data 
+}
 
 
 // Store Review Api   Dispensaries   

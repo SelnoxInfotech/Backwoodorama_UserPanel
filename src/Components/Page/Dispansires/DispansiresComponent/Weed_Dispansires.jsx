@@ -5,28 +5,46 @@ import SearchBar from '@mkyy/mui-search-bar';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import React from "react";
 import Axios from "axios";
+import {DespensioriesItem} from '../../../../Api/Api';
 import { Link } from "react-router-dom";
 import { Rating } from '@mui/material';
 import { DispensariesSco } from "../../../Component/ScoPage/DispensariesSco"
+import { useState } from 'react';
 const Weed_Dispansires = () => {
     const classes = useStyles()
     const [Store, SetStore] = React.useState([])
     const [Search, SetSearch] = React.useState([])
-    React.useEffect(() => {
-        Axios.get(
-            'https://sweede.app/UserPanel/Get-Dispensaries/',
-        ).then(response => {
-            SetStore(response.data)
-        }).catch(
-            function (error) {})
-    }, [])
-    function search(e) {
-        const test = Store.filter(team => {
-            return team.Store_Name.toLowerCase().includes(e.toLowerCase());
-        });
-        SetSearch(test)
-    }
+    const [searchtext,setsearchtext] = React.useState("")
 
+   
+    React.useEffect(() => {
+       
+        if(searchtext !== ""){
+            const getData = setTimeout(() => {
+       
+                Axios.post(`https://sweede.app/UserPanel/FilterDispensaries/`,{
+                  "store": searchtext
+                })
+                .then(function (response) {
+                    SetStore(response.data);
+                  
+                })
+                .catch(function (error) {
+                  console.trace(error);
+                });
+            }, 1000)
+            return () => clearTimeout(getData)
+        }else{
+            DespensioriesItem().then((res)=>{
+                SetStore(res)
+            })
+            
+        }
+        
+    
+        
+       
+      }, [searchtext])
     return (
         <React.Fragment>
             <DispensariesSco></DispensariesSco>
@@ -37,7 +55,7 @@ const Weed_Dispansires = () => {
                             <div className="col-12 dispensories_open_result_heading">
                                 <div className="row">
                                     <div className="col-12 dispensories_open_search_result mt-2">
-                                        <SearchBar onChange={search} style={{ background: "#FFFFF", border: "1px solid gray" }} width={"100%"} placeholder="Search dispensaries address" />
+                                        <SearchBar onChange={(e)=>setsearchtext(e)} style={{ background: "#FFFFF", border: "1px solid gray" }} width={"100%"} placeholder="Search dispensaries address" />
                                         {
                                             Search.map((data) => {
                                                 return (
@@ -59,51 +77,49 @@ const Weed_Dispansires = () => {
 
                         {Store.map((ele, index) => {
                             return (
-                                <React.Fragment  key={index}>
-                                <div className="row mt-2">
-                                    <div className="col-lg-12  col-md-12 col-sm-12 col-12 despensories_card_container">
-                                        <div className="row">
-                                            <div className="col-4 disensories_card_image_div">
-                                                <Link  to={`/Weed-Dispensories/${ele.Store_Name.replace(/\s/g,'-')}/${"Menu"}/${ele.id}`}>
-                                                    <LazyLoadImage id={ele.id} src={`https://sweede.app/${ele.Store_Image}`} alt="img_not_found" className="dispensories_card_image" />
-                                                </Link>
-
-                                            </div>
-                                            <div className="col-8 dispenosries_card_content_div">
-
-                                                <div className="col-12 dispensories_content_Header_paragraphs text-truncate">
-                                                    <span className="text-truncate dispensoriesHeadingName">{ele.Store_Name}</span>
+                                
+                                    <div className="row mt-2" key={index}>
+                                        <div className="col-lg-12  col-md-12 col-sm-12 col-12 despensories_card_container">
+                                            <div className="row">
+                                                <div className="col-4 disensories_card_image_div">
+                                                    <Link  to={`/Weed-Dispensories/${ele.Store_Name.replace(/\s/g,'-')}/${"Menu"}/${ele.id}`}>
+                                                        <LazyLoadImage id={ele.id} src={`https://sweede.app/${ele.Store_Image}`} alt="img_not_found" className="dispensories_card_image" />
+                                                    </Link>
 
                                                 </div>
-                                                <div className="col-12 dispensories_content_paragraphs">
-                                                    <span className="text-truncate dispensorieAddressNames">{ele.Store_Address}</span>
-                                                </div>
-                                                <div className="col-12 dispensories_buttonsContainer">
-                                                    <button className="dispensories_open_res_btns">Closed</button>
-                                                    <button className="dispensories_open_res_btns2">Order Online</button>
+                                                <div className="col-8 dispenosries_card_content_div">
+
+                                                    <div className="col-12 dispensories_content_Header_paragraphs text-truncate">
+                                                        <span className="text-truncate dispensoriesHeadingName">{ele.Store_Name}</span>
+
+                                                    </div>
+                                                    <div className="col-12 dispensories_content_paragraphs">
+                                                        <span className="text-truncate dispensorieAddressNames">{ele.Store_Address}</span>
+                                                    </div>
+                                                    <div className="col-12 dispensories_buttonsContainer">
+                                                        <button className="dispensories_open_res_btns">Closed</button>
+                                                        <button className="dispensories_open_res_btns2">Order Online</button>
+
+                                                    </div>
+                                                    <div className="col-12 dispensories_buttonsContainer mt-2">
+                                                        <button className="dispensories_pickup_btn">Pickup delivery</button>
+                                                    </div>
+                                                    <div className="col-12 d-flex dispensories_content_paragraphs mt-2">
+                                                        <span className='disOPenResRating'>Rating</span>
+                                                        <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={4} readOnly />
+
+                                                    </div>
+                                                    <div className="col-12">
+                                                        <Box className={classes.loadingBtnTextAndBack}>
+                                                            <LoadingButton style={{ width: "60%", height: "30px" }}>Order Pickup</LoadingButton>
+                                                        </Box>
+                                                    </div>
 
                                                 </div>
-                                                <div className="col-12 dispensories_buttonsContainer mt-2">
-                                                    <button className="dispensories_pickup_btn">Pickup delivery</button>
-                                                </div>
-                                                <div className="col-12 d-flex dispensories_content_paragraphs mt-2">
-                                                    <span className='disOPenResRating'>Rating</span>
-                                                    <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={4} readOnly />
-
-                                                </div>
-                                                <div className="col-12">
-                                                    <Box className={classes.loadingBtnTextAndBack}>
-                                                        <LoadingButton style={{ width: "60%", height: "30px" }}>Order Pickup</LoadingButton>
-                                                    </Box>
-                                                </div>
-
                                             </div>
                                         </div>
-
                                     </div>
-
-                                </div>
-                                </React.Fragment>
+                                
                             )
                         })}
                     </div>
