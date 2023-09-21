@@ -60,28 +60,19 @@ export default function DispensoriesDetails() {
             SetDespensariesProductData(response.data)
         })
     }, [id])
-
-    // const FilterCategory = async (id) => {
-    //     axios(`https://sweede.app/UserPanel/Get-ProductByCategory/${id}`, {
-    //     }).then(response => {
-    //         SetDespensariesProductData(response.data)
-
-
-    //     }).catch(
-    //         function (error) {
-
-    //         })
-
-    // }
     function SelectionTab(item,Store_Name) {
         SetTab(item)
-        navigate(`/Weed-Dispensories/${Despen[0].Store_Name.replace(/\s/g,'-')}/${item.replace(/\s/g,'-')}/${id}`)
+        if(item === "Menu")
+        {
+
+            item = "product"
+            navigate(`/weed-dispensories/${Despen[0].Store_Name.replace(/\s/g,'-').toLowerCase()}/${item.replace(/\s/g,'-').toLowerCase()}/${id}`)
+        }
+        else{
+            navigate(`/weed-dispensories/${Despen[0].Store_Name.replace(/\s/g,'-').toLowerCase()}/${item.replace(/\s/g,'-').toLowerCase()}/${id}`)  
+        }
 
     }
-
-//  React.useEffect(()=>{
-//     navigate(`/DispensoriesDetails/${id}/${item}/${StoreName}`)
-//  },[])
 
     function ShowCategoryProduct(Id) {
 
@@ -107,6 +98,7 @@ export default function DispensoriesDetails() {
     { Id: 5, Name: "Weight", Type1: "Any", Type2: "$25", Price: "$100", Icons: <GiWeightScale className={classes.muiIcons} /> },
     { Id: 6, Name: "Product", Type1: "Medical", Type2: "Recreational", Icons: <RiProductHuntLine className={classes.muiIcons} /> },
     ]
+
     return (
         <div>
             <div className="container-fluid product_container" >
@@ -118,7 +110,7 @@ export default function DispensoriesDetails() {
 
                     </div>
                     {
-                        tab === 'Menu' &&
+                        tab === 'product' &&
                         <React.Fragment>
                             <CategoryProduct Category={Category} ShowCategoryProduct={ShowCategoryProduct}> </CategoryProduct>
                             <div className="col-12   productCat_cont" style={{ display: "contents" }}>
@@ -138,16 +130,16 @@ export default function DispensoriesDetails() {
                         </React.Fragment>
                     }
                     {
-                        tab === 'Store-Details' && <ComponentStoreDetails></ComponentStoreDetails>
+                        tab === 'store-details' && <ComponentStoreDetails></ComponentStoreDetails>
                     }
                     {
-                        tab === 'Review' && <Review></Review>
+                        tab === 'review' && <Review></Review>
                     }
                     {
-                        tab === 'Deal' && <>Deal</>
+                        tab === 'deal' && <>Deal</>
                     }
                     {
-                        tab === 'Media' && <Media></Media>
+                        tab === 'media' && <Media></Media>
                     }
                 </div>
 

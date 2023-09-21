@@ -195,15 +195,15 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
                         <FormControl className={classes.muiSelect}  >
                             <Select
                                 // value={Product}
+
                                 onChange={handleChange}
-                                displayEmpty
                                 inputProps={{ 'aria-label': 'Without label' }}
                                 size="small"
+                                defaultValue={'  Sort by A to Z'}
+                                label={'Sort by A to Z'}
                                 style={{ width: "160px", height: "36px" }}
                             >
-                                <MenuItem value="" disabled>
-                                    Sort by
-                                </MenuItem>
+                                
                                 <MenuItem value={"Sort by A to Z"} onClick={SearchA2Z}>
                                     Sort by A to Z
                                 </MenuItem>

@@ -100,8 +100,6 @@ const routesConfig = [
     path: "/ProductDetail",
     element: <RoutingList Component={ProductDetail} ></RoutingList>,
   },
-
-,
   // End
       {
         path: "/brand",
@@ -121,7 +119,7 @@ const routesConfig = [
         element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
       },
       {
-        path: "/Weed-Deliveries/:StoreName/:tab/:id/",
+        path: "/weed-deliveries/:StoreName/:tab/:id/",
         element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
       }
       ,
@@ -138,15 +136,15 @@ const routesConfig = [
         element: <RoutingDespen Component={OpenDispansires} path="/Weed-Dispansires/in/" ></RoutingDespen>
       },
       {
-        path: "/Weed-Deliveries/in/:Country/",
+        path: "/weed-deliveries/in/:Country/",
         element: <RoutingDespen Component={Deliveries} path="/Weed-Deliveries/in/" ></RoutingDespen>
       },
       {
-        path: "/Weed-Deliveries/in/:Country/:state/",
+        path: "/weed-deliveries/in/:Country/:state/",
         element: <RoutingDespen Component={Deliveries} path="/Weed-Deliveries/in/" ></RoutingDespen>
       },
       {
-        path: "/Weed-Deliveries/in/:Country/:state/:city",
+        path: "/weed-deliveries/in/:Country/:state/:city",
         element: <RoutingDespen Component={Deliveries} path="/Weed-Deliveries/in/" ></RoutingDespen>
       },
 

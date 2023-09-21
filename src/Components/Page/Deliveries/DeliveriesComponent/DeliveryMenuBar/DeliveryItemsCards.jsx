@@ -20,7 +20,7 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                     <div className='col-sm-8 col-12 delivery_image_content_Container_height'>
                                         <div className='row'>
                                             <div className='col-lg-5 col-5 delivery_items_card_img_container px-0'>
-                                                <Link to={`/Weed-Deliveries/${items.Store_Name.replace(/\s/g,'-')}/${"Menu"}/${items.id}`}>
+                                                <Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"product"}/${items.id}`}>
                                                     <LazyLoadImage className='delivery_card_image_height' src={`https://sweede.app/${items.Store_Image}`} alt='Image_not found' height={"100px"} />
                                                 </Link>
                                             </div>
