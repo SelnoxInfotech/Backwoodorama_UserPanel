@@ -114,14 +114,33 @@ const routesConfig = [
         element: <ProtectRout Component={CheckOutMainPage} path="/CheckOutMainPage"></ProtectRout>
       },
        //  Weed Dispensires
+       
       {
         path: "/Weed-Dispensories/:StoreName/:tab/:id/",
         element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
       },
+   
       {
-        path: "/weed-deliveries/:StoreName/:tab/:id/",
+        path: "/weed-delivery/:StoreName/:tab?/:Category?/:SubCategory?/:id/",  
         element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
-      }
+      },
+      {
+        path: "/weed-deliverys/:StoreName/:tab/:Category/:SubCategory?/:Product/:id/",
+        element: <RoutingList Component={NewProductDetails} ></RoutingList>
+      },
+      // {
+      //   path: "/weed-delivery/:StoreName/:id/",  
+      //   element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
+      // },
+      // {
+      //   path: "/weed-delivery/:StoreName/:tab/:id/",  
+      //   element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
+      // },
+      // {
+      //   path: "/weed-delivery/:StoreName/:tab/:Category/:id",  
+      //   element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
+      // },
+     
       ,
       {
         path: "/Weed-Dispansires/in/:Country/:state/:city",

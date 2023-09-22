@@ -6,17 +6,19 @@ import Axios from "axios"
 import _ from "lodash"
 import { FormControl, Grid, MenuItem, Select } from "@mui/material"
 import SearchBar from '@mkyy/mui-search-bar';
-
-const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
+import { useParams, useNavigate } from "react-router-dom"
+const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
     const classes = useStyles()
+    const { tab, Category, StoreName, id } = useParams()
+    const navigate = useNavigate()
     const [OpenEvent, SetOpenEvent] = React.useState(null);
     const [OpenSortedData, SetOpenSortedData] = React.useState(null);
     const [Searchvalue, setSearchvalue] = React.useState()
     const [Filter, SetFilter] = React.useState([])
     const [SubCategory, SetSubCategory] = React.useState([])
-
     const SortedArrayData = [{ Id: 1, name: "Sort by" }]
     const SortedData = [{ type: "Sort by A to Z" }, { type: "Sort by Z to A" }, { type: "Sort by low to high" }, { type: "Sort by high to low" }]
+    console.log(tab)
     const HandleOpenSortedData = (Id, name) => {
         if (OpenSortedData === Id) {
             SetOpenSortedData(null)
@@ -45,6 +47,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
                 response.data.map((data) => {
                     d.push(data[0])
                     var uniqueUsersByID = _.uniqBy(d, 'id'); //removed if had duplicate id
+                    // console.log(uniqueUsersByID)
                     SetFilter(uniqueUsersByID)
                     return data
                 })
@@ -88,8 +91,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
 
             }).then(response => {
 
-                SetSubCategory(response.data)
-                console.log(response.data)
+                SetSubCategory(_.uniqBy(response.data, "id"))
 
 
 
@@ -120,20 +122,17 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
     }
 
 
-    function FilterSubCategorydata(id) {
-        console.log(id)
+    function FilterSubCategorydata(SubCategoryid, SubCategory_name , categoryName) {
         Axios.post(`https://sweede.app/UserPanel/Get-filterProductbyStoreandSubCategory/`, {
-
             "Store_Id": Store_id,
-            "SubCategory_Id": id
+            "SubCategory_Id": SubCategoryid
         }).then(async response => {
             Setarr1(response.data)
-
+            navigate(`/weed-delivery/${StoreName}/${"products"}/${categoryName?.toLowerCase()}/${SubCategory_name?.toLowerCase().replace(/\s/g, '-')}/${id}`)
         }).catch(
             function (error) {
                 alert("Something Goes Wrongkkk")
             })
-
     }
     const Search = () => {
         Axios(`https://sweede.app/UserPanel/Get-SearchFilter/?search=${Searchvalue}`, {
@@ -151,7 +150,6 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
 
             })
     }
-
     const SearchA2Z = () => {
         Axios(`https://sweede.app/UserPanel/Get-SortingFilterAtoZ/`, {
 
@@ -169,13 +167,13 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
             })
 
     }
-
     const SearchZ2A = () => {
         // Setarr1(arr1?.reverse())
     }
     const handleChange = (event) => {
         // SetProduct(event.target.value);
     };
+
     return (
         <>
             <div className="col-12 mt-4 product_search_and_select">
@@ -191,7 +189,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
                 </div>
                 <div className="col-10 product_select">
                     <Grid container display={{ xs: "none", md: "contents", lg: "contents" }}>
-                            
+
                         <FormControl className={classes.muiSelect}  >
                             <Select
                                 // value={Product}
@@ -203,7 +201,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
                                 label={'Sort by A to Z'}
                                 style={{ width: "160px", height: "36px" }}
                             >
-                                
+
                                 <MenuItem value={"Sort by A to Z"} onClick={SearchA2Z}>
                                     Sort by A to Z
                                 </MenuItem>
@@ -252,32 +250,25 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
                                                 return (
                                                     <div>
                                                         <div className="col-10 px-2 product_category_dropdown_cursor">
-                                                            <p onClick={() => { Category_Drop(data.id, ele.Name,) }}>{data.name}</p>
+                                                            <p onClick={() => { Category_Drop(data.id, ele.Name) }}>{data.name}</p>
                                                         </div>
                                                         {
                                                             SubCategory?.map((SubCategory) => {
                                                                 return (
-                                                                    SubCategory.category_id === data.id
+                                                                    SubCategory.CatgoryId === data.id
                                                                     &&
                                                                     <div className="col-10 px-2 py-0 product_sub_category_dropDown_cursor" style={{ left: "33px", position: "relative" }} >
-                                                                        <p onClick={() => { FilterSubCategorydata(SubCategory.id) }}>{SubCategory.name}</p>
+                                                                        <p onClick={() => { FilterSubCategorydata(SubCategory.id, SubCategory.SubCategory_name , data.name) }}>{SubCategory.SubCategory_name}</p>
 
                                                                     </div>
                                                                 )
-
                                                             })
                                                         }
-
                                                     </div>
-
                                                 )
                                             })
                                         }
-
                                     </div>
-
-
-
                                 )
                                 :
                                 ""
