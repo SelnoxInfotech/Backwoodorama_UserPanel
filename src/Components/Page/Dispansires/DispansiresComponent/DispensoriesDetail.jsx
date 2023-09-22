@@ -135,10 +135,14 @@ export default function DispensoriesDetails() {
                                     ProductFilterData={ProductFilterData}
                                     Setarr1={SetDespensariesProductData}
                                 // FilterCategoryArry={FilterCategory}
+
+
                                 />
 
                                 <div className="col-12 col-lg-10 prod_cat_right_sec">
-                                    <ProductList arr={DespensariesData} />
+                                    <ProductList arr={DespensariesData} 
+                                    ProductNavigate={ProductNavigate}
+                                    />
 
 
                                 </div>
