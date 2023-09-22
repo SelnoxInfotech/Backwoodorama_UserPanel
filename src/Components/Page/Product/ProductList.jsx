@@ -167,7 +167,7 @@ const ProductList = ({ arr , ProductNavigate }) => {
                                     </span  >
                                 <div className="prod_cat_cont" >
                                     {/* <Link to={`/products/${ele.category_name}/${ele.Product_Name.replace(/%20| /g, "-")  }/${ele.id}`}> */}
-                                        <div className="col-12 p-2 prod_cat_img">
+                                        <div className="col-12 p-2 prod_cat_img position-relative">
                                         <LazyLoadImage
                                         onClick={()=>ProductNavigate(ele.Product_Name ,ele.category_name ,ele.id )}
                                             className="product_search_result_image"
