@@ -62,7 +62,7 @@ const NewProductDetails = () => {
       <NewProductDetailsCards Product={Product} />
       {/* <NewProductDescription Product={Product?.Product_Description} /> */}
       <NewProductinfoText  Product={{heading:"Product Description",text:Product?.Product_Description}} />
-      <NewProductinfoText  Product={{heading:"About Us",text:Product?.Product_Description}} />
+      {/* <NewProductinfoText  Product={{heading:"About Us",text:Product?.Product_Description}} /> */}
 
       {/* <NewProductSearchResult NewProductSearchRseultArray={StoreProduct} heading={heading} /> */}
       <ProductSearchResult RelatedProductResult={StoreProduct} currentProductID={Product.id} CategoryName={heading}/> 

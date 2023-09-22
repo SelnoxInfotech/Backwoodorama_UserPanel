@@ -79,7 +79,7 @@ const Weed_Dispansires = () => {
                             return (
                                 
                                     <div className="row mt-2" key={index}>
-                                        <div className="col-lg-12  col-md-12 col-sm-12 col-12 despensories_card_container">
+                                        <div className=" col-11  mx-auto despensories_card_container">
                                             <div className="row">
                                                 <div className="col-4 disensories_card_image_div">
                                                     <Link  to={`/Weed-Dispensories/${ele.Store_Name.replace(/\s/g,'-')}/${"Menu"}/${ele.id}`}>

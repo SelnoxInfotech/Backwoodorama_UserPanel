@@ -2036,7 +2036,13 @@ scrollbar-width: none;  /* Firefox */
   overflow-y: scroll;
 
 }
-
+.dispensories_main_container{
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.dispensories_main_container::-webkit-scrollbar {
+  display: none;
+}
 .dispensories_search_result {
   position: sticky;
   top: 0px;
