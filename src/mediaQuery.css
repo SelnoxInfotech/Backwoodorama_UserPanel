@@ -1,10 +1,10 @@
-@media(min-width:1600px){
- .container {
-  
-  max-width: 1536px !important;
- }
-}
- @media(max-width:992px) {
+  @media(min-width:1600px){
+  .container {
+    
+    max-width: 1536px !important;
+  }
+  }
+  @media(max-width:992px) {
     .NumberText_container {
       overflow-x: scroll;
       overflow-y: hidden;
@@ -60,6 +60,9 @@
       height: 100px;
       cursor: pointer;
     }
+    .newsletterFormFeild{
+      width: 80%;
+    }
   }
   @media(max-width:600px) {
     .dispensoriesBannerHeading h5 {
@@ -73,6 +76,14 @@
     .dispensoriesBannerSubHeading p {
       height: 16px;
   
+    }
+    .mobile_view_weigth{
+      width: 100%;
+      overflow-x: scroll;
+    }
+    .prod_cat_cont_btn {
+      height: 62px;
+      width: 250%;
     }
   }
   @media(max-width:576px) {
@@ -89,7 +100,6 @@
       width: 100%;
     }
   }
- 
   @media only screen and (min-width: 992px)and (max-width:1199px) {
    
     .dispensories_image {
@@ -113,6 +123,15 @@
     }
   }
   @media only screen and (max-width:480px) {
+    .common_sub_head {
+      font-size: 12px;
+      margin-bottom: 0;
+    }
+    .prod_inner_cont{
+      width: 320px;
+      margin: 0 auto;
+      margin-bottom: 20px;
+    }
     .DeliveryServicesRatingTitle{
        font-size: 14px;
     }
@@ -213,6 +232,9 @@
     }
   }
   @media(max-width:425px) {
+    .newsletterFormFeild{
+      padding: 2px;
+    }
     .NumberText_container ol li {
       font-size: 8px;
       min-width: 22%;
@@ -221,7 +243,9 @@
     .NumberText_container ol {
       gap: 7%;
     }
-  
+    .newsletterFormFeild{
+      width: 100%;
+    }
   
     .Category_title {
       font-size: 12px;

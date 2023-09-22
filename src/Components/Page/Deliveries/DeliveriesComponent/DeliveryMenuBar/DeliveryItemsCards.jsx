@@ -89,8 +89,6 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                         </div>
                                     </div>
                                 </div>
-
-
                             </div>
                         )
                     })}

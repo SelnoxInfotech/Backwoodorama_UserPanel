@@ -178,8 +178,7 @@ const useStyles = makeStyles({
 
       color: "white",
       background: "#31B665",
-      // boxShadow: "2px 2px"
-
+      
     }
   },
 

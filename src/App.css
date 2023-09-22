@@ -393,49 +393,7 @@ a {
 
 /* End */
 
-/* Slider Navbar */
-@media screen and (max-width: 993px) {
 
-  #mySidebar {
-    width: 0px;
-  }
-
-}
-
-.sidebar {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0px;
-  left: 0;
-  background: white;
-  overflow-x: hidden;
-  transition: 0.1s;
-
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-
-.Tooglrbar {
-  gap: 10px;
-  display: flex;
-}
-
-.Slider_content_center {
-  display: grid;
-  justify-content: center;
-}
-
-.openbtn {
-  border-radius: 4px;
-  height: 25px;
-  width: 27px;
-  background-color: transparent;
-  color: #00b96a;
-  border: 1px solid #00b96a;
-}
-
-/* end */
 
 /* WeedProduct */
 
@@ -877,26 +835,21 @@ overflow-x: hidden; */
 .CategoryBordrr {
   border: 1px solid #F9F9F9;
   background: #F9F9F9;
-  height: 332px;
+  padding: 30px 0;
 }
-
+.disp_head{
+  position: relative;
+}
 .CategorySliderImageBlock {
   width: 214px;
   height: 214px;
 }
-
-@media (max-width:480px) {
-  .CategoryBordrr {
-
-    height: 250px;
-  }
+.shopByCategoryHeading{
+  line-height: 2;
+  
 }
 
-.disp_head {
-  position: relative;
-  top: 32px;
 
-}
 
 
 

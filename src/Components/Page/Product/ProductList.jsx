@@ -152,23 +152,22 @@ const ProductList = ({ arr }) => {
     }
     return (
         <>
-            <div className="row mx-2" style={{ height: "auto", marginBottom: "100px" }}>
+            <div className="row  mx-2" style={{ height: "auto", marginBottom: "100px" }}>
                 {arr?.map((ele, index) => {
                     return (
-                        <div className="col-12 col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12  prod_inner_cont " key={index}>
-                            <div className="row product_inner_row">
-
+                        <div className="col-12 col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12   " key={index}>
+                               <div className="prod_inner_cont  product_inner_row">
                                     <span className="product_inner_rowspan">
                                     <IconButton  onClick={() => { handleWhishList(ele.id) }} aria-label="Example">
                                                 {
-                                                  state.login?   state.WishList[ele.id]? <AiFillHeart></AiFillHeart> : <AiOutlineHeart /> : <AiOutlineHeart /> 
+                                                  state.login?   state.WishList[ele.id]? <AiFillHeart color="#31B665"></AiFillHeart> : <AiOutlineHeart /> : <AiOutlineHeart /> 
                                                 }
 
                                             </IconButton>
                                     </span  >
-                                <div className="col-4 prod_cat_cont" >
+                                <div className="prod_cat_cont" >
                                     <Link to={`/products/${ele.category_name}/${ele.Product_Name.replace(/%20| /g, "-")  }/${ele.id}`}>
-                                        <div className="col-12 p-2 prod_cat_img">
+                                        <div className="col-12 p-2 prod_cat_img position-relative">
                                         <LazyLoadImage
                                             className="product_search_result_image"
                                             onError={event => {
@@ -179,20 +178,21 @@ const ProductList = ({ arr }) => {
                                            
                                         />
                                             {/* // <img src={`https://sweede.app/${ele?.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }} /> */}
-                                            <div className="col prod_img_btn prodCat_gap d-flex">
-                                                <button className="mx-2 cat_prod_inner_btn btn2">THC {ele.THC}%</button>
+                                            <div className="prod_img_btn d-flex">
+                                                <button className=" cat_prod_inner_btn btn2">THC {ele.THC}%</button>
+                                                <button className="cat_prod_inner_btn btn1">{ele.strain}</button>
                                             </div>
-                                            <button className="cat_prod_inner_btn btn1">{ele.strain}</button>
+                                           
 
                                         </div>
                                     </Link>
                                 </div>
-
-                                <div className="col-8 product_cat_allProduct">
+                                <div className="product_cat_allProduct">
 
                                     <div className="col-12 px-2 prod_para_name" style={{ marginBottom: "" }}>
-
+                                    <Link to={`/products/${ele.category_name}/${ele.Product_Name.replace(/%20| /g, "-")  }/${ele.id}`}>
                                         <h3 className='productListHeadings ellipsis'>{ele.Product_Name}</h3>
+                                        </Link>
                                     </div>
                                     <div className="col-12 px-2 prod_para prod_sub_heading_height ellipsis">
                                         <p className='fontStyle common_sub_head'>{ele.StoreName}</p>
@@ -200,7 +200,8 @@ const ProductList = ({ arr }) => {
                                     <div className="col-12 px-2 d-flex prod_para prod_sub_heading_height ellipsis" style={{ marginBottom: "0px" }}>
                                         <span className='fontStyle productlist_rating'>Rating</span><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons} /></span>
                                     </div>
-                                    <div className="col-12   prod_cat_cont_btn px-2">
+                                    <div className="mobile_view_weigth">
+                                    <div className="row   prod_cat_cont_btn product_price_tabs">
                                         {ele.Prices?.map((ele1, index) => {
                                             return (
                                                 ele1.Price?.map((data, index) => {
@@ -225,7 +226,7 @@ const ProductList = ({ arr }) => {
                                                         })
                                                     )
                                                     return (
-                                                        <div className="col-4 col-lg-3 col-md-4  prod_cat_btn_cont mt-2 d-flex" id="" key={index} >
+                                                        <div className="col-sm-4 col-2  prod_cat_btn_cont mt-2" id="" key={index} >
                                                             <section
                                                                 className={"prod_cat_btns " + (s ? "active" : "")}
                                                                 value={data.id} onClick={() => PriceSelect(ele.id, data.id)} >
@@ -238,11 +239,12 @@ const ProductList = ({ arr }) => {
                                             )
                                         })}
                                     </div>
+                                    </div>
                                     <div className="col-12 d-flex mt-3 mb-2 Fly">
 
 
                                         <Box
-                                            className={` weed_cart_btn ${classes.loadingBtnTextAndBack}`}
+                                            className={` ${classes.loadingBtnTextAndBack}`}
                                             style={{ width: "93%" }}
                                         >
 

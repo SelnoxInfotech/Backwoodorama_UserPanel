@@ -1,6 +1,6 @@
 import React from "react"
-import { FiChevronRight } from "react-icons/fi"
-import { FiChevronLeft } from "react-icons/fi"
+import { FiChevronRight ,FiChevronLeft} from "react-icons/fi"
+import { IoIosArrowDown  } from "react-icons/io"
 import useStyles from "../../../Style"
 import Axios from "axios"
 import _ from "lodash"
@@ -178,7 +178,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
     };
     return (
         <>
-            <div className="col-12 mt-4 product_search_and_select">
+            <div className="col-12 p-0 mt-4 product_search_and_select">
                 <div className="col-2 product_search_bar">
                     <SearchBar
                         onChange={newValue => setSearchvalue(newValue)}
@@ -226,21 +226,20 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Category, Store_id }) => {
                     return (
                         <div key={index}>
                             <div className="col-12 d-flex prodCat_gap product_category_border " onClick={() => HandleOpenEvent(Id, Name)}>
-                                <div className="col-1 brand_left_arrow">
-                                    <p>{(Id === OpenEvent) ? <FiChevronLeft className={classes.muiIcons} /> : ""}</p>
-                                </div>
+                             
                                 <div className="col-1 prod_filter_icon">
                                     <p>{Icons}</p>
                                 </div>
                                 <div className="col-6 fontStyle product_filter_name">
                                     <p>{Name}</p>
                                 </div>
-                                <div className="col-4 brand_right_arrow">
+                                <div className="col-1 brand_right_arrow">
 
-                                    <p>{(Id === OpenEvent) ? "" : <FiChevronRight className={classes.muiIcons} />}</p>
+                                    <p>{(Id === OpenEvent) ? <IoIosArrowDown className={classes.muiIcons} /> : <FiChevronRight className={classes.muiIcons} />}</p>
 
                                 </div>
-
+                                  
+                                   
                             </div>
                             {(Id === OpenEvent) ?
                                 (

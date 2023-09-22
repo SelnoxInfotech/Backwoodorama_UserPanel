@@ -57,6 +57,7 @@ export default function DispensoriesDetails() {
 
         axios.get(`https://sweede.app/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
         }).then(response => {
+            console.log(response.data)
             SetDespensariesProductData(response.data)
         })
     }, [id])
@@ -131,8 +132,6 @@ export default function DispensoriesDetails() {
 
                                 <div className="col-12 col-lg-10 prod_cat_right_sec">
                                     <ProductList arr={DespensariesData} />
-
-
                                 </div>
                             </div>
                         </React.Fragment>

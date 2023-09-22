@@ -1,0 +1,55 @@
+.mobileNavLogo{
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+/* Slider Navbar */
+
+  
+  .sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0px;
+    left: 0;
+    background: white;
+    overflow-x: hidden;
+    transition: 0.1s;
+  
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  
+  .Tooglrbar {
+    gap: 10px;
+    display: flex;
+  }
+  
+  .Slider_content_center {
+    display: grid;
+    justify-content: center;
+  }
+  
+  .openbtn {
+    border-radius: 4px;
+    height: 25px;
+    width: 27px;
+    background-color: transparent;
+    color: #555555;
+    border: 1px solid #555555;
+  }
+  @media screen and (max-width: 993px) {
+
+    #mySidebar {
+      width: 0px;
+    }
+ 
+  }
+
+  @media screen and (max-width: 993px){
+    .navbar_logo_image{
+        width: 40px;
+        height: 40px;
+          }
+  }
+  /* end */

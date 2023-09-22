@@ -90,8 +90,9 @@ const Weed_Dispansires = () => {
                                                 <div className="col-8 dispenosries_card_content_div">
 
                                                     <div className="col-12 dispensories_content_Header_paragraphs text-truncate">
+                                                    <Link  to={`/Weed-Dispensories/${ele.Store_Name.replace(/\s/g,'-')}/${"Menu"}/${ele.id}`}>
                                                         <span className="text-truncate dispensoriesHeadingName">{ele.Store_Name}</span>
-
+                                                    </Link>
                                                     </div>
                                                     <div className="col-12 dispensories_content_paragraphs">
                                                         <span className="text-truncate dispensorieAddressNames">{ele.Store_Address}</span>

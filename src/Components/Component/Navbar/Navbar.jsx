@@ -17,7 +17,7 @@ import Box from '@mui/material/Box';
 import LoadingButton from '@mui/lab/LoadingButton';
 import IconButton from '@mui/material/IconButton';
 import { useNavigate , useLocation } from 'react-router-dom';
-
+import './Navbar.css'
 const Navbar = () => {
   const cookies = new Cookies();
   const ref = React.useRef(null);
@@ -114,9 +114,6 @@ const Navbar = () => {
       return !DropDownState;
     })
   }
-     
-   
-
   return (
     <React.Fragment>
       <div ref={ref} className='sticky-top' style={{ background: "white", padding: "10px" }}>
@@ -133,16 +130,24 @@ const Navbar = () => {
 
               </Grid>
               :
-              <Grid container xs={2} md={2} xl={2}>
+              <Grid container xs={3} md={2} xl={2}    alignItems="center"
+             >
                 <div className='center' style={{ marginLeft: "15px" }}>
                   <button className="openbtn Border" onClick={() => { openNav() }}>☰</button>
                 </div>
               </Grid>
           }
-          <Grid xs={6} md={6} xl={7} display={{ xs: "none", md: "block", lg: "block" }}>
+          <Grid xs={6} md={6} xl={7} display={{ xs: "block", md: "block", lg: "block" }}>
+          {
+            Hamburger ?
             <SearchBar path={Location.pathname}/>
+            :
+            <span className='mobileNavLogo' >
+            <Link to="/"><LazyLoadImage className='navbar_logo_image' src='https://sweede.app/image/images/download/media/BlankImage/3.png' /></Link>
+          </span>
+          }
           </Grid>
-          <Grid xs={10} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }} >
+          <Grid xs={3} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }} >
             <div className=' col-12 Login_Sigup_button  Heder_icon ' style={{ justifyContent: "end", marginLeft: "-20px" }}>
               <Link to="/WhisLists">
              
@@ -150,12 +155,12 @@ const Navbar = () => {
                 <IconButton className={classes.navBarButton_icons} aria-label='whishlist'><AiFillHeart color="#858585" size={22} /></IconButton>
               </Badge>
               </Link>
-              <Badge badgeContent={4} className={classes.sliderLink_badge}>
+              <Badge badgeContent={0} className={classes.sliderLink_badge}>
 
                 <IconButton className={classes.navBarButton_icons} aria-label='notification'><IoIosNotifications color="#858585" size={22}></IoIosNotifications></IconButton>
               </Badge>
               <Link to="/AddToCart">
-                <Badge className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`} badgeContent={state.AllProduct.length > 0 ? state.AllProduct.length : "0"}>
+                <Badge  badgeContent={ state.login & state.AllProduct.length >= 1  } className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`}>
 
                   <IconButton className={classes.navBarButton_icons} aria-label='shopping-cart'><MdOutlineShoppingCart color="#858585" size={22}></MdOutlineShoppingCart></IconButton>
                 </Badge>
