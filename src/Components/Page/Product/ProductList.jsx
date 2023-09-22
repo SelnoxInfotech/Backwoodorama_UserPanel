@@ -16,7 +16,7 @@ import { AiFillHeart } from "react-icons/ai"
 import IconButton from '@mui/material/IconButton';
 import { WishListPost } from "../../Component/Whishlist/WishListApi_"
 import {WhisList} from "../../Component/Whishlist/WhisList"
-const ProductList = ({ arr }) => {
+const ProductList = ({ arr , ProductNavigate }) => {
   
     const cookies = new Cookies();
     const [CartClean, SetCartClean] = React.useState(false)
@@ -165,10 +165,11 @@ const ProductList = ({ arr }) => {
 
                                             </IconButton>
                                     </span  >
-                                <div className="prod_cat_cont" >
-                                    <Link to={`/products/${ele.category_name}/${ele.Product_Name.replace(/%20| /g, "-")  }/${ele.id}`}>
-                                        <div className="col-12 p-2 prod_cat_img position-relative">
+                                <div className="col-4 prod_cat_cont" >
+                                    {/* <Link to={`/products/${ele.category_name}/${ele.Product_Name.replace(/%20| /g, "-")  }/${ele.id}`}> */}
+                                        <div className="col-12 p-2 prod_cat_img">
                                         <LazyLoadImage
+                                        onClick={()=>ProductNavigate(ele.Product_Name ,ele.category_name ,ele.id )}
                                             className="product_search_result_image"
                                             onError={event => {
                                                 event.target.src = "/image/blankImage.jpg"
@@ -185,7 +186,7 @@ const ProductList = ({ arr }) => {
                                            
 
                                         </div>
-                                    </Link>
+                                    {/* </Link> */}
                                 </div>
                                 <div className="product_cat_allProduct">
 

@@ -2,7 +2,7 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import useStyles from "../../../../Style"
-import ProductFilter from "../../Product/ProductFilter";
+import ProductFilter from "../../../Component/Filter/ProductFilter";
 import ProductList from "../../Product/ProductList";
 import { BsLayoutSplit } from "react-icons/bs"
 import { MdOutlineBrandingWatermark } from "react-icons/md"
@@ -19,15 +19,12 @@ import Review from "../../Review/Review";
 import Media from "../../Media/Media";
 export default function DispensoriesDetails() {
     const navigate = useNavigate()
-    const { id, tab } = useParams();
+    const { id, tab, Category, SubCategory } = useParams();
     const classes = useStyles()
-    // const [Product, SetProduct] = React.useState('');
-    const [Category, SetCategory] = React.useState([])
+    const [category, SetCategory] = React.useState([])
     const [DespensariesData, SetDespensariesProductData] = React.useState([])
     const [Despen, SetDespens] = React.useState([])
-    const [Tab, SetTab] = React.useState()
-
-
+    // const [Tab, SetTab] = React.useState()
     React.useEffect(() => {
         axios.get(`https://sweede.app/UserPanel/Get-StoreById/${id}`, {
         }).then(response => {
@@ -45,11 +42,19 @@ export default function DispensoriesDetails() {
                 d.push(data[0])
                 var uniqueUsersByID = _.uniqBy(d, 'id'); //removed if had duplicate id
                 SetCategory(uniqueUsersByID)
+                if (Category !== undefined) {
+                    uniqueUsersByID.map((data) => {
+                        if (Category === data.name.toLowerCase()) {
+                            // SetFilterCategory(uniqueUsersByID)
+                            ShowCategoryProduct(data.id, Category)
+                        }
+                        return data
+
+                    })
+                }
+
                 return data
             })
-
-            // SetCategory(d)
-
         }).catch(
             function (error) {
             })
@@ -57,48 +62,48 @@ export default function DispensoriesDetails() {
 
         axios.get(`https://sweede.app/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
         }).then(response => {
-            console.log(response.data)
             SetDespensariesProductData(response.data)
         })
     }, [id])
 
-    // const FilterCategory = async (id) => {
-    //     axios(`https://sweede.app/UserPanel/Get-ProductByCategory/${id}`, {
-    //     }).then(response => {
-    //         SetDespensariesProductData(response.data)
 
-
-    //     }).catch(
-    //         function (error) {
-
-    //         })
-
-    // }
-    function SelectionTab(item,Store_Name) {
-        SetTab(item)
-        navigate(`/Weed-Dispensories/${Despen[0].Store_Name.replace(/\s/g,'-')}/${item.replace(/\s/g,'-')}/${id}`)
-
+    function SelectionTab(item) {
+        // SetTab(item)
+        if (item === "Menu") {
+            item = "products"
+            navigate(`/weed-delivery/${Despen[0]?.Store_Name.replace(/\s/g, '-').toLowerCase()}/${item.replace(/\s/g, '-').toLowerCase()}/${id}`)
+        }
+        else {
+            navigate(`/weed-delivery/${Despen[0]?.Store_Name.replace(/\s/g, '-').toLowerCase()}/${item.replace(/\s/g, '-').toLowerCase()}/${id}`)
+        }
     }
 
-//  React.useEffect(()=>{
-//     navigate(`/DispensoriesDetails/${id}/${item}/${StoreName}`)
-//  },[])
-
-    function ShowCategoryProduct(Id) {
-
+    function ShowCategoryProduct(Id, name) {
         axios.post(`https://sweede.app/UserPanel/Get-filterProductbyStoreandCategory/`,
-
             {
                 "Store_Id": parseInt(id),
                 "Category_Id": Id
             }
         ).then(response => {
+            if (Category !== name) {
+
+                navigate(`/weed-delivery/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/${"products"}/${name.toLowerCase()}/${id}`)
+            }
             SetDespensariesProductData(response.data)
 
         }).catch(
             function (error) {
 
             })
+    }
+
+    function ProductNavigate(Product_Name, category_name , ProductId) {
+        if (SubCategory === undefined) {
+            navigate(`/weed-deliverys/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/${"products"}/${category_name.toLowerCase()}/${Product_Name.replace(/\s/g, '-').toLowerCase()}/${ProductId}`)
+        }
+        else{
+            navigate(`/weed-deliverys/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/${"products"}/${category_name.toLowerCase()}/${SubCategory.toLowerCase()}/${Product_Name.replace(/\s/g, '-').toLowerCase()}/${ProductId}`)
+        }
     }
 
     const ProductFilterData = [{ Id: 1, Name: "Category", Type1: "Flower", Type2: "CBD", Icons: <BsLayoutSplit className={classes.muiIcons} /> },
@@ -119,34 +124,38 @@ export default function DispensoriesDetails() {
 
                     </div>
                     {
-                        tab === 'Menu' &&
+                        (tab === "products" || tab === undefined) &&
                         <React.Fragment>
-                            <CategoryProduct Category={Category} ShowCategoryProduct={ShowCategoryProduct}> </CategoryProduct>
-                            <div className="col-12   productCat_cont" style={{ display: "contents" }}>
+                            <CategoryProduct Category={category} ShowCategoryProduct={ShowCategoryProduct}> </CategoryProduct>
+                            <div className="col-12 productCat_cont" style={{ display: "contents" }}>
 
 
 
                                 <ProductFilter Store_id={Despen[0]?.id}
                                     ProductFilterData={ProductFilterData}
-                                    Setarr1={SetDespensariesProductData} />
+                                    Setarr1={SetDespensariesProductData}
+                                // FilterCategoryArry={FilterCategory}
+                                />
 
                                 <div className="col-12 col-lg-10 prod_cat_right_sec">
                                     <ProductList arr={DespensariesData} />
+
+
                                 </div>
                             </div>
                         </React.Fragment>
                     }
                     {
-                        tab === 'Store-Details' && <ComponentStoreDetails></ComponentStoreDetails>
+                        tab === 'store-details' && <ComponentStoreDetails></ComponentStoreDetails>
                     }
                     {
-                        tab === 'Review' && <Review></Review>
+                        tab === 'review' && <Review></Review>
                     }
                     {
-                        tab === 'Deal' && <>Deal</>
+                        tab === 'deal' && <>Deal</>
                     }
                     {
-                        tab === 'Media' && <Media></Media>
+                        tab === 'media' && <Media></Media>
                     }
                 </div>
 
