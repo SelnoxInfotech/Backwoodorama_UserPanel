@@ -57,13 +57,13 @@ const Dispensories = () => {
                                                 <Link className='dispensoriesLinkStyles' to={`/Weed-Dispensories/${ele.Store_Name.replace(/\s/g,'-')}/${"Menu"}/${ele.id}`}>
                                                     <div className='col-12'>
 
-                                                        <div className=' col-10  dis_right_div'>
+                                                        <div className=' dis_right_div'>
                                                             <p className='ellipsis dispensoriesHeadings'>{ele.Store_Name.charAt(0).toUpperCase() + ele.Store_Name.slice(1)}</p>
                                                         </div>
                                                     </div>
                                                     <div className='col-12 '>
                                                    
-                                                        <div className=' col-10 Dispensaries_card_discription'>
+                                                        <div className=' Dispensaries_card_discription'>
                                                             <div className=''>
                                                                 <span className='span_nav'><BiMap className={classes.disPen_Icons} /></span>
                                                             </div>
@@ -75,7 +75,7 @@ const Dispensories = () => {
                                                         </div>
                                                     </div>
                                                     <div className='col-12  '>
-                                                        <div className=' col-10 Dispensaries_card_discription'>
+                                                        <div className='    Dispensaries_card_discription'>
                                                             <span className='ellipsis'>{ele.Store_Type}</span>
                                                         </div>
                                                     </div>

@@ -87,18 +87,9 @@
     }
   }
   @media(max-width:576px) {
-    .FeaturedBrandImageContainer {
-      height: 200px;
-    }
-  
-    .featuredBrandScrollContainerRelative {
-      left: 0px;
-    }
-  
-    .FeaturedBrandImage_height {
-      height: 200px;
-      width: 100%;
-    }
+   
+
+   
   }
   @media only screen and (min-width: 992px)and (max-width:1199px) {
    

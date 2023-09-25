@@ -218,9 +218,6 @@ line-height: normal;
   color: #707070;
 }
 
-
-
-
 /*end*/
 /* weedCard */
 
@@ -4595,40 +4592,6 @@ background: #31B665;
 }
 
 /* end */
-/* FeaturedBrand */
-.FeaturedBrandImageContainer {
-  height: 120px;
-}
-
-.FeaturedBrandImage_height {
-  height: 120px;
-  width: 100%;
-}
-
-.FeaturedBrandContainer {
-  background: #FAFAFA;
-  border: 1px solid #E7E7E7;
-}
-
-.featuredBrandTitle {
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 36px;
-
-  color: #525252;
-}
-
-.featuredBrandScrollContainerRelative {
-  width: 100%;
-  display: flex;
-  gap: 4%;
-  justify-content: normal;
-  ;
-  /* left: -14px; */
-  position: relative;
-}
-
-/* end*/
 /* checkAgeEligiblityPopup */
 .checkAgeEligiblityPop_container {
   height: auto;
@@ -7746,7 +7709,7 @@ cursor: pointer;
   width: 100%;
 }
 .dispensoriesContainer{
-  width: 320px;
+  width: 280px;
 }
 .deliveryServicesCard{
   width: 260px;

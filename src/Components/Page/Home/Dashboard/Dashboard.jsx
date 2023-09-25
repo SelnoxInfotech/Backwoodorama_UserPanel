@@ -1,12 +1,12 @@
 import Map from "../../../Component/Map/map"
 import CategoryProduct from "./ComponentDashboard/CategoryProduct";
 import Dispensorieslider from "../../Dispansires/DispansiresComponent/DispensoriesSlider";
+import HomePageWeedBanner from "./ComponentDashboard/HomePageWeedBanner";
 import NewsBlog from "./ComponentDashboard/NewsBlog";
 import HomePageBanner from "./ComponentDashboard/HomePageBanner";
 import DeliveryServices from "../../Delivery/HomePageDelivery/DeliveryServices";
 import { useNavigate } from "react-router-dom";
 import React from "react";
-import HomePageWeedBanner from "./ComponentDashboard/HomePageWeedBanner";
 import HomePageDealsSignup from "./ComponentDashboard/HomePageDealsSignup";
 import StrainTypeCards from "../../Strain/StrainComponent/StrainTypeCards";
 import FeaturedBrand from "./ComponentDashboard/FeaturedBrand";
@@ -70,6 +70,7 @@ export default function Dashboard() {
             <div className="col-12 border" style={{ height: "300px", position: "relative", top: "15px" }}>
                 <Map height={"297px"} width={"100%"}></Map>
             </div>
+         
             <FeaturedBrand CardDataArray={FeaturedBrandArray} BrandSkeleton={BrandSkeleton} />
             <HomePageDealsSignup></HomePageDealsSignup>
             {/* <WeedProduct></WeedProduct> */}

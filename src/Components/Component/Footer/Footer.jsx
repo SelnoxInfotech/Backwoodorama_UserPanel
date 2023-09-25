@@ -1,4 +1,4 @@
-import { BsWhatsapp } from "react-icons/bs"
+import { BsLinkedin } from "react-icons/bs"
 import { FaFacebook } from "react-icons/fa"
 import { FaInstagram } from "react-icons/fa"
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -39,7 +39,7 @@ const Footer = () => {
                     <div className="footer_main_div_display ">
                       
                             <h2 className=" footer_heading">WeedX</h2>
-                            <h3 className="footer_sub_heading ">A community connecting cannabis consumer retailers, doctors, and brands since 2008.</h3>
+                            <h3 className="footer_sub_heading ">Your Ultimate Cannabis Guide. Discover Dispensaries, Delivery Services, Brands, and Comprehensive Product Information Near You</h3>
                        
                        
                         <div className="row main_content_logo">
@@ -124,13 +124,23 @@ const Footer = () => {
                             <div className="col-lg-3 col-sm-3 footer_icons_column ">
                                 <ol className="px-0">
                                     <li>
-                                        <BsWhatsapp className={`footer_icons ${classes.footer_icons_color}`} />
+                                        <Link to={"https://www.linkedin.com/company/weedx-io/"}></Link>
+                                        <BsLinkedin className={`footer_icons ${classes.footer_icons_color}`} />
                                     </li>
                                     <li>
+                                    <Link to={"https://www.facebook.com/profile.php?id=61550742531174"}></Link>
                                         <FaFacebook className={` footer_icons ${classes.footer_icons_color}`} />
                                     </li>
                                     <li>
+                                    <Link to={"https://www.instagram.com/weedx_io"}></Link>
                                         <FaInstagram className={` footer_icons ${classes.footer_icons_color}`} />
+                                    </li>
+                                    <li>
+                                        <Link to={"https://twitter.com/Weedx_io"}> 
+                                            <span className="x_icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="#31B665" height="1em" viewBox="0 0 500 500"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+                                            </span>
+                                        </Link>
                                     </li>
 
                                 </ol>
