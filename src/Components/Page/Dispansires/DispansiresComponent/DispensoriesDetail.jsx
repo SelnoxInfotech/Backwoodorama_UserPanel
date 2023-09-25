@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate ,useLocation} from "react-router-dom";
 import axios from "axios";
 import useStyles from "../../../../Style"
 import ProductFilter from "../../../Component/Filter/ProductFilter";
@@ -19,7 +19,9 @@ import Review from "../../Review/Review";
 import Media from "../../Media/Media";
 export default function DispensoriesDetails() {
     const navigate = useNavigate()
-    const { id, tab, Category, SubCategory } = useParams();
+    const location = useLocation()
+    const params = useParams();
+    const  { id, tab, Category, SubCategory } = params
     const classes = useStyles()
     const [category, SetCategory] = React.useState([])
     const [DespensariesData, SetDespensariesProductData] = React.useState([])
@@ -66,15 +68,15 @@ export default function DispensoriesDetails() {
         })
     }, [id])
 
-
+console.log(location.pathname.slice(0,14)=== "/weed-delivery" , location.pathname.slice(0,14))
     function SelectionTab(item) {
         // SetTab(item)
         if (item === "Menu") {
             item = "products"
-            navigate(`/weed-delivery/${Despen[0]?.Store_Name.replace(/\s/g, '-').toLowerCase()}/${item.replace(/\s/g, '-').toLowerCase()}/${id}`)
+            navigate(`${location.pathname.slice(0,14)=== "/weed-delivery" ? "/weed-delivery":"/weed-dispensorie"}/${Despen[0]?.Store_Name.replace(/\s/g, '-').toLowerCase()}/${item.replace(/\s/g, '-').toLowerCase()}/${id}`)
         }
         else {
-            navigate(`/weed-delivery/${Despen[0]?.Store_Name.replace(/\s/g, '-').toLowerCase()}/${item.replace(/\s/g, '-').toLowerCase()}/${id}`)
+            navigate(`${location.pathname.slice(0,14)=== "/weed-delivery" ? "/weed-delivery":"/weed-dispensorie"}/${Despen[0]?.Store_Name.replace(/\s/g, '-').toLowerCase()}/${item.replace(/\s/g, '-').toLowerCase()}/${id}`)
         }
     }
 
@@ -87,7 +89,7 @@ export default function DispensoriesDetails() {
         ).then(response => {
             if (Category !== name) {
 
-                navigate(`/weed-delivery/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/${"products"}/${name.toLowerCase()}/${id}`)
+                navigate(`${location.pathname.slice(0,14)=== "/weed-delivery" ? "/weed-delivery":"/weed-dispensorie"}/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/${"products"}/${name.toLowerCase()}/${id}`)
             }
             SetDespensariesProductData(response.data)
 
@@ -98,11 +100,12 @@ export default function DispensoriesDetails() {
     }
 
     function ProductNavigate(Product_Name, category_name , ProductId) {
+     const  Route =    location.pathname.slice(0,14)=== "/weed-delivery" ? "/weed-deliverys":"/weed-dispensories"
         if (SubCategory === undefined) {
-            navigate(`/weed-deliverys/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/${"products"}/${category_name.toLowerCase()}/${Product_Name.replace(/\s/g, '-').toLowerCase()}/${ProductId}`)
+            navigate(`${Route}/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/${"products"}/${category_name.toLowerCase()}/${Product_Name.replace(/\s/g, '-').toLowerCase()}/${ProductId}`)
         }
         else{
-            navigate(`/weed-deliverys/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/${"products"}/${category_name.toLowerCase()}/${SubCategory.toLowerCase()}/${Product_Name.replace(/\s/g, '-').toLowerCase()}/${ProductId}`)
+            navigate(`${Route}/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/${"products"}/${category_name.toLowerCase()}/${SubCategory.toLowerCase()}/${Product_Name.replace(/\s/g, '-').toLowerCase()}/${ProductId}`)
         }
     }
 

@@ -5,7 +5,7 @@ function Delivery() {
     const { state } = React.useContext(Createcontext)
     return (
         <Helmet>
-            <title> {`Weed Delivery in ${state.Location} | weedx.io | `}</title>
+            <title> {`Weed Delivery in ${state?.Location} | weedx.io | `}</title>
             <meta name='description' content={`find Nearby Weed Delivery in  ${state.Location}  for Recreational & Medical Uses. Browse Top Cannabis Products and Place Orders from Trusted weed delivery near you.`} />
             {/* Facebook tags */}
             <meta property="og:type" content="website"/>
@@ -20,5 +20,4 @@ function Delivery() {
         </Helmet>
     )
 }
-
 export  {Delivery} 

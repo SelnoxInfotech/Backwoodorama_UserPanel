@@ -116,10 +116,13 @@ const routesConfig = [
        //  Weed Dispensires
        
       {
-        path: "/Weed-Dispensories/:StoreName/:tab/:id/",
+        path: "/weed-dispensorie/:StoreName/:tab?/:Category?/:SubCategory?/:id/",
         element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
       },
-   
+      {
+        path: "/weed-dispensories/:StoreName/:tab/:Category/:SubCategory?/:Product/:id/",
+        element: <RoutingList Component={NewProductDetails} ></RoutingList>
+      },
       {
         path: "/weed-delivery/:StoreName/:tab?/:Category?/:SubCategory?/:id/",  
         element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
@@ -143,17 +146,17 @@ const routesConfig = [
      
       ,
       {
-        path: "/Weed-Dispansires/in/:Country/:state/:city",
+        path: "/weed-dispansires/in/:Country/:state?/:city?",
         element: <RoutingDespen Component={OpenDispansires}  ></RoutingDespen>
       },
-      {
-        path: "/Weed-Dispansires/in/:Country/",
-        element: <RoutingDespen Component={OpenDispansires} path="/Weed-Dispansires/in/" ></RoutingDespen>
-      },
-      {
-        path: "/Weed-Dispansires/in/:Country/:state/",
-        element: <RoutingDespen Component={OpenDispansires} path="/Weed-Dispansires/in/" ></RoutingDespen>
-      },
+      // {
+      //   path: "/weed-dispansires/in/:Country/",
+      //   element: <RoutingDespen Component={OpenDispansires} path="/Weed-Dispansires/in/" ></RoutingDespen>
+      // },
+      // {
+      //   path: "/weed-dispansires/in/:Country/:state/",
+      //   element: <RoutingDespen Component={OpenDispansires} path="/Weed-Dispansires/in/" ></RoutingDespen>
+      // },
       {
         path: "/weed-deliveries/in/:Country/",
         element: <RoutingDespen Component={Deliveries} path="/Weed-Deliveries/in/" ></RoutingDespen>
