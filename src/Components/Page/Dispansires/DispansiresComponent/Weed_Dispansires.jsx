@@ -78,7 +78,7 @@ const Weed_Dispansires = () => {
                         {Store.map((ele, index) => {
                             return (
                                 
-                                    <div className="row mt-2" key={index}>
+                                    <div className="row mt-4" key={index}>
                                         <div className=" col-11  mx-auto despensories_card_container">
                                             <div className="row">
                                                 <div className="col-4 disensories_card_image_div">

@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useState } from "react"
 import { FiChevronRight ,FiChevronLeft} from "react-icons/fi"
 import { IoIosArrowDown  } from "react-icons/io"
 import useStyles from "../../../Style"
+import InputLabel from '@mui/material/InputLabel';
 import Axios from "axios"
 import _ from "lodash"
 import { FormControl, Grid, MenuItem, Select } from "@mui/material"
@@ -10,6 +11,7 @@ import { useParams, useNavigate } from "react-router-dom"
 const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
     const classes = useStyles()
     const { tab, Category, StoreName, id } = useParams()
+    const [select,setselect] = useState("Short")
     const navigate = useNavigate()
     const [OpenEvent, SetOpenEvent] = React.useState(null);
     const [OpenSortedData, SetOpenSortedData] = React.useState(null);
@@ -18,7 +20,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
     const [SubCategory, SetSubCategory] = React.useState([])
     const SortedArrayData = [{ Id: 1, name: "Sort by" }]
     const SortedData = [{ type: "Sort by A to Z" }, { type: "Sort by Z to A" }, { type: "Sort by low to high" }, { type: "Sort by high to low" }]
-    console.log(tab)
+   
     const HandleOpenSortedData = (Id, name) => {
         if (OpenSortedData === Id) {
             SetOpenSortedData(null)
@@ -47,7 +49,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
                 response.data.map((data) => {
                     d.push(data[0])
                     var uniqueUsersByID = _.uniqBy(d, 'id'); //removed if had duplicate id
-                    // console.log(uniqueUsersByID)
+                 
                     SetFilter(uniqueUsersByID)
                     return data
                 })
@@ -171,7 +173,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
         // Setarr1(arr1?.reverse())
     }
     const handleChange = (event) => {
-        // SetProduct(event.target.value);
+        setselect(event.target.value)
     };
 
     return (
@@ -181,7 +183,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
                     <SearchBar
                         onChange={newValue => setSearchvalue(newValue)}
                         onSearch={Search}
-                        // callback={(Search) => console.log(Search)}
+                      
 
                         style={{ border: "1px solid #dee2e6" }} width={"100%"} />
 
@@ -191,15 +193,18 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
                     <Grid container display={{ xs: "none", md: "contents", lg: "contents" }}>
 
                         <FormControl className={classes.muiSelect}  >
+                        <InputLabel id="demo-simple-select-label">Short by</InputLabel>
                             <Select
-                                // value={Product}
-
+                              labelId="demo-simple-select-label"
+                                value={select}
                                 onChange={handleChange}
-                                inputProps={{ 'aria-label': 'Without label' }}
+                            
                                 size="small"
-                                defaultValue={'  Sort by A to Z'}
+                                defaultValue={'Sort by A to Z'}
                                 label={'Sort by A to Z'}
                                 style={{ width: "160px", height: "36px" }}
+                                displayEmpty
+                                inputProps={{ 'aria-label': 'Without label' }}
                             >
 
                                 <MenuItem value={"Sort by A to Z"} onClick={SearchA2Z}>
@@ -225,13 +230,13 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
                         <div key={index}>
                             <div className="col-12 d-flex prodCat_gap product_category_border " onClick={() => HandleOpenEvent(Id, Name)}>
                              
-                                <div className="col-1 prod_filter_icon">
+                                <div className="col-2 prod_filter_icon">
                                     <p>{Icons}</p>
                                 </div>
                                 <div className="col-6 fontStyle product_filter_name">
                                     <p>{Name}</p>
                                 </div>
-                                <div className="col-1 brand_right_arrow">
+                                <div className="col-2 brand_right_arrow">
 
                                     <p>{(Id === OpenEvent) ? <IoIosArrowDown className={classes.muiIcons} /> : <FiChevronRight className={classes.muiIcons} />}</p>
 

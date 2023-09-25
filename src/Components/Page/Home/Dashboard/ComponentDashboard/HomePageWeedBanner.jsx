@@ -25,6 +25,10 @@ const HomePageWeedBanner=()=>{
     return(
         <div className='homepagebanner2 container-fluid'>
          { !Skeleton   ?
+         <React.Fragment>
+            <div className='destop_image'>
+
+           
            <ScrollContainer className="ScrollContainerRelative">
             {data?.map((ele, index) => {
                 return (
@@ -34,7 +38,21 @@ const HomePageWeedBanner=()=>{
 
                 )
             })}
-        </ScrollContainer>
+           </ScrollContainer>
+           </div>
+           <div className="mobile_imges">
+              <ScrollContainer className="ScrollContainerRelative">
+            {data?.map((ele, index) => {
+                return (
+                    <div className='col-12 homePageBanner_container' key={index}>
+                        <LazyLoadImage src={`https://sweede.app/${ele?.mobile}`} alt="image not available" className='HomePageBanner_image'/>
+                    </div>
+
+                )
+            })}
+           </ScrollContainer>
+           </div>
+           </React.Fragment>
         :
         <HomePageBannerSkeleton></HomePageBannerSkeleton>
     }

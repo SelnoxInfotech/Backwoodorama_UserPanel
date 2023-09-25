@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import React from "react";
 import Axios from "axios";
 import useStyles from "../../../../Style";
+import ProductFilter from "../../../Component/Filter/ProductFilter";
 const RelatedVerifyBrand = () => {
     const classes=useStyles()
     let { id } = useParams();
@@ -25,8 +26,12 @@ const RelatedVerifyBrand = () => {
         <div className="container-fluid">
             <RelatedVerifyBanner BrandDetails={BrandDetails} />
             <div className="row  center mx-0 mt-4 mb-4">
-                <div className="col-lg-12 px-0">
-                    <SearchBar style={{ background: "#FFFFF", border: "1px solid #31B665" }} className={classes.strainTypSearchBar} width={"100%"} placeholder="Search Menu" />
+                <div className="col-md-3 px-0">
+                {/* <ProductFilter/> */}
+                </div>
+                <div className="col-md-9">
+               <div>  <SearchBar style={{ background: "#FFFFF", border: "1px solid #31B665" }} className={classes.strainTypSearchBar} width={"100%"} placeholder="Search Menu" />
+                </div>
                 </div>
 
             </div>

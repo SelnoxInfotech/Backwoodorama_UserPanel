@@ -1981,7 +1981,7 @@ scrollbar-width: none;  /* Firefox */
   background: white;
   overflow-x: hidden;
   overflow-y: scroll;
-
+  padding-bottom: 20px;
 }
 .dispensories_main_container{
   -ms-overflow-style: none;  /* IE and Edge */
@@ -3591,9 +3591,6 @@ scrollbar-width: none;  /* Firefox */
   border-bottom: 1px solid gray;
 }
 
-.allProductCategoryContainer_height {
-  height: 170px;
-}
 
 @media (max-width: 591px) {
   .allProductCategoryContainer_height {
@@ -3662,8 +3659,11 @@ scrollbar-width: none;  /* Firefox */
   border: 1px solid #31B665;
   border-radius: 10px;
    overflow: hidden;
+   transition: all .4s ease;
 }
-
+.dispensoriesAddressBorder:hover{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+ }
 .RecentViewScrollContainerRelative {
   width: 100%;
   display: flex;
@@ -4075,116 +4075,7 @@ background: #31B665;
 }
 
 /* end */
-/* RelatedVerifyBrandBanner */
-.relatedVerifyBrand_Banner {
-  height: auto;
-  background: #FFFFFF;
-  border: 1px solid #DEDCDC;
-}
 
-.related_verifyBrandBanner_maincol {
-  display: flex;
-}
-
-.RelatedVerifyBrandBanner_image_section {
-  width: 30%;
-  height: 160px;
-}
-
-.related_verify_banner_img {
-  height: 140px;
-  width: 90%;
-}
-
-.RelatedVerifyBanner_content_section {
-  width: 70%;
-  height: 100%;
-}
-
-@media(max-width:768px) {
-  .related_verifyBrandBanner_maincol {
-    display: block;
-  }
-
-  .RelatedVerifyBrandBanner_image_section {
-    width: 100%;
-  }
-
-  .RelatedVerifyBanner_content_section {
-    width: 100%;
-  }
-
-  .related_verify_banner_img {
-    width: 100%;
-  }
-}
-
-
-
-.realtedVerifyBanner_image_inner_container {
-  height: 141px;
-  display: flex;
-  justify-content: center;
-  /* width: 30%; */
-
-  /* width: 198px; */
-}
-
-
-
-@media(max-width:380px) {
-  .realtedVerifyBanner_image_inner_container {
-    height: 121px;
-    width: 224px;
-  }
-
-  .related_verify_banner_img {
-    width: 100%;
-  }
-}
-
-.relatedVerifyBrand_icons {
-  height: 40px;
-}
-
-.relatedVerifyBrand_heading h1 {
-  font-weight: 700;
-  font-size: 32px;
-  color: #3F3F3F;
-}
-
-@media(max-width:575px) {
-  .relatedVerifyBrand_heading h1 {
-    font-size: 24px;
-
-  }
-}
-
-.related_verify_paragraph {
-  height: 100%;
-}
-
-.related_verify_paragraph p {
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 36px;
-
-  color: #505050;
-}
-
-@media(max-width:575px) {
-  .relatedVerifyBrand_heading h1 {
-    font-size: 24px;
-
-  }
-
-  .related_verify_paragraph p {
-    font-size: 12px;
-
-  }
-}
-
-/* end */
 /* bestDealCards */
 .bestDealsCard_Heading_offers {
   font-weight: 700;
@@ -4485,6 +4376,7 @@ background: #31B665;
   background: #FFFFFF;
   border: 1px solid #31B665;
   border-radius: 23px;
+  transition: all  .3s ease;
 }
 
 .deliveryServicesImage_container {
@@ -4520,7 +4412,7 @@ background: #31B665;
 
 .DeliveryServicesRatingTitle {
   color: #949494;
-  font-size: 24px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -7162,6 +7054,7 @@ background: #31B665;
   gap: 2.6%;
   justify-content: normal;
   position: relative;
+  padding: 20px;
 }
 
 
@@ -7713,4 +7606,8 @@ cursor: pointer;
 }
 .deliveryServicesCard{
   width: 260px;
+  transition: all .3s ease;
+}
+.deliveryServicesBorder:hover{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
