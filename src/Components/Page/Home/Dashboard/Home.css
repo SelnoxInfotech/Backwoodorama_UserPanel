@@ -1,0 +1,27 @@
+.mobile_imges{
+    display: none;
+
+}
+.homePageBanner_container {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+  
+  .HomePageBanner_image {
+    width: 100%;
+  }
+  
+  .homepage_carousal_container {
+    height: 480px;
+  }
+  
+ 
+@media only screen and (max-width: 768px){
+    .mobile_imges{
+        display: block;
+    
+    }
+    .destop_image{
+        display: none;
+    }
+}

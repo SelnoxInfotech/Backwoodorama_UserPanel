@@ -1,15 +1,11 @@
 import axios from 'axios'
 import Cookies from 'universal-cookie';
 
-
 export function registerEmp(usrdata) {
     let data = axios.post(' https://sweede.app/DeliveryBoy/Add-Employee/', usrdata);
     return data;
 }
-
-
 // blog Api
-
 export function BlogLike(ID) {
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
@@ -27,7 +23,6 @@ export function BlogLike(ID) {
         return data;
     }
 }
-
 export function Post_BlogLike(id, like) {
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
@@ -98,3 +93,18 @@ export function DespensioriesItem(){
 
 // Store Review Api   Dispensaries   
 
+export function Homepagebanner(){
+    let banner = axios(`https://sweede.app/UserPanel/Get-AllHomePageBanner/`,{
+
+    }
+
+    ).then((response)=>{
+      return response
+    }
+
+    ).catch(()=>{
+
+    })
+
+    return banner
+}

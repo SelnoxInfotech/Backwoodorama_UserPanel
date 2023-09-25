@@ -1,24 +1,16 @@
 import React from 'react';
 import { ScrollContainer } from 'react-indiana-drag-scroll';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import Axios from "axios"
+import {Homepagebanner} from '../../../../../Api/Api.jsx'
 import HomePageBannerSkeleton from '../../../../Component/Skeleton/DashBoardSkeleton/HomePageBannerSkeleton';
 const HomePageBanner = () => {
     const [HomePageBannerImage,SetHomePageBannerImage]=React.useState([])
     const [Skeleton , SetSkeleton] = React.useState(true)
     React.useEffect(()=>{
-        Axios(`https://sweede.app/UserPanel/Get-AllHomePageBanner/`,{
-
-        }
-
-        ).then((response)=>{
-            SetHomePageBannerImage(response.data)
+        Homepagebanner().then((res)=>{
+          
+            SetHomePageBannerImage(res.data)
             SetSkeleton(false)
-
-        }
-
-        ).catch(()=>{
-
         })
     },[])
    
@@ -26,17 +18,31 @@ const HomePageBanner = () => {
 
         !Skeleton ?
             
-          
-            <ScrollContainer  className="ScrollContainerRelative">
-                {HomePageBannerImage.map((items, index) => {
-                    return (
-                        <div className='col-12 homePageBanner_container' key={index}>
-                            <LazyLoadImage  src={`https://sweede.app/${items.Banner}`}  alt="Image not available" className='HomePageBanner_image'/>
-                        </div>
+            <div className="homeBannerContainer">
+                <div className="destop_image">
+                    <ScrollContainer  className="ScrollContainerRelative">
+                        {HomePageBannerImage.map((items, index) => {
+                            return (
+                                <div className='col-12 homePageBanner_container' key={index}>
+                                    <LazyLoadImage  src={`https://sweede.app/${items.Banner}`}  alt="Image not available" className='HomePageBanner_image'/>
+                                </div>
 
-                    )
-                })}
-            </ScrollContainer>
+                            )
+                        })}
+                    </ScrollContainer>
+                </div>
+                <div className="mobile_imges">
+                <ScrollContainer  className="ScrollContainerRelative">
+                        {HomePageBannerImage.map((items, index) => {
+                            return (
+                                <div className='col-12 homePageBanner_container' key={index}>
+                                    <LazyLoadImage  src={`https://sweede.app/${items.mobile}`}  alt="Image not available" className='HomePageBanner_image'/>
+                                </div>
+                            )
+                        })}
+                    </ScrollContainer>
+                </div>
+            </div>
           
         :
         <HomePageBannerSkeleton></HomePageBannerSkeleton>

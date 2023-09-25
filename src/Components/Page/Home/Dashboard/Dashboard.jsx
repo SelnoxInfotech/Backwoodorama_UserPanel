@@ -2,7 +2,6 @@ import Map from "../../../Component/Map/map"
 import CategoryProduct from "./ComponentDashboard/CategoryProduct";
 import Dispensorieslider from "../../Dispansires/DispansiresComponent/DispensoriesSlider";
 import NewsBlog from "./ComponentDashboard/NewsBlog";
-import CommunityType from "./ComponentDashboard/CommunityType";
 import HomePageBanner from "./ComponentDashboard/HomePageBanner";
 import DeliveryServices from "../../Delivery/HomePageDelivery/DeliveryServices";
 import { useNavigate } from "react-router-dom";
@@ -13,7 +12,7 @@ import StrainTypeCards from "../../Strain/StrainComponent/StrainTypeCards";
 import FeaturedBrand from "./ComponentDashboard/FeaturedBrand";
 import Axios from "axios";
 import {HomePageSco} from "../../../Component/ScoPage/HomePageSco"
-
+import './Home.css';
 export default function Dashboard() {
     const [FeaturedBrandArray, SetFeaturedBrandArray] = React.useState([])
     const [Skeleton, SetSkeleton] = React.useState(true)

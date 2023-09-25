@@ -209,6 +209,8 @@ line-height: normal;
   width: 150px;
   height: 150px;
   cursor: pointer;
+  display: block;
+  margin: 0 auto;
 }
 .Category_title {
   font-weight: 400;
@@ -1973,59 +1975,7 @@ scrollbar-width: none;  /* Firefox */
 }
 
 /* end */
-/* HomePageBanner */
-.homePageBanner_container {
-  height: 100%;
-  margin-bottom: 12px;
-}
 
-.HomePageBanner_image {
-  width: 100%;
-}
-
-.homepage_carousal_container {
-  height: 480px;
-}
-
-@media(max-width:480px) {
-
-  
-
-  .homepage_carousal_container {
-    height: 180px;
-  }
-}
-
-@media (max-width: 768px) {
-
-
-  
-  .homepage_carousal_container {
-    height: 220px;
-  }
-}
-
-@media (max-width: 900px) {
-
-
-  
-  .homepage_carousal_container {
-    height: 220px;
-  }
-}
-
-#home_page_banner_btn {
-  border-style: none;
-  font-size: 10px;
-  height: 20px;
-}
-
-.home_page_banner_btn_container {
-  height: 20px;
-}
-
-
-/* end */
 /* DispensoriesOpenResult */
 .dispensories_main_container {
   z-index: 1;

@@ -151,14 +151,14 @@ const Navbar = () => {
             <div className=' col-12 Login_Sigup_button  Heder_icon ' style={{ justifyContent: "end", marginLeft: "-20px" }}>
               <Link to="/WhisLists">
              
-              <Badge badgeContent={state.login && Object.values(state.WishList).reduce((a, item) => a + item, 0)} className={classes.sliderLink_badge}>
-                <IconButton className={classes.navBarButton_icons} aria-label='whishlist'><AiFillHeart color="#858585" size={22} /></IconButton>
-              </Badge>
+                <Badge badgeContent={state.login && Object.values(state.WishList).reduce((a, item) => a + item, 0) >= 1  ? Object.values(state.WishList).reduce((a, item) => a + item, 0) : 0 } className={classes.sliderLink_badge}>
+                  <IconButton className={classes.navBarButton_icons} aria-label='whishlist'><AiFillHeart color="#858585" size={22} /></IconButton>
+                </Badge>
               </Link>
-              <Badge badgeContent={0} className={classes.sliderLink_badge}>
+                <Badge badgeContent={0} className={classes.sliderLink_badge}>
 
-                <IconButton className={classes.navBarButton_icons} aria-label='notification'><IoIosNotifications color="#858585" size={22}></IoIosNotifications></IconButton>
-              </Badge>
+                  <IconButton className={classes.navBarButton_icons} aria-label='notification'><IoIosNotifications color="#858585" size={22}></IoIosNotifications></IconButton>
+                </Badge>
               <Link to="/AddToCart">
                 <Badge  badgeContent={ state.login & state.AllProduct.length >= 1  } className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`}>
 
