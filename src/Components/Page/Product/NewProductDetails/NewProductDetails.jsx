@@ -65,6 +65,7 @@ const NewProductDetails = () => {
       {/* <NewProductinfoText  Product={{heading:"About Us",text:Product?.Product_Description}} /> */}
 
       {/* <NewProductSearchResult NewProductSearchRseultArray={StoreProduct} heading={heading} /> */}
+
       <ProductSearchResult RelatedProductResult={StoreProduct} currentProductID={Product.id} CategoryName={heading}/> 
 {/* 
       <OverAllReview Product={Product} api ={api} SetApi ={ SetApi}/>

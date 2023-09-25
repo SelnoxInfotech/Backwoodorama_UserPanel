@@ -73,10 +73,10 @@ console.log(location.pathname.slice(0,14)=== "/weed-delivery" , location.pathnam
         // SetTab(item)
         if (item === "Menu") {
             item = "products"
-            navigate(`${location.pathname.slice(0,14)=== "/weed-delivery" ? "/weed-delivery":"/weed-dispensorie"}/${Despen[0]?.Store_Name.replace(/\s/g, '-').toLowerCase()}/${item.replace(/\s/g, '-').toLowerCase()}/${id}`)
+            navigate(`${location.pathname.slice(0,14)=== "/weed-delivery" ? "/weed-delivery":"/weed-dispensarie"}/${Despen[0]?.Store_Name.replace(/\s/g, '-').toLowerCase()}/${item.replace(/\s/g, '-').toLowerCase()}/${id}`)
         }
         else {
-            navigate(`${location.pathname.slice(0,14)=== "/weed-delivery" ? "/weed-delivery":"/weed-dispensorie"}/${Despen[0]?.Store_Name.replace(/\s/g, '-').toLowerCase()}/${item.replace(/\s/g, '-').toLowerCase()}/${id}`)
+            navigate(`${location.pathname.slice(0,14)=== "/weed-delivery" ? "/weed-delivery":"/weed-dispensarie"}/${Despen[0]?.Store_Name.replace(/\s/g, '-').toLowerCase()}/${item.replace(/\s/g, '-').toLowerCase()}/${id}`)
         }
     }
 
@@ -89,7 +89,7 @@ console.log(location.pathname.slice(0,14)=== "/weed-delivery" , location.pathnam
         ).then(response => {
             if (Category !== name) {
 
-                navigate(`${location.pathname.slice(0,14)=== "/weed-delivery" ? "/weed-delivery":"/weed-dispensorie"}/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/${"products"}/${name.toLowerCase()}/${id}`)
+                navigate(`${location.pathname.slice(0,14)=== "/weed-delivery" ? "/weed-delivery":"/weed-dispensarie"}/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/${"products"}/${name.toLowerCase()}/${id}`)
             }
             SetDespensariesProductData(response.data)
 
@@ -100,7 +100,7 @@ console.log(location.pathname.slice(0,14)=== "/weed-delivery" , location.pathnam
     }
 
     function ProductNavigate(Product_Name, category_name , ProductId) {
-     const  Route =    location.pathname.slice(0,14)=== "/weed-delivery" ? "/weed-deliverys":"/weed-dispensories"
+     const  Route =    location.pathname.slice(0,14)=== "/weed-delivery" ? "/weed-deliverys":"/weed-dispensaries"
         if (SubCategory === undefined) {
             navigate(`${Route}/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/${"products"}/${category_name.toLowerCase()}/${Product_Name.replace(/\s/g, '-').toLowerCase()}/${ProductId}`)
         }

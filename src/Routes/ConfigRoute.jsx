@@ -116,11 +116,11 @@ const routesConfig = [
        //  Weed Dispensires
        
       {
-        path: "/weed-dispensorie/:StoreName/:tab?/:Category?/:SubCategory?/:id/",
+        path: "/weed-dispensarie/:StoreName/:tab?/:Category?/:SubCategory?/:id/",
         element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
       },
       {
-        path: "/weed-dispensories/:StoreName/:tab/:Category/:SubCategory?/:Product/:id/",
+        path: "/weed-dispensaries/:StoreName/:tab/:Category/:SubCategory?/:Product/:id/",
         element: <RoutingList Component={NewProductDetails} ></RoutingList>
       },
       {
