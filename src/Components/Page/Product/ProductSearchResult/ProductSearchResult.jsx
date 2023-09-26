@@ -164,7 +164,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
         <React.Fragment>
             <div className="row mx-0 marginProductSearchResult">
                 <div className="col-12 mt-4  fontStyle">
-                    <h1 className="productSlider_headings">{CategoryName}</h1>
+                    <h2 className="productSlider_headings">{CategoryName}</h2>
                 </div>
                 {RelatedProductResult.map((items, index) => {
                   if(items.id !== currentProductID){

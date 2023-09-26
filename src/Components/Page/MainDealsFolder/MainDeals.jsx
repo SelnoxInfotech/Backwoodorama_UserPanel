@@ -3,6 +3,7 @@ import NewProductSearchResult from "../Product/NewProductDetails/NewProductDetai
 import DealByStrainType from "./MainDealsComponent/DealByStrainType";
 import BestDealCards from "../Deals/DealsComponent/BestDealCards";
 import PromoCode from "../Deals/DealsComponent/PromoCode";
+import { DealsSeo } from "../../Component/ScoPage/DealsSeo";
 const MainDeals=()=>{
     const SliderDataArray=[{imgUrl:"./image/sativa.png",name:"flower"},{imgUrl:"./image/indica.png",name:"pre roll"},
     {imgUrl:"./image/sativa.png",name:"flower"},{imgUrl:"./image/indica.png",name:"pre roll"},
@@ -54,6 +55,7 @@ const MainDeals=()=>{
     const promoCodeHeading="Promo code use"
     return(
         <div className="container">
+            <DealsSeo></DealsSeo>
             <div className="row mx-2">
            <WeedDealsByProduct ArrayData={SliderDataArray} heading={weedDealsByProduct_heading}/>
            <NewProductSearchResult NewProductSearchRseultArray={NewProductSearchRseultArray} heading={NewProductSearchResult_Heading}/>

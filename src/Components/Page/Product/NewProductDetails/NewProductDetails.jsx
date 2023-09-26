@@ -10,6 +10,7 @@ import { useParams ,useNavigate } from 'react-router-dom';
 import NewFlavourBanner from "../../../Component/NewFlavour/NewFlavourBanner"
 import Review from "../../Review/Review"
 import { AiOutlineLeft } from "react-icons/ai";
+import { ProductDetailsSeo } from "../../../Component/ScoPage/ProductSeo"
 
 const NewProductDetails = () => {
   const { id } = useParams();
@@ -53,9 +54,10 @@ const NewProductDetails = () => {
 
 
 
-  
+  // Productname , ProductCategory , StoreName
   return (
     <div className="container-fluid">
+      <ProductDetailsSeo  Productname={Product.Product_Name} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State}  ></ProductDetailsSeo>
       {/* <CategoryProduct ShowCategoryProduct={ShowCategoryProduct} Category={Category} /> */}
       {/* <NewFlavourBanner delBtn={Despen}></NewFlavourBanner> */}
       <span onClick={() => navigate(-1)} className="BackPageBtn"> <AiOutlineLeft size={22}/> <span className="backPgBtnImg"><img src={`https://sweede.app${Despen.Store_Image}`} alt="" /></span> {Despen.Store_Name}</span>

@@ -19,7 +19,7 @@ const CategoryProduct = ({ ShowCategoryProduct, Category,Skeleton }) => {
                            
                                 <div className="catagoryTabs_section">
                                   
-                                        <h1 className='shopByCategoryHeading'>Shop by Category</h1>
+                                        <h2 className='shopByCategoryHeading'>Shop by Category</h2>
                                  
                                         <ScrollContainer className="ScrollContainerRelative">
 

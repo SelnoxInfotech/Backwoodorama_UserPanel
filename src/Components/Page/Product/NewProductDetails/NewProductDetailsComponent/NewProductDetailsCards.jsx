@@ -192,7 +192,7 @@ const NewProductDetailsCards = ({ Product }) => {
                         </div>
                     </div>
                     <div className="newProductdetails_rightSideContent_container">
-                            <h2 className="newProductDetails_heading">{Product?.Product_Name}</h2>
+                            <h1 className="newProductDetails_heading">{Product?.Product_Name}</h1>
                         <div className=" ">
                             <Link to={`/DispensoriesProduct/${Product.Store_id}/${"Menu"}`}>
                                 <h3 className="newProductDetails_subHeadingss">By {Product.StoreName}</h3>

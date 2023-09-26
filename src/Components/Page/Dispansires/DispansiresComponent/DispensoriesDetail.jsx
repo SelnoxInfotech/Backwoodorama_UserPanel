@@ -27,12 +27,7 @@ export default function DispensoriesDetails() {
     const [category, SetCategory] = React.useState([])
     const [DespensariesData, SetDespensariesProductData] = React.useState([])
     const [Despen, SetDespens] = React.useState([])
-    const [MetaTag, SetMetaTag] = React.useState(
-        {
-            title: "",
-            discription: ""
-        }
-    )
+
     // const [Tab, SetTab] = React.useState()
     React.useEffect(() => {
         axios.get(`https://sweede.app/UserPanel/Get-StoreById/${id}`, {
@@ -75,115 +70,17 @@ export default function DispensoriesDetails() {
         })
     }, [id])
 
-    console.log(location.pathname, params)
-
-    React.useEffect(() => {
-        if (location.pathname.slice(0, 14) !== "/weed-delivery") {
-            if (tab === undefined) {
-
-                SetMetaTag({
-                    ...MetaTag, title: `Weed dispensary in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name}| Weedx.io`,
-                    discription: `Shop your favorite cannabis products from ${Despen[0]?.Store_Name} Weed dispensary ${Despen[0]?.City}, ${Despen[0]?.State}. High Quality marijuana products near you. Get the best deals and offers now. `
-                })
-            }
-            else {
-                switch (tab) {
-                    case 'products':
-                        SetMetaTag({
-                            ...MetaTag, title: `Weed dispensary in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name}| ${tab} | Weedx.io`,
-                            discription: `Browse Product of ${Despen[0]?.Store_Name} marijuana dispensary in ${Despen[0]?.City}, ${Despen[0]?.State}. High Quality cannabis products near you `
-                        })
-                        break;
-                    case 'store-details':
-                        SetMetaTag({
-                            ...MetaTag, title: `Weed dispensary in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name}| ${tab} | Weedx.io`,
-                            discription: `Checkout Store Details of ${Despen[0]?.Store_Name} marijuana dispensary in ${Despen[0]?.City}, ${Despen[0]?.State}. Get to know store timings, services, contact information and more. `
-                        })
-                        break;
-                    case 'review':
-                        SetMetaTag({
-                            ...MetaTag, title: `Weed dispensary in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name}| ${tab} | Weedx.io`,
-                            discription: `Customer Reviews of ${Despen[0]?.Store_Name} marijuana dispensary in ${Despen[0]?.City}, ${Despen[0]?.State}. Checkout how customers find the dispensary products. 100% true insights `
-                        })
-                        break;
-                    case 'deal':
-                        SetMetaTag({
-                            ...MetaTag, title: `Weed dispensary in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name}| ${tab} | Weedx.io`,
-                            discription: `Best deals from ${Despen[0]?.Store_Name} marijuana dispensary in ${Despen[0]?.City}, ${Despen[0]?.State}. Get the best deals, offers and discounts on your favorite cannabis products.`
-                        })
-                        break;
-                    case 'media':
-                        SetMetaTag({
-                            ...MetaTag, title: `Weed dispensary in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name}| ${tab} | Weedx.io`,
-                            discription: `Browse media and updates from ${Despen[0]?.Store_Name} marijuana dispensary in  ${Despen[0]?.City}, ${Despen[0]?.State}. Get the best cannabis dispensary services with high quality products`
-                        })
-                        break;
-                    default:
-                    // code block
-                }
-            }
-        }
-        else {
-            if (tab === undefined) {
-
-                SetMetaTag({
-                    ...MetaTag, title: `Weed Delivery in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name}| Weedx.io`,
-                    discription: `Shop your favorite cannabis products from ${Despen[0]?.Store_Name} Weed delivery ${Despen[0]?.City}, ${Despen[0]?.State}. High Quality marijuana products near you. Get the best deals and offers now. 
-                    `
-                })
-
-            }
-            else {
-                switch (tab) {
-                    case 'products':
-                        SetMetaTag({
-                            ...MetaTag, title: `Weed Delivery in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name} | Products | Weedx.io`,
-                            discription: `Browse Store Menu of ${Despen[0]?.Store_Name} marijuana delivery in ${Despen[0]?.City}, ${Despen[0]?.State}. High Quality cannabis products near you `
-                        })
-                        break;
-                    case 'store-details':
-                        SetMetaTag({
-                            ...MetaTag, title: `Weed Delivery in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name}  | Store Details | Weedx.io`,
-                            discription: `Checkout Store Details of ${Despen[0]?.Store_Name} marijuana delivery in ${Despen[0]?.City}, ${Despen[0]?.State}. Get to know store timings, services, contact information and more `
-                        })
-                        break;
-                    case 'review':
-                        SetMetaTag({
-                            ...MetaTag, title: `Weed Delivery in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name} | Reviews | Weedx.io`,
-                            discription: `Customer Reviews of ${Despen[0]?.Store_Name} marijuana delivery in ${Despen[0]?.City}, ${Despen[0]?.State}. Checkout how customers find the delivery products. 100% true insights`
-                        })
-                        break;
-                    case 'deal':
-                        SetMetaTag({
-                            ...MetaTag, title: `Weed Delivery in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name} | Deals | Weedx.io`,
-                            discription: `Best deals from ${Despen[0]?.Store_Name} marijuana Delivery in ${Despen[0]?.City}, ${Despen[0]?.State}. Get the best deals, offers and discounts on your favorite cannabis products.`
-                        })
-                        break;
-                    case 'media':
-                        SetMetaTag({
-                            ...MetaTag, title: ` Weed Delivery in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name} | Media | Weedx.io`,
-                            discription: ` Browse media and updates from ${Despen[0]?.Store_Name}  marijuana delivery in ${Despen[0]?.City}, ${Despen[0]?.State}. Get the best cannabis delivery services with high qualtiy products.`
-                        })
-                        break;
-                    default:
-                    // code block
-                }
-            }
-        }
-
-    }, [params, Despen])
-
+ 
     function SelectionTab(item) {
         // SetTab(item)
-        if (item === "Menu") {
-            item = "products"
-            navigate(`${location.pathname.slice(0, 14) === "/weed-delivery" ? "/weed-delivery" : "/weed-dispensarie"}/${Despen[0]?.Store_Name.replace(/\s/g, '-').toLowerCase()}/${item.replace(/\s/g, '-').toLowerCase()}/${id}`)
-        }
-        else {
-            navigate(`${location.pathname.slice(0, 14) === "/weed-delivery" ? "/weed-delivery" : "/weed-dispensarie"}/${Despen[0]?.Store_Name.replace(/\s/g, '-').toLowerCase()}/${item.replace(/\s/g, '-').toLowerCase()}/${id}`)
-        }
+        // if (item === "Menu") {
+        //     item = "products"
+        //     navigate(`${location.pathname.slice(0, 14) === "/weed-delivery" ? "/weed-delivery" : "/weed-dispensaries"}/${Despen[0]?.Store_Name.replace(/\s/g, '-').toLowerCase()}/${item.replace(/\s/g, '-').toLowerCase()}/${id}`)
+        // }
+        // else {
+            navigate(`${location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${Despen[0]?.Store_Name.replace(/\s/g, '-').toLowerCase()}/${item.replace(/\s/g, '-').toLowerCase()}/${id}`)
+        // }
     }
-
     function ShowCategoryProduct(Id, name) {
         axios.post(`https://sweede.app/UserPanel/Get-filterProductbyStoreandCategory/`,
             {
@@ -193,7 +90,7 @@ export default function DispensoriesDetails() {
         ).then(response => {
             if (Category !== name) {
 
-                navigate(`${location.pathname.slice(0, 14) === "/weed-delivery" ? "/weed-delivery" : "/weed-dispensarie"}/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/${"products"}/${name.toLowerCase()}/${id}`)
+                navigate(`${location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/${"menu"}/${name.toLowerCase()}/${id}`)
             }
             SetDespensariesProductData(response.data)
 
@@ -204,12 +101,12 @@ export default function DispensoriesDetails() {
     }
 
     function ProductNavigate(Product_Name, category_name, ProductId) {
-        const Route = location.pathname.slice(0, 14) === "/weed-delivery" ? "/weed-deliverys" : "/weed-dispensaries"
+        const Route = location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"
         if (SubCategory === undefined) {
-            navigate(`${Route}/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/${"products"}/${category_name.toLowerCase()}/${Product_Name.replace(/\s/g, '-').toLowerCase()}/${ProductId}`)
+            navigate(`${Route}/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/menu/${category_name.toLowerCase()}/${Product_Name.replace(/\s/g, '-').toLowerCase()}/${ProductId}`)
         }
         else {
-            navigate(`${Route}/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/${"products"}/${category_name.toLowerCase()}/${SubCategory.toLowerCase()}/${Product_Name.replace(/\s/g, '-').toLowerCase()}/${ProductId}`)
+            navigate(`${Route}/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/menu/${category_name.toLowerCase()}/${SubCategory.toLowerCase()}/${Product_Name.replace(/\s/g, '-').toLowerCase()}/${ProductId}`)
         }
     }
 
@@ -222,7 +119,7 @@ export default function DispensoriesDetails() {
     ]
     return (
         <div>
-            <StoreDetails MetaTag={MetaTag}></StoreDetails>
+            <StoreDetails Despen={Despen}></StoreDetails>
             <div className="container-fluid product_container" >
                 <NewFlavourBanner delBtn={Despen}></NewFlavourBanner>
                 <div className="row">
@@ -232,7 +129,7 @@ export default function DispensoriesDetails() {
 
                     </div>
                     {
-                        (tab === "products" || tab === undefined) &&
+                        (tab === 'menu' || tab === undefined) &&
                         <React.Fragment>
                             <CategoryProduct Category={category} ShowCategoryProduct={ShowCategoryProduct}> </CategoryProduct>
                             <div className="col-12 productCat_cont" style={{ display: "contents" }}>
@@ -261,10 +158,10 @@ export default function DispensoriesDetails() {
                         tab === 'store-details' && <ComponentStoreDetails></ComponentStoreDetails>
                     }
                     {
-                        tab === 'review' && <Review></Review>
+                        tab === 'review' &&    <>Review</>   // <Review></Review>
                     }
                     {
-                        tab === 'deal' && <>Deal</>
+                        tab === 'deals' && <>Deal</>
                     }
                     {
                         tab === 'media' && <Media></Media>

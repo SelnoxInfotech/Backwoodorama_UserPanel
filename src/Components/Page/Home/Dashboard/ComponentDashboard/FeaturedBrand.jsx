@@ -23,7 +23,7 @@ const FeaturedBrand = ({ CardDataArray ,BrandSkeleton}) => {
                         CardDataArray.map((items, index) => {
                             return (
                                 <div className="feature_brands" key={index}>
-                                      <Link  to={`/Brand/${items.name.replace(/\s/g, '')}/${items.id}`}> 
+                                      <Link  to={`/brands/${items.name.replace(/\s/g, '')}/${items.id}`}> 
                                         <div className="row  FeaturedBrandContainer  mx-0 my-2">
                                             <div className="col-12 FeaturedBrandImageContainer px-0">
                                                 <LazyLoadImage className="FeaturedBrandImage_height" src={`https://sweede.app/${items.Brand_Logo}`} alt="image not available" />

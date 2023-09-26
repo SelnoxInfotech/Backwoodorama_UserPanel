@@ -11,7 +11,7 @@ const Media = () => {
     ]
     return (
             <div className="row mx-0">
-                <h1 className="mediaHeadingss mt-3">Media</h1>
+                <h2 className="mediaHeadingss mt-3">Media</h2>
                 {PromoCardArray.map((items, index) => {
                     return (
                         <React.Fragment key={index}>
