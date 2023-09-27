@@ -10,6 +10,7 @@ import { useParams ,useNavigate } from 'react-router-dom';
 import NewFlavourBanner from "../../../Component/NewFlavour/NewFlavourBanner"
 import Review from "../../Review/Review"
 import { AiOutlineLeft } from "react-icons/ai";
+import { ProductDetailsSeo } from "../../../Component/ScoPage/ProductSeo"
 
 const NewProductDetails = () => {
   const { id } = useParams();
@@ -23,15 +24,15 @@ const NewProductDetails = () => {
   // const Navigate = useNavigate()
   React.useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
-    Axios(`https://sweede.app/UserPanel/Get-ProductById/${id}`, {
+    Axios(`https://api.cannabaze.com/UserPanel/Get-ProductById/${id}`, {
     }).then(response => {
       SetProduct(response.data[0])
-      Axios.get(`https://sweede.app/UserPanel/Get-StoreById/${response.data[0]?.Store_id}`, {
+      Axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${response.data[0]?.Store_id}`, {
       }).then(response => {
         SetDespens(response.data[0])
         // window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
       })
-      Axios.post(`https://sweede.app/UserPanel/YouMayAlsoLike/`,
+      Axios.post(`https://api.cannabaze.com/UserPanel/YouMayAlsoLike/`,
       {
         category:response.data[0].category_id,
         store_id:response.data[0].Store_id
@@ -53,9 +54,10 @@ const NewProductDetails = () => {
 
 
 
-  
+  // Productname , ProductCategory , StoreName
   return (
     <div className="container-fluid">
+      <ProductDetailsSeo  Productname={Product.Product_Name} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State}  ></ProductDetailsSeo>
       {/* <CategoryProduct ShowCategoryProduct={ShowCategoryProduct} Category={Category} /> */}
       {/* <NewFlavourBanner delBtn={Despen}></NewFlavourBanner> */}
       <span onClick={() => navigate(-1)} className="BackPageBtn"> <AiOutlineLeft size={22}/> <span className="backPgBtnImg"><img src={`https://sweede.app${Despen.Store_Image}`} alt="" /></span> {Despen.Store_Name}</span>

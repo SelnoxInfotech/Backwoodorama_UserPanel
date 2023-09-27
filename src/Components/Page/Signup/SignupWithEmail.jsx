@@ -26,7 +26,7 @@ const SignupWithEmail = () => {
     const classes = useStyles()
     function Submit(data) {
         Setloading(true)
-        axios.post("https://sweede.app/UserPanel/RegisterAPI/", {
+        axios.post("https://api.cannabaze.com/UserPanel/RegisterAPI/", {
 
             username: data.Name,
             email: Email,

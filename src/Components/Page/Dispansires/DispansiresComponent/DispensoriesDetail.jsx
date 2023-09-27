@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, useNavigate ,useLocation} from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import useStyles from "../../../../Style"
 import ProductFilter from "../../../Component/Filter/ProductFilter";
@@ -17,24 +17,26 @@ import CategoryProduct from "../../Home/Dashboard/ComponentDashboard/CategoryPro
 import ComponentStoreDetails from "../../StoreDetail/ComponentStoreDetails"
 import Review from "../../Review/Review";
 import Media from "../../Media/Media";
+import { StoreDetails } from "../../../../Components/Component/ScoPage/StoreDetails"
 export default function DispensoriesDetails() {
     const navigate = useNavigate()
     const location = useLocation()
     const params = useParams();
-    const  { id, tab, Category, SubCategory } = params
+    const { id, tab, Category, SubCategory } = params
     const classes = useStyles()
     const [category, SetCategory] = React.useState([])
     const [DespensariesData, SetDespensariesProductData] = React.useState([])
     const [Despen, SetDespens] = React.useState([])
+
     // const [Tab, SetTab] = React.useState()
     React.useEffect(() => {
-        axios.get(`https://sweede.app/UserPanel/Get-StoreById/${id}`, {
+        axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${id}`, {
         }).then(response => {
             SetDespens(response.data)
             //  navigate(`/Weed-DispensoriesDetails/${id}/${"Menu"}/${response.data[0].Store_Name.replace(/\s/g,'-')}`)
         })
 
-        axios.post("https://sweede.app/UserPanel/Get-CategoryByStore/ ",
+        axios.post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/ ",
             {
                 "Store_Id": parseInt(id)
             }
@@ -62,26 +64,25 @@ export default function DispensoriesDetails() {
             })
 
 
-        axios.get(`https://sweede.app/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
+        axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
         }).then(response => {
             SetDespensariesProductData(response.data)
         })
     }, [id])
 
-console.log(location.pathname.slice(0,14)=== "/weed-delivery" , location.pathname.slice(0,14))
+ 
     function SelectionTab(item) {
         // SetTab(item)
-        if (item === "Menu") {
-            item = "products"
-            navigate(`${location.pathname.slice(0,14)=== "/weed-delivery" ? "/weed-delivery":"/weed-dispensarie"}/${Despen[0]?.Store_Name.replace(/\s/g, '-').toLowerCase()}/${item.replace(/\s/g, '-').toLowerCase()}/${id}`)
-        }
-        else {
-            navigate(`${location.pathname.slice(0,14)=== "/weed-delivery" ? "/weed-delivery":"/weed-dispensarie"}/${Despen[0]?.Store_Name.replace(/\s/g, '-').toLowerCase()}/${item.replace(/\s/g, '-').toLowerCase()}/${id}`)
-        }
+        // if (item === "Menu") {
+        //     item = "products"
+        //     navigate(`${location.pathname.slice(0, 14) === "/weed-delivery" ? "/weed-delivery" : "/weed-dispensaries"}/${Despen[0]?.Store_Name.replace(/\s/g, '-').toLowerCase()}/${item.replace(/\s/g, '-').toLowerCase()}/${id}`)
+        // }
+        // else {
+            navigate(`${location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${Despen[0]?.Store_Name.replace(/\s/g, '-').toLowerCase()}/${item.replace(/\s/g, '-').toLowerCase()}/${id}`)
+        // }
     }
-
     function ShowCategoryProduct(Id, name) {
-        axios.post(`https://sweede.app/UserPanel/Get-filterProductbyStoreandCategory/`,
+        axios.post(`https://api.cannabaze.com/UserPanel/Get-filterProductbyStoreandCategory/`,
             {
                 "Store_Id": parseInt(id),
                 "Category_Id": Id
@@ -89,7 +90,7 @@ console.log(location.pathname.slice(0,14)=== "/weed-delivery" , location.pathnam
         ).then(response => {
             if (Category !== name) {
 
-                navigate(`${location.pathname.slice(0,14)=== "/weed-delivery" ? "/weed-delivery":"/weed-dispensarie"}/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/${"products"}/${name.toLowerCase()}/${id}`)
+                navigate(`${location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/${"menu"}/${name.toLowerCase()}/${id}`)
             }
             SetDespensariesProductData(response.data)
 
@@ -99,13 +100,13 @@ console.log(location.pathname.slice(0,14)=== "/weed-delivery" , location.pathnam
             })
     }
 
-    function ProductNavigate(Product_Name, category_name , ProductId) {
-     const  Route =    location.pathname.slice(0,14)=== "/weed-delivery" ? "/weed-deliverys":"/weed-dispensaries"
+    function ProductNavigate(Product_Name, category_name, ProductId) {
+        const Route = location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"
         if (SubCategory === undefined) {
-            navigate(`${Route}/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/${"products"}/${category_name.toLowerCase()}/${Product_Name.replace(/\s/g, '-').toLowerCase()}/${ProductId}`)
+            navigate(`${Route}/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/menu/${category_name.toLowerCase()}/${Product_Name.replace(/\s/g, '-').toLowerCase()}/${ProductId}`)
         }
-        else{
-            navigate(`${Route}/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/${"products"}/${category_name.toLowerCase()}/${SubCategory.toLowerCase()}/${Product_Name.replace(/\s/g, '-').toLowerCase()}/${ProductId}`)
+        else {
+            navigate(`${Route}/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/menu/${category_name.toLowerCase()}/${SubCategory.toLowerCase()}/${Product_Name.replace(/\s/g, '-').toLowerCase()}/${ProductId}`)
         }
     }
 
@@ -118,6 +119,7 @@ console.log(location.pathname.slice(0,14)=== "/weed-delivery" , location.pathnam
     ]
     return (
         <div>
+            <StoreDetails Despen={Despen}></StoreDetails>
             <div className="container-fluid product_container" >
                 <NewFlavourBanner delBtn={Despen}></NewFlavourBanner>
                 <div className="row">
@@ -127,7 +129,7 @@ console.log(location.pathname.slice(0,14)=== "/weed-delivery" , location.pathnam
 
                     </div>
                     {
-                        (tab === "products" || tab === undefined) &&
+                        (tab === 'menu' || tab === undefined) &&
                         <React.Fragment>
                             <CategoryProduct Category={category} ShowCategoryProduct={ShowCategoryProduct}> </CategoryProduct>
                             <div className="col-12 productCat_cont" style={{ display: "contents" }}>
@@ -143,8 +145,8 @@ console.log(location.pathname.slice(0,14)=== "/weed-delivery" , location.pathnam
                                 />
 
                                 <div className="col-12 col-lg-10 prod_cat_right_sec">
-                                    <ProductList arr={DespensariesData} 
-                                    ProductNavigate={ProductNavigate}
+                                    <ProductList arr={DespensariesData}
+                                        ProductNavigate={ProductNavigate}
                                     />
 
 
@@ -156,10 +158,10 @@ console.log(location.pathname.slice(0,14)=== "/weed-delivery" , location.pathnam
                         tab === 'store-details' && <ComponentStoreDetails></ComponentStoreDetails>
                     }
                     {
-                        tab === 'review' && <Review></Review>
+                        tab === 'review' &&    <>Review</>   // <Review></Review>
                     }
                     {
-                        tab === 'deal' && <>Deal</>
+                        tab === 'deals' && <>Deal</>
                     }
                     {
                         tab === 'media' && <Media></Media>

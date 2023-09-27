@@ -6,6 +6,7 @@ function Delivery() {
     return (
         <Helmet>
             <title> {`Weed Delivery in ${state?.Location} | weedx.io | `}</title>
+            <meta name="title" content={`Weed Delivery in ${state?.Location} | weedx.io |`}/>
             <meta name='description' content={`find Nearby Weed Delivery in  ${state.Location}  for Recreational & Medical Uses. Browse Top Cannabis Products and Place Orders from Trusted weed delivery near you.`} />
             {/* Facebook tags */}
             <meta property="og:type" content="website"/>

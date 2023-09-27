@@ -33,12 +33,12 @@ export default function DashBoardLink({ state }) {
           <Grid xs={8} md={7.5} xl={8.2} display={{ xs: "none", md: "block", lg: "block" }}>
             <div className="ccol  nav_list1">
               <ul> 
-              <Link to={`/weed-dispansires/in/${state.Country.toLowerCase()}/${state.State.toLowerCase()}/${state.City.toLowerCase()}`} id={`${(current_route?.slice(0,16) === "/Weed-Dispansire" ? "Active" : "")}`}> <li >Dispensaries </li></Link>
+              <Link to={`/weed-dispensaries/in/${state.Country.toLowerCase()}/${state.State.toLowerCase()}/${state.City.toLowerCase()}`} id={`${(current_route?.slice(0,16) === "/Weed-Dispansire" ? "Active" : "")}`}> <li >Dispensaries </li></Link>
                 <Link to={`/weed-deliveries/in/${state.Country.toLowerCase()}/${state.State.toLowerCase()}/${state.City.toLowerCase()}`} id={`${(current_route?.slice(0,16) === "/Weed-Deliveries" ? "Active" : "")}`}><li>Deliveries</li></Link>
-                <Link to="/Brand" id={`${(current_route === "/Brand" ? "Active" : "")}`}> <li>Brand</li></Link>
+                <Link to="/brands" id={`${(current_route === "/brands" ? "Active" : "")}`}> <li>Brand</li></Link>
                 <Link to="/Product" id={`${(current_route === "/Product" ? "Active" : "")}`}><li>Product</li></Link>
                 {/* <Link to="/Deals"  id={`${(current_route ===  "/Deals" ? "Active" : "")}`}><li>Deals</li></Link> */}
-                <Link to="/MainDeals" id={`${(current_route === "/MainDeals" ? "Active" : "")}`}><li>Deals</li></Link>
+                <Link to="/deals" id={`${(current_route === "/deals" ? "Active" : "")}`}><li>Deals</li></Link>
                 <Link to="/Learn" id={`${(current_route === "/Learn" ? "Active" : "")}`}><li >Learn</li></Link>
                 <Link to="/Strain" id={`${(current_route === "/Strain" ? "Active" : "")}`}><li>Strain</li></Link>
                 {/* <Link to="/Strain" id={`${(current_route === "/Strain" ? "Active" : "")}`}><li>Strain</li></Link> */}

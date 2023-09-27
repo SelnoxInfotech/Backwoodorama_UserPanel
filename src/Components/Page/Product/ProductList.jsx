@@ -47,7 +47,7 @@ const ProductList = ({ arr , ProductNavigate }) => {
                 PriceId: PriceIndex?.id
 
             })
-            await axios.post("https://sweede.app/UserPanel/Add-AddtoCart/",
+            await axios.post("https://api.cannabaze.com/UserPanel/Add-AddtoCart/",
 
                 {
                     Brand_Id:Event.Brand_id,
@@ -175,10 +175,10 @@ const ProductList = ({ arr , ProductNavigate }) => {
                                                 event.target.src = "/image/blankImage.jpg"
                                                 event.onerror = null
                                             }}
-                                            src={`https://sweede.app/${ele?.images[0]?.image}`}
+                                            src={`https://api.cannabaze.com/${ele?.images[0]?.image}`}
                                            
                                         />
-                                            {/* // <img src={`https://sweede.app/${ele?.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }} /> */}
+                                            {/* // <img src={`https://api.cannabaze.com/${ele?.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }} /> */}
                                             <div className="prod_img_btn d-flex">
                                                 <button className=" cat_prod_inner_btn btn2">THC {ele.THC}%</button>
                                                 <button className="cat_prod_inner_btn btn1">{ele.strain}</button>

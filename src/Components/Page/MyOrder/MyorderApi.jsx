@@ -8,7 +8,7 @@ function order() {
     headers: { Authorization: `Bearer ${token_data}` }
   };
 
-  let data = axios.get(`https://sweede.app/UserPanel/Get-Order/`,
+  let data = axios.get(`https://api.cannabaze.com/UserPanel/Get-Order/`,
     config,
   );
   return data;
@@ -20,7 +20,7 @@ function PendingOrder() {
     headers: { Authorization: `Bearer ${token_data}` }
   };
 
-  let data = axios.get(`https://sweede.app/UserPanel/Get-GetPendingOrder/`,
+  let data = axios.get(`https://api.cannabaze.com/UserPanel/Get-GetPendingOrder/`,
     config,
   );
   return data;
@@ -33,7 +33,7 @@ function OrderBYID(id) {
     headers: { Authorization: `Bearer ${token_data}` }
   };
 
-  let data = axios.get(`https://sweede.app/UserPanel/Get-GetOrderBYID/${id}`, config);
+  let data = axios.get(`https://api.cannabaze.com/UserPanel/Get-GetOrderBYID/${id}`, config);
   return data;
 }
 function Cancel(id) {
@@ -43,7 +43,7 @@ function Cancel(id) {
     headers: { Authorization: `Bearer ${token_data}` }
   };
 
-  let data = axios.post(`https://sweede.app/UserPanel/Update-Order/${id}`, { Order_Status: 'Cancel' }, config);
+  let data = axios.post(`https://api.cannabaze.com/UserPanel/Update-Order/${id}`, { Order_Status: 'Cancel' }, config);
   return data;
 }
 
@@ -54,7 +54,7 @@ function GetCancelOrder() {
     headers: { Authorization: `Bearer ${token_data}` }
   };
 
-  let data = axios.get(`https://sweede.app/UserPanel/Get-GetCancelOrder/`,
+  let data = axios.get(`https://api.cannabaze.com/UserPanel/Get-GetCancelOrder/`,
     config,
   );
   return data;
@@ -66,4 +66,4 @@ function GetCancelOrder() {
 export { order, PendingOrder, OrderBYID, Cancel,GetCancelOrder }
 
 
-// https://sweede.app/UserPanel/Get-GetCancelOrder/ 
+// https://api.cannabaze.com/UserPanel/Get-GetCancelOrder/ 

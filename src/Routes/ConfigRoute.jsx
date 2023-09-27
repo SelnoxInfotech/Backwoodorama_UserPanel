@@ -85,29 +85,66 @@ const routesConfig = [
       //   element: <Deliveries></Deliveries>
       // },
 
-  // Product
-  {
-    path: "/Product",
-    element: <RoutingList Component={Product} ></RoutingList>,
-  },
-  {
-    path: "/product/:SubCategoryname/:id",
-    element: <RoutingList Component={SubcategoryProduct} ></RoutingList>
-  },
-  {
-    path: "/products/:CategoryName/:ProductName/:id",     // NewProductDetails
-    element: <RoutingList Component={NewProductDetails} ></RoutingList>,
-  },
-
-  {
-    path: "/ProductDetail",
-    element: <RoutingList Component={ProductDetail} ></RoutingList>,
-  },
-  // End
+      // Product
       {
-        path: "/brand",
+        path: "/Product",
+        element: <RoutingList Component={Product} ></RoutingList>,
+      },
+      {
+        path: "/product/:SubCategoryname/:id",
+        element: <RoutingList Component={SubcategoryProduct} ></RoutingList>
+      },
+      {
+        path: "/products/:CategoryName/:ProductName/:id",     // NewProductDetails
+        element: <RoutingList Component={NewProductDetails} ></RoutingList>,
+      },
+
+      {
+        path: "/ProductDetail",
+        element: <RoutingList Component={ProductDetail} ></RoutingList>,
+      },
+      // End
+      // Complete
+      {
+        path: "/brands",
         element: <RoutingList Component={Brand} ></RoutingList>,
       },
+      {
+        path: "/brands/:Name/:id",
+        element: <RoutingList Component={RelatedVerifyBrand} ></RoutingList>
+      },
+
+      {
+        path: "/deals",
+        element: <RoutingList Component={MainDeals} ></RoutingList>
+      },
+      //  Weed Dispensires
+
+      {
+        path: "/weed-dispensaries/:StoreName/:tab?/:Category?/:SubCategory?/:id/",
+        element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
+      },
+      {
+        path: "/weed-dispensaries/:StoreName/menu/:category/:subcategory?/:product/:id/",
+        element: <RoutingList Component={NewProductDetails} ></RoutingList>
+      },
+      {
+        path: "/weed-deliveries/:StoreName/:tab?/:Category?/:SubCategory?/:id/",
+        element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
+      },
+      {
+        path: "/weed-deliveries/:StoreName/menu/:Category/:SubCategory?/:Product/:id/",
+        element: <RoutingList Component={NewProductDetails} ></RoutingList>
+      },
+
+
+
+
+
+      // End
+
+
+
       {
         path: "/AddToCart",
         element: <RoutingList Component={AddToCart} ></RoutingList>
@@ -116,24 +153,8 @@ const routesConfig = [
         path: "/CheckOutMainPage",
         element: <ProtectRout Component={CheckOutMainPage} path="/CheckOutMainPage"></ProtectRout>
       },
-       //  Weed Dispensires
-       
-      {
-        path: "/weed-dispensarie/:StoreName/:tab?/:Category?/:SubCategory?/:id/",
-        element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
-      },
-      {
-        path: "/weed-dispensaries/:StoreName/:tab/:Category/:SubCategory?/:Product/:id/",
-        element: <RoutingList Component={NewProductDetails} ></RoutingList>
-      },
-      {
-        path: "/weed-delivery/:StoreName/:tab?/:Category?/:SubCategory?/:id/",  
-        element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
-      },
-      {
-        path: "/weed-deliverys/:StoreName/:tab/:Category/:SubCategory?/:Product/:id/",
-        element: <RoutingList Component={NewProductDetails} ></RoutingList>
-      },
+
+
       // {
       //   path: "/weed-delivery/:StoreName/:id/",  
       //   element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
@@ -146,10 +167,10 @@ const routesConfig = [
       //   path: "/weed-delivery/:StoreName/:tab/:Category/:id",  
       //   element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
       // },
-     
+
       ,
       {
-        path: "/weed-dispansires/in/:Country/:state?/:city?",
+        path: "/weed-dispensaries/in/:Country/:state?/:city?",
         element: <RoutingDespen Component={OpenDispansires}  ></RoutingDespen>
       },
       // {
@@ -176,13 +197,6 @@ const routesConfig = [
 
       // End
 
-
-
-      {
-        path: "/Brand/:Name/:id",
-        element: <RoutingList Component={RelatedVerifyBrand} ></RoutingList>
-      },
-
       {
         path: "/StoreDetail",
         element: <RoutingList Component={StoreDetail} ></RoutingList>
@@ -191,10 +205,7 @@ const routesConfig = [
         path: "/RelatedDeals",
         element: <RoutingList Component={RelatedDeals} ></RoutingList>
       },
-      {
-        path: "/MainDeals",
-        element: <RoutingList Component={MainDeals} ></RoutingList>
-      },
+
       {
         path: "/Strain",
         element: <RoutingList Component={Strain} ></RoutingList>

@@ -36,7 +36,7 @@ const Blogs = () => {
     console.log(BlogReviewCount)
     React.useEffect(() => {
         const getApi = async () => {
-            const res = await fetch(`https://sweede.app/UserPanel/Get-GetNewsById/${id}`);
+            const res = await fetch(`https://api.cannabaze.com/UserPanel/Get-GetNewsById/${id}`);
             const data = await res.json();
             SetNews(data[0])
             await BlogLike(data[0].id).then((res) => {
@@ -125,7 +125,7 @@ const Blogs = () => {
                         </div>
                         <section className="blog_Image" >
                             <span className="blog_Title ">{News?.Title}</span>
-                            {/* <img src ="https://sweede.app/image/images/download/media/BlankImage/b1_2.png"  style={{width:"100%" , height:"250px"}}alt="blog image"></img> */}
+                            {/* <img src ="https://api.cannabaze.com/image/images/download/media/BlankImage/b1_2.png"  style={{width:"100%" , height:"250px"}}alt="blog image"></img> */}
                         </section>
                         <div className="col" id="center1" >
                             <div className="col-12 blogEditorPaddings ">

@@ -64,7 +64,7 @@ function Context(props) {
         dispatch({ type: 'LoadingApi', LoadingApi: true })
 
         if (Boolean(logi)) {
-            axios.get("https://sweede.app/UserPanel/Get-Addtocart/", {
+            axios.get("https://api.cannabaze.com/UserPanel/Get-Addtocart/", {
                 headers: { Authorization: `Bearer ${logi}` }
             }).then(async function (response) {
                 const CarTProduct = await response?.data;
@@ -79,7 +79,7 @@ function Context(props) {
                 .catch(function (error) {
                     return error
                 })
-            axios.get(`https://sweede.app/UserPanel/Get-GetUserProfile/`,
+            axios.get(`https://api.cannabaze.com/UserPanel/Get-GetUserProfile/`,
                 { headers: { Authorization: `Bearer ${logi}` } }
             )
                 .then((res) => {

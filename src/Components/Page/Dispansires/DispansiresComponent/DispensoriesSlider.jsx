@@ -20,7 +20,7 @@ const Dispensories = () => {
     React.useEffect(() => {
 
         Axios.get(
-            'https://sweede.app/UserPanel/Get-Dispensaries/',
+            'https://api.cannabaze.com/UserPanel/Get-Dispensaries/',
 
         ).then(response => {
             SetStore(response.data)
@@ -49,8 +49,8 @@ const Dispensories = () => {
                                     <div className='dispensoriesContainer  dispensoriesCard' key={index}>
                                         <div className=' dispensoriesAddressBorder'>
                                             <div className='dispensoriesAddresCardimg'>
-                                                <Link  to={`/Weed-Dispensories/${ele.Store_Name.replace(/\s/g,'-')}/${"Menu"}/${ele.id}`}>
-                                                    <img src={`https://sweede.app/${ele?.Store_Image}`} alt='img_not_found' className=' dispensories_image  center-block' />
+                                                <Link  to={`/weed-dispensaries/${ele.Store_Name.replace(/\s/g,'-')}/${"menu"}/${ele.id}`}>
+                                                    <img src={`https://api.cannabaze.com/${ele?.Store_Image}`} alt='img_not_found' className=' dispensories_image  center-block' />
                                                 </Link>
                                             </div>
                                             <div className='dispensoriesContentContainer'>
@@ -92,7 +92,7 @@ const Dispensories = () => {
                                                     <Box
                                                         className={`${classes.loadingBtnTextAndBack}`}
                                                     >
-                                                        <LoadingButton onClick={() => { Navigate(`/Weed-Dispensories/${ele.Store_Name.replace(/\s/g,'-')}/${"Menu"}/${ele.id}`) }} style={{ width: "100%" }}>Order Pickup</LoadingButton>
+                                                        <LoadingButton onClick={() => { Navigate(`/weed-dispensaries/${ele.Store_Name.replace(/\s/g,'-')}/${"menu"}/${ele.id}`) }} style={{ width: "100%" }}>Order Pickup</LoadingButton>
                                                     </Box>
                                                 </div>
                                             </div>

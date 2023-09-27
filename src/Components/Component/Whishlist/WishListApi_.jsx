@@ -8,7 +8,7 @@ function WishListPost(id) {
   const token_data = cookies.get('Token_access')
 
 
-  let data = axios.post(` https://sweede.app/UserPanel/Add-Wishlist/`,
+  let data = axios.post(` https://api.cannabaze.com/UserPanel/Add-Wishlist/`,
     { product: id },
     {
       headers: { Authorization: `Bearer ${token_data}` }
@@ -23,7 +23,7 @@ async function WishListget() {
     headers: { Authorization: `Bearer ${token_data}` }
   };
 
-  let data = await axios.get(`https://sweede.app/UserPanel/Get-Wishlist/`,
+  let data = await axios.get(`https://api.cannabaze.com/UserPanel/Get-Wishlist/`,
   config
   );
   return data;

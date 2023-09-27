@@ -29,7 +29,7 @@ const EditUserPopup = ({ username, Api, SetApi }) => {
     const onSubmit = (data) => {
 
 
-        Axios.post(`https://sweede.app/UserPanel/Update-UpdateUserProfile/`,
+        Axios.post(`https://api.cannabaze.com/UserPanel/Update-UpdateUserProfile/`,
             {
                 username: user
             },

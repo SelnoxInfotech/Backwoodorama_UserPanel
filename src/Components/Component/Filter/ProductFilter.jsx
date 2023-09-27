@@ -7,10 +7,11 @@ import Axios from "axios"
 import _ from "lodash"
 import { FormControl, Grid, MenuItem, Select } from "@mui/material"
 import SearchBar from '@mkyy/mui-search-bar';
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate  , useLocation} from "react-router-dom"
 const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
     const classes = useStyles()
     const { tab, Category, StoreName, id } = useParams()
+    const location =  useLocation()
     const [select,setselect] = useState("Short")
     const navigate = useNavigate()
     const [OpenEvent, SetOpenEvent] = React.useState(null);
@@ -38,7 +39,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
         }
         SetOpenEvent(Id)
         if (Name === "Category") {
-            Axios.post("https://sweede.app/UserPanel/Get-CategoryByStore/ ",
+            Axios.post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/ ",
                 {
 
                     "Store_Id": parseInt(Store_id)
@@ -61,7 +62,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
 
         }
         else if (Name === "Brand") {
-            Axios(`https://sweede.app/UserPanel/Get-FilterBrand`, {
+            Axios(`https://api.cannabaze.com/UserPanel/Get-FilterBrand`, {
 
 
             }).then(response => {
@@ -86,7 +87,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
     function Category_Drop(id, name) {
         if (name === "Category") {
 
-            Axios.post(`https://sweede.app/UserPanel/Get-filterSubcategorybyStoreandCategory/`, {
+            Axios.post(`https://api.cannabaze.com/UserPanel/Get-filterSubcategorybyStoreandCategory/`, {
 
                 "Store_Id": Store_id,
                 "Category_Id": id
@@ -105,7 +106,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
         }
 
         else if (name === "Brand") {
-            Axios(`https://sweede.app/UserPanel/Get-ProductbyBrand/${id}`, {
+            Axios(`https://api.cannabaze.com/UserPanel/Get-ProductbyBrand/${id}`, {
 
 
             }).then(response => {
@@ -125,19 +126,19 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
 
 
     function FilterSubCategorydata(SubCategoryid, SubCategory_name , categoryName) {
-        Axios.post(`https://sweede.app/UserPanel/Get-filterProductbyStoreandSubCategory/`, {
+        Axios.post(`https://api.cannabaze.com/UserPanel/Get-filterProductbyStoreandSubCategory/`, {
             "Store_Id": Store_id,
             "SubCategory_Id": SubCategoryid
         }).then(async response => {
             Setarr1(response.data)
-            navigate(`/weed-delivery/${StoreName}/${"products"}/${categoryName?.toLowerCase()}/${SubCategory_name?.toLowerCase().replace(/\s/g, '-')}/${id}`)
+            navigate(`${location.pathname.slice(0, 14) === "/weed-delivery" ? "/weed-delivery" : "/weed-dispensaries"}/${StoreName.replace(/\s/g, '-').toLowerCase()}/${"menu"}/${categoryName?.toLowerCase()}/${SubCategory_name?.toLowerCase().replace(/\s/g, '-')}/${id}` , { replace: true } )
         }).catch(
             function (error) {
-                alert("Something Goes Wrongkkk")
+                alert("Something Goes Wrong")
             })
     }
     const Search = () => {
-        Axios(`https://sweede.app/UserPanel/Get-SearchFilter/?search=${Searchvalue}`, {
+        Axios(`https://api.cannabaze.com/UserPanel/Get-SearchFilter/?search=${Searchvalue}`, {
 
 
         }).then(response => {
@@ -153,7 +154,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
             })
     }
     const SearchA2Z = () => {
-        Axios(`https://sweede.app/UserPanel/Get-SortingFilterAtoZ/`, {
+        Axios(`https://api.cannabaze.com/UserPanel/Get-SortingFilterAtoZ/`, {
 
 
         }).then(response => {

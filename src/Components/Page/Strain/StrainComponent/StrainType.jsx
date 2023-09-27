@@ -15,7 +15,7 @@ const StrainType = () => {
         // { imgUrl: "./image/Leafly Promo.png", head1: "Sativa" },
     ]
     // React.useEffect(() => {
-    //     Axios.post("https://sweede.app/UserPanel/Get-StrainType/",
+    //     Axios.post("https://api.cannabaze.com/UserPanel/Get-StrainType/",
     //     {"type":"Indica"})
     //     .then((response)=>{
     //     })

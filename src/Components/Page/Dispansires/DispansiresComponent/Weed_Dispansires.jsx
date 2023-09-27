@@ -22,7 +22,7 @@ const Weed_Dispansires = () => {
         if(searchtext !== ""){
             const getData = setTimeout(() => {
        
-                Axios.post(`https://sweede.app/UserPanel/FilterDispensaries/`,{
+                Axios.post(`https://api.cannabaze.com/UserPanel/FilterDispensaries/`,{
                   "store": searchtext
                 })
                 .then(function (response) {
@@ -37,13 +37,8 @@ const Weed_Dispansires = () => {
         }else{
             DespensioriesItem().then((res)=>{
                 SetStore(res)
-            })
-            
+            })   
         }
-        
-    
-        
-       
       }, [searchtext])
     return (
         <React.Fragment>
@@ -82,15 +77,15 @@ const Weed_Dispansires = () => {
                                         <div className=" col-11  mx-auto despensories_card_container">
                                             <div className="row">
                                                 <div className="col-4 disensories_card_image_div">
-                                                    <Link  to={`/weed-dispensarie/${ele.Store_Name.replace(/\s/g,'-')}/${ele.id}`}>
-                                                        <LazyLoadImage id={ele.id} src={`https://sweede.app/${ele.Store_Image}`} alt="img_not_found" className="dispensories_card_image" />
+                                                    <Link  to={`/weed-dispensaries/${ele.Store_Name.replace(/\s/g,'-').toLowerCase()}/${ele.id}`}>
+                                                        <LazyLoadImage id={ele.id} src={`https://api.cannabaze.com/${ele.Store_Image}`} alt="img_not_found" className="dispensories_card_image" />
                                                     </Link>
 
                                                 </div>
                                                 <div className="col-8 dispenosries_card_content_div">
 
                                                     <div className="col-12 dispensories_content_Header_paragraphs text-truncate">
-                                                    <Link  to={`/weed-dispensarie/${ele.Store_Name.replace(/\s/g,'-')}/${ele.id}`}>
+                                                    <Link  to={`/weed-dispensaries/${ele.Store_Name.replace(/\s/g,'-')}/${ele.id}`}>
                                                         <span className="text-truncate dispensoriesHeadingName">{ele.Store_Name}</span>
                                                     </Link>
                                                     </div>

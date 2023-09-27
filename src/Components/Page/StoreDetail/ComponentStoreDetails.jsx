@@ -10,7 +10,7 @@ const StoreDetail1 = () => {
 
             <div className="row">
             <div className="col-lg-12  fontStyle px-0">
-                    <h1 className="store_detail_heading">Store details</h1>
+                    <h2 className="store_detail_heading">Store details</h2>
                 </div>
             <hr />
 

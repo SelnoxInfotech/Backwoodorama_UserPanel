@@ -17,7 +17,7 @@ const DeliveryServices = () => {
     const [Skeleton, SetSkeleton] = React.useState(true)
     const ref = React.useRef(null);
     React.useEffect(() => {
-        Axios(`https://sweede.app/UserPanel/Get-GetDeliveryStoresHomepage/`, {
+        Axios(`https://api.cannabaze.com/UserPanel/Get-GetDeliveryStoresHomepage/`, {
         }
         ).then((response) => {
             SetDeliveryService(response.data)
@@ -45,13 +45,13 @@ const DeliveryServices = () => {
                                     return (
                                         <div className='deliveryServicesCard' key={index}>
                                             <div className='deliveryServicesBorder '>
-                                                <Link to={`/Weed-Deliveries/${items.Store_Name.replace(/\s/g,'-')}/${"Menu"}/${items.id}`}>
+                                                <Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g,'-')}/${"menu"}/${items.id}`}>
                                                     <div className='col-12 deliveryServicesImage_container'>
-                                                        <LazyLoadImage className='deliveryServicesImage' src={`https://sweede.app/${items.Store_Image}`} alt='image not available' />
+                                                        <LazyLoadImage className='deliveryServicesImage' src={`https://api.cannabaze.com/${items.Store_Image}`} alt='image not available' />
                                                     </div>
                                                 </Link>
                                                 <div className='col-12 deliveryServicesContent_container px-4'>
-                                                    <Link to={`/Weed-Deliveries/${items.Store_Name.replace(/\s/g,'-')}/${"Menu"}/${items.id}`}>
+                                                    <Link to={`/Weed-deliveries/${items.Store_Name.replace(/\s/g,'-')}/${"menu"}/${items.id}`}>
                                                         <div className='w-100  deliveryServicesTitle'>
                                                             <p className='ellipsis'>{items.Store_Name}</p>
                                                         </div>

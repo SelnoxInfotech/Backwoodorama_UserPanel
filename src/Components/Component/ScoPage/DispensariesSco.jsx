@@ -6,6 +6,7 @@ function DispensariesSco() {
     return (
         <Helmet>
             <title>{` Weed Dispensaries in ${state.Location.replace(/-/g, " ")}| weedx.io |`}</title>
+            <meta name="title" content={` Weed Dispensaries in ${state.Location.replace(/-/g, " ")}| weedx.io |`}/>
             <meta name='description' content={`find Nearby Dispensaries in ${state.Location} for Recreational & Medical weed. Browse Top Cannabis Products and Place Orders from Trusted Local Dispensaries.`} />
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />

@@ -45,7 +45,7 @@ const AddPhotoId = ({ image, Api, SetApi }) => {
     const Submit = () => {
         const formdata = new FormData();
         formdata.append('PhotoId', image1);
-        Axios.post(`https://sweede.app/UserPanel/Update-UpdateUserProfile/`,
+        Axios.post(`https://api.cannabaze.com/UserPanel/Update-UpdateUserProfile/`,
             formdata,
             {
                 headers: {
@@ -96,7 +96,7 @@ const AddPhotoId = ({ image, Api, SetApi }) => {
                                                         event.target.src = "./image/user.webp"
                                                         event.onerror = null
                                                     }}
-                                                    src={`https://sweede.app/${image}`}
+                                                    src={`https://api.cannabaze.com/${image}`}
                                                     // src={image}
                                                     alt=''
                                                     className='add_photo_size'

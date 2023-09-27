@@ -5,6 +5,7 @@ import useStyles from "../../../../Style";
 import Axios from "axios";
 import React from "react";
 import { Link,  } from "react-router-dom"
+import { BrandSeo } from "../../../Component/ScoPage/BrandsSeo";
 
 
 const VerifyBrands = () => {
@@ -13,7 +14,7 @@ const VerifyBrands = () => {
     React.useEffect(() => {
        
         Axios.get(
-            'https://sweede.app/UserPanel/Get-AllBrand/ ',
+            'https://api.cannabaze.com/UserPanel/Get-AllBrand/ ',
 
         ).then(response => {
             SetVerifyArrayData(response.data)
@@ -24,15 +25,16 @@ const VerifyBrands = () => {
     }, [])
     return (
         <React.Fragment>
+            <BrandSeo></BrandSeo>
             <div className="row">
                 {VerifyArrayData?.map((items, index) => {
                     return (
                         <div className="col-xl-6 col-md-12 col-12 verify_brand_container" key={index}>
                             <div className="row verifyBrand_row mx-1 my-3">
                            
-                                <Link  to={`/Brand/${items.name.replace(/\s/g, '')}/${items.id}`}> 
+                                <Link  to={`/brands/${items.name.replace(/\s/g, '').toLowerCase()}/${items.id}`}> 
                                 <div className="col-6  verifyBrand_image_container ">
-                                  <LazyLoadImage className="verify_brand_image"  src={`https://sweede.app/${items.Brand_Logo}`}  alt="image not found" />
+                                  <LazyLoadImage className="verify_brand_image"  src={`https://api.cannabaze.com/${items.Brand_Logo}`}  alt="image not found" />
 
                                 </div>
                                 <div className="col-6 verify_content_container">

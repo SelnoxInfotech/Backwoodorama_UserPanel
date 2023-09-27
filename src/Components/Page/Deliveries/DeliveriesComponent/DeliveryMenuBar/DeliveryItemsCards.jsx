@@ -20,8 +20,8 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                     <div className='col-sm-8 col-12 delivery_image_content_Container_height'>
                                         <div className='row'>
                                             <div className='col-lg-5 col-5 delivery_items_card_img_container px-0'>
-                                                <Link to={`/weed-delivery/${items.Store_Name.replace(/\s/g,'-').toLowerCase()}/${items.id}`}>
-                                                    <LazyLoadImage className='delivery_card_image_height' src={`https://sweede.app/${items.Store_Image}`} alt='Image_not found' height={"100px"} />
+                                                <Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g,'-').toLowerCase()}/${items.id}`}>
+                                                    <LazyLoadImage className='delivery_card_image_height' src={`https://api.cannabaze.com/${items.Store_Image}`} alt='Image_not found' height={"100px"} />
                                                 </Link>
                                             </div>
                                             <div className='col-lg-7 col-7'>
@@ -80,7 +80,7 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                                 <Box
                                                     className={`${classes.loadingBtnTextAndBack}`}
                                                 >
-                                                    <Link to={`/weed-delivery/${items.Store_Name.replace(/\s/g,'-')}/${"Menu"}/${items.id}`}><LoadingButton style={{ width: "100%", height: "30px" }} variant="outlined">view menu</LoadingButton></Link>
+                                                    <Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g,'-')}/${"Menu"}/${items.id}`}><LoadingButton style={{ width: "100%", height: "30px" }} variant="outlined">view menu</LoadingButton></Link>
 
                                                 </Box>
 

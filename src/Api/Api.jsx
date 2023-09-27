@@ -2,7 +2,7 @@ import axios from 'axios'
 import Cookies from 'universal-cookie';
 
 export function registerEmp(usrdata) {
-    let data = axios.post(' https://sweede.app/DeliveryBoy/Add-Employee/', usrdata);
+    let data = axios.post(' https://api.cannabaze.com/DeliveryBoy/Add-Employee/', usrdata);
     return data;
 }
 // blog Api
@@ -10,7 +10,7 @@ export function BlogLike(ID) {
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
     if (token_data) {
-        let data = axios.get(`https://sweede.app/UserPanel/Get-BlogLike/${ID}`,
+        let data = axios.get(`https://api.cannabaze.com/UserPanel/Get-BlogLike/${ID}`,
             {
                 headers: { Authorization: `Bearer ${token_data}` }
             },
@@ -18,7 +18,7 @@ export function BlogLike(ID) {
         return data;
     }
     else {
-        let data = axios.get(`https://sweede.app/UserPanel/Get-BlogLike/${ID}`
+        let data = axios.get(`https://api.cannabaze.com/UserPanel/Get-BlogLike/${ID}`
         );
         return data;
     }
@@ -26,7 +26,7 @@ export function BlogLike(ID) {
 export function Post_BlogLike(id, like) {
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
-    let data = axios.post('https://sweede.app/UserPanel/Add-BlogLike/',
+    let data = axios.post('https://api.cannabaze.com/UserPanel/Add-BlogLike/',
         {
             Blog: id,
             like: like
@@ -41,7 +41,7 @@ export function Get_Comment(ID) {
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
     if (token_data) {
-        let data = axios.get(`https://sweede.app/UserPanel/Get-Comment/${ID}`,
+        let data = axios.get(`https://api.cannabaze.com/UserPanel/Get-Comment/${ID}`,
             {
                 headers: { Authorization: `Bearer ${token_data}` }
             },
@@ -49,7 +49,7 @@ export function Get_Comment(ID) {
         return data;
     }
     else {
-        let data = axios.get(`https://sweede.app/UserPanel/Get-Comment/${ID}`
+        let data = axios.get(`https://api.cannabaze.com/UserPanel/Get-Comment/${ID}`
         );
         return data;
     }
@@ -57,7 +57,7 @@ export function Get_Comment(ID) {
 export function Post_Comment(id, Comment) {
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
-    let data = axios.post('https://sweede.app/UserPanel/Add-Comment/',
+    let data = axios.post('https://api.cannabaze.com/UserPanel/Add-Comment/',
         {
             Blog: id,
             comment: Comment
@@ -69,7 +69,7 @@ export function Post_Comment(id, Comment) {
     return data;
 }
 export function ViewCountApi (id){
-    let data = axios.post(`https://sweede.app/UserPanel/Add-BlogView/`,
+    let data = axios.post(`https://api.cannabaze.com/UserPanel/Add-BlogView/`,
     {
         blog: id
     },
@@ -78,7 +78,7 @@ return data;
 }
 export function DespensioriesItem(){
    let data = axios.get(
-        'https://sweede.app/UserPanel/Get-Dispensaries/',
+        'https://api.cannabaze.com/UserPanel/Get-Dispensaries/',
     ).then(response => {
         return response.data
     }).then((res)=>{
@@ -94,7 +94,7 @@ export function DespensioriesItem(){
 // Store Review Api   Dispensaries   
 
 export function Homepagebanner(){
-    let banner = axios(`https://sweede.app/UserPanel/Get-AllHomePageBanner/`,{
+    let banner = axios(`https://api.cannabaze.com/UserPanel/Get-AllHomePageBanner/`,{
 
     }
 

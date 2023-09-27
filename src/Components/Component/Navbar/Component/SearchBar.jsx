@@ -23,7 +23,7 @@ const SearchBar = ({path}) => {
     const classes = useStyles()
     function Search(event) {
         SetSearchData([])
-        Axios.post(`https://sweede.app/UserPanel/Get-HomePageFilter/`,
+        Axios.post(`https://api.cannabaze.com/UserPanel/Get-HomePageFilter/`,
             {
 
                 search: event.target.value
@@ -83,7 +83,7 @@ const SearchBar = ({path}) => {
 
     function SearchAPi(id, type) {
 
-        Axios.post(`https://sweede.app/UserPanel/Get-ResultHomeSearchFilter/`,
+        Axios.post(`https://api.cannabaze.com/UserPanel/Get-ResultHomeSearchFilter/`,
             {
                 id: id,
                 type: type
@@ -153,7 +153,7 @@ const SearchBar = ({path}) => {
                                                     onError={event => {
                                                         event.target.src = "/image/blankImage.jpg"                                                      
                                                     }}
-                                                    className='searchBarImageStyles' src={`https://sweede.app/${t.image}`} alt=''></LazyLoadImage>
+                                                    className='searchBarImageStyles' src={`https://api.cannabaze.com/${t.image}`} alt=''></LazyLoadImage>
                                                 <span className='searchBarSpanValue'> {`${t.value}`}</span>
                                             </li>
                                         </div>

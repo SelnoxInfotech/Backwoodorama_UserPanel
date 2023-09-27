@@ -19,7 +19,7 @@ const CategoryProduct = ({ ShowCategoryProduct, Category,Skeleton }) => {
                            
                                 <div className="catagoryTabs_section">
                                   
-                                        <h1 className='shopByCategoryHeading'>Shop by Category</h1>
+                                        <h2 className='shopByCategoryHeading'>Shop by Category</h2>
                                  
                                         <ScrollContainer className="ScrollContainerRelative">
 
@@ -31,7 +31,7 @@ const CategoryProduct = ({ ShowCategoryProduct, Category,Skeleton }) => {
                                                         <div className='CategorySliderImageBlock' key={index}>
                                                             <div className='slider1'>
                                                         
-                                                                <LazyLoadImage onClick={() => { ShowCategoryProduct(ele.id, ele.name) }} src={`https://sweede.app/` + ele.categoryImages} alt="glass_img" className='rounded-circle catagoriesTabImg' />
+                                                                <LazyLoadImage onClick={() => { ShowCategoryProduct(ele.id, ele.name) }} src={`https://api.cannabaze.com/` + ele.categoryImages} alt="glass_img" className='rounded-circle catagoriesTabImg' />
                                                             
                                                             </div>
                                                             <div className='col center Category_title' >

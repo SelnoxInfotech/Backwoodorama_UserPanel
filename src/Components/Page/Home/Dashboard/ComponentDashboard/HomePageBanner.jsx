@@ -24,7 +24,7 @@ const HomePageBanner = () => {
                         {HomePageBannerImage.map((items, index) => {
                             return (
                                 <div className='col-12 homePageBanner_container' key={index}>
-                                    <LazyLoadImage  src={`https://sweede.app/${items.Banner}`}  alt="Image not available" className='HomePageBanner_image'/>
+                                    <LazyLoadImage  src={`https://api.cannabaze.com/${items.Banner}`}  alt="Image not available" className='HomePageBanner_image'/>
                                 </div>
 
                             )
@@ -36,7 +36,7 @@ const HomePageBanner = () => {
                         {HomePageBannerImage.map((items, index) => {
                             return (
                                 <div className='col-12 homePageBanner_container' key={index}>
-                                    <LazyLoadImage  src={`https://sweede.app/${items.mobile}`}  alt="Image not available" className='HomePageBanner_image'/>
+                                    <LazyLoadImage  src={`https://api.cannabaze.com/${items.mobile}`}  alt="Image not available" className='HomePageBanner_image'/>
                                 </div>
                             )
                         })}

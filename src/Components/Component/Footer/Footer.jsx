@@ -14,7 +14,7 @@ const Footer = () => {
     const classes = useStyles()
     const [Categorys, SetCategorys] = React.useState([])
     React.useEffect(() => {
-        Axios.get("https://sweede.app/UserPanel/Get-Categories/", {}).then(Response => {
+        Axios.get("https://api.cannabaze.com/UserPanel/Get-Categories/", {}).then(Response => {
             SetCategorys(Response.data)
 
         }).catch(() => {
@@ -45,7 +45,7 @@ const Footer = () => {
                         <div className="row main_content_logo">
                                 <div className=" footer_logo_container">
                                     <div className="footerLogo">
-                                        <LazyLoadImage className="footer_logo_image" src="https://sweede.app/image/images/download/media/BlankImage/3.png" alt="image_not found" />
+                                        <LazyLoadImage className="footer_logo_image" src="https://api.cannabaze.com/image/images/download/media/BlankImage/3.png" alt="image_not found" />
                                     </div>
 
                                     <div className="contact_info">

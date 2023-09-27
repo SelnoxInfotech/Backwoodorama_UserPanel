@@ -58,7 +58,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
 
 
             })
-            await axios.post("https://sweede.app/UserPanel/Add-AddtoCart/",
+            await axios.post("https://api.cannabaze.com/UserPanel/Add-AddtoCart/",
 
                 {
                     Brand_Id:Event.Brand_id,
@@ -164,7 +164,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
         <React.Fragment>
             <div className="row mx-0 marginProductSearchResult">
                 <div className="col-12 mt-4  fontStyle">
-                    <h1 className="productSlider_headings">{CategoryName}</h1>
+                    <h2 className="productSlider_headings">{CategoryName}</h2>
                 </div>
                 {RelatedProductResult.map((items, index) => {
                   if(items.id !== currentProductID){
@@ -189,7 +189,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                 event.target.src = "/image/blankImage.jpg"
                                                 event.onerror = null
                                             }}
-                                            src={`https://sweede.app/${items?.images[0]?.image}`}
+                                            src={`https://api.cannabaze.com/${items?.images[0]?.image}`}
                                             height={"100px"}
                                         />
                                     </Link>

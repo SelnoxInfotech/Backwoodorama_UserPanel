@@ -37,7 +37,7 @@ const OverAllReview = ({ Product, api, SetApi }) => {
 
                 <div className="w-100 mt-4">
                     <div className=" px-0 product_review">
-                        <h1>Store Details</h1>
+                        <h2>Store Details</h2>
 
                     </div>
 
