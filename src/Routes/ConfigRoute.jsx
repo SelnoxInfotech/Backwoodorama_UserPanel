@@ -40,6 +40,9 @@ import WhisLists from "../Components/Component/Whishlist/WhisLists/WhisLists";
 import LawStateDescription from "../Components/Page/Learn/Laws/LawStateDescription/LawStateDescription";
 import RoutingDespen from "../Routes/RoutingDespen"
 import RoutingList from "../Routes/RoutingList"
+import Termsconditions from '../Components/Page/Termsconditions/Termsconditions.jsx'
+import Cookiespolicy from '../Components/Page/Cookiespolicy/Cookiespolicy.jsx'
+import Privatepolicy from '../Components/Page/Privacypolicy/Privacypolicy.jsx'
 const routesConfig = [
 
   {
@@ -269,10 +272,22 @@ const routesConfig = [
       //   path: "/DashBoardMap",
       //   element:  <RoutingList Component={DashBoardMap} ></RoutingList>   
       // },
-  
+      
       {
         path: "/WhisLists",
         element: <ProtectRout Component={WhisLists} ></ProtectRout>
+      },
+      {
+        path: "/termscondition",
+        element: <ProtectRout Component={Termsconditions} ></ProtectRout>
+      },
+      {
+        path: "/cookiespolicy",
+        element: <ProtectRout Component={Cookiespolicy} ></ProtectRout>
+      },
+      {
+        path: "/privatepolicy",
+        element: <ProtectRout Component={Privatepolicy} ></ProtectRout>
       },
       // ends
       {
@@ -281,8 +296,8 @@ const routesConfig = [
       }
 
 
-    ],
-  },
+    ]
+  }
 ]
 
 export default routesConfig

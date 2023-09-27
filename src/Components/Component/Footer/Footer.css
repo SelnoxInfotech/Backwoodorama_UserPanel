@@ -209,6 +209,9 @@ footer li{
    .main_content_logo {
     justify-content: space-between;
 }
+.footer_sub_heading{
+  font-size: 15px;
+}
   }
   
 

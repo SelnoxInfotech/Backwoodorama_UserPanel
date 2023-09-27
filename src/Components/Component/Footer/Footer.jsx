@@ -26,11 +26,11 @@ const Footer = () => {
 
 
     const More = [{ head: "Get Started" }, { head: "Brand" }, { head: "Add Business" }, { head: "Contact Us" }]
-    const BottomMenuBar = [{ item: "Term & Condition" }, { item: "Careers" }, { item: "Privacy Policy" }]
-    function sendEmail() 
-    {
-        window.location = "mailto://xyz@yourapplicationdomain.com";
-    }
+ 
+    // function sendEmail() 
+    // {
+    //     window.location = "mailto://xyz@yourapplicationdomain.com";
+    // }
     return (
         <>
           <footer>
@@ -108,17 +108,22 @@ const Footer = () => {
                             <div className="col-lg-3 col-12"></div>
                             <div className=" col-lg-6  col-sm-9 bottom_menu_items ">
                                 <ul className="px-0 row">
-                                    {
-                                        BottomMenuBar.map((val, index) => {
-                                            return (
-                                                <Link key={index}>
+                                   
+                                        
+                                      
+                                    
+                                        <Link  to={'/termscondition'}>
 
-                                                    <li className="footer_li" >{val.item}</li>
-                                                </Link>
+                                        <li className="footer_li" > Term & Condition </li>
+                                        </Link>
+                                        <Link  to={'/cookiespolicy'}>
 
-                                            )
-                                        })
-                                    }
+                                        <li className="footer_li" > cookies Policy </li>
+                                        </Link>
+                                        <Link  to={'/privatepolicy'}>
+
+                                        <li className="footer_li" > Privacy Policy </li>
+                                        </Link>
                                 </ul>
                             </div>
                             <div className="col-lg-3 col-sm-3 footer_icons_column ">

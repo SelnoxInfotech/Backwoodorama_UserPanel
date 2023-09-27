@@ -8,7 +8,8 @@ import Cookies from 'universal-cookie';
 import Createcontext from "../../../../../Hooks/Context"
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper";
+
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import _ from "lodash"
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';

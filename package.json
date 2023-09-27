@@ -74,7 +74,7 @@
     "serve": "^14.2.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.9",
-    "swiper": "^9.1.1",
+    "swiper": "^10.3.0",
     "universal-cookie": "^4.0.4",
     "web-vitals": "^2.1.4"
   },
