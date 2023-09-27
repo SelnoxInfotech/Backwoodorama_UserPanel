@@ -5,6 +5,7 @@ import LawStateDecriptionBanner from "./LawStateDescriptionComponent/LawStateDec
 import { useLocation, useParams } from 'react-router-dom';
 import Content from "../LawContentsJson"
 import _ from "lodash"
+import { LawState } from "../../../../Component/ScoPage/LearnSeo";
 const LawStateDescription = () => {
     const params = useParams()
     // const location = useLocation()
@@ -25,6 +26,7 @@ const LawStateDescription = () => {
     }, [params.id])
     return (
         <React.Fragment>
+            <LawState Title={`Cannabis Law in ${GetContant?.name}`} State={GetContant?.Country}></LawState>
             <div className="container-fluid">
                 <div className="row">
                     <LawStateDecriptionBanner />

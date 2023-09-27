@@ -4,11 +4,14 @@ import { LazyLoadImage } from "react-lazy-load-image-component"
 import blankImage from "../Image/blankImage.jpg"
 import { Link } from "react-router-dom"
 import Content from "../LawContentsJson"
+import { LawState } from "../../../../Component/ScoPage/LearnSeo";
+import { useParams } from "react-router-dom"
 const LawsOptions = () => {
     const [Values, SetValues] = React.useState([])
+    console.log(useParams())
     return (
         <div className="col-12 lawsContainer my-4">
-
+    {/* <LawState Title={''}></LawState> */}
             {Content?.map((items ,index) => {
                 return (
                     <ol className="laws_ol" key={index}>
@@ -23,7 +26,7 @@ const LawsOptions = () => {
                                             return (
 
                                                 <Link to={{
-                                                    pathname: `/learn/laws-and-regulation/${'Cannabis-Law-in-'+val.name}/${val.id }`,
+                                                    pathname: `/learn/laws-and-regulation/${'Cannabis-Law-in-'+val.name.toLowerCase()}/${val.id }`,
 
                                                 }}
                                                     key={index}
