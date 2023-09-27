@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import {FaFacebookF } from "react-icons/fa";
 import {MdEmail } from "react-icons/md";
 import HomePageDealsSignup from '../Home/Dashboard/ComponentDashboard/HomePageDealsSignup';
+import {PrivacyPolicy}  from "../../Component/ScoPage/CommenpageSeo"
 const Privacypolicy = () => {
   React.useEffect(() => {
     window.scrollTo(0, 0)
@@ -11,6 +12,7 @@ const Privacypolicy = () => {
   return (
     <>
     <div className='term_condition'>
+      <PrivacyPolicy></PrivacyPolicy>
       <div className="container-fluid">
         <div className="tc_hero">
           <h3 className="page_heading">  Weedx.io Privacy policy  </h3>
