@@ -258,10 +258,10 @@ const NewProductDetailsCards = ({ Product }) => {
                         </div>
                         <div className="col-12 ">
                             <p><span className="newProduct_doller_price">
-                             
+{/*                              
                                 { Product?.Prices[0]?.filter((item )=>{
                                    return  item.length
-                                 })}                         
+                                 })}                          */}
                             </span><span className="mx-3 newProduct_Gms">Per 1 Z</span></p>
                         </div>
                         <div className="col-12">
