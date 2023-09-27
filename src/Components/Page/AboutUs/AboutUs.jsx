@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from "styled-components";
 import './Aboutus.css'
+import {AboutusSeo}  from "../../Component/ScoPage/CommenpageSeo"
 const AboutUs = () => {
     React.useEffect(() => {
         window.scroll(0, 0)
@@ -132,10 +133,10 @@ const AboutUs = () => {
         paragraph: "Enhance your business by gaining deeper insights into your existing and potential customers, optimizing your marketing strategies."
     }]
 
-    const NumberOfVisits = [{ visit: "60 MILLION" }, { visit: "4+ MILLION" }, { visit: "4,600+ MILLION" }, { visit: "1.3 million" }, { visit: "5,000+" }]
+    // const NumberOfVisits = [{ visit: "60 MILLION" }, { visit: "4+ MILLION" }, { visit: "4,600+ MILLION" }, { visit: "1.3 million" }, { visit: "5,000+" }]
     return (
         <div className="container">
-
+        <AboutusSeo></AboutusSeo>
             <div className='about_us_header'>
 
 

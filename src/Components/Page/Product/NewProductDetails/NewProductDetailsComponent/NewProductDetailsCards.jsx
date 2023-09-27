@@ -131,6 +131,7 @@ const NewProductDetailsCards = ({ Product }) => {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
         localStorage.setItem('items', JSON.stringify(AddTOCard))
     }, [AddTOCard])
+
     return (
         <div className=" mx-1 w-100">
             <div className=" newProductDetailsContainer  mt-4">                  

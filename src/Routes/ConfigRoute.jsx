@@ -104,7 +104,9 @@ const routesConfig = [
         element: <RoutingList Component={ProductDetail} ></RoutingList>,
       },
       // End
-      // Complete
+
+
+      // Complete///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
       {
         path: "/brands",
         element: <RoutingList Component={Brand} ></RoutingList>,
@@ -137,11 +139,38 @@ const routesConfig = [
         element: <RoutingList Component={NewProductDetails} ></RoutingList>
       },
 
-
-
-
-
       // End
+         //  Learn Rout
+         {
+          path: "/learn",
+          element: <RoutingList Component={LearnTabs} ></RoutingList>
+        },
+        {
+          path: "/learn/laws-and-regulation/",
+          element: <RoutingList Component={LearnTabs} ></RoutingList>
+        },
+        {
+          path: "/learn/laws-and-regulation/:State/:id",
+          element: <RoutingList Component={LawStateDescription} ></RoutingList>
+        },
+      
+        {
+          path: "/strain",
+          element: <RoutingList Component={Strain} ></RoutingList>
+        },
+        {
+          path: "/aboutUs",
+          element: <RoutingList Component={AboutUs} ></RoutingList>
+        },
+
+
+
+        // end
+
+/////////////////////////////////////////////////////////////// Proper Compeleted Routes With Seo ////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 
 
 
@@ -207,10 +236,6 @@ const routesConfig = [
       },
 
       {
-        path: "/Strain",
-        element: <RoutingList Component={Strain} ></RoutingList>
-      },
-      {
         path: "/EmptyCard",
         element: <RoutingList Component={EmptyCard} ></RoutingList>
       }
@@ -220,10 +245,7 @@ const routesConfig = [
         element: <RoutingList Component={CategoryProduct} ></RoutingList>
       }
       ,
-      {
-        path: "/AboutUs",
-        element: <RoutingList Component={AboutUs} ></RoutingList>
-      },
+      
       {
         path: "/LearnCardRelatedPage",
         element: <RoutingList Component={LearnCardRelatedPage} ></RoutingList>
@@ -256,24 +278,7 @@ const routesConfig = [
         path: "/StrainProduct/:type",
         element: <RoutingList Component={StrainProduct} ></RoutingList>
       },
-      //  Learn Rout
-      {
-        path: "/learn",
-        element: <RoutingList Component={LearnTabs} ></RoutingList>
-      },
-      {
-        path: "/learn/laws-and-regulation/",
-        element: <RoutingList Component={LearnTabs} ></RoutingList>
-      },
-      {
-        path: "/learn/laws-and-regulation/:State/:id",
-        element: <RoutingList Component={LawStateDescription} ></RoutingList>
-      },
-      // {
-      //   path: "/LawStateDescription",
-      //   element: <RoutingList Component={LawStateDescription} ></RoutingList>
-      // },
-      // end
+   
       {
         path: "/Blogs/:id",
         element: <RoutingList Component={Blogs} ></RoutingList>

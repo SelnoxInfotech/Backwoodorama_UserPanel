@@ -5,6 +5,7 @@ const Content = [
         name: 'USA', id: 1,
         state: [
             {
+                Country: 'USA',
                 id: 1,
                 name: "Alabama",
                 content: [
@@ -94,6 +95,7 @@ const Content = [
                 ]
             },
             {
+                Country: 'USA',
                 id: 2,
                 name: "Alaska",
                 content: [{
@@ -252,6 +254,7 @@ const Content = [
                 ]
             },
             {
+                Country: 'USA',
                 id: 3,
                 name: "Arizona",
                 content: [{
@@ -424,6 +427,7 @@ const Content = [
                 ]
             },
             {
+                Country: 'USA',
                 id: 4,
                 name: "Arkansas",
                 content: [
@@ -527,6 +531,7 @@ const Content = [
                 ]
             },
             {
+                Country: 'USA',
                 id: 5,
                 name: "California",
                 content: [
@@ -627,6 +632,7 @@ const Content = [
                 ]
             },
             {
+                Country: 'USA',
                 id: 6,
                 name: "Colorado",
                 content: [
@@ -698,7 +704,8 @@ const Content = [
                 ]
             },
             {
-                id: 6,
+                Country: 'USA',
+                id: 7,
                 name: "Connecticut",
                 content: [
                     {
@@ -764,7 +771,8 @@ const Content = [
                 ]
             },
             {
-                id: 7,
+                Country: 'USA',
+                id: 8,
                 name: " Delaware",
                 content: [
                     {
@@ -830,7 +838,8 @@ const Content = [
                 ]
             },
             {
-                id: 8,
+                Country: 'USA',
+                id: 9,
                 name: "Florida",
                 content: [
                     {
@@ -899,7 +908,8 @@ const Content = [
                 ]
             },
             {
-                id: 9,
+                Country: 'USA',
+                id: 10,
                 name: "Georgia",
                 content: [
                     {
@@ -951,7 +961,8 @@ const Content = [
                 ]
             },
             {
-                id: 10,
+                Country: 'USA',
+                id: 11,
                 name: "Guam",
                 content: [
                     {
@@ -1022,7 +1033,8 @@ const Content = [
                 ]
             },
             {
-                id: 11,
+                Country: 'USA',
+                id: 12,
                 name: "Hawaii",
                 content: [{
                     title: "Is weed legal in Hawaii?",
@@ -1094,7 +1106,8 @@ const Content = [
                 ]
             },
             {
-                id: 12,
+                Country: 'USA',
+                id: 13,
                 name: "Idaho",
                 content: [
                     {
@@ -1139,7 +1152,8 @@ const Content = [
                 ]
             },
             {
-                id: 13,
+                Country: 'USA',
+                id: 14,
                 name: "Illinois",
                 content: [
                     {
@@ -1225,7 +1239,8 @@ const Content = [
                 ]
             },
             {
-                id: 14,
+                Country: 'USA',
+                id: 15,
                 name: "Indiana",
                 content: [
                     {
@@ -1288,7 +1303,8 @@ const Content = [
                 ]
             },
             {
-                id: 15,
+                Country: 'USA',
+                id: 16,
                 name: "Kansas",
                 content: [
                     {
@@ -1337,7 +1353,8 @@ const Content = [
                 ]
             },
             {
-                id: 16,
+                Country: 'USA',
+                id: 17,
                 name: "Kentucky",
                 content: [
                     {
@@ -1388,7 +1405,8 @@ const Content = [
                 ]
             },
             {
-                id: 17,
+                Country: 'USA',
+                id: 18,
                 name: "Louisiana",
                 content: [
                     {
@@ -1470,7 +1488,8 @@ const Content = [
                 ]
             },
             {
-                id: 18,
+                Country: 'USA',
+                id: 19,
                 name: "lowa",
                 content: [
                     {
@@ -1555,7 +1574,8 @@ const Content = [
                 ]
             },
             {
-                id: 19,
+                Country: 'USA',
+                id: 20,
                 name: "Maine",
                 content: [
                     {
@@ -1632,7 +1652,8 @@ const Content = [
                 ]
             },
             {
-                id: 20,
+                Country: 'USA',
+                id: 21,
                 name: "Maryland",
                 content: [
                     {
@@ -1707,7 +1728,8 @@ const Content = [
                 ]
             },
             {
-                id: 21,
+                Country: 'USA',
+                id: 22,
                 name: "Massachusetts",
                 content: [
                     {
@@ -1790,7 +1812,8 @@ const Content = [
                 ]
             },
             {
-                id: 22,
+                Country: 'USA',
+                id: 23,
                 name: "Michigan",
                 content: [
                     {
@@ -1872,7 +1895,8 @@ const Content = [
                 ]
             },
             {
-                id: 23,
+                Country: 'USA',
+                id: 24,
                 name: "Minnesota",
                 content: [
                     {
@@ -1953,7 +1977,8 @@ const Content = [
                 ]
             },
             {
-                id: 24,
+                Country: 'USA',
+                id: 25,
                 name: "Washington",
                 content: [
                     {
@@ -2015,7 +2040,8 @@ const Content = [
                 ]
             },
             {
-                id: 25,
+                Country: 'USA',
+                id: 26,
                 name: "West Virginia ",
                 content: [
                     {
@@ -2089,7 +2115,8 @@ const Content = [
                 ]
             },
             {
-                id: 26,
+                Country: 'USA',
+                id: 27,
                 name: "Wisconsin",
                 content: [
                     {
@@ -2157,7 +2184,8 @@ const Content = [
                 ]
             },
             {
-                id: 27,
+                Country: 'USA',
+                id: 28,
                 name: "Wyoming",
                 content: [
                     {
@@ -2195,33 +2223,33 @@ const Content = [
                     },
                     {
                         title: "Possession Limits",
-                        content:<p>Wyoming enforces some of the most stringent cannabis possession limits in the United States. Even a small amount of cannabis can lead to criminal charges. Possession of three ounces or less is considered a misdemeanor, carrying potential penalties of up to one year in prison and a fine of up to $1,000. Possession of more than three ounces escalates the offense to a felony, with significantly harsher penalties</p>
+                        content: <p>Wyoming enforces some of the most stringent cannabis possession limits in the United States. Even a small amount of cannabis can lead to criminal charges. Possession of three ounces or less is considered a misdemeanor, carrying potential penalties of up to one year in prison and a fine of up to $1,000. Possession of more than three ounces escalates the offense to a felony, with significantly harsher penalties</p>
 
                     },
                     {
-                        title:"Purchasing Options",
-                        content:<p>Given that both recreational and medical marijuana are illegal in Wyoming, there are no legal purchasing options within the state. Residents are prohibited from buying cannabis products, and any attempt to do so could result in legal consequences.</p>
+                        title: "Purchasing Options",
+                        content: <p>Given that both recreational and medical marijuana are illegal in Wyoming, there are no legal purchasing options within the state. Residents are prohibited from buying cannabis products, and any attempt to do so could result in legal consequences.</p>
                     },
                     {
-                        title:"Consumption Restrictions",
-                        content:<p>Cannabis consumption, whether for recreational or medical purposes, is prohibited in Wyoming. This includes public spaces, private properties, and vehicles. The state has not established any legal framework for consuming cannabis, making any form of consumption subject to criminal penalties.</p>
+                        title: "Consumption Restrictions",
+                        content: <p>Cannabis consumption, whether for recreational or medical purposes, is prohibited in Wyoming. This includes public spaces, private properties, and vehicles. The state has not established any legal framework for consuming cannabis, making any form of consumption subject to criminal penalties.</p>
                     },
 
                     {
                         title: "Frequently Asked Questions",
                         content: <div>
-                           <ul>
-                            <li>Is medical marijuana legal in Wyoming?</li>
-                            <p>No, medical marijuana is not legal in Wyoming. The state has not passed any laws permitting medical cannabis use.</p>
-                             <li>Are there any exceptions to Wyoming's cannabis laws?</li>
-                         <p>As of now, Wyoming has not carved out any exceptions for medical or recreational cannabis use.</p>
-                          <li>What are the penalties for possessing cannabis in Wyoming?</li>
-                           <p>Possession of small amounts is considered a misdemeanor, while possession of larger quantities can lead to felony charges. Penalties can include fines and imprisonment.</p>
-                        <li>Is CBD legal in Wyoming?</li>
-                          <p>CBD derived from hemp with less than 0.3% THC is legal in Wyoming. However, the legality of CBD products can vary, so it's important to ensure compliance with state laws.</p>
-                        <li>Could Wyoming's cannabis laws change in the future?</li>
-                         <p>While it's always possible for laws to change, any potential change in Wyoming's cannabis laws would likely require significant shifts in public opinion and legislative priorities.</p>
-                           </ul>
+                            <ul>
+                                <li>Is medical marijuana legal in Wyoming?</li>
+                                <p>No, medical marijuana is not legal in Wyoming. The state has not passed any laws permitting medical cannabis use.</p>
+                                <li>Are there any exceptions to Wyoming's cannabis laws?</li>
+                                <p>As of now, Wyoming has not carved out any exceptions for medical or recreational cannabis use.</p>
+                                <li>What are the penalties for possessing cannabis in Wyoming?</li>
+                                <p>Possession of small amounts is considered a misdemeanor, while possession of larger quantities can lead to felony charges. Penalties can include fines and imprisonment.</p>
+                                <li>Is CBD legal in Wyoming?</li>
+                                <p>CBD derived from hemp with less than 0.3% THC is legal in Wyoming. However, the legality of CBD products can vary, so it's important to ensure compliance with state laws.</p>
+                                <li>Could Wyoming's cannabis laws change in the future?</li>
+                                <p>While it's always possible for laws to change, any potential change in Wyoming's cannabis laws would likely require significant shifts in public opinion and legislative priorities.</p>
+                            </ul>
                         </div>
                     },
 
@@ -2234,7 +2262,8 @@ const Content = [
         name: 'Canada', id: 2,
         state: [
             {
-                id: 28,
+                Country: 'Canada',
+                id: 29,
                 name: "Alberta",
                 content: [{
                     title: "Is weed legal in Alberta?",
@@ -2345,7 +2374,8 @@ const Content = [
                 ]
             },
             {
-                id: 29,
+                Country: 'Canada',
+                id: 30,
                 name: "British Columbia",
                 content: [
                     {
