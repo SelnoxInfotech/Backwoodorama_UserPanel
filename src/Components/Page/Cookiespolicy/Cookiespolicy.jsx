@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import {FaFacebookF } from "react-icons/fa";
 import {MdEmail } from "react-icons/md";
 import HomePageDealsSignup from '../Home/Dashboard/ComponentDashboard/HomePageDealsSignup';
+import { CookiesPolicy } from '../../Component/ScoPage/CommenpageSeo';
 const Termsconditions = () => {
   React.useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
   return (
     <>
+    <CookiesPolicy></CookiesPolicy>
     <div className='term_condition'>
       <div className="container-fluid">
         <div className="tc_hero">
