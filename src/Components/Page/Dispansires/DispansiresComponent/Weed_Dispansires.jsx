@@ -22,7 +22,7 @@ const Weed_Dispansires = () => {
         if(searchtext !== ""){
             const getData = setTimeout(() => {
        
-                Axios.post(`https://sweede.app/UserPanel/FilterDispensaries/`,{
+                Axios.post(`https://api.cannabaze.com/UserPanel/FilterDispensaries/`,{
                   "store": searchtext
                 })
                 .then(function (response) {
@@ -78,7 +78,7 @@ const Weed_Dispansires = () => {
                                             <div className="row">
                                                 <div className="col-4 disensories_card_image_div">
                                                     <Link  to={`/weed-dispensaries/${ele.Store_Name.replace(/\s/g,'-').toLowerCase()}/${ele.id}`}>
-                                                        <LazyLoadImage id={ele.id} src={`https://sweede.app/${ele.Store_Image}`} alt="img_not_found" className="dispensories_card_image" />
+                                                        <LazyLoadImage id={ele.id} src={`https://api.cannabaze.com/${ele.Store_Image}`} alt="img_not_found" className="dispensories_card_image" />
                                                     </Link>
 
                                                 </div>

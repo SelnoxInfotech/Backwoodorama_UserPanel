@@ -68,14 +68,14 @@ const RelatedReview = ({Product , api}) => {
                                                     event.onerror = null
                                                 }}
                                                 className="newProductCategory_image"
-                                                 src={`https://sweede.app/${items?.SubCategoryImage}`} */}
+                                                 src={`https://api.cannabaze.com/${items?.SubCategoryImage}`} */}
                                                 <LazyLoadImage 
                                                 onError={event => {
                                                     event.target.src = "/image/user.webp"
                                                     event.onerror = null
                                                 }}
                                                 className='realted_review_images'
-                                                src={`https://sweede.app/${ele?.userImage}`} 
+                                                src={`https://api.cannabaze.com/${ele?.userImage}`} 
                                                 alt="userImage"
                                                 />
                                             </div>

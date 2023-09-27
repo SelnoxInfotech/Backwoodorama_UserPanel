@@ -16,7 +16,7 @@ const PlaceOrder = () => {
             headers: { Authorization: `Bearer ${token_data}` }
         };
       
-        Axios.get(`https://sweede.app/UserPanel/Get-Order/`,
+        Axios.get(`https://api.cannabaze.com/UserPanel/Get-Order/`,
             config,
 
         )

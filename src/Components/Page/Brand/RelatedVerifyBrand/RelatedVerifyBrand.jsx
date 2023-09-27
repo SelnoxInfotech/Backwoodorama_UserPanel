@@ -13,11 +13,11 @@ const RelatedVerifyBrand = () => {
     const [ SetBrandProduct] = React.useState([])
     const [BrandDetails , GetBrandDetails] = React.useState([])
     React.useEffect(() => {
-        Axios.get(`https://sweede.app/UserPanel/Get-ProductbyBrand/${id}`,
+        Axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductbyBrand/${id}`,
         ).then(response => {
             SetBrandProduct(response.data)
         })
-        Axios.get(`https://sweede.app/UserPanel/Get-BrandById/${id}`,
+        Axios.get(`https://api.cannabaze.com/UserPanel/Get-BrandById/${id}`,
         ).then(response => {
             GetBrandDetails(response.data[0])
         })

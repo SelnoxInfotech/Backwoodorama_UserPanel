@@ -22,7 +22,7 @@ const AddToCartReview = () => {
             const config = {
                 headers: { Authorization: `Bearer ${token_data}` }
             };
-            await Axios.delete(`https://sweede.app/UserPanel/DeleteAddtoCart/${id}`,
+            await Axios.delete(`https://api.cannabaze.com/UserPanel/DeleteAddtoCart/${id}`,
                 config,
                 SetLoadingDelete(true)
             )
@@ -68,7 +68,7 @@ const AddToCartReview = () => {
                 PriceId: Event.Price.id
 
             }
-            await Axios.post(`https://sweede.app/UserPanel/Update-AddtoCart/${Id}`,
+            await Axios.post(`https://api.cannabaze.com/UserPanel/Update-AddtoCart/${Id}`,
                 Arry,
                 config,
                 SetLoadingPluse(true)
@@ -108,7 +108,7 @@ const AddToCartReview = () => {
                 headers: { Authorization: `Bearer ${token_data}` }
             };
 
-            await Axios.post(`https://sweede.app/UserPanel/Update-AddtoCart/${Id}`,
+            await Axios.post(`https://api.cannabaze.com/UserPanel/Update-AddtoCart/${Id}`,
                 {
                     Product_id: Event.Product_id,
                     Store_id: Event.Store_id,
@@ -170,7 +170,7 @@ const AddToCartReview = () => {
                                     <LazyLoadImage onError={event => {
                                         event.target.src = "/image/blankImage.jpg"
                                         event.onerror = null
-                                    }} src={`https://sweede.app//${ele.Image}`} alt="imag not found" />
+                                    }} src={`https://api.cannabaze.com//${ele.Image}`} alt="imag not found" />
                                        </Link>
                                 </div>
                                 <div className="col-8 Add_prod_content_cont p-2">

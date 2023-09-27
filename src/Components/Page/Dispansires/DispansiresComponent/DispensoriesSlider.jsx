@@ -20,7 +20,7 @@ const Dispensories = () => {
     React.useEffect(() => {
 
         Axios.get(
-            'https://sweede.app/UserPanel/Get-Dispensaries/',
+            'https://api.cannabaze.com/UserPanel/Get-Dispensaries/',
 
         ).then(response => {
             SetStore(response.data)
@@ -50,7 +50,7 @@ const Dispensories = () => {
                                         <div className=' dispensoriesAddressBorder'>
                                             <div className='dispensoriesAddresCardimg'>
                                                 <Link  to={`/weed-dispensaries/${ele.Store_Name.replace(/\s/g,'-')}/${"menu"}/${ele.id}`}>
-                                                    <img src={`https://sweede.app/${ele?.Store_Image}`} alt='img_not_found' className=' dispensories_image  center-block' />
+                                                    <img src={`https://api.cannabaze.com/${ele?.Store_Image}`} alt='img_not_found' className=' dispensories_image  center-block' />
                                                 </Link>
                                             </div>
                                             <div className='dispensoriesContentContainer'>

@@ -13,7 +13,7 @@ const StrainHomeSlider = ({ StrainProduct }) => {
                             <div className="col-xl-3 col-lg-4 col-md-6 col-12 mb-4  strainHomeSlider_container" key={index}>
                                 <div className="strainHomeSlider_Inner_cont">
                                     <Link to={`/NewProductDetails/${items.id}`}>
-                                        <LazyLoadImage className="strainHomeSlider_image" src={`https://sweede.app/${items.images[0]?.image}`} alt='imgNotFound' />
+                                        <LazyLoadImage className="strainHomeSlider_image" src={`https://api.cannabaze.com/${items.images[0]?.image}`} alt='imgNotFound' />
                                     </Link >
                                 </div>
 

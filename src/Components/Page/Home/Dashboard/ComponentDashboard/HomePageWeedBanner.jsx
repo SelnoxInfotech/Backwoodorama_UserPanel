@@ -10,7 +10,7 @@ const HomePageWeedBanner=()=>{
    
     // const HomePageWeedBanner=[{imgUrl:"./image/homePageBanner.jpg"},{imgUrl:"./image/homePageBanner.jpg"}]
     React.useEffect(() => {
-        Axios("https://sweede.app/UserPanel/Get-PromotionalBanners/ ")
+        Axios("https://api.cannabaze.com/UserPanel/Get-PromotionalBanners/ ")
         .then((response)=>{
             setdata(response.data)
            
@@ -33,7 +33,7 @@ const HomePageWeedBanner=()=>{
             {data?.map((ele, index) => {
                 return (
                     <div className='col-12 homePageBanner_container' key={index}>
-                        <LazyLoadImage src={`https://sweede.app/${ele?.Banner}`} alt="image not available" className='HomePageBanner_image'/>
+                        <LazyLoadImage src={`https://api.cannabaze.com/${ele?.Banner}`} alt="image not available" className='HomePageBanner_image'/>
                     </div>
 
                 )
@@ -45,7 +45,7 @@ const HomePageWeedBanner=()=>{
             {data?.map((ele, index) => {
                 return (
                     <div className='col-12 homePageBanner_container' key={index}>
-                        <LazyLoadImage src={`https://sweede.app/${ele?.mobile}`} alt="image not available" className='HomePageBanner_image'/>
+                        <LazyLoadImage src={`https://api.cannabaze.com/${ele?.mobile}`} alt="image not available" className='HomePageBanner_image'/>
                     </div>
 
                 )

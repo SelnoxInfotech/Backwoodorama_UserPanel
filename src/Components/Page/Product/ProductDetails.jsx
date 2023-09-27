@@ -39,10 +39,10 @@ const ProductDetail = () => {
     const [Product, SetProduct] = React.useState([])
     const [CartClean, SetCartClean] = React.useState(false)
     React.useEffect(() => {
-        Axios(`https://sweede.app/UserPanel/Get-ProductById/${Id}`, {
+        Axios(`https://api.cannabaze.com/UserPanel/Get-ProductById/${Id}`, {
         }).then(response => {
             SetProductDetails(response.data)
-            Axios(`https://sweede.app/UserPanel/Get-DispensaryByid/${response.data[0].Store_id}`, {
+            Axios(`https://api.cannabaze.com/UserPanel/Get-DispensaryByid/${response.data[0].Store_id}`, {
             }).then(response => {
               
                 SetStore_id(response.data)
@@ -59,7 +59,7 @@ const ProductDetail = () => {
                 alert("Something Goes Wrong")
                 // SetProduct(Product => ({ ...Product, discount: "None" }))
             })
-            Axios(`https://sweede.app/UserPanel/Get-Dispensary_Product`, {
+            Axios(`https://api.cannabaze.com/UserPanel/Get-Dispensary_Product`, {
 
 
         }).then(response => {
@@ -126,7 +126,7 @@ const ProductDetail = () => {
                 PriceId: PriceIndex.id
 
             })
-            await axios.post("https://sweede.app/UserPanel/Add-AddtoCart/",
+            await axios.post("https://api.cannabaze.com/UserPanel/Add-AddtoCart/",
 
                 {
                     Product_id: Event.id,
@@ -211,12 +211,12 @@ const ProductDetail = () => {
                                             {Image ?
                                                 ele?.images.map((data, index) => {
                                                     // if (data.id === Image) {
-                                                    return data.id === Image && <LazyLoadImage key={index} src={`https://sweede.app/${data.image}`} alt="img_not_found" />
+                                                    return data.id === Image && <LazyLoadImage key={index} src={`https://api.cannabaze.com/${data.image}`} alt="img_not_found" />
                                                     // }
 
                                                 })
                                                 :
-                                                <LazyLoadImage src={`https://sweede.app/${ele.images[0]?.image}`} alt="img_not_found" />
+                                                <LazyLoadImage src={`https://api.cannabaze.com/${ele.images[0]?.image}`} alt="img_not_found" />
 
                                             }
 
@@ -227,7 +227,7 @@ const ProductDetail = () => {
                                                 return (
                                                     <div className="col-3 p-2" key={index}>
                                                         <div className="col-12 add_prod_inner_img " onClick={(() => { ImageSet(eleImage.id) })}>
-                                                            <LazyLoadImage src={`https://sweede.app/${eleImage?.image}`} alt="img_not_found" />
+                                                            <LazyLoadImage src={`https://api.cannabaze.com/${eleImage?.image}`} alt="img_not_found" />
                                                         </div>
 
                                                     </div>

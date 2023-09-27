@@ -75,7 +75,7 @@ const Pending_Order = () => {
                                                                         event.target.src = "/image/blankImage.jpg"
                                                                         event.onerror = null
                                                                     }}
-                                                                    src={`https://sweede.app/${items?.Image}`}
+                                                                    src={`https://api.cannabaze.com/${items?.Image}`}
 
                                                                 />
                                                             </div>

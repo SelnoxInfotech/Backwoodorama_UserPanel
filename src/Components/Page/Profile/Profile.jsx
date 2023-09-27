@@ -56,7 +56,7 @@ const Profile = () => {
     const Submit = (w) => {
         const formdata = new FormData();
         formdata.append('image', w);
-        Axios.post(`https://sweede.app/UserPanel/Update-UpdateUserProfile/`,
+        Axios.post(`https://api.cannabaze.com/UserPanel/Update-UpdateUserProfile/`,
             formdata,
             {
                 headers: {
@@ -95,7 +95,7 @@ const Profile = () => {
                                                         event.target.src = "./image/user.webp"
                                                         event.onerror = null
                                                     }}
-                                                    src={`https://sweede.app/${state.Profile.image}`}
+                                                    src={`https://api.cannabaze.com/${state.Profile.image}`}
                                                     // src={image}
                                                     alt=''
                                                     className="profile_images"

@@ -30,13 +30,13 @@ export default function DispensoriesDetails() {
 
     // const [Tab, SetTab] = React.useState()
     React.useEffect(() => {
-        axios.get(`https://sweede.app/UserPanel/Get-StoreById/${id}`, {
+        axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${id}`, {
         }).then(response => {
             SetDespens(response.data)
             //  navigate(`/Weed-DispensoriesDetails/${id}/${"Menu"}/${response.data[0].Store_Name.replace(/\s/g,'-')}`)
         })
 
-        axios.post("https://sweede.app/UserPanel/Get-CategoryByStore/ ",
+        axios.post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/ ",
             {
                 "Store_Id": parseInt(id)
             }
@@ -64,7 +64,7 @@ export default function DispensoriesDetails() {
             })
 
 
-        axios.get(`https://sweede.app/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
+        axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
         }).then(response => {
             SetDespensariesProductData(response.data)
         })
@@ -82,7 +82,7 @@ export default function DispensoriesDetails() {
         // }
     }
     function ShowCategoryProduct(Id, name) {
-        axios.post(`https://sweede.app/UserPanel/Get-filterProductbyStoreandCategory/`,
+        axios.post(`https://api.cannabaze.com/UserPanel/Get-filterProductbyStoreandCategory/`,
             {
                 "Store_Id": parseInt(id),
                 "Category_Id": Id

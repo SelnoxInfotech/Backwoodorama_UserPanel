@@ -8,7 +8,7 @@ const Product = () => {
     const navigate = useNavigate();
     const [SubCategory, SetSubCategory] = React.useState([])
     React.useEffect(() => {
-        Axios("https://sweede.app/UserPanel/Get-AllSubCategory/", {
+        Axios("https://api.cannabaze.com/UserPanel/Get-AllSubCategory/", {
 
 
         }).then(response => {
@@ -23,7 +23,7 @@ const Product = () => {
 
 
     // const FilterCategory = (id) => {
-    //     Axios(`https://sweede.app/UserPanel/Get-ProductByCategory/${id}`, {
+    //     Axios(`https://api.cannabaze.com/UserPanel/Get-ProductByCategory/${id}`, {
 
 
     //     }).then(response => {
@@ -45,7 +45,7 @@ const Product = () => {
     //     SetProduct(event.target.value);
     // };
     // const Search = () => {
-    //     Axios(`https://sweede.app/UserPanel/Get-SearchFilter/?search=${Searchvalue}`, {
+    //     Axios(`https://api.cannabaze.com/UserPanel/Get-SearchFilter/?search=${Searchvalue}`, {
 
 
     //     }).then(response => {
@@ -62,7 +62,7 @@ const Product = () => {
     // }
 
     // const SearchA2Z = () => {
-    //     Axios(`https://sweede.app/UserPanel/Get-SortingFilterAtoZ/`, {
+    //     Axios(`https://api.cannabaze.com/UserPanel/Get-SortingFilterAtoZ/`, {
 
 
     //     }).then(response => {
@@ -88,7 +88,7 @@ const Product = () => {
     const [Category, SetCategory] = React.useState([])
     React.useEffect(() => {
         const fetchData = async () => {
-            const apidata = await fetch("https://sweede.app/UserPanel/Get-Categories/");
+            const apidata = await fetch("https://api.cannabaze.com/UserPanel/Get-Categories/");
             const data = await apidata.json()
             SetCategory(data)
         }

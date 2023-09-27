@@ -45,7 +45,7 @@ const CheckOutMainPage = () => {
         formdata.append('Store', state.AllProduct[0]?.Store_id);
         formdata.append('Address', state.DeliveryAddress);
         await Axios.post(
-            'https://sweede.app/UserPanel/Add-Order/ ',
+            'https://api.cannabaze.com/UserPanel/Add-Order/ ',
             formdata,
             config,
 

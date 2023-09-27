@@ -125,7 +125,7 @@ const Navbar = () => {
                 justifyContent="center"
               >
                 <span >
-                  <Link to="/"><LazyLoadImage className='navbar_logo_image' src='https://sweede.app/image/images/download/media/BlankImage/3.png' /></Link>
+                  <Link to="/"><LazyLoadImage className='navbar_logo_image' src='https://api.cannabaze.com/image/images/download/media/BlankImage/3.png' /></Link>
                 </span>
 
               </Grid>
@@ -143,7 +143,7 @@ const Navbar = () => {
             <SearchBar path={Location.pathname}/>
             :
             <span className='mobileNavLogo' >
-            <Link to="/"><LazyLoadImage className='navbar_logo_image' src='https://sweede.app/image/images/download/media/BlankImage/3.png' /></Link>
+            <Link to="/"><LazyLoadImage className='navbar_logo_image' src='https://api.cannabaze.com/image/images/download/media/BlankImage/3.png' /></Link>
           </span>
           }
           </Grid>
@@ -182,7 +182,7 @@ const Navbar = () => {
                             event.target.src = "/image/user.webp"
                             event.onerror = null
                           }}
-                          src={`https://sweede.app/${state.Profile.image}`}
+                          src={`https://api.cannabaze.com/${state.Profile.image}`}
                           alt='image not available'
                           className="Navbar_logo_imgs"
                           onClick={handleClickDropdown}
@@ -197,7 +197,7 @@ const Navbar = () => {
                               event.target.src = "/image/user.webp"
                               event.onerror = null
                             }}
-                              src={`https://sweede.app/${state?.Profile?.image}`}
+                              src={`https://api.cannabaze.com/${state?.Profile?.image}`}
                               alt='' className="Navbar_profile_imgs" />
                           </div>
                           <div className='profile_name_container'>

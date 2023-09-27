@@ -39,7 +39,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
         }
         SetOpenEvent(Id)
         if (Name === "Category") {
-            Axios.post("https://sweede.app/UserPanel/Get-CategoryByStore/ ",
+            Axios.post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/ ",
                 {
 
                     "Store_Id": parseInt(Store_id)
@@ -62,7 +62,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
 
         }
         else if (Name === "Brand") {
-            Axios(`https://sweede.app/UserPanel/Get-FilterBrand`, {
+            Axios(`https://api.cannabaze.com/UserPanel/Get-FilterBrand`, {
 
 
             }).then(response => {
@@ -87,7 +87,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
     function Category_Drop(id, name) {
         if (name === "Category") {
 
-            Axios.post(`https://sweede.app/UserPanel/Get-filterSubcategorybyStoreandCategory/`, {
+            Axios.post(`https://api.cannabaze.com/UserPanel/Get-filterSubcategorybyStoreandCategory/`, {
 
                 "Store_Id": Store_id,
                 "Category_Id": id
@@ -106,7 +106,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
         }
 
         else if (name === "Brand") {
-            Axios(`https://sweede.app/UserPanel/Get-ProductbyBrand/${id}`, {
+            Axios(`https://api.cannabaze.com/UserPanel/Get-ProductbyBrand/${id}`, {
 
 
             }).then(response => {
@@ -126,7 +126,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
 
 
     function FilterSubCategorydata(SubCategoryid, SubCategory_name , categoryName) {
-        Axios.post(`https://sweede.app/UserPanel/Get-filterProductbyStoreandSubCategory/`, {
+        Axios.post(`https://api.cannabaze.com/UserPanel/Get-filterProductbyStoreandSubCategory/`, {
             "Store_Id": Store_id,
             "SubCategory_Id": SubCategoryid
         }).then(async response => {
@@ -138,7 +138,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
             })
     }
     const Search = () => {
-        Axios(`https://sweede.app/UserPanel/Get-SearchFilter/?search=${Searchvalue}`, {
+        Axios(`https://api.cannabaze.com/UserPanel/Get-SearchFilter/?search=${Searchvalue}`, {
 
 
         }).then(response => {
@@ -154,7 +154,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
             })
     }
     const SearchA2Z = () => {
-        Axios(`https://sweede.app/UserPanel/Get-SortingFilterAtoZ/`, {
+        Axios(`https://api.cannabaze.com/UserPanel/Get-SortingFilterAtoZ/`, {
 
 
         }).then(response => {

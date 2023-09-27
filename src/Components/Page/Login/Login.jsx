@@ -29,7 +29,7 @@ const Login = () => {
     function Submit(data) {
 
         Setloading(true)
-        axios.post("https://sweede.app/UserPanel/Login/", {
+        axios.post("https://api.cannabaze.com/UserPanel/Login/", {
 
             email: data.email,
             password: data.password

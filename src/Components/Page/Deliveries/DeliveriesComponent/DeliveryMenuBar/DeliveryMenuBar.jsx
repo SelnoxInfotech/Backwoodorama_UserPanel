@@ -14,7 +14,7 @@ const DeliveryMenuBar = () => {
     const [Pickup, SetPickup] = React.useState([])
     React.useEffect(() => {
         axios.get(
-            'https://sweede.app/UserPanel/Get-DeliveryStores/',
+            'https://api.cannabaze.com/UserPanel/Get-DeliveryStores/',
         ).then(response => {
             const k = response.data.reduce((acc, current) => {
                 const x = acc.find(item => item.id === current.id);
@@ -51,7 +51,7 @@ const DeliveryMenuBar = () => {
 
             })
         axios.get(
-            'https://sweede.app/UserPanel/Get-PickupStores/',
+            'https://api.cannabaze.com/UserPanel/Get-PickupStores/',
         ).then(response => {
 
             SetPickup(response.data)

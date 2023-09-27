@@ -74,7 +74,7 @@ const WhisListCard = () => {
                 PriceId: PriceIndex.id
 
             })
-            await axios.post("https://sweede.app/UserPanel/Add-AddtoCart/",
+            await axios.post("https://api.cannabaze.com/UserPanel/Add-AddtoCart/",
 
                 {
                     Product_id: Event.id,
@@ -187,7 +187,7 @@ return (
                                                 event.target.src = "/image/blankImage.jpg"
                                                 event.onerror = null
                                             }}
-                                            src={`https://sweede.app/${items?.images[0]?.image}`}
+                                            src={`https://api.cannabaze.com/${items?.images[0]?.image}`}
                                             className="whislist_imageStyle"
                                             alt="imgs-not-found"
                                             onClick={() => Navigate(`/NewProductDetails/${items.id}`)}

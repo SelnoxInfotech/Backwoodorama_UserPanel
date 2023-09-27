@@ -22,7 +22,7 @@ function LoginWithGoogle() {
 
 
     async function GoogleAuth(codeResponse) {
-       await axios.post("https://sweede.app/UserPanel/GoogleView/ ", {
+       await axios.post("https://api.cannabaze.com/UserPanel/GoogleView/ ", {
             token: codeResponse.access_token
         }).then(response => {
         

@@ -24,15 +24,15 @@ const NewProductDetails = () => {
   // const Navigate = useNavigate()
   React.useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
-    Axios(`https://sweede.app/UserPanel/Get-ProductById/${id}`, {
+    Axios(`https://api.cannabaze.com/UserPanel/Get-ProductById/${id}`, {
     }).then(response => {
       SetProduct(response.data[0])
-      Axios.get(`https://sweede.app/UserPanel/Get-StoreById/${response.data[0]?.Store_id}`, {
+      Axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${response.data[0]?.Store_id}`, {
       }).then(response => {
         SetDespens(response.data[0])
         // window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
       })
-      Axios.post(`https://sweede.app/UserPanel/YouMayAlsoLike/`,
+      Axios.post(`https://api.cannabaze.com/UserPanel/YouMayAlsoLike/`,
       {
         category:response.data[0].category_id,
         store_id:response.data[0].Store_id
