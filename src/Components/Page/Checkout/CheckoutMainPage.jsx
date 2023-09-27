@@ -27,7 +27,7 @@ const CheckOutMainPage = () => {
         window.scroll(0, 0)
     }, [ShowData,ShowDeliveryInformation,DeliveryOptionData])
 
-         console.log(state , Details)
+      
 
     async function SubmitData() {
         const config = {

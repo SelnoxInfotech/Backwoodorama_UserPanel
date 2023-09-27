@@ -30,7 +30,7 @@ const AddPhotoId = ({ image, Api, SetApi }) => {
 
     const handleImage = (event) => {
         const file = event?.target?.files[0];
-        // console.log(file.size)
+        
         if (file?.size <  10240) {
 
             Setimage(event.target.files[0]);
@@ -60,7 +60,7 @@ const AddPhotoId = ({ image, Api, SetApi }) => {
                 SetApi(!Api)
             })
             .catch((error) => {
-                // console.log(error.response.data.error.username[0])
+             
                 // setError("Username", {
                 //     type: "manual",
                 //     message: error.response.data.error.username[0],

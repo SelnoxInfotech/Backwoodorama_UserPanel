@@ -26,7 +26,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
     }
     // const handleDateChange = (event) => {
     //     // setSelectedDate(date);
-    //     console.log(event.target.value)
+    //    
     //     // SetDetails({
     //     //     ...Details, [event.target.name]: event.target.value
     //     // });

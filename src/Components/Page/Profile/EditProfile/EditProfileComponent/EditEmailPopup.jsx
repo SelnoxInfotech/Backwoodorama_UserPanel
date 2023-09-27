@@ -52,7 +52,7 @@ const EditEmailPopup = ({ email , Api, SetApi }) => {
                 SetApi(!Api)
             })
             .catch((error) => {
-                console.log(error.response.data.error.email[0])
+              
                 setError("Email", {
                     type: "manual",
                     message:error.response.data.error.email[0],

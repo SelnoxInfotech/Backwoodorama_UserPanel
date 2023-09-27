@@ -19,12 +19,10 @@ export function MapContainer(props) {
   //         }}
   //         title="title"
   //         icon={Fa500Px}
-  //         onClick={() => console.log("You clicked me!")}
   //       />
   //       )
   //   })
   // }
-
   function _mapLoaded(mapProps, map) {
     map.setOptions({
       styles: props.Theme

@@ -35,7 +35,7 @@ const BlogsCommentsCard = ({ Getcommnet }) => {
             setCurrentPage(currentPage + 1);
         }
     };
-    // console.log(state?.Profile?.id)
+   
     return (
         <section className="px-0">
             <div className="col-12 blogsCommentCountCol">

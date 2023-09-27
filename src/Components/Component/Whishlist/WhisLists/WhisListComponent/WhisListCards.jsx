@@ -37,7 +37,7 @@ const WhisListCard = () => {
         WishListget().then((val) => {
             SetGetApiData(val.data)
         }).catch((error) => {
-            console.log(error)
+          
         })
     }
     }, [state.WishList])

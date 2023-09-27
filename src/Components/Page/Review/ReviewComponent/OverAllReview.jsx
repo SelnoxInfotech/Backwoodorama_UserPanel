@@ -27,7 +27,7 @@ const OverAllReview = ({ Product, api, SetApi }) => {
 
     React.useEffect(() => {
         OverAllGet_Review(Id).then((res) => {
-            console.log(res?.data , 'review DATA')
+          
             SetRating(res?.data)
         }).catch(() => { })
     }, [Id, api])

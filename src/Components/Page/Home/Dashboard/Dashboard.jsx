@@ -74,9 +74,9 @@ export default function Dashboard() {
             <FeaturedBrand CardDataArray={FeaturedBrandArray} BrandSkeleton={BrandSkeleton} />
             <HomePageDealsSignup></HomePageDealsSignup>
             {/* <WeedProduct></WeedProduct> */}
-            {/* <div className="dashBoardStrainType">
+            <div className="dashBoardStrainType">
                 <NewsBlog></NewsBlog>
-            </div> */}
+            </div>
             <div className="About_weedx">
                 <div className="container-fluid">
                     <h2 className="section_main_title">Welcome to weedx.io</h2>

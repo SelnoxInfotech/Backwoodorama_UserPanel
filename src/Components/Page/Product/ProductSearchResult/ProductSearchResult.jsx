@@ -18,7 +18,7 @@ import { Link } from "react-router-dom";
 import { WishListPost } from "../../../Component/Whishlist/WishListApi_"
 import {WhisList} from "../../../Component/Whishlist/WhisList"
 const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProductID  }) => {
-  console.log(RelatedProductResult ,'text12345')
+ 
     const { state, dispatch } = React.useContext(Createcontext)
     const classes = useStyles()
     const cookies = new Cookies();
@@ -42,7 +42,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
 
         const FinalQuantity = counter === undefined ? 1 : counter
         if (token_data) {
-            console.log(Event)
+           
             const config = {
                 headers: { Authorization: `Bearer ${token_data}` }
             };
@@ -85,7 +85,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
         }
         else {
 
-            // console.log(AddTOCard.length !== 0)  
+            
             const Arry = {
                 Image: Event.images[0].image,
                 Product_id: Event.id,

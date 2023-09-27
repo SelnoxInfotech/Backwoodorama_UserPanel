@@ -38,7 +38,7 @@ const Profile = () => {
     }
     const handleImage = (event) => {
         const file = event.target.files[0];
-        // console.log(file.size)
+       
         if (file.size < 10240) {
             setSelectedImage(URL.createObjectURL(event.target.files[0]))
             SetError('')
@@ -69,7 +69,7 @@ const Profile = () => {
                 dispatch({ type: 'Profile', Profile: res.data.data            })
             })
             .catch((error) => {
-                // console.log(error.response.data.error.username[0])
+              
                 // setError("Username", {
                 //     type: "manual",
                 //     message: error.response.data.error.username[0],

@@ -14,7 +14,6 @@ import { ProductDetailsSeo } from "../../../Component/ScoPage/ProductSeo"
 
 const NewProductDetails = () => {
   const { id } = useParams();
- 
   const navigate = useNavigate();
   const heading = "You may also like"
   const [Product, SetProduct] = React.useState([])
@@ -27,6 +26,7 @@ const NewProductDetails = () => {
     Axios(`https://api.cannabaze.com/UserPanel/Get-ProductById/${id}`, {
     }).then(response => {
       SetProduct(response.data[0])
+      
       Axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${response.data[0]?.Store_id}`, {
       }).then(response => {
         SetDespens(response.data[0])
@@ -52,26 +52,17 @@ const NewProductDetails = () => {
 
   }, [id])
 
-
-
   // Productname , ProductCategory , StoreName
   return (
     <div className="container-fluid">
       <ProductDetailsSeo  Productname={Product.Product_Name} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State}  ></ProductDetailsSeo>
-      {/* <CategoryProduct ShowCategoryProduct={ShowCategoryProduct} Category={Category} /> */}
-      {/* <NewFlavourBanner delBtn={Despen}></NewFlavourBanner> */}
-      <span onClick={() => navigate(-1)} className="BackPageBtn"> <AiOutlineLeft size={22}/> <span className="backPgBtnImg"><img src={`https://sweede.app${Despen.Store_Image}`} alt="" /></span> {Despen.Store_Name}</span>
+     
+      <span onClick={() => navigate(-1)} className="BackPageBtn"> <AiOutlineLeft size={22}/> <span className="backPgBtnImg"><img src={`https://api.cannabaze.com${Despen.Store_Image}`} alt="" /></span> {Despen.Store_Name}</span>
       <NewProductDetailsCards Product={Product} />
-      {/* <NewProductDescription Product={Product?.Product_Description} /> */}
+    
       <NewProductinfoText  Product={{heading:"Product Description",text:Product?.Product_Description}} />
-      {/* <NewProductinfoText  Product={{heading:"About Us",text:Product?.Product_Description}} /> */}
-
-      {/* <NewProductSearchResult NewProductSearchRseultArray={StoreProduct} heading={heading} /> */}
-
+     
       <ProductSearchResult RelatedProductResult={StoreProduct} currentProductID={Product.id} CategoryName={heading}/> 
-{/* 
-      <OverAllReview Product={Product} api ={api} SetApi ={ SetApi}/>
-      <RelatedReview Product={Product} api ={api} SetApi ={ SetApi}/> */}
       <Review Product={Product} api ={api} SetApi ={SetApi}></Review>
 
 

@@ -6,7 +6,7 @@ import EditEmailPopup from "./EditEmailPopup";
 import EditUserPopup from "./EditUserPopup";
 import EditPasswordPopup from "./EditPasswordPopup";
 const EditProfileLogin = ({Profile, Api, SetApi}) => {
-     console.log(Profile?.username)
+    
     return (
         <div className="col-12 EditProfileLogin_mainColumns">
             <div className="w-100">

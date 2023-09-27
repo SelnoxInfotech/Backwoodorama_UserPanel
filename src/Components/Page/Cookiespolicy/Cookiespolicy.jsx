@@ -1,5 +1,4 @@
 import React from 'react'
-import './termconditions.css';
 import { Link } from 'react-router-dom';
 import {FaFacebookF } from "react-icons/fa";
 import {MdEmail } from "react-icons/md";
@@ -57,36 +56,7 @@ const Termsconditions = () => {
                 </span>
               </li>
             
-
-            </ol>
-         </div>
-         <div className="col-md-4"> 
-           <div className="tc_topic_list">
-            <div className="heading_box">
-              <span ><Link><FaFacebookF></FaFacebookF></Link></span>
-              <span><Link><MdEmail></MdEmail></Link></span>
-            </div>
-            <ul>
-              <li> <a href="#aot">1.  Introduction</a> </li>
-              <li> <a href="#etuw"> 2. What Are Cookies? </a></li>
-              <li> <a href="#voa"> 3. Types of Cookies We Use </a></li>
-              <li> <a href="#pp">4. How We Use Cookies</a></li>
-              <li> <a href="#ur"> 5. Managing Your Cookie Preferences </a></li>
-              <li> <a href="#oods">6. Third-Party Cookies</a></li>
-              <li> <a href="#drl"> 7. Changes to This Cookie Policy </a></li>
-              <li> <a href="#cwll"> 8. Contact Us </a></li>
-              
-            </ul>
-           </div>
-         </div>
-         <div className="col-md-12 tc_main-centent"> 
-            <ol className='secondlist'>
-              <li></li>
-              <li></li>
-
-              <li></li>
-              <li></li>
-             
+   
               <li id='oods'>
                 <span className='question'> Managing Your Cookie Preferences</span>
                 <span className="answer">
@@ -112,10 +82,28 @@ const Termsconditions = () => {
                 </span>
               </li>
          
-              
-             
             </ol>
          </div>
+         <div className="col-md-4"> 
+           <div className="tc_topic_list">
+            <div className="heading_box">
+              <span ><Link><FaFacebookF></FaFacebookF></Link></span>
+              <span><Link><MdEmail></MdEmail></Link></span>
+            </div>
+            <ul>
+              <li> <a href="#aot">1.  Introduction</a> </li>
+              <li> <a href="#etuw"> 2. What Are Cookies? </a></li>
+              <li> <a href="#voa"> 3. Types of Cookies We Use </a></li>
+              <li> <a href="#pp">4. How We Use Cookies</a></li>
+              <li> <a href="#ur"> 5. Managing Your Cookie Preferences </a></li>
+              <li> <a href="#oods">6. Third-Party Cookies</a></li>
+              <li> <a href="#drl"> 7. Changes to This Cookie Policy </a></li>
+              <li> <a href="#cwll"> 8. Contact Us </a></li>
+              
+            </ul>
+           </div>
+         </div>
+        
         </div>
       </div>
     </div>

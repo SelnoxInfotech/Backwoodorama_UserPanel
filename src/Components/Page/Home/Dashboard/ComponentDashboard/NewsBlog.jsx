@@ -13,7 +13,7 @@ const NewsBlog = () => {
             const res = await fetch("https://api.cannabaze.com/UserPanel/Get-News/");
             const data = await res.json();
             SetNews(data)
-            // console.log(data)
+          
 
         }
         getApi()

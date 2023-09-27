@@ -123,17 +123,17 @@ const SideNavbar = ({ closeNav, Open }) => {
 
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                    <Link className="LinkColor" to={`/weed-dispansires/in/${state.Country}/${state.State}/${state.City}`}><p onClick={closeNav}>Dispensaries</p></Link>
+                    <Link className="LinkColor" to={`/weed-dispensaries/in/${state.Country.toLowerCase()}/${state.State.toLowerCase()}/${state.City.toLowerCase()}`}><p onClick={closeNav}>Dispensaries</p></Link>
                 </div>
 
                 <hr></hr>
 
                 <div className="col-12 Slider_content_center ">
-                    <Link className="LinkColor" to={`/Weed-Deliveries/in/${state.Country}/${state.State}/${state.City}`}><p onClick={closeNav}>Deliveries</p></Link>
+                    <Link className="LinkColor" to={`/weed-deliveries/in/${state.Country.toLowerCase()}/${state.State.toLowerCase()}/${state.City.toLowerCase()}`}><p onClick={closeNav}>Deliveries</p></Link>
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                    <Link className="LinkColor" to="/Brand"><p onClick={closeNav}>Brand</p></Link>
+                    <Link className="LinkColor" to="/brands"><p onClick={closeNav}>Brand</p></Link>
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
@@ -141,11 +141,11 @@ const SideNavbar = ({ closeNav, Open }) => {
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                    <Link className="LinkColor" to="/MainDeals"> <p onClick={closeNav}>Deals</p></Link>
+                    <Link className="LinkColor" to="/deals"> <p onClick={closeNav}>Deals</p></Link>
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                    <Link className="LinkColor" to="/LearnTabs"><p onClick={closeNav}>Learn</p></Link>
+                    <Link className="LinkColor" to="/Learn"><p onClick={closeNav}>Learn</p></Link>
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >

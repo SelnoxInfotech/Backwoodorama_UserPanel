@@ -97,7 +97,7 @@ const SearchBar = ({path}) => {
                 Navigation(`/DispensoriesProduct/${response.data.Store[0].id}/${"Menu"}`);
             }
             else if (response.data.Brand) {
-                console.log(response)
+               
                 Navigation(`/RelatedVerifyBrand/${response.data.Brand[0].id}`);
             }
             else if (response.data.Category) {

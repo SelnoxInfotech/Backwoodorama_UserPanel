@@ -39,7 +39,7 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
         }
         return data
       })
-      console.log(current_route  )
+    
       // Rout(Coun,sta,ci)
       // if (Location.pathname.slice(0, 16) === '/Weed-Deliveries') {
       //   Navigate(`/Weed-Deliveries/in/${Coun}/${sta}/${ci}`)
@@ -63,7 +63,6 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
       
     //   if (path.slice(0, 17) === "/Weed-Dispansires/") {
     //     navigate(`/Weed-Dispansires/in/${Coun}/${sta}/${ci}`)
-    //     console.log("...")
     //   }
     // }
 
@@ -78,7 +77,7 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
 
   function handleChange(event) {
     Setdefault(event.target.value);
-    // console.log( event.target.setSelectionRange)
+    
   }
   function current(event) {
     navigator.permissions.query({ name: 'geolocation' }).then(permissionStatus => {

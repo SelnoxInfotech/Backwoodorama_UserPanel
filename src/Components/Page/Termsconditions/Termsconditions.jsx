@@ -50,40 +50,6 @@ const Termsconditions = () => {
   which can be found [link ]. By using the website, you consent to 
   the practices outlined in the Privacy Policy.</span>
               </li>
-            
-
-            </ol>
-         </div>
-         <div className="col-md-4"> 
-           <div className="tc_topic_list">
-            <div className="heading_box">
-              <span ><Link><FaFacebookF></FaFacebookF></Link></span>
-              <span><Link><MdEmail></MdEmail></Link></span>
-            </div>
-            <ul>
-              <li> <a href="#aot">1.  Acceptance of Terms</a> </li>
-              <li> <a href="#etuw"> 2.  Eligibility to Use Website </a></li>
-              <li> <a href="#voa">  3. Verification of Age  </a></li>
-              <li> <a href="#pp">  4.  Privacy Policy</a></li>
-              <li> <a href="#ur"> 5.  User Registration </a></li>
-              <li> <a href="#oods"> 6.   Online Ordering & Delivery Services</a></li>
-              <li> <a href="#drl">  7. Dispensary and Retailer Listings </a></li>
-              <li> <a href="#cwll">  8.  Compliance with Local Laws </a></li>
-              <li> <a href="#ip">  9. Intellectual Property </a></li>
-              <li> <a href="#lol"> 10.  Limitation of Liability </a></li>
-              <li> <a href="#ctt">  11. Changes to Terms  </a></li>
-              <li><a href="#termination"> 12. Termination </a> </li>
-            </ul>
-           </div>
-         </div>
-         <div className="col-md-12 tc_main-centent"> 
-            <ol className='secondlist'>
-              <li></li>
-              <li></li>
-
-              <li></li>
-              <li></li>
-             
               <li id='oods'>
                 <span className='question'>User Registration</span>
                 <span className="answer">
@@ -150,8 +116,32 @@ b. Users are encouraged to conduct their research and due diligence before makin
 
                 </span>
               </li>
+
             </ol>
          </div>
+         <div className="col-md-4"> 
+           <div className="tc_topic_list">
+            <div className="heading_box">
+              <span ><Link><FaFacebookF></FaFacebookF></Link></span>
+              <span><Link><MdEmail></MdEmail></Link></span>
+            </div>
+            <ul>
+              <li> <a href="#aot">1.  Acceptance of Terms</a> </li>
+              <li> <a href="#etuw"> 2.  Eligibility to Use Website </a></li>
+              <li> <a href="#voa">  3. Verification of Age  </a></li>
+              <li> <a href="#pp">  4.  Privacy Policy</a></li>
+              <li> <a href="#ur"> 5.  User Registration </a></li>
+              <li> <a href="#oods"> 6.   Online Ordering & Delivery Services</a></li>
+              <li> <a href="#drl">  7. Dispensary and Retailer Listings </a></li>
+              <li> <a href="#cwll">  8.  Compliance with Local Laws </a></li>
+              <li> <a href="#ip">  9. Intellectual Property </a></li>
+              <li> <a href="#lol"> 10.  Limitation of Liability </a></li>
+              <li> <a href="#ctt">  11. Changes to Terms  </a></li>
+              <li><a href="#termination"> 12. Termination </a> </li>
+            </ul>
+           </div>
+         </div>
+        
         </div>
       </div>
     </div>

@@ -83,7 +83,7 @@ const CurrentLocation = ({ Country, State1, city }) => {
                       }
                     })
                   }).catch((error) => {
-                    console.log(error)
+                   
                   })
               }
               else {
@@ -109,14 +109,12 @@ const CurrentLocation = ({ Country, State1, city }) => {
 
               break
             case 2:
-              console.log('Permission allowed, location disabled')
-
+             
 
               break
             // TIMEOUT
             case 3:
-              console.log('Permission allowed, timeout reached')
-
+             
               break
           }
         },

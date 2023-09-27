@@ -48,7 +48,7 @@ const EditUserPopup = ({ username, Api, SetApi }) => {
                 SetApi(!Api)
             })
             .catch((error) => {
-                console.log(error.response.data.error.username[0])
+            
                 setError("username", {
                     type: "manual",
                     message: error.response.data.error.username[0],

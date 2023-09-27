@@ -9,7 +9,7 @@ const FaceBookLogin = () => {
   const classes = useStyles()
   const responseFacebook = (response) => {
     try {
-      console.log('response >>>', response)
+     
       if (response) {
 
         axios.post("https://api.cannabaze.com/UserPanel/FacebookSignInView/", {
@@ -24,7 +24,7 @@ const FaceBookLogin = () => {
           })
       }
     } catch (error) {
-      console.log(error)
+      
     }
 
   }

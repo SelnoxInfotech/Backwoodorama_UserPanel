@@ -1,5 +1,4 @@
 import React from 'react'
-import './termconditions.css';
 import { Link } from 'react-router-dom';
 import {FaFacebookF } from "react-icons/fa";
 import {MdEmail } from "react-icons/md";
@@ -58,39 +57,6 @@ const Privacypolicy = () => {
                 Legal Requirements: We may disclose your information to comply with legal obligations or respond to lawful requests from authorities.
                 </span>
               </li>
-            
-
-            </ol>
-         </div>
-         <div className="col-md-4"> 
-           <div className="tc_topic_list">
-            <div className="heading_box">
-              <span ><Link><FaFacebookF></FaFacebookF></Link></span>
-              <span><Link><MdEmail></MdEmail></Link></span>
-            </div>
-            <ul>
-              <li> <a href="#aot">1. Introduction</a> </li>
-              <li> <a href="#etuw">2. Information We Collect</a></li>
-              <li> <a href="#voa"> 3. How We Use Your Information  </a></li>
-              <li> <a href="#pp">4. Sharing Your Information</a></li>
-              <li> <a href="#ur"> 5. Cookies and Tracking Technologies </a></li>
-              <li> <a href="#oods"> 6. Your Choices</a></li>
-              <li> <a href="#drl">  7. Security </a></li>
-              <li> <a href="#cwll"> 8. Children's Privacy </a></li>
-              <li> <a href="#ip">  9. Changes to This Privacy Policy </a></li>
-              <li> <a href="#lol">10. Contact Us </a></li>
-             
-            </ul>
-           </div>
-         </div>
-         <div className="col-md-12 tc_main-centent"> 
-            <ol className='secondlist'>
-              <li></li>
-              <li></li>
-
-              <li></li>
-              <li></li>
-             
               <li id='oods'>
                 <span className='question'>Cookies and Tracking Technologies</span>
                 <span className="answer">
@@ -128,8 +94,28 @@ const Privacypolicy = () => {
                 If you have any questions, concerns, or requests regarding this Privacy Policy, please contact us at mailto:info@weedx.io.
                 </span>
               </li> 
-           
             </ol>
+         </div>
+         <div className="col-md-4"> 
+           <div className="tc_topic_list">
+            <div className="heading_box">
+              <span ><Link><FaFacebookF></FaFacebookF></Link></span>
+              <span><Link><MdEmail></MdEmail></Link></span>
+            </div>
+            <ul>
+              <li> <a href="#aot">1. Introduction</a> </li>
+              <li> <a href="#etuw">2. Information We Collect</a></li>
+              <li> <a href="#voa"> 3. How We Use Your Information  </a></li>
+              <li> <a href="#pp">4. Sharing Your Information</a></li>
+              <li> <a href="#ur"> 5. Cookies and Tracking Technologies </a></li>
+              <li> <a href="#oods"> 6. Your Choices</a></li>
+              <li> <a href="#drl">  7. Security </a></li>
+              <li> <a href="#cwll"> 8. Children's Privacy </a></li>
+              <li> <a href="#ip">  9. Changes to This Privacy Policy </a></li>
+              <li> <a href="#lol">10. Contact Us </a></li>
+             
+            </ul>
+           </div>
          </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { IoMdStar } from "react-icons/io";
 import useStyles from "../../../../../Style";
@@ -9,7 +9,7 @@ import Createcontext from "../../../../../Hooks/Context"
 import "swiper/css";
 import "swiper/css/pagination";
 
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 import _ from "lodash"
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
@@ -17,6 +17,9 @@ import { Link } from "react-router-dom";
 import AddToCartPopUp from "../../AddToCartPopUp/AddToCartPopUp";
 const NewProductDetailsCards = ({ Product }) => {
     const cookies = new Cookies();
+    const [quentity,setquentity] = useState(1)
+    const [dynamicprice,setdynamicprice]=useState('')
+    const [dynamicWeight,setdynamicWeight]=useState('')
     const p = Product?.images === undefined ? "" : Product?.images[0].image
     const classes = useStyles()
     const token_data = cookies.get('Token_access')
@@ -29,7 +32,7 @@ const NewProductDetailsCards = ({ Product }) => {
         return initialValue || []
     })
     const [NewData, SetNewData] = React.useState([])
-
+   
     const Addtocard = async (Event) => {
       
         if (token_data) {
@@ -209,14 +212,56 @@ const NewProductDetailsCards = ({ Product }) => {
                         <div className="col-12 ">
                             <p><span><IoMdStar className={classes.disp_star_color} /></span><span className="mx-2">4.5 Rating</span></p>
                         </div>
-                        <div className="col-12 ">
-                            <p><span className="newProduct_Weight">weight</span><span className="mx-3 newProd_grms">100gm</span></p>
+                        <div className="col-12 productDetailsCardWeigth">
+                          <span className="newProduct_Weight">weight : </span><span className="mx-3 newProd_grms productDetailsCardWeigthOptions">
+                           {
+                                Product?.Prices?.map((data)=> data.Price.length)[0] > 1  ?
+                                <select className="form-select" aria-label="Default select example" onChange={(e)=>{setdynamicWeight(e.target.value)}}>
+                               {  Product?.Prices[0]?.Price?.map((item,index)=>{
+                                    if(item.Weight){
+                                        return  <option value={item.id}  key={index}>{item.Weight}</option>
+                                    }else{
+                                        return  <option value={item.id} key={index} >{item.Unit} Unit</option>
+                                    }
+                                   
+                                })  
+                               }
+                                
+                               
+                                </select>: 
+                                  Product?.Prices?.map((item)=>{
+                                  let vl =item.Price.map((item)=>{
+
+                                        if(item.Weight){
+                                            return item.Weight
+                                        }else{
+                                            return  `${item.Unit} Unit`
+                                        }
+                                       
+                                    })
+                                   return vl[0] 
+                                  })
+                                    
+                                
+                          }
+                            </span>
+                        </div>
+                        <div className="col-12 productDetailsCardQuestity">
+                           <span className="newProduct_Weight">Quantity : </span><span className="mx-3 newProd_grms">
+                            <div className="qty_selector">
+                                <span className="qty_btn" onClick={()=>{ if(quentity>1){ setquentity(quentity - 1)} }}>-</span>
+                                <span className="qty_input">{quentity}</span>
+                                <span className="qty_btn" onClick={()=>{setquentity(quentity + 1)}}>+</span>
+                            </div>
+                            </span>
                         </div>
                         <div className="col-12 ">
-                            <p><span className="newProduct_Weight">Quantity</span><span className="mx-3 newProd_grms">1</span></p>
-                        </div>
-                        <div className="col-12 ">
-                            <p><span className="newProduct_doller_price">$80.00</span><span className="mx-3 newProduct_Gms">Per 1 Z</span></p>
+                            <p><span className="newProduct_doller_price">
+                             
+                                { Product?.Prices[0]?.filter((item )=>{
+                                   return  item.length
+                                 })}                         
+                            </span><span className="mx-3 newProduct_Gms">Per 1 Z</span></p>
                         </div>
                         <div className="col-12">
                             <Box
@@ -230,10 +275,6 @@ const NewProductDetailsCards = ({ Product }) => {
                                 CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />
                             }
                         </div>
-
-
-
-
                     </div>              
             </div>
         </div>

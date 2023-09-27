@@ -44,7 +44,7 @@ const AddMobileNumberPopup = ({ Mobile, Api, SetApi }) => {
                 SetApi(!Api)
             })
             .catch((error) => {
-                console.log(error.response.data.error.username[0])
+              
                 setError("Username", {
                     type: "manual",
                     message: error.response.data.error.username[0],

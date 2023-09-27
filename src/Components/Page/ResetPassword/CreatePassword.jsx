@@ -29,7 +29,7 @@ const CreatePassword = () => {
     const onSubmit = async data => {
         alert(JSON.stringify(data));
     };
-    console.log(location.state)
+
     const Submit = (password) => {
         ConfirmPassword(Email,password.ConfirmPassword  ).then((res)=>{
             if(res.data === 200)

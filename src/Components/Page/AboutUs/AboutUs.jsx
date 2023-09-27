@@ -140,7 +140,7 @@ const AboutUs = () => {
 
 
                 <LazyLoadImage src='./image/about_us_banner.jpg' alt='imgs not available' className='About_us_banner_image' />
-                <div class='text-on-image'>
+                <div className='text-on-image'>
                     <h3>About us</h3>
                 </div>
 

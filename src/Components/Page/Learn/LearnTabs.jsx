@@ -13,11 +13,11 @@ import { Link, useLocation , useNavigate} from 'react-router-dom';
 const LearnTabs = () => {
     const Location = useLocation()
     const Naviagte =  useNavigate()
-    console.log(Location)
+   
     const classes = useStyles()
     const [value, setValue] = React.useState(Location.pathname);
     const handleChange = (event, newValue) => {
-        console.log(newValue)
+       
         setValue(newValue);
         Naviagte(newValue)
 

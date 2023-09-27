@@ -33,7 +33,7 @@ const Blogs = () => {
     const [WishList, SetWishList] = React.useState(false)
     const [ViewCount, SetViewCount] = React.useState(0)
     const [BlogReviewCount,SetBlogReviewCount]=React.useState()
-    console.log(BlogReviewCount)
+  
     React.useEffect(() => {
         const getApi = async () => {
             const res = await fetch(`https://api.cannabaze.com/UserPanel/Get-GetNewsById/${id}`);

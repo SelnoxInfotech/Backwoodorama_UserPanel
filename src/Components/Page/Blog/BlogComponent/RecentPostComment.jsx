@@ -24,7 +24,7 @@ const RecentPostComment = ({ id, GetUserComment, SetUserComment,Get }) => {
                   SetUserComment({ ...GetUserComment, "CommentCounts": res.data.CommentCounts })
                   Get(id)
         }).catch((error) => {
-            console.log(error)
+           
         })
 
     }

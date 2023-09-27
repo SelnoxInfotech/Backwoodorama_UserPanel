@@ -11,7 +11,7 @@ import { FcGoogle } from "react-icons/fc"
 import React from 'react';
 const Signup = () => {
     const { state } = React.useContext(Createcontext)
-    console.log(state)
+ 
     const navigate = useNavigate()
     const method = useForm()
     const classes = useStyles()
