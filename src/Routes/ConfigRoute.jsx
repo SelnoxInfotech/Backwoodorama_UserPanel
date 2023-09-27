@@ -295,15 +295,15 @@ const routesConfig = [
       },
       {
         path: "/termscondition",
-        element: <ProtectRout Component={Termsconditions} ></ProtectRout>
+        element: <RoutingList Component={Termsconditions} ></RoutingList>
       },
       {
         path: "/cookiespolicy",
-        element: <ProtectRout Component={Cookiespolicy} ></ProtectRout>
+        element: <RoutingList Component={Cookiespolicy} ></RoutingList>
       },
       {
         path: "/privatepolicy",
-        element: <ProtectRout Component={Privatepolicy} ></ProtectRout>
+        element: <RoutingList Component={Privatepolicy} ></RoutingList>
       },
       // ends
       {
