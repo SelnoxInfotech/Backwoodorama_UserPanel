@@ -1,11 +1,10 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { IoMdStar } from "react-icons/io";
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "../../../../Style";
-import { AiOutlineHeart } from "react-icons/ai"
-import { AiFillHeart } from "react-icons/ai"
+import { AiOutlineHeart ,AiFillHeart ,AiOutlineLeft } from "react-icons/ai"
 import IconButton from '@mui/material/IconButton';
 import ProductIncDecQuantity from "./ProductIncDecQuantity"
 import PreCheckout from "../PreCheckout/PreCheckout";
@@ -17,21 +16,34 @@ import AddToCartPopUp from "../AddToCartPopUp/AddToCartPopUp";
 import { Link } from "react-router-dom";
 import { WishListPost } from "../../../Component/Whishlist/WishListApi_"
 import {WhisList} from "../../../Component/Whishlist/WhisList"
-const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProductID  }) => {
-  console.log(RelatedProductResult ,'text12345')
+import { useNavigate } from "react-router-dom";
+const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProductID ,subcategories }) => {
+  
+    const navigate = useNavigate()
     const { state, dispatch } = React.useContext(Createcontext)
     const classes = useStyles()
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
-    const [CartClean, SetCartClean] = React.useState(false)
-    const [NewData, SetNewData] = React.useState([])
-    const [Whishlist, SetWishList] = React.useState(false)
+    const [CartClean, SetCartClean] = useState(false)
+    const [NewData, SetNewData] = useState([])
+    const [Whishlist, SetWishList] =useState(false)
     
-    const [AddTOCard, SetAddToCard] = React.useState(() => {
+    const [AddTOCard, SetAddToCard] = useState(() => {
         const saved = localStorage.getItem("items");
         const initialValue = JSON.parse(saved);
         return initialValue || []
     })
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [selectedOption, setSelectedOption] = useState(null);
+
+    const toggleDropdown = () => {
+      setIsDropdownOpen(!isDropdownOpen);
+    };
+
+    const selectOption = (option) => {
+      setSelectedOption(option);
+      setIsDropdownOpen(false);
+    };
 
 
     async function AddToCart(Event, counter, SelectWeight) {
@@ -140,6 +152,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
     }, [AddTOCard])
     React.useEffect(()=>{
  window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+
     },[])
 
     const handleWhishList = (id) => {
@@ -159,10 +172,38 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
     }
 
 
-
     return (
         <React.Fragment>
             <div className="row mx-0 marginProductSearchResult">
+                {
+                Object.keys(subcategories).length ?
+                 <div className="d-flex justify-content-end align-items-center">
+               
+                  
+
+                    <div className="mydropdown ">
+                        <div className="dropdown-toggle" onClick={toggleDropdown}>
+                                {selectedOption && (
+                                    <img src={`https://api.cannabaze.com/${selectedOption.SubCategoryImage}`} alt={selectedOption.name} className="dropdown-option-image" />
+                                )}
+                                <span className="dropdown-option-label">
+                                    {selectedOption ? selectedOption.name : 'Select Subcategory '}
+                                </span>
+                                <span className="dropdown-caret"></span>
+                        </div>
+                        <ul className={`dropdown-menu image_dropdown ${isDropdownOpen ? 'open' : ''}`}>
+                            {subcategories.data.map((option, index) => (
+                                <li key={index} onClick={() => selectOption(option)}>
+                                    <img src={`https://api.cannabaze.com/${option.SubCategoryImage}`} alt={option.name} className="dropdown-option-image" />
+                                    <span className="dropdown-option-label">{option.name}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+              
+                </div>
+                : null
+                }
                 <div className="col-12 mt-4  fontStyle">
                     <h2 className="productSlider_headings">{CategoryName}</h2>
                 </div>
@@ -239,9 +280,6 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                     </div>
 
                                 </div>
-
-
-
                             </div>
                         </div>
                     )

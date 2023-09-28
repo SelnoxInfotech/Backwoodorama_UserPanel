@@ -13,7 +13,7 @@ const FeaturedBrand = ({ CardDataArray ,BrandSkeleton}) => {
         {!BrandSkeleton  ?
         <React.Fragment>
              <div className="bestDealsCard_Heading_offers">
-                    <h3 className="featuredBrandHeading">Featured Brands</h3>
+                    <h3 className="section_main_title">Featured Brands</h3>
                    
              </div>
 

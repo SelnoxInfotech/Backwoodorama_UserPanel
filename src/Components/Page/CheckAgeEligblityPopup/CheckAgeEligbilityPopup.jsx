@@ -35,7 +35,7 @@ const CheckAgeEligbilityPopup = ({value}) => {
         SetCountry(event.target.value);
     };
     const NotAge = () => {
-        SetNotAge("You're not old enough to visit sweede.net")
+        SetNotAge("You're not old enough to visit Weedx.io")
     }
     return (
         <div>
@@ -94,7 +94,7 @@ const CheckAgeEligbilityPopup = ({value}) => {
                     <div className='row checkEligbiltyMarginTop'>
                                 <div className='col-12 checkEligibiltypopCol'>
                                             <p className='checkAgeEligibility_footer'>
-                                                If you kee seeing this age prompt whenever you visit the Sweede.net.
+                                                If you kee seeing this age prompt whenever you visit the Weedx.io.
                                                 Please enable the cookies in your web browser
                                             </p>
                                             <p className='checkAge_thankP'>Thank you</p>

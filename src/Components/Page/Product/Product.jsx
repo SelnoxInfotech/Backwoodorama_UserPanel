@@ -1,15 +1,15 @@
-import React from "react"
+import React, { useState } from "react"
 import CategoryProduct from "../../../Components/Page/Home/Dashboard/ComponentDashboard/CategoryProduct"
 import Axios from "axios"
-import NewProductCategorySlider from "./NewProductCategorySlider"
-import RecentViewProduct from "./RecentViewProduct/RecentViewProduct"
 import { useNavigate, useParams } from "react-router-dom"
 import { ProductSeo , ProductCategorySeo } from "../../Component/ScoPage/ProductSeo"
 import ProductSearchResult from "./ProductSearchResult/ProductSearchResult"
 const Product = () => {
     const navigate = useNavigate();
     const params = useParams();
-const [loading ,  SetLoading] =  React.useState(false)
+    const [loading ,  SetLoading] =  React.useState(false)
+    const [subcategories , setsubcategories] = useState({})
+    const [isproduct, setisproduct] = useState(true)
     function ShowCategoryProduct(id, name) {
         navigate(`/products/${name.toLowerCase()}/${id}`);
     }
@@ -22,11 +22,9 @@ const [loading ,  SetLoading] =  React.useState(false)
             const data = await apidata.json()
             SetCategory(data)
         }
-        fetchData()
-
+        fetchData() 
     }, [])
 
-    console.log(params)
     React.useEffect(() => {
         SetLoading(true)
         if (params.id) {
@@ -35,11 +33,25 @@ const [loading ,  SetLoading] =  React.useState(false)
 
             ).then(response => {
                 SetLoading(false)
+                setisproduct(true)
              SetProduct(response.data)
              f(params.categoryname.charAt(0).toUpperCase() + params.categoryname.slice(1))
             }).catch(
                 function (error) {
-                })
+                    SetLoading(false)   
+                    setisproduct(false)
+            })
+          
+           
+            Axios.get(`https://api.cannabaze.com/UserPanel/Get-SubCategoryByCategory/${params.id}`).then((res)=>{
+               return res
+            }).then((response)=>{
+                setsubcategories(response.data)
+               
+            })
+       
+              
+            
         }
         else (
             Axios(`https://api.cannabaze.com/UserPanel/Get-AllProduct/`, {
@@ -65,21 +77,18 @@ const [loading ,  SetLoading] =  React.useState(false)
                         <CategoryProduct Category={Category} ShowCategoryProduct={ShowCategoryProduct}></CategoryProduct>
                     </div>
                     <div className="col-12 center">
-            {
-                loading ?
-                    <div className="loaderFLower"></div>
-                    :
-                    <div className="col-12 mt-4">
-                        <ProductSearchResult RelatedProductResult={Product} CategoryName={C} />
-
-
+                        {
+                            loading ?
+                                <div className="loaderFLower"></div>
+                                :
+                                isproduct ? <div className="col-12 mt-4">
+                                    <ProductSearchResult RelatedProductResult={Product} CategoryName={C} subcategories={subcategories} />
+                                </div> : <div className="no_product">
+                                    <h2>No Product Found</h2>
+                                </div>
+                        }
                     </div>
-            }
-        </div>
-
-
-
-
+                  
                     {/* {
                         SubCategory.map((data , index) => {
                             return (

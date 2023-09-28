@@ -85,7 +85,7 @@ export default function Dashboard() {
                     <div className="about_card_Wraper">
                         <div className="about_card">
                             <div className="about_card_img">
-                                <img src="./image/about1.webp" alt="" />
+                                <img src="./image/about1.webp" alt=" Online Ordering" />
                             </div>
                             <div className="about_text">
                                 <h3 className="acard_title">
@@ -102,7 +102,7 @@ export default function Dashboard() {
                         </div>
                         <div className="about_card">
                             <div className="about_card_img">
-                                <img src="./image/about2.webp" alt="" />
+                                <img src="./image/about2.webp" alt="Delivery Services" />
                             </div>
                             <div className="about_text">
                                 <h3 className="acard_title">
@@ -119,7 +119,7 @@ export default function Dashboard() {
                         </div>
                         <div className="about_card">
                             <div className="about_card_img">
-                                <img src="./image/about3.webp" alt="" />
+                                <img src="./image/about3.webp" alt="Dispensary Listings" />
                             </div>
                             <div className="about_text">
                                 <h3 className="acard_title">
