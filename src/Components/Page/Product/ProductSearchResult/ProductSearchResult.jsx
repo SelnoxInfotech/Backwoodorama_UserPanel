@@ -207,7 +207,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                         </div>
                                         <div className="col-12 product_category_list">
                                             <span className="product_search_result_span1">15% THC | 0.2% CBD</span>
-                                            <span className="product_search_result_span2"><span className={` ${classes.disp_star_color}`}><IoMdStar className="product_search_rating_star" /></span>{items.rating}</span>
+                                            <span className="product_search_result_span2"><span className={` ${classes.disp_star_color}`}><IoMdStar className="product_search_rating_star" /></span>{items.rating === null ? 0 : items.rating }</span>
 
                                         </div>
 
