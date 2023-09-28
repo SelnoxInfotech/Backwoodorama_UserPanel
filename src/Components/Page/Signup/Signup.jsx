@@ -9,6 +9,7 @@ import { IoLogoFacebook } from 'react-icons/io';
 import { FcGoogle } from "react-icons/fc"
 
 import React from 'react';
+import { SignupSeo } from '../../Component/ScoPage/CommenpageSeo';
 const Signup = () => {
     const { state } = React.useContext(Createcontext)
  
@@ -25,6 +26,7 @@ const Signup = () => {
 
     return (
         <React.Fragment>
+            <SignupSeo></SignupSeo>
             <div className="container signup_margins_top signup_margins_bottom">
                 <div className="row center">
                     <div className="col-lg-4 col-md-6 col-sm-8 col-10 signup_padding_bottom login_signup_reset_container signup_container_height">

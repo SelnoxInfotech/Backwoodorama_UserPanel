@@ -1,5 +1,5 @@
 import React from "react"
-import { useLocation,useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import Axios from "axios";
 import ProductSearchResult from "./ProductSearchResult/ProductSearchResult";
 const SubcategoryProduct = () => {
@@ -7,7 +7,7 @@ const SubcategoryProduct = () => {
     const Id = Params.id
     const [Product, SetProduct] = React.useState([])
     const [Loading, SetLoading] = React.useState(true)
-    const [CategoryName ,  SetCategoryName] = React.useState([])
+    const [CategoryName, SetCategoryName] = React.useState([])
 
     React.useEffect(() => {
         SetLoading(true)
@@ -26,21 +26,20 @@ const SubcategoryProduct = () => {
             })
     }, [Id])
     return (
-        <div>
 
-            <div className="col-12 center">
-                {
-                   Loading ? 
-                   <div className="loaderFLower"></div> 
-                   : 
-                   <div className="col-12 mt-4">
-                   <ProductSearchResult RelatedProductResult={Product} CategoryName={CategoryName}/>
-                  
+        <div className="col-12 center">
+            {
+                Loading ?
+                    <div className="loaderFLower"></div>
+                    :
+                    <div className="col-12 mt-4">
+                        <ProductSearchResult RelatedProductResult={Product} CategoryName={CategoryName} />
 
-               </div>
-                }
-            </div>
+
+                    </div>
+            }
         </div>
+
     )
 }
 

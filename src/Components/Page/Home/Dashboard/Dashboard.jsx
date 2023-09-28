@@ -5,7 +5,7 @@ import HomePageWeedBanner from "./ComponentDashboard/HomePageWeedBanner";
 import NewsBlog from "./ComponentDashboard/NewsBlog";
 import HomePageBanner from "./ComponentDashboard/HomePageBanner";
 import DeliveryServices from "../../Delivery/HomePageDelivery/DeliveryServices";
-import { useNavigate } from "react-router-dom";
+import { useNavigate , useLocation } from "react-router-dom";
 import React from "react";
 import HomePageDealsSignup from "./ComponentDashboard/HomePageDealsSignup";
 import StrainTypeCards from "../../Strain/StrainComponent/StrainTypeCards";
@@ -20,7 +20,7 @@ export default function Dashboard() {
     const Navigate = useNavigate()
     function ShowCategoryProduct(id, name) {
 
-        Navigate(`/CategoryProduct/${name}`, { state: { id } });
+        Navigate(`/products/${name.toLowerCase()}/${id}`);
     }
     const [Category, SetCategory] = React.useState([])
     React.useEffect(() => {

@@ -1,14 +1,14 @@
 import React from "react";
 import CategoryProduct from "../Home/Dashboard/ComponentDashboard/CategoryProduct"
-import { useLocation , useNavigate } from "react-router-dom";
+import { useParams , useNavigate } from "react-router-dom";
 import  Axios  from "axios";
 import AllProductCategory from "./AllProductCategory";
+import { ProductCategorySeo } from "../../Component/ScoPage/ProductSeo";
 const AllCategory = () => {
     const navigate = useNavigate();
-    const location = useLocation()
-    const {id} = location.state
+    const Params = useParams()
+    const {id , categoryname} = Params
     const [Category , SetCategory] = React.useState([])
-        
         const [category , setCategory] = React.useState([])
 const  [ Loading  , SetLoading] = React.useState(true)
     React.useEffect(() => {
@@ -27,7 +27,7 @@ const  [ Loading  , SetLoading] = React.useState(true)
             })
     },[id])
     function ShowCategoryProduct (id ,name) {
-        navigate(`/CategoryProduct/${name}`, { state: {  id  } });
+        navigate(`/products/${name.toLowerCase()}/${id}`);
     }
     React.useEffect(() => {
         const fetchData = async () => {
@@ -47,6 +47,7 @@ window.scroll(0,0)
 
     return (
         <div>
+            {/* <ProductCategorySeo categoryname={categoryname} ></ProductCategorySeo> */}
             <CategoryProduct Category={category} ShowCategoryProduct={ShowCategoryProduct}></CategoryProduct>
             <div className="col-12 center">
 

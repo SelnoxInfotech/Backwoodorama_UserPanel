@@ -4,7 +4,7 @@ import { useLocation, useParams } from "react-router-dom"
 function ProductDetailsSeo({Productname , ProductCategory , StoreName ,  City , State}) {
     return (
         <Helmet>
-            <title> {`${Productname}| Weedx.io | `}</title>
+            <title> {`${Productname} | Weedx.io | `}</title>
             <meta name="title" content={`${Productname}| Weedx.io |`}/>
             <meta name='description' content={`${Productname} - ${ProductCategory} at ${StoreName} - Your Ultimate Cannabis ${useLocation().pathname.slice(0, 16) === "/weed-deliveries" ? `Delivery` : `Dispensary`} in ${City}, ${State}.`} />
             {/* Facebook tags */}
@@ -22,23 +22,44 @@ function ProductDetailsSeo({Productname , ProductCategory , StoreName ,  City , 
 }
 
 
-function Product() {
+function ProductSeo() {
     return (
        
         <Helmet>
-       <title>{"Learn everything about you favorite Cannabis | weedx.io |"}</title>
-            <meta name="title" content={`Learn everything about you favorite Cannabis | weedx.io |`}/>
-            <meta name='description' content={"Learn everything about your favorite Cannabis. Read this guide on weedx.io to understand the laws related to marijuana and about its legalization worldwide."} />
+       <title>{"Shop High-Quality Marijuana products Near You | weedx.io |"}</title>
+            <meta name="title" content={`Shop High-Quality Marijuana products Near You | weedx.io |`}/>
+            <meta name='description' content={"Shop High-Quality Marijuana products from top brands near you. Recreational and Medical Marijuana Dispensaries & Delivery Near me. Order online from weedx.io"} />
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
-            <meta property="og:title" content={"Learn everything about you favorite Cannabis | weedx.io |"} />
-            <meta property="og:description" content={"Learn everything about your favorite Cannabis. Read this guide on weedx.io to understand the laws related to marijuana and about its legalization worldwide."} />
+            <meta property="og:title" content={"Shop High-Quality Marijuana products Near You | weedx.io |"} />
+            <meta property="og:description" content={"Shop High-Quality Marijuana products from top brands near you. Recreational and Medical Marijuana Dispensaries & Delivery Near me. Order online from weedx.io"} />
             { /* End Facebook tags */}
             { /* Twitter tags */}
             <meta name="twitter:creator" content={"website"} />
             <meta name="twitter:card" content={"Marijuana Dispensaries & Delivery Near Me"} />
-            <meta name="twitter:title" content={"Learn everything about you favorite Cannabis | weedx.io |"} />
-            <meta name="twitter:description" content={"Learn everything about your favorite Cannabis. Read this guide on weedx.io to understand the laws related to marijuana and about its legalization worldwide."} />
+            <meta name="twitter:title" content={"Shop High-Quality Marijuana products Near You | weedx.io |"} />
+            <meta name="twitter:description" content={"Shop High-Quality Marijuana products from top brands near you. Recreational and Medical Marijuana Dispensaries & Delivery Near me. Order online from weedx.io"} />
+    </Helmet>
+    )
+}
+
+function ProductCategorySeo({categoryname}) {
+    return (
+       
+        <Helmet>
+       <title>{`Find Cannabis ${categoryname.charAt(0).toUpperCase() + categoryname.slice(1)} Near You | weedx.io |`}</title>
+            <meta name="title" content={`Find Cannabis ${categoryname.charAt(0).toUpperCase() + categoryname.slice(1)} Near You | weedx.io |`}/>
+            <meta name='description' content={` weedx.io best place to find your favorite Cannabis ${categoryname.charAt(0).toUpperCase() + categoryname.slice(1)} Near You. Explore different strains from different brands with different deals and offers.`} />
+            {/* Facebook tags */}
+            <meta property="og:type" content={"website"} />
+            <meta property="og:title" content={`Find Cannabis ${categoryname.charAt(0).toUpperCase() + categoryname.slice(1)} Near You | weedx.io |`} />
+            <meta property="og:description" content={` weedx.io best place to find your favorite Cannabis ${categoryname.charAt(0).toUpperCase() + categoryname.slice(1)} Near You. Explore different strains from different brands with different deals and offers.`} />
+            { /* End Facebook tags */}
+            { /* Twitter tags */}
+            <meta name="twitter:creator" content={"website"} />
+            <meta name="twitter:card" content={"Marijuana Dispensaries & Delivery Near Me"} />
+            <meta name="twitter:title" content={`Find Cannabis ${categoryname.charAt(0).toUpperCase() + categoryname.slice(1)} Near You | weedx.io |`} />
+            <meta name="twitter:description" content={` weedx.io best place to find your favorite Cannabis ${categoryname.charAt(0).toUpperCase() + categoryname.slice(1)} Near You. Explore different strains from different brands with different deals and offers.`} />
     </Helmet>
     )
 }
@@ -46,4 +67,5 @@ function Product() {
 
 
 
-export  {ProductDetailsSeo } 
+
+export  {ProductDetailsSeo  , ProductSeo , ProductCategorySeo} 

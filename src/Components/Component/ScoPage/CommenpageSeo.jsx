@@ -82,4 +82,64 @@ function CookiesPolicy() {
         </Helmet>
     )
 }
-export {AboutusSeo , TermsAndConditions ,PrivacyPolicy , CookiesPolicy}
+function LoginSeo() {
+    return (
+        <Helmet>
+            <title>{` Login | weedx.io`}</title>
+            <meta name="title" content={`  Login | weedx.io`}/>
+            <meta name='description' content={`Welcome to weedx.io. Your secure gateway to premium cannabis. Explore high-quality strains, edibles, and more with confidence`} />
+            {/* Facebook tags */}
+            <meta property="og:type" content={"website"} />
+            <meta property="og:title" content={`  Login | weedx.io`} />
+            <meta property="og:description" content={`Welcome to weedx.io. Your secure gateway to premium cannabis. Explore high-quality strains, edibles, and more with confidence`} />
+            { /* End Facebook tags */}
+
+            { /* Twitter tags */}
+            <meta name="twitter:creator" content={"website"} />
+            <meta name="twitter:card" content={"Marijuana Dispensaries & Delivery Near Me"} />
+            <meta name="twitter:title" content={`  Login | weedx.io`} />
+            <meta name="twitter:description" content={`Welcome to weedx.io. Your secure gateway to premium cannabis. Explore high-quality strains, edibles, and more with confidence`} />
+        </Helmet>
+    )
+}
+function SignupSeo() {
+    return (
+        <Helmet>
+            <title>{`Sign Up | weedx.io`}</title>
+            <meta name="title" content={` Sign Up | weedx.io`}/>
+            <meta name='description' content={` Join weedx.io today for exclusive access to premium cannabis products. Explore high-quality strains, edibles, and more. Your secure gateway to the cannabis world awaits`} />
+            {/* Facebook tags */}
+            <meta property="og:type" content={"website"} />
+            <meta property="og:title" content={` Sign Up | weedx.io`} />
+            <meta property="og:description" content={` Join weedx.io today for exclusive access to premium cannabis products. Explore high-quality strains, edibles, and more. Your secure gateway to the cannabis world awaits`} />
+            { /* End Facebook tags */}
+
+            { /* Twitter tags */}
+            <meta name="twitter:creator" content={"website"} />
+            <meta name="twitter:card" content={"Marijuana Dispensaries & Delivery Near Me"} />
+            <meta name="twitter:title" content={` Sign Up | weedx.io`} />
+            <meta name="twitter:description" content={` Join weedx.io today for exclusive access to premium cannabis products. Explore high-quality strains, edibles, and more. Your secure gateway to the cannabis world awaits`} />
+        </Helmet>
+    )
+}
+function WhislistSeo() {
+    return (
+        <Helmet>
+            <title>{` My Wishlist | weedx.io`}</title>
+            <meta name="title" content={`  My Wishlist | weedx.io`}/>
+            <meta name='description' content={`Create & manage your cannabis wishlist at weedx.io. Save favorites for quick access. Your personalized cannabis journey begins here`} />
+            {/* Facebook tags */}
+            <meta property="og:type" content={"website"} />
+            <meta property="og:title" content={`  My Wishlist | weedx.io`} />
+            <meta property="og:description" content={`Create & manage your cannabis wishlist at weedx.io. Save favorites for quick access. Your personalized cannabis journey begins here`} />
+            { /* End Facebook tags */}
+
+            { /* Twitter tags */}
+            <meta name="twitter:creator" content={"website"} />
+            <meta name="twitter:card" content={"Marijuana Dispensaries & Delivery Near Me"} />
+            <meta name="twitter:title" content={`  My Wishlist | weedx.io`} />
+            <meta name="twitter:description" content={`Create & manage your cannabis wishlist at weedx.io. Save favorites for quick access. Your personalized cannabis journey begins here`} />
+        </Helmet>
+    )
+}
+export {AboutusSeo , TermsAndConditions ,PrivacyPolicy , CookiesPolicy , WhislistSeo , SignupSeo , LoginSeo}

@@ -36,7 +36,7 @@ export default function DashBoardLink({ state }) {
               <Link to={`/weed-dispensaries/in/${state.Country.toLowerCase()}/${state.State.toLowerCase()}/${state.City.toLowerCase()}`} id={`${(current_route?.slice(0,16) === "/Weed-Dispansire" ? "Active" : "")}`}> <li >Dispensaries </li></Link>
                 <Link to={`/weed-deliveries/in/${state.Country.toLowerCase()}/${state.State.toLowerCase()}/${state.City.toLowerCase()}`} id={`${(current_route?.slice(0,16) === "/Weed-Deliveries" ? "Active" : "")}`}><li>Deliveries</li></Link>
                 <Link to="/brands" id={`${(current_route === "/brands" ? "Active" : "")}`}> <li>Brand</li></Link>
-                <Link to="/Product" id={`${(current_route === "/Product" ? "Active" : "")}`}><li>Product</li></Link>
+                <Link to="/products" id={`${(current_route === "/product" ? "Active" : "")}`}><li>Product</li></Link>
                 {/* <Link to="/Deals"  id={`${(current_route ===  "/Deals" ? "Active" : "")}`}><li>Deals</li></Link> */}
                 <Link to="/deals" id={`${(current_route === "/deals" ? "Active" : "")}`}><li>Deals</li></Link>
                 <Link to="/learn" id={`${(current_route === "/Learn" ? "Active" : "")}`}><li >Learn</li></Link>
