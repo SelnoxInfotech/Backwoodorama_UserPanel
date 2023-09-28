@@ -19,7 +19,7 @@ const HomePageBanner = () => {
 
         !Skeleton ?
             
-            <div className="homeBannerContainer container-fluid">
+            <div className="homeBannerContainer">
                 <div className="destop_image">
                 <Swiper autoplay={{
           delay: 2500,

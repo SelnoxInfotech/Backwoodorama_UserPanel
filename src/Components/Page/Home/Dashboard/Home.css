@@ -100,6 +100,66 @@ background: #FFF;
   .about_card_Wraper .about_card .about_card_img img{
     max-width: 100%;
   }
+  .new_blog_card{
+    width: 260px;
+    border-radius: 8px;
+    background-color: hsla(225, 2%, 66%, 0.1);
+    padding: 10px;
+    border: 1px solid #e9e9e9;
+    height: 100%;
+  }
+  .new_blog_card .new_blog_card_img{
+     width: 100%;
+     height: 180px;
+  }
+  .new_blog_card .new_blog_card_img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+ }
+ .blogs_card_slider .blogSlider{
+  display: flex;
+  gap: 20px;
+  position: relative;
+ }
+ .blogs_card_slider .blogSlider a{
+  display: block;
+ }
+.new_blog_card_text{
+   margin-top: 20px;
+ }
+ .new_blog_card_text .latest_font_size {
+  display: block;
+  font-weight: 600;
+  font-size: 18px;
+  color: #3a3a3a;
+  line-height:1.5;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.new_blog_card_text .common_sub_head {
+  margin-top: 15px;
+  display: block;
+ font-size: 16px;
+ font-weight: 400;
+ color: #525252;
+  line-height:1.5;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.new_blog_card_text .common_sub_head h1 , .new_blog_card_text .common_sub_head h2 , .new_blog_card_text .common_sub_head h3 ,.new_blog_card_text .common_sub_head h4 ,.new_blog_card_text .common_sub_head h5 ,.new_blog_card_text .common_sub_head h6 {
+  font-size: 14px;
+  margin: 0;
+}
+
+.new_blog_card_text .common_sub_head p{
+  font-size: 14px;
+}
+
   @media only screen and (max-width: 1366px){
     .about_card_Wraper .about_card{
       padding: 10px;

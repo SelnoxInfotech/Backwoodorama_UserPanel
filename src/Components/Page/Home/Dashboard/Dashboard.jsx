@@ -72,11 +72,9 @@ export default function Dashboard() {
             </div>
          
             <FeaturedBrand CardDataArray={FeaturedBrandArray} BrandSkeleton={BrandSkeleton} />
-            <HomePageDealsSignup></HomePageDealsSignup>
+           
             {/* <WeedProduct></WeedProduct> */}
-            <div className="dashBoardStrainType">
-                <NewsBlog></NewsBlog>
-            </div>
+         
             <div className="About_weedx">
                 <div className="container-fluid">
                     <h2 className="section_main_title">Welcome to weedx.io</h2>
@@ -162,8 +160,10 @@ export default function Dashboard() {
                 <StrainTypeCards ArrayData={StrainTypeCardArray} />
 
             </div>
-
-
+           
+                <NewsBlog></NewsBlog>
+           
+                <HomePageDealsSignup></HomePageDealsSignup>
 
             {/* <CommunityType></CommunityType> */}
         </div>

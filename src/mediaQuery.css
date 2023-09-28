@@ -114,6 +114,17 @@
     }
   }
   @media only screen and (max-width:480px) {
+    .shopByCategoryHeading {
+      font-size: 16px;
+      margin-left: 0px;
+    }
+  
+    .latest_services_headings {
+      font-size: 18px;
+    }
+    .CategoryBordrr{
+     padding: 0;
+    }
     .common_sub_head {
       font-size: 12px;
       margin-bottom: 0;
@@ -146,6 +157,7 @@
   }
   .deliveryServicesTitle p {
   font-size: 16px;
+  font-weight: 600;
   margin: 0;
   }
   .deliveryServices_SubTitle p {

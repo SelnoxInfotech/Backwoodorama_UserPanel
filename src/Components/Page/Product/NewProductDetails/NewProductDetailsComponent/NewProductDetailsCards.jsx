@@ -19,7 +19,7 @@ const NewProductDetailsCards = ({ Product }) => {
     const cookies = new Cookies();
     const [quentity,setquentity] = useState(1)
     const [dynamicprice,setdynamicprice]=useState('')
-    const [dynamicWeight,setdynamicWeight]=useState('')
+    const [dynamicWeight,setdynamicWeight]=useState(0)
     const p = Product?.images === undefined ? "" : Product?.images[0].image
     const classes = useStyles()
     const token_data = cookies.get('Token_access')
@@ -218,30 +218,31 @@ const NewProductDetailsCards = ({ Product }) => {
                            {
                                 Product?.Prices?.map((data)=> data.Price.length)[0] > 1  ?
                                 <select className="form-select" aria-label="Default select example" onChange={(e)=>{setdynamicWeight(e.target.value)}}>
-                               {  Product?.Prices[0]?.Price?.map((item,index)=>{
-                                    if(item.Weight){
-                                        return  <option value={item.id}  key={index}>{item.Weight}</option>
-                                    }else{
-                                        return  <option value={item.id} key={index} >{item.Unit} Unit</option>
-                                    }
-                                   
-                                })  
-                               }
-                                
-                               
+                                {  
+                                    Product?.Prices[0]?.Price?.map((item,index)=>{
+                                        if(item.Weight){
+                                            return  <option value={item.Weight}  key={index}>{item.Weight}</option>
+                                        }else{
+                                            return  <option value={item.Unit} key={index} >{item.Unit} Unit</option>
+                                        }
+                                    
+                                    })  
+                                }                              
                                 </select>: 
                                   Product?.Prices?.map((item)=>{
                                   let vl =item.Price.map((item)=>{
 
                                         if(item.Weight){
+                                           if(!dynamicWeight){setdynamicprice(item.Price); setdynamicWeight(item.Weight)};
                                             return item.Weight
                                         }else{
+                                            if(!dynamicWeight){setdynamicprice(item.Price); setdynamicWeight(`${item.Unit} Unit`)}
                                             return  `${item.Unit} Unit`
                                         }
                                        
                                     })
                                    return vl[0] 
-                                  })
+                                })
                                     
                                 
                           }
@@ -258,11 +259,8 @@ const NewProductDetailsCards = ({ Product }) => {
                         </div>
                         <div className="col-12 ">
                             <p><span className="newProduct_doller_price">
-{/*                              
-                                { Product?.Prices[0]?.filter((item )=>{
-                                   return  item.length
-                                 })}                          */}
-                            </span><span className="mx-3 newProduct_Gms">Per 1 Z</span></p>
+                              $ {dynamicprice * quentity }
+                            </span><span className="mx-3 newProduct_Gms">Per {dynamicWeight}</span></p>
                         </div>
                         <div className="col-12">
                             <Box

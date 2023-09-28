@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800;900&family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Overpass:wght@300;400;500;600;700;800;900&display=swap');
+.blog_searchBar_container {
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+.Blog_searchBar {
+    width: 100%;
+    border: 1px solid #31B665;
+}
+  
+  .backButton_section {
+    width: 30%;
+  }
+  
+  .searchBar_section {
+    width: 70%;
+  }
+  .UserNmae_Blog{
+    display: flex;
+    gap: 20px;
+    align-items: center; 
+    background-color: #F6F6F6;
+    width: 100%;
+    padding: 5px 20px;
+  }
+  .Col_BlogUSerIcon {
+    background: #00b96a;
+    border-radius: 50px;
+    justify-content: center;
+    display: flex;  
+    align-items: center;
+    width: 40px;
+    height: 40px;
+  }
+  .backBtnCol_searchBar_height {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .blogBackSpan {
+    color: #000000;
+    font-weight: 700;
+    font-size: 20px;
+  }
+  
+  .blogEditorContainer {
+    border: 1px solid #E6E6E6;
+    height: 100%;
+    margin-top: 40px;
+  }
+  
+.BlogCol-1 {
+    position: relative;
+    margin-left: 9%;
+  }
+  
+  .Col_BlogUSerIcon {
+    background: #00b96a;
+    border-radius: 50px;
+    justify-content: center;
+    display: flex;  
+    align-items: center;
+    width: 40px;
+    height: 40px;
+  }
+  
+ 
+  .UserNmae {
+    color: #000;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  
+  .UserNmae h6 {
+    margin: 0;
+  }
+  .blog_Image{
+    position: relative;
+    height: 17rem;
+    width: 100%;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("https://api.cannabaze.com/image/images/download/media/BlankImage/b1_2.png");
+  }
+  .blog_Image .overlay_blog{
+    width: 100%;
+    height: 100%;
+    background: #00000059;
+  }
+  .blog_Title{
+    font-weight: 800;
+    font-size: 24px;
+    top: 50%;
+    left: 50%;
+    width: 45%;
+    text-align: center;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    color: rgb(255, 255, 255);
+  }
+  .blog_text_container h1{
+    font-size: 28px;
+    font-weight: 700;
+    font-family: 'Overpass', sans-serif;
+  }
+  .blog_text_container h2{
+      font-size: 24px;
+    font-weight: 600;
+    font-family: 'Overpass', sans-serif;
+  }
+  .blog_text_container h3{
+      font-size: 22px;
+    font-weight: 600;
+    font-family: 'Overpass', sans-serif;
+  }
+  .blog_text_container h4{
+      font-size: 18px;
+    font-weight: 500;
+    font-family: 'Overpass', sans-serif;
+  }
+  .blog_text_container h5{
+      font-size: 16px;
+    font-weight: 500;
+    font-family: 'Overpass', sans-serif;
+  }
+  .blog_text_container h6{
+      font-size: 14px;
+    font-weight: 400;
+    font-family: 'Overpass', sans-serif;
+  }
+  .blog_text_container p{
+    font-size: 16px;
+    line-height: 1.5;
+  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+}
+.blog_text_container ul li{
+    list-style-type: none;
+}
+@media(max-width:992px) {
+    .blog_Title{
+        font-weight: 700;
+        font-size: 20px;
+        width: 70%;
+      
+      }
+      .blog_text_container h1{
+        font-size: 26px;
+      }
+      .blog_text_container h2{
+          font-size: 22px;
+      }
+      .blog_text_container h3{
+          font-size: 20px;
+      }
+      .blog_text_container h4{
+          font-size: 16px;
+      
+      }
+      .blog_text_container h5{
+          font-size: 14px;
+    
+      }
+      .blog_text_container h6{
+          font-size: 12px;
+     
+      }
+      .blog_text_container p{
+        font-size: 14px;
+     
+    }
+}
+@media(max-width:480px) {
+    .blog_Title{
+        font-weight: 700;
+        font-size: 18px;
+        width: 90%;
+      }
+      .blog_text_container h1{
+        font-size: 24px;
+      }
+      .blog_text_container h2{
+          font-size: 20px;
+      }
+      .blog_text_container h3{
+          font-size: 18px;
+      }
+      .blog_text_container h4{
+          font-size: 14px;
+      
+      }
+      .blog_text_container h6{
+          font-size: 12px;
+     
+      }
+      .blog_text_container p{
+        font-size: 14px;
+     
+    }
+}

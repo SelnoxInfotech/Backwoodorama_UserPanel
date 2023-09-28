@@ -31,7 +31,7 @@ const DeliveryServices = () => {
 
     return (
         <React.Fragment>
-            <div className="container-fluid mt-5">
+            <div className="container-fluid mt-mb-5 mt-2">
                 <div >
                     {!Skeleton ? <React.Fragment> 
                         <div className="">

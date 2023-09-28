@@ -10,7 +10,7 @@ const CategoryProduct = ({ ShowCategoryProduct, Category,Skeleton }) => {
 
     return (
         <React.Fragment>
-            <div className='container-fluid mt-4 CategoryBordrr'>
+            <div className='container-fluid CategoryBordrr'>
                 <div className='row'>
 
 

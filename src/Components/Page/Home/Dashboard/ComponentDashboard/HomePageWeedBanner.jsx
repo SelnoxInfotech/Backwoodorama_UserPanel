@@ -24,7 +24,7 @@ const HomePageWeedBanner=()=>{
 
 
     return(
-        <div className='homepagebanner2 container-fluid'>
+        <div className='homepagebanner2 '>
          { !Skeleton   ?
          <React.Fragment>
             <div className='destop_image'>

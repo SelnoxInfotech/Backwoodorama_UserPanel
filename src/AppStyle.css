@@ -48,16 +48,7 @@ input[type=checkbox] {
 .LinkColor{
   color: #000000;
 }
-.common_sub_head {
-  display: block;
-  /* height: 86px; */
-  color: #949494;
-  font-size: 15px;
-  width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
 
-}
 
 .latestServices_SliderCol {
   margin-left: -9px;
@@ -185,16 +176,7 @@ line-height: normal;
   display: flex;
 }
 
-@media(max-width:480px) {
-  .shopByCategoryHeading {
-    font-size: 16px;
-    margin-left: 14px;
-  }
 
-  .latest_services_headings {
-    font-size: 18px;
-  }
-}
 
 /* end */
 
@@ -6474,45 +6456,6 @@ background: #31B665;
 }
 
 /* end */
-/* Blog */
-.blog_searchBar_container {
-  display: flex;
-  align-items: center;
-  height: 50px;
-}
-
-.Blog_searchBar {
-  width: 100%;
-  border: 1px solid #31B665;
-}
-
-.backButton_section {
-  width: 30%;
-}
-
-.searchBar_section {
-  width: 70%;
-}
-
-.backBtnCol_searchBar_height {
-  height: 40px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.blogBackSpan {
-  color: #000000;
-  font-weight: 700;
-  font-size: 20px;
-}
-
-.blogEditorContainer {
-  border: 1px solid #E6E6E6;
-  height: 100%;
-}
-
-/* end */
 /* RecentPost */
 .Recentent_post_container {
   border: #E6E6E6;
@@ -7056,7 +6999,7 @@ background: #31B665;
   gap: 2.6%;
   justify-content: normal;
   position: relative;
-  padding: 20px;
+ 
 }
 
 
@@ -7607,7 +7550,7 @@ cursor: pointer;
   width: 280px;
 }
 .deliveryServicesCard{
-  width: 260px;
+  width: 220px;
   transition: all .3s ease;
 }
 .deliveryServicesBorder:hover{
