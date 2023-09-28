@@ -112,15 +112,15 @@ const Footer = () => {
                                         
                                       
                                     
-                                        <Link  to={'/termscondition'}>
+                                        <Link  to={'/terms-and-conditions'}>
 
                                         <li className="footer_li" > Term & Condition </li>
                                         </Link>
-                                        <Link  to={'/cookiespolicy'}>
+                                        <Link  to={'/cookies-policy'}>
 
                                         <li className="footer_li" > cookies Policy </li>
                                         </Link>
-                                        <Link  to={'/privatepolicy'}>
+                                        <Link  to={'/privacy-policy'}>
 
                                         <li className="footer_li" > Privacy Policy </li>
                                         </Link>

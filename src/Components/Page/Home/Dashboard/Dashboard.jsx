@@ -5,7 +5,7 @@ import HomePageWeedBanner from "./ComponentDashboard/HomePageWeedBanner";
 import NewsBlog from "./ComponentDashboard/NewsBlog";
 import HomePageBanner from "./ComponentDashboard/HomePageBanner";
 import DeliveryServices from "../../Delivery/HomePageDelivery/DeliveryServices";
-import { useNavigate } from "react-router-dom";
+import { useNavigate , useLocation } from "react-router-dom";
 import React from "react";
 import HomePageDealsSignup from "./ComponentDashboard/HomePageDealsSignup";
 import StrainTypeCards from "../../Strain/StrainComponent/StrainTypeCards";
@@ -20,7 +20,7 @@ export default function Dashboard() {
     const Navigate = useNavigate()
     function ShowCategoryProduct(id, name) {
 
-        Navigate(`/CategoryProduct/${name}`, { state: { id } });
+        Navigate(`/products/${name.toLowerCase()}/${id}`);
     }
     const [Category, SetCategory] = React.useState([])
     React.useEffect(() => {
@@ -74,9 +74,9 @@ export default function Dashboard() {
             <FeaturedBrand CardDataArray={FeaturedBrandArray} BrandSkeleton={BrandSkeleton} />
             <HomePageDealsSignup></HomePageDealsSignup>
             {/* <WeedProduct></WeedProduct> */}
-            <div className="dashBoardStrainType">
+            {/* <div className="dashBoardStrainType">
                 <NewsBlog></NewsBlog>
-            </div>
+            </div> */}
             <div className="About_weedx">
                 <div className="container-fluid">
                     <h2 className="section_main_title">Welcome to weedx.io</h2>

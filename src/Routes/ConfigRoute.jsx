@@ -86,18 +86,15 @@ const routesConfig = [
       // },
 
       // Product
-      {
-        path: "/Product",
-        element: <RoutingList Component={Product} ></RoutingList>,
-      },
-      {
-        path: "/product/:SubCategoryname/:id",
-        element: <RoutingList Component={SubcategoryProduct} ></RoutingList>
-      },
-      {
-        path: "/products/:CategoryName/:ProductName/:id",     // NewProductDetails
-        element: <RoutingList Component={NewProductDetails} ></RoutingList>,
-      },
+   
+      // {
+      //   path: "/product/:SubCategoryname/:id",
+      //   element: <RoutingList Component={SubcategoryProduct} ></RoutingList>
+      // },
+      // {
+      //   path: "/products/:CategoryName/:ProductName/:id",     // NewProductDetails
+      //   element: <RoutingList Component={NewProductDetails} ></RoutingList>,
+      // },
 
       {
         path: "/ProductDetail",
@@ -106,7 +103,7 @@ const routesConfig = [
       // End
 
 
-      // Complete///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      // //////////////////////////////////////////////////////////// Complete ///////////////////////////////////////////////////////////
       {
         path: "/brands",
         element: <RoutingList Component={Brand} ></RoutingList>,
@@ -162,7 +159,31 @@ const routesConfig = [
           path: "/aboutUs",
           element: <RoutingList Component={AboutUs} ></RoutingList>
         },
-
+        // {
+        //   path: "/products",
+        //   element: <RoutingList Component={Product} ></RoutingList>,
+        // },
+        ,
+        {
+          path: "/products/:categoryname?/:id?",
+          element: <RoutingList Component={Product} ></RoutingList>
+        },
+        {
+        path: "/products/:CategoryName?/:ProductName/:id",     // NewProductDetails
+        element: <RoutingList Component={NewProductDetails} ></RoutingList>,
+      },
+        {
+          path: "/terms-and-conditions",
+          element: <RoutingList Component={Termsconditions} ></RoutingList>
+        },
+        {
+          path: "/cookies-policy",
+          element: <RoutingList Component={Cookiespolicy} ></RoutingList>
+        },
+        {
+          path: "/privacy-policy",
+          element: <RoutingList Component={Privatepolicy} ></RoutingList>
+        },
 
 
         // end
@@ -239,13 +260,7 @@ const routesConfig = [
         path: "/EmptyCard",
         element: <RoutingList Component={EmptyCard} ></RoutingList>
       }
-      ,
-      {
-        path: "/CategoryProduct/:Categoryname",
-        element: <RoutingList Component={CategoryProduct} ></RoutingList>
-      }
-      ,
-      
+,  
       {
         path: "/LearnCardRelatedPage",
         element: <RoutingList Component={LearnCardRelatedPage} ></RoutingList>
@@ -293,18 +308,7 @@ const routesConfig = [
         path: "/WhisLists",
         element: <ProtectRout Component={WhisLists} ></ProtectRout>
       },
-      {
-        path: "/termscondition",
-        element: <RoutingList Component={Termsconditions} ></RoutingList>
-      },
-      {
-        path: "/cookiespolicy",
-        element: <RoutingList Component={Cookiespolicy} ></RoutingList>
-      },
-      {
-        path: "/privatepolicy",
-        element: <RoutingList Component={Privatepolicy} ></RoutingList>
-      },
+
       // ends
       {
         path: "*",
