@@ -2379,10 +2379,67 @@ const Content = [
                 name: "British Columbia",
                 content: [
                     {
-                        title: "Is weed legal in British Columbia?"
+                        title: "Is weed legal in British Columbia?",
+                        content: <div>
+                           <p>Yes, cannabis is legal for recreational use in British Columbia. Following the national legalization of cannabis on October 17, 2018, British Columbia, like other provinces, implemented its own framework to regulate cannabis production, sale, and consumption</p>
+                        </div>
+                    },
+                    {
+                        title: "What is B.C. Bud?",
+                        content: <div>
+                           <p>B.C. Bud, short for British Columbia Bud, holds a legendary status in the world of cannabis. This phenomenon emerged thanks to the favorable growing conditions found in regions like Fraser Valley, Okanagan, and Vancouver Island, combined with a unique historical backdrop. During the tumultuous 1960s, a wave of U.S. expatriates arrived in British Columbia, carrying cannabis seeds, seeking refuge from Vietnam War conscription. This convergence of factors led to the flourishing of British Columbia's cannabis culture and the birth of world-renowned strains colloquially known as B.C. Buds.
+                           </p>
+                           <p>
+                           British Columbia has played a pivotal role in advocating for cannabis legalization, a stance that has only strengthened over the years. As of Canada's 2017 Cannabis Provincial and Territorial Economic Accounts, British Columbia holds a prominent position in the nation's cannabis landscape. It stands as the leading producer of cannabis in Canada, while ranking second in per-capita consumption. This dynamic province has not only cultivated exceptional strains but has also been a trailblazer in the cannabis movement, solidifying its reputation as a cannabis hub that continues to shape the industry's future.
+
+                           </p>
+                        </div>
+                    },
+                    {
+                        title: "Is weed legal in British Columbia?",
+                        content: <div>
+                           <p>Yes, cannabis is legal for recreational use in British Columbia. Following the national legalization of cannabis on October 17, 2018, British Columbia, like other provinces, implemented its own framework to regulate cannabis production, sale, and consumption</p>
+                        </div>
+                    },
+                    {
+                        title: "Is weed legal in British Columbia?",
+                        content: <div>
+                           <p>Yes, cannabis is legal for recreational use in British Columbia. Following the national legalization of cannabis on October 17, 2018, British Columbia, like other provinces, implemented its own framework to regulate cannabis production, sale, and consumption</p>
+                        </div>
+                    },
+                    {
+                        title: "Is weed legal in British Columbia?",
+                        content: <div>
+                           <p>Yes, cannabis is legal for recreational use in British Columbia. Following the national legalization of cannabis on October 17, 2018, British Columbia, like other provinces, implemented its own framework to regulate cannabis production, sale, and consumption</p>
+                        </div>
+                    },
+                    {
+                        title: "Is weed legal in British Columbia?",
+                        content: <div>
+                           <p>Yes, cannabis is legal for recreational use in British Columbia. Following the national legalization of cannabis on October 17, 2018, British Columbia, like other provinces, implemented its own framework to regulate cannabis production, sale, and consumption</p>
+                        </div>
+                    },
+                    {
+                        title: "Is weed legal in British Columbia?",
+                        content: <div>
+                           <p>Yes, cannabis is legal for recreational use in British Columbia. Following the national legalization of cannabis on October 17, 2018, British Columbia, like other provinces, implemented its own framework to regulate cannabis production, sale, and consumption</p>
+                        </div>
+                    },
+                    {
+                        title: "Is weed legal in British Columbia?",
+                        content: <div>
+                           <p>Yes, cannabis is legal for recreational use in British Columbia. Following the national legalization of cannabis on October 17, 2018, British Columbia, like other provinces, implemented its own framework to regulate cannabis production, sale, and consumption</p>
+                        </div>
+                    },
+                    {
+                        title: "Is weed legal in British Columbia?",
+                        content: <div>
+                           <p>Yes, cannabis is legal for recreational use in British Columbia. Following the national legalization of cannabis on October 17, 2018, British Columbia, like other provinces, implemented its own framework to regulate cannabis production, sale, and consumption</p>
+                        </div>
                     }
                 ]
-            }
+            },
+           
         ]
     }
 

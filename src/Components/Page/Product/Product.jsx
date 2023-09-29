@@ -26,7 +26,7 @@ const Product = () => {
     const selectOption = (option) => {
         setSelectedOption(option);
         setIsDropdownOpen(false);
-        navigate(`/products/${params.categoryname.toLowerCase()}/${option.name.toLowerCase()}/${option.id}`)
+        navigate(`/products/${params.categoryname.toLowerCase()}/${option.name.toLowerCase().split(' ').join('-')}/${option.id}`)
 
     };
 
@@ -49,50 +49,7 @@ const Product = () => {
 
         SetLoading(true)
         setIsDropdownOpen(false)
-        //     if (params.id ) {
-
-        //         Axios(`https://api.cannabaze.com/UserPanel/Get-ProductByCategory/${params.id}`, {}
-        //         ).then(response => {
-
-        //             SetLoading(false)
-
-        //             SetProduct(response.data)
-        //            f(params.categoryname.charAt(0).toUpperCase() + params.categoryname.slice(1))
-        //            setSelectedOption(null)
-        //         }).catch(
-
-        //             function (error) {
-
-        //                 SetLoading(false)   
-
-        //         })
-
-        //         Axios.get(`https://api.cannabaze.com/UserPanel/Get-SubCategoryByCategory/${params.id}`).then((res)=>{
-        //            return res
-        //         }).then((response)=>{
-        //             setsubcategories(response.data.data)
-
-        //         })
-
-
-
-        //     }
-        //     else if(!selectedOption){
-        //    console.log("run effect else")
-        //         Axios(`https://api.cannabaze.com/UserPanel/Get-AllProduct/`, {
-        //         }
-
-        //         ).then(response => {
-        //             SetLoading(false)
-        //             f("All Product")
-        //             SetProduct(response.data)
-        //         }).catch(
-        //         function (error) {
-        //         })
-        //     }else if(selectedOption){
-        //         SetLoading(false) 
-        //     }
-
+       
 
 
 
@@ -155,19 +112,7 @@ const Product = () => {
     }, [params])
 
 
-    // function subcategorieschange(id, name) {
-    //     SetLoading(true)
-    //     Axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductBySubCategory/${id}`).then((res) => {
-    //         SetProduct(res.data)
-    //         SetLoading(false)
-    //         console.log(res.data, 'res.data')
-    //         navigate(`/products/${params.categoryname.toLowerCase()}/${name.toLowerCase()}/${id}`)
-    //     }).catch((err) => {
-    //         console.log(err, "error")
-    //         SetLoading(false)
-    //     })
-
-    // }
+  
     return (
         <>
             {!params.id ? <ProductSeo></ProductSeo> :
