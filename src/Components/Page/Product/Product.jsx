@@ -3,14 +3,14 @@ import CategoryProduct from "../../../Components/Page/Home/Dashboard/ComponentDa
 import Axios from "axios";
 import ClickAwayListener from 'react-click-away-listener';
 import { useNavigate, useParams } from "react-router-dom"
-import { ProductSeo , ProductCategorySeo } from "../../Component/ScoPage/ProductSeo"
+import { ProductSeo, ProductCategorySeo } from "../../Component/ScoPage/ProductSeo"
 import ProductSearchResult from "./ProductSearchResult/ProductSearchResult"
 const Product = () => {
     const navigate = useNavigate();
     const params = useParams();
-    console.log(params ,'params')
-    const [loading ,  SetLoading] =  React.useState(false)
-    const [subcategories , setsubcategories] = useState([])
+    console.log(params, 'params')
+    const [loading, SetLoading] = React.useState(false)
+    const [subcategories, setsubcategories] = useState([])
     const [Product, SetProduct] = React.useState([])
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
@@ -18,117 +18,176 @@ const Product = () => {
 
 
     async function ShowCategoryProduct(id, name) {
-      await   navigate(`/products/${name.toLowerCase()}/${id}`);
-      await  setSelectedOption(null)
+        await navigate(`/products/${name.toLowerCase()}/${id}`);
+        await setSelectedOption(null)
         setsubcategories([])
     }
-  
+
     const selectOption = (option) => {
-      setSelectedOption(option);
-      setIsDropdownOpen(false);
-      subcategorieschange(option.id , option.name);
-      
+        setSelectedOption(option);
+        setIsDropdownOpen(false);
+        // console.log(option.name)
+        navigate(`/products/${params.categoryname.toLowerCase()}/${option.name.toLowerCase()}/${option.id}`)
+
     };
-  
+
     const [Category, SetCategory] = React.useState([])
-    const [C , f] =  React.useState('')
+    const [C, f] = React.useState('')
     React.useEffect(() => {
         const fetchData = async () => {
             const apidata = await fetch("https://api.cannabaze.com/UserPanel/Get-Categories/");
             const data = await apidata.json()
             SetCategory(data)
         }
-        fetchData() 
+        fetchData()
     }, [])
 
     React.useEffect(() => {
-        SetLoading(true) 
+
+
+
+
+
+        SetLoading(true)
         setIsDropdownOpen(false)
-       
+
         console.log("run effect");
-        if (params.id && !selectedOption) {
-            console.log("run effect 2");
+        //     if (params.id ) {
 
-            Axios(`https://api.cannabaze.com/UserPanel/Get-ProductByCategory/${params.id}`, {
-            }
-            ).then(response => {
-            
+        //         Axios(`https://api.cannabaze.com/UserPanel/Get-ProductByCategory/${params.id}`, {}
+        //         ).then(response => {
+
+        //             SetLoading(false)
+
+        //             SetProduct(response.data)
+        //            f(params.categoryname.charAt(0).toUpperCase() + params.categoryname.slice(1))
+        //            setSelectedOption(null)
+        //         }).catch(
+
+        //             function (error) {
+
+        //                 SetLoading(false)   
+
+        //         })
+
+        //         Axios.get(`https://api.cannabaze.com/UserPanel/Get-SubCategoryByCategory/${params.id}`).then((res)=>{
+        //            return res
+        //         }).then((response)=>{
+        //             setsubcategories(response.data.data)
+
+        //         })
+
+
+
+        //     }
+        //     else if(!selectedOption){
+        //    console.log("run effect else")
+        //         Axios(`https://api.cannabaze.com/UserPanel/Get-AllProduct/`, {
+        //         }
+
+        //         ).then(response => {
+        //             SetLoading(false)
+        //             f("All Product")
+        //             SetProduct(response.data)
+        //         }).catch(
+        //         function (error) {
+        //         })
+        //     }else if(selectedOption){
+        //         SetLoading(false) 
+        //     }
+
+
+
+
+        if (params.subCategory) {
+            Axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductBySubCategory/${params.id}`).then((res) => {
+                SetProduct(res.data)
                 SetLoading(false)
-               
-                SetProduct(response.data)
-               f(params.categoryname.charAt(0).toUpperCase() + params.categoryname.slice(1))
-               setSelectedOption(null)
-            }).catch(
-              
-                function (error) {
-                  
-                    SetLoading(false)   
-                   
+                console.log(res.data, 'res.data')
+                // navigate(`/products/${params.categoryname.toLowerCase()}/${name.toLowerCase()}/${id}`)
+            }).catch((err) => {
+                console.log(err, "error")
+                SetLoading(false)
             })
-  
-            Axios.get(`https://api.cannabaze.com/UserPanel/Get-SubCategoryByCategory/${params.id}`).then((res)=>{
-               return res
-            }).then((response)=>{
-                setsubcategories(response.data.data)
-               
-            })
-       
-              
-            
+
         }
-        else if(!selectedOption){
-       console.log("run effect else")
-            Axios(`https://api.cannabaze.com/UserPanel/Get-AllProduct/`, {
+        else {
+            if (params.categoryname) {
+                Axios(`https://api.cannabaze.com/UserPanel/Get-ProductByCategory/${params.id}`, {}
+                ).then(response => {
+
+                    SetLoading(false)
+
+                    SetProduct(response.data)
+                    f(params.categoryname.charAt(0).toUpperCase() + params.categoryname.slice(1))
+                    setSelectedOption(null)
+                }).catch(
+
+                    function (error) {
+
+                        SetLoading(false)
+
+                    })
+
+                Axios.get(`https://api.cannabaze.com/UserPanel/Get-SubCategoryByCategory/${params.id}`).then((res) => {
+                    return res
+                }).then((response) => {
+                    setsubcategories(response.data.data)
+
+                })
+
             }
+            else {
+                Axios(`https://api.cannabaze.com/UserPanel/Get-AllProduct/`, {
+                }
 
-            ).then(response => {
-                SetLoading(false)
-                f("All Product")
-                SetProduct(response.data)
-            }).catch(
-            function (error) {
-            })
-        }else if(selectedOption){
-            SetLoading(false) 
+                ).then(response => {
+                    SetLoading(false)
+                    f("All Product")
+                    SetProduct(response.data)
+                }).catch(
+                    function (error) {
+                    })
+            }
         }
-      
-       
-    },[params.id])
 
 
-    function subcategorieschange(id,name){
-              SetLoading(true)
-              Axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductBySubCategory/${id}`).then((res)=>{
-                SetProduct(res.data) 
-                SetLoading(false)
-                console.log(res.data ,'res.data')
-                navigate(`/products/${params.categoryname.toLowerCase()}/${name.toLowerCase()}/${id}`)
-              }).catch((err)=>{
-                console.log(err , "error")
-                SetLoading(false)
-              })
-             
-    }
+    }, [params])
+
+
+    // function subcategorieschange(id, name) {
+    //     SetLoading(true)
+    //     Axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductBySubCategory/${id}`).then((res) => {
+    //         SetProduct(res.data)
+    //         SetLoading(false)
+    //         console.log(res.data, 'res.data')
+    //         navigate(`/products/${params.categoryname.toLowerCase()}/${name.toLowerCase()}/${id}`)
+    //     }).catch((err) => {
+    //         console.log(err, "error")
+    //         SetLoading(false)
+    //     })
+
+    // }
     return (
         <>
-           { !params.id ? <ProductSeo></ProductSeo>:
-            <ProductCategorySeo categoryname={params.categoryname} ></ProductCategorySeo>}
+            {!params.id ? <ProductSeo></ProductSeo> :
+                <ProductCategorySeo categoryname={params.categoryname} ></ProductCategorySeo>}
             <div className="container-fluid product_container" >
                 <div className="row">
                     <div className="col-12 mt-4">
                         <CategoryProduct Category={Category} ShowCategoryProduct={ShowCategoryProduct}></CategoryProduct>
                     </div>
                     {
-                        subcategories.length ?
-                        <div className="col-12 mt-sm-4 mt-2">
-                            <div className="d-flex justify-content-end align-items-center">
-                                <ClickAwayListener onClickAway={()=>{
-                                    setIsDropdownOpen(false)
-                                }}>
-                                    <div className="mydropdown ">
-                                        <div className="dropdown-toggle" onClick={()=>{
-                                            setIsDropdownOpen(!isDropdownOpen)
-                                        }}>
+                        params.categoryname ?
+                            <div className="col-12 mt-sm-4 mt-2">
+                                <div className="d-flex justify-content-end align-items-center">
+                                    <ClickAwayListener onClickAway={() => {
+                                        setIsDropdownOpen(false)
+                                    }}>
+                                        <div className="mydropdown ">
+                                            <div className="dropdown-toggle" onClick={() => {
+                                                setIsDropdownOpen(!isDropdownOpen)
+                                            }}>
                                                 {selectedOption && (
                                                     <img src={`https://api.cannabaze.com/${selectedOption.SubCategoryImage}`} alt={selectedOption.name} className="dropdown-option-image" />
                                                 )}
@@ -136,21 +195,21 @@ const Product = () => {
                                                     {selectedOption ? selectedOption.name : 'Short by Subcategory '}
                                                 </span>
                                                 <span className="dropdown-caret"></span>
+                                            </div>
+                                            <ul className={`dropdown-menu image_dropdown ${isDropdownOpen ? 'open' : ''}`}>
+                                                {subcategories?.map((option, index) => (
+                                                    <li key={index} onClick={() => selectOption(option)}>
+                                                        <img src={`https://api.cannabaze.com/${option.SubCategoryImage}`} alt={option.name} className="dropdown-option-image" />
+                                                        <span className="dropdown-option-label">{option.name}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
                                         </div>
-                                        <ul className={`dropdown-menu image_dropdown ${isDropdownOpen ? 'open' : ''}`}>
-                                            {subcategories?.map((option, index) => (
-                                                <li key={index} onClick={() => selectOption(option)}>
-                                                    <img src={`https://api.cannabaze.com/${option.SubCategoryImage}`} alt={option.name} className="dropdown-option-image" />
-                                                    <span className="dropdown-option-label">{option.name}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                </ClickAwayListener>
+                                    </ClickAwayListener>
+                                </div>
                             </div>
-                        </div>
-                        :
-                        null
+                            :
+                            null
                     }
                     <div className="col-12 center">
                         {
@@ -158,15 +217,15 @@ const Product = () => {
                                 <div className="loaderFLower"></div>
                                 :
                                 Product.length ?
-                                
-                                <div className="col-12 mt-4">
-                                    <ProductSearchResult RelatedProductResult={Product} CategoryName={C}  />
-                                </div> :
-                                 <div className="no_product">
-                                    <h2>No Product Found</h2>
-                                </div>
+
+                                    <div className="col-12 mt-4">
+                                        <ProductSearchResult RelatedProductResult={Product} CategoryName={C} />
+                                    </div> :
+                                    <div className="no_product">
+                                        <h2>No Product Found</h2>
+                                    </div>
                         }
-                    </div>                  
+                    </div>
                 </div>
             </div>
         </>

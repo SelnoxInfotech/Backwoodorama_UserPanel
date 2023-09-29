@@ -1,6 +1,6 @@
 {
   "short_name": "Weedx",
-  "name": "Create React App Sample",
+  "name": "Weedx",
   "icons": [
     {
       "src": "favicon.ico",
@@ -9,12 +9,12 @@
     },
     {
       "src": "logo192.jpg",
-      "type": "image/png",
+      "type": "image/jpg",
       "sizes": "192x192"
     },
     {
       "src": "logo512.jpg",
-      "type": "image/png",
+      "type": "image/jpg",
       "sizes": "512x512"
     }
   ],
