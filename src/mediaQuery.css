@@ -9,11 +9,11 @@
       overflow-x: scroll;
       overflow-y: hidden;
     }
-    .backwoodaroma_number_container {
+    .weedx_number_container {
       overflow-y: hidden;
       overflow-x: scroll;
     }
-    .backwoodaroma_number_container ol li {
+    .weedx_number_container ol li {
       min-width: 27%;
     }
     .homePageSignup_paragraph p {
@@ -42,7 +42,7 @@
       font-size: 9px;
       min-width: 18%;
     }
-    .backwoodaroma_number_container ol li {
+    .weedx_number_container ol li {
       font-size: 12px;
     }
     .NumberText_container ol {
@@ -249,7 +249,7 @@
     }
   }
   @media(max-width:408px) {
-    .backwoodaroma_number_container ol li {
+    .weedx_number_container ol li {
       min-width: 29%;
       font-size: 10px;
     }

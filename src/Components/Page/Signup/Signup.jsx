@@ -17,7 +17,7 @@ const Signup = () => {
     const method = useForm()
     const classes = useStyles()
     function Submit(State) {
-        navigate("/SignupWithEmail", { state: { State } })
+        navigate("/signupwithemail", { state: { State } })
     }
 
     React.useEffect(()=>{

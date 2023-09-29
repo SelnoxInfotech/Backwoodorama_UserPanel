@@ -1,5 +1,6 @@
 require("babel-register")({
-    presets: ["es2015", "react"]
+    presets: ["es2015", "react"],
+    ignore: /\.styl$/,
   });
   
   const router = require('../src/Routes/ConfigRoute').default;

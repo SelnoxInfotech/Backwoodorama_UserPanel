@@ -146,13 +146,13 @@ const AboutUs = () => {
                 </div>
 
             </div>
-            <div className="backwoodaromaByTheNumber_container">
+            <div className="weedxByTheNumber_container">
 
-                <div className="backwoodaroma_heading_container">
+                <div className="weedx_heading_container">
                     <h1 className="backwoodar_heading">WeedX  by the numbers</h1>
                 </div>
                 
-                <div className="backwoodaroma_number_container bg-light ">
+                <div className="weedx_number_container bg-light ">
                     <ul>
                         <li>
                             <span className="upperText">60 MILLION</span>

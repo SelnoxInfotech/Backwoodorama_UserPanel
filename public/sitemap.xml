@@ -7,67 +7,52 @@
   <priority>1.0</priority>
 </url>
 <url> 
-  <loc>https://www.weedx.io/Product</loc>
+  <loc>https://www.weedx.io/login</loc>
   <changefreq>Hourly</changefreq>
   <priority>0.7</priority>
 </url>
 <url> 
-  <loc>https://www.weedx.io/product/:SubCategoryname/:id</loc>
+  <loc>https://www.weedx.io/signupwithemail</loc>
   <changefreq>Hourly</changefreq>
   <priority>0.7</priority>
 </url>
 <url> 
-  <loc>https://www.weedx.io/products/:CategoryName/:ProductName/:id</loc>
+  <loc>https://www.weedx.io/signup</loc>
   <changefreq>Hourly</changefreq>
   <priority>0.7</priority>
 </url>
 <url> 
-  <loc>https://www.weedx.io/Weed-Dispensories/:StoreName/:tab/:id</loc>
+  <loc>https://www.weedx.io/brands</loc>
   <changefreq>Hourly</changefreq>
   <priority>0.7</priority>
 </url>
 <url> 
-  <loc>https://www.weedx.io/Weed-Deliveries/:StoreName/:tab/:id</loc>
+  <loc>https://www.weedx.io/brands/:Name/:id</loc>
   <changefreq>Hourly</changefreq>
   <priority>0.7</priority>
 </url>
 <url> 
-  <loc>https://www.weedx.io/Weed-Dispansires/in/:Country/:state/:city</loc>
+  <loc>https://www.weedx.io/deals</loc>
   <changefreq>Hourly</changefreq>
   <priority>0.7</priority>
 </url>
 <url> 
-  <loc>https://www.weedx.io/Weed-Dispansires/in/:Country/</loc>
+  <loc>https://www.weedx.io/weed-dispensaries/:StoreName/:tab?/:Category?/:SubCategory?/:id/</loc>
   <changefreq>Hourly</changefreq>
   <priority>0.7</priority>
 </url>
 <url> 
-  <loc>https://www.weedx.io/Weed-Dispansires/in/:Country/:state</loc>
+  <loc>https://www.weedx.io/weed-dispensaries/:StoreName/menu/:category/:subcategory?/:product/:id</loc>
   <changefreq>Hourly</changefreq>
   <priority>0.7</priority>
 </url>
 <url> 
-  <loc>https://www.weedx.io/Weed-Deliveries/in/:Country</loc>
+  <loc>https://www.weedx.io/weed-deliveries/:StoreName/:tab?/:Category?/:SubCategory?/:id</loc>
   <changefreq>Hourly</changefreq>
   <priority>0.7</priority>
 </url>
 <url> 
-  <loc>https://www.weedx.io/Weed-Deliveries/in/:Country/:state/</loc>
-  <changefreq>Hourly</changefreq>
-  <priority>0.7</priority>
-</url>
-<url> 
-  <loc>https://www.weedx.io/Weed-Deliveries/in/:Country/:state/:city</loc>
-  <changefreq>Hourly</changefreq>
-  <priority>0.7</priority>
-</url>
-<url> 
-  <loc>https://www.weedx.io/Brand/:Name/:id</loc>
-  <changefreq>Hourly</changefreq>
-  <priority>0.7</priority>
-</url>
-<url> 
-  <loc>https://www.weedx.io/Brand/:Name/:id</loc>
+  <loc>https://www.weedx.io/weed-deliveries/:StoreName/menu/:Category/:SubCategory?/:Product/:id/</loc>
   <changefreq>Hourly</changefreq>
   <priority>0.7</priority>
 </url>
@@ -86,4 +71,43 @@
   <changefreq>Hourly</changefreq>
   <priority>0.7</priority>
 </url>
+<url> 
+  <loc>https://www.weedx.io/strain</loc>
+  <changefreq>Hourly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url> 
+  <loc>https://www.weedx.io/aboutUs</loc>
+  <changefreq>Hourly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url> 
+  <loc>https://www.weedx.io/products/:categoryname?/:id?</loc>
+  <changefreq>Hourly</changefreq>
+  <priority>0.7</priority>
+</url>
+
+<url> 
+  <loc>https://www.weedx.io/products/:CategoryName?/:ProductName/:id</loc>
+  <changefreq>Hourly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url> 
+  <loc>https://www.weedx.io/terms-and-conditions</loc>
+  <changefreq>Hourly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url> 
+  <loc>https://www.weedx.io/cookies-policy</loc>
+  <changefreq>Hourly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url> 
+  <loc>https://www.weedx.io/privacy-policy</loc>
+  <changefreq>Hourly</changefreq>
+  <priority>0.7</priority>
+</url>
+
+
+
 </urlset>
