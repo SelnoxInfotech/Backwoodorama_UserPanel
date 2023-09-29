@@ -57,7 +57,7 @@ const ProductIncDecQuantity = ({ items, AddToCart }) => {
     const classes = useStyles()
     return (
         <>
-            <LoadingButton style={{ width: "60%", height: "30px", fontSize: "12px" }} onClick={handleOpen}>Add To Cart</LoadingButton>
+            <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" }} onClick={handleOpen}>Add To Cart</LoadingButton>
 
             <Modal
                 open={open}

@@ -3173,125 +3173,7 @@ scrollbar-width: none;  /* Firefox */
 
 /* end */
 /* ProductSearchResult */
-.productSearch_result_container {
-  height: auto;
-}
 
-.productSearchResultImage_container {
-  /* height: 180px; */
-  padding-bottom: 10px;
-  display: grid;
-  place-items: center;
-  background: #FFFFFF;
-  border-radius: 6px 6px 0px 0px;
-}
-
-.product_search_result_content_div {
-  height: 240px;
-}
-
-.productsearch_result_inner_container {
-  background: #FAFAFA;
-  border: 1px solid #E7E7E7;
-  border-radius: 8px;
-}
-
-.product_category_list {
-  height: 26px;
-  display: flex;
-  gap: 14px;
-}
-
-@media(max-width:1418px) {
-  .product_category_list {
-    gap: 7px;
-  }
-}
-
-.product_search_result_image {
-  object-fit: cover;
-  height: 150px;
-  width: 150px;
-}
-
-.productSearchResultParagraph {
-  height: 35px;
-}
-
-.productSearchResultParagraph {
-  color: #000000;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 30px;
-}
-
-.product_search_result_sub_heading {
-  height: 35px;
-}
-
-.productPriceDivHeight {
-  height: 35px;
-}
-
-.product_search_result_sub_heading p {
-  color: #949494;
-  font-size: 14px;
-}
-
-.productSearchRes_heart {
-  height: 38px;
-}
-
-.productSearchPrice {
-  color: #282625;
-  font-weight: 700;
-  font-size: 20px;
-}
-
-.productSearchPerDoller {
-  color: #282625;
-  font-weight: 500;
-  font-size: 20px;
-}
-
-.productSearch_quantity {
-  color: #282625;
-  font-size: 20px;
-
-}
-
-.product_search_result_span1 {
-  font-size: 12px;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 18px;
-  color: #949494;
-}
-
-.product_search_result_span2 {
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 21px;
-  color: #949494;
-
-}
-
-.product_search_rating_star {
-  margin-top: -6px;
-}
-
-@media(max-width:500px) {
-  .productSearchPrice {
-    font-size: 12px;
-  }
-
-  .productSearchPerDoller {
-    font-size: 12px;
-  }
-}
 
 /* ends */
 /* ProductIncDecQuantity */
@@ -7605,19 +7487,20 @@ cursor: pointer;
   border: 1px solid #ccc;
   cursor: pointer;
   user-select: none;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
   border-radius: 4px;
+  background-color: #31B665;
 }
 .mydropdown .dropdown-toggle:hover{
   border: 1px solid #228b22;
 }
 .mydropdown .dropdown-toggle:hover {
-  background-color: #f8f8f8;
+  background-color: #31B665;
 }
 
 .mydropdown .dropdown-option-image {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   margin-right: 12px;
   border-radius: 50%;
   border: 1px solid #228b22;
@@ -7625,9 +7508,9 @@ cursor: pointer;
 
 .mydropdown .dropdown-option-label {
   flex-grow: 1;
-  font-weight: bold;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
+  color: white;
 }
 .mydropdown .dropdown-toggle::before ,.mydropdown .dropdown-toggle::after{
   content: "";
@@ -7635,12 +7518,11 @@ cursor: pointer;
 }
 .mydropdown .dropdown-caret {
   display: inline-block;
-  margin-left: 12px;
   width: 0;
   height: 0;
   border-style: solid;
   border-width: 8px 8px 0 8px;
-  border-color: #999 transparent transparent transparent;
+  border-color: #fff transparent transparent transparent;
 }
 
 .mydropdown .dropdown-menu {
@@ -7677,7 +7559,9 @@ scrollbar-width: none;  /* Firefox */
   opacity: 1;
   visibility: visible;
 }
-
+.mydropdown .dropdown-menu.open .dropdown-option-label {
+ color: #4E4E4E;
+}
 .mydropdown .dropdown-menu li {
   display: flex;
   align-items: center;

@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { IoMdStar } from "react-icons/io";
+import { BsStar ,BsStarFill } from "react-icons/bs";
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "../../../../Style";
@@ -11,9 +12,9 @@ import PreCheckout from "../PreCheckout/PreCheckout";
 import axios from "axios";
 import Cookies from 'universal-cookie';
 import Createcontext from "../../../../Hooks/Context"
+import './ProductSearchResult.css'
 import _ from "lodash";
 import AddToCartPopUp from "../AddToCartPopUp/AddToCartPopUp";
-import Axios from 'axios';
 import { Link } from "react-router-dom";
 import { WishListPost } from "../../../Component/Whishlist/WishListApi_"
 import {WhisList} from "../../../Component/Whishlist/WhisList"
@@ -165,87 +166,85 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                 <div className="col-12 mt-4  fontStyle">
                     <h2 className="productSlider_headings">{CategoryName}</h2>
                 </div>
-                {RelatedProductResult.map((items, index) => {
-                  if(items.id !== currentProductID){
-                    return (
-                        <div className=" col-xxl-3  col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-4 px-0 productSearch_result_container" key={index}>
-                            <div className="row productsearch_result_inner_container mx-1">
-                                <div className="col-12  productSearchResultImage_container">
-                                    <div className="col-12 product_whish_list text-end">
+                <div className="product_card_wrapper">
+                    {
+                        RelatedProductResult.map((items, index) => {
+                            if(items.id !== currentProductID){
+                                return (
+                                    <div className="productSearch_result_container" key={index}>
+                                            <div className="productSearchResultImage_container">
+                                                <div className="product_whish_list">
 
-                                        <Box className={classes.productSearchIcons}>
-                                            <IconButton onClick={() => { handleWhishList(items.id) }} aria-label="Example">
-                                                {
-                                                 state.login ?   state.WishList[items.id] ? <AiFillHeart></AiFillHeart> : <AiOutlineHeart /> : <AiOutlineHeart />
-                                                }
-                                            </IconButton>
-                                        </Box>
+                                                    <Box className={classes.productSearchIcons}>
+                                                        <IconButton onClick={() => { handleWhishList(items.id) }} aria-label="Example">
+                                                            {
+                                                            state.login ?   state.WishList[items.id] ? <AiFillHeart></AiFillHeart> : <AiOutlineHeart /> : <AiOutlineHeart />
+                                                            }
+                                                        </IconButton>
+                                                    </Box>
+                                                </div>
+                                                <Link to={`/products/${items.category_name}/${items.Product_Name.replace(/%20| /g, "-")  }/${items.id}`}>
+                                                    <LazyLoadImage
+                                                        className="product_search_result_image"
+                                                        onError={event => {
+                                                            event.target.src = "/image/blankImage.jpg"
+                                                            event.onerror = null
+                                                        }}
+                                                        src={`https://api.cannabaze.com/${items?.images[0]?.image}`}
+                                                        height={"100px"}
+                                                    />
+                                                </Link>
+                                            </div>
+                                            <div className=" product_search_result_content_div ">
+                                            
+                                                
+                                                        <Link to={"/ProductDetail"} state={items.id}>
+                                                            <p className="productSearchResultParagraph text-truncate">{items.Product_Name}</p>
+                                                        </Link>
+                                                
+                                                
+                                                        <p className="product_search_result_sub_heading text-truncate">by {items.StoreName}</p>
+                                                
+                                                    <div className="product_category_list">
+                                                        <span className="product_search_result_span1">15% THC | 0.2% CBD</span>
+                                                        <div className="product_cart_review">
+                                                            {items.rating &&  new Array(items.rating).fill(null).map(() => (
+                                                                <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />  
+                                                            ))}
+                                                            
+                                                            {new Array(5-items.rating).fill(null).map(() => (
+                                                                <BsStar size={16} color="#31B665" className="product_search_rating_star" />  
+                                                            ))}
+                                                    </div>
+                                                    </div>
+
+                                                    <div className=" productPriceDivHeight">
+                                                        <p className="productSearch text-truncate"><span className="productSearchPrice">${parseInt(items.Prices[0].Price.sort((a, b) => a.SalePrice - b.SalePrice)[0].SalePrice)}</span> per {items.Prices[0].Price[0].Weigth ? items.Prices[0].Price[0].Weigth  : `${items.Prices[0].Price[0].Unit} Unit`}</p>
+                                                    </div>
+                                                    <div className="my-2">
+                                                        <Box className={`center ${classes.loadingBtnTextAndBack}`}>
+                                                            {
+                                                                items?.Prices[0].Price.length > 1
+                                                                    ?
+                                                                    <ProductIncDecQuantity  items={items} AddToCart={AddToCart} />
+                                                                    :
+                                                                    <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" }}
+                                                                        onClick={() => { AddToCart(items) }}>
+                                                                        Add To Cart
+                                                                    </LoadingButton>
+                                                            }
+                                                            {
+                                                                CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />
+                                                            }
+                                                        </Box>
+                                                    </div>
+                                            </div>
                                     </div>
-                                    <Link to={`/products/${items.category_name}/${items.Product_Name.replace(/%20| /g, "-")  }/${items.id}`}>
-                                        <LazyLoadImage
-                                            className="product_search_result_image"
-                                            onError={event => {
-                                                event.target.src = "/image/blankImage.jpg"
-                                                event.onerror = null
-                                            }}
-                                            src={`https://api.cannabaze.com/${items?.images[0]?.image}`}
-                                            height={"100px"}
-                                        />
-                                    </Link>
-
-                                </div>
-                                <div className="col-12 product_search_result_content_div ">
-                                    <div className="row gap-0">
-                                        <div className="col-12  ">
-                                            <Link to={"/ProductDetail"} state={items.id}>
-                                                <p className="productSearchResultParagraph text-truncate">{items.Product_Name}</p>
-                                            </Link>
-                                        </div>
-                                        <div className="col-12 product_search_result_sub_heading ">
-                                            <p className=" text-truncate">by {items.StoreName}</p>
-                                        </div>
-                                        <div className="col-12 product_category_list">
-                                            <span className="product_search_result_span1">15% THC | 0.2% CBD</span>
-                                            <span className="col-12 product_search_result_span2">
-                                               {items.rating === null ? 0 : items.rating }</span> 
-                                                <span className={` ${classes.disp_star_color}`}>
-                                                         <IoMdStar className="product_search_rating_star" />                                                      
-                                                </span>
-                                        </div>
-
-                                        <div className="col-12 productPriceDivHeight">
-
-
-
-                                            <p className="productSearch text-truncate"><span className="productSearchPrice">${parseInt(items.Prices[0].Price.sort((a, b) => a.SalePrice - b.SalePrice)[0].SalePrice)}</span> PER 1z</p>
-
-
-                                        </div>
-                                        <div className="col-12  my-4">
-                                            <Box className={`center ${classes.loadingBtnTextAndBack}`}>
-                                                {
-                                                    items?.Prices[0].Price.length > 1
-                                                        ?
-                                                        <ProductIncDecQuantity items={items} AddToCart={AddToCart} />
-                                                        :
-                                                        <LoadingButton style={{ width: "60%", height: "30px", fontSize: "12px" }}
-                                                            onClick={() => { AddToCart(items) }}>
-                                                            Add To Cart
-                                                        </LoadingButton>
-                                                }
-                                                {
-                                                    CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />
-                                                }
-                                            </Box>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    )
-                 }
-                })}
+                                )
+                            }
+                        })
+                    }
+                </div>
             </div>
             {Whishlist && <WhisList open1={Whishlist} SetWishList={SetWishList}></WhisList>}
             <PreCheckout />

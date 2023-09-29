@@ -169,9 +169,13 @@ const routesConfig = [
           element: <RoutingList Component={Product} ></RoutingList>
         },
         {
+          path: "/products/:categoryname/:subcategoryname/:id",
+          element: <RoutingList Component={Product} ></RoutingList>
+        },
+        {
         path: "/products/:CategoryName?/:ProductName/:id",     // NewProductDetails
         element: <RoutingList Component={NewProductDetails} ></RoutingList>,
-      },
+        },
         {
           path: "/terms-and-conditions",
           element: <RoutingList Component={Termsconditions} ></RoutingList>

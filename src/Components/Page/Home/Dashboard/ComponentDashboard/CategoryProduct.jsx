@@ -28,17 +28,17 @@ const CategoryProduct = ({ ShowCategoryProduct, Category,Skeleton }) => {
                                                 return (
                                                    
                                                         <div >
-                                                        <div className='CategorySliderImageBlock' key={index}>
-                                                            <div className='slider1'>
-                                                        
-                                                                <LazyLoadImage onClick={() => { ShowCategoryProduct(ele.id, ele.name) }} src={`https://api.cannabaze.com/` + ele.categoryImages} alt="glass_img" className='rounded-circle catagoriesTabImg' />
+                                                            <div className='CategorySliderImageBlock' key={index}>
+                                                                <div className='slider1'>
                                                             
+                                                                    <LazyLoadImage onClick={() => { ShowCategoryProduct(ele.id, ele.name) }} src={`https://api.cannabaze.com/` + ele.categoryImages} alt="glass_img" className='rounded-circle catagoriesTabImg' />
+                                                                
+                                                                </div>
+                                                                <div className='col center Category_title' >
+                                                                        <p>{ele.name.substr(0, 100)}</p>
+                                                                </div>
+                                                                
                                                             </div>
-                                                            <div className='col center Category_title' >
-                                                                    <p>{ele.name.substr(0, 100)}</p>
-                                                            </div>
-                                                            
-                                                        </div>
                                                         </div>
                                                       
                                                 )
