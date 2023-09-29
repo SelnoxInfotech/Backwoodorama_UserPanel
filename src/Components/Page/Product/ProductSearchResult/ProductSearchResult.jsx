@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from "react";
+import React,{useState} from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { IoMdStar } from "react-icons/io";
 import LoadingButton from '@mui/lab/LoadingButton';
@@ -13,13 +13,12 @@ import Cookies from 'universal-cookie';
 import Createcontext from "../../../../Hooks/Context"
 import _ from "lodash";
 import AddToCartPopUp from "../AddToCartPopUp/AddToCartPopUp";
+import Axios from 'axios';
 import { Link } from "react-router-dom";
 import { WishListPost } from "../../../Component/Whishlist/WishListApi_"
 import {WhisList} from "../../../Component/Whishlist/WhisList"
-import { useNavigate } from "react-router-dom";
-const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProductID ,subcategories }) => {
-  
-    const navigate = useNavigate()
+const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProductID , }) => {
+    console.log(RelatedProductResult ,'RelatedProductResult')
     const { state, dispatch } = React.useContext(Createcontext)
     const classes = useStyles()
     const cookies = new Cookies();
@@ -27,24 +26,12 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
     const [CartClean, SetCartClean] = useState(false)
     const [NewData, SetNewData] = useState([])
     const [Whishlist, SetWishList] =useState(false)
-    
     const [AddTOCard, SetAddToCard] = useState(() => {
         const saved = localStorage.getItem("items");
         const initialValue = JSON.parse(saved);
         return initialValue || []
     })
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState(null);
-
-    const toggleDropdown = () => {
-      setIsDropdownOpen(!isDropdownOpen);
-    };
-
-    const selectOption = (option) => {
-      setSelectedOption(option);
-      setIsDropdownOpen(false);
-    };
-
+ 
 
     async function AddToCart(Event, counter, SelectWeight) {
         const AddData = _.filter(Event.Prices, Price => Price);
@@ -146,12 +133,11 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
 
 
     }
-    React.useEffect(() => {
-       
+    React.useEffect(() => {   
         localStorage.setItem('items', JSON.stringify(AddTOCard))
     }, [AddTOCard])
     React.useEffect(()=>{
- window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+       window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
 
     },[])
 
@@ -175,35 +161,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
     return (
         <React.Fragment>
             <div className="row mx-0 marginProductSearchResult">
-                {
-                Object.keys(subcategories).length ?
-                 <div className="d-flex justify-content-end align-items-center">
-               
-                  
-
-                    <div className="mydropdown ">
-                        <div className="dropdown-toggle" onClick={toggleDropdown}>
-                                {selectedOption && (
-                                    <img src={`https://api.cannabaze.com/${selectedOption.SubCategoryImage}`} alt={selectedOption.name} className="dropdown-option-image" />
-                                )}
-                                <span className="dropdown-option-label">
-                                    {selectedOption ? selectedOption.name : 'Select Subcategory '}
-                                </span>
-                                <span className="dropdown-caret"></span>
-                        </div>
-                        <ul className={`dropdown-menu image_dropdown ${isDropdownOpen ? 'open' : ''}`}>
-                            {subcategories.data.map((option, index) => (
-                                <li key={index} onClick={() => selectOption(option)}>
-                                    <img src={`https://api.cannabaze.com/${option.SubCategoryImage}`} alt={option.name} className="dropdown-option-image" />
-                                    <span className="dropdown-option-label">{option.name}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
               
-                </div>
-                : null
-                }
                 <div className="col-12 mt-4  fontStyle">
                     <h2 className="productSlider_headings">{CategoryName}</h2>
                 </div>
@@ -248,8 +206,11 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                         </div>
                                         <div className="col-12 product_category_list">
                                             <span className="product_search_result_span1">15% THC | 0.2% CBD</span>
-                                            <span className="product_search_result_span2"><span className={` ${classes.disp_star_color}`}><IoMdStar className="product_search_rating_star" /></span>{items.rating === null ? 0 : items.rating }</span>
-
+                                            <span className="col-12 product_search_result_span2">
+                                               {items.rating === null ? 0 : items.rating }</span> 
+                                                <span className={` ${classes.disp_star_color}`}>
+                                                         <IoMdStar className="product_search_rating_star" />                                                      
+                                                </span>
                                         </div>
 
                                         <div className="col-12 productPriceDivHeight">
