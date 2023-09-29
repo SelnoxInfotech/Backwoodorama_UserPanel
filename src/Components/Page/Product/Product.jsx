@@ -56,14 +56,21 @@ const Product = () => {
         if (params.subCategory) {
             Axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductBySubCategory/${params.id}`).then((res) => {
                 SetProduct(res.data)
+                SubCategoryApi(res.data[0].category_id)
                 SetLoading(false)
-                console.log(res.data, 'res.data')
-                // navigate(`/products/${params.categoryname.toLowerCase()}/${name.toLowerCase()}/${id}`)
+
             }).catch((err) => {
-                console.log(err, "error")
                 SetLoading(false)
                 SetProduct([])
             })
+         function SubCategoryApi(_id){
+            Axios.get(`https://api.cannabaze.com/UserPanel/Get-SubCategoryByCategory/${_id}`).then((res) => {
+                return res
+            }).then((response) => {
+                setsubcategories(response.data.data)
+
+            })
+         }
 
         }
         else {

@@ -5,8 +5,12 @@ import Createcontext from "../Hooks/Context"
 export default function RoutingList(props) {
     const { Component } = props;
     const { state } = React.useContext(Createcontext)
-    return (
+     
 
+
+
+
+    return (
         <div>
             <Component />
         {state?.Country ==='' &&<CurrentLocation Country={state?.Country}></CurrentLocation> }

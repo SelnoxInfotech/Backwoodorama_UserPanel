@@ -146,7 +146,7 @@ const routesConfig = [
       },
    
       {
-        path: "/products/:CategoryName?/:ProductName/:id",     // NewProductDetails
+        path: "/products/:CategoryName/:subCategory?/:ProductName/:id",     // NewProductDetails
         element: <RoutingList Component={NewProductDetails} ></RoutingList>,
       },
       {

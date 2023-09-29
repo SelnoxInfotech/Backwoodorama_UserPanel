@@ -183,7 +183,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                                                         </IconButton>
                                                     </Box>
                                                 </div>
-                                                <Link to={`/products/${items.category_name}/${items.Product_Name.replace(/%20| /g, "-")  }/${items.id}`}>
+                                                <Link to={`/products/${items.category_name.toLowerCase()}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${items.Product_Name.replace(/%20| /g, "-").toLowerCase()}/${items.id}`}>
                                                     <LazyLoadImage
                                                         className="product_search_result_image"
                                                         onError={event => {
