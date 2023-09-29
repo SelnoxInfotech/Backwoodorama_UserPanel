@@ -50,60 +50,25 @@ const routesConfig = [
 
 
     children: [
+      // //////////////////////////////////////////////////////////// Complete ///////////////////////////////////////////////////////////
+
       {
-        path: "/Signup",
-        element: <RoutingList Component={Signup} ></RoutingList>
+        path: "/login",
+        element: <RoutingList Component={Login} ></RoutingList>,
       },
       {
-        path: "/PlaceOrder",
-        element: <RoutingList Component={PlaceOrder} ></RoutingList>,
+        path: "/signupwithemail",
+        element: <RoutingList Component={SignupWithEmail} ></RoutingList>,
+      },
+      {
+        path: "/signup",
+        element: <RoutingList Component={Signup} ></RoutingList>
       },
       {
         path: "/",
         element: <RoutingList Component={Dashboard} ></RoutingList>,
 
       },
-
-      {
-        path: "/SignupWithEmail",
-        element: <RoutingList Component={SignupWithEmail} ></RoutingList>,
-      },
-      {
-        path: "/Login",
-        element: <RoutingList Component={Login} ></RoutingList>,
-      },
-      {
-        path: "/ForgotPassword",
-        element: <RoutingList Component={ForgotPassword} ></RoutingList>,
-      },
-      {
-        path: "/CreatePassword",
-        element: <RoutingList Component={CreatePassword} ></RoutingList>,
-      },
-      // {
-      //   path: "/Weed-Deliveries/in/:Country/:state/:city",
-      //   element: <Deliveries></Deliveries>
-      // },
-
-      // Product
-   
-      // {
-      //   path: "/product/:SubCategoryname/:id",
-      //   element: <RoutingList Component={SubcategoryProduct} ></RoutingList>
-      // },
-      // {
-      //   path: "/products/:CategoryName/:ProductName/:id",     // NewProductDetails
-      //   element: <RoutingList Component={NewProductDetails} ></RoutingList>,
-      // },
-
-      {
-        path: "/ProductDetail",
-        element: <RoutingList Component={ProductDetail} ></RoutingList>,
-      },
-      // End
-
-
-      // //////////////////////////////////////////////////////////// Complete ///////////////////////////////////////////////////////////
       {
         path: "/brands",
         element: <RoutingList Component={Brand} ></RoutingList>,
@@ -118,7 +83,10 @@ const routesConfig = [
         element: <RoutingList Component={MainDeals} ></RoutingList>
       },
       //  Weed Dispensires
-
+      {
+        path: "/weed-dispensaries/in/:Country/:state?/:city?",
+        element: <RoutingDespen Component={OpenDispansires}  ></RoutingDespen>
+      },
       {
         path: "/weed-dispensaries/:StoreName/:tab?/:Category?/:SubCategory?/:id/",
         element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
@@ -127,6 +95,12 @@ const routesConfig = [
         path: "/weed-dispensaries/:StoreName/menu/:category/:subcategory?/:product/:id/",
         element: <RoutingList Component={NewProductDetails} ></RoutingList>
       },
+      {
+        path: "/weed-deliveries/in/:Country/:state?/:city?",
+        element: <RoutingDespen Component={Deliveries}  ></RoutingDespen>
+      },
+
+
       {
         path: "/weed-deliveries/:StoreName/:tab?/:Category?/:SubCategory?/:id/",
         element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
@@ -169,13 +143,9 @@ const routesConfig = [
           element: <RoutingList Component={Product} ></RoutingList>
         },
         {
-          path: "/products/:categoryname/:subcategoryname/:id",
-          element: <RoutingList Component={Product} ></RoutingList>
-        },
-        {
         path: "/products/:CategoryName?/:ProductName/:id",     // NewProductDetails
         element: <RoutingList Component={NewProductDetails} ></RoutingList>,
-        },
+      },
         {
           path: "/terms-and-conditions",
           element: <RoutingList Component={Termsconditions} ></RoutingList>
@@ -190,12 +160,23 @@ const routesConfig = [
         },
 
 
-        // end
+      // end
 
-/////////////////////////////////////////////////////////////// Proper Compeleted Routes With Seo ////////////////////////////////////////////////////////////////////////////////////////
+      /////////////////////////////////////////////////////////////// Proper Compeleted Routes With Seo ////////////////////////////////////////////////////////////////////////////////////////
 
 
-
+      {
+        path: "/PlaceOrder",
+        element: <RoutingList Component={PlaceOrder} ></RoutingList>,
+      },
+      {
+        path: "/ForgotPassword",
+        element: <RoutingList Component={ForgotPassword} ></RoutingList>,
+      },
+      {
+        path: "/CreatePassword",
+        element: <RoutingList Component={CreatePassword} ></RoutingList>,
+      },
 
 
 
@@ -206,47 +187,21 @@ const routesConfig = [
       {
         path: "/CheckOutMainPage",
         element: <ProtectRout Component={CheckOutMainPage} path="/CheckOutMainPage"></ProtectRout>
-      },
-
-
-      // {
-      //   path: "/weed-delivery/:StoreName/:id/",  
-      //   element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
-      // },
-      // {
-      //   path: "/weed-delivery/:StoreName/:tab/:id/",  
-      //   element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
-      // },
-      // {
-      //   path: "/weed-delivery/:StoreName/:tab/:Category/:id",  
-      //   element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
-      // },
-
+      }
       ,
-      {
-        path: "/weed-dispensaries/in/:Country/:state?/:city?",
-        element: <RoutingDespen Component={OpenDispansires}  ></RoutingDespen>
-      },
+   
       // {
-      //   path: "/weed-dispansires/in/:Country/",
-      //   element: <RoutingDespen Component={OpenDispansires} path="/Weed-Dispansires/in/" ></RoutingDespen>
+      //   path: "/weed-deliveries/in/:Country/",
+      //   element: <RoutingDespen Component={Deliveries} path="/Weed-Deliveries/in/" ></RoutingDespen>
       // },
       // {
-      //   path: "/weed-dispansires/in/:Country/:state/",
-      //   element: <RoutingDespen Component={OpenDispansires} path="/Weed-Dispansires/in/" ></RoutingDespen>
+      //   path: "/weed-deliveries/in/:Country/:state/",
+      //   element: <RoutingDespen Component={Deliveries} path="/Weed-Deliveries/in/" ></RoutingDespen>
       // },
-      {
-        path: "/weed-deliveries/in/:Country/",
-        element: <RoutingDespen Component={Deliveries} path="/Weed-Deliveries/in/" ></RoutingDespen>
-      },
-      {
-        path: "/weed-deliveries/in/:Country/:state/",
-        element: <RoutingDespen Component={Deliveries} path="/Weed-Deliveries/in/" ></RoutingDespen>
-      },
-      {
-        path: "/weed-deliveries/in/:Country/:state/:city",
-        element: <RoutingDespen Component={Deliveries} path="/Weed-Deliveries/in/" ></RoutingDespen>
-      },
+      // {
+      //   path: "/weed-deliveries/in/:Country/:state/:city",
+      //   element: <RoutingDespen Component={Deliveries} path="/Weed-Deliveries/in/" ></RoutingDespen>
+      // },
 
 
       // End
@@ -264,7 +219,7 @@ const routesConfig = [
         path: "/EmptyCard",
         element: <RoutingList Component={EmptyCard} ></RoutingList>
       }
-,  
+      ,
       {
         path: "/LearnCardRelatedPage",
         element: <RoutingList Component={LearnCardRelatedPage} ></RoutingList>
@@ -297,7 +252,7 @@ const routesConfig = [
         path: "/StrainProduct/:type",
         element: <RoutingList Component={StrainProduct} ></RoutingList>
       },
-   
+
       {
         path: "/Blogs/:id",
         element: <RoutingList Component={Blogs} ></RoutingList>
@@ -307,7 +262,7 @@ const routesConfig = [
       //   path: "/DashBoardMap",
       //   element:  <RoutingList Component={DashBoardMap} ></RoutingList>   
       // },
-      
+
       {
         path: "/whisLists",
         element: <ProtectRout Component={WhisLists} ></ProtectRout>

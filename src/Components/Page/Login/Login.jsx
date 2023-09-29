@@ -184,7 +184,7 @@ const Login = () => {
 
 
                         <div className='w-100 center my-2 '>
-                            <p className='login_bottom'>New Backwoodaroma ?</p>
+                            <p className='login_bottom'>New weedx ?</p>
                         </div>
 
 
