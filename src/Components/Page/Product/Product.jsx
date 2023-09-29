@@ -26,7 +26,6 @@ const Product = () => {
     const selectOption = (option) => {
         setSelectedOption(option);
         setIsDropdownOpen(false);
-        // console.log(option.name)
         navigate(`/products/${params.categoryname.toLowerCase()}/${option.name.toLowerCase()}/${option.id}`)
 
     };
@@ -50,8 +49,6 @@ const Product = () => {
 
         SetLoading(true)
         setIsDropdownOpen(false)
-
-        console.log("run effect");
         //     if (params.id ) {
 
         //         Axios(`https://api.cannabaze.com/UserPanel/Get-ProductByCategory/${params.id}`, {}
@@ -108,6 +105,7 @@ const Product = () => {
             }).catch((err) => {
                 console.log(err, "error")
                 SetLoading(false)
+                SetProduct([])
             })
 
         }
@@ -124,7 +122,7 @@ const Product = () => {
                 }).catch(
 
                     function (error) {
-
+                        SetProduct([])
                         SetLoading(false)
 
                     })
@@ -146,7 +144,9 @@ const Product = () => {
                     f("All Product")
                     SetProduct(response.data)
                 }).catch(
+                    
                     function (error) {
+                        SetProduct([])
                     })
             }
         }
