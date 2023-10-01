@@ -30,8 +30,12 @@ function Product_Add_Review(data) {
     );
     return res;
   }
-  
+  async function Product_Get_Review(id) {
+    let res = await axios.get(` https://api.cannabaze.com/UserPanel/Get-Review/${id}`,
+    );
+    return res;
+  }
 
 
 
-export {product_OverAllGet_Review ,  Product_Add_Review , Product_Get_UserComment}
+export {product_OverAllGet_Review ,  Product_Add_Review , Product_Get_UserComment , Product_Get_Review}

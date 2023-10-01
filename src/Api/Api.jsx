@@ -118,6 +118,23 @@ export function Store_Add_Review(Review) {
     return data
 }
 
+export async function Store_Get_UserComment(id,storeId) {
+    const cookies = new Cookies();
+    const token_data = cookies.get('Token_access')
+    let res = await axios.get(`https://api.cannabaze.com/UserPanel/Get-getStoreReviewbyId/${id}/${storeId}`,
+    {
+     headers: { Authorization: `Bearer ${token_data}` }
+    },
+  
+    );
+    return res;
+  }
+
+  export async function Store_Get_Review(id) {
+    let res = await axios.get(` https://api.cannabaze.com/UserPanel/Get-StoreReview/${id}`,
+    );
+    return res;
+  }
 
 
 

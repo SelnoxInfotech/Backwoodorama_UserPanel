@@ -1,8 +1,8 @@
 import OverAllReview from "./ReviewComponent/OverAllReview"
 import RelatedReview from "./ReviewComponent/RelatedReview"
 import React from "react"
-const Review = ({Rating, onSubmit ,api ,SetApi, GetProductReview, SetGetProductReview} ) => {
-    console.log(Rating)
+const Review = ({Rating, onSubmit ,api ,SetApi, GetProductReview, SetGetProductReview ,AllReview, SetReview} ) => {
+
     return (
         <React.Fragment>
 
@@ -13,7 +13,7 @@ const Review = ({Rating, onSubmit ,api ,SetApi, GetProductReview, SetGetProductR
             </div>
             
             <OverAllReview Rating={Rating}  GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} onSubmit={onSubmit} api ={api} SetApi ={ SetApi}/>
-            {/* <RelatedReview Product={Product} api ={api} SetApi ={ SetApi} /> */}
+            <RelatedReview AllReview={AllReview} SetReview ={SetReview}/>
         </React.Fragment>
     )
 }

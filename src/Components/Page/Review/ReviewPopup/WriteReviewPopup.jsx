@@ -11,12 +11,9 @@ import { Box } from "@mui/material"
 import { useForm } from "react-hook-form";
 import Createcontext from "../../../../Hooks/Context"
 import { useNavigate } from 'react-router-dom';
-import {Add_Review,Get_UserComment,Get_Review} from "../ReviewApi"
 const WriteReviewPopup = ({onSubmit, GetProductReview, SetGetProductReview }) => {
     const navigate =  useNavigate()
     const { state } = React.useContext(Createcontext)
-    // const userId =  state.Profile.id
-    // const id = Product?.id 
     const { register, handleSubmit, errors, control, reset } = useForm();
     const classes = useStyles()
     const [open, setOpen] = React.useState(false);
@@ -29,27 +26,16 @@ const WriteReviewPopup = ({onSubmit, GetProductReview, SetGetProductReview }) =>
             navigate("/login")
         }
     };
+    React.useEffect(()=>{
+        setOpen((open)=>{
+            return  GetProductReview.popup === true ? open :   GetProductReview.popup
+          })
+    },[GetProductReview])
 
     const handleClose = () => {
         setOpen(false);
         SetGetProductReview({ ...GetProductReview, 'value': 0 })
     };
-    
-
-    
-    // React.useEffect( ()=>{
-    //     if(userId !== undefined && id !== undefined){
-    //         Get_UserComment(userId , id).then((res)=>{
-    //             if(res.data.length !== 0 )
-    //             {   
-    //                 setValue(()=>{
-    //                     return res.data[0]?.rating})
-    //                 setcomment(res.data[0]?.comment)
-    //                 SetTitle(res.data[0]?.Title)
-    //             }
-    //         })
-    //     }
-    // },[userId,id,open])
 
     return (
         <>

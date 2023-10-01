@@ -11,7 +11,7 @@ import NewFlavourBanner from "../../../Component/NewFlavour/NewFlavourBanner"
 import Review from "../../Review/Review"
 import { AiOutlineLeft } from "react-icons/ai";
 import { ProductDetailsSeo } from "../../../Component/ScoPage/ProductSeo"
-import { product_OverAllGet_Review  , Product_Add_Review ,  Product_Get_UserComment} from "../ProductApi"
+import { product_OverAllGet_Review  , Product_Add_Review ,  Product_Get_UserComment, Product_Get_Review} from "../ProductApi"
 import Createcontext from "../../../../Hooks/Context"
 const NewProductDetails = () => {
   const { id } = useParams();
@@ -23,18 +23,22 @@ const NewProductDetails = () => {
   const [Despen, SetDespens] = React.useState([])
   const [api, SetApi] = React.useState(false)
   const [Rating, SetRating] = React.useState()
+  const [AllReview, SetReview] =  React.useState([])
   const [GetProductReview, SetGetProductReview] = React.useState({
     value: 0,
     comment: '',
-    Title: ""
+    Title: "",
+    popup:true
   })
-
+    
   // const Navigate = useNavigate()
   React.useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
     Axios(`https://api.cannabaze.com/UserPanel/Get-ProductById/${id}`, {
     }).then(response => {
-      SetProduct(response.data[0])
+      SetProduct(()=>{
+        return response.data[0]
+      })
 
       Axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${response.data[0]?.Store_id}`, {
       }).then(response => {
@@ -68,16 +72,21 @@ const NewProductDetails = () => {
   }, [Product.id, api])
 
   React.useEffect( ()=>{
-        if(state.login){
+    
+        if(state.login &&  state.Profile.id !== undefined && Product.id !== undefined){
           Product_Get_UserComment(state.Profile.id , Product.id).then((res)=>{
+        
                 if(res.data.length !== 0 )
                 {   
                     SetGetProductReview({...GetProductReview , "comment": res.data[0]?.comment , 
                      "Title" : res.data[0]?.Title , "value":res.data[0]?.rating})
                 }
+            }).catch((error)=>{
+              console.log(error)
             })
+
         }
-    },[Product ,api])
+    },[ state.Profile, Product ,api])
 
   const onSubmit = (data) => {
     const Review = {
@@ -88,12 +97,21 @@ const NewProductDetails = () => {
     }
     Product_Add_Review(Review).then((res) => {
       // setOpen(false);
-      SetGetProductReview({ ...GetProductReview, 'value': 0 })
+      SetGetProductReview({ ...GetProductReview, 'value': 0  , 'popup':false })
       SetApi(!api)
     }).catch(() => {
 
     })
   };
+  React.useEffect(() => {
+    Product_Get_Review( Product.id).then((res) => {
+        SetReview(()=>{
+          return res.data
+        })
+    }).catch((e) => {
+        console.error(e)
+    })
+}, [ Product, api])
 
   // Productname , ProductCategory , StoreName
   return (
@@ -106,7 +124,7 @@ const NewProductDetails = () => {
       <NewProductinfoText Product={{ heading: "Product Description", text: Product?.Product_Description }} />
 
       <ProductSearchResult RelatedProductResult={StoreProduct} currentProductID={Product.id} CategoryName={heading} />
-      <Review Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} ></Review>
+      <Review Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview ={SetReview}></Review>
 
 
     </div>
