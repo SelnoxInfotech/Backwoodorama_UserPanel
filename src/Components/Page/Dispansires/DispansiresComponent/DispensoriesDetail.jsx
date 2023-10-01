@@ -18,6 +18,7 @@ import ComponentStoreDetails from "../../StoreDetail/ComponentStoreDetails"
 import Review from "../../Review/Review";
 import Media from "../../Media/Media";
 import { StoreDetails } from "../../../../Components/Component/ScoPage/StoreDetails"
+import { Store_Add_Review, Store_OverAllGet_Review } from "../../../../Api/Api";
 export default function DispensoriesDetails() {
     const navigate = useNavigate()
     const location = useLocation()
@@ -27,7 +28,13 @@ export default function DispensoriesDetails() {
     const [category, SetCategory] = React.useState([])
     const [DespensariesData, SetDespensariesProductData] = React.useState([])
     const [Despen, SetDespens] = React.useState([])
-
+    const [Rating, SetRating] = React.useState()
+    const [api, SetApi] = React.useState(false)
+    const [GetProductReview, SetGetProductReview] = React.useState({
+      value: 0,
+      comment: '',
+      Title: ""
+    })
     // const [Tab, SetTab] = React.useState()
     React.useEffect(() => {
         axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${id}`, {
@@ -117,6 +124,32 @@ export default function DispensoriesDetails() {
     { Id: 5, Name: "Weight", Type1: "Any", Type2: "$25", Price: "$100", Icons: <GiWeightScale className={classes.muiIcons} /> },
     { Id: 6, Name: "Product", Type1: "Medical", Type2: "Recreational", Icons: <RiProductHuntLine className={classes.muiIcons} /> },
     ]
+
+
+    React.useEffect(() => {
+        Store_OverAllGet_Review(id).then((res) => {
+    console.log(res)
+          SetRating(res)
+        }).catch(() => { })
+      }, [id , api])
+    
+
+      const onSubmit = () => {
+        const Review = {
+            Store: id,
+          rating: GetProductReview.value,
+          Title: GetProductReview.Title,
+          comment: GetProductReview.comment
+        }
+        Store_Add_Review(Review).then((res) => {
+          // setOpen(false);
+          SetGetProductReview({ ...GetProductReview, 'value': 0 })
+          SetApi(!api)
+        }).catch(() => {
+    
+        })
+      };
+
     return (
         <div>
             <StoreDetails Despen={Despen}></StoreDetails>
@@ -158,7 +191,7 @@ export default function DispensoriesDetails() {
                         tab === 'store-details' && <ComponentStoreDetails></ComponentStoreDetails>
                     }
                     {
-                        tab === 'review' &&    <>Review</>   // <Review></Review>
+                        tab === 'review' &&  <Review Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} ></Review>
                     }
                     {
                         tab === 'deals' && <>Deal</>

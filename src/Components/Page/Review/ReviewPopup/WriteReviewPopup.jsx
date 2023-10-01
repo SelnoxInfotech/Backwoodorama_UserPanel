@@ -12,64 +12,44 @@ import { useForm } from "react-hook-form";
 import Createcontext from "../../../../Hooks/Context"
 import { useNavigate } from 'react-router-dom';
 import {Add_Review,Get_UserComment,Get_Review} from "../ReviewApi"
-const WriteReviewPopup = ({Product,api,  SetApi}) => {
+const WriteReviewPopup = ({onSubmit, GetProductReview, SetGetProductReview }) => {
     const navigate =  useNavigate()
     const { state } = React.useContext(Createcontext)
-    const userId =  state.Profile.id
-    const id = Product?.id 
+    // const userId =  state.Profile.id
+    // const id = Product?.id 
     const { register, handleSubmit, errors, control, reset } = useForm();
     const classes = useStyles()
     const [open, setOpen] = React.useState(false);
-    const [value, setValue] = React.useState(0);
-    const [comment, setcomment] = React.useState('');
-    const [Title,SetTitle] =  React.useState('')
+   
     const handleClickOpen = () => {
         if (state.login) {
             setOpen(true);
         }
         else{
-            navigate("/Login")
+            navigate("/login")
         }
     };
 
     const handleClose = () => {
         setOpen(false);
-        setValue(0)
+        SetGetProductReview({ ...GetProductReview, 'value': 0 })
     };
     
-    const onSubmit = (data) => {
-       const  Review ={
-            product:Product.id            ,
-            rating:value,
-            Title:Title,
-            comment:comment
-         }
-        Add_Review(Review).then((res)=>{
-           setOpen(false);
-           setValue(0)
-         SetApi(!api)
-        }).catch(()=>{
 
-        })
-    };
-
-    const handlecomment = (e) => {
-        setcomment(e.target.value)
-    }
     
-    React.useEffect( ()=>{
-        if(userId !== undefined && id !== undefined){
-            Get_UserComment(userId , id).then((res)=>{
-                if(res.data.length !== 0 )
-                {   
-                    setValue(()=>{
-                        return res.data[0]?.rating})
-                    setcomment(res.data[0]?.comment)
-                    SetTitle(res.data[0]?.Title)
-                }
-            })
-        }
-    },[userId,id,open])
+    // React.useEffect( ()=>{
+    //     if(userId !== undefined && id !== undefined){
+    //         Get_UserComment(userId , id).then((res)=>{
+    //             if(res.data.length !== 0 )
+    //             {   
+    //                 setValue(()=>{
+    //                     return res.data[0]?.rating})
+    //                 setcomment(res.data[0]?.comment)
+    //                 SetTitle(res.data[0]?.Title)
+    //             }
+    //         })
+    //     }
+    // },[userId,id,open])
 
     return (
         <>
@@ -89,9 +69,9 @@ const WriteReviewPopup = ({Product,api,  SetApi}) => {
                                     <h3 className='secRatingHeadings'>My rating</h3>
                                     <Rating
                                         className={`mx-2 ${classes.WriteReviewStarIcons}`}
-                                        value={value}
+                                        value={GetProductReview.value}
                                         color='red'
-                                        onChange={(e) => setValue(e.target.value)}
+                                        onChange={(e) => SetGetProductReview({...GetProductReview , 'value' : e.target.value })}
                                         precision={1}
                                     />
 
@@ -103,9 +83,9 @@ const WriteReviewPopup = ({Product,api,  SetApi}) => {
                                             className={`${classes.FilledTextFieldStyle}`}
                                             size='small'
                                             id="title"
-                                            value={Title}
-                                            onChange={((e)=>{SetTitle(e.target.value)})}
-                                            name="title"
+                                            value={GetProductReview.Title}
+                                            onChange={((e)=>{SetGetProductReview({...GetProductReview , [e.target.name] : e.target.value })})}
+                                            name="Title"
                                             placeholder='Title'
                                             variant='filled'
                                             fullWidth
@@ -121,16 +101,16 @@ const WriteReviewPopup = ({Product,api,  SetApi}) => {
                                                 }
                                             }
                                             )}
-                                            helperText={errors.title?.message}
-                                            error={Boolean(errors?.title)}
+                                            helperText={errors.Title?.message}
+                                            error={Boolean(errors?.Title)}
                                         />
                                     </div>
                                     <div className='col-12 writReviewMarginTop'>
                                         <label className='writeReviewLabel' htmlFor='review'>Review</label>
                                         <textarea
-                                            name='Comment'
-                                            value={comment}
-                                            onChange={handlecomment}
+                                            name='comment'
+                                            value={GetProductReview.comment}
+                                            onChange={((e)=>{SetGetProductReview({...GetProductReview , [e.target.name] : e.target.value })})}
                                             id="review"
                                             className="textinput" placeholder="Comment"></textarea>
                                     </div>
@@ -139,7 +119,7 @@ const WriteReviewPopup = ({Product,api,  SetApi}) => {
                                             className={`edit_UserPopUp_btn_container mt-4
                                               ${classes.editEmail_loadingBtn}`}
                                         >
-                                            <LoadingButton disabled={value === 0 ? true : false} type="submit" variant="outlined" >Submit</LoadingButton>
+                                            <LoadingButton disabled={GetProductReview.value === 0 ? true : false} type="submit" variant="outlined" >Submit</LoadingButton>
                                         </Box>
                                     </div>
                                 </div>
