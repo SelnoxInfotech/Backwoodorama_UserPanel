@@ -77,7 +77,7 @@ const NewProductDetails = () => {
                 }
             })
         }
-    },[iProduct ,ap])
+    },[Product ,api])
 
   const onSubmit = (data) => {
     const Review = {
