@@ -1,5 +1,4 @@
-
-
+import "./AddToCart.css";
 import React from "react";
 import AddToCartReview from "./AddToCartReview"
 import AddToCartSummary from "./AddToCartSummary"
@@ -27,13 +26,13 @@ const AddToCart = () => {
                             </div>
 
 
-                            <div className="col-12 AddProductCartContainer">
+                            <div className="row  AddProductCartContainer">
 
-                                <div className="col-8  AddProductCartContainerinner">
+                                <div className="col-sm-8 AddProductCartContainerinner">
                                     <AddToCartReview />
 
                                 </div>
-                                <div className="col-4   p-2 Add_product_cart_right_container_summary">
+                                <div className="col-sm-4   p-2 Add_product_cart_right_container_summary">
                                     <AddToCartSummary />
                                 </div>
 

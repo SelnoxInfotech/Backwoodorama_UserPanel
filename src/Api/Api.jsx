@@ -108,7 +108,10 @@ export function Homepagebanner(){
 
     return banner
 }
+export function getAllNews(){
+    let allnews = axios.get("https://api.cannabaze.com/UserPanel/Get-News/").then((response)=>{
+        return response.data;
+    })
+    return allnews
+}
 
-
-
-// asdadasdasdas

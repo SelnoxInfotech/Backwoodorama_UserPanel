@@ -158,7 +158,7 @@ export default function CookieSetting() {
                 open={open}
             >
                 <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-                    Cookie Settings
+                   <h3> Cookie Settings </h3>
                     <p className='Cookiessetting'>
                         This website uses cookies to improve your browsing experience and to show you personalized content. Some cookies are necessary for the site to function in its intended form. Others are grouped by category and could be disabled. You can get more information about the cookies we use, by reading our Privacy Policy and Terms of Use
                     </p>
@@ -167,22 +167,22 @@ export default function CookieSetting() {
                     <Box sx={{ display: "grid", alignItems: "center", gap: "2rem" }}>
                         <Typography gutterBottom>
                             <div className='col-12 d-flex'>
-                                <div className='col-10'>
+                                <div className='col-9'>
 
                                     <span className='cookiesSetting_Typography'>Necessary Cookies</span> – <span className='Cookiessetting'> These cookies are used to make the website function properly, remember your preferences (e.g. dark mode/light mode), and maintain security.</span>
                                 </div>
-                                <div className='col-2 CookiesA'>
+                                <div className='col-3 CookiesA'>
                                     Always Enabled
                                 </div>
                             </div>
                         </Typography>
                         <Typography gutterBottom>
                             <div className='col-12 d-flex'>
-                                <div className='col-10'>
+                                <div className='col-9'>
 
                                     <span className='cookiesSetting_Typography'>Marketing Cookies</span> – <span className='Cookiessetting'>These cookies track your journey across the web (e.g. the websites you visit, when you visit them) in order to deliver targeted advertising.</span>
                                 </div>
-                                <div className='col-2 CookiesA'>
+                                <div className='col-3 CookiesA'>
                                 <FormControlLabel
                                         control={<IOSSwitch  checked={Cookies.Marketing}  onClick={handlechnage} sx={{ m: 1 }}  name="Marketing" />}
                                         
@@ -192,11 +192,11 @@ export default function CookieSetting() {
                         </Typography>
                         <Typography gutterBottom>
                             <div className='col-12 d-flex'>
-                                <div className='col-10'>
+                                <div className='col-9'>
 
                                     <span className='cookiesSetting_Typography'>Analytical Cookies</span> – <span className='Cookiessetting'>These cookies collect information about the user’s device, IP address, location, language settings, and user interactions (e.g. mouse movements, clicks, and keyboard input).</span>
                                 </div>
-                                <div className='col-2 CookiesA'>
+                                <div className='col-3 CookiesA'>
                                     <FormControlLabel
                                         control={<IOSSwitch checked={Cookies.Analytical} onClick={handlechnage} sx={{ m: 1 , color:"#00b96a" }}   name="Analytical"/>}
                                         
