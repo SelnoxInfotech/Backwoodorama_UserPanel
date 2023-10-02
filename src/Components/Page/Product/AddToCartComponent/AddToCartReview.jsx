@@ -159,7 +159,7 @@ const AddToCartReview = () => {
         <React.Fragment>
             <div className="col-12  AddProductCartContainerinner">
                 
-                <div class="row col-12">
+                <div class="cartProductHeadings row col-12">
                     <div className='col-5 '><span className='carttableheadings'>Item</span></div>
                     <div className='col-2 text-center'><span className='carttableheadings'>Price</span></div>
                     <div className='col-2 text-center'><span className='carttableheadings'>Quantity</span></div>
