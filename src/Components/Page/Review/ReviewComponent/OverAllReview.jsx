@@ -5,7 +5,6 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import useStyles from "../../../../Style"
 import WriteReviewPopup from "../ReviewPopup/WriteReviewPopup"
-import { OverAllGet_Review } from "../ReviewApi"
 const OverAllReview = ({ Rating, api, SetApi  ,onSubmit,  GetProductReview, SetGetProductReview}) => {
     const classes = useStyles()
 

@@ -2,12 +2,9 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { AiFillStar } from "react-icons/ai"
 import useStyles from "../../../../Style"
 import React from 'react';
-import { Get_Review } from "../ReviewApi"
 import ReportReviewPopup from '../ReviewPopup/ReportReviewPopup';
 const RelatedReview = ({AllReview, SetReview}) => {
     const [showMore, setShowMore] = React.useState(false);
-    
-     console.log(AllReview)
     const classes = useStyles()
     return (
         <React.Fragment>
@@ -48,7 +45,8 @@ const RelatedReview = ({AllReview, SetReview}) => {
                         };
 
                         return (
-                            <div className="mx-1">                            <div className="w-100 related_review_container mt-4" key={index}>
+                            <div className="mx-1">                         
+                               <div className="w-100 related_review_container mt-4" key={index}>
                                 <div className="row">
                                     <div className="col-3 col-sm-2 related_img_container">
                                         <div className="row">
