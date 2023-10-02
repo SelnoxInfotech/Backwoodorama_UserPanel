@@ -4,27 +4,17 @@ import useStyles from "../../../../Style"
 import React from 'react';
 import { Get_Review } from "../ReviewApi"
 import ReportReviewPopup from '../ReviewPopup/ReportReviewPopup';
-const RelatedReview = ({Product , api}) => {
-    const id = Product.id
+const RelatedReview = ({AllReview, SetReview}) => {
     const [showMore, setShowMore] = React.useState(false);
-    const [Review, SetReview] =  React.useState([])
+    
+     console.log(AllReview)
     const classes = useStyles()
-
-
-
-    React.useEffect(() => {
-        Get_Review(id).then((res) => {
-            SetReview(res.data)
-        }).catch((e) => {
-            console.error(e)
-        })
-    }, [id, api])
     return (
         <React.Fragment>
             <div className='container-fluid'>
 
                 <div className="row center ">
-                    {Review?.map((ele, index) => {
+                    {AllReview?.map((ele, index) => {
                         const text = ele.comment;
                         const getText = (getValue) => {
                             // For Text that is shorter than desired length

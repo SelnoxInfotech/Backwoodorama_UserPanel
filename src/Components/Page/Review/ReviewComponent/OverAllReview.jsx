@@ -6,15 +6,9 @@ import 'react-circular-progressbar/dist/styles.css';
 import useStyles from "../../../../Style"
 import WriteReviewPopup from "../ReviewPopup/WriteReviewPopup"
 import { OverAllGet_Review } from "../ReviewApi"
-const OverAllReview = ({ Product, api, SetApi }) => {
-    const [Rating, SetRating] = React.useState()
+const OverAllReview = ({ Rating, api, SetApi  ,onSubmit,  GetProductReview, SetGetProductReview}) => {
     const classes = useStyles()
-    const Id = Product?.id
-    // const [completed, setCompleted] = React.useState(0);
 
-    // React.useEffect(() => {
-    //   setInterval(() => setCompleted(Math.floor(Math.random() * 100) + 1), 2000);
-    // }, []);
     const testData = [
         { starValue: 5, bgcolor: "#31B665", completed: Rating?.FiveStar },
         { starValue: 4, bgcolor: "#31B665", completed: Rating?.FourStar },
@@ -24,13 +18,6 @@ const OverAllReview = ({ Product, api, SetApi }) => {
         { starValue: 1, bgcolor: "#31B665", completed: Rating?.OneStar },
 
     ];
-
-    React.useEffect(() => {
-        OverAllGet_Review(Id).then((res) => {
-          
-            SetRating(res?.data)
-        }).catch(() => { })
-    }, [Id, api])
     return (
         <React.Fragment>
             <div className="container-fluid">
@@ -44,7 +31,7 @@ const OverAllReview = ({ Product, api, SetApi }) => {
                     <div className="overall_review_container mt-2">
                         <div className="">
                             <div className=" text-end m-2">
-                                <WriteReviewPopup Product={Product} api={api} SetApi={SetApi} />
+                                <WriteReviewPopup onSubmit={onSubmit}   GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview}  api={api} SetApi={SetApi} />
                                 {/* <button className="overall_review_Button px-2">Write review</button> */}
                             </div>
 

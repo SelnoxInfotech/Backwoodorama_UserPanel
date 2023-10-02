@@ -68,41 +68,88 @@ export function Post_Comment(id, Comment) {
     );
     return data;
 }
-export function ViewCountApi (id){
+export function ViewCountApi(id) {
     let data = axios.post(`https://api.cannabaze.com/UserPanel/Add-BlogView/`,
-    {
-        blog: id
-    },
-);
-return data;
+        {
+            blog: id
+        },
+    );
+    return data;
 }
-export function DespensioriesItem(){
-   let data = axios.get(
+export function DespensioriesItem() {
+    let data = axios.get(
         'https://api.cannabaze.com/UserPanel/Get-Dispensaries/',
     ).then(response => {
         return response.data
-    }).then((res)=>{
+    }).then((res) => {
         return res
     }).catch(
-        function (error) {}
+        function (error) { }
     )
-   
-    return data 
+
+    return data
 }
+
+export function Store_OverAllGet_Review(id) {
+    let data = axios.get(`https://api.cannabaze.com/UserPanel/Get-AverageStoreReviewAndRating/${id}`,
+    ).then(response => {
+        return response.data
+    }).catch(
+        function (error) { }
+    )
+
+    return data
+}
+
+export function Store_Add_Review(Review) {
+    const cookies = new Cookies();
+    const token_data = cookies.get('Token_access')
+    let data = axios.post(`https://api.cannabaze.com/UserPanel/Add-StoreReview/`,
+    Review,
+        {
+            headers: { Authorization: `Bearer ${token_data}` }
+        },
+    ).then(response => {
+        return response
+    }).catch(
+        function (error) { }
+    )
+
+    return data
+}
+
+export async function Store_Get_UserComment(id,storeId) {
+    const cookies = new Cookies();
+    const token_data = cookies.get('Token_access')
+    let res = await axios.get(`https://api.cannabaze.com/UserPanel/Get-getStoreReviewbyId/${id}/${storeId}`,
+    {
+     headers: { Authorization: `Bearer ${token_data}` }
+    },
+  
+    );
+    return res;
+  }
+
+  export async function Store_Get_Review(id) {
+    let res = await axios.get(` https://api.cannabaze.com/UserPanel/Get-StoreReview/${id}`,
+    );
+    return res;
+  }
+
 
 
 // Store Review Api   Dispensaries   
 
-export function Homepagebanner(){
-    let banner = axios(`https://api.cannabaze.com/UserPanel/Get-AllHomePageBanner/`,{
+export function Homepagebanner() {
+    let banner = axios(`https://api.cannabaze.com/UserPanel/Get-AllHomePageBanner/`, {
 
     }
 
-    ).then((response)=>{
-      return response
+    ).then((response) => {
+        return response
     }
 
-    ).catch(()=>{
+    ).catch(() => {
 
     })
 
