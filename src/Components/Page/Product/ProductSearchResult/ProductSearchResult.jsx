@@ -19,7 +19,6 @@ import { Link } from "react-router-dom";
 import { WishListPost } from "../../../Component/Whishlist/WishListApi_"
 import {WhisList} from "../../../Component/Whishlist/WhisList"
 const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProductID , }) => {
-    console.log(RelatedProductResult ,'RelatedProductResult')
     const { state, dispatch } = React.useContext(Createcontext)
     const classes = useStyles()
     const cookies = new Cookies();
@@ -32,8 +31,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
         const initialValue = JSON.parse(saved);
         return initialValue || []
     })
- 
-
+    
     async function AddToCart(Event, counter, SelectWeight) {
         const AddData = _.filter(Event.Prices, Price => Price);
         const PriceArrry = _.find(AddData[0].Price, Price => Price.id === SelectWeight);
@@ -134,6 +132,11 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
 
 
     }
+
+
+
+
+
     React.useEffect(() => {   
         localStorage.setItem('items', JSON.stringify(AddTOCard))
     }, [AddTOCard])
@@ -192,6 +195,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                                                         }}
                                                         src={`https://api.cannabaze.com/${items?.images[0]?.image}`}
                                                         height={"100px"}
+                                                        alt={items.Product_Name}
                                                     />
                                                 </Link>
                                             </div>

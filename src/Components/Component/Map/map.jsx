@@ -27,7 +27,7 @@ export function MapContainer(props) {
     map.setOptions({
       styles: props.Theme
     });
-    map.setOptions({ draggable: false, zoomControl: false, scrollwheel: false, disableDoubleClickZoom: true });
+    map.setOptions({ draggable: false, zoomControl: false, scrollwheel: false, disableDoubleClickZoom: true , alt:"map" });
   }
 
 
@@ -41,7 +41,6 @@ export function MapContainer(props) {
             google={window.google}
             zoom={15}
             initialCenter={{ lat: 40.719074, lng: -74.050552 }}
-
             fullscreenControl={false}
             onReady={(mapProps, map) => _mapLoaded(mapProps, map)}
             streetViewControl={false}

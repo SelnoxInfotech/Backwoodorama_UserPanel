@@ -50,11 +50,11 @@ const Dispensories = () => {
                                         <div className=' dispensoriesAddressBorder'>
                                             <div className='dispensoriesAddresCardimg'>
                                                 <Link  to={`/weed-dispensaries/${ele.Store_Name.replace(/\s/g,'-')}/${"menu"}/${ele.id}`}>
-                                                    <img src={`https://api.cannabaze.com/${ele?.Store_Image}`} alt='img_not_found' className=' dispensories_image  center-block' />
+                                                    <img  src={`https://api.cannabaze.com/${ele?.Store_Image}`} alt={ele.Store_Name.charAt(0).toUpperCase() + ele.Store_Name.slice(1)} className=' dispensories_image  center-block' />
                                                 </Link>
                                             </div>
                                             <div className='dispensoriesContentContainer'>
-                                                <Link className='dispensoriesLinkStyles' to={`/Weed-Dispensories/${ele.Store_Name.replace(/\s/g,'-')}/${"Menu"}/${ele.id}`}>
+                                                <Link className='dispensoriesLinkStyles' to={`/weed-dispensaries/${ele.Store_Name.replace(/\s/g,'-')}/${"menu"}/${ele.id}`}>
                                                     <div className='col-12'>
 
                                                         <div className=' dis_right_div'>
@@ -75,18 +75,19 @@ const Dispensories = () => {
                                                         </div>
                                                     </div>
                                                     <div className='col-12  '>
-                                                        <div className='    Dispensaries_card_discription'>
+                                                        <div className='Dispensaries_card_discription'>
                                                             <span className='ellipsis'>{ele.Store_Type}</span>
                                                         </div>
                                                     </div>
 
 
                                                 </Link>
+                                                <Link  to={`/weed-dispensaries/${ele.Store_Name.replace(/\s/g,'-')}/${"review"}/${ele.id}`}>
                                                 <div className=' dispensoriesAddressRatingCol '>
                                                     <span className='rating_title'>Rating</span>
-                                                    <Rating className={classes.homePageStarIcons} color='green' name="read-only" value={4} readOnly />
+                                                    <Rating className={classes.homePageStarIcons} color='green' name="read-only" value={ele.rating === null ? 0 : ele.rating} readOnly />
                                                 </div>
-
+                                                </Link>
                                                 <div className='col-12  mt-4'>
 
                                                     <Box

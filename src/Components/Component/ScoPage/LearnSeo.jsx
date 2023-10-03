@@ -43,20 +43,20 @@ function Law() {
 function LawState({Title,State}) {
     return (
         <Helmet>
-            <title>{` Title of blog country wise ${Title} | Laws and Regulation | weedx.io | `}</title>
-            <meta name="title" content={` Title of blog country wise ${Title} | Laws and Regulation | weedx.io | `}/>
-            <meta name='description' content={`Title of blog country wise ${Title} . Learn about cannabis laws and regulation in the country ${State}. Learn more about the important information you should be aware of here`} />
+            <title>{`${Title} | Laws and Regulation | weedx.io | `}</title>
+            <meta name="title" content={`${Title} | Laws and Regulation | weedx.io | `}/>
+            <meta name='description' content={`${Title} . Learn about cannabis laws and regulation in the country ${State}. Learn more about the important information you should be aware of here`} />
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
-            <meta property="og:title" content={` Title of blog country wise ${Title} | Laws and Regulation | weedx.io | `} />
-            <meta property="og:description" content={`Title of blog country wise ${Title} . Learn about cannabis laws and regulation in the country ${State}. Learn more about the important information you should be aware of here`} />
+            <meta property="og:title" content={`${Title} | Laws and Regulation | weedx.io | `} />
+            <meta property="og:description" content={`${Title} . Learn about cannabis laws and regulation in the country ${State}. Learn more about the important information you should be aware of here`} />
             { /* End Facebook tags */}
 
             { /* Twitter tags */}
             <meta name="twitter:creator" content={"website"} />
             <meta name="twitter:card" content={"Marijuana Dispensaries & Delivery Near Me"} />
-            <meta name="twitter:title" content={` Title of blog country wise ${Title} | Laws and Regulation | weedx.io | `} />
-            <meta name="twitter:description" content={`Title of blog country wise ${Title} . Learn about cannabis laws and regulation in the country ${State}. Learn more about the important information you should be aware of here`} />
+            <meta name="twitter:title" content={`${Title} | Laws and Regulation | weedx.io | `} />
+            <meta name="twitter:description" content={`${Title} . Learn about cannabis laws and regulation in the country ${State}. Learn more about the important information you should be aware of here`} />
         </Helmet>
     )
 }

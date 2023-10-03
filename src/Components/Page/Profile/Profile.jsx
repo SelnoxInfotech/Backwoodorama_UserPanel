@@ -88,7 +88,7 @@ const Profile = () => {
                                 <section className="profile_image_section">
                                     <div className="profile_image ">
                                     {
-                                            selectedImage !== null ? <LazyLoadImage src={selectedImage} alt=''    className="profile_images" />
+                                            selectedImage !== null ? <LazyLoadImage src={selectedImage} alt='profile_image'    className="profile_images" />
                                                 :
                                                 <LazyLoadImage
                                                     onError={event => {
@@ -97,7 +97,7 @@ const Profile = () => {
                                                     }}
                                                     src={`https://api.cannabaze.com/${state.Profile.image}`}
                                                     // src={image}
-                                                    alt=''
+                                                    alt='profile_image'
                                                     className="profile_images"
                                                 />
                                         }

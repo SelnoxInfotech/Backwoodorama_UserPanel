@@ -7,6 +7,7 @@ import useStyles from '../../../../../Style';
 import { MdShoppingCart } from "react-icons/md"
 import { GiFlowerPot } from "react-icons/gi"
 import { Link } from 'react-router-dom';
+import { Rating } from '@mui/material';
 const DeliveryItemsCard = ({ Deliverie }) => {
     const classes = useStyles()
     return (
@@ -21,7 +22,7 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                         <div className='row'>
                                             <div className='col-lg-5 col-5 delivery_items_card_img_container px-0'>
                                                 <Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g,'-').toLowerCase()}/${items.id}`}>
-                                                    <LazyLoadImage className='delivery_card_image_height' src={`https://api.cannabaze.com/${items.Store_Image}`} alt='Image_not found' height={"100px"} />
+                                                    <LazyLoadImage className='delivery_card_image_height' src={`https://api.cannabaze.com/${items.Store_Image}`} alt={items.Store_Name} height={"100px"} />
                                                 </Link>
                                             </div>
                                             <div className='col-lg-7 col-7'>
@@ -30,7 +31,14 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                                         <h2 className='ellipsis DeliveryItem_heading'>{items.Store_Name}</h2>
                                                     </div>
                                                     <div className='col-12  delivery_items_card_flex deliver_items_content_same_height ellipsis'>
-                                                        <AiFillStar color='#31B665'/><p className='delivery_item_paragraph delivery_items_spanss'>5.0(27)</p>
+                                                    <Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${items.id}`}>
+                                                    <div className="col-12 d-flex dispensories_content_paragraphs mt-2">
+                                                        <span className='disOPenResRating'>Rating</span>
+
+                                                        <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={items.rating === null ? 0 : items.rating} readOnly />
+                                                        < span style={{color:"black"}}>{items.rating === null ? 0 : items.rating+".0"}({items.TotalRating})</span>
+                                                    </div>
+                                                        </Link>
 
                                                     </div>
                                                     <div className='col-12  deliver_items_content_same_height'>
@@ -80,7 +88,7 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                                 <Box
                                                     className={`${classes.loadingBtnTextAndBack}`}
                                                 >
-                                                    <Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g,'-')}/${"Menu"}/${items.id}`}><LoadingButton style={{ width: "100%", height: "30px" }} variant="outlined">view menu</LoadingButton></Link>
+                                                    <Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g,'-').toLowerCase()}/${items.id}`}><LoadingButton style={{ width: "100%", height: "30px" }} variant="outlined">view menu</LoadingButton></Link>
 
                                                 </Box>
 

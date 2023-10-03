@@ -77,7 +77,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                             <div className="col-6 sliderImageProfile_container_mainDiv" ref={profileRef}>
                                 {/* <Button className={classes.muiBtn} onClick={Logout} >Logout</Button> */}
                                 <div className="SliderImageProfile_container" >
-                                    <LazyLoadImage src='/image/user.webp' className="Slidser_profile_imgs" onClick={sliderProfileHandler} />
+                                    <LazyLoadImage  alt='Profile' src='/image/user.webp' className="Slidser_profile_imgs" onClick={sliderProfileHandler} />
 
                                 </div>
                                 {SliderStateDropDown &&

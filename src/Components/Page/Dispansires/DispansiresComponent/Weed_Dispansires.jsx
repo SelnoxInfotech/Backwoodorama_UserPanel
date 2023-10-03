@@ -9,7 +9,6 @@ import {DespensioriesItem} from '../../../../Api/Api';
 import { Link } from "react-router-dom";
 import { Rating } from '@mui/material';
 import { DispensariesSco } from "../../../Component/ScoPage/DispensariesSco"
-import { useState } from 'react';
 const Weed_Dispansires = () => {
     const classes = useStyles()
     const [Store, SetStore] = React.useState([])
@@ -78,7 +77,7 @@ const Weed_Dispansires = () => {
                                             <div className="row">
                                                 <div className="col-4 disensories_card_image_div">
                                                     <Link  to={`/weed-dispensaries/${ele.Store_Name.replace(/\s/g,'-').toLowerCase()}/${ele.id}`}>
-                                                        <LazyLoadImage id={ele.id} src={`https://api.cannabaze.com/${ele.Store_Image}`} alt="img_not_found" className="dispensories_card_image" />
+                                                        <LazyLoadImage id={ele.id} src={`https://api.cannabaze.com/${ele.Store_Image}`} alt={ele.Store_Name}className="dispensories_card_image" />
                                                     </Link>
 
                                                 </div>
@@ -100,14 +99,17 @@ const Weed_Dispansires = () => {
                                                     <div className="col-12 dispensories_buttonsContainer mt-2">
                                                         <button className="dispensories_pickup_btn">Pickup delivery</button>
                                                     </div>
+                                                        <Link  to={`/weed-dispensaries/${ele.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${ele.id}`}>
                                                     <div className="col-12 d-flex dispensories_content_paragraphs mt-2">
                                                         <span className='disOPenResRating'>Rating</span>
-                                                        <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={4} readOnly />
-
+                                                        <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={ele.rating === null ? 0 : ele.rating} readOnly />
                                                     </div>
+                                                        </Link>
                                                     <div className="col-12">
                                                         <Box className={classes.loadingBtnTextAndBack}>
+                                                        <Link  to={`/weed-dispensaries/${ele.Store_Name.replace(/\s/g,'-').toLowerCase()}/${ele.id}`}>
                                                             <LoadingButton style={{ width: "60%", height: "30px" }}>Order Pickup</LoadingButton>
+                                                            </Link>
                                                         </Box>
                                                     </div>
 

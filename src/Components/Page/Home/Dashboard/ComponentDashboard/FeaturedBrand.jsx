@@ -26,7 +26,7 @@ const FeaturedBrand = ({ CardDataArray ,BrandSkeleton}) => {
                                       <Link  to={`/brands/${items.name.replace(/\s/g, '')}/${items.id}`}> 
                                         <div className="row  FeaturedBrandContainer  mx-0 my-2">
                                             <div className="col-12 FeaturedBrandImageContainer px-0">
-                                                <LazyLoadImage className="FeaturedBrandImage_height" src={`https://api.cannabaze.com/${items.Brand_Logo}`} alt="image not available" />
+                                                <LazyLoadImage alt={items.name} className="FeaturedBrandImage_height" src={`https://api.cannabaze.com/${items.Brand_Logo}`} />
                                             </div>
                                             <p className="ellipsis featuredBrandTitle">{items.name}</p>
                                         </div>

@@ -24,7 +24,9 @@ const DeliveryMenuBar = () => {
                         Category: [{ [current.Category]: current.ProductCount }],
                         id: current.id,
                         Store_Image: current.Store_Image,
-                        Store_Address: current.Store_Address
+                        Store_Address: current.Store_Address,
+                        rating:current.rating,
+                        TotalRating:current.TotalRating
                     }
                     return acc.concat([newCurr]);
                 } else {
@@ -36,7 +38,10 @@ const DeliveryMenuBar = () => {
                             Category: newData,
                             id: current.id,
                             Store_Image: current.Store_Image,
-                            Store_Address: current.Store_Address
+                            Store_Address: current.Store_Address,
+                            rating:current.rating,
+                            TotalRating:current.TotalRating
+
                         }
                         return acc;
                     } else {
