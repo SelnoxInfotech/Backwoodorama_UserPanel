@@ -35,7 +35,7 @@ export default function DispensoriesDetails() {
     const [AllReview, SetReview] =  React.useState([])
     const [GetProductReview, SetGetProductReview] = React.useState({
       value: 0,
-      comment: '',
+      comment:'',
       Title: "",
       popup:true
     })
@@ -132,7 +132,6 @@ export default function DispensoriesDetails() {
 
     React.useEffect(() => {
         Store_OverAllGet_Review(id).then((res) => {
-    console.log(res)
           SetRating(res)
         }).catch(() => { })
       }, [id , api])
@@ -207,16 +206,11 @@ export default function DispensoriesDetails() {
                                     ProductFilterData={ProductFilterData}
                                     Setarr1={SetDespensariesProductData}
                                 // FilterCategoryArry={FilterCategory}
-
-
                                 />
-
                                 <div className="col-12 col-lg-10 prod_cat_right_sec">
                                     <ProductList arr={DespensariesData}
                                         ProductNavigate={ProductNavigate}
                                     />
-
-
                                 </div>
                             </div>
                         </React.Fragment>

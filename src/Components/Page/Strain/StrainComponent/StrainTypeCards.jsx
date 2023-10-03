@@ -16,7 +16,7 @@ const StrainTypeCards = ({ ArrayData }) => {
                             <div className="col-lg-3 col-sm-6 col-6 col-mb-4 strainType_container" key={index}>
                                 <div className="row starinType_inner_row mx-1 my-2">
                                     <div className="col-12 strainTypeInner_container px-0">
-                                      <Link to={`/StrainProduct/${items.head1}`}  state={{ data: items.imgUrl }}>  <LazyLoadImage className="strainType_image" src={items.imgUrl}  /></Link>
+                                      <Link to={`/StrainProduct/${items.head1}`}  state={{ data: items.imgUrl }}>  <LazyLoadImage alt={items.head1} className="strainType_image" src={items.imgUrl}  /></Link>
                                     </div>
 
                                 </div>

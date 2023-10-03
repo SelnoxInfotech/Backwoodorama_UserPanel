@@ -21,7 +21,7 @@ const DeliveryServices = () => {
         }
         ).then((response) => {
             SetDeliveryService(response.data)
-            SetSkeleton(false) 
+            SetSkeleton(false)
         }
 
         ).catch(() => {
@@ -33,10 +33,10 @@ const DeliveryServices = () => {
         <React.Fragment>
             <div className="mt-mb-5 mt-2">
                 <div >
-                    {!Skeleton ? <React.Fragment> 
+                    {!Skeleton ? <React.Fragment>
                         <div className="">
-                        <h2 className='section_main_title'>Delivery services</h2>
-                        <h3 className='section_main_subtitle'>{state.Location}</h3>
+                            <h1 className='section_main_title'>Delivery services</h1>
+                            <h3 className='section_main_subtitle'>{state.Location}</h3>
 
                         </div>
                         <div className="col-12  my-4 recentViewProductSlider" id="width" ref={ref}>
@@ -45,13 +45,13 @@ const DeliveryServices = () => {
                                     return (
                                         <div className='deliveryServicesCard' key={index}>
                                             <div className='deliveryServicesBorder '>
-                                                <Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g,'-')}/${"menu"}/${items.id}`}>
+                                                <Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g, '-').toLowerCase()}/${"menu"}/${items.id}`}>
                                                     <div className='col-12 deliveryServicesImage_container'>
-                                                        <LazyLoadImage className='deliveryServicesImage' src={`https://api.cannabaze.com/${items.Store_Image}`} alt='image not available' />
+                                                        <LazyLoadImage className='deliveryServicesImage' src={`https://api.cannabaze.com/${items.Store_Image}`} alt={items.Store_Name} />
                                                     </div>
                                                 </Link>
                                                 <div className='col-12 deliveryServicesContent_container px-4'>
-                                                    <Link to={`/Weed-deliveries/${items.Store_Name.replace(/\s/g,'-')}/${"menu"}/${items.id}`}>
+                                                    <Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g, '-').toLowerCase()}/${"menu"}/${items.id}`}>
                                                         <div className='w-100  deliveryServicesTitle'>
                                                             <p className='ellipsis'>{items.Store_Name}</p>
                                                         </div>
@@ -59,12 +59,14 @@ const DeliveryServices = () => {
                                                             <p className='ellipsis'>{items.Store_Address}</p>
                                                         </div>
                                                     </Link>
-                                                    <div className='w-100 d-flex align-items-center'>
-                                                        <span className='DeliveryServicesRatingTitle'>Rating</span>
-                                                        <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={4} readOnly />
+                                                    <Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g, '-').toLowerCase()}/${"review"}/${items.id}`}>
+                                                        <div className='w-100 d-flex align-items-center'>
+                                                            <span className='DeliveryServicesRatingTitle'>Rating</span>
+                                                            <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={items.rating === null ? 0 : items.rating} readOnly />
 
 
-                                                    </div>
+                                                        </div>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </div>

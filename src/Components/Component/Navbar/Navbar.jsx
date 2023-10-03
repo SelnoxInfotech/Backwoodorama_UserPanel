@@ -125,7 +125,7 @@ const Navbar = () => {
                 justifyContent="center"
               >
                 <span >
-                  <Link to="/"><LazyLoadImage className='navbar_logo_image' src='https://api.cannabaze.com/image/images/download/media/BlankImage/3.png' /></Link>
+                  <Link to="/"><LazyLoadImage className='navbar_logo_image' alt='WeedX.io' src='https://api.cannabaze.com/image/images/download/media/BlankImage/3.png' /></Link>
                 </span>
 
               </Grid>
@@ -183,7 +183,7 @@ const Navbar = () => {
                             event.onerror = null
                           }}
                           src={`https://api.cannabaze.com/${state.Profile.image}`}
-                          alt='image not available'
+                          alt='Profile'
                           className="Navbar_logo_imgs"
                           onClick={handleClickDropdown}
                         />
@@ -198,7 +198,7 @@ const Navbar = () => {
                               event.onerror = null
                             }}
                               src={`https://api.cannabaze.com/${state?.Profile?.image}`}
-                              alt='' className="Navbar_profile_imgs" />
+                              alt='Profile' className="Navbar_profile_imgs" />
                           </div>
                           <div className='profile_name_container'>
                             <p className='profile_names ellipsis'>{state.Profile.username}</p>

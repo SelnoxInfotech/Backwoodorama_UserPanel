@@ -1,51 +1,97 @@
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import useStyles from '../../../../../Style';
-import {HiOutlineEnvelope} from "react-icons/hi2";
+import { HiOutlineEnvelope } from "react-icons/hi2";
+import { useForm } from "react-hook-form";
+import Axios from 'axios';
+import { FormHelperText } from '@mui/material';
+import React from 'react';
 const HomePageDealsSignup = () => {
     const classes = useStyles()
+    const { register, handleSubmit, errors, reset, setError } = useForm();
+    const [email, setEmail] = React.useState('');
+    const onSubmit = (data) => {
+
+
+        Axios.post(`https://api.cannabaze.com/UserPanel/Add-Subscribe/`,
+            {
+                email: email
+            },
+
+        )
+            .then((res) => {
+                if (res.data.status === "success") {
+                    alert("Thank You For Subscribe")
+                }
+            })
+            .catch((error) => {
+                setError("email", {
+                    type: 'custom',
+                    message: 'subscribe with this email already exists.',
+                }
+                )
+            })
+    }
+    const handleChange = event => {
+        event.preventDefault();
+        setEmail(event.target.value);
+    };
 
     return (
         <div className="container mt-4">
             <div className="row  mt-4">
                 <div className="col-12 HomePageDealsSignupContainer">
-                        <form>
-                            <div className="">
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <div className="">
 
-                                <div className="envelop_icon text-center">
-                                    <span className=''><HiOutlineEnvelope color='#fff' fontSize={70}/></span>
-                                </div>
-                                <div className=" homePageSignup_paragraph   ">
-                                    <p>Subscribe to our Newsletters</p>
-                                </div>
-                                <div className='newsletterFormFeild'>
-                                    <TextField
-                                        className={classes.homePageDealSignup_TextFields}
-                                        InputProps={{
-                                            style: {
-                                                borderRadius: "20px",
-                                                backgroundColor: "#FFFFFF"
-                                            }
-                                        }}
-                                        type='email'
-                                        placeholder="Enter Your Email"
-                                        variant="outlined"
-                                        fullWidth
-                                        size='small'
-                                    />
-                                    <span className='newsletter_btn'>
-                                      <Button className={` ${classes.homePageButton}`} >Subscribe</Button>
-                                      </span>
-                                </div>
-                           
-                                  
-                               
+                            <div className="envelop_icon text-center">
+                                <span className=''><HiOutlineEnvelope color='#fff' fontSize={70} /></span>
                             </div>
-                        </form>
-                    </div>
+                            <div className=" homePageSignup_paragraph   ">
+                                <p>Subscribe to our Newsletters</p>
+                            </div>
+                            <div className='newsletterFormFeild'>
+                                <TextField
+                                    className={classes.homePageDealSignup_TextFields}
+                                    InputProps={{
+                                        style: {
+                                            borderRadius: "20px",
+                                            backgroundColor: "#FFFFFF"
+                                        }
+                                    }}
+                                    type='email'
+                                    placeholder="Enter Your Email"
+                                    variant="outlined"
+                                    fullWidth
+                                    size='small'
+                                    value={email}
+                                    name="email"
+                                    onChange={handleChange}
+                                    helperText={errors.email?.message}
+                                    error={Boolean(errors?.email)}
+                                    inputRef={register({
+                                        required: " Email not Valid",
+                                        pattern: {
+                                            value: /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/,
+                                            message: "Email not Valid"
+                                        }
+                                    })}
+
+                                />
+                                <span className='newsletter_btn'>
+                                    <Button className={` ${classes.homePageButton}`} type='submit' >Subscribe</Button>
+                                </span>
+                            </div>
+
+
+
+
+                        </div>
+                    </form>
                 </div>
-            </div >
-       
+            </div>
+        </div >
+
     )
 }
 export default HomePageDealsSignup

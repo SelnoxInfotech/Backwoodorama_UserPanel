@@ -176,6 +176,7 @@ const ProductList = ({ arr , ProductNavigate }) => {
                                                 event.onerror = null
                                             }}
                                             src={`https://api.cannabaze.com/${ele?.images[0]?.image}`}
+                                            alt={ele.Product_Name}
                                            
                                         />
                                             {/* // <img src={`https://api.cannabaze.com/${ele?.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }} /> */}

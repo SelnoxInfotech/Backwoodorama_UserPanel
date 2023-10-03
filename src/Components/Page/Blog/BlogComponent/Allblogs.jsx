@@ -26,6 +26,7 @@ const [isdata,setisdata] = useState(false)
     <React.Fragment> 
     <NewsSeo></NewsSeo>
     <div>
+      
         <h2 className='section_main_title'>Read blogs from weedx</h2>
        { isdata?  <div className='blogListWrapper'>
           {

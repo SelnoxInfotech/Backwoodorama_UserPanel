@@ -45,7 +45,7 @@ const Footer = () => {
                         <div className="row main_content_logo">
                                 <div className=" footer_logo_container">
                                     <div className="footerLogo">
-                                        <LazyLoadImage className="footer_logo_image" src="https://api.cannabaze.com/image/images/download/media/BlankImage/3.png" alt="image_not found" />
+                                        <LazyLoadImage className="footer_logo_image" src="https://api.cannabaze.com/image/images/download/media/BlankImage/3.png" alt="weedx.io logo" />
                                     </div>
 
                                     <div className="contact_info">
@@ -57,7 +57,7 @@ const Footer = () => {
                                         </div>
                                         <div className="Footer_Left_side_menu ">
                                     
-                                            <Link   to={'https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=weedxselnox@gmail.com'}>    <HiOutlineMail color="#31B665" size={22} /><span className="footer_middle_icons_text">weedxselnox@gmail.com</span></Link>
+                                            <Link to={'https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=weedxselnox@gmail.com'}>    <HiOutlineMail color="#31B665" size={22} /><span className="footer_middle_icons_text">weedxselnox@gmail.com</span></Link>
                                         </div>
                                     </div>
                                 </div>
@@ -75,21 +75,12 @@ const Footer = () => {
                                     <ol className="footer_main_list">
                                         <p className="footer_menu_heading">Category</p>
                                         {Categorys.map((ele, index) => {
-                                            if(index >= 4){
-                                               
-                                             return (
-                                                        <Link to={`/CategoryProduct/${ele.name}`} state={ele.id} key={index} className={morelist ? "" : 'showmoreList'}>
-                                                        <li className="footer_li ellipsis" >{ele.name}</li>
-                                                        </Link>
-                                                    )
-                                            }else{
-                                                return (
-                                                    <Link to={`/CategoryProduct/${ele.name}`} state={ele.id} key={index}>
-                                                        <li className="footer_li ellipsis" >{ele.name}</li>
-                                                    </Link>
-                                                )
-                                            }
-                                           
+                                            return (
+                                                <Link to={`/CategoryProduct/${ele.name}`} state={ele.id} key={index}>
+                                                    <li className="footer_li ellipsis" >{ele.name}</li>
+
+                                                </Link>
+                                            )
                                         })}
                                         <Link to={``}>
                                         <li className="footer_li ellipsis" onClick={()=>{setmorelist(!morelist)}}>{morelist ? "Less" : "More" }</li>

@@ -137,7 +137,7 @@ export default function Dashboard() {
                         </div>
                         <div className="about_card">
                             <div className="about_card_img">
-                                <img src="./image/about4.webp" alt="" />
+                                <img src="./image/about4.webp" alt="Retailer Listings" />
                             </div>
                             <div className="about_text">
                                 <h3 className="acard_title">
