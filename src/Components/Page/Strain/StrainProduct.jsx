@@ -17,7 +17,7 @@ const StrainProduct = () => {
             }
         ).then(response => {
             SetStrainProduct(response.data)
-
+console.log(response.data)
         }).catch(
             function (error) {
                 // SetLoading(false)
@@ -40,15 +40,11 @@ const StrainProduct = () => {
                                 <div className="w-100 strainProduct_content_head_div">
                                     <h1 className="strainProduct_content_head">{type}</h1>
                                 </div>
-                                {/* <div className="w-100 strainProduct_content_head_div">
-                                    <h1 className="strainProduct_variety">AKA Original</h1>
-                                </div> */}
+                               
 
                             </section>
 
                         </div>
-
-
                     </div>
 
                 </div>

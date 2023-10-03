@@ -70,7 +70,7 @@ export default function Dispansires() {
                     <div className="col-12 col-lg-10 col-md-10 col-sm-12 dispensory_menu my-2">
                         <Box className={`dispensories_tabss ${classes.dispensory_tab_background}`} sx={{ width: '100%' }}>
                             <Box className={classes.open_dispensory_tab} sx={{ borderBottom: 1, borderColor: 'divider'}}>
-                                <Tabs scrollButtons={false} variant="scrollable" sx={{ justifyContent: 'space-evenly' }}  value={value} onChange={handleChange} aria-label="basic tabs example">
+                                <Tabs scrollButtons={false} variant="scrollable" sx={{ justifyContent: 'space-around' }}  value={value} onChange={handleChange} aria-label="basic tabs example">
                                     <Tab label="Open" {...a11yProps(0)} />
                                     <Tab label="Storefronts" {...a11yProps(1)} />
                                     <Tab label="delivery" {...a11yProps(2)} />

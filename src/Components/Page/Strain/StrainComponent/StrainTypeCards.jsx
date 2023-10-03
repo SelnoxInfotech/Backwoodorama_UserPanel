@@ -1,34 +1,23 @@
-import { ScrollContainer } from 'react-indiana-drag-scroll';
 import * as React from 'react';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from 'react-router-dom';
-
 const StrainTypeCards = ({ ArrayData }) => {
     const ref = React.useRef(null);
    
     return (
         <React.Fragment>
-            <div className="col-lg-12 col-12   recentViewProductSlider" id="width" ref={ref}>
-                <ScrollContainer className=" StrainTypeCardRelative indiana-scroll-container">
-
+            <div className="straintype_card_wrapper" ref={ref}>
                     {ArrayData.map((items, index) => {
                         return (
-                            <div className="col-lg-3 col-sm-6 col-6 col-mb-4 strainType_container" key={index}>
-                                <div className="row starinType_inner_row mx-1 my-2">
-                                    <div className="col-12 strainTypeInner_container px-0">
-                                      <Link to={`/StrainProduct/${items.head1}`}  state={{ data: items.imgUrl }}>  <LazyLoadImage className="strainType_image" src={items.imgUrl}  /></Link>
-                                    </div>
-
+                            <div className="strainType_container" key={index}>
+                                <div className="strainTypeInner_container ">
+                                    <Link to={`/StrainProduct/${items.head1}`}  state={{ data: items.imgUrl }}>  <LazyLoadImage className="strainType_image" src={items.imgUrl}  /></Link>
                                 </div>
-                                <div className="row">
-                                    <div className="col-12 center">
-                                        <p className="ellipsis strainTypeCaption">{items.head1}</p>
-                                    </div>
-                                </div>
+                                <h3 className="ellipsis strainTypeCaption">{items.head1}</h3>
                             </div>
                         )
                     })}
-                </ScrollContainer>
+                
             </div>
         </React.Fragment>
     )
