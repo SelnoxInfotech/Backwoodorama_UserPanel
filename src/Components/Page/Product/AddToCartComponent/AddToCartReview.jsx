@@ -2,6 +2,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { AiOutlinePlus } from "react-icons/ai"
 import { GrFormSubtract } from "react-icons/gr";
 import { RiDeleteBin6Line } from "react-icons/ri"
+import Swal from 'sweetalert2';
 import React from "react";
 import Axios from 'axios';
 import Cookies from 'universal-cookie';
@@ -9,6 +10,7 @@ import Createcontext from "../../../../Hooks/Context"
 import { LoadingButton } from '@mui/lab';
 import { Link,useNavigate } from 'react-router-dom';
 const AddToCartReview = () => {
+    const Swal = require('sweetalert2')
     const { state, dispatch } = React.useContext(Createcontext)
     const navigate =  useNavigate();
     const cookies = new Cookies();
@@ -18,36 +20,54 @@ const AddToCartReview = () => {
     const [LoadingDelete, SetLoadingDelete] = React.useState(false);
 
     async function DeleteItem(Id, id) {
-        if (state.login) {
-            const config = {
-                headers: { Authorization: `Bearer ${token_data}` }
-            };
-            await Axios.delete(`https://api.cannabaze.com/UserPanel/DeleteAddtoCart/${id}`,
-                config,
-                SetLoadingDelete(true)
-            )
-                .then(async (res) => {
-                    await dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-                    SetLoadingDelete(false)
-                })
-                .catch((error) => {
-                    console.error(error)
-                    SetLoadingDelete(false)
-                })
-
-        }
-        else {
-            var obj = JSON.parse(localStorage.getItem("items"));
-            for (var i = 0; i < obj.length; i++) {
-                if (obj[i].Product_id === Id) {
-                    obj.splice(i, 1);
-                    break;
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won'to remove this product from Cart!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#31B665',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, remove it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                if (state.login) {
+                    const config = {
+                        headers: { Authorization: `Bearer ${token_data}` }
+                    };
+                     Axios.delete(`https://api.cannabaze.com/UserPanel/DeleteAddtoCart/${id}`,
+                        config,
+                        SetLoadingDelete(true)
+                    )
+                        .then(async (res) => {
+                            await dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+                            SetLoadingDelete(false)
+                        })
+                        .catch((error) => {
+                            console.error(error)
+                            SetLoadingDelete(false)
+                        })
+        
                 }
+                else {
+                    var obj = JSON.parse(localStorage.getItem("items"));
+                    for (var i = 0; i < obj.length; i++) {
+                        if (obj[i].Product_id === Id) {
+                            obj.splice(i, 1);
+                            break;
+                        }
+                    }
+                    localStorage.setItem("items", JSON.stringify(obj));
+        
+                }
+                dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+                Swal.fire(
+                    'Removed!',
+                    'Your product has been removed.',
+                    'success'
+                )
             }
-            localStorage.setItem("items", JSON.stringify(obj));
-
-        }
-        dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+          })
+       
 
     }
 
@@ -170,9 +190,9 @@ const AddToCartReview = () => {
                 
                     {state.AllProduct?.map((ele, index) => {
                         return (
-                                <div className="col-12 row py-3 px-0 border-top border-bottom justify-content-center   align-items-center" key={index}>
-                                    <div className='row px-0 col-5'>
-                                            <div className="pl-0 col-4 Add_prod_item_image_cont">
+                                <div className="row py-3 px-0 border-top border-bottom justify-content-center   align-items-center" key={index}>
+                                    <div className='row  col-5'>
+                                            <div className="p-0 col-4 Add_prod_item_image_cont">
                                                 <Link to={`/NewProductDetails/${ele.Product_id}`}>
                                             
                                                 <LazyLoadImage onError={event => {
@@ -203,9 +223,8 @@ const AddToCartReview = () => {
                                     <div className="col-2 text-center">
                                             <div className='AddToCartReviewBtn ' >
                                                         <div className='addToCart_btn'>
-                                                            <LoadingButton loading={Loadingmines} style={{ width: "15px" }}  onClick={() => { decreaseQuantity(ele.id, ele) }} > {(Loadingmines || ele.Cart_Quantity) > 1 && <GrFormSubtract color='gray' />}</LoadingButton>
-
-
+                                                        {(Loadingmines || ele.Cart_Quantity) > 1 &&  <LoadingButton loading={Loadingmines} style={{ width: "15px" }}  onClick={() => { decreaseQuantity(ele.id, ele) }} >  <GrFormSubtract color='gray' /></LoadingButton>
+                                                        }
                                                         </div>
                                                         <div className='AddToCartCount' style={{ width: "20px" }}>
                                                             <p className='addToCartCountNumber'>{ele.Cart_Quantity}</p>

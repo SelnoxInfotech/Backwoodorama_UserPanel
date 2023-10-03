@@ -162,8 +162,16 @@ const routesConfig = [
         path: "/privacy-policy",
         element: <RoutingList Component={Privatepolicy} ></RoutingList>
       },
-
-
+      // blogs
+        {
+          path: "/cannabis-news",
+          element: <RoutingList Component={Allblogs} ></RoutingList>
+        },
+        {
+          path: "/cannabis-news/:name/:id",
+          element: <RoutingList Component={Blogs} ></RoutingList>
+        },
+      // end
       // end
 
       /////////////////////////////////////////////////////////////// Proper Compeleted Routes With Seo ////////////////////////////////////////////////////////////////////////////////////////
@@ -256,15 +264,7 @@ const routesConfig = [
         path: "/StrainProduct/:type",
         element: <RoutingList Component={StrainProduct} ></RoutingList>
       },
-      {
-        path: "/allnews",
-        element: <RoutingList Component={Allblogs} ></RoutingList>
-      },
-      {
-        path: "/Blogs/:id",
-        element: <RoutingList Component={Blogs} ></RoutingList>
-      },
-
+     
       // {
       //   path: "/DashBoardMap",
       //   element:  <RoutingList Component={DashBoardMap} ></RoutingList>   

@@ -37,6 +37,19 @@ const useStyles = makeStyles({
       },
     }
   },
+  textFieldcartPage: {
+    "& .MuiOutlinedInput-root": {
+      backgroundColor:"#fff",
+      " &.Mui-focused fieldset": {
+        borderColor: "#31B665",
+        backgroundColor:"#fff",
+      },
+      '&:hover fieldset': {
+        borderColor: '#31B665',
+        // - Set the Input border when parent has :hover
+      },
+    }
+  },
   searchBarPadding: {
     "&.MuiInputBase-sizeSmall": {
       paddingTop: " 6px",

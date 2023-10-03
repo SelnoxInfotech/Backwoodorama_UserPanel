@@ -7,20 +7,22 @@ import RecentPost from "./BlogComponent/RecentPost";
 import RecentPostComment from "./BlogComponent/RecentPostComment";
 import HomePageDealsSignup from "../Home/Dashboard/ComponentDashboard/HomePageDealsSignup";
 import { useParams } from 'react-router-dom';
-import { useNavigate } from "react-router-dom"
-import { BsFillShareFill } from "react-icons/bs"
-import { IoEyeSharp } from "react-icons/io5"
-import { AiFillHeart  } from "react-icons/ai"
-import { FaLinkedinIn  } from "react-icons/fa"
-import { RiFacebookFill } from "react-icons/ri"
-import { IconButton } from "@mui/material"
-import Createcontext from "../../../Hooks/Context"
+import { useNavigate } from "react-router-dom";
+import { BsFillShareFill } from "react-icons/bs";
+import { BiCommentDetail } from "react-icons/bi";
+import { IoEyeSharp } from "react-icons/io5";
+import { AiFillHeart  } from "react-icons/ai";
+import { IconButton } from "@mui/material";
+import Createcontext from "../../../Hooks/Context";
 import { BlogLike, Post_BlogLike, Get_Comment, Post_Comment, ViewCountApi } from "../../../Api/Api"
 import _ from "lodash"
 import { RWebShare } from "react-web-share";
 import { WhisList } from "../../Component/Whishlist/WhisList";
 import BlogsCommentsCard from "./BlogComponent/BlogsCommentsCard"
 import { Link , useLocation } from "react-router-dom";
+import axios from "axios";
+import {SingleNewsSeo} from "../../Component/ScoPage/NewsSeo.jsx";
+
 const Blogs = () => {
     const classes = useStyles()
     const navigate = useNavigate()
@@ -34,12 +36,14 @@ const Blogs = () => {
     const [WishList, SetWishList] = React.useState(false)
     const [ViewCount, SetViewCount] = React.useState(0)
     const [BlogReviewCount,SetBlogReviewCount]=React.useState()
-  
+    const [isMountRender, setMountRender] = React.useState(true);
+
     React.useEffect(() => {
         const getApi = async () => {
             const res = await fetch(`https://api.cannabaze.com/UserPanel/Get-GetNewsById/${id}`);
             const data = await res.json();
             SetNews(data[0])
+            console.log(data[0] ,' check')
             await BlogLike(data[0].id).then((res) => {
                 SetLikes(res.data.Like)
                 SetValue({ ...value, "LinkCount": res.data.LikeCount })
@@ -59,8 +63,17 @@ const Blogs = () => {
     }, [id])
     React.useEffect(() => {
         window.scroll(0, 0)
-
-    }, [])
+        if(isMountRender){
+            axios.post("https://api.cannabaze.com/UserPanel/Update-ViewCounter/", {  
+            id: News.id
+           }).then((response) => {
+            setMountRender(false)
+            SetViewCount(response.data?.data?.ViewCount ,'response 334')
+         
+          }); 
+        }
+       
+    },[News])
     async function GetComment(id) {
         await Get_Comment(id).then((res) => {
 
@@ -69,7 +82,6 @@ const Blogs = () => {
             console.error(error)
         })
     }
-
     function PostLike(like) {
         if (state.login) {
             Post_BlogLike(News?.id, !like).then((res) => {
@@ -96,6 +108,7 @@ const Blogs = () => {
     }
     return (
         <React.Fragment>
+          <SingleNewsSeo Title={News?.Meta_title} Description={News?.Meta_Description}></SingleNewsSeo>
             <div className="container">
                 <div className="row mx-1">
                     <div className="col-12 w-100 row align-items-center justify-content-between blog_searchBar_container px-0">
@@ -144,8 +157,8 @@ const Blogs = () => {
                             <div className="col-12 Linkofblog ">
                                 <div className="col BlogSocal" id="center1">
 
-                                    <Link className=" LinkColor" to={"https://www.facebook.com/profile.php?id=61550742531174"}>< RiFacebookFill></ RiFacebookFill></Link>
-                                    <Link className=" LinkColor" to={'https://www.linkedin.com/company/weedx-io/'}><FaLinkedinIn ></FaLinkedinIn></Link>
+                                    {/* <Link className=" LinkColor" to={"https://www.facebook.com/profile.php?id=61550742531174"}>< RiFacebookFill></ RiFacebookFill></Link>
+                                    <Link className=" LinkColor" to={'https://www.linkedin.com/company/weedx-io/'}><FaLinkedinIn ></FaLinkedinIn></Link> */}
                                     <RWebShare
                                         data={{url: "https://www.weedx.io/" + Location.pathname }}
                                         sites={["facebook" , "twitter" , "whatsapp" , "telegram" , "linkedin" , 'mail' , 'copy']}
@@ -154,30 +167,33 @@ const Blogs = () => {
                                     >
                                         <BsFillShareFill></BsFillShareFill>
                                     </RWebShare>
-
+                                     <div className="blogViewCounts">Share</div>
                                 </div>
                                 <div className="col viewsBlog" id="center1">
-                                    <IconButton>
+                                <IconButton>
                                         <IoEyeSharp></IoEyeSharp>
                                     </IconButton>
                                  
-                                    <span className="blogViewCounts">{BlogReviewCount} Views</span>
+                                    <span className="blogViewCounts">{ViewCount} Views</span>
 
                                    
                                 </div>
-                                <div className="col-md-8 d-flex center">
-                                    <div className="col viewsBlog" id="center1">
-                                        {/* <IoEyeSharp></IoEyeSharp> */}
-                                        <span className="blogViewCounts">{Getcommnet.CommentCounts} Comment</span>
-                                        {/* <span className="blogViewCounts">Comment</span> */}
-                                    </div>
-                                    <div className="col viewsBlog like" id="center1">
-                                        <IconButton onClick={(() => { PostLike(color()?.like) })}>
-                                            <AiFillHeart color={state?.login && color()?.like && "red"}></AiFillHeart>
-                                        </IconButton>
-                                        <span className="blogViewCounts">{value?.LinkCount}</span>
-                                    </div>
+                              
+                                <div className="col viewsBlog" id="center1">
+                                    {/* <IoEyeSharp></IoEyeSharp> */}
+                            <IconButton> 
+                                    <BiCommentDetail/>
+                                    </IconButton>
+                                    <span className="blogViewCounts">{Getcommnet.CommentCounts} Comment</span>
+                                    {/* <span className="blogViewCounts">Comment</span> */}
                                 </div>
+                                <div className="col viewsBlog like" id="center1">
+                                    <IconButton onClick={(() => { PostLike(color()?.like) })}>
+                                        <AiFillHeart color={state?.login && color()?.like && "red"}></AiFillHeart>
+                                    </IconButton>
+                                    <span className="blogViewCounts">{value?.LinkCount}</span>
+                                </div>
+                                
                             </div>
 
                             {/* </div> */}

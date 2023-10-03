@@ -123,9 +123,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
 
                         {state.AllProduct[0]?.StoreDelivery &&
                             <div className="col-6">
-                                <Box
-                                    className={`px-1 add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
-                                >
+                                <Box className={`px-1 add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`} >
                                     <LoadingButton style={{ backgroundColor: OpenDelivery && "#00b96a", color: OpenDelivery && "white" }} onClick={HandlePickupAndDelivery} id='delivery_btn' variant="outlined">Delivery</LoadingButton>
                                 </Box>
                             </div>
@@ -160,16 +158,16 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
                 <div className="col-12">
                     {OpenDelivery && (<div className="col-12 mt-4 ">
 
-                        <div className="col-lg-12 col-md-8 col-sm-8 addtocart_textfield mt-2">
+                        <div className=" addtocart_textfield mt-2">
                             <label htmlFor="name-field">
                                 MY STREET ADDRESS
                             </label>
-                            <DeliverAutoCompleteAddress OpenDelivery={OpenDelivery}></DeliverAutoCompleteAddress>
+                            <DeliverAutoCompleteAddress OpenDelivery={OpenDelivery} className={classes.textFieldcartPage}></DeliverAutoCompleteAddress>
                         </div>
-                        <div className="col-lg-12 col-md-8 col-sm-8 addtocart_textfield mt-2">
+                        <div className=" addtocart_textfield mt-3">
                             <label htmlFor="name-field">
                                 APARTMENT OR SUITE NUMBER
-                                <TextField className={classes.textFieldFocusBorderColor} name='contact' value={InputValues.contact} onChange={InputFieldHandler} id="outlined-basic" placeholder="APARTMENT OR SUITE NUMBER" variant="outlined" fullWidth size='small' />
+                                <TextField className={classes.textFieldcartPage} name='contact' value={InputValues.contact} onChange={InputFieldHandler} id="outlined-basic" placeholder="APARTMENT OR SUITE NUMBER" variant="outlined" fullWidth size='small' />
                             </label>
                         </div>
                     </div>)}
@@ -179,6 +177,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
 
                     {OpenPickup && (
                         <div className='col-lg-12  pickup_div fontStyle'>
+                            <h3 className='addresHeading'> Pickup addresh</h3>
                             <p>{state.AllProduct[0]?.StoreAddress}</p>
 
                         </div>
@@ -186,40 +185,40 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
 
                 </div>
                 <div className="col-12 order_summary_flex mt-4">
-                    <div className="col-6 add_prod_cart_summary_p">
+                    <div className=" add_prod_cart_summary_p">
                         <p>Subtotal</p>
                     </div>
-                    <div className="col-2 fontStyle">
+                    <div className=" fontStyle">
                         <p>${state.Cart_subTotal}</p>
                     </div>
 
 
                 </div>
                 <div className="col-12 order_summary_flex">
-                    <div className="col-6 add_prod_cart_summary_p">
+                    <div className=" add_prod_cart_summary_p">
                         <p>Est. excise tax</p>
                     </div>
-                    <div className="col-2 fontStyle">
+                    <div className=" fontStyle">
                         <p>$0</p>
                     </div>
 
 
                 </div>
                 <div className="col-12 order_summary_flex">
-                    <div className="col-6 add_prod_cart_summary_p">
+                    <div className=" add_prod_cart_summary_p">
                         <p>State tax</p>
                     </div>
-                    <div className="col-2 fontStyle">
+                    <div className=" fontStyle">
                         <p>$0</p>
                     </div>
 
 
                 </div>
                 <div className="col-12 order_summary_flex">
-                    <div className="col-6 add_prod_cart_summary_p">
+                    <div className=" add_prod_cart_summary_p">
                         <p>Delivery fee</p>
                     </div>
-                    <div className="col-2 fontStyle">
+                    <div className=" fontStyle">
                         <p>$0</p>
                     </div>
 
@@ -228,10 +227,10 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
                 <div className="col-12 order_Summary_total_container">
 
                     <div className="col-12 order_summary_flex">
-                        <div className="col-6 fontStyle add_prod_cart_summary_p">
+                        <div className=" fontStyle add_prod_cart_summary_p">
                             <p>Total</p>
                         </div>
-                        <div className="col-2 fontStyle">
+                        <div className=" fontStyle">
                             <p>${state.Cart_subTotal}</p>
                         </div>
 
@@ -243,7 +242,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
                     <PromoCode />
 
                 </div>
-                <div className="col-6 AddProd_cart_center_btn">
+                <div className="col-12 AddProd_cart_center_btn">
                     {location.pathname === "/AddToCart"  ?(OpenDelivery || OpenPickup) &&
                         <Box
                             className={` add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
@@ -260,7 +259,8 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
                                 type='submit'
                             >Checkout</LoadingButton>
 
-                        </Box> : <Box
+                        </Box> : 
+                        <Box
                             className={` add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
 
                         >
@@ -273,10 +273,9 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
                             }}
 
                             type='submit'
-                        >Checkout</LoadingButton>
+                        >checkout</LoadingButton>
 
-                    </Box>
-
+                        </Box>
                     }
 
                 </div>

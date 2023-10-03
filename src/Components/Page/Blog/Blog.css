@@ -158,6 +158,8 @@
 }
 .blogcardText .blogDate{
   text-align: end;
+  color: #535353;
+  font-size: 14px;
 }
 .blogcardHeading{
   color: #183B56;
@@ -190,6 +192,10 @@ line-height: normal;
   font-weight: 700;
   font-size: 14px;
   padding: 10px 0 0;
+  color: #00b96a;
+}
+.extra_function {
+
 }
 .extra_function_mobile{
   display: none;

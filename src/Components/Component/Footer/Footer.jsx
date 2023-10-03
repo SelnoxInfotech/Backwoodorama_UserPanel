@@ -13,6 +13,7 @@ import "./Footer.css";
 const Footer = () => {
     const classes = useStyles()
     const [Categorys, SetCategorys] = React.useState([])
+    const [morelist, setmorelist] = React.useState(false)
     React.useEffect(() => {
         Axios.get("https://api.cannabaze.com/UserPanel/Get-Categories/", {}).then(Response => {
             SetCategorys(Response.data)
@@ -25,8 +26,7 @@ const Footer = () => {
     const AboutUs = [{ head: "About Us" }, { head: "Company" }, { head: "Investor" }, { head: "Help Center" }, { head: "Download App" }]
 
 
-    const More = [{ head: "Get Started" }, { head: "Brand" }, { head: "Add Business" }, { head: "Contact Us" }]
- 
+  
     // function sendEmail() 
     // {
     //     window.location = "mailto://xyz@yourapplicationdomain.com";
@@ -75,28 +75,43 @@ const Footer = () => {
                                     <ol className="footer_main_list">
                                         <p className="footer_menu_heading">Category</p>
                                         {Categorys.map((ele, index) => {
-                                            return (
-                                                <Link to={`/CategoryProduct/${ele.name}`} state={ele.id} key={index}>
-                                                    <li className="footer_li ellipsis" >{ele.name}</li>
-
-                                                </Link>
-                                            )
+                                            if(index >= 4){
+                                               
+                                             return (
+                                                        <Link to={`/CategoryProduct/${ele.name}`} state={ele.id} key={index} className={morelist ? "" : 'showmoreList'}>
+                                                        <li className="footer_li ellipsis" >{ele.name}</li>
+                                                        </Link>
+                                                    )
+                                            }else{
+                                                return (
+                                                    <Link to={`/CategoryProduct/${ele.name}`} state={ele.id} key={index}>
+                                                        <li className="footer_li ellipsis" >{ele.name}</li>
+                                                    </Link>
+                                                )
+                                            }
+                                           
                                         })}
+                                        <Link to={``}>
+                                        <li className="footer_li ellipsis" onClick={()=>{setmorelist(!morelist)}}>{morelist ? "Less" : "More" }</li>
+                                    </Link>
                                     </ol>
 
                                 </div>
                                 <div className="footer_list">
                                                     <ol className="footer_main_list">
-
                                                         <p className="footer_menu_heading">More</p>
-                                                        {More.map((ele, index) => {
-                                                            return (
-                                                                <Link to={`/Brand`} key={index}>
-                                                                    <li className="footer_li ellipsis" >{ele.head}</li>
-                                                                </Link>
-                                                            )
-
-                                                        })}
+                                                        <Link to={`/Brand`}>
+                                                            <li className="footer_li ellipsis" >Get Started</li>
+                                                        </Link>
+                                                        <Link to={`/Brand`}>
+                                                            <li className="footer_li ellipsis" >Add Brand</li>
+                                                        </Link>
+                                                        <Link to={`/Brand`}>
+                                                            <li className="footer_li ellipsis" >Add Business</li>
+                                                        </Link>
+                                                        <Link to={`/cannabis-news`}>
+                                                            <li className="footer_li ellipsis" >All News</li>
+                                                        </Link>
                                                     </ol>
                                 </div>
                                

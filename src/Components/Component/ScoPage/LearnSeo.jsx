@@ -81,4 +81,5 @@ function StrainSeo() {
         </Helmet>
     )
 }
+
 export { LearnSeo,Law , StrainSeo, LawState}

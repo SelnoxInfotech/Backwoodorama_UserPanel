@@ -116,7 +116,7 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
       <TextField
         onChange={handlechnage}
         value={Address}
-        className={classes.textFieldFocusBorderColor}
+        className={classes.textFieldcartPage}
         inputRef={ref}
         placeholder="Enter Your Delivery Location"
         variant="outlined"
