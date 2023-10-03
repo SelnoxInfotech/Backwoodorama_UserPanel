@@ -43,6 +43,7 @@ import RoutingList from "../Routes/RoutingList"
 import Termsconditions from '../Components/Page/Termsconditions/Termsconditions.jsx'
 import Cookiespolicy from '../Components/Page/Cookiespolicy/Cookiespolicy.jsx'
 import Privatepolicy from '../Components/Page/Privacypolicy/Privacypolicy.jsx'
+import Allblogs from "../Components/Page/Blog/BlogComponent/Allblogs";
 const routesConfig = [
 
   {
@@ -146,7 +147,7 @@ const routesConfig = [
       },
    
       {
-        path: "/products/:CategoryName?/:ProductName/:id",     // NewProductDetails
+        path: "/products/:CategoryName/:subCategory?/:ProductName/:id",     // NewProductDetails
         element: <RoutingList Component={NewProductDetails} ></RoutingList>,
       },
       {
@@ -255,7 +256,10 @@ const routesConfig = [
         path: "/StrainProduct/:type",
         element: <RoutingList Component={StrainProduct} ></RoutingList>
       },
-
+      {
+        path: "/allnews",
+        element: <RoutingList Component={Allblogs} ></RoutingList>
+      },
       {
         path: "/Blogs/:id",
         element: <RoutingList Component={Blogs} ></RoutingList>

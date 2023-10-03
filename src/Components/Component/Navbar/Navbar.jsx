@@ -160,7 +160,7 @@ const Navbar = () => {
                   <IconButton className={classes.navBarButton_icons} aria-label='notification'><IoIosNotifications color="#858585" size={22}></IoIosNotifications></IconButton>
                 </Badge>
               <Link to="/AddToCart">
-                <Badge  badgeContent={ state.login & state.AllProduct.length >= 1  } className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`}>
+                <Badge  badgeContent={ state.AllProduct?.length > 0 && state.AllProduct?.length } className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`}>
 
                   <IconButton className={classes.navBarButton_icons} aria-label='shopping-cart'><MdOutlineShoppingCart color="#858585" size={22}></MdOutlineShoppingCart></IconButton>
                 </Badge>

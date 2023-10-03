@@ -16,7 +16,7 @@ const StoreDetailMenuItem = ({SelectionTab , tab}) => {
                             {StoreDetailMenuItem.map((ele, index) => {
                                 return (
                                     <li className="listfontStyle store_detail_list" onClick={()=>{SelectionTab(ele.item )}}
-                                     style={{color: tab === ele.item && ele.color}}     
+                                     style={{color: tab === ele.item.toLowerCase() && ele.color}}     
                                       key={index}><span className="storeDetalMenuItemCursor">{ele.item}</span></li>
                                 )
                             })}

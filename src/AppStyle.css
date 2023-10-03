@@ -1132,72 +1132,6 @@ scrollbar-width: none;  /* Firefox */
 
 /* end */
 /* AddProductCartContainer */
-.add_prod_cart_p {
-  color: #B7B7B7;
-  font-size: 18px;
-}
-
-.addToCart_deliver {
-  height: 59px;
-}
-
-.AddProductCartContainer {
-  display: flex;
-  height: auto;
-}
-
-.Add_prod_item_image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.Add_prod_item_image_cont img {
-  width: 100%;
-  height: 55px;
-}
-
-.add_prod_para_font h5 {
-  font-size: 24px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.add_prod_para_margin {
-  margin-top: 0px;
-}
-
-.Add_prod_sub_minus_cont {
-  border: 1px solid #dee2e6;
-  height: 30px;
-  width: 14.666667% !important;
-}
-
-
-.addprod_quant {
-  width: 39px !important;
-}
-
-.addprod_quant p {
-  margin-left: 14px;
-  font-weight: 700;
-  font-size: 18px;
-}
-
-.add_prod_cart_btn {
-  border-style: none;
-  background-color: white;
-  border: 1px solid #dee2e6;
-  /* color:#B7B7B7 !important; */
-  height: 29px;
-  width: 29px;
-  font-weight: 700;
-}
-
-
-.add_prod_btn_amount {
-  display: flex;
-}
 
 /* newss */
 .AddToCartReviewBtn {
@@ -1235,22 +1169,13 @@ scrollbar-width: none;  /* Firefox */
   color: #282625;
 }
 
-.add_prod_span_amount {
-  margin-left: 10px;
-  color: #31B665;
-}
+
 
 .Add_prod_cart_amount_right_side {
   position: relative;
   margin-top: 100px;
 }
 
-.AddProductCartContainerinner {
-  display: block;
-  margin-top: 10px !important;
-  height: auto;
-  margin-bottom: 10px;
-}
 
 .addTocard_main_container_height {
   height: auto;
@@ -1293,12 +1218,6 @@ scrollbar-width: none;  /* Firefox */
   .add_prod_para_font h5 {
     font-size: 16px;
     font-weight: 700;
-  }
-
-  .AddProductCartContainerinner {
-    width: 100% !important;
-    margin-top: 10px !important;
-
   }
 
   .Add_product_cart_right_container_summary {
@@ -2740,49 +2659,7 @@ scrollbar-width: none;  /* Firefox */
 }
 
 /* AddToCartPopup */
-.AddToCartImageContainer {
-  height: 120px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.addToCartPopUpImage_background {
-  height: 100px;
-  width: 100px;
-  border-radius: 50px;
-  border: 1px solid #FFFFFF;
-}
-
-.marginRow {
-  margin-top: 100px;
-}
-
-.AddToCartHeading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 32px;
-}
-
-.AddToCartHeading p {
-  color: rgb(74, 74, 74);
-  font-size: 1.5rem;
-  font-weight: 500;
-  letter-spacing: 0.0625rem;
-  line-height: 1.5;
-  text-align: center;
-}
-
-.AddToCartParagraphHeight {
-  height: 100px;
-}
-
-.AddToCartParagraphHeight p {
-  color: rgb(124, 124, 124);
-  font-size: 1rem;
-  text-align: center;
-}
 
 /* end */
 /* EmtyCard_container */

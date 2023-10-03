@@ -33,7 +33,7 @@ const Dispensories = () => {
     const classes = useStyles()
     return (
         <React.Fragment>
-            <div className="container-fluid">
+            <div className="">
                 {!Skeleton ? <div className=''>
                     <div className='col-12  mt-4' style={{ padding: "0" }}>
                         <div className="disp_head" style={{ top: "0" }}>

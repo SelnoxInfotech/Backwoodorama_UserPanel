@@ -158,72 +158,77 @@ const AddToCartReview = () => {
     return (
         <React.Fragment>
             <div className="col-12  AddProductCartContainerinner">
-                {state.AllProduct?.map((ele, index) => {
-                    return (
-                        <div className="col-12 border Add_product_cart_left_container_item" key={index}>
+                
+                <div class="cartProductHeadings row col-12">
+                    <div className='col-5 '><span className='carttableheadings'>Item</span></div>
+                    <div className='col-2 text-center'><span className='carttableheadings'>Price</span></div>
+                    <div className='col-2 text-center'><span className='carttableheadings'>Quantity</span></div>
+                    <div className='col-2 text-center'><span className='carttableheadings'>Subtotal</span></div>
+                    <div className='col-1 text-end'><span className='carttableheadings'></span></div>
+                </div>
+                <div className=" Add_product_cart_left_container_item" >
+                
+                    {state.AllProduct?.map((ele, index) => {
+                        return (
+                                <div className="col-12 row py-3 px-0 border-top border-bottom justify-content-center   align-items-center" key={index}>
+                                    <div className='row px-0 col-5'>
+                                            <div className="pl-0 col-4 Add_prod_item_image_cont">
+                                                <Link to={`/NewProductDetails/${ele.Product_id}`}>
+                                            
+                                                <LazyLoadImage onError={event => {
+                                                    event.target.src = "/image/blankImage.jpg"
+                                                    event.onerror = null
+                                                }} src={`https://api.cannabaze.com//${ele.Image}`} alt="imag not found" />
+                                                </Link>
+                                            </div>
+                                            <div className="col-8 Add_prod_content_cont p-2">
+                                                
+                                            
+                                                    <h5 onClick={()=>{Navigate(ele.Product_id)}}>{ele.ProductName + "(" + ele.Price.Weight + ")"}</h5>
+                                            
 
-                            <div className="col-12  Add_prod_item_image">
+                                            
 
-                                <div className="col-1 Add_prod_item_image_cont">
-                                    <Link to={`/NewProductDetails/${ele.Product_id}`}>
-                                 
-                                    <LazyLoadImage onError={event => {
-                                        event.target.src = "/image/blankImage.jpg"
-                                        event.onerror = null
-                                    }} src={`https://api.cannabaze.com//${ele.Image}`} alt="imag not found" />
-                                       </Link>
-                                </div>
-                                <div className="col-8 Add_prod_content_cont p-2">
-                                    <div className="col-12 fontStyle  add_prod_para_font">
-                                 
-                                        <h5 onClick={()=>{Navigate(ele.Product_id)}}>{ele.ProductName + "(" + ele.Price.Weight + ")"}</h5>
-                                
+                                                    <h2 className='add_prod_cart_p'>{ele.StoreName}</h2>
 
+                                            
+                                                
+                                            
+
+                                            </div>
                                     </div>
-
-                                    <div className="col-12 TOtalAmount(ele.Price.SalePrice * ele.Cart_Quantity) fontStyle  add_prod_para_margin ">
-                                        <h2 className='add_prod_cart_p'>{ele.StoreName}</h2>
-
-                                    </div>
-                                    <div className="col-12 fontStyle  add_prod_para_margin d-flex">
+                                    <div className="col-2 text-center">
                                         <span className="add_prod_span_amount fontStyle">${parseInt(ele.Price.SalePrice)}</span>
                                     </div>
-                                    <div className='col-12'>
-                                        <div className='AddToCartReviewBtn ' >
-                                            <div className='addToCart_btn'>
-                                                <LoadingButton loading={Loadingmines} style={{ width: "15px" }}  onClick={() => { decreaseQuantity(ele.id, ele) }} > {(Loadingmines || ele.Cart_Quantity) > 1 && <GrFormSubtract color='gray' />}</LoadingButton>
+                                    <div className="col-2 text-center">
+                                            <div className='AddToCartReviewBtn ' >
+                                                        <div className='addToCart_btn'>
+                                                            <LoadingButton loading={Loadingmines} style={{ width: "15px" }}  onClick={() => { decreaseQuantity(ele.id, ele) }} > {(Loadingmines || ele.Cart_Quantity) > 1 && <GrFormSubtract color='gray' />}</LoadingButton>
 
+
+                                                        </div>
+                                                        <div className='AddToCartCount' style={{ width: "20px" }}>
+                                                            <p className='addToCartCountNumber'>{ele.Cart_Quantity}</p>
+
+                                                        </div>
+                                                        <div className='addToCart_btn'>
+                                                            <LoadingButton loading={LoadingPlue} className="center" style={{ width: "15px" }} onClick={() => { Quantity(ele.id, ele.Cart_Quantity, ele) }} ><AiOutlinePlus color='gray' /></LoadingButton>
+
+                                                        </div>
 
                                             </div>
-                                            <div className='AddToCartCount' style={{ width: "20px" }}>
-                                                <p className='addToCartCountNumber'>{ele.Cart_Quantity}</p>
-
-                                            </div>
-                                            <div className='addToCart_btn'>
-                                                <LoadingButton loading={LoadingPlue} className="center" style={{ width: "15px" }} onClick={() => { Quantity(ele.id, ele.Cart_Quantity, ele) }} ><AiOutlinePlus color='gray' /></LoadingButton>
-
-                                            </div>
-
-                                        </div>
-
                                     </div>
-
-                                </div>
-                                <div className="col-3 ">
-                                    <div className="col-10 fontStyle Add_prod_cart_amount  mt-4 ">
-                                        <LoadingButton loading={LoadingDelete} className="center" style={{ width: "15px" }} onClick={(() => { DeleteItem(ele.Product_id, ele.id) })}> <RiDeleteBin6Line size={20} color='gray' /></LoadingButton>
-                                    </div>
-
-                                    <div className="col-10 fontStyle Add_prod_cart_amount_right_side   d-flex">
+                                    <div className="col-2 text-center">
                                         <span className="add_prod_span_amount fontStyle" value={ele.Price.SalePrice * ele.Cart_Quantity} >${parseInt(ele.Price.SalePrice * ele.Cart_Quantity)}</span>
                                     </div>
+                                    <div className="col-1 text-center">
+                                    <span><LoadingButton loading={LoadingDelete} className="center" style={{ width: "15px" }} onClick={(() => { DeleteItem(ele.Product_id, ele.id) })}> <RiDeleteBin6Line size={20} color='gray' /></LoadingButton></span>
+                                    </div>
+
                                 </div>
-
-                            </div>
-
-                        </div>
-                    )
-                })}
+                        )
+                    })}
+                </div>
             </div>
         </React.Fragment>
     )

@@ -10,6 +10,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Createcontext from "../../../../Hooks/Context"
 import Cookies from 'universal-cookie';
 import axios from "axios";
+import "./Cartpopup.css";
 import { useNavigate } from 'react-router-dom';
 const AddToCartPopUp = ({ CartClean, SetCartClean, NewData, SetAddToCard }) => {
     const classes = useStyles()

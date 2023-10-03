@@ -22,7 +22,7 @@ const NewsBlog = () => {
   
     return (
         <React.Fragment>
-            <div className="container-fluid">
+            <div className="">
               <h3 className="section_main_title">Blogs</h3>
                     <div className="blogs_card_slider">
                         <ScrollContainer className="blogSlider">

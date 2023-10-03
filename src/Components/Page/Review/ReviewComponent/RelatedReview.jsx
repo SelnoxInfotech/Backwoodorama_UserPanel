@@ -2,29 +2,16 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { AiFillStar } from "react-icons/ai"
 import useStyles from "../../../../Style"
 import React from 'react';
-import { Get_Review } from "../ReviewApi"
 import ReportReviewPopup from '../ReviewPopup/ReportReviewPopup';
-const RelatedReview = ({Product , api}) => {
-    const id = Product.id
+const RelatedReview = ({AllReview, SetReview}) => {
     const [showMore, setShowMore] = React.useState(false);
-    const [Review, SetReview] =  React.useState([])
     const classes = useStyles()
-
-
-
-    React.useEffect(() => {
-        Get_Review(id).then((res) => {
-            SetReview(res.data)
-        }).catch((e) => {
-            console.error(e)
-        })
-    }, [id, api])
     return (
         <React.Fragment>
             <div className='container-fluid'>
 
                 <div className="row center ">
-                    {Review?.map((ele, index) => {
+                    {AllReview?.map((ele, index) => {
                         const text = ele.comment;
                         const getText = (getValue) => {
                             // For Text that is shorter than desired length
@@ -58,7 +45,8 @@ const RelatedReview = ({Product , api}) => {
                         };
 
                         return (
-                            <div className="mx-1">                            <div className="w-100 related_review_container mt-4" key={index}>
+                            <div className="mx-1">                         
+                               <div className="w-100 related_review_container mt-4" key={index}>
                                 <div className="row">
                                     <div className="col-3 col-sm-2 related_img_container">
                                         <div className="row">
