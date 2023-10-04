@@ -13,7 +13,7 @@ const StrainTypeCards = ({ ArrayData }) => {
                                 <div className="strainTypeInner_container ">
                                     <Link to={`/StrainProduct/${items.head1}`}  state={{ data: items.imgUrl }}>  <LazyLoadImage  alt={items.head1} className="strainType_image" src={items.imgUrl}  /></Link>
                                 </div>
-                                <h3 className="ellipsis strainTypeCaption">{items.head1}</h3>
+                                <h3 className="ellipsis strainTypeCaption ">{items.head1}</h3>
                             </div>
                         )
                     })}
