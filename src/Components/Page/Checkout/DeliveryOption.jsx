@@ -168,7 +168,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
                                             </div>
 
                                         </div>
-                                        <div className='col-12 margin_left'>
+                                        <div className='col-12'>
                                             <p>Please agree to the store's required terms</p>
 
                                         </div>
