@@ -41,6 +41,7 @@ import Termsconditions from '../Components/Page/Termsconditions/Termsconditions.
 import Cookiespolicy from '../Components/Page/Cookiespolicy/Cookiespolicy.jsx'
 import Privatepolicy from '../Components/Page/Privacypolicy/Privacypolicy.jsx'
 import Allblogs from "../Components/Page/Blog/BlogComponent/Allblogs";
+import Sitemap from '../generateSitemap';
 const routesConfig = [
 
   {
@@ -49,7 +50,11 @@ const routesConfig = [
 
     children: [
       // //////////////////////////////////////////////////////////// Complete ///////////////////////////////////////////////////////////
-
+    
+      {
+        path: "/Sitemap",
+        element: <RoutingList Component={Sitemap} ></RoutingList>,
+      },
       {
         path: "/login",
         element: <RoutingList Component={Login} ></RoutingList>,
