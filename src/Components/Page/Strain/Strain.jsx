@@ -1,3 +1,4 @@
+import React ,{Suspense} from "react"
 import StrainType from "./StrainComponent/StrainType"
 import PopularStrain from "./StrainComponent/PopularStrain"
 import {StrainSeo} from "../../Component/ScoPage/LearnSeo"
@@ -17,17 +18,19 @@ const Strain = () => {
 
   const popularStrainHeading = "Popular strain"
   return (
+    <Suspense fallback={"Loading"}>
     <div className="container-fluid">
       <StrainSeo></StrainSeo>
       <PopularStrain SliderDataArray={PopularStrainArray} Heading={popularStrainHeading} />
       <StrainType/>
-      <div className="row">
+      {/* <div className="row">
         <div className="col-12">
           <h2 className="strainPopular_heading">Popular strains products</h2>
         </div>
 
-      </div>
+      </div> */}
     </div>
+    </Suspense>
   )
 }
 export default Strain

@@ -609,9 +609,7 @@
   .editProfile_name {
     font-size: 12px;
   }
-  .ScrollContainerRelative {
-    left: 0px;
-  }
+  
   .newProductSearchResult_ScrollContainerRelative {
     left: 0px;
   }
@@ -795,9 +793,7 @@
   .bestDeal_subHeading p {
     font-size: 14px;
   }
-  .latestServices_SliderCol {
-    margin-left: -4px;
-  }
+
   .weed_main_Div {
     display: flex;
     height: 230px;
@@ -878,10 +874,6 @@
   .shopByCategoryHeading {
     font-size: 16px;
     margin-left: 0px;
-  }
-
-  .latest_services_headings {
-    font-size: 18px;
   }
   .CategoryBordrr{
    padding: 0;

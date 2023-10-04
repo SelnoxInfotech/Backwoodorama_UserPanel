@@ -1,0 +1,137 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
+.review_secton{
+    position: relative;
+}
+.reviews_description {
+    position: sticky;
+    top: 150px;
+    height: fit-content;
+}
+.related_review_content{
+    position: relative;
+}
+.related_review_container{
+    padding: 20px 0;
+    border-bottom: 1px solid #e3e3e3;
+    border-top: 1px solid #e3e3e3;
+}
+.related_review_container .related_review_image{
+ width: 70px;
+ height: 70px;
+ border-radius: 50%;
+ overflow: hidden;
+}
+.related_review_container .related_review_image img{
+    width: 100%;
+    height: 100%;
+   }
+   .reviwerName_rating{
+     display: flex;
+     align-items: center;
+     gap: 10px;
+   }
+   .reviwerName_rating .userName{
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0;
+    color: #00000073;
+   }
+   .reviewSectionRating{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #fff;
+    background-color: #31B665;
+    padding:0 5px;
+    border-radius: 4px;
+   }
+   .reviewSectionRating p{
+     font-size: 14px;
+     font-weight: 600;
+     margin: 0;
+   }
+   .review_date{
+    position: absolute;
+    top: 0px;
+    right: 10px;
+   }
+   .review_date p{
+     font-size: 14px;
+     font-weight: 600;
+     margin: 0;
+     color: rgb(70, 70, 70);
+   }
+   .reviews_title{
+    font-size: 22px;
+    font-weight: 500;
+    color: #474747;
+    line-height: 1.5;
+    margin: 0;
+    width: 85%;
+   }
+   .more_less_btn{
+    border: none;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0;
+   }
+   .review_description{
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: rgb(65, 65, 65);
+   }
+   .review_description_container{
+    padding: 20px 0;
+   }
+   .related_review_footer{
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+   }
+   .review_help_btn{
+      background-color: white;
+      color: #707070;
+      border: 1px solid #f0f0f0;
+      height: 26px;
+      font-size: 12px;
+      border-radius: 14px;
+      text-transform: none;
+      padding: 0 5px;
+   }
+   @media screen and (max-width: 1024px){
+       .reviews_title{
+        font-size: 14px;
+     
+       }
+       .review_description_container{
+        padding: 10px 0;
+       }
+       .more_less_btn{
+        font-size: 12px;
+       }
+       .review_description{
+        font-size: 14px;
+       }
+       .reviwerName_rating .userName{
+        font-size: 12px;
+      
+       }
+       .review_date p{
+        font-size: 12px;
+      }
+      .related_review_container .related_review_image{
+        width: 50px;
+        height: 50px;
+      }
+   }
+   @media screen and (max-width: 768px){
+    .reviews_description{
+        position: unset;
+        margin-bottom: 20px;
+    }
+   }

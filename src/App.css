@@ -733,9 +733,17 @@ overflow-x: hidden; */
   justify-content: normal;
   ;
   position: relative;
-  
+  overflow-x: scroll;
+}
+.ScrollContainerRelative::-webkit-scrollbar {
+  display: none;
 }
 
+/* Hide scrollbar for IE, Edge and Firefox */
+.ScrollContainerRelative {
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
+}
 
 .PopperLIst {
   list-style: none;
@@ -820,16 +828,6 @@ overflow-x: hidden; */
   width: 214px;
  
 }
-.shopByCategoryHeading{
-  line-height: 2;
-  
-}
-
-
-
-
-
-
 /* Category Skeleton */
 .CategorySkeleton {
   display: flex;

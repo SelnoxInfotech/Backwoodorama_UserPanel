@@ -2,7 +2,8 @@ import React from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Autoplay } from 'swiper/modules';
-import {Homepagebanner} from '../../../../../Api/Api.jsx'
+import {Homepagebanner} from '../../../../../Api/Api.jsx';
+import "swiper/css";
 import HomePageBannerSkeleton from '../../../../Component/Skeleton/DashBoardSkeleton/HomePageBannerSkeleton';
 const HomePageBanner = () => {
     const [HomePageBannerImage,SetHomePageBannerImage]=React.useState([])

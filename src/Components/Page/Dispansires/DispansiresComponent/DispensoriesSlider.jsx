@@ -54,7 +54,7 @@ const Dispensories = () => {
                                                 </Link>
                                             </div>
                                             <div className='dispensoriesContentContainer'>
-                                                <Link className='dispensoriesLinkStyles' to={`/weed-dispensaries/${ele.Store_Name.replace(/\s/g,'-')}/${"menu"}/${ele.id}`}>
+                                                <Link to={`/weed-dispensaries/${ele.Store_Name.replace(/\s/g,'-')}/${"menu"}/${ele.id}`}>
                                                     <div className='col-12'>
 
                                                         <div className=' dis_right_div'>
@@ -83,7 +83,7 @@ const Dispensories = () => {
 
                                                 </Link>
                                                 <Link  to={`/weed-dispensaries/${ele.Store_Name.replace(/\s/g,'-')}/${"review"}/${ele.id}`}>
-                                                <div className=' dispensoriesAddressRatingCol '>
+                                                <div className=' dispensoriesAddressRatingCol text-center '>
                                                     <span className='rating_title'>Rating</span>
                                                     <Rating className={classes.homePageStarIcons} color='green' name="read-only" value={ele.rating === null ? 0 : ele.rating} readOnly />
                                                 </div>

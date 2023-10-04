@@ -1,8 +1,4 @@
-// import Button from '@mui/material/Button';
-// import { BiMap } from "react-icons/bi"
 import { AiFillStar } from "react-icons/ai";
-// import { AiFillHeart } from "react-icons/ai";
-
 import LoadingButton from '@mui/lab/LoadingButton';
 import styled from "styled-components";
 import Box from '@mui/material/Box';
@@ -143,7 +139,7 @@ const WeedProduct = () => {
                                                         <section className="weed_btn">
 
                                                             {ele.quant}
-                                                            <p className="rs">{ele.rs}</p>
+                                                            <p>{ele.rs}</p>
                                                         </section>
                                                     </div>
 

@@ -40,7 +40,7 @@ const DeliveryServices = () => {
 
                         </div>
                         <div className="col-12  my-4 recentViewProductSlider" id="width" ref={ref}>
-                            <ScrollContainer className="DeliveryServices_ScrollContainerRelative">
+                            <ScrollContainer className="ScrollContainerRelative">
                                 {DeliveryService.map((items, index) => {
                                     return (
                                         <div className='deliveryServicesCard' key={index}>

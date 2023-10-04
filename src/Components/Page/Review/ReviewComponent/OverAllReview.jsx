@@ -22,10 +22,8 @@ const OverAllReview = ({ Rating, api, SetApi  ,onSubmit,  GetProductReview, SetG
             <div className="container-fluid">
 
                 <div className="w-100 mt-4">
-                    <div className=" px-0 product_review">
-                        <h2>Store Details</h2>
-
-                    </div>
+                    
+                        <h2 className=".section_main_title">Store Details</h2>
 
                     <div className="overall_review_container mt-2">
                         <div className="">
@@ -36,11 +34,7 @@ const OverAllReview = ({ Rating, api, SetApi  ,onSubmit,  GetProductReview, SetG
 
                         </div>
                         <div className="row">
-                            <div className="col-12 left_circularbar_heading fontStyle">
-                                <p>Review</p>
-
-                            </div>
-                            <div className="col-lg-3  col-md-4 col-sm-12 col-12 left_circularbar_container">
+                            <div className="col-xxl-3 col-12 left_circularbar_container">
                                 <div className="row">
 
                                     <div className="col-lg-12 left_circularbar">
@@ -79,7 +73,7 @@ const OverAllReview = ({ Rating, api, SetApi  ,onSubmit,  GetProductReview, SetG
                                 </div>
 
                             </div>
-                            <div className="col-lg-9  col-md-8 col-sm-12 col-12  right_horizontal_bar">
+                            <div className="col-xxl-9 col-12  right_horizontal_bar">
                                 <div className="row">    
                                     <div className="col-lg-12">             
                                         {testData.map((item, idx) => {

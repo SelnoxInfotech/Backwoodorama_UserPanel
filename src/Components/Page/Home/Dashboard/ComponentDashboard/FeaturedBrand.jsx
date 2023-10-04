@@ -18,7 +18,7 @@ const FeaturedBrand = ({ CardDataArray ,BrandSkeleton}) => {
              </div>
 
             <div  className="feature_brand_container"  ref={ref}>
-                <ScrollContainer className="featuredBrandScrollContainerRelative">
+                <ScrollContainer className="ScrollContainerRelative">
                     {
                         CardDataArray.map((items, index) => {
                             return (

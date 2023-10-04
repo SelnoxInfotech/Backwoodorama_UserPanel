@@ -24,7 +24,9 @@ textarea:focus {
 .textAreaDeliveryOptions{
   min-height: 120px;
 }
-
+a{
+  text-decoration: none;
+}
 input[type=checkbox] {
   accent-color: #31B665;
 }
@@ -50,10 +52,6 @@ input[type=checkbox] {
 }
 
 
-.latestServices_SliderCol {
-  margin-left: -9px;
-}
-
 
 .productlist_rating {
   color: #949494;
@@ -63,14 +61,6 @@ input[type=checkbox] {
 }
 
 /* community */
-.community_img_div img {
-  width: 100%;
-  height: 400px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .comm_para p {
   font-size: 15px;
   margin-bottom: 0px;
@@ -79,15 +69,11 @@ input[type=checkbox] {
 
 .comm_para1 p {
   font-size: 15px;
-
   color: #31B665;
 }
 
 
 /* dispensories card */
-.color {
-  color: #949494;
-}
 .dispensoriesHeadings {
   color: #282625;
   font-size: 24px;
@@ -96,35 +82,7 @@ input[type=checkbox] {
   line-height: normal;
   margin: 0;
 }
-.disp_padding_left {
-  padding-left: 18px;
-}
 
-
-
-
-.dispensoriesAlignedCenter {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.dispensoriesLinkStyles {
-  text-decoration: none;
-}
-
-.dispensoriesAddressRatingCol {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.dispensoriesAddressHeadings {
-  color: #000000;
-  font-weight: 400;
-  font-size: 14px;
-  margin-bottom: 0px;
-}
 .Dispensaries_card_discription {
  
   display: flex;
@@ -157,30 +115,13 @@ line-height: normal;
   font-weight: 700;
   font-size: 25px;
   color: #333333;
+  line-height: 2;
 }
-
-.latest_services_headings {
-  font-weight: 700;
-  font-size: 34px;
-  color: #000000;
-  margin-bottom: 0px;
-}
-
-.Rating {
-  display: flex;
-}
-
-
-
 /* end */
 
 
 /* category */
 
-.Category_Image {
-  display: flex;
-  align-self: center;
-}
 .catagoriesTabImg{
   width: 150px;
   height: 150px;
@@ -209,7 +150,6 @@ line-height: normal;
 }
 
 .span_nav_star {
-  /* line-height: 82%; */
   padding-left: 10px;
 }
 
@@ -229,12 +169,11 @@ line-height: normal;
   text-align: center;
 }
 
-.weed_btn .rs {
+.weed_btn p{
   font-size: 12px;
   color: black;
   font-weight: 700;
 }
-
 .weed_img_div img {
   width: 100%;
   height: 180px;
@@ -1623,21 +1562,7 @@ scrollbar-width: none;  /* Firefox */
 
 }
 
-.product_review h1 {
-  font-weight: 700;
-  font-size: 24px;
-  color: #000000;
-}
 
-.left_circularbar_heading {
-  height: 30px;
-}
-
-.left_circularbar_heading p {
-  color: #000000;
-  font-size: 20px;
-  margin-left: 30px;
-}
 
 .left_circularbar_container {
   height: 200px;
@@ -1695,79 +1620,6 @@ scrollbar-width: none;  /* Firefox */
 
 /* end */
 /* RelatedReview */
-.related_review_container {
-  /* height: 202px; */
-  height: auto;
-  background: #FFFFFF;
-  border: 1px solid #DCD9D9;
-
-}
-
-.related_review_view_less_more_button {
-  border-style: none;
-}
-
-.related_img_container {
-  height: 160px;
-
-}
-
-.related_review_footer {
-  height: 40px;
-}
-
-.related_review_image {
-  height: 160px;
-  display: grid;
-  place-items: center;
-}
-
-.related_review_content {
-  height: auto;
-
-}
-
-.realted_review_images {
-  height: 60px;
-  width: 60px;
-  border-radius: 30px;
-}
-
-.RelatedReview_TextCol_height {
-  height: 30px;
-}
-
-.related_review_heading p {
-  font-size: 20px;
-}
-
-.related_review_paragraph p {
-  font-weight: 400;
-  color: #000000;
-  font-size: 16px;
-}
-
-.related_review_Comment {
-  height: auto;
-
-}
-
-.related_review_Comment p {
-  font-size: 14px;
-  color: #000000;
-  font-weight: 400;
-}
-
-.related_review_footer_paragraph p {
-  font-size: 12px;
-  color: black;
-  font-weight: 400;
-}
-
-.related_review_rate_star_flex {
-  display: flex;
-  gap: 4px;
-}
 
 /* end */
 /* Review */
@@ -5237,19 +5089,6 @@ background: #31B665;
   display: flex;
   align-items: center;
 }
-
-/* end */
-/* deliveryServices */
-.DeliveryServices_ScrollContainerRelative {
-  width: 100%;
-  display: flex;
-  gap: 2.6%;
-  justify-content: normal;
-  position: relative;
- 
-}
-
-
 
 /* end */
 /* historyEditor */

@@ -1,51 +1,52 @@
+import React from "react";
 import Layout from "../Layout/Layout"
 import Dashboard from "../Components/Page/Home/Dashboard/Dashboard";
-import Product from "../Components/Page/Product/Product";
-import AddToCart from "../Components/Page/Product/AddToCartComponent/AddToCart"
-import DispensoriesDetails from "../Components/Page/Dispansires/DispansiresComponent/DispensoriesDetail"
-import Signup from "../Components/Page/Signup/Signup"
-import Login from "../Components/Page/Login/Login"
-import SignupWithEmail from "../Components/Page/Signup/SignupWithEmail"
-import ForgotPassword from "../Components/Page/ResetPassword/ForgotPassword"
-import CreatePassword from "../Components/Page/ResetPassword/CreatePassword"
-import CheckOutMainPage from "../Components/Page/Checkout/CheckoutMainPage"
 import ProtectRout from "../Routes/ProtectRout"
-import PlaceOrder from "../Components/Page/Checkout/PlaceOrder"
-import OpenDispansires from "../Components/Page/Dispansires/Dispansires"
-import StoreDetail from "../Components/Page/StoreDetail/StoreDetail"
-import EmptyCard from "../Components/Page/Product/EmptyCard/EmptyCard"
-import Deliveries from "../Components/Page/Deliveries/Deliveries"
-import Brand from "../Components/Page/Brand/Brand"
-import NewProductDetails from "../Components/Page/Product/NewProductDetails/NewProductDetails"
-import RelatedVerifyBrand from "../Components/Page/Brand/RelatedVerifyBrand/RelatedVerifyBrand";
-import RelatedDeals from "../Components/Page/Deals/RelatedDeals";
-import Strain from "../Components/Page/Strain/Strain";
-import MainDeals from "../Components/Page/MainDealsFolder/MainDeals";
-import AboutUs from "../Components/Page/AboutUs/AboutUs";
-import LearnTabs from "../Components/Page/Learn/LearnTabs";
-import LearnCardRelatedPage from "../Components/Page/Learn/LearnCardRelatedPage/LearnCardRelatedPage";
-import Profile from "../Components/Page/Profile/Profile";
-import EditProfile from "../Components/Page/Profile/EditProfile/EditProfile";
-import FourZeroFour from "../Components/Page/ErrorPage/FourZeroFour";
-import FiveZeroThree from "../Components/Page/ErrorPage/FiveZeroThree";
-import FourZeroThree from "../Components/Page/ErrorPage/FourZeroThree";
-import MyOrder from "../Components/Page/MyOrder/MyOrder";
-import MyOrderProductDetail from "../Components/Page/MyOrder/MyOrderProductDetail";
-import StrainProduct from "../Components/Page/Strain/StrainProduct";
-import Blogs from "../Components/Page/Blog/Blog";
-import WhisLists from "../Components/Component/Whishlist/WhisLists/WhisLists";
-import LawStateDescription from "../Components/Page/Learn/Laws/LawStateDescription/LawStateDescription";
 import RoutingDespen from "../Routes/RoutingDespen"
 import RoutingList from "../Routes/RoutingList"
-import Termsconditions from '../Components/Page/Termsconditions/Termsconditions.jsx'
-import Cookiespolicy from '../Components/Page/Cookiespolicy/Cookiespolicy.jsx'
-import Privatepolicy from '../Components/Page/Privacypolicy/Privacypolicy.jsx'
-import Allblogs from "../Components/Page/Blog/BlogComponent/Allblogs";
+
+const Blogs = React.lazy(() => import("../Components/Page/Blog/Blog"));
+const OpenDispansires = React.lazy(() => import("../Components/Page/Dispansires/Dispansires"));
+const DispensoriesDetails = React.lazy(() => import("../Components/Page/Dispansires/DispansiresComponent/DispensoriesDetail"));
+const CreatePassword = React.lazy(() => import("../Components/Page/ResetPassword/CreatePassword"));
+const RelatedDeals = React.lazy(() => import("../Components/Page/Deals/RelatedDeals"));
+const RelatedVerifyBrand = React.lazy(() => import("../Components/Page/Brand/RelatedVerifyBrand/RelatedVerifyBrand"));
+const NewProductDetails = React.lazy(() => import("../Components/Page/Product/NewProductDetails/NewProductDetails"));
+const StoreDetail = React.lazy(() => import("../Components/Page/StoreDetail/StoreDetail"));
+const PlaceOrder = React.lazy(() => import("../Components/Page/Checkout/PlaceOrder"));
+const CheckOutMainPage = React.lazy(() => import("../Components/Page/Checkout/CheckoutMainPage"));
+const Product = React.lazy(() => import("../Components/Page/Product/Product"));
+const AddToCart = React.lazy(() => import("../Components/Page/Product/AddToCartComponent/AddToCart"));
+const Signup = React.lazy(() => import("../Components/Page/Signup/Signup"));
+const Login = React.lazy(() => import("../Components/Page/Login/Login"));
+const SignupWithEmail = React.lazy(() => import("../Components/Page/Signup/SignupWithEmail"));
+const ForgotPassword = React.lazy(() => import("../Components/Page/ResetPassword/ForgotPassword"));
+const FourZeroThree = React.lazy(() => import("../Components/Page/ErrorPage/FourZeroThree"));
+const FiveZeroThree = React.lazy(() => import("../Components/Page/ErrorPage/FiveZeroThree"));
+const FourZeroFour = React.lazy(() => import("../Components/Page/ErrorPage/FourZeroFour"));
+const Brand = React.lazy(() => import("../Components/Page/Brand/Brand"));
+const Deliveries = React.lazy(() => import("../Components/Page/Deliveries/Deliveries"));
+const EmptyCard = React.lazy(() => import("../Components/Page/Profile/EditProfile/EditProfile"));
+const Profile = React.lazy(() => import("../Components/Page/Profile/Profile"));
+const EditProfile = React.lazy(() => import("../Components/Page/Profile/EditProfile/EditProfile"));
+const WhisLists = React.lazy(() => import("../Components/Component/Whishlist/WhisLists/WhisLists"));
+const LawStateDescription = React.lazy(() => import("../Components/Page/Learn/Laws/LawStateDescription/LawStateDescription"));
+const LearnCardRelatedPage = React.lazy(() => import("../Components/Page/Learn/LearnCardRelatedPage/LearnCardRelatedPage"));
+const LearnTabs = React.lazy(() => import("../Components/Page/Learn/LearnTabs"));
+const AboutUs = React.lazy(() => import("../Components/Page/AboutUs/AboutUs"));
+const MainDeals = React.lazy(() => import("../Components/Page/MainDealsFolder/MainDeals"));
+const Strain = React.lazy(() => import("../Components/Page/Strain/Strain"));
+const StrainProduct = React.lazy(() => import("../Components/Page/Strain/StrainProduct"));
+const MyOrderProductDetail = React.lazy(() => import("../Components/Page/MyOrder/MyOrderProductDetail"));
+const MyOrder = React.lazy(() => import("../Components/Page/MyOrder/MyOrder"));
+const Allblogs = React.lazy(() => import("../Components/Page/Blog/BlogComponent/Allblogs"));
+const Privatepolicy = React.lazy(() => import("../Components/Page/Privacypolicy/Privacypolicy.jsx"));
+const Cookiespolicy = React.lazy(() => import("../Components/Page/Cookiespolicy/Cookiespolicy.jsx"));
+const Termsconditions = React.lazy(() => import('../Components/Page/Termsconditions/Termsconditions.jsx'));
 const routesConfig = [
 
   {
-    element: <Layout />,
-
+    element: <Layout /> ,
 
     children: [
       // //////////////////////////////////////////////////////////// Complete ///////////////////////////////////////////////////////////
@@ -124,7 +125,7 @@ const routesConfig = [
 
       {
         path: "/strain",
-        element: <RoutingList Component={Strain} ></RoutingList>
+        element: <RoutingList Component={ Strain } ></RoutingList>
       },
       {
         path: "/aboutUs",
@@ -199,22 +200,6 @@ const routesConfig = [
       }
       ,
 
-      // {
-      //   path: "/weed-deliveries/in/:Country/",
-      //   element: <RoutingDespen Component={Deliveries} path="/Weed-Deliveries/in/" ></RoutingDespen>
-      // },
-      // {
-      //   path: "/weed-deliveries/in/:Country/:state/",
-      //   element: <RoutingDespen Component={Deliveries} path="/Weed-Deliveries/in/" ></RoutingDespen>
-      // },
-      // {
-      //   path: "/weed-deliveries/in/:Country/:state/:city",
-      //   element: <RoutingDespen Component={Deliveries} path="/Weed-Deliveries/in/" ></RoutingDespen>
-      // },
-
-
-      // End
-
       {
         path: "/StoreDetail",
         element: <RoutingList Component={StoreDetail} ></RoutingList>
@@ -261,11 +246,6 @@ const routesConfig = [
         path: "/StrainProduct/:type",
         element: <RoutingList Component={StrainProduct} ></RoutingList>
       },
-     
-      // {
-      //   path: "/DashBoardMap",
-      //   element:  <RoutingList Component={DashBoardMap} ></RoutingList>   
-      // },
 
       {
         path: "/whisLists",

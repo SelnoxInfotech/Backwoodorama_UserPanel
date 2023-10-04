@@ -25,7 +25,7 @@ const NewsBlog = () => {
             <div className="px-sm-0 px-3">
               <h3 className="section_main_title">Blogs</h3>
                     <div className="blogs_card_slider">
-                        <ScrollContainer className="blogSlider">
+                        <ScrollContainer className="ScrollContainerRelative">
                            
                                 {News?.map((ele, index) => {
                                     return (

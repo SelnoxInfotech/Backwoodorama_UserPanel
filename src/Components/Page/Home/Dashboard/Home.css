@@ -15,13 +15,7 @@
   padding: 40px 0;
 }
   
-  .featuredBrandScrollContainerRelative {
-    width: 100%;
-    display: flex;
-    gap: 20px;
-   
-    position: relative;
-  }
+
  
   .featuredBrandTitle {
     font-weight: 600;
@@ -34,15 +28,11 @@
 .feature_brands{
   width: 200px;
 }
-  .featuredBrandScrollContainerRelative .feature_brands .FeaturedBrandImageContainer{
+ .feature_brands .FeaturedBrandImageContainer img{
     width: 200px;
     height: 150px;
-margin: 0 auto;
   }
-  .featuredBrandScrollContainerRelative .feature_brands .FeaturedBrandImageContainer .FeaturedBrandImage_height{
-      width: 100%;
-      height: 100%;
-  }
+ 
   .About_weedx{
     background-color: #F9F9F9;
     padding: 50px 20px;
@@ -116,12 +106,7 @@ background: #FFF;
     width: 100%;
     height: 100%;
  }
- .blogs_card_slider .blogSlider{
-  display: flex;
-  gap: 20px;
-  position: relative;
- }
- .blogs_card_slider .blogSlider a{
+ .blogs_card_slider .ScrollContainerRelative a{
   display: block;
  }
 .new_blog_card_text{

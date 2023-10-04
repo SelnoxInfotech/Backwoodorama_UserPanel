@@ -1,7 +1,4 @@
 import * as React from 'react';
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { ScrollContainer } from 'react-indiana-drag-scroll';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import CategorySkeleton from "../../../../Component/Skeleton/CategorySkeleton"
@@ -12,8 +9,6 @@ const CategoryProduct = ({ ShowCategoryProduct, Category,Skeleton }) => {
         <React.Fragment>
             <div className='container-fluid CategoryBordrr'>
                 <div className='row'>
-
-
                        {
                              !Skeleton?
                            
@@ -44,7 +39,7 @@ const CategoryProduct = ({ ShowCategoryProduct, Category,Skeleton }) => {
                                                 )
                                             })}
                                        </ScrollContainer>
-                             </div>
+                                </div>
                             
                              :
                              <CategorySkeleton></CategorySkeleton>

@@ -1,5 +1,5 @@
 
-import React from "react"
+import React ,{Suspense} from "react"
 import CurrentLocation from "../Components/Component/Navbar/Component/CurrentLocation"
 import Createcontext from "../Hooks/Context"
 export default function RoutingList(props) {
@@ -12,8 +12,10 @@ export default function RoutingList(props) {
 
     return (
         <div>
+            <Suspense fallback={"Loading"}>
             <Component />
-        {state?.Country ==='' &&<CurrentLocation Country={state?.Country}></CurrentLocation> }
+            </Suspense>
+           {state?.Country ==='' &&<CurrentLocation Country={state?.Country}></CurrentLocation> }
         </div>
     )
 }
