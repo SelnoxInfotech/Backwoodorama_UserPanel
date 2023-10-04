@@ -43,6 +43,11 @@ module.exports = {
                     outputPath: 'fonts/'
                 }
             }]
-        }
+        },
+        {
+            test: /\.(js|jsx|ts|tsx)$/,
+            use: ['source-map-loader'],
+            enforce: 'pre', // This ensures source maps are loaded before other loaders
+          },
     ]
 }

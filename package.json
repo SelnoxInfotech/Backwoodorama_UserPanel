@@ -74,12 +74,14 @@
     "reactv16-mailto": "^0.4.4",
     "recompose": "^0.30.0",
     "serve": "^14.2.0",
+    "sitemap": "^7.1.1",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.9",
     "sweetalert2": "^11.7.31",
     "swiper": "^10.3.0",
     "universal-cookie": "^4.0.4",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "xmlbuilder": "^15.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -112,5 +114,10 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0"
+  },
+  "browser": {
+    "fs": false,
+    "os": false,
+    "path": false
   }
 }

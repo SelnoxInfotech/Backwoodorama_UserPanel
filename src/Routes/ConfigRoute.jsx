@@ -50,7 +50,8 @@ const routesConfig = [
 
     children: [
       // //////////////////////////////////////////////////////////// Complete ///////////////////////////////////////////////////////////
-
+    
+     
       {
         path: "/login",
         element: <RoutingList Component={Login} ></RoutingList>,
