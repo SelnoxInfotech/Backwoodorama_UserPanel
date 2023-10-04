@@ -1,5 +1,5 @@
 
-import React from "react"
+import React ,{Suspense}from "react"
 import Createcontext from "../Hooks/Context"
 import {  useParams } from "react-router-dom";
 import CurrentLocation from "../Components/Component/Navbar/Component/CurrentLocation"
@@ -47,10 +47,12 @@ export default function RoutingDespen(props) {
     return (
 
         <div>
+            <Suspense fallback={"Loading"}>
             <Component />
             {
                 L !== "" && <CurrentLocation Country={L} State1={s} city={c}></CurrentLocation>
             }
+            </Suspense>
         </div>
     )
 }
