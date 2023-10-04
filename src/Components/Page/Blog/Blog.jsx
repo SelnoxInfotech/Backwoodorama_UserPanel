@@ -5,7 +5,7 @@ import SearchBar from '@mkyy/mui-search-bar';
 import useStyles from "../../../Style";
 import RecentPost from "./BlogComponent/RecentPost";
 import RecentPostComment from "./BlogComponent/RecentPostComment";
-import HomePageDealsSignup from "../Home/Dashboard/ComponentDashboard/HomePageDealsSignup";
+import Newsletter from "../../Component/Newsletter/HomePageDealsSignup";
 import { useParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { BsFillShareFill } from "react-icons/bs";
@@ -14,12 +14,12 @@ import { IoEyeSharp } from "react-icons/io5";
 import { AiFillHeart  } from "react-icons/ai";
 import { IconButton } from "@mui/material";
 import Createcontext from "../../../Hooks/Context";
-import { BlogLike, Post_BlogLike, Get_Comment, Post_Comment, ViewCountApi } from "../../../Api/Api"
+import { BlogLike, Post_BlogLike, Get_Comment, ViewCountApi } from "../../../Api/Api"
 import _ from "lodash"
 import { RWebShare } from "react-web-share";
 import { WhisList } from "../../Component/Whishlist/WhisList";
 import BlogsCommentsCard from "./BlogComponent/BlogsCommentsCard"
-import { Link , useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 import {SingleNewsSeo} from "../../Component/ScoPage/NewsSeo.jsx";
 
@@ -204,7 +204,7 @@ const Blogs = () => {
                     <RecentPost/>
                     <RecentPostComment id={id} GetUserComment={Getcommnet} SetUserComment={Setcommnet} Get={GetComment} />
                     <BlogsCommentsCard Getcommnet={Getcommnet} />
-                    <HomePageDealsSignup />
+                    <Newsletter />
                 </div>
             </div>
         </React.Fragment>

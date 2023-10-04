@@ -75,12 +75,18 @@ const Footer = () => {
                                     <ol className="footer_main_list">
                                         <p className="footer_menu_heading">Category</p>
                                         {Categorys.map((ele, index) => {
+                                            if(index >= 4){
+                                               return <Link to={`/CategoryProduct/${ele.name}`} state={ele.id} key={index} className={ morelist ?'' : 'showmoreList'}>
+                                                   <li className="footer_li ellipsis" >{ele.name}</li>
+                                                 </Link>
+                                            }else{
                                             return (
                                                 <Link to={`/CategoryProduct/${ele.name}`} state={ele.id} key={index}>
                                                     <li className="footer_li ellipsis" >{ele.name}</li>
 
                                                 </Link>
                                             )
+                                        }
                                         })}
                                         <Link to={``}>
                                         <li className="footer_li ellipsis" onClick={()=>{setmorelist(!morelist)}}>{morelist ? "Less" : "More" }</li>

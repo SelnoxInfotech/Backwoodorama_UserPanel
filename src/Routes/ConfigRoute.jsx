@@ -1,7 +1,6 @@
 import Layout from "../Layout/Layout"
 import Dashboard from "../Components/Page/Home/Dashboard/Dashboard";
 import Product from "../Components/Page/Product/Product";
-import ProductDetail from "../Components/Page/Product/ProductDetails"
 import AddToCart from "../Components/Page/Product/AddToCartComponent/AddToCart"
 import DispensoriesDetails from "../Components/Page/Dispansires/DispansiresComponent/DispensoriesDetail"
 import Signup from "../Components/Page/Signup/Signup"
@@ -17,8 +16,6 @@ import StoreDetail from "../Components/Page/StoreDetail/StoreDetail"
 import EmptyCard from "../Components/Page/Product/EmptyCard/EmptyCard"
 import Deliveries from "../Components/Page/Deliveries/Deliveries"
 import Brand from "../Components/Page/Brand/Brand"
-import CategoryProduct from "../Components/Page/Product/AllCategory";
-import SubcategoryProduct from "../Components/Page/Product/SubCategoryProduct";
 import NewProductDetails from "../Components/Page/Product/NewProductDetails/NewProductDetails"
 import RelatedVerifyBrand from "../Components/Page/Brand/RelatedVerifyBrand/RelatedVerifyBrand";
 import RelatedDeals from "../Components/Page/Deals/RelatedDeals";
@@ -171,10 +168,13 @@ const routesConfig = [
           path: "/cannabis-news/:name/:id",
           element: <RoutingList Component={Blogs} ></RoutingList>
         },
+    
       // end
-      // end
-      // Blog
-      
+      // cart
+      {
+        path: "/cart",
+        element: <RoutingList Component={AddToCart} ></RoutingList>
+      },
       // End
 
       /////////////////////////////////////////////////////////////// Proper Compeleted Routes With Seo ////////////////////////////////////////////////////////////////////////////////////////
@@ -192,13 +192,7 @@ const routesConfig = [
         path: "/CreatePassword",
         element: <RoutingList Component={CreatePassword} ></RoutingList>,
       },
-
-
-
-      {
-        path: "/AddToCart",
-        element: <RoutingList Component={AddToCart} ></RoutingList>
-      },
+     
       {
         path: "/CheckOutMainPage",
         element: <ProtectRout Component={CheckOutMainPage} path="/CheckOutMainPage"></ProtectRout>

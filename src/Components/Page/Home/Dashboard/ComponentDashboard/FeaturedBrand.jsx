@@ -8,7 +8,7 @@ const FeaturedBrand = ({ CardDataArray ,BrandSkeleton}) => {
     const ref = React.useRef(null);
 
     return (
-        <div className="feature_brands_section">
+        <div className="px-sm-0 px-3 feature_brands_section">
             <div className="">
         {!BrandSkeleton  ?
         <React.Fragment>

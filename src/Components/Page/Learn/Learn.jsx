@@ -1,7 +1,7 @@
 import LearnBanner from "./LearnComponent/LearnBanner"
 import LearnContent from "./LearnComponent/LearnContent"
 import LearnCards from "./LearnComponent/LearnCard"
-import HomePageDealsSignup from "../Home/Dashboard/ComponentDashboard/HomePageDealsSignup"
+import Newsletter from "../../Component/Newsletter/HomePageDealsSignup"
 import { LearnSeo } from "../../Component/ScoPage/LearnSeo"
 import React from "react";
 const Learn=()=>{
@@ -14,7 +14,7 @@ const Learn=()=>{
               <LearnContent/>
               <LearnCards/>
             </div>
-            <HomePageDealsSignup/>
+            <Newsletter/>
 
         </div>
     )

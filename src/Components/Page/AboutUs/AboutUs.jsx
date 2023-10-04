@@ -1,8 +1,8 @@
-import HomePageDealsSignup from "../Home/Dashboard/ComponentDashboard/HomePageDealsSignup"
+import Newsletter from "../../Component/Newsletter/HomePageDealsSignup"
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { AiOutlineSetting } from "react-icons/ai"
 import { BsGraphUpArrow } from "react-icons/bs"
-import { MdDiversity2, MdSettingsSuggest } from "react-icons/md"
+import { MdSettingsSuggest } from "react-icons/md"
 import React from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -237,7 +237,7 @@ const AboutUs = () => {
                 </div>
             </div>
 
-            <HomePageDealsSignup />
+            <Newsletter />
         </div>
     )
 }

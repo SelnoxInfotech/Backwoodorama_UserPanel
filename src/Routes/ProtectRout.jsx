@@ -25,7 +25,7 @@ export default function ProtectRout(props) {
             if (props.path === "/CheckOutMainPage") {
                 if ( state.AllProduct.length === 0) {
                     dispatch({ type: 'Login', login: true })
-                    Navigate("/AddToCart")
+                    Navigate("/cart")
                 }
             }
             else {

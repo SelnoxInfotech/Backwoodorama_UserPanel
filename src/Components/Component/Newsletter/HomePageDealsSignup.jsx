@@ -1,10 +1,11 @@
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import useStyles from '../../../../../Style';
+import useStyles from '../../../Style';
 import { HiOutlineEnvelope } from "react-icons/hi2";
 import { useForm } from "react-hook-form";
 import Axios from 'axios';
 import { FormHelperText } from '@mui/material';
+import './newsletter.css'
 import React from 'react';
 const HomePageDealsSignup = () => {
     const classes = useStyles()
@@ -38,8 +39,7 @@ const HomePageDealsSignup = () => {
     };
 
     return (
-        <div className="container mt-4">
-            <div className="row  mt-4">
+        <div className=" mt-4">
                 <div className="col-12 HomePageDealsSignupContainer">
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="">
@@ -89,7 +89,6 @@ const HomePageDealsSignup = () => {
                         </div>
                     </form>
                 </div>
-            </div>
         </div >
 
     )

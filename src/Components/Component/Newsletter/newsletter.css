@@ -1,0 +1,58 @@
+.HomePageDealsSignupContainer {
+    padding: 40px 0;
+    background: #4E4E4E;
+  }
+  .newsletterFormFeild{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 25px;
+    width: 600px;
+    margin: 0 auto;
+  }
+  .newsletterFormFeild .newsletter_btn{
+    width: 25%;
+  }
+  .homePageSignupHeight {
+    height: 100px;
+    width: 92%;
+    height: 216px;
+    display: grid;
+    align-items: center;
+  }
+  .homePageSignup_paragraph p {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 54px;
+    color: #FFFFFF;
+    text-align: center;
+  }
+  .newProductDetailsHeading {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 48px;
+    /* identical to box height */
+    color: #000000;
+  }
+  
+  @media (max-width: 768px){
+    .homePageSignup_paragraph p {
+        font-size: 20px;
+      }
+      .newsletterFormFeild{
+        width: 80%;
+      }
+  }
+  @media (max-width: 480px){
+    .homePageSignup_paragraph p {
+      font-size: 18px;
+      margin-bottom: 0;
+    }
+    .newsletterFormFeild{
+        width: 95%;
+      }
+      .HomePageDealsSignupContainer{
+        padding: 20px 0;
+      }
+  }

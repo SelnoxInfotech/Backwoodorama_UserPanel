@@ -3,7 +3,7 @@ import './termconditions.css';
 import { Link } from 'react-router-dom';
 import {FaFacebookF } from "react-icons/fa";
 import {MdEmail } from "react-icons/md";
-import HomePageDealsSignup from '../Home/Dashboard/ComponentDashboard/HomePageDealsSignup';
+import Newsletter from '../../Component/Newsletter/HomePageDealsSignup';
 import { TermsAndConditions } from '../../Component/ScoPage/CommenpageSeo';
 const Termsconditions = () => {
   React.useEffect(() => {
@@ -147,7 +147,7 @@ b. Users are encouraged to conduct their research and due diligence before makin
         </div>
       </div>
     </div>
-    <HomePageDealsSignup></HomePageDealsSignup>
+    <Newsletter></Newsletter>
     </>
   )
 }

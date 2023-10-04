@@ -17,7 +17,6 @@ const StrainTypeCards = ({ ArrayData }) => {
                             </div>
                         )
                     })}
-                
             </div>
         </React.Fragment>
     )

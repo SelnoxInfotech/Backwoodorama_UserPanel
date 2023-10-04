@@ -2935,7 +2935,6 @@ background: #31B665;
 .strainType_container .strainTypeInner_container img{
   width: 100%;
   height: 100%;
-  object-fit: cover;
  }
  .strainType_container .strainTypeCaption{
   font-size: 16px;
@@ -3146,49 +3145,6 @@ background: #31B665;
 
 
 /* end */
-/* HomePageDealsSignup */
-.HomePageDealsSignupContainer {
-  padding: 40px 0;
-  background: #4E4E4E;
-
-}
-
-.newsletterFormFeild{
-  background-color: #fff;
-  display: flex;
-  align-items: center;
-  padding: 5px;
-  border-radius: 25px;
-  width: 600px;
-  margin: 0 auto;
-}
-.newsletterFormFeild .newsletter_btn{
-  width: 25%;
-}
-
-.homePageSignupHeight {
-  height: 100px;
-  width: 92%;
-  height: 216px;
-  display: grid;
-  align-items: center;
-}
-.homePageSignup_paragraph p {
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 54px;
-  color: #FFFFFF;
-  text-align: center;
-}
-.newProductDetailsHeading {
-  font-weight: 700;
-  font-size: 28px;
-  line-height: 48px;
-  /* identical to box height */
-
-
-  color: #000000;
-}
 
 /* end */
 /* checkAgeEligiblityPopup */
@@ -5813,17 +5769,12 @@ cursor: pointer;
   text-align: center;
  
 }
-
-
-
-
 .mydropdown {
   position: relative;
 
   width: 240px;
   display: block;
 }
-
 .mydropdown .dropdown-toggle {
   display: flex;
   align-items: center;
@@ -5897,8 +5848,8 @@ cursor: pointer;
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .mydropdown .dropdown-menu {
--ms-overflow-style: none;  /* IE and Edge */
-scrollbar-width: none;  /* Firefox */
+-ms-overflow-style: none;  
+scrollbar-width: none;
 }
 .mydropdown .dropdown-menu.open {
   opacity: 1;

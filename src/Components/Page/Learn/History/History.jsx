@@ -1,6 +1,6 @@
 import LearnBanner from "../LearnComponent/LearnBanner";
 import HistoryEditorData from "./HistoryComponent/HistoryEditorData";
-import HomePageDealsSignup from "../../Home/Dashboard/ComponentDashboard/HomePageDealsSignup";
+import Newsletter from "../../../Component/Newsletter/HomePageDealsSignup";
 import React from "react";
 const History = () => {
 
@@ -14,7 +14,7 @@ const History = () => {
                 <HistoryEditorData />
             </div>
             <div className="row px-4">
-                <HomePageDealsSignup />
+                <Newsletter />
             </div>
         </div>
     )

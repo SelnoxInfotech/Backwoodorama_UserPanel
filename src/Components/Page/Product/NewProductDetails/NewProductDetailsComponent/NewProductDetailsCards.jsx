@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { IoMdStar } from "react-icons/io";
 import useStyles from "../../../../../Style";

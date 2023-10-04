@@ -46,7 +46,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
                 alert("Select Delivery address")
             }
             else {
-                if (location.pathname === "/AddToCart") {
+                if (location.pathname === "/cart") {
 
                     navigate("/CheckOutMainPage", { state: { InputValues, abc: state.Cart_subTotal } })
                 }
@@ -91,7 +91,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
 
 
     React.useEffect(() => {
-        if (location.pathname === "/AddToCart") {
+        if (location.pathname === "/cart") {
 
 
             if (state.selectDeliveryoptions === "pickup_btn") {
@@ -105,7 +105,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
         }
     }, [state.selectDeliveryoptions])
     function ChnageDeliveryAddress() {
-        navigate("/AddToCart")
+        navigate("/cart")
     }
 
 
@@ -243,7 +243,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
 
                 </div>
                 <div className="col-12 AddProd_cart_center_btn">
-                    {location.pathname === "/AddToCart"  ?(OpenDelivery || OpenPickup) &&
+                    {location.pathname === "/cart"  ?(OpenDelivery || OpenPickup) &&
                         <Box
                             className={` add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
 

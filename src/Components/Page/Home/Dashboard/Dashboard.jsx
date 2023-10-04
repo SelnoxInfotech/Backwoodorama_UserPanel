@@ -5,9 +5,9 @@ import HomePageWeedBanner from "./ComponentDashboard/HomePageWeedBanner";
 import NewsBlog from "./ComponentDashboard/NewsBlog";
 import HomePageBanner from "./ComponentDashboard/HomePageBanner";
 import DeliveryServices from "../../Delivery/HomePageDelivery/DeliveryServices";
-import { useNavigate , useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import React from "react";
-import HomePageDealsSignup from "./ComponentDashboard/HomePageDealsSignup";
+import Newsletter from "../../../Component/Newsletter/HomePageDealsSignup";
 import StrainTypeCards from "../../Strain/StrainComponent/StrainTypeCards";
 import FeaturedBrand from "./ComponentDashboard/FeaturedBrand";
 import Axios from "axios";
@@ -155,7 +155,7 @@ export default function Dashboard() {
                     </div>
                 </div>
             </div>
-            <div className="w-90 dashBoardStrainType">
+            <div className="px-sm-0 px-3 dashBoardStrainType">
                 <h3 className=" mt-4 section_main_title">Strain Type</h3>
                 <StrainTypeCards ArrayData={StrainTypeCardArray} />
 
@@ -163,7 +163,7 @@ export default function Dashboard() {
            
                 <NewsBlog></NewsBlog>
            
-                <HomePageDealsSignup></HomePageDealsSignup>
+                <Newsletter></Newsletter>
 
             {/* <CommunityType></CommunityType> */}
         </div>

@@ -24,9 +24,9 @@ const RelatedVerifyBanner = ({ BrandDetails }) => {
                             </div>
                         </div>
                         <div className="RelatedVerifyBanner_content_box">
-                        <div className="relatedVerifyBrand_heading">
-                                <h2>{BrandDetails.name}</h2>
-                            </div>
+                     
+                                <h1 className="section_main_title">{BrandDetails.name}</h1>
+                          
                             <div className="related_verify_paragraph">
 
                                 <div dangerouslySetInnerHTML={{ __html: BrandDetails.Brand_description }} />

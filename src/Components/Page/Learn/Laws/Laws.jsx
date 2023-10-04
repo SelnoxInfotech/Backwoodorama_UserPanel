@@ -1,6 +1,6 @@
 import LearnBanner from "../LearnComponent/LearnBanner"
 import LawsOptions from "./LawsComponent/LawsOptions"
-import HomePageDealsSignup from "../../Home/Dashboard/ComponentDashboard/HomePageDealsSignup"
+import Newsletter from "../../../Component/Newsletter/HomePageDealsSignup"
 import { Law } from "../../../Component/ScoPage/LearnSeo"
 const Laws = () => {
   return (
@@ -13,7 +13,7 @@ const Laws = () => {
 
       </div>
       <div className="row px-4">
-        <HomePageDealsSignup />
+        <Newsletter />
       </div>
 
     </div>

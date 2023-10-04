@@ -1,6 +1,6 @@
 import LearnBanner from "../LearnComponent/LearnBanner"
 import Product from "../../Product/Product"
-import HomePageDealsSignup from "../../Home/Dashboard/ComponentDashboard/HomePageDealsSignup"
+import Newsletter from "../../../Component/Newsletter/HomePageDealsSignup"
 const Products = () => {
     return (
         <div className="container-fluid">
@@ -9,7 +9,7 @@ const Products = () => {
                 <Product />
             </div>
             <div className="row px-4">
-                <HomePageDealsSignup />
+                <Newsletter />
             </div>
         </div>
     )

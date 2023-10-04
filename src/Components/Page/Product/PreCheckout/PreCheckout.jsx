@@ -12,7 +12,7 @@ const PreCheckout = () => {
                 <div className="row">
                     <div className="col-12">
                         <div className="row preCheckOut_center">
-                            <Link to="/AddToCart">
+                            <Link to="/cart">
 
                                 <div className="col-lg-3 col-md-6 col-sm-8 col-8  border preCheckout_container">
                                     <div className=" preCheck_heading">

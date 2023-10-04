@@ -4,42 +4,10 @@
   max-width: 1536px !important;
 }
 }
-@media(max-width:992px) {
-  .strainType_container{
-    width: 160px;
-    padding: 10px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    border-radius: 8px;
-    transition: all .3s ease;
-  }
-  
-
-  .strainType_container .strainTypeInner_container{
-  
-    height: 140px;
-  }
-  .NumberText_container {
-    overflow-x: scroll;
+@media(max-width:1536px) {
+  .CategorySkeletons {
     overflow-y: hidden;
-  }
-  .weedx_number_container {
-    overflow-y: hidden;
-    overflow-x: scroll;
-  }
-  .weedx_number_container ol li {
-    min-width: 27%;
-  }
-  .homePageSignup_paragraph p {
-    font-size: 19px;
-  }
-  .NumberText_container ol li {
-    font-size: 11px;
-    min-width: 17%;
-  }
-}
-@media(min-width:1198px) {
-  .delivery_items_button_div {
-    margin-left: 30%;
+    height: 199px;
   }
 }
 @media(max-width:1330px) {
@@ -57,101 +25,6 @@
     height: 16px;
   }
 }
-@media(max-width:1150px) {
-  .prod_inc_dec_image {
-    height: 120px;
-    width: 100px;
-  }
-
-  .prod_price_font {
-    height: 16px;
-  }
-}
-@media(max-width:767px) {
-  .verify_brand_image {
-    width: 196px;
-    height: 123px;
-    object-fit: cover;
-  }
-}
-@media (max-width: 591px) {
-  .allProductCategoryContainer_height {
-    flex: 0 0 auto;
-    width: 100%;
-  }
-
-  .brandHeading h1 {
-    font-size: 16px;
-  }
-}
-
-@media only screen and (max-width: 1200px){
-  .newProductDetailsContainer .newProductDetailsCardLeftCol .newProductDetails_upper_image {
-    width: 100%;
-  }
-}
-@media only screen and (max-width: 992px){
-  .newProductDetailsContainer {
-    flex-wrap: wrap;
-  }
-  .newProductDetailsContainer .newProductDetailsCardLeftCol .newProductDetails_upper_image {
-    width: 80%;
-  }
-  .newProductdetails_rightSideContent_container {
-    width: 100%;
-    padding: 20px;
-    padding-left: 20px;
-  }
-  .newProductDetailsContainer .newProductDetailsCardLeftCol {
-    width:100% ;
-    padding: 30px;
-    border-right:none;
-  }
-}
-@media only screen and (max-width: 768px){
-  .newProductDetailsContainer .newProductDetailsCardLeftCol .newProductDetails_upper_image {
-    width: 100%;
-  }
-  .newProductDetailsContainer .newProductDetailsCardLeftCol {
-    padding: 0px;
-  }
-  .newProductdetails_rightSideContent_container {
-    width: 100%;
-    padding-left: 0px;
-  }
-}
-
-@media only screen and (max-width: 992px){
-  .newProductAboutUs_headings {
-    font-size: 18px;
-  }
-  .newProductAboutUs_description{
-    font-size: 15px;
-  }
-}
-@media only screen and (max-width: 768px){
-  .newProductAboutUs_headings {
-    font-size: 17px;
-  }
-  .newProductAboutUs_description{
-    font-size: 14px;
-  }
-}
-
-@media(max-width:600px) {
-  .editProfile_name {
-    font-size: 12px;
-  }
-}
-@media(max-width:1196px) {
-  .allOrder_Card_Image_section {
-    width: 30%;
-  }
-
-  .allOrder_Card_Content_section {
-    width: 70%;
-  }
-}
 @media(max-width:1024px) {
   .orderId_heading {
     font-size: 16px;
@@ -161,194 +34,15 @@
     font-size: 16px;
   }
 }
-@media(max-width:768px) {
-  .allOrder_Card_Content_section {
-    width: 75%;
-  }
-
-  .allOrder_Card_Content_section {
-    width: 75%;
-    height: 280px;
-    padding-top: 10px;
-    padding-left: 20px;
-  }
-
-  .allOrder_span_quantity {
-    font-size: 14px;
-  }
-
-  .allOrder_spanName {
-    font-size: 14px;
-  }
-
-  .Amount_price {
-    font-size: 14px;
-  }
-
-  .Allorder_img {
-    width: 121px;
-    height: 100px;
-  }
-
-  .allOrder_Card_Image_section {
-    width: 25%;
-  }
-
-  .Allorder_img_container {
-    width: 122px;
-    height: 113px;
-  }
-}
 @media(max-width:1400px) {
   .MyOrder_list {
     gap: 105px;
   }
 }
-@media(max-width:1200px) {
-  .MyOrder_tabs_list {
-    overflow-x: scroll;
-    overflow-y: hidden;
-  }
-}
-@media(max-width:800px) {
-  .four_zero_three_message {
-    font-size: 12px;
-  }
-
-  .five_zero_three_message {
-    font-size: 12px;
-  }
-  .four_zero_message {
-    font-size: 12px;
-  }
-}
-
-@media(max-width:768px) {
-  .strainProduct_images {
-    height: 40%;
-    width: 92%;
-  }
-  .StrainHomeSlider_scrollContainerRelative {
-    left: 17px;
-  }
-
-  .StrainHomeDes_heading {
-    margin-left: 8px;
-  }
-}
-@media(max-width:992px) {
-  .recentPostBox_width1 {
-    width: 18%;
-  }
-
-  .recentPostBox_width2 {
-    width: 18%;
-  }
-}
-
-@media(max-width:768px) {
-  .recentPostBox_width1 {
-    width: 24%;
-  }
-
-  .recentPostBox_width2 {
-    width: 24%;
-  }
-}
-
 @media(max-width:1084px) {
   .deliverySkeletonBox {
     overflow-y: hidden;
     height: 290px;
-  }
-}
-@media(max-width:572px) {
-  .dispensoriesAddressSkeletonPadding {
-    padding: 0px 10px;
-  }
-
-  .dispensoriesAddressSkeletonPadding {
-    height: 514px;
-  }
-
-  .dispensoriesAddressSkeletonPadding {
-    overflow-y: hidden;
-
-  }
-}
-
-@media(max-width:1200px) {
-  .dispensoriesAddressSkeletonPadding {
-    overflow-y: hidden;
-    height: 514px;
-
-  }
-}
-@media(max-width:1200px) {
-  .featuredBrandPadding {
-    height: 267px;
-    overflow-y: hidden;
-  }
-
-}
-@media(max-width:572px) {
-  .StrainTypeCardSkeleton {
-    height: 333px;
-    padding: 0px 10px;
-    overflow-y: hidden;
-  }
-}
-@media(max-width:1200px) {
-  .StrainTypeCardSkeleton {
-    height: 200px;
-    overflow-y: hidden;
-  }
-
-}
-@media(max-width:572px) {
-  .LatestServiceskeleton {
-    height: 350px;
-    padding: 0px 10px;
-    overflow-y: hidden;
-  }
-}
-@media(max-width:1200px) {
-  .LatestServiceskeleton {
-    height: 350px;
-    overflow-y: hidden;
-  }
-}
-
-@media(max-width:1536px) {
-  .CategorySkeletons {
-    overflow-y: hidden;
-    height: 199px;
-  }
-}
-
-@media(max-width:572px) {
-  .CategorySkeletons {
-    height: 200px;
-    padding: 0px 10px;
-    overflow-y: hidden;
-  }
-}
-
-@media(max-width:572px) {
-  .featuredBrandPadding {
-    height: 267px;
-    overflow-y: hidden;
-    padding: 0px 10px;
-  }
-}
-@media(max-width:572px) {
-  .deliverySkeletonBox {
-    height: 300px;
-    overflow-y: hidden;
-  }
-
-  .DeliveryServicesSkeleton {
-    padding: 0px 10px;
   }
 }
 @media(max-width:900px) {
@@ -356,175 +50,24 @@
     padding: 0px 8px;
   }
 }
-
-@media(max-width:375px) {
-  .headingTypeLabelContainerThirdFourth {
-    padding-top: 54px;
+@media only screen and (min-width: 992px)and (max-width:1199px) {
+  .CategorySliderImageBlock {
+    width: 20%;
+    height: 200px;
   }
 }
-@media(max-width:1199px) {
-  .law_Inner_OPtionList_Ol {
-    flex-direction: column;
-  }
-
-  .law_Inner_OPtionList_Ol li {
-    border-bottom: 1px solid #E9E9E9;
-    width: 100%;
-  }
-
-}
-@media(min-width:1200px) {
-  .col_xl_width {
-    width: 22% !important;
+@media only screen and (min-width: 768px)and (max-width:991px) {
+  
+  .dispensories_image {
+    height: 220px;
   }
 }
-@media(max-width:992px) {
-  .lawStateDescription_Laws_Content {
-    display: block;
-  }
-
-  .LawStateContentsContainer {
-    margin-left: 0px;
+@media only screen and (min-width: 480px)and (max-width:767px) {
+  
+  .dispensories_image {
+    height: 200px;
   }
 }
-
-
-  @media(max-width:576px) {
-    .deliveryItemRightSide {
-      display: none;
-    }
-
-    .DeliveryItemsCardRightSkeletonBtn {
-      justify-content: flex-start;
-    }
-  }
-  @media(max-width:768px) {
-    .DeliveryServicesRatingTitle {
-      font-size: 16px;
-    }
-    .CategorySliderImageBlock {
-      width: 100%;
-    }
-    .dispensoriesHeadings {
-      font-size: 18px;
-      margin-bottom: 5px;
-    }
-    .Dispensaries_card_discription p {
-      font-size: 14px;
-  }
-    .NumberText_container ol li {
-      font-size: 9px;
-      min-width: 18%;
-    }
-    .weedx_number_container ol li {
-      font-size: 12px;
-    }
-    .NumberText_container ol {
-      gap: 4%;
-    }
-    .homePageSignupBtnMargin {
-      margin-top: 20px;
-    }
-    .Category_title {
-      font-size: 16px;
-      margin-top: 15px;
-    }
-    .catagoriesTabImg{
-      width: 100px;
-      height: 100px;
-      cursor: pointer;
-    }
-    .newsletterFormFeild{
-      width: 80%;
-    }
-  }
-  @media(max-width:600px) {
-    .dispensoriesBannerHeading h5 {
-      height: 16px;
-    }
-  
-    .strainPopular_heading {
-      font-size: 14px;
-    }
-  
-    .dispensoriesBannerSubHeading p {
-      height: 16px;
-  
-    }
-    .mobile_view_weigth{
-      width: 100%;
-      overflow-x: scroll;
-    }
-    .prod_cat_cont_btn {
-      height: 62px;
-      width: 250%;
-    }
-  }
-  @media(max-width:576px) {
-   .straintype_card_wrapper{
-    flex-wrap: wrap;
-    justify-content: center;
-   }
-
-   
-  }
-  @media only screen and (min-width: 992px)and (max-width:1199px) {
-    .CategorySliderImageBlock {
-      width: 20%;
-      height: 200px;
-    }
-  }
-  @media only screen and (min-width: 768px)and (max-width:991px) {
-   
-    .dispensories_image {
-      height: 220px;
-    }
-  }
-  @media only screen and (min-width: 480px)and (max-width:767px) {
-   
-    .dispensories_image {
-      height: 200px;
-    }
-  }
-  
-  @media(max-width:425px) {
-    .newsletterFormFeild{
-      padding: 2px;
-    }
-    .NumberText_container ol li {
-      font-size: 8px;
-      min-width: 22%;
-    }
-  
-    .NumberText_container ol {
-      gap: 7%;
-    }
-    .newsletterFormFeild{
-      width: 100%;
-    }
-  
-    .Category_title {
-      font-size: 12px;
-    }
-  }
-  @media(max-width:408px) {
-    .weedx_number_container ol li {
-      min-width: 29%;
-      font-size: 10px;
-    }
-  }
-  @media(max-width:372px) {
-    .NumberText_container ol li {
-      font-size: 7px;
-      min-width: 26%;
-    }
- 
-  
-    .Category_title {
-      font-size: 10px;
-    }
-  }
-
 @media(max-width:1470px) {
   .flav_btn {
     display: block;
@@ -533,21 +76,15 @@
 
 
 }
-@media(max-width:600px) {
-  .weed_cart_btn {
-    margin-left: 10px;
-    margin-top: 50px;
+@media(max-width:1400px) {
+  .StoreDetailSideMenu_listItems {
+    font-size: 12px;
   }
 }
-@media(max-width:771px) {
-  .prod_cat_left_sec {
-    width: 100%;
-    overflow-x: scroll;
-
-  }
-
-  .prod_filter_icon {
-    visibility: hidden;
+@media(max-width:1496px) {
+  .add_prod_plus_sub {
+    font-weight: 700;
+    font-size: 28px;
   }
 }
 @media(max-width:1020px) {
@@ -619,12 +156,6 @@
     margin-top: 50px;
   }
 }
-
-@media(max-width:738px) {
-  .add_prod_inner_div {
-    min-width: 19% !important;
-  }
-}
 @media(max-width:1270px) {
   .add_prod_Quant_btn {
     width: 55px !important;
@@ -645,94 +176,20 @@
 
 
 }
-@media(max-width:875px) {
-  .add_prod_Quant_btn {
-    width: 46px !important;
-  }
-}
-@media(max-width:625px) {
-  .add_product_content_cont {
-    padding: 15px;
-  }
-
-}
-@media(max-width:850px) {
-  .Add_prod_btn_div {
-    width: 12% !important;
-  }
-
-  .add_prod_para_font h5 {
-    font-size: 16px;
-    font-weight: 700;
-  }
-}
-
-@media(max-width:600px) {
-  .addtocart_textfield_flex {
-    display: block;
-    gap: 10px;
-  }
-
-  .addtocart_textfield {
-    width: 60% !important;
-
-  }
-}
-@media(max-width:535px) {
-  .dispensories_name {
-    font-size: 12px;
-  }
-
-  .dispensories_city {
-    font-size: 14px;
-
-  }
-}
-@media(max-width:400px) {
-  .dispensories_result_head {
-    font-size: 12px;
-  }
-
-  .disOPenResRating {
-    font-size: 12px;
-  }
-
-  .dispensorieAddressNames {
-    font-size: 12px;
-  }
-
-  .dispensoriesHeadingName {
-    font-size: 12px;
-  }
-
-  .dispensories_open_res_btns {
-    font-size: 10px;
-  }
-
-  .dispensories_open_res_btns2 {
-    font-size: 10px;
-  }
-
-  .dispensories_pickup_btn {
-    font-size: 10px
-  }
-}
-@media(max-width:319px) {
-  .dispensories_result_head {
-    font-size: 10px;
-  }
-}
-@media(max-width:1199px) {
-  .amenities_list {
-    gap: 3%;
-  }
-
-  .amenties_list_items {
-    min-width: 13%;
-    font-size: 12px;
-  }
-}
 @media(max-width:820px) {
+  .StoreDetailMenuItem_container {
+    overflow-y: hidden;
+    overflow-x: scroll;
+  }
+
+  .store_detail_order_list {
+    gap: 12%;
+  }
+
+  .store_detail_list {
+    min-width: 100px;
+  }
+
   .ameitiesList_container_height {
     overflow-y: hidden;
     overflow-x: scroll;
@@ -748,35 +205,187 @@
 
   }
 }
-@media(max-width:606px) {
-  .amenties_list_items {
-    min-width: 29%;
-    font-size: 10px;
+@media(max-width:850px) {
+  .Add_prod_btn_div {
+    width: 12% !important;
   }
 
-  .amenities_list {
-    gap: 6%;
+  .add_prod_para_font h5 {
+    font-size: 16px;
+    font-weight: 700;
+  }
+}
+@media(max-width:875px) {
+  .add_prod_Quant_btn {
+    width: 46px !important;
+  }
+}
+@media(max-width:800px) {
+  .four_zero_three_message {
+    font-size: 12px;
+  }
 
+  .five_zero_three_message {
+    font-size: 12px;
   }
-}
-@media(max-width:396px) {
-  .amenties_list_items {
-    font-size: 11px;
-    min-width: 32%;
-  }
-
-}
-@media(max-width:768px) {
-  .StoreDetailSidemenuBarList {
-    min-width: 47%;
-  }
-}
-@media(max-width:1400px) {
-  .StoreDetailSideMenu_listItems {
+  .four_zero_message {
     font-size: 12px;
   }
 }
-@media(max-width:991px) {
+@media(max-width:625px) {
+  .add_product_content_cont {
+    padding: 15px;
+  }
+
+}
+@media(max-width:535px) {
+  .dispensories_name {
+    font-size: 12px;
+  }
+
+  .dispensories_city {
+    font-size: 14px;
+
+  }
+}
+/**********************   PERFECT CSS   ******************************/
+
+
+@media (max-width:1200px) {
+  .amenities_list {
+    gap: 3%;
+  }
+
+  .amenties_list_items {
+    min-width: 13%;
+    font-size: 12px;
+  }
+
+  .dispensoriesAddressSkeletonPadding {
+    overflow-y: hidden;
+    height: 514px;
+
+  }
+  .featuredBrandPadding {
+    height: 267px;
+    overflow-y: hidden;
+  }
+  .StrainTypeCardSkeleton {
+    height: 200px;
+    overflow-y: hidden;
+  }
+  .LatestServiceskeleton {
+    height: 350px;
+    overflow-y: hidden;
+  }
+  .col_xl_width {
+    width: 22% !important;
+  }
+  .newProductDetailsContainer .newProductDetailsCardLeftCol .newProductDetails_upper_image {
+    width: 100%;
+  }
+
+  .delivery_items_button_div {
+    margin-left: 30%;
+  }
+
+  .allOrder_Card_Image_section {
+    width: 30%;
+  }
+
+  .allOrder_Card_Content_section {
+    width: 70%;
+  }
+
+  .law_Inner_OPtionList_Ol {
+    flex-direction: column;
+  }
+
+  .law_Inner_OPtionList_Ol li {
+    border-bottom: 1px solid #E9E9E9;
+    width: 100%;
+  }
+  .MyOrder_tabs_list {
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+  .prod_inc_dec_image {
+    height: 120px;
+    width: 100px;
+  }
+
+  .prod_price_font {
+    height: 16px;
+  }
+}
+@media (max-width: 992px){
+  .newProductAboutUs_headings {
+    font-size: 18px;
+  }
+  .newProductAboutUs_description{
+    font-size: 15px;
+  }
+  .strainType_container{
+    width: 160px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 8px;
+    transition: all .3s ease;
+  }
+  
+
+  .strainType_container .strainTypeInner_container{
+  
+    height: 140px;
+  }
+  .NumberText_container {
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+  .weedx_number_container {
+    overflow-y: hidden;
+    overflow-x: scroll;
+  }
+  .weedx_number_container ol li {
+    min-width: 27%;
+  }
+
+  .NumberText_container ol li {
+    font-size: 11px;
+    min-width: 17%;
+  }
+  .newProductDetailsContainer {
+    flex-wrap: wrap;
+  }
+  .newProductDetailsContainer .newProductDetailsCardLeftCol .newProductDetails_upper_image {
+    width: 80%;
+  }
+  .newProductdetails_rightSideContent_container {
+    width: 100%;
+    padding: 20px;
+    padding-left: 20px;
+  }
+  .newProductDetailsContainer .newProductDetailsCardLeftCol {
+    width:100% ;
+    padding: 30px;
+    border-right:none;
+  }
+
+  .recentPostBox_width1 {
+    width: 18%;
+  }
+
+  .recentPostBox_width2 {
+    width: 18%;
+  }
+
+  .lawStateDescription_Laws_Content {
+    display: block;
+  }
+
+  .LawStateContentsContainer {
+    margin-left: 0px;
+  }
   .StoreDetailSidemenuBarList {
     min-width: 30%;
   }
@@ -795,63 +404,137 @@
     overflow: hidden;
   }
 }
-@media(max-width:820px) {
-  .StoreDetailMenuItem_container {
-    overflow-y: hidden;
+@media (max-width:768px) {
+  .StoreDetailSidemenuBarList {
+    min-width: 47%;
+  }
+  .prod_cat_left_sec {
+    width: 100%;
     overflow-x: scroll;
+
   }
 
-  .store_detail_order_list {
-    gap: 12%;
+  .prod_filter_icon {
+    visibility: hidden;
+  }
+  .add_prod_inner_div {
+    min-width: 19% !important;
+  }
+  .recentPostBox_width1 {
+    width: 24%;
   }
 
-  .store_detail_list {
-    min-width: 100px;
+  .recentPostBox_width2 {
+    width: 24%;
+  }
+  .strainProduct_images {
+    height: 40%;
+    width: 92%;
+  }
+  .StrainHomeSlider_scrollContainerRelative {
+    left: 17px;
   }
 
+  .StrainHomeDes_heading {
+    margin-left: 8px;
+  }
+  .allOrder_Card_Content_section {
+    width: 75%;
+  }
+
+  .allOrder_Card_Content_section {
+    width: 75%;
+    height: 280px;
+    padding-top: 10px;
+    padding-left: 20px;
+  }
+
+  .allOrder_span_quantity {
+    font-size: 14px;
+  }
+
+  .allOrder_spanName {
+    font-size: 14px;
+  }
+
+  .Amount_price {
+    font-size: 14px;
+  }
+
+  .Allorder_img {
+    width: 121px;
+    height: 100px;
+  }
+
+  .allOrder_Card_Image_section {
+    width: 25%;
+  }
+
+  .Allorder_img_container {
+    width: 122px;
+    height: 113px;
+  }
+
+  .newProductDetailsContainer .newProductDetailsCardLeftCol .newProductDetails_upper_image {
+    width: 100%;
+  }
+  .newProductDetailsContainer .newProductDetailsCardLeftCol {
+    padding: 0px;
+  }
+  .newProductdetails_rightSideContent_container {
+    width: 100%;
+    padding-left: 0px;
+  }
+
+  .verify_brand_image {
+    width: 196px;
+    height: 123px;
+    object-fit: cover;
+  }
+
+  .newProductAboutUs_headings {
+    font-size: 17px;
+  }
+  .newProductAboutUs_description{
+    font-size: 14px;
+  }
+  .DeliveryServicesRatingTitle {
+    font-size: 16px;
+  }
+  .CategorySliderImageBlock {
+    width: 100%;
+  }
+  .dispensoriesHeadings {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  .Dispensaries_card_discription p {
+    font-size: 14px;
 }
-@media(max-width:610px) {
-  .delivery_item_paragraph {
-    font-size: .8rem;
+  .NumberText_container ol li {
+    font-size: 9px;
+    min-width: 18%;
   }
-}
-@media(max-width:575px) {
-  .delivery_item_paragraph {
-    font-size: .8rem;
+  .weedx_number_container ol li {
+    font-size: 12px;
   }
-
-  .delivery_items_right_side_container_height {
-    display: none;
+  .NumberText_container ol {
+    gap: 4%;
   }
-
+  .homePageSignupBtnMargin {
+    margin-top: 20px;
+  }
+  .Category_title {
+    font-size: 16px;
+    margin-top: 15px;
+  }
+  .catagoriesTabImg{
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+  }
 }
 @media (max-width:600px) {
-  .ScrollContainerRelative {
-    left: 0px;
-  }
-
-
-
-  .newProductSearchResult_ScrollContainerRelative {
-    left: 0px;
-  }
-
-  .bestDealsCard_ScrollContainerRelative {
-    left: 0px;
-  }
-
-  .featuredBrandHeading {
-    font-size: 16px;
-    margin-left: 20px;
-  }
-}
-@media(max-width:1496px) {
-  .add_prod_plus_sub {
-    font-weight: 700;
-    font-size: 28px;
-  }
-}
-@media(max-width:600px) {
 
   .prod_cat_cont{
     height: auto;
@@ -868,18 +551,145 @@
   .cat_prod_inner_btn {
     font-size: 7px;
   }
+  .delivery_item_paragraph {
+    font-size: .8rem;
+  }
+  .amenties_list_items {
+    min-width: 29%;
+    font-size: 10px;
+  }
 
-
-
-
-}
-@media(max-width:1280px) {
-  .dispensories_tabss {
-    gap: 20px !important;
+  .amenities_list {
+    gap: 6%;
 
   }
+  .addtocart_textfield_flex {
+    display: block;
+    gap: 10px;
+  }
+
+  .addtocart_textfield {
+    width: 60% !important;
+
+  }
+  .weed_cart_btn {
+    margin-left: 10px;
+    margin-top: 50px;
+  }
+  .dispensoriesBannerHeading h5 {
+    height: 16px;
+  }
+
+  .strainPopular_heading {
+    font-size: 14px;
+  }
+
+  .dispensoriesBannerSubHeading p {
+    height: 16px;
+
+  }
+  .mobile_view_weigth{
+    width: 100%;
+    overflow-x: scroll;
+  }
+  .prod_cat_cont_btn {
+    height: 62px;
+    width: 250%;
+  }
+
+  .allProductCategoryContainer_height {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .brandHeading h1 {
+    font-size: 16px;
+  }
+
+  .editProfile_name {
+    font-size: 12px;
+  }
+  .ScrollContainerRelative {
+    left: 0px;
+  }
+  .newProductSearchResult_ScrollContainerRelative {
+    left: 0px;
+  }
+
+  .bestDealsCard_ScrollContainerRelative {
+    left: 0px;
+  }
+
+  .featuredBrandHeading {
+    font-size: 16px;
+    margin-left: 20px;
+  }
 }
-@media(max-width:480px) {
+@media (max-width:576px) {
+  .delivery_item_paragraph {
+    font-size: .8rem;
+  }
+
+  .delivery_items_right_side_container_height {
+    display: none;
+  }
+
+  .CategorySkeletons {
+    height: 200px;
+    padding: 0px 10px;
+    overflow-y: hidden;
+  }
+  .featuredBrandPadding {
+    height: 267px;
+    overflow-y: hidden;
+    padding: 0px 10px;
+  }
+
+  .deliverySkeletonBox {
+    height: 300px;
+    overflow-y: hidden;
+  }
+
+  .DeliveryServicesSkeleton {
+    padding: 0px 10px;
+  }
+  .deliveryItemRightSide {
+    display: none;
+  }
+
+  .DeliveryItemsCardRightSkeletonBtn {
+    justify-content: flex-start;
+  }
+  .straintype_card_wrapper{
+  flex-wrap: wrap;
+  justify-content: center;
+  }
+  .StrainTypeCardSkeleton {
+    height: 333px;
+    padding: 0px 10px;
+    overflow-y: hidden;
+  }
+
+  .dispensoriesAddressSkeletonPadding {
+    padding: 0px 10px;
+  }
+
+  .dispensoriesAddressSkeletonPadding {
+    height: 514px;
+  }
+
+  .dispensoriesAddressSkeletonPadding {
+    overflow-y: hidden;
+
+  }
+  .LatestServiceskeleton {
+    height: 350px;
+    padding: 0px 10px;
+    overflow-y: hidden;
+  }
+}
+@media (max-width:480px) {
+
   .flav_img_height {
     height: 100%;
     width: 40%;
@@ -1058,9 +868,7 @@
     width: 70%;
     height: 126px;
   }
-  .container{
-    width: 95% !important;
-  }
+ 
   .AddProductCartContainerinner{
     overflow-x: scroll;
   }
@@ -1142,12 +950,6 @@ margin: 0;
   .NumberText_container ol {
     gap: 3%;
   }
- 
-
-  .homePageSignup_paragraph p {
-    font-size: 20px;
-  }
-
   .homePageSignipLink P {
     font-size: 20px;
 
@@ -1411,5 +1213,78 @@ margin: 0;
 
   .newProduct_Gms {
     font-size: 16px;
+  }
+}
+@media (max-width:425px) {
+
+  .NumberText_container ol li {
+    font-size: 8px;
+    min-width: 22%;
+  }
+
+  .NumberText_container ol {
+    gap: 7%;
+  }
+
+  .Category_title {
+    font-size: 12px;
+  }
+}
+@media (max-width:408px) {
+  .weedx_number_container ol li {
+    min-width: 29%;
+    font-size: 10px;
+  }
+}
+@media (max-width:400px) {
+  .dispensories_result_head {
+    font-size: 12px;
+  }
+
+  .disOPenResRating {
+    font-size: 12px;
+  }
+
+  .dispensorieAddressNames {
+    font-size: 12px;
+  }
+
+  .dispensoriesHeadingName {
+    font-size: 12px;
+  }
+
+  .dispensories_open_res_btns {
+    font-size: 10px;
+  }
+
+  .dispensories_open_res_btns2 {
+    font-size: 10px;
+  }
+
+  .dispensories_pickup_btn {
+    font-size: 10px
+  }
+}
+@media (max-width:396px) {
+  .amenties_list_items {
+    font-size: 11px;
+    min-width: 32%;
+  }
+
+}
+@media(max-width:375px) {
+  .headingTypeLabelContainerThirdFourth {
+    padding-top: 54px;
+  }
+}
+@media (max-width:372px) {
+  .NumberText_container ol li {
+    font-size: 7px;
+    min-width: 26%;
+  }
+
+
+  .Category_title {
+    font-size: 10px;
   }
 }

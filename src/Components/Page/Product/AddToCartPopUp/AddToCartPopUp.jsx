@@ -57,7 +57,7 @@ const AddToCartPopUp = ({ CartClean, SetCartClean, NewData, SetAddToCard }) => {
     }
     function Redirect (){
     SetCartClean(false)
-    Navigate("/AddToCart")
+    Navigate("/cart")
     
     }
     return (
