@@ -1,40 +1,64 @@
 // import React from 'react';
 var fs = require('fs');
 var axios = require('axios')
-// import  Axios  from 'axios';
+const cron = require("node-cron");
 async function generateSitemap() {
-    // Fetch dynamic URLs from your e-commerce website's data source.
-    // You may need to make API calls or use your database here.
-    // React.useEffect(() => {
-      const fetchSitemapData = async () => {
-        try {
-          const response = await axios.get('https://api.cannabaze.com/UserPanel/Get-Categories/');
-          return response.data;
-        } catch (error) {
-          console.error('Error fetching sitemap data:', error);
-          return [];
-        }
-      };
-      console.log( fetchSitemapData)
-  
-    // Create the sitemap XML string
-    // const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
-    //   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    //     ${Category.map((url) => `
-    //       <url>
-    //         <loc>https://example.com${url}</loc>
-    //         <changefreq>daily</changefreq>
-    //         <priority>0.7</priority>
-    //       </url>
-    //     `).join('')}
-    //   </urlset>`;
-  
-    // // Write the sitemap XML to a file
-    // fs.writeFileSync('../public/Sitemap/sitemap.xml', sitemapXml);
-    // fs.writeFileSync('../public/Sitemap/sitemap1.xml', sitemapXml);
-  
-    console.log('Sitemap generated and saved as sitemap.xml');
-  }
-  
-  // Generate the sitemap
+
+
+  axios.get(`https://api.cannabaze.com/UserPanel/Get-Categories/`,
+  ).then((respones) => {
+     const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      ${respones.data.map((url) => `
+        <url>
+          <loc>https://www.weedx.io/products/${url.name.replace(/%20| /g, "-").toLowerCase()}/${url.id}</loc>
+          <changefreq>daily</changefreq>
+          <priority>0.7</priority>
+        </url>
+      `).join('')}
+    </urlset>`;
+
+  // Write the sitemap XML to a file
+  fs.writeFileSync('../public/Sitemap/sitemapcategory.xml', sitemapXml);
+  })
+  axios.get(`https://api.cannabaze.com/UserPanel/Get-AllProduct/`,
+  ).then((respones) => {
+   
+     const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      ${respones.data.map((url) => `
+        
+      <url>
+          <loc>https://www.weedx.io/products/${url.category_name.replace(/\s/g, '-').toLowerCase()}/${url.SubcategoryName.replace(/\s/g, '-').toLowerCase()}/${url.Product_Name.replace(/[^a-zA-Z ]/g, "").replace(/\s/g, '-').replace("--", '-').toLowerCase()}/${url.id}</loc>
+          <changefreq>daily</changefreq>
+          <priority>0.7</priority>
+        </url>
+      `).join('')}
+    </urlset>`;
+
+  // Write the sitemap XML to a file
+  fs.writeFileSync('../public/Sitemap/sitemapproduct.xml', sitemapXml);
+  })
+  axios.get(`https://api.cannabaze.com/UserPanel/Get-AllBrand/`,
+  ).then((respones) => {
+   console.log(respones.data)
+     const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      ${respones.data.map((url) => `
+        <url>
+          <loc>https://www.weedx.io/brands/${url.name.replace(/%20| /g, "-").toLowerCase()}/${url.id}</loc>
+          <changefreq>daily</changefreq>
+          <priority>0.7</priority>
+        </url>
+      `).join('')}
+    </urlset>`;
+
+  // Write the sitemap XML to a file
+  fs.writeFileSync('../public/Sitemap/sitemapbrand.xml', sitemapXml);
+  })
+
+}
+cron.schedule("*/15 * * * * *", function () {
   generateSitemap();
+  console.log("running a task every 15 seconds");
+});

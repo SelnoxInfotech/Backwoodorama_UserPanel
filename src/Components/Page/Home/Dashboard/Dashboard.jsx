@@ -20,7 +20,7 @@ export default function Dashboard() {
     const Navigate = useNavigate()
     function ShowCategoryProduct(id, name) {
 
-        Navigate(`/products/${name.toLowerCase()}/${id}`);
+        Navigate(`/products/${name.replace(/%20| /g, "-").toLowerCase()}/${id}`);
     }
     const [Category, SetCategory] = React.useState([])
     React.useEffect(() => {
