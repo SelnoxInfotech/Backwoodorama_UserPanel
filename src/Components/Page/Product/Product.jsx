@@ -8,7 +8,6 @@ import ProductSearchResult from "./ProductSearchResult/ProductSearchResult"
 const Product = () => {
     const navigate = useNavigate();
     const params = useParams();
-    console.log(params, 'params')
     const [loading, SetLoading] = React.useState(false)
     const [subcategories, setsubcategories] = useState([])
     const [Product, SetProduct] = React.useState([])

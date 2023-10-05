@@ -105,7 +105,7 @@ export function Store_Add_Review(Review) {
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
     let data = axios.post(`https://api.cannabaze.com/UserPanel/Add-StoreReview/`,
-    Review,
+        Review,
         {
             headers: { Authorization: `Bearer ${token_data}` }
         },
@@ -118,23 +118,23 @@ export function Store_Add_Review(Review) {
     return data
 }
 
-export async function Store_Get_UserComment(id,storeId) {
+export async function Store_Get_UserComment(id, storeId) {
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
     let res = await axios.get(`https://api.cannabaze.com/UserPanel/Get-getStoreReviewbyId/${id}/${storeId}`,
-    {
-     headers: { Authorization: `Bearer ${token_data}` }
-    },
-  
+        {
+            headers: { Authorization: `Bearer ${token_data}` }
+        },
+
     );
     return res;
-  }
+}
 
-  export async function Store_Get_Review(id) {
+export async function Store_Get_Review(id) {
     let res = await axios.get(` https://api.cannabaze.com/UserPanel/Get-StoreReview/${id}`,
     );
     return res;
-  }
+}
 
 
 
@@ -155,8 +155,8 @@ export function Homepagebanner() {
 
     return banner
 }
-export function getAllNews(){
-    let allnews = axios.get("https://api.cannabaze.com/UserPanel/Get-News/").then((response)=>{
+export function getAllNews() {
+    let allnews = axios.get("https://api.cannabaze.com/UserPanel/Get-News/").then((response) => {
         return response.data;
     })
     return allnews
