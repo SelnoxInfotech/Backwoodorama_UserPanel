@@ -76,12 +76,12 @@ const Footer = () => {
                                         <p className="footer_menu_heading">Category</p>
                                         {Categorys.map((ele, index) => {
                                             if(index >= 4){
-                                               return <Link to={`/CategoryProduct/${ele.name}`} state={ele.id} key={index} className={ morelist ?'' : 'showmoreList'}>
+                                               return <Link to={`/products/${ele.name.replace(/%20| /g, "-").toLowerCase()}/${ele.id}`} key={index} className={ morelist ?'' : 'showmoreList'}>
                                                    <li className="footer_li ellipsis" >{ele.name}</li>
                                                  </Link>
                                             }else{
                                             return (
-                                                <Link to={`/CategoryProduct/${ele.name}`} state={ele.id} key={index}>
+                                                <Link to={`/products/${ele.name.replace(/%20| /g, "-").toLowerCase()}/${ele.id}`}  key={index}>
                                                     <li className="footer_li ellipsis" >{ele.name}</li>
 
                                                 </Link>

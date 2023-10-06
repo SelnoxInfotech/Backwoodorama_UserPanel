@@ -202,7 +202,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                                             <div className=" product_search_result_content_div ">
                                             
                                                 
-                                                        <Link to={"/ProductDetail"} state={items.id}>
+                                                        <Link to={`/products/${items.category_name.toLowerCase()}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${items.Product_Name.replace(/%20| /g, "-").toLowerCase()}/${items.id}`} state={items.id}>
                                                             <p className="productSearchResultParagraph text-truncate">{items.Product_Name}</p>
                                                         </Link>
                                                 

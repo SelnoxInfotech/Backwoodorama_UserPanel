@@ -162,12 +162,12 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
                             <label htmlFor="name-field">
                                 MY STREET ADDRESS
                             </label>
-                            <DeliverAutoCompleteAddress OpenDelivery={OpenDelivery} className={classes.textFieldcartPage}></DeliverAutoCompleteAddress>
+                            <DeliverAutoCompleteAddress OpenDelivery={OpenDelivery} className={classes.textFieldcartsummeryPage}></DeliverAutoCompleteAddress>
                         </div>
                         <div className=" addtocart_textfield mt-3">
                             <label htmlFor="name-field">
                                 APARTMENT OR SUITE NUMBER
-                                <TextField className={classes.textFieldcartPage} name='contact' value={InputValues.contact} onChange={InputFieldHandler} id="outlined-basic" placeholder="APARTMENT OR SUITE NUMBER" variant="outlined" fullWidth size='small' />
+                                <TextField className={classes.textFieldcartsummeryPage} name='contact' value={InputValues.contact} onChange={InputFieldHandler} id="outlined-basic" placeholder="APARTMENT OR SUITE NUMBER" variant="outlined" fullWidth size='small' />
                             </label>
                         </div>
                     </div>)}
