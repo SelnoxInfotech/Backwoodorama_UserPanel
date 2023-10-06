@@ -41,11 +41,13 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
         }
     }
     const CheckoutProcess = (event, j) => {
+      
         if (state.selectDeliveryoptions === "delivery_btn") {
             if (state.DeliveryAddress === "") {
                 alert("Select Delivery address")
             }
             else {
+             
                 if (location.pathname === "/cart") {
 
                     navigate("/CheckOutMainPage", { state: { InputValues, abc: state.Cart_subTotal } })
@@ -66,7 +68,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
         }
         else {
             if (state.selectDeliveryoptions === "pickup_btn") {
-                if (location.pathname === "/AddToCart") {
+                if (location.pathname === "/cart") {
 
                     navigate("/CheckOutMainPage", { state: { InputValues, abc: state.Cart_subTotal } })
                 }
@@ -177,7 +179,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
 
                     {OpenPickup && (
                         <div className='col-lg-12  pickup_div fontStyle'>
-                            <h3 className='addresHeading'> Pickup addresh</h3>
+                            <h3 className='addresHeading'> Pickup Addresh</h3>
                             <p>{state.AllProduct[0]?.StoreAddress}</p>
 
                         </div>

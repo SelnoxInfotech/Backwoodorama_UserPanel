@@ -1313,19 +1313,31 @@ const useStyles = makeStyles({
   }
    },
    textFieldcartsummeryPage:{
-    "& .MuiOutlinedInput-root": {
-      color:"#000",
-      backgroundColor:"#fff",
-      " &.Mui-focused fieldset": {
-        color:"#000",
-        borderColor: "#31B665",
-        backgroundColor:"#fff",
+    color:"#000",
+    backgroundColor:'#fff',
+    '& .MuiOutlinedInput-root': {
+      borderRadius: '0.625rem',
+      fontSize: '1rem',
+      '& fieldset': {
+        borderColor: `#BEBEBE`
       },
-      '&:hover fieldset': {
-         color:"#000",
-        borderColor: '#31B665',
-      },
-    }
+      '&.Mui-focused fieldset': {
+        borderColor: `#31B665 `
+      }
+    }  
+    // "& .MuiOutlinedInput-root": {
+    //   color:"#000",
+    //   backgroundColor:"#fff",
+    //   " &.Mui-focused fieldset": {
+    //     color:"#000",
+    //     borderColor: "#31B665",
+    //     backgroundColor:"#fff",
+    //   },
+    //   '&:hover fieldset': {
+    //      color:"#000",
+    //     borderColor: '#31B665',
+    //   },
+    // }
   }
 });
 

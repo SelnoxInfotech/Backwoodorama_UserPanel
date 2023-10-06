@@ -47,7 +47,7 @@ export default function Dispansires() {
     const [value, setValue] = React.useState(0);
     const DispensorShopLocation = [{ name: "Weed Dispensaries in", city: state.Location}]
     const handleChange = (event, newValue) => {
-        setValue(newValue);
+      setValue(newValue);
     };
     React.useEffect(()=>{
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
