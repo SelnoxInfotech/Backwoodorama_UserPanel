@@ -2,11 +2,10 @@ import React from "react";
 import Createcontext from "../../../../Hooks/Context"
 import Cookies from 'universal-cookie';
 const CurrentLocation = ({ Country, State1, city }) => {
-  const { dispatch } = React.useContext(Createcontext)
+  const {state, dispatch } = React.useContext(Createcontext)
   const cookies = new Cookies();
-
   return (
-    React.useEffect(() => {
+    React.useEffect(() => { 
       navigator.geolocation.getCurrentPosition(
         function (position) { /** won't be executed for such short timeout */
         if (Country === '' || Country === undefined) {
@@ -56,13 +55,15 @@ const CurrentLocation = ({ Country, State1, city }) => {
             }
           }
         },
-        function (positionError) {
 
+        function (positionError) {
+          console.log(cookies.get("Location"))
           switch (positionError.code) {
             // PERMISSION_DENIED
+           
             case 1:
               if (Country === '') {
-                fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${cookies.get("Location") ? cookies.get("Location") : "New York"}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
+                fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${cookies.get("Location")!== undefined ? cookies.get("Location") : "New York"}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
                   .then(res => res.json())
                   .then(response => {
                     dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address })
@@ -118,7 +119,7 @@ const CurrentLocation = ({ Country, State1, city }) => {
               break
           }
         },
-        { timeout: 10000 }
+        
       )
     }, [])
   )
