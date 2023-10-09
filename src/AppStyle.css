@@ -2413,7 +2413,6 @@ scrollbar-width: none;  /* Firefox */
   height: 180px;
   margin: 0 auto;
   display: block;
-  object-fit: cover;
 }
 .recentViewProductCard {
   width: 306px;

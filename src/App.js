@@ -6,7 +6,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-
+import './termconditions.css';
 import ConfigRoute from "./Routes/ConfigRoute"
 function App() {
   const router = createBrowserRouter(ConfigRoute);
