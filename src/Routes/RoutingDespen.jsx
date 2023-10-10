@@ -3,11 +3,13 @@ import React ,{Suspense}from "react"
 import Createcontext from "../Hooks/Context"
 import {  useParams } from "react-router-dom";
 import CurrentLocation from "../Components/Component/Navbar/Component/CurrentLocation"
+import Cookies from "universal-cookie";
 export default function RoutingDespen(props) {
+    const cookies = new Cookies()
     const { state } = React.useContext(Createcontext)
     const params = useParams()
     const { Component } = props;
-
+ console.log(cookies.get("Location"))
     const [L, Set] = React.useState('')
     const [s, Set1] = React.useState('')
     const [c, Set2] = React.useState('')
@@ -49,8 +51,8 @@ export default function RoutingDespen(props) {
         <div>
             <Suspense fallback={"Loading"}>
             <Component />
-            {
-                L !== "" && <CurrentLocation Country={L} State1={s} city={c}></CurrentLocation>
+          {
+               L !== "" && <CurrentLocation Country={L} State1={s} city={c}></CurrentLocation>
             }
             </Suspense>
         </div>
