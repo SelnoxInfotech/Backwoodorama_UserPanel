@@ -70,7 +70,7 @@ export default function DashBoardLink({ state }) {
                 <IconButton className={classes.navBarButton_icons} aria-label="notification"> <IoIosNotifications color="#858585" size={23}></IoIosNotifications></IconButton>
               </Badge>
               <Link to="/cart">
-                <Badge className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`} badgeContent={state.AllProduct?.length > 0 ? state.AllProduct?.length : "0"}>
+                <Badge className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`} badgeContent={state.AllProduct?.length > 0 ? state.AllProduct?.length : null}>
                   <IconButton className={classes.navBarButton_icons} aria-label="shopping-cart"><MdOutlineShoppingCart color="#858585" size={22}></MdOutlineShoppingCart></IconButton>
                 </Badge>
               </Link>

@@ -71,7 +71,7 @@ const Login = () => {
     return (
         <React.Fragment>
             <LoginSeo></LoginSeo>
-            <div className="container signup_margins_top signup_margins_bottom">
+            <div className="container signup_margins_top ">
                 <div className="row center">
                     <div className="col-xl-4 col-lg-6 col-md-6 col-sm-8 col-11 signup_padding_bottom login_signup_reset_container login_container_height">
                         <div className='row'>
@@ -184,7 +184,8 @@ const Login = () => {
 
 
                         <div className='w-100 center my-2 '>
-                            <p className='login_bottom'>New weedx ?</p>
+                            {/* <p className='login_bottom'>New weedx ?</p> */}
+                            <Link className='login_bottom' to={'/signup'}>New weedx ?</Link>
                         </div>
 
 

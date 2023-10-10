@@ -27,7 +27,7 @@ const SideNavbar = ({ closeNav, Open }) => {
         closeNav()
     }
     function Signup() {
-        Navigate("/Signup")
+        Navigate("/signup")
         closeNav()
     }
     React.useEffect(() => {

@@ -179,7 +179,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
 
                     {OpenPickup && (
                         <div className='col-lg-12  pickup_div fontStyle'>
-                            <h3 className='addresHeading'> Pickup Addresh</h3>
+                            <h3 className='addresHeading'> Pickup Address</h3>
                             <p>{state.AllProduct[0]?.StoreAddress}</p>
 
                         </div>

@@ -160,7 +160,7 @@ const Navbar = () => {
                   <IconButton className={classes.navBarButton_icons} aria-label='notification'><IoIosNotifications color="#858585" size={22}></IoIosNotifications></IconButton>
                 </Badge>
               <Link to="/cart">
-                <Badge  badgeContent={ state.AllProduct?.length > 0 && state.AllProduct?.length } className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`}>
+                <Badge  badgeContent={ state.AllProduct?.length > 0 ? state.AllProduct?.length : null } className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`}>
 
                   <IconButton className={classes.navBarButton_icons} aria-label='shopping-cart'><MdOutlineShoppingCart color="#858585" size={22}></MdOutlineShoppingCart></IconButton>
                 </Badge>
@@ -233,12 +233,12 @@ const Navbar = () => {
                 <div className=' col-12 Login_Sigup_button  Sapceing'>
                   <div className='col-lg-4 col-sm-4'>
                     <Grid display={{ xs: "none", md: "block", lg: "block", }} >
-                      <NavLink to="/Login" >   <Button className={classes.muiBtn} >Login</Button></NavLink>
+                      <NavLink to="/login" >   <Button className={classes.muiBtn} >Login</Button></NavLink>
                     </Grid>
                   </div>
                   <div className='col-lg-4 col-sm-4'>
                     <Grid display={{ xs: "none", md: "block", lg: "block" }}>
-                      <NavLink to="/Signup" >    <Button sx={{ boxShadow: 3 }} className={classes.muiBtn_Signup} >Signup</Button></NavLink>
+                      <NavLink to="/signup" >    <Button sx={{ boxShadow: 3 }} className={classes.muiBtn_Signup} >Signup</Button></NavLink>
                     </Grid>
                   </div>
                 </div>
@@ -257,6 +257,3 @@ const Navbar = () => {
   )
 }
 export default Navbar
-
-
-// AIzaSyCIKajdxnw25suNPzUQIVQzbBmxN9n4XrE
