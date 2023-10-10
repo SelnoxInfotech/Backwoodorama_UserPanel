@@ -58,7 +58,7 @@ async function generateSitemap() {
   })
 
 }
-cron.schedule("*/15 * * * * *", function () {
+cron.schedule("*/15 * * * * * ", function () {
   generateSitemap();
   console.log("running a task every 15 seconds");
 });

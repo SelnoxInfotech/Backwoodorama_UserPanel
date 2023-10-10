@@ -187,7 +187,7 @@ return (
                                                 event.target.src = "/image/blankImage.jpg"
                                                 event.onerror = null
                                             }}
-                                            src={`https://api.cannabaze.com/${items?.images[0]?.image}`}
+                                            src={`https://api.cannabaze.com${items?.images[0]?.image}`}
                                             className="whislist_imageStyle"
                                             alt="imgs-not-found"
                                             onClick={() => Navigate(`/NewProductDetails/${items.id}`)}

@@ -95,7 +95,7 @@ const Profile = () => {
                                                         event.target.src = "./image/user.webp"
                                                         event.onerror = null
                                                     }}
-                                                    src={`https://api.cannabaze.com/${state.Profile.image}`}
+                                                    src={`https://api.cannabaze.com${state.Profile.image}`}
                                                     // src={image}
                                                     alt='profile_image'
                                                     className="profile_images"

@@ -4,15 +4,17 @@ import Createcontext from "../Hooks/Context"
 import {  useParams } from "react-router-dom";
 import CurrentLocation from "../Components/Component/Navbar/Component/CurrentLocation"
 import Cookies from "universal-cookie";
+import RoutingSearch from "../Components/Component/DispensierRoutingSearch.jsx/RoutingSearch";
 export default function RoutingDespen(props) {
     const cookies = new Cookies()
     const { state } = React.useContext(Createcontext)
     const params = useParams()
     const { Component } = props;
- console.log(cookies.get("Location"))
+ console.log(params)
     const [L, Set] = React.useState('')
     const [s, Set1] = React.useState('')
     const [c, Set2] = React.useState('')
+
     React.useEffect(() => {
         if (params?.city === undefined) {
             if (params?.state === undefined) {
@@ -51,8 +53,9 @@ export default function RoutingDespen(props) {
         <div>
             <Suspense fallback={"Loading"}>
             <Component />
+            <RoutingSearch value={c}></RoutingSearch>
           {
-               L !== "" && <CurrentLocation Country={L} State1={s} city={c}></CurrentLocation>
+            //  state.permission===false && <CurrentLocation Country={L} State1={s} city={c}></CurrentLocation>
             }
             </Suspense>
         </div>

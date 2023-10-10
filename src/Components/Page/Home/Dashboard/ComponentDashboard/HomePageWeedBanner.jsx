@@ -38,7 +38,7 @@ const HomePageWeedBanner=()=>{
                 return (
                     <SwiperSlide>
                     <div  key={index} className='col-12 homePageBanner_container' >
-                        <LazyLoadImage src={`https://api.cannabaze.com/${ele?.Banner}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
+                        <LazyLoadImage src={`https://api.cannabaze.com${ele?.Banner}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
                     </div>
                     </SwiperSlide>
                 )
@@ -54,7 +54,7 @@ const HomePageWeedBanner=()=>{
                 return (
                     <SwiperSlide>
                     <div className='col-12 homePageBanner_container' key={index}>
-                        <LazyLoadImage src={`https://api.cannabaze.com/${ele?.mobile}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
+                        <LazyLoadImage src={`https://api.cannabaze.com${ele?.mobile}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
                     </div>
                     </SwiperSlide>
                 )

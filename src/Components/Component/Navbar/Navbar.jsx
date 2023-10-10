@@ -182,7 +182,7 @@ const Navbar = () => {
                             event.target.src = "/image/user.webp"
                             event.onerror = null
                           }}
-                          src={`https://api.cannabaze.com/${state.Profile.image}`}
+                          src={`https://api.cannabaze.com${state.Profile.image}`}
                           alt='Profile'
                           className="Navbar_logo_imgs"
                           onClick={handleClickDropdown}
@@ -197,7 +197,7 @@ const Navbar = () => {
                               event.target.src = "/image/user.webp"
                               event.onerror = null
                             }}
-                              src={`https://api.cannabaze.com/${state?.Profile?.image}`}
+                              src={`https://api.cannabaze.com${state?.Profile?.image}`}
                               alt='Profile' className="Navbar_profile_imgs" />
                           </div>
                           <div className='profile_name_container'>

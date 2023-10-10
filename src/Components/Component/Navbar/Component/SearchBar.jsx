@@ -153,7 +153,7 @@ const SearchBar = ({path}) => {
                                                     onError={event => {
                                                         event.target.src = "/image/blankImage.jpg"                                                      
                                                     }}
-                                                    className='searchBarImageStyles' src={`https://api.cannabaze.com/${t.image}`} alt=''></LazyLoadImage>
+                                                    className='searchBarImageStyles' src={`https://api.cannabaze.com${t.image}`} alt=''></LazyLoadImage>
                                                 <span className='searchBarSpanValue'> {`${t.value}`}</span>
                                             </li>
                                         </div>

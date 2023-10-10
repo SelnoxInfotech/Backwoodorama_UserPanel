@@ -49,7 +49,7 @@ export default function ProtectRout(props) {
         <div>
             <Suspense fallback={"Loading"}>
             <Component />
-            {state?.Country ==='' &&<CurrentLocation Country={state?.Country }></CurrentLocation> }
+            {/* <CurrentLocation Country={state?.Country }></CurrentLocation>  */}
             </Suspense>
         </div>
     )

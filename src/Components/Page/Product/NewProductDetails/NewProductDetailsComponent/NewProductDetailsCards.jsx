@@ -138,7 +138,7 @@ const NewProductDetailsCards = ({ Product }) => {
                     <div className="newProductDetailsCardLeftCol">
                         <div className="">
                             <div className="newProductDetailsUpperimage_container">
-                                <LazyLoadImage className="newProductDetails_upper_image" src={`https://api.cannabaze.com/` + p} />
+                                <LazyLoadImage className="newProductDetails_upper_image" src={`https://api.cannabaze.com` + p} />
                             </div>
                             {
                                 Product?.images?.length >  1 ?   <div className=" newProductDetailsLowerImage_container">

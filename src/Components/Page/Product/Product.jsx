@@ -14,10 +14,30 @@ const Product = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
 
+    function modifystr(str) {
+        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str.trim().replaceAll(' ', "-");
+        let a = 0;
+        while (a < 1) {
+          if (str.includes("--")) {
+            str = str.replaceAll("--", "-")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("//", "/")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("-/", "/")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("/-", "/")
+          } else {
+            a++
+          }
+        }
+    
+        return str
+      }
 
 
     async function ShowCategoryProduct(id, name) {
-        await navigate(`/products/${name.toLowerCase()}/${id}`);
+        await navigate(`/products/${modifystr(name.toLowerCase())}/${id}`);
         await setSelectedOption(null)
         setsubcategories([])
     }
@@ -25,7 +45,7 @@ const Product = () => {
     const selectOption = (option) => {
         setSelectedOption(option);
         setIsDropdownOpen(false);
-        navigate(`/products/${params.categoryname.toLowerCase()}/${option.name.toLowerCase().split(' ').join('-')}/${option.id}`)
+        navigate(`/products/${modifystr(params.categoryname.toLowerCase())}/${modifystr(option.name.toLowerCase())}/${option.id}`)
 
     };
 
@@ -140,7 +160,7 @@ const Product = () => {
                                                 setIsDropdownOpen(!isDropdownOpen)
                                             }}>
                                                 {selectedOption && (
-                                                    <img src={`https://api.cannabaze.com/${selectedOption.SubCategoryImage}`} alt={selectedOption.name} className="dropdown-option-image" />
+                                                    <img src={`https://api.cannabaze.com${selectedOption.SubCategoryImage}`} alt={selectedOption.name} className="dropdown-option-image" />
                                                 )}
                                                 <span className="dropdown-option-label">
                                                     {selectedOption ? selectedOption.name : 'Short by Subcategory '}
@@ -150,7 +170,7 @@ const Product = () => {
                                             <ul className={`dropdown-menu image_dropdown ${isDropdownOpen ? 'open' : ''}`}>
                                                 {subcategories?.map((option, index) => (
                                                     <li key={index} onClick={() => selectOption(option)}>
-                                                        <img src={`https://api.cannabaze.com/${option.SubCategoryImage}`} alt={option.name} className="dropdown-option-image" />
+                                                        <img src={`https://api.cannabaze.com${option.SubCategoryImage}`} alt={option.name} className="dropdown-option-image" />
                                                         <span className="dropdown-option-label">{option.name}</span>
                                                     </li>
                                                 ))}

@@ -7,7 +7,10 @@ export default function RoutingList(props) {
     const { Component } = props;
     const { state } = React.useContext(Createcontext)
     const cookies = new Cookies()
-
+   
+    React.useEffect(()=>{
+      console.log(  state.permission)
+    },[state.permission])
 
 
 
@@ -15,8 +18,12 @@ export default function RoutingList(props) {
         <div>
             <Suspense fallback={"Loading"}>
             <Component />
+           {/* { cookies.get("Location")!==undefined && state?.Country ==='' && */}
+            
+       {    state.permission===false && <CurrentLocation></CurrentLocation> }
+            
+        {/* //    } */}
             </Suspense>
-           { cookies.get("Location")!==undefined && state?.Country ==='' &&<CurrentLocation Country={state?.Country}></CurrentLocation> }
         </div>
     )
 }

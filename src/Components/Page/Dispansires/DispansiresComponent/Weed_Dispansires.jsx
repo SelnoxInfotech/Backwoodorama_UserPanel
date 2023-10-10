@@ -39,6 +39,27 @@ const Weed_Dispansires = () => {
             })   
         }
       }, [searchtext])
+      function modifystr(str) {
+        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str.trim().replaceAll(' ', "-");
+        let a = 0;
+        while (a < 1) {
+          if (str.includes("--")) {
+            str = str.replaceAll("--", "-")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("//", "/")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("-/", "/")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("/-", "/")
+          } else {
+            a++
+          }
+        }
+    
+        return str
+      }
+
     return (
         <React.Fragment>
             <DispensariesSco></DispensariesSco>
@@ -76,15 +97,15 @@ const Weed_Dispansires = () => {
                                         <div className=" col-11  mx-auto despensories_card_container">
                                             <div className="row">
                                                 <div className="col-4 disensories_card_image_div">
-                                                    <Link  to={`/weed-dispensaries/${ele.Store_Name.replace(/\s/g,'-').toLowerCase()}/${ele.id}`}>
-                                                        <LazyLoadImage id={ele.id} src={`https://api.cannabaze.com/${ele.Store_Image}`} alt={ele.Store_Name}className="dispensories_card_image" />
+                                                    <Link  to={`/weed-dispensaries/${modifystr(ele.Store_Name.toLowerCase())}/${ele.id}`}>
+                                                        <LazyLoadImage id={ele.id} src={`https://api.cannabaze.com${ele.Store_Image}`} alt={ele.Store_Name}className="dispensories_card_image" />
                                                     </Link>
 
                                                 </div>
                                                 <div className="col-8 dispenosries_card_content_div">
 
                                                     <div className="col-12 dispensories_content_Header_paragraphs text-truncate">
-                                                    <Link  to={`/weed-dispensaries/${ele.Store_Name.replace(/\s/g,'-')}/${ele.id}`}>
+                                                    <Link  to={`/weed-dispensaries/${modifystr(ele.Store_Name.toLowerCase())}/${ele.id}`}>
                                                         <span className="text-truncate dispensoriesHeadingName">{ele.Store_Name}</span>
                                                     </Link>
                                                     </div>
@@ -99,7 +120,7 @@ const Weed_Dispansires = () => {
                                                     <div className="col-12 dispensories_buttonsContainer mt-2">
                                                         <button className="dispensories_pickup_btn">Pickup delivery</button>
                                                     </div>
-                                                        <Link  to={`/weed-dispensaries/${ele.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${ele.id}`}>
+                                                        <Link  to={`/weed-dispensaries/${modifystr(ele.Store_Name.toLowerCase())}/${"review"}/${ele.id}`}>
                                                     <div className="col-12 d-flex dispensories_content_paragraphs mt-2">
                                                         <span className='disOPenResRating'>Rating</span>
                                                         <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={ele.rating === null ? 0 : ele.rating} readOnly />
@@ -107,7 +128,7 @@ const Weed_Dispansires = () => {
                                                         </Link>
                                                     <div className="col-12">
                                                         <Box className={classes.loadingBtnTextAndBack}>
-                                                        <Link  to={`/weed-dispensaries/${ele.Store_Name.replace(/\s/g,'-').toLowerCase()}/${ele.id}`}>
+                                                        <Link  to={`/weed-dispensaries/${modifystr(ele.Store_Name.toLowerCase())}/${ele.id}`}>
                                                             <LoadingButton style={{ width: "60%", height: "30px" }}>Order Pickup</LoadingButton>
                                                             </Link>
                                                         </Box>
