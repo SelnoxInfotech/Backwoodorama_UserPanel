@@ -7,10 +7,10 @@ import Createcontext from "../../../../Hooks/Context"
 import { IoLocationSharp } from "react-icons/io5"
 import { MdOutlineMyLocation } from "react-icons/md"
 import { IconButton, InputAdornment, TextField } from "@mui/material";
-import { useNavigate, useLocation ,useParams } from "react-router-dom";
-export default function AddressSearch({ openLocation, SearchBarWidth, open, setOpenLocation,path }) {
+import { useNavigate, useLocation, useParams } from "react-router-dom";
+export default function AddressSearch({ openLocation, SearchBarWidth, open, setOpenLocation, path }) {
   const classes = useStyles()
-  const params =  useParams()
+  const params = useParams()
   const navigate = useNavigate();
   const location = useLocation()
   const [current_route, Setcurrent_route] = React.useState()
@@ -39,12 +39,12 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
         }
         return data
       })
-    
+
       // Rout(Coun,sta,ci)
       // if (Location.pathname.slice(0, 16) === '/Weed-Deliveries') {
       //   Navigate(`/Weed-Deliveries/in/${Coun}/${sta}/${ci}`)
       // }
-      current_route?.slice(0, 17 ) === '/Weed-Deliveries/' &&  navigate(`/Weed-Deliveries/in/${Coun}/${sta}/${ci}`)
+      current_route?.slice(0, 17) === '/Weed-Deliveries/' && navigate(`/Weed-Deliveries/in/${Coun}/${sta}/${ci}`)
 
     },
     options: {
@@ -55,16 +55,16 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
       // types: ['city']
     },
   });
-  React.useEffect(()=>{
+  React.useEffect(() => {
     Setcurrent_route(location.pathname)
-  },[location])
+  }, [location])
 
-    // function Rout (Coun,sta,ci){
-      
-    //   if (path.slice(0, 17) === "/Weed-Dispansires/") {
-    //     navigate(`/Weed-Dispansires/in/${Coun}/${sta}/${ci}`)
-    //   }
-    // }
+  // function Rout (Coun,sta,ci){
+
+  //   if (path.slice(0, 17) === "/Weed-Dispansires/") {
+  //     navigate(`/Weed-Dispansires/in/${Coun}/${sta}/${ci}`)
+  //   }
+  // }
 
   React.useEffect(() => {
 
@@ -77,7 +77,7 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
 
   function handleChange(event) {
     Setdefault(event.target.value);
-    
+
   }
   function current(event) {
     navigator.permissions.query({ name: 'geolocation' }).then(permissionStatus => {
@@ -160,10 +160,5 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
         }}
       />
     </React.Fragment>
-
   );
-
-
-
-
 };

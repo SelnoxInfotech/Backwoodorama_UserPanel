@@ -25,11 +25,12 @@ const Weed_Dispansires = () => {
                   "store": searchtext
                 })
                 .then(function (response) {
-                    SetStore(response.data);
+                    SetStore(response?.data);
                   
                 })
                 .catch(function (error) {
                   console.trace(error);
+                  SetStore([]);
                 });
             }, 1000)
             return () => clearTimeout(getData)
@@ -72,7 +73,7 @@ const Weed_Dispansires = () => {
                                     <div className="col-12 dispensories_open_search_result mt-2">
                                         <SearchBar onChange={(e)=>setsearchtext(e)} style={{ background: "#FFFFF", border: "1px solid gray" }} width={"100%"} placeholder="Search dispensaries address" />
                                         {
-                                            Search.map((data) => {
+                                            Search?.map((data) => {
                                                 return (
                                                     <ul>
                                                         <li>{data.Store_Name}</li>
@@ -84,21 +85,21 @@ const Weed_Dispansires = () => {
                                 </div>
                                 <div className='col-12 dispensoriesOpenResultHeadingss py-2'>
                                     <span className='dispensories_result_head'>Showing result</span>
-                                    <span className='dispensories_result_head'>{Store.length}</span>
+                                    <span className='dispensories_result_head'>{Store?.length}</span>
                                 </div>                       
                             </div>
                         </div>
 
 
-                        {Store.map((ele, index) => {
+                        {Store?.map((ele, index) => {
                             return (
                                 
                                     <div className="row mt-4" key={index}>
                                         <div className=" col-11  mx-auto despensories_card_container">
                                             <div className="row">
                                                 <div className="col-4 disensories_card_image_div">
-                                                    <Link  to={`/weed-dispensaries/${modifystr(ele.Store_Name.toLowerCase())}/${ele.id}`}>
-                                                        <LazyLoadImage id={ele.id} src={`https://api.cannabaze.com${ele.Store_Image}`} alt={ele.Store_Name}className="dispensories_card_image" />
+                                                    <Link  to={`/weed-dispensaries/${modifystr(ele?.Store_Name.toLowerCase())}/${ele.id}`}>
+                                                        <LazyLoadImage id={ele?.id} src={`https://api.cannabaze.com${ele.Store_Image}`} alt={ele.Store_Name}className="dispensories_card_image" />
                                                     </Link>
 
                                                 </div>

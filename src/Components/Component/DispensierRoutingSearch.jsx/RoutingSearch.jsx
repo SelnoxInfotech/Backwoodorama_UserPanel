@@ -1,28 +1,125 @@
 import React from 'react'
 import Createcontext from "../../../Hooks/Context"
-export default function RoutingSearch(value) {
-    const { state, dispatch } = React.useContext(Createcontext)
-     console.log(state , value)
-    // fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
-    // .then(res => res.json())
-    // .then(response => {
-    //   dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address })
-    //   response?.results[0]?.address_components?.map((data) => {
-    //     if (data.types.indexOf('country') !== -1) {
-    //       dispatch({ type: 'Country', Country: data?.long_name.replace(/\s/g, '-') })
-    //     }
-    //     if (data.types.indexOf('administrative_area_level_1') !== -1) {
-    //       if (data.types.indexOf('administrative_area_level_1') !== -1) {
-    //         dispatch({ type: 'State', State: data?.long_name.replace(/\s/g, '-') })
-    //       }
-    //     }
-    //     if (data.types.indexOf('administrative_area_level_3') !== -1) {
-    //       if (data.types.indexOf('administrative_area_level_3') !== -1 || data.types.indexOf('locality') !== -1) {
-    //         dispatch({ type: 'City', City: data?.long_name?.replace(/\s/g, '-') })
+import { useNavigate } from 'react-router-dom'
+export default function RoutingSearch({ value, f, g, pathname }) {
+  const { state, dispatch } = React.useContext(Createcontext)
+  const navigate = useNavigate()
+  return (
+    React.useEffect(() => {
+      var c
+      var s
+      var city
+      fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
+        .then(res => res.json())
+        .then(response => {
+          if (response?.results[0]?.formatted_address === undefined) {
+            fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${f}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
+              .then(res => res.json())
+              .then(response => {
+                if (response?.results[0]?.formatted_address === undefined) {
+                  fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${g}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
+                    .then(res => res.json())
+                    .then(response => {
+                      dispatch({ type: 'permission', permission: true })
+                      dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address })
+                      response?.results[0]?.address_components?.map((data) => {
+                        if (data.types.indexOf('country') !== -1) {
+                          dispatch({ type: 'Country', Country: data?.long_name.replace(/\s/g, '-') })
+                          c = data?.long_name.replace(/\s/g, '-')
+                        }
+                        if (data.types.indexOf('administrative_area_level_1') !== -1) {
+                          if (data.types.indexOf('administrative_area_level_1') !== -1) {
+                            dispatch({ type: 'State', State: data?.long_name.replace(/\s/g, '-') })
+                            s = data?.long_name.replace(/\s/g, '-')
+                          }
+                        }
+                        if (data.types.indexOf('administrative_area_level_3') !== -1) {
+                          if (data.types.indexOf('administrative_area_level_3') !== -1 || data.types.indexOf('locality') !== -1) {
+                            dispatch({ type: 'City', City: data?.long_name?.replace(/\s/g, '-') })
+                            city = data?.long_name.replace(/\s/g, '-')
+                          }
+                        }
+                      })
 
-    //       }
-    //     }
-    //   })
-    // }).catch((error) => {
-    // })
+                    }).catch((error) => {
+                      console.trace(error)
+                    })
+                }
+                else {
+                  dispatch({ type: 'permission', permission: true })
+                  dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address })
+
+                  response?.results[0]?.address_components?.map((data) => {
+                    if (data.types.indexOf('country') !== -1) {
+                      dispatch({ type: 'Country', Country: data?.long_name.replace(/\s/g, '-') })
+                      c = data?.long_name.replace(/\s/g, '-')
+                    }
+                    if (data.types.indexOf('administrative_area_level_1') !== -1) {
+                      if (data.types.indexOf('administrative_area_level_1') !== -1) {
+                        dispatch({ type: 'State', State: data?.long_name.replace(/\s/g, '-') })
+                        s = data?.long_name.replace(/\s/g, '-')
+                      }
+                    }
+                    if (data.types.indexOf('administrative_area_level_3') !== -1) {
+                      if (data.types.indexOf('administrative_area_level_3') !== -1 || data.types.indexOf('locality') !== -1) {
+                        dispatch({ type: 'City', City: data?.long_name?.replace(/\s/g, '-') })
+                        city = data?.long_name.replace(/\s/g, '-')
+                      }
+                    }
+                  })
+                }
+              }).catch((error) => {
+                console.trace(error)
+              })
+          }
+          else {
+            dispatch({ type: 'permission', permission: true })
+            dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address })
+            response?.results[0]?.address_components?.map((data) => {
+              if (data.types.indexOf('country') !== -1) {
+                dispatch({ type: 'Country', Country: data?.long_name.replace(/\s/g, '-') })
+                c = data?.long_name.replace(/\s/g, '-')
+              }
+              if (data.types.indexOf('administrative_area_level_1') !== -1) {
+                if (data.types.indexOf('administrative_area_level_1') !== -1) {
+                  dispatch({ type: 'State', State: data?.long_name.replace(/\s/g, '-') })
+                  s = data?.long_name.replace(/\s/g, '-')
+                }
+              }
+              if (data.types.indexOf('administrative_area_level_3') !== -1) {
+                if (data.types.indexOf('administrative_area_level_3') !== -1 || data.types.indexOf('locality') !== -1) {
+                  dispatch({ type: 'City', City: data?.long_name?.replace(/\s/g, '-') })
+                  city = data?.long_name.replace(/\s/g, '-')
+
+                }
+              }
+
+            })
+          }
+
+
+
+          // if (city !== undefined && s !== undefined) {
+
+          //   navigate(pathname + `/${'in'}/${c}/${s}/${city}/`)
+          // }
+          // else if (city === undefined && s !== undefined) {
+          //   navigate(pathname + `/${'in'}/${c}/${s}/`)
+          // }
+          // else if (s === undefined) {
+          //   navigate(pathname + `/${'in'}/${c}/`)
+          // }
+          // console.log(city, s, c)
+
+
+        }
+        
+        
+        
+        
+        ).catch((error) => {
+          console.trace(error)
+        })
+    }, [])
+  )
 }

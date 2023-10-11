@@ -3,11 +3,11 @@ import Createcontext from "../../../../Hooks/Context"
 import Cookies from 'universal-cookie';
 import { useGeolocated } from "react-geolocated";
 import { ready } from "jquery";
-const CurrentLocation = ({ Country, State1, city }) => {
+const CurrentLocation = () => {
   const { state, dispatch } = React.useContext(Createcontext)
   const cookies = new Cookies();
   const [loca, Setloca] = React.useState()
-  const { coords, isGeolocationAvailable, isGeolocationEnabled } =
+  const { coords } =
     useGeolocated({
       positionOptions: {
         enableHighAccuracy: true,
@@ -22,15 +22,6 @@ const CurrentLocation = ({ Country, State1, city }) => {
       Setloca( coords?.longitude )
     }
   },[coords])
-
-  // console.log(coords, isGeolocationEnabled , loca )  
-//   if(isGeolocationAvailable && isGeolocationEnabled){
-//  c()
-//   }
-//   else{
-//     c()
-//   }
-
 
   React.useEffect(()=>{
     dispatch({ type: 'permission', permission:  coords === undefined ? false : true  })
@@ -84,7 +75,7 @@ const CurrentLocation = ({ Country, State1, city }) => {
         })
       }).catch((error) => {
       })
-  },[loca])
+  },[loca , state.DefalutLocation])
 
   
 

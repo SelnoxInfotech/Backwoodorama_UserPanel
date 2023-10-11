@@ -138,10 +138,10 @@ export function WhisList({ open1, SetWishList }) {
                 <DialogActions>
                    <div className='col-12 center whislistLOginBtnCol' >
                    <Grid>
-                      <NavLink to="/Login" >   <Button className={classes.muiBtn} >Login</Button></NavLink>
+                      <NavLink to="/login" >   <Button className={classes.muiBtn} >Login</Button></NavLink>
                     </Grid>
                     <Grid>
-                      <NavLink to="/Signup" >    <Button   onClick={handleClose} sx={{ boxShadow: 3 }} className={classes.muiBtn_Signup} >Signup</Button></NavLink>
+                      <NavLink to="/signup" >    <Button   onClick={handleClose} sx={{ boxShadow: 3 }} className={classes.muiBtn_Signup} >Signup</Button></NavLink>
                     </Grid>
                     
                    </div>

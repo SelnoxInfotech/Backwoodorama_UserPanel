@@ -1,7 +1,7 @@
 
 import React ,{Suspense}from "react"
 import Createcontext from "../Hooks/Context"
-import {  useParams } from "react-router-dom";
+import {  useParams ,useLocation } from "react-router-dom";
 import CurrentLocation from "../Components/Component/Navbar/Component/CurrentLocation"
 import Cookies from "universal-cookie";
 import RoutingSearch from "../Components/Component/DispensierRoutingSearch.jsx/RoutingSearch";
@@ -9,51 +9,18 @@ export default function RoutingDespen(props) {
     const cookies = new Cookies()
     const { state } = React.useContext(Createcontext)
     const params = useParams()
+    const Location = useLocation()
     const { Component } = props;
- console.log(params)
-    const [L, Set] = React.useState('')
-    const [s, Set1] = React.useState('')
-    const [c, Set2] = React.useState('')
-
-    React.useEffect(() => {
-        if (params?.city === undefined) {
-            if (params?.state === undefined) {
-                if (params.Country !== undefined) {
-                    Set(params?.Country)
-                }
-
-            }
-            else {
-                if (state.State !== params.state) {
-
-                    Set1(params?.state)
-                    Set(params?.Country)
-                }
-            }
-            // if (params?.city !== undefined) {
-            //     Set2(params?.city)
-            // }
-        }
-        else {
-            if (state.City !== params.city) {
-
-                Set1(params?.state)
-                Set(params?.Country)
-                Set2(params?.city)
-            }
-            // Set(state.Country)
-        }
-
-
-
-    }, [state , params])
-
+ console.log(params , Location.pathname.slice(0,18) === '/weed-dispensaries')
+ 
     return (
 
         <div>
             <Suspense fallback={"Loading"}>
             <Component />
-            <RoutingSearch value={c}></RoutingSearch>
+           {(params.city !== state.City || params.state !== state.State || params.Country !== state.Country)&& <RoutingSearch value={params.city } f ={params.state } g ={params.Country} 
+           pathname={Location.pathname.slice(0,18) === '/weed-dispensaries' ? "/weed-dispensaries" :"/weed-deliveries"}
+           ></RoutingSearch>}
           {
             //  state.permission===false && <CurrentLocation Country={L} State1={s} city={c}></CurrentLocation>
             }
