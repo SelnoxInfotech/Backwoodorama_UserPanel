@@ -18,7 +18,7 @@ export default function RoutingDespen(props) {
         <div>
             <Suspense fallback={"Loading"}>
             <Component />
-           {(params.city !== state.City || params.state !== state.State || params.Country !== state.Country)&& <RoutingSearch value={params.city } f ={params.state } g ={params.Country} 
+           {(params.city !== state.City || params.state !== state.State || params.Country !== state.Country)&& <RoutingSearch city={params.city } State ={params.state } country ={params.Country} 
            pathname={Location.pathname.slice(0,18) === '/weed-dispensaries' ? "/weed-dispensaries" :"/weed-deliveries"}
            ></RoutingSearch>}
           {
