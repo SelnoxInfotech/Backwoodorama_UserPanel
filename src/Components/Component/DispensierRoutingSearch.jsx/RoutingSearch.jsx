@@ -9,20 +9,22 @@ export default function RoutingSearch({ city, State, country, pathname }) {
     console.log(city, State, country)
        if(city === undefined) {
          if(State !== undefined){
-          Setsearch(State)
+          location(State)
          }
          else{
-          Setsearch(country)
+          location(country)
          }
        }  
        else {
-        Setsearch(city)
+        location(city)
        }
   },[])
 
-    React.useEffect(() => {
-      var SearchCity , SearchState , SearchCountry ;
-      fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${search}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
+
+function location (value)
+{
+  var SearchCity , SearchState , SearchCountry ;
+  fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
         .then(res => res.json())
         .then(response => {
             dispatch({ type: 'permission', permission: true })
@@ -136,6 +138,9 @@ export default function RoutingSearch({ city, State, country, pathname }) {
         ).catch((error) => {
           console.trace(error)
         })
-    }, [search])
+}
+
+
+   
 
 } 
