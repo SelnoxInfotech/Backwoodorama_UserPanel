@@ -17,18 +17,18 @@ const Dispensories = () => {
     // const [Store, SetStore] = useState([])
     const [Store, SetStore] = React.useState([])
     const [Skeleton, SetSkeleton] = React.useState(true)
-    React.useEffect(() => {
+    // React.useEffect(() => {
 
-        Axios.get(
-            'https://api.cannabaze.com/UserPanel/Get-Dispensaries/',
+    //     Axios.get(
+    //         'https://api.cannabaze.com/UserPanel/Get-Dispensaries/',
 
-        ).then(response => {
-            SetStore(response.data)
-            SetSkeleton(false)
+    //     ).then(response => {
+    //         SetStore(response?.data)
+    //         SetSkeleton(false)
 
-        }).catch(
-        )
-    }, [])
+    //     }).catch(
+    //     )
+    // }, [])
 
     const classes = useStyles()
     return (

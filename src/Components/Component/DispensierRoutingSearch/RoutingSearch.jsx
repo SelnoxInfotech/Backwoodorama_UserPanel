@@ -6,7 +6,7 @@ export default function RoutingSearch({ city, State, country, pathname }) {
   const navigate = useNavigate()
   const [search ,  Setsearch]=React.useState('')
   React.useEffect(()=>{
-    console.log(city, State, country)
+    // console.log(city, State, country)
        if(city === undefined) {
          if(State !== undefined){
           location(State)
@@ -54,17 +54,17 @@ function location (value)
 
           if (SearchCity !== undefined && SearchState !== undefined &&  SearchCountry !== undefined) {
 
-            navigate(pathname + `/${'in'}/${SearchCountry}/${SearchState}/${SearchCity}`)
+            navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}/${SearchState.toLowerCase()}/${SearchCity.toLowerCase()}`)
           }
           else {
             if(SearchState !== undefined  &&  SearchCountry !== undefined )
             {
-              navigate(pathname + `/${'in'}/${SearchCountry}/${SearchState}`)
+              navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}/${SearchState.toLowerCase()}`)
             }
             else{
               if(  SearchCountry !== undefined )
               {
-                navigate(pathname + `/${'in'}/${SearchCountry}`)
+                navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}`)
               }
         //       else {
         //         fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${"New-york"}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)

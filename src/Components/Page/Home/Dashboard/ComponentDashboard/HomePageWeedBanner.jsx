@@ -13,7 +13,7 @@ const HomePageWeedBanner=()=>{
     React.useEffect(() => {
         Axios("https://api.cannabaze.com/UserPanel/Get-PromotionalBanners/ ")
         .then((response)=>{
-            setdata(response.data)
+            setdata(response?.data)
            
             SetSkeleton(false)
         })

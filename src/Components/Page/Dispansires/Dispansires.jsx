@@ -62,7 +62,7 @@ export default function Dispansires() {
                         {DispensorShopLocation.map((ele, index) => {
                             return (
                                 <div  key={index}>
-                                   <h1 className="d-flex"> <span className="dispensories_name">{ele.name}</span><span className="dispensories_city">{ele.city}</span></h1>
+                                   <h1 className="d-flex"> <span className="dispensories_name">{ele.name}</span> <span className="dispensories_city">{ele.city}</span></h1>
                                 </div>
                             )
                         })}
@@ -92,7 +92,7 @@ export default function Dispansires() {
                             </TabPanel>
                             </Box>
                             <div className="Dispansires_map">
-                                <Map height={"740px"} Theme={Dispansires_MapTheme.Dispansires_MapTheme}></Map>
+                                {/* <Map height={"740px"} Theme={Dispansires_MapTheme.Dispansires_MapTheme}></Map> */}
                             </div>
                         </Box>
 

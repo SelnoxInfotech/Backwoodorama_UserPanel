@@ -22,6 +22,7 @@ const CurrentLocation = () => {
       Setloca( coords?.longitude )
     }
   },[coords])
+   console.log(state)
 
   React.useEffect(()=>{
     dispatch({ type: 'permission', permission:  coords === undefined ? false : true  })
@@ -51,6 +52,8 @@ const CurrentLocation = () => {
           }
         })
 
+      }).catch((error)=>{
+        console.trace(error ,  'GeoCode Api')
       })
     : 
     fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${cookies.get("Location") ? cookies.get("Location") : "New York"}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
@@ -73,7 +76,8 @@ const CurrentLocation = () => {
             }
           }
         })
-      }).catch((error) => {
+      }).catch((error)=>{
+        console.trace(error ,  'GeoCode Api')
       })
   },[loca , state.DefalutLocation])
 

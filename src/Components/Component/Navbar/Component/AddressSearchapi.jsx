@@ -2,6 +2,8 @@
 
 import React from "react";
 import { usePlacesWidget } from "react-google-autocomplete";
+// import { useHistory } from 'react-router-dom';
+
 import useStyles from "../../../../Style"
 import Createcontext from "../../../../Hooks/Context"
 import { IoLocationSharp } from "react-icons/io5"
@@ -10,17 +12,15 @@ import { IconButton, InputAdornment, TextField } from "@mui/material";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
 export default function AddressSearch({ openLocation, SearchBarWidth, open, setOpenLocation, path }) {
   const classes = useStyles()
-  const params = useParams()
   const navigate = useNavigate();
-  const location = useLocation()
-  const [current_route, Setcurrent_route] = React.useState()
   const { state, dispatch } = React.useContext(Createcontext)
   const [Default, Setdefault] = React.useState('')
   const { ref } = usePlacesWidget({
     apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
     onPlaceSelected: (place) => {
       Setdefault(place?.formatted_address);
-      dispatch({ type: 'Location', Location: place?.formatted_address })
+
+      dispatch({ type: 'permission', permission: true })
       var Coun
       var sta
       var ci
@@ -35,17 +35,14 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
         }
         if (data.types.indexOf('locality') !== -1 || data.types.indexOf('administrative_area_level_3') !== -1) {
           ci = data?.long_name.replace(/\s/g, '-')
-          return dispatch({ type: 'City', City: data?.long_name.replace(/\s/g, '-') })
+          dispatch({ type: 'City', City: data?.long_name.replace(/\s/g, '-') })
+          //  location.pathname.length >= 18 ? location.pathname.slice(0,18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun}/${sta}/${ci}`) : false
         }
         return data
       })
-
-      // Rout(Coun,sta,ci)
-      // if (Location.pathname.slice(0, 16) === '/Weed-Deliveries') {
-      //   Navigate(`/Weed-Deliveries/in/${Coun}/${sta}/${ci}`)
-      // }
-      current_route?.slice(0, 17) === '/Weed-Deliveries/' && navigate(`/Weed-Deliveries/in/${Coun}/${sta}/${ci}`)
-
+      window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun.toLowerCase()}/${sta.toLowerCase()}/${ci.toLowerCase()}`)
+      window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun.toLowerCase()}/${sta.toLowerCase()}/${ci.toLowerCase()}`)
+      dispatch({ type: 'Location', Location: place?.formatted_address })
     },
     options: {
 
@@ -54,34 +51,19 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
       componentRestrictions: { country: ['us', "ca"] }
       // types: ['city']
     },
+    defaultValue: "Amsterdam",
   });
-  React.useEffect(() => {
-    Setcurrent_route(location.pathname)
-  }, [location])
-
-  // function Rout (Coun,sta,ci){
-
-  //   if (path.slice(0, 17) === "/Weed-Dispansires/") {
-  //     navigate(`/Weed-Dispansires/in/${Coun}/${sta}/${ci}`)
-  //   }
-  // }
 
   React.useEffect(() => {
-
     Setdefault(state.Location)
-
   }, [state])
-
-
-
-
   function handleChange(event) {
     Setdefault(event.target.value);
 
   }
   function current(event) {
     navigator.permissions.query({ name: 'geolocation' }).then(permissionStatus => {
-      console.log(permissionStatus)
+      // console.log(permissionStatus)
       if (permissionStatus.state === 'denied') {
         alert('Please allow location access.');
       } else {

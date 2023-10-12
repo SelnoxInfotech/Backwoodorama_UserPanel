@@ -9,12 +9,13 @@ import {DespensioriesItem} from '../../../../Api/Api';
 import { Link } from "react-router-dom";
 import { Rating } from '@mui/material';
 import { DispensariesSco } from "../../../Component/ScoPage/DispensariesSco"
+import Createcontext from "../../../../Hooks/Context"
 const Weed_Dispansires = () => {
     const classes = useStyles()
     const [Store, SetStore] = React.useState([])
     const [Search, SetSearch] = React.useState([])
     const [searchtext,setsearchtext] = React.useState("")
-
+    const { state, dispatch } = React.useContext(Createcontext)
    
     React.useEffect(() => {
        
@@ -35,7 +36,8 @@ const Weed_Dispansires = () => {
             }, 1000)
             return () => clearTimeout(getData)
         }else{
-            DespensioriesItem().then((res)=>{
+            console.log(state , state.Country)
+            DespensioriesItem(state.Country).then((res)=>{
                 SetStore(res)
             })   
         }
