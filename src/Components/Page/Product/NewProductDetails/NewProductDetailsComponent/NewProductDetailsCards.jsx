@@ -8,7 +8,7 @@ import Cookies from 'universal-cookie';
 import Createcontext from "../../../../../Hooks/Context"
 import "swiper/css";
 import "swiper/css/pagination";
-
+import { Rating } from '@mui/material';
 import { Pagination } from 'swiper/modules';
 import _ from "lodash"
 import LoadingButton from '@mui/lab/LoadingButton';
@@ -132,6 +132,29 @@ const NewProductDetailsCards = ({ Product }) => {
         localStorage.setItem('items', JSON.stringify(AddTOCard))
     }, [AddTOCard])
 
+
+    function modifystr(str) {
+       str =  str === undefined ?  "" : str
+        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str.trim().replaceAll(' ', "-");
+        let a = 0;
+        while (a < 1) {
+          if (str.includes("--")) {
+            str = str.replaceAll("--", "-")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("//", "/")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("-/", "/")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("/-", "/")
+          } else {
+            a++
+          }
+        }
+    
+        return str
+      }
+
     return (
         <div className=" mx-1 w-100">
             <div className=" newProductDetailsContainer  mt-4">                  
@@ -199,19 +222,24 @@ const NewProductDetailsCards = ({ Product }) => {
                     <div className="newProductdetails_rightSideContent_container">
                             <h1 className="newProductDetails_heading">{Product?.Product_Name}</h1>
                         <div className=" ">
-                            <Link to={`/DispensoriesProduct/${Product.Store_id}/${"Menu"}`}>
+                            <Link to={`/weed-deliveries/${modifystr(Product?.StoreName)}/${Product?.Store_id}`}>
                                 <h3 className="newProductDetails_subHeadingss">By {Product.StoreName}</h3>
                             </Link>
                         </div>
                         <div className="newProductDetailsButon">
-                            <button className="newProductdetailsButtonss">{Product.THC}% THC</button>
-                            <button className="newProductdetailsButtonss">{Product.CBD}% CBD</button>
-                            <button className="newProductdetailsButtonss">{Product.strain}</button>
+                         { Product.THC !==0 && <button className="newProductdetailsButtonss">{Product.THC}% THC</button>}
+                        { Product.CBD !==0 &&   <button className="newProductdetailsButtonss">{Product.CBD}% CBD</button>}
+                           { Product.strain !=="None"&& <button className="newProductdetailsButtonss">{Product.strain}</button>}
 
 
                         </div>
-                        <div className="col-12 ">
-                            <p><span><IoMdStar className={classes.disp_star_color} /></span><span className="mx-2">4.5 Rating</span></p>
+                        <div className="col-12 mt-2">
+                            <p>
+                            <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={Product.rating === null ? 0 : Product.rating} readOnly />
+                                <span>
+                                </span><span className="mx-2">{Product.rating === null ? 0: Product.rating+".0"} ({Product.TotalRating})
+                                
+                                </span></p>
                         </div>
                         <div className="col-12 productDetailsCardWeigth">
                           <span className="newProduct_Weight">weight : </span><span className="mx-3 newProd_grms productDetailsCardWeigthOptions">
@@ -221,9 +249,9 @@ const NewProductDetailsCards = ({ Product }) => {
                                 {  
                                     Product?.Prices[0]?.Price?.map((item,index)=>{
                                         if(item.Weight){
-                                            return  <option value={item.Weight}  key={index}>{item.Weight}</option>
+                                            return  <option value={item.SalePrice}  key={index}>{item.Weight}</option>
                                         }else{
-                                            return  <option value={item.Unit} key={index} >{item.Unit} Unit</option>
+                                            return  <option value={item.SalePrice} key={index} >{item.Unit} Unit</option>
                                         }
                                     
                                     })  
@@ -233,10 +261,10 @@ const NewProductDetailsCards = ({ Product }) => {
                                   let vl =item.Price.map((item)=>{
 
                                         if(item.Weight){
-                                           if(!dynamicWeight){setdynamicprice(item.Price); setdynamicWeight(item.Weight)};
+                                           if(!dynamicWeight){setdynamicprice(item.SalePrice); setdynamicWeight(item.Weight)};
                                             return item.Weight
                                         }else{
-                                            if(!dynamicWeight){setdynamicprice(item.Price); setdynamicWeight(`${item.Unit} Unit`)}
+                                            if(!dynamicWeight){setdynamicprice(item.SalePrice); setdynamicWeight(`${item.Unit} Unit`)}
                                             return  `${item.Unit} Unit`
                                         }
                                        
@@ -259,8 +287,8 @@ const NewProductDetailsCards = ({ Product }) => {
                         </div>
                         <div className="col-12 ">
                             <p><span className="newProduct_doller_price">
-                              $ {dynamicprice * quentity }
-                            </span><span className="mx-3 newProduct_Gms">Per {dynamicWeight}</span></p>
+                              $ {parseInt(dynamicWeight) !== 0 ? parseInt(dynamicWeight) * quentity  : Product?.Prices?.map((data)=> data.Price[0].SalePrice * quentity)}
+                            </span><span className="mx-3 newProduct_Gms">/ {quentity} piece</span></p>
                         </div>
                         <div className="col-12">
                             <Box

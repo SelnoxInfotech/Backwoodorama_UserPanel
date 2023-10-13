@@ -1,13 +1,17 @@
 import React, { useState } from "react"
 import CategoryProduct from "../../../Components/Page/Home/Dashboard/ComponentDashboard/CategoryProduct"
 import Axios from "axios";
+import axios from "axios";
 import ClickAwayListener from 'react-click-away-listener';
 import { useNavigate, useParams } from "react-router-dom"
 import { ProductSeo, ProductCategorySeo } from "../../Component/ScoPage/ProductSeo"
 import ProductSearchResult from "./ProductSearchResult/ProductSearchResult"
+import Createcontext from "../../../Hooks/Context"
+import { result } from "lodash";
 const Product = () => {
     const navigate = useNavigate();
     const params = useParams();
+    const { state, dispatch } = React.useContext(Createcontext)
     const [loading, SetLoading] = React.useState(false)
     const [subcategories, setsubcategories] = useState([])
     const [Product, SetProduct] = React.useState([])
@@ -19,21 +23,21 @@ const Product = () => {
         str = str.trim().replaceAll(' ', "-");
         let a = 0;
         while (a < 1) {
-          if (str.includes("--")) {
-            str = str.replaceAll("--", "-")
-          } else if (str.includes("//")) {
-            str = str.replaceAll("//", "/")
-          } else if (str.includes("//")) {
-            str = str.replaceAll("-/", "/")
-          } else if (str.includes("//")) {
-            str = str.replaceAll("/-", "/")
-          } else {
-            a++
-          }
+            if (str.includes("--")) {
+                str = str.replaceAll("--", "-")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("//", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("-/", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("/-", "/")
+            } else {
+                a++
+            }
         }
-    
+
         return str
-      }
+    }
 
 
     async function ShowCategoryProduct(id, name) {
@@ -61,17 +65,9 @@ const Product = () => {
     }, [])
 
     React.useEffect(() => {
-
-
-
-
-
         SetLoading(true)
         setIsDropdownOpen(false)
-       
-
-
-
+        console.log(params)
         if (params.subCategory) {
             Axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductBySubCategory/${params.id}`).then((res) => {
                 SetProduct(res.data)
@@ -80,65 +76,180 @@ const Product = () => {
 
             }).catch((err) => {
                 SetLoading(false)
-                SetProduct([])
+                // SetProduct([])
             })
-         function SubCategoryApi(_id){
-            Axios.get(`https://api.cannabaze.com/UserPanel/Get-SubCategoryByCategory/${_id}`).then((res) => {
-                return res
-            }).then((response) => {
-                setsubcategories(response.data.data)
-
-            })
-         }
-
-        }
-        else {
-            if (params.categoryname) {
-                Axios(`https://api.cannabaze.com/UserPanel/Get-ProductByCategory/${params.id}`, {}
-                ).then(response => {
-
-                    SetLoading(false)
-
-                    SetProduct(response.data)
-                    f(params.categoryname.charAt(0).toUpperCase() + params.categoryname.slice(1))
-                    setSelectedOption(null)
-                }).catch(
-
-                    function (error) {
-                        SetProduct([])
-                        SetLoading(false)
-
-                    })
-
-                Axios.get(`https://api.cannabaze.com/UserPanel/Get-SubCategoryByCategory/${params.id}`).then((res) => {
+            function SubCategoryApi(_id) {
+                Axios.get(`https://api.cannabaze.com/UserPanel/Get-SubCategoryByCategory/${_id}`).then((res) => {
                     return res
                 }).then((response) => {
                     setsubcategories(response.data.data)
 
                 })
+            }
 
+        }
+        else {
+          if(params.categoryname ){
+            if (state.City !== "") {
+                const object = { City: state.City.replace(/-/g, " ") }
+                CategoryProduct(object).then((response) => {
+                    if (response.length !== 0) {
+                        SetLoading(false)
+                        f("All Product")
+                        SetProduct(response)
+                    }
+                    else {
+                        const object = { State: state.State.replace(/-/g, " ") }
+                        CategoryProduct(object).then((response) => {
+                            if (response.length !== 0) {
+                                SetLoading(false)
+                                f("All Product")
+                                SetProduct(response)
+
+                            }
+                            else {
+                                const object = { Country: state.Country.replace(/-/g, " ") }
+                                CategoryProduct(object).then((reresponses) => {
+                                    SetLoading(false)
+                                    f("All Product")
+                                    SetProduct(response)
+
+                                })
+                            }
+                        })
+                    }
+                })
             }
             else {
-                Axios(`https://api.cannabaze.com/UserPanel/Get-AllProduct/`, {
-                }
+                if (state.State !== "") {
+                    const object = { State: state.State.replace(/-/g, " ") }
+                    CategoryProduct(object).then((response) => {
+                        if (response?.length !== 0) {
+                            SetLoading(false)
+                            f("All Product")
+                            SetProduct(response)
+                        }
+                        else {
+                            const object = { Country: state.Country.replace(/-/g, " ") }
+                            CategoryProduct(object).then((response) => {
+                                SetLoading(false)
+                                f("All Product")
+                                SetProduct(response)
 
-                ).then(response => {
-                    SetLoading(false)
-                    f("All Product")
-                    SetProduct(response.data)
-                }).catch(
-                    
-                    function (error) {
-                        SetProduct([])
+                            })
+                        }
                     })
+                }
+                else {
+                    if (state.Country !== "") {
+                        const object = { Country: state.Country.replace(/-/g, " ") }
+                        CategoryProduct(object).then((response) => {
+                            SetLoading(false)
+                            f("All Product")
+                            SetProduct(response)
+
+                        })
+                    }
+                }
             }
+            function CategoryProduct (object) {
+               return(
+                axios.post(`https://api.cannabaze.com/UserPanel/Get-ProductByCategory/${params.id}`, object).then((res) => {
+                    return res
+                }).then((response) => {
+                    console.log()
+                    if(response.data === "There is no Product"){
+                        return []
+                    }
+                    else {
+                        return response.data
+                    }
+    
+                })
+               )
+            }
+          }
+          else{
+            if (state.City !== "") {
+                const object = { City: state.City.replace(/-/g, " ") }
+                GetProduct(object).then((response) => {
+                    if (response.length !== 0) {
+                        SetLoading(false)
+                        f("All Product")
+                        SetProduct(response.data)
+                    }
+                    else {
+                        const object = { State: state.State.replace(/-/g, " ") }
+                        GetProduct(object).then((response) => {
+                            if (response.length !== 0) {
+                                SetLoading(false)
+                                f("All Product")
+                                SetProduct(response.data)
+
+                            }
+                            else {
+                                const object = { Country: state.Country.replace(/-/g, " ") }
+                                GetProduct(object).then((reresponses) => {
+                                    SetLoading(false)
+                                    f("All Product")
+                                    SetProduct(response.data)
+
+                                })
+                            }
+                        })
+                    }
+                })
+            }
+            else {
+                if (state.State !== "") {
+                    const object = { State: state.State.replace(/-/g, " ") }
+                    GetProduct(object).then((response) => {
+                        if (response.length !== 0) {
+                            SetLoading(false)
+                            f("All Product")
+                            SetProduct(response.data)
+                        }
+                        else {
+                            const object = { Country: state.Country.replace(/-/g, " ") }
+                            GetProduct(object).then((response) => {
+                                SetLoading(false)
+                                f("All Product")
+                                SetProduct(response.data)
+
+                            })
+                        }
+                    })
+                }
+                else {
+                    if (state.Country !== "") {
+                        const object = { Country: state.Country.replace(/-/g, " ") }
+                        GetProduct(object).then((response) => {
+                            SetLoading(false)
+                            f("All Product")
+                            SetProduct(response.data)
+
+                        })
+                    }
+                }
+            }
+            function GetProduct(object) {
+                return (
+                    axios.post(`https://api.cannabaze.com/UserPanel/Get-AllProduct/`,
+                        object
+                    ).then(response => {
+                        return response
+                    }).catch(
+                        function (error) {
+                            SetProduct([])
+                        })
+                )
+            }
+          }
         }
+    }, [params ,state])
 
 
-    }, [params])
-
-
-  
+ console.log(state)
     return (
         <>
             {!params.id ? <ProductSeo></ProductSeo> :
@@ -187,7 +298,7 @@ const Product = () => {
                             loading ?
                                 <div className="loaderFLower"></div>
                                 :
-                                Product.length ?
+                                Product?.length ?
 
                                     <div className="col-12 mt-4">
                                         <ProductSearchResult RelatedProductResult={Product} CategoryName={C} />

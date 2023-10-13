@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Createcontext from "../../../../Hooks/Context"
 import DeliverServiceSkeleton from '../../../Component/Skeleton/DeliveryServicesSkeleton';
+import axios from 'axios';
 
 const DeliveryServices = () => {
     const [DeliveryService, SetDeliveryService] = useState({})
@@ -16,18 +17,86 @@ const DeliveryServices = () => {
     const classes = useStyles()
     const [Skeleton, SetSkeleton] = React.useState(true)
     const ref = React.useRef(null);
+    console.log(state)
     React.useEffect(() => {
-        Axios(`https://api.cannabaze.com/UserPanel/Get-GetDeliveryStoresHomepage/`, {
+        if (state.City !== "") {
+            var object = { City: state.City.replace(/-/g, " ") }
+            Delivery(object).then((res) => {
+                //   console.log(res.length === 0)
+                if (res.length === 0) {
+                    object = { State: state.State.replace(/-/g, " ") }
+                    Delivery(object).then((res) => {
+                        if (res.length === 0) {
+                            object = { Country: state.Country.replace(/-/g, " ") }
+                            Delivery(object).then((res) => {
+                                if (res.length === 0) {
+                                    console.log(0)
+                                }
+                                else{
+                                    SetSkeleton(false)
+                                    SetDeliveryService(res)
+                                }
+                            })
+                        }
+                        else {
+                            SetSkeleton(false)
+                            SetDeliveryService(res)
+                        }
+
+                    })
+                }
+                else {
+                    SetSkeleton(false)
+                    SetDeliveryService(res)
+                }
+            })
         }
-        ).then((response) => {
-            SetDeliveryService(response.data)
-            SetSkeleton(false)
+        else {
+            if (state.State !== "") {
+                const object = { State: state.State.replace(/-/g, " ") }
+                Delivery(object).then((res)=>{
+                    if(res.length !== 0){
+                        SetSkeleton(false)
+                    SetDeliveryService(res)
+                    }
+                    else{
+                        const object = { Country: state.Country.replace(/-/g, " ") }
+                        Delivery(object).then(()=>{
+                            if(res.length !== 0){
+                                SetSkeleton(false)
+                                SetDeliveryService(res)
+                            }
+                        })
+                    }
+                })
+            }
+            else {
+                if (state.Country !== "") {
+                    const object = { Country: state.Country.replace(/-/g, " ") }
+                    Delivery(object).then(()=>{
+                        SetSkeleton(false)
+                        SetDeliveryService(res)
+                    })
+                }
+            }
+        }
+        function Delivery(object) {
+            return (
+                axios.post(`https://api.cannabaze.com/UserPanel/Get-GetDeliveryStoresHomepage/`,
+                    object
+                ).then((response) => {
+                    return response.data
+                    //    SetDeliveryService(response.data)
+                    //    console.log(response.data)
+                }
+
+                ).catch(() => {
+
+                })
+            )
         }
 
-        ).catch(() => {
-
-        })
-    }, [])
+    }, [state])
 
     return (
         <React.Fragment>
@@ -41,7 +110,7 @@ const DeliveryServices = () => {
                         </div>
                         <div className="col-12  my-4 recentViewProductSlider" id="width" ref={ref}>
                             <ScrollContainer className="ScrollContainerRelative">
-                                {DeliveryService.map((items, index) => {
+                                {DeliveryService?.map((items, index) => {
                                     return (
                                         <div className='deliveryServicesCard' key={index}>
                                             <div className='deliveryServicesBorder '>

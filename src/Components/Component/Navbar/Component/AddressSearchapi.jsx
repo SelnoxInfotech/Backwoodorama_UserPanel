@@ -40,8 +40,8 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
         }
         return data
       })
-      window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun.toLowerCase()}/${sta.toLowerCase()}/${ci.toLowerCase()}`)
-      window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun.toLowerCase()}/${sta.toLowerCase()}/${ci.toLowerCase()}`)
+      window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
+      window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
       dispatch({ type: 'Location', Location: place?.formatted_address })
     },
     options: {

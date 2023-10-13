@@ -1,6 +1,5 @@
 import axios from 'axios'
 import Cookies from 'universal-cookie';
-import React from 'react';
 export function registerEmp(usrdata) {
     let data = axios.post(' https://api.cannabaze.com/DeliveryBoy/Add-Employee/', usrdata);
     return data;
@@ -76,11 +75,10 @@ export function ViewCountApi(id) {
     );
     return data;
 }
-export function DespensioriesItem(Country) {
+export function DespensioriesItem(object) {
     let data = axios.post(
-        'https://api.cannabaze.com/UserPanel/Get-Dispensaries/',{
-            Country : Country
-        }
+        'https://api.cannabaze.com/UserPanel/Get-Dispensaries/',
+            object
     ).then(response => {
         return response?.data
     
@@ -138,8 +136,6 @@ export async function Store_Get_Review(id) {
     );
     return res;
 }
-
-
 
 // Store Review Api   Dispensaries   
 

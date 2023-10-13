@@ -16,33 +16,7 @@ const Weed_Dispansires = () => {
     const [Search, SetSearch] = React.useState([])
     const [searchtext,setsearchtext] = React.useState("")
     const { state, dispatch } = React.useContext(Createcontext)
-   
-    React.useEffect(() => {
-       
-        if(searchtext !== ""){
-            const getData = setTimeout(() => {
-       
-                Axios.post(`https://api.cannabaze.com/UserPanel/FilterDispensaries/`,{
-                  "store": searchtext
-                })
-                .then(function (response) {
-                    SetStore(response?.data);
-                  
-                })
-                .catch(function (error) {
-                  console.trace(error);
-                  SetStore([]);
-                });
-            }, 1000)
-            return () => clearTimeout(getData)
-        }else{
-            console.log(state , state.Country)
-            DespensioriesItem(state.Country).then((res)=>{
-                SetStore(res)
-            })   
-        }
-      }, [searchtext])
-      function modifystr(str) {
+    function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
         str = str.trim().replaceAll(' ', "-");
         let a = 0;
@@ -63,6 +37,83 @@ const Weed_Dispansires = () => {
         return str
       }
 
+    React.useEffect(() => {
+       
+        if(searchtext !== ""){
+            const getData = setTimeout(() => {
+       
+                Axios.post(`https://api.cannabaze.com/UserPanel/FilterDispensaries/`,{
+                  "store": searchtext
+                })
+                .then(function (response) {
+                    SetStore(response?.data);
+                  
+                })
+                .catch(function (error) {
+                  console.trace(error);
+                  SetStore([]);
+                });
+            }, 1000)
+            return () => clearTimeout(getData)
+        }else{
+            if (state.City !== "") {
+                const object = { City: state.City.replace(/-/g, " ") }
+                DespensioriesItem(object).then((res) => {
+                    if (res.length !== 0) {
+                        SetStore(res)
+    
+                    }
+                    else{
+                        const object = { State: state.State.replace(/-/g, " ") }
+                        DespensioriesItem(object).then((res) => {
+                         if(res.length !== 0){
+                            SetStore(res)
+                         
+                         }
+                         else{
+                            const object = { Country: state.Country.replace(/-/g, " ") }
+                            DespensioriesItem(object).then((res) => {
+                                SetStore(res)
+                             
+                            })
+                         }
+                        })
+                    }
+    
+                })
+            }
+            else {
+                if (state.State !== "") {
+                    const object = { State: state.State.replace(/-/g, " ") }
+                    DespensioriesItem(object).then((res) => {
+                     if(res.length !== 0){
+                        SetStore(res)
+                        
+                     }
+                     else{
+                        const object = { Country: state.Country.replace(/-/g, " ") }
+                        DespensioriesItem(object).then((res) => {
+                            SetStore(res)
+                          
+                        })
+                     }
+                    })
+                }
+                else {
+                    if (state.Country !== "") {
+                        const object = { Country: state.Country.replace(/-/g, " ") }
+                        DespensioriesItem(object).then((res) => {
+                            SetStore(res)
+                            
+                        })
+                    }
+                }
+            }
+          
+             
+        }
+      }, [searchtext,state])
+ 
     return (
         <React.Fragment>
             <DispensariesSco></DispensariesSco>
