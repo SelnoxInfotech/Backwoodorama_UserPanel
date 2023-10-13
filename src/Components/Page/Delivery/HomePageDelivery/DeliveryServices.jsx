@@ -73,7 +73,7 @@ const DeliveryServices = () => {
             else {
                 if (state.Country !== "") {
                     const object = { Country: state.Country.replace(/-/g, " ") }
-                    Delivery(object).then(()=>{
+                    Delivery(object).then((res)=>{
                         SetSkeleton(false)
                         SetDeliveryService(res)
                     })
