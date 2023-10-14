@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { IoMdStar } from "react-icons/io";
 import useStyles from "../../../../../Style";
@@ -8,7 +8,7 @@ import Cookies from 'universal-cookie';
 import Createcontext from "../../../../../Hooks/Context"
 import "swiper/css";
 import "swiper/css/pagination";
-import { Rating } from '@mui/material';
+import Rating from '@mui/material/Rating';
 import { Pagination } from 'swiper/modules';
 import _ from "lodash"
 import LoadingButton from '@mui/lab/LoadingButton';
@@ -17,12 +17,11 @@ import { Link } from "react-router-dom";
 import AddToCartPopUp from "../../AddToCartPopUp/AddToCartPopUp";
 const NewProductDetailsCards = ({ Product }) => {
     const cookies = new Cookies();
-    const [quentity,setquentity] = useState(1)
-    const [dynamicprice,setdynamicprice]=useState('')
-    const [dynamicWeight,setdynamicWeight]=useState(0)
-    const p = Product?.images === undefined ? "" : Product?.images[0].image
-    const classes = useStyles()
-    const token_data = cookies.get('Token_access')
+    const [quentity, setquentity] = useState(1);
+    const [dynamicWeight, setdynamicWeight] = useState(0);
+    const p = Product?.images === undefined ? "" : Product?.images[0].image;
+    const classes = useStyles();
+    const token_data = cookies.get('Token_access');
     const [CartClean, SetCartClean] = React.useState(false)
     const { state, dispatch } = React.useContext(Createcontext)
     const [Price] = React.useState([])
@@ -32,9 +31,9 @@ const NewProductDetailsCards = ({ Product }) => {
         return initialValue || []
     })
     const [NewData, SetNewData] = React.useState([])
-   
+
     const Addtocard = async (Event) => {
-      
+
         if (token_data) {
             const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
             const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id);
@@ -43,12 +42,12 @@ const NewProductDetailsCards = ({ Product }) => {
                 headers: { Authorization: `Bearer ${token_data}` }
             };
             SetNewData({
-                Brand_Name:Event.Brand_Name,
+                Brand_Name: Event.Brand_Name,
                 Product_id: Event.id,
                 Store_id: Event.Store_id,
                 Image_id: Event?.images[0]?.id,
                 Price: PriceIndex,
-                Cart_Quantity: 1,
+                Cart_Quantity: quentity,
                 PriceId: PriceIndex.id
 
             })
@@ -59,7 +58,7 @@ const NewProductDetailsCards = ({ Product }) => {
                     Store_id: Event.Store_id,
                     Image_id: Event.images[0].id,
                     Price: PriceIndex,
-                    Cart_Quantity: 1,
+                    Cart_Quantity: quentity,
                     PriceId: PriceIndex.id
 
                 }
@@ -87,16 +86,12 @@ const NewProductDetailsCards = ({ Product }) => {
                 Store_id: Event.Store_id,
                 Image_id: Event.images[0].id,
                 Price: PriceIndex,
-                Cart_Quantity: 1,
+                Cart_Quantity: quentity,
                 ProductName: Event.Product_Name,
                 StoreCurbsidePickup: Event.StoreCurbsidePickup,
                 StoreDelivery: Event.StoreDelivery,
                 StorePickup: Event.StorePickup,
                 StoreAddress: Event.StoreAddress
-
-
-
-
             }
             SetNewData(Arry)
             if (AddTOCard.length !== 0) {
@@ -134,67 +129,67 @@ const NewProductDetailsCards = ({ Product }) => {
 
 
     function modifystr(str) {
-       str =  str === undefined ?  "" : str
+        str = str === undefined ? "" : str
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
         str = str.trim().replaceAll(' ', "-");
         let a = 0;
         while (a < 1) {
-          if (str.includes("--")) {
-            str = str.replaceAll("--", "-")
-          } else if (str.includes("//")) {
-            str = str.replaceAll("//", "/")
-          } else if (str.includes("//")) {
-            str = str.replaceAll("-/", "/")
-          } else if (str.includes("//")) {
-            str = str.replaceAll("/-", "/")
-          } else {
-            a++
-          }
+            if (str.includes("--")) {
+                str = str.replaceAll("--", "-")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("//", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("-/", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("/-", "/")
+            } else {
+                a++
+            }
         }
-    
+
         return str.toLowerCase()
-      }
+    }
 
     return (
         <div className=" mx-1 w-100">
-            <div className=" newProductDetailsContainer  mt-4">                  
-                    <div className="newProductDetailsCardLeftCol">
-                        <div className="">
-                            <div className="newProductDetailsUpperimage_container">
-                                <LazyLoadImage className="newProductDetails_upper_image" src={`https://api.cannabaze.com` + p} />
-                            </div>
-                            {
-                                Product?.images?.length >  1 ?   <div className=" newProductDetailsLowerImage_container">
+            <div className=" newProductDetailsContainer  mt-4">
+                <div className="newProductDetailsCardLeftCol">
+                    <div className="">
+                        <div className="newProductDetailsUpperimage_container">
+                            <LazyLoadImage className="newProductDetails_upper_image" src={`https://api.cannabaze.com` + p} />
+                        </div>
+                        {
+                            Product?.images?.length > 1 ? <div className=" newProductDetailsLowerImage_container">
                                 <Swiper
-                                breakpoints={{
-                                    540: {
-                                        slidesPerView: 3,
-                                        spaceBetween: 20,
-                                    },
-                                    768: {
-                                        slidesPerView: 4,
-                                        spaceBetween: 40,
-                                    },
-                                    991: {
-                                        slidesPerView: 3,
-                                        spaceBetween: 20,
-                                    },
-                                    1124: {
-                                        slidesPerView: 4,
-                                        spaceBetween: 10,
-                                    },
-                                    1490: {
-                                        slidesPerView: 4,
-                                        spaceBetween: 20,
-                                    },
-                                }}
+                                    breakpoints={{
+                                        540: {
+                                            slidesPerView: 3,
+                                            spaceBetween: 20,
+                                        },
+                                        768: {
+                                            slidesPerView: 4,
+                                            spaceBetween: 40,
+                                        },
+                                        991: {
+                                            slidesPerView: 3,
+                                            spaceBetween: 20,
+                                        },
+                                        1124: {
+                                            slidesPerView: 4,
+                                            spaceBetween: 10,
+                                        },
+                                        1490: {
+                                            slidesPerView: 4,
+                                            spaceBetween: 20,
+                                        },
+                                    }}
                                     slidesPerView={4}
                                     spaceBetween={10}
                                     pagination={{
                                         clickable: false,
                                     }}
 
-                                    
+
                                     modules={[Pagination]}
                                     className="mySwiper"
                                 >
@@ -202,7 +197,7 @@ const NewProductDetailsCards = ({ Product }) => {
                                         return (
                                             <SwiperSlide key={index}>
 
-                                                <div  className="col-12 NewProductDetails_image_container">
+                                                <div className="col-12 NewProductDetails_image_container">
                                                     <LazyLoadImage className="NewProductDetails_image" height={"100px"} src={`https://api.cannabaze.com/` + items.image} />
 
                                                 </div>
@@ -213,96 +208,95 @@ const NewProductDetailsCards = ({ Product }) => {
                                     })}
 
                                 </Swiper>
-                              </div> : ""
-                            }
-                         
+                            </div> : ""
+                        }
 
-                        </div>
+
                     </div>
-                    <div className="newProductdetails_rightSideContent_container">
-                            <h1 className="newProductDetails_heading">{Product?.Product_Name}</h1>
-                        <div className=" ">
-                            <Link to={`/weed-deliveries/${modifystr(Product?.StoreName)}/${Product?.Store_id}`}>
-                                <h3 className="newProductDetails_subHeadingss">By {Product.StoreName}</h3>
-                            </Link>
-                        </div>
-                        <div className="newProductDetailsButon">
-                         { Product.THC !==0 && <button className="newProductdetailsButtonss">{Product.THC}% THC</button>}
-                        { Product.CBD !==0 &&   <button className="newProductdetailsButtonss">{Product.CBD}% CBD</button>}
-                           { Product.strain !=="None"&& <button className="newProductdetailsButtonss">{Product.strain}</button>}
+                </div>
+                <div className="newProductdetails_rightSideContent_container">
+                    <h1 className="newProductDetails_heading">{Product?.Product_Name}</h1>
+                    <div className=" ">
+                        <Link to={`/weed-deliveries/${modifystr(Product?.StoreName)}/${Product?.Store_id}`}>
+                            <h3 className="newProductDetails_subHeadingss">By {Product.StoreName}</h3>
+                        </Link>
+                    </div>
+                    <div className="newProductDetailsButon">
+                        {Product.THC !== 0 && <button className="newProductdetailsButtonss">{Product.THC}% THC</button>}
+                        {Product.CBD !== 0 && <button className="newProductdetailsButtonss">{Product.CBD}% CBD</button>}
+                        {Product.strain !== "None" && <button className="newProductdetailsButtonss">{Product.strain}</button>}
 
 
-                        </div>
-                        <div className="col-12 mt-2">
-                            <p>
-                                <span>
-                            <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={Product.rating === null ? 0: Product.rating} readOnly />
-                                </span><span className="mx-2">{Product.rating === null ? 0: Product.rating+".0"} ({Product.TotalRating})
-                                
-                                </span></p>
-                        </div>
-                        <div className="col-12 productDetailsCardWeigth">
-                          <span className="newProduct_Weight">weight : </span><span className="mx-3 newProd_grms productDetailsCardWeigthOptions">
-                           {
-                                Product?.Prices?.map((data)=> data.Price.length)[0] > 1  ?
-                                <select className="form-select" aria-label="Default select example" onChange={(e)=>{setdynamicWeight(e.target.value)}}>
-                                {  
-                                    Product?.Prices[0]?.Price?.map((item,index)=>{
-                                        if(item.Weight){
-                                            return  <option value={item.SalePrice}  key={index}>{item.Weight}</option>
-                                        }else{
-                                            return  <option value={item.SalePrice} key={index} >{item.Unit} Unit</option>
-                                        }
-                                    
-                                    })  
-                                }                              
-                                </select> :
-                                  Product?.Prices?.map((item)=>{
-                                  let vl =item.Price.map((item)=>{
+                    </div>
+                    <div className="col-12 mt-2">
+                        <p>
+                            <span>
+                                <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only"  value={ Product.rating === null ? 0 : Product.rating  } readOnly />
+                            </span><span className="mx-2">{Product.rating === null ? 0 : Product.rating + ".0"} ({Product.TotalRating})
 
-                                        if(item.Weight){
-                                        //    if(!dynamicWeight){setdynamicprice(item.SalePrice); setdynamicWeight(item.Weight)};
-                                            return item.Weight
-                                        }else{
-                                            // if(!dynamicWeight){setdynamicprice(item.SalePrice); setdynamicWeight(`${item.Unit} Unit`)}
-                                            return  `${item.Unit} Unit`
-                                        }
-                                       
-                                    })
-                                   return vl[0] 
-                                })
-                                    
-                                
-                          }
-                            </span>
-                        </div>
-                        <div className="col-12 productDetailsCardQuestity">
-                           <span className="newProduct_Weight">Quantity : </span><span className="mx-3 newProd_grms">
-                            <div className="qty_selector">
-                                <span className="qty_btn" onClick={()=>{ if(quentity>1){ setquentity(quentity - 1)} }}>-</span>
-                                <span className="qty_input">{quentity}</span>
-                                <span className="qty_btn" onClick={()=>{setquentity(quentity + 1)}}>+</span>
-                            </div>
-                            </span>
-                        </div>
-                        <div className="col-12 ">
-                            <p><span className="newProduct_doller_price">
-                              $ {parseInt(dynamicWeight) !== 0 ? parseInt(dynamicWeight) * quentity  : Product?.Prices?.map((data)=> data.Price[0].SalePrice * quentity)}
-                            </span><span className="mx-3 newProduct_Gms">/ {quentity} piece</span></p>
-                        </div>
-                        <div className="col-12">
-                            <Box
-                                className={`   ${classes.loadingBtnTextAndBack}`}
-
-                            >
-                                <LoadingButton onClick={() => { Addtocard(Product) }} variant="outlined" >Add To Cart</LoadingButton>
-                            </Box>
-
+                            </span></p>
+                    </div>
+                    <div className="col-12 productDetailsCardWeigth">
+                        <span className="newProduct_Weight">weight : </span><span className="mx-3 newProd_grms productDetailsCardWeigthOptions">
                             {
-                                CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />
+                                Product?.Prices?.map((data) => data.Price.length)[0] > 1 ?
+                                    <select className="form-select" aria-label="Default select example" onChange={(e) => { setdynamicWeight(e.target.value) }}>
+                                        {
+                                            Product?.Prices[0]?.Price?.map((item, index) => {
+                                                if (item.Weight) {
+                                                    return <option value={item.SalePrice} key={index}>{item.Weight}</option>
+                                                } else {
+                                                    return <option value={item.SalePrice} key={index} >{item.Unit} Unit</option>
+                                                }
+
+                                            })
+                                        }
+                                    </select> :
+                                    Product?.Prices?.map((item) => {
+                                        let vl = item.Price.map((item) => {
+                                            if (item.Weight) {
+                                                //    if(!dynamicWeight){setdynamicprice(item.SalePrice); setdynamicWeight(item.Weight)};
+                                                return item.Weight
+                                            } else {
+                                                // if(!dynamicWeight){setdynamicprice(item.SalePrice); setdynamicWeight(`${item.Unit} Unit`)}
+                                                return `${item.Unit} Unit`
+                                            }
+
+                                        })
+                                        return vl[0]
+                                    })
+
+
                             }
-                        </div>
-                    </div>              
+                        </span>
+                    </div>
+                    <div className="col-12 productDetailsCardQuestity">
+                        <span className="newProduct_Weight">Quantity : </span><span className="mx-3 newProd_grms">
+                            <div className="qty_selector">
+                                <span className="qty_btn" onClick={() => { if (quentity > 1) { setquentity(quentity - 1) } }}>-</span>
+                                <span className="qty_input">{quentity}</span>
+                                <span className="qty_btn" onClick={() => { setquentity(quentity + 1) }}>+</span>
+                            </div>
+                        </span>
+                    </div>
+                    <div className="col-12 ">
+                        <p><span className="newProduct_doller_price">
+                            $ {parseInt(dynamicWeight) !== 0 ? parseInt(dynamicWeight) * quentity : Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)}
+                        </span><span className="mx-3 newProduct_Gms">/ {quentity} piece</span></p>
+                    </div>
+                    <div className="col-12">
+                        <Box
+                            className={`   ${classes.loadingBtnTextAndBack}`}
+
+                        >
+                            <LoadingButton onClick={() => { Addtocard(Product) }} variant="outlined" >Add To Cart</LoadingButton>
+                        </Box>
+
+                        {
+                            CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />
+                        }
+                    </div>
+                </div>
             </div>
         </div>
     )
