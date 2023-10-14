@@ -1,13 +1,11 @@
 import React, { useState } from "react"
 import CategoryProduct from "../../../Components/Page/Home/Dashboard/ComponentDashboard/CategoryProduct"
-import Axios from "axios";
-import axios from "axios";
 import ClickAwayListener from 'react-click-away-listener';
 import { useNavigate, useParams } from "react-router-dom"
 import { ProductSeo, ProductCategorySeo } from "../../Component/ScoPage/ProductSeo"
 import ProductSearchResult from "./ProductSearchResult/ProductSearchResult"
 import Createcontext from "../../../Hooks/Context"
-import { result } from "lodash";
+import { GetProduct, CategoryProductsearch, SubCategoryApi, SubcategoryProduct } from "../../../Api/Api"
 const Product = () => {
     const navigate = useNavigate();
     const params = useParams();
@@ -63,57 +61,64 @@ const Product = () => {
         }
         fetchData()
     }, [])
-
     React.useEffect(() => {
-        SetLoading(true)
-        setIsDropdownOpen(false)
-        console.log(params)
         if (params.subCategory) {
-            Axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductBySubCategory/${params.id}`).then((res) => {
-                SetProduct(res.data)
-                SubCategoryApi(res.data[0].category_id)
-                SetLoading(false)
 
-            }).catch((err) => {
-                SetLoading(false)
-                // SetProduct([])
-            })
-            function SubCategoryApi(_id) {
-                Axios.get(`https://api.cannabaze.com/UserPanel/Get-SubCategoryByCategory/${_id}`).then((res) => {
-                    return res
-                }).then((response) => {
-                    setsubcategories(response.data.data)
 
-                })
-            }
-
-        }
-        else {
-          if(params.categoryname ){
             if (state.City !== "") {
                 const object = { City: state.City.replace(/-/g, " ") }
-                CategoryProduct(object).then((response) => {
-                    if (response.length !== 0) {
+                SubcategoryProduct(object, params.id).then((response) => {
+                    if (response?.length !== 0) {
                         SetLoading(false)
-                        f("All Product")
-                        SetProduct(response)
+                        f(response[0]?.category_name)
+                        if (response !== "There is no Product") {
+                            SetProduct(response)
+                            SubCategoryApi(response[0]?.category_id).then((response) => {
+                                setsubcategories(response.data.data)
+                            }).catch((error) => {
+                                console.trace(error)
+                            })
+                        }
+                        else {
+                            SetProduct([])
+                        }
                     }
                     else {
                         const object = { State: state.State.replace(/-/g, " ") }
-                        CategoryProduct(object).then((response) => {
-                            if (response.length !== 0) {
+                        SubcategoryProduct(object, params.id).then((response) => {
+                            if (response?.length !== 0) {
                                 SetLoading(false)
-                                f("All Product")
-                                SetProduct(response)
+                                f(response[0]?.category_name)
+                                if (response !== "There is no Product") {
+                                    SetProduct(response)
+                                    SubCategoryApi(response[0]?.category_id).then((response) => {
+                                        setsubcategories(response.data.data)
+                                    }).catch((error) => {
+                                        console.trace(error)
+                                    })
+                                }
+                                else {
+                                    SetProduct([])
+                                }
 
                             }
                             else {
                                 const object = { Country: state.Country.replace(/-/g, " ") }
-                                CategoryProduct(object).then((reresponses) => {
+                                SubcategoryProduct(object, params.id).then((response) => {
                                     SetLoading(false)
-                                    f("All Product")
-                                    SetProduct(response)
-
+                                    f(response[0]?.category_name)
+                                    // Sub_Category_id
+                                    if (response !== "There is no Product") {
+                                        SetProduct(response)
+                                        SubCategoryApi(response[0]?.category_id).then((response) => {
+                                            setsubcategories(response.data.data)
+                                        }).catch((error) => {
+                                            console.trace(error)
+                                        })
+                                    }
+                                    else {
+                                        SetProduct([])
+                                    }
                                 })
                             }
                         })
@@ -123,19 +128,61 @@ const Product = () => {
             else {
                 if (state.State !== "") {
                     const object = { State: state.State.replace(/-/g, " ") }
-                    CategoryProduct(object).then((response) => {
+                    SubcategoryProduct(object, params.id).then((response) => {
                         if (response?.length !== 0) {
                             SetLoading(false)
-                            f("All Product")
-                            SetProduct(response)
+                            f(response[0]?.category_name)
+                            // Sub_Category_id
+                            if (response !== "There is no Product") {
+                                SetProduct(response)
+                                SubCategoryApi(response[0]?.category_id).then((response) => {
+                                    setsubcategories(response.data.data)
+                                }).catch((error) => {
+                                    console.trace(error)
+                                })
+                            }
+                            else {
+                                SetProduct([])
+                            }
+
                         }
                         else {
                             const object = { Country: state.Country.replace(/-/g, " ") }
-                            CategoryProduct(object).then((response) => {
-                                SetLoading(false)
-                                f("All Product")
-                                SetProduct(response)
+                            SubcategoryProduct(object, params.id).then((response) => {
+                                if (response.length !== 0) {
+                                    SetLoading(false)
+                                    f(response[0]?.category_name)
+                                    if (response !== "There is no Product") {
+                                        SetProduct(response)
+                                        SubCategoryApi(response[0]?.category_id).then((response) => {
+                                            setsubcategories(response.data.data)
+                                        }).catch((error) => {
+                                            console.trace(error)
+                                        })
+                                    }
+                                    else {
+                                        SetProduct([])
+                                    }
+                                }
+                                else {
+                                    const object = { Country: state.Country.replace(/-/g, " ") }
+                                    CategoryProductsearch(object, params.id).then((response) => {
+                                        SetLoading(false)
+                                        f(response[0]?.category_name)
+                                        if (response !== "There is no Product") {
+                                            SetProduct(response)
+                                            SubCategoryApi(response[0]?.category_id).then((response) => {
+                                                setsubcategories(response.data.data)
+                                            }).catch((error) => {
+                                                console.trace(error)
+                                            })
+                                        }
+                                        else {
+                                            SetProduct([])
+                                        }
 
+                                    })
+                                }
                             })
                         }
                     })
@@ -143,53 +190,200 @@ const Product = () => {
                 else {
                     if (state.Country !== "") {
                         const object = { Country: state.Country.replace(/-/g, " ") }
-                        CategoryProduct(object).then((response) => {
-                            SetLoading(false)
-                            f("All Product")
-                            SetProduct(response)
+                        SubcategoryProduct(object, params.id).then((response) => {
+                            if (response.length !== 0) {
+                                SetLoading(false)
+                                f(response[0]?.category_name)
+                                if (response !== "There is no Product") {
+                                    SetProduct(response)
+                                    SubCategoryApi(response[0]?.category_id).then((response) => {
+                                        setsubcategories(response.data.data)
+                                    }).catch((error) => {
+                                        console.trace(error)
+                                    })
+                                }
+                                else {
+                                    SetProduct([])
+                                }
 
+                            }
+                            else {
+                                const object = { Country: state.Country.replace(/-/g, " ") }
+                                CategoryProductsearch(object, params.id).then((response) => {
+                                    SetLoading(false)
+                                    f(response[0]?.category_name)
+                                    if (response !== "There is no Product") {
+                                        SetProduct(response)
+                                        SubCategoryApi(response[0]?.category_id).then((response) => {
+                                            setsubcategories(response.data.data)
+                                        }).catch((error) => {
+                                            console.trace(error)
+                                        })
+                                    }
+                                    else {
+                                        SetProduct([])
+                                    }
+                                })
+                            }
                         })
                     }
                 }
             }
-            function CategoryProduct (object) {
-               return(
-                axios.post(`https://api.cannabaze.com/UserPanel/Get-ProductByCategory/${params.id}`, object).then((res) => {
-                    return res
-                }).then((response) => {
-                    console.log()
-                    if(response.data === "There is no Product"){
-                        return []
+
+
+
+
+        }
+        else {
+            //    Catogary Product
+            if (params.categoryname) {
+
+                if (state.City !== "") {
+                    const object = { City: state.City.replace(/-/g, " ") }
+                    CategoryProductsearch(object, params.id).then((response) => {
+                        if (response.length !== 0) {
+                            SetLoading(false)
+                            f(response[0]?.category_name)
+                            SetProduct(response)
+                            // Sub_Category_id
+                            SubCategoryApi(response[0]?.category_id).then((response) => {
+                                setsubcategories(response.data.data)
+                            }).catch((error) => {
+                                console.trace(error)
+                            })
+                        }
+                        else {
+                            const object = { State: state.State.replace(/-/g, " ") }
+                            CategoryProductsearch(object, params.id).then((response) => {
+                                if (response.length !== 0) {
+                                    SetLoading(false)
+                                    f(response[0]?.category_name)    // f("All Product")
+                                    SetProduct(response)
+                                    // Sub_Category_id
+                                    SubCategoryApi(response[0]?.category_id).then((response) => {
+                                        setsubcategories(response.data.data)
+                                    }).catch((error) => {
+                                        console.trace(error)
+                                    })
+
+                                }
+                                else {
+                                    const object = { Country: state.Country.replace(/-/g, " ") }
+                                    CategoryProductsearch(object, params.id).then((response) => {
+                                        SetLoading(false)
+                                        f(response[0]?.category_name)
+                                        SetProduct(response)
+                                        // Sub_Category_id
+                                        SubCategoryApi(response[0]?.category_id).then((response) => {
+                                            setsubcategories(response.data.data)
+                                        }).catch((error) => {
+                                            console.trace(error)
+                                        })
+
+                                    })
+                                }
+                            })
+                        }
+                    })
+                }
+                else {
+                    if (state.State !== "") {
+                        const object = { State: state.State.replace(/-/g, " ") }
+                        CategoryProductsearch(object, params.id).then((response) => {
+                            if (response?.length !== 0) {
+                                SetLoading(false)
+                                f(response[0]?.category_name)
+                                SetProduct(response)
+                                // Sub_Category_id
+                                SubCategoryApi(response[0]?.category_id).then((response) => {
+                                    setsubcategories(response.data.data)
+                                }).catch((error) => {
+                                    console.trace(error)
+                                })
+                            }
+                            else {
+                                const object = { Country: state.Country.replace(/-/g, " ") }
+                                CategoryProductsearch(object, params.id).then((response) => {
+                                    SetLoading(false)
+                                    f(response[0]?.category_name)
+                                    SetProduct(response)
+                                    // Sub_Category_id
+                                    SubCategoryApi(response[0]?.category_id).then((response) => {
+                                        setsubcategories(response.data.data)
+                                    }).catch((error) => {
+                                        console.trace(error)
+                                    })
+
+                                })
+                            }
+                        })
                     }
                     else {
-                        return response.data
+                        if (state.Country !== "") {
+                            const object = { Country: state.Country.replace(/-/g, " ") }
+                            CategoryProductsearch(object, params.id).then((response) => {
+                                SetLoading(false)
+                                f(response[0]?.category_name)
+                                console.log(response)
+                                SetProduct(response)
+                                // Sub_Category_id
+                                SubCategoryApi(response[0]?.category_id).then((response) => {
+                                    setsubcategories(response.data.data)
+                                }).catch((error) => {
+                                    console.trace(error)
+                                })
+
+                            })
+                        }
                     }
-    
-                })
-               )
+                }
+
             }
-          }
-          else{
-            if (state.City !== "") {
-                const object = { City: state.City.replace(/-/g, " ") }
-                GetProduct(object).then((response) => {
-                    if (response.length !== 0) {
-                        SetLoading(false)
-                        f("All Product")
-                        SetProduct(response.data)
-                    }
-                    else {
+            else {
+
+                // Get All Product
+                if (state.City !== "") {
+                    const object = { City: state.City.replace(/-/g, " ") }
+                    GetProduct(object).then((response) => {
+                        if (response.length !== 0) {
+                            SetLoading(false)
+                            f("All Product")
+                            SetProduct(response.data)
+                        }
+                        else {
+                            const object = { State: state.State.replace(/-/g, " ") }
+                            GetProduct(object).then((response) => {
+                                if (response.length !== 0) {
+                                    SetLoading(false)
+                                    f("All Product")
+                                    SetProduct(response.data)
+
+                                }
+                                else {
+                                    const object = { Country: state.Country.replace(/-/g, " ") }
+                                    GetProduct(object).then((reresponses) => {
+                                        SetLoading(false)
+                                        f("All Product")
+                                        SetProduct(response.data)
+
+                                    })
+                                }
+                            })
+                        }
+                    })
+                }
+                else {
+                    if (state.State !== "") {
                         const object = { State: state.State.replace(/-/g, " ") }
                         GetProduct(object).then((response) => {
                             if (response.length !== 0) {
                                 SetLoading(false)
                                 f("All Product")
                                 SetProduct(response.data)
-
                             }
                             else {
                                 const object = { Country: state.Country.replace(/-/g, " ") }
-                                GetProduct(object).then((reresponses) => {
+                                GetProduct(object).then((response) => {
                                     SetLoading(false)
                                     f("All Product")
                                     SetProduct(response.data)
@@ -198,18 +392,8 @@ const Product = () => {
                             }
                         })
                     }
-                })
-            }
-            else {
-                if (state.State !== "") {
-                    const object = { State: state.State.replace(/-/g, " ") }
-                    GetProduct(object).then((response) => {
-                        if (response.length !== 0) {
-                            SetLoading(false)
-                            f("All Product")
-                            SetProduct(response.data)
-                        }
-                        else {
+                    else {
+                        if (state.Country !== "") {
                             const object = { Country: state.Country.replace(/-/g, " ") }
                             GetProduct(object).then((response) => {
                                 SetLoading(false)
@@ -218,38 +402,145 @@ const Product = () => {
 
                             })
                         }
-                    })
-                }
-                else {
-                    if (state.Country !== "") {
-                        const object = { Country: state.Country.replace(/-/g, " ") }
-                        GetProduct(object).then((response) => {
-                            SetLoading(false)
-                            f("All Product")
-                            SetProduct(response.data)
-
-                        })
                     }
                 }
             }
-            function GetProduct(object) {
-                return (
-                    axios.post(`https://api.cannabaze.com/UserPanel/Get-AllProduct/`,
-                        object
-                    ).then(response => {
-                        return response
-                    }).catch(
-                        function (error) {
-                            SetProduct([])
-                        })
-                )
-            }
-          }
+
         }
-    }, [params ,state])
+
+    }, [state, params])
 
 
- console.log(state)
+
+
+    // React.useEffect(() => {
+    //     SetLoading(true)
+    //     setIsDropdownOpen(false)
+    //     console.log(params)
+    //     if (params.subCategory) {
+    //         Axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductBySubCategory/${params.id}`).then((res) => {
+    //             SetProduct(res.data)
+    //             SubCategoryApi(res.data[0].category_id)
+    //             SetLoading(false)
+
+    //         }).catch((err) => {
+    //             SetLoading(false)
+    //             // SetProduct([])
+    //         })
+    //         function SubCategoryApi(_id) {
+    //             Axios.get(`https://api.cannabaze.com/UserPanel/Get-SubCategoryByCategory/${_id}`).then((res) => {
+    //                 return res
+    //             }).then((response) => {
+    //                 setsubcategories(response.data.data)
+
+    //             })
+    //         }
+
+    //     }
+    //     else {
+    //         if (params.categoryname) {
+    //             
+    //             function CategoryProduct(object) {
+    //                 return (
+    //                     axios.post(`https://api.cannabaze.com/UserPanel/Get-ProductByCategory/${params.id}`, object).then((res) => {
+    //                         return res
+    //                     }).then((response) => {
+    //                         console.log(response)
+    //                         if (response.data === "There is no Product") {
+    //                             return []
+    //                         }
+    //                         else {
+    //                             return response.data
+    //                         }
+
+    //                     })
+    //                 )
+    //             }
+    //         }
+    //         else {
+
+    //         }
+    //     }
+
+    //     if (state.City !== "") {
+    //         const object = { City: state.City.replace(/-/g, " ") }
+    //         GetProduct(object).then((response) => {
+    //             if (response.length !== 0) {
+    //                 SetLoading(false)
+    //                 f("All Product")
+    //                 SetProduct(response.data)
+    //             }
+    //             else {
+    //                 const object = { State: state.State.replace(/-/g, " ") }
+    //                 GetProduct(object).then((response) => {
+    //                     if (response.length !== 0) {
+    //                         SetLoading(false)
+    //                         f("All Product")
+    //                         SetProduct(response.data)
+
+    //                     }
+    //                     else {
+    //                         const object = { Country: state.Country.replace(/-/g, " ") }
+    //                         GetProduct(object).then((reresponses) => {
+    //                             SetLoading(false)
+    //                             f("All Product")
+    //                             SetProduct(response.data)
+
+    //                         })
+    //                     }
+    //                 })
+    //             }
+    //         })
+    //     }
+    //     // else {
+    //     if (state.State !== "") {
+    //         const object = { State: state.State.replace(/-/g, " ") }
+    //         GetProduct(object).then((response) => {
+    //             if (response.length !== 0) {
+    //                 SetLoading(false)
+    //                 f("All Product")
+    //                 SetProduct(response.data)
+    //             }
+    //             else {
+    //                 const object = { Country: state.Country.replace(/-/g, " ") }
+    //                 GetProduct(object).then((response) => {
+    //                     SetLoading(false)
+    //                     f("All Product")
+    //                     SetProduct(response.data)
+
+    //                 })
+    //             }
+    //         })
+    //     }
+    //     else {
+    //         if (state.Country !== "") {
+    //             const object = { Country: state.Country.replace(/-/g, " ") }
+    //             GetProduct(object).then((response) => {
+    //                 SetLoading(false)
+    //                 f("All Product")
+    //                 SetProduct(response.data)
+
+    //             })
+    //         }
+    //     }
+    //     // }
+    //     function GetProduct(object) {
+    //         return (
+    //             axios.post(`https://api.cannabaze.com/UserPanel/Get-AllProduct/`,
+    //                 object
+    //             ).then(response => {
+    //                 return response
+    //             }).catch(
+    //                 function (error) {
+    //                     SetProduct([])
+    //                 })
+    //         )
+    //     }
+
+    // }, [params, state])
+
+
+    console.log(state)
     return (
         <>
             {!params.id ? <ProductSeo></ProductSeo> :
@@ -274,7 +565,7 @@ const Product = () => {
                                                     <img src={`https://api.cannabaze.com${selectedOption.SubCategoryImage}`} alt={selectedOption.name} className="dropdown-option-image" />
                                                 )}
                                                 <span className="dropdown-option-label">
-                                                    {selectedOption ? selectedOption.name : 'Short by Subcategory '}
+                                                    {selectedOption ? selectedOption.name : 'Sort by Subcategory '}
                                                 </span>
                                                 <span className="dropdown-caret"></span>
                                             </div>

@@ -152,7 +152,7 @@ const NewProductDetailsCards = ({ Product }) => {
           }
         }
     
-        return str
+        return str.toLowerCase()
       }
 
     return (
@@ -235,8 +235,8 @@ const NewProductDetailsCards = ({ Product }) => {
                         </div>
                         <div className="col-12 mt-2">
                             <p>
-                            <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={Product.rating === null ? 0 : Product.rating} readOnly />
                                 <span>
+                            <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={Product.rating === null ? 0: Product.rating} readOnly />
                                 </span><span className="mx-2">{Product.rating === null ? 0: Product.rating+".0"} ({Product.TotalRating})
                                 
                                 </span></p>
@@ -256,15 +256,15 @@ const NewProductDetailsCards = ({ Product }) => {
                                     
                                     })  
                                 }                              
-                                </select>: 
+                                </select> :
                                   Product?.Prices?.map((item)=>{
                                   let vl =item.Price.map((item)=>{
 
                                         if(item.Weight){
-                                           if(!dynamicWeight){setdynamicprice(item.SalePrice); setdynamicWeight(item.Weight)};
+                                        //    if(!dynamicWeight){setdynamicprice(item.SalePrice); setdynamicWeight(item.Weight)};
                                             return item.Weight
                                         }else{
-                                            if(!dynamicWeight){setdynamicprice(item.SalePrice); setdynamicWeight(`${item.Unit} Unit`)}
+                                            // if(!dynamicWeight){setdynamicprice(item.SalePrice); setdynamicWeight(`${item.Unit} Unit`)}
                                             return  `${item.Unit} Unit`
                                         }
                                        

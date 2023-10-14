@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { fromUnixTime } from 'date-fns';
 import Cookies from 'universal-cookie';
 export function registerEmp(usrdata) {
     let data = axios.post(' https://api.cannabaze.com/DeliveryBoy/Add-Employee/', usrdata);
@@ -78,10 +79,10 @@ export function ViewCountApi(id) {
 export function DespensioriesItem(object) {
     let data = axios.post(
         'https://api.cannabaze.com/UserPanel/Get-Dispensaries/',
-            object
+        object
     ).then(response => {
         return response?.data
-    
+
     }).then((res) => {
         return res
     }).catch(
@@ -159,5 +160,109 @@ export function getAllNews() {
         return response.data;
     })
     return allnews
+}
+
+
+// product page Api 
+export function CategoryProductsearch(object, id) {
+    return (
+        axios.post(`https://api.cannabaze.com/UserPanel/Get-ProductByCategory/${id}`, object).then((res) => {
+            return res
+        }).then((response) => {
+            console.log(response)
+            if (response.data === "There is no Product") {
+                return []
+            }
+            else {
+                return response.data
+            }
+
+        })
+    )
+}
+
+export function GetProduct(object) {
+    return (
+        axios.post(`https://api.cannabaze.com/UserPanel/Get-AllProduct/`,
+            object
+        ).then(response => {
+            return response
+        }).catch(
+            function (error) {
+                return []
+            })
+    )
+}
+
+export function SubCategoryApi(_id) {
+    return (
+
+        axios.get(`https://api.cannabaze.com/UserPanel/Get-SubCategoryByCategory/${_id}`).then((res) => {
+            return res
+        })
+    )
+}
+
+export function SubcategoryProduct(object ,id) {
+    return (
+        axios.post(`https://api.cannabaze.com/UserPanel/Get-ProductBySubCategory/${id}`,object).then((res) => {
+            return res.data 
+            // SubCategoryApi(res.data[0].category_id)
+            // SetLoading(false)
+
+        }).catch((err) => {
+            // SetLoading(false)
+            // SetProduct([])
+        })
+    )
+}
+
+
+export function GetAllDelivery (object){
+    return(
+        axios.post(
+            'https://api.cannabaze.com/UserPanel/Get-DeliveryStores/',
+            object
+        ).then(response => {
+            const k = response.data.reduce((acc, current) => {
+                const x = acc.find(item => item.id === current.id);
+                if (!x) {
+                    const newCurr = {
+                        Store_Name: current.Store_Name,
+                        Category: [{ [current.Category]: current.ProductCount }],
+                        id: current.id,
+                        Store_Image: current.Store_Image,
+                        Store_Address: current.Store_Address,
+                        rating:current.rating,
+                        TotalRating:current.TotalRating
+                    }
+                    return acc.concat([newCurr]);
+                } else {
+                    const currData = x.Category.filter(d => d === current.Category);
+                    if (!currData.length) {
+                        const newData = x.Category.push({ [current.Category]: current.ProductCount });
+                        const newCurr = {
+                            Store_Name: current.Store_Name,
+                            Category: newData,
+                            id: current.id,
+                            Store_Image: current.Store_Image,
+                            Store_Address: current.Store_Address,
+                            rating:current.rating,
+                            TotalRating:current.TotalRating
+
+                        }
+                        return acc;
+                    } else {
+                        return acc;
+                    }
+                    //   Category: [{ [y.Category]: y.ProductCount }] 
+                }
+            }, []);
+            return k
+        }).catch(
+            function (error) {
+
+            })
+    )
 }
 
