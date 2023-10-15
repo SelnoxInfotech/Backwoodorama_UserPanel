@@ -345,7 +345,7 @@ const Product = () => {
                 if (state.City !== "") {
                     const object = { City: state.City.replace(/-/g, " ") }
                     GetProduct(object).then((response) => {
-                        if (response.length !== 0) {
+                        if (response.data.length !== 0) {
                             SetLoading(false)
                             f("All Product")
                             SetProduct(response.data)
@@ -353,7 +353,7 @@ const Product = () => {
                         else {
                             const object = { State: state.State.replace(/-/g, " ") }
                             GetProduct(object).then((response) => {
-                                if (response.length !== 0) {
+                                if (response.data.length !== 0) {
                                     SetLoading(false)
                                     f("All Product")
                                     SetProduct(response.data)
@@ -361,7 +361,7 @@ const Product = () => {
                                 }
                                 else {
                                     const object = { Country: state.Country.replace(/-/g, " ") }
-                                    GetProduct(object).then((reresponses) => {
+                                    GetProduct(object).then((response) => {
                                         SetLoading(false)
                                         f("All Product")
                                         SetProduct(response.data)
@@ -376,7 +376,7 @@ const Product = () => {
                     if (state.State !== "") {
                         const object = { State: state.State.replace(/-/g, " ") }
                         GetProduct(object).then((response) => {
-                            if (response.length !== 0) {
+                            if (response.data.length !== 0) {
                                 SetLoading(false)
                                 f("All Product")
                                 SetProduct(response.data)

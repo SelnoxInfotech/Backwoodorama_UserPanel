@@ -230,8 +230,10 @@ const NewProductDetailsCards = ({ Product }) => {
                     </div>
                     <div className="col-12 mt-2">
                         <p>
+                            <Rating  readOnly value={ Product.rating === null? 0 : Product.rating } name="text-feedback" color='green'  size="small" />
+                            {/* {Product.rating !== null && <Rating  readOnly value={Product.rating } name="text-feedback" color='green'  size="small" /> } */}
                             <span>
-                                <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only"  value={ Product.rating === null ? 0 : Product.rating  } readOnly />
+                                {/* <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only"  value={ Product.rating === null ? 0 : Product.rating  } readOnly /> */}
                             </span><span className="mx-2">{Product.rating === null ? 0 : Product.rating + ".0"} ({Product.TotalRating})
 
                             </span></p>
