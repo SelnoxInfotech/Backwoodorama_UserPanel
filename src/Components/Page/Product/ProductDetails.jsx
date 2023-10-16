@@ -123,7 +123,10 @@ const ProductDetail = () => {
                 Image_id: Event.images[0].id,
                 Price: PriceIndex,
                 Cart_Quantity: Product_Quantity.Product_quantity,
-                PriceId: PriceIndex.id
+                PriceId: PriceIndex.id,
+                category:Event.category_name,
+                Sub_Category_id:Event.Sub_Category_id,
+                SubcategoryName:Event.SubcategoryName
 
             })
             await axios.post("https://api.cannabaze.com/UserPanel/Add-AddtoCart/",
@@ -134,7 +137,10 @@ const ProductDetail = () => {
                     Image_id: Event.images[0].id,
                     Price: PriceIndex,
                     Cart_Quantity: Product_Quantity.Product_quantity,
-                    PriceId: PriceIndex.id
+                    PriceId: PriceIndex.id,
+                    category:Event.category_name,
+                    Sub_Category_id:Event.Sub_Category_id,
+                    SubcategoryName:Event.SubcategoryName
 
                 }
                 , config
@@ -162,7 +168,10 @@ const ProductDetail = () => {
                 Image_id: Event.images[0].id,
                 Price: PriceIndex,
                 Cart_Quantity: Product_Quantity.Product_quantity,
-                ProductName: Event.Product_Name
+                ProductName: Event.Product_Name,
+                category:Event.category_name,
+                Sub_Category_id:Event.Sub_Category_id,
+                SubcategoryName:Event.SubcategoryName
             }
             SetNewData(Arry)
             if (AddTOCard.length !== 0) {

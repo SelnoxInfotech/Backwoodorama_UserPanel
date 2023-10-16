@@ -172,8 +172,30 @@ const AddToCartReview = () => {
         dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
     }
       function Navigate (e){
-        navigate(`/NewProductDetails/${e}`)
+        console.log(e)
+        navigate(`/products/${modifystr(e.category)}/${modifystr(e.SubcategoryName)}/${modifystr(e.ProductName)}/${e.Sub_Category_id}`)
       }
+      function modifystr(str) {
+        str = str === undefined ? "" : str
+        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str.trim().replaceAll(' ', "-");
+        let a = 0;
+        while (a < 1) {
+            if (str.includes("--")) {
+                str = str.replaceAll("--", "-")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("//", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("-/", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("/-", "/")
+            } else {
+                a++
+            }
+        }
+
+        return str.toLowerCase()
+    }
     return (
         <React.Fragment>
             <div className="col-12  AddProductCartContainerinner">
@@ -194,12 +216,11 @@ const AddToCartReview = () => {
                         }else{
                             wrigh = `${ele.Price.Unit} Unit`
                         }
-                        console.log(ele ,'ele')
                         return (
                                 <div className="row py-3 px-0 border-top border-bottom justify-content-center   align-items-center" key={index}>
                                     <div className='row align-items-center col-5'>
                                             <div className="p-0 col-3 Add_prod_item_image_cont">
-                                                <Link to={`/NewProductDetails/${ele.Product_id}`}>
+                                                <Link to={`/products/${modifystr(ele.category)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.ProductName)}/${ele.Sub_Category_id}`}>
                                             
                                                 <LazyLoadImage onError={event => {
                                                     event.target.src = "/image/blankImage.jpg"
@@ -210,7 +231,7 @@ const AddToCartReview = () => {
                                             <div className="col-9 Add_prod_content_cont p-2">
                                                 
                                           
-                                                    <h5 className='add_prod_cart_p_title' onClick={()=>{Navigate(ele.Product_id)}}>{ele.ProductName + "(" + wrigh + ")"}</h5>
+                                                    <h5 className='add_prod_cart_p_title' onClick={()=>{Navigate(ele)}}>{ele.ProductName + "(" + wrigh + ")"}</h5>
                                                     <h4 className='add_prod_cart_p'>{ele.StoreName}</h4>
                                             </div>
                                     </div>

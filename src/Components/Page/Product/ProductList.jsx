@@ -15,9 +15,9 @@ import { AiOutlineHeart } from "react-icons/ai"
 import { AiFillHeart } from "react-icons/ai"
 import IconButton from '@mui/material/IconButton';
 import { WishListPost } from "../../Component/Whishlist/WishListApi_"
-import {WhisList} from "../../Component/Whishlist/WhisList"
-const ProductList = ({ arr , ProductNavigate }) => {
-  
+import { WhisList } from "../../Component/Whishlist/WhisList"
+const ProductList = ({ arr, ProductNavigate }) => {
+
     const cookies = new Cookies();
     const [CartClean, SetCartClean] = React.useState(false)
     const token_data = cookies.get('Token_access')
@@ -38,25 +38,32 @@ const ProductList = ({ arr , ProductNavigate }) => {
             const config = {
                 headers: { Authorization: `Bearer ${token_data}` }
             };
+           
             SetNewData({
                 Product_id: Event?.id,
                 Store_id: Event?.Store_id,
                 Image_id: Event?.images[0]?.id,
                 Price: PriceIndex,
                 Cart_Quantity: 1,
-                PriceId: PriceIndex?.id
+                PriceId: PriceIndex?.id,
+                category: Event.category_name,
+                Sub_Category_id: Event.Sub_Category_id,
+                SubcategoryName: Event.SubcategoryName
 
             })
             await axios.post("https://api.cannabaze.com/UserPanel/Add-AddtoCart/",
 
                 {
-                    Brand_Id:Event.Brand_id,
+                    Brand_Id: Event.Brand_id,
                     Product_id: Event.id,
                     Store_id: Event.Store_id,
                     Image_id: Event.images[0].id,
                     Price: PriceIndex,
                     Cart_Quantity: 1,
-                    PriceId: PriceIndex?.id
+                    PriceId: PriceIndex?.id,
+                    category: Event.category_name,
+                    Sub_Category_id: Event.Sub_Category_id,
+                    SubcategoryName: Event.SubcategoryName
 
                 }
                 , config
@@ -88,7 +95,10 @@ const ProductList = ({ arr , ProductNavigate }) => {
                 StoreCurbsidePickup: Event.StoreCurbsidePickup,
                 StoreDelivery: Event.StoreDelivery,
                 StorePickup: Event.StorePickup,
-                StoreAddress: Event.StoreAddress
+                StoreAddress: Event.StoreAddress,
+                category:Event.category_name,
+                Sub_Category_id:Event.Sub_Category_id,
+                SubcategoryName:Event.SubcategoryName
 
 
 
@@ -155,21 +165,21 @@ const ProductList = ({ arr , ProductNavigate }) => {
         str = str.trim().replaceAll(' ', "-");
         let a = 0;
         while (a < 1) {
-          if (str.includes("--")) {
-            str = str.replaceAll("--", "-")
-          } else if (str.includes("//")) {
-            str = str.replaceAll("//", "/")
-          } else if (str.includes("//")) {
-            str = str.replaceAll("-/", "/")
-          } else if (str.includes("//")) {
-            str = str.replaceAll("/-", "/")
-          } else {
-            a++
-          }
+            if (str.includes("--")) {
+                str = str.replaceAll("--", "-")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("//", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("-/", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("/-", "/")
+            } else {
+                a++
+            }
         }
-    
+
         return str
-      }
+    }
 
 
     return (
@@ -178,20 +188,20 @@ const ProductList = ({ arr , ProductNavigate }) => {
                 {arr?.map((ele, index) => {
                     return (
                         <div className="col-12 col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12   " key={index}>
-                               <div className="prod_inner_cont  product_inner_row">
-                                    <span className="product_inner_rowspan">
-                                    <IconButton  onClick={() => { handleWhishList(ele.id) }} aria-label="Example">
-                                                {
-                                                  state.login?   state.WishList[ele.id]? <AiFillHeart color="#31B665"></AiFillHeart> : <AiOutlineHeart /> : <AiOutlineHeart /> 
-                                                }
+                            <div className="prod_inner_cont  product_inner_row">
+                                <span className="product_inner_rowspan">
+                                    <IconButton onClick={() => { handleWhishList(ele.id) }} aria-label="Example">
+                                        {
+                                            state.login ? state.WishList[ele.id] ? <AiFillHeart color="#31B665"></AiFillHeart> : <AiOutlineHeart /> : <AiOutlineHeart />
+                                        }
 
-                                            </IconButton>
-                                    </span  >
+                                    </IconButton>
+                                </span  >
                                 <div className="prod_cat_cont" >
                                     {/* <Link to={`/products/${ele.category_name}/${ele.Product_Name.replace(/%20| /g, "-")  }/${ele.id}`}> */}
-                                        <div className="col-12 p-2 prod_cat_img position-relative">
+                                    <div className="col-12 p-2 prod_cat_img position-relative">
                                         <LazyLoadImage
-                                        onClick={()=>ProductNavigate(modifystr(ele.Product_Name) ,modifystr(ele.category_name) ,ele.id )}
+                                            onClick={() => ProductNavigate(modifystr(ele.Product_Name), modifystr(ele.category_name), ele.id)}
                                             className="product_search_result_image"
                                             onError={event => {
                                                 event.target.src = "/image/blankImage.jpg"
@@ -199,23 +209,23 @@ const ProductList = ({ arr , ProductNavigate }) => {
                                             }}
                                             src={`https://api.cannabaze.com${ele?.images[0]?.image}`}
                                             alt={ele.Product_Name}
-                                           
-                                        />
-                                            {/* // <img src={`https://api.cannabaze.com/${ele?.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }} /> */}
-                                            <div className="prod_img_btn d-flex">
-                                                <button className=" cat_prod_inner_btn btn2">THC {ele.THC}%</button>
-                                                <button className="cat_prod_inner_btn btn1">{ele.strain}</button>
-                                            </div>
-                                           
 
+                                        />
+                                        {/* // <img src={`https://api.cannabaze.com/${ele?.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }} /> */}
+                                        <div className="prod_img_btn d-flex">
+                                            <button className=" cat_prod_inner_btn btn2">THC {ele.THC}%</button>
+                                            <button className="cat_prod_inner_btn btn1">{ele.strain}</button>
                                         </div>
+
+
+                                    </div>
                                     {/* </Link> */}
                                 </div>
                                 <div className="product_cat_allProduct">
 
                                     <div className="col-12 px-2 prod_para_name" style={{ marginBottom: "" }}>
-                                    <Link to={`/products/${modifystr(ele.category_name)}/${modifystr(ele.Product_Name.toLowerCase())}/${ele.id}`}>
-                                        <h3 className='productListHeadings ellipsis'>{ele.Product_Name}</h3>
+                                        <Link to={`/products/${modifystr(ele.category_name)}/${modifystr(ele.Product_Name.toLowerCase())}/${ele.id}`}>
+                                            <h3 className='productListHeadings ellipsis'>{ele.Product_Name}</h3>
                                         </Link>
                                     </div>
                                     <div className="col-12 px-2 prod_para prod_sub_heading_height ellipsis">
@@ -225,44 +235,44 @@ const ProductList = ({ arr , ProductNavigate }) => {
                                         <span className='fontStyle productlist_rating'>Rating</span><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons} /></span>
                                     </div>
                                     <div className="mobile_view_weigth">
-                                    <div className="row   prod_cat_cont_btn product_price_tabs">
-                                        {ele.Prices?.map((ele1, index) => {
-                                            return (
-                                                ele1.Price?.map((data, index) => {
-                                                    let s = false
-                                                    if (Price.length === 0) {
+                                        <div className="row   prod_cat_cont_btn product_price_tabs">
+                                            {ele.Prices?.map((ele1, index) => {
+                                                return (
+                                                    ele1.Price?.map((data, index) => {
+                                                        let s = false
+                                                        if (Price.length === 0) {
 
-                                                        if (data.id === 1) {
-                                                            s = true
-                                                        }
-
-                                                    }
-                                                    else (
-                                                        Price?.map((Price) => {
-                                                            if (ele.id === Price?.Product_id && data.id === Price?.Item_id) {
+                                                            if (data.id === 1) {
                                                                 s = true
                                                             }
-                                                            else {
 
-                                                                s = false
-                                                            }
-                                                            return s
-                                                        })
-                                                    )
-                                                    return (
-                                                        <div className="col-sm-4 col-2  prod_cat_btn_cont mt-2" id="" key={index} >
-                                                            <section
-                                                                className={"prod_cat_btns " + (s ? "active" : "")}
-                                                                value={data.id} onClick={() => PriceSelect(ele.id, data.id)} >
-                                                                {data.Weight || data.Unit}
-                                                                <p className="rs">${data?.SalePrice?.toFixed()}</p>
-                                                            </section>
-                                                        </div>
-                                                    )
-                                                })
-                                            )
-                                        })}
-                                    </div>
+                                                        }
+                                                        else (
+                                                            Price?.map((Price) => {
+                                                                if (ele.id === Price?.Product_id && data.id === Price?.Item_id) {
+                                                                    s = true
+                                                                }
+                                                                else {
+
+                                                                    s = false
+                                                                }
+                                                                return s
+                                                            })
+                                                        )
+                                                        return (
+                                                            <div className="col-sm-4 col-2  prod_cat_btn_cont mt-2" id="" key={index} >
+                                                                <section
+                                                                    className={"prod_cat_btns " + (s ? "active" : "")}
+                                                                    value={data.id} onClick={() => PriceSelect(ele.id, data.id)} >
+                                                                    {data.Weight || data.Unit}
+                                                                    <p className="rs">${data?.SalePrice?.toFixed()}</p>
+                                                                </section>
+                                                            </div>
+                                                        )
+                                                    })
+                                                )
+                                            })}
+                                        </div>
                                     </div>
                                     <div className="col-12 d-flex mt-3 mb-2 Fly">
 

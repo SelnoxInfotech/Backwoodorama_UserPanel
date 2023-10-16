@@ -7,12 +7,17 @@ import { useForm } from "react-hook-form";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Createcontext from "../../../Hooks/Context";
 
-const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setDataImage, Details, SetDetails }) => {
+const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setDataImage, Details, SetDetails , DefalutImage , SetDefalutimage }) => {
     const { dispatch } = React.useContext(Createcontext)
     const method = useForm()
     const [ShowRestDeliveryInformation, SetShowRestDeliveryInformation] = React.useState(true)
     const classes = useStyles()
     const HandleDeliveryInformation = (data) => {
+        if(image === undefined){
+            SetDefalutimage(true)
+            window.scroll(0,5)
+        }
+    else{
         SetShowDeliveryInformation(true)
         SetShowRestDeliveryInformation(false)
         dispatch({ type: 'DeliveryInformation', DeliveryInformation: true })
@@ -20,6 +25,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
             ...Details, ["DateOfBirth"]: data.DateOfBirth
         });
 
+    }
     }
     const ShowAgainDeliverInformation = () => {
         SetShowRestDeliveryInformation(true)
@@ -36,15 +42,38 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
             setImage(URL.createObjectURL(event.target.files[0]));
             setDataImage(event.target.files[0])
         }
+        SetDefalutimage(false)
+
     }
 
-
+console.log(image)
     function handleChange(event) {
 
         SetDetails({
             ...Details, [event.target.name]: event.target.value
         });
     }
+    // function dateFormater(date, separator) {
+    //     var day = date.getDate();
+    //     // add +1 to month because getMonth() returns month from 0 to 11
+    //     var month = date.getMonth() + 1;
+    //     var year = date.getFullYear();
+      
+    //     // show date and month in two digits
+    //     // if month is less than 10, add a 0 before it
+    //     if (day < 10) {
+    //       day = '0' + day;
+    //     }
+    //     if (month < 10) {
+    //       month = '0' + month;
+    //     }
+      
+    //     // now we have day, month and year
+    //     // use the separator to join them
+    //     return day + separator + month + separator + year;
+    //   }
+      console.log(image)
+      
     return (
         <div className="container-fluid">
 
@@ -74,8 +103,9 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
 
                             </div>
                             <div className='row'>
-                                <div className='col-8 delivery_option_img_div_height'>
-                                    <LazyLoadImage className='delivery_option_image' src={image} />
+                                <div className='col-8 delivery_option_img_div_height' >
+
+                                    <LazyLoadImage style={{border:DefalutImage && "1px solid red" }} className='delivery_option_image' src={image} />
                                 </div>
 
 
@@ -86,7 +116,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
                                         <TextField
                                             className={classes.deliveryInformationTextFildColor}
-                                            value={Details.FirstName || ''}
+                                            value={Details.FirstName }
                                             label="First name on photo id"
                                             variant="standard"
                                             fullWidth
@@ -105,7 +135,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                             className={classes.deliveryInformationTextFildColor}
                                             label="Last name on photo id"
                                             variant="standard"
-                                            value={Details.LastName || ''}
+                                            value={Details.LastName}
                                             onChange={handleChange}
                                             fullWidth
                                             name='LastName'
@@ -120,48 +150,6 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                 </div>
                                 <div className='row my-4'>
                                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
-                                        {/* <Box
-                                            sx={{
-                                                ".MuiFormControl-marginNormal": {
-                                                    marginTop: "0px"
-                                                }
-
-                                            }}>
-                                            <MuiPickersUtilsProvider utils={DateFnsUtils} >
-                                                <Controller
-                                                    render={(props) => (
-                                                        <DatePicker
-                                                            defaultValue={dayjs(new Date())}
-                                                            // maxDate={new Date()}
-                                                            inputVariant="outlined"
-                                                            variant="standard"
-                                                            format="MM/dd/yyyy"
-                                                            margin="normal"
-                                                            fullWidth
-                                                            value={props.value}
-                                                            onChange={props.onChange}
-                                                            name='Birthdate'
-                                                            // InputProps={{
-                                                            //     startAdornment: (
-                                                            //         <InputAdornment position="start">
-                                                            //             <FaBirthdayCake className='newSignup_icon' />
-                                                            //         </InputAdornment>
-                                                            //     ),
-                                                            // }}
-                                                            error={Boolean(method.errors.Birthdate)}
-                                                            helperText={method.errors.Birthdate?.message}
-                                                        />
-                                                    )}
-                                        
-
-                                                    control={method.control}
-                                                    rules={{
-                                                        required: "Date of birth required.",
-                                                    }}
-
-                                                />
-                                            </MuiPickersUtilsProvider>
-                                        </Box> */}
                                         <Box
                                             sx={{
                                                 ".MuiFormControl-marginNormal": {
@@ -175,89 +163,32 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                                 }
 
                                             }}>
-                                            {/* <TextField
-                                          className={classes.deliveryInformationTextFildColor}
-                                            label="date"
-                                            value={Details.Birthdate}
-                                            onChange={handleChange}
-                                
-                                            fullWidth
-                                            InputLabelProps={{ shrink: true, required: true }}
-                                            name='Birthdate'
-                                            inputRef={method.register({
-                                                required: "Birthdate is required*.",
-                                                // pattern: {
-                                                //     // value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                                //     message: "invalid email address"
-                                                // }
-                                            }
-                                            )}
-                                            helperText={method.errors?.Birthdate?.message}
-                                            error={Boolean(method.errors?.Birthdate)}
-                                        /> */}
                                             <TextField
                                                 className={classes.deliveryInformationTextFildColor}
-                                                name="Birthdate"
+                                                name="DateOfBirth"
                                                 fullWidth
+                                                value={Details.DateOfBirth}
+                                                onChange={handleChange}
                                                 label="Birth date"
                                                 InputLabelProps={{ shrink: true, required: true }}
                                                 type="date"
+                                                // defaultValue={`${new Date().getFullYear() -21} + "01","01"`}
                                                 inputRef={method.register({
                                                     required: "Birthdate is required*.",
                                                 }
                                                 )}
+                                                // minDate="24/01/2019"
                                                 // inputProps={{
-                                                //     // min: "2020-08-10",
-                                                //     max: new Date().getFullYear() -18
+                                                //     min: "2002-01-01 ", max:' 2002-05-05 '
+                                                //     //   dateFormater(date, '-')
+                                                //     // min: date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate(),
+                                                //     // max: new Date() 
                                                 //   }}
                                                 helperText={method.errors?.Birthdate?.message}
                                                 error={Boolean(method.errors?.Birthdate)}
 
                                             />
-                                            {/* <MuiPickersUtilsProvider utils={DateFnsUtils} >
-                                            <Controller
-                                            
-                                            defaultValue={dayjs(new Date())}  
-                                          
-                                            render={(props) => (
-                                                    <DatePicker  
-                                                     className={classes.muiDatePicker}
-                                                    {...props}                                              
-                                                        maxDate={new Date()}
-                                                        inputVariant="outlined"
-                                                        name={props.name}
-                                                        format="MM/dd/yyyy"
-                                                        margin="normal"
-                                                        size="small"
-                                                        value={props.value}
-                                                      
-                                                        onChange={props.onChange}
-                                                        onBlur={props.onBlur}
-                                                        InputProps={{
-                                                            // startAdornment: (
-                                                            //     // <InputAdornment position="start">
-                                                            //     //     <FaBirthdayCake className='newSignup_icon' />
-                                                            //     // </InputAdornment>
-                                                            // ),
-                                                        }}
-                                                        error={Boolean(method.errors?.DateOfBirth)}
-                                                        helperText={method.errors.DateOfBirth?.message}
-                                                     
-                                                    />
-                                                )}
-                                                name="DateOfBirth"
-                                                onClick={handleChange}
-                                                control={method.control}
-                                                    rules={{
-                                                        required: "Date of birth required.",
-                                                    }}
-
-                                            />
-                                        </MuiPickersUtilsProvider> */}
-                                            {/* <input type="date" id="start" name="trip-start"
-                                    
-                                                value={selectedDate}
-                                                onChange={handleDateChange} /> */}
+                                           
                                         </Box>
                                     </div>
                                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
@@ -271,10 +202,10 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                             name='Email'
                                             inputRef={method.register({
                                                 required: "Email is required*.",
-                                                // pattern: {
-                                                //     // value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                                //     message: "invalid email address"
-                                                // }
+                                                pattern: {
+                                                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                                    message: "invalid email address"
+                                                }
                                             }
                                             )}
                                             helperText={method.errors?.Email?.message}
@@ -286,13 +217,13 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
                                         <TextField
                                             className={classes.deliveryInformationTextFildColor}
-                                            type='mobile'
+                                            type='number'
                                             onChange={handleChange}
-                                            value={Details.Mobile}
+                                            value={Details.MobileNo}
                                             label="Mobile phone"
                                             variant="standard"
                                             fullWidth
-                                            name='Mobile'
+                                            name='MobileNo'
                                             inputRef={method.register({
                                                 required: "Email is required*.",
                                                 minLength: {
@@ -305,8 +236,8 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                                 }
                                             }
                                             )}
-                                            helperText={method.errors?.Mobile?.message}
-                                            error={Boolean(method.errors?.Mobile)}
+                                            helperText={method.errors?.MobileNo?.message}
+                                            error={Boolean(method.errors?.MobileNo)}
                                         />
 
 
@@ -334,17 +265,17 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                         <TextField
                                             className={classes.deliveryInformationTextFildColor}
                                             onChange={handleChange}
-                                            value={Details.Id_Number}
+                                            value={Details.MedicalMarijuanaNumber}
                                             label="Medical Marijuana Number"
                                             variant="standard"
                                             fullWidth
-                                            name="Id_Number"
+                                            name="MedicalMarijuanaNumber"
                                             inputRef={method.register({
                                                 required: "Enter valid Id Number is required*.",
                                             }
                                             )}
-                                            helperText={method.errors?.Id_Number?.message}
-                                            error={Boolean(method.errors?.Id_Number)}
+                                            helperText={method.errors?.MedicalMarijuanaNumber?.message}
+                                            error={Boolean(method.errors?.MedicalMarijuanaNumber)}
                                         />
 
 
@@ -374,4 +305,4 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
         </div>
     )
 }
-export default DeliveryInformation
+export  {DeliveryInformation}

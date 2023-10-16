@@ -173,7 +173,9 @@ const Navbar = () => {
                 ?
 
                 <div className=' col-12 Login_Sigup_button '>
-
+{
+  console.log(state.Profile.image)
+}
                   <div className='col-lg-4 col-sm-4 navbarProfileDropDown_container' ref={profileRef}>
                     <Grid display={{ xs: "none", md: "block", lg: "block" }}>
                       <div className='Navbar_profile_logo_container'>
@@ -182,7 +184,7 @@ const Navbar = () => {
                             event.target.src = "/image/user.webp"
                             event.onerror = null
                           }}
-                          src={`https://api.cannabaze.com${state.Profile.image}`}
+                          src={'https://lh3.googleusercontent.com/a/ACg8ocJ5-xytwW_RtQWAM3TG76naksZFkt3ZlCrqlR9OIOgH=s96-c'}
                           alt='Profile'
                           className="Navbar_logo_imgs"
                           onClick={handleClickDropdown}

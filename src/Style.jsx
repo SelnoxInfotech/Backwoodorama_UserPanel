@@ -105,9 +105,9 @@ const useStyles = makeStyles({
   },
   muiSelect: {
     "&.MuiFormControl-root": {
-      width: "168px",
-      height: "38px",
-      minWidth: "120px",
+      // width: "168px",
+      // height: "38px",
+      // minWidth: "120px",
       margin: "1px"
     },
     "& .MuiInputLabel-root.Mui-focused ": {
@@ -123,18 +123,18 @@ const useStyles = makeStyles({
       },
     },
     "& .MuiInputBase-root": {
-      width: "168px",
+      // width: "168px",
       height: "38px",
-      minWidth: "150px",
+      // minWidth: "150px",
       // border:"1px solid yellow"
     },
     "& .MuiOutlinedInput-input": {
-      width: "119px",
+      // width: "119px",
       // border:"2px solid green"
     },
     "& .MuiSelect-nativeInput": {
       height: "33px",
-      width: "119px",
+      // width: "119px",
     }
   },
   muiBtn: {
@@ -145,10 +145,10 @@ const useStyles = makeStyles({
       border: "1px solid #31B665",
       borderRadius: " 71px  71px",
 
-      minWidth: "100%",
+      // minWidth: "100%",
       textTransform: "none",
-      width: "120px"
-      , height: "45px"
+      // width: "120px"
+       height: "45px"
     },
     "&.MuiButtonBase-root:hover": {
 

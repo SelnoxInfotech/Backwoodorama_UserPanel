@@ -8,7 +8,7 @@ import Cookies from 'universal-cookie';
 import Createcontext from "../../../../../Hooks/Context"
 import "swiper/css";
 import "swiper/css/pagination";
-import Rating from '@mui/material/Rating';
+import { Rating } from '@mui/material';
 import { Pagination } from 'swiper/modules';
 import _ from "lodash"
 import LoadingButton from '@mui/lab/LoadingButton';
@@ -48,7 +48,10 @@ const NewProductDetailsCards = ({ Product }) => {
                 Image_id: Event?.images[0]?.id,
                 Price: PriceIndex,
                 Cart_Quantity: quentity,
-                PriceId: PriceIndex.id
+                PriceId: PriceIndex.id,
+                category:Event.category_name,
+                Sub_Category_id:Event.Sub_Category_id,
+                SubcategoryName:Event.SubcategoryName
 
             })
             await axios.post("https://api.cannabaze.com/UserPanel/Add-AddtoCart/",
@@ -59,7 +62,10 @@ const NewProductDetailsCards = ({ Product }) => {
                     Image_id: Event.images[0].id,
                     Price: PriceIndex,
                     Cart_Quantity: quentity,
-                    PriceId: PriceIndex.id
+                    PriceId: PriceIndex.id,
+                    category:Event.category_name,
+                Sub_Category_id:Event.Sub_Category_id,
+                SubcategoryName:Event.SubcategoryName
 
                 }
                 , config
@@ -91,7 +97,10 @@ const NewProductDetailsCards = ({ Product }) => {
                 StoreCurbsidePickup: Event.StoreCurbsidePickup,
                 StoreDelivery: Event.StoreDelivery,
                 StorePickup: Event.StorePickup,
-                StoreAddress: Event.StoreAddress
+                StoreAddress: Event.StoreAddress,
+                category:Event.category_name,
+                Sub_Category_id:Event.Sub_Category_id,
+                SubcategoryName:Event.SubcategoryName
             }
             SetNewData(Arry)
             if (AddTOCard.length !== 0) {
@@ -230,10 +239,8 @@ const NewProductDetailsCards = ({ Product }) => {
                     </div>
                     <div className="col-12 mt-2">
                         <p>
-                            <Rating  readOnly value={ Product.rating === null? 0 : Product.rating } name="text-feedback" color='green'  size="small" />
-                            {/* {Product.rating !== null && <Rating  readOnly value={Product.rating } name="text-feedback" color='green'  size="small" /> } */}
+                        <Rating name="read-only"  className={`mx-2 ${classes.homePageStarIcons}`} value={Product.rating === null ? 0 : parseInt(Product?.rating)}  size="small" readOnly />
                             <span>
-                                {/* <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only"  value={ Product.rating === null ? 0 : Product.rating  } readOnly /> */}
                             </span><span className="mx-2">{Product.rating === null ? 0 : Product.rating + ".0"} ({Product.TotalRating})
 
                             </span></p>

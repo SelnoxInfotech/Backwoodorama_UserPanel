@@ -9,17 +9,15 @@ import { useForm } from "react-hook-form";
 import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
 import Createcontext from "../../../Hooks/Context"
-const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
+const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Time, SetTime}) => {
     const { state, dispatch } = React.useContext(Createcontext)
     const method = useForm()
     const classes = useStyles()
-    const [Time, SetTime] = React.useState('');
     const [ShowDeliveryRestData, SetShowDeliveryRestData] = React.useState(true)
     const [Checkbox, SetCheckbox] = React.useState({
         deliveryinstructions: "",
         DeliveryTime: "",
         documented: ""
-
     })
 
     const handleChange = (event) => {
@@ -40,6 +38,14 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
             ...Checkbox, [event.target.name]: event.target.checked
         });
     }
+    React.useEffect(()=>{
+   if(Time === ""){
+    const h =  Hours?.map((data)=>data.day)
+        const t1 =  Hours.map((data)=>data.Open.map((data)=> data.Time1))
+        const t2 =  Hours.map((data)=>data.Open.map((data)=> data.Time2))
+        SetTime(h[0]+t1[0][0]+t2[0][0])
+   }
+    },[])
     return (
         <React.Fragment>
             <div className="container-fluid">
@@ -89,7 +95,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
                                     </div>
                                     <div className="col-12 height_for_time_div">
                                         <div className="col-12 col-lg-12 height_for_time_div">
-                                            <FormControl className={`${classes.muiSelect}`} size="small">
+                                            <FormControl className={`${classes.muiSelect}`} >
                                                 <InputLabel id="demo-select-small">Time</InputLabel>
                                                 <Select
                                                     labelId="demo-select-small"
@@ -98,12 +104,17 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address }) => {
                                                     label="Time"
                                                     onChange={handleChange}
                                                 >
-                                                    <MenuItem value={"Saturday 10 to 1pm"}>
-                                                        Saturday 10 to 1pm
-                                                    </MenuItem>
-                                                    <MenuItem value={"Saturday 10 to 1pm"}>Saturday 10 to 1pm</MenuItem>
-                                                    <MenuItem value={"Saturday 10 to 1pm"}>Saturday 10 to 1pm</MenuItem>
-                                                    <MenuItem value={"Saturday 10 to 1pm"}>Saturday 10 to 1pm</MenuItem>
+                                            
+                                                    {
+                                                        Hours?.map((data)=>{
+                                                            return(
+                                                                <MenuItem value={data?.day + data.Open?.map((time)=>time.Time1) + data.Open?.map((time)=>time.Time2)}>
+                                                                  <div> <span style={{width:"10px"}}> {data.day} </span> <span>{data.Open?.map((time)=>time.Time1)}</span> <span>{data.Open.map((time)=>time.Time2)}</span></div>
+                                                                    
+                                                                    </MenuItem>
+                                                            )
+                                                        })
+                                                    }
                                                 </Select>
                                             </FormControl>
                                         </div>
