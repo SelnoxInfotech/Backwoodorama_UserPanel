@@ -1,5 +1,5 @@
 import DeliveryOption from "./DeliveryOption"
-import DeliveryInformation from "./DeliveryInformation"
+import { DeliveryInformation } from "./DeliveryInformation"
 import Payment from "./Payment"
 import React from "react"
 import AddToCartReview from "../Product/AddToCartComponent/AddToCartReview"
@@ -19,31 +19,45 @@ const CheckOutMainPage = () => {
     const location = useLocation();
     const { InputValues, abc } = location?.state
     const [image, setImage] = React.useState()
+    const [DefalutImage , SetDefalutimage  ] =  React.useState(false)
     const [Dataimage, setDataImage] = React.useState()
-    const [Details, SetDetails] = React.useState({})
+    const [Time, SetTime] = React.useState('');
+    const [Details, SetDetails] = React.useState({
+        FirstName: '',
+        LastName: "",
+        DateOfBirth: "",
+        MobileNo: "",
+        MedicalMarijuanaNumber: "",
+        Address: "",
+        Email:""
+
+    })
     const [CheckOut_Loading, SetLoading] = React.useState(false)
-    
+
     React.useEffect(() => {
         window.scroll(0, 0)
-    }, [ShowData,ShowDeliveryInformation,DeliveryOptionData])
+    }, [ShowData, ShowDeliveryInformation, DeliveryOptionData])
 
-      
 
+    const config = {
+        headers: { Authorization: `Bearer ${token_data}` }
+    };
     async function SubmitData() {
-        const config = {
-            headers: { Authorization: `Bearer ${token_data}` }
-        };
+
+     if(image !== undefined) {
         const formdata = new FormData();
         formdata.append('IdCard', Dataimage);
         formdata.append('FirstName', Details.FirstName);
         formdata.append('LastName', Details.LastName);
-        formdata.append('DateOfBirth', Details.Birthdate);
-        formdata.append('MobileNo', Details.Mobile);
-        formdata.append('MedicalMarijuanaNumber', Details.Id_Number);
+        formdata.append('DateOfBirth', Details.DateOfBirth);
+        formdata.append('MobileNo', Details.MobileNo);
+        formdata.append('MedicalMarijuanaNumber', Details.MedicalMarijuanaNumber);
         formdata.append('subtotal', state?.Cart_subTotal);
         formdata.append('Product', JSON.stringify(state.AllProduct));
         formdata.append('Store', state.AllProduct[0]?.Store_id);
-        formdata.append('Address', state.DeliveryAddress);
+        formdata.append('Address', state.selectDeliveryoptions === "pickup_btn" ? state.AllProduct[0]?.StoreAddress : state.DeliveryAddress);
+        formdata.append('DeliveryTime', Time);
+        formdata.append('Email', Details.Email)
         await Axios.post(
             'https://api.cannabaze.com/UserPanel/Add-Order/ ',
             formdata,
@@ -63,8 +77,37 @@ const CheckOutMainPage = () => {
             function (error) {
                 SetLoading(false)
             })
+        Axios.post(`https://api.cannabaze.com/UserPanel/Add-UserProfileOrderDetails/`, formdata, config).then((data) => {
+        })
+
+     }
+     else(
+        SetDefalutimage(true)
+     )
 
     }
+
+    React.useEffect(() => {
+        Axios.get(`https://api.cannabaze.com/UserPanel/Get-UserProfileOrderDetails/`, config).then((data) => {
+            if (data.data.length !== 0) {
+                data.data.map((user, key) => {
+                    console.log(user)
+                  
+                        SetDetails({ 
+                            ...Details, MobileNo:user.MobileNo, Email:user.Email, "DateOfBirth": user.DateOfBirth ,  "FirstName": user.FirstName , "LastName": user.LastName , "MedicalMarijuanaNumber": user.MedicalMarijuanaNumber,  "MobileNo": user.MobileNo
+                        });
+                  
+                })
+
+
+            }
+
+        })
+
+    }, [])
+
+    console.log(Details)
+
     return (
         <React.Fragment>
             <div className="container">
@@ -74,7 +117,7 @@ const CheckOutMainPage = () => {
                     <div className="col-md-8 col-lg-6 col-sm-12 col-12">
                         <div className="row ">
                             <div className="col-lg-12">
-                                <DeliveryOption DeliveryOptionData={DeliveryOptionData} address={InputValues.delivery} SetShowData={SetShowData} />
+                                <DeliveryOption Time={Time} SetTime={SetTime} Hours={state.AllProduct[0].StoreHours} DeliveryOptionData={DeliveryOptionData} address={InputValues.delivery} SetShowData={SetShowData} />
 
                             </div>
 
@@ -83,6 +126,8 @@ const CheckOutMainPage = () => {
                             <div className="col-lg-12">
                                 {ShowData === true && <DeliveryInformation SetShowDeliveryInformation={SetShowDeliveryInformation}
                                     image={image}
+                                    DefalutImage={DefalutImage}
+                                    SetDefalutimage={SetDefalutimage}
                                     setImage={setImage}
                                     Dataimage={Dataimage}
                                     setDataImage={setDataImage}

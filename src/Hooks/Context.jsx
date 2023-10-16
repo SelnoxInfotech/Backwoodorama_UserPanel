@@ -34,6 +34,7 @@ const initialUser = {
     DeliveryAddress: "",
     selectDeliveryoptions: "",
     Profile: [],
+    GoogleImage:"",
     WishList: [],
     // Get For Routing 
     Country: "",

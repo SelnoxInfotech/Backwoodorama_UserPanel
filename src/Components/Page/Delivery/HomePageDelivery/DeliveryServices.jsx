@@ -11,26 +11,30 @@ import DeliverServiceSkeleton from '../../../Component/Skeleton/DeliveryServices
 import axios from 'axios';
 
 const DeliveryServices = () => {
-    const [DeliveryService, SetDeliveryService] = useState({})
+    const [DeliveryService, SetDeliveryService] = useState([])
 
     const { state } = React.useContext(Createcontext)
     const classes = useStyles()
     const [Skeleton, SetSkeleton] = React.useState(true)
     const ref = React.useRef(null);
-    console.log(state)
     React.useEffect(() => {
         if (state.City !== "") {
             var object = { City: state.City.replace(/-/g, " ") }
             Delivery(object).then((res) => {
                 //   console.log(res.length === 0)
                 if (res.length === 0) {
+                    SetDeliveryService([])
+
                     object = { State: state.State.replace(/-/g, " ") }
                     Delivery(object).then((res) => {
                         if (res.length === 0) {
+                            SetDeliveryService([])
+
                             object = { Country: state.Country.replace(/-/g, " ") }
                             Delivery(object).then((res) => {
                                 if (res.length === 0) {
-                                    console.log(0)
+
+                                    SetDeliveryService([])
                                 }
                                 else{
                                     SetSkeleton(false)
@@ -85,19 +89,29 @@ const DeliveryServices = () => {
                 axios.post(`https://api.cannabaze.com/UserPanel/Get-GetDeliveryStoresHomepage/`,
                     object
                 ).then((response) => {
-                    return response.data
+                    if(response.data.length !==0)
+                    {
+
+                        return response.data
+                    }
+                    else{
+                        SetSkeleton(false)
+                        SetDeliveryService([])
+                        return []
+                    }
+                
                     //    SetDeliveryService(response.data)
                     //    console.log(response.data)
                 }
 
                 ).catch(() => {
 
+                       SetDeliveryService([])
                 })
             )
         }
-
     }, [state])
-
+    
     return (
         <React.Fragment>
             <div className="px-sm-0 px-3">
@@ -132,8 +146,6 @@ const DeliveryServices = () => {
                                                         <div className='w-100 d-flex align-items-center'>
                                                             <span className='DeliveryServicesRatingTitle'>Rating</span>
                                                             <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={items.rating === null ? 0 : items.rating} readOnly />
-
-
                                                         </div>
                                                     </Link>
                                                 </div>

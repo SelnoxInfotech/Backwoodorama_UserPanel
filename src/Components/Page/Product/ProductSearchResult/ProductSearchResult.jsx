@@ -33,6 +33,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
     })
     
     async function AddToCart(Event, counter, SelectWeight) {
+        console.log(Event)
         const AddData = _.filter(Event.Prices, Price => Price);
         const PriceArrry = _.find(AddData[0].Price, Price => Price.id === SelectWeight);
         const FinalSelection = PriceArrry === undefined ? Event.Prices[0].Price[0] : PriceArrry
@@ -52,6 +53,9 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                 Price: FinalSelection,
                 Cart_Quantity: FinalQuantity,
                 PriceId: FinalPriceId,
+                category:Event.category_name,
+                Sub_Category_id:Event.Sub_Category_id,
+                SubcategoryName:Event.SubcategoryName
 
 
 
@@ -65,7 +69,10 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                     Image_id: Event.images[0].id,
                     Price: FinalSelection,
                     Cart_Quantity: FinalQuantity,
-                    PriceId: FinalPriceId
+                    PriceId: FinalPriceId,
+                    category:Event.category_name,
+                    Sub_Category_id:Event.Sub_Category_id,
+                    SubcategoryName:Event.SubcategoryName
 
                 }
                 , config
@@ -95,7 +102,10 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                 StoreCurbsidePickup: Event.StoreCurbsidePickup,
                 StoreDelivery: Event.StoreDelivery,
                 StorePickup: Event.StorePickup,
-                StoreAddress: Event.StoreAddress
+                StoreAddress: Event.StoreAddress,
+                category:Event.category_name,
+                Sub_Category_id:Event.Sub_Category_id,
+                SubcategoryName:Event.SubcategoryName
 
 
             }

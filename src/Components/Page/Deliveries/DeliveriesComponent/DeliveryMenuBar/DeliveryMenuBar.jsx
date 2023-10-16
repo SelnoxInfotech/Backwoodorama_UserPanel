@@ -6,65 +6,88 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import useStyles from '../../../../../Style';
 import DeliveryItemsCard from "./DeliveryItemsCards";
-import axios from 'axios';
+import Createcontext from "../../../../../Hooks/Context"
 import { Delivery } from '../../../../Component/ScoPage/Deliveries';
-
+import { GetAllDelivery } from "../../../../../Api/Api"
 const DeliveryMenuBar = () => {
+    const { state, dispatch } = React.useContext(Createcontext)
     const [Deliverie, SetDelivery] = React.useState([])
     const [Pickup, SetPickup] = React.useState([])
     React.useEffect(() => {
-        axios.get(
-            'https://api.cannabaze.com/UserPanel/Get-DeliveryStores/',
-        ).then(response => {
-            const k = response.data.reduce((acc, current) => {
-                const x = acc.find(item => item.id === current.id);
-                if (!x) {
-                    const newCurr = {
-                        Store_Name: current.Store_Name,
-                        Category: [{ [current.Category]: current.ProductCount }],
-                        id: current.id,
-                        Store_Image: current.Store_Image,
-                        Store_Address: current.Store_Address,
-                        rating:current.rating,
-                        TotalRating:current.TotalRating
-                    }
-                    return acc.concat([newCurr]);
-                } else {
-                    const currData = x.Category.filter(d => d === current.Category);
-                    if (!currData.length) {
-                        const newData = x.Category.push({ [current.Category]: current.ProductCount });
-                        const newCurr = {
-                            Store_Name: current.Store_Name,
-                            Category: newData,
-                            id: current.id,
-                            Store_Image: current.Store_Image,
-                            Store_Address: current.Store_Address,
-                            rating:current.rating,
-                            TotalRating:current.TotalRating
+
+        if (state.City !== "") {
+            const object = { City: state.City.replace(/-/g, " ") }
+            GetAllDelivery(object).then((response) => {
+                if (response?.length !== 0) {
+                    SetDelivery(response)
+                }
+                else {
+                    const object = { State: state.State.replace(/-/g, " ") }
+                    GetAllDelivery(object).then((response) => {
+                        if (response?.length !== 0) {
+                            SetDelivery(response)
 
                         }
-                        return acc;
-                    } else {
-                        return acc;
-                    }
-                    //   Category: [{ [y.Category]: y.ProductCount }] 
+                        else {
+                            const object = { Country: state.Country.replace(/-/g, " ") }
+                            GetAllDelivery(object).then((response) => {
+                                if (response?.length !== 0) {
+                                    SetDelivery(response)
+        
+                                }
+
+                            })
+                        }
+                    })
                 }
-            }, []);
-            SetDelivery(k)
-        }).catch(
-            function (error) {
-
             })
-        axios.get(
-            'https://api.cannabaze.com/UserPanel/Get-PickupStores/',
-        ).then(response => {
+        }
+        else {
+            if (state.State !== "") {
+                const object = { State: state.State }
+                GetAllDelivery(object).then((response) => {
+                    console.log(response)
+                    if (response?.length !== 0) {
+                        SetDelivery(response)
+                    }
+                    else {
+                        const object = { Country: state.Country.replace(/-/g, " ") }
+                        GetAllDelivery(object).then((response) => {
+                            if (response?.length !== 0) {
+                                SetDelivery(response)
+                            }
+                        })
+                    }
+                })
+            }
+            else {
+                if (state.Country !== "") {
+                    const object = { Country: state.Country.replace(/-/g, " ") }
+                    GetAllDelivery(object).then((response) => {
+                        if (response?.length !== 0) {
+                            SetDelivery(response)
+                        }
+                    })
+                }
+            }
+        }
 
-            SetPickup(response.data)
-        }).catch(
-            function (error) {
 
-            })
-    }, [])
+        // GetAllDelivery().then((response) => {
+        //     console.log(response)
+        // })
+
+
+        // axios.get(
+        //     'https://api.cannabaze.com/UserPanel/Get-PickupStores/',
+        // ).then(response => {
+
+        //     SetPickup(response.data)
+        // }).catch(
+        //     function (error) {
+
+        //     })
+    }, [state])
 
     const classes = useStyles()
     const [value, setValue] = React.useState('1');
