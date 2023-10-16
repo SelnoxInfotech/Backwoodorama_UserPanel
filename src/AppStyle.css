@@ -2385,7 +2385,7 @@ scrollbar-width: none;  /* Firefox */
 .newProductSearchResult_ScrollContainerRelative {
   width: 100%;
   display: flex;
-  /* gap: 1%; */
+  gap: 1%;
   justify-content: flex-start;
   left: -4px;
   position: relative;

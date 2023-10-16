@@ -35,19 +35,16 @@
    }
    .reviwerName_rating .userName{
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.5;
     margin: 0;
-    color: #00000073;
+    color: #0000003f;
    }
    .reviewSectionRating{
     display: flex;
     align-items: center;
-    gap: 5px;
-    color: #fff;
-    background-color: #31B665;
-    padding:0 5px;
-    border-radius: 4px;
+    gap: 1px;
+   
    }
    .reviewSectionRating p{
      font-size: 14px;
@@ -66,7 +63,7 @@
      color: rgb(70, 70, 70);
    }
    .reviews_title{
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     color: #474747;
     line-height: 1.5;
@@ -96,6 +93,7 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 1.4;
+    color: #202124;
    }
    .related_review_footer{
     display: flex;

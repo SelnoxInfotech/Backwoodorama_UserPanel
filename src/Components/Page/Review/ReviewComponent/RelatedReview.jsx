@@ -1,5 +1,6 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { AiFillStar , AiOutlineStar, AiFillLike } from "react-icons/ai"
+import { BsStar ,BsStarFill } from "react-icons/bs";
 import useStyles from "../../../../Style"
 import React from 'react';
 import ReportReviewPopup from '../ReviewPopup/ReportReviewPopup';
@@ -49,10 +50,19 @@ const RelatedReview = ({AllReview, SetReview}) => {
 
                                                 <div className="reviwerName_rating">
                                                     <h4 className='userName'>{ele.username}</h4>
-                                                    <div className='reviewSectionRating'>
+                                                    {/* <div className='reviewSectionRating'>
                                                         <p >{ele.rating}</p><span><AiFillStar color='#fff' className={classes.disp_star_color} /></span>
-                                                    </div>
+                                                    </div> */}
                                                     {/* {rating} */}
+                                                    <div className='reviewSectionRating'>
+                                                           {ele.rating &&  new Array(ele.rating).fill(null).map(() => (
+                                                                <BsStarFill size={10} color="#31B665" className="product_search_rating_star" />  
+                                                            ))}
+                                                            
+                                                            {new Array(5-ele.rating).fill(null).map(() => (
+                                                                <BsStar size={10} color="#31B665" className="product_search_rating_star" />  
+                                                            ))}
+                                                    </div>
                                                 </div>
                                                 <div className='review_date'>
                                                     <p>{ele.created_at.slice(0,10).split("-").reverse().join("-")}</p>
