@@ -184,7 +184,7 @@ const Navbar = () => {
                             event.target.src = "/image/user.webp"
                             event.onerror = null
                           }}
-                          src={'https://lh3.googleusercontent.com/a/ACg8ocJ5-xytwW_RtQWAM3TG76naksZFkt3ZlCrqlR9OIOgH=s96-c'}
+                          src={`https://api.cannabaze.com${state.Profile.image}`}
                           alt='Profile'
                           className="Navbar_logo_imgs"
                           onClick={handleClickDropdown}
