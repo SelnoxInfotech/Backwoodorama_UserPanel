@@ -1,57 +1,47 @@
 
-import React ,{Suspense}from "react"
+import React, { Suspense } from "react"
 import Createcontext from "../Hooks/Context"
-import {  useParams } from "react-router-dom";
-import CurrentLocation from "../Components/Component/Navbar/Component/CurrentLocation"
+import { useParams, useLocation } from "react-router-dom";
+import RoutingSearch from "../Components/Component/DispensierRoutingSearch/RoutingSearch";
+// import x  from "../../public/Sitemap/sitemapbrand.xml"
+ import fs from "fs"
+var XMLParser = require('react-xml-parser');
 export default function RoutingDespen(props) {
+    const [xmlData, setXmlData] = React.useState([]);
     const { state } = React.useContext(Createcontext)
     const params = useParams()
+    const Location = useLocation()
     const { Component } = props;
-
-    const [L, Set] = React.useState('')
-    const [s, Set1] = React.useState('')
-    const [c, Set2] = React.useState('')
-    React.useEffect(() => {
-        if (params?.city === undefined) {
-            if (params?.state === undefined) {
-                if (params.Country !== undefined) {
-                    Set(params?.Country)
-                }
-
-            }
-            else {
-                if (state.State !== params.state) {
-
-                    Set1(params?.state)
-                    Set(params?.Country)
-                }
-            }
-            // if (params?.city !== undefined) {
-            //     Set2(params?.city)
-            // }
-        }
-        else {
-            if (state.City !== params.city) {
-
-                Set1(params?.state)
-                Set(params?.Country)
-                Set2(params?.city)
-            }
-            // Set(state.Country)
-        }
-
-
-
-    }, [state , params])
+    // React.useEffect(() => {
+    //     fetch('/Sitemap/sitemapbrand.xml')
+    //         .then((res) => res.text())
+    //         // .then(xmlstring =>  window.domparser().parsefromstring(xmlstring, "text/xml"))
+    //         .then(data => {
+    //             var xml = new XMLParser().parseFromString(data);   
+    //               const l  = xml.children.map((data)=> data.children.map((name)=> name.value))
+    //             // Assume xmlText contains the example XML
+    //          const k =  l.map((data)=>  data[0])
+    //          setXmlData(k)
+    //             //    k.map((data)=>{
+    //             //    })  
+                  
+    //             // fs.writeFile('../public/Sitemap/Sitemaplocation.xml', data);
+    //             // fs.writeFileSync("../public/Sitemap/Sitemaplocation.xml", data);
+    //         })
+    //         .catch((err) => {
+    //             console.log(err);
+    //         });
+    // }, [])
+    // console.log(state)
 
     return (
 
         <div>
             <Suspense fallback={"Loading"}>
-            <Component />
-            {
-                L !== "" && <CurrentLocation Country={L} State1={s} city={c}></CurrentLocation>
-            }
+                <Component />
+                {((state.permission === false) && (params?.city?.toLowerCase() !== state?.City?.toLowerCase() || params?.state?.toLowerCase() !== state?.State?.toLowerCase() || params?.Country?.toLowerCase() !== state?.Country?.toLowerCase())) && <RoutingSearch city={params.city} State={params.state} country={params.Country}
+                    pathname={Location.pathname.slice(0, 18) === '/weed-dispensaries' ? "/weed-dispensaries" : "/weed-deliveries"}
+                ></RoutingSearch>}
             </Suspense>
         </div>
     )

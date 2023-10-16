@@ -1,5 +1,4 @@
 import React from 'react'
-import './termconditions.css';
 import { Link } from 'react-router-dom';
 import {FaFacebookF } from "react-icons/fa";
 import {MdEmail } from "react-icons/md";

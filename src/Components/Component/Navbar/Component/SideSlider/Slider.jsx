@@ -27,7 +27,7 @@ const SideNavbar = ({ closeNav, Open }) => {
         closeNav()
     }
     function Signup() {
-        Navigate("/Signup")
+        Navigate("/signup")
         closeNav()
     }
     React.useEffect(() => {
@@ -137,7 +137,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                    <Link className="LinkColor" to="/Product"> <p onClick={closeNav}>Products</p></Link>
+                    <Link className="LinkColor" to="/products"> <p onClick={closeNav}>Products</p></Link>
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >

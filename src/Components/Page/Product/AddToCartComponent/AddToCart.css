@@ -284,3 +284,12 @@
   font-weight: 700;
   font-size: 23px;
 }
+.add_prod_cart_p_title{
+  font-size: 16px;
+}
+.add_prod_cart_p{
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #616161;
+}

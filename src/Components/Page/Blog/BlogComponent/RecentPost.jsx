@@ -33,7 +33,7 @@ const RecentPost = () => {
                                             <Link to={`/Blogs/${ele.id}`} key={index}> 
                                                 <div className="new_blog_card">
                                                     <div className="new_blog_card_img">
-                                                        <img src={`https://api.cannabaze.com/${ele.Image}`} alt="img_not_found" style={{ pointerEvents: "none" }} />
+                                                        <img src={`https://api.cannabaze.com${ele.Image}`} alt="img_not_found" style={{ pointerEvents: "none" }} />
                                                     </div>
                                                     <div className="new_blog_card_text">  
                                                         <span className="fontStyle latest_font_size  ">

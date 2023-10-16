@@ -160,6 +160,27 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
             }).catch((err) => { });
         }
     }
+    function modifystr(str) {
+        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str.trim().replaceAll(' ', "-");
+        let a = 0;
+        while (a < 1) {
+          if (str.includes("--")) {
+            str = str.replaceAll("--", "-")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("//", "/")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("-/", "/")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("/-", "/")
+          } else {
+            a++
+          }
+        }
+    
+        return str
+      }
+
 
 
     return (
@@ -186,14 +207,14 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                                                         </IconButton>
                                                     </Box>
                                                 </div>
-                                                <Link to={`/products/${items.category_name.toLowerCase()}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${items.Product_Name.replace(/%20| /g, "-").toLowerCase()}/${items.id}`}>
+                                                <Link to={`/products/${modifystr(items.category_name.toLowerCase())}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${modifystr(items.Product_Name.toLowerCase())}/${items.id}`}>
                                                     <LazyLoadImage
                                                         className="product_search_result_image"
                                                         onError={event => {
                                                             event.target.src = "/image/blankImage.jpg"
                                                             event.onerror = null
                                                         }}
-                                                        src={`https://api.cannabaze.com/${items?.images[0]?.image}`}
+                                                        src={`https://api.cannabaze.com${items?.images[0]?.image}`}
                                                         height={"100px"}
                                                         alt={items.Product_Name}
                                                     />
@@ -202,7 +223,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                                             <div className=" product_search_result_content_div ">
                                             
                                                 
-                                                        <Link to={"/ProductDetail"} state={items.id}>
+                                                        <Link to={`/products/${items.category_name.toLowerCase()}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${items.Product_Name.replace(/%20| /g, "-").toLowerCase()}/${items.id}`} state={items.id}>
                                                             <p className="productSearchResultParagraph text-truncate">{items.Product_Name}</p>
                                                         </Link>
                                                 

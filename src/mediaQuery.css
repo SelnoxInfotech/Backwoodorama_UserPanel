@@ -284,23 +284,15 @@
   .newProductDetailsContainer .newProductDetailsCardLeftCol .newProductDetails_upper_image {
     width: 100%;
   }
-
-  .delivery_items_button_div {
-    margin-left: 30%;
-  }
-
   .allOrder_Card_Image_section {
     width: 30%;
   }
-
   .allOrder_Card_Content_section {
     width: 70%;
   }
-
   .law_Inner_OPtionList_Ol {
     flex-direction: column;
   }
-
   .law_Inner_OPtionList_Ol li {
     border-bottom: 1px solid #E9E9E9;
     width: 100%;

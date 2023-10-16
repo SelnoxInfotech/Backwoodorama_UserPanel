@@ -94,6 +94,10 @@ const reducer = (state, action) => {
       {
         return { ...state, City: action.City }
       }
+      case "permission":
+        {
+          return { ...state, permission: action.permission }
+        }
    
 
 

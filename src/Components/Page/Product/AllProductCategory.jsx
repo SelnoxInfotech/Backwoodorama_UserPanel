@@ -25,7 +25,7 @@ const AllProductCategory = ({ flowerArray }) => {
                                                             event.target.src = "/image/blankImage.jpg"
                                                             event.onerror = null
                                                         }}
-                                                        className="allProduct_imageHeight" src={`https://api.cannabaze.com/${items?.SubCategoryImage}`} alt="image not found" />
+                                                        className="allProduct_imageHeight" src={`https://api.cannabaze.com${items?.SubCategoryImage}`} alt="image not found" />
                                                 </Link>
 
                                             </div>

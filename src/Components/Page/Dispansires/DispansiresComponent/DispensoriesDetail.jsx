@@ -81,7 +81,27 @@ export default function DispensoriesDetails() {
         })
     }, [id])
 
- 
+    function modifystr(str) {
+        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str.trim().replaceAll(' ', "-");
+        let a = 0;
+        while (a < 1) {
+          if (str.includes("--")) {
+            str = str.replaceAll("--", "-")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("//", "/")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("-/", "/")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("/-", "/")
+          } else {
+            a++
+          }
+        }
+    
+        return str
+      }
+
     function SelectionTab(item) {
         // SetTab(item)
         // if (item === "Menu") {
@@ -89,7 +109,7 @@ export default function DispensoriesDetails() {
         //     navigate(`${location.pathname.slice(0, 14) === "/weed-delivery" ? "/weed-delivery" : "/weed-dispensaries"}/${Despen[0]?.Store_Name.replace(/\s/g, '-').toLowerCase()}/${item.replace(/\s/g, '-').toLowerCase()}/${id}`)
         // }
         // else {
-            navigate(`${location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${Despen[0]?.Store_Name.replace(/\s/g, '-').toLowerCase()}/${item.replace(/\s/g, '-').toLowerCase()}/${id}`)
+            navigate(`${location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${modifystr(Despen[0]?.Store_Name.toLowerCase())}/${modifystr(item.toLowerCase())}/${id}`)
         // }
     }
     function ShowCategoryProduct(Id, name) {
@@ -101,7 +121,7 @@ export default function DispensoriesDetails() {
         ).then(response => {
             if (Category !== name) {
 
-                navigate(`${location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/${"menu"}/${name.toLowerCase()}/${id}`)
+                navigate(`${location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${modifystr(Despen[0].Store_Name.toLowerCase())}/${"menu"}/${modifystr(name.toLowerCase())}/${id}`)
             }
             SetDespensariesProductData(response.data)
 
@@ -114,10 +134,10 @@ export default function DispensoriesDetails() {
     function ProductNavigate(Product_Name, category_name, ProductId) {
         const Route = location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"
         if (SubCategory === undefined) {
-            navigate(`${Route}/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/menu/${category_name.toLowerCase()}/${Product_Name.replace(/\s/g, '-').toLowerCase()}/${ProductId}`)
+            navigate(`${Route}/${modifystr(Despen[0].Store_Name.toLowerCase())}/menu/${modifystr(category_name.toLowerCase())}/${modifystr(Product_Name.toLowerCase())}/${ProductId}`)
         }
         else {
-            navigate(`${Route}/${Despen[0].Store_Name.replace(/\s/g, '-').toLowerCase()}/menu/${category_name.toLowerCase()}/${SubCategory.toLowerCase()}/${Product_Name.replace(/\s/g, '-').toLowerCase()}/${ProductId}`)
+            navigate(`${Route}/${modifystr(Despen[0].Store_Name.toLowerCase())}/menu/${modifystr(category_name.toLowerCase())}/${modifystr(SubCategory.toLowerCase())}/${modifystr(Product_Name.toLowerCase())}/${ProductId}`)
         }
     }
 

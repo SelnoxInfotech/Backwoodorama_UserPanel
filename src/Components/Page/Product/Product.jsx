@@ -1,24 +1,45 @@
 import React, { useState } from "react"
 import CategoryProduct from "../../../Components/Page/Home/Dashboard/ComponentDashboard/CategoryProduct"
-import Axios from "axios";
 import ClickAwayListener from 'react-click-away-listener';
 import { useNavigate, useParams } from "react-router-dom"
 import { ProductSeo, ProductCategorySeo } from "../../Component/ScoPage/ProductSeo"
 import ProductSearchResult from "./ProductSearchResult/ProductSearchResult"
+import Createcontext from "../../../Hooks/Context"
+import { GetProduct, CategoryProductsearch, SubCategoryApi, SubcategoryProduct } from "../../../Api/Api"
 const Product = () => {
     const navigate = useNavigate();
     const params = useParams();
-    console.log(params, 'params')
+    const { state, dispatch } = React.useContext(Createcontext)
     const [loading, SetLoading] = React.useState(false)
     const [subcategories, setsubcategories] = useState([])
     const [Product, SetProduct] = React.useState([])
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
 
+    function modifystr(str) {
+        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str.trim().replaceAll(' ', "-");
+        let a = 0;
+        while (a < 1) {
+            if (str.includes("--")) {
+                str = str.replaceAll("--", "-")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("//", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("-/", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("/-", "/")
+            } else {
+                a++
+            }
+        }
+
+        return str
+    }
 
 
     async function ShowCategoryProduct(id, name) {
-        await navigate(`/products/${name.toLowerCase()}/${id}`);
+        await navigate(`/products/${modifystr(name.toLowerCase())}/${id}`);
         await setSelectedOption(null)
         setsubcategories([])
     }
@@ -26,7 +47,7 @@ const Product = () => {
     const selectOption = (option) => {
         setSelectedOption(option);
         setIsDropdownOpen(false);
-        navigate(`/products/${params.categoryname.toLowerCase()}/${option.name.toLowerCase().split(' ').join('-')}/${option.id}`)
+        navigate(`/products/${modifystr(params.categoryname.toLowerCase())}/${modifystr(option.name.toLowerCase())}/${option.id}`)
 
     };
 
@@ -40,86 +61,486 @@ const Product = () => {
         }
         fetchData()
     }, [])
-
     React.useEffect(() => {
-
-
-
-
-
-        SetLoading(true)
-        setIsDropdownOpen(false)
-       
-
-
-
         if (params.subCategory) {
-            Axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductBySubCategory/${params.id}`).then((res) => {
-                SetProduct(res.data)
-                SubCategoryApi(res.data[0].category_id)
-                SetLoading(false)
 
-            }).catch((err) => {
-                SetLoading(false)
-                SetProduct([])
-            })
-         function SubCategoryApi(_id){
-            Axios.get(`https://api.cannabaze.com/UserPanel/Get-SubCategoryByCategory/${_id}`).then((res) => {
-                return res
-            }).then((response) => {
-                setsubcategories(response.data.data)
 
-            })
-         }
+            if (state.City !== "") {
+                const object = { City: state.City.replace(/-/g, " ") }
+                SubcategoryProduct(object, params.id).then((response) => {
+                    if (response?.length !== 0) {
+                        SetLoading(false)
+                        f(response[0]?.category_name)
+                        if (response !== "There is no Product") {
+                            SetProduct(response)
+                            SubCategoryApi(response[0]?.category_id).then((response) => {
+                                setsubcategories(response.data.data)
+                            }).catch((error) => {
+                                console.trace(error)
+                            })
+                        }
+                        else {
+                            SetProduct([])
+                        }
+                    }
+                    else {
+                        const object = { State: state.State.replace(/-/g, " ") }
+                        SubcategoryProduct(object, params.id).then((response) => {
+                            if (response?.length !== 0) {
+                                SetLoading(false)
+                                f(response[0]?.category_name)
+                                if (response !== "There is no Product") {
+                                    SetProduct(response)
+                                    SubCategoryApi(response[0]?.category_id).then((response) => {
+                                        setsubcategories(response.data.data)
+                                    }).catch((error) => {
+                                        console.trace(error)
+                                    })
+                                }
+                                else {
+                                    SetProduct([])
+                                }
+
+                            }
+                            else {
+                                const object = { Country: state.Country.replace(/-/g, " ") }
+                                SubcategoryProduct(object, params.id).then((response) => {
+                                    SetLoading(false)
+                                    f(response[0]?.category_name)
+                                    // Sub_Category_id
+                                    if (response !== "There is no Product") {
+                                        SetProduct(response)
+                                        SubCategoryApi(response[0]?.category_id).then((response) => {
+                                            setsubcategories(response.data.data)
+                                        }).catch((error) => {
+                                            console.trace(error)
+                                        })
+                                    }
+                                    else {
+                                        SetProduct([])
+                                    }
+                                })
+                            }
+                        })
+                    }
+                })
+            }
+            else {
+                if (state.State !== "") {
+                    const object = { State: state.State.replace(/-/g, " ") }
+                    SubcategoryProduct(object, params.id).then((response) => {
+                        if (response?.length !== 0) {
+                            SetLoading(false)
+                            f(response[0]?.category_name)
+                            // Sub_Category_id
+                            if (response !== "There is no Product") {
+                                SetProduct(response)
+                                SubCategoryApi(response[0]?.category_id).then((response) => {
+                                    setsubcategories(response.data.data)
+                                }).catch((error) => {
+                                    console.trace(error)
+                                })
+                            }
+                            else {
+                                SetProduct([])
+                            }
+
+                        }
+                        else {
+                            const object = { Country: state.Country.replace(/-/g, " ") }
+                            SubcategoryProduct(object, params.id).then((response) => {
+                                if (response.length !== 0) {
+                                    SetLoading(false)
+                                    f(response[0]?.category_name)
+                                    if (response !== "There is no Product") {
+                                        SetProduct(response)
+                                        SubCategoryApi(response[0]?.category_id).then((response) => {
+                                            setsubcategories(response.data.data)
+                                        }).catch((error) => {
+                                            console.trace(error)
+                                        })
+                                    }
+                                    else {
+                                        SetProduct([])
+                                    }
+                                }
+                                else {
+                                    const object = { Country: state.Country.replace(/-/g, " ") }
+                                    CategoryProductsearch(object, params.id).then((response) => {
+                                        SetLoading(false)
+                                        f(response[0]?.category_name)
+                                        if (response !== "There is no Product") {
+                                            SetProduct(response)
+                                            SubCategoryApi(response[0]?.category_id).then((response) => {
+                                                setsubcategories(response.data.data)
+                                            }).catch((error) => {
+                                                console.trace(error)
+                                            })
+                                        }
+                                        else {
+                                            SetProduct([])
+                                        }
+
+                                    })
+                                }
+                            })
+                        }
+                    })
+                }
+                else {
+                    if (state.Country !== "") {
+                        const object = { Country: state.Country.replace(/-/g, " ") }
+                        SubcategoryProduct(object, params.id).then((response) => {
+                            if (response.length !== 0) {
+                                SetLoading(false)
+                                f(response[0]?.category_name)
+                                if (response !== "There is no Product") {
+                                    SetProduct(response)
+                                    SubCategoryApi(response[0]?.category_id).then((response) => {
+                                        setsubcategories(response.data.data)
+                                    }).catch((error) => {
+                                        console.trace(error)
+                                    })
+                                }
+                                else {
+                                    SetProduct([])
+                                }
+
+                            }
+                            else {
+                                const object = { Country: state.Country.replace(/-/g, " ") }
+                                CategoryProductsearch(object, params.id).then((response) => {
+                                    SetLoading(false)
+                                    f(response[0]?.category_name)
+                                    if (response !== "There is no Product") {
+                                        SetProduct(response)
+                                        SubCategoryApi(response[0]?.category_id).then((response) => {
+                                            setsubcategories(response.data.data)
+                                        }).catch((error) => {
+                                            console.trace(error)
+                                        })
+                                    }
+                                    else {
+                                        SetProduct([])
+                                    }
+                                })
+                            }
+                        })
+                    }
+                }
+            }
+
+
+
 
         }
         else {
+            //    Catogary Product
             if (params.categoryname) {
-                Axios(`https://api.cannabaze.com/UserPanel/Get-ProductByCategory/${params.id}`, {}
-                ).then(response => {
 
-                    SetLoading(false)
+                if (state.City !== "") {
+                    const object = { City: state.City.replace(/-/g, " ") }
+                    CategoryProductsearch(object, params.id).then((response) => {
+                        if (response.length !== 0) {
+                            SetLoading(false)
+                            f(response[0]?.category_name)
+                            SetProduct(response)
+                            // Sub_Category_id
+                            SubCategoryApi(response[0]?.category_id).then((response) => {
+                                setsubcategories(response.data.data)
+                            }).catch((error) => {
+                                console.trace(error)
+                            })
+                        }
+                        else {
+                            const object = { State: state.State.replace(/-/g, " ") }
+                            CategoryProductsearch(object, params.id).then((response) => {
+                                if (response.length !== 0) {
+                                    SetLoading(false)
+                                    f(response[0]?.category_name)    // f("All Product")
+                                    SetProduct(response)
+                                    // Sub_Category_id
+                                    SubCategoryApi(response[0]?.category_id).then((response) => {
+                                        setsubcategories(response.data.data)
+                                    }).catch((error) => {
+                                        console.trace(error)
+                                    })
 
-                    SetProduct(response.data)
-                    f(params.categoryname.charAt(0).toUpperCase() + params.categoryname.slice(1))
-                    setSelectedOption(null)
-                }).catch(
+                                }
+                                else {
+                                    const object = { Country: state.Country.replace(/-/g, " ") }
+                                    CategoryProductsearch(object, params.id).then((response) => {
+                                        SetLoading(false)
+                                        f(response[0]?.category_name)
+                                        SetProduct(response)
+                                        // Sub_Category_id
+                                        SubCategoryApi(response[0]?.category_id).then((response) => {
+                                            setsubcategories(response.data.data)
+                                        }).catch((error) => {
+                                            console.trace(error)
+                                        })
 
-                    function (error) {
-                        SetProduct([])
-                        SetLoading(false)
-
+                                    })
+                                }
+                            })
+                        }
                     })
+                }
+                else {
+                    if (state.State !== "") {
+                        const object = { State: state.State.replace(/-/g, " ") }
+                        CategoryProductsearch(object, params.id).then((response) => {
+                            if (response?.length !== 0) {
+                                SetLoading(false)
+                                f(response[0]?.category_name)
+                                SetProduct(response)
+                                // Sub_Category_id
+                                SubCategoryApi(response[0]?.category_id).then((response) => {
+                                    setsubcategories(response.data.data)
+                                }).catch((error) => {
+                                    console.trace(error)
+                                })
+                            }
+                            else {
+                                const object = { Country: state.Country.replace(/-/g, " ") }
+                                CategoryProductsearch(object, params.id).then((response) => {
+                                    SetLoading(false)
+                                    f(response[0]?.category_name)
+                                    SetProduct(response)
+                                    // Sub_Category_id
+                                    SubCategoryApi(response[0]?.category_id).then((response) => {
+                                        setsubcategories(response.data.data)
+                                    }).catch((error) => {
+                                        console.trace(error)
+                                    })
 
-                Axios.get(`https://api.cannabaze.com/UserPanel/Get-SubCategoryByCategory/${params.id}`).then((res) => {
-                    return res
-                }).then((response) => {
-                    setsubcategories(response.data.data)
+                                })
+                            }
+                        })
+                    }
+                    else {
+                        if (state.Country !== "") {
+                            const object = { Country: state.Country.replace(/-/g, " ") }
+                            CategoryProductsearch(object, params.id).then((response) => {
+                                SetLoading(false)
+                                f(response[0]?.category_name)
+                                console.log(response)
+                                SetProduct(response)
+                                // Sub_Category_id
+                                SubCategoryApi(response[0]?.category_id).then((response) => {
+                                    setsubcategories(response.data.data)
+                                }).catch((error) => {
+                                    console.trace(error)
+                                })
 
-                })
+                            })
+                        }
+                    }
+                }
 
             }
             else {
-                Axios(`https://api.cannabaze.com/UserPanel/Get-AllProduct/`, {
-                }
 
-                ).then(response => {
-                    SetLoading(false)
-                    f("All Product")
-                    SetProduct(response.data)
-                }).catch(
-                    
-                    function (error) {
-                        SetProduct([])
+                // Get All Product
+                if (state.City !== "") {
+                    const object = { City: state.City.replace(/-/g, " ") }
+                    GetProduct(object).then((response) => {
+                        if (response.data.length !== 0) {
+                            SetLoading(false)
+                            f("All Product")
+                            SetProduct(response.data)
+                        }
+                        else {
+                            const object = { State: state.State.replace(/-/g, " ") }
+                            GetProduct(object).then((response) => {
+                                if (response.data.length !== 0) {
+                                    SetLoading(false)
+                                    f("All Product")
+                                    SetProduct(response.data)
+
+                                }
+                                else {
+                                    const object = { Country: state.Country.replace(/-/g, " ") }
+                                    GetProduct(object).then((response) => {
+                                        SetLoading(false)
+                                        f("All Product")
+                                        SetProduct(response.data)
+
+                                    })
+                                }
+                            })
+                        }
                     })
+                }
+                else {
+                    if (state.State !== "") {
+                        const object = { State: state.State.replace(/-/g, " ") }
+                        GetProduct(object).then((response) => {
+                            if (response.data.length !== 0) {
+                                SetLoading(false)
+                                f("All Product")
+                                SetProduct(response.data)
+                            }
+                            else {
+                                const object = { Country: state.Country.replace(/-/g, " ") }
+                                GetProduct(object).then((response) => {
+                                    SetLoading(false)
+                                    f("All Product")
+                                    SetProduct(response.data)
+
+                                })
+                            }
+                        })
+                    }
+                    else {
+                        if (state.Country !== "") {
+                            const object = { Country: state.Country.replace(/-/g, " ") }
+                            GetProduct(object).then((response) => {
+                                SetLoading(false)
+                                f("All Product")
+                                SetProduct(response.data)
+
+                            })
+                        }
+                    }
+                }
             }
+
         }
 
+    }, [state, params])
 
-    }, [params])
 
 
-  
+
+    // React.useEffect(() => {
+    //     SetLoading(true)
+    //     setIsDropdownOpen(false)
+    //     console.log(params)
+    //     if (params.subCategory) {
+    //         Axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductBySubCategory/${params.id}`).then((res) => {
+    //             SetProduct(res.data)
+    //             SubCategoryApi(res.data[0].category_id)
+    //             SetLoading(false)
+
+    //         }).catch((err) => {
+    //             SetLoading(false)
+    //             // SetProduct([])
+    //         })
+    //         function SubCategoryApi(_id) {
+    //             Axios.get(`https://api.cannabaze.com/UserPanel/Get-SubCategoryByCategory/${_id}`).then((res) => {
+    //                 return res
+    //             }).then((response) => {
+    //                 setsubcategories(response.data.data)
+
+    //             })
+    //         }
+
+    //     }
+    //     else {
+    //         if (params.categoryname) {
+    //             
+    //             function CategoryProduct(object) {
+    //                 return (
+    //                     axios.post(`https://api.cannabaze.com/UserPanel/Get-ProductByCategory/${params.id}`, object).then((res) => {
+    //                         return res
+    //                     }).then((response) => {
+    //                         console.log(response)
+    //                         if (response.data === "There is no Product") {
+    //                             return []
+    //                         }
+    //                         else {
+    //                             return response.data
+    //                         }
+
+    //                     })
+    //                 )
+    //             }
+    //         }
+    //         else {
+
+    //         }
+    //     }
+
+    //     if (state.City !== "") {
+    //         const object = { City: state.City.replace(/-/g, " ") }
+    //         GetProduct(object).then((response) => {
+    //             if (response.length !== 0) {
+    //                 SetLoading(false)
+    //                 f("All Product")
+    //                 SetProduct(response.data)
+    //             }
+    //             else {
+    //                 const object = { State: state.State.replace(/-/g, " ") }
+    //                 GetProduct(object).then((response) => {
+    //                     if (response.length !== 0) {
+    //                         SetLoading(false)
+    //                         f("All Product")
+    //                         SetProduct(response.data)
+
+    //                     }
+    //                     else {
+    //                         const object = { Country: state.Country.replace(/-/g, " ") }
+    //                         GetProduct(object).then((reresponses) => {
+    //                             SetLoading(false)
+    //                             f("All Product")
+    //                             SetProduct(response.data)
+
+    //                         })
+    //                     }
+    //                 })
+    //             }
+    //         })
+    //     }
+    //     // else {
+    //     if (state.State !== "") {
+    //         const object = { State: state.State.replace(/-/g, " ") }
+    //         GetProduct(object).then((response) => {
+    //             if (response.length !== 0) {
+    //                 SetLoading(false)
+    //                 f("All Product")
+    //                 SetProduct(response.data)
+    //             }
+    //             else {
+    //                 const object = { Country: state.Country.replace(/-/g, " ") }
+    //                 GetProduct(object).then((response) => {
+    //                     SetLoading(false)
+    //                     f("All Product")
+    //                     SetProduct(response.data)
+
+    //                 })
+    //             }
+    //         })
+    //     }
+    //     else {
+    //         if (state.Country !== "") {
+    //             const object = { Country: state.Country.replace(/-/g, " ") }
+    //             GetProduct(object).then((response) => {
+    //                 SetLoading(false)
+    //                 f("All Product")
+    //                 SetProduct(response.data)
+
+    //             })
+    //         }
+    //     }
+    //     // }
+    //     function GetProduct(object) {
+    //         return (
+    //             axios.post(`https://api.cannabaze.com/UserPanel/Get-AllProduct/`,
+    //                 object
+    //             ).then(response => {
+    //                 return response
+    //             }).catch(
+    //                 function (error) {
+    //                     SetProduct([])
+    //                 })
+    //         )
+    //     }
+
+    // }, [params, state])
+
+
+    console.log(state)
     return (
         <>
             {!params.id ? <ProductSeo></ProductSeo> :
@@ -141,17 +562,17 @@ const Product = () => {
                                                 setIsDropdownOpen(!isDropdownOpen)
                                             }}>
                                                 {selectedOption && (
-                                                    <img src={`https://api.cannabaze.com/${selectedOption.SubCategoryImage}`} alt={selectedOption.name} className="dropdown-option-image" />
+                                                    <img src={`https://api.cannabaze.com${selectedOption.SubCategoryImage}`} alt={selectedOption.name} className="dropdown-option-image" />
                                                 )}
                                                 <span className="dropdown-option-label">
-                                                    {selectedOption ? selectedOption.name : 'Short by Subcategory '}
+                                                    {selectedOption ? selectedOption.name : 'Sort by Subcategory '}
                                                 </span>
                                                 <span className="dropdown-caret"></span>
                                             </div>
                                             <ul className={`dropdown-menu image_dropdown ${isDropdownOpen ? 'open' : ''}`}>
                                                 {subcategories?.map((option, index) => (
                                                     <li key={index} onClick={() => selectOption(option)}>
-                                                        <img src={`https://api.cannabaze.com/${option.SubCategoryImage}`} alt={option.name} className="dropdown-option-image" />
+                                                        <img src={`https://api.cannabaze.com${option.SubCategoryImage}`} alt={option.name} className="dropdown-option-image" />
                                                         <span className="dropdown-option-label">{option.name}</span>
                                                     </li>
                                                 ))}
@@ -168,7 +589,7 @@ const Product = () => {
                             loading ?
                                 <div className="loaderFLower"></div>
                                 :
-                                Product.length ?
+                                Product?.length ?
 
                                     <div className="col-12 mt-4">
                                         <ProductSearchResult RelatedProductResult={Product} CategoryName={C} />

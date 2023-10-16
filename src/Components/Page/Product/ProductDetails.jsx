@@ -211,12 +211,12 @@ const ProductDetail = () => {
                                             {Image ?
                                                 ele?.images.map((data, index) => {
                                                     // if (data.id === Image) {
-                                                    return data.id === Image && <LazyLoadImage key={index} src={`https://api.cannabaze.com/${data.image}`} alt="img_not_found" />
+                                                    return data.id === Image && <LazyLoadImage key={index} src={`https://api.cannabaze.com${data.image}`} alt="img_not_found" />
                                                     // }
 
                                                 })
                                                 :
-                                                <LazyLoadImage src={`https://api.cannabaze.com/${ele.images[0]?.image}`} alt="img_not_found" />
+                                                <LazyLoadImage src={`https://api.cannabaze.com${ele.images[0]?.image}`} alt="img_not_found" />
 
                                             }
 
@@ -227,7 +227,7 @@ const ProductDetail = () => {
                                                 return (
                                                     <div className="col-3 p-2" key={index}>
                                                         <div className="col-12 add_prod_inner_img " onClick={(() => { ImageSet(eleImage.id) })}>
-                                                            <LazyLoadImage src={`https://api.cannabaze.com/${eleImage?.image}`} alt="img_not_found" />
+                                                            <LazyLoadImage src={`https://api.cannabaze.com${eleImage?.image}`} alt="img_not_found" />
                                                         </div>
 
                                                     </div>

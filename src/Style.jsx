@@ -37,8 +37,10 @@ const useStyles = makeStyles({
       },
     }
   },
+  
   textFieldcartPage: {
     "& .MuiOutlinedInput-root": {
+      color:"#000",
       backgroundColor:"#fff",
       " &.Mui-focused fieldset": {
         borderColor: "#31B665",
@@ -107,7 +109,6 @@ const useStyles = makeStyles({
       height: "38px",
       minWidth: "120px",
       margin: "1px"
-      // border:"1px solid red"
     },
     "& .MuiInputLabel-root.Mui-focused ": {
       color: "#31B665"
@@ -495,14 +496,12 @@ const useStyles = makeStyles({
       textTransform: "none",
     },
     "&.MuiButtonBase-root:hover": {
-
       color: "white",
       background: "#31B665",
     }
   },
   checkAgeEligibiltyAge_SecBtn: {
     "&.MuiButtonBase-root": {
-      // background:"#00C4FF",
       color: "#31B665",
       border: "1px solid #31B665",
       borderRadius: "8px",
@@ -1312,7 +1311,34 @@ const useStyles = makeStyles({
   ".MuiTypography-body1": {
       fontSize: "1rem"
   }
-   }
+   },
+   textFieldcartsummeryPage:{
+    color:"#000",
+    backgroundColor:'#fff',
+    '& .MuiOutlinedInput-root': {
+      borderRadius: '0.625rem',
+      fontSize: '1rem',
+      '& fieldset': {
+        borderColor: `#BEBEBE`
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: `#31B665 `
+      }
+    }  
+    // "& .MuiOutlinedInput-root": {
+    //   color:"#000",
+    //   backgroundColor:"#fff",
+    //   " &.Mui-focused fieldset": {
+    //     color:"#000",
+    //     borderColor: "#31B665",
+    //     backgroundColor:"#fff",
+    //   },
+    //   '&:hover fieldset': {
+    //      color:"#000",
+    //     borderColor: '#31B665',
+    //   },
+    // }
+  }
 });
 
 export default useStyles

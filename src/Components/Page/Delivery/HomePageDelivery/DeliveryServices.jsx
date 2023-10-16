@@ -8,27 +8,110 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Createcontext from "../../../../Hooks/Context"
 import DeliverServiceSkeleton from '../../../Component/Skeleton/DeliveryServicesSkeleton';
+import axios from 'axios';
 
 const DeliveryServices = () => {
-    const [DeliveryService, SetDeliveryService] = useState({})
+    const [DeliveryService, SetDeliveryService] = useState([])
 
     const { state } = React.useContext(Createcontext)
     const classes = useStyles()
     const [Skeleton, SetSkeleton] = React.useState(true)
     const ref = React.useRef(null);
     React.useEffect(() => {
-        Axios(`https://api.cannabaze.com/UserPanel/Get-GetDeliveryStoresHomepage/`, {
+        if (state.City !== "") {
+            var object = { City: state.City.replace(/-/g, " ") }
+            Delivery(object).then((res) => {
+                //   console.log(res.length === 0)
+                if (res.length === 0) {
+                    SetDeliveryService([])
+
+                    object = { State: state.State.replace(/-/g, " ") }
+                    Delivery(object).then((res) => {
+                        if (res.length === 0) {
+                            SetDeliveryService([])
+
+                            object = { Country: state.Country.replace(/-/g, " ") }
+                            Delivery(object).then((res) => {
+                                if (res.length === 0) {
+
+                                    SetDeliveryService([])
+                                }
+                                else{
+                                    SetSkeleton(false)
+                                    SetDeliveryService(res)
+                                }
+                            })
+                        }
+                        else {
+                            SetSkeleton(false)
+                            SetDeliveryService(res)
+                        }
+
+                    })
+                }
+                else {
+                    SetSkeleton(false)
+                    SetDeliveryService(res)
+                }
+            })
         }
-        ).then((response) => {
-            SetDeliveryService(response.data)
-            SetSkeleton(false)
+        else {
+            if (state.State !== "") {
+                const object = { State: state.State.replace(/-/g, " ") }
+                Delivery(object).then((res)=>{
+                    if(res.length !== 0){
+                        SetSkeleton(false)
+                    SetDeliveryService(res)
+                    }
+                    else{
+                        const object = { Country: state.Country.replace(/-/g, " ") }
+                        Delivery(object).then(()=>{
+                            if(res.length !== 0){
+                                SetSkeleton(false)
+                                SetDeliveryService(res)
+                            }
+                        })
+                    }
+                })
+            }
+            else {
+                if (state.Country !== "") {
+                    const object = { Country: state.Country.replace(/-/g, " ") }
+                    Delivery(object).then((res)=>{
+                        SetSkeleton(false)
+                        SetDeliveryService(res)
+                    })
+                }
+            }
         }
+        function Delivery(object) {
+            return (
+                axios.post(`https://api.cannabaze.com/UserPanel/Get-GetDeliveryStoresHomepage/`,
+                    object
+                ).then((response) => {
+                    if(response.data.length !==0)
+                    {
 
-        ).catch(() => {
+                        return response.data
+                    }
+                    else{
+                        SetSkeleton(false)
+                        SetDeliveryService([])
+                        return []
+                    }
+                
+                    //    SetDeliveryService(response.data)
+                    //    console.log(response.data)
+                }
 
-        })
-    }, [])
+                ).catch(() => {
 
+                       SetDeliveryService([])
+                })
+            )
+        }
+    }, [state])
+    
     return (
         <React.Fragment>
             <div className="px-sm-0 px-3">
@@ -41,13 +124,13 @@ const DeliveryServices = () => {
                         </div>
                         <div className="col-12  my-4 recentViewProductSlider" id="width" ref={ref}>
                             <ScrollContainer className="ScrollContainerRelative">
-                                {DeliveryService.map((items, index) => {
+                                {DeliveryService?.map((items, index) => {
                                     return (
                                         <div className='deliveryServicesCard' key={index}>
                                             <div className='deliveryServicesBorder '>
                                                 <Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g, '-').toLowerCase()}/${"menu"}/${items.id}`}>
                                                     <div className='col-12 deliveryServicesImage_container'>
-                                                        <LazyLoadImage className='deliveryServicesImage' src={`https://api.cannabaze.com/${items.Store_Image}`} alt={items.Store_Name} />
+                                                        <LazyLoadImage className='deliveryServicesImage' src={`https://api.cannabaze.com${items.Store_Image}`} alt={items.Store_Name} />
                                                     </div>
                                                 </Link>
                                                 <div className='col-12 deliveryServicesContent_container px-4'>
@@ -63,8 +146,6 @@ const DeliveryServices = () => {
                                                         <div className='w-100 d-flex align-items-center'>
                                                             <span className='DeliveryServicesRatingTitle'>Rating</span>
                                                             <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={items.rating === null ? 0 : items.rating} readOnly />
-
-
                                                         </div>
                                                     </Link>
                                                 </div>

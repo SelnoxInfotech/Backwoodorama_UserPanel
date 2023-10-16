@@ -22,7 +22,7 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                         <div className='row'>
                                             <div className='col-lg-5 col-5 delivery_items_card_img_container px-0'>
                                                 <Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g,'-').toLowerCase()}/${items.id}`}>
-                                                    <LazyLoadImage className='delivery_card_image_height' src={`https://api.cannabaze.com/${items.Store_Image}`} alt={items.Store_Name} height={"100px"} />
+                                                    <LazyLoadImage className='delivery_card_image_height' src={`https://api.cannabaze.com${items.Store_Image}`} alt={items.Store_Name} height={"100px"} />
                                                 </Link>
                                             </div>
                                             <div className='col-lg-7 col-7'>

@@ -9,13 +9,34 @@ import {DespensioriesItem} from '../../../../Api/Api';
 import { Link } from "react-router-dom";
 import { Rating } from '@mui/material';
 import { DispensariesSco } from "../../../Component/ScoPage/DispensariesSco"
+import Createcontext from "../../../../Hooks/Context"
 const Weed_Dispansires = () => {
     const classes = useStyles()
     const [Store, SetStore] = React.useState([])
     const [Search, SetSearch] = React.useState([])
     const [searchtext,setsearchtext] = React.useState("")
+    const { state, dispatch } = React.useContext(Createcontext)
+    function modifystr(str) {
+        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str.trim().replaceAll(' ', "-");
+        let a = 0;
+        while (a < 1) {
+          if (str.includes("--")) {
+            str = str.replaceAll("--", "-")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("//", "/")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("-/", "/")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("/-", "/")
+          } else {
+            a++
+          }
+        }
+    
+        return str
+      }
 
-   
     React.useEffect(() => {
        
         if(searchtext !== ""){
@@ -25,20 +46,74 @@ const Weed_Dispansires = () => {
                   "store": searchtext
                 })
                 .then(function (response) {
-                    SetStore(response.data);
+                    SetStore(response?.data);
                   
                 })
                 .catch(function (error) {
                   console.trace(error);
+                  SetStore([]);
                 });
             }, 1000)
             return () => clearTimeout(getData)
         }else{
-            DespensioriesItem().then((res)=>{
-                SetStore(res)
-            })   
+            if (state.City !== "") {
+                const object = { City: state.City.replace(/-/g, " ") }
+                DespensioriesItem(object).then((res) => {
+                    if (res.length !== 0) {
+                        SetStore(res)
+    
+                    }
+                    else{
+                        const object = { State: state.State.replace(/-/g, " ") }
+                        DespensioriesItem(object).then((res) => {
+                         if(res.length !== 0){
+                            SetStore(res)
+                         
+                         }
+                         else{
+                            const object = { Country: state.Country.replace(/-/g, " ") }
+                            DespensioriesItem(object).then((res) => {
+                                SetStore(res)
+                             
+                            })
+                         }
+                        })
+                    }
+    
+                })
+            }
+            else {
+                if (state.State !== "") {
+                    const object = { State: state.State.replace(/-/g, " ") }
+                    DespensioriesItem(object).then((res) => {
+                     if(res.length !== 0){
+                        SetStore(res)
+                        
+                     }
+                     else{
+                        const object = { Country: state.Country.replace(/-/g, " ") }
+                        DespensioriesItem(object).then((res) => {
+                            SetStore(res)
+                          
+                        })
+                     }
+                    })
+                }
+                else {
+                    if (state.Country !== "") {
+                        const object = { Country: state.Country.replace(/-/g, " ") }
+                        DespensioriesItem(object).then((res) => {
+                            SetStore(res)
+                            
+                        })
+                    }
+                }
+            }
+          
+             
         }
-      }, [searchtext])
+      }, [searchtext,state])
+ 
     return (
         <React.Fragment>
             <DispensariesSco></DispensariesSco>
@@ -51,7 +126,7 @@ const Weed_Dispansires = () => {
                                     <div className="col-12 dispensories_open_search_result mt-2">
                                         <SearchBar onChange={(e)=>setsearchtext(e)} style={{ background: "#FFFFF", border: "1px solid gray" }} width={"100%"} placeholder="Search dispensaries address" />
                                         {
-                                            Search.map((data) => {
+                                            Search?.map((data) => {
                                                 return (
                                                     <ul>
                                                         <li>{data.Store_Name}</li>
@@ -63,28 +138,28 @@ const Weed_Dispansires = () => {
                                 </div>
                                 <div className='col-12 dispensoriesOpenResultHeadingss py-2'>
                                     <span className='dispensories_result_head'>Showing result</span>
-                                    <span className='dispensories_result_head'>{Store.length}</span>
+                                    <span className='dispensories_result_head'>{Store?.length}</span>
                                 </div>                       
                             </div>
                         </div>
 
 
-                        {Store.map((ele, index) => {
+                        {Store?.map((ele, index) => {
                             return (
                                 
                                     <div className="row mt-4" key={index}>
                                         <div className=" col-11  mx-auto despensories_card_container">
                                             <div className="row">
                                                 <div className="col-4 disensories_card_image_div">
-                                                    <Link  to={`/weed-dispensaries/${ele.Store_Name.replace(/\s/g,'-').toLowerCase()}/${ele.id}`}>
-                                                        <LazyLoadImage id={ele.id} src={`https://api.cannabaze.com/${ele.Store_Image}`} alt={ele.Store_Name}className="dispensories_card_image" />
+                                                    <Link  to={`/weed-dispensaries/${modifystr(ele?.Store_Name.toLowerCase())}/${ele.id}`}>
+                                                        <LazyLoadImage id={ele?.id} src={`https://api.cannabaze.com${ele.Store_Image}`} alt={ele.Store_Name}className="dispensories_card_image" />
                                                     </Link>
 
                                                 </div>
                                                 <div className="col-8 dispenosries_card_content_div">
 
                                                     <div className="col-12 dispensories_content_Header_paragraphs text-truncate">
-                                                    <Link  to={`/weed-dispensaries/${ele.Store_Name.replace(/\s/g,'-')}/${ele.id}`}>
+                                                    <Link  to={`/weed-dispensaries/${modifystr(ele.Store_Name.toLowerCase())}/${ele.id}`}>
                                                         <span className="text-truncate dispensoriesHeadingName">{ele.Store_Name}</span>
                                                     </Link>
                                                     </div>
@@ -99,7 +174,7 @@ const Weed_Dispansires = () => {
                                                     <div className="col-12 dispensories_buttonsContainer mt-2">
                                                         <button className="dispensories_pickup_btn">Pickup delivery</button>
                                                     </div>
-                                                        <Link  to={`/weed-dispensaries/${ele.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${ele.id}`}>
+                                                        <Link  to={`/weed-dispensaries/${modifystr(ele.Store_Name.toLowerCase())}/${"review"}/${ele.id}`}>
                                                     <div className="col-12 d-flex dispensories_content_paragraphs mt-2">
                                                         <span className='disOPenResRating'>Rating</span>
                                                         <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={ele.rating === null ? 0 : ele.rating} readOnly />
@@ -107,7 +182,7 @@ const Weed_Dispansires = () => {
                                                         </Link>
                                                     <div className="col-12">
                                                         <Box className={classes.loadingBtnTextAndBack}>
-                                                        <Link  to={`/weed-dispensaries/${ele.Store_Name.replace(/\s/g,'-').toLowerCase()}/${ele.id}`}>
+                                                        <Link  to={`/weed-dispensaries/${modifystr(ele.Store_Name.toLowerCase())}/${ele.id}`}>
                                                             <LoadingButton style={{ width: "60%", height: "30px" }}>Order Pickup</LoadingButton>
                                                             </Link>
                                                         </Box>

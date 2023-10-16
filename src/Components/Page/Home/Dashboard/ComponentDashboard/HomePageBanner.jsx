@@ -27,10 +27,11 @@ const HomePageBanner = () => {
           disableOnInteraction: false,
         }}  modules={[Autoplay]}>
                         {HomePageBannerImage.map((items, index) => {
+                        
                             return (
                                 <SwiperSlide key={index}>
                                 <div className='col-12 homePageBanner_container'>
-                                    <LazyLoadImage  src={`https://api.cannabaze.com/${items.Banner}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
+                                    <LazyLoadImage  src={`https://api.cannabaze.com${items.Banner}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
                                 </div>
                                 </SwiperSlide>
                             )
@@ -46,7 +47,7 @@ const HomePageBanner = () => {
                             return (
                                 <SwiperSlide>
                                     <div className='col-12 homePageBanner_container' key={index}>
-                                        <LazyLoadImage  src={`https://api.cannabaze.com/${items.mobile}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
+                                        <LazyLoadImage  src={`https://api.cannabaze.com${items.mobile}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
                                     </div>
                                 </SwiperSlide>
                             )

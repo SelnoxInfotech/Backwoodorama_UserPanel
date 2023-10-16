@@ -27,7 +27,7 @@ const Signup = () => {
     return (
         <React.Fragment>
             <SignupSeo></SignupSeo>
-            <div className="container signup_margins_top signup_margins_bottom">
+            <div className="container signup_margins_top ">
                 <div className="row center">
                     <div className="col-lg-4 col-md-6 col-sm-8 col-10 signup_padding_bottom login_signup_reset_container signup_container_height">
                         <div className='row'>
@@ -78,8 +78,7 @@ const Signup = () => {
                             <div className='col-12 signup_Col'>
                                 <span className='Signup_spanss'>Already a member?</span>
                                 <span>
-                                    <Link to="/Login" className='signupLinkColor'><span>Signin</span></Link>
-
+                                    <Link to="/login" className='signupLinkColor'><span>Signin</span></Link>
                                 </span>
                             </div>
 

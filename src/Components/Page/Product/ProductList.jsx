@@ -150,6 +150,28 @@ const ProductList = ({ arr , ProductNavigate }) => {
             }).catch((err) => { });
         }
     }
+    function modifystr(str) {
+        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str.trim().replaceAll(' ', "-");
+        let a = 0;
+        while (a < 1) {
+          if (str.includes("--")) {
+            str = str.replaceAll("--", "-")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("//", "/")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("-/", "/")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("/-", "/")
+          } else {
+            a++
+          }
+        }
+    
+        return str
+      }
+
+
     return (
         <>
             <div className="row  mx-2" style={{ height: "auto", marginBottom: "100px" }}>
@@ -169,13 +191,13 @@ const ProductList = ({ arr , ProductNavigate }) => {
                                     {/* <Link to={`/products/${ele.category_name}/${ele.Product_Name.replace(/%20| /g, "-")  }/${ele.id}`}> */}
                                         <div className="col-12 p-2 prod_cat_img position-relative">
                                         <LazyLoadImage
-                                        onClick={()=>ProductNavigate(ele.Product_Name ,ele.category_name ,ele.id )}
+                                        onClick={()=>ProductNavigate(modifystr(ele.Product_Name) ,modifystr(ele.category_name) ,ele.id )}
                                             className="product_search_result_image"
                                             onError={event => {
                                                 event.target.src = "/image/blankImage.jpg"
                                                 event.onerror = null
                                             }}
-                                            src={`https://api.cannabaze.com/${ele?.images[0]?.image}`}
+                                            src={`https://api.cannabaze.com${ele?.images[0]?.image}`}
                                             alt={ele.Product_Name}
                                            
                                         />
@@ -192,7 +214,7 @@ const ProductList = ({ arr , ProductNavigate }) => {
                                 <div className="product_cat_allProduct">
 
                                     <div className="col-12 px-2 prod_para_name" style={{ marginBottom: "" }}>
-                                    <Link to={`/products/${ele.category_name}/${ele.Product_Name.replace(/%20| /g, "-")  }/${ele.id}`}>
+                                    <Link to={`/products/${modifystr(ele.category_name)}/${modifystr(ele.Product_Name.toLowerCase())}/${ele.id}`}>
                                         <h3 className='productListHeadings ellipsis'>{ele.Product_Name}</h3>
                                         </Link>
                                     </div>

@@ -2,7 +2,6 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { AiOutlinePlus } from "react-icons/ai"
 import { GrFormSubtract } from "react-icons/gr";
 import { RiDeleteBin6Line } from "react-icons/ri"
-import Swal from 'sweetalert2';
 import React from "react";
 import Axios from 'axios';
 import Cookies from 'universal-cookie';
@@ -189,32 +188,30 @@ const AddToCartReview = () => {
                 <div className=" Add_product_cart_left_container_item" >
                 
                     {state.AllProduct?.map((ele, index) => {
+                        let wrigh ;
+                        if( ele.Price.Weight){
+                            wrigh = ele.Price.Weight;
+                        }else{
+                            wrigh = `${ele.Price.Unit} Unit`
+                        }
+                        console.log(ele ,'ele')
                         return (
                                 <div className="row py-3 px-0 border-top border-bottom justify-content-center   align-items-center" key={index}>
-                                    <div className='row  col-5'>
-                                            <div className="p-0 col-4 Add_prod_item_image_cont">
+                                    <div className='row align-items-center col-5'>
+                                            <div className="p-0 col-3 Add_prod_item_image_cont">
                                                 <Link to={`/NewProductDetails/${ele.Product_id}`}>
                                             
                                                 <LazyLoadImage onError={event => {
                                                     event.target.src = "/image/blankImage.jpg"
                                                     event.onerror = null
-                                                }} src={`https://api.cannabaze.com//${ele.Image}`} alt="imag not found" />
+                                                }} src={`https://api.cannabaze.com${ele.Image}`} alt="imag not found" />
                                                 </Link>
                                             </div>
-                                            <div className="col-8 Add_prod_content_cont p-2">
+                                            <div className="col-9 Add_prod_content_cont p-2">
                                                 
-                                            
-                                                    <h5 onClick={()=>{Navigate(ele.Product_id)}}>{ele.ProductName + "(" + ele.Price.Weight + ")"}</h5>
-                                            
-
-                                            
-
-                                                    <h2 className='add_prod_cart_p'>{ele.StoreName}</h2>
-
-                                            
-                                                
-                                            
-
+                                          
+                                                    <h5 className='add_prod_cart_p_title' onClick={()=>{Navigate(ele.Product_id)}}>{ele.ProductName + "(" + wrigh + ")"}</h5>
+                                                    <h4 className='add_prod_cart_p'>{ele.StoreName}</h4>
                                             </div>
                                     </div>
                                     <div className="col-2 text-center">

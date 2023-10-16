@@ -2,6 +2,7 @@ let webpack = require("webpack");
 let path = require('path');
 
 module.exports = {
+    webpack5: true,
     rules: [
         {
             test: /\.js$/,
@@ -49,5 +50,8 @@ module.exports = {
             use: ['source-map-loader'],
             enforce: 'pre', // This ensures source maps are loaded before other loaders
           },
+         {
+            fallback: { "timers": require.resolve("timers") }
+        },
     ]
 }

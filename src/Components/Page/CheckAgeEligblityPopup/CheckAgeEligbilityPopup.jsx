@@ -26,7 +26,7 @@ const CheckAgeEligbilityPopup = ({value}) => {
         }
         else {
             cookies.set('Location', JSON.stringify("Canada"), { expires: date })
-            dispatch({ type: 'DefalutLocation', DefalutLocation: '"Canada"' })
+            dispatch({ type: 'DefalutLocation', DefalutLocation: "Canada" })
         }
     }
     const handleChange = (event) => {

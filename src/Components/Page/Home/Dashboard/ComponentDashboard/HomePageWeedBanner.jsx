@@ -13,7 +13,7 @@ const HomePageWeedBanner=()=>{
     React.useEffect(() => {
         Axios("https://api.cannabaze.com/UserPanel/Get-PromotionalBanners/ ")
         .then((response)=>{
-            setdata(response.data)
+            setdata(response?.data)
            
             SetSkeleton(false)
         })
@@ -36,9 +36,9 @@ const HomePageWeedBanner=()=>{
         }}  modules={[Autoplay]}>
             {data?.map((ele, index) => {
                 return (
-                    <SwiperSlide key={index}>
-                    <div className='col-12 homePageBanner_container' >
-                        <LazyLoadImage src={`https://api.cannabaze.com/${ele?.Banner}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
+                    <SwiperSlide>
+                    <div  key={index} className='col-12 homePageBanner_container' >
+                        <LazyLoadImage src={`https://api.cannabaze.com${ele?.Banner}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
                     </div>
                     </SwiperSlide>
                 )
@@ -54,7 +54,7 @@ const HomePageWeedBanner=()=>{
                 return (
                     <SwiperSlide>
                     <div className='col-12 homePageBanner_container' key={index}>
-                        <LazyLoadImage src={`https://api.cannabaze.com/${ele?.mobile}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
+                        <LazyLoadImage src={`https://api.cannabaze.com${ele?.mobile}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
                     </div>
                     </SwiperSlide>
                 )

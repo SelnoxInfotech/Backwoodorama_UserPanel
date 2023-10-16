@@ -41,11 +41,13 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
         }
     }
     const CheckoutProcess = (event, j) => {
+      
         if (state.selectDeliveryoptions === "delivery_btn") {
             if (state.DeliveryAddress === "") {
                 alert("Select Delivery address")
             }
             else {
+             
                 if (location.pathname === "/cart") {
 
                     navigate("/CheckOutMainPage", { state: { InputValues, abc: state.Cart_subTotal } })
@@ -66,7 +68,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
         }
         else {
             if (state.selectDeliveryoptions === "pickup_btn") {
-                if (location.pathname === "/AddToCart") {
+                if (location.pathname === "/cart") {
 
                     navigate("/CheckOutMainPage", { state: { InputValues, abc: state.Cart_subTotal } })
                 }
@@ -162,12 +164,12 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
                             <label htmlFor="name-field">
                                 MY STREET ADDRESS
                             </label>
-                            <DeliverAutoCompleteAddress OpenDelivery={OpenDelivery} className={classes.textFieldcartPage}></DeliverAutoCompleteAddress>
+                            <DeliverAutoCompleteAddress OpenDelivery={OpenDelivery} className={classes.textFieldcartsummeryPage}></DeliverAutoCompleteAddress>
                         </div>
                         <div className=" addtocart_textfield mt-3">
                             <label htmlFor="name-field">
                                 APARTMENT OR SUITE NUMBER
-                                <TextField className={classes.textFieldcartPage} name='contact' value={InputValues.contact} onChange={InputFieldHandler} id="outlined-basic" placeholder="APARTMENT OR SUITE NUMBER" variant="outlined" fullWidth size='small' />
+                                <TextField className={classes.textFieldcartsummeryPage} name='contact' value={InputValues.contact} onChange={InputFieldHandler} id="outlined-basic" placeholder="APARTMENT OR SUITE NUMBER" variant="outlined" fullWidth size='small' />
                             </label>
                         </div>
                     </div>)}
@@ -177,7 +179,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
 
                     {OpenPickup && (
                         <div className='col-lg-12  pickup_div fontStyle'>
-                            <h3 className='addresHeading'> Pickup addresh</h3>
+                            <h3 className='addresHeading'> Pickup Address</h3>
                             <p>{state.AllProduct[0]?.StoreAddress}</p>
 
                         </div>

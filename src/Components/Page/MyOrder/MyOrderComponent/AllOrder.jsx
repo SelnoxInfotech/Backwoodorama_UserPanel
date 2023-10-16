@@ -58,7 +58,7 @@ const AllOrder = ({ props }) => {
                                                                         event.target.src = "/image/blankImage.jpg"
                                                                         event.onerror = null
                                                                     }}
-                                                                    src={`https://api.cannabaze.com/${items?.Image}`}
+                                                                    src={`https://api.cannabaze.com${items?.Image}`}
 
                                                                 />
                                                             </div>
