@@ -43,6 +43,7 @@ const Allblogs = React.lazy(() => import("../Components/Page/Blog/BlogComponent/
 const Privatepolicy = React.lazy(() => import("../Components/Page/Privacypolicy/Privacypolicy.jsx"));
 const Cookiespolicy = React.lazy(() => import("../Components/Page/Cookiespolicy/Cookiespolicy.jsx"));
 const Termsconditions = React.lazy(() => import('../Components/Page/Termsconditions/Termsconditions.jsx'));
+const History = React.lazy(() => import('../Components/Page/Learn/History/History'));
 const routesConfig = [
 
   {
@@ -123,10 +124,14 @@ const routesConfig = [
         path: "/learn/laws-and-regulation/:State/:id",
         element: <RoutingList Component={LawStateDescription} ></RoutingList>
       },
-
+      
       {
         path: "/strain",
         element: <RoutingList Component={ Strain } ></RoutingList>
+      },
+      {
+        path: "/history",
+        element: <RoutingList Component={ History } ></RoutingList>
       },
       {
         path: "/aboutUs",
@@ -247,7 +252,6 @@ const routesConfig = [
         path: "/StrainProduct/:type",
         element: <RoutingList Component={StrainProduct} ></RoutingList>
       },
-
       {
         path: "/whisLists",
         element: <ProtectRout Component={WhisLists} ></ProtectRout>

@@ -25,7 +25,7 @@ const RecentPost = () => {
             <div className="  my-3 my-md-5">
             <h3 className="section_main_title">Recent Blogs</h3>
                     <div className="blogs_card_slider">
-                        <ScrollContainer className="blogSlider">
+                        <ScrollContainer className="ScrollContainerRelative">
                         
                                 {News?.map((ele, index) => {
   
