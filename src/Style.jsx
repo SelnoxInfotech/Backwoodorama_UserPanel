@@ -1312,6 +1312,25 @@ const useStyles = makeStyles({
       fontSize: "1rem"
   }
    },
+   noReviewBtn:{
+    "&.MuiButtonBase-root": {
+      color: "#fff",
+      border:"1px solid #f0f0f0",
+      borderRadius:"8px",
+      textTransform:"none",
+     backgroundColor:'#4BBF78',
+      fontSize:"16px",
+      width:'200px',
+    },
+    "&.MuiButtonBase-root:hover": {
+
+      color: "#4BBF78",
+      border: "1px solid #f0f0f0",
+      background: "#FFFFFF",
+     
+
+    },
+   },
    textFieldcartsummeryPage:{
     color:"#000",
     backgroundColor:'#fff',

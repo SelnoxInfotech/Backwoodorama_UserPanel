@@ -259,7 +259,6 @@ const NewProductDetailsCards = ({ Product }) => {
                                 </select>: 
                                   Product?.Prices?.map((item)=>{
                                   let vl =item.Price.map((item)=>{
-
                                         if(item.Weight){
                                            if(!dynamicWeight){setdynamicprice(item.SalePrice); setdynamicWeight(item.Weight)};
                                             return item.Weight

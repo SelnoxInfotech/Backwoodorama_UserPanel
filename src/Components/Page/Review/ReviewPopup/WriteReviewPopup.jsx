@@ -11,7 +11,10 @@ import { Box } from "@mui/material"
 import { useForm } from "react-hook-form";
 import Createcontext from "../../../../Hooks/Context"
 import { useNavigate } from 'react-router-dom';
-const WriteReviewPopup = ({onSubmit, GetProductReview, SetGetProductReview }) => {
+const WriteReviewPopup = ({onSubmit, buttonclass, GetProductReview, SetGetProductReview }) => {
+    if(buttonclass === undefined){
+        buttonclass = 'WriteReviewBtn_Color'
+    }
     const navigate =  useNavigate()
     const { state } = React.useContext(Createcontext)
     const { register, handleSubmit, errors, control, reset } = useForm();
@@ -39,7 +42,7 @@ const WriteReviewPopup = ({onSubmit, GetProductReview, SetGetProductReview }) =>
 
     return (
         <>
-            <Button className={classes.WriteReviewBtn_Color} variant="outlined" onClick={handleClickOpen}>
+            <Button className={classes[buttonclass]} variant="outlined" onClick={handleClickOpen}>
                 Write a review
             </Button>
             <Dialog open={open} onClose={handleClose} className={classes.WriteReviewDialog}>
