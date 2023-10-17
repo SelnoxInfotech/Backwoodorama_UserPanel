@@ -125,7 +125,7 @@ const Navbar = () => {
                 justifyContent="center"
               >
                 <span >
-                  <Link to="/"><LazyLoadImage className='navbar_logo_image' alt='WeedX.io' src='https://selnoxmedia.s3.amazonaws.com/media/BlankImage/BlankImage.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAS4WSA6KJNP6NPPES%2F20231017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231017T085923Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=e001b524709f535460ff5d38399eb82f0ce59d8c5c7cd5521039417723dd85bd' /></Link>
+                  <Link to="/"><LazyLoadImage className='navbar_logo_image' alt='WeedX.io' src='https://selnoxmedia.s3.amazonaws.com/media/BlankImage/WEEDX_dc5ZEgt.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAS4WSA6KJNP6NPPES%2F20231017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231017T131634Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=6a0348cc48598e3fedef01d00aac897a09b712c01c981f096f4a59840c9299a1' /></Link>
                 </span>
 
               </Grid>
@@ -143,7 +143,7 @@ const Navbar = () => {
             <SearchBar path={Location.pathname}/>
             :
             <span className='mobileNavLogo' >
-            <Link to="/"><LazyLoadImage className='navbar_logo_image' src='https://selnoxmedia.s3.amazonaws.com/media/BlankImage/BlankImage.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAS4WSA6KJNP6NPPES%2F20231017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231017T085923Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=e001b524709f535460ff5d38399eb82f0ce59d8c5c7cd5521039417723dd85bd' /></Link>
+            <Link to="/"><LazyLoadImage className='navbar_logo_image' src='https://selnoxmedia.s3.amazonaws.com/media/BlankImage/WEEDX_dc5ZEgt.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAS4WSA6KJNP6NPPES%2F20231017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231017T131634Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=6a0348cc48598e3fedef01d00aac897a09b712c01c981f096f4a59840c9299a1' /></Link>
           </span>
           }
           </Grid>

@@ -54,7 +54,7 @@ const HomePageWeedBanner=()=>{
                 return (
                     <SwiperSlide key={index}>
                     <div className='col-12 homePageBanner_container'>
-                        <LazyLoadImage src={`https://api.cannabaze.com${ele?.mobile}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
+                        <LazyLoadImage src={`${ele?.mobile}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
                     </div>
                     </SwiperSlide>
                 )
