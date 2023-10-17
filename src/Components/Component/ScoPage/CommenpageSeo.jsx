@@ -6,6 +6,7 @@ function AboutusSeo() {
             <title>{` About Us-weedx.io | Weed Dispensary & Delivery Near Me | `}</title>
             <meta name="title" content={` About Us-weedx.io | Weed Dispensary & Delivery Near Me | `}/>
             <meta name='description' content={`weedx.io discover cannabis products and order them from best delivery and dispensary services near you. Explore the best dispensary and get the best weed`} />
+            <link rel="canonical" href={`https://www.weedx.io/aboutus`} />
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
             <meta property="og:title" content={` About Us-weedx.io | Weed Dispensary & Delivery Near Me | `} />
@@ -28,6 +29,7 @@ function TermsAndConditions() {
             <title>{` Terms And Conditions - weedx.io | `}</title>
             <meta name="title" content={` Terms And Conditions - weedx.io | `}/>
             <meta name='description' content={`Terms & Conditions weedx.io. Recreational and Medical Marijuana Dispensaries & Delivery Near you. Explore the best dispensary and get the best weed. `} />
+            <link rel="canonical" href={`https://www.weedx.io/terms-and-conditions`} />
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
             <meta property="og:title" content={` Terms And Conditions - weedx.io | `} />
@@ -48,6 +50,7 @@ function PrivacyPolicy() {
             <title>{`Privacy And Policy - weedx.io |`}</title>
             <meta name="title" content={` Privacy And Policy - weedx.io |`}/>
             <meta name='description' content={`Privacy And Policy weedx.io. Recreational and Medical Marijuana Dispensaries & Delivery Near you. Explore the best dispensary and get the best weed`} />
+            <link rel="canonical" href={`https://www.weedx.io/privacy-policy`} />
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
             <meta property="og:title" content={` Privacy And Policy - weedx.io |`} />
@@ -68,6 +71,7 @@ function CookiesPolicy() {
             <title>{`Cookies Policy | weedx.io`}</title>
             <meta name="title" content={` Cookies Policy | weedx.io`}/>
             <meta name='description' content={`Cookies Policy weedx.io. Recreational and Medical Marijuana Dispensaries & Delivery Near you. Explore the best dispensary and get the best weed. `} />
+            <link rel="canonical" href={`https://www.weedx.io/cookies-policy`} />
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
             <meta property="og:title" content={` Cookies Policy | weedx.io`} />
@@ -88,6 +92,7 @@ function LoginSeo() {
             <title>{` Login | weedx.io`}</title>
             <meta name="title" content={`  Login | weedx.io`}/>
             <meta name='description' content={`Welcome to weedx.io. Your secure gateway to premium cannabis. Explore high-quality strains, edibles, and more with confidence`} />
+            <link rel="canonical" href={`https://www.weedx.io/login`} /> 
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
             <meta property="og:title" content={`  Login | weedx.io`} />
@@ -108,6 +113,7 @@ function SignupSeo() {
             <title>{`Sign Up | weedx.io`}</title>
             <meta name="title" content={` Sign Up | weedx.io`}/>
             <meta name='description' content={` Join weedx.io today for exclusive access to premium cannabis products. Explore high-quality strains, edibles, and more. Your secure gateway to the cannabis world awaits`} />
+            <link rel="canonical" href={`https://www.weedx.io/signup`} /> 
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
             <meta property="og:title" content={` Sign Up | weedx.io`} />
@@ -128,6 +134,7 @@ function WhislistSeo() {
             <title>{` My Wishlist | weedx.io`}</title>
             <meta name="title" content={`  My Wishlist | weedx.io`}/>
             <meta name='description' content={`Create & manage your cannabis wishlist at weedx.io. Save favorites for quick access. Your personalized cannabis journey begins here`} />
+            <link rel="canonical" href={`https://www.weedx.io/whislists`} /> 
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
             <meta property="og:title" content={`  My Wishlist | weedx.io`} />

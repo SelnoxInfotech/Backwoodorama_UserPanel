@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import CategoryProduct from "../../../Components/Page/Home/Dashboard/ComponentDashboard/CategoryProduct"
 import ClickAwayListener from 'react-click-away-listener';
-import { useNavigate, useParams } from "react-router-dom"
+import { useLocation, useNavigate, useParams } from "react-router-dom"
 import { ProductSeo, ProductCategorySeo } from "../../Component/ScoPage/ProductSeo"
 import ProductSearchResult from "./ProductSearchResult/ProductSearchResult"
 import Createcontext from "../../../Hooks/Context"
@@ -412,8 +412,8 @@ const Product = () => {
 
     return (
         <>
-            {!params.id ? <ProductSeo></ProductSeo> :
-                <ProductCategorySeo categoryname={params.categoryname} ></ProductCategorySeo>}
+            {!params.id ? <ProductSeo location={useLocation().pathname}></ProductSeo> :
+                <ProductCategorySeo categoryname={params.categoryname}  location={useLocation().pathname} ></ProductCategorySeo>}
             <div className="container-fluid product_container" >
                 <div className="row">
                     <div className="col-12 mt-4">

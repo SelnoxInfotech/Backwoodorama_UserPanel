@@ -36,8 +36,8 @@ const HomePageWeedBanner=()=>{
         }}  modules={[Autoplay]}>
             {data?.map((ele, index) => {
                 return (
-                    <SwiperSlide>
-                    <div  key={index} className='col-12 homePageBanner_container' >
+                    <SwiperSlide key={index}>
+                    <div   className='col-12 homePageBanner_container' >
                         <LazyLoadImage src={`${ele?.Banner}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
                     </div>
                     </SwiperSlide>
@@ -52,8 +52,8 @@ const HomePageWeedBanner=()=>{
         }}  modules={[Autoplay]}>
             {data?.map((ele, index) => {
                 return (
-                    <SwiperSlide>
-                    <div className='col-12 homePageBanner_container' key={index}>
+                    <SwiperSlide key={index}>
+                    <div className='col-12 homePageBanner_container'>
                         <LazyLoadImage src={`https://api.cannabaze.com${ele?.mobile}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
                     </div>
                     </SwiperSlide>

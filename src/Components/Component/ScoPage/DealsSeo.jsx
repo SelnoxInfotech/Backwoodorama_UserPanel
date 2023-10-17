@@ -7,6 +7,7 @@ function DealsSeo() {
             <title> {`Get the best marijuana Deals Near You | weedx.io  `}</title>
             <meta name="title" content={`Get the best marijuana Deals Near You | weedx.io `}/>
             <meta name='description' content={`Get the best marijuana Deals Near You on weedx.io. Find special sales, promo codes, coupons, and discounts from cannabis dispensaries in your neighborhood`} />
+            <link rel="canonical" href={`https://www.weedx.io/deals`} /> 
             {/* Facebook tags */}
             <meta property="og:type" content="website"/>
             <meta property="og:title" content={"Get the best marijuana Deals Near You | weedx.io "} />

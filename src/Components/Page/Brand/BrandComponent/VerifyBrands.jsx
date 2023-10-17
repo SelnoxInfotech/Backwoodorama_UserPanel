@@ -4,11 +4,13 @@ import { IoMdStar } from "react-icons/io";
 import useStyles from "../../../../Style";
 import Axios from "axios";
 import React from "react";
-import { Link,  } from "react-router-dom"
+import { Link, useLocation  } from "react-router-dom"
+
 import { BrandSeo } from "../../../Component/ScoPage/BrandsSeo";
 
 
 const VerifyBrands = () => {
+    const location = useLocation()
     const classes = useStyles()
     const [VerifyArrayData, SetVerifyArrayData] = React.useState([])
     React.useEffect(() => {
@@ -23,9 +25,11 @@ const VerifyBrands = () => {
 
             })
     }, [])
+
+
     return (
         <React.Fragment>
-            <BrandSeo></BrandSeo>
+            <BrandSeo location={location.pathname}></BrandSeo>
             <div className="row">
                 {VerifyArrayData?.map((items, index) => {
                     return (

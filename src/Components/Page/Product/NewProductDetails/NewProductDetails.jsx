@@ -6,7 +6,7 @@ import NewProductinfoText from "./NewProductDetailsComponent/NewProductinfoText"
 import ProductSearchResult from "../ProductSearchResult/ProductSearchResult"
 import NewProductSearchResult from "./NewProductDetailsComponent/NewProductSearchResult"
 import Axios from "axios";
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import NewFlavourBanner from "../../../Component/NewFlavour/NewFlavourBanner"
 import Review from "../../Review/Review"
 import { AiOutlineLeft } from "react-icons/ai";
@@ -116,7 +116,7 @@ const NewProductDetails = () => {
   // Productname , ProductCategory , StoreName
   return (
     <div className="container-fluid">
-      <ProductDetailsSeo Productname={Product.Product_Name} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State}  ></ProductDetailsSeo>
+      <ProductDetailsSeo Productname={Product.Product_Name} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={ useLocation().pathname } ></ProductDetailsSeo>
 
       <span onClick={() => navigate(-1)} className="BackPageBtn"> <AiOutlineLeft size={22} /> <span className="backPgBtnImg"><img src={`${Despen.Store_Image}`} alt="" /></span> {Despen.Store_Name}</span>
       <NewProductDetailsCards Product={Product} />

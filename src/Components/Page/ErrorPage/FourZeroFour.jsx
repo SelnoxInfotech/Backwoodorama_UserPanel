@@ -13,7 +13,7 @@ const FourZeroFour = () => {
                 <div className="col-12 four_zero_four_img_content_container">
                     <div className="col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12">
                         <section className="Image_section ">
-                            <LazyLoadImage src="/image/FourZeroFour.png" className="fourZero_image" />
+                            <LazyLoadImage src="https://selnoxmedia.s3.amazonaws.com/media/BlankImage/FourZeroFour.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAS4WSA6KJNP6NPPES%2F20231017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231017T091513Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=b87bcd334f115329dac671e91f1008755ad971201423f89d1d4168077581e08a" className="fourZero_image" />
                         </section>
                         <section className="fourZero_content_section mt-2">
                             <div className="fourZeroFour_div_width">

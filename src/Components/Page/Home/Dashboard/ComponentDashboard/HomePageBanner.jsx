@@ -45,8 +45,8 @@ const HomePageBanner = () => {
         }}  modules={[Autoplay]}>
                         {HomePageBannerImage.map((items, index) => {
                             return (
-                                <SwiperSlide>
-                                    <div className='col-12 homePageBanner_container' key={index}>
+                                <SwiperSlide  key={index}>
+                                    <div className='col-12 homePageBanner_container'>
                                         <LazyLoadImage  src={`${items.mobile}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
                                     </div>
                                 </SwiperSlide>
