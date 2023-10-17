@@ -169,7 +169,7 @@ const NewProductSearchResult = ({ NewProductSearchRseultArray, heading }) => {
                                                 event.target.src = "/image/blankImage.jpg"
                                                 event.onerror = null
                                             }}
-                                            src={items?.images ? `https://api.cannabaze.com${items?.images[0]?.image}` : items.imgUrl}
+                                            src={items?.images ? `${items?.images[0]?.image}` : items.imgUrl}
                                             // src={items.imgUrl}
                                             height={"100px"}
                                         />

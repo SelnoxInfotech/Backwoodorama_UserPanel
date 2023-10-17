@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import CategoryProduct from "../../../Components/Page/Home/Dashboard/ComponentDashboard/CategoryProduct"
 import ClickAwayListener from 'react-click-away-listener';
-import { useNavigate, useParams } from "react-router-dom"
+import { useLocation, useNavigate, useParams } from "react-router-dom"
 import { ProductSeo, ProductCategorySeo } from "../../Component/ScoPage/ProductSeo"
 import ProductSearchResult from "./ProductSearchResult/ProductSearchResult"
 import Createcontext from "../../../Hooks/Context"
@@ -410,141 +410,10 @@ const Product = () => {
 
     }, [state, params])
 
-
-
-
-    // React.useEffect(() => {
-    //     SetLoading(true)
-    //     setIsDropdownOpen(false)
-    //     console.log(params)
-    //     if (params.subCategory) {
-    //         Axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductBySubCategory/${params.id}`).then((res) => {
-    //             SetProduct(res.data)
-    //             SubCategoryApi(res.data[0].category_id)
-    //             SetLoading(false)
-
-    //         }).catch((err) => {
-    //             SetLoading(false)
-    //             // SetProduct([])
-    //         })
-    //         function SubCategoryApi(_id) {
-    //             Axios.get(`https://api.cannabaze.com/UserPanel/Get-SubCategoryByCategory/${_id}`).then((res) => {
-    //                 return res
-    //             }).then((response) => {
-    //                 setsubcategories(response.data.data)
-
-    //             })
-    //         }
-
-    //     }
-    //     else {
-    //         if (params.categoryname) {
-    //             
-    //             function CategoryProduct(object) {
-    //                 return (
-    //                     axios.post(`https://api.cannabaze.com/UserPanel/Get-ProductByCategory/${params.id}`, object).then((res) => {
-    //                         return res
-    //                     }).then((response) => {
-    //                         console.log(response)
-    //                         if (response.data === "There is no Product") {
-    //                             return []
-    //                         }
-    //                         else {
-    //                             return response.data
-    //                         }
-
-    //                     })
-    //                 )
-    //             }
-    //         }
-    //         else {
-
-    //         }
-    //     }
-
-    //     if (state.City !== "") {
-    //         const object = { City: state.City.replace(/-/g, " ") }
-    //         GetProduct(object).then((response) => {
-    //             if (response.length !== 0) {
-    //                 SetLoading(false)
-    //                 f("All Product")
-    //                 SetProduct(response.data)
-    //             }
-    //             else {
-    //                 const object = { State: state.State.replace(/-/g, " ") }
-    //                 GetProduct(object).then((response) => {
-    //                     if (response.length !== 0) {
-    //                         SetLoading(false)
-    //                         f("All Product")
-    //                         SetProduct(response.data)
-
-    //                     }
-    //                     else {
-    //                         const object = { Country: state.Country.replace(/-/g, " ") }
-    //                         GetProduct(object).then((reresponses) => {
-    //                             SetLoading(false)
-    //                             f("All Product")
-    //                             SetProduct(response.data)
-
-    //                         })
-    //                     }
-    //                 })
-    //             }
-    //         })
-    //     }
-    //     // else {
-    //     if (state.State !== "") {
-    //         const object = { State: state.State.replace(/-/g, " ") }
-    //         GetProduct(object).then((response) => {
-    //             if (response.length !== 0) {
-    //                 SetLoading(false)
-    //                 f("All Product")
-    //                 SetProduct(response.data)
-    //             }
-    //             else {
-    //                 const object = { Country: state.Country.replace(/-/g, " ") }
-    //                 GetProduct(object).then((response) => {
-    //                     SetLoading(false)
-    //                     f("All Product")
-    //                     SetProduct(response.data)
-
-    //                 })
-    //             }
-    //         })
-    //     }
-    //     else {
-    //         if (state.Country !== "") {
-    //             const object = { Country: state.Country.replace(/-/g, " ") }
-    //             GetProduct(object).then((response) => {
-    //                 SetLoading(false)
-    //                 f("All Product")
-    //                 SetProduct(response.data)
-
-    //             })
-    //         }
-    //     }
-    //     // }
-    //     function GetProduct(object) {
-    //         return (
-    //             axios.post(`https://api.cannabaze.com/UserPanel/Get-AllProduct/`,
-    //                 object
-    //             ).then(response => {
-    //                 return response
-    //             }).catch(
-    //                 function (error) {
-    //                     SetProduct([])
-    //                 })
-    //         )
-    //     }
-
-    // }, [params, state])
-
-
-    console.log(state)
     return (
         <>
-            {!params.id ? <ProductSeo></ProductSeo> :
-                <ProductCategorySeo categoryname={params.categoryname} ></ProductCategorySeo>}
+            {!params.id ? <ProductSeo location={useLocation().pathname}></ProductSeo> :
+                <ProductCategorySeo categoryname={params.categoryname}  location={useLocation().pathname} ></ProductCategorySeo>}
             <div className="container-fluid product_container" >
                 <div className="row">
                     <div className="col-12 mt-4">
@@ -562,7 +431,7 @@ const Product = () => {
                                                 setIsDropdownOpen(!isDropdownOpen)
                                             }}>
                                                 {selectedOption && (
-                                                    <img src={`https://api.cannabaze.com${selectedOption.SubCategoryImage}`} alt={selectedOption.name} className="dropdown-option-image" />
+                                                    <img src={`${selectedOption.SubCategoryImage}`} alt={selectedOption.name} className="dropdown-option-image" />
                                                 )}
                                                 <span className="dropdown-option-label">
                                                     {selectedOption ? selectedOption.name : 'Sort by Subcategory '}
@@ -572,7 +441,7 @@ const Product = () => {
                                             <ul className={`dropdown-menu image_dropdown ${isDropdownOpen ? 'open' : ''}`}>
                                                 {subcategories?.map((option, index) => (
                                                     <li key={index} onClick={() => selectOption(option)}>
-                                                        <img src={`https://api.cannabaze.com${option.SubCategoryImage}`} alt={option.name} className="dropdown-option-image" />
+                                                        <img src={`${option.SubCategoryImage}`} alt={option.name} className="dropdown-option-image" />
                                                         <span className="dropdown-option-label">{option.name}</span>
                                                     </li>
                                                 ))}

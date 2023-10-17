@@ -1,12 +1,12 @@
 import { Helmet } from "react-helmet-async"
 
-function HomePageSco() {
+function HomePageSco({location  }) {
     return (
         <Helmet>
             <title>{"Marijuana Dispensaries & Delivery Near Me | weedx.io |"}</title>
             <meta name="title" content={`Marijuana Dispensaries & Delivery Near Me | weedx.io |`}/>
             <meta name='description' content={" In weedx.io, find high quality Recreational and Medical Marijuana Dispensaries & Delivery Near you. Order online and get best deals on your weed near you"} />
-            
+            <link rel="canonical" href={`https://www.weedx.io${location}`} /> 
             <meta itemprop="name" content="WeedX" />
             <meta itemprop="description" content=" In weedx.io, find high quality Recreational and Medical Marijuana Dispensaries & Delivery Near you. Order online and get best deals on your weed near you" />
             {/* Facebook tags */}

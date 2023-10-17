@@ -6,7 +6,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import React from "react";
 import Axios from "axios";
 import {DespensioriesItem} from '../../../../Api/Api';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Rating } from '@mui/material';
 import { DispensariesSco } from "../../../Component/ScoPage/DispensariesSco"
 import Createcontext from "../../../../Hooks/Context"
@@ -116,7 +116,7 @@ const Weed_Dispansires = () => {
  
     return (
         <React.Fragment>
-            <DispensariesSco></DispensariesSco>
+            <DispensariesSco location={useLocation().pathname}></DispensariesSco>
             <div className="">
                 <div className="row">
                     <div className="col-xl-4 col-lg-6 col-md-8 col-sm-10 col-12 dispensories_main_container">
@@ -152,7 +152,7 @@ const Weed_Dispansires = () => {
                                             <div className="row">
                                                 <div className="col-4 disensories_card_image_div">
                                                     <Link  to={`/weed-dispensaries/${modifystr(ele?.Store_Name.toLowerCase())}/${ele.id}`}>
-                                                        <LazyLoadImage id={ele?.id} src={`https://api.cannabaze.com${ele.Store_Image}`} alt={ele.Store_Name}className="dispensories_card_image" />
+                                                        <LazyLoadImage id={ele?.id} src={`${ele.Store_Image}`} alt={ele.Store_Name}className="dispensories_card_image" />
                                                     </Link>
 
                                                 </div>

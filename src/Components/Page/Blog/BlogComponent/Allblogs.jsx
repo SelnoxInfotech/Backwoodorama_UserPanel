@@ -36,7 +36,7 @@ const [isdata,setisdata] = useState(false)
                   <div className='row blogListCard' key={index}>
                   <div className='col-3'>
                       <div className='blogCardImg'>
-                          <img src={`https://api.cannabaze.com${items.Image}`} alt={items.Alt_Text}/>
+                          <img src={`${items.Image}`} alt={items.Alt_Text}/>
                       </div>
                   </div>
                   <div className='col-9'>

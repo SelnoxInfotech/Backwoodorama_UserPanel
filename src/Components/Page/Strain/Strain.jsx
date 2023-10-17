@@ -2,6 +2,7 @@ import React ,{Suspense} from "react"
 import StrainType from "./StrainComponent/StrainType"
 import PopularStrain from "./StrainComponent/PopularStrain"
 import {StrainSeo} from "../../Component/ScoPage/LearnSeo"
+import { useLocation } from "react-router-dom"
 const Strain = () => {
   const PopularStrainArray = [{ imgUrl: "/image/glass.png", name: "0G Kush", secName: "Hybrid" },
   { imgUrl: "./image/social.png", name: "0G Galeto", secName: "Indica" },
@@ -20,7 +21,7 @@ const Strain = () => {
   return (
     <Suspense fallback={"Loading"}>
     <div className="container-fluid">
-      <StrainSeo></StrainSeo>
+      <StrainSeo location={useLocation().pathname}></StrainSeo>
       <PopularStrain SliderDataArray={PopularStrainArray} Heading={popularStrainHeading} />
       <StrainType/>
       {/* <div className="row">

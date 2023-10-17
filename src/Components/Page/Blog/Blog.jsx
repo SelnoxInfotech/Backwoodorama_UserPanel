@@ -108,7 +108,7 @@ const Blogs = () => {
     }
     return (
         <React.Fragment>
-          <SingleNewsSeo Title={News?.Meta_title} Description={News?.Meta_Description}></SingleNewsSeo>
+          <SingleNewsSeo Title={News?.Meta_title} Description={News?.Meta_Description} location={useLocation().pathname}></SingleNewsSeo>
             <div className="container">
                 <div className="row mx-1">
                     <div className="col-12 w-100 row align-items-center justify-content-between blog_searchBar_container px-0">

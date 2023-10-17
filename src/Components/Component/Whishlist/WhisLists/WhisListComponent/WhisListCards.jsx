@@ -153,6 +153,26 @@ const WhisListCard = () => {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
         localStorage.setItem('items', JSON.stringify(AddTOCard))
     }, [AddTOCard])
+    function modifystr(str) {
+        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str.trim().replaceAll(' ', "-");
+        let a = 0;
+        while (a < 1) {
+          if (str.includes("--")) {
+            str = str.replaceAll("--", "-")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("//", "/")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("-/", "/")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("/-", "/")
+          } else {
+            a++
+          }
+        }
+    
+        return str.toLowerCase()
+      }
 
     return (                                                                                                                            
         <div className="col-12 whislistCard_Container">
@@ -187,10 +207,10 @@ return (
                                                 event.target.src = "/image/blankImage.jpg"
                                                 event.onerror = null
                                             }}
-                                            src={`https://api.cannabaze.com${items?.images[0]?.image}`}
+                                            src={`${items?.images[0]?.image}`}
                                             className="whislist_imageStyle"
                                             alt="imgs-not-found"
-                                            onClick={() => Navigate(`/NewProductDetails/${items.id}`)}
+                                            onClick={() => Navigate(`/products/${modifystr(items.category_name.toLowerCase())}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${modifystr(items.Product_Name.toLowerCase())}/${items.id}`)}
                                         />
                                     </div>
                                 </div>

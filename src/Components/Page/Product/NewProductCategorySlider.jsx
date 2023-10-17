@@ -65,7 +65,7 @@ const NewProductCategorySlider = ({ flowerArray }) => {
                                                         event.onerror = null
                                                     }}
                                                     className="newProductCategory_image"
-                                                    src={`https://api.cannabaze.com${items?.SubCategoryImage}`}/>
+                                                    src={`${items?.SubCategoryImage}`}/>
                                             </Link>
                                             
                                         </div>

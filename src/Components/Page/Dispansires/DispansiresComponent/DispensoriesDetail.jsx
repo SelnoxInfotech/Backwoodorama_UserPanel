@@ -205,7 +205,7 @@ export default function DispensoriesDetails() {
 
     return (
         <div>
-            <StoreDetails Despen={Despen}></StoreDetails>
+            <StoreDetails Despen={Despen} locationStore={useLocation().pathname}></StoreDetails>
             <div className="container-fluid product_container" >
                 <NewFlavourBanner delBtn={Despen}></NewFlavourBanner>
                 <div className="row">

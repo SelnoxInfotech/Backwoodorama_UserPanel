@@ -225,7 +225,7 @@ const AddToCartReview = () => {
                                                 <LazyLoadImage onError={event => {
                                                     event.target.src = "/image/blankImage.jpg"
                                                     event.onerror = null
-                                                }} src={`https://api.cannabaze.com${ele.Image}`} alt="imag not found" />
+                                                }} src={`${ele.Image}`} alt="imag not found" />
                                                 </Link>
                                             </div>
                                             <div className="col-9 Add_prod_content_cont p-2">

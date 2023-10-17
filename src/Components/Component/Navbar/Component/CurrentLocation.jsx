@@ -22,7 +22,6 @@ const CurrentLocation = () => {
       Setloca( coords?.longitude )
     }
   },[coords])
-   console.log(state)
 
   React.useEffect(()=>{
     dispatch({ type: 'permission', permission:  coords === undefined ? false : true  })
@@ -80,9 +79,7 @@ const CurrentLocation = () => {
         console.trace(error ,  'GeoCode Api')
       })
   },[loca , state.DefalutLocation])
-
   
-
 }
 
 export default CurrentLocation

@@ -130,7 +130,7 @@ const DeliveryServices = () => {
                                             <div className='deliveryServicesBorder '>
                                                 <Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g, '-').toLowerCase()}/${"menu"}/${items.id}`}>
                                                     <div className='col-12 deliveryServicesImage_container'>
-                                                        <LazyLoadImage className='deliveryServicesImage' src={`https://api.cannabaze.com${items.Store_Image}`} alt={items.Store_Name} />
+                                                        <LazyLoadImage className='deliveryServicesImage' src={`${items.Store_Image}`} alt={items.Store_Name} />
                                                     </div>
                                                 </Link>
                                                 <div className='col-12 deliveryServicesContent_container px-4'>

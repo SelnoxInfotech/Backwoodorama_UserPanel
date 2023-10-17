@@ -96,7 +96,7 @@ const AddPhotoId = ({ image, Api, SetApi }) => {
                                                         event.target.src = "./image/user.webp"
                                                         event.onerror = null
                                                     }}
-                                                    src={`https://api.cannabaze.com${image}`}
+                                                    src={`${image}`}
                                                     // src={image}
                                                     alt=''
                                                     className='add_photo_size'

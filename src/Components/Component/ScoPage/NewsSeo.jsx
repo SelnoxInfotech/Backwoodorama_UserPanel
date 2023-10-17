@@ -1,11 +1,12 @@
 import { Helmet } from "react-helmet-async"
 
-function NewsSeo() {
+function NewsSeo({location}) {
     return (
         <Helmet>
             <title>{"Today's Latest Cannabis and Marijuana News | weedx.io"}</title>
             <meta name="title" content={`Today's Latest Cannabis and Marijuana News | weedx.io`}/>
             <meta name='description' content={" Weedx.io: Your trusted source for the latest cannabis industry news, updates, trends, and insights. Discover breaking stories and expert analysis here."} />
+            <link rel="canonical" href={`https://www.weedx.io${location}`} /> 
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
             <meta property="og:title" content={"Today's Latest Cannabis and Marijuana News | weedx.io"} />
@@ -20,13 +21,14 @@ function NewsSeo() {
         </Helmet>
     )
 }
-function SingleNewsSeo({Title ,Description}) {
+function SingleNewsSeo({Title ,Description ,location}) {
     
     return (
         <Helmet>
             <title>{`${Title} | weedx.io`}</title>
             <meta name="title" content={`${Title} | weedx.io`}/>
             <meta name='description' content={Description} />
+            <link rel="canonical" href={`https://www.weedx.io${location}`} /> 
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
             <meta property="og:title" content={`${Title} | weedx.io`} />

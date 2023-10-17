@@ -207,7 +207,7 @@ const ProductList = ({ arr, ProductNavigate }) => {
                                                 event.target.src = "/image/blankImage.jpg"
                                                 event.onerror = null
                                             }}
-                                            src={`https://api.cannabaze.com${ele?.images[0]?.image}`}
+                                            src={`${ele?.images[0]?.image}`}
                                             alt={ele.Product_Name}
 
                                         />

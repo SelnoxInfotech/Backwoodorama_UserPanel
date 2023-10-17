@@ -26,7 +26,7 @@ const LawStateDescription = () => {
     }, [params.id])
     return (
         <React.Fragment>
-            <LawState Title={`Cannabis Law in ${GetContant?.name}`} State={GetContant?.Country}></LawState>
+            <LawState Title={`Cannabis Law in ${GetContant?.name}`} State={GetContant?.Country} location={useLocation().pathname}></LawState>
             <div className="container-fluid">
                 <div className="row">
                     <LawStateDecriptionBanner />

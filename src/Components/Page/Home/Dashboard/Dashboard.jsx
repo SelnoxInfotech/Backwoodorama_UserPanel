@@ -5,7 +5,7 @@ import HomePageWeedBanner from "./ComponentDashboard/HomePageWeedBanner";
 import NewsBlog from "./ComponentDashboard/NewsBlog";
 import HomePageBanner from "./ComponentDashboard/HomePageBanner";
 import DeliveryServices from "../../Delivery/HomePageDelivery/DeliveryServices";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import React from "react";
 import Newsletter from "../../../Component/Newsletter/HomePageDealsSignup";
 import StrainTypeCards from "../../Strain/StrainComponent/StrainTypeCards";
@@ -61,7 +61,7 @@ export default function Dashboard() {
     ]
     return (
         <div >
-            <HomePageSco></HomePageSco>
+            <HomePageSco location ={useLocation().pathname}></HomePageSco>
             <HomePageBanner></HomePageBanner>
             <CategoryProduct Category={Category} ShowCategoryProduct={ShowCategoryProduct} Skeleton={Skeleton}></CategoryProduct>
             <DeliveryServices Skeleton={Skeleton}></DeliveryServices>
@@ -85,7 +85,7 @@ export default function Dashboard() {
                     <div className="about_card_Wraper">
                         <div className="about_card">
                             <div className="about_card_img">
-                                <img src="./image/about1.webp" alt=" Online Ordering" />
+                                <img src="https://selnoxmedia.s3.amazonaws.com/media/BlankImage/about1.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAS4WSA6KJNP6NPPES%2F20231017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231017T090205Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=231a92445cafa35c55da6b78ed0b02b4d79acf3cbbc5b91a1f18932d27b57b1c" alt=" Online Ordering" />
                             </div>
                             <div className="about_text">
                                 <h3 className="acard_title">
@@ -102,7 +102,7 @@ export default function Dashboard() {
                         </div>
                         <div className="about_card">
                             <div className="about_card_img">
-                                <img src="./image/about2.webp" alt="Delivery Services" />
+                                <img src="https://selnoxmedia.s3.amazonaws.com/media/BlankImage/about2.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAS4WSA6KJNP6NPPES%2F20231017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231017T090228Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=e4b97ab5cb7e45499daef774efc4472f48d836aef934384f0849c7d80cd5c6dd" alt="Delivery Services" />
                             </div>
                             <div className="about_text">
                                 <h3 className="acard_title">
@@ -119,7 +119,7 @@ export default function Dashboard() {
                         </div>
                         <div className="about_card">
                             <div className="about_card_img">
-                                <img src="./image/about3.webp" alt="Dispensary Listings" />
+                                <img src="https://selnoxmedia.s3.amazonaws.com/media/BlankImage/about3.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAS4WSA6KJNP6NPPES%2F20231017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231017T090310Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=68e14837ca7a537263abfb0d720767c1560912c921c06d99ccbf6a0a081861e9" alt="Dispensary Listings" />
                             </div>
                             <div className="about_text">
                                 <h3 className="acard_title">
@@ -137,7 +137,7 @@ export default function Dashboard() {
                         </div>
                         <div className="about_card">
                             <div className="about_card_img">
-                                <img src="./image/about4.webp" alt="Retailer Listings" />
+                                <img src="https://selnoxmedia.s3.amazonaws.com/media/BlankImage/about4.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAS4WSA6KJNP6NPPES%2F20231017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231017T090339Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=0f0ba19c5787a64aa8e87a64e1bc616242ae5696223905b7ba0193fd097f3425" alt="Retailer Listings" />
                             </div>
                             <div className="about_text">
                                 <h3 className="acard_title">
