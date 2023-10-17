@@ -19,7 +19,7 @@ const RelatedVerifyBanner = ({ BrandDetails }) => {
                             <div className="realtedVerifyBanner_image_inner_container">
                                 <LazyLoadImage className="related_verify_banner_img"
 
-                                    src={`https://api.cannabaze.com` + BrandDetails.Brand_Logo} alt="Brand_Logo image not available" />
+                                    src={ BrandDetails.Brand_Logo} alt="Brand_Logo image not available" />
 
                             </div>
                         </div>

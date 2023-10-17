@@ -92,7 +92,7 @@ const Dispensories = () => {
                                         <div className=' dispensoriesAddressBorder'>
                                             <div className='dispensoriesAddresCardimg'>
                                                 <Link to={`/weed-dispensaries/${ele.Store_Name.replace(/\s/g, '-')}/${"menu"}/${ele.id}`}>
-                                                    <img src={`https://api.cannabaze.com${ele?.Store_Image}`} alt={ele.Store_Name.charAt(0).toUpperCase() + ele.Store_Name.slice(1)} className=' dispensories_image  center-block' />
+                                                    <img src={`${ele?.Store_Image}`} alt={ele.Store_Name.charAt(0).toUpperCase() + ele.Store_Name.slice(1)} className=' dispensories_image  center-block' />
                                                 </Link>
                                             </div>
                                             <div className='dispensoriesContentContainer'>

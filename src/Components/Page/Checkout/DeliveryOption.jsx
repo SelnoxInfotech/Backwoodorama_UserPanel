@@ -40,10 +40,17 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
     }
     React.useEffect(()=>{
    if(Time === ""){
-    const h =  Hours?.map((data)=>data.day)
-        const t1 =  Hours.map((data)=>data.Open.map((data)=> data.Time1))
-        const t2 =  Hours.map((data)=>data.Open.map((data)=> data.Time2))
-        SetTime(h[0]+t1[0][0]+t2[0][0])
+     if(Hours !== null){
+
+         const h =  Hours?.map((data)=>data.day)
+             const t1 =  Hours.map((data)=>data.Open.map((data)=> data.Time1))
+             const t2 =  Hours.map((data)=>data.Open.map((data)=> data.Time2))
+             SetTime(h[0]+t1[0][0]+t2[0][0])
+     }
+     else{
+
+        // SetTime(h[0]+t1[0][0]+t2[0][0])
+     }
    }
     },[])
     return (
@@ -95,7 +102,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                                     </div>
                                     <div className="col-12 height_for_time_div">
                                         <div className="col-12 col-lg-12 height_for_time_div">
-                                            <FormControl className={`${classes.muiSelect}`} >
+                                            <FormControl className={`${classes.muiSelectTime}`} >
                                                 <InputLabel id="demo-select-small">Time</InputLabel>
                                                 <Select
                                                     labelId="demo-select-small"

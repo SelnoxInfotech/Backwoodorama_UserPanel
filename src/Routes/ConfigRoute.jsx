@@ -184,6 +184,12 @@ const routesConfig = [
       },
       // End
 
+
+      {
+        path: "/profile",
+        element: <ProtectRout Component={Profile}></ProtectRout>
+      },
+
       /////////////////////////////////////////////////////////////// Proper Compeleted Routes With Seo ////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -224,10 +230,7 @@ const routesConfig = [
         path: "/LearnCardRelatedPage",
         element: <RoutingList Component={LearnCardRelatedPage} ></RoutingList>
       },
-      {
-        path: "/Profile",
-        element: <ProtectRout Component={Profile}></ProtectRout>
-      },
+   
       {
         path: "/EditProfile",
         element: <RoutingList Component={EditProfile} ></RoutingList>

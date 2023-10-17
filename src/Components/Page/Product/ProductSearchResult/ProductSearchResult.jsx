@@ -224,7 +224,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                                                             event.target.src = "/image/blankImage.jpg"
                                                             event.onerror = null
                                                         }}
-                                                        src={`https://api.cannabaze.com${items?.images[0]?.image}`}
+                                                        src={`${items?.images[0]?.image}`}
                                                         height={"100px"}
                                                         alt={items.Product_Name}
                                                     />

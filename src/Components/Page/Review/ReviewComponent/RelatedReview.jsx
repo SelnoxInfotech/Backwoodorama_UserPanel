@@ -37,7 +37,7 @@ const RelatedReview = ({AllReview, SetReview}) => {
                                                         event.onerror = null
                                                     }}
                                                     className='realted_review_images'
-                                                    src={`https://api.cannabaze.com${ele?.userImage}`} 
+                                                    src={`${ele?.userImage}`} 
                                                     alt="userImage"
                                                     />
                                                 </div>

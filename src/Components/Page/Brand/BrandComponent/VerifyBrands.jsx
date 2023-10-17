@@ -34,7 +34,7 @@ const VerifyBrands = () => {
                            
                                 <Link  to={`/brands/${items.name.replace(/\s/g, '').toLowerCase()}/${items.id}`}> 
                                 <div className="col-6  verifyBrand_image_container ">
-                                  <LazyLoadImage className="verify_brand_image"  src={`https://api.cannabaze.com${items.Brand_Logo}`}  alt="image not found" />
+                                  <LazyLoadImage className="verify_brand_image"  src={`${items.Brand_Logo}`}  alt="image not found" />
 
                                 </div>
                                 <div className="col-6 verify_content_container">

@@ -73,7 +73,7 @@ const BlogsCommentsCard = ({ Getcommnet }) => {
                                                                 event.target.src = "/image/blankImage.jpg"
                                                                 event.onerror = null
                                                             }}
-                                                            src={`https://api.cannabaze.com${val.image}`} className="blogsCommentImages" alt="image-notfound" />
+                                                            src={`${val.image}`} className="blogsCommentImages" alt="image-notfound" />
                                                     </div>
                                                 </section>
                                                 <section className="commentCradContentSection">

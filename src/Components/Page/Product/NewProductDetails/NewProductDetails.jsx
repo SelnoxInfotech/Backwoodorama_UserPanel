@@ -118,7 +118,7 @@ const NewProductDetails = () => {
     <div className="container-fluid">
       <ProductDetailsSeo Productname={Product.Product_Name} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State}  ></ProductDetailsSeo>
 
-      <span onClick={() => navigate(-1)} className="BackPageBtn"> <AiOutlineLeft size={22} /> <span className="backPgBtnImg"><img src={`https://api.cannabaze.com${Despen.Store_Image}`} alt="" /></span> {Despen.Store_Name}</span>
+      <span onClick={() => navigate(-1)} className="BackPageBtn"> <AiOutlineLeft size={22} /> <span className="backPgBtnImg"><img src={`${Despen.Store_Image}`} alt="" /></span> {Despen.Store_Name}</span>
       <NewProductDetailsCards Product={Product} />
 
       <NewProductinfoText Product={{ heading: "Product Description", text: Product?.Product_Description }} />

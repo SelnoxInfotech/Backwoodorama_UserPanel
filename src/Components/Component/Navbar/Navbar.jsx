@@ -101,7 +101,7 @@ const Navbar = () => {
   const Redirect = (items, listId) => {
     SetProfileSelectedState(listId)
     if (items === "My Order") {
-      navigate("/MyOrder")
+      navigate("/myorder")
       SetDropDownState((DropDownState) => {
         return !DropDownState;
       })
@@ -109,7 +109,7 @@ const Navbar = () => {
 
   }
   const ViewProfiles = () => {
-    navigate("/Profile")
+    navigate("/profile")
     SetDropDownState((DropDownState) => {
       return !DropDownState;
     })
@@ -173,9 +173,6 @@ const Navbar = () => {
                 ?
 
                 <div className=' col-12 Login_Sigup_button '>
-{
-  console.log(state.Profile.image)
-}
                   <div className='col-lg-4 col-sm-4 navbarProfileDropDown_container' ref={profileRef}>
                     <Grid display={{ xs: "none", md: "block", lg: "block" }}>
                       <div className='Navbar_profile_logo_container'>
@@ -184,7 +181,7 @@ const Navbar = () => {
                             event.target.src = "/image/user.webp"
                             event.onerror = null
                           }}
-                          src={`https://api.cannabaze.com${state.Profile.image}`}
+                          src={ state.Profile.googlelink === null ?`${state.Profile.image} ` : state.Profile.googlelink}
                           alt='Profile'
                           className="Navbar_logo_imgs"
                           onClick={handleClickDropdown}
@@ -199,7 +196,7 @@ const Navbar = () => {
                               event.target.src = "/image/user.webp"
                               event.onerror = null
                             }}
-                              src={`https://api.cannabaze.com${state?.Profile?.image}`}
+                              src={state.Profile.googlelink === null ?`${state.Profile.image} ` : state.Profile.googlelink}
                               alt='Profile' className="Navbar_profile_imgs" />
                           </div>
                           <div className='profile_name_container'>
