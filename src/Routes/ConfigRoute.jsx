@@ -4,7 +4,8 @@ import Dashboard from "../Components/Page/Home/Dashboard/Dashboard";
 import ProtectRout from "../Routes/ProtectRout"
 import RoutingDespen from "../Routes/RoutingDespen"
 import RoutingList from "../Routes/RoutingList"
-
+import Learnproduct from "../Components/Page/Learn/Product/Learnproduct";
+import Learnproductcontent from "../Components/Page/Learn/Product/Learnproductcontent";
 const Blogs = React.lazy(() => import("../Components/Page/Blog/Blog"));
 const OpenDispansires = React.lazy(() => import("../Components/Page/Dispansires/Dispansires"));
 const DispensoriesDetails = React.lazy(() => import("../Components/Page/Dispansires/DispansiresComponent/DispensoriesDetail"));
@@ -137,10 +138,14 @@ const routesConfig = [
         path: "/aboutUs",
         element: <RoutingList Component={AboutUs} ></RoutingList>
       },
-      // {
-      //   path: "/products",
-      //   element: <RoutingList Component={Product} ></RoutingList>,
-      // },
+      {
+        path: "/learn/product",
+        element: <RoutingList Component={Learnproduct} ></RoutingList>,
+      },
+      {
+        path: "/learn/product/:content",
+        element: <RoutingList Component={Learnproductcontent} ></RoutingList>,
+      },
       {
         path: "/products/:categoryname?/:id?",
         element: <RoutingList Component={Product} ></RoutingList>

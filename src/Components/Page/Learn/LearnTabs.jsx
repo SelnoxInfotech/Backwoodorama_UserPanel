@@ -5,9 +5,9 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import useStyles from '../../../Style';
-import Products from './Product/Products';
 import Learn from './Learn';
 import History from './History/History';
+import Learnproduct from './Product/Learnproduct';
 import Laws from './Laws/Laws';
 import { Link, useLocation , useNavigate} from 'react-router-dom';
 const LearnTabs = () => {
@@ -35,7 +35,7 @@ const LearnTabs = () => {
                             <Box className={`${classes.learn_tab_background} ${classes.learn_tab}`} sx={{ marginLeft: "-5px", borderColor: 'divider' }}>
                                 <TabList scrollButtons={false} variant="scrollable" onChange={handleChange} aria-label="lab API tabs example">
                                     <Tab label="Learn" value="/learn" />
-                                    <Tab label="Product" value="/Product" />
+                                    <Tab label="Product" value="/learn/product" />
                                     <Tab label="History" value="/History" />
                                     <Tab label="Law" value="/learn/laws-and-regulation" />
 
@@ -45,7 +45,7 @@ const LearnTabs = () => {
                                 <TabPanel value="/learn" >
                                     <Learn />
                                 </TabPanel>
-                                <TabPanel value="/Product"><Products /></TabPanel>
+                                <TabPanel value="/learn/product"><Learnproduct /></TabPanel>
                                 <TabPanel value="/History"><History /></TabPanel>
                                 <TabPanel value="/learn/laws-and-regulation"><Laws /></TabPanel>
                             </Box>
