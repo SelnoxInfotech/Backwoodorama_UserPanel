@@ -125,7 +125,7 @@ const Navbar = () => {
                 justifyContent="center"
               >
                 <span >
-                  <Link to="/"><LazyLoadImage className='navbar_logo_image' alt='WeedX.io' src='https://api.cannabaze.com/image/images/download/media/BlankImage/3.png' /></Link>
+                  <Link to="/"><LazyLoadImage className='navbar_logo_image' alt='WeedX.io' src='https://selnoxmedia.s3.amazonaws.com/media/BlankImage/BlankImage.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAS4WSA6KJNP6NPPES%2F20231017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231017T085923Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=e001b524709f535460ff5d38399eb82f0ce59d8c5c7cd5521039417723dd85bd' /></Link>
                 </span>
 
               </Grid>
@@ -143,7 +143,7 @@ const Navbar = () => {
             <SearchBar path={Location.pathname}/>
             :
             <span className='mobileNavLogo' >
-            <Link to="/"><LazyLoadImage className='navbar_logo_image' src='https://api.cannabaze.com/image/images/download/media/BlankImage/3.png' /></Link>
+            <Link to="/"><LazyLoadImage className='navbar_logo_image' src='https://selnoxmedia.s3.amazonaws.com/media/BlankImage/BlankImage.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAS4WSA6KJNP6NPPES%2F20231017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231017T085923Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=e001b524709f535460ff5d38399eb82f0ce59d8c5c7cd5521039417723dd85bd' /></Link>
           </span>
           }
           </Grid>
