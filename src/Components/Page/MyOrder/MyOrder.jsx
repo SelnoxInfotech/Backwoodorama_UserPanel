@@ -19,7 +19,7 @@ const MyOrder = () => {
     React.useEffect(() => {
         window.scroll(0, 0)
         GetCancelOrder().then((res) => {
-            SetAllOrder_data(res.data.reverse())
+            SetAllOrder_data(res?.data?.reverse())
         }).catch()
     }, [])
     return (

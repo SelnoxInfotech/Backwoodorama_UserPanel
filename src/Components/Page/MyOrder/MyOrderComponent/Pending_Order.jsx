@@ -11,7 +11,7 @@ const Pending_Order = () => {
     const classes = useStyles()
     const [AllOrder_data, SetAllOrder_data] = React.useState([])
     const [Loading, SetLoading] = React.useState(false)
-    const [icon, Seticon] = React.useState(false)
+
     React.useEffect(() => {
         PendingOrder().then((res) => {
             SetAllOrder_data(res.data.reverse())
@@ -22,9 +22,17 @@ const Pending_Order = () => {
     function CencelOrder(id) {
         SetLoading(true)
         Cancel(id).then((res) => {
-            SetAllOrder_data(res.data.reverse())
+            console.log(res.data)      
+            // SetAllOrder_data(res.data.data.reverse())
             PendingOrder().then((res) => {
-                SetAllOrder_data(res.data.reverse())
+                console.log(res.data)
+                if(res.data.length === 0) {
+                    SetAllOrder_data([])
+                }
+                else{
+                    SetAllOrder_data(res.data.reverse())
+
+                }
             }).catch()
         }).catch(SetLoading(false))
         SetLoading(false)

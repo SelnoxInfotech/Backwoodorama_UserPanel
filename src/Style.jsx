@@ -126,11 +126,10 @@ const useStyles = makeStyles({
       width: "168px",
       height: "38px",
       minWidth: "150px",
-      border:"1px solid yellow"
     },
     "& .MuiOutlinedInput-input": {
       width: "119px",
-      border:"2px solid green"
+      // border:"2px solid green"
     },
     "& .MuiSelect-nativeInput": {
       height: "33px",
@@ -160,11 +159,11 @@ const useStyles = makeStyles({
       width: "168px",
       height: "38px",
       minWidth: "150px",
-      border:"1px solid yellow"
+      // border:"1px solid yellow"
     },
     "& .MuiOutlinedInput-input": {
       width: "119px",
-      border:"2px solid green"
+      // border:"2px solid green"
     },
     "& .MuiSelect-nativeInput": {
       height: "33px",
