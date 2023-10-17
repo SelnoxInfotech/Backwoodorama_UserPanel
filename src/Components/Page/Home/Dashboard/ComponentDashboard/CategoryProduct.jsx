@@ -13,12 +13,8 @@ const CategoryProduct = ({ ShowCategoryProduct, Category, Skeleton }) => {
                              !Skeleton?
                            
                                 <div className="catagoryTabs_section">
-                                  
                                         <h2 className='shopByCategoryHeading'>Shop by Category</h2>
-                                 
                                         <ScrollContainer className="ScrollContainerRelative">
-
-
                                     {Category?.map((ele, index) => {
                                         return (
                                             <div className='CategorySliderImageBlock' key={index}>
