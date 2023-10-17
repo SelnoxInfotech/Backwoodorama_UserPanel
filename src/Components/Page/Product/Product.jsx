@@ -9,6 +9,7 @@ import { GetProduct, CategoryProductsearch, SubCategoryApi, SubcategoryProduct }
 const Product = () => {
     const navigate = useNavigate();
     const params = useParams();
+    const location =  useLocation()
     const { state, dispatch } = React.useContext(Createcontext)
     const [loading, SetLoading] = React.useState(false)
     const [subcategories, setsubcategories] = useState([])
@@ -412,8 +413,8 @@ const Product = () => {
 
     return (
         <>
-            {!params.id ? <ProductSeo location={useLocation().pathname}></ProductSeo> :
-                <ProductCategorySeo categoryname={params.categoryname}  location={useLocation().pathname} ></ProductCategorySeo>}
+            {!params.id ? <ProductSeo location={location.pathname}></ProductSeo> :
+                <ProductCategorySeo categoryname={params.categoryname}  location={location.pathname} ></ProductCategorySeo>}
             <div className="container-fluid product_container" >
                 <div className="row">
                     <div className="col-12 mt-4">
