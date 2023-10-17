@@ -95,15 +95,15 @@ const Footer = () => {
                             </div>
                             <div className="footer_list">
                                 <ol className="footer_main_list">
-                                    <p className="footer_menu_heading">More</p>
-                                    <Link to={`/Brand`}>
-                                        <li className="footer_li ellipsis" >Get Started</li>
+                                    <p className="footer_menu_heading">For Business</p>
+                                    <Link to={`/https://cannabaze.com/demo`}>
+                                        <li className="footer_li ellipsis" >Add Dispansires</li>
                                     </Link>
-                                    <Link to={`/Brand`}>
+                                    <Link to={`/https://cannabaze.com/demo`}>
                                         <li className="footer_li ellipsis" >Add Brand</li>
                                     </Link>
-                                    <Link to={`/Brand`}>
-                                        <li className="footer_li ellipsis" >Add Business</li>
+                                    <Link to={`/https://cannabaze.com/demo`}>
+                                        <li className="footer_li ellipsis" >Add Delivery</li>
                                     </Link>
                                     <Link to={`/cannabis-news`}>
                                         <li className="footer_li ellipsis" >All News</li>
@@ -129,7 +129,7 @@ const Footer = () => {
                                     </Link>
                                     <Link to={'/cookies-policy'}>
 
-                                        <li className="footer_li" > cookies Policy </li>
+                                        <li className="footer_li" > Cookies Policy </li>
                                     </Link>
                                     <Link to={'/privacy-policy'}>
 
@@ -140,16 +140,19 @@ const Footer = () => {
                             <div className="col-lg-3 col-sm-3 footer_icons_column ">
                                 <ol className="px-0">
                                     <li>
-                                        <Link to={"https://www.linkedin.com/company/weedx-io/"}></Link>
-                                        <BsLinkedin className={`footer_icons ${classes.footer_icons_color}`} />
+                                        <Link to={"https://www.linkedin.com/company/weedx-io/"}>
+                                          <BsLinkedin className={`footer_icons ${classes.footer_icons_color}`} />
+                                        </Link>
                                     </li>
                                     <li>
-                                        <Link to={"https://www.facebook.com/profile.php?id=61550742531174"}></Link>
-                                        <FaFacebook className={` footer_icons ${classes.footer_icons_color}`} />
+                                        <Link to={"https://www.facebook.com/profile.php?id=61550742531174"}>
+                                           <FaFacebook className={` footer_icons ${classes.footer_icons_color}`} />
+                                        </Link>
                                     </li>
                                     <li>
-                                        <Link to={"https://www.instagram.com/weedx_io"}></Link>
-                                        <FaInstagram className={` footer_icons ${classes.footer_icons_color}`} />
+                                        <Link to={"https://www.instagram.com/weedx_io"}>
+                                           <FaInstagram className={` footer_icons ${classes.footer_icons_color}`} />
+                                        </Link>
                                     </li>
                                     <li>
                                         <Link to={"https://twitter.com/Weedx_io"}>

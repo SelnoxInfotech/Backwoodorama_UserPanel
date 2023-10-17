@@ -28,13 +28,7 @@
     color: #FFFFFF;
     text-align: center;
   }
-  .newProductDetailsHeading {
-    font-weight: 700;
-    font-size: 28px;
-    line-height: 48px;
-    /* identical to box height */
-    color: #000000;
-  }
+
   
   @media (max-width: 768px){
     .homePageSignup_paragraph p {

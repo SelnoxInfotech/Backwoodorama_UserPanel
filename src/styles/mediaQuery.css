@@ -948,7 +948,10 @@ margin: 0;
     font-size: 12px;
   }
 
- 
+  .newProductDetailsHeading {
+    font-size: 14px;
+    margin-left: 3px;
+  }
 
   .allProductCategory_image_container {
     height: 80px;

@@ -12,7 +12,7 @@ const Deliveries=()=>{
         <div className="container-fluid">
             <div className="row  deliveries_centers">
                 <div className="col-lg-12 col-11 deliveries_container_height px-0 mt-2">
-                <h1 className="d-flex"> <span className="dispensories_name">Weed Delivery in</span> <span className="dispensories_city">{state.Location}</span></h1>
+                <h1 className="d-flex"> <span className="dispensories_name">Weed Delivery In </span> <span className="dispensories_city">{state.Location}</span></h1>
                     {/* <h1 className="Deliveries_Heading fontStyle">  <span>{state.Location}</span></h1> */}
                     {/* <h2 className="deliveries_sub_heading fontStyle_weight_fourHundred">Showing result for, {state.Location}</h2> */}
                     

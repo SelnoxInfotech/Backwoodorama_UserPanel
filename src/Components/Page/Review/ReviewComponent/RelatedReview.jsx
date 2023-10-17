@@ -1,12 +1,10 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { AiFillStar , AiOutlineStar, AiFillLike } from "react-icons/ai"
+import {  AiFillLike } from "react-icons/ai"
 import { BsStar ,BsStarFill } from "react-icons/bs";
-import useStyles from "../../../../Style"
 import React from 'react';
 import ReportReviewPopup from '../ReviewPopup/ReportReviewPopup';
 const RelatedReview = ({AllReview, SetReview}) => {
-    const [showMore, setShowMore] = React.useState(false);
-    const classes = useStyles()
+  
     return (
         <React.Fragment>
             <div className='container-fluid'>

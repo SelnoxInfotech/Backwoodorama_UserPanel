@@ -104,6 +104,7 @@
     transform: translate(-50%,-50%);
     position: absolute;
     color: rgb(255, 255, 255);
+    text-transform: capitalize;
   }
   .blog_text_container h1{
     font-size: 28px;

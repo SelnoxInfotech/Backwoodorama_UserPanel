@@ -8,16 +8,12 @@
     width: 260px;
     border: 1px solid rgb(209, 209, 209);
     border-radius: 8px;
-    padding: 20px;
+    padding: 15px;
 }
 .productSearchResultImage_container{
     position: relative;
 }
-.productSearchResultImage_container .product_whish_list{
-    position: absolute;
-    top: -20px;
-    right: -20px;
-}
+
 .productSearchResultImage_container .product_search_result_image{
     width: 200px;
     height: 200px;

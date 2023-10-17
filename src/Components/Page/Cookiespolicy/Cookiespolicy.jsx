@@ -23,7 +23,7 @@ const Termsconditions = () => {
               <li id='etuw'>
                 <span className='question'>Introduction</span>
                 <span className="answer">
-                Welcome to weedx.io (the "Website"), owned and operated by selnox infotech ("we," "us," "our"). This Cookie Policy explains how we use cookies and similar tracking technologies when you access or use our Website.
+                Welcome to <Link>weedx.io</Link>  (the "Website"), owned and operated by selnox infotech ("we," "us," "our"). This Cookie Policy explains how we use cookies and similar tracking technologies when you access or use our Website.
                 </span>
               </li>
               <li id='voa'>

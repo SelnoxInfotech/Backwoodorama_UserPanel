@@ -1,0 +1,45 @@
+.deals_card{
+    width: 260px;
+    padding: 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 8px;
+    position: relative;
+    margin: 10px 0;
+}
+.deals_card .action_icons{
+    position: absolute;
+    top: 0;
+    right: 0px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+   
+}
+.deals_card .card_img .product_search_result_image{
+  width: 100%;
+  height: auto;
+}
+.deals_card .productSearchResultParagraph{
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 600;
+    margin: 0;
+}
+.deals_card .product_search_result_sub_heading{
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.37);
+}
+.deals_card .product_search_result_span1 , .product_search_result_span2{
+    display: block;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+}
+.deals_card .productSearch{
+    margin: 0;
+    font-size: 16px;
+    
+}

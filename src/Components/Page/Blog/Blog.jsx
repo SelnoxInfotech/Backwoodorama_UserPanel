@@ -1,6 +1,6 @@
 import React from "react";
 import { IoChevronBack } from "react-icons/io5"
-import "./Blog.css"
+
 import SearchBar from '@mkyy/mui-search-bar';
 import useStyles from "../../../Style";
 import RecentPost from "./BlogComponent/RecentPost";

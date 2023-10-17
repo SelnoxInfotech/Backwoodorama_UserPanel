@@ -96,7 +96,7 @@ const   ProductCategorySlider = ({ FilterCategory, Category }) => {
 
         <>
             <div className="col-12" style={{ fontSize: "25px", fontWeight: "700" }}>
-                <p>Shop by Category</p>
+                <p>Shop By Category</p>
             </div>
             <ProductSlider  {...settings}>
                 {Category?.map((ele, index) => {

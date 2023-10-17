@@ -48,7 +48,7 @@ const HomePageDealsSignup = () => {
                                 <span className=''><HiOutlineEnvelope color='#fff' fontSize={70} /></span>
                             </div>
                             <div className=" homePageSignup_paragraph   ">
-                                <p>Subscribe to our Newsletters</p>
+                                <p>Subscribe To Our Newsletters</p>
                             </div>
                             <div className='newsletterFormFeild'>
                                 <TextField
