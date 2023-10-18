@@ -11,7 +11,7 @@ const Product = () => {
     const params = useParams();
     const location =  useLocation()
     const { state, dispatch } = React.useContext(Createcontext)
-    const [loading, SetLoading] = React.useState(false)
+    const [loading, SetLoading] = React.useState(true)
     const [subcategories, setsubcategories] = useState([])
     const [Product, SetProduct] = React.useState([])
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -64,12 +64,12 @@ const Product = () => {
     }, [])
     React.useEffect(() => {
         if (params.subCategory) {
-
+            SetLoading(true)
 
             if (state.City !== "") {
                 const object = { City: state.City.replace(/-/g, " ") }
                 SubcategoryProduct(object, params.id).then((response) => {
-                    if (response?.length !== 0) {
+                    if (response?.length !== 0 && response !== "There is no Product") {
                         SetLoading(false)
                         f(response[0]?.category_name)
                         if (response !== "There is no Product") {
@@ -87,7 +87,8 @@ const Product = () => {
                     else {
                         const object = { State: state.State.replace(/-/g, " ") }
                         SubcategoryProduct(object, params.id).then((response) => {
-                            if (response?.length !== 0) {
+                            console.log(response)
+                            if (response?.length !== 0 && response !== "There is no Product") {
                                 SetLoading(false)
                                 f(response[0]?.category_name)
                                 if (response !== "There is no Product") {
@@ -238,7 +239,7 @@ const Product = () => {
         else {
             //    Catogary Product
             if (params.categoryname) {
-
+                SetLoading(true)
                 if (state.City !== "") {
                     const object = { City: state.City.replace(/-/g, " ") }
                     CategoryProductsearch(object, params.id).then((response) => {
@@ -345,6 +346,7 @@ const Product = () => {
                 // Get All Product
                 if (state.City !== "") {
                     const object = { City: state.City.replace(/-/g, " ") }
+                    SetLoading(true)
                     GetProduct(object).then((response) => {
                         if (response.data.length !== 0) {
                             SetLoading(false)
@@ -409,7 +411,7 @@ const Product = () => {
 
         }
 
-    }, [state, params])
+    }, [state.Location, params])
 
     return (
         <>
