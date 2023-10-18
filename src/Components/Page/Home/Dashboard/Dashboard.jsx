@@ -13,7 +13,9 @@ import FeaturedBrand from "./ComponentDashboard/FeaturedBrand";
 import Axios from "axios";
 import {HomePageSco} from "../../../Component/ScoPage/HomePageSco"
 import './Home.css';
+import Createcontext from "../../../../Hooks/Context"
 export default function Dashboard() {
+    const { state } = React.useContext(Createcontext)
     const [FeaturedBrandArray, SetFeaturedBrandArray] = React.useState([])
     const [Skeleton, SetSkeleton] = React.useState(true)
     const [BrandSkeleton, SetBrandSkeleton] = React.useState(true)
@@ -22,6 +24,7 @@ export default function Dashboard() {
 
         Navigate(`/products/${name.replace(/%20| /g, "-").toLowerCase()}/${id}`);
     }
+
     const [Category, SetCategory] = React.useState([])
     React.useEffect(() => {
         const fetchData = async () => {
@@ -54,10 +57,10 @@ export default function Dashboard() {
         window.scrollTo(0, 0)
     }, [])
     const StrainTypeCardArray = [
-        { imgUrl: "/image/stain2.png", head1: "Indica", },
-        { imgUrl: "/image/stain1.png", head1: "Hybrid" },
-        { imgUrl: "/image/stain3.png", head1: "Sativa" },
-        { imgUrl: "/image/stain4.png", head1: "CBD" },
+        { imgUrl: state?.StaticImage.Indica, head1: "Indica", },
+        { imgUrl: state?.StaticImage.Hybrid, head1: "Hybrid" },
+        { imgUrl: state?.StaticImage.Sativa, head1: "Sativa" },
+        { imgUrl:state?.StaticImage.CBD, head1: "CBD" },
     ]
     return (
         <div >
@@ -85,7 +88,7 @@ export default function Dashboard() {
                     <div className="about_card_Wraper">
                         <div className="about_card">
                             <div className="about_card_img">
-                                <img src="https://selnoxmedia.s3.amazonaws.com/media/BlankImage/about1_PLSth3e.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAS4WSA6KJNP6NPPES%2F20231017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231017T132129Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=6ee6b48ac93b8ad55ce919b5954415ab75d10e3d3766bbe3251a769a72254ad6" alt=" Online Ordering" />
+                                <img src={state?.StaticImage.AboutUs1} alt=" Online Ordering" />
                             </div>
                             <div className="about_text">
                                 <h3 className="acard_title">
@@ -102,7 +105,7 @@ export default function Dashboard() {
                         </div>
                         <div className="about_card">
                             <div className="about_card_img">
-                                <img src="https://selnoxmedia.s3.amazonaws.com/media/BlankImage/about2_2QRBXaH.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAS4WSA6KJNP6NPPES%2F20231017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231017T132159Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=69aa233de07da627f98611780b881acde317e8ec8716ac56810ae7121da8221b" alt="Delivery Services" />
+                                <img src={state?.StaticImage.AboutUs2}alt="Delivery Services" />
                             </div>
                             <div className="about_text">
                                 <h3 className="acard_title">
@@ -119,7 +122,7 @@ export default function Dashboard() {
                         </div>
                         <div className="about_card">
                             <div className="about_card_img">
-                                <img src="https://selnoxmedia.s3.amazonaws.com/media/BlankImage/about3_4MmkHWb.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAS4WSA6KJNP6NPPES%2F20231017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231017T132226Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=fb6406a045b2c00778a70cbb5659adefd4bc0bc00dda62cf7255c56c6b28c839" alt="Dispensary Listings" />
+                                <img src={state?.StaticImage.AboutUs3} alt="Dispensary Listings" />
                             </div>
                             <div className="about_text">
                                 <h3 className="acard_title">
@@ -137,7 +140,7 @@ export default function Dashboard() {
                         </div>
                         <div className="about_card">
                             <div className="about_card_img">
-                                <img src="https://selnoxmedia.s3.amazonaws.com/media/BlankImage/about4_F6AiEBu.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAS4WSA6KJNP6NPPES%2F20231017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231017T132246Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=2637f6da738c7658c9c2d4039ad09c36547a230b75c7add0e242abdc349b5338" alt="Retailer Listings" />
+                                <img src={state?.StaticImage.AboutUs4} alt="Retailer Listings" />
                             </div>
                             <div className="about_text">
                                 <h3 className="acard_title">
@@ -157,7 +160,7 @@ export default function Dashboard() {
             </div>
             <div className="px-sm-0 px-3 dashBoardStrainType">
                 <h3 className=" mt-4 section_main_title">Strain Type</h3>
-                <StrainTypeCards ArrayData={StrainTypeCardArray} />
+                <StrainTypeCards ArrayData={StrainTypeCardArray}  />
 
             </div>
            

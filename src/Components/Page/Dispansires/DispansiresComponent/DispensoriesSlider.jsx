@@ -72,6 +72,28 @@ const Dispensories = () => {
 
     }, [state])
 
+    function modifystr(str) {
+        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str.trim().replaceAll(' ', "-");
+        let a = 0;
+        while (a < 1) {
+            if (str.includes("--")) {
+                str = str.replaceAll("--", "-")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("//", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("-/", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("/-", "/")
+            } else {
+                a++
+            }
+        }
+
+        return str.toLowerCase()
+    }
+
+
     const classes = useStyles()
     return (
         <React.Fragment>
@@ -91,12 +113,12 @@ const Dispensories = () => {
                                     <div className='dispensoriesContainer  dispensoriesCard' key={index}>
                                         <div className=' dispensoriesAddressBorder'>
                                             <div className='dispensoriesAddresCardimg'>
-                                                <Link to={`/weed-dispensaries/${ele.Store_Name.replace(/\s/g, '-')}/${"menu"}/${ele.id}`}>
+                                                <Link to={`/weed-dispensaries/${modifystr(ele.Store_Name)}/${ele.id}`}>
                                                     <img src={`${ele?.Store_Image}`} alt={ele.Store_Name.charAt(0).toUpperCase() + ele.Store_Name.slice(1)} className=' dispensories_image  center-block' />
                                                 </Link>
                                             </div>
                                             <div className='dispensoriesContentContainer'>
-                                                <Link to={`/weed-dispensaries/${ele.Store_Name.replace(/\s/g, '-')}/${"menu"}/${ele.id}`}>
+                                                <Link to={`/weed-dispensaries/${modifystr(ele.Store_Name)}/${ele.id}`}>
                                                     <div className='col-12'>
 
                                                         <div className=' dis_right_div'>
@@ -124,7 +146,7 @@ const Dispensories = () => {
 
 
                                                 </Link>
-                                                <Link to={`/weed-dispensaries/${ele.Store_Name.replace(/\s/g, '-')}/${"review"}/${ele.id}`}>
+                                                <Link to={`/weed-dispensaries/${modifystr(ele.Store_Name)}/${'review'}/${ele.id}`}>
                                                     <div className=' dispensoriesAddressRatingCol text-center '>
                                                         <span className='rating_title'>Rating</span>
                                                         <Rating className={classes.homePageStarIcons} color='green' name="read-only" value={ele.rating === null ? 0 : ele.rating} readOnly />
@@ -135,7 +157,7 @@ const Dispensories = () => {
                                                     <Box
                                                         className={`${classes.loadingBtnTextAndBack}`}
                                                     >
-                                                        <LoadingButton onClick={() => { Navigate(`/weed-dispensaries/${ele.Store_Name.replace(/\s/g, '-')}/${"menu"}/${ele.id}`) }} style={{ width: "100%" }}>Order Pickup</LoadingButton>
+                                                        <LoadingButton onClick={() => { Navigate(`/weed-dispensaries/${modifystr(ele.Store_Name)}/${ele.id}`) }} style={{ width: "100%" }}>Order Pickup</LoadingButton>
                                                     </Box>
                                                 </div>
                                             </div>

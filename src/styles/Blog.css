@@ -87,7 +87,7 @@
     background-position:center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url("https://api.cannabaze.com/image/images/download/media/BlankImage/b1_2.png");
+    /* background-image: url("https://api.cannabaze.com/image/images/download/media/BlankImage/b1_2.png"); */
   }
   .blog_Image .overlay_blog{
     width: 100%;

@@ -112,6 +112,30 @@ const DeliveryServices = () => {
         }
     }, [state])
     
+    function modifystr(str) {
+        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str.trim().replaceAll(' ', "-");
+        let a = 0;
+        while (a < 1) {
+            if (str.includes("--")) {
+                str = str.replaceAll("--", "-")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("//", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("-/", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("/-", "/")
+            } else {
+                a++
+            }
+        }
+
+        return str.toLowerCase()
+    }
+
+
+
+
     return (
         <React.Fragment>
             <div className="px-sm-0 px-3">
@@ -128,13 +152,13 @@ const DeliveryServices = () => {
                                     return (
                                         <div className='deliveryServicesCard' key={index}>
                                             <div className='deliveryServicesBorder '>
-                                                <Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g, '-').toLowerCase()}/${"menu"}/${items.id}`}>
+                                                <Link to={`/weed-deliveries/${modifystr(items.Store_Name)}/${items.id}`}>
                                                     <div className='col-12 deliveryServicesImage_container'>
                                                         <LazyLoadImage className='deliveryServicesImage' src={`${items.Store_Image}`} alt={items.Store_Name} />
                                                     </div>
                                                 </Link>
                                                 <div className='col-12 deliveryServicesContent_container px-4'>
-                                                    <Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g, '-').toLowerCase()}/${"menu"}/${items.id}`}>
+                                                    <Link to={`/weed-deliveries/${modifystr(items.Store_Name)}/${items.id}`}>
                                                         <div className='w-100  deliveryServicesTitle'>
                                                             <p className='ellipsis'>{items.Store_Name}</p>
                                                         </div>
@@ -142,7 +166,7 @@ const DeliveryServices = () => {
                                                             <p className='ellipsis'>{items.Store_Address}</p>
                                                         </div>
                                                     </Link>
-                                                    <Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g, '-').toLowerCase()}/${"review"}/${items.id}`}>
+                                                    <Link to={`/weed-deliveries/${modifystr(items.Store_Name)}/${"review"}/${items.id}`}>
                                                         <div className='w-100 d-flex align-items-center'>
                                                             <span className='DeliveryServicesRatingTitle'>Rating</span>
                                                             <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={items.rating === null ? 0 : items.rating} readOnly />

@@ -14,7 +14,7 @@ import { IoEyeSharp } from "react-icons/io5";
 import { AiFillHeart  } from "react-icons/ai";
 import { IconButton } from "@mui/material";
 import Createcontext from "../../../Hooks/Context";
-import { BlogLike, Post_BlogLike, Get_Comment, ViewCountApi } from "../../../Api/Api"
+import { BlogLike, Get_Comment, ViewCountApi  , Post_BlogLike} from "../../../Api/Api"
 import _ from "lodash"
 import { RWebShare } from "react-web-share";
 import { WhisList } from "../../Component/Whishlist/WhisList";
@@ -35,15 +35,12 @@ const Blogs = () => {
     const [News, SetNews] = React.useState({})
     const [WishList, SetWishList] = React.useState(false)
     const [ViewCount, SetViewCount] = React.useState(0)
-    const [BlogReviewCount,SetBlogReviewCount]=React.useState()
-    const [isMountRender, setMountRender] = React.useState(true);
 
     React.useEffect(() => {
         const getApi = async () => {
             const res = await fetch(`https://api.cannabaze.com/UserPanel/Get-GetNewsById/${id}`);
             const data = await res.json();
             SetNews(data[0])
-            console.log(data[0] ,' check')
             await BlogLike(data[0].id).then((res) => {
                 SetLikes(res.data.Like)
                 SetValue({ ...value, "LinkCount": res.data.LikeCount })
@@ -51,29 +48,31 @@ const Blogs = () => {
                 console.error(error)
             })
             GetComment(data[0].id)
-            await ViewCountApi(id).then((res) => {
-                 SetViewCount(res.data.data)
-                 SetBlogReviewCount(res.data.ViewCount)
-             }).catch(() => {
+            // await ViewCountApi(id).then((res) => {
+            //      SetViewCount(res.data.data)
+            //      SetBlogReviewCount(res.data.ViewCount)
+            //  }).catch(() => {
 
-            })
+            // })
 
         }
+        window.scroll(0,0)
         getApi()
     }, [id])
     React.useEffect(() => {
-        window.scroll(0, 0)
-        if(isMountRender){
+            if(Object.keys(News).length !==0 ){
             axios.post("https://api.cannabaze.com/UserPanel/Update-ViewCounter/", {  
             id: News.id
            }).then((response) => {
-            setMountRender(false)
-            SetViewCount(response.data?.data?.ViewCount ,'response 334')
+            SetViewCount(response.data.data.ViewCount)
          
           }); 
         }
+        
        
     },[News])
+
+
     async function GetComment(id) {
         await Get_Comment(id).then((res) => {
 
@@ -136,9 +135,9 @@ const Blogs = () => {
                             </div>
                             <div className=" UserNmae  ">
                                 <h6>{News?.username}</h6>
-                            </div>
+                            </div> 
                         </div>
-                        <section className="blog_Image" >
+                        <section className="blog_Image" style={{backgroundImage:`url(${state?.StaticImage?.blogbanner})`}} >
                             <div className="overlay_blog"></div>
                             <h1 className="blog_Title ">{News?.Title}</h1>
                             {/* <img src ="https://api.cannabaze.com/image/images/download/media/BlankImage/b1_2.png"  style={{width:"100%" , height:"250px"}}alt="blog image"></img> */}

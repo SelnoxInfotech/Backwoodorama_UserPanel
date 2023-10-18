@@ -98,11 +98,14 @@ const reducer = (state, action) => {
         {
           return { ...state, permission: action.permission }
         }
-        case "GoogleImage":
-          {
-            return { ...state, GoogleImage: action.GoogleImage }
-          }
-     
+        // case "GoogleImage":
+        //   {
+        //     return { ...state, GoogleImage: action.GoogleImage }
+        //   }
+          case "StaticImage":
+            {
+              return { ...state, StaticImage: action.StaticImage }
+            }
 
 
 

@@ -5,6 +5,17 @@ export function registerEmp(usrdata) {
     let data = axios.post(' https://api.cannabaze.com/DeliveryBoy/Add-Employee/', usrdata);
     return data;
 }
+
+// Static Image Api 
+export function StaticImages() {
+    let data = axios.get(`https://api.cannabaze.com/AdminPanel/Get-StaticImages/`
+        );
+        return data;
+}
+
+
+// End
+
 // blog Api
 export function BlogLike(ID) {
     const cookies = new Cookies();
@@ -23,6 +34,7 @@ export function BlogLike(ID) {
         return data;
     }
 }
+
 export function Post_BlogLike(id, like) {
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')

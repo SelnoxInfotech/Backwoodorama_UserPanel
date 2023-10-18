@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from 'react-router-dom';
-const StrainTypeCards = ({ ArrayData }) => {
+const StrainTypeCards = ({ ArrayData}) => {
     const ref = React.useRef(null);
    
     return (

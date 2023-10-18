@@ -9,8 +9,10 @@ import { Link } from "react-router-dom"
 import { IoLocationSharp } from "react-icons/io5"
 import { CiMobile1 } from "react-icons/ci"
 import { HiOutlineMail } from "react-icons/hi"
+import Createcontext from "../../../Hooks/Context"
 import "./Footer.css";
 const Footer = () => {
+    const { state } = React.useContext(Createcontext)
     const classes = useStyles()
     const [Categorys, SetCategorys] = React.useState([])
     const [morelist, setmorelist] = React.useState(false)
@@ -45,7 +47,7 @@ const Footer = () => {
                         <div className="row main_content_logo">
                             <div className=" footer_logo_container">
                                 <div className="footerLogo">
-                                    <LazyLoadImage className="footer_logo_image" src="https://api.cannabaze.com/image/images/download/media/BlankImage/3.png" alt="weedx.io logo" />
+                                    <LazyLoadImage className="footer_logo_image" src={state?.StaticImage?.Logo  } alt="weedx.io logo" />
                                 </div>
 
                                 <div className="contact_info">

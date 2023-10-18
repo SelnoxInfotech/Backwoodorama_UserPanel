@@ -3,17 +3,19 @@ import StrainType from "./StrainComponent/StrainType"
 import PopularStrain from "./StrainComponent/PopularStrain"
 import {StrainSeo} from "../../Component/ScoPage/LearnSeo"
 import { useLocation } from "react-router-dom"
+import Createcontext from "../../../Hooks/Context"
 const Strain = () => {
+  const { state } = React.useContext(Createcontext)
   const PopularStrainArray = [{ imgUrl: "/image/glass.png", name: "0G Kush", secName: "Hybrid" },
-  { imgUrl: "./image/social.png", name: "0G Galeto", secName: "Indica" },
-  { imgUrl: "./image/sativa.png", name: "0G Runtz", secName: "Sativa" },
-  { imgUrl: "./image/edibles.webp", name: "0G Kush", secName: "Hybrid" },
-  { imgUrl: "./image/edibles.webp", name: "0G Kush", secName: "Hybrid" },
-  { imgUrl: "./image/edibles.webp", name: "0G Kush", secName: "Hybrid" },
-  { imgUrl: "./image/edibles.webp", name: "0G Kush", secName: "Hybrid" },
-  { imgUrl: "./image/edibles.webp", name: "0G Kush", secName: "Hybrid" },
-  { imgUrl: "./image/edibles.webp", name: "0G Kush", secName: "Hybrid" },
-  { imgUrl: "./image/edibles.webp", name: "0G Kush", secName: "Hybrid" }
+  { imgUrl: state?.StaticImage.Indica, name: "0G Galeto", secName: "Indica" },
+  { imgUrl: state?.StaticImage.Sativa, name: "0G Runtz", secName: "Sativa" },
+  { imgUrl: state?.StaticImage.Hybrid, name: "0G Kush", secName: "Hybrid" },
+  { imgUrl: state?.StaticImage.CBD, name: "0G Kush", secName: "Hybrid" },
+  { imgUrl: state?.StaticImage.Indica, name: "0G Kush", secName: "Hybrid" },
+  { imgUrl: state?.StaticImage.Indica, name: "0G Kush", secName: "Hybrid" },
+  { imgUrl: state?.StaticImage.Indica, name: "0G Kush", secName: "Hybrid" },
+  { imgUrl: state?.StaticImage.Indica, name: "0G Kush", secName: "Hybrid" },
+  { imgUrl: state?.StaticImage.Indica, name: "0G Kush", secName: "Hybrid" }
 
   ]
 

@@ -6,6 +6,7 @@ import CurrentLocation from '../Components/Component/Navbar/Component/CurrentLoc
 import CheckAgeEligbilityPopup from '../Components/Page/CheckAgeEligblityPopup/CheckAgeEligbilityPopup';
 import CookiesAccept from '../Components/Component/CookiesAccept/CookiesAccept';
 import { WishListget } from '../Components/Component/Whishlist/WishListApi_';
+import { StaticImages } from '../Api/Api';
 const Createcontext = createContext();
 const cookies = new Cookies();
 const login = cookies.get("Token_access")
@@ -39,8 +40,10 @@ const initialUser = {
     // Get For Routing 
     Country: "",
     State: "",
-    City: ""
+    City: "",
     // End
+    // StaticImage
+    StaticImage:[]
 }
 
 function Context(props) {
@@ -131,6 +134,16 @@ function Context(props) {
             }
         }
     }, [state.ApiProduct, state.login])
+    
+React.useEffect(()=>{
+  StaticImages().then((response)=>{
+    dispatch({ type: 'StaticImage', StaticImage: response.data.data[0] })
+  }).catch((error)=>{
+    console.trace(error)
+  })
+},[])
+
+
     return (
 
         <Createcontext.Provider value={{ state, dispatch }} container>

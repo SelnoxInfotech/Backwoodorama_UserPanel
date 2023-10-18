@@ -18,6 +18,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import IconButton from '@mui/material/IconButton';
 import { useNavigate , useLocation } from 'react-router-dom';
 import './Navbar.css'
+// import logo from ""
 const Navbar = () => {
   const cookies = new Cookies();
   const ref = React.useRef(null);
@@ -32,9 +33,7 @@ const Navbar = () => {
   const [ProfileSlectedState, SetProfileSelectedState] = React.useState(1)
   const ProfileList = [{ id: 1, item: "My Order" }, { id: 2, item: "Favorites" },
   { id: 3, item: "Review" }, { id: 4, item: "Help" }]
-
-
-
+   
   React.useEffect(() => {
 
     const handleResize = () => {
@@ -125,7 +124,7 @@ const Navbar = () => {
                 justifyContent="center"
               >
                 <span >
-                  <Link to="/"><LazyLoadImage className='navbar_logo_image' alt='WeedX.io' src='https://api.cannabaze.com/image/images/download/media/BlankImage/3.png  ' /></Link>
+                  <Link to="/"><LazyLoadImage className='navbar_logo_image' alt='WeedX.io' src={state?.StaticImage?.Logo} /></Link>
                 </span>
 
               </Grid>
@@ -143,7 +142,7 @@ const Navbar = () => {
             <SearchBar path={Location.pathname}/>
             :
             <span className='mobileNavLogo' >
-            <Link to="/"><LazyLoadImage className='navbar_logo_image' src='https://api.cannabaze.com/image/images/download/media/BlankImage/3.png' /></Link>
+            <Link to="/"><LazyLoadImage className='navbar_logo_image' src={state?.StaticImage?.Logo} /></Link>
           </span>
           }
           </Grid>

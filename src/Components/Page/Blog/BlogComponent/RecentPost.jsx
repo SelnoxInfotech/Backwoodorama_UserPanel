@@ -30,7 +30,7 @@ const RecentPost = () => {
                                 {News?.map((ele, index) => {
   
                                         return (
-                                            <Link to={`/Blogs/${ele.id}`} key={index}> 
+                                            <Link to={`/cannabis-news/${ele.Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${ele.id}`} key={index}> 
                                                 <div className="new_blog_card">
                                                     <div className="new_blog_card_img">
                                                         <img src={`${ele.Image}`} alt="img_not_found" style={{ pointerEvents: "none" }} />

@@ -6,7 +6,26 @@ import { Link,  } from "react-router-dom"
 const FeaturedBrand = ({ CardDataArray ,BrandSkeleton}) => {
    
     const ref = React.useRef(null);
+    function modifystr(str) {
+        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str.trim().replaceAll(' ', "-");
+        let a = 0;
+        while (a < 1) {
+            if (str.includes("--")) {
+                str = str.replaceAll("--", "-")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("//", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("-/", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("/-", "/")
+            } else {
+                a++
+            }
+        }
 
+        return str.toLowerCase()
+    }
     return (
         <div className="px-sm-0 px-3 feature_brands_section">
             <div className="">
@@ -23,7 +42,7 @@ const FeaturedBrand = ({ CardDataArray ,BrandSkeleton}) => {
                         CardDataArray.map((items, index) => {
                             return (
                                 <div className="feature_brands" key={index}>
-                                      <Link  to={`/brands/${items.name.replace(/\s/g, '')}/${items.id}`}> 
+                                      <Link  to={`/brands/${modifystr(items.name)}/${items.id}`}> 
                                         <div className="row  FeaturedBrandContainer  mx-0 my-2">
                                             <div className="col-12 FeaturedBrandImageContainer px-0">
                                                 <LazyLoadImage alt={items.name} className="FeaturedBrandImage_height" src={`${items.Brand_Logo}`} />
