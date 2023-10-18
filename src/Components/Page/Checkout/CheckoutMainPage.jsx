@@ -88,21 +88,21 @@ const CheckOutMainPage = () => {
     }
 
     React.useEffect(() => {
-        Axios.get(`https://api.cannabaze.com/UserPanel/Get-UserProfileOrderDetails/`, config).then((data) => {
-            if (data.data.length !== 0) {
-                data.data.map((user, key) => {
-                    console.log(user)
-                  
-                        SetDetails({ 
-                            ...Details, MobileNo:user.MobileNo, Email:user.Email, "DateOfBirth": user.DateOfBirth ,  "FirstName": user.FirstName , "LastName": user.LastName , "MedicalMarijuanaNumber": user.MedicalMarijuanaNumber,  "MobileNo": user.MobileNo
-                        });
-                  
-                })
+      state.login &&   Axios.get(`https://api.cannabaze.com/UserPanel/Get-UserProfileOrderDetails/`, config).then((data) => {
+        if (data.data.length !== 0) {
+            data.data.map((user, key) => {
+                console.log(user)
+              
+                    SetDetails({ 
+                        ...Details, MobileNo:user.MobileNo, Email:user.Email, "DateOfBirth": user.DateOfBirth ,  "FirstName": user.FirstName , "LastName": user.LastName , "MedicalMarijuanaNumber": user.MedicalMarijuanaNumber,  "MobileNo": user.MobileNo
+                    });
+              
+            })
 
 
-            }
+        }
 
-        })
+    })
 
     }, [])
 
@@ -117,7 +117,7 @@ const CheckOutMainPage = () => {
                     <div className="col-md-8 col-lg-6 col-sm-12 col-12">
                         <div className="row ">
                             <div className="col-lg-12">
-                                <DeliveryOption Time={Time} SetTime={SetTime} Hours={state.AllProduct[0].StoreHours} DeliveryOptionData={DeliveryOptionData} address={InputValues.delivery} SetShowData={SetShowData} />
+                                <DeliveryOption Time={Time} SetTime={SetTime} Hours={state?.AllProduct[0]?.StoreHours} DeliveryOptionData={DeliveryOptionData} address={InputValues.delivery} SetShowData={SetShowData} />
 
                             </div>
 

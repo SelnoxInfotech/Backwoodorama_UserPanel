@@ -11,6 +11,7 @@ import useStyles from "../../../Style"
 import Createcontext from "../../../Hooks/Context"
 const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Time, SetTime}) => {
     const { state, dispatch } = React.useContext(Createcontext)
+    console.log(Hours)
     const method = useForm()
     const classes = useStyles()
     const [ShowDeliveryRestData, SetShowDeliveryRestData] = React.useState(true)
@@ -40,7 +41,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
     }
     React.useEffect(()=>{
    if(Time === ""){
-     if(Hours !== null){
+     if(Hours !==( null || undefined)){
 
          const h =  Hours?.map((data)=>data.day)
              const t1 =  Hours.map((data)=>data.Open.map((data)=> data.Time1))
@@ -49,7 +50,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
      }
      else{
 
-        // SetTime(h[0]+t1[0][0]+t2[0][0])
+        SetTime([])
      }
    }
     },[])
@@ -115,8 +116,8 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                                                     {
                                                         Hours?.map((data)=>{
                                                             return(
-                                                                <MenuItem value={data?.day + data.Open?.map((time)=>time.Time1) + data.Open?.map((time)=>time.Time2)}>
-                                                                  <div> <span style={{width:"10px"}}> {data.day} </span> <span>{data.Open?.map((time)=>time.Time1)}</span> <span>{data.Open.map((time)=>time.Time2)}</span></div>
+                                                                <MenuItem value={data?.day + data?.Open?.map((time)=>time.Time1) + data?.Open?.map((time)=>time.Time2)}>
+                                                                  <div> <span style={{width:"10px"}}> {data?.day} </span> <span>{data?.Open?.map((time)=>time.Time1)}</span> <span>{data?.Open?.map((time)=>time.Time2)}</span></div>
                                                                     
                                                                     </MenuItem>
                                                             )
