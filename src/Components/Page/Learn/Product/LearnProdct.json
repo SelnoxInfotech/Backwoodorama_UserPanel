@@ -1,11 +1,381 @@
 {
-   "data" : {
+   "data" : [
+    {
         "id": 1,
         "content":[
             {
                 "type":"heading",
-                "content" :" <h1> Do Edibles Lose Their Freshness Over Time?                "
+                "content" :" <h1>Do Edibles Lose Their Freshness Over Time?</h1>"
+            },
+            {
+                "type":"image",
+                "content" :""
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>It shouldn't come as a surprise that edibles do, in fact, expire. As they are food products, they will definitely expire or, at the very least, lose their freshness.</p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>So what do you do when you come into a bag of flavoured gum drops or an outdated cookie hidden in the back of the cupboard? Here are a few things to be aware of and take into account when it comes to edibles infused with cannabis and their perishability.                </p>"
+            },
+            {
+                "type":"heading",
+                "content" :" <h2> Think About The Components                </h2>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> Let's begin by using common sense. 'It really just comes down to the starting material,' Carson Shipley of Seattle's (Lux) Pot Shop said. Some foods have a smaller life than others because they are more decayable. A freshly baked cake without additional preservatives won't last as long as a packaged food like a lollipop that is more shelf-stable. </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> Jesse Poe, Director of Edibles Operations for Chalice Farms in Oregon, stated that the shelf life of an edible depends on the type of edible, how it was manufactured, and the preservatives that are added to it.                 </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> Consider the practically indestructible Twinkie. Some cookies and brownies were created and prepared to be packaged and shelf-stable for a long period. These edibles will naturally have a longer shelf life than, say, an infused cookie or brownie you make at home. Additionally, even though some things (such a chocolate bar or gummy) may not actually go bad, they might become stale with time and cease to be as pleasurable.                </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> This is where our animal kingdom's ancestry's evolutionary wisdom and common sense come in handy. Use your senses as a guide if you're unsure whether or not an edible has gone rotten. Throw it away if the item's colour, texture, flavour, or fragrance looks odd.                 </p>"
+            },
+            {
+                "type":"image",
+                "content" :" "
+            },
+            {
+                "type":"heading",
+                "content" :" <h2> Think About Expiration Dates                </h2>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> Of course, the best-before or expiration date is a crucial piece of information that is included on almost all packaged edibles you purchase from licensed dispensaries near you and helps eliminate any uncertainty. Poe continued, 'Since each edible is different, it's preferable to visit the producer of that edible to ascertain the shelf life of that delectable.</p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> You should probably adhere to the expiration dates provided by the manufacturer for products that include extremely perishable ingredients, such as fresh butter or dairy. But what about goods that last a while, like chocolate, candies, or lollipops? Does the best-before date mean you should simply discard them if it has passed? No, not always.                </p>"
+            },
+       
+            {
+                "type":"paragraph",
+                "content" :" <p>Although sugar is a fantastic preservative, over time its texture, colour, and flavour may not be as pleasant. 'The best-by date has more to do with the components' shelf life than it does with the edible's strength. Like items bought at the grocery store, things like gummies and chocolate will eventually go bad, according to Shipley.   </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>  Potency and cannabinoids become a whole new area of investigation as a result.</p>"
+            },
+            {
+                "type":"heading",
+                "content" :" <h2> Although They Do Not Go Bad, Cannabinoids Do Deteriorate                </h2>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> The good news is that while they do degrade, cannabinoids like THC and CBD, the active chemicals in edibles that have an effect on our systems, don't expire. when a result, when their chemical structure evolves over time, their impact on you may diminish or vary.                </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>  For instance, THC breaks down into CBN, a different cannabinoid you might be familiar with. Cannabinol (CBN), often known as the sleepy cannabinoid, has gained a reputation for having calming characteristics and has given many people a new perspective on their old cannabis. However, further research is needed to determine exactly how CBN might affect our sleep.                 </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> THC will transform into CBN over time and/or in the presence of extreme heat, light, and oxygen. The euphoria you associate with THC may change to tiredness if your consumable has been lying around for some time because CBN is much less powerful than THC.                </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> Older edibles will likely be less strong, however we haven't yet examined precisely how physical impacts alter as other cannabinoids like CBD deteriorate. 'Over time, all cannabinoids deteriorate. The manner in which the consumables are stored and conserved affects the rate of their degradation. If not preserved properly, it is not unusual for an edible to lose 10 to 20% of its effectiveness every year.                </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>Cannabinoids are hampered in their ability to last over time by air, heat, light, and time, therefore storage becomes crucial.                </p>"
+            },
+            {
+                "type":"image",
+                "content" :""
+            },
+            {
+                "type":"heading",
+                "content" :" <h2> Storage Advice   </h2>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>Food should always be stored in a cold, dry, and dark environment. Poe cautioned that environmental variables like heat and sunlight could quickly damage the edible and its efficacy. The majority of store-bought, shelf-stable goods, like candies and chocolate, can be kept in an airtight container in a pantry or cupboard. A product's label should indicate if it has to be refrigerated if it is sufficiently perishable. </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> How about freezing or refrigerating candy and chocolate? Will this make them last longer? This can assist to prolong the shelf life of your edibles, but you should be aware that unless they are in airtight containers, they can absorb flavours and moisture from the surroundings. You can anticipate the same shelf-life for any infused consumables you prepare at home, such as sauces, oils, or butters. Make careful to shield them from heat, light, and air as well.</p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> Safety is the last storage advice for food. The prevalence of hemp-derived CBD products and the legalisation of cannabis have led to an increase in the frequency of incidents involving children and animals mistakenly ingesting edibles. To ensure that your cache doesn't fall into the wrong hands, always lock it up in a safety box.</p>"
+            },
+            {
+                "type":"heading",
+                "content" :" <h2>The Conclusion  </h2>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> Just like any other meal, edibles laced with cannabis can go bad. When purchasing pre-made edibles, look for a best-before date on the product's package. Follow the same guidelines and use common sense while preparing edibles at home as you would with any other type of cuisine.</p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> Be aware that with time, cannabinoids like THC and CBD alter and degrade, which can potentially affect how you feel them. Always keep edibles in sealed containers that are kept away from moisture, heat, and light.</p>"
             }
         ]
+    },
+    {
+        "id": 2,
+        "content":[
+            {
+                "type":"heading",
+                "content" :" <h1>How Long Do The Effects Of Edible Substances Last?</h1>"
+            },
+            {
+                "type":"image",
+                "content" :""
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>Nowadays, cannabis can be added to practically any meal or beverage, and edibles are a fun, sometimes strong, and delightful way to consume the plant. Furthermore, compared to other weed delivery near you and dosing techniques, edibles are considered to have more potent and long-lasting effects since they are digested. But how long do the consequences of eating actually last?                </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>It's not surprising that edibles have gained popularity over the past few years because they offer a handy and smokeless way to absorb marijuana. Learn more about the effects of edibles and what influences the strength and length of an edible high in the sections below.                </p>"
+            },
+            {
+                "type":"heading",
+                "content" :" <h2>What Are Edible Forms Of Cannabis?</h2>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> Cannabis edibles include the traditional pot brownie, sometimes known as the 'happy brownie,' as well as medicated gummies, chocolate, tea, coffee, cooking oils, mints, soda, syrup, and a wide variety of other sweets.                </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> For individuals who prefer a highly strong, long-lasting, smokeless, and tasty mode of dosing, edibles are a great way to consume cannabis.                </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>   The distinction between consuming an edible and smoking or vaping                </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> In comparison to inhalation methods such as smoking and vaping, an edible high has a delayed onset, lasts substantially longer, and may feel more intense and euphoric. The delayed onset occurs because your stomach, intestines, and liver require time to digest and process the meal before the cannabinoids can enter your circulation.                </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>  When THC reaches your digestive tract, it is transformed into a new molecular form known as 11-hydroxy-THC. This kind of THC passes the blood-brain barrier more easily, and many report that edibles create more intense effects than other types of intake.</p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>Fat can also boost the absorption of cannabis, which is why an edible containing fat may deliver a stronger and more intense experience than smoking or vaping. And, whereas the effects of smoking or vaping usually wear off in 1 to 4 hours, the effects of edibles can last up to three times as long.                </p>"
+            },
+            
+            {
+                "type":"heading",
+                "content" :" <h2> How Long Does It Take For Edible Effects To Take Effect?                </h2>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>The start of effects can range from 30 minutes to two hours after intake, depending on the potency of the substance and how much you consume, as well as your size, individual metabolism, and what you've eaten that day. These factors will also have an effect on how long edibles last. According to certain studies, eating an edible on an empty stomach can result in a faster onset.                </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> The type of food you take also influences how quickly you feel its effects. For example, the onset of drinking a cannabis-infused beverage is often faster than meals — as short as 10 - 15 minutes — because our bodies digest liquids faster than solids.                </p>"
+            },
+       
+            {
+                "type":"paragraph",
+                "content" :" <pThe same is true for delicacies that dissolve slowly in the tongue, such as hard candies, mints, and lollipops. These typically take 15 to 45 minutes to take action since the majority of cannabinoids are absorbed through tissue in the mouth and tongue, bypassing the liver in a more direct path to the bloodstream.                </p>"
+            },
+           
+            {
+                "type":"heading",
+                "content" :" <h2>How Long Do The Effects Of Edibles Last?                </h2>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> Remember that everyone reacts differently to edibles, and the higher the amount, the stronger the effects and the longer they will last. The duration of an edible high can range from a few hours to the better part of a day, with THC levels in the bloodstream peaking on average 2 - 3 hours after ingestion.                </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>  Some people indicate that the effects of edibles wear off within 2 - 4 hours, while others report feeling high for up to 12 - 24 hours after intake. Most edible eaters report effects lasting 4 to 8 hours on average.</p>"
+            },
+            {
+                "type":"image",
+                "content" :""
+            },
+            {
+                "type":"heading",
+                "content" :" <h2> How Much Edible Dosage Should I Take?                </h2>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>When it comes to cannabis edibles dose, it's always recommended to start low and proceed slowly to minimise any unpleasant side effects from overconsumption. </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> Because of the delayed onset time, many rookie edible consumers grow impatient while waiting for the effects to kick in and drink more than they should. This can be a formula for disaster, so always give your body at least an hour or two before doing anything more.                </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>If you're new to cannabis edibles, this information is extremely crucial because everyone reacts differently to edibles. According to a 2016 Twitter analysis, one of the most frequently cited negative impacts of edibles is their unpredictability.</p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>A cannabis edibles active cannabinoid, such as THC, is measured in milligrams (mg). THC levels in edibles can range from 0.5 milligrams to hundreds of milligrams. Be cautious: high-dose edibles can be extremely strong and should be approached with caution even by the most experienced cannabis enthusiasts and medical users.                </p>"
+            },
+            {
+                "type":"heading",
+                "content" :" <h2>What Might I Expect From Common Edible Dosages?                </h2>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> Many edibles are dosed for the average consumer, with a serving often containing 5 - 10 milligrams of THC (or even less).                </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> A 5-milligram edible is considered a beginner's dose; however, if you've never tried edibles before, a 2.5-milligram THC dose may be a better starting point. Some users claim to feel effects from THC doses as low as 0.5 milligrams. Lower-dose edibles are likely to cause modest psychoactive effects and are suitable for novices, microdosers, infrequent users, and individuals with a low tolerance for marijuana. For some, a 5 milligram THC edible can induce couch-lock for hours, yet for others with a strong tolerance or fast metabolism, the effects may not last as long or at all.</p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> A 10 or 15-milligram edible is considered a moderate dose and can elicit significant, euphoric, mind-altering effects as well as decreased perception. Ten-milligram edibles are typically recommended for persons who have previously used edibles and understand how they affect them. A 10 milligram edible will most likely have a faster onset time than a 5 milligram edible, and the effects will normally stay longer.                </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>Doses in the 25 - 50 milligram range can be rather potent for some, especially those who do not ingest cannabis on a regular basis. In one study of healthy persons who did not regularly ingest cannabis, dosages of 25 milligrams or more were related with increased adverse effects such as nausea and vomiting. Dosages of 100 milligrams or higher of THC are regarded as highly powerful and are more likely to create undesirable side effects. In general, this high-level dose should be reserved for experienced edible users and patients with a strong tolerance or who are treating severe symptoms. </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> Starting with a low dose and gradually increasing it is a safe and successful method of dosing with edibles. With a lesser dose, the worst-case scenario is that you don't feel its effects. The worst-case situation with an overdose is an unpleasant loss of mental clarity, paranoia, nausea, and other adverse effects.                </p>"
+            },
+            {
+                "type":"heading",
+                "content" :" <h2>Bottom Line</h2>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>Always remember to start low and go gently when it comes to cannabis edibles. Because the effects of edibles can continue for several hours, allow yourself plenty of time to enjoy the trip. Explore the diversity of food options available, be aware of your consumption, and enjoy the journey.                </p>"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "content":[
+            {
+                "type":"heading",
+                "content" :" <h1>What Effect Does CBD Body Wash Have?</h2>"
+            },
+            {
+                "type":"image",
+                "content" :""
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>Since you can now get cannabidiol (CBD) in anything from hummus to bedsheets, it definitely doesn't need an introduction. You can buy a bottle of CBD oil at a nearby gas station or some CBD-infused gummies at your neighbourhood drugstore. With more than 60 million Americans having tried CBD, it continues to spark consumers' curiosity as the trendy non-intoxicating cannabinoid.                 </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>And while sleep, pain, and anxiety are still three of the top reasons people use CBD, wrinkles, sunburn, and skin tone may soon be added to that list.</p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>With the booming infused beauty market and major companies like Sephora, Herbivore, Kiehl's, Peter Thomas Roth, Milk, Josie Maran, Saint Jane, and NYX all selling CBD-infused products, CBD has transitioned from being a trendy active ingredient to being en vogue. What do we know about using CBD for these uses? What effects does CBD do on our skin? Are premium costs justified? Let's explore how items like CBD body washes might help you.                </p>"
+            },
+            {
+                "type":"heading",
+                "content" :" <h2> Skin And The Endocannabinoid System</h2>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> Let's quickly discuss the fundamental bodily system that utilises CBD—the endocannabinoids system, or ECS—even if CBD may not need an introduction.                </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> An old biological mechanism that has supported life on Earth for hundreds of millions of years is called the ECS. Even still, it took us nearly 30 years to discover the ECS, and the more we learn about it, the more we realise how intricate and extensive it is. While there is still much for us to learn about the ECS, we do know that it serves as a master regulatory system whose primary duty is to assist humans in preserving homeostasis—a state of balance throughout the body—in the face of ongoing internal and external stressors.                </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> A network of receptors spread out over the body make up the ECS. To use and produce an effect, these receptors take in substances like THC and CBD. Many of these receptors have been discovered in our skin, and they can be found from the epidermis, which is the outermost layer of our skin, all the way down to the nerve endings, sweat glands, oil glands, and even hair follicles.                </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> This suggests that CBD, along with all the other cannabinoids cannabis generates, may have an impact on how the ECS works to maintain the balance of our skin. According to some experts, skin conditions like psoriasis, excessive oil production, allergic dermatitis, itching, and acne may all be caused by disruptions in the ECS. Additionally, some research indicates that cannabis may affect our skin by interacting with receptors and other systems outside the ECS.                </p>"
+            },
+            {
+                "type":"image",
+                "content" :" "
+            },
+            {
+                "type":"heading",
+                "content" :" <h2> Knowledge About CBD And Skin                </h2>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> The science around CBD and how it affects skin health is still in its infancy. Since the majority of the study to date has been preclinical, we still don't know how our current hypotheses about CBD's potential to treat skin issues (drawn from test tube and animal studies) will manifest themselves in people. Having said that, there are some potential leads we have, and it will be interesting to see what we find as we move forward.                </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> Initial studies appear to support CBD's potential as an anti-inflammatory agent, a feature that may have numerous advantages for the skin. In addition to relieving irritation brought on by conditions like dermatitis, acne, psoriasis, or eczema, CBD may also be effective for less severe everyday skin issues including minor cuts and burns, sunburn, or itching.                </p>"
+            },
+       
+            {
+                "type":"paragraph",
+                "content" :" <p>Due to its antioxidant properties, CBD may be useful in defending skin against environmental aggressors including pollution and UV rays as well as reducing the effects these aggressors have on skin ageing. Another method CBD can help treat acne is by influencing our sebaceous (oil) glands, which it appears to do.  </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>Since cannabis plants contain hundreds of active substances, such as cannabinoids, terpenes, and flavonoids, there is much to learn about the entourage effect—the synergistic interaction between these substances—and what it means for the skin. When selecting topicals that include the whole (or nearly full) spectrum of active chemicals present in plants, this may be a crucial factor for people with allergies or sensitive skin to take into account.                </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>  Additionally, research points to the possibility that particular cannabinoids may have opposing or complementary effects on skin. For instance, cannabichromene (CBC) and tetrahydrocannabivarin (THCV) seem to restrict oil production, whilst cannabigerol (CBG) and cannabidivarin (CBGV) seem to boost it.</p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>But the situation becomes considerably murkier when it comes to cosmetic compositions. There is a dearth of research on the precise dosages, concentrations, or formulation types that are advantageous for beauty and wellness products like serums, face masks, bath bombs, and, yes, body wash. On top of that, since cannabinoids are light- and heat-sensitive, many products come in clear packaging, which is harmful to them.                </p>"
+            },
+            {
+                "type":"heading",
+                "content" :" <h2>  How Does CBD Body Wash Compare?</h2>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>Does this imply that you should stop using the CBD-infused body wash you adore or refrain from experimenting with other products in the future? No, not always. Since CBD is a safe and non-toxic substance, there is no reason you shouldn't take it if you find a product you enjoy and it is working as intended for your skin. If you're using CBD for specific skin issues, bear in mind that since body wash spends so short time on the skin, you might get greater value from a cream or lotion because these leave-on products have a higher chance to permeate the skin and offer advantages.                </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>  Like everything related to beauty and CBD, you might want to do some research before buying by vetting your products. The Food and Drug Administration (FDA) does not heavily regulate either the cosmetics or CBD industries. The FDA is still working to catch up with the CBD business because it is so young and has grown so swiftly, unlike the cosmetics industry, which has never really existed. Currently, cannabis-infused cosmetics can be sold without first receiving pre-approval.                </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p> THC will transform into CBN over time and/or in the presence of extreme heat, light, and oxygen. The euphoria you associate with THC may change to tiredness if your consumable has been lying around for some time because CBN is much less powerful than THC.                </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>To prevent the deterioration of light-sensitive cannabinoids, look for opaque packaging. Read the ingredient list and labels. Be mindful of additional components and educate yourself on what they can and cannot do for your skin. Look for additional therapeutic elements like aloe leaf juice or roman chamomile flower, for instance, if you're looking for a body wash that might be good for acne, psoriasis, or dermatitis.                 </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>   And lastly, how open is the brand? To confirm that the CBD content is appropriately stated and has been tested to be free of heavy metals, pesticides, and other pollutants, always check the certificate of analysis (COA), just like you would with any other CBD product.                </p>"
+            },
+            {
+                "type":"image",
+                "content" :""
+            },
+            {
+                "type":"heading",
+                "content" :" <h2> The Conclusion  </h2>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>Despite the fact that research is still in its early stages, CBD is showing promise for a number of uses that might be beneficial for the health of our skin. We are aware that many cannabinoid receptors are in our skin and that these receptors have a variety of effects on the health of our skin.                 </p>"
+            },
+            {
+                "type":"paragraph",
+                "content" :" <p>Your skin may experience some basic anti-inflammatory or antioxidant advantages from a CBD-infused body wash, but you should always read the label to find out what other compounds are in the product and how they may benefit (or harm) your skin or any ailments you may be trying to treat with CBD. Find a body wash or shower gel manufacturer and product that you love and trust by doing your research and checking the COA.                </p>"
+            }
+           
+        ]
     }
+]
 }

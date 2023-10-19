@@ -1,6 +1,5 @@
 import React from 'react'
-
-const Learnproductcontent = () => {
+const Learnproductcontent = (id) => {
      
   return (
     <div className='learnproduct_content'>
