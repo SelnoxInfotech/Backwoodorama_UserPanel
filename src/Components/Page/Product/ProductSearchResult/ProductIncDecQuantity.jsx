@@ -34,13 +34,24 @@ const style = {
     p: 4,
 };
 
-const ProductIncDecQuantity = ({ items, AddToCart }) => {
+const ProductIncDecQuantity = ({popup, SetPopup, items, AddToCart }) => {
     const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
+    const handleOpen = () => {
+        setOpen(true);
+        SetPopup(true)
+    };
     const handleClose = () => setOpen(false);
     const [SelectWeight, SetSelectWeight] = React.useState(items?.Prices[0]?.Price[0]?.id);
     // const [ Price ,  SetPrice] =  React.useState(parseInt(items?.Prices[0]?.Price[0]?.SalePrice))
     const [counter, setCounter] = React.useState(1);
+
+   React.useEffect(()=>{
+    if (!popup)
+    {
+        
+        setOpen(popup)
+    }
+   },[popup])
 
     const handleChange = (event) => {
         SetSelectWeight(event.target.value);
@@ -162,7 +173,7 @@ const ProductIncDecQuantity = ({ items, AddToCart }) => {
                                         <Box
                                             className={` boxWidth ${classes.loadingBtnTextAndBack}`}
                                         >
-                                            <LoadingButton style={{ width: "50%", height: "25px" }} variant="outlined" onClick={() => { AddToCart(items,counter , SelectWeight)  }} >Buy now</LoadingButton>
+                                            <LoadingButton style={{ width: "50%", height: "25px" }} variant="outlined" onClick={() => { AddToCart(items,counter , SelectWeight  , handleClose)  }} >Buy now</LoadingButton>
                                         </Box>
                                     </div>
                                 </div>

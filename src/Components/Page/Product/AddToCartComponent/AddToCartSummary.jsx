@@ -49,8 +49,15 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
             else {
              
                 if (location.pathname === "/cart") {
+                    if(state.login){
 
-                    navigate("/CheckOutMainPage", { state: { InputValues, abc: state.Cart_subTotal } })
+
+                        navigate("/CheckOutMainPage", { state: { InputValues, abc: state.Cart_subTotal } })
+                    }
+                    else{
+                        navigate("/login")
+                    }
+
                 }
                 else {
                     if (state.DeliveryOption === false) {

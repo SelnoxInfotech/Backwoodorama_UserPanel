@@ -45,19 +45,28 @@ const Login = () => {
                 }
             }
             else {
+                if(response.data !== "Not Authorised"){
+
+                
                 let date = new Date();
                 date.setTime(date.getTime() + (60 * 60 * 8000))
-                cookies.set('Token_access', response.data.tokens.access, { expires: date })
+                cookies.set('Token_access', response?.data?.tokens?.access, { expires: date })
                 dispatch({ type: 'Login', login: true })
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
                 Navigate(-1)
                 Setloading(false)
             }
+            else{
+                alert("SomeThing Worng")
+                Setloading(false) 
+            }
+        }
 
 
         }).catch(
             function (error) {
                 Setloading(false)
+                console.log(error.response?.data.message)
                 alert(error.response.data.message)
 
             })
@@ -165,15 +174,15 @@ const Login = () => {
                         <div className='w-100 d-flex mt-4 center'>
                             <div className='login_horizontalLine '></div> <span className='px-2 login_OR'>OR</span> <div className='login_horizontalLine '></div>
                         </div>
-                        <div className='row  signup_margins_top'>
+                        {/* <div className='row  signup_margins_top'>
                             <div className='col-lg-12 signup_btn_height'>
                                 {/* <Box className={`${classes.Signup_loading_btn_facebook}`}>
                                    <LoadingButton variant='outlined'   loadingPosition="start"  startIcon={<FaFacebookF />}>Continue with Facebook</LoadingButton>
                                 </Box> */}
-                                <FaceBookLogin></FaceBookLogin>
-                            </div>
+                                {/* <FaceBookLogin></FaceBookLogin> */}
+                            {/* </div> */}
 
-                        </div>
+                        {/* </div> */} 
                         <div className='row  signup_margins_top'>
                             <div className='col-lg-12 signup_btn_height'>
 
