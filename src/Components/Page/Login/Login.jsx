@@ -53,7 +53,14 @@ const Login = () => {
                 cookies.set('Token_access', response?.data?.tokens?.access, { expires: date })
                 dispatch({ type: 'Login', login: true })
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-                Navigate(-1)
+                if (location.pathname === "/signupwithemail") {
+                        Navigate("/")
+                
+                }
+                else{
+
+                    Navigate(-1)
+                }
                 Setloading(false)
             }
             else{
@@ -66,7 +73,6 @@ const Login = () => {
         }).catch(
             function (error) {
                 Setloading(false)
-                console.log(error.response?.data.message)
                 alert(error.response.data.message)
 
             })

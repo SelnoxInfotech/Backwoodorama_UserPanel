@@ -31,6 +31,7 @@ const SignupWithEmail = () => {
             username: data.Name,
             email: Email,
             password: data.password,
+            user_type: "Customer"
         },
         ).then(response => {
             Navigate("/login")
