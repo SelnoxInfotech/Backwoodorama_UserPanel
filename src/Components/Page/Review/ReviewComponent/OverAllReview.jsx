@@ -21,13 +21,12 @@ const OverAllReview = ({ Rating, api,noReview, SetApi  ,onSubmit,  GetProductRev
         <React.Fragment>
             <div className="container-fluid">
 
-                <div className="w-100 mt-4">
+                <div className="w-100 ">
                     
-                <h2 className=".section_main_title">Reviews</h2>
                    
-                            <div className="overall_review_container mt-2">
+                            <div className="overall_review_container">
                                 <div className="">
-                                    <div className=" text-end m-2">
+                                    <div className="m-2 text-end">
                                         <WriteReviewPopup onSubmit={onSubmit}   GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview}  api={api} SetApi={SetApi} />
                                         {/* <button className="overall_review_Button px-2">Write review</button> */}
                                     </div>

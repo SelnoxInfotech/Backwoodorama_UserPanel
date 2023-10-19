@@ -1,6 +1,5 @@
 import React,{useState} from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { IoMdStar } from "react-icons/io";
 import { BsStar ,BsStarFill } from "react-icons/bs";
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';

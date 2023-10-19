@@ -11,6 +11,7 @@ let noofreview = AllReview.length
         <React.Fragment>
 
         <div className="review_secton">
+        <h2 className=".section_main_title">Product Reviews</h2>
             {
                 noofreview !==0 ?  
                 <div className="row">

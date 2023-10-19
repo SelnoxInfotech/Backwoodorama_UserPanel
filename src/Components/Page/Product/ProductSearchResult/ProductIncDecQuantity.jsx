@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { IoMdStar } from "react-icons/io";
+import { BsStar ,BsStarFill } from "react-icons/bs";
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
@@ -10,14 +10,17 @@ import { GrFormSubtract } from "react-icons/gr"
 import { MdAdd } from "react-icons/md"
 import LoadingButton from '@mui/lab/LoadingButton';
 import useStyles from '../../../../Style';
+import { FormLabel  } from '@mui/material';
+
 
 
 const style = {
+    borderRadius:'8px',
     position: 'absolute',
     top: '40%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-
+    width: "600px",
     "@media(max-width:800px)": {
         width: "80%",
         marginTop: '10%',
@@ -35,6 +38,7 @@ const style = {
 };
 
 const ProductIncDecQuantity = ({popup, SetPopup, items, AddToCart }) => {
+    console.log(items?.Prices[0]?.Price[0].Weight ,'items')
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
         setOpen(true);
@@ -79,104 +83,108 @@ const ProductIncDecQuantity = ({popup, SetPopup, items, AddToCart }) => {
                 <Box sx={style}>
                     <div className='container-fluid'>
                         <div className='row'>
-                            <div className='col-12 col-md-4  col-sm-6 productInc_dec_image_cont'>
+                            <div className='col-12 col-md-6  col-sm-6 productInc_dec_image_cont'>
                                 <LazyLoadImage className='prod_inc_dec_image'
                                     src={`${items?.images[0].image}`}
-
+                                    onError={event => {
+                                        event.target.src = "/image/blankImage.jpg"
+                                        event.onerror = null
+                                    }}
                                     alt="image not available" />
                             </div>
-                            <div className='col-12 col-md-8 col-sm-6 productInc_dec_content'>
-                                <div className='row'>
-                                    <div className='col-12 prod_inc_dec_quant_heading'>
-                                        <h1 className='ellipsis'>{items.Product_Name}</h1>
-
-                                    </div>
-                                    <div className='col-12 prod_inc_dec_quant_heading'>
-                                        <h2 className='ellipsis'>by {items.StoreName}</h2>
-
-                                    </div>
-                                    <div className='col-12 product_inc_dec_quantity_btn_cont'>
+                            <div className='col-12 col-md-6 col-sm-6 productInc_dec_content'>
+                               
+                                  
+                                        <h1 className=' prod_inc_dec_quant_heading ellipsis'>{items.Product_Name}</h1>
+                                    
+                                        <h2 className='prod_inc_dec_quant_subheading ellipsis'>by {items.StoreName}</h2>
+                                    <div className='product_inc_dec_quantity_btn_cont'>
                                         <button className='product_inc_dec_quantity_btn'>15% THC</button>
                                         <button className='product_inc_dec_quantity_btn'>0.2% CBD</button>
                                         <button className='product_inc_dec_quantity_btn_indica'>Indica</button>
 
 
                                     </div>
-                                    <div className='col-12 d-flex gap-2'>
-                                        <span><IoMdStar className={classes.disp_star_color} /></span><span className='prod_qunat_rating'>4.5</span><span className='prod_qunat_rating'>Rating</span>
-
+                                    <div className="product_cart_review my-3">
+                                                            {items.rating &&  new Array(items.rating).fill(null).map(() => (
+                                                                <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />  
+                                                            ))}
+                                                            
+                                                            {new Array(5-items.rating).fill(null).map(() => (
+                                                                <BsStar size={16} color="#31B665" className="product_search_rating_star" />  
+                                                            ))}
                                     </div>
-                                    <div className='col-lg-2 col-md-2 col-3 weight_font'>
-                                        <p>weight</p>
-                                    </div>
-                                    <div className='col-lg-10 col-md-10 col-9 px-4'>
-                                        <FormControl sx={{ m: 1, minWidth: 120, background: "#F2F2F2" }} size="small">
+                                    <div className='weight_font my-3'>
+                                      
+                                        <FormControl sx={{width:'100%'}} size="small">
+                                            <FormLabel sx={{ width: "100%" , color:'black' }}>weight</FormLabel>
                                             <Select
                                                 value={SelectWeight}
                                                 onChange={handleChange  }
                                                 displayEmpty
                                                 inputProps={{ 'aria-label': 'Without label' }}
+                                                sx={{ width: "100%" , color:'black' }}
                                             >
                                                 <MenuItem value="">
                                                     select weight
                                                 </MenuItem>
-                                                {
-                                                    items?.Prices[0]?.Price
-                                                        .map((data) => {
-                                                            return (<MenuItem key={data.id}  value={data.id}>{data.Weight}</MenuItem>)
-                                                        })
-                                                }
+                                                    {
+                                                        items?.Prices[0]?.Price.map((data) => {
+                                                           
+                                                                if(data.Weight !== ""){
+                                                                    return (<MenuItem key={data.id}  value={data.id}>{data.Weight}</MenuItem>)
+                                                                }else{
+                                                                    return (<MenuItem key={data.id}  value={data.id}>{data.Unit} Unit</MenuItem>)
+                                                                }
+                                                               
+                                                            })
+                                                    }
                                             </Select>
                                         </FormControl>
                                     </div>
-                                    <div className='col-lg-2 col-md-3 col-3 prod_quant_num'>
+                                    <div className='prod_quant_num my-3'>
 
-                                        <p>Quantity</p>
-                                    </div>
-                                    <div className='col-lg-10 col-md-9 col-9   px-4'>
-                                        <div className='prod_inc_plus_minus mx-2 d-flex'>
-                                            <div className='Prod_subtract_div '>
+                                         <FormLabel sx={{ width: "100%" , color:'black' }}>Quantity</FormLabel>
+                                   
+                                        <div className='prod_inc_plus_minus d-flex'>
+                                           
                                                 <LoadingButton className='subBtn1' onClick={decrease}>
                                                     <GrFormSubtract />
 
                                                 </LoadingButton>
-                                            </div>
+                                          
                                             <div className='prod_digit'>
                                                 {counter}
                                             </div>
-                                            <div className='prod_addition_div'>
+                                          
                                                 <LoadingButton className='aaBtn2' onClick={increase}>
                                                     <MdAdd />
 
                                                 </LoadingButton>
-                                            </div>
+                                            
                                             <div>
 
-                                            </div>
+                                         </div>
                                         </div>
                                     </div>
-                                    <div className='col-12'>
+                                 
                                         {
                                             items?.Prices[0]?.Price.map((data,index) => {
                                                 return (
                                                     SelectWeight === data.id &&
-                                                    <React.Fragment key={index}>
-                                                        <span className='prod_price_font'>${parseInt(data.SalePrice)}</span><span className='mx-4 prod_quant_font'>PER 1Z</span>
-                                                    </React.Fragment>
+                                                    <h2><span className='prod_quant_font'>${parseInt(data.SalePrice)}</span><span className='mx-2   prod_price_font'>/ 1Z</span></h2>
                                                 )
+                                                   
                                             })
                                         }
 
-                                    </div>
-
-                                    <div className='col-12 my-2'>
                                         <Box
                                             className={` boxWidth ${classes.loadingBtnTextAndBack}`}
                                         >
-                                            <LoadingButton style={{ width: "50%", height: "25px" }} variant="outlined" onClick={() => { AddToCart(items,counter , SelectWeight  , handleClose)  }} >Buy now</LoadingButton>
+                                            <LoadingButton style={{ width: "100%", height: "35px" }} variant="outlined" onClick={() => { AddToCart(items,counter , SelectWeight  , handleClose)  }} >Add to Cart</LoadingButton>
                                         </Box>
-                                    </div>
-                                </div>
+                                    
+                               
                             </div>
                         </div>
                     </div>

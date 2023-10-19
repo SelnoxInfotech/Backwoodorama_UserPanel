@@ -12,14 +12,7 @@ const RelatedReview = ({AllReview, SetReview}) => {
                 <div className="row center reviewCardWrapper">
                     {AllReview?.map((ele, index) => {
                         const text = ele.comment;
-                    //   let rating =  ''
-                    //   for(let i= 0;i<5;i++){
-                    //      if(i <= ele.rating){
-                    //         rating += <AiFillStar color='#31B665' className={classes.disp_star_color} />
-                    //      }else{
-                    //         rating += <AiOutlineStar color='#31B665'  className={classes.disp_star_color} />
-                    //      }
-                    //   }
+                 
 
                         return (
                                               

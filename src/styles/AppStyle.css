@@ -2087,10 +2087,9 @@ scrollbar-width: none;  /* Firefox */
 .product_inc_dec_quantity_btn {
   border-style: none;
   font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 24px;
-
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.5;
   color: #949494;
 }
 
@@ -2098,8 +2097,8 @@ scrollbar-width: none;  /* Firefox */
   border-style: none;
   font-style: normal;
   font-weight: 700;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 1.5;
 
   color: #949494;
 }
@@ -2109,30 +2108,27 @@ scrollbar-width: none;  /* Firefox */
   gap: 10px;
 }
 
-.prod_inc_dec_quant_heading h1 {
-  font-size: 36px;
+.prod_inc_dec_quant_heading{
+  font-size: 18px;
   font-style: normal;
   font-weight: 700;
-  line-height: 54px;
-
-  color: #000000;
+  color: #000000a1;
+  margin: 0;
 }
 
-.prod_inc_dec_quant_heading h2 {
+.prod_inc_dec_quant_subheading{
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 14px;
   line-height: 36px;
-
   color: #949494;
-}
+} 
 
 .prod_price_font {
   font-style: normal;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 14px;
   line-height: 48px;
-
   color: #282625;
 }
 
@@ -2178,7 +2174,6 @@ scrollbar-width: none;  /* Firefox */
   height: 34px;
   display: grid;
   place-items: center;
-  background: #949494;
 }
 
 .subBtn1 {
@@ -5761,7 +5756,7 @@ line-height: 2;
 }
 .noReview{
   width: 100%;
-  background-color: #EBFFF3;
+  background-color: #F8F8F8;
   color: #282625;
   padding: 20px;
   height: 300px;
@@ -5769,4 +5764,8 @@ line-height: 2;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+.noReview .noreview_description{
+   font-size: 14px;
+   text-align: center;
 }
