@@ -824,10 +824,7 @@ scrollbar-width: none;  /* Firefox */
 .disp_head{
   position: relative;
 }
-.CategorySliderImageBlock {
-  width: 214px;
- 
-}
+
 /* Category Skeleton */
 .CategorySkeleton {
   display: flex;

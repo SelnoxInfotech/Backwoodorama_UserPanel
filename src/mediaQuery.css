@@ -50,12 +50,7 @@
     padding: 0px 8px;
   }
 }
-@media only screen and (min-width: 992px)and (max-width:1199px) {
-  .CategorySliderImageBlock {
-    width: 20%;
-    height: 200px;
-  }
-}
+
 @media only screen and (min-width: 768px)and (max-width:991px) {
   
   .dispensories_image {
@@ -493,9 +488,7 @@
   .DeliveryServicesRatingTitle {
     font-size: 16px;
   }
-  .CategorySliderImageBlock {
-    width: 100%;
-  }
+ 
   .dispensoriesHeadings {
     font-size: 18px;
     margin-bottom: 5px;

@@ -29,42 +29,57 @@ const AddToCartReview = () => {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, remove it!'
         }).then((result) => {
+            console.log(result ,'result')
             if (result.isConfirmed) {
-                if (state.login) {
-                    const config = {
-                        headers: { Authorization: `Bearer ${token_data}` }
-                    };
-                    Axios.delete(`https://api.cannabaze.com/UserPanel/DeleteAddtoCart/${id}`,
-                        config,
-                        SetLoadingDelete(true)
-                    )
+              
+                const myPromise = new Promise((resolve, reject) => {
+                  
+                     
+                        if (state.login) {  
+                        const config = {
+                            headers: { Authorization: `Bearer ${token_data}` }
+                        };
+                        Axios.delete(`https://api.cannabaze.com/UserPanel/DeleteAddtoCart/${id}`,
+                            config,
+                            SetLoadingDelete(true)
+                        )
                         .then(async (res) => {
                             await dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+                            console.log("delete done")
                             SetLoadingDelete(false)
+                            resolve();
                         })
                         .catch((error) => {
                             console.error(error)
                             SetLoadingDelete(false)
+                            reject();
                         })
 
-                }
-                else {
-                    var obj = JSON.parse(localStorage.getItem("items"));
-                    for (var i = 0; i < obj.length; i++) {
-                        if (obj[i].Product_id === Id) {
-                            obj.splice(i, 1);
-                            break;
                         }
-                    }
-                    localStorage.setItem("items", JSON.stringify(obj));
+                        else {
+                            var obj = JSON.parse(localStorage.getItem("items"));
+                            for (var i = 0; i < obj.length; i++) {
+                                if (obj[i].Product_id === Id) {
+                                    obj.splice(i, 1);
+                                    break;
+                                }
+                            }
+                            localStorage.setItem("items", JSON.stringify(obj));
 
-                }
-                dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-                Swal.fire(
-                    'Removed!',
-                    'Your product has been removed.',
-                    'success'
-                )
+                        }
+                  })
+                  myPromise.then(()=>{
+                    
+                    dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+                    Swal.fire(
+                        'Removed!',
+                        'Your product has been removed.',
+                        'success'
+                    )
+                  })
+              
+             
+
             }
         })
 
