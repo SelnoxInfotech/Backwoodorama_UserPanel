@@ -7,7 +7,6 @@ import EmptyCard from "../EmptyCard/EmptyCard"
 const AddToCart = () => {
     const { state } = React.useContext(Createcontext)
 
-
     React.useEffect(()=>{
         window.scroll(0,0)
     })
@@ -22,7 +21,8 @@ const AddToCart = () => {
                     <div className="row mt-4">
                         <div className="col-12 addTocard_main_container_height">
                             <div className="col-12 addtoCart_headingss">
-                                <h1 className="addToCartHeadingss">Your Items</h1>
+                                <p className="mb-0">Your Cart from</p>
+                                <h3 className="addToCartHeadingss"> {state.AllProduct[0].StoreName}</h3>
                             </div>
 
 

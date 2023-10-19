@@ -195,11 +195,8 @@ line-height: normal;
   padding: 10px 0 0;
   color: #00b96a;
 }
-.extra_function {
-
-}
 .extra_function_mobile{
-  display: none;
+  display: none !important;
 }
 @media(max-width:992px) {
     .blog_Title{
@@ -235,6 +232,9 @@ line-height: normal;
     }
 }
 @media(max-width:768px){
+  .blogListWrapper{
+     padding: 0 30px;
+  }
   .blogListCard {
     border: 1px solid #747474;
     padding: 10px;
@@ -247,10 +247,10 @@ line-height: normal;
     font-size: 12px;
   }
   .extra_function_mobile{
-    display: flex;
+    display: flex !important;
   }
   .extra_function_destop{
-    display: none;
+    display: none !important;
   }
   .blogcardDescription p{
      margin-bottom: 0;
@@ -269,6 +269,9 @@ line-height: normal;
   }
 }
 @media(max-width:480px) {
+  .blogListCard{
+    width: 100%;
+  }
     .blog_Title{
         font-weight: 700;
         font-size: 18px;

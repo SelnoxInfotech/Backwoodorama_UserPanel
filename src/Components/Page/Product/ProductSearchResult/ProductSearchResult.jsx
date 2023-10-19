@@ -33,7 +33,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
     })
     
     async function AddToCart(Event, counter, SelectWeight) {
-        console.log(Event)
+     
         const AddData = _.filter(Event.Prices, Price => Price);
         const PriceArrry = _.find(AddData[0].Price, Price => Price.id === SelectWeight);
         const FinalSelection = PriceArrry === undefined ? Event.Prices[0].Price[0] : PriceArrry
@@ -55,8 +55,8 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                 PriceId: FinalPriceId,
                 category:Event.category_name,
                 Sub_Category_id:Event.Sub_Category_id,
-                SubcategoryName:Event.SubcategoryName
-
+                SubcategoryName:Event.SubcategoryName,
+                StoreName:Event.StoreName
 
 
             })
@@ -71,12 +71,14 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                     Cart_Quantity: FinalQuantity,
                     PriceId: FinalPriceId,
                     category:Event.category_name,
+                    StoreName:Event.StoreName,
                     Sub_Category_id:Event.Sub_Category_id,
-                    SubcategoryName:Event.SubcategoryName
-
+                    SubcategoryName:Event.SubcategoryName,
+                   
                 }
                 , config
             ).then(response => {
+                console.log(response , 'responseive')
                 if (response.data === "Empty Add to Cart") {
                     SetCartClean(true)
                 }
@@ -105,8 +107,8 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                 StoreAddress: Event.StoreAddress,
                 category:Event.category_name,
                 Sub_Category_id:Event.Sub_Category_id,
-                SubcategoryName:Event.SubcategoryName
-
+                SubcategoryName:Event.SubcategoryName,
+                StoreName:Event.StoreName
 
             }
             SetNewData(Arry)

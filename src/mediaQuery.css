@@ -857,10 +857,8 @@
     height: 126px;
   }
  
-  .AddProductCartContainerinner{
-    overflow-x: scroll;
-  }
-  .AddProductCartContainerinner .Add_product_cart_left_container_item ,.AddProductCartContainerinner .cartProductHeadings{
+
+  .AddProductCartContainerinner .Add_product_cart_left_container_item  .cartProductHeadings{
     width: 200%;
   }
   .shopByCategoryHeading {

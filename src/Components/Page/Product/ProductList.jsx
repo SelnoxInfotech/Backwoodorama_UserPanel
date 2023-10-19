@@ -31,6 +31,7 @@ const ProductList = ({ arr, ProductNavigate }) => {
     })
     const [NewData, SetNewData] = React.useState([])
     const Addtocard = async (Event) => {
+        console.log(Event)
         if (token_data) {
             const AddData = _.filter(Price, Price => Price?.Product_id === Event?.id);
             const PriceArrry = _.find(Event?.Prices[0]?.Price, Price => AddData[0]?.Product_id === Event?.id && AddData[0]?.Item_id === Price?.id);
@@ -48,8 +49,8 @@ const ProductList = ({ arr, ProductNavigate }) => {
                 PriceId: PriceIndex?.id,
                 category: Event.category_name,
                 Sub_Category_id: Event.Sub_Category_id,
-                SubcategoryName: Event.SubcategoryName
-
+                SubcategoryName: Event.SubcategoryName,
+                StoreName: Event.StoreName
             })
             await axios.post("https://api.cannabaze.com/UserPanel/Add-AddtoCart/",
 
@@ -63,8 +64,8 @@ const ProductList = ({ arr, ProductNavigate }) => {
                     PriceId: PriceIndex?.id,
                     category: Event.category_name,
                     Sub_Category_id: Event.Sub_Category_id,
-                    SubcategoryName: Event.SubcategoryName
-
+                    SubcategoryName: Event.SubcategoryName,
+                    StoreName: Event.StoreName
                 }
                 , config
             ).then(response => {
@@ -98,11 +99,8 @@ const ProductList = ({ arr, ProductNavigate }) => {
                 StoreAddress: Event.StoreAddress,
                 category:Event.category_name,
                 Sub_Category_id:Event.Sub_Category_id,
-                SubcategoryName:Event.SubcategoryName
-
-
-
-
+                SubcategoryName:Event.SubcategoryName,
+                StoreName: Event.StoreName
             }
             SetNewData(Arry)
             if (AddTOCard.length !== 0) {

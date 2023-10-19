@@ -1,7 +1,7 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import {  AiFillLike } from "react-icons/ai"
 import { BsStar ,BsStarFill } from "react-icons/bs";
-import React from 'react';
+ import React from 'react';
 import ReportReviewPopup from '../ReviewPopup/ReportReviewPopup';
 const RelatedReview = ({AllReview, SetReview}) => {
   

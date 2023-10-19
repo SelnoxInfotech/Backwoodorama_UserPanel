@@ -2933,8 +2933,14 @@ background: #31B665;
   font-weight: 400;
   line-height: normal;
 }
-
-
+.product_cart_review{
+  display: flex;
+  gap: 3px;
+}
+.productSearchPerDoller{
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.432);
+}
 
 .deliveryServicesBorder {
   background: #FFFFFF;

@@ -46,7 +46,6 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
 
     }
 
-console.log(image)
     function handleChange(event) {
 
         SetDetails({
@@ -72,7 +71,7 @@ console.log(image)
     //     // use the separator to join them
     //     return day + separator + month + separator + year;
     //   }
-      console.log(image)
+
       
     return (
         <div className="container-fluid">

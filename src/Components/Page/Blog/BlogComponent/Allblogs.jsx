@@ -14,7 +14,7 @@ const [isdata,setisdata] = useState(false)
     window.scroll(0, 0)
    const news= getAllNews()
    news.then((res)=>{
-      console.log(res ,' response')
+     
       setallblogs(res);
       setisdata(true)
     }).catch((err)=>{
@@ -31,10 +31,11 @@ const [isdata,setisdata] = useState(false)
        { isdata?  <div className='blogListWrapper'>
           {
             allblogs.map((items,index)=>{
+             
               return   (
                 <Link to={`/cannabis-news/${items.Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${items.id}`} key={index}>
                   <div className='row blogListCard' key={index}>
-                  <div className='col-3'>
+                  <div className='col-3  d-flex align-items-center'>
                       <div className='blogCardImg'>
                           <img src={`${items.Image}`} alt={items.Alt_Text}/>
                       </div>

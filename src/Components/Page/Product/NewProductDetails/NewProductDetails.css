@@ -30,6 +30,7 @@
     line-height: 1.4;
     font-weight: 400;
     color: rgba(0, 0, 0, 0.37);
+    margin-bottom: 5px;
 }
 .deals_card .product_search_result_span1 , .product_search_result_span2{
     display: block;

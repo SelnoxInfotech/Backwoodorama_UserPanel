@@ -49,3 +49,7 @@
     font-size: 16px;
     font-weight: 700;
 }
+.product_cart_review{
+    display: flex;
+    gap: 2px;
+}
