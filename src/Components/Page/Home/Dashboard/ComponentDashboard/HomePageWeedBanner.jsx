@@ -63,10 +63,10 @@ const HomePageWeedBanner=()=>{
                     <div className='col-12 homePageBanner_container'>
                         <LazyLoadImage
                                   onError={event => {
-                                    event.target.src = "/image/M11"
+                                    event.target.src = "/image/M11.jpg"
                                     event.onerror = null
                                 }}
-                        src={`${ele?.moble}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
+                        src={`${ele?.mobile}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
                     </div>
                     </SwiperSlide>
                 )

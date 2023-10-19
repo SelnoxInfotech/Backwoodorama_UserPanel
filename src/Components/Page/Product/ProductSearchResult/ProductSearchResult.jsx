@@ -24,6 +24,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
     const [CartClean, SetCartClean] = useState(false)
+    const [popup , SetPopup] = useState(true)
     const [NewData, SetNewData] = useState([])
     const [Whishlist, SetWishList] =useState(false)
     const [AddTOCard, SetAddToCard] = useState(() => {
@@ -32,7 +33,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
         return initialValue || []
     })
     
-    async function AddToCart(Event, counter, SelectWeight) {
+    async function AddToCart(Event, counter, SelectWeight , handleClose) {
      
         const AddData = _.filter(Event.Prices, Price => Price);
         const PriceArrry = _.find(AddData[0].Price, Price => Price.id === SelectWeight);
@@ -80,11 +81,15 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
             ).then(response => {
                 console.log(response , 'responseive')
                 if (response.data === "Empty Add to Cart") {
+                    SetPopup( false)
                     SetCartClean(true)
+
                 }
+                SetPopup(false)
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
             }).catch(
                 function (error) {
+                    SetPopup(false)
                     if (error.response.status === 406) {
                         alert("This Product" + error.response.data[0])
                     }
@@ -122,18 +127,22 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                             }
                             return Cart
                         }))
+                        SetPopup(false)
                         dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
                     }
                     else {
+                        SetPopup(false)
                         SetAddToCard([...AddTOCard, Arry])
                         dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
                     }
                 }
                 else {
+                    SetPopup(false)
                     SetCartClean(true)
                 }
             }
             else {
+                SetPopup(false)
                 SetAddToCard([Arry])
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
             }
@@ -263,7 +272,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                                                             {
                                                                 items?.Prices[0].Price.length > 1
                                                                     ?
-                                                                    <ProductIncDecQuantity  items={items} AddToCart={AddToCart} />
+                                                                    <ProductIncDecQuantity popup={popup}   SetPopup={SetPopup} items={items} AddToCart={AddToCart} />
                                                                     :
                                                                     <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" }}
                                                                         onClick={() => { AddToCart(items) }}>

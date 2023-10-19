@@ -41,7 +41,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
     }
     React.useEffect(()=>{
    if(Time === ""){
-     if(Hours !== null ){
+     if(Hours !== null  && Hours !== undefined){
 
          const h =  Hours?.map((data)=>data?.day)
              const t1 =  Hours?.map((data)=>data?.Open.map((data)=> data?.Time1))
@@ -50,10 +50,14 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
      }
      else{
 
-        SetTime([])
+        SetTime('Monday04:0004:00')
      }
    }
     },[])
+
+      console.log(Time)
+    //   dataFormate(new Date().getDate)
+
     return (
         <React.Fragment>
             <div className="container-fluid">
