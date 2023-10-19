@@ -41,11 +41,11 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
     }
     React.useEffect(()=>{
    if(Time === ""){
-     if(Hours !==( null || undefined)){
+     if(Hours !== null ){
 
-         const h =  Hours?.map((data)=>data.day)
-             const t1 =  Hours.map((data)=>data.Open.map((data)=> data.Time1))
-             const t2 =  Hours.map((data)=>data.Open.map((data)=> data.Time2))
+         const h =  Hours?.map((data)=>data?.day)
+             const t1 =  Hours?.map((data)=>data?.Open.map((data)=> data?.Time1))
+             const t2 =  Hours?.map((data)=>data?.Open.map((data)=> data?.Time2))
              SetTime(h[0]+t1[0][0]+t2[0][0])
      }
      else{

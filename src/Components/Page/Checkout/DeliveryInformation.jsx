@@ -71,7 +71,6 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
     //     // use the separator to join them
     //     return day + separator + month + separator + year;
     //   }
-
       
     return (
         <div className="container-fluid">

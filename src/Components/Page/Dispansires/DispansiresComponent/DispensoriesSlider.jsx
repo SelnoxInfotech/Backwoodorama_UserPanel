@@ -9,6 +9,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ScrollContainer } from 'react-indiana-drag-scroll';
 import { DespensioriesItem } from '../../../../Api/Api';
 import DispensoriesAddressSkeleton from '../../../Component/Skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 const Dispensories = () => {
     const ref = React.useRef(null);
     const Navigate = useNavigate();
@@ -114,7 +115,11 @@ const Dispensories = () => {
                                         <div className=' dispensoriesAddressBorder'>
                                             <div className='dispensoriesAddresCardimg'>
                                                 <Link to={`/weed-dispensaries/${modifystr(ele.Store_Name)}/${ele.id}`}>
-                                                    <img src={`${ele?.Store_Image}`} alt={ele.Store_Name.charAt(0).toUpperCase() + ele.Store_Name.slice(1)} className=' dispensories_image  center-block' />
+                                                <LazyLoadImage
+                                                          onError={event => {
+                                                            event.target.src = "/image/delivery.png"
+                                                            event.onerror = null
+                                                        }} src={`${ele?.Store_Image}`} alt={ele.Store_Name.charAt(0).toUpperCase() + ele.Store_Name.slice(1)} className=' dispensories_image  center-block' />
                                                 </Link>
                                             </div>
                                             <div className='dispensoriesContentContainer'>

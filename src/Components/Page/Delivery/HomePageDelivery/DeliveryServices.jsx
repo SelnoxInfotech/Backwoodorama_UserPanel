@@ -154,7 +154,12 @@ const DeliveryServices = () => {
                                             <div className='deliveryServicesBorder '>
                                                 <Link to={`/weed-deliveries/${modifystr(items.Store_Name)}/${items.id}`}>
                                                     <div className='col-12 deliveryServicesImage_container'>
-                                                        <LazyLoadImage className='deliveryServicesImage' src={`${items.Store_Image}`} alt={items.Store_Name} />
+                                                        <LazyLoadImage
+                                                          onError={event => {
+                                                            event.target.src = "/image/delivery.png"
+                                                            event.onerror = null
+                                                        }}
+                                                        className='deliveryServicesImage' src={`${items.Store_Image}`} alt={items.Store_Name} />
                                                     </div>
                                                 </Link>
                                                 <div className='col-12 deliveryServicesContent_container px-4'>

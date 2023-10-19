@@ -14,6 +14,7 @@ import Axios from "axios";
 import {HomePageSco} from "../../../Component/ScoPage/HomePageSco"
 import './Home.css';
 import Createcontext from "../../../../Hooks/Context"
+import { LazyLoadImage } from "react-lazy-load-image-component";
 export default function Dashboard() {
     const { state } = React.useContext(Createcontext)
     const [FeaturedBrandArray, SetFeaturedBrandArray] = React.useState([])
@@ -57,10 +58,10 @@ export default function Dashboard() {
         window.scrollTo(0, 0)
     }, [])
     const StrainTypeCardArray = [
-        { imgUrl: state?.StaticImage.Indica, head1: "Indica", },
-        { imgUrl: state?.StaticImage.Hybrid, head1: "Hybrid" },
-        { imgUrl: state?.StaticImage.Sativa, head1: "Sativa" },
-        { imgUrl:state?.StaticImage.CBD, head1: "CBD" },
+        { imgUrl: state?.StaticImage?.Indica, head1: "Indica", },
+        { imgUrl: state?.StaticImage?.Hybrid, head1: "Hybrid" },
+        { imgUrl: state?.StaticImage?.Sativa, head1: "Sativa" },
+        { imgUrl:state?.StaticImage?.CBD, head1: "CBD" },
     ]
     return (
         <div >
@@ -88,7 +89,10 @@ export default function Dashboard() {
                     <div className="about_card_Wraper">
                         <div className="about_card">
                             <div className="about_card_img">
-                                <img src={state?.StaticImage.AboutUs1} alt=" Online Ordering" />
+                                <LazyLoadImage      onError={event => {
+                                    event.target.src = "/image/VANNER_2.png"
+                                    event.onerror = null
+                                }} src={state?.StaticImage?.AboutUs1} alt=" Online Ordering" />
                             </div>
                             <div className="about_text">
                                 <h3 className="acard_title">
@@ -105,7 +109,12 @@ export default function Dashboard() {
                         </div>
                         <div className="about_card">
                             <div className="about_card_img">
-                                <img src={state?.StaticImage.AboutUs2}alt="Delivery Services" />
+                                <LazyLoadImage 
+                                onError={event => {
+                                    event.target.src = "/image/delivery.png"
+                                    event.onerror = null
+                                }}
+                                src={state?.StaticImage?.AboutUs2}alt="Delivery Services" />
                             </div>
                             <div className="about_text">
                                 <h3 className="acard_title">
@@ -122,7 +131,12 @@ export default function Dashboard() {
                         </div>
                         <div className="about_card">
                             <div className="about_card_img">
-                                <img src={state?.StaticImage.AboutUs3} alt="Dispensary Listings" />
+                                <LazyLoadImage 
+                                 onError={event => {
+                                    event.target.src = "/image/delivery.png"
+                                    event.onerror = null
+                                }}
+                                src={state?.StaticImage?.AboutUs3} alt="Dispensary Listings" />
                             </div>
                             <div className="about_text">
                                 <h3 className="acard_title">
@@ -140,7 +154,12 @@ export default function Dashboard() {
                         </div>
                         <div className="about_card">
                             <div className="about_card_img">
-                                <img src={state?.StaticImage.AboutUs4} alt="Retailer Listings" />
+                                <LazyLoadImage 
+                                 onError={event => {
+                                    event.target.src = "/image/delivery.png"
+                                    event.onerror = null
+                                }}
+                                src={state?.StaticImage?.AboutUs4} alt="Retailer Listings" />
                             </div>
                             <div className="about_text">
                                 <h3 className="acard_title">

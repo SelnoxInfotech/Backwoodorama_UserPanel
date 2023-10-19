@@ -38,7 +38,14 @@ const HomePageWeedBanner=()=>{
                 return (
                     <SwiperSlide key={index}>
                     <div   className='col-12 homePageBanner_container' >
-                        <LazyLoadImage src={`${ele?.Banner}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
+                        <LazyLoadImage 
+                        
+                        onError={event => {
+                            event.target.src = "/image/VANNER_2.png"
+                            event.onerror = null
+                        }}
+                    
+                        src={`${ele?.Banner}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
                     </div>
                     </SwiperSlide>
                 )
@@ -54,7 +61,12 @@ const HomePageWeedBanner=()=>{
                 return (
                     <SwiperSlide key={index}>
                     <div className='col-12 homePageBanner_container'>
-                        <LazyLoadImage src={`${ele?.mobile}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
+                        <LazyLoadImage
+                                  onError={event => {
+                                    event.target.src = "/image/M11"
+                                    event.onerror = null
+                                }}
+                        src={`${ele?.moble}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
                     </div>
                     </SwiperSlide>
                 )

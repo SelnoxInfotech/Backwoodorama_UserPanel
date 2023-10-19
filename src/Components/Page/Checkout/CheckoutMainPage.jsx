@@ -105,7 +105,6 @@ const CheckOutMainPage = () => {
 
     }, [])
 
-
     return (
         <React.Fragment>
             <div className="container">

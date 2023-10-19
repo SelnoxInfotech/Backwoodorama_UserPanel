@@ -20,7 +20,14 @@ const CategoryProduct = ({ ShowCategoryProduct, Category, Skeleton }) => {
                                             <div className='CategorySliderImageBlock' key={index}>
                                                 <div className='slider1'>
 
-                                                    <LazyLoadImage onClick={() => { ShowCategoryProduct(ele.id, ele.name) }} src={ele.categoryImages} alt={ele.name.substr(0, 100)} className='rounded-circle catagoriesTabImg' />
+                                                    <LazyLoadImage 
+                                                    onError={event => {
+                                                        event.target.src = "/image/category.png"
+                                                        event.onerror = null
+                                                    }}
+                                                    onClick={() => { ShowCategoryProduct(ele.id, ele.name) }} 
+                                                    src={ele.categoryImages} alt={ele.name.substr(0, 100)} 
+                                                    className='rounded-circle catagoriesTabImg' />
 
                                                 </div>
                                                 <div className='col center Category_title' >

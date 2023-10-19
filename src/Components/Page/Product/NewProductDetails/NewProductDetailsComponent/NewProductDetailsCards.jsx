@@ -165,7 +165,12 @@ const NewProductDetailsCards = ({ Product }) => {
                 <div className="newProductDetailsCardLeftCol">
                     <div className="">
                         <div className="newProductDetailsUpperimage_container">
-                            <LazyLoadImage className="newProductDetails_upper_image" src={p} />
+                            <LazyLoadImage className="newProductDetails_upper_image"  
+                               onError={event => {
+                                event.target.src = "/image/blankImage.jpg"
+                                event.onerror = null
+                            }}
+                            src={p} />
                         </div>
                         {
                             Product?.images?.length > 1 ? <div className=" newProductDetailsLowerImage_container">
@@ -207,7 +212,12 @@ const NewProductDetailsCards = ({ Product }) => {
                                             <SwiperSlide key={index}>
 
                                                 <div className="col-12 NewProductDetails_image_container">
-                                                    <LazyLoadImage className="NewProductDetails_image" height={"100px"} src={items.image} />
+                                                    <LazyLoadImage 
+                                                        onError={event => {
+                                                            event.target.src = "/image/delivery.png"
+                                                            event.onerror = null
+                                                        }}
+                                                    className="NewProductDetails_image" height={"100px"} src={items.image} />
 
                                                 </div>
 

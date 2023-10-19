@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { BsShareFill } from "react-icons/bs";
 import { NewsSeo } from "../../../Component/ScoPage/NewsSeo.jsx";
 import DeliveryItemsCardSkeleton from '../../../Component/Skeleton/Deliveries/DeliveriesComponent/DeliveryMenu/DeliveryItemsCardSkeleton.jsx';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 const Allblogs = () => {
 const[allblogs,setallblogs] = useState([])
 const [isdata,setisdata] = useState(false)
@@ -37,7 +38,12 @@ const [isdata,setisdata] = useState(false)
                   <div className='row blogListCard' key={index}>
                   <div className='col-3  d-flex align-items-center'>
                       <div className='blogCardImg'>
-                          <img src={`${items.Image}`} alt={items.Alt_Text}/>
+                          <LazyLoadImage
+                            onError={event => {
+                              event.target.src = "/image/blog.jpg"
+                              event.onerror = null
+                          }}
+                          src={`${items.Image}`} alt={items.Alt_Text}/>
                       </div>
                   </div>
                   <div className='col-9'>

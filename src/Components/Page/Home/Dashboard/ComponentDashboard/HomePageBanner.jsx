@@ -31,7 +31,13 @@ const HomePageBanner = () => {
                             return (
                                 <SwiperSlide key={index}>
                                 <div className='col-12 homePageBanner_container'>
-                                    <LazyLoadImage  src={`${items.Banner}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
+                                    <LazyLoadImage 
+                                        onError={event => {
+                                            event.target.src = "/image/1.jpg"
+                                            event.onerror = null
+                                        }}
+                                    
+                                    src={`${items.Banner}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
                                 </div>
                                 </SwiperSlide>
                             )
@@ -47,7 +53,14 @@ const HomePageBanner = () => {
                             return (
                                 <SwiperSlide  key={index}>
                                     <div className='col-12 homePageBanner_container'>
-                                        <LazyLoadImage  src={`${items.mobile}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
+                                        <LazyLoadImage  
+                                        
+                                        onError={event => {
+                                            event.target.src = "/image/m1.jpg"
+                                            event.onerror = null
+                                        }}
+                                        
+                                        src={`${items.mobile}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
                                     </div>
                                 </SwiperSlide>
                             )
