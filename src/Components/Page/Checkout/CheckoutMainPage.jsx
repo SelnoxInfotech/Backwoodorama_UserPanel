@@ -71,7 +71,7 @@ const CheckOutMainPage = () => {
             SetLoading(true)
         ).then(response => {
             SetLoading(false)
-            navigate("/PlaceOrder")
+            navigate("/order-placed")
             dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
         }).catch(
             function (error) {

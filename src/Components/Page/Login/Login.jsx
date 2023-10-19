@@ -163,7 +163,7 @@ const Login = () => {
                             <div className='w-100 loginCenterDiv'>
                                 <span className='loginParagraphFontSize'>Having trouble to access your account?</span>
                                 <span>
-                                <Link to="/ForgotPassword"><span className='loginParagraphFontSize'>Click here</span></Link>
+                                <Link to="/forgot-password"><span className='loginParagraphFontSize'>Click here</span></Link>
                                 </span>
                             </div>
                             <div className='row  signup_margins_top'>

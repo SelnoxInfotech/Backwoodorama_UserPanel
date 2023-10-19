@@ -52,7 +52,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
                     if(state.login){
 
 
-                        navigate("/CheckOutMainPage", { state: { InputValues, abc: state.Cart_subTotal } })
+                        navigate("/checkout", { state: { InputValues, abc: state.Cart_subTotal } })
                     }
                     else{
                         navigate("/login")
@@ -67,7 +67,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
                         alert("First Fill form ")
                     }
                 }
-                if (location.pathname === "/CheckOutMainPage") {
+                if (location.pathname === "/checkout") {
                     SubmitData()
                     // SetLoading(true)DeliveryAddress
                 }
@@ -77,7 +77,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
             if (state.selectDeliveryoptions === "pickup_btn") {
                 if (location.pathname === "/cart") {
 
-                    navigate("/CheckOutMainPage", { state: { InputValues, abc: state.Cart_subTotal } })
+                    navigate("/checkout", { state: { InputValues, abc: state.Cart_subTotal } })
                 }
                 else {
                     if (state.DeliveryOption === false) {
@@ -87,7 +87,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
                         alert("First Fill form ")
                     }
                 }
-                if (location.pathname === "/CheckOutMainPage") {
+                if (location.pathname === "/checkout") {
                     SubmitData()
                     // SetLoading(true)DeliveryAddress
                 }
@@ -127,7 +127,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
                     <h5>Order Summary</h5>
 
                 </div>
-                {location.pathname !== "/CheckOutMainPage" ?
+                {location.pathname !== "/checkout" ?
                     <div className="col-12 d-flex addToCart_deliver">
 
                         {state.AllProduct[0]?.StoreDelivery &&

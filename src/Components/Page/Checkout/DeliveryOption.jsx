@@ -11,7 +11,6 @@ import useStyles from "../../../Style"
 import Createcontext from "../../../Hooks/Context"
 const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Time, SetTime}) => {
     const { state, dispatch } = React.useContext(Createcontext)
-    console.log(Hours)
     const method = useForm()
     const classes = useStyles()
     const [ShowDeliveryRestData, SetShowDeliveryRestData] = React.useState(true)
@@ -64,12 +63,12 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                 <div className="row">
                     <div className="col-12 center">
                         <div className="col-12 col-lg-12 col-md-12 col-sm-12  DeliveryOption_container">
-                            <div className="col-12 height_for_inner_div fontStyle ">
+                            <div className="col-12 height_for_inner_div fontStyle " style={{    display: 'flex' ,justifyContent: 'center' , marginBottom:"12px"}}>
                                 <h1 className='font_size_paragraph'>Delivery Options</h1>
 
                             </div>
-                            <div className="col-12 height_for_inner_div">
-                                <p >Your Address</p>
+                            <div className="col-12 height_for_inner_div" >
+                                <p  style={{fontWeight:'500'}}>Delivery Address</p>
 
                                 {DeliveryOptionData?.map((ele, index) => {
                                     return (
@@ -82,12 +81,12 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                                 })}
 
                             </div>
-                            <div className="col-12 height_for_inner_div_address flex_for_delivery marginTop_deliver p-2">
-                                <div className="col-6 col-sm-6 col-md-6">
+                            <div className="col-12 flex_for_delivery  p-2">
+                              
                                     {/* <p>{state.DeliveryAddress}</p> */}
                                     <p>{state.selectDeliveryoptions === "pickup_btn" ? state.AllProduct[0]?.StoreAddress : state.DeliveryAddress}</p>
 
-                                </div>
+                             
                                 {/* <div className="col-6 col-sm-6 col-md-6 position_right deliveroption_cursor">
                                     <p>Change</p>
 
@@ -101,7 +100,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
 
                                 <div className='show_and_hide'>
                                     <div className="col-12 height_for_inner_div ">
-                                        <p>Delivery time</p>
+                                        <p style={{fontWeight:'500'}}>Delivery time</p>
 
 
                                     </div>
@@ -134,7 +133,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
 
                                     </div>
                                     <div className="col-12 height_for_delivery_instruction_div ">
-                                        <p>Delivery Instruction</p>
+                                        <p style={{fontWeight:'500'}}>Delivery Instruction</p>
 
 
                                     </div>

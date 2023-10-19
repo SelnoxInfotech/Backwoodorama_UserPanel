@@ -199,11 +199,11 @@ const routesConfig = [
 
 
       {
-        path: "/PlaceOrder",
+        path: "/order-placed",
         element: <RoutingList Component={PlaceOrder} ></RoutingList>,
       },
       {
-        path: "/ForgotPassword",
+        path: "/forgot-password",
         element: <RoutingList Component={ForgotPassword} ></RoutingList>,
       },
       {
@@ -212,7 +212,7 @@ const routesConfig = [
       },
      
       {
-        path: "/CheckOutMainPage",
+        path: "/checkout",
         element: <ProtectRout Component={CheckOutMainPage} path="/CheckOutMainPage"></ProtectRout>
       }
       ,
