@@ -159,7 +159,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
 
                     >
                         <LoadingButton style={{ backgroundColor: "#00b96a", color: "white" }} variant="outlined" id='pickup_btn' onClick={ChnageDeliveryAddress}>
-                            Change Address
+                            Change Method
 
                         </LoadingButton>
                     </Box>
