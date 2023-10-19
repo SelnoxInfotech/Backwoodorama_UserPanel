@@ -203,7 +203,8 @@ const AddToCartReview = () => {
     return (
         <React.Fragment>
             <div className="col-12  AddProductCartContainerinner">
-
+{wondowWidth > 768 ?
+                <>
                 <div class="cartProductHeadings row col-12">
                     <div className='col-5 '><span className='carttableheadings'>Item</span></div>
                     <div className='col-2 text-center'><span className='carttableheadings'>Price</span></div>
@@ -271,7 +272,8 @@ const AddToCartReview = () => {
                     })}
                 </div>
 
-            </div>
+          
+            </>
             :
             <div className="  " >
                 {state.AllProduct?.map((ele, index) => {
@@ -329,8 +331,8 @@ const AddToCartReview = () => {
             </div>
                 
 
-
-    
+}
+</div>
         </React.Fragment >
     )
 }
