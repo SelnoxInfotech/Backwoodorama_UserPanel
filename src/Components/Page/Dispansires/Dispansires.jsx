@@ -52,6 +52,12 @@ export default function Dispansires() {
     React.useEffect(()=>{
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
     },[])
+
+
+
+
+
+    
     const classes = useStyles()
     return (
         <React.Fragment>

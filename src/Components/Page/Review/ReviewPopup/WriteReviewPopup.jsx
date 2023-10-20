@@ -11,33 +11,27 @@ import { Box } from "@mui/material"
 import { useForm } from "react-hook-form";
 import Createcontext from "../../../../Hooks/Context"
 import { useNavigate } from 'react-router-dom';
-const WriteReviewPopup = ({onSubmit, buttonclass, GetProductReview, SetGetProductReview }) => {
-    if(buttonclass === undefined){
+const WriteReviewPopup = ({ onSubmit, buttonclass, GetProductReview, SetGetProductReview }) => {
+    if (buttonclass === undefined) {
         buttonclass = 'WriteReviewBtn_Color'
     }
-    const navigate =  useNavigate()
+    const navigate = useNavigate()
     const { state } = React.useContext(Createcontext)
-    const { register, handleSubmit, errors, control, reset } = useForm();
+    const { register, handleSubmit, errors} = useForm();
     const classes = useStyles()
-    const [open, setOpen] = React.useState(false);
-   
+    // const [open, setOpen] = React.useState(GetProductReview.popup);
+
     const handleClickOpen = () => {
         if (state.login) {
-            setOpen(true);
+            SetGetProductReview({ ...GetProductReview,'popup' :true })
         }
-        else{
+        else {
             navigate("/login")
         }
     };
-    React.useEffect(()=>{
-        setOpen((open)=>{
-            return  GetProductReview.popup === true ? open :   GetProductReview.popup
-          })
-    },[GetProductReview])
-
+ 
     const handleClose = () => {
-        setOpen(false);
-        SetGetProductReview({ ...GetProductReview, 'value': 0 })
+        SetGetProductReview({ ...GetProductReview,'popup' :false })
     };
 
     return (
@@ -45,26 +39,26 @@ const WriteReviewPopup = ({onSubmit, buttonclass, GetProductReview, SetGetProduc
             <Button className={classes[buttonclass]} variant="outlined" onClick={handleClickOpen}>
                 Write a review
             </Button>
-            <Dialog open={open} onClose={handleClose} className={classes.WriteReviewDialog}>
+            <Dialog open={GetProductReview.popup} onClose={handleClose} className={classes.WriteReviewDialog}>
                 <div className='container-fluid'>
                     <div className='row'>
                         <div className='col-12 writeReviewContainer px-0'>
                             <div className='col-12 writeReviewCloseIconContainer'>
                                 <IconButton onClick={handleClose} aria-label="closebutton"><RiCloseCircleFill color='#949494' size={24} /></IconButton>
                             </div>
-                            <form onSubmit={handleSubmit(onSubmit)}>
-                                <div className='col-12 writeReviewTextCenter'>
-                                    <h2 className='writeReviewHeadings'>Write a review</h2>
-                                    <h3 className='secRatingHeadings'>My rating</h3>
-                                    <Rating
-                                        className={`mx-2 ${classes.WriteReviewStarIcons}`}
-                                        value={GetProductReview.value}
-                                        color='red'
-                                        onChange={(e) => SetGetProductReview({...GetProductReview , 'value' : e.target.value })}
-                                        precision={1}
-                                    />
 
-                                </div>
+                            <div className='col-12 writeReviewTextCenter'>
+                                <h2 className='writeReviewHeadings'>Write a review</h2>
+                                <h3 className='secRatingHeadings'>My rating</h3>
+                                <Rating
+                                    className={`mx-2 ${classes.WriteReviewStarIcons}`}
+                                    value={GetProductReview.value}
+                                    onChange={(e) => SetGetProductReview({ ...GetProductReview, 'value': e.target.value })}
+                                    precision={1}
+                                />
+
+                            </div>
+                            <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className='col-12 px-4 py-4'>
                                     <div className='col-12'>
                                         <label className='writeReviewLabel' htmlFor='title'>Title</label>
@@ -73,7 +67,7 @@ const WriteReviewPopup = ({onSubmit, buttonclass, GetProductReview, SetGetProduc
                                             size='small'
                                             id="title"
                                             value={GetProductReview.Title}
-                                            onChange={((e)=>{SetGetProductReview({...GetProductReview , [e.target.name] : e.target.value })})}
+                                            onChange={((e) => { SetGetProductReview({ ...GetProductReview, [e.target.name]: e.target.value }) })}
                                             name="Title"
                                             placeholder='Title'
                                             variant='filled'
@@ -99,7 +93,7 @@ const WriteReviewPopup = ({onSubmit, buttonclass, GetProductReview, SetGetProduc
                                         <textarea
                                             name='comment'
                                             value={GetProductReview.comment}
-                                            onChange={((e)=>{SetGetProductReview({...GetProductReview , [e.target.name] : e.target.value })})}
+                                            onChange={((e) => { SetGetProductReview({ ...GetProductReview, [e.target.name]: e.target.value }) })}
                                             id="review"
                                             className="textinput" placeholder="Comment"></textarea>
                                     </div>

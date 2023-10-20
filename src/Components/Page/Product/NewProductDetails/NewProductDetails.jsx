@@ -9,6 +9,7 @@ import { AiOutlineLeft } from "react-icons/ai";
 import { ProductDetailsSeo } from "../../../Component/ScoPage/ProductSeo"
 import { product_OverAllGet_Review  , Product_Add_Review ,  Product_Get_UserComment, Product_Get_Review} from "../ProductApi"
 import Createcontext from "../../../../Hooks/Context"
+import _ from 'lodash'
 const NewProductDetails = () => {
   const { id } = useParams();
   const Params = useParams()
@@ -25,7 +26,7 @@ const NewProductDetails = () => {
     value: 0,
     comment: '',
     Title: "",
-    popup:true
+    popup:false
   })
     
   // const Navigate = useNavigate()
@@ -94,7 +95,7 @@ const NewProductDetails = () => {
     }
     Product_Add_Review(Review).then((res) => {
       // setOpen(false);
-      SetGetProductReview({ ...GetProductReview, 'value': 0  , 'popup':false })
+      SetGetProductReview({ ...GetProductReview, 'popup':false })
       SetApi(!api)
     }).catch(() => {
 
@@ -105,6 +106,8 @@ const NewProductDetails = () => {
         SetReview(()=>{
           return res.data
         })
+        var Obj = _.find(res.data, { user: state.Profile.id});
+        SetGetProductReview({ ...GetProductReview, 'popup':false ,'value': Obj.rating  , 'Title': Obj.Title , 'comment': Obj.comment   })
     }).catch((e) => {
         console.error(e)
     })

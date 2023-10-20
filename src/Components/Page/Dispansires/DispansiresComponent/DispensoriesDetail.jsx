@@ -18,7 +18,7 @@ import ComponentStoreDetails from "../../StoreDetail/ComponentStoreDetails"
 import Review from "../../Review/Review";
 import Media from "../../Media/Media";
 import { StoreDetails } from "../../../../Components/Component/ScoPage/StoreDetails"
-import { Store_Add_Review, Store_OverAllGet_Review , Store_Get_UserComment, Store_Get_Review } from "../../../../Api/Api";
+import { Store_Add_Review, Store_OverAllGet_Review, Store_Get_UserComment, Store_Get_Review } from "../../../../Api/Api";
 import Createcontext from "../../../../Hooks/Context"
 export default function DispensoriesDetails() {
     const navigate = useNavigate()
@@ -32,12 +32,12 @@ export default function DispensoriesDetails() {
     const [Despen, SetDespens] = React.useState([])
     const [Rating, SetRating] = React.useState()
     const [api, SetApi] = React.useState(false)
-    const [AllReview, SetReview] =  React.useState([])
+    const [AllReview, SetReview] = React.useState([])
     const [GetProductReview, SetGetProductReview] = React.useState({
-      value: 0,
-      comment:'',
-      Title: "",
-      popup:true
+        value: 0,
+        comment: '',
+        Title: "",
+        popup: false
     })
     // const [Tab, SetTab] = React.useState()
     React.useEffect(() => {
@@ -86,26 +86,26 @@ export default function DispensoriesDetails() {
         str = str.trim().replaceAll(' ', "-");
         let a = 0;
         while (a < 1) {
-          if (str.includes("--")) {
-            str = str.replaceAll("--", "-")
-          } else if (str.includes("//")) {
-            str = str.replaceAll("//", "/")
-          } else if (str.includes("//")) {
-            str = str.replaceAll("-/", "/")
-          } else if (str.includes("//")) {
-            str = str.replaceAll("/-", "/")
-          } else {
-            a++
-          }
+            if (str.includes("--")) {
+                str = str.replaceAll("--", "-")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("//", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("-/", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("/-", "/")
+            } else {
+                a++
+            }
         }
-    
+
         return str
-      }
+    }
 
     function SelectionTab(item) {
-       
-            navigate(`${location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${modifystr(Despen[0]?.Store_Name.toLowerCase())}/${modifystr(item.toLowerCase())}/${id}`)
-      
+
+        navigate(`${location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${modifystr(Despen[0]?.Store_Name.toLowerCase())}/${modifystr(item.toLowerCase())}/${id}`)
+
     }
     function ShowCategoryProduct(Id, name) {
         axios.post(`https://api.cannabaze.com/UserPanel/Get-filterProductbyStoreandCategory/`,
@@ -147,56 +147,56 @@ export default function DispensoriesDetails() {
 
     React.useEffect(() => {
         Store_OverAllGet_Review(id).then((res) => {
-          SetRating(res)
+            SetRating(res)
         }).catch(() => { })
-      }, [id , api])
+    }, [id, api])
 
-      React.useEffect( ()=>{
-    
-        if(state.login &&  state.Profile.id !== undefined && id!== undefined){
-            Store_Get_UserComment(state.Profile.id , id).then((res)=>{
-        
-                if(res.data.length !== 0 )
-                {   
-                    SetGetProductReview({...GetProductReview , "comment": res.data[0]?.comment , 
-                     "Title" : res.data[0]?.Title , "value":res.data[0]?.rating})
+    React.useEffect(() => {
+        if (state.login && state.Profile.id !== undefined && id !== undefined) {
+            Store_Get_UserComment(state.Profile.id, id).then((res) => {
+
+                if (res.data.length !== 0) {
+                    SetGetProductReview({
+                        ...GetProductReview, "comment": res.data[0]?.comment,
+                        "Title": res.data[0]?.Title, "value": res.data[0]?.rating
+                    })
                 }
-            }).catch((error)=>{
-              console.trace(error)
+            }).catch((error) => {
+                console.trace(error)
             })
 
         }
-    },[ state.Profile, id ,api])
+    }, [state.Profile, id, api])
 
 
-
-
-      const onSubmit = () => {
+    const onSubmit = () => {
         const Review = {
             Store: id,
-          rating: GetProductReview.value,
-          Title: GetProductReview.Title,
-          comment: GetProductReview.comment
+            rating: GetProductReview.value,
+            Title: GetProductReview.Title,
+            comment: GetProductReview.comment
         }
         Store_Add_Review(Review).then((res) => {
-          // setOpen(false);
-          SetGetProductReview({ ...GetProductReview, 'value': 0  , 'popup':false })
-          SetApi(!api)
+            // setOpen(false)
+            SetGetProductReview({ ...GetProductReview, 'popup':false })
+            SetApi(!api)
         }).catch(() => {
-    
-        })
-      };
 
-      React.useEffect(() => {
+        })
+    };
+
+    React.useEffect(() => {
         Store_Get_Review(id).then((res) => {
             SetReview(()=>{
-              return res.data
-            })
+                return res.data
+              })
+            var Obj = _.find(res.data, { user: state.Profile.id});
+         SetGetProductReview({ ...GetProductReview, 'popup':false ,'value': Obj.rating  , 'Title': Obj.Title , 'comment': Obj.comment   })
         }).catch((e) => {
             console.error(e)
         })
-    }, [ id, api])
-    
+    }, [id, api])
+
 
     return (
         <div>
@@ -234,7 +234,7 @@ export default function DispensoriesDetails() {
                         tab === 'store-details' && <ComponentStoreDetails></ComponentStoreDetails>
                     }
                     {
-                        tab === 'review' &&  <Review Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview}  AllReview={AllReview} SetReview ={SetReview}></Review>
+                        tab === 'review' && <Review Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview={SetReview}></Review>
                     }
                     {
                         tab === 'deals' && <>Deal</>
