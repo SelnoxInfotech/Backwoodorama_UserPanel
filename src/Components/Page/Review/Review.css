@@ -68,7 +68,7 @@
     color: #474747;
     line-height: 1.5;
     margin: 0;
-    width: 85%;
+    width: 80%;
    }
    .more_less_btn{
     border: none;
@@ -113,7 +113,7 @@
    @media screen and (max-width: 1024px){
        .reviews_title{
         font-size: 14px;
-     
+        width: 100%;
        }
      
        .more_less_btn{

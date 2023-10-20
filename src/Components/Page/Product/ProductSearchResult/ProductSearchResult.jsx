@@ -78,7 +78,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                 }
                 , config
             ).then(response => {
-                console.log(response , 'responseive')
+               
                 if (response.data === "Empty Add to Cart") {
                     SetPopup( false)
                     SetCartClean(true)
@@ -222,7 +222,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                                                     <Box className={classes.productSearchIcons}>
                                                         <IconButton onClick={() => { handleWhishList(items.id) }} aria-label="Example">
                                                             {
-                                                            state.login ?   state.WishList[items.id] ? <AiFillHeart color="31B665"></AiFillHeart> : <AiOutlineHeart /> : <AiOutlineHeart />
+                                                            state.login ?   state.WishList[items.id] ? <AiFillHeart color="31B665"></AiFillHeart> : <AiOutlineHeart  color="31B665" /> : <AiOutlineHeart color="31B665" />
                                                             }
                                                         </IconButton>
                                                     </Box>

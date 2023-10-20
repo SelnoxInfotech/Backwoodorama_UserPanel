@@ -31,7 +31,7 @@ const ProductList = ({ arr, ProductNavigate }) => {
     })
     const [NewData, SetNewData] = React.useState([])
     const Addtocard = async (Event) => {
-        console.log(Event)
+       
         if (token_data) {
             const AddData = _.filter(Price, Price => Price?.Product_id === Event?.id);
             const PriceArrry = _.find(Event?.Prices[0]?.Price, Price => AddData[0]?.Product_id === Event?.id && AddData[0]?.Item_id === Price?.id);

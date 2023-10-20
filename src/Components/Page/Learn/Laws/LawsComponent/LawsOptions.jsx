@@ -8,7 +8,7 @@ import { LawState } from "../../../../Component/ScoPage/LearnSeo";
 import { useParams } from "react-router-dom"
 const LawsOptions = () => {
     const [Values, SetValues] = React.useState([])
-    console.log(useParams())
+  
     return (
         <div className="col-12 lawsContainer my-4">
     {/* <LawState Title={''}></LawState> */}

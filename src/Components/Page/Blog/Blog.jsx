@@ -166,14 +166,14 @@ const Blogs = () => {
                                     >
                                         <BsFillShareFill></BsFillShareFill>
                                     </RWebShare>
-                                     <div className="blogViewCounts">Share</div>
+                                     <div className="blogViewCounts destop_view">Share</div>
                                 </div>
                                 <div className="col viewsBlog" id="center1">
-                                <IconButton>
+                                    <IconButton>
                                         <IoEyeSharp></IoEyeSharp>
                                     </IconButton>
                                  
-                                    <span className="blogViewCounts">{ViewCount} Views</span>
+                                    <span className="blogViewCounts">{ViewCount} <span className="destop_view">Views</span></span>
 
                                    
                                 </div>
@@ -183,7 +183,7 @@ const Blogs = () => {
                             <IconButton> 
                                     <BiCommentDetail/>
                                     </IconButton>
-                                    <span className="blogViewCounts">{Getcommnet.CommentCounts} Comment</span>
+                                    <span className="blogViewCounts">{Getcommnet.CommentCounts} <span className="destop_view"> Comment</span> </span>
                                     {/* <span className="blogViewCounts">Comment</span> */}
                                 </div>
                                 <div className="col viewsBlog like" id="center1">

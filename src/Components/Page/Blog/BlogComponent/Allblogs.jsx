@@ -19,7 +19,7 @@ const [isdata,setisdata] = useState(false)
       setallblogs(res);
       setisdata(true)
     }).catch((err)=>{
-      console.log(err)
+      console.trace(err)
     })
   },[])
 

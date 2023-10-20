@@ -38,7 +38,7 @@ const style = {
 };
 
 const ProductIncDecQuantity = ({popup, SetPopup, items, AddToCart }) => {
-    console.log(items?.Prices[0]?.Price[0].Weight ,'items')
+    
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
         setOpen(true);

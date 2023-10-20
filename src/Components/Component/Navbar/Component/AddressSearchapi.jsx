@@ -63,7 +63,7 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
   }
   function current(event) {
     navigator.permissions.query({ name: 'geolocation' }).then(permissionStatus => {
-      // console.log(permissionStatus)
+    
       if (permissionStatus.state === 'denied') {
         alert('Please allow location access.');
       } else {

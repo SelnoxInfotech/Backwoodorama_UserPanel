@@ -465,7 +465,17 @@ const useStyles = makeStyles({
     }
   },
 
-
+  flotchceckoutbtn:{
+   
+    '&.MuiLoadingButton-root':{
+      backgroundColor:'#31B665',
+      color:'#fff',
+     
+      height:'50px',
+      fontSize:'18px',
+      fontWeight:'700'
+    }
+  },
   homePage_iconsColor: {
     color: "black",
   },

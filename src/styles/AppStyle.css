@@ -2249,7 +2249,6 @@ scrollbar-width: none;  /* Firefox */
 .verify_brand_image {
   width: 200px;
   height: 123px;
-  object-fit: cover;
 }
 
 .verify_brands_heading {
@@ -2524,7 +2523,6 @@ scrollbar-width: none;  /* Firefox */
 .newProductDetailsContainer .newProductDetailsCardLeftCol .newProductDetails_upper_image {
   height: 350px;
   width: 350px;
-  object-fit: cover;
 }
 .newProductDetails_heading {
   

@@ -42,7 +42,7 @@ const NewProductSearchResult = ({ NewProductSearchRseultArray, heading }) => {
                 <div className="col-lg-12 col-12   recentViewProductSlider" id="width" ref={ref}>
                     <ScrollContainer className=" newProductSearchResult_ScrollContainerRelative">
                         {NewProductSearchRseultArray?.map((items, index) => {
-                        console.log(items,'itemssss')
+                       
                             return (
                                 <>
                                

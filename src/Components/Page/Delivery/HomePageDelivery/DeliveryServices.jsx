@@ -21,7 +21,7 @@ const DeliveryServices = () => {
         if (state.City !== "") {
             var object = { City: state.City.replace(/-/g, " ") }
             Delivery(object).then((res) => {
-                //   console.log(res.length === 0)
+              
                 if (res.length === 0) {
                     SetDeliveryService([])
 
@@ -101,7 +101,7 @@ const DeliveryServices = () => {
                     }
                 
                     //    SetDeliveryService(response.data)
-                    //    console.log(response.data)
+                   
                 }
 
                 ).catch(() => {

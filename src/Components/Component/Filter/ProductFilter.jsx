@@ -12,7 +12,7 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
     const classes = useStyles()
     const { tab, Category, StoreName, id } = useParams()
     const location =  useLocation()
-    const [select,setselect] = useState("Short")
+    const [select,setselect] = useState("Sort by A to Z")
     const navigate = useNavigate()
     const [OpenEvent, SetOpenEvent] = React.useState(null);
     const [OpenSortedData, SetOpenSortedData] = React.useState(null);
@@ -153,28 +153,47 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
 
             })
     }
-    const SearchA2Z = () => {
-        Axios(`https://api.cannabaze.com/UserPanel/Get-SortingFilterAtoZ/`, {
+    // const SearchA2Z = () => { 
+    //     Axios(`https://api.cannabaze.com/UserPanel/Get-SortingFilterAtoZ/`, {
 
 
-        }).then(response => {
+    //     }).then(response => {
 
-            Setarr1(response.data)
-
-
-
-        }).catch(
-            function (error) {
+    //         Setarr1(response.data)
+   
 
 
-            })
+    //     }).catch(
+    //         function (error) {
 
-    }
-    const SearchZ2A = () => {
-        // Setarr1(arr1?.reverse())
-    }
+
+    //         })
+
+    // }
+    // const SearchZ2A = () => {
+    //     // Setarr1(arr1?.reverse())
+    // }
     const handleChange = (event) => {
+        console.log(event.target.value ,'hello world')
         setselect(event.target.value)
+        if(event.target.value === 'Sort by A to Z'){
+            Axios.get(`https://api.cannabaze.com/UserPanel/Get-SortingFilterAtoZ/${id}`).then((response)=>{
+                console.log(response)
+              }).catch((error)=>{
+                console.trace(error)
+                console.log("hello world 2")
+              })
+        }else  if(event.target.value === 'Sort by Z to A'){
+
+        }else if(event.target.value === 'Price low to high'){
+            Axios.get(`https://sweede.app/UserPanel/HighPriceToLowPrice/${id}`).then((response)=>{
+                console.log(response)
+              }).catch((error)=>{
+                console.trace(error)
+              })
+        }else{
+
+        }
     };
 
     return (
@@ -187,8 +206,6 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
                       
 
                         style={{ border: "1px solid #dee2e6" }} width={"100%"} />
-
-
                 </div>
                 <div className="col-10 product_select">
                     <Grid container display={{ xs: "none", md: "contents", lg: "contents" }}>
@@ -208,10 +225,8 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
                                 inputProps={{ 'aria-label': 'Without label' }}
                             >
 
-                                <MenuItem value={"Sort by A to Z"} onClick={SearchA2Z}>
-                                    Sort by A to Z
-                                </MenuItem>
-                                <MenuItem value={"Sort by Z to A"} onClick={SearchZ2A}>Sort by Z to A</MenuItem>
+                                <MenuItem value={"Sort by A to Z"}>  Sort by A to Z </MenuItem>
+                                <MenuItem value={"Sort by Z to A"}>Sort by Z to A</MenuItem>
                                 <MenuItem value={"Price low to high"}>Price low to high</MenuItem>
                                 <MenuItem value={"Price hight to low"}>Price hight to low</MenuItem>
                             </Select>

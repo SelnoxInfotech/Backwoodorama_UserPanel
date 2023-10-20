@@ -103,14 +103,9 @@ export default function DispensoriesDetails() {
       }
 
     function SelectionTab(item) {
-        // SetTab(item)
-        // if (item === "Menu") {
-        //     item = "products"
-        //     navigate(`${location.pathname.slice(0, 14) === "/weed-delivery" ? "/weed-delivery" : "/weed-dispensaries"}/${Despen[0]?.Store_Name.replace(/\s/g, '-').toLowerCase()}/${item.replace(/\s/g, '-').toLowerCase()}/${id}`)
-        // }
-        // else {
+       
             navigate(`${location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${modifystr(Despen[0]?.Store_Name.toLowerCase())}/${modifystr(item.toLowerCase())}/${id}`)
-        // }
+      
     }
     function ShowCategoryProduct(Id, name) {
         axios.post(`https://api.cannabaze.com/UserPanel/Get-filterProductbyStoreandCategory/`,
@@ -167,7 +162,7 @@ export default function DispensoriesDetails() {
                      "Title" : res.data[0]?.Title , "value":res.data[0]?.rating})
                 }
             }).catch((error)=>{
-              console.log(error)
+              console.trace(error)
             })
 
         }

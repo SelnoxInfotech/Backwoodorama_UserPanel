@@ -54,7 +54,6 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
    }
     },[])
 
-      console.log(Time)
     //   dataFormate(new Date().getDate)
 
     return (

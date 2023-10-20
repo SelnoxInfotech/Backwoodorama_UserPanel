@@ -181,7 +181,7 @@ export function CategoryProductsearch(object, id) {
         axios.post(`https://api.cannabaze.com/UserPanel/Get-ProductByCategory/${id}`, object).then((res) => {
             return res
         }).then((response) => {
-            console.log(response)
+          
             if (response.data === "There is no Product") {
                 return []
             }

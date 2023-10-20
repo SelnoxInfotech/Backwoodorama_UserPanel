@@ -1,13 +1,9 @@
 import React from "react"
 import NewProductDetailsCards from "./NewProductDetailsComponent/NewProductDetailsCards"
-import RelatedReview from "../../Review/ReviewComponent/RelatedReview"
-import OverAllReview from "../../Review/ReviewComponent/OverAllReview"
 import NewProductinfoText from "./NewProductDetailsComponent/NewProductinfoText"
 import ProductSearchResult from "../ProductSearchResult/ProductSearchResult"
-import NewProductSearchResult from "./NewProductDetailsComponent/NewProductSearchResult"
 import Axios from "axios";
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
-import NewFlavourBanner from "../../../Component/NewFlavour/NewFlavourBanner"
 import Review from "../../Review/Review"
 import { AiOutlineLeft } from "react-icons/ai";
 import { ProductDetailsSeo } from "../../../Component/ScoPage/ProductSeo"
@@ -15,6 +11,7 @@ import { product_OverAllGet_Review  , Product_Add_Review ,  Product_Get_UserComm
 import Createcontext from "../../../../Hooks/Context"
 const NewProductDetails = () => {
   const { id } = useParams();
+  const Params = useParams()
   const { state } = React.useContext(Createcontext)
   const navigate = useNavigate();
   const heading = "You may also like"
@@ -82,7 +79,7 @@ const NewProductDetails = () => {
                      "Title" : res.data[0]?.Title , "value":res.data[0]?.rating})
                 }
             }).catch((error)=>{
-              console.log(error)
+              console.trace(error)
             })
 
         }
@@ -111,14 +108,21 @@ const NewProductDetails = () => {
     }).catch((e) => {
         console.error(e)
     })
-}, [ Product, api])
-
-  // Productname , ProductCategory , StoreName
-  return (
+  }, [ Product, api])
+    const Tolastpage = ()=>{
+      let output1 = 'StoreName' in Params; 
+    
+      if(output1){
+        navigate(`/weed-${Product.Store_Type.replace(/y$/,"ies")}/${Params.StoreName.replaceAll(' ' , '-')}/${Product.Store_id}`)
+      }else{
+        navigate(`/products`)
+      }
+    }
+return (
     <div className="container-fluid">
       <ProductDetailsSeo Productname={Product.Product_Name} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={ useLocation().pathname } ></ProductDetailsSeo>
 
-      <span onClick={() => navigate(-1)} className="BackPageBtn"> <AiOutlineLeft size={22} /> <span className="backPgBtnImg"><img src={`${Despen.Store_Image}`} alt="" /></span> {Despen.Store_Name}</span>
+      <span onClick={() => Tolastpage()} className="BackPageBtn"> <AiOutlineLeft size={22} />{ 'StoreName' in Params ? <> <span className="backPgBtnImg"><img src={`${Despen.Store_Image}`} alt="" /></span> {Despen.Store_Name}</> : 'Back to products'}</span>
       <NewProductDetailsCards Product={Product} />
 
       <NewProductinfoText Product={{ heading: "Product Description", text: Product?.Product_Description }} />

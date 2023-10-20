@@ -6,7 +6,7 @@ export default function RoutingSearch({ city, State, country, pathname }) {
   const navigate = useNavigate()
   const [search ,  Setsearch]=React.useState('')
   React.useEffect(()=>{
-    // console.log(city, State, country)
+   
        if(city === undefined) {
          if(State !== undefined){
           location(State)
@@ -112,7 +112,7 @@ function location (value)
         //     }
         //   }
         
-        //   // console.log(city, s, c)
+       
 
 
         // }
@@ -127,7 +127,7 @@ function location (value)
             }
           }
         
-          // console.log(city, s, c)
+         
 
 
         }

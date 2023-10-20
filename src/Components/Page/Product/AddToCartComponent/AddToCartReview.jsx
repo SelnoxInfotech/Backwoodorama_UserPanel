@@ -29,7 +29,7 @@ const AddToCartReview = () => {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, remove it!'
         }).then((result) => {
-            console.log(result ,'result')
+        
             if (result.isConfirmed) {
               
                 const myPromise = new Promise((resolve, reject) => {
@@ -45,7 +45,7 @@ const AddToCartReview = () => {
                         )
                         .then(async (res) => {
                             await dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-                            console.log("delete done")
+                            
                             SetLoadingDelete(false)
                             resolve();
                         })
@@ -187,7 +187,7 @@ const AddToCartReview = () => {
         dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
     }
     function Navigate(e) {
-        console.log(e)
+      
         navigate(`/products/${modifystr(e.category)}/${modifystr(e.SubcategoryName)}/${modifystr(e.ProductName)}/${e.Sub_Category_id}`)
     }
     function modifystr(str) {
@@ -252,7 +252,6 @@ const AddToCartReview = () => {
 
 
                                         <h5 className='add_prod_cart_p_title' onClick={() => { Navigate(ele) }}>{ele.ProductName + "(" + wrigh + ")"}</h5>
-                                        <h4 className='add_prod_cart_p'>{ele.StoreName}</h4>
                                     </div>
                                 </div>
                                 <div className="col-2 text-center">
@@ -313,7 +312,7 @@ const AddToCartReview = () => {
                             <div className="mb_addtoproduct_card_content">
                                 <div>
                                     <h5 className='add_prod_cart_p_title' onClick={() => { Navigate(ele) }}>{ele.ProductName + "(" + wrigh + ")"}</h5>
-                                    {/* <h4 className='add_prod_cart_p'>{ele.StoreName}</h4> */}
+                                    
                                 </div>
                                 <div className='d-flex justify-content-between align-items-end'>
                                     <div className='AddToCartReviewBtn ' >

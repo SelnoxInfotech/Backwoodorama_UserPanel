@@ -102,12 +102,12 @@ export default CurrentLocation
 
 // navigator.geolocation.getCurrentPosition(
 //   function (position) { /** won't be executed for such short timeout */
-//   console.log(position.coords.latitude)
+
 //   // if (Country === ''||Country === undefined) {
 // fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
 //   .then(res => res.json())
 //   .then(response => {
-//     console.log(response)
+
 //     // dispatch({ type: 'Location', Location: response?.plus_code?.compound_code.slice(9) })
 //     // response?.results?.map((data) => {
 //       if (data.types.indexOf('country') !== -1) {
@@ -153,7 +153,6 @@ export default CurrentLocation
 //   },
 
 //   function (positionError) {
-//     console.log(cookies.get("Location"))
 //     switch (positionError.code) {
 //       // PERMISSION_DENIED
 

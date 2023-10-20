@@ -17,7 +17,6 @@
 .productSearchResultImage_container .product_search_result_image{
     width: 200px;
     height: 200px;
-    object-fit: cover;
     margin: 0 auto;
     display: block;
 }

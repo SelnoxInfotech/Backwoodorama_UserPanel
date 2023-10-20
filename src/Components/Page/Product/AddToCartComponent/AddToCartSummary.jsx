@@ -158,7 +158,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
                         className={`add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
 
                     >
-                        <LoadingButton style={{ backgroundColor: "#00b96a", color: "white" }} variant="outlined" id='pickup_btn' onClick={ChnageDeliveryAddress}>
+                        <LoadingButton style={{ color: "#00b96a" }} variant="outlined" id='pickup_btn' onClick={ChnageDeliveryAddress}>
                             Change Method
 
                         </LoadingButton>
@@ -264,9 +264,9 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
                                     CheckoutProcess(e)
 
                                 }}
-
+                                className={classes.flotchceckoutbtn}
                                 type='submit'
-                            >Checkout</LoadingButton>
+                            > proceed to checkout                            </LoadingButton>
 
                         </Box> : 
                         <Box
@@ -274,13 +274,12 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
 
                         >
 
-                        <LoadingButton variant="outlined"
+                        <LoadingButton
                             loading={CheckOut_Loading}
                             onClick={(e) => {
                                 CheckoutProcess(e)
-
                             }}
-
+                            className={classes.flotchceckoutbtn}
                             type='submit'
                         >checkout</LoadingButton>
 

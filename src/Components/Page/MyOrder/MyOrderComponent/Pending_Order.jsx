@@ -22,10 +22,9 @@ const Pending_Order = () => {
     function CencelOrder(id) {
         SetLoading(true)
         Cancel(id).then((res) => {
-            console.log(res.data)      
+               
             // SetAllOrder_data(res.data.data.reverse())
             PendingOrder().then((res) => {
-                console.log(res.data)
                 if(res.data.length === 0) {
                     SetAllOrder_data([])
                 }

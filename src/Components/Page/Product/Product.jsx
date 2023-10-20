@@ -87,7 +87,7 @@ const Product = () => {
                     else {
                         const object = { State: state.State.replace(/-/g, " ") }
                         SubcategoryProduct(object, params.id).then((response) => {
-                            console.log(response)
+                          
                             if (response?.length !== 0 && response !== "There is no Product") {
                                 SetLoading(false)
                                 f(response[0]?.category_name)
@@ -326,7 +326,7 @@ const Product = () => {
                             CategoryProductsearch(object, params.id).then((response) => {
                                 SetLoading(false)
                                 f(response[0]?.category_name)
-                                console.log(response)
+                                
                                 SetProduct(response)
                                 // Sub_Category_id
                                 SubCategoryApi(response[0]?.category_id).then((response) => {

@@ -17,7 +17,7 @@ const StrainProduct = () => {
             }
         ).then(response => {
             SetStrainProduct(response.data)
-console.log(response.data)
+
         }).catch(
             function (error) {
                 // SetLoading(false)

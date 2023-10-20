@@ -47,7 +47,7 @@ const DeliveryMenuBar = () => {
             if (state.State !== "") {
                 const object = { State: state.State }
                 GetAllDelivery(object).then((response) => {
-                    console.log(response)
+                  
                     if (response?.length !== 0) {
                         SetDelivery(response)
                     }
@@ -75,7 +75,7 @@ const DeliveryMenuBar = () => {
 
 
         // GetAllDelivery().then((response) => {
-        //     console.log(response)
+      
         // })
 
 

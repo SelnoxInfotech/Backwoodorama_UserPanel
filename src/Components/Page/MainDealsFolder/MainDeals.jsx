@@ -15,7 +15,7 @@ const [deals,setdeals]= React.useState([])
        axios.get('https://api.cannabaze.com/UserPanel/BuyXGetYDiscount/').then((res)=>{
         setdeals(res.data)
        }).catch((error)=>{
-        console.log(error)
+        console.trace(error)
        })
     } , [])
 

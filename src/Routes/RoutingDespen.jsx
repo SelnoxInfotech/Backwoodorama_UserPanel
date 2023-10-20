@@ -29,10 +29,9 @@ export default function RoutingDespen(props) {
     //             // fs.writeFileSync("../public/Sitemap/Sitemaplocation.xml", data);
     //         })
     //         .catch((err) => {
-    //             console.log(err);
+    //           
     //         });
     // }, [])
-    // console.log(state)
 
     return (
 
