@@ -26,7 +26,7 @@ const HomePageBanner = () => {
           delay: 2500,
           disableOnInteraction: false,
         }}  modules={[Autoplay]}>
-                        {HomePageBannerImage.map((items, index) => {
+                        {HomePageBannerImage?.map((items, index) => {
                         
                             return (
                                 <SwiperSlide key={index}>

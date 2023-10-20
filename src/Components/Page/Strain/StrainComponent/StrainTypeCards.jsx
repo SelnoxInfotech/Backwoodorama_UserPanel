@@ -7,7 +7,7 @@ const StrainTypeCards = ({ ArrayData}) => {
     return (
         <React.Fragment>
             <div className="straintype_card_wrapper" ref={ref}>
-                    {ArrayData.map((items, index) => {
+                    {ArrayData?.map((items, index) => {
                         return (
                             <div className="strainType_container" key={index}>
                                 <div className="strainTypeInner_container ">

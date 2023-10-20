@@ -31,7 +31,6 @@ const ProductList = ({ arr, ProductNavigate }) => {
     })
     const [NewData, SetNewData] = React.useState([])
     const Addtocard = async (Event) => {
-       
         if (token_data) {
             const AddData = _.filter(Price, Price => Price?.Product_id === Event?.id);
             const PriceArrry = _.find(Event?.Prices[0]?.Price, Price => AddData[0]?.Product_id === Event?.id && AddData[0]?.Item_id === Price?.id);
@@ -132,7 +131,6 @@ const ProductList = ({ arr, ProductNavigate }) => {
         }
     }
     React.useEffect(() => {
-        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
         localStorage.setItem('items', JSON.stringify(AddTOCard))
     }, [AddTOCard])
     async function PriceSelect(Product, Item) {
@@ -211,8 +209,10 @@ const ProductList = ({ arr, ProductNavigate }) => {
                                         />
                                         {/* // <img src={`https://api.cannabaze.com/${ele?.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }} /> */}
                                         <div className="prod_img_btn d-flex">
-                                            <button className=" cat_prod_inner_btn btn2">THC {ele.THC}%</button>
-                                            <button className="cat_prod_inner_btn btn1">{ele.strain}</button>
+                                        { ele.THC !== 0&& <button className=" cat_prod_inner_btn btn2">THC {ele.THC}%</button>}
+                                        { ele.CBD !== 0&& <button className=" cat_prod_inner_btn btn2">CBD {ele.CBD}%</button>}
+                                        { ele.CBN !== 0&& <button className=" cat_prod_inner_btn btn2">CBN {ele.CBN}%</button>}
+                                          { ele.strain !== 'None' &&    <button className="cat_prod_inner_btn btn1">{ele.strain}</button>}
                                         </div>
 
 

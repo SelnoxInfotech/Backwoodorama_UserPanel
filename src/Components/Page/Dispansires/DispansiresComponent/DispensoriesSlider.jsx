@@ -108,7 +108,7 @@ const Dispensories = () => {
                     <div className="col-12 mt-3  recentViewProductSlider" id="width" ref={ref}>
                         <ScrollContainer className="ScrollContainerRelative">
 
-                            {Store.map((ele, index) => {
+                            {Store?.map((ele, index) => {
                                 return (
 
                                     <div className='dispensoriesContainer  dispensoriesCard' key={index}>

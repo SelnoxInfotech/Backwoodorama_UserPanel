@@ -172,7 +172,7 @@ const ProductIncDecQuantity = ({popup, SetPopup, items, AddToCart }) => {
                                             items?.Prices[0]?.Price.map((data,index) => {
                                                 return (
                                                     SelectWeight === data.id &&
-                                                    <h2><span className='prod_quant_font'>${parseInt(data.SalePrice)}</span><span className='mx-2   prod_price_font'>/ 1Z</span></h2>
+                                                    <h2><span className='prod_quant_font'>${parseInt(data.SalePrice * counter)}</span><span className='mx-2   prod_price_font'>/{data.Weight === '' ? "Unit" : data.Weight} </span></h2>
                                                 )
                                                    
                                             })

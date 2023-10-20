@@ -39,7 +39,7 @@ const FeaturedBrand = ({ CardDataArray ,BrandSkeleton}) => {
             <div  className="feature_brand_container"  ref={ref}>
                 <ScrollContainer className="ScrollContainerRelative">
                     {
-                        CardDataArray.map((items, index) => {
+                        CardDataArray?.map((items, index) => {
                             return (
                                 <div className="feature_brands" key={index}>
                                       <Link  to={`/brands/${modifystr(items.name)}/${items.id}`}> 

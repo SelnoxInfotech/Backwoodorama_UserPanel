@@ -11,7 +11,6 @@ import { Link, useNavigate } from 'react-router-dom';
 const AddToCartReview = () => {
     const Swal = require('sweetalert2')
     const { state, dispatch } = React.useContext(Createcontext)
-
     const navigate = useNavigate();
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access');
@@ -29,12 +28,10 @@ const AddToCartReview = () => {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, remove it!'
         }).then((result) => {
-        
+            console.log(result ,'result')
             if (result.isConfirmed) {
               
                 const myPromise = new Promise((resolve, reject) => {
-                  
-                     
                         if (state.login) {  
                         const config = {
                             headers: { Authorization: `Bearer ${token_data}` }
@@ -45,12 +42,11 @@ const AddToCartReview = () => {
                         )
                         .then(async (res) => {
                             await dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-                            
+                            console.log("delete done")
                             SetLoadingDelete(false)
                             resolve();
                         })
                         .catch((error) => {
-                            console.error(error)
                             SetLoadingDelete(false)
                             reject();
                         })
@@ -65,11 +61,11 @@ const AddToCartReview = () => {
                                 }
                             }
                             localStorage.setItem("items", JSON.stringify(obj));
-
+                            resolve();
                         }
                   })
-                  myPromise.then(()=>{
-                    
+
+                  myPromise.then(async ()=>{
                     dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
                     Swal.fire(
                         'Removed!',
@@ -163,7 +159,7 @@ const AddToCartReview = () => {
 
                 })
                 .catch((error) => {
-                    console.error(error)
+                    console.trace(error)
                     SetLoadingmines(false)
                 })
 
@@ -187,7 +183,7 @@ const AddToCartReview = () => {
         dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
     }
     function Navigate(e) {
-      
+       
         navigate(`/products/${modifystr(e.category)}/${modifystr(e.SubcategoryName)}/${modifystr(e.ProductName)}/${e.Sub_Category_id}`)
     }
     function modifystr(str) {
@@ -240,7 +236,7 @@ const AddToCartReview = () => {
                             <div className="row py-3 px-0 border-top border-bottom justify-content-center   align-items-center" key={index}>
                                 <div className='row align-items-center col-5'>
                                     <div className="p-0 col-3 Add_prod_item_image_cont">
-                                        <Link to={`/products/${modifystr(ele.category)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.ProductName)}/${ele.Sub_Category_id}`}>
+                                        <Link to={`/products/${modifystr(ele.category)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.ProductName)}/${ele.Product_id}`}>
 
                                             <LazyLoadImage onError={event => {
                                                 event.target.src = "/image/blankImage.jpg"
@@ -252,6 +248,7 @@ const AddToCartReview = () => {
 
 
                                         <h5 className='add_prod_cart_p_title' onClick={() => { Navigate(ele) }}>{ele.ProductName + "(" + wrigh + ")"}</h5>
+                                        <h4 className='add_prod_cart_p'>{ele.StoreName}</h4>
                                     </div>
                                 </div>
                                 <div className="col-2 text-center">

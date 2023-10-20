@@ -264,14 +264,14 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                                                     </div>
 
                                                     <div className=" productPriceDivHeight">
-                                                        <p className="productSearch text-truncate"><span className="productSearchPrice">${parseInt(items.Prices[0].Price.sort((a, b) => a.SalePrice - b.SalePrice)[0].SalePrice)}</span> per {items.Prices[0].Price[0].Weigth ? items.Prices[0].Price[0].Weigth  : `${items.Prices[0].Price[0].Unit} Unit`}</p>
+                                                        <p className="productSearch text-truncate"><span className="productSearchPrice">${parseInt(items.Prices[0].Price[0].SalePrice)}</span> per {items.Prices[0].Price[0].Weight ? items.Prices[0].Price[0].Weight  : `${items.Prices[0].Price[0].Unit} Unit`}</p>
                                                     </div>
                                                     <div className="my-2">
                                                         <Box className={`center ${classes.loadingBtnTextAndBack}`}>
                                                             {
                                                                 items?.Prices[0].Price.length > 1
                                                                     ?
-                                                                    <ProductIncDecQuantity popup={popup}   SetPopup={SetPopup} items={items} AddToCart={AddToCart} />
+                                                                    <ProductIncDecQuantity popup={popup}   SetPopup={SetPopup} items={items} AddToCart={AddToCart} />                                                                                                         
                                                                     :
                                                                     <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" }}
                                                                         onClick={() => { AddToCart(items) }}>
