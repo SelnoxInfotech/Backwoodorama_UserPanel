@@ -32,7 +32,7 @@ export default function Dashboard() {
             Axios("https://api.cannabaze.com/UserPanel/Get-Categories/")
                 .then((response) => {
 
-                    SetCategory(response.data)
+                    SetCategory(response?.data)
                     // CategorySkalaton
                     SetSkeleton(false)
 
@@ -48,7 +48,7 @@ export default function Dashboard() {
         Axios("https://api.cannabaze.com/UserPanel/Get-AllBrand/ ", {})
             .then((response) => {
 
-                SetFeaturedBrandArray(response.data)
+                SetFeaturedBrandArray(response?.data)
                 SetBrandSkeleton(false)
             })
             .catch((error) => {
