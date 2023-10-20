@@ -40,7 +40,7 @@ const RecentPost = () => {
                                                                 event.onerror = null
                                                             }}
                                                         
-                                                        src={`${ele.Iage}`} alt="img_not_found" style={{ pointerEvents: "none" }} />
+                                                        src={`${ele.Image}`} alt="img_not_found" style={{ pointerEvents: "none" }} />
                                                     </div>
                                                     <div className="new_blog_card_text">  
                                                         <span className="fontStyle latest_font_size  ">
