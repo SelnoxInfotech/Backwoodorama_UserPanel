@@ -8,14 +8,14 @@ import { useLocation } from "react-router-dom"
 const Learn=()=>{
 
     return(
-        <div className="container">
+        <div className="">
          <LearnSeo location={useLocation().pathname}>  </LearnSeo>
             <LearnBanner/>
             <div className="row">
               <LearnContent/>
               <LearnCards/>
             </div>
-            <Newsletter/>
+            {/* <Newsletter/> */}
 
         </div>
     )

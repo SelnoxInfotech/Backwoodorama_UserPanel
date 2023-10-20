@@ -5,18 +5,15 @@ import { Law } from "../../../Component/ScoPage/LearnSeo"
 import { useLocation } from "react-router-dom"
 const Laws = () => {
   return (
-    <div className="container-fluid">
+    <div className="">
       <Law location={useLocation().pathname}></Law>
-      <div className="row px-2">
+      <div className="row ">
         <h1 className="canabisLawMainHeadings">Cannabis Law in USA, Canada & Internationals</h1>
         <LearnBanner />
         <LawsOptions />
 
       </div>
-      <div className="row px-4">
-        <Newsletter />
-      </div>
-
+    
     </div>
   )
 }

@@ -28,9 +28,9 @@ const Learnproduct = () => {
                 </Link>
              
             </div>
-            <div className="row px-4">
+           
                 <Newsletter />
-            </div>
+          
         </div>
     )
 }

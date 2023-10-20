@@ -187,7 +187,7 @@ export default function Dashboard() {
            
                 <Newsletter></Newsletter>
 
-            {/* <CommunityType></CommunityType> */}
+           
         </div>
     )
 }

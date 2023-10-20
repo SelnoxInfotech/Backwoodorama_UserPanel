@@ -254,7 +254,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
                 <div className="col-12 AddProd_cart_center_btn">
                     {location.pathname === "/cart"  ?(OpenDelivery || OpenPickup) &&
                         <Box
-                            className={` add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
+                            className={` add_product_btn floatingbtn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
 
                         >
 
@@ -270,7 +270,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
 
                         </Box> : 
                         <Box
-                            className={` add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
+                            className={` add_product_btn floatingbtn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
 
                         >
 

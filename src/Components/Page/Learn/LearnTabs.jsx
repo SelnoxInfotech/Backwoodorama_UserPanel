@@ -4,12 +4,13 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
+import Newsletter from "../../Component/Newsletter/HomePageDealsSignup"
 import useStyles from '../../../Style';
 import Learn from './Learn';
 import History from './History/History';
 import Learnproduct from './Product/Learnproduct';
 import Laws from './Laws/Laws';
-import { Link, useLocation , useNavigate} from 'react-router-dom';
+import {  useLocation , useNavigate} from 'react-router-dom';
 const LearnTabs = () => {
     const Location = useLocation()
     const Naviagte =  useNavigate()
@@ -54,7 +55,7 @@ const LearnTabs = () => {
                 </div>
 
             </div>
-
+            <Newsletter />
         </div>
     )
 }

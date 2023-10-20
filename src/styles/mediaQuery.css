@@ -684,7 +684,14 @@
 .related_review_container .review_date{
    position: unset ;
 }
-
+.floatingbtn{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  padding: 10px;
+  width: 100%;
+}
   .flav_img_height {
     height: 100%;
     width: 40%;

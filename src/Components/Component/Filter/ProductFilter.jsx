@@ -174,20 +174,20 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
     //     // Setarr1(arr1?.reverse())
     // }
     const handleChange = (event) => {
-        console.log(event.target.value ,'hello world')
+    
         setselect(event.target.value)
         if(event.target.value === 'Sort by A to Z'){
             Axios.get(`https://api.cannabaze.com/UserPanel/Get-SortingFilterAtoZ/${id}`).then((response)=>{
-                console.log(response)
+              
               }).catch((error)=>{
                 console.trace(error)
-                console.log("hello world 2")
+               
               })
         }else  if(event.target.value === 'Sort by Z to A'){
 
         }else if(event.target.value === 'Price low to high'){
             Axios.get(`https://sweede.app/UserPanel/HighPriceToLowPrice/${id}`).then((response)=>{
-                console.log(response)
+              
               }).catch((error)=>{
                 console.trace(error)
               })

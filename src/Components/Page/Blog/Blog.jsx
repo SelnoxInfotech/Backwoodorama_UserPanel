@@ -156,8 +156,7 @@ const Blogs = () => {
                             <div className="col-12 Linkofblog ">
                                 <div className="col BlogSocal" id="center1">
 
-                                    {/* <Link className=" LinkColor" to={"https://www.facebook.com/profile.php?id=61550742531174"}>< RiFacebookFill></ RiFacebookFill></Link>
-                                    <Link className=" LinkColor" to={'https://www.linkedin.com/company/weedx-io/'}><FaLinkedinIn ></FaLinkedinIn></Link> */}
+                                 
                                     <RWebShare
                                         data={{url: "https://www.weedx.io/" + Location.pathname }}
                                         sites={["facebook" , "twitter" , "whatsapp" , "telegram" , "linkedin" , 'mail' , 'copy']}
@@ -203,9 +202,10 @@ const Blogs = () => {
                     <RecentPost/>
                     <RecentPostComment id={id} GetUserComment={Getcommnet} SetUserComment={Setcommnet} Get={GetComment} />
                     <BlogsCommentsCard Getcommnet={Getcommnet} />
-                    <Newsletter />
+                    
                 </div>
             </div>
+            <Newsletter />
         </React.Fragment>
     )
 }

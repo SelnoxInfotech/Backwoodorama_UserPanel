@@ -28,10 +28,9 @@ const AddToCartReview = () => {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, remove it!'
         }).then((result) => {
-            console.log(result ,'result')
-            if (result.isConfirmed) {
-              
-                const myPromise = new Promise((resolve, reject) => {
+      
+            if (result.isConfirmed) {  
+                  const myPromise = new Promise((resolve, reject) => {
                         if (state.login) {  
                         const config = {
                             headers: { Authorization: `Bearer ${token_data}` }
@@ -42,7 +41,7 @@ const AddToCartReview = () => {
                         )
                         .then(async (res) => {
                             await dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-                            console.log("delete done")
+                          
                             SetLoadingDelete(false)
                             resolve();
                         })
@@ -64,7 +63,6 @@ const AddToCartReview = () => {
                             resolve();
                         }
                   })
-
                   myPromise.then(async ()=>{
                     dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
                     Swal.fire(
@@ -73,9 +71,6 @@ const AddToCartReview = () => {
                         'success'
                     )
                   })
-              
-             
-
             }
         })
 
