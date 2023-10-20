@@ -21,7 +21,6 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
     const [SubCategory, SetSubCategory] = React.useState([])
     const SortedArrayData = [{ Id: 1, name: "Sort by" }]
     const SortedData = [{ type: "Sort by A to Z" }, { type: "Sort by Z to A" }, { type: "Sort by low to high" }, { type: "Sort by high to low" }]
-   
     const HandleOpenSortedData = (Id, name) => {
         if (OpenSortedData === Id) {
             SetOpenSortedData(null)
@@ -123,8 +122,6 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
         }
 
     }
-
-
     function FilterSubCategorydata(SubCategoryid, SubCategory_name , categoryName) {
         Axios.post(`https://api.cannabaze.com/UserPanel/Get-filterProductbyStoreandSubCategory/`, {
             "Store_Id": Store_id,
@@ -153,32 +150,17 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
 
             })
     }
-    // const SearchA2Z = () => { 
-    //     Axios(`https://api.cannabaze.com/UserPanel/Get-SortingFilterAtoZ/`, {
-
-
-    //     }).then(response => {
-
-    //         Setarr1(response.data)
    
-
-
-    //     }).catch(
-    //         function (error) {
-
-
-    //         })
-
-    // }
-    // const SearchZ2A = () => {
-    //     // Setarr1(arr1?.reverse())
-    // }
     const handleChange = (event) => {
     
         setselect(event.target.value)
         if(event.target.value === 'Sort by A to Z'){
             Axios.get(`https://api.cannabaze.com/UserPanel/Get-SortingFilterAtoZ/${id}`).then((response)=>{
-              
+                let newdata = response.data.map((res)=>{
+                  
+                    return res
+                })
+                console.log(newdata,'newdata')
               }).catch((error)=>{
                 console.trace(error)
                
@@ -186,8 +168,13 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
         }else  if(event.target.value === 'Sort by Z to A'){
 
         }else if(event.target.value === 'Price low to high'){
-            Axios.get(`https://sweede.app/UserPanel/HighPriceToLowPrice/${id}`).then((response)=>{
-              
+            Axios.get(`https://api.cannabaze.com/UserPanel/HighPriceToLowPrice/${id}`).then((response)=>{
+                let newdata = response.data.map((res)=>{
+                   
+                    return res
+                })
+                console.log(newdata,'newdata')
+
               }).catch((error)=>{
                 console.trace(error)
               })

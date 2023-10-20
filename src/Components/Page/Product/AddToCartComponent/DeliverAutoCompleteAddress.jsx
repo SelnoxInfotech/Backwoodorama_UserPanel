@@ -105,6 +105,7 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
           })
           dispatch({ type: 'DeliveryAddress', DeliveryAddress: name })
           Seterror(response.data)
+          console.log(response.data , 'hello world')
         }
       })
   }
@@ -121,7 +122,6 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
         placeholder="Enter Your Delivery Location"
         variant="outlined"
         fullWidth size='small'
-        // onKeyDown={commentEnterSubmit}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">

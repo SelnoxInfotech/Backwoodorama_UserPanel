@@ -26,14 +26,11 @@ let noofreview = AllReview.length
                     <RelatedReview AllReview={AllReview} SetReview ={SetReview}/>
                 </div>
                 </div>
-                :
+                 :
                 <div className="noReview">
-                <h3 className="noreview_title">Be the first to review</h3>
-                <p className="noreview_description">Share your experience with the weedx community.</p>
-                
-                    <WriteReviewPopup onSubmit={onSubmit} buttonclass={'noReviewBtn'}   GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview}  api={api} SetApi={SetApi} />
-                   
-                
+                    <h3 className="noreview_title">Be the first to review</h3>
+                    <p className="noreview_description">Share your experience with the weedx community.</p>
+                    <WriteReviewPopup onSubmit={onSubmit} button className={'noReviewBtn'}   GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview}  api={api} SetApi={SetApi} />
                 </div>
             }
           
