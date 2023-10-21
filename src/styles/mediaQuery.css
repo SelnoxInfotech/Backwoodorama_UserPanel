@@ -681,8 +681,50 @@
   }
 }
 @media (max-width:480px) {
+  .product_Sorted_filter_dropdown {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: 4px;
+    cursor: pointer;
+    border: 1px solid #E7E7E7;
+    background-color: #FFFFFF;
+    left: 0;
+    z-index: 10;
+  
+}
+.product_category_dropdown_cursor p{
+  font-size: 18px;
+}
+.product_Sorted_filter_dropdown .productFilter_sortedList li{
+  padding: 10px 0;
+  font-size: 18px;
+}
+.prodfilterSortedListGap{
+  margin-bottom: 0;
+  padding: 0;
+  height: 100%;
+  align-items: center;
+}
+  .product_category_dropdown{
+    z-index: 5;
+    margin-top: 0px;
+    background-color: #FFFFFF;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 16px 16px 0 0;
+    min-height: 300px;
+  }
 .related_review_container .review_date{
    position: unset ;
+}
+.filter_manu_items{
+  width: 150px;
+  border: 1px solid gainsboro;
 }
 .floatingbtn{
   position: fixed;
@@ -779,7 +821,7 @@
     flex-wrap: nowrap;
     overflow-x: scroll;
     overflow-y: hidden;
-    height: 120px;
+    height: 70px;
 
   }
   .bestDeals h1 {

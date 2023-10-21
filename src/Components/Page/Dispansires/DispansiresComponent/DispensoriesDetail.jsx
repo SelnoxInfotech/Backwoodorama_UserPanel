@@ -220,7 +220,7 @@ export default function DispensoriesDetails() {
                                 <ProductFilter Store_id={Despen[0]?.id}
                                     ProductFilterData={ProductFilterData}
                                     Setarr1={SetDespensariesProductData}
-                                // FilterCategoryArry={FilterCategory}
+                                    arr={DespensariesData}
                                 />
                                 <div className="col-12 col-lg-10 prod_cat_right_sec">
                                     <ProductList arr={DespensariesData}

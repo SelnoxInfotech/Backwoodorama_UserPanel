@@ -6,8 +6,10 @@ import useStyles from '../../../Style';
 import Box from '@mui/material/Box';
 import LoadingButton from '@mui/lab/LoadingButton';
 import React from 'react';
+import { Link } from 'react-router-dom';
 const NewFlavourBanner = ({ delBtn }) => {
     const classes = useStyles()
+    console.log(delBtn)
     return (
         <React.Fragment>
             {/* <div className='container-fluid'> */}
@@ -45,13 +47,14 @@ const NewFlavourBanner = ({ delBtn }) => {
                                             <div className='col-12 new_flavourList_container d-flex'>
 
                                                 <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph'>
-                                                    <p className='newFlavBanerRatingFontStyle'>4.5</p>
+                                                    <p className='newFlavBanerRatingFontStyle'>{delBtn[0].rating}</p>
                                                     <p className=''><AiFillStar className={classes.disp_star_color} id='NewFlav_margins' /></p>
+                                                    <p className='newFlavBanerRatingFontStyle'> {`(${delBtn[0].TotalRating})`}</p>
                                                 </div>
 
                                                 <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph newFlav_margin'>
                                                     <p><TbCircleFilled id="new_flavCircle" /></p>
-                                                    <p className='marginLeftnewFlavStore '>Store details</p>
+                                                   <Link to={`/weed-deliveries/leaflyweednyc/store-details/${delBtn[0].id}`}><p className='marginLeftnewFlavStore '>Store details</p></Link> 
                                                 </div>
 
                                                 <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph newFlav_margin'>
@@ -65,13 +68,17 @@ const NewFlavourBanner = ({ delBtn }) => {
                                                 <Box
                                                     className={`${classes.loadingBtnTextAndBack}`}
                                                 >
-                                                    <LoadingButton style={{ width: "60%", height: "30px" }} variant="outlined">Email</LoadingButton>
+                                                    {/* <Link to={}> */}
+                                                      <LoadingButton style={{ width: "60%", height: "30px" }} variant="outlined">Email</LoadingButton>
+                                                    {/* </Link> */}
 
                                                 </Box>
                                                 <Box
                                                     className={`New_flav_btn ${classes.loadingBtnTextAndBack}`}
                                                 >
-                                                    <LoadingButton style={{ width: "60%", height: "30px" }} variant="outlined">Call</LoadingButton>
+                                                    <Link to={`tel:${delBtn[0].Stores_MobileNo}`}>
+                                                      <LoadingButton style={{ width: "60%", height: "30px" }} variant="outlined">Call</LoadingButton>
+                                                    </Link>
                                                 </Box>
 
                                             </div>

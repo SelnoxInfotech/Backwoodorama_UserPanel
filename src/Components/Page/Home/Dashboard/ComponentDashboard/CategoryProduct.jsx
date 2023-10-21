@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { ScrollContainer } from 'react-indiana-drag-scroll';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import CategorySkeleton from "../../../../Component/Skeleton/CategorySkeleton"
+import { useParams } from 'react-router-dom';
+import CategorySkeleton from "../../../../Component/Skeleton/CategorySkeleton";
 import {FirstLetterCaps} from "../../../../../Hooks/Function"
 const CategoryProduct = ({ ShowCategoryProduct, Category, Skeleton }) => {
-
-
+ const Params = useParams()
+ 
     return (
         <React.Fragment>
             <div className='container-fluid CategoryBordrr'>
@@ -14,7 +15,10 @@ const CategoryProduct = ({ ShowCategoryProduct, Category, Skeleton }) => {
                              !Skeleton?
                            
                                 <div className="catagoryTabs_section">
-                                        <h2 className='shopByCategoryHeading'>Shop by Category</h2>
+                                    {
+                                       Object.keys(Params).length === 0 ?  <h2 className='shopByCategoryHeading'>Shop by Category</h2> : null
+                                    }
+                                        
                                         <ScrollContainer className="ScrollContainerRelative">
                                     {Category?.map((ele, index) => {
                                         return (
