@@ -691,7 +691,10 @@
     background-color: #FFFFFF;
     left: 0;
     z-index: 10;
-  
+}
+.BackPageBtn {
+  font-size: 16px;
+  line-height: 1.6;
 }
 .product_category_dropdown_cursor p{
   font-size: 18px;
