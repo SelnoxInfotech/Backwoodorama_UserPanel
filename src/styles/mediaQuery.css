@@ -723,8 +723,11 @@
    position: unset ;
 }
 .filter_manu_items{
-  width: 150px;
+  width: 120px;
   border: 1px solid gainsboro;
+}
+.filter_manu_items{
+  color: rgba(0, 0, 0);
 }
 .floatingbtn{
   position: fixed;

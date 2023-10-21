@@ -256,7 +256,7 @@ const ProductFilter = ({ ProductFilterData,arr, Setarr1, Store_id }) => {
                     </Grid>
                 </div>
             </div>
-            <div className="col-lg-2 col-md-12 prod_cat_left_sec  center">
+            <div className="col-lg-2 col-md-12 gap-sm-0 gap-2 prod_cat_left_sec  center">
 
                 { ProductFilterData.map((ele, index) => {
 
