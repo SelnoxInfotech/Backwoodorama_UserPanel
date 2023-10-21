@@ -116,7 +116,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
     function ChnageDeliveryAddress() {
         navigate("/cart")
     }
-
+console.log(state)
 
 
 
@@ -171,7 +171,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
                             <label htmlFor="name-field">
                                 MY STREET ADDRESS
                             </label>
-                            <DeliverAutoCompleteAddress OpenDelivery={OpenDelivery} className={classes.textFieldcartsummeryPage}></DeliverAutoCompleteAddress>
+                            <DeliverAutoCompleteAddress OpenDelivery={OpenDelivery} className={classes.textFieldcartsummeryPage} Store={state.AllProduct[0].Store_id}></DeliverAutoCompleteAddress>
                         </div>
                         <div className=" addtocart_textfield mt-3">
                             <label htmlFor="name-field">

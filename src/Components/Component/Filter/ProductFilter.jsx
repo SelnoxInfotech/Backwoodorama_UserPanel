@@ -173,7 +173,6 @@ const ProductFilter = ({ ProductFilterData, Setarr1, Store_id }) => {
                    
                     return res
                 })
-                console.log(newdata,'newdata')
 
               }).catch((error)=>{
                 console.trace(error)

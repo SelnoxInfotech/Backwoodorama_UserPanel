@@ -1400,6 +1400,16 @@ const useStyles = makeStyles({
     //     borderColor: '#31B665',
     //   },
     // }
+  },
+
+  paper: {
+    left: '100px',
+    width: '100%',
+    border: "1px solid #d6cfcf",
+    position: 'absolute',
+    // height:' 100%',
+    margin: '0px',
+    // transform: translate('494px',' 62px')
   }
 });
 

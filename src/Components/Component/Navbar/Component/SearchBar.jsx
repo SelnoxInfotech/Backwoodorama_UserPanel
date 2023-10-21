@@ -2,63 +2,92 @@ import TextField from '@mui/material/TextField';
 import useStyles from "../../../../Style"
 import InputAdornment from '@material-ui/core/InputAdornment';
 import { BsSearch } from "react-icons/bs"
-import { IoLocationSharp } from "react-icons/io5"
 import AutoComplete from '@mui/material/Autocomplete';
 import Axios from "axios"
 import React from 'react';
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { useNavigate } from 'react-router-dom';
-import Createcontext from "../../../../Hooks/Context"
-import _ from "lodash"
+import _, { remove } from "lodash"
 import AddressSearchapi from "./AddressSearchapi"
 import { LazyLoadImage } from "react-lazy-load-image-component";
-
-const SearchBar = ({path}) => {
+import debouce from "lodash.debounce";
+const SearchBar = ({ path }) => {
     const Navigation = useNavigate()
     const [SearchData, SetSearchData] = React.useState([])
     const [SearchBarWidth, SetSearchBarWidth] = React.useState(window.innerWidth <= 900)
-    // const [options , Setoption] = React.useState()
-    //  const [defaultValue , SetdefaultValue] =  React.useState()
     const [windowSize, setWindowSize] = React.useState()
     const classes = useStyles()
-    function Search(event) {
-        SetSearchData([])
-        Axios.post(`https://api.cannabaze.com/UserPanel/Get-HomePageFilter/`,
-            {
+    const [input, Setinput] = React.useState('')
 
-                search: event.target.value
-            }
-        ).then(response => {
-            if (response.status === 200) {
-
-                const o = Object?.entries(response?.data).map((data, index, value) => {
-                    return (data)
-                })
-                const y = o?.map((data) => {
-                    return data
-                });
-
-
-                y.map((data1) => {
-                    return (
-                        data1[1].map((data) => {
-                            return SetSearchData(SearchData => [...SearchData, { type: data1[0], value: data.name || data.Product_Name || data.Store_Name, id: data.id, image: data?.Brand_Logo || data?.categoryImages || data?.Store_Image || data?.SubCategoryImage}]);
-                        }
-                        )
-                    )
-                })
-                // SetSearchData(response?.data);
-            }
-
-            else (
-                SetSearchData([])
-            )
-
-        }).catch(
-            function (error) {
-
-            })
+    const Search = (event) => {
+        event.preventDefault()
+        Setinput(event.target.value)
     }
+    function modifystr(str) {
+        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str.trim().replaceAll(' ', "-");
+        let a = 0;
+        while (a < 1) {
+            if (str.includes("--")) {
+                str = str.replaceAll("--", "-")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("//", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("-/", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("/-", "/")
+            } else {
+                a++
+            }
+        }
+
+        return str.toLowerCase()
+    }
+
+    React.useEffect(() => {
+        const getdata = setTimeout(() => {
+            Axios.post(`https://api.cannabaze.com/UserPanel/Get-HomePageFilter/`,
+                {
+
+                    search: input
+                }
+            ).then(response => {
+                SetSearchData([])
+                if (response.status === 200) {
+
+                    const o = Object?.entries(response?.data).map((data, index, value) => {
+                        return (data)
+                    })
+                    const y = o?.map((data) => {
+                        return data
+                    });
+
+
+                    y.map((data1) => {
+                        return (
+                            data1[1].map((data) => {
+
+                                return SetSearchData(SearchData => [...SearchData, {
+                                    type: data1[0], value: data.name || data.Product_Name || data.Store_Name, id: data.id, image: data?.Brand_Logo || data?.categoryImages || data?.Store_Image || data?.SubCategoryImage || data.images[0].image,  StoreName: data.Store_Name, Category: data.category_name, SubCategory_id: data.Sub_Category_id,
+                                    SubcategoryName: data.SubcategoryName, Store_Type: data.Store_Type
+                                }]);
+                            }
+                            )
+                        )
+                    })
+                    // SetSearchData(response?.data);
+                }
+
+                else (
+                    SetSearchData([])
+                )
+
+            }).catch(
+                function (error) { }
+            )
+        }, 500)
+        return () => clearTimeout(getdata);
+    }, [input]);
     const [open, setOpen] = React.useState(false);
     const [openLocation, setOpenLocation] = React.useState(false);
     const loading = open
@@ -79,67 +108,65 @@ const SearchBar = ({path}) => {
 
     }, [windowSize])
 
+    function SearchAPi(id, type, t) {
+        if (type === 'Product') {
+            Navigation(`/products/${modifystr(t.Category)}/${modifystr(t.SubcategoryName)}/${modifystr(t.value)}/${t.id}`);
+        }
+        else if (type === "Store") {
+            if (t.Store_Type === "delivery") {
+                Navigation(`/weed-deliveries/${modifystr(t.StoreName)}/${t.id}`);
+            }
+            else {
+                Navigation(`/weed-dispensaries/${modifystr(t.StoreName)}/${t.id}`);
+            }
+        }
+        else if (type === "Brand") {
+            Navigation(`/brands/${t.value}/${t.id}`);
+        }
+        else if (type === "Sub Category") {
+            Navigation(`/Products/${modifystr(t.Category)}/${modifystr(t.value)}/${t.id}`);
+        }
+        else if (type === "Category") {
+            Navigation(`/Products/${modifystr(t.value)}/${t.id}` );
+
+        }
+        
 
 
-    function SearchAPi(id, type) {
 
-        Axios.post(`https://api.cannabaze.com/UserPanel/Get-ResultHomeSearchFilter/`,
-            {
-                id: id,
-                type: type
-            }
-        ).then((response) => {
-            if (response.data.Product) {
-                const Id = response.data.Product[0].id
-                Navigation(`/ProductDetail/`, { state: Id });
-            }
-            else if (response.data.Store) {
-                Navigation(`/DispensoriesProduct/${response.data.Store[0].id}/${"Menu"}`);
-            }
-            else if (response.data.Brand) {
-               
-                Navigation(`/RelatedVerifyBrand/${response.data.Brand[0].id}`);
-            }
-            else if (response.data.Category) {
-                const id = response.data.Category[0].id
-                Navigation(`/CategoryProduct/${response.data.Category[0].name}`, { state: { id } });
 
-            }
-            else if (response.data.Sub_Category) {
-                const Id = response.data?.Sub_Category[0]?.id
-                const name = response.data?.Sub_Category[0]?.name
-                Navigation(`/Product/${name}`, { state: Id });
-            }
+        // Axios.post(`https://api.cannabaze.com/UserPanel/Get-ResultHomeSearchFilter/`,
+        //     {
+        //         id: id,
+        //         type: type
+        //     }
+        // ).then((response) => {
 
-        })
+        // })
     }
-
-
-
-
-
 
     return (
         <React.Fragment>
             <div className="col_Search">
                 <div className={` nav_search_bar_div center`} style={{ display: (openLocation && SearchBarWidth) && "block" }}>
                     <AutoComplete
-                        freeSolo
-                        id="free-solo-2-demo"
+                        // freeSolo
+                        id="SearchBar"
                         disableClearable
                         open={open}
                         onOpen={() => {
                             setOpen(true);
                         }}
+                        classes={{ paper: classes.paper }}
                         // onClick={Search}
                         filterOptions={x => x}
                         onClose={() => {
                             setOpen(false);
                         }}
-                        ListboxProps={{ style: { maxHeight: 500 } }}
+                        // ListboxProps={{ style: { width: '100%' } }}
                         componentsProps={{ popper: { style: { height: '100%', width: SearchBarWidth ? "100%" : "30%" } } }}
-                        onChange={(event, value) => SearchAPi(value?.id, value?.type,)}
-                        // getOptionSelected={(option, value) => option.value}
+                        onChange={(event, value) => SearchAPi(value?.id, value?.type, value, event)}
+                        getOptionSelected={option => option.value}
                         getOptionLabel={(option) => option.value}
                         options={SearchData}
                         groupBy={(option) => option.type}
@@ -147,16 +174,16 @@ const SearchBar = ({path}) => {
                             return (
                                 <div {...props} style={{ color: "black" }} >
                                     <ul className='PopperLIst'>
-                                        <div>
-                                            <li className='searchBarListStyles' onClick={((e) => SearchAPi(t.id, t.type,))} key={t.value}>
-                                                <LazyLoadImage
-                                                    onError={event => {
-                                                        event.target.src = "/image/blankImage.jpg"                                                      
-                                                    }}
-                                                    className='searchBarImageStyles' src={`https://api.cannabaze.com${t.image}`} alt=''></LazyLoadImage>
-                                                <span className='searchBarSpanValue'> {`${t.value}`}</span>
-                                            </li>
-                                        </div>
+                                        {/* <div> */}
+                                        <li className='searchBarListStyles' key={t.value}>
+                                            <LazyLoadImage
+                                                onError={event => {
+                                                    event.target.src = "/image/blankImage.jpg"
+                                                }}
+                                                className='searchBarImageStyles' src={`${t.image}`} alt=''></LazyLoadImage>
+                                            <span className='searchBarSpanValue'> {`${t.value}`}</span>
+                                        </li>
+                                        {/* </div> */}
 
 
                                     </ul>
@@ -168,11 +195,11 @@ const SearchBar = ({path}) => {
                         renderInput={(params) => <TextField
                             {...params}
                             // size="small"
-                            onClick={Search}
+                            // onClick={Search}
                             onChange={Search}
 
                             placeholder="Products Brands Retailers and more"
-                            className={` ${classes.searchBar_padding} SearchBar nav_search_bar_div  ${classes.SearchBar_Text}`}
+                            className={` ${classes.Bar_padding} SearchBar nav_search_bar_div  ${classes.SearchBar_Text}`}
                             style={{ borderRadius: (open && SearchBarWidth) ? " 16px 16px 16px 16px" : " 16px 0px 0px 16px", top: "0px", display: openLocation && SearchBarWidth ? "none" : "inline-flex", width: open && SearchBarWidth ? "100%" : "100%" }}
                             InputProps={{
                                 ...params.InputProps,
@@ -189,7 +216,8 @@ const SearchBar = ({path}) => {
                                     </React.Fragment>
                                 ),
                             }}
-                        />}
+                        />
+                        }
                     />
                     <div id="Boder_left"></div>
 

@@ -2,8 +2,8 @@ import * as React from 'react';
 import { ScrollContainer } from 'react-indiana-drag-scroll';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import CategorySkeleton from "../../../../Component/Skeleton/CategorySkeleton"
+import {FirstLetterCaps} from "../../../../../Hooks/Function"
 const CategoryProduct = ({ ShowCategoryProduct, Category, Skeleton }) => {
-
 
 
     return (
@@ -32,7 +32,7 @@ const CategoryProduct = ({ ShowCategoryProduct, Category, Skeleton }) => {
 
                                                 </div>
                                                 <div className='col center Category_title' >
-                                                    <p>{ele.name.substr(0, 100)}</p>
+                                                    <p>{FirstLetterCaps(ele.name.substr(0, 100))}</p>
                                                 </div>
 
                                             </div>

@@ -211,7 +211,7 @@ const AddToCartReview = () => {
             {wondowWidth > 768 ?
                 <>
                     <div className="cartProductHeadings row col-12">
-                        <div className='col-5 '><span className='carttableheadings'>Item</span></div>
+                        <div className='col-5 '><span className='carttableheadings'>Your Item</span></div>
                         <div className='col-2 text-center'><span className='carttableheadings'>Price</span></div>
                         <div className='col-2 text-center'><span className='carttableheadings'>Quantity</span></div>
                         <div className='col-2 text-center'><span className='carttableheadings'>Subtotal</span></div>

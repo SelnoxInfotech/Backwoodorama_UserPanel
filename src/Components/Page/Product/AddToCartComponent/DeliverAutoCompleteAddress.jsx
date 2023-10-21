@@ -7,7 +7,7 @@ import { BiErrorCircle } from "react-icons/bi"
 import useStyles from '../../../../Style';
 import Createcontext from "../../../../Hooks/Context"
 import Axios from 'axios';
-export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
+export default function DeliverAutoCompleteAddress({ OpenDelivery , Store}) {
   const classes = useStyles()
   const { state, dispatch } = React.useContext(Createcontext)
   const [Address, SetAddress] = React.useState(()=>{
@@ -31,14 +31,14 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
             }
             else {
               dispatch({ type: 'DeliveryAddress', DeliveryAddress: place.formatted_address })
-              Seterror("not Street Address")
+              Seterror("Street Address Missing")
               SetAddress(place.formatted_address)
             }
 
           }
         } catch (error) {
       
-          Seterror("not Street Address")
+          Seterror("Street Address Missing")
         }
       }
       else {
@@ -64,13 +64,13 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
                 })
               }
               else {
-                Seterror('Not A street Address')
+                Seterror('Street Address Missing')
                 dispatch({ type: 'DeliveryAddress', DeliveryAddress: '' })
               }
             } catch (error) {
               dispatch({ type: 'DeliveryAddress', DeliveryAddress: '' })
 
-              Seterror('Not A street Address')
+              Seterror('Street Address Missing')
             }
           })
       }
@@ -89,14 +89,15 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
   function CheckPostal(data, name) {
     Axios.post(`https://api.cannabaze.com/UserPanel/Get-GetDeliveryCheck/`,
       {
-        "PinCode": data
+        "PinCode": data,
+        Store:Store
       }
     )
 
       .then(response => {
         if (response.data === "Not Found") {
           SetAddress(name)
-          Seterror('Not A street Address')
+          Seterror('Out Of Delivery Zone')
           dispatch({ type: 'DeliveryAddress', DeliveryAddress: '' })
         }
         else {
@@ -105,13 +106,14 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
           })
           dispatch({ type: 'DeliveryAddress', DeliveryAddress: name })
           Seterror(response.data)
-          console.log(response.data , 'hello world')
         }
       })
   }
   function handlechnage(e) {
     SetAddress(e.target.value)
   }
+
+
   return (
     <React.Fragment>
       <TextField
@@ -130,14 +132,14 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery }) {
           ),
           endAdornment: <InputAdornment position="end">
 
-            {error === 'Not A street Address' || error === 'Not Found' ? <BiErrorCircle className='help-block'></BiErrorCircle> : <IoCheckmarkSharp />}
+            {error === 'Street Address Missing' || error === 'Out Of Delivery Zone' ? <BiErrorCircle className='help-block'></BiErrorCircle> : <IoCheckmarkSharp />}
 
           </InputAdornment>
         }}
-        error={Boolean(error === 'Not A street Address' || error === 'Not Found')}
+        error={Boolean(error === 'Street Address Missings' || error === 'Out Of Delivery Zone')}
       />
       {
-        error !== "" && <span className="help-block">{error}</span>
+        error !== "" && <span className="help-block" style={{color: error === "Success" && "green" }}>{error}</span>
       }
     </React.Fragment>
   )
