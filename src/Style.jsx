@@ -1403,7 +1403,7 @@ const useStyles = makeStyles({
   },
 
   paper: {
-    left: '100px',
+    // left: '100px',
     width: '100%',
     border: "1px solid #d6cfcf",
     position: 'absolute',

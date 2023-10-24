@@ -3,8 +3,7 @@ import React, { Suspense } from "react"
 import Createcontext from "../Hooks/Context"
 import { useParams, useLocation } from "react-router-dom";
 import RoutingSearch from "../Components/Component/DispensierRoutingSearch/RoutingSearch";
-// import x  from "../../public/Sitemap/sitemapbrand.xml"
- import fs from "fs"
+import axios from "axios";
 var XMLParser = require('react-xml-parser');
 export default function RoutingDespen(props) {
     const [xmlData, setXmlData] = React.useState([]);
@@ -12,27 +11,26 @@ export default function RoutingDespen(props) {
     const params = useParams()
     const Location = useLocation()
     const { Component } = props;
-    // React.useEffect(() => {
-    //     fetch('/Sitemap/sitemapbrand.xml')
-    //         .then((res) => res.text())
-    //         // .then(xmlstring =>  window.domparser().parsefromstring(xmlstring, "text/xml"))
-    //         .then(data => {
-    //             var xml = new XMLParser().parseFromString(data);   
-    //               const l  = xml.children.map((data)=> data.children.map((name)=> name.value))
-    //             // Assume xmlText contains the example XML
-    //          const k =  l.map((data)=>  data[0])
-    //          setXmlData(k)
-    //             //    k.map((data)=>{
-    //             //    })  
-                  
-    //             // fs.writeFile('../public/Sitemap/Sitemaplocation.xml', data);
-    //             // fs.writeFileSync("../public/Sitemap/Sitemaplocation.xml", data);
-    //         })
-    //         .catch((err) => {
-    //           
-    //         });
-    // }, [])
+    React.useEffect(() => {
+        console.log(Location.pathname)
+        // fetch('/build/Sitemap/sitemapbrand.xml')
+        //     .then((res) => res.text())
+        //     // .then(xmlstring =>  window.domparser().parsefromstring(xmlstring, "text/xml"))
+        //     .then(data => {
+        //         console.log( data)
+                axios.post("http://localhost:5000/api-data", {
 
+                    data: Location.pathname,
+                }
+                ).then((res) => {
+                    console.log(res)
+                }).catch((eroor) => {
+                    console.log(eroor)
+                })
+                    .catch((err) => {
+
+                });
+    }, [Location])
     return (
 
         <div>
