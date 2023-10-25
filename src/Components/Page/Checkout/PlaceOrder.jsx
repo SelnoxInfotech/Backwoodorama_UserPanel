@@ -1,5 +1,4 @@
 import React from 'react';
-import { Stepper, Step } from 'react-form-stepper';
 import useStyles from "../../../Style"
 import Createcontext from "../../../Hooks/Context"
 import Cookies from 'universal-cookie';
@@ -10,7 +9,7 @@ const PlaceOrder = () => {
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
     const [Order , SetOrder] =React.useState([])
-
+console.log(state  , 'my state')
     React.useEffect( ()=>{
         const config = {
             headers: { Authorization: `Bearer ${token_data}` }
@@ -23,18 +22,24 @@ const PlaceOrder = () => {
             .then((res) => {
                 SetOrder(res.data.reverse()[0])
                 dispatch({ type: 'ApiProduct' , ApiProduct:!state.ApiProduct })
+               
             })
             .catch((error) => {
                 console.error(error)    
             })
     },[])
+
     return (
         <React.Fragment>
             <div className="container-fluid">
                 <div className="row center p-2">
                     <div className="col-12 col-lg-8 col-md-10 col-sm-10 ThanYouOrder_Container_height">
-                        <div className="row p-2">
-                            <div className='col-12 top_container '>
+                        <div className="order_conform_card">
+                            <h3 className="card_title">Thank You!</h3>
+                            <p className="card_message">You'll receive a confirmation email soon</p>
+                            <p className="card_message">Your order ID is {Order.OrderId} </p>
+                            <p className="card_message"></p>
+                            {/* <div className='col-12 top_container '>
                                 <div className='row'>
                                     <div className="col-12  ">
                                         <h1 className='ThankYouOrder_paragraph'>Thank you {state?.Profile.username}</h1>
@@ -48,10 +53,7 @@ const PlaceOrder = () => {
                                         <p> Order ID # {Order.OrderId}</p>
                                     </div>
                                 </div>
-
-                            </div>
-
-
+                            // </div> */}
                         </div>
                         <div className='row'>
                             <div className='col-12 important_message_div_height'>
@@ -69,19 +71,8 @@ const PlaceOrder = () => {
                             </div>
 
                         </div>
-                        <div className="row  center p-2">
-                            <div className="col-12 stepper_container mt-4">
-                                <Stepper activeStep={4} className={classes.stepperActiveBtn}>
-                                    <Step  label="Order place"  className={classes.stepperBtn}/>
-                                    <Step label="Confirming your order" />
-                                    <Step label="order ready" />
-                                    <Step label="pickup" />
 
-                                </Stepper>
-
-                            </div>
-
-                        </div>
+                     
                         <div className='row mt-4 p-2'>
                             <div className='col-12 order_details'>
                                 <div className='row'>

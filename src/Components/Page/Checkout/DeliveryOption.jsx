@@ -7,13 +7,19 @@ import Select from '@mui/material/Select';
 import LoadingButton from '@mui/lab/LoadingButton';
 import { useForm } from "react-hook-form";
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import useStyles from "../../../Style"
 import Createcontext from "../../../Hooks/Context"
+import { FiEdit } from "react-icons/fi";
+import { Link } from 'react-router-dom';
+
 const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Time, SetTime}) => {
+
     const { state, dispatch } = React.useContext(Createcontext)
     const method = useForm()
     const classes = useStyles()
     const [ShowDeliveryRestData, SetShowDeliveryRestData] = React.useState(true)
+    const [changetime , setchangetime] = React.useState(false)
     const [Checkbox, SetCheckbox] = React.useState({
         deliveryinstructions: "",
         DeliveryTime: "",
@@ -62,17 +68,33 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                 <div className="row">
                     <div className="col-12 center">
                         <div className="col-12 col-lg-12 col-md-12 col-sm-12  DeliveryOption_container">
-                            <div className="col-12 height_for_inner_div fontStyle " style={{    display: 'flex' ,justifyContent: 'center' , marginBottom:"12px"}}>
-                                <h1 className='font_size_paragraph'>Delivery Options</h1>
+                            <div className="col-12 height_for_inner_div fontStyle " style={{    display: 'flex' ,justifyContent: 'space-between' , marginBottom:"12px"}}>
+                                <h1 className='font_size_paragraph'>{state.selectDeliveryoptions === "delivery_btn" ? "Delivery" : "Pickup" }  Options</h1>
+                               
+                               {
+                                ShowDeliveryRestData ? null :  <Button     variant="outlined" sx={{
+                                    color: '#31B665',
+                                    borderColor:'#31B665',
+                                    fontSize:'12px',
+                                    textTransform:'capitalize',
+                                    '&:hover': {
+                                        color: "white",
+                                        backgroundColor:'#31B665',
+                                        borderColor:'#31B665',
+                                    },
+                                    }} onClick={()=>{SetShowDeliveryRestData(true)}}>Edit</Button>
+
+                               }
+                               
 
                             </div>
                             <div className="col-12 height_for_inner_div" >
-                                <p  style={{fontWeight:'500'}}>Delivery Address</p>
+                                <p  style={{fontWeight:'600'}}>{state.selectDeliveryoptions === "delivery_btn" ? "Delivery" : "Pickup" }    Address</p>
 
                                 {DeliveryOptionData?.map((ele, index) => {
                                     return (
                                         <div key={index}>
-                                            <p >Your {ele?.address}</p>
+                                            <p >Your {ele?.address}  </p>
                                         </div>
 
                                     )
@@ -80,29 +102,43 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                                 })}
 
                             </div>
-                            <div className="col-12 flex_for_delivery  p-2">
+                            <div className="col-12 flex_for_delivery d-flex aling-item-center  p-2">
                               
-                                    {/* <p>{state.DeliveryAddress}</p> */}
-                                    <p>{state.selectDeliveryoptions === "pickup_btn" ? state.AllProduct[0]?.StoreAddress : state.DeliveryAddress}</p>
+                                  
+                                    <p >{state.selectDeliveryoptions === "pickup_btn" ? state.AllProduct[0]?.StoreAddress : <>{ state.DeliveryAddress} <Link to={'/cart'}><FiEdit  color='#31B665' /></Link> </>   }  </p>
 
                              
-                                {/* <div className="col-6 col-sm-6 col-md-6 position_right deliveroption_cursor">
-                                    <p>Change</p>
-
-                                </div> */}
+                           
                             </div>
-                            {ShowDeliveryRestData ? "" : <div className='showagain' onClick={AddDeliveryInstruction}>
-                                <p>Add delivery instructions</p>
-                            </div>}
+                            
+                            {
+                                state.selectDeliveryoptions === "delivery_btn" ?
+                                    ShowDeliveryRestData ? "" : <div className='showagain' onClick={AddDeliveryInstruction}>
+                                        <p>Add delivery instructions</p>
+                                    </div>
+                                : 
+                                ShowDeliveryRestData ?
+                                        <div className="col-12 height_for_inner_div ">
+                                            <p style={{fontWeight:'500'}}>{state.selectDeliveryoptions === "delivery_btn" ? "Delivery" : "Pickup" }  time</p>
+                                        </div>
+                                    :
+                                        <React.Fragment>
+                                            <div><p  style={{fontWeight:'600'}}> Pickup Time</p> 
+                                            </div>
+                                        
+                                            <p>{Time}</p>
+                                        </React.Fragment>
+                              
+                            } 
+
+
+
+
 
                             {ShowDeliveryRestData &&
 
                                 <div className='show_and_hide'>
-                                    <div className="col-12 height_for_inner_div ">
-                                        <p style={{fontWeight:'500'}}>Delivery time</p>
-
-
-                                    </div>
+                                    
                                     <div className="col-12 height_for_time_div">
                                         <div className="col-12 col-lg-12 height_for_time_div">
                                             <FormControl className={`${classes.muiSelectTime}`} >
@@ -132,7 +168,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
 
                                     </div>
                                     <div className="col-12 height_for_delivery_instruction_div ">
-                                        <p style={{fontWeight:'500'}}>Delivery Instruction</p>
+                                        <p style={{fontWeight:'500'}}>{state.selectDeliveryoptions === "delivery_btn" ? "Delivery" : "Pickup" }  Instruction</p>
 
 
                                     </div>

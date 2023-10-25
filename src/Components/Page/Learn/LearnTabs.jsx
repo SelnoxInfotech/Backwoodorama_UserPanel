@@ -46,7 +46,9 @@ const LearnTabs = () => {
                                 <TabPanel value="/learn" >
                                     <Learn />
                                 </TabPanel>
-                                <TabPanel value="/learn/product"><Learnproduct /></TabPanel>
+                                <TabPanel value="/learn/product">
+                                    <Learnproduct />
+                                </TabPanel>
                                 <TabPanel value="/History"><History /></TabPanel>
                                 <TabPanel value="/learn/laws-and-regulation"><Laws /></TabPanel>
                             </Box>

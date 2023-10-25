@@ -6,6 +6,7 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Createcontext from "../../../Hooks/Context";
+import Button from '@mui/material/Button';
 
 const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setDataImage, Details, SetDetails , DefalutImage , SetDefalutimage }) => {
     const { dispatch } = React.useContext(Createcontext)
@@ -79,8 +80,23 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
 
                 <div className='col-lg-12 col-md-12 col-sm-12 col-12 delivery_information_container'>
                     <div className='row'>
-                        <div className="col-12 height_del_information_inner_div font_size_paragraph">
-                            <p onClick={ShowAgainDeliverInformation} >Your Information</p>
+                        <div className="col-12 height_del_information_inner_div font_size_paragraph d-flex justify-content-between align-items-center">
+                            <p >Your Information</p>
+                            {
+                                ShowRestDeliveryInformation ? null :
+                            
+                            <Button     variant="outlined" sx={{
+                                    color: '#31B665',
+                                    borderColor:'#31B665',
+                                    fontSize:'12px',
+                                    textTransform:'capitalize',
+                                    '&:hover': {
+                                        color: "white",
+                                        backgroundColor:'#31B665',
+                                        borderColor:'#31B665',
+                                    },
+                                    }} onClick={ShowAgainDeliverInformation}>Edit</Button>
+                                }
                         </div>
                     </div>
                     {ShowRestDeliveryInformation &&

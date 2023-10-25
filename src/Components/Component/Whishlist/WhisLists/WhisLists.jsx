@@ -21,7 +21,6 @@ const WhisLists = () => {
                 </div>
                 <WhisListCard/>
             </div>
-
         </div>
     )
 }

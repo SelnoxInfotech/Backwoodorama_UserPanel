@@ -33,12 +33,9 @@ const CheckOutMainPage = () => {
 
     })
     const [CheckOut_Loading, SetLoading] = React.useState(false)
-
     React.useEffect(() => {
         window.scroll(0, 0)
     }, [ShowData, ShowDeliveryInformation, DeliveryOptionData])
-
-
     const config = {
         headers: { Authorization: `Bearer ${token_data}` }
     };
@@ -76,8 +73,8 @@ const CheckOutMainPage = () => {
         }).catch(
             function (error) {
                 SetLoading(false)
-            })
-        Axios.post(`https://api.cannabaze.com/UserPanel/Add-UserProfileOrderDetails/`, formdata, config).then((data) => {
+        })
+         Axios.post(`https://api.cannabaze.com/UserPanel/Add-UserProfileOrderDetails/`, formdata, config).then((data) => {
         })
 
      }

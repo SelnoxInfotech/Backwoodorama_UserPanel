@@ -130,7 +130,7 @@ const routesConfig = [
       },
       {
         path: "/history",
-        element: <RoutingList Component={ History } ></RoutingList>
+        element: <RoutingList Component={ LearnTabs } ></RoutingList>
       },
       {
         path: "/aboutUs",
@@ -138,10 +138,10 @@ const routesConfig = [
       },
       {
         path: "/learn/product",
-        element: <RoutingList Component={Learnproduct} ></RoutingList>,
+        element: <RoutingList Component={LearnTabs} ></RoutingList>,
       },
       {
-        path: "/learn/product/:content",
+        path: "/learn/product/:id",
         element: <RoutingList Component={Learnproductcontent} ></RoutingList>,
       },
       {

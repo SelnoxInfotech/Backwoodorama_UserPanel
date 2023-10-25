@@ -15,8 +15,6 @@ const Learn=()=>{
               <LearnContent/>
               <LearnCards/>
             </div>
-            {/* <Newsletter/> */}
-
         </div>
     )
 }

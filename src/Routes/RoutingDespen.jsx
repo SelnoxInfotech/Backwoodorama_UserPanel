@@ -12,20 +12,19 @@ export default function RoutingDespen(props) {
     const Location = useLocation()
     const { Component } = props;
     React.useEffect(() => {
-        console.log(Location.pathname)
         // fetch('/build/Sitemap/sitemapbrand.xml')
         //     .then((res) => res.text())
         //     // .then(xmlstring =>  window.domparser().parsefromstring(xmlstring, "text/xml"))
         //     .then(data => {
-        //         console.log( data)
+      
                 axios.post("http://localhost:5000/api-data", {
 
                     data: Location.pathname,
                 }
                 ).then((res) => {
-                    console.log(res)
+                   
                 }).catch((eroor) => {
-                    console.log(eroor)
+                   
                 })
                     .catch((err) => {
 

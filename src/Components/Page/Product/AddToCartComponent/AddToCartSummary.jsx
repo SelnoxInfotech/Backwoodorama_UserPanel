@@ -50,11 +50,8 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
              
                 if (location.pathname === "/cart") {
                     if(state.login){
-
-
                         navigate("/checkout", { state: { InputValues, abc: state.Cart_subTotal } })
-                    }
-                    else{
+                    }else{
                         navigate("/login")
                     }
 
@@ -116,10 +113,9 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
     function ChnageDeliveryAddress() {
         navigate("/cart")
     }
-console.log(state)
 
 
-
+    console.log(state , 'state')
     return (
             <div className="col-12   p-2 Add_product_cart_right_container_summary">
 
@@ -158,7 +154,12 @@ console.log(state)
                         className={`add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
 
                     >
-                        <LoadingButton style={{ color: "#00b96a" }} variant="outlined" id='pickup_btn' onClick={ChnageDeliveryAddress}>
+                        <LoadingButton sx={{
+                           color: "#00b96a" , 
+                            '&:hover': {
+                                color: "white",
+                            },
+                            }}  variant="outlined" id='pickup_btn' onClick={ChnageDeliveryAddress}>
                             Change Method
 
                         </LoadingButton>

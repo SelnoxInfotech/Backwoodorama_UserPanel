@@ -1,6 +1,5 @@
 import LearnBanner from "../LearnComponent/LearnBanner";
 import HistoryEditorData from "./HistoryComponent/HistoryEditorData";
-import Newsletter from "../../../Component/Newsletter/HomePageDealsSignup";
 import React from "react";
 const History = () => {
     return (
@@ -30,7 +29,7 @@ const History = () => {
                 <p>We are operating all over the United States. Colorado, New York, Washington, California, Oklahoma, Michigan, Missouri, Montana, Nevada, Illinois, Alaska, and more. In Canada, we are operating in British Columbia, Alberta, Saskatchewan, Manitoba, and Ontario.</p>
               </div>
            </div>
-            <Newsletter />
+            
            
         </div>
     )

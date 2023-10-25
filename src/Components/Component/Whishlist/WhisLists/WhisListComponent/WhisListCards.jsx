@@ -178,9 +178,9 @@ const WhisListCard = () => {
     return (                                                                                                                            
         <div className="col-12 whislistCard_Container">
             {GetApiData?.map((items, index) => {
-return (                                                                                    
+             return (                                                                                    
                     <React.Fragment key={index}>
-                        <div className="col_xl_width col-lg-4 col-md-5 col-sm-5 col-12" >
+                        <div className="wis" >
                             <div className="col-12 whislistCard">
                                 <div className="col-12 whislist_iconsContainer">
                                     {state.WishList[items.id] ?
@@ -238,7 +238,6 @@ return (
                                     </div>
 
                                 </div>
-
                             </div>
 
                         </div>
