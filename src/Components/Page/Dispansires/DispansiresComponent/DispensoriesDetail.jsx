@@ -44,7 +44,6 @@ export default function DispensoriesDetails() {
         axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${id}`, {
         }).then(response => {
             SetDespens(response.data)
-            //  navigate(`/Weed-DispensoriesDetails/${id}/${"Menu"}/${response.data[0].Store_Name.replace(/\s/g,'-')}`)
         })
 
         axios.post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/ ",
@@ -73,13 +72,11 @@ export default function DispensoriesDetails() {
         }).catch(
             function (error) {
             })
-
-
         axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
         }).then(response => {
             SetDespensariesProductData(response.data)
         })
-    }, [id])
+    }, [])
 
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
@@ -197,7 +194,7 @@ export default function DispensoriesDetails() {
         })
     }, [id, api])
 
-console.log(DespensariesData)
+    
     return (
         <div>
             <StoreDetails Despen={Despen} locationStore={useLocation().pathname}></StoreDetails>

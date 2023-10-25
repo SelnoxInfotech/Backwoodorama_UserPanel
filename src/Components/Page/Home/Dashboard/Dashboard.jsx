@@ -177,11 +177,11 @@ export default function Dashboard() {
                     </div>
                 </div>
             </div>
-            <div className="px-sm-0 px-3 dashBoardStrainType">
+            {/* <div className="px-sm-0 px-3 dashBoardStrainType">
                 <h3 className=" mt-4 section_main_title">Strain Type</h3>
                 <StrainTypeCards ArrayData={StrainTypeCardArray}  />
 
-            </div>
+            </div> */}
            
                 <NewsBlog></NewsBlog>
            

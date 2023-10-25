@@ -233,7 +233,6 @@ const ProductFilter = ({ ProductFilterData,arr, Setarr1, Store_id }) => {
                     <Grid container display={{ xs: "none", md: "contents", lg: "contents" }}>
 
                         <FormControl className={classes.muiSelect}  >
-                        <InputLabel id="demo-simple-select-label">Short by</InputLabel>
                             <Select
                               labelId="demo-simple-select-label"
                                 value={select}
@@ -241,7 +240,6 @@ const ProductFilter = ({ ProductFilterData,arr, Setarr1, Store_id }) => {
                             
                                 size="small"
                                 defaultValue={'Sort by A to Z'}
-                                label={'Sort by A to Z'}
                                 style={{ width: "160px", height: "36px" }}
                                 displayEmpty
                                 inputProps={{ 'aria-label': 'Without label' }}
@@ -250,7 +248,7 @@ const ProductFilter = ({ ProductFilterData,arr, Setarr1, Store_id }) => {
                                 <MenuItem value={"Sort by A to Z"}>  Sort by A to Z </MenuItem>
                                 <MenuItem value={"Sort by Z to A"}>Sort by Z to A</MenuItem>
                                 <MenuItem value={"Price low to high"}>Price low to high</MenuItem>
-                                <MenuItem value={"Price hight to low"}>Price hight to low</MenuItem>
+                                <MenuItem value={"Price hight to low"}>Price high to low</MenuItem>
                             </Select>
                         </FormControl>
 

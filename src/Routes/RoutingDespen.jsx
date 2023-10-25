@@ -6,29 +6,69 @@ import RoutingSearch from "../Components/Component/DispensierRoutingSearch/Routi
 import axios from "axios";
 var XMLParser = require('react-xml-parser');
 export default function RoutingDespen(props) {
-    const [xmlData, setXmlData] = React.useState([]);
     const { state } = React.useContext(Createcontext)
     const params = useParams()
     const Location = useLocation()
     const { Component } = props;
     React.useEffect(() => {
-        // fetch('/build/Sitemap/sitemapbrand.xml')
-        //     .then((res) => res.text())
-        //     // .then(xmlstring =>  window.domparser().parsefromstring(xmlstring, "text/xml"))
-        //     .then(data => {
-      
-                axios.post("http://localhost:5000/api-data", {
-
-                    data: Location.pathname,
+        if (Location.pathname.slice(0, 18) === "/weed-dispensaries") {
+            axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/10`,
+            ).then((res) => {
+                if (res.data.length === 0) {
+                    axios.post(`https://api.cannabaze.com/UserPanel/Add-SiteMap/`,
+                        {
+                            Xml: 'https://www.weedx.io' + Location.pathname
+                        },
+                    ).then((res) => { console.log(res) }).catch((err) => {
+                        console.log(err)
+                    })
                 }
-                ).then((res) => {
-                   
-                }).catch((eroor) => {
-                   
-                })
-                    .catch((err) => {
+                else {
+                    const json = typeof res.data[0].Xml === "object" ? res.data[0].Xml : [res.data[0].Xml]
+                    if (!json.includes('https://www.weedx.io' + Location.pathname)) {
+                        json.push('https://www.weedx.io' + Location.pathname);
+                    }
+                    axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/10`,
+                        {
+                            Xml: json
+                        },
+                    ).then((res) => {
+                    }).catch((err) => {
+                    })
+                }
+            }).catch(() => {
 
-                });
+            })
+        }
+        else {
+            axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/11`,
+            ).then((res) => {
+                if (res.data.length === 0) {
+                    axios.post(`https://api.cannabaze.com/UserPanel/Add-SiteMap/`,
+                        {
+                            Xml: 'https://www.weedx.io' + Location.pathname
+                        },
+                    ).then((res) => { console.log(res) }).catch((err) => {
+                        console.log(err)
+                    })
+                }
+                else {
+                    const json = typeof res.data[0].Xml === "object" ? res.data[0].Xml : [res.data[0].Xml]
+                    if (!json.includes('https://www.weedx.io' + Location.pathname)) {
+                        json.push('https://www.weedx.io' + Location.pathname);
+                    }
+                    axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/11`,
+                        {
+                            Xml: json
+                        },
+                    ).then((res) => {
+                    }).catch((err) => {
+                    })
+                }
+            }).catch(() => {
+
+            })
+        }
     }, [Location])
     return (
 
@@ -36,7 +76,7 @@ export default function RoutingDespen(props) {
             <Suspense fallback={"Loading"}>
                 <Component />
                 {((state.permission === false) && (params?.city?.toLowerCase() !== state?.City?.toLowerCase() || params?.state?.toLowerCase() !== state?.State?.toLowerCase() || params?.Country?.toLowerCase() !== state?.Country?.toLowerCase())) && <RoutingSearch city={params.city} State={params.state} country={params.Country}
-                    pathname={Location.pathname.slice(0, 18) === '/weed-dispensaries' ? "/weed-dispensaries" : "/weed-deliveries"}
+                    pathname={Location.pathname.slice(0, 110) === '/weed-dispensaries' ? "/weed-dispensaries" : "/weed-deliveries"}
                 ></RoutingSearch>}
             </Suspense>
         </div>
