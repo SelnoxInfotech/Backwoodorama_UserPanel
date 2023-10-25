@@ -93,12 +93,12 @@ const routesConfig = [
         path: "/weed-dispensaries/:StoreName/:tab?/:Category?/:SubCategory?/:id/",
         element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
       },
+      // {
+      //   path: "/weed-dispensaries/:StoreName/menu/:Category/:SubCategory/:id/",
+      //   element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
+      // },
       {
-        path: "/weed-dispensaries/:StoreName/menu/:Category/:SubCategory/:id/",
-        element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
-      },
-      {
-        path: "/weed-dispensaries/:StoreName/menu/:category/:subcategory?/:product/:id/",
+        path: "/weed-dispensaries/:StoreName/menu/:category/:subcategory/:product/:id/",
         element: <RoutingList Component={NewProductDetails} ></RoutingList>
       },
       {
