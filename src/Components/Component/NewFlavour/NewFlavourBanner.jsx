@@ -9,7 +9,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 const NewFlavourBanner = ({ delBtn }) => {
     const classes = useStyles()
-    console.log(delBtn)
+   
     return (
         <React.Fragment>
             {/* <div className='container-fluid'> */}

@@ -14,7 +14,7 @@ console.log(location ,'location')
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
     const [Order , SetOrder] =React.useState([])
-    console.log(state  , 'my state')
+  
     React.useEffect( ()=>{
         const config = {
             headers: { Authorization: `Bearer ${token_data}` }
