@@ -68,13 +68,14 @@ const CheckOutMainPage = () => {
             SetLoading(true)
         ).then(response => {
             SetLoading(false)
-            navigate("/order-placed")
+            navigate("/order-placed" , {state:response.data.data})
             dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
         }).catch(
             function (error) {
                 SetLoading(false)
         })
          Axios.post(`https://api.cannabaze.com/UserPanel/Add-UserProfileOrderDetails/`, formdata, config).then((data) => {
+            
         })
 
      }

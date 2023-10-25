@@ -1165,11 +1165,7 @@ scrollbar-width: none;  /* Firefox */
 
 /* end */
 /* ThanYouOrder */
-.ThanYouOrder_Container_height {
-  border: 1px solid grey;
-  height: 800px;
 
-}
 
 .top_container {
   background: #FAFAFA;
@@ -5777,9 +5773,29 @@ line-height: 2;
 
 /* recent order page start */
 
+.order_conform_card{
+  border-radius: 12px;
+  background-color: white;
+  width:420px;
+  padding: 20px;
+  margin: 20px auto;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px; 
+}
+.order_conform_card .order_conform_card_icons{
+  font-size: 42px;
+  color: #31B665;
+  margin-bottom: 10px;
+}
 .order_conform_card  .card_title{
   font-family: 'Roboto Slab', serif;
   font-size: 28px;
   font-weight: 600;
+  margin-bottom: 20px;
 }
 
+.order_conform_card .card_message{
+  margin: 0;
+  font-size: 16px;
+  color: #333333a2;
+}
