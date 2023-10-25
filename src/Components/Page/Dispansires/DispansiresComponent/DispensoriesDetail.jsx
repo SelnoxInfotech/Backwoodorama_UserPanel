@@ -197,7 +197,7 @@ export default function DispensoriesDetails() {
         })
     }, [id, api])
 
-
+console.log(DespensariesData)
     return (
         <div>
             <StoreDetails Despen={Despen} locationStore={useLocation().pathname}></StoreDetails>
