@@ -55,7 +55,7 @@ console.log(location ,'location')
 
                                 {
                                     location.state.Product.map((item)=>{
-                                        <div className="row">
+                                    return  <div className="row">
                                         <div className="col-md-3">
                                             <img src={Image} alt="" className='w-100' />
                                         </div>
