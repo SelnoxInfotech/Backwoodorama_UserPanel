@@ -52,15 +52,22 @@ console.log(location ,'location')
                      
                         <div className='row mt-4 p-2'>
                             <div className='col-7 border padding-4'>
-                              <div className="row">
-                                <div className="col-md-3">
-                                    <img src="/image/cat_pro_7.jpg" alt="" className='w-100' />
-                                </div>
-                                <div className="col-md-9">
-                                    <h4>100MG Pineapple Melon </h4>
-                                    <p><b>Qty</b> : 2</p>
-                                </div>
-                              </div>
+
+                                {
+                                    location.state.Product.map((item)=>{
+                                        <div className="row">
+                                        <div className="col-md-3">
+                                            <img src={Image} alt="" className='w-100' />
+                                        </div>
+                                        <div className="col-md-9">
+                                            <h4>{item.ProductName}</h4>
+                                            <p><b>Qty</b> : {item.Cart_Quantity}</p>
+                                        </div>
+                                       </div>
+                                    })
+
+                                }
+                             
                             </div>
                             <div className='col-5 '>
                                <div className="order_price_details p-sm-3 p-2 border">
@@ -97,12 +104,12 @@ console.log(location ,'location')
                         <div className="row border ">
                             <div className="col-md-4 p-sm-4 p-2">
                                 <h4>Delivery Address</h4>
-                                <p>123 William St, New York, NY 10038, USA</p>
+                                <p>{location.state.Address}</p>
 
                             </div>
                             <div className="col-md-4 p-sm-4 p-2">
                                 <h4>Billing Address</h4>
-                                <p>123 William St, New York, NY 10038, USA</p>
+                                <p>{location.state.StoreAddress}</p>
 
                             </div>
                             <div className="col-md-4 p-sm-4 p-2">
