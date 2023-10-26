@@ -115,7 +115,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading }) => {
     }
 
 
-    console.log(state , 'state')
+  
     return (
             <div className="col-12   p-2 Add_product_cart_right_container_summary">
 

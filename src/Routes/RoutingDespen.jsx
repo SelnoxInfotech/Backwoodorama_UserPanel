@@ -19,8 +19,8 @@ export default function RoutingDespen(props) {
                         {
                             Xml: 'https://www.weedx.io' + Location.pathname
                         },
-                    ).then((res) => { console.log(res) }).catch((err) => {
-                        console.log(err)
+                    ).then((res) => { }).catch((err) => {
+                        console.trace(err)
                     })
                 }
                 else {
@@ -48,8 +48,8 @@ export default function RoutingDespen(props) {
                         {
                             Xml: 'https://www.weedx.io' + Location.pathname
                         },
-                    ).then((res) => { console.log(res) }).catch((err) => {
-                        console.log(err)
+                    ).then((res) => { }).catch((err) => {
+                        console.trace(err)
                     })
                 }
                 else {

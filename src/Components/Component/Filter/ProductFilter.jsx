@@ -137,7 +137,6 @@ const ProductFilter = ({ ProductFilterData,arr, Setarr1, Store_id }) => {
             "Store_Id": Store_id,
             "SubCategory_Id": SubCategoryid
         }).then(async response => {
-            console.log(response.data)
             Setarr1(response.data)
             navigate(`${location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${StoreName.replace(/\s/g, '-').toLowerCase()}/${"menu"}/${categoryName?.toLowerCase()}/${SubCategory_name?.toLowerCase().replace(/\s/g, '-')}/${SubCategoryid}`  )
         }).catch(

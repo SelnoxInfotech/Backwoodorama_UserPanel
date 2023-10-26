@@ -44,6 +44,7 @@ export default function DispensoriesDetails() {
         axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${id}`, {
         }).then(response => {
             SetDespens(response.data)
+           
         })
 
         axios.post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/ ",
@@ -111,6 +112,7 @@ export default function DispensoriesDetails() {
                 "Category_Id": Id
             }
         ).then(response => {
+          
             if (Category !== name) {
 
                 navigate(`${location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${modifystr(Despen[0].Store_Name.toLowerCase())}/${"menu"}/${modifystr(name.toLowerCase())}/${id}`)
@@ -228,7 +230,7 @@ export default function DispensoriesDetails() {
                         </React.Fragment>
                     }
                     {
-                        tab === 'store-details' && <ComponentStoreDetails></ComponentStoreDetails>
+                        tab === 'store-details' && <ComponentStoreDetails storeDetails={Despen}></ComponentStoreDetails>
                     }
                     {
                         tab === 'review' && <Review Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview={SetReview}></Review>

@@ -9,7 +9,6 @@ import {useLocation} from 'react-router-dom';
 import Axios from 'axios';
 const PlaceOrder = () => {
     const location = useLocation();
-console.log(location ,'location')
     const classes = useStyles()
     const { state  , dispatch} = React.useContext(Createcontext)
     const cookies = new Cookies();
@@ -24,7 +23,7 @@ if (dd < 10) dd = '0' + dd;
 if (mm < 10) mm = '0' + mm;
 
 const formatted = dd + '/' + mm + '/' + yyyy;
-console.log(formatted);
+
    let pricess = {
     Subtotal:0,
     Delivery :0,
@@ -91,7 +90,7 @@ console.log(formatted);
                                                 }} className='w-100' src={`${item.Image}`} alt="imag not found" />
                                             {/* <img src={item.Image} alt="" className='w-100' /> */}
                                         </div>
-                                        <div className="col-md-9">
+                                        <div className="col-10">
                                           <div className='d-flex justify-content-between align-items-center'>  <h4>{item.ProductName}</h4>  <p className="price">$ {item.Price.SalePrice}</p>  </div>
                                             <p><b>Qty</b> : {item.Cart_Quantity}</p>
                                         </div>
@@ -100,7 +99,7 @@ console.log(formatted);
 
                                 }
                                 <div className='d-flex justify-content-end'>
-                                    <div className="order_price_details col-4 ml-auto p-sm-3 mt-3 p-2 border">
+                                    <div className="order_price_details col-sm-4 col-12 ml-auto p-sm-3 mt-3 p-2 border">
                                         <div className="d-flex justify-content-between align-items-center">
                                             <span>Subtotal</span>
                                             <span>${pricess.Subtotal}</span>
@@ -118,15 +117,7 @@ console.log(formatted);
                                             <span>Total</span>
                                             <span>${pricess.Subtotal}</span>
                                         </div>
-                                        <hr />
-                                        <div className="d-flex justify-content-between align-items-center">
-                                            <span>Paid</span>
-                                            <span>${pricess.Delivery}</span>
-                                        </div>
-                                        <div className="d-flex justify-content-between align-items-center">
-                                            <span>Due later</span>
-                                            <span>${pricess.Subtotal}</span>
-                                        </div>
+                                      
                                     
                                     </div>
                                </div>
@@ -135,19 +126,20 @@ console.log(formatted);
                         </div>
                     
                             <div className="row border ">
+                               
                                 <div className="col-md-4 p-sm-4 p-2">
-                                    <h4>Delivery Address</h4>
+                                    <h4>Seller Info</h4>
+                                    <p>Name : {location.state.Product[0].StoreName}</p>
+                                    <p>Address : {location.state.Product[0].StoreAddress}</p>
+                                   
+                                </div>
+                                <div className="col-md-4 p-sm-4 p-2">
+                                    <h4>{location.state.Order_Type} Address</h4>
                                     <p>{location.state.Address}</p>
-
                                 </div>
                                 <div className="col-md-4 p-sm-4 p-2">
-                                    <h4>Billing Address</h4>
-                                    <p>{location.state.StoreAddress}</p>
-
-                                </div>
-                                <div className="col-md-4 p-sm-4 p-2">
-                                <h4>Payment Method</h4>
-                                <p>Offline</p>
+                                    <h4>Payment Method</h4>
+                                    <p>Offline</p>
                                 </div>
                             </div>
                        

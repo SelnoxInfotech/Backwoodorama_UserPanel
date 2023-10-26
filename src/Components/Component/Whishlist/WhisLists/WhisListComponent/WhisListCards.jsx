@@ -1,10 +1,10 @@
 import { LazyLoadImage } from "react-lazy-load-image-component"
-import { AiOutlineHeart } from "react-icons/ai"
+import { AiOutlineHeart , AiFillHeart } from "react-icons/ai"
 import { IconButton } from "@mui/material"
 import { MdOutlinePlace } from "react-icons/md"
 import Rating from '@mui/material/Rating';
 import { LoadingButton } from "@mui/lab";
-import { AiFillHeart } from "react-icons/ai"
+import { BiStore } from "react-icons/bi"
 import Box from "@mui/material/Box";
 import React from "react";
 import axios from "axios";
@@ -176,18 +176,18 @@ const WhisListCard = () => {
       }
 
     return (                                                                                                                            
-        <div className="col-12 whislistCard_Container">
+        <div className="whislistCard_wrapper">
             {GetApiData?.map((items, index) => {
              return (                                                                                    
                     <React.Fragment key={index}>
-                        <div className="wis" >
-                            <div className="col-12 whislistCard">
-                                <div className="col-12 whislist_iconsContainer">
+                       
+                            <div className="whislistCard position-relative">
+                                <div className="col-12 position-absolute top-0 end-0 whislist_iconsContainer">
                                     {state.WishList[items.id] ?
                                         <Box className={classes.productSearchIcons}>
                                             <IconButton onClick={() => { handleWhishList(items.id) }} aria-label="Example">
 
-                                                <AiFillHeart></AiFillHeart>
+                                                <AiFillHeart color="#31B665"></AiFillHeart>
 
                                             </IconButton>
                                         </Box>
@@ -195,13 +195,13 @@ const WhisListCard = () => {
                                         <Box className={classes.productSearchIcons}>
                                             <IconButton onClick={() => { handleWhishList(items.id) }} aria-label="Example">
 
-                                                <AiOutlineHeart />
+                                                <AiOutlineHeart color="#31B665" />
 
                                             </IconButton>
                                         </Box>}
                                 </div>
-                                <div className="col-12 whislistImgCenter">
-                                    <div className="whislist_innerImgContainer">
+                                <div className="col-12 whislistImgCenter text-center">
+                                  
 
                                         <LazyLoadImage
                                             onError={event => {
@@ -213,7 +213,7 @@ const WhisListCard = () => {
                                             alt="imgs-not-found"
                                             onClick={() => Navigate(`/products/${modifystr(items.category_name.toLowerCase())}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${modifystr(items.Product_Name.toLowerCase())}/${items.id}`)}
                                         />
-                                    </div>
+                                    
                                 </div>
                                 <div className="col-12 whislistCard_Content_Container">
                                     <div className="roductWhislist_nameCol" onClick={() => Navigate(`/NewProductDetails/${items.product}`)}>
@@ -223,7 +223,7 @@ const WhisListCard = () => {
                                         <MdOutlinePlace size={18} color="#31B665" /><span className="whislistAddress">{items.StoreAddress}</span>
                                     </div>
                                     <div className="WhishListCard_paddingLeft">
-                                        <h3 className="whislistAddress multine-ellipsis"> by {items.StoreName}</h3>
+                                      <BiStore   size={18} color="#31B665" />  <h3 className="whislistAddress multine-ellipsis"> by {items.StoreName}</h3>
                                     </div>
                                     <div className="spaceIcons_content_Container WhishListCard_paddingLeft">
                                         <span className="whislistAddress">Rating</span><Rating name="read-only" className={classes.homePageStarIcons} value={4} readOnly />
@@ -240,7 +240,7 @@ const WhisListCard = () => {
                                 </div>
                             </div>
 
-                        </div>
+                      
                         {Whishlist && <WhisList open1={Whishlist} SetWishList={SetWishList}></WhisList>}
                     </React.Fragment>
                 )

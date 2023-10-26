@@ -1168,14 +1168,14 @@ const useStyles = makeStyles({
   },
   whishlistBtn: {
     "& .MuiButton-text": {
-      fontSize: ".6rem",
+      fontSize: "14px",
     },
     "& .MuiLoadingButton-root": {
       textTransform: "none",
-      width: "50%",
+      width: "100%",
       display: "flex",
       justifyContent: "center",
-      height: "30px",
+      height: "35px",
       color: "#31B665",
       backgroundColor: "#FFFFFF",
       border: "1px solid #31B665",
@@ -1183,7 +1183,8 @@ const useStyles = makeStyles({
 
     },
     "& .MuiButtonBase-root:hover": {
-      backgroundColor: "#FFFFFF",
+      backgroundColor: "#31B665",
+      color:'#fff',
       border: "1px solid #31B665"
     }
   },

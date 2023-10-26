@@ -615,6 +615,9 @@
   }
 }
 @media (max-width:576px) {
+  .whislistCard_wrapper{
+    justify-content: center;
+  }
   .destop_view{
     display: none;
   }
@@ -1259,7 +1262,9 @@ margin: 0;
   }
 }
 @media (max-width:425px) {
-
+  .order_conform_card{
+    width: 100%;
+  }
   .NumberText_container ol li {
     font-size: 8px;
     min-width: 22%;

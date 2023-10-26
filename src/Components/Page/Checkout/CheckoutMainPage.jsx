@@ -68,7 +68,6 @@ const CheckOutMainPage = () => {
             SetLoading(true)
         ).then(response => {
             SetLoading(false)
-            console.log("chala")
             navigate("/order-placed" , {state:response.data.data})
             dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
         }).catch(
