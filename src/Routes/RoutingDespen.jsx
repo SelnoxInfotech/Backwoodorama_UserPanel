@@ -69,7 +69,7 @@ export default function RoutingDespen(props) {
 
             })
         }
-    }, [Location])
+    }, [Location , state?.City , state?.State , state?.Country])
     return (
 
         <div>
