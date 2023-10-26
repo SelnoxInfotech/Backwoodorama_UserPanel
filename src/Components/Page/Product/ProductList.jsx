@@ -197,7 +197,7 @@ const ProductList = ({ arr, ProductNavigate }) => {
                                     {/* <Link to={`/products/${ele.category_name}/${ele.Product_Name.replace(/%20| /g, "-")  }/${ele.id}`}> */}
                                     <div className="col-12 p-2 prod_cat_img position-relative">
                                         <LazyLoadImage
-                                            onClick={() => ProductNavigate(modifystr(ele.Product_Name), modifystr(ele.category_name), ele.id)}
+                                            onClick={() => ProductNavigate(ele)}
                                             className="product_search_result_image"
                                             onError={event => {
                                                 event.target.src = "/image/blankImage.jpg"

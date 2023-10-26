@@ -11,6 +11,8 @@ const AddToCart = () => {
     React.useEffect(()=>{
         window.scroll(0,0)
     },[])
+    console.log(state.AllProduct)
+
     return (
 
         <div className="container">
@@ -23,7 +25,7 @@ const AddToCart = () => {
                         <div className="col-12 addTocard_main_container_height">
                             <div className="col-12 addtoCart_headingss">
                                 <p className="mb-0">Your Cart from</p>
-                                <h3 className="addToCartHeadingss"><Link to={`/weed-deliveries/${state.AllProduct[0].StoreName.replaceAll(' ' ,'-')}/${state.AllProduct[0].Store_id}`}> {state.AllProduct[0].StoreName} </Link></h3>
+                                <Link to={`/weed-deliveries/${state.AllProduct[0].StoreName.replaceAll(' ' ,'-')}/${state.AllProduct[0].Store_id}`}>          <h3 className="addToCartHeadingss"> {state.AllProduct[0].StoreName} </h3> </Link>
                             </div>
                             <div className="row  AddProductCartContainer">
 

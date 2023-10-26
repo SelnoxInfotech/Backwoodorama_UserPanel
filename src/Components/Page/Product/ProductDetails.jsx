@@ -126,7 +126,8 @@ const ProductDetail = () => {
                 PriceId: PriceIndex.id,
                 category:Event.category_name,
                 Sub_Category_id:Event.Sub_Category_id,
-                SubcategoryName:Event.SubcategoryName
+                SubcategoryName:Event.SubcategoryName,
+                StoreName: Event.StoreName
 
             })
             await axios.post("https://api.cannabaze.com/UserPanel/Add-AddtoCart/",

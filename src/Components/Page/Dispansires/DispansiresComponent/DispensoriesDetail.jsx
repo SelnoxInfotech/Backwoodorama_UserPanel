@@ -97,7 +97,7 @@ export default function DispensoriesDetails() {
             }
         }
 
-        return str
+        return str.toLowerCase()
     }
 
     function SelectionTab(item) {
@@ -115,7 +115,7 @@ export default function DispensoriesDetails() {
           
             if (Category !== name) {
 
-                navigate(`${location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${modifystr(Despen[0].Store_Name.toLowerCase())}/${"menu"}/${modifystr(name.toLowerCase())}/${id}`)
+                navigate(`${location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${modifystr(Despen[0]?.Store_Name.toLowerCase())}/${"menu"}/${modifystr(name.toLowerCase())}/${id}`)
             }
             SetDespensariesProductData(response.data)
 
@@ -125,14 +125,9 @@ export default function DispensoriesDetails() {
             })
     }
 
-    function ProductNavigate(Product_Name, category_name, ProductId) {
+    function ProductNavigate(Product) {
         const Route = location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"
-        if (SubCategory === undefined) {
-            navigate(`${Route}/${modifystr(Despen[0].Store_Name.toLowerCase())}/menu/${modifystr(category_name.toLowerCase())}/${modifystr(Product_Name.toLowerCase())}/${ProductId}`)
-        }
-        else {
-            navigate(`${Route}/${modifystr(Despen[0].Store_Name.toLowerCase())}/menu/${modifystr(category_name.toLowerCase())}/${modifystr(SubCategory.toLowerCase())}/${modifystr(Product_Name.toLowerCase())}/${ProductId}`)
-        }
+        navigate(`${Route}/${modifystr(Product.StoreName)}/menu/${modifystr(Product.category_name)}/${modifystr(Product.SubcategoryName)}/${modifystr(Product.Product_Name)}/${Product.id}`)
     }
 
     const ProductFilterData = [{ Id: 1, Name: "Category", Type1: "Flower", Type2: "CBD", Icons: <BsLayoutSplit className={classes.muiIcons} /> },
@@ -177,7 +172,7 @@ export default function DispensoriesDetails() {
         }
         Store_Add_Review(Review).then((res) => {
             // setOpen(false)
-            SetGetProductReview({ ...GetProductReview, 'popup':false })
+            SetGetProductReview({ ...GetProductReview, 'popup': false })
             SetApi(!api)
         }).catch(() => {
 
@@ -186,17 +181,17 @@ export default function DispensoriesDetails() {
 
     React.useEffect(() => {
         Store_Get_Review(id).then((res) => {
-            SetReview(()=>{
+            SetReview(() => {
                 return res.data
-              })
-            var Obj = _.find(res.data, { user: state.Profile.id});
-         SetGetProductReview({ ...GetProductReview, 'popup':false ,'value': Obj.rating  , 'Title': Obj.Title , 'comment': Obj.comment   })
+            })
+            var Obj = _.find(res.data, { user: state.Profile.id });
+            SetGetProductReview({ ...GetProductReview, 'popup': false, 'value': Obj.rating, 'Title': Obj.Title, 'comment': Obj.comment })
         }).catch((e) => {
             console.error(e)
         })
     }, [id, api])
 
-    
+
     return (
         <div>
             <StoreDetails Despen={Despen} locationStore={useLocation().pathname}></StoreDetails>
