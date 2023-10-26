@@ -34,15 +34,14 @@ const StoreDetail1 = ({storeDetails}) => {
                                    
                                    
                                 {
-                                    storeDetails[0].CurbSide_Pickup === true ? <li className="amenties_list_items">
+                                    storeDetails[0].CurbSide_Pickup === true && <li className="amenties_list_items">
                                        
                                             <p className="m-0 amenities_list_item_paragrap listfontStyle">
                                             <BsFillCarFrontFill/> Curbside Pickup
                                             </p>
                                      
                                     </li>
-                                    :
-                                    <li>helllo word</li>
+                                 
                                 }
                                  {
                                     storeDetails[0].CarParking ?
