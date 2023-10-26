@@ -9,10 +9,13 @@ import _ from "lodash"
 import { FormControl, Grid, MenuItem, Select } from "@mui/material"
 import SearchBar from '@mkyy/mui-search-bar';
 import { useParams, useNavigate, useLocation } from "react-router-dom"
+import Box from '@mui/material/Box';
+import Slider from '@mui/material/Slider';
 const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
     const classes = useStyles()
     const { tab, Category, StoreName, id } = useParams()
     const location = useLocation()
+
     const [select, setselect] = useState("Sort by A to Z")
     const navigate = useNavigate()
     const [OpenEvent, SetOpenEvent] = useState(null);
@@ -23,6 +26,16 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
     const [catname2, setcatname2] = useState('')
     const SortedArrayData = [{ Id: 1, name: "Sort by" }]
     const SortedData = [{ type: "Sort by A to Z" }, { type: "Sort by Z to A" }, { type: "Sort by low to high" }, { type: "Sort by high to low" }]
+    
+    const [value, setValue] = React.useState([20, 37]);
+    function valuetext(value: number) {
+        return `${value}°C`;
+      }
+      
+  const handleChangepp = (event: Event, newValue: number | number[]) => {
+    setValue(newValue);
+  };
+    
     const HandleOpenSortedData = (Id, name) => {
         if (catname2 === name) {
             SetOpenSortedData(null)
@@ -306,21 +319,34 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                                                                     <p onClick={() => { Category_Drop(data.id, ele.Name) }}>{data.name}</p>
                                                                 </div>
                                                                 {
-                                                                    SubCategory?.map((SubCategory) => {
-                                                                        return (
-                                                                            SubCategory.CatgoryId === data.id
-                                                                            &&
-                                                                            <div className="col-10 px-2 py-0 product_sub_category_dropDown_cursor" style={{ left: "33px", position: "relative" }} >
-                                                                                <p onClick={() => { FilterSubCategorydata(SubCategory.id, SubCategory.SubCategory_name, data.name ,SubCategory.Store_id) }}>{SubCategory.SubCategory_name}</p>
+                                                                   
+                                                                
 
-                                                                            </div>
-                                                                        )
-                                                                    })
+                                                                    SubCategory?.map((SubCategory) => {
+                                                                            return (
+                                                                                SubCategory.CatgoryId === data.id
+                                                                                &&
+                                                                                <div className="col-10 px-2 py-0 product_sub_category_dropDown_cursor" style={{ left: "33px", position: "relative" }} >
+                                                                                    <p onClick={() => { FilterSubCategorydata(SubCategory.id, SubCategory.SubCategory_name, data.name, SubCategory.Store_id) }}>{SubCategory.SubCategory_name}</p>
+
+                                                                                </div>
+                                                                            )
+                                                                        })
                                                                 }
                                                             </div>
                                                         )
                                                     })
                                                     :
+                                                    Id === 4 ?
+                                                    <Box sx={{ width: 200 , color:"black" }}>
+                                                        <Slider
+                                                            getAriaLabel={() => 'Temperature range'}
+                                                            value={value}
+                                                            onChange={handleChangepp}
+                                                            valueLabelDisplay="auto"
+                                                            getAriaValueText={valuetext}
+                                                        />
+                                                    </Box>:
                                                     <p>No Category Found</p>
                                             }
                                         </div>

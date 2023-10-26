@@ -11,21 +11,20 @@ const AddToCart = () => {
     React.useEffect(()=>{
         window.scroll(0,0)
     },[])
-    console.log(state.AllProduct)
 
     return (
 
         <div className="container">
 
             {
-                state.AllProduct.length !== 0
+                state?.AllProduct?.length !== 0
                  ?
 
                     <div className="row mt-4">
                         <div className="col-12 addTocard_main_container_height">
                             <div className="col-12 addtoCart_headingss">
                                 <p className="mb-0">Your Cart from</p>
-                                <Link to={`/weed-deliveries/${state.AllProduct[0].StoreName.replaceAll(' ' ,'-')}/${state.AllProduct[0].Store_id}`}>          <h3 className="addToCartHeadingss"> {state.AllProduct[0].StoreName} </h3> </Link>
+                                <Link to={`/weed-deliveries/${state.AllProduct[0]?.StoreName.replaceAll(' ' ,'-')}/${state.AllProduct[0]?.Store_id}`}>          <h3 className="addToCartHeadingss"> {state.AllProduct[0]?.StoreName} </h3> </Link>
                             </div>
                             <div className="row  AddProductCartContainer">
 
