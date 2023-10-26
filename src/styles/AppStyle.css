@@ -1371,9 +1371,7 @@ scrollbar-width: none;  /* Firefox */
 
 
 .amenities_container {
-  height: 120px;
   background-color: #F6F6F6;
-
 }
 
 .amenties_paragrap {
@@ -1389,10 +1387,22 @@ scrollbar-width: none;  /* Firefox */
 }
 
 .amenities_list_item_paragrap {
-  margin-top: -13px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
 }
 
-
+.opning_time h4{
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.opning_time p{
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
 .amenties_list_items {
   min-width: 13%;
 }
@@ -1402,19 +1412,21 @@ scrollbar-width: none;  /* Firefox */
 }
 
 .ameitiesList_container_height {
-  height: 70px;
+ 
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .amenities_list {
   display: flex;
   list-style: none;
   color: #828282;
-  gap: 5%;
+  gap: 25px;
   width: 100%;
-  /* align-items:center; */
-
+  align-items:center;
+  margin: 0;
+  padding: 20px;
 }
 
 
@@ -1484,9 +1496,14 @@ scrollbar-width: none;  /* Firefox */
 }
 
 .StoreDetailSidemenuBarList {
+  display: flex;
   gap: 20px;
+  align-items: center;
+  margin-bottom: 10px;
 }
-
+.StoreDetailSidemenuBarList{
+  font-size: 22px;
+}
 .Store_detail_list {
   display: flex;
   gap: 10px;
@@ -5545,6 +5562,7 @@ display: flex;
 align-items: center;
 gap: 10px;
 cursor: pointer;
+width: max-content;
 }
 .BackPageBtn .backPgBtnImg{
   width: 30px;
