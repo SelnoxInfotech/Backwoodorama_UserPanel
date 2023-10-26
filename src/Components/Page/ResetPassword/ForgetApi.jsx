@@ -26,7 +26,7 @@ function ConfirmPassword(Email,password) {
         
     {
         email:Email,
-        new_password :password
+        password :password
     }
     );
 

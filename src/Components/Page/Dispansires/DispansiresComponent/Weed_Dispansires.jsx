@@ -15,7 +15,7 @@ const Weed_Dispansires = () => {
     const [Store, SetStore] = React.useState([])
     const [Search, SetSearch] = React.useState([])
     const [searchtext,setsearchtext] = React.useState("")
-    const { state, dispatch } = React.useContext(Createcontext)
+    const { state } = React.useContext(Createcontext)
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
         str = str.trim().replaceAll(' ', "-");

@@ -32,9 +32,9 @@ const CreatePassword = () => {
 
     const Submit = (password) => {
         ConfirmPassword(Email,password.ConfirmPassword  ).then((res)=>{
-            if(res.data === 200)
+            if(res.status === 202)
             {
-                navigate('/Login')
+                navigate('/login')
             }
         }).catch((error)=>{
         console.error(error)

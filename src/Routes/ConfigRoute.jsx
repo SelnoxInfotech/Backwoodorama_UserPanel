@@ -106,11 +106,7 @@ const routesConfig = [
         element: <RoutingDespen Component={Deliveries}  ></RoutingDespen>
       },
       {
-        path: "/weed-deliveries/:StoreName/:tab?/:Category?/:SubCategory?/:id/",
-        element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
-      },
-      {
-        path: "/weed-deliveries/:StoreName/menu/:Category/:SubCategory/:id/",
+        path: "/weed-deliveries/:StoreName/:tab?/:Category?/:SubCategory?/:id/:SubId?/",
         element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
       },
       {
