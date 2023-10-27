@@ -684,6 +684,19 @@
   }
 }
 @media (max-width:480px) {
+  .place_order_product_cart h4{
+    font-size: 14px;
+  }
+  .place_order_product_cart p{
+    font-size: 14px;
+  }
+  .place-order_address p{
+    font-size: 14px;
+  }
+  .place-order_address h4{
+    font-size: 16px;
+    font-weight: 700;
+  }
   .product_Sorted_filter_dropdown {
     position: fixed;
     bottom: 0;
@@ -695,6 +708,14 @@
     left: 0;
     z-index: 10;
 }
+.cartProductHeadings {
+  width: 200% !important;
+}
+.order_conform_card .card_message{
+  margin: 0;
+  font-size: 14px;
+}
+
 .BackPageBtn {
   font-size: 16px;
   line-height: 1.6;

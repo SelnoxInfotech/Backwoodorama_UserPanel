@@ -65,10 +65,10 @@ const formatted = dd + '/' + mm + '/' + yyyy;
                         </div>
                        
                         <div className='d-flex justify-content-between align-items-center'>
-                        <p className="card_message m-0"> <b>order ID</b> : #{location.state.OrderId} </p>
-                        <p className="card_message m-0"> <b>order Date</b> : {formatted} </p>
+                        <p className="card_message m-0"> <b>Order ID</b> : #{location.state.OrderId} </p>
+                        <p className="card_message m-0"> <b>Order Date</b> : {formatted} </p>
                         </div>
-                        <div className=' '>
+                        <div className='row '>
                             <div className='border p-3 mb-3'>
 
                                 {
@@ -81,8 +81,8 @@ const formatted = dd + '/' + mm + '/' + yyyy;
                                         pricess.DueLater += pricess.Subtotal + item.Price.SalePrice
 
 
-                                    return  <div className="row border-bottom p-3">
-                                        <div className="col-2 col-sm-2">
+                                    return  <div className="place_order_product_cart  row border-bottom py-3">
+                                        <div className="col-sm-2 col-3 col-sm-2">
                                         <LazyLoadImage onError={event => {
                                                     event.target.src = "/image/blankImage.jpg"
                                                    
@@ -90,8 +90,8 @@ const formatted = dd + '/' + mm + '/' + yyyy;
                                                 }} className='w-100' src={`${item.Image}`} alt="imag not found" />
                                             {/* <img src={item.Image} alt="" className='w-100' /> */}
                                         </div>
-                                        <div className="col-10">
-                                          <div className='d-flex justify-content-between align-items-center'>  <h4>{item.ProductName}</h4>  <p className="price">$ {item.Price.SalePrice}</p>  </div>
+                                        <div className="col-sm-10 col-9">
+                                          <div className='d-flex justify-content-between align-items-start'>  <h4 className='w-75 text-wrap text-break'>{item.ProductName}</h4>  <p className="price">$ {item.Price.SalePrice}</p>  </div>
                                             <p><b>Qty</b> : {item.Cart_Quantity}</p>
                                         </div>
                                        </div>
@@ -99,7 +99,7 @@ const formatted = dd + '/' + mm + '/' + yyyy;
 
                                 }
                                 <div className='d-flex justify-content-end'>
-                                    <div className="order_price_details col-sm-4 col-12 ml-auto p-sm-3 mt-3 p-2 border">
+                                    <div className="order_price_details col-md-4 col-12 ml-auto p-sm-3 mt-3 p-2 border">
                                         <div className="d-flex justify-content-between align-items-center">
                                             <span>Subtotal</span>
                                             <span>${pricess.Subtotal}</span>
@@ -125,7 +125,7 @@ const formatted = dd + '/' + mm + '/' + yyyy;
                         
                         </div>
                     
-                            <div className="row border ">
+                            <div className="row border place-order_address">
                                
                                 <div className="col-md-4 p-sm-4 p-2">
                                     <h4>Seller Info</h4>

@@ -94,7 +94,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                                 {DeliveryOptionData?.map((ele, index) => {
                                     return (
                                         <div key={index}>
-                                            <p >Your {ele?.address}  </p>
+                                            <p className='text-break'>Your {ele?.address}  </p>
                                         </div>
 
                                     )
@@ -102,10 +102,10 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                                 })}
 
                             </div>
-                            <div className="col-12 flex_for_delivery d-flex aling-item-center  p-2">
+                            <div className="col-12 flex_for_delivery  d-flex aling-item-center  p-2">
                               
                                   
-                                    <p >{state.selectDeliveryoptions === "pickup_btn" ? state.AllProduct[0]?.StoreAddress : <>{ state.DeliveryAddress} <Link to={'/cart'}><FiEdit  color='#31B665' /></Link> </>   }  </p>
+                                    <p className='text-break'>{state.selectDeliveryoptions === "pickup_btn" ? state.AllProduct[0]?.StoreAddress : <>{ state.DeliveryAddress} <Link to={'/cart'}><FiEdit  color='#31B665' /></Link> </>   }  </p>
 
                              
                            

@@ -31,13 +31,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
     const ShowAgainDeliverInformation = () => {
         SetShowRestDeliveryInformation(true)
     }
-    // const handleDateChange = (event) => {
-    //     // setSelectedDate(date);
-    //    
-    //     // SetDetails({
-    //     //     ...Details, [event.target.name]: event.target.value
-    //     // });
-    // };
+   
     function SelectImage(event) {
         if (event.target.files && event.target.files[0]) {
             setImage(URL.createObjectURL(event.target.files[0]));
@@ -53,25 +47,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
             ...Details, [event.target.name]: event.target.value
         });
     }
-    // function dateFormater(date, separator) {
-    //     var day = date.getDate();
-    //     // add +1 to month because getMonth() returns month from 0 to 11
-    //     var month = date.getMonth() + 1;
-    //     var year = date.getFullYear();
-      
-    //     // show date and month in two digits
-    //     // if month is less than 10, add a 0 before it
-    //     if (day < 10) {
-    //       day = '0' + day;
-    //     }
-    //     if (month < 10) {
-    //       month = '0' + month;
-    //     }
-      
-    //     // now we have day, month and year
-    //     // use the separator to join them
-    //     return day + separator + month + separator + year;
-    //   }
+  
       
     return (
         <div className="container-fluid">
@@ -191,13 +167,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                                     required: "Birthdate is required*.",
                                                 }
                                                 )}
-                                                // minDate="24/01/2019"
-                                                // inputProps={{
-                                                //     min: "2002-01-01 ", max:' 2002-05-05 '
-                                                //     //   dateFormater(date, '-')
-                                                //     // min: date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate(),
-                                                //     // max: new Date() 
-                                                //   }}
+                                               
                                                 helperText={method.errors?.Birthdate?.message}
                                                 error={Boolean(method.errors?.Birthdate)}
 
