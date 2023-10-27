@@ -5,7 +5,6 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { ElectricScooterSharp } from '@mui/icons-material';
 const Openingtime = ({storeDetails , heading , type}) => {
-const [currentday , setcurrentday] = useState(false)
   var date = new Date();
   const easternTime = date.toLocaleString("en-US", {timeZone: "America/New_York"})
   let day = new Date(easternTime)
@@ -16,11 +15,9 @@ const [currentday , setcurrentday] = useState(false)
          <div className="opning_time mt-2">
             
               <h4>{heading}</h4>
-          <hr></hr>
+              <hr></hr>
             {
                 storeDetails[0]?.Hours !== null &&  storeDetails[0]?.Hours.map((items , idxe )=>{
-                 
-                 
                     if(items.close){
                       return<p  className={day.getDay()-1 === idxe ? 'currentDay d-flex' : 'd-flex'}><span className='w-50'>{`${items.day} `}</span> <span className='w-50'>Close</span> </p>
 
@@ -34,9 +31,6 @@ const [currentday , setcurrentday] = useState(false)
 
                        }
                     })
-
-                    
-
                     }
                 })
             }
@@ -55,8 +49,21 @@ const [currentday , setcurrentday] = useState(false)
             </AccordionSummary>
             <AccordionDetails>
             {
-                storeDetails[0]?.Hours !== null &&  storeDetails[0]?.Hours.map((items , index )=>{
-                  return <p>{`${items.day} :- ${items.Open[0].Time1}-${items.Open[0].Time2}`}</p>
+                storeDetails[0]?.Hours !== null &&  storeDetails[0]?.Hours.map((items , idxe )=>{
+                    if(items.close){
+                      return<p  className={day.getDay()-1 === idxe ? 'currentDay d-flex' : 'd-flex'}><span className='w-50'>{`${items.day} `}</span> <span className='w-50'>Close</span> </p>
+
+                    }else{
+                     return items.Open?.map((ite,index)=>{
+                       if(index === 0 ){
+                        return <p className={day.getDay()-1 === idxe ? 'currentDay d-flex' : 'd-flex'}><span className='w-50'>{`${items?.day} `}</span> <span className='w-50'>{` ${ite.Time1}-${ite.Time2}`}</span> </p>
+
+                       }else{
+                        return <p className={day.getDay()-1 === idxe ? 'currentDay d-flex' : 'd-flex'}><span className='w-50'>  </span> <span className='w-50'>{` ${ite.Time1}-${ite.Time2}`}</span> </p>
+
+                       }
+                    })
+                    }
                 })
             }
             </AccordionDetails>

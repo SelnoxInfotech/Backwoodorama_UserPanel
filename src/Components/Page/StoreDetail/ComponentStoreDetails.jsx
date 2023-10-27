@@ -18,7 +18,7 @@ import { MdOutlineImageSearch , MdOutlineNotAccessible , MdSecurity , MdAssistan
 import Openingtime from "./StoreDetailComponent/Openingtime";
 const StoreDetail1 = ({storeDetails}) => {
    function isShopOpen(){
-    
+    console.log(storeDetails.Hours)
    }
     return (
         <React.Fragment>
