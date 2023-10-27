@@ -17,7 +17,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { MdOutlineImageSearch , MdOutlineNotAccessible , MdSecurity , MdAssistantNavigation , MdEmail } from "react-icons/md"
 import Openingtime from "./StoreDetailComponent/Openingtime";
 const StoreDetail1 = ({storeDetails}) => {
-
+   function isShopOpen(){
+    
+   }
     return (
         <React.Fragment>
         <div className="container-fluid mt-3">

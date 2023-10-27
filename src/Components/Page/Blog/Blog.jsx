@@ -187,7 +187,7 @@ const Blogs = () => {
                                 </div>
                                 <div className="col viewsBlog like" id="center1">
                                     <IconButton onClick={(() => { PostLike(color()?.like) })}>
-                                        <AiFillHeart color={state?.login && color()?.like && "red"}></AiFillHeart>
+                                        <AiFillHeart color={state?.login && color()?.like && "#31B665"}></AiFillHeart>
                                     </IconButton>
                                     <span className="blogViewCounts">{value?.LinkCount}</span>
                                 </div>

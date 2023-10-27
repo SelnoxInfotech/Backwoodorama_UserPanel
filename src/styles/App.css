@@ -1023,9 +1023,6 @@ scrollbar-width: none;  /* Firefox */
   line-height: 1.25rem;
 }
 /* end */
-
-
-
 /* Forget _Otp */
 .login_otp_heads {
   font-size: .7rem;
@@ -1079,4 +1076,9 @@ scrollbar-width: none;  /* Firefox */
 .learnproduct_content img{
  width: 100%;
  max-height: 500px;
+}
+.opning_time p.currentDay{
+  color: #000000;
+  font-weight: 700;
+
 }
