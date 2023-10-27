@@ -9,8 +9,8 @@ export function registerEmp(usrdata) {
 // Static Image Api 
 export function StaticImages() {
     let data = axios.get(`https://api.cannabaze.com/AdminPanel/Get-StaticImages/`
-        );
-        return data;
+    );
+    return data;
 }
 
 
@@ -181,7 +181,7 @@ export function CategoryProductsearch(object, id) {
         axios.post(`https://api.cannabaze.com/UserPanel/Get-ProductByCategory/${id}`, object).then((res) => {
             return res
         }).then((response) => {
-          
+
             if (response.data === "There is no Product") {
                 return []
             }
@@ -215,10 +215,10 @@ export function SubCategoryApi(_id) {
     )
 }
 
-export function SubcategoryProduct(object ,id) {
+export function SubcategoryProduct(object, id) {
     return (
-        axios.post(`https://api.cannabaze.com/UserPanel/Get-ProductBySubCategory/${id}`,object).then((res) => {
-            return res.data 
+        axios.post(`https://api.cannabaze.com/UserPanel/Get-ProductBySubCategory/${id}`, object).then((res) => {
+            return res.data
             // SubCategoryApi(res.data[0].category_id)
             // SetLoading(false)
 
@@ -230,8 +230,8 @@ export function SubcategoryProduct(object ,id) {
 }
 
 
-export function GetAllDelivery (object){
-    return(
+export function GetAllDelivery(object) {
+    return (
         axios.post(
             'https://api.cannabaze.com/UserPanel/Get-DeliveryStores/',
             object
@@ -245,8 +245,8 @@ export function GetAllDelivery (object){
                         id: current.id,
                         Store_Image: current.Store_Image,
                         Store_Address: current.Store_Address,
-                        rating:current.rating,
-                        TotalRating:current.TotalRating
+                        rating: current.rating,
+                        TotalRating: current.TotalRating
                     }
                     return acc.concat([newCurr]);
                 } else {
@@ -259,8 +259,8 @@ export function GetAllDelivery (object){
                             id: current.id,
                             Store_Image: current.Store_Image,
                             Store_Address: current.Store_Address,
-                            rating:current.rating,
-                            TotalRating:current.TotalRating
+                            rating: current.rating,
+                            TotalRating: current.TotalRating
 
                         }
                         return acc;
@@ -278,3 +278,18 @@ export function GetAllDelivery (object){
     )
 }
 
+
+
+export function PriceFilter(value) {
+    console.log(value)
+    return (
+        axios.post(`https://api.cannabaze.com/UserPanel/PriceFilter/`,
+            {
+                "MinPrice": value[0],
+                "MaxPrice": value[1]
+            }).then((res) => {
+                return (res)
+            })
+    )
+
+}

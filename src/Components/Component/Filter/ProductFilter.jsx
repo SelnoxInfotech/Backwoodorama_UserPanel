@@ -11,6 +11,7 @@ import SearchBar from '@mkyy/mui-search-bar';
 import { useParams, useNavigate, useLocation } from "react-router-dom"
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
+import { PriceFilter } from "../../../Api/Api"
 const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
     const classes = useStyles()
     const { tab, Category, StoreName, id } = useParams()
@@ -26,16 +27,17 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
     const [catname2, setcatname2] = useState('')
     const SortedArrayData = [{ Id: 1, name: "Sort by" }]
     const SortedData = [{ type: "Sort by A to Z" }, { type: "Sort by Z to A" }, { type: "Sort by low to high" }, { type: "Sort by high to low" }]
-    
-    const [value, setValue] = React.useState([20, 37]);
-    function valuetext(value: number) {
+
+    const [value, setValue] = React.useState([100, 500]);
+    function valuetext(value) {
         return `${value}°C`;
-      }
-      
-  const handleChangepp = (event: Event, newValue: number | number[]) => {
-    setValue(newValue);
-  };
-    
+    }
+
+    const handleChangepp = (event, newValue) => {
+        console.log(event, newValue)
+        setValue(newValue);
+    };
+
     const HandleOpenSortedData = (Id, name) => {
         if (catname2 === name) {
             SetOpenSortedData(null)
@@ -246,7 +248,20 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
         }, 1500);
 
     };
-    //   console.log(Filter)
+
+    React.useEffect(() => {
+
+        
+       const timer = setTimeout(() => {
+            PriceFilter(value).then((res) => {
+                console.log(res)
+            }).catch(() => {
+                // navigate('/fourzerothree')   
+            })
+        }, 1500);
+        return () => clearTimeout(timer)
+    }, [value])
+
     return (
         <>
             <div className="col-12 p-0 mt-4 product_search_and_select">
@@ -319,35 +334,51 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                                                                     <p onClick={() => { Category_Drop(data.id, ele.Name) }}>{data.name}</p>
                                                                 </div>
                                                                 {
-                                                                   
-                                                                
+
+
 
                                                                     SubCategory?.map((SubCategory) => {
-                                                                            return (
-                                                                                SubCategory.CatgoryId === data.id
-                                                                                &&
-                                                                                <div className="col-10 px-2 py-0 product_sub_category_dropDown_cursor" style={{ left: "33px", position: "relative" }} >
-                                                                                    <p onClick={() => { FilterSubCategorydata(SubCategory.id, SubCategory.SubCategory_name, data.name, SubCategory.Store_id) }}>{SubCategory.SubCategory_name}</p>
+                                                                        return (
+                                                                            SubCategory.CatgoryId === data.id
+                                                                            &&
+                                                                            <div className="col-10 px-2 py-0 product_sub_category_dropDown_cursor" style={{ left: "33px", position: "relative" }} >
+                                                                                <p onClick={() => { FilterSubCategorydata(SubCategory.id, SubCategory.SubCategory_name, data.name, SubCategory.Store_id) }}>{SubCategory.SubCategory_name}</p>
 
-                                                                                </div>
-                                                                            )
-                                                                        })
+                                                                            </div>
+                                                                        )
+                                                                    })
                                                                 }
                                                             </div>
                                                         )
                                                     })
                                                     :
                                                     Id === 4 ?
-                                                    <Box sx={{ width: 200 , color:"black" }}>
-                                                        <Slider
-                                                            getAriaLabel={() => 'Temperature range'}
-                                                            value={value}
-                                                            onChange={handleChangepp}
-                                                            valueLabelDisplay="auto"
-                                                            getAriaValueText={valuetext}
-                                                        />
-                                                    </Box>:
-                                                    <p>No Category Found</p>
+                                                        <Box >
+                                                            <Slider
+                                                                getAriaLabel={() => "Price range"}
+                                                                sx={{
+                                                                    '& .MuiSlider-thumb': {
+                                                                        color: "#31B665"
+                                                                    },
+                                                                    '& .MuiSlider-track': {
+                                                                        color: "#31B665"
+                                                                    },
+                                                                    '& .MuiSlider-rail': {
+                                                                        color: "black"
+                                                                    },
+                                                                    '& .MuiSlider-active': {
+                                                                        color: "green"
+                                                                    }
+                                                                }}
+                                                                value={value}
+                                                                onChange={handleChangepp}
+                                                                getAriaValueText={valuetext}
+                                                                valueLabelDisplay="auto"
+                                                                min={1}
+                                                                max={1000}
+                                                            />
+                                                        </Box> :
+                                                        <p>No Category Found</p>
                                             }
                                         </div>
                                     </ClickAwayListener>

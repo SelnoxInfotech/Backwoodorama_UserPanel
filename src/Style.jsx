@@ -1411,7 +1411,9 @@ const useStyles = makeStyles({
     // height:' 100%',
     margin: '0px',
     // transform: translate('494px',' 62px')
-  }
+  },  
 });
+
+
 
 export default useStyles
