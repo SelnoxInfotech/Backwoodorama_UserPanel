@@ -22,7 +22,7 @@ import { Store_Add_Review, Store_OverAllGet_Review, Store_Get_UserComment, Store
 import Createcontext from "../../../../Hooks/Context"
 export default function DispensoriesDetails() {
     const navigate = useNavigate()
-    const { state } = React.useContext(Createcontext)
+    const { state ,dispatch } = React.useContext(Createcontext)
     const location = useLocation()
     const params = useParams();
     const { id, tab, Category, SubCategory } = params
@@ -106,13 +106,14 @@ export default function DispensoriesDetails() {
 
     }
     function ShowCategoryProduct(Id, name) {
+        dispatch({ type: 'Loading', Loading: true })
         axios.post(`https://api.cannabaze.com/UserPanel/Get-filterProductbyStoreandCategory/`,
             {
                 "Store_Id": parseInt(id),
                 "Category_Id": Id
             }
         ).then(response => {
-          
+            dispatch({ type: 'Loading', Loading: false })
             if (Category !== name) {
 
                 navigate(`${location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${modifystr(Despen[0]?.Store_Name.toLowerCase())}/${"menu"}/${modifystr(name.toLowerCase())}/${id}`)
@@ -135,7 +136,6 @@ export default function DispensoriesDetails() {
     { Id: 3, Name: "Strain", Type1: "Indica", Type2: "Hybrid", Icons: <BsStripe className={classes.muiIcons} /> },
     { Id: 4, Name: "Price", Type1: "Any", Type2: "$25", Price: "$100", Icons: <MdOutlinePriceChange className={classes.muiIcons} /> },
     { Id: 5, Name: "Weight", Type1: "Any", Type2: "$25", Price: "$100", Icons: <GiWeightScale className={classes.muiIcons} /> },
-    { Id: 6, Name: "Product", Type1: "Medical", Type2: "Recreational", Icons: <RiProductHuntLine className={classes.muiIcons} /> },
     ]
 
 

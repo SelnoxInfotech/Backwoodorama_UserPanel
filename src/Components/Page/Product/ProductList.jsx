@@ -39,7 +39,7 @@ const ProductList = ({ arr, ProductNavigate }) => {
             const config = {
                 headers: { Authorization: `Bearer ${token_data}` }
             };
-           
+
             SetNewData({
                 Product_id: Event?.id,
                 Store_id: Event?.Store_id,
@@ -97,9 +97,9 @@ const ProductList = ({ arr, ProductNavigate }) => {
                 StoreDelivery: Event.StoreDelivery,
                 StorePickup: Event.StorePickup,
                 StoreAddress: Event.StoreAddress,
-                category:Event.category_name,
-                Sub_Category_id:Event.Sub_Category_id,
-                SubcategoryName:Event.SubcategoryName,
+                category: Event.category_name,
+                Sub_Category_id: Event.Sub_Category_id,
+                SubcategoryName: Event.SubcategoryName,
                 StoreName: Event.StoreName
             }
             SetNewData(Arry)
@@ -181,46 +181,50 @@ const ProductList = ({ arr, ProductNavigate }) => {
 
     return (
         <>
-            <div className="row  mx-2" style={{ height: "auto", marginBottom: "100px" }}>
-                {arr?.map((ele, index) => {
-                    return (
-                        <div className="col-12 col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12   " key={index}>
-                            <div className="prod_inner_cont  product_inner_row">
-                                <span className="product_inner_rowspan">
-                                    <IconButton onClick={() => { handleWhishList(ele.id) }} aria-label="Example">
-                                        {
-                                            state.login ? state.WishList[ele.id] ? <AiFillHeart color="#31B665"></AiFillHeart> : <AiOutlineHeart /> : <AiOutlineHeart />
-                                        }
+            {arr.length !== 0 ?
+                !state.Loading ?
+                    <React.Fragment>
 
-                                    </IconButton>
-                                </span  >
-                                <div className="prod_cat_cont" >
-                                    {/* <Link to={`/products/${ele.category_name}/${ele.Product_Name.replace(/%20| /g, "-")  }/${ele.id}`}> */}
-                                    <div className="col-12 p-2 prod_cat_img position-relative">
-                                        <LazyLoadImage
-                                            onClick={() => ProductNavigate(ele)}
-                                            className="product_search_result_image"
-                                            onError={event => {
-                                                event.target.src = "/image/blankImage.jpg"
-                                                event.onerror = null
-                                            }}
-                                            src={`${ele?.images[0]?.image}`}
-                                            alt={ele.Product_Name}
+                        <div className="row  mx-2" style={{ height: "auto", marginBottom: "100px" }}>
+                            {arr?.map((ele, index) => {
+                                return (
+                                    <div className="col-12 col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12   " key={index}>
+                                        <div className="prod_inner_cont  product_inner_row">
+                                            <span className="product_inner_rowspan">
+                                                <IconButton onClick={() => { handleWhishList(ele.id) }} aria-label="Example">
+                                                    {
+                                                        state.login ? state.WishList[ele.id] ? <AiFillHeart color="#31B665"></AiFillHeart> : <AiOutlineHeart /> : <AiOutlineHeart />
+                                                    }
 
-                                        />
-                                        {/* // <img src={`https://api.cannabaze.com/${ele?.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }} /> */}
-                                        <div className="prod_img_btn d-flex">
-                                        { ele.THC !== 0&& <button className=" cat_prod_inner_btn btn2">THC {ele.THC}%</button>}
-                                        { ele.CBD !== 0&& <button className=" cat_prod_inner_btn btn2">CBD {ele.CBD}%</button>}
-                                        { ele.CBN !== 0&& <button className=" cat_prod_inner_btn btn2">CBN {ele.CBN}%</button>}
-                                          { ele.strain !== 'None' &&    <button className="cat_prod_inner_btn btn1">{ele.strain}</button>}
-                                        </div>
+                                                </IconButton>
+                                            </span  >
+                                            <div className="prod_cat_cont" >
+                                                {/* <Link to={`/products/${ele.category_name}/${ele.Product_Name.replace(/%20| /g, "-")  }/${ele.id}`}> */}
+                                                <div className="col-12 p-2 prod_cat_img position-relative">
+                                                    <LazyLoadImage
+                                                        onClick={() => ProductNavigate(ele)}
+                                                        className="product_search_result_image"
+                                                        onError={event => {
+                                                            event.target.src = "/image/blankImage.jpg"
+                                                            event.onerror = null
+                                                        }}
+                                                        src={`${ele?.images[0]?.image}`}
+                                                        alt={ele.Product_Name}
+
+                                                    />
+                                                    {/* // <img src={`https://api.cannabaze.com/${ele?.images[0]?.image}`} alt="img_not_found" style={{ pointerEvents: "none" }} /> */}
+                                                    <div className="prod_img_btn d-flex">
+                                                        {ele.THC !== 0 && <button className=" cat_prod_inner_btn btn2">THC {ele.THC}%</button>}
+                                                        {ele.CBD !== 0 && <button className=" cat_prod_inner_btn btn2">CBD {ele.CBD}%</button>}
+                                                        {ele.CBN !== 0 && <button className=" cat_prod_inner_btn btn2">CBN {ele.CBN}%</button>}
+                                                        {ele.strain !== 'None' && <button className="cat_prod_inner_btn btn1">{ele.strain}</button>}
+                                                    </div>
 
 
-                                    </div>
-                                    {/* </Link> */}
-                                </div>
-                                <div className="product_cat_allProduct">
+                                                </div>
+                                                {/* </Link> */}
+                                            </div>
+                                            <div className="product_cat_allProduct">
 
                                     <div className="col-12 px-2 prod_para_name" style={{ marginBottom: "" }}>
                                         <Link to={`/products/${modifystr(ele.category_name)}/${modifystr(ele.Product_Name.toLowerCase())}/${ele.id}`}>
@@ -231,17 +235,7 @@ const ProductList = ({ arr, ProductNavigate }) => {
                                         <p className='fontStyle common_sub_head'>{ele.StoreName}</p>
                                     </div>
                                     <div className="col-12 px-2 d-flex prod_para prod_sub_heading_height ellipsis" style={{ marginBottom: "0px" }}>
-                                        {/* <span className='fontStyle productlist_rating'>Rating</span><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons} /></span> */}
-                                        <div className="product_cart_review">
-                                                            {ele.rating &&  new Array(ele.rating).fill(null).map(() => (
-                                                                <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />  
-                                                            ))}
-                                                            
-                                                            {new Array(5-ele.rating).fill(null).map(() => (
-                                                                <BsStar size={16} color="#31B665" className="product_search_rating_star" />  
-                                                            ))}
-                                                    </div>
-                                    
+                                        <span className='fontStyle productlist_rating'>Rating</span><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons} /></span>
                                     </div>
                                     <div className="mobile_view_weigth">
                                         <div className="row   prod_cat_cont_btn product_price_tabs">
@@ -251,65 +245,84 @@ const ProductList = ({ arr, ProductNavigate }) => {
                                                         let s = false
                                                         if (Price.length === 0) {
 
-                                                            if (data.id === 1) {
-                                                                s = true
-                                                            }
+                                                                        if (data.id === 1) {
+                                                                            s = true
+                                                                        }
 
-                                                        }
-                                                        else (
-                                                            Price?.map((Price) => {
-                                                                if (ele.id === Price?.Product_id && data.id === Price?.Item_id) {
-                                                                    s = true
-                                                                }
-                                                                else {
+                                                                    }
+                                                                    else (
+                                                                        Price?.map((Price) => {
+                                                                            if (ele.id === Price?.Product_id && data.id === Price?.Item_id) {
+                                                                                s = true
+                                                                            }
+                                                                            else {
 
-                                                                    s = false
-                                                                }
-                                                                return s
-                                                            })
-                                                        )
-                                                        return (
-                                                            <div className="col-sm-4 col-2  prod_cat_btn_cont mt-2" id="" key={index} >
-                                                                <section
-                                                                    className={"prod_cat_btns " + (s ? "active" : "")}
-                                                                    value={data.id} onClick={() => PriceSelect(ele.id, data.id)} >
-                                                                    {data.Weight || data.Unit}
-                                                                    <p className="rs">${data?.SalePrice?.toFixed()}</p>
-                                                                </section>
-                                                            </div>
-                                                        )
-                                                    })
-                                                )
-                                            })}
+                                                                                s = false
+                                                                            }
+                                                                            return s
+                                                                        })
+                                                                    )
+                                                                    return (
+                                                                        <div className="col-sm-4 col-2  prod_cat_btn_cont mt-2" id="" key={index} >
+                                                                            <section
+                                                                                className={"prod_cat_btns " + (s ? "active" : "")}
+                                                                                value={data.id} onClick={() => PriceSelect(ele.id, data.id)} >
+                                                                                {data.Weight || data.Unit}
+                                                                                <p className="rs">${data?.SalePrice?.toFixed()}</p>
+                                                                            </section>
+                                                                        </div>
+                                                                    )
+                                                                })
+                                                            )
+                                                        })}
+                                                    </div>
+                                                </div>
+                                                <div className="col-12 d-flex mt-3 mb-2 Fly">
+
+
+                                                    <Box
+                                                        className={` ${classes.loadingBtnTextAndBack}`}
+                                                        style={{ width: "93%" }}
+                                                    >
+
+                                                        {/* <FlyingButton src={AiOutlineShoppingCart} targetTop={'00%'} targetLeft={'100%'}> */}
+
+                                                        <LoadingButton onClick={() => { Addtocard(ele) }} variant="outlined"> AddToCart</LoadingButton>
+                                                        {/* </FlyingButton> */}
+                                                    </Box>
+
+                                                    {
+                                                        CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />
+                                                    }
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="col-12 d-flex mt-3 mb-2 Fly">
+                                )
+                            })}
 
-
-                                        <Box
-                                            className={` ${classes.loadingBtnTextAndBack}`}
-                                            style={{ width: "93%" }}
-                                        >
-
-                                            {/* <FlyingButton src={AiOutlineShoppingCart} targetTop={'00%'} targetLeft={'100%'}> */}
-
-                                            <LoadingButton onClick={() => { Addtocard(ele) }} variant="outlined"> AddToCart</LoadingButton>
-                                            {/* </FlyingButton> */}
-                                        </Box>
-
-                                        {
-                                            CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />
-                                        }
-                                    </div>
-                                </div>
-                            </div>
                         </div>
-                    )
-                })}
+                        {Whishlist && <WhisList open1={Whishlist} SetWishList={SetWishList}></WhisList>}
+                        <PreCheckout />
+                    </React.Fragment>
+                    :
+                    <div className="col-12 center" >
 
-            </div>
-            {Whishlist && <WhisList open1={Whishlist} SetWishList={SetWishList}></WhisList>}
-            <PreCheckout />
+                        <div className="loaderFLower"></div>
+                    </div>
+                :
+                <div className="col-12 center" >
+
+                    <p>No Product</p>
+                </div>
+
+            }
+
+
+
+
+
+
         </>
     )
 }

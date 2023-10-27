@@ -68,16 +68,15 @@ const NewFlavourBanner = ({ delBtn }) => {
                                                 <Box
                                                     className={`${classes.loadingBtnTextAndBack}`}
                                                 >
-                                                    {/* <Link to={}> */}
-                                                      <LoadingButton style={{ width: "60%", height: "30px" }} variant="outlined">Email</LoadingButton>
-                                                    {/* </Link> */}
+                                                  
+                                                      <LoadingButton style={{ height: "30px" }} variant="outlined">Email</LoadingButton>
 
                                                 </Box>
                                                 <Box
                                                     className={`New_flav_btn ${classes.loadingBtnTextAndBack}`}
                                                 >
                                                     <Link to={`tel:${delBtn[0].Stores_MobileNo}`}>
-                                                      <LoadingButton style={{ width: "60%", height: "30px" }} variant="outlined">Call</LoadingButton>
+                                                      <LoadingButton style={{  height: "30px" }} variant="outlined">Call</LoadingButton>
                                                     </Link>
                                                 </Box>
 

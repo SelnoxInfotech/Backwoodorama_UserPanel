@@ -12,11 +12,11 @@ import { useParams, useNavigate, useLocation } from "react-router-dom"
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import { PriceFilter } from "../../../Api/Api"
+import Createcontext from "../../../Hooks/Context"
 const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
     const classes = useStyles()
-    const { tab, Category, StoreName, id } = useParams()
-    const location = useLocation()
-
+    const { id } = useParams()
+    const { state, dispatch } = React.useContext(Createcontext)
     const [select, setselect] = useState("Sort by A to Z")
     const navigate = useNavigate()
     const [OpenEvent, SetOpenEvent] = useState(null);
@@ -131,12 +131,13 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
         }
 
         else if (name === "Brand") {
+            dispatch({ type: 'Loading', Loading: true })
             Axios(`https://api.cannabaze.com/UserPanel/Get-ProductByStoreAndBrand/${id}/${i}`, {
 
 
             }).then(response => {
-
                 Setarr1(response.data)
+                dispatch({ type: 'Loading', Loading: false })
             }).catch(
                 function (error) {
 
@@ -162,10 +163,12 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
 
     }
     function FilterSubCategorydata(SubCategoryid, SubCategory_name, categoryName) {
+        dispatch({ type: 'Loading', Loading: true })
         Axios.post(`https://api.cannabaze.com/UserPanel/Get-filterProductbyStoreandSubCategory/`, {
             "Store_Id": Store_id,
             "SubCategory_Id": SubCategoryid
         }).then(async response => {
+            dispatch({ type: 'Loading', Loading: false })
             Setarr1(response.data)
             // navigate(`${location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${StoreName.replace(/\s/g, '-').toLowerCase()}/${"menu"}/${categoryName?.toLowerCase()}/${SubCategory_name?.toLowerCase().replace(/\s/g, '-')}/${SubCategoryid}`)
         }).catch(
@@ -232,12 +235,14 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
         clearTimeout(timer);
         timer = setTimeout(() => {
             if (e !== '') {
+                dispatch({ type: 'Loading', Loading: true })
                 Axios.get(`https://api.cannabaze.com/UserPanel/Get-SearchFilter/?search=${e}`, {
                 }).then(response => {
                     let newdata = response.data.filter((item) => {
                         return item.Store_id === Store_id
                     })
                     Setarr1(newdata)
+                    dispatch({ type: 'Loading', Loading: false })
                 }).catch(
                     function (error) {
                     })
@@ -254,7 +259,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
         
        const timer = setTimeout(() => {
             PriceFilter(value).then((res) => {
-               
+                console.log(res)
             }).catch(() => {
                 // navigate('/fourzerothree')   
             })
