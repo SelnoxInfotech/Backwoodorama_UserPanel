@@ -280,13 +280,13 @@ export function GetAllDelivery(object) {
 
 
 
-export function PriceFilter(value) {
-    console.log(value)
+export function PriceFilter(value , Store_id) {
     return (
         axios.post(`https://api.cannabaze.com/UserPanel/PriceFilter/`,
             {
                 "MinPrice": value[0],
-                "MaxPrice": value[1]
+                "MaxPrice": value[1],
+                "Store": Store_id
             }).then((res) => {
                 return (res)
             })

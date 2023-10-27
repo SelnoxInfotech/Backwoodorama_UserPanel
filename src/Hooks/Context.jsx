@@ -43,7 +43,9 @@ const initialUser = {
     City: "",
     // End
     // StaticImage
-    StaticImage:[]
+    StaticImage:[],
+    //  Loading Circule
+    Loading:false
 }
 
 function Context(props) {
