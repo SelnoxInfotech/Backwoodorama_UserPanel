@@ -11,17 +11,29 @@ import { GrDeliver } from "react-icons/gr"
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-import { MdOutlineImageSearch , MdOutlineNotAccessible , MdSecurity , MdAssistantNavigation , MdEmail } from "react-icons/md"
+import {  MdSecurity } from "react-icons/md"
 import Openingtime from "./StoreDetailComponent/Openingtime";
 const StoreDetail1 = ({storeDetails}) => {
+    const[isopen,setisopen]=useState(false)
    function isShopOpen(){
-    console.log(storeDetails.Hours)
+    var date = new Date();
+    const easternTime = date.toLocaleString("en-US", {timeZone: "America/New_York"})
+    let day = new Date(easternTime)
+     storeDetails[0]?.Hours.forEach((items , index)=>{
+        if(index === day.getDay()-1){
+            items.Open.forEach((item)=>{
+                if( new Date(day) >= new Date(item.Time1)  &&  new Date(day) <= new Date(item.Time2)){
+                    
+                }
+            })
+        }
+     })
    }
+   isShopOpen()
     return (
-        <React.Fragment>
+     
         <div className="container-fluid mt-3">
             <div className="amenities_container">
                 <div className="row center">
@@ -292,7 +304,7 @@ const StoreDetail1 = ({storeDetails}) => {
                 </div>
             </div>
         </div>
-        </React.Fragment>
+       
     )
 }
 export default StoreDetail1
