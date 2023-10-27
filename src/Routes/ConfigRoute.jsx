@@ -247,7 +247,7 @@ const routesConfig = [
         element: <RoutingList Component={FiveZeroThree} ></RoutingList>
       },
       {
-        path: "/FourZeroThree",
+        path: "/fourzerothree",
         element: <RoutingList Component={FourZeroThree} ></RoutingList>
       },
       {

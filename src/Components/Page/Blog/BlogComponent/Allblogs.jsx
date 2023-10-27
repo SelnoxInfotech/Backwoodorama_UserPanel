@@ -51,7 +51,7 @@ const Allblogs = () => {
                   </div>
                   <div className='col-9'>
                     <div className='blogcardText'>
-                      <div className='blogDate'> <span>{items.updated.slice(0, 10)}</span></div>
+                      <div className='blogDate'> <span>{items.Publish_Date.slice(0, 10)}</span></div>
                       <h2 className='blogcardHeading'>{items.Title}</h2>
                       <Link to={`/cannabis-news/${items.Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${items.id}`} key={index}>
                       <p className='blogcardDescription'>   <div dangerouslySetInnerHTML={{ __html: items?.Description }} /></p>
