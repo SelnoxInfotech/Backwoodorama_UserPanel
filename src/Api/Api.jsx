@@ -281,7 +281,7 @@ export function GetAllDelivery(object) {
 
 
 export function PriceFilter(value) {
-    console.log(value)
+   
     return (
         axios.post(`https://api.cannabaze.com/UserPanel/PriceFilter/`,
             {

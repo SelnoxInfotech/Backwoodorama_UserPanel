@@ -208,7 +208,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
             <div className="row mx-0 marginProductSearchResult">
               
                 <div className="col-12 mt-4  fontStyle">
-                    <h2 className="productSlider_headings">{CategoryName}</h2>
+                    <h2 className="section_main_title">{CategoryName}</h2>
                 </div>
                 <div className="product_card_wrapper">
                     {

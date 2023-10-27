@@ -2,6 +2,7 @@ import React from "react";
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import { AiFillStar } from "react-icons/ai";
+import { BsStar ,BsStarFill } from "react-icons/bs";
 import useStyles from "../../../Style"
 import { Link } from "react-router-dom";
 import _ from "lodash";
@@ -230,7 +231,17 @@ const ProductList = ({ arr, ProductNavigate }) => {
                                         <p className='fontStyle common_sub_head'>{ele.StoreName}</p>
                                     </div>
                                     <div className="col-12 px-2 d-flex prod_para prod_sub_heading_height ellipsis" style={{ marginBottom: "0px" }}>
-                                        <span className='fontStyle productlist_rating'>Rating</span><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons} /></span>
+                                        {/* <span className='fontStyle productlist_rating'>Rating</span><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons} /></span> */}
+                                        <div className="product_cart_review">
+                                                            {ele.rating &&  new Array(ele.rating).fill(null).map(() => (
+                                                                <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />  
+                                                            ))}
+                                                            
+                                                            {new Array(5-ele.rating).fill(null).map(() => (
+                                                                <BsStar size={16} color="#31B665" className="product_search_rating_star" />  
+                                                            ))}
+                                                    </div>
+                                    
                                     </div>
                                     <div className="mobile_view_weigth">
                                         <div className="row   prod_cat_cont_btn product_price_tabs">

@@ -34,7 +34,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
     }
 
     const handleChangepp = (event, newValue) => {
-        console.log(event, newValue)
+      
         setValue(newValue);
     };
 
@@ -254,7 +254,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
         
        const timer = setTimeout(() => {
             PriceFilter(value).then((res) => {
-                console.log(res)
+               
             }).catch(() => {
                 // navigate('/fourzerothree')   
             })

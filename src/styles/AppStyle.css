@@ -1369,14 +1369,13 @@ scrollbar-width: none;  /* Firefox */
 /* ends */
 /* amenities */
 
-
+.mobile_view{
+  display: none ;
+}
 .amenities_container {
   background-color: #F6F6F6;
 }
 
-.amenties_paragrap {
-  height: 28px;
-}
 
 .amenties_nameHeading {
   color: #000000;
@@ -1403,21 +1402,11 @@ scrollbar-width: none;  /* Firefox */
   font-weight: 400;
   margin-bottom: 10px;
 }
-.amenties_list_items {
-  min-width: 13%;
-}
+
 
 .amenities_link {
   color: #828282;
 }
-
-.ameitiesList_container_height {
- 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .amenities_list {
   display: flex;
   list-style: none;
@@ -1427,19 +1416,12 @@ scrollbar-width: none;  /* Firefox */
   align-items:center;
   margin: 0;
   padding: 20px;
+  overflow-x: scroll;
 }
 
 
 /* end */
-/* storeDetailSideMenuBar*/
-.storeDetail_container {
-  height: 700px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  border: 1px solid #DCD9D9;
-}
 
-/* end */
 /* StoreDetailMenuItem */
 .store_detail_list {
   min-width: 16%;
@@ -1483,12 +1465,12 @@ scrollbar-width: none;  /* Firefox */
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
+  text-wrap: nowrap;
 }
 
 .store_detail_SideMenuBar_order_list {
   width: 100%;
   display: block;
-  /* gap: 20%; */
   list-style: none;
   color: #828282;
   margin-top: 10px;
@@ -1518,7 +1500,8 @@ scrollbar-width: none;  /* Firefox */
   height: 30px;
   display: grid;
   align-items: center;
-  font-size: 16px;
+  font-size: 14px;
+  word-break: break-word;
 }
 
 .store_detail_container_right_container {
@@ -2058,7 +2041,6 @@ scrollbar-width: none;  /* Firefox */
   margin: .5rem;
   border-radius: 6px;
   cursor: pointer;
-  /* transition: all 2500ms ease-in-out; */
 }
 
 .newProductCard:first-of-type {
@@ -2069,12 +2051,6 @@ scrollbar-width: none;  /* Firefox */
   margin-right: 100px;
 }
 
-.productSlider_headings {
-  font-weight: 700;
-  font-size: 24px;
-  color: #000000;
-  margin: 10px 0px;
-}
 
 .marginProductSearchResult {
   margin-bottom: 80px;
@@ -2540,7 +2516,7 @@ scrollbar-width: none;  /* Firefox */
   width: 350px;
 }
 .newProductDetails_heading {
-  
+  word-break: break-all;
   color: #414141;
   font-size: 32px;
   font-style: normal;
@@ -2929,7 +2905,8 @@ background: #31B665;
 
 
 .section_main_title {
-    font-size: 32px;
+  margin-top: 10px;
+    font-size: 30px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -3060,7 +3037,9 @@ background: #31B665;
   height: 50px;
 
 }
-
+footer{
+  margin-top: 20px;
+}
 .checkAgeEligibility_footer {
   color: #B6B6B6;
   font-size: 11px;
@@ -5755,7 +5734,7 @@ line-height: 2;
 }
 .noReview{
   width: 100%;
-  background-color: #F8F8F8;
+  background-color: #f8f8f8b3;
   color: #282625;
   padding: 20px;
   height: 300px;

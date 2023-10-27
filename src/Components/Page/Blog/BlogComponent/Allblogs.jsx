@@ -52,9 +52,11 @@ const Allblogs = () => {
                   <div className='col-9'>
                     <div className='blogcardText'>
                       <div className='blogDate'> <span>{items.Publish_Date.slice(0, 10)}</span></div>
-                      <h2 className='blogcardHeading'>{items.Title}</h2>
                       <Link to={`/cannabis-news/${items.Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${items.id}`} key={index}>
-                      <p className='blogcardDescription'>   <div dangerouslySetInnerHTML={{ __html: items?.Description }} /></p>
+                        <h2 className='blogcardHeading'>{items.Title}</h2>
+                      </Link>
+                      <Link to={`/cannabis-news/${items.Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${items.id}`} key={index}>
+                         <p className='blogcardDescription'>   <div dangerouslySetInnerHTML={{ __html: items?.Description }} /></p>
                       </Link>
                       <div className='row extra_function extra_function_destop '>
                         <div className='col-3'>
@@ -101,7 +103,17 @@ const Allblogs = () => {
                         <span>{items.likeCount}</span>
                       </div>
                       <div className='col-3'>
-                        <span className='action_icons'><BsShareFill /></span>
+                        <span className='action_icons'>
+
+                        <RWebShare
+                              data={{ url: `/cannabis-news/${items.Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${items.id}` }}
+                              sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
+                              onClick={() => console.info("share successful!")}
+                              color="#31B665"
+                            >
+                            <BsShareFill />
+                          </RWebShare>
+                          </span>
 
                       </div>
                     </div>

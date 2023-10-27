@@ -8,20 +8,16 @@ import {AiOutlinePlus , AiFillCar} from "react-icons/ai"
 import { IoStorefrontSharp , IoLocationOutline } from "react-icons/io5";
 import { TbTruckDelivery } from "react-icons/tb"
 import { GrDeliver } from "react-icons/gr"
-import { SlSocialSpotify } from "react-icons/sl"
-import { RiSettings2Fill } from "react-icons/ri"
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
 import { MdOutlineImageSearch , MdOutlineNotAccessible , MdSecurity , MdAssistantNavigation , MdEmail } from "react-icons/md"
 import Openingtime from "./StoreDetailComponent/Openingtime";
 const StoreDetail1 = ({storeDetails}) => {
-//    const[storeDetails,setstoreDetails] =useState([])
 
-//     React.useEffect(() => {
-//         axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${id}`, {
-//         }).then(response => {
-//             SetDespens(response.data)
-           
-//         })
-//     })
     return (
         <React.Fragment>
         <div className="container-fluid mt-3">
@@ -32,12 +28,9 @@ const StoreDetail1 = ({storeDetails}) => {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-12 ameitiesList_container_height">
+                    <div className="col-12 ">
                         <ol className="amenities_list">
-                            
-                          
-                                   
-                                   
+      
                                 {
                                     storeDetails[0]?.CurbSide_Pickup === true && <li className="amenties_list_items">
                                        
@@ -46,11 +39,9 @@ const StoreDetail1 = ({storeDetails}) => {
                                             </p>
                                      
                                     </li>
-                                 
                                 }
                                  {
                                     storeDetails[0]?.CarParking ?
-                                 
                                     <li className="amenties_list_items">
                                        
                                             <p className="m-0 amenities_list_item_paragrap listfontStyle">
@@ -62,7 +53,6 @@ const StoreDetail1 = ({storeDetails}) => {
                                 }
                                  {
                                     storeDetails[0]?.Dogs_allowed ?
-                                 
                                     <li className="amenties_list_items">
                                             <p className="m-0 amenities_list_item_paragrap listfontStyle">
                                               <GiSittingDog/> Dogs Allowed
@@ -95,26 +85,26 @@ const StoreDetail1 = ({storeDetails}) => {
                                    : null
                                 }
                                 {
-                                   storeDetails[0]?.Medical ?
-                                       <li className="amenties_list_items">
-                                          
+                                    storeDetails[0]?.Medical ?
+                                    <li className="amenties_list_items">
+                                        
                                                 <p className="m-0 amenities_list_item_paragrap listfontStyle">
                                                 <AiOutlinePlus/> Medical
                                                 </p>
-                                           
-                                        </li>
+                                        
+                                    </li>
                                    :
                                    null
                                 }  
                                  {
                                    storeDetails[0]?.Minimum_21_years_or_older ?
-                                       <li className="amenties_list_items">
-                                          
-                                                <p className="m-0 amenities_list_item_paragrap listfontStyle">
-                                                <MdDoNotDisturb/> Minimum 21 years or older
-                                                </p>
-                                           
-                                        </li>
+                                    <li className="amenties_list_items">
+                                        
+                                            <p className="m-0 amenities_list_item_paragrap listfontStyle">
+                                            <MdDoNotDisturb/> Minimum 21 years or older
+                                            </p>
+                                        
+                                    </li>
                                    :
                                    null
                                 } {
@@ -169,14 +159,36 @@ const StoreDetail1 = ({storeDetails}) => {
             </div>
             <div className="row  my-2">
              
-                <div className="col-lg-8 store_detail_container my-2">
+                <div className="col-lg-8 store_detail_container my-2 order-sm-first order-last">
             
                     <div className="row">
+                      
+                    <div className='destop_view'>
                         <div className="col-12 StoreDetail_paragraph fontStyle store_middle_content_top ">
                             <p>About Us</p>
                         </div>
                         <div  dangerouslySetInnerHTML={{__html: storeDetails[0]?.Stores_Description}}>
                         </div>
+                            
+                    </div>
+                    <div className='mobile_view'>
+                            <Accordion>
+                                <AccordionSummary
+                                    expandIcon={<ExpandMoreIcon />}
+                                    aria-controls="panel1a-content"
+                                    id="panel1a-header"
+                                >
+                                        <div className="col-12 StoreDetail_paragraph fontStyle store_middle_content_top ">
+                                        <p>About Us</p>
+                                        </div>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                    <p  dangerouslySetInnerHTML={{__html: storeDetails[0]?.Stores_Description}}> 
+                                     </p>
+                                </AccordionDetails>
+                            </Accordion>
+                    </div>
+                 
                         <div className="row">
                             {
                                 storeDetails[0]?.Hours !== null &&  <div className="  col-md-4 col-12">
@@ -196,78 +208,88 @@ const StoreDetail1 = ({storeDetails}) => {
 
                 </div>
                 <div className="col-lg-4 storeDetail_container my-2">
-                <div className="">
-                    <h3 className="fontStyle store_detail_menu_heading">{storeDetails[0]?.Store_Name}</h3>
-                    <div className="col-12 store_detail_SideMenuBar_container">
+                    <div className="">
+                        <h3 className="fontStyle store_detail_menu_heading">{storeDetails[0]?.Store_Name}</h3>
+                        <div className="col-12">
 
-                        <ol className="store_detail_SideMenuBar_order_list">
+                            <ol className="store_detail_SideMenuBar_order_list">
 
-                            
-                                 
-                                    <li className="StoreDetailSidemenuBarList">
-                                      <CiGlobe/>
-                                        
-                                        <span className="StoreDetailSideMenu_listItems"> {storeDetails[0]?.Stores_Website}</span>
-                                    </li>
-                                    <li className="StoreDetailSidemenuBarList">
-                                    <BsTelephone/>
-                                        
-                                        <span className="StoreDetailSideMenu_listItems"> {storeDetails[0]?.Stores_MobileNo}</span>
-                                    </li>
-                                    <li className="StoreDetailSidemenuBarList">
-                                    <GrDeliver/>
-                                        
-                                        <span className="StoreDetailSideMenu_listItems"> {storeDetails[0]?.Order_Type}</span>
-                                    </li>
-                                    <li className="StoreDetailSidemenuBarList">
-                                    <IoStorefrontSharp/>
-                                        
-                                        <span className="StoreDetailSideMenu_listItems"> {storeDetails[0]?.Store_Type}</span>
-                                    </li>
-                                    <li className="StoreDetailSidemenuBarList">
-                                    <IoLocationOutline/>
-                                        
-                                        <span className="StoreDetailSideMenu_listItems"> {storeDetails[0]?.CurbSideStreet}</span>
-                                    </li>
-                                    <li className="StoreDetailSidemenuBarList">
-                                    <TbTruckDelivery/>
-                                        
-                                        <span className="StoreDetailSideMenu_listItems"> { storeDetails[0]?.searchboxlocation !== null &&    storeDetails[0]?.searchboxlocation?.map((item)=>{
-                                            let data =  item.Address.split(', ')
-                                            return `${data[0]}, `
-                                        })}</span>
-                                    </li>
-                                    {/* <li className="StoreDetailSidemenuBarList d-flex">
-                                    <FaRegEnvelope/>
-                                        
-                                        <span className="StoreDetailSideMenu_listItems"> {storeDetails[0].Stores_Website}</span>
-                                    </li>
-                                    <li className="StoreDetailSidemenuBarList d-flex">
-                                    <FaRegEnvelope/>
-                                        
-                                        <span className="StoreDetailSideMenu_listItems"> {storeDetails[0].Stores_Website}</span>
-                                    </li>
-                                    <li className="StoreDetailSidemenuBarList d-flex">
-                                    <FaRegEnvelope/>
-                                        
-                                        <span className="StoreDetailSideMenu_listItems"> {storeDetails[0].Stores_Website}</span>
-                                    </li> */}
+                                
+                                    {
+                                        storeDetails[0]?.Stores_Website && 
+                                    
+                                        <li className="StoreDetailSidemenuBarList">
+                                        <CiGlobe/>
+                                            
+                                            <span className="StoreDetailSideMenu_listItems"> {storeDetails[0]?.Stores_Website}</span>
+                                        </li>
+                                        }
 
-                               
-                        </ol>
+    { storeDetails[0]?.Stores_MobileNo &&
+                                        <li className="StoreDetailSidemenuBarList">
+                                        <BsTelephone/>
+                                            <span className="StoreDetailSideMenu_listItems"> {storeDetails[0]?.Stores_MobileNo}</span>
+                                        </li>
+
+    }
+    {          storeDetails[0]?.Order_Type &&                            <li className="StoreDetailSidemenuBarList">
+                                            <GrDeliver/>
+                                            <span className="StoreDetailSideMenu_listItems"> {storeDetails[0]?.Order_Type}</span>
+                                        </li>
+
+    }
+    {   storeDetails[0]?.Store_Type && 
+                                        <li className="StoreDetailSidemenuBarList">
+                                            <IoStorefrontSharp/>
+                                            <span className="StoreDetailSideMenu_listItems"> {storeDetails[0]?.Store_Type}</span>
+                                        </li>
+
+    }
+    {     storeDetails[0]?.CurbSideStreet &&
+                                        <li className="StoreDetailSidemenuBarList">
+                                            <IoLocationOutline/>
+                                            <span className="StoreDetailSideMenu_listItems"> {storeDetails[0]?.CurbSideStreet}</span>
+                                        </li>
+
+
+    }
+    {  storeDetails[0]?.searchboxlocation !== null && 
+                                        <li className="StoreDetailSidemenuBarList">
+                                            <TbTruckDelivery/>
+                                            <span className="StoreDetailSideMenu_listItems"> { storeDetails[0]?.searchboxlocation !== null &&    storeDetails[0]?.searchboxlocation?.map((item)=>{
+                                                let data =  item.Address.split(', ')
+                                                return `${data[0]}, `
+                                            })}</span>
+                                        </li>
+                                        }
+                                        
+                                        {/* <li className="StoreDetailSidemenuBarList d-flex">
+                                        <FaRegEnvelope/>
+                                            
+                                            <span className="StoreDetailSideMenu_listItems"> {storeDetails[0].Stores_Website}</span>
+                                        </li>
+                                        <li className="StoreDetailSidemenuBarList d-flex">
+                                        <FaRegEnvelope/>
+                                            
+                                            <span className="StoreDetailSideMenu_listItems"> {storeDetails[0].Stores_Website}</span>
+                                        </li>
+                                        <li className="StoreDetailSidemenuBarList d-flex">
+                                        <FaRegEnvelope/>
+                                            
+                                            <span className="StoreDetailSideMenu_listItems"> {storeDetails[0].Stores_Website}</span>
+                                        </li> */}
+
+                                
+                            </ol>
+                        </div>
+
+
+
+
                     </div>
-
-
-
-
-                </div>
-
                 </div>
             </div>
         </div>
-
-
-
         </React.Fragment>
     )
 }

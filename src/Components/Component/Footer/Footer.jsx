@@ -71,6 +71,9 @@ const Footer = () => {
                                             <Link to="/aboutus" key={index}><li className="footer_li ellipsis">{ele.head}</li></Link>
                                         )
                                     })}
+                                      <Link to={`/cannabis-news`}>
+                                        <li className="footer_li ellipsis" >All News</li>
+                                    </Link>
                                 </ol>
                             </div>
                             <div className="footer_list">
@@ -107,9 +110,7 @@ const Footer = () => {
                                     <Link to={`/https://cannabaze.com/demo`}>
                                         <li className="footer_li ellipsis" >Add Delivery</li>
                                     </Link>
-                                    <Link to={`/cannabis-news`}>
-                                        <li className="footer_li ellipsis" >All News</li>
-                                    </Link>
+                                  
                                 </ol>
                             </div>
 

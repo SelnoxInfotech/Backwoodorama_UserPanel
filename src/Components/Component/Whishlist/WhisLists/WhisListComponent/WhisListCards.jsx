@@ -178,6 +178,7 @@ const WhisListCard = () => {
     return (                                                                                                                            
         <div className="whislistCard_wrapper">
             {GetApiData?.map((items, index) => {
+               
              return (                                                                                    
                     <React.Fragment key={index}>
                        
@@ -226,7 +227,7 @@ const WhisListCard = () => {
                                       <BiStore   size={18} color="#31B665" />  <h3 className="whislistAddress multine-ellipsis"> by {items.StoreName}</h3>
                                     </div>
                                     <div className="spaceIcons_content_Container WhishListCard_paddingLeft">
-                                        <span className="whislistAddress">Rating</span><Rating name="read-only" className={classes.homePageStarIcons} value={4} readOnly />
+                                        <span className="whislistAddress">Rating</span><Rating name="read-only" className={classes.homePageStarIcons} value={items.rating} readOnly />
                                     </div>
                                     <div className="col-12 whislistBtnCol">
                                         <Box className={`center ${classes.whishlistBtn}`}>

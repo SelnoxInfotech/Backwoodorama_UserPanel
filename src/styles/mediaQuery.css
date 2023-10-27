@@ -189,17 +189,6 @@
   .store_detail_list {
     min-width: 100px;
   }
-
-  .ameitiesList_container_height {
-    overflow-y: hidden;
-    overflow-x: scroll;
-
-  }
-
-  .amenties_list_items {
-    min-width: 24%;
-  }
-
   .amenities_list {
     gap: 7%;
 
@@ -253,14 +242,8 @@
 
 @media (max-width:1200px) {
   .amenities_list {
-    gap: 3%;
+      gap: 3%;
   }
-
-  .amenties_list_items {
-    min-width: 13%;
-    font-size: 12px;
-  }
-
   .dispensoriesAddressSkeletonPadding {
     overflow-y: hidden;
     height: 514px;
@@ -382,21 +365,14 @@
     min-width: 30%;
   }
 
-  .store_detail_SideMenuBar_container {
-    overflow-x: scroll;
-    overflow-y: hidden;
-  }
+  
+  
 
-  .store_detail_SideMenuBar_order_list {
-    display: flex;
-  }
-
-  .storeDetail_container {
-    height: 140px;
-    overflow: hidden;
-  }
 }
 @media (max-width:768px) {
+  .mobile_view{
+    display: block;
+  }
   .StoreDetailSidemenuBarList {
     min-width: 47%;
   }
@@ -543,10 +519,7 @@
   .delivery_item_paragraph {
     font-size: .8rem;
   }
-  .amenties_list_items {
-    min-width: 29%;
-    font-size: 10px;
-  }
+ 
 
   .amenities_list {
     gap: 6%;
@@ -684,6 +657,15 @@
   }
 }
 @media (max-width:480px) {
+  .amenties_nameHeading {
+    margin-left: 20px;
+  }
+  .product_card_wrapper{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
   .place_order_product_cart h4{
     font-size: 14px;
   }
@@ -785,10 +767,7 @@
     height: 60px;
     border-radius: 30px;
   }
-  .productSlider_headings {
-    font-size: 12px;
-    margin-top: 10px;
-  }
+
 
   .newProductCategorySliderName p {
     font-size: 10px;
@@ -1334,13 +1313,7 @@ margin: 0;
     font-size: 10px
   }
 }
-@media (max-width:396px) {
-  .amenties_list_items {
-    font-size: 11px;
-    min-width: 32%;
-  }
 
-}
 @media(max-width:375px) {
   .headingTypeLabelContainerThirdFourth {
     padding-top: 54px;
