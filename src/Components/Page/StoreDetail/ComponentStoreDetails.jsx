@@ -187,14 +187,14 @@ const StoreDetail1 = ({storeDetails}) => {
                             </Accordion>
                     </div>
                  
-                        <div className="row">
+                        <div className="row mx-0">
                             {
-                                storeDetails[0]?.Hours !== null &&  <div className="  col-md-4 col-12">
+                                storeDetails[0]?.Hours !== null &&  <div className="p-md-2 p-0 col-md-5 col-12">
                                 <Openingtime storeDetails={storeDetails} heading={"Store Hours"} type={'Hours'}/>
                              </div>
                             }
                             {
-                                    storeDetails[0]?.Hours !== null &&  <div className="  col-md-4 col-12">
+                                    storeDetails[0]?.Hours !== null &&  <div className="p-md-2 p-0 col-md-5 col-12">
                                     <Openingtime storeDetails={storeDetails} heading={"CrubSide PickUp Hours"} type={'Hours'}/>
                                 </div>
                             }
@@ -251,7 +251,7 @@ const StoreDetail1 = ({storeDetails}) => {
 
 
     }
-    {  storeDetails[0]?.searchboxlocation !== null && 
+    {/* {  storeDetails[0]?.searchboxlocation !== null && 
                                         <li className="StoreDetailSidemenuBarList">
                                             <TbTruckDelivery/>
                                             <span className="StoreDetailSideMenu_listItems"> { storeDetails[0]?.searchboxlocation !== null &&    storeDetails[0]?.searchboxlocation?.map((item)=>{
@@ -259,7 +259,7 @@ const StoreDetail1 = ({storeDetails}) => {
                                                 return `${data[0]}, `
                                             })}</span>
                                         </li>
-                                        }
+                                        } */}
                                         
                                         {/* <li className="StoreDetailSidemenuBarList d-flex">
                                         <FaRegEnvelope/>
