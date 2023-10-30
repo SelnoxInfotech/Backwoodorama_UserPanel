@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi"
 import { IoIosArrowDown } from "react-icons/io"
 import useStyles from "../../../Style"
-import InputLabel from '@mui/material/InputLabel';
 import ClickAwayListener from 'react-click-away-listener';
 import Axios from "axios"
 import _ from "lodash"
@@ -28,7 +27,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
     const SortedArrayData = [{ Id: 1, name: "Sort by" }]
     const SortedData = [{ type: "Sort by A to Z" }, { type: "Sort by Z to A" }, { type: "Sort by low to high" }, { type: "Sort by high to low" }]
 
-    const [value, setValue] = React.useState([100, 500]);
+    const [value, setValue] = React.useState();
     function valuetext(value) {
         return `${value}°C`;
     }
@@ -258,12 +257,18 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
 
         
        const timer = setTimeout(() => {
-            PriceFilter(value).then((res) => {
-              
+        value !== undefined && dispatch({ type: 'Loading', Loading: true })
+        value !== undefined && 
+
+        PriceFilter(value,Store_id).then((res) => {
+            Setarr1(res.data)
+            dispatch({ type: 'Loading', Loading: false })
             }).catch(() => {
                 // navigate('/fourzerothree')   
+                dispatch({ type: 'Loading', Loading: false });
             })
         }, 1500);
+     
         return () => clearTimeout(timer)
     }, [value])
 
@@ -381,6 +386,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                                                                 valueLabelDisplay="auto"
                                                                 min={1}
                                                                 max={1000}
+                                                                defaultValue={[100, 500]}
                                                             />
                                                         </Box> :
                                                         <p>No Category Found</p>

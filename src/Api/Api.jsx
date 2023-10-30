@@ -1,6 +1,7 @@
 import axios from 'axios'
-import { fromUnixTime } from 'date-fns';
+
 import Cookies from 'universal-cookie';
+import React from 'react';
 export function registerEmp(usrdata) {
     let data = axios.post(' https://api.cannabaze.com/DeliveryBoy/Add-Employee/', usrdata);
     return data;
@@ -287,7 +288,8 @@ export function PriceFilter(value , Store_id) {
                 "MinPrice": value[0],
                 "MaxPrice": value[1],
                 "Store": Store_id
-            }).then((res) => {
+            },
+            ).then((res) => {
                 return (res)
             })
     )

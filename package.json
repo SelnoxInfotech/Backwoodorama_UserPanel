@@ -79,7 +79,7 @@
     "react-xml-parser": "^1.1.8",
     "reactv16-mailto": "^0.4.4",
     "recompose": "^0.30.0",
-    "serve": "^14.2.0",
+    "serve": "^14.2.1",
     "sitemap": "^7.1.1",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.9",
