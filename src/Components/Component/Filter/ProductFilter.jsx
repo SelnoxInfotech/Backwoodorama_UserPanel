@@ -259,7 +259,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
         
        const timer = setTimeout(() => {
             PriceFilter(value).then((res) => {
-                console.log(res)
+              
             }).catch(() => {
                 // navigate('/fourzerothree')   
             })

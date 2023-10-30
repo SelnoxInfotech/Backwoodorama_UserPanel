@@ -1079,6 +1079,5 @@ scrollbar-width: none;  /* Firefox */
 }
 .opning_time p.currentDay{
   color: #000000;
-  font-weight: 700;
-
+  font-weight: 600;
 }

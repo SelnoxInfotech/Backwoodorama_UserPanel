@@ -5,11 +5,19 @@ import { TbCircleFilled } from "react-icons/tb"
 import useStyles from '../../../Style';
 import Box from '@mui/material/Box';
 import LoadingButton from '@mui/lab/LoadingButton';
-import React from 'react';
+import React, { useState } from 'react';
+import {isShopOpen} from '../../../Hooks/Function'
 import { Link } from 'react-router-dom';
 const NewFlavourBanner = ({ delBtn }) => {
     const classes = useStyles()
-   
+    const [shopopen , setshopopen ] = useState()
+   React.useEffect(()=>{
+    const myTimeout = setTimeout(()=>{
+        setshopopen(isShopOpen(delBtn)) 
+    }, 0);
+
+   },[ new Date().getMinutes() , delBtn])
+
     return (
         <React.Fragment>
             {/* <div className='container-fluid'> */}
@@ -59,7 +67,7 @@ const NewFlavourBanner = ({ delBtn }) => {
 
                                                 <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph newFlav_margin'>
                                                     <p><TbCircleFilled id="new_flavCircle" /></p>
-                                                    <p id='NewFlav_margins' className='newFlav_closed'>closed</p>
+                                                    <p id='NewFlav_margins' className={shopopen ? "newFlav_open" : "newFlav_closed"}>{shopopen ? "Open" : "Closed"}</p>
                                                 </div>
 
 

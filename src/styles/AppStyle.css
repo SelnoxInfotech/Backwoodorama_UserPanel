@@ -490,7 +490,7 @@ scrollbar-width: none;  /* Firefox */
   position: absolute;
   right: 0;
   top: 0;
-  z-index: 1000;
+  z-index: 1;
 }
 
 /* end*/
@@ -1500,7 +1500,7 @@ scrollbar-width: none;  /* Firefox */
   height: 30px;
   display: grid;
   align-items: center;
-  font-size: 14px;
+  font-size: 16px;
   word-break: break-word;
 }
 
@@ -1724,9 +1724,13 @@ scrollbar-width: none;  /* Firefox */
 
 .newFlav_closed {
   color: #FF1414;
-
+ font-weight: 600;
 }
 
+.newFlav_open {
+  color: #31B665;
+ font-weight: 600;
+}
 .newFlav_btn_height {
   height: 35px;
 }

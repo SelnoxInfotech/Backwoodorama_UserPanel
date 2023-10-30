@@ -117,7 +117,7 @@ const WeedProduct = () => {
                                     <div className="col-4 weed_img_cont">
 
                                         <div className="col-12 weed_img_div">
-                                            {/* <span> <AiFillHeart/></span> */}
+                                           
                                             <img src={ele.img_url} alt="img_not_found" style={{pointerEvents: "none"}}/>
                                         </div>
                                     </div>

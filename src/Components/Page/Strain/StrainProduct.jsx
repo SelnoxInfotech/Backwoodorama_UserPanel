@@ -30,7 +30,7 @@ const StrainProduct = () => {
                 <div className="col-lg-10 col-12 strainProduct_container mt-4">
                     <div className="strainProduct_inner_container">
                         <div className="w-100 text-end strainProduct_heart_div">
-                            <AiFillHeart color="#707070" size={22} />
+                            <AiFillHeart color="#31B665" size={22} />
                         </div>
                         <div className="col-lg-10 col-12  strainProduct_img_content_section">
                             <section className="strainProduct_img_section">
@@ -40,10 +40,7 @@ const StrainProduct = () => {
                                 <div className="w-100 strainProduct_content_head_div">
                                     <h1 className="strainProduct_content_head">{type}</h1>
                                 </div>
-                               
-
                             </section>
-
                         </div>
                     </div>
 

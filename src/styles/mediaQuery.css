@@ -78,7 +78,7 @@
 }
 @media(max-width:1400px) {
   .StoreDetailSideMenu_listItems {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 @media(max-width:1496px) {
@@ -1096,7 +1096,7 @@ margin: 0;
   }
 
   .StoreDetailSideMenu_listItems {
-    font-size: 10px;
+    font-size: 13px;
   }
   .Add_prod_btn_div {
     width: 16% !important;

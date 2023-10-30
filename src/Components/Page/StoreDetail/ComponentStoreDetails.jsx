@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaRegEnvelope , FaWineBottle , FaToilet} from "react-icons/fa"
 import { GiPlainCircle , GiSittingDog } from "react-icons/gi"
 import { MdDoNotDisturb  } from "react-icons/md"
@@ -12,26 +12,10 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
 import {  MdSecurity } from "react-icons/md"
 import Openingtime from "./StoreDetailComponent/Openingtime";
 const StoreDetail1 = ({storeDetails}) => {
-    const[isopen,setisopen]=useState(false)
-   function isShopOpen(){
-    var date = new Date();
-    const easternTime = date.toLocaleString("en-US", {timeZone: "America/New_York"})
-    let day = new Date(easternTime)
-     storeDetails[0]?.Hours.forEach((items , index)=>{
-        if(index === day.getDay()-1){
-            items.Open.forEach((item)=>{
-                if( new Date(day) >= new Date(item.Time1)  &&  new Date(day) <= new Date(item.Time2)){
-                    
-                }
-            })
-        }
-     })
-   }
-   isShopOpen()
+
     return (
      
         <div className="container-fluid mt-3">
@@ -209,10 +193,10 @@ const StoreDetail1 = ({storeDetails}) => {
                                 <Openingtime storeDetails={storeDetails} heading={"Store Hours"} type={'Hours'}/>
                              </div>
                             }
-                           {
-                                storeDetails[0]?.Hours !== null &&  <div className="  col-md-4 col-12">
-                                <Openingtime storeDetails={storeDetails} heading={"CrubSide PickUp Hours"} type={'Hours'}/>
-                             </div>
+                            {
+                                    storeDetails[0]?.Hours !== null &&  <div className="  col-md-4 col-12">
+                                    <Openingtime storeDetails={storeDetails} heading={"CrubSide PickUp Hours"} type={'Hours'}/>
+                                </div>
                             }
                            
                         </div>
