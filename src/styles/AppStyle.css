@@ -4995,13 +4995,6 @@ footer{
   display: flex;
   align-items: center;
 }
-
-.backprofileBtnname {
-  cursor: pointer;
-  color: #000000;
-  font-size: 20px;
-}
-
 .productsCount {
   color: #000000;
   font-size: 20px;
@@ -5048,7 +5041,9 @@ footer{
  
   cursor: pointer;
 }
-
+.search_bar_box{
+  width: 280px;
+}
 .whislist_iconsContainer {
   display: flex;
   justify-content: flex-end;

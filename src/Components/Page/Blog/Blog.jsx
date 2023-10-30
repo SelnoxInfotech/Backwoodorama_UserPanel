@@ -1,6 +1,5 @@
 import React from "react";
 import { IoChevronBack } from "react-icons/io5"
-
 import SearchBar from '@mkyy/mui-search-bar';
 import useStyles from "../../../Style";
 import RecentPost from "./BlogComponent/RecentPost";
@@ -22,8 +21,8 @@ import BlogsCommentsCard from "./BlogComponent/BlogsCommentsCard"
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import {SingleNewsSeo} from "../../Component/ScoPage/NewsSeo.jsx";
-
 const Blogs = () => {
+    
     const classes = useStyles()
     const navigate = useNavigate()
     const Location  = useLocation()
@@ -117,12 +116,12 @@ const Blogs = () => {
 
                             </div>
                         </section>
-                        <section className="col-9 searchBar_section">
+                        {/* <section className="col-9 searchBar_section">
                             <div className="col-12 text-end">
-                                <SearchBar width={"100%"} className={`Blog_searchBar ${classes.strainTypSearchBar}`} />
+                                < width={"100%"} className={`Blog_ ${classes.strainTypSearchBar}`} />
 
                             </div>
-                        </section>
+                        </section> */}
 
                     </div>
 

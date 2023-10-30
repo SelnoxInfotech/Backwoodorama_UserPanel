@@ -1050,6 +1050,7 @@ const useStyles = makeStyles({
     marginLeft: "10px"
   },
   strainTypSearchBar: {
+    
     "& .css-y40w8": {
       position: "absolute",
       right: "0px",
@@ -1066,8 +1067,10 @@ const useStyles = makeStyles({
       color: "#FFFFFF",
       width: "35px",
       cursor: "pointer"
-    }
-
+    },
+    [`@media screen and (max-width: 768px)`] : {
+       width:'100%',
+      },
   },
   navBarButton_icons: {
     "&.MuiIconButton-root": {

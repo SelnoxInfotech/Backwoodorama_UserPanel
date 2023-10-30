@@ -38,13 +38,13 @@ const WhisListCard = () => {
     })
     const [NewData, SetNewData] = React.useState([])
     React.useEffect(() => {
-    if(state.login){
-        WishListget().then((val) => {
-            SetGetApiData(val.data)
-        }).catch((error) => {
-          
-        })
-    }
+        if(state.login){
+            WishListget().then((val) => {
+                SetGetApiData(val.data)
+            }).catch((error) => {
+            
+            })
+        }
     }, [state.WishList])
 
     const handleWhishList = (id) => {
@@ -301,12 +301,10 @@ const WhisListCard = () => {
     }
     return (                                                                                                                            
         <div className="whislistCard_wrapper1">
-
-             <ProductSearchResult RelatedProductResult={GetApiData} CategoryName={"Wishlist"} />
-
-
-
-
+            {
+                GetApiData ? <ProductSearchResult RelatedProductResult={GetApiData} CategoryName={"Wishlist"} /> : <div className="loaderFLower"></div>
+            }
+             
         </div>
     )
 }
