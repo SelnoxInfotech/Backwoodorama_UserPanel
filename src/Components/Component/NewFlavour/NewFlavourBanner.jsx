@@ -46,7 +46,7 @@ const NewFlavourBanner = ({ delBtn }) => {
 
                                     </div>
                                     <div className="col-md-9 col-sm-8  col-8  newFlavourContent_height" style={{position:"0px"}}>
-                                        <div className='row'>
+                                        <div className='row w-100'>
                                             <div className='col-12 New_flavour_font_size_paragraph  fontStyle'>
                                                 <h1 className='New_flavour_font_size_head'>{data.Store_Name}</h1>
                                             </div>
@@ -58,7 +58,7 @@ const NewFlavourBanner = ({ delBtn }) => {
 
 
                                             </div>
-                                            <div className='col-12 new_flavourList_container d-flex align-items-center'>
+                                            <div className='col-12 new_flavourList_container d-md-flex gap-lg-4 gap-md-3 align-items-center'>
 
                                                 <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph'>
                                                     <p className='newFlavBanerRatingFontStyle'>Rating</p>

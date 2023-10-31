@@ -1699,15 +1699,6 @@ scrollbar-width: none;  /* Firefox */
   margin-left: 5px;
 }
 
-.newFlav_margin {
-  margin-left: 20px;
-}
-
-.new_flavourList_container {
-  height: 32px;
-
-}
-
 .newFlav_inner_div {
   height: 32px;
   display: flex;
