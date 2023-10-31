@@ -183,7 +183,7 @@
   }
 
   .store_detail_order_list {
-    gap: 12%;
+    gap: 5%;
   }
 
   .store_detail_list {
@@ -294,6 +294,10 @@
   }
 }
 @media (max-width: 992px){
+  .feature_brands .FeaturedBrandContainer  .FeaturedBrandImageContainer {
+    width: 180px;
+    height: 180px;
+}
   .newProductAboutUs_headings {
     font-size: 18px;
   }
@@ -370,6 +374,10 @@
 
 }
 @media (max-width:768px) {
+  .feature_brands .FeaturedBrandContainer .FeaturedBrandImageContainer {
+    width: 150px;
+    height: 90px;
+}
   .mobile_view{
     display: block;
   }
@@ -588,6 +596,13 @@
   }
 }
 @media (max-width:576px) {
+  .brandMoreLess .band_shlebtn{
+    right: 5px;
+    bottom: 0;
+  }
+  .brandProfileBanner .brandMoreLess {
+    padding: 15px;
+  }
   .whislistCard_wrapper{
     justify-content: center;
   }
@@ -657,6 +672,10 @@
   }
 }
 @media (max-width:480px) {
+  .feature_brands .FeaturedBrandContainer .FeaturedBrandImageContainer {
+    width: 120px;
+    height: 80px;
+}
   .search_bar_box{
     width: 100%;
   }

@@ -260,7 +260,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                                                             {new Array(5-items.rating).fill(null).map(() => (
                                                                 <BsStar size={16} color="#31B665" className="product_search_rating_star" />  
                                                             ))}
-                                                    </div>
+                                                        </div>
                                                     </div>
 
                                                     <div className=" productPriceDivHeight">

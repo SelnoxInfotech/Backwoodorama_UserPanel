@@ -1444,7 +1444,7 @@ scrollbar-width: none;  /* Firefox */
   align-items: center;
   /* justify-content: space-around; */
   height: 100%;
-  gap: 7%;
+
 }
 
 .StoreDetailMenuItem_container {
@@ -1725,11 +1725,13 @@ scrollbar-width: none;  /* Firefox */
 .newFlav_closed {
   color: #FF1414;
  font-weight: 600;
+ margin: 0;
 }
 
 .newFlav_open {
   color: #31B665;
  font-weight: 600;
+ margin: 0;
 }
 .newFlav_btn_height {
   height: 35px;
@@ -1749,13 +1751,16 @@ scrollbar-width: none;  /* Firefox */
   color: #949494;
   font-size: 14px;
   font-weight: 400;
+  margin: 0;
+  margin-right: 5px;
 }
 
 .marginLeftnewFlavStore {
-  margin-left: 4px;
+  margin: 0;
   color: #949494;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 600;
+  margin-left: 5px;
 }
 
 

@@ -7,7 +7,7 @@ import {isShopOpen} from '../../../../Hooks/Function'
 import { Link } from "react-router-dom";
 import { Rating } from '@mui/material';
 const Dispensoriescart = ({index ,ele }) => {
-     console.log(ele)
+ 
     const classes = useStyles()
       function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");

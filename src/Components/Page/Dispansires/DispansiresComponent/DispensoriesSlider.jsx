@@ -152,16 +152,13 @@ const Dispensories = () => {
 
                                                 </Link>
                                                 <Link to={`/weed-dispensaries/${modifystr(ele.Store_Name)}/${'review'}/${ele.id}`}>
-                                                    <div className=' dispensoriesAddressRatingCol text-center '>
-                                                        <span className='rating_title'>Rating</span>
+                                                    <div className=' w-100 d-flex align-items-center gap-2'>
+                                                        <span className='DeliveryServicesRatingTitle'>Rating</span>
                                                         <Rating className={classes.homePageStarIcons} color='green' name="read-only" value={ele.rating === null ? 0 : ele.rating} readOnly />
                                                     </div>
                                                 </Link>
                                                 <div className='col-12  mt-4'>
-
-                                                    <Box
-                                                        className={`${classes.loadingBtnTextAndBack}`}
-                                                    >
+                                                    <Box  className={`${classes.loadingBtnTextAndBack}`} >
                                                         <LoadingButton onClick={() => { Navigate(`/weed-dispensaries/${modifystr(ele.Store_Name)}/${ele.id}`) }} style={{ width: "100%" }}>Order Pickup</LoadingButton>
                                                     </Box>
                                                 </div>

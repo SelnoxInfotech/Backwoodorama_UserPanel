@@ -3,6 +3,8 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { IoMdStar } from "react-icons/io";
 import useStyles from "../../../../../Style";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { BsShareFill } from "react-icons/bs";
+import { RWebShare } from "react-web-share";
 import axios from "axios";
 import Cookies from 'universal-cookie';
 import Createcontext from "../../../../../Hooks/Context"
@@ -13,10 +15,11 @@ import { Pagination } from 'swiper/modules';
 import _ from "lodash"
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
-import { Link } from "react-router-dom";
+import { Link , useParams} from "react-router-dom";
 import AddToCartPopUp from "../../AddToCartPopUp/AddToCartPopUp";
 const NewProductDetailsCards = ({ Product }) => {
     const cookies = new Cookies();
+    const params = useParams()
     const [quentity, setquentity] = useState(1);
     const [dynamicWeight, setdynamicWeight] = useState(0);
     const p = Product?.images === undefined ? "" : Product?.images[0].image;
@@ -31,7 +34,6 @@ const NewProductDetailsCards = ({ Product }) => {
         return initialValue || []
     })
     const [NewData, SetNewData] = React.useState([])
-
     const Addtocard = async (Event) => {
 
         if (token_data) {
@@ -164,7 +166,7 @@ const NewProductDetailsCards = ({ Product }) => {
 
     return (
         <div className=" mx-1 w-100">
-            <div className=" newProductDetailsContainer  mt-4">
+            <div className=" newProductDetailsContainer position-relative  mt-4">
                 <div className="newProductDetailsCardLeftCol">
                     <div className="">
                         <div className="newProductDetailsUpperimage_container">
@@ -318,6 +320,17 @@ const NewProductDetailsCards = ({ Product }) => {
                             CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />
                         }
                     </div>
+                </div>
+                <div className='position-absolute w-auto top-0 p-2  end-0'>
+                                      
+                                      <RWebShare
+                                          data={{ url: `/products/${params.CategoryName}/${params.subCategory}/${params.ProductName}/${params.id}` }}
+                                          sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
+                                          onClick={() => console.info("share successful!")}
+                                          color="#31B665" >
+                                          <BsShareFill />
+                                      </RWebShare>
+                                  
                 </div>
             </div>
         </div>

@@ -2,14 +2,20 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { AiFillStar } from "react-icons/ai"
 import { IoLocationSharp } from "react-icons/io5"
 import { TbCircleFilled } from "react-icons/tb"
+import { BsStar ,BsStarFill } from "react-icons/bs";
+import { BsShareFill } from "react-icons/bs";
 import useStyles from '../../../Style';
 import Box from '@mui/material/Box';
 import LoadingButton from '@mui/lab/LoadingButton';
-import React, { useState } from 'react';
+import { RWebShare } from "react-web-share";
+import React, { useMemo, useState } from 'react';
 import {isShopOpen} from '../../../Hooks/Function'
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 const NewFlavourBanner = ({ delBtn }) => {
     const classes = useStyles()
+ 
+    const params = useParams()
+   
     const [shopopen , setshopopen ] = useState()
    React.useEffect(()=>{
     const myTimeout = setTimeout(()=>{
@@ -26,7 +32,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                     {
                         delBtn?.map((data) => {
                             return (
-                                <div className="row" key={data.id}>
+                                <div className="row position-relative" key={data.id}>
                                     <div className="col-md-2 col-sm-4  col-4 newFlavour_image_container_height">
                                         <div className='newFlavourimage_div'>
                                             <LazyLoadImage 
@@ -52,21 +58,29 @@ const NewFlavourBanner = ({ delBtn }) => {
 
 
                                             </div>
-                                            <div className='col-12 new_flavourList_container d-flex'>
+                                            <div className='col-12 new_flavourList_container d-flex align-items-center'>
 
                                                 <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph'>
-                                                    <p className='newFlavBanerRatingFontStyle'>{delBtn[0].rating}</p>
-                                                    <p className=''><AiFillStar className={classes.disp_star_color} id='NewFlav_margins' /></p>
-                                                    <p className='newFlavBanerRatingFontStyle'> {`(${delBtn[0].TotalRating})`}</p>
+                                                    <p className='newFlavBanerRatingFontStyle'>Rating</p>
+                                                  
+                                                    <div className="product_cart_review">
+                                                            {delBtn[0].rating &&  new Array(delBtn[0].rating).fill(null).map(() => (
+                                                                <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />  
+                                                            ))}
+                                                            
+                                                            {new Array(5-delBtn[0].rating).fill(null).map(() => (
+                                                                <BsStar size={16} color="#31B665" className="product_search_rating_star" />  
+                                                            ))}
+                                                        </div>
                                                 </div>
 
                                                 <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph newFlav_margin'>
-                                                    <p><TbCircleFilled id="new_flavCircle" /></p>
+                                                    <p className='m-0'><TbCircleFilled id="new_flavCircle" /></p>
                                                    <Link to={`/weed-deliveries/leaflyweednyc/store-details/${delBtn[0].id}`}><p className='marginLeftnewFlavStore '>Store details</p></Link> 
                                                 </div>
 
                                                 <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph newFlav_margin'>
-                                                    <p><TbCircleFilled id="new_flavCircle" /></p>
+                                                    <p className='m-0'><TbCircleFilled id="new_flavCircle" color={shopopen ? "#31B665" : "red"} /></p>
                                                     <p id='NewFlav_margins' className={shopopen ? "newFlav_open" : "newFlav_closed"}>{shopopen ? "Open" : "Closed"}</p>
                                                 </div>
 
@@ -93,7 +107,17 @@ const NewFlavourBanner = ({ delBtn }) => {
                                         </div>
 
                                     </div>
-
+                                      <div className='position-absolute w-auto top-0 p-2 end-0'>
+                                      
+                                        <RWebShare
+                                            data={{ url: `/weed-${delBtn[0].Store_Type.slice(0, -1)}ies/${params.StoreName}/${params.id}` }}
+                                            sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
+                                            onClick={() => console.info("share successful!")}
+                                            color="#31B665" >
+                                            <BsShareFill />
+                                        </RWebShare>
+                                    
+                                      </div>
                                 </div>
                             )
                         })

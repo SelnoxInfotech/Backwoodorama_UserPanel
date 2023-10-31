@@ -251,14 +251,14 @@ const StoreDetail1 = ({storeDetails}) => {
 
 
     }
-    {/* {  storeDetails[0]?.searchboxlocation !== null && 
-                                        <li className="StoreDetailSidemenuBarList">
-                                            <TbTruckDelivery/>
-                                            <span className="StoreDetailSideMenu_listItems"> { storeDetails[0]?.searchboxlocation !== null &&    storeDetails[0]?.searchboxlocation?.map((item)=>{
-                                                let data =  item.Address.split(', ')
-                                                return `${data[0]}, `
-                                            })}</span>
-                                        </li>
+                                        {/* {  storeDetails[0]?.searchboxlocation !== null && 
+                                           <li className="StoreDetailSidemenuBarList">
+                                                <TbTruckDelivery/>
+                                                <span className="StoreDetailSideMenu_listItems"> { storeDetails[0]?.searchboxlocation !== null &&    storeDetails[0]?.searchboxlocation?.map((item)=>{
+                                                    let data =  item.Address.split(', ')
+                                                    return `${data[0]}, `
+                                                })}</span>
+                                            </li>
                                         } */}
                                         
                                         {/* <li className="StoreDetailSidemenuBarList d-flex">

@@ -3,13 +3,15 @@ import { AiTwotoneHeart } from "react-icons/ai"
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import  IconButton  from "@mui/material/IconButton";
 import './RelatedVerifyBrandBanner.css';
+import { useState } from "react";
 const RelatedVerifyBanner = ({ BrandDetails }) => {
+    const [readmore , setreadmore] = useState(false)
     return (
         <div className="brandProfileBanner row center">
-            <div className="relatedVerifyBrand_Banner">
+            <div className={readmore ? "relatedVerifyBrand_Banner" : " brandMoreLess" }>
               
                     <div className="relatedVerifyBrand_icons">
-                       <IconButton  aria-label="share icons"><AiTwotoneHeart color="#949494" size={20} /></IconButton>
+                       <IconButton  aria-label="share icons"><AiTwotoneHeart color="#31B665" size={20} /></IconButton>
 
                         <IconButton  aria-label="share icons"><MdShare color="#949494" size={20} /></IconButton>
 
@@ -33,10 +35,9 @@ const RelatedVerifyBanner = ({ BrandDetails }) => {
                             </div>
                         </div>
                     </div>                
-               
+               <span onClick={()=>{setreadmore(!readmore)}} className="band_shlebtn">{readmore ? "Read Less" : "Read More"}</span>
 
             </div>
-
         </div>
     )
 }
