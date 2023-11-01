@@ -97,6 +97,7 @@ const SignupWithEmail = () => {
                                 <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
                                     <TextField
                                         autoComplete="on"
+                                        className={`${classes.textFieldFocusBorderColor}`}
                                         type={showPassword ? 'text' : 'password'}
                                         placeholder="Enter Your Password"
                                         variant="outlined"
@@ -125,7 +126,7 @@ const SignupWithEmail = () => {
                                                 message: 'Password must be more than 8 characters'
                                             },
                                             pattern: {
-                                                value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                                                value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%#*?&])[A-Za-z\d@$#!%*?&]{8,}$/,
                                                 message: "At least one uppercase,lowercase,number,one special character"
                                             }
                                         },
@@ -146,6 +147,7 @@ const SignupWithEmail = () => {
                                         type="text"
                                         name='Name'
                                         size='small'
+                                        className={`${classes.textFieldFocusBorderColor}`}
                                         inputRef={method.register({
                                             required: "Name  is required*.",
                                             minLength: {

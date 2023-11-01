@@ -324,7 +324,7 @@ const NewProductDetailsCards = ({ Product }) => {
                 <div className='position-absolute w-auto top-0 p-2  end-0'>
                                       
                                       <RWebShare
-                                          data={{ url: `/products/${params.CategoryName}/${params.subCategory}/${params.ProductName}/${params.id}` }}
+                                          data={{ url: window.location.href }}
                                           sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
                                           onClick={() => console.info("share successful!")}
                                           color="#31B665" >

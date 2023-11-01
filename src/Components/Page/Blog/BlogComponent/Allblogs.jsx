@@ -93,7 +93,7 @@ const Allblogs = () => {
                           <div className='col-3'>
                             <span className='action_icons'>
                               <RWebShare
-                                data={{ url: `/cannabis-news/${items.Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${items.id}` }}
+                                data={{ url: window.location.href }}
                                 sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
                                 onClick={() => console.info("share successful!")}
                                 color="#31B665"
@@ -125,7 +125,7 @@ const Allblogs = () => {
                           <span className='action_icons'>
 
                           <RWebShare
-                                data={{ url: `/cannabis-news/${items.Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${items.id}` }}
+                                data={{ url: window.location.href }}
                                 sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
                                 onClick={() => console.info("share successful!")}
                                 color="#31B665"

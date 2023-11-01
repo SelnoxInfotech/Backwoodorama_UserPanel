@@ -15,7 +15,7 @@ const NewFlavourBanner = ({ delBtn }) => {
     const classes = useStyles()
  
     const params = useParams()
-   
+   console.log(delBtn ,'delBtn ')
     const [shopopen , setshopopen ] = useState()
    React.useEffect(()=>{
     const myTimeout = setTimeout(()=>{
@@ -58,7 +58,71 @@ const NewFlavourBanner = ({ delBtn }) => {
 
 
                                             </div>
-                                            <div className='col-12 new_flavourList_container d-md-flex gap-lg-4 gap-md-3 align-items-center'>
+                                            <div className='col-12 extra_function_destop d-md-flex gap-lg-4 gap-md-3 align-items-center'>
+
+                                                <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph'>
+                                                    <p className='newFlavBanerRatingFontStyle'>Rating</p>
+                                                  
+                                                    <div className="product_cart_review">
+                                                            {delBtn[0].rating &&  new Array(delBtn[0].rating).fill(null).map(() => (
+                                                                <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />  
+                                                            ))}
+                                                            
+                                                            {new Array(5-delBtn[0].rating).fill(null).map(() => (
+                                                                <BsStar size={16} color="#31B665" className="product_search_rating_star" />  
+                                                            ))}
+                                                        </div>
+                                                </div>
+
+                                                <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph newFlav_margin'>
+                                                    <p className='m-0'><TbCircleFilled id="new_flavCircle" /></p>
+                                                   <Link to={`/weed-deliveries/leaflyweednyc/store-details/${delBtn[0].id}`}><p className='marginLeftnewFlavStore '>Store details</p></Link> 
+                                                </div>
+
+                                                <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph newFlav_margin'>
+                                                    <p className='m-0'><TbCircleFilled id="new_flavCircle" color={shopopen ? "#31B665" : "red"} /></p>
+                                                    <p id='NewFlav_margins' className={shopopen ? "newFlav_open" : "newFlav_closed"}>{shopopen ? "Open" : "Closed"}</p>
+                                                </div>
+
+
+                                            </div>
+                                            <div className='col-lg-12  col-md-8 col-sm-8 col-12 d-sm-flex d-none newFlav_btn_height'>
+                                                <Box
+                                                    className={`${classes.loadingBtnTextAndBack}`}
+                                                >
+                                                  
+                                                      <LoadingButton style={{ height: "30px" }} variant="outlined">Email</LoadingButton>
+
+                                                </Box>
+                                                <Box
+                                                    className={`New_flav_btn ${classes.loadingBtnTextAndBack}`}
+                                                >
+                                                    <Link to={`tel:${delBtn[0].Stores_MobileNo}`}>
+                                                      <LoadingButton style={{  height: "30px" }} variant="outlined">Call</LoadingButton>
+                                                    </Link>
+                                                </Box>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div className='position-absolute w-auto top-0 p-2 end-0'>
+                                    
+                                    <RWebShare
+                                        data={{ url: window.location.href }}
+                                        sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
+                                        onClick={() => console.info("share successful!")}
+                                        color="#31B665" >
+                                        <BsShareFill />
+                                    </RWebShare>
+                                
+                                    </div>
+                                    <div className="col-12 extra_function_mobile  newFlavourContent_height" style={{position:"0px"}}>
+                                        <div className='w-100'>
+                                           
+                                           
+                                            <div className=' new_flavourList_container '>
 
                                                 <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph'>
                                                     <p className='newFlavBanerRatingFontStyle'>Rating</p>
@@ -107,17 +171,6 @@ const NewFlavourBanner = ({ delBtn }) => {
                                         </div>
 
                                     </div>
-                                      <div className='position-absolute w-auto top-0 p-2 end-0'>
-                                      
-                                        <RWebShare
-                                            data={{ url: `/weed-${delBtn[0].Store_Type.slice(0, -1)}ies/${params.StoreName}/${params.id}` }}
-                                            sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
-                                            onClick={() => console.info("share successful!")}
-                                            color="#31B665" >
-                                            <BsShareFill />
-                                        </RWebShare>
-                                    
-                                      </div>
                                 </div>
                             )
                         })

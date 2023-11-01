@@ -101,13 +101,13 @@ const Footer = () => {
                             <div className="footer_list">
                                 <ol className="footer_main_list">
                                     <p className="footer_menu_heading">For Business</p>
-                                    <Link to={`/https://cannabaze.com/demo`}>
+                                    <Link to={`https://cannabaze.com/bookdemo`}>
                                         <li className="footer_li ellipsis" >Add Dispansires</li>
                                     </Link>
-                                    <Link to={`/https://cannabaze.com/demo`}>
+                                    <Link to={`https://cannabaze.com/bookdemo`}>
                                         <li className="footer_li ellipsis" >Add Brand</li>
                                     </Link>
-                                    <Link to={`/https://cannabaze.com/demo`}>
+                                    <Link to={`https://cannabaze.com/bookdemo`}>
                                         <li className="footer_li ellipsis" >Add Delivery</li>
                                     </Link>
                                   

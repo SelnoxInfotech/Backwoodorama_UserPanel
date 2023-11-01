@@ -596,6 +596,27 @@
   }
 }
 @media (max-width:576px) {
+  .newFlavourimage_div {
+    height: 70px;
+    width: 70px;
+  }
+  .newFlavour_container {
+    height: auto;
+    padding: 10px 0;
+  }
+  
+  .newFlavour_image_container_height {
+    height: auto;
+  }
+  .newFlavourContent_height {
+    height: auto;
+ 
+  }
+  .newFlavour_image {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+  }
   .brandMoreLess .band_shlebtn{
     right: 5px;
     bottom: 0;
