@@ -1,13 +1,44 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
-import {FaFacebookF } from "react-icons/fa";
-import {MdEmail } from "react-icons/md";
 import Newsletter from '../../Component/Newsletter/HomePageDealsSignup';
 import { CookiesPolicy } from '../../Component/ScoPage/CommenpageSeo';
+import { Link } from 'react-router-dom';
+import { useRef } from 'react';
 const Termsconditions = () => {
+  const ref = useRef(null);
+  const [offset, setOffset] = React.useState(0);
+  const [Id, setId] = React.useState("");
+ const allHeigths = []
   React.useEffect(() => {
     window.scrollTo(0, 0)
+    
+    const onScroll = () => setOffset(window.pageYOffset);
+    window.removeEventListener('scroll', onScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, [])
+
+  React.useEffect(()=>{
+    console.log(ref.current.childNodes)
+    ref.current.childNodes.forEach((item , index)=>{
+      allHeigths.push({
+       topheigth: item.offsetTop,
+       id : item.id,
+       height : item.clientHeight
+      })
+    })
+   
+    for(let i=0 ; i < allHeigths.length -1 ; i++){
+       if(offset > allHeigths[i].topheigth && offset < allHeigths[i+1].topheigth ){
+        setId(allHeigths[i].id)
+       }else if(offset < allHeigths[0].topheigth){
+        setId(allHeigths[0].id)
+        
+       }else if(offset > allHeigths[allHeigths.length -1].topheigth){
+        setId(allHeigths[allHeigths.length -1].id)
+        
+       }
+    }
+  },[offset])
   return (
     <>
     <CookiesPolicy></CookiesPolicy>
@@ -19,7 +50,7 @@ const Termsconditions = () => {
 
         <div className="row tc_content justify-content-between">
          <div className="col-md-7 tc_main-centent"> 
-            <ol>
+            <ol ref={ref}>
               <li id='etuw'>
                 <span className='question'>Introduction</span>
                 <span className="answer">
@@ -89,18 +120,17 @@ const Termsconditions = () => {
          <div className="col-md-4"> 
            <div className="tc_topic_list">
             <div className="heading_box">
-              <span ><Link><FaFacebookF></FaFacebookF></Link></span>
-              <span><Link><MdEmail></MdEmail></Link></span>
+            <h3 className='text-white m-0 sideTableHeading'>Table of Contents</h3>
             </div>
             <ul>
-              <li> <a href="#aot">1.  Introduction</a> </li>
-              <li> <a href="#etuw"> 2. What Are Cookies? </a></li>
-              <li> <a href="#voa"> 3. Types of Cookies We Use </a></li>
-              <li> <a href="#pp">4. How We Use Cookies</a></li>
-              <li> <a href="#ur"> 5. Managing Your Cookie Preferences </a></li>
-              <li> <a href="#oods">6. Third-Party Cookies</a></li>
-              <li> <a href="#drl"> 7. Changes to This Cookie Policy </a></li>
-              <li> <a href="#cwll"> 8. Contact Us </a></li>
+              <li> <a href="#aot" className={Id === "aot" && "activeTable"  }>1.  Introduction</a> </li>
+              <li> <a href="#etuw" className={Id === "etuw" && "activeTable"  }> 2. What Are Cookies? </a></li>
+              <li> <a href="#voa" className={Id === "voa" && "activeTable"  }> 3. Types of Cookies We Use </a></li>
+              <li> <a href="#pp" className={Id === "pp" && "activeTable"  }>4. How We Use Cookies</a></li>
+              <li> <a href="#ur" className={Id === "ur" && "activeTable"  }> 5. Managing Your Cookie Preferences </a></li>
+              <li> <a href="#oods" className={Id === "oods" && "activeTable"  }>6. Third-Party Cookies</a></li>
+              <li> <a href="#drl" className={Id === "drl" && "activeTable"  }> 7. Changes to This Cookie Policy </a></li>
+              <li> <a href="#cwll" className={Id === "cwll" && "activeTable"  }> 8. Contact Us </a></li>
               
             </ul>
            </div>

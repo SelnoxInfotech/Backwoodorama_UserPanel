@@ -13,9 +13,6 @@ import {isShopOpen} from '../../../Hooks/Function'
 import { Link, useParams } from 'react-router-dom';
 const NewFlavourBanner = ({ delBtn }) => {
     const classes = useStyles()
- 
-    const params = useParams()
-   console.log(delBtn ,'delBtn ')
     const [shopopen , setshopopen ] = useState()
    React.useEffect(()=>{
     const myTimeout = setTimeout(()=>{

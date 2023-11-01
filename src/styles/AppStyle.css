@@ -203,29 +203,18 @@ line-height: normal;
 
 /* end */
 /* flavour */
-.flav_btn {
-  display: flex;
-  flex-wrap: wrap;
-
-}
-
 .flavour_mobile_email_btn {
   display: flex;
   margin-top: 79px;
   box-sizing: border-box;
   height: 40px;
 }
-
 .flav_mobile_btn {
   height: 47px;
 }
-
 .flav_email_btn {
   height: 47px;
 }
-
-
-
 .flavo_btns {
   border-style: none;
   width: 150px;

@@ -3,11 +3,44 @@ import { Link } from 'react-router-dom';
 import {FaFacebookF } from "react-icons/fa";
 import {MdEmail } from "react-icons/md";
 import Newsletter from '../../Component/Newsletter/HomePageDealsSignup';
-import {PrivacyPolicy}  from "../../Component/ScoPage/CommenpageSeo"
+import {PrivacyPolicy}  from "../../Component/ScoPage/CommenpageSeo";
+import { useRef } from 'react';
 const Privacypolicy = () => {
+  const ref = useRef(null);
+  const [offset, setOffset] = React.useState(0);
+  const [Id, setId] = React.useState("");
+ const allHeigths = []
   React.useEffect(() => {
     window.scrollTo(0, 0)
+    
+    const onScroll = () => setOffset(window.pageYOffset);
+    window.removeEventListener('scroll', onScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, [])
+
+  React.useEffect(()=>{
+    console.log(ref.current.childNodes)
+    ref.current.childNodes.forEach((item , index)=>{
+      allHeigths.push({
+       topheigth: item.offsetTop,
+       id : item.id,
+       height : item.clientHeight
+      })
+    })
+   
+    for(let i=0 ; i < allHeigths.length -1 ; i++){
+       if(offset > allHeigths[i].topheigth && offset < allHeigths[i+1].topheigth ){
+        setId(allHeigths[i].id)
+       }else if(offset < allHeigths[0].topheigth){
+        setId(allHeigths[0].id)
+        
+       }else if(offset > allHeigths[allHeigths.length -1].topheigth){
+        setId(allHeigths[allHeigths.length -1].id)
+        
+       }
+    }
+  },[offset])
   return (
     <>
     <div className='term_condition'>
@@ -19,7 +52,7 @@ const Privacypolicy = () => {
 
         <div className="row tc_content justify-content-between">
          <div className="col-md-7 tc_main-centent"> 
-            <ol>
+            <ol  ref={ref}>
               <li id='etuw'>
                 <span className='question'> Introduction</span>
                 <span className="answer">
@@ -105,16 +138,16 @@ const Privacypolicy = () => {
               <span><Link><MdEmail></MdEmail></Link></span>
             </div>
             <ul>
-              <li> <a href="#aot">1. Introduction</a> </li>
-              <li> <a href="#etuw">2. Information We Collect</a></li>
-              <li> <a href="#voa"> 3. How We Use Your Information  </a></li>
-              <li> <a href="#pp">4. Sharing Your Information</a></li>
-              <li> <a href="#ur"> 5. Cookies and Tracking Technologies </a></li>
-              <li> <a href="#oods"> 6. Your Choices</a></li>
-              <li> <a href="#drl">  7. Security </a></li>
-              <li> <a href="#cwll"> 8. Children's Privacy </a></li>
-              <li> <a href="#ip">  9. Changes to This Privacy Policy </a></li>
-              <li> <a href="#lol">10. Contact Us </a></li>
+              <li> <a href="#aot" className={Id === "aot" && "activeTable"  }>1. Introduction</a> </li>
+              <li> <a href="#etuw" className={Id === "etuw" && "activeTable"  }>2. Information We Collect</a></li>
+              <li> <a href="#voa" className={Id === "voa" && "activeTable"  }> 3. How We Use Your Information  </a></li>
+              <li> <a href="#pp" className={Id === "pp" && "activeTable"  }>4. Sharing Your Information</a></li>
+              <li> <a href="#ur" className={Id === "ur" && "activeTable"  }> 5. Cookies and Tracking Technologies </a></li>
+              <li> <a href="#oods" className={Id === "oods" && "activeTable"  }> 6. Your Choices</a></li>
+              <li> <a href="#drl" className={Id === "drl" && "activeTable"  }>  7. Security </a></li>
+              <li> <a href="#cwll" className={Id === "cwll" && "activeTable"  }> 8. Children's Privacy </a></li>
+              <li> <a href="#ip" className={Id === "ip" && "activeTable"  }>  9. Changes to This Privacy Policy </a></li>
+              <li> <a href="#lol" className={Id === "lol" && "activeTable"  }>10. Contact Us </a></li>
              
             </ul>
            </div>

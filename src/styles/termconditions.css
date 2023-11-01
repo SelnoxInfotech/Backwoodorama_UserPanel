@@ -16,7 +16,19 @@ margin: 0;
 .term_condition .tc_topic_list{
     position: sticky;
     top: 20%;
+    max-height: 70vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    border-bottom: 1px solid #80808059;
 }
+.term_condition .tc_topic_list::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .term_condition .tc_topic_list {
+    -ms-overflow-style: none; 
+    scrollbar-width: none;  
+  }
 .term_condition .tc_topic_list .heading_box{
     background: #31B665; 
     padding: 10px;
@@ -42,6 +54,18 @@ margin: 0;
 }
 .term_condition .tc_topic_list ul li a{
     color: #000;
+    transition: all .2s ease;
+}
+.term_condition .tc_topic_list ul li a:hover{
+    color: #31B665;
+    font-weight: 600;
+}
+.sideTableHeading{
+    font-size: 18px;
+    line-height: 1.3;
+}
+.term_condition .tc_topic_list ul li a.activeTable{
+    color:#31B665
 }
 .term_condition .tc_content .tc_main-centent{
     color: #000;
