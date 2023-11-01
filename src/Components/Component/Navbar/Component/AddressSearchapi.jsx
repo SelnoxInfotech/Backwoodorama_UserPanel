@@ -9,41 +9,61 @@ import Createcontext from "../../../../Hooks/Context"
 import { IoLocationSharp } from "react-icons/io5"
 import { MdOutlineMyLocation } from "react-icons/md"
 import { IconButton, InputAdornment, TextField } from "@mui/material";
-import { useNavigate, useLocation, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 export default function AddressSearch({ openLocation, SearchBarWidth, open, setOpenLocation, path }) {
   const classes = useStyles()
   const navigate = useNavigate();
   const { state, dispatch } = React.useContext(Createcontext)
   const [Default, Setdefault] = React.useState('')
+  const [Search, SetSearch] = React.useState([])
+
+
   const { ref } = usePlacesWidget({
     apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
-    onPlaceSelected: (place) => {
-      Setdefault(place?.formatted_address);
-
-      dispatch({ type: 'permission', permission: true })
-      var Coun
-      var sta
-      var ci
-      place?.address_components?.map((data) => {
-        if (data.types.indexOf('country') !== -1) {
-          Coun = data?.long_name.replace(/\s/g, '-')
-          return dispatch({ type: 'Country', Country: data?.long_name.replace(/\s/g, '-') })
-        }
-        if (data.types.indexOf('administrative_area_level_1') !== -1) {
-          sta = data?.long_name.replace(/\s/g, '-')
-          return dispatch({ type: 'State', State: data?.long_name.replace(/\s/g, '-') })
-        }
-        if (data.types.indexOf('locality') !== -1 || data.types.indexOf('administrative_area_level_3') !== -1) {
-          ci = data?.long_name.replace(/\s/g, '-')
-          dispatch({ type: 'City', City: data?.long_name.replace(/\s/g, '-') })
-          //  location.pathname.length >= 18 ? location.pathname.slice(0,18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun}/${sta}/${ci}`) : false
-        }
-        return data
-      })
-      window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
-      window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
-      dispatch({ type: 'Location', Location: place?.formatted_address })
-    },
+    onPlaceSelected:
+      (place) => {
+        console.log(place)
+        Setdefault(place?.formatted_address);
+        dispatch({ type: 'permission', permission: true })
+        var Coun
+        var sta
+        var ci
+        place?.address_components?.map((data) => {
+          if (data.types.indexOf('country') !== -1) {
+            Coun = data?.long_name.replace(/\s/g, '-')
+            return dispatch({ type: 'Country', Country: data?.long_name.replace(/\s/g, '-') })
+          }
+          if (data.types.indexOf('administrative_area_level_1') !== -1) {
+            sta = data?.long_name.replace(/\s/g, '-')
+            return dispatch({ type: 'State', State: data?.long_name.replace(/\s/g, '-') })
+          }
+          if (data.types.indexOf('locality') !== -1 || data.types.indexOf('administrative_area_level_3') !== -1 || data.types.indexOf('sublocality')) {
+            
+             console.log(data?.long_name)
+        
+              ci = data?.long_name.replace(/\s/g, '-')
+              dispatch({ type: 'City', City: data?.long_name.replace(/\s/g, '-') })
+            // }
+            // else {
+            //   if (data.types.indexOf('administrative_area_level_3') !== -1) {
+            //     console.log('Plattsburgh, NY, USA')
+            //     ci = data?.long_name.replace(/\s/g, '-')
+            //     dispatch({ type: 'City', City: data?.long_name.replace(/\s/g, '-') })
+            //   }
+            //   else {
+            //     console.log('Plattsburgh, NY, USA')
+            //     ci = data?.long_name.replace(/\s/g, '-')
+            //     dispatch({ type: 'City', City: data?.long_name.replace(/\s/g, '-') })
+            //   }
+            // }
+            //  location.pathname.length >= 18 ? location.pathname.slice(0,18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun}/${sta}/${ci}`) : false
+          }
+          return data
+        })
+        window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
+        window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
+        dispatch({ type: 'Location', Location: place?.formatted_address })
+      },
     options: {
 
       fields: ["address_components", "formatted_address"],
@@ -54,6 +74,7 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
     defaultValue: "Amsterdam",
   });
 
+
   React.useEffect(() => {
     Setdefault(state.Location)
   }, [state])
@@ -63,7 +84,7 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
   }
   function current(event) {
     navigator.permissions.query({ name: 'geolocation' }).then(permissionStatus => {
-    
+
       if (permissionStatus.state === 'denied') {
         alert('Please allow location access.');
       } else {
@@ -73,21 +94,27 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
             .then((response) => {
               dispatch({ type: 'Location', Location: response?.plus_code?.compound_code.slice(9) });
               Setdefault(response?.plus_code?.compound_code.slice(9))
+              var Coun
+              var sta
+              var ci
               response?.results?.map((data) => {
                 if (data.types.indexOf('country') !== -1) {
+                  Coun = data?.formatted_address.replace(/\s/g, '-')
                   return dispatch({ type: 'Country', Country: data?.formatted_address.replace(/\s/g, '-') })
                 }
                 if (data.types.indexOf('administrative_area_level_1') !== -1) {
                   data.address_components.map((state) => {
                     if (state.types.indexOf('administrative_area_level_1') !== -1) {
+                      sta = state?.long_name.replace(/\s/g, '-')
                       return dispatch({ type: 'State', State: state?.long_name.replace(/\s/g, '-') })
                     }
                     return state
                   })
                 }
-                if (data.types.indexOf('administrative_area_level_3') !== -1) {
+                if (data.types.indexOf('administrative_area_level_3') !== -1 || data.types.indexOf('administrative_area_level_2') !== -1) {
                   data.address_components.map((city) => {
-                    if (city.types.indexOf('administrative_area_level_3') !== -1 || city.types.indexOf('locality') !== -1) {
+                    if (city.types.indexOf('administrative_area_level_3') !== -1 || city.types.indexOf('locality') !== -1 || data.types.indexOf('locality') !== -1) {
+                      ci = city?.long_name?.replace(/\s/g, '-')
                       return dispatch({ type: 'City', City: city?.long_name?.replace(/\s/g, '-') })
                     }
                     return city
@@ -97,6 +124,8 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
                 return data
 
               })
+              window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
+              window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
             }
 
             )
@@ -114,6 +143,7 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
     setOpenLocation(true)
     Setdefault('')
   }
+
   return (
     <React.Fragment>
       <TextField
