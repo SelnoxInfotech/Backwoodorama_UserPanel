@@ -86,7 +86,7 @@ const routesConfig = [
       },
       //  Weed Dispensires
       {
-        path: "/weed-dispensaries/in/:Country/:state?/:city?",
+        path: "/weed-dispensaries/in/:Country/:state?/:city?/:route?",
         element: <RoutingDespen Component={OpenDispansires}  ></RoutingDespen>
       },
       {
@@ -102,7 +102,7 @@ const routesConfig = [
         element: <RoutingList Component={NewProductDetails} ></RoutingList>
       },
       {
-        path: "/weed-deliveries/in/:Country/:state?/:city?",
+        path: "/weed-deliveries/in/:Country/:state?/:city?/:route?",
         element: <RoutingDespen Component={Deliveries}  ></RoutingDespen>
       },
       {

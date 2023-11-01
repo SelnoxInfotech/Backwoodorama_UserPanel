@@ -18,7 +18,6 @@ function isShopOpen(storeDetails){
     var date = new Date();
     const easternTime = date.toLocaleString("en-US", {timeZone: "America/New_York"})
     let day = new Date(easternTime)
-   console.log(storeDetails )
     storeDetails[0]?.Hours !== null && storeDetails[0]?.Hours.forEach((items , index)=>{
          
        if(!done){

@@ -76,7 +76,7 @@ export default function RoutingDespen(props) {
             <Suspense fallback={"Loading"}>
                 <Component />
                 {((state.permission === false) && (params?.city?.toLowerCase() !== state?.City?.toLowerCase() || params?.state?.toLowerCase() !== state?.State?.toLowerCase() || params?.Country?.toLowerCase() !== state?.Country?.toLowerCase())) && <RoutingSearch city={params.city} State={params.state} country={params.Country}
-                    pathname={Location.pathname.slice(0, 110) === '/weed-dispensaries' ? "/weed-dispensaries" : "/weed-deliveries"}
+                    pathname={Location.pathname.slice(0, 18) === '/weed-dispensaries' ? "/weed-dispensaries" : "/weed-deliveries"}
                 ></RoutingSearch>}
             </Suspense>
         </div>

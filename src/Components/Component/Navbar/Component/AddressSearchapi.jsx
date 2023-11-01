@@ -22,12 +22,13 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
     apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
     onPlaceSelected:
       (place) => {
-        console.log(place)
+        console.log(place.name)
         Setdefault(place?.formatted_address);
         dispatch({ type: 'permission', permission: true })
         var Coun
         var sta
         var ci
+        var route
         place?.address_components?.map((data) => {
           if (data.types.indexOf('country') !== -1) {
             Coun = data?.long_name.replace(/\s/g, '-')
@@ -37,31 +38,37 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
             sta = data?.long_name.replace(/\s/g, '-')
             return dispatch({ type: 'State', State: data?.long_name.replace(/\s/g, '-') })
           }
-          if (data.types.indexOf('locality') !== -1 || data.types.indexOf('administrative_area_level_3') !== -1 || data.types.indexOf('sublocality')) {
-            
-             console.log(data?.long_name)
-        
+          if (data.types.indexOf('locality') !== -1 || data.types.indexOf('administrative_area_level_3') !== -1 || data.types.indexOf('sublocality') !== -1) {
               ci = data?.long_name.replace(/\s/g, '-')
               dispatch({ type: 'City', City: data?.long_name.replace(/\s/g, '-') })
-            // }
-            // else {
-            //   if (data.types.indexOf('administrative_area_level_3') !== -1) {
-            //     console.log('Plattsburgh, NY, USA')
-            //     ci = data?.long_name.replace(/\s/g, '-')
-            //     dispatch({ type: 'City', City: data?.long_name.replace(/\s/g, '-') })
-            //   }
-            //   else {
-            //     console.log('Plattsburgh, NY, USA')
-            //     ci = data?.long_name.replace(/\s/g, '-')
-            //     dispatch({ type: 'City', City: data?.long_name.replace(/\s/g, '-') })
-            //   }
-            // }
-            //  location.pathname.length >= 18 ? location.pathname.slice(0,18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun}/${sta}/${ci}`) : false
           }
+          if (data.types.indexOf('route') !== -1 ) {
+            route = data?.long_name.replace(/\s/g, '-')
+            // dispatch({ type: 'Route', City: data?.long_name.replace(/\s/g, '-') })
+        }
           return data
         })
-        window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
-        window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
+        // route
+             
+        console.log(route)
+          if(route === undefined && Coun !== undefined)
+          {
+            window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
+            window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
+          }
+          else{
+            if( Coun !== undefined)
+            {
+
+              window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}${route?.toLowerCase()}`)
+              window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}${route?.toLowerCase()}`)
+            }
+            else {
+              Setdefault(state.Location)
+            }
+          }
+          
+
         dispatch({ type: 'Location', Location: place?.formatted_address })
       },
     options: {
