@@ -30,7 +30,7 @@ export default function RoutingSearch({ city, State, country, pathname  ,route})
     fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
       .then(res => res.json())
       .then(response => {
-        console.log(response)
+        console.log(response) 
         if (response.results.length !== 0) {
           dispatch({ type: 'permission', permission: true })
           dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address })
@@ -46,32 +46,35 @@ export default function RoutingSearch({ city, State, country, pathname  ,route})
             }
 
 
-            if (data.types.indexOf('locality') !== -1 || data.types.indexOf('administrative_area_level_3') !== -1 || data.types.indexOf('sublocality') !== -1) {
+            if (data.types.indexOf('locality') !== -1 || data.types.indexOf('administrative_area_level_3') !== -1 || data.types.indexOf('sublocality') !== -1 || data.types.indexOf('establishment') !== -1) {
               dispatch({ type: 'City', City: data?.long_name?.replace(/\s/g, '-') })
               SearchCity = data?.long_name.replace(/\s/g, '-')
 
             }
-            if (data.types.indexOf('route') !== -1) {
+            if (data.types.indexOf('route') !== -1 ) {
               route = data?.long_name.replace(/\s/g, '-')
               dispatch({ type: 'route', route: data?.long_name.replace(/\s/g, '-') })
             }
 
 
           })
+          console.log(route)
           if (SearchCity !== undefined && SearchState !== undefined && SearchCountry !== undefined && route !== undefined) {
 
             navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}/${SearchState.toLowerCase()}/${SearchCity.toLowerCase()}/${route.toLowerCase()}`)
           }
          else if (SearchCity !== undefined && SearchState !== undefined && SearchCountry !== undefined) {
-
-            navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}/${SearchState.toLowerCase()}/${SearchCity.toLowerCase()}/`)
+          console.log(route)
+            navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}/${SearchState.toLowerCase()}/${SearchCity.toLowerCase()}`)
           }
 
           else if (SearchState !== undefined && SearchCountry !== undefined) {
-            navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}/${SearchState.toLowerCase()}/`)
+            console.log(route)
+            navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}/${SearchState.toLowerCase()}`)
           }
           else if (SearchCountry !== undefined) {
-            navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}/`)
+            console.log(route)
+            navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}`)
           }
 
 
