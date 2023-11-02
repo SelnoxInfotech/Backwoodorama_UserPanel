@@ -1,31 +1,15 @@
-import { LazyLoadImage } from "react-lazy-load-image-component"
-import { AiOutlineHeart , AiFillHeart } from "react-icons/ai"
-import { IconButton } from "@mui/material"
-import { MdOutlinePlace } from "react-icons/md"
-import Rating from '@mui/material/Rating';
-import ProductIncDecQuantity from "../../../../Page/Product/ProductSearchResult/ProductIncDecQuantity"
-import { LoadingButton } from "@mui/lab";
-import { BsStar ,BsStarFill } from "react-icons/bs";
-import { BiStore } from "react-icons/bi"
-import Box from "@mui/material/Box";
 import ProductSearchResult from "../../../../Page/Product/ProductSearchResult/ProductSearchResult";
 import React from "react";
 import axios from "axios";
-import useStyles from "../../../../../Style";
 import { WishListget,WishListPost } from "../../WishListApi_";
 import Createcontext from "../../../../../Hooks/Context"
-import { useNavigate } from "react-router-dom";
 import Cookies from 'universal-cookie'; 
-import AddToCartPopUp from "../../../../Page/Product/AddToCartPopUp/AddToCartPopUp";
 import _ from "lodash"
-import { Link } from "react-router-dom";
-import {WhisList} from "../../../../Component/Whishlist/WhisList"
 import EmptyCard from '../../../../Page/Product/EmptyCard/EmptyCard'
 const WhisListCard = () => {
     const cookies = new Cookies();
     const { state, dispatch } = React.useContext(Createcontext)
     const [Whishlist, SetWishList] = React.useState(false)
-  
     const [popup , SetPopup] = React.useState(true)
     const [Price, SetPrice] = React.useState([])
     const token_data = cookies.get('Token_access')
