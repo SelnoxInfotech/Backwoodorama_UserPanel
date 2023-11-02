@@ -190,7 +190,7 @@ export default function DispensoriesDetails() {
             console.error(e)
         })
     }, [id, api])
-
+console.log(useLocation().pathname)
 
     return (
         <div>

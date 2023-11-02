@@ -41,6 +41,7 @@ const initialUser = {
     Country: "",
     State: "",
     City: "",
+    route:"",
     // End
     // StaticImage
     StaticImage:[],

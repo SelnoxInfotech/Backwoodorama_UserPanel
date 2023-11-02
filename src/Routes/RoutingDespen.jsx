@@ -10,66 +10,66 @@ export default function RoutingDespen(props) {
     const params = useParams()
     const Location = useLocation()
     const { Component } = props;
-    // React.useEffect(() => {
-    //     if (Location.pathname.slice(0, 18) === "/weed-dispensaries") {
-    //         axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/10`,
-    //         ).then((res) => {
-    //             if (res.data.length === 0) {
-    //                 axios.post(`https://api.cannabaze.com/UserPanel/Add-SiteMap/`,
-    //                     {
-    //                         Xml: 'https://www.weedx.io' + Location.pathname
-    //                     },
-    //                 ).then((res) => { }).catch((err) => {
-    //                     console.trace(err)
-    //                 })
-    //             }
-    //             else {
-    //                 const json = typeof res.data[0].Xml === "object" ? res.data[0].Xml : [res.data[0].Xml]
-    //                 if (!json.includes('https://www.weedx.io' + Location.pathname)) {
-    //                     json.push('https://www.weedx.io' + Location.pathname);
-    //                 }
-    //                 axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/10`,
-    //                     {
-    //                         Xml: json
-    //                     },
-    //                 ).then((res) => {
-    //                 }).catch((err) => {
-    //                 })
-    //             }
-    //         }).catch(() => {
+    React.useEffect(() => {
+        if (Location.pathname.slice(0, 18) === "/weed-dispensaries") {
+            axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/10`,
+            ).then((res) => {
+                if (res.data.length === 0) {
+                    axios.post(`https://api.cannabaze.com/UserPanel/Add-SiteMap/`,
+                        {
+                            Xml: 'https://www.weedx.io' + Location.pathname
+                        },
+                    ).then((res) => { }).catch((err) => {
+                        console.trace(err)
+                    })
+                }
+                else {
+                    const json = typeof res.data[0].Xml === "object" ? res.data[0].Xml : [res.data[0].Xml]
+                    if (!json.includes('https://www.weedx.io' + Location.pathname)) {
+                        json.push('https://www.weedx.io' + Location.pathname);
+                    }
+                    axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/10`,
+                        {
+                            Xml: json
+                        },
+                    ).then((res) => {
+                    }).catch((err) => {
+                    })
+                }
+            }).catch(() => {
 
-    //         })
-    //     }
-    //     else {
-    //         axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/11`,
-    //         ).then((res) => {
-    //             if (res.data.length === 0) {
-    //                 axios.post(`https://api.cannabaze.com/UserPanel/Add-SiteMap/`,
-    //                     {
-    //                         Xml: 'https://www.weedx.io' + Location.pathname
-    //                     },
-    //                 ).then((res) => { }).catch((err) => {
-    //                     console.trace(err)
-    //                 })
-    //             }
-    //             else {
-    //                 const json = typeof res.data[0].Xml === "object" ? res.data[0].Xml : [res.data[0].Xml]
-    //                 if (!json.includes('https://www.weedx.io' + Location.pathname)) {
-    //                     json.push('https://www.weedx.io' + Location.pathname);
-    //                 }
-    //                 axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/11`,
-    //                     {
-    //                         Xml: json
-    //                     },
-    //                 ).then((res) => {
-    //                 }).catch((err) => {
-    //                 })
-    //             }
-    //         }).catch(() => {
+            })
+        }
+        else {
+            axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/11`,
+            ).then((res) => {
+                if (res.data.length === 0) {
+                    axios.post(`https://api.cannabaze.com/UserPanel/Add-SiteMap/`,
+                        {
+                            Xml: 'https://www.weedx.io' + Location.pathname
+                        },
+                    ).then((res) => { }).catch((err) => {
+                        console.trace(err)
+                    })
+                }
+                else {
+                    const json = typeof res.data[0].Xml === "object" ? res.data[0].Xml : [res.data[0].Xml]
+                    if (!json.includes('https://www.weedx.io' + Location.pathname)) {
+                        json.push('https://www.weedx.io' + Location.pathname);
+                    }
+                    axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/11`,
+                        {
+                            Xml: json
+                        },
+                    ).then((res) => {
+                    }).catch((err) => {
+                    })
+                }
+            }).catch(() => {
 
-    //         })
-    //     }
-    // }, [Location , state?.City , state?.State , state?.Country])
+            })
+        }
+    }, [Location , state?.City , state?.State , state?.Country])
     return (
 
         <div>

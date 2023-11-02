@@ -45,6 +45,7 @@ const Privatepolicy = React.lazy(() => import("../Components/Page/Privacypolicy/
 const Cookiespolicy = React.lazy(() => import("../Components/Page/Cookiespolicy/Cookiespolicy.jsx"));
 const Termsconditions = React.lazy(() => import('../Components/Page/Termsconditions/Termsconditions.jsx'));
 const History = React.lazy(() => import('../Components/Page/Learn/History/History'));
+const MyLocationSearch = React.lazy(() => import("../Components/Component/Navbar/Component/locationFuntion"));
 const routesConfig = [
 
   {
@@ -53,7 +54,10 @@ const routesConfig = [
     children: [
       // //////////////////////////////////////////////////////////// Complete ///////////////////////////////////////////////////////////
     
-     
+      {
+        path: "/MyLocationSearch",
+        element: <RoutingList Component={MyLocationSearch} ></RoutingList>,
+      },
       {
         path: "/login",
         element: <RoutingList Component={Login} ></RoutingList>,

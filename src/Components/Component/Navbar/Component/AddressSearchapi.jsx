@@ -1,9 +1,10 @@
 
 
 import React from "react";
-import { usePlacesWidget } from "react-google-autocomplete";
+import  {usePlacesWidget}  from "react-google-autocomplete";
+// import usePlacesService from "react-google-autocomplete/lib/usePlacesAutocompleteService";
 // import { useHistory } from 'react-router-dom';
-
+import { debounce } from 'lodash';
 import useStyles from "../../../../Style"
 import Createcontext from "../../../../Hooks/Context"
 import { IoLocationSharp } from "react-icons/io5"
@@ -15,61 +16,60 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
   const navigate = useNavigate();
   const { state, dispatch } = React.useContext(Createcontext)
   const [Default, Setdefault] = React.useState('')
-  const [Search, SetSearch] = React.useState([])
 
 
-  const { ref } = usePlacesWidget({
+  const { ref  } = usePlacesWidget({
+    debounce:50000,
     apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
-    onPlaceSelected:
+   onPlaceSelected: 
       (place) => {
-        console.log(place.name)
-        Setdefault(place?.formatted_address);
-        dispatch({ type: 'permission', permission: true })
-        var Coun
-        var sta
-        var ci
-        var route
-        place?.address_components?.map((data) => {
-          if (data.types.indexOf('country') !== -1) {
-            Coun = data?.long_name.replace(/\s/g, '-')
-            return dispatch({ type: 'Country', Country: data?.long_name.replace(/\s/g, '-') })
-          }
-          if (data.types.indexOf('administrative_area_level_1') !== -1) {
-            sta = data?.long_name.replace(/\s/g, '-')
-            return dispatch({ type: 'State', State: data?.long_name.replace(/\s/g, '-') })
-          }
-          if (data.types.indexOf('locality') !== -1 || data.types.indexOf('administrative_area_level_3') !== -1 || data.types.indexOf('sublocality') !== -1) {
-              ci = data?.long_name.replace(/\s/g, '-')
-              dispatch({ type: 'City', City: data?.long_name.replace(/\s/g, '-') })
-          }
-          if (data.types.indexOf('route') !== -1 ) {
-            route = data?.long_name.replace(/\s/g, '-')
-            // dispatch({ type: 'Route', City: data?.long_name.replace(/\s/g, '-') })
+      if(place.name){
+        Setdefault(state.Location)
+      }
+     else{
+      Setdefault(place?.formatted_address);
+      dispatch({ type: 'permission', permission: true })
+      var Coun
+      var sta
+      var ci
+      var route
+      place?.address_components?.map((data) => {
+        if (data.types.indexOf('country') !== -1) {
+          Coun = data?.long_name.replace(/\s/g, '-')
+          return dispatch({ type: 'Country', Country: data?.long_name.replace(/\s/g, '-') })
         }
-          return data
-        })
-        // route
-             
-        console.log(route)
-          if(route === undefined && Coun !== undefined)
+        if (data.types.indexOf('administrative_area_level_1') !== -1) {
+          sta = data?.long_name.replace(/\s/g, '-')
+          return dispatch({ type: 'State', State: data?.long_name.replace(/\s/g, '-') })
+        }
+        if (data.types.indexOf('locality') !== -1 || data.types.indexOf('administrative_area_level_3') !== -1 || data.types.indexOf('sublocality') !== -1) {
+            ci = data?.long_name.replace(/\s/g, '-')
+            dispatch({ type: 'City', City: data?.long_name.replace(/\s/g, '-') })
+        }
+        if (data.types.indexOf('route') !== -1 ) {
+          route = data?.long_name.replace(/\s/g, '-')
+          dispatch({ type: 'route', route: data?.long_name.replace(/\s/g, '-') })
+      }
+        return data
+      })
+        if(route === undefined && Coun !== undefined)
+        {
+          window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
+          window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
+        }
+        else{
+          if( Coun !== undefined)
           {
-            window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
-            window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
-          }
-          else{
-            if( Coun !== undefined)
-            {
 
-              window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}${route?.toLowerCase()}`)
-              window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}${route?.toLowerCase()}`)
-            }
-            else {
-              Setdefault(state.Location)
-            }
+            window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}/${route?.toLowerCase()}`)
+            window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}/${route?.toLowerCase()}`)
           }
-          
-
+          else {
+            Setdefault(state.Location)
+          }
+        }
         dispatch({ type: 'Location', Location: place?.formatted_address })
+     }
       },
     options: {
 
@@ -81,13 +81,12 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
     defaultValue: "Amsterdam",
   });
 
-
   React.useEffect(() => {
     Setdefault(state.Location)
   }, [state])
   function handleChange(event) {
     Setdefault(event.target.value);
-
+    
   }
   function current(event) {
     navigator.permissions.query({ name: 'geolocation' }).then(permissionStatus => {
@@ -151,11 +150,13 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
     Setdefault('')
   }
 
+
+
   return (
     <React.Fragment>
       <TextField
         value={Default || ''}
-        inputRef={ref}
+        inputRef={ ref}
         onChange={handleChange}
         onFocus={onFocus}
         onBlur={OnBlur}
@@ -178,6 +179,8 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
           ),
         }}
       />
+
+     
     </React.Fragment>
   );
 };
