@@ -16,9 +16,7 @@ const WhisLists = () => {
                     <span><IconButton onClick={() => Navigate(-1)}><MdOutlineKeyboardArrowLeft color="#000000"/></IconButton></span><span onClick={() => Navigate(-1)} className="BackPageBtn">Back</span>
 
                 </div>
-                {/* <div className="col-12 productsCount_container">
-                    <h1 className="productsCount">Products<span className="productsCountNumber">{Object.values(state.WishList).reduce((a, item) => a + item, 0)}</span></h1>
-                </div> */}
+              
                 <WhisListCard/>
             </div>
         </div>

@@ -1,9 +1,6 @@
-import WeedDealsByProduct from "./MainDealsComponent/WeedDealsByProduct";
 import NewProductSearchResult from "../Product/NewProductDetails/NewProductDetailsComponent/NewProductSearchResult";
-import DealByStrainType from "./MainDealsComponent/DealByStrainType";
-import BestDealCards from "../Deals/DealsComponent/BestDealCards";
-import PromoCode from "../Deals/DealsComponent/PromoCode";
 import { DealsSeo } from "../../Component/ScoPage/DealsSeo";
+import ProductSearchResult from "../Product/ProductSearchResult/ProductSearchResult"
 import axios from "axios";
 import React from "react";
 const MainDeals=()=>{
@@ -34,9 +31,8 @@ const [deals,setdeals]= React.useState([])
         <div className="container">
             <DealsSeo></DealsSeo>
             <div className="row mx-2">
-           <NewProductSearchResult NewProductSearchRseultArray={deals} heading={NewProductSearchResult_Heading}/>
-           {/* <NewProductSearchResult NewProductSearchRseultArray={NewProductSearchRseultArray} heading={DispensoriesDealHeading}/> */}
-           
+         
+           <ProductSearchResult RelatedProductResult={deals} CategoryName={"Best Deals Near By You"} /> 
         </div>
         </div>
     )

@@ -20,13 +20,13 @@ import AddToCartPopUp from "../../../../Page/Product/AddToCartPopUp/AddToCartPop
 import _ from "lodash"
 import { Link } from "react-router-dom";
 import {WhisList} from "../../../../Component/Whishlist/WhisList"
+import EmptyCard from '../../../../Page/Product/EmptyCard/EmptyCard'
 const WhisListCard = () => {
     const cookies = new Cookies();
     const { state, dispatch } = React.useContext(Createcontext)
     const [Whishlist, SetWishList] = React.useState(false)
-    const Navigate = useNavigate()
+  
     const [popup , SetPopup] = React.useState(true)
-    const classes = useStyles()
     const [Price, SetPrice] = React.useState([])
     const token_data = cookies.get('Token_access')
     const [CartClean, SetCartClean] = React.useState(false)
@@ -159,150 +159,150 @@ const WhisListCard = () => {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
         localStorage.setItem('items', JSON.stringify(AddTOCard))
     }, [AddTOCard])
-    function modifystr(str) {
-        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
-        str = str.trim().replaceAll(' ', "-");
-        let a = 0;
-        while (a < 1) {
-          if (str.includes("--")) {
-            str = str.replaceAll("--", "-")
-          } else if (str.includes("//")) {
-            str = str.replaceAll("//", "/")
-          } else if (str.includes("//")) {
-            str = str.replaceAll("-/", "/")
-          } else if (str.includes("//")) {
-            str = str.replaceAll("/-", "/")
-          } else {
-            a++
-          }
-        }
+    // function modifystr(str) {
+    //     str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+    //     str = str.trim().replaceAll(' ', "-");
+    //     let a = 0;
+    //     while (a < 1) {
+    //       if (str.includes("--")) {
+    //         str = str.replaceAll("--", "-")
+    //       } else if (str.includes("//")) {
+    //         str = str.replaceAll("//", "/")
+    //       } else if (str.includes("//")) {
+    //         str = str.replaceAll("-/", "/")
+    //       } else if (str.includes("//")) {
+    //         str = str.replaceAll("/-", "/")
+    //       } else {
+    //         a++
+    //       }
+    //     }
     
-        return str.toLowerCase()
-      }
-    async function AddToCart(Event, counter, SelectWeight , handleClose) {
+    //     return str.toLowerCase()
+    //   }
+    // async function AddToCart(Event, counter, SelectWeight , handleClose) {
      
-        const AddData = _.filter(Event.Prices, Price => Price);
-        const PriceArrry = _.find(AddData[0].Price, Price => Price.id === SelectWeight);
-        const FinalSelection = PriceArrry === undefined ? Event.Prices[0].Price[0] : PriceArrry
-        const FinalPriceId = PriceArrry === undefined ? Event.Prices[0].Price[0].id : PriceArrry.id
+    //     const AddData = _.filter(Event.Prices, Price => Price);
+    //     const PriceArrry = _.find(AddData[0].Price, Price => Price.id === SelectWeight);
+    //     const FinalSelection = PriceArrry === undefined ? Event.Prices[0].Price[0] : PriceArrry
+    //     const FinalPriceId = PriceArrry === undefined ? Event.Prices[0].Price[0].id : PriceArrry.id
 
-        const FinalQuantity = counter === undefined ? 1 : counter
-        if (token_data) {
+    //     const FinalQuantity = counter === undefined ? 1 : counter
+    //     if (token_data) {
            
-            const config = {
-                headers: { Authorization: `Bearer ${token_data}` }
-            };
-            SetNewData({
+    //         const config = {
+    //             headers: { Authorization: `Bearer ${token_data}` }
+    //         };
+    //         SetNewData({
                 
-                Product_id: Event.id,
-                Store_id: Event.Store_id,
-                Image_id: Event.images[0].id,
-                Price: FinalSelection,
-                Cart_Quantity: FinalQuantity,
-                PriceId: FinalPriceId,
-                category:Event.category_name,
-                Sub_Category_id:Event.Sub_Category_id,
-                SubcategoryName:Event.SubcategoryName,
-                StoreName:Event.StoreName
+    //             Product_id: Event.id,
+    //             Store_id: Event.Store_id,
+    //             Image_id: Event.images[0].id,
+    //             Price: FinalSelection,
+    //             Cart_Quantity: FinalQuantity,
+    //             PriceId: FinalPriceId,
+    //             category:Event.category_name,
+    //             Sub_Category_id:Event.Sub_Category_id,
+    //             SubcategoryName:Event.SubcategoryName,
+    //             StoreName:Event.StoreName
 
 
-            })
-            await axios.post("https://api.cannabaze.com/UserPanel/Add-AddtoCart/",
+    //         })
+    //         await axios.post("https://api.cannabaze.com/UserPanel/Add-AddtoCart/",
 
-                {
-                    Brand_Id:Event.Brand_id,
-                    Product_id: Event.id,
-                    Store_id: Event.Store_id,
-                    Image_id: Event.images[0].id,
-                    Price: FinalSelection,
-                    Cart_Quantity: FinalQuantity,
-                    PriceId: FinalPriceId,
-                    category:Event.category_name,
-                    StoreName:Event.StoreName,
-                    Sub_Category_id:Event.Sub_Category_id,
-                    SubcategoryName:Event.SubcategoryName,
+    //             {
+    //                 Brand_Id:Event.Brand_id,
+    //                 Product_id: Event.id,
+    //                 Store_id: Event.Store_id,
+    //                 Image_id: Event.images[0].id,
+    //                 Price: FinalSelection,
+    //                 Cart_Quantity: FinalQuantity,
+    //                 PriceId: FinalPriceId,
+    //                 category:Event.category_name,
+    //                 StoreName:Event.StoreName,
+    //                 Sub_Category_id:Event.Sub_Category_id,
+    //                 SubcategoryName:Event.SubcategoryName,
                    
-                }
-                , config
-            ).then(response => {
+    //             }
+    //             , config
+    //         ).then(response => {
                
-                if (response.data === "Empty Add to Cart") {
-                    SetPopup( false)
-                    SetCartClean(true)
+    //             if (response.data === "Empty Add to Cart") {
+    //                 SetPopup( false)
+    //                 SetCartClean(true)
 
-                }
-                SetPopup(false)
-                dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-            }).catch(
-                function (error) {
-                    SetPopup(false)
-                    if (error.response.status === 406) {
-                        alert("This Product" + error.response.data[0])
-                    }
-                })
-        }
-        else {
+    //             }
+    //             SetPopup(false)
+    //             dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+    //         }).catch(
+    //             function (error) {
+    //                 SetPopup(false)
+    //                 if (error.response.status === 406) {
+    //                     alert("This Product" + error.response.data[0])
+    //                 }
+    //             })
+    //     }
+    //     else {
 
             
-            const Arry = {
-                Image: Event.images[0].image,
-                Product_id: Event.id,
-                Store_id: Event.Store_id,
-                Image_id: Event.images[0].id,
-                Price: FinalSelection,
-                Cart_Quantity: counter || 1,
-                ProductName: Event.Product_Name,
-                StoreCurbsidePickup: Event.StoreCurbsidePickup,
-                StoreDelivery: Event.StoreDelivery,
-                StorePickup: Event.StorePickup,
-                StoreAddress: Event.StoreAddress,
-                category:Event.category_name,
-                Sub_Category_id:Event.Sub_Category_id,
-                SubcategoryName:Event.SubcategoryName,
-                StoreName:Event.StoreName
+    //         const Arry = {
+    //             Image: Event.images[0].image,
+    //             Product_id: Event.id,
+    //             Store_id: Event.Store_id,
+    //             Image_id: Event.images[0].id,
+    //             Price: FinalSelection,
+    //             Cart_Quantity: counter || 1,
+    //             ProductName: Event.Product_Name,
+    //             StoreCurbsidePickup: Event.StoreCurbsidePickup,
+    //             StoreDelivery: Event.StoreDelivery,
+    //             StorePickup: Event.StorePickup,
+    //             StoreAddress: Event.StoreAddress,
+    //             category:Event.category_name,
+    //             Sub_Category_id:Event.Sub_Category_id,
+    //             SubcategoryName:Event.SubcategoryName,
+    //             StoreName:Event.StoreName
 
-            }
-            SetNewData(Arry)
-            if (AddTOCard.length !== 0) {
-                if (AddTOCard.find((data) => { return data.Store_id === Event.Store_id })) {
-                    const t = AddTOCard.filter((data) => { return data.Product_id === Event.id && data.Price.id === FinalPriceId })
-                    if (t.length > 0) {
-                        SetAddToCard(AddTOCard.map((Cart) => {
-                            if (Cart.Product_id === Event.id && Cart.Price.id === FinalPriceId) {
-                                return { ...Cart, Cart_Quantity: Cart.Cart_Quantity + 1 }
-                            }
-                            return Cart
-                        }))
-                        SetPopup(false)
-                        dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-                    }
-                    else {
-                        SetPopup(false)
-                        SetAddToCard([...AddTOCard, Arry])
-                        dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-                    }
-                }
-                else {
-                    SetPopup(false)
-                    SetCartClean(true)
-                }
-            }
-            else {
-                SetPopup(false)
-                SetAddToCard([Arry])
-                dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-            }
-            dispatch({ type: 'Cart_subTotal' })
-        }
-
-
+    //         }
+    //         SetNewData(Arry)
+    //         if (AddTOCard.length !== 0) {
+    //             if (AddTOCard.find((data) => { return data.Store_id === Event.Store_id })) {
+    //                 const t = AddTOCard.filter((data) => { return data.Product_id === Event.id && data.Price.id === FinalPriceId })
+    //                 if (t.length > 0) {
+    //                     SetAddToCard(AddTOCard.map((Cart) => {
+    //                         if (Cart.Product_id === Event.id && Cart.Price.id === FinalPriceId) {
+    //                             return { ...Cart, Cart_Quantity: Cart.Cart_Quantity + 1 }
+    //                         }
+    //                         return Cart
+    //                     }))
+    //                     SetPopup(false)
+    //                     dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+    //                 }
+    //                 else {
+    //                     SetPopup(false)
+    //                     SetAddToCard([...AddTOCard, Arry])
+    //                     dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+    //                 }
+    //             }
+    //             else {
+    //                 SetPopup(false)
+    //                 SetCartClean(true)
+    //             }
+    //         }
+    //         else {
+    //             SetPopup(false)
+    //             SetAddToCard([Arry])
+    //             dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+    //         }
+    //         dispatch({ type: 'Cart_subTotal' })
+    //     }
 
 
-    }
+
+
+    // }
     return (                                                                                                                            
         <div className="whislistCard_wrapper1">
             {
-                GetApiData ? <ProductSearchResult RelatedProductResult={GetApiData} CategoryName={"Wishlist"} /> : <div className="loaderFLower"></div>
+                GetApiData.length ? <ProductSearchResult RelatedProductResult={GetApiData} CategoryName={"Wishlist"} /> : <EmptyCard/>
             }
              
         </div>

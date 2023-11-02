@@ -46,5 +46,4 @@ function isShopOpen(storeDetails){
     })
      return ans
 }
-
 export {isShopOpen}
