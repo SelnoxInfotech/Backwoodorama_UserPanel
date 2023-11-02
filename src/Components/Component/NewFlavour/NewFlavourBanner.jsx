@@ -28,6 +28,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                 <div className="col-12 newFlavour_container">
                     {
                         delBtn?.map((data) => {
+                            console.log(data)
                             return (
                                 <div className="row position-relative" key={data.id}>
                                     <div className="col-md-2 col-sm-4  col-4 newFlavour_image_container_height">
@@ -84,21 +85,27 @@ const NewFlavourBanner = ({ delBtn }) => {
 
                                             </div>
                                             <div className='col-lg-12  col-md-8 col-sm-8 col-12 d-sm-flex d-none newFlav_btn_height'>
+                                            {
+                                                data.StoreEmail !== "" &&  data.StoreEmail !== null &&
+                                               
                                                 <Box
                                                     className={`${classes.loadingBtnTextAndBack}`}
                                                 >
                                                   
                                                       <LoadingButton style={{ height: "30px" }} variant="outlined">Email</LoadingButton>
-
                                                 </Box>
-                                                <Box
+                                                }
+                                                
+                                                {
+                                                    data.Stores_MobileNo !== '' && data.Stores_MobileNo !== null &&  <Box
                                                     className={`New_flav_btn ${classes.loadingBtnTextAndBack}`}
                                                 >
                                                     <Link to={`tel:${delBtn[0].Stores_MobileNo}`}>
                                                       <LoadingButton style={{  height: "30px" }} variant="outlined">Call</LoadingButton>
                                                     </Link>
-                                                </Box>
+                                                    </Box>
 
+                                                }
                                             </div>
 
                                         </div>
@@ -148,21 +155,28 @@ const NewFlavourBanner = ({ delBtn }) => {
 
                                             </div>
                                             <div className='col-lg-12 col-md-8 col-sm-8 col-12 d-flex newFlav_btn_height'>
+
+                                               {
+                                                data.StoreEmail !== "" &&  data.StoreEmail !== null &&
+                                               
                                                 <Box
                                                     className={`${classes.loadingBtnTextAndBack}`}
                                                 >
                                                   
                                                       <LoadingButton style={{ height: "30px" }} variant="outlined">Email</LoadingButton>
-
                                                 </Box>
-                                                <Box
+                                                }
+                                                {
+                                                    data.Stores_MobileNo !== '' && data.Stores_MobileNo !== null &&  <Box
                                                     className={`New_flav_btn ${classes.loadingBtnTextAndBack}`}
                                                 >
                                                     <Link to={`tel:${delBtn[0].Stores_MobileNo}`}>
                                                       <LoadingButton style={{  height: "30px" }} variant="outlined">Call</LoadingButton>
                                                     </Link>
-                                                </Box>
+                                                    </Box>
 
+                                                }
+                                               
                                             </div>
 
                                         </div>

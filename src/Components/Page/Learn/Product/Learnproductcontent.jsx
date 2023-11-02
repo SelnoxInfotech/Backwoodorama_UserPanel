@@ -5,7 +5,7 @@ const Learnproductcontent = () => {
   const {id} = useParams()
    
   let showdata =  data.data.filter((item)=>{
-   if(item.id == id){
+   if(item.id === id){
     
     return item.content
    }

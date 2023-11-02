@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { FaRegEnvelope , FaWineBottle , FaToilet} from "react-icons/fa"
-import { GiPlainCircle , GiSittingDog } from "react-icons/gi"
+import React from "react";
+import {  FaWheelchair} from "react-icons/fa"
 import { MdDoNotDisturb  } from "react-icons/md"
 import { CiGlobe  } from "react-icons/ci"
 import {BsFillCarFrontFill , BsTelephone , BsCashCoin} from "react-icons/bs"
 import {AiOutlinePlus , AiFillCar} from "react-icons/ai"
 import { IoStorefrontSharp , IoLocationOutline } from "react-icons/io5";
-import { TbTruckDelivery } from "react-icons/tb"
 import { GrDeliver } from "react-icons/gr"
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -29,11 +27,21 @@ const StoreDetail1 = ({storeDetails}) => {
                     <div className="col-12 ">
                         <ol className="amenities_list">
       
-                                {
+                                {/* {
                                     storeDetails[0]?.CurbSide_Pickup === true && <li className="amenties_list_items">
                                        
                                             <p className="m-0 amenities_list_item_paragrap listfontStyle">
                                             <BsFillCarFrontFill/> Curbside Pickup
+                                            </p>
+                                     
+                                    </li>
+                                } */}
+                                 {
+                                    storeDetails[0]?.Recreational === true &&
+                                     <li className="amenties_list_items">
+                                       
+                                            <p className="m-0 amenities_list_item_paragrap listfontStyle">
+                                            <BsFillCarFrontFill/>  Recreational
                                             </p>
                                      
                                     </li>
@@ -50,6 +58,18 @@ const StoreDetail1 = ({storeDetails}) => {
                                    : null
                                 }
                                  {
+                                    storeDetails[0]?.High_chairs_available ?
+                                    <li className="amenties_list_items">
+                                       
+                                            <p className="m-0 amenities_list_item_paragrap listfontStyle">
+                                            <FaWheelchair/>  Has Wheel chairs available
+                                            </p>
+                                     
+                                    </li>
+                                   : null
+                                }
+                                 
+                                 {/* {
                                     storeDetails[0]?.Dogs_allowed ?
                                     <li className="amenties_list_items">
                                             <p className="m-0 amenities_list_item_paragrap listfontStyle">
@@ -59,8 +79,7 @@ const StoreDetail1 = ({storeDetails}) => {
                                      : null
                                 }
                                  {
-                                    storeDetails[0]?.Has_bar_on_site ?
-                                 
+                                    storeDetails[0]?.Has_bar_on_site ?    
                                     <li className="amenties_list_items">
                                        
                                             <p className="m-0 amenities_list_item_paragrap listfontStyle">
@@ -69,8 +88,8 @@ const StoreDetail1 = ({storeDetails}) => {
                                      
                                     </li>
                                    : null
-                                }
-                                 {
+                                } */}
+                                 {/* {
                                     storeDetails[0]?.Has_gender_neutral_toilets ?
                                  
                                     <li className="amenties_list_items">
@@ -81,7 +100,7 @@ const StoreDetail1 = ({storeDetails}) => {
                                      
                                     </li>
                                    : null
-                                }
+                                } */}
                                 {
                                     storeDetails[0]?.Medical ?
                                     <li className="amenties_list_items">
@@ -99,13 +118,14 @@ const StoreDetail1 = ({storeDetails}) => {
                                     <li className="amenties_list_items">
                                         
                                             <p className="m-0 amenities_list_item_paragrap listfontStyle">
-                                            <MdDoNotDisturb/> Minimum 21 years or older
+                                            <MdDoNotDisturb/> 21 years or older
                                             </p>
                                         
                                     </li>
                                    :
                                    null
-                                } {
+                                }
+                                 {/* {
                                     storeDetails[0]?.StoreFront ?
                                         <li className="amenties_list_items">
                                            
@@ -116,7 +136,7 @@ const StoreDetail1 = ({storeDetails}) => {
                                         </li>
                                     :
                                     null
-                                 } 
+                                 }  */}
                                 {
                                     storeDetails[0]?.Security_Staff ?
                                        <li className="amenties_list_items">
@@ -188,14 +208,21 @@ const StoreDetail1 = ({storeDetails}) => {
                     </div>
                  
                         <div className="row mx-0">
-                            {
-                                storeDetails[0]?.Hours !== null &&  <div className="p-md-2 p-0 col-md-5 col-12">
-                                <Openingtime storeDetails={storeDetails} heading={"Store Hours"} type={'Hours'}/>
-                             </div>
+                            {  storeDetails[0]?.CurbSide_Pickup &&
+                               storeDetails[0]?.CurbSidePickupHours !== null &&  <div className="p-md-2 p-0 col-md-5 col-12">
+                                <Openingtime storeDetails={storeDetails} heading={"CrubSide PickUp Hours"} type={storeDetails[0]?.CurbSidePickupHours}/>
+                                </div>
                             }
-                            {
-                                    storeDetails[0]?.Hours !== null &&  <div className="p-md-2 p-0 col-md-5 col-12">
-                                    <Openingtime storeDetails={storeDetails} heading={"CrubSide PickUp Hours"} type={'Hours'}/>
+                            {    
+                                storeDetails[0]?.StoreFront  && storeDetails[0]?.Hours !== null &&
+                                <div className="p-md-2 p-0 col-md-5 col-12">
+                                    <Openingtime storeDetails={storeDetails} heading={"Store Hours"} type={storeDetails[0]?.Hours}/>
+                                </div>
+                            }
+                            {    
+                                storeDetails[0]?.Delivery  && storeDetails[0]?.DeliveryHours !== null &&
+                                <div className="p-md-2 p-0 col-md-5 col-12">
+                                    <Openingtime storeDetails={storeDetails} heading={"Delivery Hours"} type={storeDetails[0]?.DeliveryHours}/>
                                 </div>
                             }
                            
@@ -223,14 +250,14 @@ const StoreDetail1 = ({storeDetails}) => {
                                         </li>
                                         }
 
-    { storeDetails[0]?.Stores_MobileNo &&
+                                    { storeDetails[0]?.Stores_MobileNo &&
                                         <li className="StoreDetailSidemenuBarList">
                                         <BsTelephone/>
                                             <span className="StoreDetailSideMenu_listItems"> {storeDetails[0]?.Stores_MobileNo}</span>
                                         </li>
-
-    }
-    {          storeDetails[0]?.Order_Type &&                            <li className="StoreDetailSidemenuBarList">
+                                    }
+                                    {          storeDetails[0]?.Order_Type &&       
+                                         <li className="StoreDetailSidemenuBarList">
                                             <GrDeliver/>
                                             <span className="StoreDetailSideMenu_listItems"> {storeDetails[0]?.Order_Type}</span>
                                         </li>
@@ -251,31 +278,7 @@ const StoreDetail1 = ({storeDetails}) => {
 
 
     }
-                                        {/* {  storeDetails[0]?.searchboxlocation !== null && 
-                                           <li className="StoreDetailSidemenuBarList">
-                                                <TbTruckDelivery/>
-                                                <span className="StoreDetailSideMenu_listItems"> { storeDetails[0]?.searchboxlocation !== null &&    storeDetails[0]?.searchboxlocation?.map((item)=>{
-                                                    let data =  item.Address.split(', ')
-                                                    return `${data[0]}, `
-                                                })}</span>
-                                            </li>
-                                        } */}
                                         
-                                        {/* <li className="StoreDetailSidemenuBarList d-flex">
-                                        <FaRegEnvelope/>
-                                            
-                                            <span className="StoreDetailSideMenu_listItems"> {storeDetails[0].Stores_Website}</span>
-                                        </li>
-                                        <li className="StoreDetailSidemenuBarList d-flex">
-                                        <FaRegEnvelope/>
-                                            
-                                            <span className="StoreDetailSideMenu_listItems"> {storeDetails[0].Stores_Website}</span>
-                                        </li>
-                                        <li className="StoreDetailSidemenuBarList d-flex">
-                                        <FaRegEnvelope/>
-                                            
-                                            <span className="StoreDetailSideMenu_listItems"> {storeDetails[0].Stores_Website}</span>
-                                        </li> */}
 
                                 
                             </ol>

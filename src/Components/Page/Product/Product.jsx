@@ -62,10 +62,10 @@ const Product = () => {
     React.useEffect(() => {
         if (params.subCategory) {
             SetLoading(true)
-
             if (state.City !== "") {
                 const object = { City: state.City.replace(/-/g, " ") }
                 SubcategoryProduct(object, params.id).then((response) => {
+                   
                     if (response?.length !== 0 && response !== "There is no Product") {
                         SetLoading(false)
                         f(response[0]?.category_name)
@@ -79,6 +79,8 @@ const Product = () => {
                         }
                         else {
                             SetProduct([])
+                           
+                           
                         }
                     }
                     else {
@@ -234,9 +236,12 @@ const Product = () => {
 
         }
         else {
-            //    Catogary Product
+            
+           
             if (params.categoryname) {
                 SetLoading(true)
+                window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+              
                 if (state.City !== "") {
                     const object = { City: state.City.replace(/-/g, " ") }
                     CategoryProductsearch(object, params.id).then((response) => {
@@ -407,7 +412,6 @@ const Product = () => {
             }
 
         }
-
     }, [state.Location, params])
    
     return (
@@ -455,7 +459,9 @@ const Product = () => {
                         {
                             loading ?
                                 // <div className="loaderFLower"></div>
-                                <SkeletonCard/>
+                                <div className="col-12">
+                                <SkeletonCard />
+                                </div>
                                 :
                                 Product?.length ?
 

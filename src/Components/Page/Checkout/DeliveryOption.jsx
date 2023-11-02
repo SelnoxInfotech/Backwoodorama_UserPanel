@@ -155,9 +155,8 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                                                         Hours?.map((data)=>{
                                                             return(
                                                                 <MenuItem value={data?.day + data?.Open?.map((time)=>time.Time1) + data?.Open?.map((time)=>time.Time2)}>
-                                                                  <div> <span style={{width:"10px"}}> {data?.day.toUpperCase()} :- </span> <span>{data?.Open?.map((time)=>time.Time1)}</span>-<span>{data?.Open?.map((time)=>time.Time2)}</span></div>
-                                                                    
-                                                                    </MenuItem>
+                                                                  <div> <span className='col-7'> { data?.day[0].toUpperCase() + data?.day.slice(1)} :- </span> <span>{data?.Open?.map((time)=>time.Time1)}</span>-<span>{data?.Open?.map((time)=>time.Time2)}</span></div>
+                                                                </MenuItem>
                                                             )
                                                         })
                                                     }

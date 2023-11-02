@@ -49,7 +49,7 @@ const Openingtime = ({storeDetails , heading , type}) => {
             </AccordionSummary>
             <AccordionDetails>
             {
-                storeDetails[0]?.Hours !== null &&  storeDetails[0]?.Hours.map((items , idxe )=>{
+                storeDetails[0]?.[type] !== null &&  storeDetails[0]?.[type]?.map((items , idxe )=>{
                     if(items.close){
                       return<p  className={day.getDay()-1 === idxe ? 'currentDay d-flex' : 'd-flex'}><span className='w-50'>{`${items.day} `}</span> <span className='w-50'>Close</span> </p>
 

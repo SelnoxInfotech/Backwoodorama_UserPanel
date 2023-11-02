@@ -196,7 +196,10 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
         return str
       }
 
-
+      React.useEffect(()=>{
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+ 
+     },[RelatedProductResult])
 
     return (
         <React.Fragment>

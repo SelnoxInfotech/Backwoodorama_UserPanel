@@ -627,9 +627,9 @@
     right: 5px;
     bottom: 0;
   }
-  .brandProfileBanner .brandMoreLess {
-    padding: 15px;
-  }
+ .brandMoreLess p{
+   font-size: 14px;
+ }
   .whislistCard_wrapper{
     justify-content: center;
   }

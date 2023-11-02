@@ -45,7 +45,7 @@ const Termsconditions = () => {
   function gothroughID(ID){
    
     allHeigths.forEach((item)=>{
-      if(item.id == ID){
+      if(item.id === ID){
         window.scrollTo(0, item.topheigth - divElement)
       }
     })

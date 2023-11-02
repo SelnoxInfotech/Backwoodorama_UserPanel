@@ -9,27 +9,16 @@
   .brandMoreLess{
     height: 260px;
     overflow: hidden;
-    background: #FFFFFF;
-    border: 1px solid #DEDCDC;
     position: relative;
-    padding: 40px;
   }
   .band_shlebtn{
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
     cursor: pointer;
     transition: all .3s ease;
     color: #3F3F3F;
-    padding: 4px;
-    background-color: white;
   }
-  .band_shlebtn:hover{
-    font-size: 13px;
-    color: black;
-  }
+  
   .relatedVerifyBrand_icons{
     position: absolute;
     right: 20px;

@@ -148,8 +148,6 @@ const Dispensories = () => {
                                                             <span className='ellipsis'>{ele.Store_Type}</span>
                                                         </div>
                                                     </div>
-
-
                                                 </Link>
                                                 <Link to={`/weed-dispensaries/${modifystr(ele.Store_Name)}/${'review'}/${ele.id}`}>
                                                     <div className=' w-100 d-flex align-items-center gap-2'>
