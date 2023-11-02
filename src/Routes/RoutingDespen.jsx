@@ -4,7 +4,6 @@ import Createcontext from "../Hooks/Context"
 import { useParams, useLocation } from "react-router-dom";
 import RoutingSearch from "../Components/Component/DispensierRoutingSearch/RoutingSearch";
 import axios from "axios";
-var XMLParser = require('react-xml-parser');
 export default function RoutingDespen(props) {
     const { state } = React.useContext(Createcontext)
     const params = useParams()
@@ -70,12 +69,13 @@ export default function RoutingDespen(props) {
             })
         }
     }, [Location , state?.City , state?.State , state?.Country])
+    console.log(params)
     return (
 
         <div>
             <Suspense fallback={"Loading"}>
                 <Component />
-                {((state.permission === false) && (params?.city?.toLowerCase() !== state?.City?.toLowerCase() || params?.state?.toLowerCase() !== state?.State?.toLowerCase() || params?.Country?.toLowerCase() !== state?.Country?.toLowerCase())) && <RoutingSearch city={params.city} State={params.state} country={params.Country}
+                {((state.permission === false) && (params?.city?.toLowerCase() !== state?.City?.toLowerCase() || params?.state?.toLowerCase() !== state?.State?.toLowerCase() || params?.Country?.toLowerCase() !== state?.Country?.toLowerCase() || params.route?.toLowerCase() !== state?.route?.toLowerCase() )) && <RoutingSearch city={params.city} State={params.state} country={params.Country} route={params.route}
                     pathname={Location.pathname.slice(0, 18) === '/weed-dispensaries' ? "/weed-dispensaries" : "/weed-deliveries"}
                 ></RoutingSearch>}
             </Suspense>
