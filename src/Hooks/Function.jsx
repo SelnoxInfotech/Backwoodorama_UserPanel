@@ -22,9 +22,7 @@ function isShopOpen(storeDetails){
          
        if(!done){
             if(index === day.getDay()-1){
-                
                 items.Open.forEach((item)=>{
-                 
                     if( new Date(day).getHours() > item.Time1.split(":")[0] ){   
                             if( new Date(day).getHours() < item.Time2.split(":")[0]){
                                 ans= true  
@@ -49,4 +47,4 @@ function isShopOpen(storeDetails){
      return ans
 }
 
-   export {isShopOpen}
+export {isShopOpen}

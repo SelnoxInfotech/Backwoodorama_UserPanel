@@ -2,7 +2,6 @@ import React from "react";
 import Grid from '@mui/system/Unstable_Grid';
 import {  BsLinkedin  } from "react-icons/bs"
 import { AiFillHeart } from "react-icons/ai"
-// import { RiTwitterXFill } from "react-icons/ri"
 import { IoIosNotifications } from "react-icons/io"
 import { MdOutlineShoppingCart } from "react-icons/md"
 import { ImFacebook } from "react-icons/im"
@@ -15,7 +14,6 @@ import IconButton from "@mui/material/IconButton";
 import { useParams  } from "react-router-dom";
 export default function DashBoardLink({ state }) {
   const classes = useStyles()
-  const Params =  useParams()
   const [current_route, Setcurrent_route] = React.useState()
   const location = useLocation();
   React.useEffect(() => {
@@ -33,8 +31,8 @@ export default function DashBoardLink({ state }) {
           <Grid xs={8} md={7.5} xl={8.2} display={{ xs: "none", md: "block", lg: "block" }}>
             <div className="ccol  nav_list1">
               <ul> 
-              <Link to={`/weed-dispensaries/in/${state.Country.toLowerCase()}/${state.State.toLowerCase()}/${state.City.toLowerCase()}`} id={`${(current_route?.slice(0,18) === "/weed-dispensaries" ? "Active" : "")}`}> <li >Dispensaries </li></Link>
-                <Link to={`/weed-deliveries/in/${state.Country.toLowerCase()}/${state.State.toLowerCase()}/${state.City.toLowerCase()}`} id={`${(current_route?.slice(0,16) === "/weed-deliveries" ? "Active" : "")}`}><li>Deliveries</li></Link>
+              <Link to={`/weed-dispensaries/in/${state.Country.toLowerCase()}/${state.State.toLowerCase()}/${state.City.toLowerCase()}/${state.route.toLowerCase()}`} id={`${(current_route?.slice(0,18) === "/weed-dispensaries" ? "Active" : "")}`}> <li >Dispensaries </li></Link>
+                <Link to={`/weed-deliveries/in/${state.Country.toLowerCase()}/${state.State.toLowerCase()}/${state.City.toLowerCase()}/${state.route.toLowerCase()}`} id={`${(current_route?.slice(0,16) === "/weed-deliveries" ? "Active" : "")}`}><li>Deliveries</li></Link>
                 <Link to="/brands" id={`${(current_route === "/brands" ? "Active" : "")}`}> <li>Brand</li></Link>
                 <Link to="/products" id={`${(current_route === "/products" ? "Active" : "")}`}><li>Product</li></Link>
                 {/* <Link to="/Deals"  id={`${(current_route ===  "/Deals" ? "Active" : "")}`}><li>Deals</li></Link> */}

@@ -94,18 +94,22 @@ const reducer = (state, action) => {
       {
         return { ...state, City: action.City }
       }
-      case "permission":
-        {
-          return { ...state, permission: action.permission }
-        }
-        case "Loading":
-          {
-            return { ...state, Loading: action.Loading }
-          }
-          case "StaticImage":
-            {
-              return { ...state, StaticImage: action.StaticImage }
-            }
+    case "permission":
+      {
+        return { ...state, permission: action.permission }
+      }
+    case "Loading":
+      {
+        return { ...state, Loading: action.Loading }
+      }
+    case "StaticImage":
+      {
+        return { ...state, StaticImage: action.StaticImage }
+      }
+    case "route":
+      {
+        return { ...state, route: action.route }
+      }
 
 
 

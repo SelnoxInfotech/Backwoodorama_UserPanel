@@ -13,7 +13,6 @@ import { useLocation } from 'react-router-dom';
 const DeliveryMenuBar = () => {
     const { state } = React.useContext(Createcontext)
     const [Deliverie, SetDelivery] = React.useState([])
-    const [Pickup, SetPickup] = React.useState([])
     React.useEffect(() => {
 
         if (state.City !== "") {
@@ -96,7 +95,7 @@ const DeliveryMenuBar = () => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-
+    console.log(useLocation().pathname)
     return (
         <React.Fragment>
             <div className="col-lg-12 col-11 delivery_menuBar_container px-0 mt-4">
