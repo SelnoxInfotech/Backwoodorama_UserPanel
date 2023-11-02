@@ -1,10 +1,12 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import {  AiFillLike } from "react-icons/ai"
 import { BsStar ,BsStarFill } from "react-icons/bs";
+import Button from '@mui/material/Button';
+import useStyles from "../../../../Style";
  import React from 'react';
 import ReportReviewPopup from '../ReviewPopup/ReportReviewPopup';
 const RelatedReview = ({AllReview, SetReview}) => {
-  
+    const classes = useStyles()
     return (
         <React.Fragment>
             <div className='container-fluid'>
@@ -70,7 +72,7 @@ const RelatedReview = ({AllReview, SetReview}) => {
                                     <div className='related_review_footer '>
                                        
                                             <div className='related_review_footer_paragraph ellipsis'>
-                                               <button className='review_help_btn'> <AiFillLike/> Help</button>
+                                               <Button className={classes.WriteReviewBtn_Color} variant="outlined"> <AiFillLike/> Helpful</Button>
                                             </div>
                                             <div className='related_review_footer_paragraph ellipsis px-0'>
                                               

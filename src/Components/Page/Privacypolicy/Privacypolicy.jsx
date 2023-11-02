@@ -18,9 +18,11 @@ const Privacypolicy = () => {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, [])
-
+  let divElement = document.getElementById('Navbar_box').clientHeight
   React.useEffect(()=>{
-    console.log(ref.current.childNodes)
+    
+
+ 
     ref.current.childNodes.forEach((item , index)=>{
       allHeigths.push({
        topheigth: item.offsetTop,
@@ -30,7 +32,7 @@ const Privacypolicy = () => {
     })
    
     for(let i=0 ; i < allHeigths.length -1 ; i++){
-       if(offset > allHeigths[i].topheigth && offset < allHeigths[i+1].topheigth ){
+       if(offset > allHeigths[i].topheigth - divElement - 100   && offset < allHeigths[i+1].topheigth - divElement ){
         setId(allHeigths[i].id)
        }else if(offset < allHeigths[0].topheigth){
         setId(allHeigths[0].id)
@@ -41,6 +43,15 @@ const Privacypolicy = () => {
        }
     }
   },[offset])
+
+  function gothroughID(ID){
+   
+    allHeigths.forEach((item)=>{
+      if(item.id == ID){
+        window.scrollTo(0, item.topheigth - divElement)
+      }
+    })
+  }
   return (
     <>
     <div className='term_condition'>
@@ -126,7 +137,7 @@ const Privacypolicy = () => {
               <li id='ctt'>
                 <span className='question'>Contact Us</span>
                 <span className="answer">
-                If you have any questions, concerns, or requests regarding this Privacy Policy, please contact us at mailto:info@weedx.io.
+                If you have any questions, concerns, or requests regarding this Privacy Policy, please contact us at <a  href = "mailto:info@weedx.io">info@weedx.io</a> .
                 </span>
               </li> 
             </ol>
@@ -134,20 +145,19 @@ const Privacypolicy = () => {
          <div className="col-md-4"> 
            <div className="tc_topic_list">
             <div className="heading_box">
-              <span ><Link><FaFacebookF></FaFacebookF></Link></span>
-              <span><Link><MdEmail></MdEmail></Link></span>
+            <h3 className='text-white m-0 sideTableHeading'>Table of Contents</h3>
             </div>
             <ul>
-              <li> <a href="#aot" className={Id === "aot" && "activeTable"  }>1. Introduction</a> </li>
-              <li> <a href="#etuw" className={Id === "etuw" && "activeTable"  }>2. Information We Collect</a></li>
-              <li> <a href="#voa" className={Id === "voa" && "activeTable"  }> 3. How We Use Your Information  </a></li>
-              <li> <a href="#pp" className={Id === "pp" && "activeTable"  }>4. Sharing Your Information</a></li>
-              <li> <a href="#ur" className={Id === "ur" && "activeTable"  }> 5. Cookies and Tracking Technologies </a></li>
-              <li> <a href="#oods" className={Id === "oods" && "activeTable"  }> 6. Your Choices</a></li>
-              <li> <a href="#drl" className={Id === "drl" && "activeTable"  }>  7. Security </a></li>
-              <li> <a href="#cwll" className={Id === "cwll" && "activeTable"  }> 8. Children's Privacy </a></li>
-              <li> <a href="#ip" className={Id === "ip" && "activeTable"  }>  9. Changes to This Privacy Policy </a></li>
-              <li> <a href="#lol" className={Id === "lol" && "activeTable"  }>10. Contact Us </a></li>
+              <li onClick={()=>gothroughID("etuw")} className={Id === "etuw" && "activeTable"  }>1. Introduction </li>
+              <li onClick={()=>gothroughID("voa")} className={Id === "voa" && "activeTable"  }>2. Information We Collect</li>
+              <li onClick={()=>gothroughID("pp")} className={Id === "pp" && "activeTable"  }> 3. How We Use Your Information  </li>
+              <li onClick={()=>gothroughID("ur")} className={Id === "ur" && "activeTable"  }>4. Sharing Your Information</li>
+              <li onClick={()=>gothroughID("oods")} className={Id === "oods" && "activeTable"  }> 5. Cookies and Tracking Technologies </li>
+              <li onClick={()=>gothroughID("drl")} className={Id === "drl" && "activeTable"  }> 6. Your Choices</li>
+              <li onClick={()=>gothroughID("cwll")} className={Id === "cwll" && "activeTable"  }>  7. Security </li>
+              <li onClick={()=>gothroughID("ip")} className={Id === "ip" && "activeTable"  }> 8. Children's Privacy </li>
+              <li onClick={()=>gothroughID("lol")} className={Id === "lol" && "activeTable"  }>  9. Changes to This Privacy Policy </li>
+              <li onClick={()=>gothroughID("ctt")} className={Id === "ctt" && "activeTable"  }>10. Contact Us </li>
              
             </ul>
            </div>

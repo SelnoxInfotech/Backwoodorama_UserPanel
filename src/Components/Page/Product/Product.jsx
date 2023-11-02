@@ -3,6 +3,7 @@ import CategoryProduct from "../../../Components/Page/Home/Dashboard/ComponentDa
 import ClickAwayListener from 'react-click-away-listener';
 import { useLocation, useNavigate, useParams } from "react-router-dom"
 import { ProductSeo, ProductCategorySeo } from "../../Component/ScoPage/ProductSeo"
+import SkeletonCard from '../../Component/Skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton';
 import ProductSearchResult from "./ProductSearchResult/ProductSearchResult"
 import Createcontext from "../../../Hooks/Context"
 import { GetProduct, CategoryProductsearch, SubCategoryApi, SubcategoryProduct } from "../../../Api/Api"
@@ -37,21 +38,17 @@ const Product = () => {
 
         return str
     }
-
-
     async function ShowCategoryProduct(id, name) {
         await navigate(`/products/${modifystr(name.toLowerCase())}/${id}`);
         await setSelectedOption(null)
         setsubcategories([])
     }
-
     const selectOption = (option) => {
         setSelectedOption(option);
         setIsDropdownOpen(false);
         navigate(`/products/${modifystr(params.categoryname.toLowerCase())}/${modifystr(option.name.toLowerCase())}/${option.id}`)
 
     };
-
     const [Category, SetCategory] = React.useState([])
     const [C, f] = React.useState('')
     React.useEffect(() => {
@@ -412,7 +409,7 @@ const Product = () => {
         }
 
     }, [state.Location, params])
-
+   
     return (
         <>
             {!params.id ? <ProductSeo location={location.pathname}></ProductSeo> :
@@ -423,7 +420,7 @@ const Product = () => {
                         <CategoryProduct Category={Category} ShowCategoryProduct={ShowCategoryProduct}></CategoryProduct>
                     </div>
                     {
-                        params.categoryname ?
+                        params.categoryname &&
                             <div className="col-12 mt-sm-4 mt-2">
                                 <div className="d-flex justify-content-end align-items-center">
                                     <ClickAwayListener onClickAway={() => {
@@ -453,13 +450,12 @@ const Product = () => {
                                     </ClickAwayListener>
                                 </div>
                             </div>
-                            :
-                            null
                     }
                     <div className="col-12 center">
                         {
                             loading ?
-                                <div className="loaderFLower"></div>
+                                // <div className="loaderFLower"></div>
+                                <SkeletonCard/>
                                 :
                                 Product?.length ?
 

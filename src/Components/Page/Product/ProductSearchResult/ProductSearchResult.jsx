@@ -13,6 +13,7 @@ import Cookies from 'universal-cookie';
 import Createcontext from "../../../../Hooks/Context"
 import './ProductSearchResult.css'
 import _ from "lodash";
+import SkeletonCard from '../../../Component/Skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton'
 import AddToCartPopUp from "../AddToCartPopUp/AddToCartPopUp";
 import { Link } from "react-router-dom";
 import { WishListPost } from "../../../Component/Whishlist/WishListApi_"
@@ -152,11 +153,6 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
 
 
     }
-
-
-
-
-
     React.useEffect(() => {   
         localStorage.setItem('items', JSON.stringify(AddTOCard))
     }, [AddTOCard])
@@ -164,7 +160,6 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
 
     },[])
-
     const handleWhishList = (id) => {
         if (state.login === false) {
             SetWishList(!Whishlist)
@@ -210,86 +205,88 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                 <div className="col-12 mt-4  fontStyle">
                     <h2 className="section_main_title">{CategoryName}</h2>
                 </div>
-                <div className="product_card_wrapper">
-                    {
-                        RelatedProductResult.map((items, index) => {
-                            if(items.id !== currentProductID){
-                                return (
-                                    <div className="productSearch_result_container" key={index}>
-                                            <div className="productSearchResultImage_container">
-                                                <div className="product_whish_list">
-
-                                                    <Box className={classes.productSearchIcons}>
-                                                        <IconButton onClick={() => { handleWhishList(items.id) }} aria-label="Example">
-                                                            {
-                                                            state.login ?   state.WishList[items.id] ? <AiFillHeart color="31B665"></AiFillHeart> : <AiOutlineHeart  color="31B665" /> : <AiOutlineHeart color="31B665" />
-                                                            }
-                                                        </IconButton>
-                                                    </Box>
-                                                </div>
-                                                <Link to={`/products/${modifystr(items.category_name.toLowerCase())}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${modifystr(items.Product_Name.toLowerCase())}/${items.id}`}>
-                                                    <LazyLoadImage
-                                                        className="product_search_result_image"
-                                                        onError={event => {
-                                                            event.target.src = "/image/blankImage.jpg"
-                                                            event.onerror = null
-                                                        }}
-                                                        src={`${items?.images[0]?.image}`}
-                                                        height={"100px"}
-                                                        alt={items.Product_Name}
-                                                    />
-                                                </Link>
-                                            </div>
-                                            <div className=" product_search_result_content_div ">
-                                            
-                                                
-                                                        <Link to={`/products/${items.category_name.toLowerCase()}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${items.Product_Name.replace(/%20| /g, "-").toLowerCase()}/${items.id}`} state={items.id}>
-                                                            <p className="productSearchResultParagraph text-truncate">{items.Product_Name}</p>
-                                                        </Link>
-                                                
-                                                
-                                                        <p className="product_search_result_sub_heading text-truncate">by {items.StoreName}</p>
-                                                
-                                                    <div className="product_category_list">
-                                                        <span className="product_search_result_span1">15% THC | 0.2% CBD</span>
-                                                        <div className="product_cart_review">
-                                                            {items.rating &&  new Array(items.rating).fill(null).map(() => (
-                                                                <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />  
-                                                            ))}
-                                                            
-                                                            {new Array(5-items.rating).fill(null).map(() => (
-                                                                <BsStar size={16} color="#31B665" className="product_search_rating_star" />  
-                                                            ))}
-                                                        </div>
-                                                    </div>
-
-                                                    <div className=" productPriceDivHeight">
-                                                        <p className="productSearch text-truncate"><span className="productSearchPrice">${parseInt(items.Prices[0].Price[0].SalePrice)}</span> per {items.Prices[0].Price[0].Weight ? items.Prices[0].Price[0].Weight  : `${items.Prices[0].Price[0].Unit} Unit`}</p>
-                                                    </div>
-                                                    <div className="my-2">
-                                                        <Box className={`center ${classes.loadingBtnTextAndBack}`}>
-                                                            {
-                                                                items?.Prices[0].Price.length > 1
-                                                                    ?
-                                                                    <ProductIncDecQuantity popup={popup}   SetPopup={SetPopup} items={items} AddToCart={AddToCart} />                                                                                                         
-                                                                    :
-                                                                    <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" }}
-                                                                        onClick={() => { AddToCart(items) }}>
-                                                                        Add To Cart
-                                                                    </LoadingButton>
-                                                            }
-                                                            {
-                                                                CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />
-                                                            }
-                                                        </Box>
-                                                    </div>
-                                            </div>
-                                    </div>
-                                )
-                            }
-                        })
-                    }
-                </div>
+             
+                     <div className="product_card_wrapper">
+                       {
+                           RelatedProductResult.map((items, index) => {
+                               if(items.id !== currentProductID){
+                                   return (
+                                       <div className="productSearch_result_container" key={index}>
+                                               <div className="productSearchResultImage_container">
+                                                   <div className="product_whish_list">
+   
+                                                       <Box className={classes.productSearchIcons}>
+                                                           <IconButton onClick={() => { handleWhishList(items.id) }} aria-label="Example">
+                                                               {
+                                                               state.login ?   state.WishList[items.id] ? <AiFillHeart color="31B665"></AiFillHeart> : <AiOutlineHeart  color="31B665" /> : <AiOutlineHeart color="31B665" />
+                                                               }
+                                                           </IconButton>
+                                                       </Box>
+                                                   </div>
+                                                   <Link to={`/products/${modifystr(items.category_name.toLowerCase())}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${modifystr(items.Product_Name.toLowerCase())}/${items.id}`}>
+                                                       <LazyLoadImage
+                                                           className="product_search_result_image"
+                                                           onError={event => {
+                                                               event.target.src = "/image/blankImage.jpg"
+                                                               event.onerror = null
+                                                           }}
+                                                           src={`${items?.images[0]?.image}`}
+                                                           height={"100px"}
+                                                           alt={items.Product_Name}
+                                                       />
+                                                   </Link>
+                                               </div>
+                                               <div className=" product_search_result_content_div ">
+                                               
+                                                   
+                                                           <Link to={`/products/${items.category_name.toLowerCase()}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${items.Product_Name.replace(/%20| /g, "-").toLowerCase()}/${items.id}`} state={items.id}>
+                                                               <p className="productSearchResultParagraph text-truncate">{items.Product_Name}</p>
+                                                           </Link>
+                                                   
+                                                   
+                                                           <p className="product_search_result_sub_heading text-truncate">by {items.StoreName}</p>
+                                                   
+                                                       <div className="product_category_list">
+                                                           <span className="product_search_result_span1">15% THC | 0.2% CBD</span>
+                                                           <div className="product_cart_review">
+                                                               {items.rating &&  new Array(items.rating).fill(null).map(() => (
+                                                                   <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />  
+                                                               ))}
+                                                               
+                                                               {new Array(5-items.rating).fill(null).map(() => (
+                                                                   <BsStar size={16} color="#31B665" className="product_search_rating_star" />  
+                                                               ))}
+                                                           </div>
+                                                       </div>
+   
+                                                       <div className=" productPriceDivHeight">
+                                                           <p className="productSearch text-truncate"><span className="productSearchPrice">${parseInt(items.Prices[0].Price[0].SalePrice)}</span> per {items.Prices[0].Price[0].Weight ? items.Prices[0].Price[0].Weight  : `${items.Prices[0].Price[0].Unit} Unit`}</p>
+                                                       </div>
+                                                       <div className="my-2">
+                                                           <Box className={`center ${classes.loadingBtnTextAndBack}`}>
+                                                               {
+                                                                   items?.Prices[0].Price.length > 1
+                                                                       ?
+                                                                       <ProductIncDecQuantity popup={popup}   SetPopup={SetPopup} items={items} AddToCart={AddToCart} />                                                                                                         
+                                                                       :
+                                                                       <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" }}
+                                                                           onClick={() => { AddToCart(items) }}>
+                                                                           Add To Cart
+                                                                       </LoadingButton>
+                                                               }
+                                                               {
+                                                                   CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />
+                                                               }
+                                                           </Box>
+                                                       </div>
+                                               </div>
+                                       </div>
+                                   )
+                               }
+                           })
+                       }
+                     </div>
+                  
             </div>
             {Whishlist && <WhisList open1={Whishlist} SetWishList={SetWishList}></WhisList>}
             <PreCheckout />

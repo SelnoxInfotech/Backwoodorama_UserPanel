@@ -21,7 +21,7 @@ const DispensoriesAddressSkeleton = () => {
 
 
                                 <Paper sx={{ height: "450px" }}>
-                                    <Skeleton variant="rectangular" sx={{ width: "100%", height: "200px", borderRadius: "10px" }} />
+                                       <Skeleton variant="rectangular" sx={{ width: "100%", height: "200px", borderRadius: "10px" }} />
                                     <Box sx={{ width: "100%", paddingLeft: "15px", marginTop: "10px" }}>
                                         <Skeleton variant="text" sx={{ width: "35%" }} />
                                     </Box>

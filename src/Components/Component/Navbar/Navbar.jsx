@@ -115,7 +115,7 @@ const Navbar = () => {
   }
   return (
     <React.Fragment>
-      <div ref={ref} className='sticky-top' style={{ background: "white", padding: "10px" }}>
+      <div ref={ref} className='sticky-top' id='Navbar_box' style={{ background: "white", padding: "10px" }}>
         <Grid container spacing={0} rowSpacing={0.3}   >
           {
             Hamburger ?

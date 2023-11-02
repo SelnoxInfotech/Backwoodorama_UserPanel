@@ -100,16 +100,6 @@
     justify-content: flex-end;
     gap: 20px;
    }
-   .review_help_btn{
-      background-color: white;
-      color: #707070;
-      border: 1px solid #f0f0f0;
-      height: 26px;
-      font-size: 12px;
-      border-radius: 14px;
-      text-transform: none;
-      padding: 0 5px;
-   }
    @media screen and (max-width: 1024px){
        .reviews_title{
         font-size: 14px;

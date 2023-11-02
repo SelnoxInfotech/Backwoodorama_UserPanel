@@ -118,11 +118,11 @@ const AboutUs = () => {
         {
             head: "Cannabis Industry with Weedx for Business",
             paragraph: <p>Weedx for Business emerges as the driving force behind the cannabis realm,
-                seamlessly merging SaaS solutions with a dynamic marketplace and an expansive network of trusted retailers. Our comprehensive Weedx Business product suite converges omnichannel advertising, strategic marketing, streamlined operations, and a personalized branded ecommerce destination into a singular, easily navigable platform. Empowering enterprises to expand while navigating the intricate and diverse landscape of cannabis regulations is at the core of our mission. By listing your business on Weedx, you open doors to increased visibility among cannabis enthusiasts. Leveraging on-platform marketing and exclusive deals further amplifies your business's reach and exposure, ensuring your sought-after products and services don't go unnoticed by the eager eyes of your customer base.
+                seamlessly merging SaaS solutions with a dynamic marketplace and an expansive network of trusted retailers. Our comprehensive Weedx Business product suite converges omnichannel advertising, strategic marketing, streamlined operations, and a personalized branded e-commerce destination into a singular, easily navigable platform. Empowering enterprises to expand while navigating the intricate and diverse landscape of cannabis regulations is at the core of our mission. By listing your business on Weedx, you open doors to increased visibility among cannabis enthusiasts. Leveraging on-platform marketing and exclusive deals further amplifies your business's reach and exposure, ensuring your sought-after products and services don't go unnoticed by the eager eyes of your customer base.
                 Your customers is actively seeking your presence, and Weedx stands as the gateway to making that connection seamless and rewarding.</p>
         }
     ]
-    const AboutUsBannerArray = [{ content: "“  WeedX has not only been a pleasure to work with, but has been very beneficial to our organization. Throughout the last year we have seen significant improvement in our organic rankings. With MMX’s thorough reporting we are able to analyze all of our  marketing   platforms and their ROI to optimize our marketing budget. I would recommen them to anyone seeking exceptional marketing services.  “" },
+    const AboutUsBannerArray = [{ content: "“  WeedX has not only been a pleasure to work with but has been very beneficial to our organization. Throughout the last year, we have seen significant improvement in our organic rankings. With MMX’s thorough reporting, we are able to analyze all of our  marketing   platforms and their ROI to optimize our marketing budget. I would recommend them to anyone seeking exceptional marketing services.  “" },
     { content: "“  WeedX has not only been a pleasure to work with, but has been very beneficial to our organization. Throughout the last year we have seen significant improvement in our organic rankings. With MMX’s thorough reporting we are able to analyze all of our  marketing   platforms and their ROI to optimize our marketing budget. I would recommen them to anyone seeking exceptional marketing services.  “" }
 
     ]
@@ -130,7 +130,7 @@ const AboutUs = () => {
         , { head: "Result-Oriented", icons: <BsGraphUpArrow color="#27BE72" />, paragraph: "We prioritize achieving optimal outcomes for clients by harnessing our team's professionalism and upholding company values." },
     {
         head: "Optimize your marketing", icons: <MdSettingsSuggest color="#27BE72" />,
-        paragraph: "Enhance your business by gaining deeper insights into your existing and potential customers, optimizing your marketing strategies."
+        paragraph: "Enhance your business by gaining deeper insights into your existing and potential customers and optimizing your marketing strategies."
     }]
 
     // const NumberOfVisits = [{ visit: "60 MILLION" }, { visit: "4+ MILLION" }, { visit: "4,600+ MILLION" }, { visit: "1.3 million" }, { visit: "5,000+" }]
@@ -156,19 +156,19 @@ const AboutUs = () => {
                     <ul>
                         <li>
                             <span className="upperText">60 MILLION</span>
-                            <span className="lowertext">Visitors to Leafly every year</span>
+                            <span className="lowertext">Visitors to weedx io every year</span>
                         </li>
                         <li> <span className="upperText">4+ MILLION</span>
                             <span className="lowertext"> Orders placed annually
                             </span>                 </li>
                         <li> <span className="upperText">4,600+ MILLION</span>
-                            <span className="lowertext"> Retailers online with Leafly
+                            <span className="lowertext"> Retailers online with weedx io
                             </span>                       </li>
                         <li> <span className="upperText">1.3 million</span>
                             <span className="lowertext"> Product reviews
                             </span>          </li>
                         <li> <span className="upperText">5,000+</span>
-                            <span className="lowertext"> Strains in the Leafly database</span>
+                            <span className="lowertext"> Strains in the weedx io database</span>
                         </li>
                     </ul>
                 </div>

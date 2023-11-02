@@ -86,14 +86,12 @@ const Footer = () => {
                                             </Link>
                                         } else {
                                             return (
-                                                <Link to={`/products/${ele.name.replace(/%20| /g, "-").toLowerCase()}/${ele.id}`} key={index}>
+                                                <Link to={`/products/${ele.name.replace(/%20| /g, "-").toLowerCase()}/${ele.id}`} key={index}  >
                                                     <li className="footer_li ellipsis" >{ele.name}</li>
-
                                                 </Link>
                                             )
                                         }
                                     })}
-                                    
                                     <li className="footer_li ellipsis" onClick={() => { setmorelist(!morelist) }}>{morelist ? "Less" : "More"}</li>
                                 </ol>
 
@@ -128,7 +126,7 @@ const Footer = () => {
 
                                     <Link to={'/terms-and-conditions'}>
 
-                                        <li className="footer_li" > Term & Condition </li>
+                                        <li className="footer_li" > Terms & Conditions </li>
                                     </Link>
                                     <Link to={'/cookies-policy'}>
 
