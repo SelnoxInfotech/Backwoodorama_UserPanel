@@ -173,8 +173,8 @@ line-height: normal;
 .blogcardDescription{
 
     display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
+    /* -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical; */
     overflow: hidden;
     color: #5A7184;
     font-size: 14px;
