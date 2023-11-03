@@ -76,7 +76,7 @@ const ProductList = ({ arr, ProductNavigate }) => {
             }).catch(
                 function (error) {
                     if (error.response.status === 406) {
-                        alert("This Product" + error.response.data[0])
+                        alert("This Product " + error.response.data[0])
                     }
                 })
         }

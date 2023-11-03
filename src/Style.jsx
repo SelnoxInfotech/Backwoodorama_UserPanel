@@ -506,7 +506,13 @@ const useStyles = makeStyles({
   productSearchIcons: {
     fontSize: "25px",
     color: "gray"
-
+  },
+  productSearchIcons2: {
+    fontSize: "25px",
+    color: "gray",
+    position:'absolute',
+    top:'0',
+    right:'0'
   },
   muiSignupInputFileld: {
     "&.MuiInputBase-root-MuiOutlinedInput-root": {

@@ -52,3 +52,32 @@
     display: flex;
     gap: 2px;
 }
+
+
+@media only screen and (max-width: 768px){
+    .productSearch_result_container{
+        width: 45%;
+        padding: 10px;
+    }
+    .productSearchResultImage_container .product_search_result_image {
+        width: 100%;
+        height: 130px;
+    }
+    .product_search_result_content_div .productSearchResultParagraph{
+        font-size: 14px;
+        font-weight: 700;
+    }
+    .product_search_result_content_div .product_search_result_sub_heading{
+        font-size: 12px;
+    }
+    .product_category_list .product_search_result_span1{
+     font-size: 14px;
+    }
+    .productSearchPrice{
+        font-size: 14px;
+    }
+    .product_card_wrapper{
+        padding: 0;
+        gap: 10px;
+    }
+}

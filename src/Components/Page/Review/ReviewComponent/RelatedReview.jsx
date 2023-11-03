@@ -5,8 +5,25 @@ import Button from '@mui/material/Button';
 import useStyles from "../../../../Style";
  import React from 'react';
 import ReportReviewPopup from '../ReviewPopup/ReportReviewPopup';
+import { useState } from 'react';
+import { useEffect } from 'react';
 const RelatedReview = ({AllReview, SetReview}) => {
     const classes = useStyles()
+    const [readopen , setreadopen] = useState(true)
+    function textgive(text){
+        let arrofstr = text.split(' ');
+        let finalstr = ""
+        if( arrofstr.length >= 100  && readopen){
+           
+              for(let i=0 ; i<100 ; i++){
+                finalstr += `${arrofstr[i]} `
+              }
+        }else{
+          finalstr = text
+        }
+        return finalstr
+    }
+   
     return (
         <React.Fragment>
             <div className='container-fluid'>
@@ -60,14 +77,12 @@ const RelatedReview = ({AllReview, SetReview}) => {
                                                 <div className='review_date'>
                                                     <p>{ele.created_at.slice(0,10).split("-").reverse().join("-")}</p>
                                                 </div>
-                                             
-
-                                        
                                         </div>
 
                                     </div>
                                     <div className='review_description_container'>
-                                        <p>{text}</p>
+                                       
+                                        <p>{textgive(text)}   { text.split(' ').length >= 100 &&<span className='band_shlebtn' onClick={()=>setreadopen(!readopen)}>Read { readopen ? "More" : "Less"}</span>}</p>
                                     </div>
                                     <div className='related_review_footer '>
                                        

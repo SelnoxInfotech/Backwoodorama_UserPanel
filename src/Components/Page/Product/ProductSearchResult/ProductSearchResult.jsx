@@ -91,7 +91,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                 function (error) {
                     SetPopup(false)
                     if (error.response.status === 406) {
-                        alert("This Product" + error.response.data[0])
+                        alert("This Product " + error.response.data[0])
                     }
                 })
         }
@@ -218,7 +218,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                                                <div className="productSearchResultImage_container">
                                                    <div className="product_whish_list">
    
-                                                       <Box className={classes.productSearchIcons}>
+                                                       <Box className={classes.productSearchIcons2}>
                                                            <IconButton onClick={() => { handleWhishList(items.id) }} aria-label="Example">
                                                                {
                                                                state.login ?   state.WishList[items.id] ? <AiFillHeart color="31B665"></AiFillHeart> : <AiOutlineHeart  color="31B665" /> : <AiOutlineHeart color="31B665" />

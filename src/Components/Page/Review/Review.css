@@ -11,6 +11,8 @@
 .related_review_content{
     position: relative;
     flex: 1;
+    width: -webkit-fill-available;
+    word-break: break-all;
 }
 .related_review_container{
   padding: 20px;
@@ -68,7 +70,8 @@
     color: #474747;
     line-height: 1.5;
     margin: 0;
-    width: 80%;
+    width: 75%;
+    word-wrap: break-word;
    }
    .more_less_btn{
     border: none;
@@ -94,6 +97,7 @@
     font-weight: 400;
     line-height: 1.4;
     color: #202124;
+    word-wrap: break-word;
    }
    .related_review_footer{
     display: flex;

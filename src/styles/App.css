@@ -535,9 +535,7 @@ overflow-x: hidden; */
 
 @media (max-width: 768px) {
   .Dispansires_map {
-    position: relative;
     bottom: 0px;
-    height: 120vh;
   }
 }
 

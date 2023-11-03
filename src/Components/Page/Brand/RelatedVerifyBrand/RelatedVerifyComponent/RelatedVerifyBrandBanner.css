@@ -11,14 +11,7 @@
     overflow: hidden;
     position: relative;
   }
-  .band_shlebtn{
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all .3s ease;
-    color: #3F3F3F;
-  }
-  
+
   .relatedVerifyBrand_icons{
     position: absolute;
     right: 20px;

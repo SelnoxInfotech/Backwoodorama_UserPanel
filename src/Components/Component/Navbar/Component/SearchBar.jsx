@@ -16,6 +16,7 @@ const SearchBar = ({ path }) => {
     const [SearchData, SetSearchData] = React.useState([])
     const [SearchBarWidth, SetSearchBarWidth] = React.useState(window.innerWidth <= 900)
     const [windowSize, setWindowSize] = React.useState()
+    const [optionwidth, setoptionwidth] = React.useState()
     const classes = useStyles()
     const [input, Setinput] = React.useState('')
 
@@ -75,7 +76,6 @@ const SearchBar = ({ path }) => {
                             )
                         )
                     })
-                    // SetSearchData(response?.data);
                 }
 
                 else (
@@ -98,15 +98,36 @@ const SearchBar = ({ path }) => {
         window.addEventListener('resize', handleResize)
         if (windowSize <= 900) {
             SetSearchBarWidth(true)
+            let w = document.getElementById("navsearchConntainer").clientWidth
+            console.log(w)
+            setoptionwidth(w)
         }
         else {
             if (windowSize >= 900) {
                 SetSearchBarWidth(false)
+                let w = document.getElementById("navsearchConntainer").clientWidth/2;
+                console.log(w)
+                setoptionwidth(w)
             }
         }
         return () => window.removeEventListener('resize', handleResize)
 
     }, [windowSize])
+    React.useEffect(() => {
+        let windowWidth = window.screen.availWidth
+        if (windowWidth <= 900) {
+            let w = document.getElementById("navsearchConntainer").clientWidth
+            setoptionwidth(w)
+        }
+        else {
+            if (windowWidth >= 900) {
+                let w = document.getElementById("navsearchConntainer").clientWidth/2;
+                setoptionwidth(w)
+            }
+        }
+       
+
+    }, [])
 
     function SearchAPi(id, type, t) {
         if (type === 'Product') {
@@ -148,9 +169,8 @@ const SearchBar = ({ path }) => {
     return (
         <React.Fragment>
             <div className="col_Search">
-                <div className={` nav_search_bar_div center`} style={{ display: (openLocation && SearchBarWidth) && "block" }}>
+                <div className={` nav_search_bar_div center`} id='navsearchConntainer' style={{ display: (openLocation && SearchBarWidth) && "block" }}>
                     <AutoComplete
-                        // freeSolo
                         id="SearchBar"
                         disableClearable
                         open={open}
@@ -164,7 +184,7 @@ const SearchBar = ({ path }) => {
                             setOpen(false);
                         }}
                         // ListboxProps={{ style: { width: '100%' } }}
-                        componentsProps={{ popper: { style: { height: '100%', width: SearchBarWidth ? "100%" : "30%" } } }}
+                        componentsProps={{ popper: { style: { height: '100%', width : `${optionwidth}px` } } }}
                         onChange={(event, value) => SearchAPi(value?.id, value?.type, value, event)}
                         getOptionSelected={option => option.value}
                         getOptionLabel={(option) => option.value}
@@ -191,11 +211,9 @@ const SearchBar = ({ path }) => {
                             )
                         }}
                         loading={loading}
-                        sx={{ width: open && SearchBarWidth ? "200%" : "100%" }}
+                        sx={{ width: open && SearchBarWidth ? "100%" : "100%" }}
                         renderInput={(params) => <TextField
                             {...params}
-                            // size="small"
-                            // onClick={Search}
                             onChange={Search}
 
                             placeholder="Products Brands Retailers and more"
@@ -219,8 +237,13 @@ const SearchBar = ({ path }) => {
                         />
                         }
                     />
-                    <div id="Boder_left"></div>
-
+                    {
+                       SearchBarWidth && !open && 
+                        <div id="Boder_left"></div>
+                    }  
+                    {
+                       !SearchBarWidth && <div id="Boder_left"></div>
+                    }
                     <AddressSearchapi
                         openLocation={openLocation}
                         SearchBarWidth={SearchBarWidth}
