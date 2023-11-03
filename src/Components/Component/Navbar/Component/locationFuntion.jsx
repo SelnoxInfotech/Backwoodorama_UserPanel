@@ -1,29 +1,54 @@
-import React, { useState } from 'react';
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from 'react-google-autocomplete';
-import { debounce } from 'lodash';
-export default function LocationSearch() {
-    const [selectedPlace, setSelectedPlace] = useState(null);
-    const [searchText, setSearchText] = useState('');
-  
-    // Define a debounce function for the Autocomplete input
-    const handleSearchTextChange = debounce((value) => {
-      console.log(value);
-    }, 300); // Adjust the debounce delay as needed
-  
-    return (
-      <div>
-        <Autocomplete
-        //  apiKey= {'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU'}
-          onPlaceSelected={handleSearchTextChange(
+import { TextField } from '@mui/material';
+import useGoogle from 'react-google-autocomplete/lib/usePlacesAutocompleteService';
+import React from 'react';
+import Autocomplete from '@mui/material/Autocomplete';
+export default function () {
+  const [search, SetSearch] = React.useState([])
+  const {
+    placesService,
+    placePredictions,
+    getPlacePredictions,
+    isPlacePredictionsLoading
+  } = useGoogle({
+    debounce: 700,
+    language: 'en',
+    apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU'
+  });
 
-            (place) => {
-                setSelectedPlace(place);
-              }
 
-          )}
-        />
-    
-      </div>
-    );
+  React.useEffect(() => {
+    SetSearch(placePredictions)
+  }, [getPlacePredictions])
+
+  function handlechnage(e, value) {
+    console.log(e, value)
+    placesService?.getDetails({ placeId: value?.place_id }, (placeDetails) => console.log(placeDetails))
   }
+
+
+  
+  return (  
+    <Autocomplete
+      id="autocomplete-demo"
+      options={search}
+      onChange={((element, value) => { handlechnage(element, value) })}
+      renderOption={(props, value, index) => {
+        return <li {...props} > {value.description}</li>
+      }}
+      getOptionSelected={option => option?.description}
+      getOptionLabel={(option) => (option?.description)}
+      renderInput={(params) => (
+        <TextField
+          {...params}
+          onChange={(e) => {
+            getPlacePredictions({
+              input: e.target.value
+            })
+          }}
+          label="Select a fruit"
+          variant="outlined"
+        />
+      )}
+    />
+  );
+}

@@ -19,7 +19,7 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
 
 
   const { ref } = usePlacesWidget({
-    debounce: 50000,
+    debounce: 500,
     apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
     onPlaceSelected:
       (place) => {
@@ -74,7 +74,7 @@ export default function AddressSearch({ openLocation, SearchBarWidth, open, setO
 
       fields: ["address_components", "formatted_address"],
       // "types": ['locality', 'route', "postal_code", 'administrative_area_level_2'],
-      // componentRestrictions: { country: ['in '] }
+      // componentRestrictions: { country: ['in'] }
       // types: ['city']
     },
     defaultValue: "Amsterdam",

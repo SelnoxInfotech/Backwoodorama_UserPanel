@@ -75,7 +75,7 @@ const Allblogs = () => {
                           <h2 className='blogcardHeading'>{items.Title}</h2>
                         </Link>
                         <Link to={`/cannabis-news/${items.Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${items.id}`} key={index}>
-                          <p className='blogcardDescription'>   <div dangerouslySetInnerHTML={{ __html: items?.Description.slice(0,100) }} /></p>
+                          <p className='blogcardDescription'>   <div dangerouslySetInnerHTML={{ __html: items?.Description }} /></p>
                         </Link>
                         <div className='row extra_function extra_function_destop '>
                           <div className='col-3'>
