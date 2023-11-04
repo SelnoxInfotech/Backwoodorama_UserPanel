@@ -177,12 +177,13 @@ const SearchBar = ({ path }) => {
                         onOpen={() => {
                             setOpen(true);
                         }}
-                        classes={{ paper: classes.paper }}
-                        // onClick={Search}
-                        filterOptions={x => x}
                         onClose={() => {
                             setOpen(false);
                         }}
+                        classes={{ paper: classes.paper }}
+                        // onClick={Search}
+                        filterOptions={x => x}
+                       
                         // ListboxProps={{ style: { width: '100%' } }}
                         componentsProps={{ popper: { style: { height: '100%', width : `${optionwidth}px` } } }}
                         onChange={(event, value) => SearchAPi(value?.id, value?.type, value, event)}
@@ -248,7 +249,7 @@ const SearchBar = ({ path }) => {
                         openLocation={openLocation}
                         SearchBarWidth={SearchBarWidth}
                         setOpenLocation={setOpenLocation}
-                        open={open}
+                    open1={open}
                         path={path}
                     ></AddressSearchapi>
 

@@ -31,14 +31,14 @@ export default function DashBoardLink({ state }) {
               <ul>
                 <Link
 
-                  to={(state.Country !== '' && state.State !== '' && state.City !== '' && state.route !== '') ? ` /weed-dispensaries/in/${state.Country.toLowerCase()}/${state.State.toLowerCase()}/${state.City.toLowerCase()}/${state.route.toLowerCase()}` :
+                  to={(state.Country !== '' && state.State !== '' && state.City !== '' && state.route !== '') ? `/weed-dispensaries/in/${state.Country.toLowerCase()}/${state.State.toLowerCase()}/${state.City.toLowerCase()}/${state.route.toLowerCase()}` :
                     (state.Country !== '' && state.State !== '' && state.City !== '') ? `/weed-dispensaries/in/${state.Country.toLowerCase()}/${state.State.toLowerCase()}/${state.City.toLowerCase()}`
                       : (state.Country !== '' && state.State !== '') ? `/weed-dispensaries/in/${state.Country.toLowerCase()}/${state.State.toLowerCase()}}`
                         : (state.Country !== '') && `/weed-dispensaries/in/${state.Country.toLowerCase()}`}
                   id={`${(current_route?.slice(0, 18) === "/weed-dispensaries" ? "Active" : "")}`}> <li >Dispensaries </li></Link>
                 <Link 
                
-                to={(state.Country !== '' && state.State !== '' && state.City !== '' && state.route !== '') ? ` /weed-deliveries/in/${state.Country.toLowerCase()}/${state.State.toLowerCase()}/${state.City.toLowerCase()}/${state.route.toLowerCase()}` :
+                to={(state.Country !== '' && state.State !== '' && state.City !== '' && state.route !== '') ? `/weed-deliveries/in/${state.Country.toLowerCase()}/${state.State.toLowerCase()}/${state.City.toLowerCase()}/${state.route.toLowerCase()}` :
                 (state.Country !== '' && state.State !== '' && state.City !== '') ? `/weed-deliveries/in/${state.Country.toLowerCase()}/${state.State.toLowerCase()}/${state.City.toLowerCase()}`
                   : (state.Country !== '' && state.State !== '') ? `/weed-deliveries/in/${state.Country.toLowerCase()}/${state.State.toLowerCase()}}`
                     : (state.Country !== '') && `/weed-deliveries/in/${state.Country.toLowerCase()}`}
