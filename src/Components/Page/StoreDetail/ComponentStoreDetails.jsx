@@ -210,7 +210,7 @@ const StoreDetail1 = ({storeDetails}) => {
                         <div className="row mx-0">
                             {  storeDetails[0]?.CurbSide_Pickup &&
                                storeDetails[0]?.CurbSidePickupHours !== null &&  <div className="p-md-2 p-0 col-md-5 col-12">
-                                <Openingtime storeDetails={storeDetails} heading={"CrubSide PickUp Hours"} type={storeDetails[0]?.CurbSidePickupHours}/>
+                                <Openingtime storeDetails={storeDetails} heading={"CurbSide PickUp Hours"} type={storeDetails[0]?.CurbSidePickupHours}/>
                                 </div>
                             }
                             {    

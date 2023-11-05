@@ -107,7 +107,20 @@ const ProductDetail = () => {
         })
         SetPrice(Price => [...Price, { Product_id: Product, Item_id: Item }]);
     }
-
+    const [readopen , setreadopen] = React.useState(true)
+    function textgive(text){
+        let arrofstr = text.split(' ');
+        let finalstr = ""
+        if( arrofstr.length >= 100  && readopen){
+           
+              for(let i=0 ; i<100 ; i++){
+                finalstr += `${arrofstr[i]} `
+              }
+        }else{
+          finalstr = text
+        }
+        return finalstr
+    }
     const Addtocard = async (Event) => {
 
         if (token_data) {
@@ -380,13 +393,16 @@ const ProductDetail = () => {
                     }
                 </div>
                 {ProductDetails.map((ele, index) => {
+                    console.log(ele.Product_Description  ,'Product_Description')
                     return (
                         <div key={ele.id} className="col-10  border mt-4 product_desc_container">
                             <div className="col-10  prod_des_head fontStyle ">
                                 <p>Product Description</p>
+                               
                             </div>
                             <div className="col-10 center product_des_para ">
 
+                            {/* <p>{textgive(text)}   { text.split(' ').length >= 100 &&<span className='band_shlebtn' onClick={()=>setreadopen(!readopen)}>Read { readopen ? "More" : "Less"}</span>}</p> */}
 
                             <span>{parse(ele.Product_Description)}</span>
 
