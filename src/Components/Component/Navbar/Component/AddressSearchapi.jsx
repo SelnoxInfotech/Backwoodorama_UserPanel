@@ -161,7 +161,7 @@
 //         sx={{ width: "100%" }}
 //         className={`sec_input_search SearchBar Input ${classes.SearchBar_Text}`}
 //         placeholder="Enter Location.."
-       
+
 //       />
 
 
@@ -180,7 +180,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import useStyles from "../../../../Style"
 import Createcontext from "../../../../Hooks/Context"
 import { useNavigate } from "react-router-dom";
-export default function SearchingLocation({ openLocation, SearchBarWidth, open1,setOpenLocation, path }) {
+export default function SearchingLocation({ openLocation, SearchBarWidth, open1, setOpenLocation, path }) {
   const {
     placesService,
     placePredictions,
@@ -195,6 +195,7 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
   const navigate = useNavigate();
   const [formatted_address, Setformatted_address] = React.useState('')
   const { state, dispatch } = React.useContext(Createcontext)
+  const[dropdwondata,Setdropwondata]=React.useState([])
   React.useEffect(() => {
     Setformatted_address(state.Location)
   }, [state])
@@ -218,8 +219,8 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
           sta = data?.long_name.replace(/\s/g, '-')
           return dispatch({ type: 'State', State: data?.long_name.replace(/\s/g, '-') })
         }
-        if ((data.types.indexOf('locality') !== -1 && data.types.indexOf('administrative_area_level_3' !== -1) )|| data.types.indexOf('sublocality') !== -1|| data.types.indexOf("postal_town") !== -1
-       || data.types.indexOf("establishment") !== -1) {
+        if ((data.types.indexOf('locality') !== -1 && data.types.indexOf('administrative_area_level_3' !== -1)) || data.types.indexOf('sublocality') !== -1 || data.types.indexOf("postal_town") !== -1
+          || data.types.indexOf("establishment") !== -1) {
           ci = data?.long_name.replace(/\s/g, '-')
           dispatch({ type: 'City', City: data?.long_name.replace(/\s/g, '-') })
         }
@@ -229,16 +230,16 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
         }
         return data
       })
-      if (sta !== undefined && ci !== undefined &&route !== undefined ) {
+      if (sta !== undefined && ci !== undefined && route !== undefined) {
         window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}/${route?.toLowerCase()}`)
         window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}/${route?.toLowerCase()}`)
-        
+
       }
       else {
-        if (sta !== undefined && ci !== undefined && Coun !== undefined ) {
+        if (sta !== undefined && ci !== undefined && Coun !== undefined) {
           window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
           window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
-         
+
         }
         else if (Coun !== undefined && sta !== undefined) {
 
@@ -268,17 +269,19 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
   }
   const [open, setOpen] = React.useState(false);
 
-
+React.useEffect(()=>{
+  Setdropwondata(placePredictions)
+},[placePredictions])  
   return (
     <Autocomplete
       freeSolo
       disableClearable
       open={open}
       onOpen={() => {
-          setOpen(true);
+        setOpen(true);
       }}
       onClose={() => {
-          setOpen(false);
+        setOpen(false);
       }}
       id="autocomplete-demo"
       onFocus={onFocus}
@@ -286,16 +289,17 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
       style={{ width: "100%", borderRadius: (openLocation && SearchBarWidth) ? " 16px 16px 16px 16px" : " 0px 16px 16px 0px", top: "0px", display: open1 && SearchBarWidth ? "none" : "inline-flex", }}
       onBlur={OnBlur}
       sx={{ width: "100%" }}
-      options={placePredictions}
+      options={dropdwondata }
       inputValue={formatted_address}
       value={formatted_address}
-      onChange={((element, value) => {handlechnage(element, value)})}
+      onChange={((element, value) => { handlechnage(element, value) })}
       renderOption={(props, value, index) => {
-        return <li {...props}  > {value.description}</li>
+        return (
+          <li  {...props} >  <IoLocationSharp />{value.description}</li>
+        )
       }}
       getOptionSelected={option => option?.description}
-      getOptionLabel={(option) => (option?.description)}
-      
+      getOptionLabel={(option) => (option?.description ? option?.description:'')}
       renderInput={(params) => (
         <TextField
           {...params}
@@ -305,19 +309,19 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
               input: e.target.value
             })
           }}
-        InputProps={{
-          ...params.InputProps,
-          startAdornment: (
-            <>
-              <InputAdornment position="start">
-                <IoLocationSharp />
-              </InputAdornment>
-              {params.InputProps.startAdornment}
-            </>
-          )
-        }}
+          InputProps={{
+            ...params.InputProps,
+            startAdornment: (
+              <>
+                <InputAdornment position="start">
+                  <IoLocationSharp />
+                </InputAdornment>
+                {params.InputProps.startAdornment}
+              </>
+            )
+          }}
 
-        
+
         />
       )}
     />
