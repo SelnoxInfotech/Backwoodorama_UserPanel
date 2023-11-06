@@ -58,22 +58,21 @@ export default function RoutingSearch({ city, State, country, pathname  ,route})
 
 
           })
-          console.log(route)
+
           if (SearchCity !== undefined && SearchState !== undefined && SearchCountry !== undefined && route !== undefined) {
 
             navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}/${SearchState.toLowerCase()}/${SearchCity.toLowerCase()}/${route.toLowerCase()}`)
           }
          else if (SearchCity !== undefined && SearchState !== undefined && SearchCountry !== undefined) {
-          console.log(route)
+   
             navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}/${SearchState.toLowerCase()}/${SearchCity.toLowerCase()}`)
           }
 
           else if (SearchState !== undefined && SearchCountry !== undefined) {
-            console.log(route)
+       
             navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}/${SearchState.toLowerCase()}`)
           }
           else if (SearchCountry !== undefined) {
-            console.log(route)
             navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}`)
           }
 
