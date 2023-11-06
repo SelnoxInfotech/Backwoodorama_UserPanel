@@ -10,8 +10,27 @@ function FirstLetterCaps(str){
  }
 
 export {FirstLetterCaps}
+ 
+export function modifystr(str) {
+    str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+    str = str.trim().replaceAll(' ', "-");
+    let a = 0;
+    while (a < 1) {
+        if (str.includes("--")) {
+            str = str.replaceAll("--", "-")
+        } else if (str.includes("//")) {
+            str = str.replaceAll("//", "/")
+        } else if (str.includes("//")) {
+            str = str.replaceAll("-/", "/")
+        } else if (str.includes("//")) {
+            str = str.replaceAll("/-", "/")
+        } else {
+            a++
+        }
+    }
 
-
+    return str.toLowerCase()
+}
 function isShopOpen(storeDetails){
     let done = false
     let ans = false

@@ -26,6 +26,9 @@ const LearnTabs = () => {
     React.useEffect(() => {
         window.scroll(0, 0)
     }, [])
+
+
+  
     // /learn/laws-and-regulation/:State
     return (
         <div className='container-fluid'>

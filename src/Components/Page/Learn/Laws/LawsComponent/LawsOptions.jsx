@@ -6,6 +6,7 @@ import { Link } from "react-router-dom"
 import Content from "../LawContentsJson"
 import { LawState } from "../../../../Component/ScoPage/LearnSeo";
 import { useParams } from "react-router-dom"
+import {modifystr}  from "../../../../../Hooks/Function"
 const LawsOptions = () => {
     const [Values, SetValues] = React.useState([])
   
@@ -26,7 +27,7 @@ const LawsOptions = () => {
                                             return (
 
                                                 <Link to={{
-                                                    pathname: `/learn/laws-and-regulation/${'Cannabis-Law-in-'+val.name.toLowerCase()}/${val.id }`,
+                                                    pathname: `/learn/laws-and-regulation/${'Cannabis-Law-in-'+modifystr(val.name)}/${val.id }`,
 
                                                 }}
                                                     key={index}

@@ -52,7 +52,6 @@ const Allblogs = () => {
            isdata ? <div className='blogListWrapper'>
             {
               allblogs.map((items, index) => {
-
                 return (
 
                   <div className='row blogListCard mx-0' key={index}>
@@ -75,8 +74,9 @@ const Allblogs = () => {
                           <h2 className='blogcardHeading'>{items.Title}</h2>
                         </Link>
                         <Link to={`/cannabis-news/${items.Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${items.id}`} key={index}>
-                          <p className='blogcardDescription'>   <div dangerouslySetInnerHTML={{ __html: items?.Description }} /></p>
+                          <p className='blogcardDescription'>   <div dangerouslySetInnerHTML={{ __html: items?.Description.split('</p>')[0]}} /></p>
                         </Link>
+                        {/* <p onClick={handlechmnag}>click</p>  */}
                         <div className='row extra_function extra_function_destop '>
                           <div className='col-3'>
                             <span className='action_icons'><AiFillEye /></span>
@@ -156,3 +156,7 @@ const Allblogs = () => {
 }
 
 export default Allblogs
+
+
+
+
