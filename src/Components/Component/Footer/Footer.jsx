@@ -7,7 +7,7 @@ import Axios from "axios"
 import React from "react";
 import { Link } from "react-router-dom"
 import { IoLocationSharp } from "react-icons/io5"
-import { CiMobile1 } from "react-icons/ci"
+import { BiMobile } from "react-icons/bi"
 import { HiOutlineMail } from "react-icons/hi"
 import Createcontext from "../../../Hooks/Context"
 import "./Footer.css";
@@ -55,7 +55,7 @@ const Footer = () => {
                                         <IoLocationSharp color="#31B665" size={22} /><span className="footer_middle_icons_text">United States , Canada</span>
                                     </div>
                                     <div className="Footer_Left_side_menu   ">
-                                        <a href="tel:+1 (209) 655-0360">  <CiMobile1 color="#31B665" size={22} /><span className="footer_middle_icons_text">+1 (209) 655-0360</span></a>
+                                        <a href="tel:+1 (209) 655-0360">  <BiMobile color="#31B665" size={22} /><span className="footer_middle_icons_text">+1 (209) 655-0360</span></a>
                                     </div>
                                     <div className="Footer_Left_side_menu ">
 

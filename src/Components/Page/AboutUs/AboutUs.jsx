@@ -123,7 +123,7 @@ const AboutUs = () => {
         }
     ]
     const AboutUsBannerArray = [{ content: "“  WeedX has not only been a pleasure to work with but has been very beneficial to our organization. Throughout the last year, we have seen significant improvement in our organic rankings. With MMX’s thorough reporting, we are able to analyze all of our  marketing   platforms and their ROI to optimize our marketing budget. I would recommend them to anyone seeking exceptional marketing services.  “" },
-    { content: "“  WeedX has not only been a pleasure to work with, but has been very beneficial to our organization. Throughout the last year we have seen significant improvement in our organic rankings. With MMX’s thorough reporting we are able to analyze all of our  marketing   platforms and their ROI to optimize our marketing budget. I would recommen them to anyone seeking exceptional marketing services.  “" }
+    { content: "“  WeedX has not only been a pleasure to work with, but has been very beneficial to our organization. Throughout the last year we have seen significant improvement in our organic rankings. With MMX’s thorough reporting we are able to analyze all of our  marketing   platforms and their ROI to optimize our marketing budget. I would recommend them to anyone seeking exceptional marketing services.  “" }
 
     ]
     const OurValuesArray = [{ head: "Data-Driven Approach", icons: <AiOutlineSetting color="#27BE72" />, paragraph: "Our decisions are driven by data and analytics, guiding our continuous testing and improvement efforts." }

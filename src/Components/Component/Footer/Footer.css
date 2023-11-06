@@ -194,16 +194,17 @@
       padding: 20px 0;
     }
     .footer_logo_container{
-      width: 60%;
+      width: 100%;
       padding: 0;
+      display: flex;
   }
   .footerLogo{
       width: 100px;
       margin: 0 auto;
   }
   .footer_list{
-      width: 33%;
-      margin-top: 20px;
+      width: 29%;
+      padding: 0;
   }
    .footer_main_list{
     padding: 0;

@@ -82,7 +82,7 @@ const NewFlavourBanner = ({ delBtn }) => {
 
 
                                             </div>
-                                            <div className='col-lg-12  col-md-8 col-sm-8 col-12 d-flex newFlav_btn_height'>
+                                            <div className='col-lg-12  col-md-8 col-sm-8 col-12 mt-sm-4 mt-2 d-flex newFlav_btn_height'>
                                             {
                                                 data.StoreEmail !== "" &&  data.StoreEmail !== null &&
                                                
@@ -90,16 +90,15 @@ const NewFlavourBanner = ({ delBtn }) => {
                                                     className={`${classes.loadingBtnTextAndBack}`}
                                                 >
                                                   
-                                                      <LoadingButton style={{ height: "30px" }} variant="outlined">Email</LoadingButton>
+                                                      <LoadingButton style={{  height: "30px" , maxWidth:'250px' , width:'100%' }}   variant="outlined">Email</LoadingButton>
                                                 </Box>
                                                 }
                                                 
                                                 {
                                                     data.Stores_MobileNo !== '' && data.Stores_MobileNo !== null &&  <Box
-                                                    className={`New_flav_btn ${classes.loadingBtnTextAndBack}`}
-                                                >
+                                                    className={`New_flav_btn ${classes.loadingBtnTextAndBack}`}    >
                                                     <Link to={`tel:${delBtn[0].Stores_MobileNo}`}>
-                                                      <LoadingButton style={{  height: "30px" }} variant="outlined">Call</LoadingButton>
+                                                      <LoadingButton style={{  height: "30px" , maxWidth:'250px' , width:'100%' }} variant="outlined">Call</LoadingButton>
                                                     </Link>
                                                     </Box>
 

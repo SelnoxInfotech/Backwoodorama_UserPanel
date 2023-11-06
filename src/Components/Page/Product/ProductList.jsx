@@ -185,7 +185,7 @@ const ProductList = ({ arr, ProductNavigate }) => {
                 !state.Loading ?
                     <React.Fragment>
 
-                        <div className="row  mx-2" style={{ height: "auto", marginBottom: "100px" }}>
+                        <div className="row  mx-2" style={{ height: "auto", marginBottom: "10px" }}>
                             {arr?.map((ele, index) => {
                               
                                 return (
@@ -285,12 +285,12 @@ const ProductList = ({ arr, ProductNavigate }) => {
    
                                                     </div>
                                                 </div>
-                                                <div className="col-12 d-flex mt-sm-3 mt-1 mb-2 Fly">
+                                                <div className="col-12 d-flex mt-sm-4 mt-3 mb-2 Fly">
 
 
                                                     <Box
                                                         className={` ${classes.loadingBtnTextAndBack}`}
-                                                        style={{ width: "93%" }}
+                                                        style={{ width: "100%" }}
                                                     >
 
                                                         {/* <FlyingButton src={AiOutlineShoppingCart} targetTop={'00%'} targetLeft={'100%'}> */}
