@@ -4,6 +4,7 @@ import { Autoplay } from 'swiper/modules';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import HomePageBannerSkeleton from '../../../../Component/Skeleton/DashBoardSkeleton/HomePageBannerSkeleton';
 import Axios from "axios";
+import { Link } from 'react-router-dom';
 const HomePageWeedBanner=()=>{
     const [Skeleton , SetSkeleton]= React.useState(true)
     const [data,setdata] = React.useState([]) 
@@ -20,7 +21,7 @@ const HomePageWeedBanner=()=>{
         .catch((error)=>{
         })
     }, [])
-
+console.log(data)
 
 
     return(
@@ -37,7 +38,8 @@ const HomePageWeedBanner=()=>{
             {data?.map((ele, index) => {
                 return (
                     <SwiperSlide key={index}>
-                    <div   className='col-12 homePageBanner_container' >
+               <Link to={ele.Link}>
+               <div   className='col-12 homePageBanner_container' >
                         <LazyLoadImage 
                         
                         onError={event => {
@@ -47,6 +49,7 @@ const HomePageWeedBanner=()=>{
                     
                         src={`${ele?.Banner}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
                     </div>
+               </Link>
                     </SwiperSlide>
                 )
             })}

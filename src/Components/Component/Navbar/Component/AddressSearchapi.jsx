@@ -253,7 +253,14 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
           Setformatted_address(state.Location)
         }
       }
+      if(ci === undefined){
+        dispatch({ type: 'City', City:''})
+      }
+       if ( sta  === undefined){
+        dispatch({ type: 'State', State:''})
+      }
       dispatch({ type: 'Location', Location: placeDetails?.formatted_address })
+
     })
   }
   function OnBlur() {

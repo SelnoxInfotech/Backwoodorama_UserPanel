@@ -24,7 +24,7 @@ async function generateSitemap() {
 
   axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/13`,
   ).then((respones) => {
-    console.log(respones.data)
+    // console.log(respones.data)
      const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       ${respones.data[0].Xml.map((url) => `

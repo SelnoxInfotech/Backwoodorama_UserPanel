@@ -15,7 +15,9 @@ const HomePageBanner = () => {
             SetSkeleton(false)
         })
     },[])
-   
+    
+ console.log(HomePageBannerImage)
+
     return (
 
         !Skeleton ?
