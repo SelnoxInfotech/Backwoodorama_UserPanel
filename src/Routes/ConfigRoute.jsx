@@ -4,7 +4,6 @@ import Dashboard from "../Components/Page/Home/Dashboard/Dashboard";
 import ProtectRout from "../Routes/ProtectRout"
 import RoutingDespen from "../Routes/RoutingDespen"
 import RoutingList from "../Routes/RoutingList"
-import Learnproduct from "../Components/Page/Learn/Product/Learnproduct";
 import Learnproductcontent from "../Components/Page/Learn/Product/Learnproductcontent";
 import Blogs from "../Components/Page/Blog/Blog"
 import OpenDispansires from "../Components/Page/Dispansires/Dispansires"
@@ -44,8 +43,7 @@ import Allblogs from "../Components/Page/Blog/BlogComponent/Allblogs"
 import Privatepolicy from "../Components/Page/Privacypolicy/Privacypolicy.jsx"
 import Cookiespolicy from "../Components/Page/Cookiespolicy/Cookiespolicy.jsx"
 import Termsconditions from '../Components/Page/Termsconditions/Termsconditions.jsx'
-import History from '../Components/Page/Learn/History/History' 
-import MyLocationSearch from "../Components/Component/Navbar/Component/locationFuntion"
+ import MyLocationSearch from "../Components/Component/Navbar/Component/locationFuntion"
 const routesConfig = [
 
   {

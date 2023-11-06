@@ -1,14 +1,14 @@
-import React from 'react'
+import React , {useEffect , useContext} from 'react'
 import Createcontext from "../Hooks/Context"
 import { useParams, useLocation } from "react-router-dom";
 import RoutingSearch from "../Components/Component/DispensierRoutingSearch/RoutingSearch";
 import axios from "axios";
 export default function RoutingDespen(props) {
-    const { state } = React.useContext(Createcontext)
+    const { state } = useContext(Createcontext)
     const params = useParams()
     const Location = useLocation()
     const { Component } = props;
-    React.useEffect(() => {
+    useEffect(() => {
         if (Location.pathname.slice(0, 18) === "/weed-dispensaries") {
             axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/10`,
             ).then((res) => {
@@ -68,7 +68,7 @@ export default function RoutingDespen(props) {
             })
         }
     }, [Location , state?.City , state?.State , state?.Country])
-    console.log(params)
+
     return (
 
         <div>

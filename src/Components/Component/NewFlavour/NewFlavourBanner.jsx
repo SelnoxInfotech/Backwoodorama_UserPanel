@@ -31,7 +31,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                             console.log(data)
                             return (
                                 <div className="row position-relative" key={data.id}>
-                                    <div className="col-md-2 col-sm-4  col-4 newFlavour_image_container_height">
+                                    <div className="col-md-2 col-sm-4  col-3 newFlavour_image_container_height">
                                         <div className='newFlavourimage_div'>
                                             <LazyLoadImage 
                                             onError={event => {
@@ -39,12 +39,10 @@ const NewFlavourBanner = ({ delBtn }) => {
                                                 event.onerror = null
                                             }}
                                             className='newFlavour_image' src={`${data?.Store_Image}`} alt='not available' height={"100px"} />
-
                                         </div>
-
                                     </div>
-                                    <div className="col-md-9 col-sm-8  col-8  newFlavourContent_height" style={{position:"0px"}}>
-                                        <div className='row w-100'>
+                                    <div className="col-md-9 col-sm-8  col-9  newFlavourContent_height" style={{position:"0px"}}>
+                                        <div className='w-100'>
                                             <div className='col-12 New_flavour_font_size_paragraph  fontStyle'>
                                                 <h1 className='New_flavour_font_size_head'>{data.Store_Name}</h1>
                                             </div>
@@ -56,12 +54,12 @@ const NewFlavourBanner = ({ delBtn }) => {
 
 
                                             </div>
-                                            <div className='col-12 extra_function_destop d-md-flex gap-lg-4 gap-md-3 align-items-center'>
+                                            <div className='col-12  d-flex gap-lg-4 gap-md-3 justify-content-sm-start justify-content-between align-items-center'>
 
                                                 <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph'>
-                                                    <p className='newFlavBanerRatingFontStyle'>Rating</p>
-                                                  
-                                                    <div className="product_cart_review">
+                                                    <p className='newFlavBanerRatingFontStyle'>3.2</p>
+                                                    <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />  
+                                                    {/* <div className="product_cart_review">
                                                             {delBtn[0].rating &&  new Array(delBtn[0].rating).fill(null).map(() => (
                                                                 <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />  
                                                             ))}
@@ -69,7 +67,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                                                             {new Array(5-delBtn[0].rating).fill(null).map(() => (
                                                                 <BsStar size={16} color="#31B665" className="product_search_rating_star" />  
                                                             ))}
-                                                        </div>
+                                                        </div> */}
                                                 </div>
 
                                                 <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph newFlav_margin'>
@@ -84,7 +82,7 @@ const NewFlavourBanner = ({ delBtn }) => {
 
 
                                             </div>
-                                            <div className='col-lg-12  col-md-8 col-sm-8 col-12 d-sm-flex d-none newFlav_btn_height'>
+                                            <div className='col-lg-12  col-md-8 col-sm-8 col-12 d-flex newFlav_btn_height'>
                                             {
                                                 data.StoreEmail !== "" &&  data.StoreEmail !== null &&
                                                
@@ -122,66 +120,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                                     </RWebShare>
                                 
                                     </div>
-                                    <div className="col-12 extra_function_mobile  newFlavourContent_height" style={{position:"0px"}}>
-                                        <div className='w-100'>
-                                           
-                                           
-                                            <div className=' new_flavourList_container '>
-
-                                                <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph'>
-                                                    <p className='newFlavBanerRatingFontStyle'>Rating</p>
-                                                  
-                                                    <div className="product_cart_review">
-                                                            {delBtn[0].rating &&  new Array(delBtn[0].rating).fill(null).map(() => (
-                                                                <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />  
-                                                            ))}
-                                                            
-                                                            {new Array(5-delBtn[0].rating).fill(null).map(() => (
-                                                                <BsStar size={16} color="#31B665" className="product_search_rating_star" />  
-                                                            ))}
-                                                        </div>
-                                                </div>
-
-                                                <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph newFlav_margin'>
-                                                    <p className='m-0'><TbCircleFilled id="new_flavCircle" /></p>
-                                                   <Link to={`/weed-deliveries/leaflyweednyc/store-details/${delBtn[0].id}`}><p className='marginLeftnewFlavStore '>Store details</p></Link> 
-                                                </div>
-
-                                                <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph newFlav_margin'>
-                                                    <p className='m-0'><TbCircleFilled id="new_flavCircle" color={shopopen ? "#31B665" : "red"} /></p>
-                                                    <p id='NewFlav_margins' className={shopopen ? "newFlav_open" : "newFlav_closed"}>{shopopen ? "Open" : "Closed"}</p>
-                                                </div>
-
-
-                                            </div>
-                                            <div className='col-lg-12 col-md-8 col-sm-8 col-12 d-flex newFlav_btn_height'>
-
-                                               {
-                                                data.StoreEmail !== "" &&  data.StoreEmail !== null &&
-                                               
-                                                <Box
-                                                    className={`${classes.loadingBtnTextAndBack}`}
-                                                >
-                                                  
-                                                      <LoadingButton style={{ height: "30px" }} variant="outlined">Email</LoadingButton>
-                                                </Box>
-                                                }
-                                                {
-                                                    data.Stores_MobileNo !== '' && data.Stores_MobileNo !== null &&  <Box
-                                                    className={`New_flav_btn ${classes.loadingBtnTextAndBack}`}
-                                                >
-                                                    <Link to={`tel:${delBtn[0].Stores_MobileNo}`}>
-                                                      <LoadingButton style={{  height: "30px" }} variant="outlined">Call</LoadingButton>
-                                                    </Link>
-                                                    </Box>
-
-                                                }
-                                               
-                                            </div>
-
-                                        </div>
-
-                                    </div>
+                                   
                                 </div>
                             )
                         })

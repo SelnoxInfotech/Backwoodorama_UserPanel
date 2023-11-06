@@ -187,7 +187,7 @@ const ProductList = ({ arr, ProductNavigate }) => {
 
                         <div className="row  mx-2" style={{ height: "auto", marginBottom: "100px" }}>
                             {arr?.map((ele, index) => {
-                                console.log(ele ,' ele ')
+                              
                                 return (
                                     <div className="col-6 col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12   " key={index}>
                                         <div className="prod_inner_cont  product_inner_row">

@@ -393,21 +393,14 @@ const ProductDetail = () => {
                     }
                 </div>
                 {ProductDetails.map((ele, index) => {
-                    console.log(ele.Product_Description  ,'Product_Description')
+                  
                     return (
                         <div key={ele.id} className="col-10  border mt-4 product_desc_container">
-                            <div className="col-10  prod_des_head fontStyle ">
-                                <p>Product Description</p>
-                               
+                            <div className="prod_des_head fontStyle ">
+                                <p>Product Description</p>  
                             </div>
                             <div className="col-10 center product_des_para ">
-
-                            {/* <p>{textgive(text)}   { text.split(' ').length >= 100 &&<span className='band_shlebtn' onClick={()=>setreadopen(!readopen)}>Read { readopen ? "More" : "Less"}</span>}</p> */}
-
-                            <span>{parse(ele.Product_Description)}</span>
-
-
-
+                             <span>{parse(ele.Product_Description)}</span>
                             </div>
                         </div>
                     )
