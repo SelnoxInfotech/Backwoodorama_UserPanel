@@ -1,7 +1,6 @@
 import React from "react";
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
-import { AiFillStar } from "react-icons/ai";
 import { BsStar ,BsStarFill } from "react-icons/bs";
 import useStyles from "../../../Style"
 import { Link } from "react-router-dom";
@@ -18,7 +17,6 @@ import IconButton from '@mui/material/IconButton';
 import { WishListPost } from "../../Component/Whishlist/WishListApi_"
 import { WhisList } from "../../Component/Whishlist/WhisList"
 const ProductList = ({ arr, ProductNavigate }) => {
-
     const cookies = new Cookies();
     const [CartClean, SetCartClean] = React.useState(false)
     const token_data = cookies.get('Token_access')
@@ -179,6 +177,8 @@ const ProductList = ({ arr, ProductNavigate }) => {
     }
 
 
+   
+  
     return (
         <>
             {arr.length !== 0 ?
@@ -187,8 +187,9 @@ const ProductList = ({ arr, ProductNavigate }) => {
 
                         <div className="row  mx-2" style={{ height: "auto", marginBottom: "100px" }}>
                             {arr?.map((ele, index) => {
+                                console.log(ele ,' ele ')
                                 return (
-                                    <div className="col-12 col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12   " key={index}>
+                                    <div className="col-6 col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12   " key={index}>
                                         <div className="prod_inner_cont  product_inner_row">
                                             <span className="product_inner_rowspan">
                                                 <IconButton onClick={() => { handleWhishList(ele.id) }} aria-label="Example">
@@ -200,7 +201,7 @@ const ProductList = ({ arr, ProductNavigate }) => {
                                             </span  >
                                             <div className="prod_cat_cont" >
                                                 {/* <Link to={`/products/${ele.category_name}/${ele.Product_Name.replace(/%20| /g, "-")  }/${ele.id}`}> */}
-                                                <div className="col-12 p-2 prod_cat_img position-relative">
+                                                <div className="col-12 p-sm-2 p-0 prod_cat_img position-relative">
                                                     <LazyLoadImage
                                                         onClick={() => ProductNavigate(ele)}
                                                         className="product_search_result_image"
@@ -218,32 +219,37 @@ const ProductList = ({ arr, ProductNavigate }) => {
                                                         {ele.CBD !== 0 && <button className=" cat_prod_inner_btn btn2">CBD {ele.CBD}%</button>}
                                                         {ele.CBN !== 0 && <button className=" cat_prod_inner_btn btn2">CBN {ele.CBN}%</button>}
                                                         {ele.strain !== 'None' && <button className="cat_prod_inner_btn btn1">{ele.strain}</button>}
-                                                    </div>
-
-
+                                                    </div> 
                                                 </div>
                                                 {/* </Link> */}
                                             </div>
                                             <div className="product_cat_allProduct">
 
-                                    <div className="col-12 px-2 prod_para_name" style={{ marginBottom: "" }}>
+                                    <div className="col-12  prod_para_name" style={{ marginBottom: "" }}>
                                         <Link to={`/products/${modifystr(ele.category_name)}/${modifystr(ele.Product_Name.toLowerCase())}/${ele.id}`}>
                                             <h3 className='productListHeadings ellipsis'>{ele.Product_Name}</h3>
                                         </Link>
                                     </div>
-                                    <div className="col-12 px-2 prod_para prod_sub_heading_height ellipsis">
-                                        <p className='fontStyle common_sub_head'>{ele.StoreName}</p>
+                                    <div className="col-12  prod_para prod_sub_heading_height ellipsis">
+                                        <p className='fontStyle m-0 common_sub_head'>{ele.StoreName}</p>
                                     </div>
-                                    <div className="col-12 px-2 d-flex prod_para prod_sub_heading_height ellipsis" style={{ marginBottom: "0px" }}>
-                                        <span className='fontStyle productlist_rating'>Rating</span><span className='span_nav_star'><AiFillStar className={classes.disPen_Icons} /></span>
+                                    <div className="col-12 py-2 d-flex prod_para prod_sub_heading_height ellipsis" style={{ marginBottom: "0px" }}>
+                                        {ele.rating &&  new Array(ele.rating).fill(null).map(() => (
+                                                                   <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />  
+                                                               ))}
+                                                               
+                                                               {new Array(5-ele.rating).fill(null).map(() => (
+                                                                   <BsStar size={16} color="#31B665" className="product_search_rating_star" />  
+                                                               ))}
+                                 
                                     </div>
                                     <div className="mobile_view_weigth">
-                                        <div className="row   prod_cat_cont_btn product_price_tabs">
-                                            {ele.Prices?.map((ele1, index) => {
-                                                return (
+                                        <div className="prod_cat_cont_btn product_price_tabs">
+                                            {ele.Prices?.map((ele1) => {
+                                                     return (
                                                     ele1.Price?.map((data, index) => {
-                                                        let s = false
-                                                        if (Price.length === 0) {
+                                                                    let s = false
+                                                                    if (Price.length === 0) {
 
                                                                         if (data.id === 1) {
                                                                             s = true
@@ -263,21 +269,23 @@ const ProductList = ({ arr, ProductNavigate }) => {
                                                                         })
                                                                     )
                                                                     return (
-                                                                        <div className="col-sm-4 col-2  prod_cat_btn_cont mt-2" id="" key={index} >
+                                                                        <div className="prod_cat_btn_cont" id="" key={index} >
                                                                             <section
                                                                                 className={"prod_cat_btns " + (s ? "active" : "")}
                                                                                 value={data.id} onClick={() => PriceSelect(ele.id, data.id)} >
                                                                                 {data.Weight || data.Unit}
-                                                                                <p className="rs">${data?.SalePrice?.toFixed()}</p>
+                                                                                <p className="rs m-0">${data?.SalePrice?.toFixed()}</p>
                                                                             </section>
                                                                         </div>
                                                                     )
                                                                 })
                                                             )
-                                                        })}
+                                            })}
+
+   
                                                     </div>
                                                 </div>
-                                                <div className="col-12 d-flex mt-3 mb-2 Fly">
+                                                <div className="col-12 d-flex mt-sm-3 mt-1 mb-2 Fly">
 
 
                                                     <Box

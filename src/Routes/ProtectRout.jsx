@@ -1,5 +1,5 @@
 
-import React ,{Suspense} from "react"
+import React from "react"
 import Createcontext from "../Hooks/Context"
 import { useNavigate } from "react-router-dom";
 import Cookies from 'universal-cookie';
@@ -39,17 +39,16 @@ export default function ProtectRout(props) {
 
 
     }, [login, Navigate, dispatch, state])
-
-
-
-
     return (
 
         <div>
-            <Suspense fallback={"Loading"}>
+           
+           
             <Component />
             {/* <CurrentLocation Country={state?.Country }></CurrentLocation>  */}
-            </Suspense>
+           
+          
+
         </div>
     )
 }

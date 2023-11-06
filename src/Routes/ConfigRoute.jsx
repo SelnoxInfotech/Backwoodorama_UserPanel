@@ -6,46 +6,46 @@ import RoutingDespen from "../Routes/RoutingDespen"
 import RoutingList from "../Routes/RoutingList"
 import Learnproduct from "../Components/Page/Learn/Product/Learnproduct";
 import Learnproductcontent from "../Components/Page/Learn/Product/Learnproductcontent";
-const Blogs = React.lazy(() => import("../Components/Page/Blog/Blog"));
-const OpenDispansires = React.lazy(() => import("../Components/Page/Dispansires/Dispansires"));
-const DispensoriesDetails = React.lazy(() => import("../Components/Page/Dispansires/DispansiresComponent/DispensoriesDetail"));
-const CreatePassword = React.lazy(() => import("../Components/Page/ResetPassword/CreatePassword"));
-const RelatedDeals = React.lazy(() => import("../Components/Page/Deals/RelatedDeals"));
-const RelatedVerifyBrand = React.lazy(() => import("../Components/Page/Brand/RelatedVerifyBrand/RelatedVerifyBrand"));
-const NewProductDetails = React.lazy(() => import("../Components/Page/Product/NewProductDetails/NewProductDetails"));
-const StoreDetail = React.lazy(() => import("../Components/Page/StoreDetail/StoreDetail"));
-const PlaceOrder = React.lazy(() => import("../Components/Page/Checkout/PlaceOrder"));
-const CheckOutMainPage = React.lazy(() => import("../Components/Page/Checkout/CheckoutMainPage"));
-const Product = React.lazy(() => import("../Components/Page/Product/Product"));
-const AddToCart = React.lazy(() => import("../Components/Page/Product/AddToCartComponent/AddToCart"));
-const Signup = React.lazy(() => import("../Components/Page/Signup/Signup"));
-const Login = React.lazy(() => import("../Components/Page/Login/Login"));
-const SignupWithEmail = React.lazy(() => import("../Components/Page/Signup/SignupWithEmail"));
-const ForgotPassword = React.lazy(() => import("../Components/Page/ResetPassword/ForgotPassword"));
-const FourZeroThree = React.lazy(() => import("../Components/Page/ErrorPage/FourZeroThree"));
-const FiveZeroThree = React.lazy(() => import("../Components/Page/ErrorPage/FiveZeroThree"));
-const FourZeroFour = React.lazy(() => import("../Components/Page/ErrorPage/FourZeroFour"));
-const Brand = React.lazy(() => import("../Components/Page/Brand/Brand"));
-const Deliveries = React.lazy(() => import("../Components/Page/Deliveries/Deliveries"));
-const EmptyCard = React.lazy(() => import("../Components/Page/Profile/EditProfile/EditProfile"));
-const Profile = React.lazy(() => import("../Components/Page/Profile/Profile"));
-const EditProfile = React.lazy(() => import("../Components/Page/Profile/EditProfile/EditProfile"));
-const WhisLists = React.lazy(() => import("../Components/Component/Whishlist/WhisLists/WhisLists"));
-const LawStateDescription = React.lazy(() => import("../Components/Page/Learn/Laws/LawStateDescription/LawStateDescription"));
-const LearnCardRelatedPage = React.lazy(() => import("../Components/Page/Learn/LearnCardRelatedPage/LearnCardRelatedPage"));
-const LearnTabs = React.lazy(() => import("../Components/Page/Learn/LearnTabs"));
-const AboutUs = React.lazy(() => import("../Components/Page/AboutUs/AboutUs"));
-const MainDeals = React.lazy(() => import("../Components/Page/MainDealsFolder/MainDeals"));
-const Strain = React.lazy(() => import("../Components/Page/Strain/Strain"));
-const StrainProduct = React.lazy(() => import("../Components/Page/Strain/StrainProduct"));
-const MyOrderProductDetail = React.lazy(() => import("../Components/Page/MyOrder/MyOrderProductDetail"));
-const MyOrder = React.lazy(() => import("../Components/Page/MyOrder/MyOrder"));
-const Allblogs = React.lazy(() => import("../Components/Page/Blog/BlogComponent/Allblogs"));
-const Privatepolicy = React.lazy(() => import("../Components/Page/Privacypolicy/Privacypolicy.jsx"));
-const Cookiespolicy = React.lazy(() => import("../Components/Page/Cookiespolicy/Cookiespolicy.jsx"));
-const Termsconditions = React.lazy(() => import('../Components/Page/Termsconditions/Termsconditions.jsx'));
-const History = React.lazy(() => import('../Components/Page/Learn/History/History'));
-const MyLocationSearch = React.lazy(() => import("../Components/Component/Navbar/Component/locationFuntion"));
+import Blogs from "../Components/Page/Blog/Blog"
+import OpenDispansires from "../Components/Page/Dispansires/Dispansires"
+import DispensoriesDetails from "../Components/Page/Dispansires/DispansiresComponent/DispensoriesDetail"
+import CreatePassword from "../Components/Page/ResetPassword/CreatePassword"
+import RelatedDeals from "../Components/Page/Deals/RelatedDeals"
+import RelatedVerifyBrand from "../Components/Page/Brand/RelatedVerifyBrand/RelatedVerifyBrand"
+import NewProductDetails from "../Components/Page/Product/NewProductDetails/NewProductDetails"
+import StoreDetail from "../Components/Page/StoreDetail/StoreDetail"
+import PlaceOrder from "../Components/Page/Checkout/PlaceOrder"
+import CheckOutMainPage from "../Components/Page/Checkout/CheckoutMainPage"
+import Product from "../Components/Page/Product/Product"
+import AddToCart from "../Components/Page/Product/AddToCartComponent/AddToCart"
+import Signup from "../Components/Page/Signup/Signup"
+import Login from "../Components/Page/Login/Login"
+import SignupWithEmail from "../Components/Page/Signup/SignupWithEmail"
+import ForgotPassword from "../Components/Page/ResetPassword/ForgotPassword"
+import FourZeroThree from "../Components/Page/ErrorPage/FourZeroThree"
+import FiveZeroThree from "../Components/Page/ErrorPage/FiveZeroThree"
+import FourZeroFour from "../Components/Page/ErrorPage/FourZeroFour"
+import Brand from "../Components/Page/Brand/Brand"
+import Deliveries from "../Components/Page/Deliveries/Deliveries"
+import EmptyCard from "../Components/Page/Profile/EditProfile/EditProfile"
+import Profile from "../Components/Page/Profile/Profile"
+import EditProfile from "../Components/Page/Profile/EditProfile/EditProfile"
+import WhisLists from "../Components/Component/Whishlist/WhisLists/WhisLists"
+import LawStateDescription from "../Components/Page/Learn/Laws/LawStateDescription/LawStateDescription"
+import LearnCardRelatedPage from "../Components/Page/Learn/LearnCardRelatedPage/LearnCardRelatedPage"
+import LearnTabs from "../Components/Page/Learn/LearnTabs"
+import AboutUs from "../Components/Page/AboutUs/AboutUs"
+import MainDeals from "../Components/Page/MainDealsFolder/MainDeals"
+import Strain from "../Components/Page/Strain/Strain"
+import StrainProduct from "../Components/Page/Strain/StrainProduct"
+import MyOrderProductDetail from "../Components/Page/MyOrder/MyOrderProductDetail"
+import MyOrder from "../Components/Page/MyOrder/MyOrder"
+import Allblogs from "../Components/Page/Blog/BlogComponent/Allblogs"
+import Privatepolicy from "../Components/Page/Privacypolicy/Privacypolicy.jsx"
+import Cookiespolicy from "../Components/Page/Cookiespolicy/Cookiespolicy.jsx"
+import Termsconditions from '../Components/Page/Termsconditions/Termsconditions.jsx'
+import History from '../Components/Page/Learn/History/History' 
+import MyLocationSearch from "../Components/Component/Navbar/Component/locationFuntion"
 const routesConfig = [
 
   {

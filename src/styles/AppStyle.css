@@ -323,7 +323,17 @@ line-height: normal;
 .product_cat_allProduct {
   width: 100% ;
 }
-
+.prod_cat_cont_btn {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  gap: 10px;
+}
+.prod_cat_btn_cont{
+ width: 50px;
+ min-width: 50px;
+}
 .prod_cat_img img {
   width: 100%;
   font-size: 8px;
@@ -339,7 +349,6 @@ line-height: normal;
   align-items: center;
   border-style: none;
   padding: 2px;
-  height: 52px;
   background-color: #FFFFFF;
   border-radius: 5px;
   border: 1px solid #87ffb6;
@@ -442,14 +451,6 @@ line-height: normal;
   /* keeps the text in a single line */
   overflow: hidden;
 }
-
-
-
-.prod_sub_heading_height {
-  height: 36px;
-}
-
-
 .productListHeadings {
   font-size: 16px;
   color: #000000;
@@ -472,7 +473,6 @@ line-height: normal;
 
 
 .product_price_tabs{
-  height: 120px;
   overflow: scroll;
 }
 .product_price_tabs::-webkit-scrollbar {

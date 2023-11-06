@@ -1,5 +1,4 @@
-
-import React ,{Suspense} from "react"
+import React from 'react'
 import CurrentLocation from "../Components/Component/Navbar/Component/CurrentLocation"
 import Createcontext from "../Hooks/Context";
 import Cookies from "universal-cookie";
@@ -9,12 +8,12 @@ export default function RoutingList(props) {
 
     return (
         <div>
-            <Suspense fallback={"Loading"}>
+          
             <Component />
          
             
        { state.permission===false && <CurrentLocation></CurrentLocation> }
-            </Suspense>
+           
         </div>
     )
 }

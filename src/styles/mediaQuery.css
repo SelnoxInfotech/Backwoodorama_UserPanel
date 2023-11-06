@@ -560,10 +560,7 @@
     width: 100%;
     overflow-x: scroll;
   }
-  .prod_cat_cont_btn {
-    height: 62px;
-    width: 250%;
-  }
+ 
 
   .allProductCategoryContainer_height {
     flex: 0 0 auto;
@@ -868,19 +865,13 @@
   .medicalCard_heading {
     font-size: 16px;
   }
-  .product_cat_allProduct {
-   
-    min-height: 210px !important;
-    margin-top: 11px;
-  }
+
   .prod_cat_cont_btn {
-   
     display: flex;
     flex-wrap: nowrap;
     overflow-x: scroll;
     overflow-y: hidden;
-    height: 70px;
-
+  
   }
   .bestDeals h1 {
     font-size: 24px;
@@ -987,9 +978,13 @@
     margin-bottom: 0;
   }
   .prod_inner_cont{
-    width: 320px;
+    width: 100%;
     margin: 0 auto;
     margin-bottom: 20px;
+    padding: 10px;
+  }
+  .productListHeadings{
+    font-size: 14px;
   }
   .DeliveryServicesRatingTitle{
      font-size: 14px;

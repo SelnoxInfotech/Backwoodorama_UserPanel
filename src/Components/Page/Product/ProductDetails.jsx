@@ -302,7 +302,7 @@ const ProductDetail = () => {
                                                                 <section id="productDetail_section" onClick={() => PriceSelect(ele.id, data.id)}
                                                                     className={"add_prod_Quant_btn " + (s ? "active" : "")}>
                                                                     {data.Weight || data.Unit}
-                                                                    <p className="rs">{parseInt(data.SalePrice)}</p>
+                                                                    <p className="rs m-0">{parseInt(data.SalePrice)}</p>
                                                                 </section>
                                                             </div>
                                                         )
