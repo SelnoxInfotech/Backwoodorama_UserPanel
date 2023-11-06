@@ -6,11 +6,14 @@ import { useLocation, useParams } from 'react-router-dom';
 import Content from "../LawContentsJson"
 import _ from "lodash"
 import { LawState } from "../../../../Component/ScoPage/LearnSeo";
+import axios from "axios";
 const LawStateDescription = () => {
     const params = useParams()
-    // const location = useLocation()
+    const location = useLocation()
     const [GetContant, SetContant] = React.useState([])
-
+    var newDate = new Date();
+// var datetime = "LastSync: " + newDate.today() + " @ " + newDate.timeNow();
+   console.log( (new Date()).toISOString().slice(0, 19).replace(/-/g, "/").replace("T", " "))
     React.useEffect(() => {
         Content.filter((data, index) => {
             return (
@@ -23,7 +26,34 @@ const LawStateDescription = () => {
             )
         })
 
+        axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/13`,
+        ).then((res) => {
+            if (res.data.length === 0) {
+
+                axios.post(`https://api.cannabaze.com/UserPanel/Add-SiteMap/`,
+                    {
+                        Xml: 'https://www.weedx.io' + location.pathname
+                    },
+                ).then((res) => { }).catch((err) => {
+                    console.trace(err)
+                })
+            }
+            else {
+                const json = typeof res.data[0].Xml === "object" ? res.data[0].Xml : [res.data[0].Xml]
+                if (!json.includes('https://www.weedx.io' + location.pathname)) {
+                    json.push('https://www.weedx.io' + location.pathname);
+                }
+                axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/13`,
+                    {
+                        Xml: json
+                    },
+                ).then((res) => {
+                }).catch((err) => {
+                })
+            }
+        })
     }, [params.id])
+
     return (
         <React.Fragment>
             <LawState Title={`Cannabis Law in ${GetContant?.name}`} State={GetContant?.Country} location={useLocation().pathname}></LawState>

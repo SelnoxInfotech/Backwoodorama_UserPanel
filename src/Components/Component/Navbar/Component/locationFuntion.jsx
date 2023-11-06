@@ -133,7 +133,7 @@
 //                 <IconButton>
 //                   <MdOutlineMyLocation color="inherit" size={16} style={{ cursor: 'pointer' }} />
 //                 </IconButton>
-    
+
 //               ),
 //             }}
 //         />
@@ -141,3 +141,30 @@
 //     />
 //   );
 // }
+
+
+
+
+
+
+
+import React from 'react'
+
+export default function locationFuntion() {
+ var a = [1, 2, 3, 5]
+  var b = [1, 2, 5, 4]
+
+
+ a.map((data)=>{
+ console.log(data.indexOf)
+ })
+
+ b.find((data)=>{
+ console.log(data)
+ })
+  
+
+  return (
+    <div>locationFuntion</div>
+  )
+}
