@@ -53,7 +53,7 @@ export default function RoutingDespen(props) {
                 else {
                     const json = typeof res.data[0].Xml === "object" ? res.data[0].Xml : [res.data[0].Xml]
                     if (!json.includes('https://www.weedx.io' + Location.pathname)) {
-                        json.push('https://www.weedx.io/weed-dispensaries/in/united-states/new-york/new-york-city');
+                        json.push('https://www.weedx.io' + Location.pathname);
                     }
                     axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/11`,
                         {
