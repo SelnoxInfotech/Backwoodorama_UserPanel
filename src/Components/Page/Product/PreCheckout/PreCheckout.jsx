@@ -24,7 +24,7 @@ const PreCheckout = () => {
                                         {
                                             state.LoadingApi ? <div className="loader"></div> : <p>{state.AllProduct?.length} products ${state.Cart_subTotal}</p>
                                         }
-
+                                          
                                     </div>
 
                                 </div>

@@ -68,7 +68,8 @@ const CheckOutMainPage = () => {
             SetLoading(true)
         ).then(response => {
             SetLoading(false)
-            navigate("/order-placed" , {state:response.data.data})
+            let datanew = {orterbtn : location.state.orderBtn  , ...response.data.data } 
+            navigate("/order-placed" , {state: datanew})
             dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
         }).catch(
             function (error) {
@@ -84,7 +85,6 @@ const CheckOutMainPage = () => {
      )
 
     }
-
     React.useEffect(() => {
       state.login &&   Axios.get(`https://api.cannabaze.com/UserPanel/Get-UserProfileOrderDetails/`, config).then((data) => {
         if (data.data.length !== 0) {
@@ -102,7 +102,6 @@ const CheckOutMainPage = () => {
     })
 
     }, [])
-
     return (
         <React.Fragment>
             <div className="container">
@@ -155,6 +154,7 @@ const CheckOutMainPage = () => {
                                 <AddToCartSummary SetDeliveryOptionData={SetDeliveryOptionData} Total={abc} SubmitData={SubmitData}
                                     CheckOut_Loading={CheckOut_Loading}
                                     SetLoading={SetLoading}
+                                  
                                 />
 
                             </div>

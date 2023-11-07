@@ -5,8 +5,14 @@ import  IconButton  from "@mui/material/IconButton";
 import { RWebShare } from "react-web-share";
 import './RelatedVerifyBrandBanner.css';
 import { useState } from "react";
+import { useEffect } from "react";
 const RelatedVerifyBanner = ({ BrandDetails }) => {
     const [readmore , setreadmore] = useState(false)
+
+  function my (r){
+    setreadmore(!readmore)
+  }
+   
     return (
         <div className="brandProfileBanner row center">
             <div className={"relatedVerifyBrand_Banner"}>
@@ -28,10 +34,7 @@ const RelatedVerifyBanner = ({ BrandDetails }) => {
                     <div className="related_verifyBrandBanner_maincol">
                         <div className="RelatedVerifyBrandBanner_image_box">
                             <div className="realtedVerifyBanner_image_inner_container">
-                                <LazyLoadImage className="related_verify_banner_img"
-
-                                    src={ BrandDetails.Brand_Logo} alt="Brand_Logo image not available" />
-
+                                <LazyLoadImage className="related_verify_banner_img"     src={ BrandDetails.Brand_Logo} alt="Brand_Logo image not available" />
                             </div>
                         </div>
                         <div className="RelatedVerifyBanner_content_box">
@@ -40,10 +43,14 @@ const RelatedVerifyBanner = ({ BrandDetails }) => {
                           
                             <div className={readmore ? "related_verify_paragraph" : " brandMoreLess" }>
 
-                                <div dangerouslySetInnerHTML={{ __html: BrandDetails.Brand_description }} />
+                                <div 
+                                 dangerouslySetInnerHTML=
+                                 {{ __html: readmore ?  BrandDetails.Brand_description +
+                                  ` <spa id="band_shlebtn"  class="band_shlebtn" onclick='${my}' > Read less</spa>` :
+                                    BrandDetails.Brand_description.split('</p>')[0] + ` <span  onclick='${my}' class="band_shlebtn" >  Read More</span>` } }  />
                                
                             </div>
-                            <span onClick={()=>{setreadmore(!readmore)}} className="band_shlebtn">{readmore ? "Read Less" : "Read More"}</span>
+                          
                         </div>
                     </div>                
               

@@ -302,6 +302,7 @@
 }
 .add_prod_cart_p_title{
   font-size: 16px;
+  word-break: break-all;
 }
 .add_prod_cart_p{
   font-size: 14px;

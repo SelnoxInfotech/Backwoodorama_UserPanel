@@ -24,6 +24,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
     const [CartClean, SetCartClean] = useState(false)
+    const [adding , setadding]= React.useState(false)
     const [popup , SetPopup] = useState(true)
     const [NewData, SetNewData] = useState([])
     const [Whishlist, SetWishList] =useState(false)
@@ -34,7 +35,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
     })
     
     async function AddToCart(Event, counter, SelectWeight , handleClose) {
-     
+        setadding(true)
         const AddData = _.filter(Event.Prices, Price => Price);
         const PriceArrry = _.find(AddData[0].Price, Price => Price.id === SelectWeight);
         const FinalSelection = PriceArrry === undefined ? Event.Prices[0].Price[0] : PriceArrry
@@ -87,17 +88,17 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                 }
                 SetPopup(false)
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+                setadding(false)
             }).catch(
                 function (error) {
                     SetPopup(false)
                     if (error.response.status === 406) {
                         alert("This Product " + error.response.data[0])
                     }
-                })
+            })
         }
-        else {
+        else{
 
-            
             const Arry = {
                 Image: Event.images[0].image,
                 Product_id: Event.id,
@@ -129,11 +130,15 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                         }))
                         SetPopup(false)
                         dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+            setadding(false)
+
                     }
                     else {
                         SetPopup(false)
                         SetAddToCard([...AddTOCard, Arry])
                         dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+                        setadding(false)
+
                     }
                 }
                 else {
@@ -145,8 +150,11 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                 SetPopup(false)
                 SetAddToCard([Arry])
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+                setadding(false)
+
             }
             dispatch({ type: 'Cart_subTotal' })
+            setadding(false)
         }
 
 
@@ -200,18 +208,18 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
  
      },[RelatedProductResult])
-
     return (
         <React.Fragment>
             <div className="row mx-0 marginProductSearchResult">
               
-                <div className="col-12 mt-4  fontStyle">
+                <div className="col-12 mt-sm-4 mt-2  fontStyle">
                     <h2 className="section_main_title">{CategoryName}</h2>
                 </div>
              
                      <div className="product_card_wrapper">
                        {
                            RelatedProductResult.map((items, index) => {
+                             
                                if(items.id !== currentProductID){
                                    return (
                                        <div className="productSearch_result_container" key={index}>
@@ -267,10 +275,16 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                                                                     ?
                                                                     <ProductIncDecQuantity popup={popup}   SetPopup={SetPopup} items={items} AddToCart={AddToCart} />                                                                                                         
                                                                     :
-                                                                    <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" }}
-                                                                        onClick={() => { AddToCart(items) }}>
-                                                                        Add To Cart
-                                                                    </LoadingButton>
+
+                                                                    items?.Prices[0].Price[0].Stock === "IN Stock" ?
+                                                                        <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" }}
+                                                                            onClick={() => { AddToCart(items) }} >
+                                                                          Add To Cart
+                                                                        </LoadingButton>
+                                                                    :
+                                                                        <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" }} >
+                                                                        Out of Stock
+                                                                        </LoadingButton>
                                                             }
                                                             {
                                                                 CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />

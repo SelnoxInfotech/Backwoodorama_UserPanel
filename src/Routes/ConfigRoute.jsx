@@ -81,7 +81,6 @@ const routesConfig = [
         path: "/brands/:Name/:id",
         element: <RoutingList Component={RelatedVerifyBrand} ></RoutingList>
       },
-
       {
         path: "/deals",
         element: <RoutingList Component={MainDeals} ></RoutingList>
@@ -95,10 +94,6 @@ const routesConfig = [
         path: "/weed-dispensaries/:StoreName/:tab?/:Category?/:SubCategory?/:id/",
         element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
       },
-      // {
-      //   path: "/weed-dispensaries/:StoreName/menu/:Category/:SubCategory/:id/",
-      //   element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
-      // },
       {
         path: "/weed-dispensaries/:StoreName/menu/:category/:subcategory/:product/:id/",
         element: <RoutingList Component={NewProductDetails} ></RoutingList>
@@ -192,16 +187,11 @@ const routesConfig = [
         element: <RoutingList Component={AddToCart} ></RoutingList>
       },
       // End
-
-
       {
         path: "/profile",
         element: <ProtectRout Component={Profile}></ProtectRout>
       },
-
       /////////////////////////////////////////////////////////////// Proper Compeleted Routes With Seo ////////////////////////////////////////////////////////////////////////////////////////
-
-
       {
         path: "/order-placed",
         element: <RoutingList Component={PlaceOrder} ></RoutingList>,

@@ -171,16 +171,14 @@ font-weight: 700;
 line-height: normal;
 }
 .blogcardDescription{
-
     display: -webkit-box;
-    /* -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical; */
     overflow: hidden;
     color: #5A7184;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    height:100px;
 }
 .blogcardDescription h1 , .blogcardDescription h2, .blogcardDescription h3,.blogcardDescription h4,.blogcardDescription h5 ,.blogcardDescription h6{
  display: none !important;
@@ -270,6 +268,9 @@ line-height: normal;
   }
 }
 @media(max-width:480px) {
+  .blogcardDescription{
+    height: 75px;
+}
   .blogListCard{
     width: 100%;
   }

@@ -197,10 +197,11 @@
       width: 100%;
       padding: 0;
       display: flex;
+      justify-content: space-between;
   }
   .footerLogo{
       width: 100px;
-      margin: 0 auto;
+      margin: 0;
   }
   .footer_list{
       width: 29%;

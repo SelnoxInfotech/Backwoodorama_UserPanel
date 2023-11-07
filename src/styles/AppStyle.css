@@ -1392,9 +1392,10 @@ scrollbar-width: none;  /* Firefox */
 }
 
 .opning_time h4{
+  color: #414141;
   font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 15px;
+  font-weight: 500;
+  margin-bottom: 0px;
 }
 .opning_time p{
   font-size: 14px;
@@ -1519,16 +1520,15 @@ scrollbar-width: none;  /* Firefox */
 /* end */
 
 .StoreDetail_paragraph {
-  color: #000000;
+  color: #414141;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 500;
 
 }
 
-.store_middle_content_top {
-  height: 40px;
+.StoreDetail_paragraph p{
+  margin: 0;
 }
-
 .storeDetails {
   color: #000000;
   font-size: 16px;
@@ -1641,7 +1641,7 @@ scrollbar-width: none;  /* Firefox */
 .newFlavour_container {
   height: 245px;
   border: 1px solid #E7E7E7;
-  background: #FAFAFA;
+  background: #EEFFF5;
 }
 
 .newFlavour_image_container_height {
@@ -1871,6 +1871,9 @@ scrollbar-width: none;  /* Firefox */
 
 .preCheck_price {
   height: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .preCheck_price p {
@@ -5400,6 +5403,7 @@ footer{
 .socialIconsContainer {
   background-color: #31B665;
   display: flex;
+  padding: 10px;
 }
 
 .sharIcons {
@@ -5681,6 +5685,7 @@ scrollbar-width: none;
 .mydropdown .dropdown-menu.open {
   opacity: 1;
   visibility: visible;
+  z-index: 10;
 }
 .mydropdown .dropdown-menu.open .dropdown-option-label {
  color: #4E4E4E;

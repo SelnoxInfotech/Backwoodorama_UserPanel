@@ -19,10 +19,10 @@ const yyyy = today.getFullYear();
 let mm = today.getMonth() + 1; // month is zero-based
 let dd = today.getDate();
 
-if (dd < 10) dd = '0' + dd;
-if (mm < 10) mm = '0' + mm;
+   if (dd < 10) dd = '0' + dd;
+   if (mm < 10) mm = '0' + mm;
 
-const formatted = dd + '/' + mm + '/' + yyyy;
+   const formatted = dd + '/' + mm + '/' + yyyy;
 
    let pricess = {
     Subtotal:0,
@@ -50,7 +50,7 @@ const formatted = dd + '/' + mm + '/' + yyyy;
                 console.error(error)    
             })
     },[])
-
+   console.log(location.state ,'texting text' )
     return (
         <React.Fragment>
             <div className="container-fluid">
@@ -60,8 +60,6 @@ const formatted = dd + '/' + mm + '/' + yyyy;
                             <span><FaRegPaperPlane className='order_conform_card_icons'/></span>
                             <h3 className="card_title">Thank You!</h3>
                             <p className="card_message">You'll receive a confirmation email soon</p>
-                            {/* <p className="card_message">Your <b>order ID</b> is <b>#{location.state.OrderId}</b> </p>
-                             */}
                         </div>
                        
                         <div className='d-flex justify-content-between align-items-center'>
@@ -124,25 +122,23 @@ const formatted = dd + '/' + mm + '/' + yyyy;
                             </div>
                         
                         </div>
-                    
-                            <div className="row border place-order_address">
-                               
-                                <div className="col-md-4 p-sm-4 p-2">
-                                    <h4>Seller Info</h4>
-                                    <p>Name : {location.state.Product[0].StoreName}</p>
-                                    <p>Address : {location.state.Product[0].StoreAddress}</p>
-                                   
-                                </div>
-                                <div className="col-md-4 p-sm-4 p-2">
-                                    <h4>{location.state.Order_Type} Address</h4>
-                                    <p>{location.state.Address}</p>
-                                </div>
-                                <div className="col-md-4 p-sm-4 p-2">
-                                    <h4>Payment Method</h4>
-                                    <p>Offline</p>
-                                </div>
+                        <div className="row border place-order_address">
+                            
+                            <div className="col-md-4 p-sm-4 p-2">
+                                <h4>Seller Info</h4>
+                                <p>Name : {location.state.Product[0].StoreName}</p>
+                                <p>Address : {location.state.Product[0].StoreAddress}</p>
+                                
                             </div>
-                       
+                            <div className="col-md-4 p-sm-4 p-2">
+                                <h4>{location.state.orterbtn === "pickup_btn" ? "Curbside Pickup" : "Delivery " } Address</h4>
+                                <p>{location.state.Address}</p>
+                            </div>
+                            <div className="col-md-4 p-sm-4 p-2">
+                                <h4>Payment Method</h4>
+                                <p>Offline</p>
+                            </div>
+                        </div>
                     </div>
 
                 </div>

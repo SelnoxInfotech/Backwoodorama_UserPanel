@@ -1,8 +1,5 @@
 import React from "react"
-import { FaFacebookF } from "react-icons/fa"
-import { IoMailSharp } from "react-icons/io5"
-import { IconButton } from "@mui/material"
-import { ImShare2 } from "react-icons/im"
+import '../../../../../../styles/termconditions.css';
 const LawStateContent = ({ head }) => {
     const [Selected, SetSelected] = React.useState(1)
     const LawSelectedFun = (ids) => {
@@ -14,19 +11,7 @@ const LawStateContent = ({ head }) => {
         <React.Fragment>
             <div className="col-lg-11 col-md-12 LawStateContentsContainer ">
 
-                <div className="col-12  socialIconsContainer">
-                    <div className="col-6">
-                        <ol className="caontentSocialIcon_Ol">
-                            <li><IconButton><FaFacebookF color="#FFFFFF" /></IconButton></li>
-                            <li><IconButton><IoMailSharp color="#FFFFFF" /></IconButton></li>
-                        </ol>
-                    </div>
-                    <div className="col-6 text-end sharIcons">
-                        <ImShare2 size={20} color="#FFFFFF" />
-                    </div>
-
-
-                </div>
+                <div className="heading_box socialIconsContainer"> <h3 className='text-white m-0 sideTableHeading'>Table of Contents</h3> </div>
                 <div className="col-12 LawStateContentOlsCol">
                     <ol className="LawStateContentOls">{head?.map((items, index) => {
 
@@ -46,10 +31,6 @@ const LawStateContent = ({ head }) => {
 
                     </ol>
                 </div>
-
-
-
-
             </div>
         </React.Fragment>
     )

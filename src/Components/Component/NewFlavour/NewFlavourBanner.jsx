@@ -18,19 +18,19 @@ const NewFlavourBanner = ({ delBtn }) => {
     const myTimeout = setTimeout(()=>{
         setshopopen(isShopOpen(delBtn)) 
     }, 0);
-
+    window.scrollTo({top: 0, left: 0})
    },[ new Date().getMinutes() , delBtn])
 
     return (
         <React.Fragment>
             {/* <div className='container-fluid'> */}
             <div className="row  newFlavour_row" >
-                <div className="col-12 newFlavour_container">
+                <div className="col-12 newFlavour_container  position-relative">
                     {
                         delBtn?.map((data) => {
                             console.log(data)
                             return (
-                                <div className="row position-relative" key={data.id}>
+                                <div className="row" key={data.id}>
                                     <div className="col-md-2 col-sm-4  col-3 newFlavour_image_container_height">
                                         <div className='newFlavourimage_div'>
                                             <LazyLoadImage 
