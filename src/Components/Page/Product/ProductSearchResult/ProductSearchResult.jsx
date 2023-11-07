@@ -18,6 +18,8 @@ import AddToCartPopUp from "../AddToCartPopUp/AddToCartPopUp";
 import { Link } from "react-router-dom";
 import { WishListPost } from "../../../Component/Whishlist/WishListApi_"
 import {WhisList} from "../../../Component/Whishlist/WhisList"
+import Productcard from "./Productcard";
+
 const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProductID , title}) => {
     const { state, dispatch } = React.useContext(Createcontext)
     const classes = useStyles()
@@ -293,6 +295,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                                                     </div>
                                                </div>
                                        </div>
+                                    //    <Productcard items={items} index={index} RelatedProductResult={RelatedProductResult} />
                                    )
                                }
                            })
