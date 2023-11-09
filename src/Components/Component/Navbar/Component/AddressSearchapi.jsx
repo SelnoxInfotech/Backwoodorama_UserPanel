@@ -222,7 +222,7 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
           ci = data?.long_name.replace(/\s/g, '-')
           dispatch({ type: 'City', City: data?.long_name.replace(/\s/g, '-') })
         }
-        if (data.types.indexOf('route') !== -1 || data.types.indexOf('sublocality_level_2') !== -1) {
+        if (data.types.indexOf('route') !== -1 || data.types.indexOf('sublocality_level_2') !== -1 || data.types.indexOf("establishment") !== -1 ) {
           route = data?.long_name.replace(/\s/g, '-')
           dispatch({ type: 'route', route: data?.long_name.replace(/\s/g, '-') })
         }
@@ -304,12 +304,12 @@ function current(event) {
                 sta = data?.long_name?.replace(/\s/g, '-')
                 return dispatch({ type: 'State', State: data?.long_name?.replace(/\s/g, '-') })
               }
-              if ((data.types.indexOf('locality') !== -1 && data.types.indexOf('administrative_area_level_3' !== -1)) || data.types.indexOf('sublocality') !== -1 || data.types.indexOf("postal_town") !== -1
-                || data.types.indexOf("establishment") !== -1) {
+              if ((data.types.indexOf('locality') !== -1 && data.types.indexOf('administrative_area_level_3' !== -1)) || data.types.indexOf("postal_town") !== -1
+                ||  data.types.indexOf('sublocality') !== -1) {
                 ci = data?.long_name?.replace(/\s/g, '-')
                 dispatch({ type: 'City', City: data?.long_name?.replace(/\s/g, '-') })
               }
-              if (data.types.indexOf('route') !== -1 || data.types.indexOf('sublocality_level_2') !== -1) {
+              if (data.types.indexOf('route') !== -1 || data.types.indexOf('sublocality_level_2') !== -1 || data.types.indexOf("establishment") !== -1 ) {
                 route = data?.long_name?.replace(/\s/g, '-')
                 dispatch({ type: 'route', route: data?.long_name?.replace(/\s/g, '-') })
               }
