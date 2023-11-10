@@ -222,7 +222,8 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
           ci = data?.long_name.replace(/\s/g, '-')
           dispatch({ type: 'City', City: data?.long_name.replace(/\s/g, '-') })
         }
-        if (data.types.indexOf('route') !== -1 || data.types.indexOf('sublocality_level_2') !== -1 || data.types.indexOf("establishment") !== -1 ) {
+        if (data.types.indexOf('route') !== -1 || data.types.indexOf('sublocality_level_2') !== -1 || data.types.indexOf("establishment") !== -1 
+        ||data.types.indexOf("neighborhood") !== -1 ) {
           route = data?.long_name.replace(/\s/g, '-')
           dispatch({ type: 'route', route: data?.long_name.replace(/\s/g, '-') })
         }
