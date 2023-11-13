@@ -199,7 +199,10 @@ export default function DispensoriesDetails() {
         response.data.status === 'success'&& SetApi(!api)
         })
        }
-
+       function handleEdit(){
+        SetGetProductReview({ ...GetProductReview, 'popup':true })
+       }
+    
     return (
         <div>
             <StoreDetails Despen={Despen} locationStore={useLocation().pathname}></StoreDetails>
@@ -236,7 +239,7 @@ export default function DispensoriesDetails() {
                         tab === 'store-details' && <ComponentStoreDetails storeDetails={Despen}></ComponentStoreDetails>
                     }
                     {
-                        tab === 'review' && <Review handleDelete={handleDelete} Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview={SetReview}></Review>
+                        tab === 'review' && <Review handleEdit={handleEdit} handleDelete={handleDelete} Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview={SetReview}></Review>
                     }
                     {
                         tab === 'deals' && <>Deal</>

@@ -3,7 +3,7 @@ import RelatedReview from "./ReviewComponent/RelatedReview"
 import React from "react"
 import WriteReviewPopup from "./ReviewPopup/WriteReviewPopup"
 import './Review.css'
-const Review = ({Rating, handleDelete,onSubmit ,api ,SetApi, GetProductReview, SetGetProductReview ,AllReview, SetReview} ) => {
+const Review = ({handleEdit, Rating, handleDelete,onSubmit ,api ,SetApi, GetProductReview, SetGetProductReview ,AllReview, SetReview} ) => {
 
 let noofreview = AllReview.length
 
@@ -24,7 +24,7 @@ let noofreview = AllReview.length
               
                     </div>
                 <div className="col-md-7">
-                    <RelatedReview handleDelete={handleDelete}  AllReview={AllReview} SetReview ={SetReview}/>
+                    <RelatedReview handleEdit={handleEdit} handleDelete={handleDelete}  AllReview={AllReview} SetReview ={SetReview}/>
                 </div>
                 </div>
                  :

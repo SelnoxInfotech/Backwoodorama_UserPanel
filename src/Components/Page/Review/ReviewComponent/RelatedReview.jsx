@@ -10,7 +10,7 @@ import ReportReviewPopup from '../ReviewPopup/ReportReviewPopup';
 import { useState } from 'react';
 import Createcontext from "../../../../Hooks/Context"
 import { Delete_Review } from "../../Product/ProductApi"
-const RelatedReview = ({ AllReview, handleDelete }) => {
+const RelatedReview = ({ handleEdit,AllReview, handleDelete }) => {
     const classes = useStyles()
     const { state, dispatch } = React.useContext(Createcontext)
     const [readopen, setreadopen] = useState(true)
@@ -113,7 +113,10 @@ const RelatedReview = ({ AllReview, handleDelete }) => {
                                                         <BsThreeDotsVertical size={10}></BsThreeDotsVertical>
 
                                                     </IconButton>
-                                                    {Option &&  <option onClick={()=>handleDelete(ele.id)} >Delete</option>}
+                                                    {Option && <>
+                                                    <option onClick={()=>handleDelete(ele.id)} >Delete</option>
+                                                    <option onClick={()=>handleEdit()} >Edit</option>
+                                                    </> }
                                                 </span>
                                             }
                                         </div>
