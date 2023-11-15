@@ -87,7 +87,7 @@ const RelatedReview = ({ handleEdit,AllReview, handleDelete }) => {
                                     <div className="related_review_content">
 
                                         <h3 className='reviews_title'>{ele.Title}</h3>
-
+<p>{ele.username}</p>
 
                                         <div className="reviwerName_rating">
 
@@ -152,3 +152,15 @@ const RelatedReview = ({ handleEdit,AllReview, handleDelete }) => {
     )
 }
 export default RelatedReview
+
+
+
+
+
+
+
+
+
+
+
+
