@@ -44,11 +44,13 @@ const Deliveries=()=>{
                 })
             }
             else {
+                let api = true
                 const json = typeof res.data[0].Xml === "object" ? res.data[0].Xml : [res.data[0].Xml]
                 if (!json.includes('https://www.weedx.io' + modifystr( Location.pathname))) {
                     json.push('https://www.weedx.io' + modifystr( Location.pathname));
+                    api = false
                 }
-                axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/11`,
+              !api &&  axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/11`,
                     {
                         Xml: json
                     },
