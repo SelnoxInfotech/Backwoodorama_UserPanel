@@ -76,6 +76,7 @@ export default function Dispansires() {
 
         return str.toLowerCase()
     }
+    console.log(params, modifystr(Location.pathname))
 
 
     React.useEffect(() => {
@@ -91,11 +92,13 @@ export default function Dispansires() {
                 })
             }
             else {
+                let api =  true 
                 const json = typeof res.data[0].Xml === "object" ? res.data[0].Xml : [res.data[0].Xml]
                 if (!json.includes('https://www.weedx.io' + modifystr(Location.pathname))) {
                     json.push('https://www.weedx.io' + modifystr(Location.pathname));
+                    api = false
                 }
-                axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/10`,
+               !api  && axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/10`,
                     {
                         Xml: json
                     },
@@ -165,3 +168,100 @@ export default function Dispansires() {
 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// [
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/texas/el-paso",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/new-york",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/district-of-columbia/washington",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/district-of-columbia",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/new-york/niagara-falls",
+//     "https://www.weedx.io/weed-dispensaries/in/canada/new-brunswick/drummond-parish",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/new-york/plattsburgh",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/new-york/lenox",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/california/chula-vista",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/wisconsin/madison",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/virginia/richmond",
+//     "https://www.weedx.io/weed-dispensaries/in/canada/british-columbia/north-cowichan",
+//     "https://www.weedx.io/weed-dispensaries/in/canada/ontario/toronto",
+//     "https://www.weedx.io/weed-dispensaries/in/india/madhya-pradesh/bhopal",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/virginia/williamsburg",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/south-carolina",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/california",
+//     "https://www.weedx.io/weed-dispensaries/in/delhi",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/atmore",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/new-york/new-york",
+//     "https://www.weedx.io/weed-dispensaries/in/Kearny",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/new-jersey/kearny",
+//     "https://www.weedx.io/weed-dispensaries/in/india/madhya-pradesh/harda",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/california/san-diego",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/auburn",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/clanton",
+//     "https://www.weedx.io/weed-dispensaries/in/india/haryana/jhajjar",
+//     "https://www.weedx.io/weed-dispensaries/in/faroe-islands",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/bessemer",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/birmingham",
+//     "https://www.weedx.io/weed-dispensaries/in/indonesia/central-java/new-york",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/new-york/new-york-city",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/decatur",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/georgia/decatur",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/dothan",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/new-york/new-york",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/new-jersey/jersey-city",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/new-york/new-york-city",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/florence",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/fort-payne",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/gadsden",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/greenville",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/south-carolina/greenville",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/guntersville",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/new-york/new-york-city",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/new-york",
+//     "https://www.weedx.io/weed-dispensaries/in/united-kingdom/england/",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/minnesota",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/texas/austin/bee-cave-road",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/marion",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/mobile",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/montgomery",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/opelika",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/ozark",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/phenix-city",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/prichard",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/scottsboro",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/selma",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/sheffield",
+//     "https://www.weedx.io/weed-dispensaries/in/united-kingdom/england/sheffield",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/sylacauga",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/talladega",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/troy",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/tuscaloosa",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/california/san-diego-county",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/california",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/new-york/brooklyn",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/alabama/huntsville",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/new-york/queens/flushing",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/new-york/queens",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/new-york/queens/forest-hills",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/new-york/fredonia",
+//     "https://www.weedx.io/weed-dispensaries/in/united-states/new-york/fredonia/forest-hills",
+// ]
