@@ -21,6 +21,7 @@ export default function DashBoardLink({ state }) {
     Setcurrent_route(location.pathname)
 
   }, [location])
+  console.log(state)
   return (
     <React.Fragment>
 

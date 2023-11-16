@@ -17,7 +17,7 @@ const Termsconditions = () => {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, [])
-  let divElement = document.getElementById('Navbar_box').clientHeight
+  let divElement = document.getElementById('Navbar_box')?.clientHeight
   React.useEffect(()=>{
     
 
