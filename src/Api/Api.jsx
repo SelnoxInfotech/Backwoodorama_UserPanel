@@ -132,6 +132,21 @@ export function Store_Add_Review(Review) {
 
     return data
 }
+export function Delete_StoreReview(id) {
+    const cookies = new Cookies();
+    const token_data = cookies.get('Token_access')
+    let data = axios.delete(`https://api.cannabaze.com/UserPanel/Delete-StoreReview/${id}`,
+        {
+            headers: { Authorization: `Bearer ${token_data}` }
+        },
+    ).then(response => {
+        return response
+    }).catch(
+        function (error) { }
+    )
+
+    return data
+}
 
 export async function Store_Get_UserComment(id, storeId) {
     const cookies = new Cookies();
@@ -281,7 +296,7 @@ export function GetAllDelivery(object) {
 
 
 
-export function PriceFilter(value , Store_id) {
+export function PriceFilter(value, Store_id) {
     return (
         axios.post(`https://api.cannabaze.com/UserPanel/PriceFilter/`,
             {
@@ -289,9 +304,9 @@ export function PriceFilter(value , Store_id) {
                 "MaxPrice": value[1],
                 "Store": Store_id
             },
-            ).then((res) => {
-                return (res)
-            })
+        ).then((res) => {
+            return (res)
+        })
     )
 
 }

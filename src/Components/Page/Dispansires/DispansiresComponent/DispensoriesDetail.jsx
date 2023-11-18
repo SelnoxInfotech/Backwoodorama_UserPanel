@@ -18,7 +18,7 @@ import ComponentStoreDetails from "../../StoreDetail/ComponentStoreDetails"
 import Review from "../../Review/Review";
 import Media from "../../Media/Media";
 import { StoreDetails } from "../../../../Components/Component/ScoPage/StoreDetails"
-import { Store_Add_Review, Store_OverAllGet_Review, Store_Get_UserComment, Store_Get_Review } from "../../../../Api/Api";
+import { Store_Add_Review, Store_OverAllGet_Review, Store_Get_UserComment, Store_Get_Review ,Delete_StoreReview } from "../../../../Api/Api";
 import Createcontext from "../../../../Hooks/Context"
 export default function DispensoriesDetails() {
     const navigate = useNavigate()
@@ -155,6 +155,10 @@ export default function DispensoriesDetails() {
                         "Title": res.data[0]?.Title, "value": res.data[0]?.rating
                     })
                 }
+                else{
+                    SetGetProductReview({...GetProductReview , "comment": '' , 
+                    "Title" : '' , "value":0})
+                  }
             }).catch((error) => {
                 console.trace(error)
             })
@@ -190,8 +194,15 @@ export default function DispensoriesDetails() {
             console.error(e)
         })
     }, [id, api])
-console.log(useLocation().pathname)
-
+    function handleDelete (id){
+        Delete_StoreReview(id).then((response)=>{
+        response.data.status === 'success'&& SetApi(!api)
+        })
+       }
+       function handleEdit(){
+        SetGetProductReview({ ...GetProductReview, 'popup':true })
+       }
+    
     return (
         <div>
             <StoreDetails Despen={Despen} locationStore={useLocation().pathname}></StoreDetails>
@@ -228,7 +239,7 @@ console.log(useLocation().pathname)
                         tab === 'store-details' && <ComponentStoreDetails storeDetails={Despen}></ComponentStoreDetails>
                     }
                     {
-                        tab === 'review' && <Review Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview={SetReview}></Review>
+                        tab === 'review' && <Review handleEdit={handleEdit} handleDelete={handleDelete} Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview={SetReview}></Review>
                     }
                     {
                         tab === 'deals' && <>Deal</>
