@@ -84,6 +84,42 @@ const RelatedReview = ({AllReview, SetReview}) => {
                                        
                                         <p>{textgive(text)}   { text.split(' ').length >= 100 &&<span className='band_shlebtn' onClick={()=>setreadopen(!readopen)}>Read { readopen ? "More" : "Less"}</span>}</p>
                                     </div>
+                                    <div className='container-fluid border-left-1'>
+                                        <div className="d-flex gap-2">
+                                        <div className="related_img_container">
+                                        
+                                                <div className="related_review_image">
+                                            
+                                                    <LazyLoadImage 
+                                                    onError={event => {
+                                                        event.target.src = "/image/user.webp"
+                                                        event.onerror = null
+                                                    }}
+                                                    className='realted_review_images'
+                                                    src={`${ele?.userImage}`} 
+                                                    alt="userImage"
+                                                    />
+                                                </div>
+
+                                        </div>
+                                        <div className="related_review_content">
+                                        
+                                                <h3 className='reviews_title'>{ele.Title}</h3>
+
+
+                                                <div className="reviwerName_rating">
+                                                    <h4 className='userName'>{ele.username}</h4>
+                                                   
+                                                </div>
+                                               
+                                        </div>
+
+                                        </div>
+                                        <div className='review_description_container'>
+                                       
+                                        <p>{textgive(text)}   { text.split(' ').length >= 100 &&<span className='band_shlebtn' onClick={()=>setreadopen(!readopen)}>Read { readopen ? "More" : "Less"}</span>}</p>
+                                        </div>
+                                    </div>
                                     <div className='related_review_footer '>
                                        
                                             <div className='related_review_footer_paragraph ellipsis'>
