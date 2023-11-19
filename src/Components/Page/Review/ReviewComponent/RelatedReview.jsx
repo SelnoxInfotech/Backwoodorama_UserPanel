@@ -63,7 +63,7 @@ const RelatedReview = ({ handleEdit,AllReview, handleDelete }) => {
                     {(state.login ? moveObject(AllReview, 'user', state.Profile.id, 0) : AllReview)?.map((ele, index) => {
                         const text = ele?.comment;
 
-
+console.log(ele , 'elelele')
                         return (
 
                             <div className="w-100 related_review_container" key={index}>
@@ -82,7 +82,6 @@ const RelatedReview = ({ handleEdit,AllReview, handleDelete }) => {
                                                     alt="userImage"
                                                 />
                                             </div>
-
                                         </div>
                                         <div className="related_review_content">
 
@@ -128,43 +127,45 @@ const RelatedReview = ({ handleEdit,AllReview, handleDelete }) => {
                                         <p>{textgive(text)}   { text.split(' ').length >= 100 &&<span className='band_shlebtn' onClick={()=>setreadopen(!readopen)}>Read { readopen ? "More" : "Less"}</span>}</p>
                                     </div>
 
-                                    <div className='container-fluid'>
-                                    <div className="d-flex gap-2">
-                                        <div className="related_img_container">
+                                    { ele.Reply !== null &&
+                                      <div className='container-fluid'>
+                                            <div className="d-flex gap-2">
+                                                <div className="related_img_container">
 
-                                            <div className="related_review_image">
+                                                    <div className="related_review_image">
 
-                                                <LazyLoadImage
-                                                    onError={event => {
-                                                        event.target.src = "/image/user.webp"
-                                                        event.onerror = null
-                                                    }}
-                                                    className='realted_review_images'
-                                                    src={`${ele?.userImage}`}
-                                                    alt="userImage"
-                                                />
+                                                        <LazyLoadImage
+                                                            onError={event => {
+                                                                event.target.src = "/image/user.webp"
+                                                                event.onerror = null
+                                                            }}
+                                                            className='realted_review_images'
+                                                            src={`${ele?.userImage}`}
+                                                            alt="userImage"
+                                                        />
+                                                    </div>
+
+                                                </div>
+                                                <div className="related_review_content">
+
+                                                    <h3 className='reviews_title'>{ele.Title}</h3>
+                                                    <p>{ele.username}</p>
+
+                                                    <div className="reviwerName_rating">
+
+                                                    
+                                                    </div>
+                                                
+                                                </div>
+
+                                            </div>
+                                            <div className='review_description_container'>
+                                            
+                                                <p>{textgive(text)}   { text.split(' ').length >= 100 &&<span className='band_shlebtn' onClick={()=>setreadopen(!readopen)}>Read { readopen ? "More" : "Less"}</span>}</p>
                                             </div>
 
-                                        </div>
-                                        <div className="related_review_content">
-
-                                            <h3 className='reviews_title'>{ele.Title}</h3>
-                                            <p>{ele.username}</p>
-
-                                            <div className="reviwerName_rating">
-
-                                              
-                                            </div>
-                                        
-                                        </div>
-
-                                    </div>
-                                    <div className='review_description_container'>
-                                       
-                                        <p>{textgive(text)}   { text.split(' ').length >= 100 &&<span className='band_shlebtn' onClick={()=>setreadopen(!readopen)}>Read { readopen ? "More" : "Less"}</span>}</p>
-                                    </div>
-
-                                    </div>
+                                      </div>
+                                    }
                                     <div className='related_review_footer '>
                                        
                                             <div className='related_review_footer_paragraph ellipsis'>
@@ -178,9 +179,6 @@ const RelatedReview = ({ handleEdit,AllReview, handleDelete }) => {
 
                                     </div>
                             </div>
-
-
-
                         )
                     })}
                 </div>
