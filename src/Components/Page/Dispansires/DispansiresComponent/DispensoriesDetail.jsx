@@ -77,7 +77,7 @@ export default function DispensoriesDetails() {
         }).then(response => {
             SetDespensariesProductData(response.data)
         })
-    }, [])
+    }, [params])
 
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");

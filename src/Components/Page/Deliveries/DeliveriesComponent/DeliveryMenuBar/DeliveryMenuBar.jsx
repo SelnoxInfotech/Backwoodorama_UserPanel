@@ -87,7 +87,7 @@ const DeliveryMenuBar = () => {
         //     function (error) {
 
         //     })
-    }, [state])
+    }, [state ,  useLocation().pathname])
 
     const classes = useStyles()
     const [value, setValue] = React.useState('1');
