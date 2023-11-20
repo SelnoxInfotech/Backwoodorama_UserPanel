@@ -8,7 +8,7 @@ const NewProductinfoText = ({Product }) => {
                 <h2 className="newProductAboutUs_headings">{Product.heading} </h2>
                 
                 <div className='newProductAboutUs_description'  dangerouslySetInnerHTML={{ __html: Product.text?.slice( 0 , readopen ? 200 : -1) }}  />
-                   <span onClick={()=>{setreadopen(!readopen)}} className='cursor-pointer'>Read { readopen ? "More" : "Less"  }</span>
+                   <span onClick={()=>{setreadopen(!readopen)}} className='cursor-pointer readmorebtn'>Read { readopen ? "More" : "Less"  }</span>
             </div>
 
         </div>

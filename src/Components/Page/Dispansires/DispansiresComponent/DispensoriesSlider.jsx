@@ -100,7 +100,7 @@ const Dispensories = () => {
         <React.Fragment>
             <div className="px-sm-0 px-3">
                 {!Skeleton ? <div className=''>
-                    <div className='col-12  mt-4' style={{ padding: "0" }}>
+                    <div className='col-12  mt-sm-4 mt-0' style={{ padding: "0" }}>
                         <div className="disp_head" style={{ top: "0" }}>
                             <h3 className='section_main_title'>Shop Dispensaries  near you</h3>
                         </div>

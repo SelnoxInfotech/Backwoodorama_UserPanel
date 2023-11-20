@@ -2,7 +2,12 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { AiFillLike } from "react-icons/ai"
 import { BsStar, BsStarFill } from "react-icons/bs";
 import Button from '@mui/material/Button';
-import IconButton from "@mui/material/IconButton"
+import { FaEdit } from 'react-icons/fa';
+import Icon from "@material-ui/core/Icon";
+import { AiFillDelete } from 'react-icons/ai';
+import Select from '@mui/material/Select';
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
 import { BsThreeDotsVertical } from "react-icons/bs"
 import useStyles from "../../../../Style";
 import React from 'react';
@@ -14,11 +19,10 @@ const RelatedReview = ({ handleEdit, AllReview, handleDelete }) => {
     const classes = useStyles()
     const { state, dispatch } = React.useContext(Createcontext)
     const [readopen, setreadopen] = useState(true)
-    const [Option, SetOption] = useState(false)
     function textgive(text) {
-        let arrofstr = text.split(' ');
+        let arrofstr = text?.split(' ');
         let finalstr = ""
-        if (arrofstr.length >= 100 && readopen) {
+        if (arrofstr?.length >= 100 && readopen) {
 
             for (let i = 0; i < 100; i++) {
                 finalstr += `${arrofstr[i]} `
@@ -51,9 +55,7 @@ const RelatedReview = ({ handleEdit, AllReview, handleDelete }) => {
         }
     }
 
-    function handleoption() {
-        SetOption(!Option)
-    }
+    
     function calculateTImefromDate(value){
         //  new Date() = 'Mon Nov 20 2023 13:00:15 GMT+0530 (India Standard Time)'
         let diffTime = Math.abs(new Date().valueOf() - new Date(value).valueOf());
@@ -62,19 +64,18 @@ const RelatedReview = ({ handleEdit, AllReview, handleDelete }) => {
       let minutes = (hours % 1) * 60;
       let secs = (minutes % 1) * 60;
       [days, hours, minutes, secs] = [Math.floor(days), Math.floor(hours), Math.floor(minutes), Math.floor(secs)]
-      console.log(days, hours, minutes, secs)
       if(days !== 0)
       {
-        return days + " days"
+        return days + " days ago"
       }
       else if(hours !== 0){
-        return hours + " hours"
+        return hours + " hours ago"
       }
       else if(minutes !== 0){
-        return minutes + " minutes"
+        return minutes + " minutes ago"
       }
       else {
-        return secs + " secs"
+        return secs + " secs ago"
       }
       }
     return (
@@ -84,7 +85,7 @@ const RelatedReview = ({ handleEdit, AllReview, handleDelete }) => {
                 <div className="row center reviewCardWrapper">
                     {(state.login ? moveObject(AllReview, 'user', state.Profile.id, 0) : AllReview)?.map((ele, index) => {
                         const text = ele?.comment;
-
+console.log(ele , 'ele')
                         return (
 
                             <div className="w-100 related_review_container" key={index}>
@@ -108,7 +109,7 @@ const RelatedReview = ({ handleEdit, AllReview, handleDelete }) => {
                                     <div className="related_review_content">
 
                                         <h3 className='reviews_title'>{ele.Title}</h3>
-                                        <p>{ele.username}</p>
+                                        <p className='reviews_writer'>{ele.username}</p>
 
                                         <div className="reviwerName_rating">
 
@@ -123,10 +124,57 @@ const RelatedReview = ({ handleEdit, AllReview, handleDelete }) => {
                                             </div>
                                         </div>
                                         <div className='review_date'>
-                                            <p>{ele.created_at.slice(0, 10).split("-").reverse().join("-")}</p>
-                                            {
+                                            <p>{ele.created_at.slice(0, 10)?.split("-").reverse().join("-")}</p>
+                                            <span className='userreviewaction'> {
                                                 state.login &&
-                                                state.Profile.id === ele.user &&  <span>
+                                                state.Profile.id === ele.user && <><Select
+
+                                                IconComponent={BsThreeDotsVertical} labelId="demo-simple-select-error-label"
+                                                sx={{
+                                                    boxShadow: "none",
+                                                    padding:'0',
+                                               
+                                                    ".MuiOutlinedInput-notchedOutline": { border: 0 },
+                                                    "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                                                    {
+                                                        border: 0,
+                                                        outline: "none"
+                    
+                                                    },
+                                                    "& .MuiSelect-select":{
+                                                      padding:'0 10px !important'
+                                                    },
+                                                    "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                                                    {
+                                                        border: 0,
+                                                        outline: "none"
+                                                    },
+                                                    "&.Mui-focused .MuiSelect-icon": { color: "#31B665" },
+                                                    "&:hover": {
+                                                        ".MuiSelect-icon": {
+                                                            color: "#31B665"
+                                                        }
+                                                    },
+                                                }}
+                                            >
+                                                   <List className={classes.orderEditList}>
+                    
+                                                  
+                                                        <ListItem button className={classes.orderEditListitem}  onClick={()=>handleDelete(ele.id)}>
+                                                          <AiFillDelete  color='31B665'/> 
+                                                            Delete   
+                                                        </ListItem>
+                                                        <ListItem button className={classes.orderEditListitem} onClick={()=>handleEdit()}>
+                                                  
+                                                            <FaEdit  color='31B665'/> 
+                                                            Edit
+                                                        </ListItem>
+                                                   
+                    
+                                               
+                                                  </List>
+                                            </Select>
+                                             {/* <span>
                                                     <IconButton
                                                         onClick={handleoption}
 
@@ -138,53 +186,50 @@ const RelatedReview = ({ handleEdit, AllReview, handleDelete }) => {
                                                     <option onClick={()=>handleDelete(ele.id)} >Delete</option>
                                                     <option onClick={()=>handleEdit()} >Edit</option>
                                                     </> }
-                                                </span>
-                                            }
+                                             </span> */}
+                                             </>
+                                            }</span>
                                         </div>
                                          </div>
 
                                     </div>
                                     <div className='review_description_container'>
-                                       
-                                        <p>{textgive(text)}   { text.split(' ').length >= 100 &&<span className='band_shlebtn' onClick={()=>setreadopen(!readopen)}>Read { readopen ? "More" : "Less"}</span>}</p>
+                                     
+                                        <p>{textgive(text)}   { text?.split(' ')?.length >= 100 &&<span className='band_shlebtn' onClick={()=>setreadopen(!readopen)}>Read { readopen ? "More" : "Less"}</span>}</p>
                                     </div>
 
-                                  { ele.Reply !== null &&
-                                    <div className='container-fluid mx-2'>
-                                    <div className="d-flex gap-2">
-                                        <div className="related_img_container">
+                                    { ele.Reply !== null &&
+                                        <div className='container-fluid mx-2 review_reply'>
+                                        <div className="d-flex gap-2">
+                                            <div className="related_img_container">
+                                            <div className="related_review_image">
+                                                <LazyLoadImage
+                                                    onError={event => {
+                                                        event.target.src = "/image/user.webp"
+                                                        event.onerror = null
+                                                    }}
+                                                    className='realted_review_images'
+                                                    src={`${ele?.VendorImage}`}
+                                                    alt="userImage"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="related_review_content">
 
-                                        <div className="related_review_image">
-
-                                            <LazyLoadImage
-                                                onError={event => {
-                                                    event.target.src = "/image/user.webp"
-                                                    event.onerror = null
-                                                }}
-                                                className='realted_review_images'
-                                                src={`${ele?.VendorImage}`}
-                                                alt="userImage"
-                                            />
+                                            <h3 className='reviews_title'>Response from the Owner</h3>
+                                            <p className='reviews_writer'>{ele?.VendorName}</p>
+                                            <div className='review_date'>
+                                                <p>{calculateTImefromDate(ele?.ReplyTime)}</p>
+                                            </div>
                                         </div>
 
-                                    </div>
-                                    <div className="related_review_content">
-
-                                        <h3 className='reviews_title'>Response from the Owner</h3>
-                                        <p>{ele?.VendorName}</p>
-                                        <div className='review_date'>
-                                            <p>{calculateTImefromDate(ele?.ReplyTime)}</p>
-                                            
                                         </div>
-                                    </div>
+                                        <div className='review_description_container'>
+                                        
+                                            <p>{textgive(ele.Reply)}   { text?.split(' ')?.length >= 100 &&<span className='band_shlebtn' onClick={()=>setreadopen(!readopen)}>Read { readopen ? "More" : "Less"}</span>}</p>
+                                        </div>
 
-                                    </div>
-                                    <div className='review_description_container'>
-                                       
-                                        <p>{textgive(ele.Reply)}   { text.split(' ').length >= 100 &&<span className='band_shlebtn' onClick={()=>setreadopen(!readopen)}>Read { readopen ? "More" : "Less"}</span>}</p>
-                                    </div>
-
-                                    </div>
+                                        </div>
                                     }
 
                                     <div className='related_review_footer '>

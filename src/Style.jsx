@@ -754,6 +754,7 @@ const useStyles = makeStyles({
       }
     }
   },
+  
   EditUserNamePopup: {
     "& .MuiDialog-container": {
       "& .MuiPaper-root": {

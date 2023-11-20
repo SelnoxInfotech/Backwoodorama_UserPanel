@@ -165,7 +165,7 @@ const NewProductDetailsCards = ({ Product }) => {
     }
 
     return (
-        <div className=" mx-1 w-100">
+        <div className=" w-100">
             <div className=" newProductDetailsContainer position-relative  mt-4">
                 <div className="newProductDetailsCardLeftCol">
                     <div className="">

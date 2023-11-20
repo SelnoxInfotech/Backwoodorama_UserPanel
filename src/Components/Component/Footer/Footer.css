@@ -190,6 +190,9 @@
   }
   }
   @media(max-width:480px) {
+    .footer_main_div_display{
+      padding-top: 20px;
+    }
     .main_content_logo {
       padding: 20px 0;
     }

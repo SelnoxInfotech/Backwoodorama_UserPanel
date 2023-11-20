@@ -194,11 +194,33 @@ export default function DispensoriesDetails() {
             console.error(e)
         })
     }, [id, api])
+    const Swal = require('sweetalert2')
+
     function handleDelete (id){
-        Delete_StoreReview(id).then((response)=>{
-        response.data.status === 'success'&& SetApi(!api)
-        })
-       }
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You are sure to want to delete this comment",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#31B655",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                Delete_StoreReview(id).then((response)=>{
+                    response.data.status === 'success'&& SetApi(!api)
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your comment has been deleted.",
+                        icon: "success"
+                      });
+                 })
+             
+            }
+          });
+      
+    }
+
        function handleEdit(){
         SetGetProductReview({ ...GetProductReview, 'popup':true })
        }

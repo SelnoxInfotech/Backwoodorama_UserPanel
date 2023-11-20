@@ -59,6 +59,7 @@
     right: 10px;
     display: flex;
     gap: 9px;
+    align-items: flex-start;
    }
    .review_date p{
      font-size: 14px;
@@ -106,9 +107,12 @@
     justify-content: flex-end;
     gap: 20px;
    }
+   .review_reply{
+    border-left: 1px solid gray;
+   }
    @media screen and (max-width: 1024px){
        .reviews_title{
-        font-size: 14px;
+        font-size: 18px;
         width: 100%;
        }
      
@@ -135,4 +139,21 @@
         position: unset;
         margin-bottom: 20px;
     }
+   }
+   @media screen and (max-width: 480px){
+      .userreviewaction{
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      .reviews_title{
+        font-size: 16px;
+        width: 100%;
+       }
+      .reviews_writer{
+        padding: 0;
+        margin: 0;
+        font-size: 14px;
+        color: #2f2f2f;
+      }
    }

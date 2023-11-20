@@ -465,7 +465,7 @@ const Product = () => {
                                 :
                                 Product?.length ?
 
-                                    <div className="col-12 mt-4">
+                                    <div className="col-12 mt-sm-4 mt-0">
                                         <ProductSearchResult RelatedProductResult={Product} CategoryName={C} />
                                     </div> :
                                     <div className="no_product">

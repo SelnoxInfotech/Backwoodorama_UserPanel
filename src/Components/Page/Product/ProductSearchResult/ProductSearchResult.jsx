@@ -301,7 +301,6 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                                                     </div>
                                                </div>
                                        </div>
-                                    //    <Productcard items={items} index={index} RelatedProductResult={RelatedProductResult} />
                                    )
                                }
                            })

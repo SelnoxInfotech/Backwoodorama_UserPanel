@@ -117,7 +117,7 @@ export function Store_OverAllGet_Review(id) {
 }
 
 export function Store_Add_Review(Review) {
-    console.log(Review ,'Review')
+
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
     let data = axios.post(`https://api.cannabaze.com/UserPanel/Add-StoreReview/`,
