@@ -54,7 +54,29 @@ const RelatedReview = ({ handleEdit, AllReview, handleDelete }) => {
     function handleoption() {
         SetOption(!Option)
     }
-
+    function calculateTImefromDate(value){
+        //  new Date() = 'Mon Nov 20 2023 13:00:15 GMT+0530 (India Standard Time)'
+        let diffTime = Math.abs(new Date().valueOf() - new Date(value).valueOf());
+      let days = diffTime / (24*60*60*1000);
+      let hours = (days % 1) * 24;
+      let minutes = (hours % 1) * 60;
+      let secs = (minutes % 1) * 60;
+      [days, hours, minutes, secs] = [Math.floor(days), Math.floor(hours), Math.floor(minutes), Math.floor(secs)]
+      console.log(days, hours, minutes, secs)
+      if(days !== 0)
+      {
+        return days + " days"
+      }
+      else if(hours !== 0){
+        return hours + " hours"
+      }
+      else if(minutes !== 0){
+        return minutes + " minutes"
+      }
+      else {
+        return secs + " secs"
+      }
+      }
     return (
         <React.Fragment>
             <div className='container-fluid'>
@@ -126,6 +148,45 @@ const RelatedReview = ({ handleEdit, AllReview, handleDelete }) => {
                                        
                                         <p>{textgive(text)}   { text.split(' ').length >= 100 &&<span className='band_shlebtn' onClick={()=>setreadopen(!readopen)}>Read { readopen ? "More" : "Less"}</span>}</p>
                                     </div>
+
+                                  { ele.Reply !== null &&
+                                    <div className='container-fluid mx-2'>
+                                    <div className="d-flex gap-2">
+                                        <div className="related_img_container">
+
+                                        <div className="related_review_image">
+
+                                            <LazyLoadImage
+                                                onError={event => {
+                                                    event.target.src = "/image/user.webp"
+                                                    event.onerror = null
+                                                }}
+                                                className='realted_review_images'
+                                                src={`${ele?.VendorImage}`}
+                                                alt="userImage"
+                                            />
+                                        </div>
+
+                                    </div>
+                                    <div className="related_review_content">
+
+                                        <h3 className='reviews_title'>Response from the Owner</h3>
+                                        <p>{ele?.VendorName}</p>
+                                        <div className='review_date'>
+                                            <p>{calculateTImefromDate(ele?.ReplyTime)}</p>
+                                            
+                                        </div>
+                                    </div>
+
+                                    </div>
+                                    <div className='review_description_container'>
+                                       
+                                        <p>{textgive(ele.Reply)}   { text.split(' ').length >= 100 &&<span className='band_shlebtn' onClick={()=>setreadopen(!readopen)}>Read { readopen ? "More" : "Less"}</span>}</p>
+                                    </div>
+
+                                    </div>
+                                    }
+
                                     <div className='related_review_footer '>
                                        
                                             <div className='related_review_footer_paragraph ellipsis'>
