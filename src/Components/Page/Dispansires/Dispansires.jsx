@@ -82,6 +82,7 @@ export default function Dispansires() {
     React.useEffect(() => {
         axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/10`,
         ).then((res) => {
+            console.log(res ,'regbvcgf')
             if (res.data.length === 0) {
                 axios.post(`https://api.cannabaze.com/UserPanel/Add-SiteMap/`,
                     {
@@ -107,7 +108,6 @@ export default function Dispansires() {
                 })
             }
         }).catch(() => {
-
         })
     }, [Location])
 

@@ -85,7 +85,6 @@ const RelatedReview = ({ handleEdit, AllReview, handleDelete }) => {
                 <div className="row center reviewCardWrapper">
                     {(state.login ? moveObject(AllReview, 'user', state.Profile.id, 0) : AllReview)?.map((ele, index) => {
                         const text = ele?.comment;
-console.log(ele , 'ele')
                         return (
 
                             <div className="w-100 related_review_container" key={index}>
@@ -198,7 +197,7 @@ console.log(ele , 'ele')
                                         <p>{textgive(text)}   { text?.split(' ')?.length >= 100 &&<span className='band_shlebtn' onClick={()=>setreadopen(!readopen)}>Read { readopen ? "More" : "Less"}</span>}</p>
                                     </div>
 
-                                    { ele.Reply !== null &&
+                                    { ele.Reply !== null &&  "Reply" in ele && ele.Reply !== "" &&
                                         <div className='container-fluid mx-2 review_reply'>
                                         <div className="d-flex gap-2">
                                             <div className="related_img_container">
