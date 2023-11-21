@@ -55,7 +55,7 @@ const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => 
     }
 
     
-    function calculateTImefromDate(value){
+   function calculateTImefromDate(value){
         //  new Date() = 'Mon Nov 20 2023 13:00:15 GMT+0530 (India Standard Time)'
         let diffTime = Math.abs(new Date().valueOf() - new Date(value).valueOf());
       let days = diffTime / (24*60*60*1000);
@@ -217,6 +217,7 @@ const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => 
                                             <h3 className='reviews_title'>Response from the Owner</h3>
                                             <p className='reviews_writer'>{storeDetails[0]?.Store_Name}</p>
                                             <div className='review_date'>
+                                                {console.log(calculateTImefromDate(ele?.ReplyTime))}
                                                 <p>{calculateTImefromDate(ele?.ReplyTime)}</p>
                                             </div>
                                         </div>
