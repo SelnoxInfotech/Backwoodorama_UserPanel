@@ -224,7 +224,7 @@ export default function DispensoriesDetails() {
        function handleEdit(){
         SetGetProductReview({ ...GetProductReview, 'popup':true })
        }
-    
+    console.log(Despen ,'Despen')
     return (
         <div>
             <StoreDetails Despen={Despen} locationStore={useLocation().pathname}></StoreDetails>
@@ -261,7 +261,7 @@ export default function DispensoriesDetails() {
                         tab === 'store-details' && <ComponentStoreDetails storeDetails={Despen}></ComponentStoreDetails>
                     }
                     {
-                        tab === 'review' && <Review handleEdit={handleEdit} handleDelete={handleDelete} Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview={SetReview}></Review>
+                        tab === 'review' && <Review delBtn={Despen} handleEdit={handleEdit} handleDelete={handleDelete} Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview={SetReview}></Review>
                     }
                     {
                         tab === 'deals' && <>Deal</>
@@ -270,7 +270,6 @@ export default function DispensoriesDetails() {
                         tab === 'media' && <Media></Media>
                     }
                 </div>
-
             </div>
         </div>
     )

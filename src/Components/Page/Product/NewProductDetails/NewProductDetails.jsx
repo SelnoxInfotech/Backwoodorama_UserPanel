@@ -56,9 +56,7 @@ const NewProductDetails = () => {
         })
     }).catch(
       function (error) {
-
         alert("Something Goes Wrong")
-
       })
 
 
@@ -69,7 +67,6 @@ const NewProductDetails = () => {
       SetRating(res?.data)
     }).catch(() => { })
   }, [Product.id, api])
-
   React.useEffect( ()=>{
     
         if(state.login &&  state.Profile.id !== undefined && Product.id !== undefined){
@@ -135,7 +132,7 @@ const NewProductDetails = () => {
       SetGetProductReview({ ...GetProductReview, 'popup':true })
      }
   
-
+console.log(Product ,'Product')
 
 
 return (
@@ -149,8 +146,6 @@ return (
 
       <ProductSearchResult RelatedProductResult={StoreProduct} currentProductID={Product.id} CategoryName={heading} />
       <Review handleEdit={handleEdit}  handleDelete={handleDelete} Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview ={SetReview}></Review>
-
-
     </div>
   )
 }

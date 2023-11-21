@@ -3,7 +3,6 @@ import { AiFillLike } from "react-icons/ai"
 import { BsStar, BsStarFill } from "react-icons/bs";
 import Button from '@mui/material/Button';
 import { FaEdit } from 'react-icons/fa';
-import Icon from "@material-ui/core/Icon";
 import { AiFillDelete } from 'react-icons/ai';
 import Select from '@mui/material/Select';
 import List from "@material-ui/core/List";
@@ -14,11 +13,11 @@ import React from 'react';
 import ReportReviewPopup from '../ReviewPopup/ReportReviewPopup';
 import { useState } from 'react';
 import Createcontext from "../../../../Hooks/Context"
-import { Delete_Review } from "../../Product/ProductApi"
-const RelatedReview = ({ handleEdit, AllReview, handleDelete }) => {
+const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => {
     const classes = useStyles()
     const { state, dispatch } = React.useContext(Createcontext)
     const [readopen, setreadopen] = useState(true)
+    console.log(storeDetails ,'storeDetails')
     function textgive(text) {
         let arrofstr = text?.split(' ');
         let finalstr = ""
@@ -208,7 +207,7 @@ const RelatedReview = ({ handleEdit, AllReview, handleDelete }) => {
                                                         event.onerror = null
                                                     }}
                                                     className='realted_review_images'
-                                                    src={`${ele?.VendorImage}`}
+                                                    src={`${storeDetails[0]?.Store_Image}`}
                                                     alt="userImage"
                                                 />
                                             </div>
@@ -216,7 +215,7 @@ const RelatedReview = ({ handleEdit, AllReview, handleDelete }) => {
                                         <div className="related_review_content">
 
                                             <h3 className='reviews_title'>Response from the Owner</h3>
-                                            <p className='reviews_writer'>{ele?.VendorName}</p>
+                                            <p className='reviews_writer'>{storeDetails[0]?.Store_Name}</p>
                                             <div className='review_date'>
                                                 <p>{calculateTImefromDate(ele?.ReplyTime)}</p>
                                             </div>
