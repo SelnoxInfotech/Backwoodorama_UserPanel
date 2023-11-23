@@ -69,7 +69,7 @@ const SearchBar = ({ path }) => {
                             data1[1].map((data) => {
 
                                 return SetSearchData(SearchData => [...SearchData, {
-                                    type: data1[0], value: data.name || data.Product_Name || data.Store_Name, id: data.id, image: data?.Brand_Logo || data?.categoryImages || data?.Store_Image || data?.SubCategoryImage || data.images[0].image,  StoreName: data.Store_Name, Category: data.category_name, SubCategory_id: data.Sub_Category_id,
+                                    type: data1[0], value: data.name || data.Product_Name || data.Store_Name, id: data.id, image: data?.Brand_Logo || data?.categoryImages || data?.Store_Image || data?.SubCategoryImage || data.images[0].image, StoreName: data.Store_Name, Category: data.category_name, SubCategory_id: data.Sub_Category_id,
                                     SubcategoryName: data.SubcategoryName, Store_Type: data.Store_Type
                                 }]);
                             }
@@ -105,7 +105,7 @@ const SearchBar = ({ path }) => {
         else {
             if (windowSize >= 900) {
                 SetSearchBarWidth(false)
-                let w = document.getElementById("navsearchConntainer").clientWidth/2;
+                let w = document.getElementById("navsearchConntainer").clientWidth / 2;
                 console.log(w)
                 setoptionwidth(w)
             }
@@ -121,11 +121,11 @@ const SearchBar = ({ path }) => {
         }
         else {
             if (windowWidth >= 900) {
-                let w = document.getElementById("navsearchConntainer").clientWidth/2;
+                let w = document.getElementById("navsearchConntainer").clientWidth / 2;
                 setoptionwidth(w)
             }
         }
-       
+
 
     }, [])
 
@@ -148,10 +148,10 @@ const SearchBar = ({ path }) => {
             Navigation(`/Products/${modifystr(t.Category)}/${modifystr(t.value)}/${t.id}`);
         }
         else if (type === "Category") {
-            Navigation(`/Products/${modifystr(t.value)}/${t.id}` );
+            Navigation(`/Products/${modifystr(t.value)}/${t.id}`);
 
         }
-        
+
 
 
 
@@ -183,10 +183,11 @@ const SearchBar = ({ path }) => {
                         classes={{ paper: classes.paper }}
                         // onClick={Search}
                         filterOptions={x => x}
-                       
+
                         // ListboxProps={{ style: { width: '100%' } }}
-                        componentsProps={{ popper: { style: { height: '100%', width : `${optionwidth}px` } } }}
+                        componentsProps={{ popper: { style: { height: '100%', width: `${optionwidth}px` } } }}
                         onChange={(event, value) => SearchAPi(value?.id, value?.type, value, event)}
+                        // onClick={(event, value) => SearchAPi(value?.id, value?.type, value, event)}
                         getOptionSelected={option => option.value}
                         getOptionLabel={(option) => option.value}
                         options={SearchData}
@@ -196,7 +197,7 @@ const SearchBar = ({ path }) => {
                                 <div {...props} style={{ color: "black" }} >
                                     <ul className='PopperLIst'>
                                         {/* <div> */}
-                                        <li className='searchBarListStyles' key={t.value}>
+                                        <li onClick={(event, value) => SearchAPi(t?.id, t?.type, t)} className='searchBarListStyles' key={t.value}>
                                             <LazyLoadImage
                                                 onError={event => {
                                                     event.target.src = "/image/blankImage.jpg"
@@ -216,7 +217,6 @@ const SearchBar = ({ path }) => {
                         renderInput={(params) => <TextField
                             {...params}
                             onChange={Search}
-
                             placeholder="Products Brands Retailers and more"
                             className={` ${classes.Bar_padding} SearchBar nav_search_bar_div  ${classes.SearchBar_Text}`}
                             style={{ borderRadius: (open && SearchBarWidth) ? " 16px 16px 16px 16px" : " 16px 0px 0px 16px", top: "0px", display: openLocation && SearchBarWidth ? "none" : "inline-flex", width: open && SearchBarWidth ? "100%" : "100%" }}
@@ -239,17 +239,17 @@ const SearchBar = ({ path }) => {
                         }
                     />
                     {
-                       SearchBarWidth && !open && 
+                        SearchBarWidth && !open &&
                         <div id="Boder_left"></div>
-                    }  
+                    }
                     {
-                       !SearchBarWidth && <div id="Boder_left"></div>
+                        !SearchBarWidth && <div id="Boder_left"></div>
                     }
                     <AddressSearchapi
                         openLocation={openLocation}
                         SearchBarWidth={SearchBarWidth}
                         setOpenLocation={setOpenLocation}
-                    open1={open}
+                        open1={open}
                         path={path}
                     ></AddressSearchapi>
 

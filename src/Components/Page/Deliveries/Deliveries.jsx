@@ -31,38 +31,66 @@ const Deliveries=()=>{
         return str.toLowerCase()
     }
 
-    React.useEffect(()=>{
+    // React.useEffect(()=>{
+    //     axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/11`,
+    //     ).then((res) => {
+    //         if (res.data.length === 0) {
+    //             axios.post(`https://api.cannabaze.com/UserPanel/Add-SiteMap/`,
+    //                 {
+    //                     Xml: 'https://www.weedx.io' +modifystr( Location.pathname)
+    //                 },
+    //             ).then((res) => { }).catch((err) => {
+    //                 console.trace(err)
+    //             })
+    //         }
+    //         else {
+    //             let api = true
+    //             const json = typeof res.data[0].Xml === "object" ? res.data[0].Xml : [res.data[0].Xml]
+    //             if (!json.includes('https://www.weedx.io' + modifystr( Location.pathname))) {
+    //                 json.push('https://www.weedx.io' + modifystr( Location.pathname));
+    //                 api = false
+    //             }
+    //           !api &&  axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/11`,
+    //                 {
+    //                     Xml: json
+    //                 },
+    //             ).then((res) => {
+    //             }).catch((err) => {
+    //             })
+    //         }
+    //     }).catch(() => {
+
+    //     })
+    // },[Location])
+
+    React.useEffect(() => {
         axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/11`,
         ).then((res) => {
-            if (res.data.length === 0) {
-                axios.post(`https://api.cannabaze.com/UserPanel/Add-SiteMap/`,
-                    {
-                        Xml: 'https://www.weedx.io' +modifystr( Location.pathname)
-                    },
-                ).then((res) => { }).catch((err) => {
-                    console.trace(err)
-                })
+            let api = true
+            const json = typeof res.data[0].Xml === "object" ? res.data[0].Xml : [res.data[0].Xml]
+            console.log(json, json[0] !== 'https://www.weedx.io' + modifystr(Location.pathname))
+            const result = json.find(item => item.includes('https://www.weedx.io' + modifystr(Location.pathname)))
+            if (result)
+                console.log(result)
+            else{
+
+                json.push('https://www.weedx.io' + modifystr(Location.pathname));
+                api = false
             }
-            else {
-                let api = true
-                const json = typeof res.data[0].Xml === "object" ? res.data[0].Xml : [res.data[0].Xml]
-                if (!json.includes('https://www.weedx.io' + modifystr( Location.pathname))) {
-                    json.push('https://www.weedx.io' + modifystr( Location.pathname));
-                    api = false
-                }
-              !api &&  axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/11`,
-                    {
-                        Xml: json
-                    },
-                ).then((res) => {
-                }).catch((err) => {
-                })
-            }
+            !api && axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/11`,
+                {
+                    Xml:json
+                },
+            ).then((res) => {
+                console.log(res)
+
+            }).catch((err) => {
+            })
+
+            console.log(json)
         }).catch(() => {
-
         })
-    },[Location])
-
+    }, [Location])
 
 
 
