@@ -49,7 +49,7 @@ const Login = () => {
 
                 
                 let date = new Date();
-                date.setTime(date.getTime() + (60 * 60 * 24000 * 365))
+                date.setTime(date.getTime() + (1000*60*60*24*365))
                 cookies.set('Token_access', response?.data?.tokens?.access, { expires: date })
                 dispatch({ type: 'Login', login: true })
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
