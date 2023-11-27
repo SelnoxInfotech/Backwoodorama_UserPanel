@@ -20,7 +20,7 @@ import { WishListPost } from "../../../Component/Whishlist/WishListApi_"
 import {WhisList} from "../../../Component/Whishlist/WhisList"
 import Productcard from "./Productcard";
 
-const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProductID , title}) => {
+const   ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProductID , title}) => {
     const { state, dispatch } = React.useContext(Createcontext)
     const classes = useStyles()
     const cookies = new Cookies();
@@ -37,7 +37,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
     })
     
     async function AddToCart(Event, counter, SelectWeight , handleClose) {
-        console.log(Event.id)
+        console.log(Event)
         setadding(Event.id)
         const AddData = _.filter(Event.Prices, Price => Price);
         const PriceArrry = _.find(AddData[0].Price, Price => Price.id === SelectWeight);
@@ -86,6 +86,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                
                 if (response.data === "Empty Add to Cart") {
                     SetPopup( false)
+                    setadding('')
                     SetCartClean(true)
 
                 }
@@ -95,6 +96,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
             }).catch(
                 function (error) {
                     SetPopup(false)
+                    setadding('')
                     if (error.response.status === 406) {
                         alert("This Product " + error.response.data[0])
                     }
@@ -131,12 +133,14 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                             }
                             return Cart
                         }))
+                        setadding('')
                         SetPopup(false)
                         dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
            
 
                     }
                     else {
+                        setadding('')
                         SetPopup(false)
                         SetAddToCard([...AddTOCard, Arry])
                         dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
@@ -145,11 +149,13 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                     }
                 }
                 else {
+                    setadding('')
                     SetPopup(false)
                     SetCartClean(true)
                 }
             }
             else {
+                setadding('')
                 SetPopup(false)
                 SetAddToCard([Arry])
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
@@ -159,10 +165,6 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
             dispatch({ type: 'Cart_subTotal' })
            
         }
-
-
-
-
     }
     React.useEffect(() => {   
         localStorage.setItem('items', JSON.stringify(AddTOCard))
@@ -281,7 +283,8 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                                                             {
                                                                 items?.Prices[0].Price.length > 1
                                                                     ?
-                                                                    <ProductIncDecQuantity popup={popup}   SetPopup={SetPopup} items={items} AddToCart={AddToCart} />                                                                                                         
+                                                                    <ProductIncDecQuantity popup={popup} setadding={setadding}
+                                                                     adding ={adding}  SetPopup={SetPopup} items={items} AddToCart={AddToCart} />                                                                                                         
                                                                     :
 
                                                                     items?.Prices[0].Price[0].Stock === "IN Stock" ?

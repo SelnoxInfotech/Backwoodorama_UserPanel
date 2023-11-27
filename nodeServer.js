@@ -19,7 +19,7 @@ async function generateSitemap() {
     </urlset>`;
 
   // Write the sitemap XML to a file
-  return  fs.writeFileSync('./build/Sitemap/weed-dispensaries.xml', sitemapXmll);
+  // return  fs.writeFileSync('./build/Sitemap/weed-dispensaries.xml', sitemapXmll);
   
   })
 
@@ -38,7 +38,7 @@ console.log(respones)
   </urlset>`;
 
 // Write the sitemap XML to a file
-return  fs.writeFileSync('./build/Sitemap/weed-deliveries.xml', sitemapXml);
+// return  fs.writeFileSync('./build/Sitemap/weed-deliveries.xml', sitemapXml);
 
 })
 
@@ -57,8 +57,9 @@ axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/13`,
   </urlset>`;
 
 // Write the sitemap XML to a file
-fs.writeFileSync('./build/Sitemap/law.xml', sitemapXml);
- value = 0
+// fs.writeFileSync('./build/Sitemap/law.xml', sitemapXml);
+//  value = 0
+console.log("node Cmp")
 })
 }
 cron.schedule("*/5 * * * * *", function () {

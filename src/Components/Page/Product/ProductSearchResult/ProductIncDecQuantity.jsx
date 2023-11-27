@@ -37,12 +37,13 @@ const style = {
     p: 4,
 };
 
-const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart }) => {
-
+const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart, setadding, adding }) => {
+    console.log(items)
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
         setOpen(true);
         SetPopup(true)
+        setadding(items.id)
     };
     const handleClose = () => setOpen(false);
     const [SelectWeight, SetSelectWeight] = React.useState(items?.Prices[0]?.Price[0]?.id);
@@ -69,22 +70,13 @@ const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart }) => {
         }
     };
     const classes = useStyles()
+    console.log(SelectWeight)
     return (
         <>
-            {/* <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" }} onClick={handleOpen}>Add To Cart</LoadingButton> */}
-            {items?.Prices[0].Price[0].Stock === "IN Stock" ?
-                <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" }}
+            <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" }}
                 onClick={handleOpen} >
-                    Add To Cart
-                </LoadingButton>
-                :
-                <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" }} >
-                    Out of Stock
-                </LoadingButton>
-            }
-
-
-
+                Add To Cart
+            </LoadingButton>
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -193,7 +185,7 @@ const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart }) => {
                                     className={` boxWidth ${classes.loadingBtnTextAndBack}`}
                                 >
                                     {/* <LoadingButton style={{ width: "100%", height: "35px" }} variant="outlined" onClick={() => { AddToCart(items,counter , SelectWeight  , handleClose)  }} >Add to Cart</LoadingButton> */}
-                                    {items?.Prices[0].Price[0].Stock === "IN Stock" ?
+                                    {/* {items?.Prices[0].Price[0].Stock !== "IN Stock" ?
                                         <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" }}
                                             onClick={() => { AddToCart(items, counter, SelectWeight, handleClose) }} >
                                             Add To Cart
@@ -202,6 +194,33 @@ const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart }) => {
                                         <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" }} >
                                             Out of Stock
                                         </LoadingButton>
+                                    } */}
+                                    {
+                                        // SelectWeight === items.id &&
+                                        items?.Prices[0].Price.map((data) => {
+                                            console.log(data.Stock === "IN Stock" && adding === items.id && data.id === SelectWeight)
+                                          if(data.id === SelectWeight){
+                                            if (data.Stock === "IN Stock" && adding === items.id ) {
+                                                console.log(data)
+
+                                                return (
+                                                    <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" }}
+                                                        onClick={() => { AddToCart(items, counter, SelectWeight, handleClose) }} >
+                                                        Add To Cart
+                                                    </LoadingButton>
+                                                )
+                                            }
+                                            else {
+                                                return (
+                                                    <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" , color:"red" , border: '1px solid red' }} >
+                                                        Out of Stock
+                                                    </LoadingButton>
+                                                )
+                                            }
+
+                                          }
+
+                                        })
                                     }
                                 </Box>
 
