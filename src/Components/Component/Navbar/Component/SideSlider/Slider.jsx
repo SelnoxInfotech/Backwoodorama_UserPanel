@@ -152,9 +152,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                 <div className="col-12 Slider_content_center " >
                     <Link className="LinkColor" to="/Learn"><p onClick={closeNav} className="m-0"><span><SiFuturelearn color="#31B655" fontSize={25}/></span>Learn</p></Link>
                 </div>
-               
                 <hr></hr>
-
                 <div className="col-12 Slider_content_center " >
                     <p onClick={closeNav} className="m-0"><span><IoIosMore  color="#31B655" fontSize={25}/>
 </span> More</p>
