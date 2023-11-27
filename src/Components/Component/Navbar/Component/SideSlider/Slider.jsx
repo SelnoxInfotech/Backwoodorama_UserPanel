@@ -6,6 +6,11 @@ import { Link, useNavigate } from "react-router-dom"
 import Createcontext from "../../../../../Hooks/Context"
 import Cookies from 'universal-cookie';
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { FaHome , FaClinicMedical , FaIdeal ,FaProductHunt } from "react-icons/fa";
+import { TbTruckDelivery } from "react-icons/tb";
+import { SiBrandfolder ,SiFuturelearn} from "react-icons/si";
+import { IoIosMore } from "react-icons/io";
+
 import LoadingButton from "@mui/lab/LoadingButton";
 import Box from "@mui/material/Box";
 const SideNavbar = ({ closeNav, Open }) => {
@@ -118,43 +123,41 @@ const SideNavbar = ({ closeNav, Open }) => {
                     }
                 </div>
                 <div className="col-12 Slider_content_center " >
-                    <Link to="/" className="LinkColor"><p onClick={closeNav}>Home</p></Link>
+                    <Link to="/" className="LinkColor"><p onClick={closeNav} className="m-0"><span> <FaHome color="#31B655" fontSize={25}/></span >Home</p></Link>
                 </div>
 
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                    <Link className="LinkColor" to={`/weed-dispensaries/in/${state?.Country?.toLowerCase()}/${state?.State?.toLowerCase()}/${state?.City?.toLowerCase()}`}><p onClick={closeNav}>Dispensaries</p></Link>
+                    <Link className="LinkColor" to={`/weed-dispensaries/in/${state?.Country?.toLowerCase()}/${state?.State?.toLowerCase()}/${state?.City?.toLowerCase()}`}><p onClick={closeNav} className="m-0"><span ><FaClinicMedical color="#31B655" fontSize={25} /></span>Dispensaries</p></Link>
                 </div>
 
                 <hr></hr>
 
                 <div className="col-12 Slider_content_center ">
-                    <Link className="LinkColor" to={`/weed-deliveries/in/${state.Country.toLowerCase()}/${state.State.toLowerCase()}/${state.City.toLowerCase()}`}><p onClick={closeNav}>Deliveries</p></Link>
+                    <Link className="LinkColor" to={`/weed-deliveries/in/${state.Country.toLowerCase()}/${state.State.toLowerCase()}/${state.City.toLowerCase()}`}><p onClick={closeNav} className="m-0"><span><TbTruckDelivery color="#31B655"  fontSize={25} /></span>Deliveries</p></Link>
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                    <Link className="LinkColor" to="/brands"><p onClick={closeNav}>Brand</p></Link>
+                    <Link className="LinkColor" to="/brands"><p onClick={closeNav} className="m-0"><span><SiBrandfolder color="#31B655" fontSize={25}/></span> Brand</p></Link>
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                    <Link className="LinkColor" to="/products"> <p onClick={closeNav}>Products</p></Link>
+                    <Link className="LinkColor" to="/products"> <p onClick={closeNav} className="m-0"><span><FaProductHunt color="#31B655" fontSize={25}/></span>Products</p></Link>
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                    <Link className="LinkColor" to="/deals"> <p onClick={closeNav}>Deals</p></Link>
+                    <Link className="LinkColor" to="/deals"> <p onClick={closeNav} className="m-0"><span><FaIdeal color="#31B655" fontSize={25}/></span>Deals</p></Link>
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                    <Link className="LinkColor" to="/Learn"><p onClick={closeNav}>Learn</p></Link>
+                    <Link className="LinkColor" to="/Learn"><p onClick={closeNav} className="m-0"><span><SiFuturelearn color="#31B655" fontSize={25}/></span>Learn</p></Link>
                 </div>
-                {/* <hr></hr>
-                <div className="col-12 Slider_content_center " >
-                    <Link className="LinkColor" to="/strain"><p onClick={closeNav}>Strain</p></Link>
-                </div> */}
+               
                 <hr></hr>
 
                 <div className="col-12 Slider_content_center " >
-                    <p onClick={closeNav}>More</p>
+                    <p onClick={closeNav} className="m-0"><span><IoIosMore  color="#31B655" fontSize={25}/>
+</span> More</p>
                 </div>
             </div>
         </React.Fragment>

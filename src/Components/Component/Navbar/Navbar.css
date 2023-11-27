@@ -24,12 +24,15 @@
     gap: 10px;
     display: flex;
   }
-  
   .Slider_content_center {
     display: grid;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+    font-size: 16px;
   }
-  
+  .Slider_content_center  a  span{
+     margin-right: 10px;
+  }
   .openbtn {
     border-radius: 4px;
     height: 25px;
