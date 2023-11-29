@@ -108,19 +108,19 @@ const ProductDetail = () => {
         SetPrice(Price => [...Price, { Product_id: Product, Item_id: Item }]);
     }
     const [readopen , setreadopen] = React.useState(true)
-    function textgive(text){
-        let arrofstr = text.split(' ');
-        let finalstr = ""
-        if( arrofstr.length >= 100  && readopen){
+    // function textgive(text){
+    //     let arrofstr = text?.split(' ');
+    //     let finalstr = ""
+    //     if( arrofstr.length >= 100  && readopen){
            
-              for(let i=0 ; i<100 ; i++){
-                finalstr += `${arrofstr[i]} `
-              }
-        }else{
-          finalstr = text
-        }
-        return finalstr
-    }
+    //           for(let i=0 ; i<100 ; i++){
+    //             finalstr += `${arrofstr[i]} `
+    //           }
+    //     }else{
+    //       finalstr = text
+    //     }
+    //     return finalstr
+    // }
     const Addtocard = async (Event) => {
 
         if (token_data) {

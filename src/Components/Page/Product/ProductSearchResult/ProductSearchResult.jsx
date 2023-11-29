@@ -26,7 +26,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
     const cookies = new Cookies();
     const token_data = cookies.get('Token_access')
     const [CartClean, SetCartClean] = useState(false)
-    const [adding , setadding]= React.useState(false)
+    const [adding , setadding]= React.useState('')
     const [popup , SetPopup] = useState(true)
     const [NewData, SetNewData] = useState([])
     const [Whishlist, SetWishList] =useState(false)
@@ -37,7 +37,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
     })
     
     async function AddToCart(Event, counter, SelectWeight , handleClose) {
-        setadding(true)
+        setadding(Event.id)
         const AddData = _.filter(Event.Prices, Price => Price);
         const PriceArrry = _.find(AddData[0].Price, Price => Price.id === SelectWeight);
         const FinalSelection = PriceArrry === undefined ? Event.Prices[0].Price[0] : PriceArrry
@@ -85,15 +85,18 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                
                 if (response.data === "Empty Add to Cart") {
                     SetPopup( false)
+                    setadding('')
                     SetCartClean(true)
 
                 }
                 SetPopup(false)
+                setadding('')
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-                setadding(false)
+               
             }).catch(
                 function (error) {
                     SetPopup(false)
+                    setadding('')
                     if (error.response.status === 406) {
                         alert("This Product " + error.response.data[0])
                     }
@@ -130,38 +133,38 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                             }
                             return Cart
                         }))
+                        setadding('')
                         SetPopup(false)
                         dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-            setadding(false)
+           
 
                     }
                     else {
+                        setadding('')
                         SetPopup(false)
                         SetAddToCard([...AddTOCard, Arry])
                         dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-                        setadding(false)
+                       
 
                     }
                 }
                 else {
+                    setadding('')
                     SetPopup(false)
                     SetCartClean(true)
                 }
             }
             else {
+                setadding('')
                 SetPopup(false)
                 SetAddToCard([Arry])
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-                setadding(false)
+               
 
             }
             dispatch({ type: 'Cart_subTotal' })
-            setadding(false)
+           
         }
-
-
-
-
     }
     React.useEffect(() => {   
         localStorage.setItem('items', JSON.stringify(AddTOCard))
@@ -210,6 +213,11 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
  
      },[RelatedProductResult])
+
+       console.log(adding)
+
+
+
     return (
         <React.Fragment>
             <div className="row mx-0 marginProductSearchResult">
@@ -275,16 +283,17 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                                                             {
                                                                 items?.Prices[0].Price.length > 1
                                                                     ?
-                                                                    <ProductIncDecQuantity popup={popup}   SetPopup={SetPopup} items={items} AddToCart={AddToCart} />                                                                                                         
+                                                                    <ProductIncDecQuantity popup={popup} setadding={setadding}
+                                                                     adding ={adding}  SetPopup={SetPopup} items={items} AddToCart={AddToCart} />                                                                                                         
                                                                     :
 
                                                                     items?.Prices[0].Price[0].Stock === "IN Stock" ?
-                                                                        <LoadingButton loading loadingIndicator="Adding" style={{ width: "100%", height: "30px", fontSize: "14px" }}
+                                                                        <LoadingButton loading={adding === items.id} loading loadingIndicator="Adding" style={{ width: "100%", height: "30px", fontSize: "14px" }}
                                                                             onClick={() => { AddToCart(items) }} >
                                                                           Add To Cart
                                                                         </LoadingButton>
                                                                     :
-                                                                        <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" }} >
+                                                                        <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" ,color:"red" , border: '1px solid red'}} >
                                                                         Out of Stock
                                                                         </LoadingButton>
                                                             }
@@ -295,7 +304,6 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                                                     </div>
                                                </div>
                                        </div>
-                                    //    <Productcard items={items} index={index} RelatedProductResult={RelatedProductResult} />
                                    )
                                }
                            })

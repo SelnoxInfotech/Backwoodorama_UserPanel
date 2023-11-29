@@ -43,15 +43,15 @@ import Allblogs from "../Components/Page/Blog/BlogComponent/Allblogs"
 import Privatepolicy from "../Components/Page/Privacypolicy/Privacypolicy.jsx"
 import Cookiespolicy from "../Components/Page/Cookiespolicy/Cookiespolicy.jsx"
 import Termsconditions from '../Components/Page/Termsconditions/Termsconditions.jsx'
- import MyLocationSearch from "../Components/Component/Navbar/Component/locationFuntion"
+import MyLocationSearch from "../Components/Component/Navbar/Component/locationFuntion"
 const routesConfig = [
 
   {
-    element: <Layout /> ,
+    element: <Layout />,
 
     children: [
       // //////////////////////////////////////////////////////////// Complete ///////////////////////////////////////////////////////////
-    
+
       {
         path: "/MyLocationSearch",
         element: <RoutingList Component={MyLocationSearch} ></RoutingList>,
@@ -124,14 +124,14 @@ const routesConfig = [
         path: "/learn/laws-and-regulation/:State/:id",
         element: <RoutingList Component={LawStateDescription} ></RoutingList>
       },
-      
+
       {
         path: "/strain",
-        element: <RoutingList Component={ Strain } ></RoutingList>
+        element: <RoutingList Component={Strain} ></RoutingList>
       },
       {
         path: "/history",
-        element: <RoutingList Component={ LearnTabs } ></RoutingList>
+        element: <RoutingList Component={LearnTabs} ></RoutingList>
       },
       {
         path: "/aboutUs",
@@ -153,7 +153,7 @@ const routesConfig = [
         path: "/products/:categoryname/:subCategory/:id",
         element: <RoutingList Component={Product} ></RoutingList>
       },
-   
+
       {
         path: "/products/:CategoryName/:subCategory?/:ProductName/:id",     // NewProductDetails
         element: <RoutingList Component={NewProductDetails} ></RoutingList>,
@@ -171,15 +171,15 @@ const routesConfig = [
         element: <RoutingList Component={Privatepolicy} ></RoutingList>
       },
       // blogs
-        {
-          path: "/cannabis-news",
-          element: <RoutingList Component={Allblogs} ></RoutingList>
-        },
-        {
-          path: "/cannabis-news/:name/:id",
-          element: <RoutingList Component={Blogs} ></RoutingList>
-        },
-    
+      {
+        path: "/cannabis-news",
+        element: <RoutingList Component={Allblogs} ></RoutingList>
+      },
+      {
+        path: "/cannabis-news/:name/:id",
+        element: <RoutingList Component={Blogs} ></RoutingList>
+      },
+
       // end
       // cart
       {
@@ -204,7 +204,7 @@ const routesConfig = [
         path: "/CreatePassword",
         element: <RoutingList Component={CreatePassword} ></RoutingList>,
       },
-     
+
       {
         path: "/checkout",
         element: <ProtectRout Component={CheckOutMainPage} path="/CheckOutMainPage"></ProtectRout>
@@ -229,7 +229,7 @@ const routesConfig = [
         path: "/LearnCardRelatedPage",
         element: <RoutingList Component={LearnCardRelatedPage} ></RoutingList>
       },
-   
+
       {
         path: "/EditProfile",
         element: <RoutingList Component={EditProfile} ></RoutingList>

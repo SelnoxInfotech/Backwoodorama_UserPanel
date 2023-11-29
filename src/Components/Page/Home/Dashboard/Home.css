@@ -199,6 +199,13 @@ background: #FFF;
     }
 }
 @media only screen and (max-width: 480px){
+  .About_weedx{
+    background-color: #F9F9F9;
+    padding:10px;
+  }
+  .catagoryTabs_section{
+    padding: 10px;
+  }
   .FeaturedBrandImage_height {
     height: 200px;
     width: 100%;

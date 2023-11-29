@@ -3,9 +3,10 @@ import RelatedReview from "./ReviewComponent/RelatedReview"
 import React from "react"
 import WriteReviewPopup from "./ReviewPopup/WriteReviewPopup"
 import './Review.css'
-const Review = ({Rating, onSubmit ,api ,SetApi, GetProductReview, SetGetProductReview ,AllReview, SetReview} ) => {
+const Review = ({handleEdit, delBtn , Rating, handleDelete,onSubmit ,api ,SetApi, GetProductReview, SetGetProductReview ,AllReview, SetReview} ) => {
 
 let noofreview = AllReview.length
+
 
     return (
         <React.Fragment>
@@ -23,7 +24,7 @@ let noofreview = AllReview.length
               
                     </div>
                 <div className="col-md-7">
-                    <RelatedReview AllReview={AllReview} SetReview ={SetReview}/>
+                    <RelatedReview storeDetails={delBtn} handleEdit={handleEdit} handleDelete={handleDelete}  AllReview={AllReview} SetReview ={SetReview}/>
                 </div>
                 </div>
                  :

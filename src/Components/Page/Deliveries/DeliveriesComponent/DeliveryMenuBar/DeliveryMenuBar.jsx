@@ -87,7 +87,7 @@ const DeliveryMenuBar = () => {
         //     function (error) {
 
         //     })
-    }, [state])
+    }, [state ,  useLocation().pathname])
 
     const classes = useStyles()
     const [value, setValue] = React.useState('1');
@@ -95,7 +95,6 @@ const DeliveryMenuBar = () => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-    console.log(useLocation().pathname)
     return (
         <React.Fragment>
             <div className="col-lg-12 col-11 delivery_menuBar_container px-0 mt-4">

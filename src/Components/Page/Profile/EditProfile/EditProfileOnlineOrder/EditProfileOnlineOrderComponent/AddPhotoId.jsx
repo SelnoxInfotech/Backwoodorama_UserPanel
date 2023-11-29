@@ -30,8 +30,7 @@ const AddPhotoId = ({ image, Api, SetApi }) => {
 
     const handleImage = (event) => {
         const file = event?.target?.files[0];
-        
-        if (file?.size <  10240) {
+        if (file?.size <  1048576) {
 
             Setimage(event.target.files[0]);
             setSelectedImage(URL.createObjectURL(event.target.files[0]))

@@ -30,7 +30,7 @@ export default function RoutingSearch({ city, State, country, pathname  ,route})
     fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
       .then(res => res.json())
       .then(response => {
-        console.log(response) 
+       
         if (response.results.length !== 0) {
           dispatch({ type: 'permission', permission: true })
           dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address })

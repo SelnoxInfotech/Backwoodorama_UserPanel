@@ -35,7 +35,17 @@ function Product_Add_Review(data) {
     );
     return res;
   }
+  async function Delete_Review(id) {
+    const cookies = new Cookies();
+    const token_data = cookies.get('Token_access')
+    let res = await axios.delete(` https://api.cannabaze.com/UserPanel/Delete-Review/${id}`,
+    {
+      headers: { Authorization: `Bearer ${token_data}` }
+     },
+    );
+    return res;
+  }
 
 
 
-export {product_OverAllGet_Review ,  Product_Add_Review , Product_Get_UserComment , Product_Get_Review}
+export {product_OverAllGet_Review ,  Product_Add_Review , Product_Get_UserComment , Product_Get_Review ,Delete_Review}

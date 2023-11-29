@@ -747,6 +747,13 @@
 .BackPageBtn {
   font-size: 16px;
   line-height: 1.6;
+  margin-top: 10px;
+}
+.newProductAboutUs_container{
+  padding: 10px;
+}
+.readmorebtn{
+  font-size: 14px;
 }
 .product_category_dropdown_cursor p{
   font-size: 18px;
@@ -1026,10 +1033,15 @@ margin: 0;
 
   .section_main_title {
     font-size: 20px;
+    margin-bottom: 0;
   }
   .section_main_subtitle { 
-      font-size: 16px;
+      font-size: 14px;
   }
+  .homePageBanner_container{
+    margin-bottom: 0;
+  }
+ 
   .backwoodar_heading {
     font-size: 16px;
   }

@@ -38,8 +38,8 @@ const Profile = () => {
     }
     const handleImage = (event) => {
         const file = event.target.files[0];
-       
-        if (file.size < 10240) {
+        if (file?.size <  1048576) {
+
             setSelectedImage(URL.createObjectURL(event.target.files[0]))
             SetError('')
             Submit(event.target.files[0])
@@ -56,6 +56,7 @@ const Profile = () => {
     const Submit = (w) => {
         const formdata = new FormData();
         formdata.append('image', w);
+        formdata.append('googlelink','');
         Axios.post(`https://api.cannabaze.com/UserPanel/Update-UpdateUserProfile/`,
             formdata,
             {
