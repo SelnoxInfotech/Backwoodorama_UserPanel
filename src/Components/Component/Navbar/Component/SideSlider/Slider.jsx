@@ -11,7 +11,6 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { SiBrandfolder ,SiFuturelearn} from "react-icons/si";
 import { IoIosMore } from "react-icons/io";
 import { MdArrowBackIosNew } from "react-icons/md";
-
 import LoadingButton from "@mui/lab/LoadingButton";
 import Box from "@mui/material/Box";
 const SideNavbar = ({ closeNav, Open }) => {
@@ -22,6 +21,7 @@ const SideNavbar = ({ closeNav, Open }) => {
     const [SliderStateDropDown, SetSliderStateDropdown] = React.useState(null)
     const SliderProfileList = [{ item: "My Order" }, { item: "Favorites" },
     { item: "Review" }, { item: "Help" }]
+    console.log(state ,'state 1234')
     const classes = useStyles()
     function Logout() {
         cookies.remove('Token_access')
@@ -180,6 +180,23 @@ const SideNavbar = ({ closeNav, Open }) => {
                             </>
                     }
                 </div>
+
+                {
+                        !state.login &&
+                            <>
+                                <div className='col-4'>
+
+                                    <Button onClick={Login} className={classes.muiBtn} >Login</Button>
+
+                                </div>
+                                <div className='col-4'>
+
+                                    <Button onClick={Signup} className={classes.muiBtn} >Signup</Button>
+
+                                </div>
+                            </> 
+
+                }
             </div>
         </React.Fragment>
     )

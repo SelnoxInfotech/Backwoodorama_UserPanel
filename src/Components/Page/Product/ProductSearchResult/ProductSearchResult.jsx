@@ -15,12 +15,12 @@ import './ProductSearchResult.css'
 import _ from "lodash";
 import SkeletonCard from '../../../Component/Skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton'
 import AddToCartPopUp from "../AddToCartPopUp/AddToCartPopUp";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";   
 import { WishListPost } from "../../../Component/Whishlist/WishListApi_"
 import {WhisList} from "../../../Component/Whishlist/WhisList"
 import Productcard from "./Productcard";
-
-const   ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProductID , title}) => {
+   
+const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProductID , title}) => {
     const { state, dispatch } = React.useContext(Createcontext)
     const classes = useStyles()
     const cookies = new Cookies();
@@ -33,11 +33,10 @@ const   ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProdu
     const [AddTOCard, SetAddToCard] = useState(() => {
         const saved = localStorage.getItem("items");
         const initialValue = JSON.parse(saved);
-        return initialValue || []
+        return initialValue || [] 
     })
     
     async function AddToCart(Event, counter, SelectWeight , handleClose) {
-        console.log(Event)
         setadding(Event.id)
         const AddData = _.filter(Event.Prices, Price => Price);
         const PriceArrry = _.find(AddData[0].Price, Price => Price.id === SelectWeight);
@@ -91,6 +90,7 @@ const   ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProdu
 
                 }
                 SetPopup(false)
+                setadding('')
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
                
             }).catch(
@@ -223,7 +223,7 @@ const   ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProdu
             <div className="row mx-0 marginProductSearchResult">
               
                 <div className="col-12 mt-sm-4 mt-2  fontStyle">
-                    <h2 className="section_main_title">{CategoryName}</h2>
+                    <h2 className="section_main_title ">{CategoryName}</h2>
                 </div>
              
                      <div className="product_card_wrapper">
@@ -288,7 +288,7 @@ const   ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProdu
                                                                     :
 
                                                                     items?.Prices[0].Price[0].Stock === "IN Stock" ?
-                                                                        <LoadingButton loading={adding === items.id} style={{ width: "100%", height: "30px", fontSize: "14px" }}
+                                                                        <LoadingButton loading={adding === items.id}  loadingIndicator="Adding" style={{ width: "100%", height: "30px", fontSize: "14px" }}
                                                                             onClick={() => { AddToCart(items) }} >
                                                                           Add To Cart
                                                                         </LoadingButton>

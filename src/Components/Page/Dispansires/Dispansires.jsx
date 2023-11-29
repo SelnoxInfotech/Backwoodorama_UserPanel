@@ -77,22 +77,9 @@ export default function Dispansires() {
 
 
     React.useEffect(() => {
-        axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/14`,
-        ).then((res) => {
-            let api = true
-            const json = typeof res.data[0].Xml === "object" ? res.data[0].Xml : [res.data[0].Xml]
-            // console.log(json, json[0] !== 'https://www.weedx.io' + modifystr(Location.pathname))
-            const result = json.find(item => item.includes('https://www.weedx.io' + modifystr(Location.pathname)))
-            if (result)
-                 console.log(result)
-            else{
-
-                json.push('https://www.weedx.io' + modifystr(Location.pathname));
-                api = false
-            }
-            !api && axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/14`,
+       axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/14`,
                 {
-                    Xml: json
+                    j: 'https://www.weedx.io'+ modifystr(Location.pathname)
                 },
             ).then((res) => {
                 console.log(res)
@@ -100,10 +87,6 @@ export default function Dispansires() {
             }).catch((err) => {
                 console.log(err)
             })
-
-            // console.log(json)
-        }).catch(() => {
-        })
     }, [Location])
 
 
