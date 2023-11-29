@@ -37,7 +37,6 @@ const   ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProdu
     })
     
     async function AddToCart(Event, counter, SelectWeight , handleClose) {
-        console.log(Event)
         setadding(Event.id)
         const AddData = _.filter(Event.Prices, Price => Price);
         const PriceArrry = _.find(AddData[0].Price, Price => Price.id === SelectWeight);
@@ -91,6 +90,7 @@ const   ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProdu
 
                 }
                 SetPopup(false)
+                setadding('')
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
                
             }).catch(
