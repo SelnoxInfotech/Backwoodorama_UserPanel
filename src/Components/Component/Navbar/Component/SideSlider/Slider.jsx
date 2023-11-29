@@ -10,6 +10,7 @@ import { FaHome , FaClinicMedical , FaIdeal ,FaProductHunt } from "react-icons/f
 import { TbTruckDelivery } from "react-icons/tb";
 import { SiBrandfolder ,SiFuturelearn} from "react-icons/si";
 import { IoIosMore } from "react-icons/io";
+import { FaAngleDoubleLeft } from "react-icons/fa";
 
 import LoadingButton from "@mui/lab/LoadingButton";
 import Box from "@mui/material/Box";
@@ -21,6 +22,7 @@ const SideNavbar = ({ closeNav, Open }) => {
     const [SliderStateDropDown, SetSliderStateDropdown] = React.useState(null)
     const SliderProfileList = [{ item: "My Order" }, { item: "Favorites" },
     { item: "Review" }, { item: "Help" }]
+    console.log(state ,'state 1234')
     const classes = useStyles()
     function Logout() {
         cookies.remove('Token_access')
@@ -68,22 +70,24 @@ const SideNavbar = ({ closeNav, Open }) => {
                     {
                         !state.login ?
                             <>
-                                <div className='col-4'>
-
-                                    <Button onClick={Login} className={classes.muiBtn} >Login</Button>
-
+                                <div className='col-6'>
+                                <span >
+                                   <Link to="/"><LazyLoadImage className='navbar_logo_image' alt='WeedX.io' src={state?.StaticImage?.Logo} /></Link>
+                                </span>
+                                   
                                 </div>
-                                <div className='col-4'>
-
-                                    <Button onClick={Signup} className={classes.muiBtn} >Signup</Button>
-
+                                <div className='col-6'>
+                                   <span ><FaAngleDoubleLeft fontSize={25}  color={"#31B655"} /> Back</span>
                                 </div>
                             </> :
+                            <>
                             <div className="col-6 sliderImageProfile_container_mainDiv" ref={profileRef}>
-                                {/* <Button className={classes.muiBtn} onClick={Logout} >Logout</Button> */}
+                               
                                 <div className="SliderImageProfile_container" >
-                                    <LazyLoadImage  alt='Profile' src='/image/user.webp' className="Slidser_profile_imgs" onClick={sliderProfileHandler} />
-
+                                    <LazyLoadImage onError={event => {
+                              event.target.src = "/image/user.webp"
+                              event.onerror = null
+                            }} alt='Profile' src={state?.Profile?.image} className="Slidser_profile_imgs" onClick={sliderProfileHandler} />
                                 </div>
                                 {SliderStateDropDown &&
                                     (<div className="sliderProfile_image_list_container">
@@ -119,7 +123,10 @@ const SideNavbar = ({ closeNav, Open }) => {
                                     </div>)
                                 }
                             </div>
-
+                            <div className="col-6">
+                                
+                            </div>
+                            </>
                     }
                 </div>
                 <div className="col-12 Slider_content_center " >
@@ -157,6 +164,23 @@ const SideNavbar = ({ closeNav, Open }) => {
                     <p onClick={closeNav} className="m-0"><span><IoIosMore  color="#31B655" fontSize={25}/>
 </span> More</p>
                 </div>
+
+                {
+                        !state.login &&
+                            <>
+                                <div className='col-4'>
+
+                                    <Button onClick={Login} className={classes.muiBtn} >Login</Button>
+
+                                </div>
+                                <div className='col-4'>
+
+                                    <Button onClick={Signup} className={classes.muiBtn} >Signup</Button>
+
+                                </div>
+                            </> 
+
+                }
             </div>
         </React.Fragment>
     )

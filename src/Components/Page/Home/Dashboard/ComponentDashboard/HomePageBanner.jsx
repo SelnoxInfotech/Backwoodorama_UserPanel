@@ -35,7 +35,7 @@ const HomePageBanner = () => {
                             return (
                                 <SwiperSlide key={index}>
                                 <div className='col-12 homePageBanner_container'>
-                                    <Link to={items?.Link !== null ? items?.Link : "#"}>  
+                                    <a href={items?.Link !== null ? items?.Link : "#"} target="_blank">  
                                      <LazyLoadImage 
                                         onError={event => {
                                             event.target.src = "/image/1.jpg"
@@ -43,7 +43,7 @@ const HomePageBanner = () => {
                                         }}
                                     
                                     src={`${items?.Banner}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
-                                    </Link>
+                                    </a>
                                 </div>
                                 </SwiperSlide>
                             )
@@ -59,7 +59,7 @@ const HomePageBanner = () => {
                             return (
                                 <SwiperSlide  key={index}>
                                     <div className='col-12 homePageBanner_container'>
-                                    <Link to={items?.Link !== null ? items?.Link : "#"}>  
+                                    <a href={items?.Link !== null ? items?.Link : "#"} target="_blank">  
                                         <LazyLoadImage  
                                         
                                         onError={event => {
@@ -68,7 +68,7 @@ const HomePageBanner = () => {
                                         }}
                                         
                                         src={`${items.mobile}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
-                                        </Link>
+                                        </a>
                                     </div>
                                 </SwiperSlide>
                             )

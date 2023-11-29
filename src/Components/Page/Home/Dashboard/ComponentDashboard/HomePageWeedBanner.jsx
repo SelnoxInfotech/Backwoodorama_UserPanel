@@ -38,8 +38,9 @@ console.log(data)
             {data?.map((ele, index) => {
                 return (
                     <SwiperSlide key={index}>
-               <Link to={ele.Link}>
+              
                <div   className='col-12 homePageBanner_container' >
+               <a href={ ele.Link !== null ? ele.Link : "#" } target="_blank">
                         <LazyLoadImage 
                         
                         onError={event => {
@@ -48,8 +49,9 @@ console.log(data)
                         }}
                     
                         src={`${ele?.Banner}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
+                        </a>
                     </div>
-               </Link>
+          
                     </SwiperSlide>
                 )
             })}
@@ -64,12 +66,14 @@ console.log(data)
                 return (
                     <SwiperSlide key={index}>
                     <div className='col-12 homePageBanner_container'>
+                        <a href={ ele.Link !== null ? ele.Link : "#" } target="_blank">
                         <LazyLoadImage
                                   onError={event => {
                                     event.target.src = "/image/M11.jpg"
                                     event.onerror = null
                                 }}
                         src={`${ele?.mobile}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
+                        </a>
                     </div>
                     </SwiperSlide>
                 )

@@ -288,7 +288,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                                                                     :
 
                                                                     items?.Prices[0].Price[0].Stock === "IN Stock" ?
-                                                                        <LoadingButton loading={adding === items.id} loading loadingIndicator="Adding" style={{ width: "100%", height: "30px", fontSize: "14px" }}
+                                                                        <LoadingButton loading={adding === items.id}  loadingIndicator="Adding" style={{ width: "100%", height: "30px", fontSize: "14px" }}
                                                                             onClick={() => { AddToCart(items) }} >
                                                                           Add To Cart
                                                                         </LoadingButton>
