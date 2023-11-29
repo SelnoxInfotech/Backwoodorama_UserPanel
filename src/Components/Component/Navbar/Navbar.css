@@ -15,7 +15,7 @@
     left: 0;
     background: white;
     overflow-x: hidden;
-    transition: 0.1s;
+    transition: all .6s ease-in-out;
   
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }

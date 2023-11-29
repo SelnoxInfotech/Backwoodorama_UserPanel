@@ -68,18 +68,18 @@ const SideNavbar = ({ closeNav, Open }) => {
                 <div className=' col-12  mt-3 mb-4 '>
                     {
                         !state.login ?
-                            <div className="row w-100 ml-0 align-items-center justify-content-between">
-                                <div className='col-6'>
+                            <div className=" px-3 d-flex w-100 ml-0 align-items-center justify-content-between">
+                                <div className='w-50'>
                                     <span >
                                         <Link to="/"><LazyLoadImage className='navbar_logo_image' alt='WeedX.io' src={state?.StaticImage?.Logo} /></Link>
                                     </span>
                                 </div>
-                                <div className='col-6 text-end'>
+                                <div className='w-50 text-end'>
 
-                                   <span className="manuclosebtn" onClick={closeNav}> <MdArrowBackIosNew color="#31B655" size={25}/> Close</span>
+                                   <span className="manuclosebtn d-flex justify-content-end " onClick={closeNav}> <MdArrowBackIosNew color="#31B655" size={25}/> Close</span>
                                 </div>
                             </div> :
-                              <div className="row w-100 ml-0 align-items-center justify-content-between">
+                              <div className="row w-100 d-flex align-items-center justify-content-between mx-0">
                                     <div className="col-6 sliderImageProfile_container_mainDiv" ref={profileRef}>
                                         {/* <Button className={classes.muiBtn} onClick={Logout} >Logout</Button> */}
                                         <div className="SliderImageProfile_container" >
@@ -122,40 +122,40 @@ const SideNavbar = ({ closeNav, Open }) => {
                                     </div>
                                     <div className='col-6 text-end'>
 
-<span className="manuclosebtn" onClick={closeNav}> <MdArrowBackIosNew color="#31B655" size={25}/> Close</span>
-</div>
+                                       <span className="manuclosebtn d-flex justify-content-end gap-2" onClick={closeNav}> <MdArrowBackIosNew color="#31B655" size={25}/> Close</span>
+                                    </div>
                               </div>
                     }
                 </div>
                 <div className="col-12 Slider_content_center " >
-                    <Link to="/" className="LinkColor"><p onClick={closeNav} className="m-0"><span> <FaHome color="#31B655" fontSize={25}/></span >Home</p></Link>
+                    <Link to="/" className="LinkColor"><p onClick={closeNav} className="m-0 d-flex" ><span> <FaHome color="#31B655" fontSize={25}/></span >Home</p></Link>
                 </div>
 
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                    <Link className="LinkColor" to={`/weed-dispensaries/in/${state?.Country?.toLowerCase()}/${state?.State?.toLowerCase()}/${state?.City?.toLowerCase()}`}><p onClick={closeNav} className="m-0"><span ><FaClinicMedical color="#31B655" fontSize={25} /></span>Dispensaries</p></Link>
+                    <Link className="LinkColor" to={`/weed-dispensaries/in/${state?.Country?.toLowerCase()}/${state?.State?.toLowerCase()}/${state?.City?.toLowerCase()}`}><p onClick={closeNav} className="m-0 d-flex"><span ><FaClinicMedical color="#31B655" fontSize={25} /></span>Dispensaries</p></Link>
                 </div>
 
                 <hr></hr>
 
                 <div className="col-12 Slider_content_center ">
-                    <Link className="LinkColor" to={`/weed-deliveries/in/${state.Country.toLowerCase()}/${state.State.toLowerCase()}/${state.City.toLowerCase()}`}><p onClick={closeNav} className="m-0"><span><TbTruckDelivery color="#31B655"  fontSize={25} /></span>Deliveries</p></Link>
+                    <Link className="LinkColor" to={`/weed-deliveries/in/${state.Country.toLowerCase()}/${state.State.toLowerCase()}/${state.City.toLowerCase()}`}><p onClick={closeNav} className="m-0 d-flex"><span><TbTruckDelivery color="#31B655"  fontSize={25} /></span>Deliveries</p></Link>
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                    <Link className="LinkColor" to="/brands"><p onClick={closeNav} className="m-0"><span><SiBrandfolder color="#31B655" fontSize={25}/></span> Brand</p></Link>
+                    <Link className="LinkColor" to="/brands"><p onClick={closeNav} className="m-0 d-flex"><span><SiBrandfolder color="#31B655" fontSize={25}/></span> Brand</p></Link>
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                    <Link className="LinkColor" to="/products"> <p onClick={closeNav} className="m-0"><span><FaProductHunt color="#31B655" fontSize={25}/></span>Products</p></Link>
+                    <Link className="LinkColor" to="/products"> <p onClick={closeNav} className="m-0 d-flex"><span><FaProductHunt color="#31B655" fontSize={25}/></span>Products</p></Link>
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                    <Link className="LinkColor" to="/deals"> <p onClick={closeNav} className="m-0"><span><FaIdeal color="#31B655" fontSize={25}/></span>Deals</p></Link>
+                    <Link className="LinkColor" to="/deals"> <p onClick={closeNav} className="m-0 d-flex"><span><FaIdeal color="#31B655" fontSize={25}/></span>Deals</p></Link>
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                    <Link className="LinkColor" to="/Learn"><p onClick={closeNav} className="m-0"><span><SiFuturelearn color="#31B655" fontSize={25}/></span>Learn</p></Link>
+                    <Link className="LinkColor" to="/Learn"><p onClick={closeNav} className="m-0 d-flex"><span><SiFuturelearn color="#31B655" fontSize={25}/></span>Learn</p></Link>
                 </div>
                 <hr></hr>
                 {/* <div className="col-12 Slider_content_center " >
@@ -181,22 +181,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                     }
                 </div>
 
-                {
-                        !state.login &&
-                            <>
-                                <div className='col-4'>
-
-                                    <Button onClick={Login} className={classes.muiBtn} >Login</Button>
-
-                                </div>
-                                <div className='col-4'>
-
-                                    <Button onClick={Signup} className={classes.muiBtn} >Signup</Button>
-
-                                </div>
-                            </> 
-
-                }
+               
             </div>
         </React.Fragment>
     )
