@@ -4064,7 +4064,7 @@ footer{
 .sliderImageProfile_container_mainDiv {
   position: relative;
   display: grid;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .sliderProfile_image_list_container {

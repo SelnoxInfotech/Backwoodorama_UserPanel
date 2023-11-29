@@ -10,6 +10,7 @@ import { FaHome , FaClinicMedical , FaIdeal ,FaProductHunt } from "react-icons/f
 import { TbTruckDelivery } from "react-icons/tb";
 import { SiBrandfolder ,SiFuturelearn} from "react-icons/si";
 import { IoIosMore } from "react-icons/io";
+import { MdArrowBackIosNew } from "react-icons/md";
 
 import LoadingButton from "@mui/lab/LoadingButton";
 import Box from "@mui/material/Box";
@@ -64,62 +65,66 @@ const SideNavbar = ({ closeNav, Open }) => {
     return (
         <React.Fragment>
             <div id="mySidebar" className="sidebar" style={{ width: Open ? "300px" : "0px" }}>
-                <div className=' col-12 Login_Sigup_button mt-4 mb-3 '>
+                <div className=' col-12  mt-3 mb-4 '>
                     {
                         !state.login ?
-                            <>
-                                <div className='col-4'>
-
-                                    <Button onClick={Login} className={classes.muiBtn} >Login</Button>
-
+                            <div className="row w-100 ml-0 align-items-center justify-content-between">
+                                <div className='col-6'>
+                                    <span >
+                                        <Link to="/"><LazyLoadImage className='navbar_logo_image' alt='WeedX.io' src={state?.StaticImage?.Logo} /></Link>
+                                    </span>
                                 </div>
-                                <div className='col-4'>
+                                <div className='col-6 text-end'>
 
-                                    <Button onClick={Signup} className={classes.muiBtn} >Signup</Button>
-
+                                   <span className="manuclosebtn" onClick={closeNav}> <MdArrowBackIosNew color="#31B655" size={25}/> Close</span>
                                 </div>
-                            </> :
-                            <div className="col-6 sliderImageProfile_container_mainDiv" ref={profileRef}>
-                                {/* <Button className={classes.muiBtn} onClick={Logout} >Logout</Button> */}
-                                <div className="SliderImageProfile_container" >
-                                    <LazyLoadImage  alt='Profile' src='/image/user.webp' className="Slidser_profile_imgs" onClick={sliderProfileHandler} />
+                            </div> :
+                              <div className="row w-100 ml-0 align-items-center justify-content-between">
+                                    <div className="col-6 sliderImageProfile_container_mainDiv" ref={profileRef}>
+                                        {/* <Button className={classes.muiBtn} onClick={Logout} >Logout</Button> */}
+                                        <div className="SliderImageProfile_container" >
+                                            <LazyLoadImage  alt='Profile' src='/image/user.webp' className="Slidser_profile_imgs" onClick={sliderProfileHandler} />
 
-                                </div>
-                                {SliderStateDropDown &&
-                                    (<div className="sliderProfile_image_list_container">
-                                        <section className="image_name_section">
-                                            <div className="SliderImageProfile_container">
-                                                <LazyLoadImage src='/image/user.webp' className="Slider_inner_profile_imgs" />
-                                            </div>
-                                            <div className="slider_image_profile_names_conatiner">
-                                                <h1 className="slider_image_name_heading ellipsis">{state.Profile.username}</h1>
-                                                {/* <p className="slider_view_heading" onClick={ViewProfiles}>View Profile</p> */}
-                                                <Link to={"/Profile"}><p className="slider_view_heading" onClick={closeNav}>View Profile</p></Link>
+                                        </div>
+                                        {SliderStateDropDown &&
+                                            (<div className="sliderProfile_image_list_container">
+                                                <section className="image_name_section">
+                                                    <div className="SliderImageProfile_container">
+                                                        <LazyLoadImage src='/image/user.webp' className="Slider_inner_profile_imgs" />
+                                                    </div>
+                                                    <div className="slider_image_profile_names_conatiner">
+                                                        <h1 className="slider_image_name_heading ellipsis">{state.Profile.username}</h1>
+                                                        {/* <p className="slider_view_heading" onClick={ViewProfiles}>View Profile</p> */}
+                                                        <Link to={"/Profile"}><p className="slider_view_heading" onClick={closeNav}>View Profile</p></Link>
 
-                                            </div>
-                                        </section>
-                                        <hr />
-                                        <section className="sliderProfile_list">
-                                            <ol className="px-0">
-                                                {SliderProfileList.map((items, index) => {
-                                                    return (
-                                                        <div key={index}>
-                                                            <li className="slider_profile_list" onClick={()=>Redirect(items.item)}>{items.item}</li>
-                                                            <hr />
-                                                        </div>
+                                                    </div>
+                                                </section>
+                                                <hr />
+                                                <section className="sliderProfile_list">
+                                                    <ol className="px-0">
+                                                        {SliderProfileList.map((items, index) => {
+                                                            return (
+                                                                <div key={index}>
+                                                                    <li className="slider_profile_list" onClick={()=>Redirect(items.item)}>{items.item}</li>
+                                                                    <hr />
+                                                                </div>
 
-                                                    )
-                                                })}
-                                            </ol>
-                                        </section>
-                                        <Box className={`sliderProfile_logout_btn ${classes.sliderProfile_loadingBtn}`}>
-                                            <LoadingButton onClick={Logout}>Logout</LoadingButton>
-                                        </Box>
+                                                            )
+                                                        })}
+                                                    </ol>
+                                                </section>
+                                                <Box className={`sliderProfile_logout_btn ${classes.sliderProfile_loadingBtn}`}>
+                                                    <LoadingButton onClick={Logout}>Logout</LoadingButton>
+                                                </Box>
 
-                                    </div>)
-                                }
-                            </div>
+                                            </div>)
+                                        }
+                                    </div>
+                                    <div className='col-6 text-end'>
 
+<span className="manuclosebtn" onClick={closeNav}> <MdArrowBackIosNew color="#31B655" size={25}/> Close</span>
+</div>
+                              </div>
                     }
                 </div>
                 <div className="col-12 Slider_content_center " >
@@ -153,9 +158,27 @@ const SideNavbar = ({ closeNav, Open }) => {
                     <Link className="LinkColor" to="/Learn"><p onClick={closeNav} className="m-0"><span><SiFuturelearn color="#31B655" fontSize={25}/></span>Learn</p></Link>
                 </div>
                 <hr></hr>
-                <div className="col-12 Slider_content_center " >
+                {/* <div className="col-12 Slider_content_center " >
                     <p onClick={closeNav} className="m-0"><span><IoIosMore  color="#31B655" fontSize={25}/>
-</span> More</p>
+                </span> More</p>
+                </div>
+                <hr></hr> */}
+                <div className=' col-12 Login_Sigup_button mt-4 mb-3 '>
+                    {
+                        !state.login &&
+                            <>
+                                <div className='col-4'>
+
+                                    <Button onClick={Login} className={classes.muiBtn} >Login</Button>
+
+                                </div>
+                                <div className='col-4'>
+
+                                    <Button onClick={Signup} className={classes.muiBtn} >Signup</Button>
+
+                                </div>
+                            </>
+                    }
                 </div>
             </div>
         </React.Fragment>
