@@ -11,6 +11,7 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { SiBrandfolder ,SiFuturelearn} from "react-icons/si";
 import { IoIosMore } from "react-icons/io";
 import { MdArrowBackIosNew } from "react-icons/md";
+import { RxCross2 } from "react-icons/rx";
 import LoadingButton from "@mui/lab/LoadingButton";
 import Box from "@mui/material/Box";
 const SideNavbar = ({ closeNav, Open }) => {
@@ -65,10 +66,10 @@ const SideNavbar = ({ closeNav, Open }) => {
     return (
         <React.Fragment>
             <div id="mySidebar" className="sidebar" style={{ width: Open ? "300px" : "0px" }}>
-                <div className=' col-12  mt-3 mb-4 '>
+                <div className=' col-12  mb-4 '>
                     {
                         !state.login ?
-                            <div className=" px-3 d-flex w-100 ml-0 align-items-center justify-content-between">
+                            <div className=" px-3 d-flex w-100 ml-0 align-items-center manuheader justify-content-between">
                                 <div className='w-50'>
                                     <span >
                                         <Link to="/"><LazyLoadImage className='navbar_logo_image' alt='WeedX.io' src={state?.StaticImage?.Logo} /></Link>
@@ -76,29 +77,37 @@ const SideNavbar = ({ closeNav, Open }) => {
                                 </div>
                                 <div className='w-50 text-end'>
 
-                                   <span className="manuclosebtn d-flex justify-content-end " onClick={closeNav}> <MdArrowBackIosNew color="#31B655" size={25}/> Close</span>
+                                   <span className="manuclosebtn d-flex justify-content-end " onClick={closeNav}> <RxCross2 color="#fff" size={25}/></span>
                                 </div>
-                            </div> :
-                              <div className="row w-100 d-flex align-items-center justify-content-between mx-0">
-                                    <div className="col-6 sliderImageProfile_container_mainDiv" ref={profileRef}>
+                            </div> 
+                            :
+                              <div className="row w-100 d-flex align-items-center manuheader justify-content-between mx-0">
+                                    <div className="col-9 " ref={profileRef}>
                                         {/* <Button className={classes.muiBtn} onClick={Logout} >Logout</Button> */}
-                                        <div className="SliderImageProfile_container" >
-                                            <LazyLoadImage  alt='Profile' src='/image/user.webp' className="Slidser_profile_imgs" onClick={sliderProfileHandler} />
-                                        </div>
-                                        {SliderStateDropDown &&
-                                            (<div className="sliderProfile_image_list_container">
+                                        {/* <div className="SliderImageProfile_container" > */}
+                                            {/* <LazyLoadImage onError={event => {
+                                                                event.target.src = "/image/user.webp"
+                                                                event.onerror = null
+                                                            }} alt='Profile' src={state?.Profile?.image} className="Slidser_profile_imgs" onClick={sliderProfileHandler} />
+                                               */}
                                                 <section className="image_name_section">
                                                     <div className="SliderImageProfile_container">
-                                                        <LazyLoadImage src='/image/user.webp' className="Slider_inner_profile_imgs" />
+                                                        <LazyLoadImage  onError={event => {
+                                                                event.target.src = "/image/user.webp"
+                                                                event.onerror = null
+                                                            }} alt='Profile' src={state?.Profile?.image} className="Slider_inner_profile_imgs" />
                                                     </div>
                                                     <div className="slider_image_profile_names_conatiner">
                                                         <h1 className="slider_image_name_heading ellipsis">{state.Profile.username}</h1>
                                                         {/* <p className="slider_view_heading" onClick={ViewProfiles}>View Profile</p> */}
-                                                        <Link to={"/Profile"}><p className="slider_view_heading" onClick={closeNav}>View Profile</p></Link>
+                                                        <Link to={"/Profile"}><p className="slider_view_heading"  onClick={sliderProfileHandler}>View Profile</p></Link>
 
                                                     </div>
                                                 </section>
-                                                <hr />
+                                        {/* </div> */}
+                                        {SliderStateDropDown &&
+                                            (<div className="sliderProfile_image_list_container">
+                                               
                                                 <section className="sliderProfile_list">
                                                     <ol className="px-0">
                                                         {SliderProfileList.map((items, index) => {
@@ -119,9 +128,9 @@ const SideNavbar = ({ closeNav, Open }) => {
                                             </div>)
                                         }
                                     </div>
-                                    <div className='col-6 text-end'>
-
-                                       <span className="manuclosebtn d-flex justify-content-end gap-2" onClick={closeNav}> <MdArrowBackIosNew color="#31B655" size={25}/> Close</span>
+                                    <div className='col-3 text-end'>
+                                        <span className="manuclosebtn d-flex justify-content-end " onClick={closeNav}> <RxCross2 color="#fff" size={25}/>
+                                        </span> 
                                     </div>
                               </div>
                     }
