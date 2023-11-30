@@ -1,6 +1,7 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { ScrollContainer } from 'react-indiana-drag-scroll';
 import * as React from 'react';
+import { FaArrowRight } from "react-icons/fa";
 import FeaturedBrandSkeleton from "../../../../Component/Skeleton/DashBoardSkeleton/FeaturedBrandSkeleton";
 import { Link,  } from "react-router-dom"
 const FeaturedBrand = ({ CardDataArray ,BrandSkeleton}) => {
@@ -32,8 +33,13 @@ const FeaturedBrand = ({ CardDataArray ,BrandSkeleton}) => {
         {!BrandSkeleton  ?
         <React.Fragment>
              <div className="bestDealsCard_Heading_offers">
+                  
+                    <div className="d-flex align-items-center justify-content-between">
                     <h3 className="section_main_title">Featured Brands</h3>
-                   
+                      <Link to={'/brands'}>
+                        <span className="viewallbtn">View All <FaArrowRight   /></span>
+                      </Link>
+                    </div>
              </div>
 
             <div  className="feature_brand_container"  ref={ref}>

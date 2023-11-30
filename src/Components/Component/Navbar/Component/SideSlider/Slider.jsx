@@ -20,14 +20,15 @@ const SideNavbar = ({ closeNav, Open }) => {
     const Navigate = useNavigate()
     const { state, dispatch } = React.useContext(Createcontext)
     const [SliderStateDropDown, SetSliderStateDropdown] = React.useState(null)
-    const SliderProfileList = [{ item: "My Order" }, { item: "Favorites" },
+    const SliderProfileList = [{ item: "My Order" }, { item: "Whislists" },
     { item: "Review" }, { item: "Help" }]
-    console.log(state ,'state 1234')
+   
     const classes = useStyles()
     function Logout() {
         cookies.remove('Token_access')
         dispatch({ type: 'Login', login: false })
         dispatch({ type: 'ApiProduct' })
+        closeNav()
     }
     function Login() {
         Navigate("/login")
@@ -49,13 +50,12 @@ const SideNavbar = ({ closeNav, Open }) => {
         return () => {
           document.removeEventListener('click', handleClickOutsideprofile, true);
         };
-      }, [SliderStateDropDown]);
+    }, [SliderStateDropDown]);
     const sliderProfileHandler = () => {
         SetSliderStateDropdown((SliderStateDropDown) => {
             return !SliderStateDropDown;
         })
     }
-    
     const Redirect=(items)=>{
         if(items==="My Order"){
             Navigate("/MyOrder")
@@ -69,10 +69,10 @@ const SideNavbar = ({ closeNav, Open }) => {
                 <div className=' col-12  mb-4 '>
                     {
                         !state.login ?
-                            <div className=" px-3 d-flex w-100 ml-0 align-items-center manuheader justify-content-between">
+                            <div className=" px-3 d-flex w-100 ml-0 py-3 align-items-center manuheader justify-content-between">
                                 <div className='w-50'>
                                     <span >
-                                        <Link to="/"><LazyLoadImage className='navbar_logo_image' alt='WeedX.io' src={state?.StaticImage?.Logo} /></Link>
+                                        <Link to="/"><LazyLoadImage className='navbar_logo_image'  src='./image/WeedWhiteLogo.png' alt='WeedX.io' /></Link>
                                     </span>
                                 </div>
                                 <div className='w-50 text-end'>
@@ -83,13 +83,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                             :
                               <div className="row w-100 d-flex align-items-center manuheader justify-content-between mx-0">
                                     <div className="col-9 " ref={profileRef}>
-                                        {/* <Button className={classes.muiBtn} onClick={Logout} >Logout</Button> */}
-                                        {/* <div className="SliderImageProfile_container" > */}
-                                            {/* <LazyLoadImage onError={event => {
-                                                                event.target.src = "/image/user.webp"
-                                                                event.onerror = null
-                                                            }} alt='Profile' src={state?.Profile?.image} className="Slidser_profile_imgs" onClick={sliderProfileHandler} />
-                                               */}
+                                     
                                                 <section className="image_name_section">
                                                     <div className="SliderImageProfile_container">
                                                         <LazyLoadImage  onError={event => {
@@ -99,9 +93,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                                                     </div>
                                                     <div className="slider_image_profile_names_conatiner">
                                                         <h1 className="slider_image_name_heading ellipsis">{state.Profile.username}</h1>
-                                                        {/* <p className="slider_view_heading" onClick={ViewProfiles}>View Profile</p> */}
-                                                        <Link to={"/Profile"}><p className="slider_view_heading"  onClick={sliderProfileHandler}>View Profile</p></Link>
-
+                                                        <p className="slider_view_heading"  onClick={sliderProfileHandler}>View Profile</p>
                                                     </div>
                                                 </section>
                                         {/* </div> */}
@@ -113,7 +105,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                                                         {SliderProfileList.map((items, index) => {
                                                             return (
                                                                 <div key={index}>
-                                                                    <li className="slider_profile_list" onClick={()=>Redirect(items.item)}>{items.item}</li>
+                                                                    <li className="slider_profile_list" onClick={()=>{Redirect(items.item); closeNav()}}>{items.item}</li>
                                                                     <hr />
                                                                 </div>
 
@@ -163,14 +155,10 @@ const SideNavbar = ({ closeNav, Open }) => {
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                    <Link className="LinkColor" to="/Learn"><p onClick={closeNav} className="m-0 d-flex"><span><SiFuturelearn color="#31B655" fontSize={25}/></span>Learn</p></Link>
+                    <Link className="LinkColor" to="/learn"><p onClick={closeNav} className="m-0 d-flex"><span><SiFuturelearn color="#31B655" fontSize={25}/></span>Learn</p></Link>
                 </div>
                 <hr></hr>
-                {/* <div className="col-12 Slider_content_center " >
-                    <p onClick={closeNav} className="m-0"><span><IoIosMore  color="#31B655" fontSize={25}/>
-                </span> More</p>
-                </div>
-                <hr></hr> */}
+               
                 <div className=' col-12 Login_Sigup_button mt-4 mb-3 '>
                     {
                         !state.login &&

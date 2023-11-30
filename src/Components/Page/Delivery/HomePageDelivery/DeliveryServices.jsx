@@ -3,6 +3,7 @@ import { ScrollContainer } from 'react-indiana-drag-scroll';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Rating } from '@mui/material';
 import useStyles from '../../../../Style';
+import { FaArrowRight } from "react-icons/fa";
 import Axios from "axios"
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -141,10 +142,15 @@ const DeliveryServices = () => {
             <div className="px-sm-0 px-3">
                 <div >
                     {!Skeleton ? <React.Fragment>
-                        <div className="">
-                            <h1 className='section_main_title'>Delivery services</h1>
-                            <h3 className='section_main_subtitle'>{state.Location}</h3>
-
+                       
+                        <div className="d-flex align-items-center justify-content-between">
+                            <div className="">
+                                <h1 className='section_main_title'>Delivery services</h1>
+                                <h3 className='section_main_subtitle'>{state.Location}</h3>
+                            </div>
+                            <Link to={`/weed-deliveries/in/${state?.Country?.toLowerCase()}/${state?.State?.toLowerCase()}/${state?.City?.toLowerCase()}`}>
+                                <span className="viewallbtn">View All <FaArrowRight   /></span>
+                            </Link>
                         </div>
                         <div className="col-12  my-4 recentViewProductSlider" id="width" ref={ref}>
                             <ScrollContainer className="ScrollContainerRelative">

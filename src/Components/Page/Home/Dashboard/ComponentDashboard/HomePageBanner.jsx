@@ -26,9 +26,10 @@ const HomePageBanner = () => {
             
             <div className="homeBannerContainer">
                 <div className="destop_image">
-                <Swiper autoplay={{
+                <Swiper loop={true} autoplay={{
                         delay: 2500,
                         disableOnInteraction: false,
+                       
                         }}  modules={[Autoplay]}>
                                         {HomePageBannerImage?.map((items, index) => {
                                         
@@ -51,8 +52,9 @@ const HomePageBanner = () => {
                     </Swiper>
                 </div>
                 <div className="mobile_imges">
-                <Swiper autoplay={{
+                <Swiper loop={true} autoplay={{
                     delay: 2000,
+                    
                     disableOnInteraction: true,
                     }}  modules={[Autoplay]}>
                         {HomePageBannerImage.map((items, index) => {

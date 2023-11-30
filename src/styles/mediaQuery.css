@@ -703,6 +703,13 @@
   .search_bar_box{
     width: 100%;
   }
+  .prod_cat_btn_cont{
+   min-width: 80px;
+  }
+  .prod_cat_cont_btn {
+    height: auto;
+    flex-wrap: nowrap;
+  }
   .amenties_nameHeading {
     margin-left: 20px;
   }
@@ -872,14 +879,6 @@
   .medicalCard_heading {
     font-size: 16px;
   }
-
-  .prod_cat_cont_btn {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: scroll;
-    overflow-y: hidden;
-  
-  }
   .bestDeals h1 {
     font-size: 24px;
   }
@@ -1032,11 +1031,14 @@ margin: 0;
 }
 
   .section_main_title {
-    font-size: 20px;
+    font-size: 16px;
     margin-bottom: 0;
   }
   .section_main_subtitle { 
-      font-size: 14px;
+      font-size: 12px;
+  }
+  .viewallbtn{
+    font-size: 14px;
   }
   .homePageBanner_container{
     margin-bottom: 0;

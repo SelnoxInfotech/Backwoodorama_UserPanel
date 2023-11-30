@@ -3,6 +3,7 @@ import { BiMap } from "react-icons/bi"
 import LoadingButton from '@mui/lab/LoadingButton';
 import useStyles from "../../../../Style"
 import Box from '@mui/material/Box';
+import { FaArrowRight } from "react-icons/fa";
 import Createcontext from "../../../../Hooks/Context"
 import { Rating } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
@@ -100,10 +101,16 @@ const Dispensories = () => {
         <React.Fragment>
             <div className="px-sm-0 px-3">
                 {!Skeleton ? <div className=''>
-                    <div className='col-12  mt-sm-4 mt-0' style={{ padding: "0" }}>
+                    <div className='col-12  mt-sm-4 mt-0 p-0'>
+                       
+                        <div className="d-flex align-items-center justify-content-between">
                         <div className="disp_head" style={{ top: "0" }}>
                             <h3 className='section_main_title'>Shop Dispensaries  near you</h3>
                         </div>
+                      <Link to={`/weed-dispensaries/in/${state?.Country?.toLowerCase()}/${state?.State?.toLowerCase()}/${state?.City?.toLowerCase()}`}>
+                        <span className="viewallbtn">View All <FaArrowRight   /></span>
+                      </Link>
+                    </div>
                     </div >
                     <div className="col-12 mt-3  recentViewProductSlider" id="width" ref={ref}>
                         <ScrollContainer className="ScrollContainerRelative">

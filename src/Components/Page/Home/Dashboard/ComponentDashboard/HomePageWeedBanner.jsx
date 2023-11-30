@@ -31,8 +31,9 @@ console.log(data)
             <div className='destop_image'>
 
            
-           <Swiper  autoplay={{
+           <Swiper loop={true} autoplay={{
           delay: 2500,
+        
           disableOnInteraction: false,
         }}  modules={[Autoplay]}>
             {data?.map((ele, index) => {
@@ -58,8 +59,9 @@ console.log(data)
            </Swiper>
            </div>
            <div className="mobile_imges">
-              <Swiper  autoplay={{
+              <Swiper loop={true}  autoplay={{
           delay: 2500,
+          
           disableOnInteraction: false,
         }}  modules={[Autoplay]}>
             {data?.map((ele, index) => {

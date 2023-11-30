@@ -2,7 +2,7 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import parse from 'html-react-parser';
-
+import { FaArrowRight } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ScrollContainer } from 'react-indiana-drag-scroll';
@@ -24,7 +24,12 @@ const NewsBlog = () => {
     return (
         <React.Fragment>
             <div className="px-sm-0 px-3">
-              <h3 className="section_main_title">Blogs</h3>
+                   <div className="d-flex align-items-center justify-content-between">
+                      <h3 className="section_main_title">Blogs</h3>
+                      <Link to={'/cannabis-news'}>
+                        <span className="viewallbtn">View All <FaArrowRight   /></span>
+                      </Link>
+                    </div>
                     <div className="blogs_card_slider">
                         <ScrollContainer className="ScrollContainerRelative">
                            
