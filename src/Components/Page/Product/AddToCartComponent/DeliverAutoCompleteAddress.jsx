@@ -30,7 +30,7 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery , Store}) {
               break;
             }
             else {
-              dispatch({ type: 'DeliveryAddress', DeliveryAddress: place.formatted_address })
+              dispatch({ type: 'DeliveryAddress', DeliveryAddress: '' })
               Seterror("Street Address Missing")
               SetAddress(place.formatted_address)
             }
@@ -50,11 +50,12 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery , Store}) {
                   return (
                     data.types.map((data1) => {
                       if (data1 === "postal_code" || data1 === "street_number") {
-
+          
                         return CheckPostal(data.long_name, place.name)
 
                       }
                       else {
+                        dispatch({ type: 'DeliveryAddress', DeliveryAddress: '' })
                         return data1
                       }
                     }

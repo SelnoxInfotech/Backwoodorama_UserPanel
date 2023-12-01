@@ -3,14 +3,15 @@ import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import useStyles from "../../../../Style";
 import { RiCloseCircleFill } from "react-icons/ri";
-import { IconButton } from "@mui/material";
+import { IconButton, Select } from "@mui/material";
 import { Rating } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import LoadingButton from "@mui/lab/LoadingButton";
-import { Box } from "@mui/material";
+import { Box, FormControl } from "@mui/material";
 import { useForm, Controller } from "react-hook-form";
 import Createcontext from "../../../../Hooks/Context";
 import { useNavigate } from "react-router-dom";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 const WriteReviewPopup = ({
   onSubmit,
   buttonclass,
@@ -37,7 +38,7 @@ const WriteReviewPopup = ({
   const handleClose = () => {
     SetGetProductReview({ ...GetProductReview, popup: false });
   };
-  console.log(errors);
+  console.log(errors.rating, getValues('rating'));
   return (
     <>
       <Button
@@ -60,27 +61,32 @@ const WriteReviewPopup = ({
                   <RiCloseCircleFill color="#949494" size={24} />
                 </IconButton>
               </div>
-
-              <div className="col-12 writeReviewTextCenter">
-                <h2 className="writeReviewHeadings">Write a review</h2>
-                <h3 className="secRatingHeadings">My rating</h3>
-                {/* <Rating
-                                    className={`mx-2 ${classes.WriteReviewStarIcons}`}
-                                    value={GetProductReview.value}
-                                    onChange={(e) => SetGetProductReview({ ...GetProductReview, 'value': e.target.value })}
-                                    precision={1}
-                                /> */}
-                <Controller
-                  name="rating"
-                  control={control}
-                  defaultValue={3}
-                  rules={{ required: true }}
-                  render={(props) => (
-                    <Rating name="rating" onChange={props.onChange} />
-                  )}
-                />
-              </div>
               <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="col-12 writeReviewTextCenter">
+                  <h2 className="writeReviewHeadings">Write a review</h2>
+                  <h3 className="secRatingHeadings">My rating</h3>
+                  <FormControl size={"small"}>
+                    <Controller
+                      render={() => (
+                        <Rating
+                          name="rating"
+
+                          className={`mx-2 ${classes.WriteReviewStarIcons} ${errors.rating && 'customteatfsdfg'}` }
+                          value={GetProductReview.value}
+                          onChange={(e) => SetGetProductReview({ ...GetProductReview, 'value': e.target.value })}
+                          precision={1}
+                        />
+                      )}
+                      rules={{ required: GetProductReview.value === 0 }}
+                      control={control}
+                      name={'rating'}
+                    />
+                  </FormControl>
+                </div>
+
+
+                {/* <FormHelperText>{errors.Gender?.message}</FormHelperText> */}
+
                 <div className="col-12 px-4 py-4">
                   <div className="col-12"></div>
                   <div className="col-12">
@@ -103,15 +109,14 @@ const WriteReviewPopup = ({
                       variant="filled"
                       fullWidth
                       inputRef={register({
-                        required:
-                          getValues("comment") !== "" && "title is required*.",
+                        required: GetProductReview.comment !== "" && "Title is required*.",
                         minLength: {
                           value: 5,
-                          message: "Please enter valid title",
+                          message: "Please enter valid Title",
                         },
                         maxLength: {
                           value: 150,
-                          message: "Please enter shot valid title",
+                          message: "Please enter shot valid Title",
                         },
                       })}
                       helperText={errors.Title?.message}
@@ -122,7 +127,7 @@ const WriteReviewPopup = ({
                     <label className="writeReviewLabel" htmlFor="review">
                       Review
                     </label>
-                    <TextField
+                    {/* <TextField
                       name="comment"
                       value={GetProductReview.comment}
                       onChange={(e) => {
@@ -144,7 +149,33 @@ const WriteReviewPopup = ({
                           message: "Please enter shot valid title",
                         },
                       })}
-                    ></TextField>
+                    ></TextField> */}
+                    <TextField
+                      className={`${classes.FilledTextFieldStyle}`}
+                      size="small"
+                      id="title"
+                      value={GetProductReview.comment}
+                      onChange={(e) => {
+                        SetGetProductReview({
+                          ...GetProductReview,
+                          [e.target.name]: e.target.value,
+                        });
+                      }}
+                      name="comment"
+                      placeholder="comment"
+                      variant="filled"
+                      fullWidth
+                      inputRef={register({
+                        minLength: {
+                          value: 5,
+                          message: "Please enter valid Title",
+                        },
+                        maxLength: {
+                          value: 150,
+                          message: "Please enter shot valid Title",
+                        },
+                      })}
+                    />
                   </div>
                   <div className="col-12">
                     <Box
@@ -161,7 +192,7 @@ const WriteReviewPopup = ({
             </div>
           </div>
         </div>
-      </Dialog>
+      </Dialog >
     </>
   );
 };

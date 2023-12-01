@@ -226,7 +226,7 @@ const ProductList = ({ arr, ProductNavigate }) => {
                                             <div className="product_cat_allProduct">
 
                                     <div className="col-12  prod_para_name" style={{ marginBottom: "" }}>
-                                        <Link to={`/products/${modifystr(ele.category_name)}/${modifystr(ele.Product_Name.toLowerCase())}/${ele.id}`}>
+                                        <Link onClick={() => ProductNavigate(ele)}>
                                             <h3 className='productListHeadings ellipsis'>{ele.Product_Name}</h3>
                                         </Link>
                                     </div>
