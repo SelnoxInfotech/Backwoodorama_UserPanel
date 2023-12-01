@@ -5265,15 +5265,25 @@ footer{
   font-size: 20px;
 }
 
-.textinput {
+.textinput  textarea:focus{
+   border: none;
+   outline: none;
+   box-shadow: none;
+}
+.textinput .MuiInputBase-root {
+  min-height: 120px;
   width: 100%;
   padding: 10px;
-  min-height: 120px;
   background-color: #EFEFEF;
   border-radius: 10px;
   border: 1px solid #F0F0F0;
 }
-
+.textinput .MuiInputBase-root .MuiInputBase-input{
+  height: 100%;
+}
+.textinput .MuiFilledInput-root:after{
+  border-bottom: 2px solid #31B655;
+}
 .textinput:focus {
   outline: 1px solid #31B665;
 }

@@ -93,35 +93,35 @@ const WriteReviewPopup = ({
                     <label className="writeReviewLabel" htmlFor="title">
                       Title
                     </label>
-                    <TextField
-                      className={`${classes.FilledTextFieldStyle}`}
-                      size="small"
-                      id="title"
-                      value={GetProductReview.Title}
-                      onChange={(e) => {
-                        SetGetProductReview({
-                          ...GetProductReview,
-                          [e.target.name]: e.target.value,
-                        });
-                      }}
-                      name="Title"
-                      placeholder="Title"
-                      variant="filled"
-                      fullWidth
-                      inputRef={register({
-                        required: GetProductReview.comment !== "" && "Title is required*.",
-                        minLength: {
-                          value: 5,
-                          message: "Please enter valid Title",
-                        },
-                        maxLength: {
-                          value: 150,
-                          message: "Please enter shot valid Title",
-                        },
-                      })}
-                      helperText={errors.Title?.message}
-                      error={Boolean(errors?.Title)}
-                    />
+                      <TextField
+                        className={`${classes.FilledTextFieldStyle}`}
+                        size="medium"
+                        id="title"
+                        value={GetProductReview.Title}
+                        onChange={(e) => {
+                          SetGetProductReview({
+                            ...GetProductReview,
+                            [e.target.name]: e.target.value,
+                          });
+                        }}
+                        name="Title"
+                        placeholder="Title"
+                        variant="filled"
+                        fullWidth
+                        inputRef={register({
+                          required: GetProductReview.comment !== "" && "Title is required*.",
+                          minLength: {
+                            value: 5,
+                            message: "Please enter valid Title",
+                          },
+                          maxLength: {
+                            value: 150,
+                            message: "Please enter shot valid Title",
+                          },
+                        })}
+                        helperText={errors.Title?.message}
+                        error={Boolean(errors?.Title)}
+                      />
                   </div>
                   <div className="col-12 writReviewMarginTop">
                     <label className="writeReviewLabel" htmlFor="review">
@@ -150,9 +150,10 @@ const WriteReviewPopup = ({
                         },
                       })}
                     ></TextField> */}
+                  
                     <TextField
-                      className={`${classes.FilledTextFieldStyle}`}
-                      size="small"
+                      className='textinput'
+                      size="medium"
                       id="title"
                       value={GetProductReview.comment}
                       onChange={(e) => {
@@ -165,6 +166,8 @@ const WriteReviewPopup = ({
                       placeholder="comment"
                       variant="filled"
                       fullWidth
+                      multiline
+                      rows={5}
                       inputRef={register({
                         minLength: {
                           value: 5,

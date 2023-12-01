@@ -54,16 +54,24 @@ const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => 
         }
     }
 
-    
+    function commenthelpful(ele){
+       console.log(ele ,'ele')
+
+
+    }
    function calculateTImefromDate(value){
         //  new Date() = 'Mon Nov 20 2023 13:00:15 GMT+0530 (India Standard Time)'
-        let diffTime = Math.abs(new Date().valueOf() - new Date(value).valueOf());
+      let diffTime = Math.abs(new Date().valueOf() - new Date(value).valueOf());
+      let months = Math.trunc( diffTime / (24*60*60*1000)/30);
       let days = diffTime / (24*60*60*1000);
       let hours = (days % 1) * 24;
       let minutes = (hours % 1) * 60;
       let secs = (minutes % 1) * 60;
       [days, hours, minutes, secs] = [Math.floor(days), Math.floor(hours), Math.floor(minutes), Math.floor(secs)]
-      if(days !== 0)
+     
+     if(months !==0){
+        return months + " Month ago"
+     }else if(days !== 0)
       {
         return days + " days ago"
       }
@@ -101,9 +109,9 @@ const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => 
                                                 src={`${ele?.userImage}`}
                                                 alt="userImage"
                                             />
-                                        </div>
+                                            </div>
 
-                                    </div>
+                                        </div>
                                     <div className="related_review_content">
 
                                         <h3 className='reviews_title'>{ele.Title}</h3>
@@ -122,7 +130,8 @@ const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => 
                                             </div>
                                         </div>
                                         <div className='review_date'>
-                                            <p>{ele.created_at.slice(0, 10)?.split("-").reverse().join("-")}</p>
+                                            {/* <p>{ele.created_at.slice(0, 10)?.split("-").reverse().join("-")}</p> */}
+                                            <p>{calculateTImefromDate(ele.created_at)}</p>
                                             <span className='userreviewaction'> {
                                                 state.login &&
                                                 state.Profile.id === ele.user && <><Select
@@ -172,19 +181,7 @@ const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => 
                                                
                                                   </List>
                                             </Select>
-                                             {/* <span>
-                                                    <IconButton
-                                                        onClick={handleoption}
-
-                                                        >
-                                                            <BsThreeDotsVertical size={10}></BsThreeDotsVertical>
-
-                                                    </IconButton>
-                                                    {Option && <>
-                                                    <option onClick={()=>handleDelete(ele.id)} >Delete</option>
-                                                    <option onClick={()=>handleEdit()} >Edit</option>
-                                                    </> }
-                                             </span> */}
+                                         
                                              </>
                                             }</span>
                                         </div>
@@ -217,7 +214,7 @@ const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => 
                                             <h3 className='reviews_title'>Response from the Owner</h3>
                                             <p className='reviews_writer'>{storeDetails[0]?.Store_Name}</p>
                                             <div className='review_date'>
-                                                {console.log(calculateTImefromDate(ele?.ReplyTime))}
+                                              
                                                 <p>{calculateTImefromDate(ele?.ReplyTime)}</p>
                                             </div>
                                         </div>
@@ -234,7 +231,7 @@ const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => 
                                     <div className='related_review_footer '>
                                        
                                             <div className='related_review_footer_paragraph ellipsis'>
-                                               <Button className={classes.WriteReviewBtn_Color} variant="outlined"> <AiFillLike/> Helpful</Button>
+                                               <Button className={classes.WriteReviewBtn_Color} variant="outlined" onClick={()=>{commenthelpful(ele)}}> <AiFillLike/> Helpful</Button>
                                             </div>
                                             <div className='related_review_footer_paragraph ellipsis px-0'>
                                               
