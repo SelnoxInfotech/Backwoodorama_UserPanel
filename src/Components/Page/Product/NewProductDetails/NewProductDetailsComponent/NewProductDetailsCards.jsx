@@ -15,7 +15,7 @@ import { Pagination } from 'swiper/modules';
 import _ from "lodash"
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
-import { Link , useParams} from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import AddToCartPopUp from "../../AddToCartPopUp/AddToCartPopUp";
 const NewProductDetailsCards = ({ Product }) => {
     const cookies = new Cookies();
@@ -34,6 +34,7 @@ const NewProductDetailsCards = ({ Product }) => {
         return initialValue || []
     })
     const [NewData, SetNewData] = React.useState([])
+    const [SelectVariant, SetSelectVariant]  = React.useState('')
     const Addtocard = async (Event) => {
 
         if (token_data) {
@@ -51,9 +52,9 @@ const NewProductDetailsCards = ({ Product }) => {
                 Price: PriceIndex,
                 Cart_Quantity: quentity,
                 PriceId: PriceIndex.id,
-                category:Event.category_name,
-                Sub_Category_id:Event.Sub_Category_id,
-                SubcategoryName:Event.SubcategoryName,
+                category: Event.category_name,
+                Sub_Category_id: Event.Sub_Category_id,
+                SubcategoryName: Event.SubcategoryName,
                 StoreName: Event.StoreName
 
             })
@@ -66,10 +67,10 @@ const NewProductDetailsCards = ({ Product }) => {
                     Price: PriceIndex,
                     Cart_Quantity: quentity,
                     PriceId: PriceIndex.id,
-                    category:Event.category_name,
-                Sub_Category_id:Event.Sub_Category_id,
-                SubcategoryName:Event.SubcategoryName
-                , StoreName: Event.StoreName
+                    category: Event.category_name,
+                    Sub_Category_id: Event.Sub_Category_id,
+                    SubcategoryName: Event.SubcategoryName
+                    , StoreName: Event.StoreName
 
                 }
                 , config
@@ -102,9 +103,9 @@ const NewProductDetailsCards = ({ Product }) => {
                 StoreDelivery: Event.StoreDelivery,
                 StorePickup: Event.StorePickup,
                 StoreAddress: Event.StoreAddress,
-                category:Event.category_name,
-                Sub_Category_id:Event.Sub_Category_id,
-                SubcategoryName:Event.SubcategoryName,
+                category: Event.category_name,
+                Sub_Category_id: Event.Sub_Category_id,
+                SubcategoryName: Event.SubcategoryName,
                 StoreName: Event.StoreName
             }
             SetNewData(Arry)
@@ -164,18 +165,19 @@ const NewProductDetailsCards = ({ Product }) => {
         return str.toLowerCase()
     }
 
+    console.log(dynamicWeight)
     return (
         <div className=" w-100">
             <div className=" newProductDetailsContainer position-relative  mt-4">
                 <div className="newProductDetailsCardLeftCol">
                     <div className="">
                         <div className="newProductDetailsUpperimage_container">
-                            <LazyLoadImage className="newProductDetails_upper_image"  
-                               onError={event => {
-                                event.target.src = "/image/blankImage.jpg"
-                                event.onerror = null
-                            }}
-                            src={p} />
+                            <LazyLoadImage className="newProductDetails_upper_image"
+                                onError={event => {
+                                    event.target.src = "/image/blankImage.jpg"
+                                    event.onerror = null
+                                }}
+                                src={p} />
                         </div>
                         {
                             Product?.images?.length > 1 ? <div className=" newProductDetailsLowerImage_container">
@@ -217,12 +219,12 @@ const NewProductDetailsCards = ({ Product }) => {
                                             <SwiperSlide key={index}>
 
                                                 <div className="col-12 NewProductDetails_image_container">
-                                                    <LazyLoadImage 
+                                                    <LazyLoadImage
                                                         onError={event => {
                                                             event.target.src = "/image/delivery.png"
                                                             event.onerror = null
                                                         }}
-                                                    className="NewProductDetails_image" height={"100px"} src={items.image} />
+                                                        className="NewProductDetails_image" height={"100px"} src={items.image} />
 
                                                 </div>
 
@@ -254,21 +256,37 @@ const NewProductDetailsCards = ({ Product }) => {
                     </div>
                     <div className="col-12 mt-2">
                         <p>
-                        <Rating name="read-only"  className={`mx-2 ${classes.homePageStarIcons}`} value={Product.rating === null ? 0 : parseInt(Product?.rating)}  size="small" readOnly />
+                            <Rating name="read-only" className={`mx-2 ${classes.homePageStarIcons}`} value={Product.rating === null ? 0 : parseInt(Product?.rating)} size="small" readOnly />
                             <span>
                             </span><span className="mx-2">{Product.rating === null ? 0 : Product.rating + ".0"} ({Product.TotalRating})
 
                             </span></p>
                     </div>
                     <div className="col-12 productDetailsCardWeigth">
-                        <span className="newProduct_Weight">weight : </span><span className="mx-3 newProd_grms productDetailsCardWeigthOptions">
+                        <span className="newProduct_Weight">
+                           {     Product?.Prices?.map((item) => {
+                                        let vl = item.Price.map((item) => {
+                                            if (item.Weight) {
+                                                //    if(!dynamicWeight){setdynamicprice(item.SalePrice); setdynamicWeight(item.Weight)};
+                                                return 'Weight :'
+                                            } else {
+                                                // if(!dynamicWeight){setdynamicprice(item.SalePrice); setdynamicWeight(`${item.Unit} Unit`)}
+                                                return ` Unit :`
+                                            }
+
+                                        })
+                                        return vl[0]
+                                    })
+}
+                            </span><span className="mx-3 newProd_grms productDetailsCardWeigthOptions">
                             {
                                 Product?.Prices?.map((data) => data.Price.length)[0] > 1 ?
                                     <select className="form-select" aria-label="Default select example" onChange={(e) => { setdynamicWeight(e.target.value) }}>
                                         {
                                             Product?.Prices[0]?.Price?.map((item, index) => {
+                                           
                                                 if (item.Weight) {
-                                                    return <option value={item.SalePrice} key={index}>{item.Weight}</option>
+                                                    return <option  value={item.SalePrice} key={index}>{item.Weight}</option>
                                                 } else {
                                                     return <option value={item.SalePrice} key={index} >{item.Unit} Unit</option>
                                                 }
@@ -278,6 +296,7 @@ const NewProductDetailsCards = ({ Product }) => {
                                     </select> :
                                     Product?.Prices?.map((item) => {
                                         let vl = item.Price.map((item) => {
+                                            console.log(item);
                                             if (item.Weight) {
                                                 //    if(!dynamicWeight){setdynamicprice(item.SalePrice); setdynamicWeight(item.Weight)};
                                                 return item.Weight
@@ -309,12 +328,28 @@ const NewProductDetailsCards = ({ Product }) => {
                         </span><span className="mx-3 newProduct_Gms">/ {quentity} piece</span></p>
                     </div>
                     <div className="col-12">
-                        <Box
-                            className={`   ${classes.loadingBtnTextAndBack}`}
-
-                        >
-                            <LoadingButton onClick={() => { Addtocard(Product) }} variant="outlined" >Add To Cart</LoadingButton>
-                        </Box>
+                        {
+                                Product?.Prices?.map((data)=>{
+                                    data.Price.map((arry)=>{
+                                        console.log(arry.SalePrice === parseInt(dynamicWeight))
+                                        if(arry.SalePrice === parseInt(dynamicWeight)){
+                                            console.log(arry.Stock === "IN Stock" , arry.Stock)
+                                            if(arry.Stock === "IN Stock"){
+                                                <Box className={`   ${classes.loadingBtnTextAndBack}`} >
+                                                <LoadingButton onClick={() => { Addtocard(Product) }} variant="outlined" >Add To Cart</LoadingButton>
+                                            </Box>
+                                            }
+                                            else{
+                                                <Box className={`   ${classes.loadingBtnTextAndBack}`} >
+                                                <LoadingButton variant="outlined" >Out of Stock</LoadingButton>
+                                            </Box>
+                                            }
+                                            
+                                        }
+                                    })
+                                })
+                        }
+                     
 
                         {
                             CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />
@@ -322,15 +357,15 @@ const NewProductDetailsCards = ({ Product }) => {
                     </div>
                 </div>
                 <div className='position-absolute w-auto top-0 p-2  end-0'>
-                                      
-                                      <RWebShare
-                                          data={{ url: window.location.href }}
-                                          sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
-                                          onClick={() => console.info("share successful!")}
-                                          color="#31B665" >
-                                          <BsShareFill />
-                                      </RWebShare>
-                                  
+
+                    <RWebShare
+                        data={{ url: window.location.href }}
+                        sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
+                        onClick={() => console.info("share successful!")}
+                        color="#31B665" >
+                        <BsShareFill />
+                    </RWebShare>
+
                 </div>
             </div>
         </div>
