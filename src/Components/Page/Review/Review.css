@@ -110,6 +110,9 @@
    .review_reply{
     border-left: 1px solid gray;
    }
+   .customteatfsdfg.MuiRating-root .MuiRating-iconEmpty{
+    color: red;
+   }
    @media screen and (max-width: 1024px){
        .reviews_title{
         font-size: 18px;
