@@ -9,7 +9,7 @@ const EmptyCard = () => {
    const Navigate = useNavigate()
 
     function ShopNow (){
-        Navigate("/")
+        Navigate("/products")
 
     }
 

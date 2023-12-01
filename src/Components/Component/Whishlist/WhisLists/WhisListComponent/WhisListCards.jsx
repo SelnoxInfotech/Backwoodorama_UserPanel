@@ -15,8 +15,7 @@ const WhisListCard = () => {
     const Navigate = useNavigate()
 
     function ShopNow (){
-        Navigate("/")
-
+        Navigate("/products")
     }
     const cookies = new Cookies();
     const { state, dispatch } = React.useContext(Createcontext)

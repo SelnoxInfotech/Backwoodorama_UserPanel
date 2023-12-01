@@ -111,6 +111,10 @@ const SideNavbar = ({ closeNav, Open }) => {
 
                                                             )
                                                         })}
+                                                          <div >
+                                                                    <li className="slider_profile_list" onClick={()=>{Navigate('/profile'); closeNav()}}>Edit Profile</li>
+                                                                    <hr />
+                                                          </div>
                                                     </ol>
                                                 </section>
                                                 <Box className={`sliderProfile_logout_btn ${classes.sliderProfile_loadingBtn}`}>

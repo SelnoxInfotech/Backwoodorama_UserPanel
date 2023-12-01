@@ -274,7 +274,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
 
     return (
         <>
-            <div className="col-12 p-0 mt-4 product_search_and_select">
+            <div className="col-12  p-0 mt-4 product_search_and_select">
                 <div className="col-2 product_search_bar">
                     <SearchBar
                         onChange={(e) => { searchHnadelchange(e) }}
@@ -310,49 +310,45 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
             <div className="col-lg-2 col-md-12 gap-sm-0 gap-2 prod_cat_left_sec  center">
 
                 {ProductFilterData.map((ele, index) => {
-
+console.log(ele ,'ele')
                     const { Id, Name, Icons } = ele;
                     return (
                         <div key={index} className="filter_manu_items">
                             <div className="col-12 d-flex align-items-center prodCat_gap product_category_border " onClick={() => HandleOpenEvent(Id, Name)}>
 
-                                <div className="col-sm-2 prod_filter_icon">
-                                    <p>{Icons}</p>
-                                </div>
-                                <div className="col-sm-6 fontStyle product_filter_name">
-                                    <p className="m-0">{Name}</p>
-                                </div>
-                                <div className="col-sm-2 brand_right_arrow">
+                              
+                                    <p className="m-0 prod_filter_icon" >{Icons}</p>
+                               
+                               
+                                    <p className="m-0 product_filter_name">{Name}</p>
+               
+                               
 
-                                    <p className="m-0">{(Id === OpenEvent) ? <IoIosArrowDown className={classes.muiIcons} /> : <FiChevronRight className={classes.muiIcons} />}</p>
+                                    <p className="m-0 brand_right_arrow">{(Id === OpenEvent) ? <IoIosArrowDown className={classes.muiIcons} /> : <FiChevronRight className={classes.muiIcons} />}</p>
 
-                                </div>
-
-
+          
                             </div>
                             {(Id === OpenEvent) ?
                                 (
                                     <ClickAwayListener onClickAway={handleClickAway}>
-                                        <div className="col-xl-10 col-xs-4 product_category_border product_category_dropdown" id="Related_Brand_Data" >
+                                        <div className=" product_category_border product_category_dropdown" id="Related_Brand_Data" >
 
                                             {
                                                 Filter.length !== 0 ?
                                                     Filter?.map((data) => {
+                                                        
                                                         return (
                                                             <div>
-                                                                <div className="col-10 px-2 product_category_dropdown_cursor">
-                                                                    <p onClick={() => { Category_Drop(data.id, ele.Name) }}>{data.name}</p>
+                                                                <div className="col-10 product_category_dropdown_cursor">
+                                                                  {ele.Name === "Category" ? <p  className="m-0" onClick={() => { Category_Drop(data.id, ele.Name) }}>{data.name}</p> : <div>  <input type="checkbox" id={data.name} name={data.name} value={data.name} /> <label htmlFor={data.name} className="m-0" onClick={() => { Category_Drop(data.id, ele.Name) }}>{data.name}</label> </div>}
                                                                 </div>
                                                                 {
-
-
-
                                                                     SubCategory?.map((SubCategory) => {
                                                                         return (
                                                                             SubCategory.CatgoryId === data.id
                                                                             &&
-                                                                            <div className="col-10 px-2 py-0 product_sub_category_dropDown_cursor" style={{ left: "33px", position: "relative" }} >
-                                                                                <p onClick={() => { FilterSubCategorydata(SubCategory.id, SubCategory.SubCategory_name, data.name, SubCategory.Store_id) }}>{SubCategory.SubCategory_name}</p>
+                                                                            <div className="col-10 px-2 py-0 product_sub_category_dropDown_cursor"  >
+                                                                               <input type="checkbox" id={data.name} name={data.name} value={data.name} />  <label onClick={() => { FilterSubCategorydata(SubCategory.id, SubCategory.SubCategory_name, data.name, SubCategory.Store_id) }}>{SubCategory.SubCategory_name}</label>
 
                                                                             </div>
                                                                         )
@@ -389,7 +385,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                                                                 defaultValue={[100, 500]}
                                                             />
                                                         </Box> :
-                                                        <p>No Category Found</p>
+                                                    <p className="m-0">No Category Found</p>
                                             }
                                         </div>
                                     </ClickAwayListener>

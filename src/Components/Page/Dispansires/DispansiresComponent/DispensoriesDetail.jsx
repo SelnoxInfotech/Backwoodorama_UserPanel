@@ -233,17 +233,12 @@ export default function DispensoriesDetails() {
                 <div className="row">
                     <div className="col-12 mt-4 "   >
                         <StoreDetailMenuItem tab={tab} SelectionTab={SelectionTab}></StoreDetailMenuItem>
-
-
                     </div>
                     {
                         (tab === 'menu' || tab === undefined) &&
                         <React.Fragment>
                             <CategoryProduct Category={category} ShowCategoryProduct={ShowCategoryProduct}> </CategoryProduct>
                             <div className="col-12 productCat_cont" style={{ display: "contents" }}>
-
-
-
                                 <ProductFilter Store_id={Despen[0]?.id}
                                     ProductFilterData={ProductFilterData}
                                     Setarr1={SetDespensariesProductData}
