@@ -198,7 +198,6 @@ const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart, setadding, a
                                     {
                                         // SelectWeight === items.id &&
                                         items?.Prices[0].Price.map((data) => {
-                                            console.log(data.Stock === "IN Stock" && adding === items.id && data.id === SelectWeight)
                                           if(data.id === SelectWeight){
                                             if (data.Stock === "IN Stock" && adding === items.id ) {
                                                 console.log(data)

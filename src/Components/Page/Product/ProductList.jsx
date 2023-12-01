@@ -1,7 +1,7 @@
 import React from "react";
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
-import { BsStar ,BsStarFill } from "react-icons/bs";
+import { BsStar, BsStarFill } from "react-icons/bs";
 import useStyles from "../../../Style"
 import { Link } from "react-router-dom";
 import _ from "lodash";
@@ -177,8 +177,8 @@ const ProductList = ({ arr, ProductNavigate }) => {
     }
 
 
-   
-  
+
+
     return (
         <>
             {arr.length !== 0 ?
@@ -187,7 +187,7 @@ const ProductList = ({ arr, ProductNavigate }) => {
 
                         <div className="row  mx-2" style={{ height: "auto", marginBottom: "10px" }}>
                             {arr?.map((ele, index) => {
-                              
+
                                 return (
                                     <div className="col-6 col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12   " key={index}>
                                         <div className="prod_inner_cont  product_inner_row">
@@ -219,35 +219,35 @@ const ProductList = ({ arr, ProductNavigate }) => {
                                                         {ele.CBD !== 0 && <button className=" cat_prod_inner_btn btn2">CBD {ele.CBD}%</button>}
                                                         {ele.CBN !== 0 && <button className=" cat_prod_inner_btn btn2">CBN {ele.CBN}%</button>}
                                                         {ele.strain !== 'None' && <button className="cat_prod_inner_btn btn1">{ele.strain}</button>}
-                                                    </div> 
+                                                    </div>
                                                 </div>
                                                 {/* </Link> */}
                                             </div>
                                             <div className="product_cat_allProduct">
 
-                                    <div className="col-12  prod_para_name" style={{ marginBottom: "" }}>
-                                        <Link onClick={() => ProductNavigate(ele)}>
-                                            <h3 className='productListHeadings ellipsis'>{ele.Product_Name}</h3>
-                                        </Link>
-                                    </div>
-                                    <div className="col-12  prod_para prod_sub_heading_height ellipsis">
-                                        <p className='fontStyle m-0 common_sub_head'>{ele.StoreName}</p>
-                                    </div>
-                                    <div className="col-12 py-2 d-flex prod_para prod_sub_heading_height ellipsis" style={{ marginBottom: "0px" }}>
-                                        {ele.rating &&  new Array(ele.rating).fill(null).map(() => (
-                                                                   <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />  
-                                                               ))}
-                                                               
-                                                               {new Array(5-ele.rating).fill(null).map(() => (
-                                                                   <BsStar size={16} color="#31B665" className="product_search_rating_star" />  
-                                                               ))}
-                                 
-                                    </div>
-                                    <div className="mobile_view_weigth">
-                                        <div className="prod_cat_cont_btn product_price_tabs">
-                                            {ele.Prices?.map((ele1) => {
-                                                     return (
-                                                    ele1.Price?.map((data, index) => {
+                                                <div className="col-12  prod_para_name" style={{ marginBottom: "" }}>
+                                                  
+                                                        <h3 onClick={() => ProductNavigate(ele)} className='productListHeadings ellipsis'>{ele.Product_Name}</h3>
+                                                  
+                                                </div>
+                                                <div className="col-12  prod_para prod_sub_heading_height ellipsis">
+                                                    <p className='fontStyle m-0 common_sub_head'>{ele.StoreName}</p>
+                                                </div>
+                                                <div className="col-12 py-2 d-flex prod_para prod_sub_heading_height ellipsis" style={{ marginBottom: "0px" }}>
+                                                    {ele.rating && new Array(ele.rating).fill(null).map(() => (
+                                                        <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />
+                                                    ))}
+
+                                                    {new Array(5 - ele.rating).fill(null).map(() => (
+                                                        <BsStar size={16} color="#31B665" className="product_search_rating_star" />
+                                                    ))}
+
+                                                </div>
+                                                <div className="mobile_view_weigth">
+                                                    <div className="prod_cat_cont_btn product_price_tabs">
+                                                        {ele.Prices?.map((ele1) => {
+                                                            return (
+                                                                ele1.Price?.map((data, index) => {
                                                                     let s = false
                                                                     if (Price.length === 0) {
 
@@ -280,9 +280,9 @@ const ProductList = ({ arr, ProductNavigate }) => {
                                                                     )
                                                                 })
                                                             )
-                                            })}
+                                                        })}
 
-   
+
                                                     </div>
                                                 </div>
                                                 <div className="col-12 d-flex mt-sm-4 mt-3 mb-2 Fly">

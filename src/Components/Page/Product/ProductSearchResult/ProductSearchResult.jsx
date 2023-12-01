@@ -214,8 +214,6 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
  
      },[RelatedProductResult])
 
-       console.log(adding)
-
 
 
     return (
