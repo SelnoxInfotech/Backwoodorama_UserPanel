@@ -1267,6 +1267,21 @@ const useStyles = makeStyles({
       },
     }
   },
+  odsbtn:{
+    "&.MuiButtonBase-root":{
+      width: "100%",
+      height: "30px",
+       fontSize: "14px" ,
+       color:"red" ,
+        border: '1px solid red'
+    },
+    "&.MuiButtonBase-root:hover":{
+    
+       color:"red" ,
+       backgroundColor:'#fff',
+        border: '1px solid red',
+    }
+  },
   WriteReviewBtn_Color: {
     "&.MuiButtonBase-root": {
       color: "#707070",

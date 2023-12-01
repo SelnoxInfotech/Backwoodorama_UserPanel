@@ -293,8 +293,8 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                                                                           Add To Cart
                                                                         </LoadingButton>
                                                                     :
-                                                                        <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" ,color:"red" , border: '1px solid red'}} >
-                                                                        Out of Stock
+                                                                        <LoadingButton className={`${classes.odsbtn}`} >
+                                                                           Out of Stock
                                                                         </LoadingButton>
                                                             }
                                                             {
