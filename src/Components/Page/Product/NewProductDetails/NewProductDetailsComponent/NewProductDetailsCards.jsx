@@ -27,7 +27,7 @@ const NewProductDetailsCards = ({ Product }) => {
     const token_data = cookies.get('Token_access');
     const [CartClean, SetCartClean] = React.useState(false)
     const { state, dispatch } = React.useContext(Createcontext)
-    const [Price] = React.useState([])
+    const [Price, SetPrice] = React.useState([])
     const [AddTOCard, SetAddToCard] = React.useState(() => {
         const saved = localStorage.getItem("items");
         const initialValue = JSON.parse(saved);
@@ -37,9 +37,11 @@ const NewProductDetailsCards = ({ Product }) => {
     const [SelectVariant, SetSelectVariant] = React.useState('')
     const Addtocard = async (Event) => {
         if (token_data) {
-            const AddData = _.filter(Price, Price => Price?.Product_id === Event?.id);
-            const PriceArrry = _.find(Event?.Prices[0]?.Price, Price => AddData[0]?.Product_id === Event?.id && AddData[0]?.Item_id === Price?.id);
-            let PriceIndex = PriceArrry === undefined ? Event?.Prices[0]?.Price[0] : PriceArrry;
+            const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
+            const h = Event?.Prices[0].Price
+            const PriceArrry = h.find((data)=>data.id === parseInt( AddData[0]?.Item_id) && data)
+            let PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
+
             const config = {
                 headers: { Authorization: `Bearer ${token_data}` }
             };
@@ -86,7 +88,8 @@ const NewProductDetailsCards = ({ Product }) => {
         }
         else {
             const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
-            const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id);
+            const h = Event?.Prices[0].Price
+            const PriceArrry = h.find((data)=>data.id === parseInt( AddData[0]?.Item_id) && data)
             let PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
 
             const Arry = {
@@ -177,8 +180,15 @@ const NewProductDetailsCards = ({ Product }) => {
         })
 
     }
-    console.log(SelectVariant)
+    async function PriceSelect(Product, Item) {
+        console.log(Product, Item)
+        SetPrice(Price => {
+            return Price.filter(Price => Price.Product_id !== Product)
+        })
+        SetPrice(Price => [...Price, { Product_id: Product, Item_id: Item }]);
+    }
 
+    console.log(SelectVariant, Price)
 
     return (
         <div className=" w-100">
@@ -298,14 +308,16 @@ const NewProductDetailsCards = ({ Product }) => {
                                     <select className="form-select" aria-label="Default select example" onChange={(e) => {
 
                                         k(e.target.value)
-                                    }}>
+                                    }}
+                                        onClick={(e) => PriceSelect(Product.id, e.target.value)}
+                                    >
                                         {
                                             Product?.Prices[0]?.Price?.map((item, index) => {
 
                                                 if (item.Weight) {
-                                                    return <option id={item.id} value={item.id} key={index}>{item.Weight}</option>
+                                                    return <option value={item.id} key={index}>{item.Weight}</option>
                                                 } else {
-                                                    return <option id={item.id} name={item} value={item.id} key={index} >{item.Unit} Unit</option>
+                                                    return <option n value={item.id} key={index} >{item.Unit} Unit</option>
                                                 }
 
                                             })
@@ -314,18 +326,13 @@ const NewProductDetailsCards = ({ Product }) => {
                                     Product?.Prices?.map((item) => {
                                         let vl = item.Price.map((item) => {
                                             if (item.Weight) {
-                                                //    if(!dynamicWeight){setdynamicprice(item.SalePrice); setdynamicWeight(item.Weight)};
                                                 return item.Weight
                                             } else {
-                                                // if(!dynamicWeight){setdynamicprice(item.SalePrice); setdynamicWeight(`${item.Unit} Unit`)}
                                                 return `${item.Unit} Unit`
                                             }
-
                                         })
                                         return vl[0]
                                     })
-
-
                             }
                         </span>
                     </div>
@@ -370,7 +377,7 @@ const NewProductDetailsCards = ({ Product }) => {
                                 }
                                 else {
                                     return (
-                                        data.Price .map((arry)=>{
+                                        data.Price.map((arry) => {
                                             if (SelectVariant.id === arry.id) {
                                                 if (arry.Stock === "IN Stock") {
                                                     return (
@@ -386,11 +393,11 @@ const NewProductDetailsCards = ({ Product }) => {
                                                         </Box>
                                                     )
                                                 }
-        
+
                                             }
                                         })
                                     )
-                                    
+
 
                                 }
                             })
