@@ -34,44 +34,42 @@ const NewProductDetailsCards = ({ Product }) => {
         return initialValue || []
     })
     const [NewData, SetNewData] = React.useState([])
-    const [SelectVariant, SetSelectVariant]  = React.useState('')
+    const [SelectVariant, SetSelectVariant] = React.useState('')
     const Addtocard = async (Event) => {
-
         if (token_data) {
-            const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
-            const PriceArrry = _.find(Event?.Prices[0].Price, Price => AddData[0]?.Product_id === Event.id && AddData[0]?.Item_id === Price.id);
-            let PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
+            const AddData = _.filter(Price, Price => Price?.Product_id === Event?.id);
+            const PriceArrry = _.find(Event?.Prices[0]?.Price, Price => AddData[0]?.Product_id === Event?.id && AddData[0]?.Item_id === Price?.id);
+            let PriceIndex = PriceArrry === undefined ? Event?.Prices[0]?.Price[0] : PriceArrry;
             const config = {
                 headers: { Authorization: `Bearer ${token_data}` }
             };
+
             SetNewData({
-                Brand_Name: Event.Brand_Name,
-                Product_id: Event.id,
-                Store_id: Event.Store_id,
+                Product_id: Event?.id,
+                Store_id: Event?.Store_id,
                 Image_id: Event?.images[0]?.id,
                 Price: PriceIndex,
-                Cart_Quantity: quentity,
-                PriceId: PriceIndex.id,
+                Cart_Quantity: 1,
+                PriceId: PriceIndex?.id,
                 category: Event.category_name,
                 Sub_Category_id: Event.Sub_Category_id,
                 SubcategoryName: Event.SubcategoryName,
                 StoreName: Event.StoreName
-
             })
             await axios.post("https://api.cannabaze.com/UserPanel/Add-AddtoCart/",
 
                 {
+                    Brand_Id: Event.Brand_id,
                     Product_id: Event.id,
                     Store_id: Event.Store_id,
                     Image_id: Event.images[0].id,
                     Price: PriceIndex,
-                    Cart_Quantity: quentity,
-                    PriceId: PriceIndex.id,
+                    Cart_Quantity: 1,
+                    PriceId: PriceIndex?.id,
                     category: Event.category_name,
                     Sub_Category_id: Event.Sub_Category_id,
-                    SubcategoryName: Event.SubcategoryName
-                    , StoreName: Event.StoreName
-
+                    SubcategoryName: Event.SubcategoryName,
+                    StoreName: Event.StoreName
                 }
                 , config
             ).then(response => {
@@ -97,7 +95,7 @@ const NewProductDetailsCards = ({ Product }) => {
                 Store_id: Event.Store_id,
                 Image_id: Event.images[0].id,
                 Price: PriceIndex,
-                Cart_Quantity: quentity,
+                Cart_Quantity: 1,
                 ProductName: Event.Product_Name,
                 StoreCurbsidePickup: Event.StoreCurbsidePickup,
                 StoreDelivery: Event.StoreDelivery,
@@ -165,7 +163,23 @@ const NewProductDetailsCards = ({ Product }) => {
         return str.toLowerCase()
     }
 
-    console.log(dynamicWeight)
+    function k(id) {
+
+        Product?.Prices?.map((item) => {
+            let vl = item.Price.filter((items) => {
+                if (items.id === parseInt(id)) {
+                    SetSelectVariant(items)
+                    setdynamicWeight(items.SalePrice)
+                    return items.SalePrice
+                }
+            })
+            return vl[0]
+        })
+
+    }
+    console.log(SelectVariant)
+
+
     return (
         <div className=" w-100">
             <div className=" newProductDetailsContainer position-relative  mt-4">
@@ -264,31 +278,34 @@ const NewProductDetailsCards = ({ Product }) => {
                     </div>
                     <div className="col-12 productDetailsCardWeigth">
                         <span className="newProduct_Weight">
-                           {     Product?.Prices?.map((item) => {
-                                        let vl = item.Price.map((item) => {
-                                            if (item.Weight) {
-                                                //    if(!dynamicWeight){setdynamicprice(item.SalePrice); setdynamicWeight(item.Weight)};
-                                                return 'Weight :'
-                                            } else {
-                                                // if(!dynamicWeight){setdynamicprice(item.SalePrice); setdynamicWeight(`${item.Unit} Unit`)}
-                                                return ` Unit :`
-                                            }
+                            {Product?.Prices?.map((item) => {
+                                let vl = item.Price.map((item) => {
+                                    if (item.Weight) {
+                                        //    if(!dynamicWeight){setdynamicprice(item.SalePrice); setdynamicWeight(item.Weight)};
+                                        return 'Weight :'
+                                    } else {
+                                        // if(!dynamicWeight){setdynamicprice(item.SalePrice); setdynamicWeight(`${item.Unit} Unit`)}
+                                        return ` Unit :`
+                                    }
 
-                                        })
-                                        return vl[0]
-                                    })
-}
-                            </span><span className="mx-3 newProd_grms productDetailsCardWeigthOptions">
+                                })
+                                return vl[0]
+                            })
+                            }
+                        </span><span className="mx-3 newProd_grms productDetailsCardWeigthOptions">
                             {
                                 Product?.Prices?.map((data) => data.Price.length)[0] > 1 ?
-                                    <select className="form-select" aria-label="Default select example" onChange={(e) => { setdynamicWeight(e.target.value) }}>
+                                    <select className="form-select" aria-label="Default select example" onChange={(e) => {
+
+                                        k(e.target.value)
+                                    }}>
                                         {
                                             Product?.Prices[0]?.Price?.map((item, index) => {
-                                           
+
                                                 if (item.Weight) {
-                                                    return <option  value={item.SalePrice} key={index}>{item.Weight}</option>
+                                                    return <option id={item.id} value={item.id} key={index}>{item.Weight}</option>
                                                 } else {
-                                                    return <option value={item.SalePrice} key={index} >{item.Unit} Unit</option>
+                                                    return <option id={item.id} name={item} value={item.id} key={index} >{item.Unit} Unit</option>
                                                 }
 
                                             })
@@ -296,7 +313,6 @@ const NewProductDetailsCards = ({ Product }) => {
                                     </select> :
                                     Product?.Prices?.map((item) => {
                                         let vl = item.Price.map((item) => {
-                                            console.log(item);
                                             if (item.Weight) {
                                                 //    if(!dynamicWeight){setdynamicprice(item.SalePrice); setdynamicWeight(item.Weight)};
                                                 return item.Weight
@@ -324,32 +340,63 @@ const NewProductDetailsCards = ({ Product }) => {
                     </div>
                     <div className="col-12 ">
                         <p><span className="newProduct_doller_price">
-                            $ {parseInt(dynamicWeight) !== 0 ? parseInt(dynamicWeight) * quentity : Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)}
+                            $ {parseInt(dynamicWeight) !== 0 ?
+
+                                dynamicWeight * quentity
+
+                                : Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)}
                         </span><span className="mx-3 newProduct_Gms">/ {quentity} piece</span></p>
                     </div>
                     <div className="col-12">
                         {
-                                Product?.Prices?.map((data)=>{
-                                    data.Price.map((arry)=>{
-                                        console.log(arry.SalePrice === parseInt(dynamicWeight))
-                                        if(arry.SalePrice === parseInt(dynamicWeight)){
-                                            console.log(arry.Stock === "IN Stock" , arry.Stock)
-                                            if(arry.Stock === "IN Stock"){
+                            Product?.Prices?.map((data) => {
+                                if (dynamicWeight === 0) {
+                                    if (data.Price[0]) {
+                                        if (data.Price[0].Stock === "IN Stock") {
+                                            return (
                                                 <Box className={`   ${classes.loadingBtnTextAndBack}`} >
-                                                <LoadingButton onClick={() => { Addtocard(Product) }} variant="outlined" >Add To Cart</LoadingButton>
-                                            </Box>
-                                            }
-                                            else{
-                                                <Box className={`   ${classes.loadingBtnTextAndBack}`} >
-                                                <LoadingButton variant="outlined" >Out of Stock</LoadingButton>
-                                            </Box>
-                                            }
-                                            
+                                                    <LoadingButton onClick={() => { Addtocard(Product) }} variant="outlined" >Add To Cart</LoadingButton>
+                                                </Box>
+                                            )
                                         }
-                                    })
-                                })
+                                        else {
+                                            return (
+                                                <Box >
+                                                    <LoadingButton className={`${classes.odsbtn}`}>Out of Stock</LoadingButton>
+                                                </Box>
+                                            )
+                                        }
+                                    }
+                                }
+                                else {
+                                    return (
+                                        data.Price .map((arry)=>{
+                                            if (SelectVariant.id === arry.id) {
+                                                if (arry.Stock === "IN Stock") {
+                                                    return (
+                                                        <Box className={`${classes.loadingBtnTextAndBack}`} >
+                                                            <LoadingButton onClick={() => { Addtocard(Product) }} variant="outlined" >Add To Cart</LoadingButton>
+                                                        </Box>
+                                                    )
+                                                }
+                                                else {
+                                                    return (
+                                                        <Box >
+                                                            <LoadingButton className={`${classes.odsbtn}`}>Out of Stock</LoadingButton>
+                                                        </Box>
+                                                    )
+                                                }
+        
+                                            }
+                                        })
+                                    )
+                                    
+
+                                }
+                            })
+
                         }
-                     
+
 
                         {
                             CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />
