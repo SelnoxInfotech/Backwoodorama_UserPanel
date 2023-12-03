@@ -51,7 +51,7 @@ const NewProductDetailsCards = ({ Product }) => {
                 Store_id: Event?.Store_id,
                 Image_id: Event?.images[0]?.id,
                 Price: PriceIndex,
-                Cart_Quantity: 1,
+                Cart_Quantity: quentity,
                 PriceId: PriceIndex?.id,
                 category: Event.category_name,
                 Sub_Category_id: Event.Sub_Category_id,
@@ -66,7 +66,7 @@ const NewProductDetailsCards = ({ Product }) => {
                     Store_id: Event.Store_id,
                     Image_id: Event.images[0].id,
                     Price: PriceIndex,
-                    Cart_Quantity: 1,
+                    Cart_Quantity: quentity,
                     PriceId: PriceIndex?.id,
                     category: Event.category_name,
                     Sub_Category_id: Event.Sub_Category_id,
@@ -98,7 +98,7 @@ const NewProductDetailsCards = ({ Product }) => {
                 Store_id: Event.Store_id,
                 Image_id: Event.images[0].id,
                 Price: PriceIndex,
-                Cart_Quantity: 1,
+                Cart_Quantity: quentity,
                 ProductName: Event.Product_Name,
                 StoreCurbsidePickup: Event.StoreCurbsidePickup,
                 StoreDelivery: Event.StoreDelivery,
@@ -116,7 +116,7 @@ const NewProductDetailsCards = ({ Product }) => {
                     if (t.length > 0) {
                         SetAddToCard(AddTOCard.map((Cart) => {
                             if (Cart.Product_id === Event.id && Cart.Price.id === PriceIndex.id) {
-                                return { ...Cart, Cart_Quantity: Cart.Cart_Quantity + 1 }
+                                return { ...Cart, Cart_Quantity: Cart.Cart_Quantity + quentity }
                             }
                             return Cart
                         }))
@@ -139,9 +139,12 @@ const NewProductDetailsCards = ({ Product }) => {
         }
     }
     React.useEffect(() => {
-        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+        // window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
         localStorage.setItem('items', JSON.stringify(AddTOCard))
     }, [AddTOCard])
+    React.useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })    
+    }, [params])
 
 
     function modifystr(str) {
