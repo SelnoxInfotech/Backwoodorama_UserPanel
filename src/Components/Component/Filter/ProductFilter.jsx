@@ -33,7 +33,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
     }
 
     const handleChangepp = (event, newValue) => {
-      
+         console.log(newValue ,'newValue')
         setValue(newValue);
     };
 
@@ -50,7 +50,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
     const HandleOpenEvent = (Id, Name) => {
         SetFilter([])
         SetSubCategory([])
-
+      
         if (catname === Name) {
             SetOpenEvent(null)
             setcatname(null)
@@ -72,7 +72,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                 response.data.map((data) => {
                     d.push(data[0])
                     var uniqueUsersByID = _.uniqBy(d, 'id'); //removed if had duplicate id
-
+                    console.log(uniqueUsersByID ,'uniqueUsersByID')
                     SetFilter(uniqueUsersByID)
                     return data
                 })
@@ -93,20 +93,27 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                 function (error) {
 
                     alert("SomeThing Goes wrong")
-                })
+            })
 
         }
         else if (Name === "Strain") {
             SetFilter([{ id: "N", name: "None", }, { id: "I", name: "Indica", }, { id: "Sativa", name: "Sativa", }, { id: "hybrid", name: "hybrid", }, { id: "CBD", name: "CBD", }])
 
+        }else if (Name === "Weight") {
+            Axios.get("https://api.cannabaze.com/UserPanel/Get-Net_Weight/").then((res)=>{
+             
+              let newArr = res.data.data.map((item)=>{
+                console.log(item)
+                return {
+                        id: item.id,
+                        name:item.Weight
+                        }
+              })
+               console.log(newArr ,'newArr')
+               SetFilter(newArr)
+            })
         }
-        //         else if (Name === "Price") {
-        //             // SetFilter(<p>fffffffffffffff</p>)
-        // }
-
         SetOpenSortedData(null)
-
-
     }
     function Category_Drop(i, name) {
         if (name === "Category") {
@@ -117,16 +124,10 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                 "Category_Id": i
 
             }).then(response => {
-
                 SetSubCategory(_.uniqBy(response.data, "id"))
-
-
-
             }).catch(
                 function (error) {
-
-                })
-
+            })
         }
 
         else if (name === "Brand") {
@@ -259,7 +260,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
        const timer = setTimeout(() => {
         value !== undefined && dispatch({ type: 'Loading', Loading: true })
         value !== undefined && 
-
+      
         PriceFilter(value,Store_id).then((res) => {
             Setarr1(res.data)
             dispatch({ type: 'Loading', Loading: false })
@@ -310,7 +311,6 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
             <div className="col-lg-2 col-md-12 gap-sm-0 gap-2 prod_cat_left_sec  center">
 
                 {ProductFilterData.map((ele, index) => {
-console.log(ele ,'ele')
                     const { Id, Name, Icons } = ele;
                     return (
                         <div key={index} className="filter_manu_items">
@@ -348,7 +348,7 @@ console.log(ele ,'ele')
                                                                             SubCategory.CatgoryId === data.id
                                                                             &&
                                                                             <div className="col-10 px-2 py-0 product_sub_category_dropDown_cursor"  >
-                                                                               <input type="checkbox" id={data.name} name={data.name} value={data.name} />  <label onClick={() => { FilterSubCategorydata(SubCategory.id, SubCategory.SubCategory_name, data.name, SubCategory.Store_id) }}>{SubCategory.SubCategory_name}</label>
+                                                                               <input type="checkbox" id={data.name} name={data.name} value={data.name} />  <label htmlFor={data.name} onClick={() => { FilterSubCategorydata(SubCategory.id, SubCategory.SubCategory_name, data.name, SubCategory.Store_id) }}>{SubCategory.SubCategory_name}</label>
 
                                                                             </div>
                                                                         )

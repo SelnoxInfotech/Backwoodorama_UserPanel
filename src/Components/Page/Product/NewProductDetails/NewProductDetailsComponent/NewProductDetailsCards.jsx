@@ -181,14 +181,13 @@ const NewProductDetailsCards = ({ Product }) => {
 
     }
     async function PriceSelect(Product, Item) {
-        console.log(Product, Item)
+      
         SetPrice(Price => {
             return Price.filter(Price => Price.Product_id !== Product)
         })
         SetPrice(Price => [...Price, { Product_id: Product, Item_id: Item }]);
     }
 
-    console.log(SelectVariant, Price)
 
     return (
         <div className=" w-100">

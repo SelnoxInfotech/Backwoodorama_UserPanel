@@ -38,7 +38,6 @@ const WriteReviewPopup = ({
   const handleClose = () => {
     SetGetProductReview({ ...GetProductReview, popup: false });
   };
-  console.log(errors.rating, getValues('rating'));
   return (
     <>
       <Button

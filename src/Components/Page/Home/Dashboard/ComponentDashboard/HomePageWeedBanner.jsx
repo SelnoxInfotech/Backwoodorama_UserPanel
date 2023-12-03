@@ -21,7 +21,7 @@ const HomePageWeedBanner=()=>{
         .catch((error)=>{
         })
     }, [])
-console.log(data)
+
 
 
     return(

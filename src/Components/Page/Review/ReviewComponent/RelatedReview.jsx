@@ -10,14 +10,17 @@ import ListItem from "@material-ui/core/ListItem";
 import { BsThreeDotsVertical } from "react-icons/bs"
 import useStyles from "../../../../Style";
 import React from 'react';
+import axios from 'axios';
+import Cookies from 'universal-cookie';
 import ReportReviewPopup from '../ReviewPopup/ReportReviewPopup';
 import { useState } from 'react';
 import Createcontext from "../../../../Hooks/Context"
 const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => {
     const classes = useStyles()
+    const cookies = new Cookies();
+    const token_data = cookies.get('csrftoken')  
     const { state, dispatch } = React.useContext(Createcontext)
     const [readopen, setreadopen] = useState(true)
-    console.log(storeDetails ,'storeDetails')
     function textgive(text) {
         let arrofstr = text?.split(' ');
         let finalstr = ""
@@ -55,9 +58,14 @@ const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => 
     }
 
     function commenthelpful(ele){
-       console.log(ele ,'ele')
-
-
+        axios.get("https://api.cannabaze.com/UserPanel/AddandUpdateHelpfullButton/", {
+            Review: ele.id,
+            helpfull:true,
+        },   {
+            headers: { Authorization: `Bearer ${token_data}` }
+          },).then((res)=>{
+            console.log(res)
+        })
     }
    function calculateTImefromDate(value){
         //  new Date() = 'Mon Nov 20 2023 13:00:15 GMT+0530 (India Standard Time)'

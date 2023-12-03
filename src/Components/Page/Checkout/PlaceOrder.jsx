@@ -50,7 +50,6 @@ const PlaceOrder = () => {
                 console.error(error)
             })
     }, [])
-    console.log(location.state, 'texting text')
     return (
         <React.Fragment>
             <div className="container-fluid">

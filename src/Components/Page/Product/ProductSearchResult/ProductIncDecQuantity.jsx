@@ -38,7 +38,6 @@ const style = {
 };
 
 const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart, setadding, adding }) => {
-    console.log(items)
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
         setOpen(true);
@@ -70,7 +69,6 @@ const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart, setadding, a
         }
     };
     const classes = useStyles()
-    console.log(SelectWeight)
     return (
         <>
             <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" }}
@@ -200,7 +198,6 @@ const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart, setadding, a
                                         items?.Prices[0].Price.map((data) => {
                                           if(data.id === SelectWeight){
                                             if (data.Stock === "IN Stock" && adding === items.id ) {
-                                                console.log(data)
 
                                                 return (
                                                     <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" }}

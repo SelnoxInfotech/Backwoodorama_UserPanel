@@ -99,14 +99,14 @@ const SearchBar = ({ path }) => {
         if (windowSize <= 900) {
             SetSearchBarWidth(true)
             let w = document.getElementById("navsearchConntainer").clientWidth
-            console.log(w)
+          
             setoptionwidth(w)
         }
         else {
             if (windowSize >= 900) {
                 SetSearchBarWidth(false)
                 let w = document.getElementById("navsearchConntainer").clientWidth / 2;
-                console.log(w)
+        
                 setoptionwidth(w)
             }
         }

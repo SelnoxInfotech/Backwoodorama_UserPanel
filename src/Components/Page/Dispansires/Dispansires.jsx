@@ -73,8 +73,6 @@ export default function Dispansires() {
 
         return str.toLowerCase()
     }
-    console.log(params, modifystr(Location.pathname))
-
 
     React.useEffect(() => {
        axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/14`,
@@ -82,10 +80,10 @@ export default function Dispansires() {
                     j: 'https://www.weedx.io'+ modifystr(Location.pathname)
                 },
             ).then((res) => {
-                console.log(res)
+               
 
             }).catch((err) => {
-                console.log(err)
+                
             })
     }, [Location])
 

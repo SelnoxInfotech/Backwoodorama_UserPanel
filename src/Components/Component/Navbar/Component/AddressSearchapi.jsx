@@ -25,7 +25,7 @@
 //           Setdefault(state.Location)
 //         }
 //         else {
-//           console.log(place)
+
 //           Setdefault(place?.formatted_address);
 //           dispatch({ type: 'permission', permission: true })
 //           var Coun
@@ -289,7 +289,7 @@ function current(event) {
         fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
           .then(res => res.json())
           .then((response) => {
-            console.log(response?.results[0])
+      
             dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address});
             Setformatted_address(response?.results[0]?.formatted_address)
             var Coun

@@ -28,10 +28,10 @@
 //   }, [state])
 
 //   function handlechnage(e, value) {
-//     console.log(e, value, isPlacePredictionsLoading)
+
 //     placesService?.getDetails({ placeId: value?.place_id }, (placeDetails) => {
 //       Setformatted_address(placeDetails.formatted_address);
-//       console.log(placeDetails)
+
 //       dispatch({ type: 'permission', permission: true })
 //       var Coun
 //       var sta
@@ -156,11 +156,11 @@ export default function locationFuntion() {
 
 
  a.map((data)=>{
- console.log(data.indexOf)
+
  })
 
  b.find((data)=>{
- console.log(data)
+
  })
   
 

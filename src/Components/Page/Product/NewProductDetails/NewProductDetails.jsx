@@ -131,9 +131,6 @@ const NewProductDetails = () => {
      function handleEdit(){
       SetGetProductReview({ ...GetProductReview, 'popup':true })
      }
-  
-console.log(Product ,'Product')
-
 
 return (
     <div className="container-fluid">

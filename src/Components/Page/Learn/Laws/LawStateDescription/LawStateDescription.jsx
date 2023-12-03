@@ -11,9 +11,7 @@ const LawStateDescription = () => {
     const params = useParams()
     const location = useLocation()
     const [GetContant, SetContant] = React.useState([])
-    var newDate = new Date();
-    // var datetime = "LastSync: " + newDate.today() + " @ " + newDate.timeNow();
-    console.log((new Date()).toISOString().slice(0, 19).replace(/-/g, "/").replace("T", " "))
+
     React.useEffect(() => {
         Content.filter((data, index) => {
             return (

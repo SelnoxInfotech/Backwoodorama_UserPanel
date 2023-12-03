@@ -18,7 +18,7 @@ const HomePageBanner = () => {
         })
     },[])
     
- console.log(HomePageBannerImage)
+
 
     return (
 

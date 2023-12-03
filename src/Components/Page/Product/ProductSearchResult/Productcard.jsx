@@ -208,7 +208,7 @@ const Productcard = ({items , index ,RelatedProductResult}) => {
      },[RelatedProductResult])
 
      function btnloading(){
-        console.log("hello wolrd")
+       
      }
   return (
         <div className="productSearch_result_container" key={index}>

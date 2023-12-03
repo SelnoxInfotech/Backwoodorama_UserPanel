@@ -37,7 +37,7 @@ const Deliveries=()=>{
                     j:'https://www.weedx.io'+ modifystr(Location.pathname)
                 },
             ).then((res) => {
-                console.log(res)
+              
 
             }).catch((err) => {
             })

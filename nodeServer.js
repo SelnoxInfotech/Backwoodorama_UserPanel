@@ -6,7 +6,7 @@ async function generateSitemap() {
 
   axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/14`,
   ).then((respones) => {
-    console.log(respones)
+   
      const sitemapXmll = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       ${respones.data[0].Xml.map((url) => `
@@ -25,7 +25,7 @@ async function generateSitemap() {
 
 const dispen =  axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/11`,
 ).then((respones) => {
-console.log(respones)
+
    const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     ${respones.data[0].Xml.map((url) => `
@@ -42,10 +42,8 @@ console.log(respones)
 
 })
 
-// console.log(dispen)
 axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/13`,
 ).then((respones) => {
-  console.log(respones.data)
    const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     ${respones.data[0].Xml.map((url) => `
@@ -59,7 +57,7 @@ axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/13`,
 // Write the sitemap XML to a file
 // fs.writeFileSync('./build/Sitemap/law.xml', sitemapXml);
 //  value = 0
-console.log("node Cmp")
+
 })
 }
 cron.schedule("*/5 * * * * *", function () {

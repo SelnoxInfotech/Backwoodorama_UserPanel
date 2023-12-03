@@ -224,7 +224,7 @@ export default function DispensoriesDetails() {
        function handleEdit(){
         SetGetProductReview({ ...GetProductReview, 'popup':true })
        }
-    console.log(Despen ,'Despen')
+   
     return (
         <div>
             <StoreDetails Despen={Despen} locationStore={useLocation().pathname}></StoreDetails>
