@@ -339,7 +339,8 @@ const NewProductDetailsCards = ({ Product }) => {
                         </span>
                     </div>
                     <div className="col-12 productDetailsCardQuestity">
-                        <span className="newProduct_Weight">Quantity : </span><span className="mx-3 newProd_grms">
+                        <span className="newProduct_Weight">Quantity : </span>
+                        <span className="mx-3 newProd_grms">
                             <div className="qty_selector">
                                 <span className="qty_btn" onClick={() => { if (quentity > 1) { setquentity(quentity - 1) } }}>-</span>
                                 <span className="qty_input">{quentity}</span>
@@ -348,13 +349,15 @@ const NewProductDetailsCards = ({ Product }) => {
                         </span>
                     </div>
                     <div className="col-12 ">
-                        <p><span className="newProduct_doller_price">
+                  <p>
+                    <span className="newProduct_doller_price">
                             $ {parseInt(dynamicWeight) !== 0 ?
 
                                 dynamicWeight * quentity
 
                                 : Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)}
-                        </span><span className="mx-3 newProduct_Gms">/ {quentity} piece</span></p>
+                        </span><span className="mx-3 newProduct_Gms">/ {quentity} piece</span>
+                        </p>
                     </div>
                     <div className="col-12">
                         {

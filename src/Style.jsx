@@ -1273,7 +1273,8 @@ const useStyles = makeStyles({
       height: "30px",
        fontSize: "14px" ,
        color:"red" ,
-        border: '1px solid red'
+        border: '1px solid red',
+        borderRadius:'30px',
     },
     "&.MuiButtonBase-root:hover":{
     

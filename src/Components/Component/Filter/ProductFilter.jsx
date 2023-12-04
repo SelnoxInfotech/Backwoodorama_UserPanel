@@ -16,8 +16,9 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
     const classes = useStyles()
     const { id } = useParams()
     const { state, dispatch } = React.useContext(Createcontext)
+    console.log(state ,'state dmkfksdv v jkvmc vmvk x dm km')
     const [select, setselect] = useState("Sort by A to Z")
-    const navigate = useNavigate()
+    const [seaerchitems, setsearchitems] = useState([])
     const [OpenEvent, SetOpenEvent] = useState(null);
     const [OpenSortedData, SetOpenSortedData] = useState(null);
     const [Filter, SetFilter] = useState([])
@@ -55,12 +56,11 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
             SetOpenEvent(null)
             setcatname(null)
             return false;
-        } else {
+        }else {
             SetOpenEvent(Id)
             setcatname(Name)
         }
-
-        if (Name === "Category") {
+        if(Name === "Category"){
             Axios.post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/ ",
                 {
 
@@ -83,11 +83,10 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
 
 
         }
-        else if (Name === "Brand") {
-            Axios(`https://api.cannabaze.com/UserPanel/Get-BrandByStore/${Store_id}`, {
-
-
-            }).then(response => {
+        else if (Name === "Brand"){  
+           
+            Axios(`https://api.cannabaze.com/UserPanel/Get-BrandByStore/${Store_id}`).then(response => {
+          
                 SetFilter(_.uniqBy(response.data, 'name'))
             }).catch(
                 function (error) {
@@ -96,26 +95,27 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
             })
 
         }
-        else if (Name === "Strain") {
-            SetFilter([{ id: "N", name: "None", }, { id: "I", name: "Indica", }, { id: "Sativa", name: "Sativa", }, { id: "hybrid", name: "hybrid", }, { id: "CBD", name: "CBD", }])
+        else if (Name === "Strain"){
+            SetFilter([{ id: "I", name: "Indica", }, { id: "Sativa", name: "Sativa", }, { id: "hybrid", name: "hybrid", }, { id: "CBD", name: "CBD", }])
 
-        }else if (Name === "Weight") {
+        }else if (Name === "Weight"){
             Axios.get("https://api.cannabaze.com/UserPanel/Get-Net_Weight/").then((res)=>{
              
               let newArr = res.data.data.map((item)=>{
-                console.log(item)
+             
                 return {
                         id: item.id,
-                        name:item.Weight
+                        name: item.Weight
                         }
               })
-               console.log(newArr ,'newArr')
+              
                SetFilter(newArr)
             })
         }
         SetOpenSortedData(null)
+        setsearchitems([])
     }
-    function Category_Drop(i, name) {
+    function Category_Drop(i, name , values={}){
         if (name === "Category") {
 
             Axios.post(`https://api.cannabaze.com/UserPanel/Get-filterSubcategorybyStoreandCategory/`, {
@@ -128,9 +128,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
             }).catch(
                 function (error) {
             })
-        }
-
-        else if (name === "Brand") {
+        }else if (name === "Brand") {
             dispatch({ type: 'Loading', Loading: true })
             Axios(`https://api.cannabaze.com/UserPanel/Get-ProductByStoreAndBrand/${id}/${i}`, {
 
@@ -142,26 +140,32 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                 function (error) {
 
                 })
-        }
-
-        // else if (name === "Price") {
-        //     Axios(`https://api.cannabaze.com/UserPanel/Get-ProductbyBrand/${id}`, {
-
-
-        //     }).then(response => {
-
-        //         Setarr1(response.data)
-
-
-
-
-        //     }).catch(
-        //         function (error) {
-
-        //         })
-        // }
-
+        }else if(name === "Weight"){
+            if(seaerchitems.includes(values.name)){
+                let newerr=seaerchitems.filter((item)=>{
+                 return item!== values.name
+                })
+                setsearchitems(newerr)
+            }else{
+              setsearchitems([...seaerchitems , values.name])
+            }
+        } 
     }
+    React.useEffect(()=>{
+       if(seaerchitems.length !== 0){
+         Axios.post('https://api.cannabaze.com/UserPanel/WeightFilter/',{
+                "store":Store_id,
+                "weight":seaerchitems,
+         }).then((res)=>{
+            Setarr1(res.data)
+         })
+       }else{
+        Axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
+        }).then(response => {
+            Setarr1(response.data)
+        })
+       }
+    },[seaerchitems])
     function FilterSubCategorydata(SubCategoryid, SubCategory_name, categoryName) {
         dispatch({ type: 'Loading', Loading: true })
         Axios.post(`https://api.cannabaze.com/UserPanel/Get-filterProductbyStoreandSubCategory/`, {
@@ -230,11 +234,11 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
     };
 
     function searchHnadelchange(e) {
-
         let timer;
         clearTimeout(timer);
         timer = setTimeout(() => {
             if (e !== '') {
+              
                 dispatch({ type: 'Loading', Loading: true })
                 Axios.get(`https://api.cannabaze.com/UserPanel/Get-SearchFilter/?search=${e}`, {
                 }).then(response => {
@@ -245,8 +249,9 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                     dispatch({ type: 'Loading', Loading: false })
                 }).catch(
                     function (error) {
-                    })
+                })
             } else {
+               
                 Setarr1(arr)
             }
 
@@ -279,7 +284,9 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                 <div className="col-2 product_search_bar">
                     <SearchBar
                         onChange={(e) => { searchHnadelchange(e) }}
-                        style={{ border: "1px solid #dee2e6" }} width={"100%"} />
+                        style={{ border: "1px solid #dee2e6" }} width={"100%"} 
+                     
+                        />
 
                 </div>
                 <div className="col-10 product_select">
@@ -336,11 +343,11 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                                             {
                                                 Filter.length !== 0 ?
                                                     Filter?.map((data) => {
-                                                        
+                                                      
                                                         return (
                                                             <div>
                                                                 <div className="col-10 product_category_dropdown_cursor">
-                                                                  {ele.Name === "Category" ? <p  className="m-0" onClick={() => { Category_Drop(data.id, ele.Name) }}>{data.name}</p> : <div>  <input type="checkbox" id={data.name} name={data.name} value={data.name} /> <label htmlFor={data.name} className="m-0" onClick={() => { Category_Drop(data.id, ele.Name) }}>{data.name}</label> </div>}
+                                                                  {ele.Name === "Category" ? <p  className="m-0" onClick={() => { Category_Drop(data.id, ele.Name) }}>{data.name}</p> : <div>  <input type="checkbox" onChange={()=>{Category_Drop(data.id, ele.Name , data )}} id={data.name} name={data.name} value={data.name} /> <label htmlFor={data.name} className="m-0" >{data.name}</label> </div>}
                                                                 </div>
                                                                 {
                                                                     SubCategory?.map((SubCategory) => {

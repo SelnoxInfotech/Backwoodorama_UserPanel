@@ -63,7 +63,7 @@ const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => 
         console.log(token_data ,'token_data')
         console.log(ele.id)
         if (state.login) {
-            axios.post("https://api.cannabaze.com/UserPanel/AddandUpdateHelpfullButton/", {
+            axios.post("https://api.cannabaze.com/UserPanel/AddandUpdateHelpfullButton/", {   
                 Review: ele.id,
                 helpfull:true,
             },   {
@@ -72,7 +72,7 @@ const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => 
                 console.log(res)
             })
           } else {
-            navigate("/login");
+            navigate("/login")
           }
     }
    function calculateTImefromDate(value){

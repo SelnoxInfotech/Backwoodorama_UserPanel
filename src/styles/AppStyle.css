@@ -1760,12 +1760,25 @@ scrollbar-width: none;  /* Firefox */
   margin: 0;
   color: #949494;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   margin-left: 5px;
+  transition: all .3s ease;
+  cursor: pointer;
 }
 
+.marginLeftnewFlavStore:hover{
+  color: #31B655;
+}
 
+.amenities_list::-webkit-scrollbar {
+  display: none;
+}
 
+/* Hide scrollbar for IE, Edge and Firefox */
+.amenities_list {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
 /* AddToCartPopup */
 
 
@@ -5383,7 +5396,10 @@ footer{
 .lawStateDescription_Laws_Content {
   display: flex;
 }
-
+.tableList:hover{
+  cursor: pointer;
+  color: #31B655;
+}
 .isweedLegalHeading {
   color: #000000;
   font-weight: 700;
@@ -5615,9 +5631,7 @@ width: max-content;
    align-items: center;
    margin: 15px 0;
 }
-.productDetailsCardWeigthOptions{
-  width: 200px;
-}
+
 .productDetailsCardWeigthOptions .form-select:focus{
     border-color: #228b22;
     outline: 0;

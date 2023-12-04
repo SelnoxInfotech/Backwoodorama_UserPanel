@@ -5,13 +5,64 @@ import LawStateDecriptionBanner from "./LawStateDescriptionComponent/LawStateDec
 import { useLocation, useParams } from 'react-router-dom';
 import Content from "../LawContentsJson"
 import _ from "lodash"
+import { useRef } from 'react';
 import { LawState } from "../../../../Component/ScoPage/LearnSeo";
 import axios from "axios";
 const LawStateDescription = () => {
     const params = useParams()
     const location = useLocation()
     const [GetContant, SetContant] = React.useState([])
+    const ref = useRef(null);
+    const [offset, setOffset] = React.useState(0);
+    const [Id, setId] = React.useState("");
+    const allHeigths = []
+    React.useEffect(() => {
+        window.scrollTo(0, 0)
+        
+        const onScroll = () => setOffset(window.pageYOffset);
+        window.removeEventListener('scroll', onScroll);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+      }, [])
 
+    let divElement = document.getElementById('Navbar_box')?.clientHeight
+    // const LawSelectedFun = (ids) => {
+    //     SetSelected(ids)
+    //    let h1 =(document.getElementById(ids).offsetHeight)
+      
+    //    window.scrollTo(0, h1 + divElement)
+    // }
+    React.useEffect(()=>{
+        ref.current.childNodes.forEach((item , index)=>{
+           
+        allHeigths.push({
+           topheigth: item.offsetTop,
+           id : item.id,
+           height : item.clientHeight
+          })
+        })
+       
+        for(let i=0 ; i < allHeigths.length -1 ; i++){
+           if(offset > allHeigths[i].topheigth - divElement - 100   && offset < allHeigths[i+1].topheigth - divElement ){
+            setId(allHeigths[i].id)
+           }else if(offset < allHeigths[0].topheigth){
+            setId(allHeigths[0].id)
+            
+           }else if(offset > allHeigths[allHeigths.length -1].topheigth){
+            setId(allHeigths[allHeigths.length -1].id)
+            
+           }
+        }
+      },[offset])
+      function gothroughID(ID){
+        console.log(allHeigths)
+
+        allHeigths.forEach((item)=>{
+          if(item.id === ID){
+            window.scrollTo(0, item.topheigth - divElement)
+          }
+        })
+      }
     React.useEffect(() => {
         Content.filter((data, index) => {
             return (
@@ -45,9 +96,10 @@ const LawStateDescription = () => {
                         <hr />
                     </div>
                     <div className="col-12 d-flex">
-                        <div className={"col-xl-8 col-md-12"} >
+                        <div className={"col-xl-8 col-md-12"}  ref={ref}>
                             {
                                 GetContant?.content?.map((data1, index) => {
+                                  
                                     return (
                                         <React.Fragment key={index}>
                                             <IsWeedLegalState head={data1.title} description2={data1.content} />
@@ -57,7 +109,7 @@ const LawStateDescription = () => {
                             }
                         </div>
                         <div className={"col-4 hidiingBLog "}>
-                            <LawStateContent head={GetContant?.content} />
+                            <LawStateContent head={GetContant?.content} gothroughID={gothroughID} />
                         </div>
                     </div>
 

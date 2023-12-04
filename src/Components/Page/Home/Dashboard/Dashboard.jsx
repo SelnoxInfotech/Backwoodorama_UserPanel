@@ -82,7 +82,7 @@ export default function Dashboard() {
             <div className="About_weedx">
                 <div className="container-fluid">
                     <h2 className="section_main_title mb-sm-1 mb-3">Welcome to weedx.io</h2>
-                    <p className="section_main_description">our all-in-one cannabis destination. Discover a world of convenience with our Online Ordering and Delivery   Services. Explore a rich selection of Dispensary and Retailer Listings, all while enjoying the peace of mind that comes with our 
+                    <p className="section_main_description">Our all-in-one cannabis destination. Discover a world of convenience with our Online Ordering and Delivery   Services. Explore a rich selection of Dispensary and Retailer Listings, all while enjoying the peace of mind that comes with our 
                     full Compliance with Local Laws. Your journey to a seamless, legal, and informed cannabis experience begins here at 
                     weedx.io</p>
 
@@ -177,11 +177,7 @@ export default function Dashboard() {
                     </div>
                 </div>
             </div>
-            {/* <div className="px-sm-0 px-3 dashBoardStrainType">
-                <h3 className=" mt-4 section_main_title">Strain Type</h3>
-                <StrainTypeCards ArrayData={StrainTypeCardArray}  />
-
-            </div> */}
+          
            
                 <NewsBlog></NewsBlog>
            

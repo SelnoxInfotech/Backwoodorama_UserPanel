@@ -28,6 +28,7 @@
       width: 22%;
       border-right: 2px solid white;
       box-sizing: border-box;
+      cursor: pointer;
   }
   .footer_list:nth-last-child(1){
       border-right: none;

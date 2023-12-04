@@ -19,9 +19,6 @@ const Termsconditions = () => {
   }, [])
   let divElement = document.getElementById('Navbar_box')?.clientHeight
   React.useEffect(()=>{
-    
-
- 
     ref.current.childNodes.forEach((item , index)=>{
       allHeigths.push({
        topheigth: item.offsetTop,
@@ -44,7 +41,7 @@ const Termsconditions = () => {
   },[offset])
 
   function gothroughID(ID){
-   
+  
     allHeigths.forEach((item)=>{
       if(item.id === ID){
         window.scrollTo(0, item.topheigth - divElement)

@@ -6,7 +6,7 @@ const Brand=()=>{
         <div className="">
             <div className=" brands_containers_height">
                 <div className="col-12 col-sm-10 brandHeading">
-                    <h1>Brands</h1>
+                   
                     <VerifyBrands/>
                 </div>
             </div>

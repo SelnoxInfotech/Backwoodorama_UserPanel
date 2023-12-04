@@ -72,7 +72,7 @@ const NewFlavourBanner = ({ delBtn }) => {
 
                                                 <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph newFlav_margin'>
                                                     <p className='m-0'><TbCircleFilled id="new_flavCircle" /></p>
-                                                   <Link to={`/weed-deliveries/leaflyweednyc/store-details/${delBtn[0].id}`}><p className='marginLeftnewFlavStore '>Store details</p></Link> 
+                                                     <Link to={`/weed-deliveries/leaflyweednyc/store-details/${delBtn[0].id}`}><p className='marginLeftnewFlavStore '>Store details</p></Link> 
                                                 </div>
 
                                                 <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph newFlav_margin'>

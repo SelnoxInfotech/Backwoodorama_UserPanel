@@ -9,6 +9,7 @@ import './newsletter.css'
 import React from 'react';
 const HomePageDealsSignup = () => {
     const classes = useStyles()
+    const [submited,setsubmited]= React.useState(true)
     const { register, handleSubmit, errors, reset, setError } = useForm();
     const [email, setEmail] = React.useState('');
     const onSubmit = (data) => {
@@ -19,11 +20,11 @@ const HomePageDealsSignup = () => {
                 email: email
             },
 
-        )
-            .then((res) => {
+        ).then((res) => {
                 if (res.data.status === "success") {
                     alert("Thank You For Subscribe")
                 }
+                setsubmited(true)
             })
             .catch((error) => {
                 setError("email", {
@@ -50,6 +51,9 @@ const HomePageDealsSignup = () => {
                             <div className=" homePageSignup_paragraph   ">
                                 <p>Subscribe To Our Newsletters</p>
                             </div>
+                          
+                          {
+                            submited ? <h2 className='thankforsubscribe'>Thanks For Subscribe</h2>:
                             <div className='newsletterFormFeild'>
                                 <TextField
                                     className={classes.homePageDealSignup_TextFields}
@@ -82,6 +86,7 @@ const HomePageDealsSignup = () => {
                                     <Button className={` ${classes.homePageButton}`} type='submit' >Subscribe</Button>
                                 </span>
                             </div>
+                             }
 
 
 

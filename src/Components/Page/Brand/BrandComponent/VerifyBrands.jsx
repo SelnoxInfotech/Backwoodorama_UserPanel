@@ -31,7 +31,8 @@ const VerifyBrands = () => {
         <div>
             <div className="container-fluid">
                 <BrandSeo location={location.pathname}></BrandSeo>
-                <div className="row w-100">
+                <div className="row w-100 m-sm-auto m-0">
+                <h1 className="section_title m-0">Brands</h1>
                     {VerifyArrayData?.map((items, index) => {
                         return (
                             <div className="col-xl-6 col-md-12 col-12 verify_brand_container" key={index}>

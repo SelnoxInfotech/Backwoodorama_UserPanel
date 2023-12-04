@@ -333,6 +333,7 @@
   }
   .newProductDetailsContainer {
     flex-wrap: wrap;
+    padding: 20px;
   }
   .newProductDetailsContainer .newProductDetailsCardLeftCol .newProductDetails_upper_image {
     width: 80%;
@@ -340,8 +341,8 @@
   .newProductdetails_rightSideContent_container {
     width: 100%;
     padding: 20px;
-    padding-left: 20px;
   }
+
   .newProductDetailsContainer .newProductDetailsCardLeftCol {
     width:100% ;
     padding: 30px;
@@ -457,7 +458,7 @@
   }
   .newProductdetails_rightSideContent_container {
     width: 100%;
-    padding-left: 0px;
+    padding:20px 0px;
   }
 
   .verify_brand_image {
@@ -700,6 +701,9 @@
     width: 120px;
     height: 80px;
 }
+.newProductDetailsContainer .newProductDetailsCardLeftCol .newProductDetails_upper_image{
+  height: auto;
+}
   .search_bar_box{
     width: 100%;
   }
@@ -752,9 +756,10 @@
 }
 
 .BackPageBtn {
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.6;
   margin-top: 10px;
+  font-weight: 600;
 }
 .newProductAboutUs_container{
   padding: 10px;
@@ -794,9 +799,12 @@
 .filter_manu_items{
   width: 120px;
   border: 1px solid gainsboro;
-}
-.filter_manu_items{
   color: rgba(0, 0, 0);
+  line-height: 30px;
+  font-size: 14px;
+}
+.prod_filter_icon{
+  display: none;
 }
 .floatingbtn{
   position: fixed;
@@ -1387,15 +1395,18 @@ margin: 0;
   .headingTypeLabelContainerThirdFourth {
     padding-top: 54px;
   }
-}
-@media (max-width:372px) {
   .NumberText_container ol li {
     font-size: 7px;
     min-width: 26%;
   }
-
-
   .Category_title {
     font-size: 10px;
+  }
+  .qty_selector{
+    width: 120px;
+    font-size: 14px;
+  }
+  .newProd_grms {
+    font-size: 16px;
   }
 }
