@@ -9,6 +9,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import { BsThreeDotsVertical } from "react-icons/bs"
 import useStyles from "../../../../Style";
+import { useNavigate } from "react-router-dom";
 import React from 'react';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
@@ -18,7 +19,8 @@ import Createcontext from "../../../../Hooks/Context"
 const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => {
     const classes = useStyles()
     const cookies = new Cookies();
-    const token_data = cookies.get('csrftoken')  
+    let navigate =  useNavigate();
+    const token_data = cookies.get('Token_access')  
     const { state, dispatch } = React.useContext(Createcontext)
     const [readopen, setreadopen] = useState(true)
     function textgive(text) {
@@ -58,14 +60,21 @@ const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => 
     }
 
     function commenthelpful(ele){
-        axios.get("https://api.cannabaze.com/UserPanel/AddandUpdateHelpfullButton/", {
-            Review: ele.id,
-            helpfull:true,
-        },   {
-            headers: { Authorization: `Bearer ${token_data}` }
-          },).then((res)=>{
-            console.log(res)
-        })
+        console.log(token_data ,'token_data')
+        console.log(ele)
+     
+        if (state.login) {
+            axios.get("https://api.cannabaze.com/UserPanel/AddandUpdateHelpfullButton/", {
+                Review: ele.id,
+                helpfull:true,
+            },   {
+                headers: { Authorization: `Bearer ${token_data}` }
+              },).then((res)=>{
+                console.log(res)
+            })
+          } else {
+            navigate("/login");
+          }
     }
    function calculateTImefromDate(value){
         //  new Date() = 'Mon Nov 20 2023 13:00:15 GMT+0530 (India Standard Time)'
