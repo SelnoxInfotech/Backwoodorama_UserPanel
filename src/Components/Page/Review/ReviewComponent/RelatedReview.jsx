@@ -61,10 +61,9 @@ const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => 
 
     function commenthelpful(ele){
         console.log(token_data ,'token_data')
-        console.log(ele)
-     
+        console.log(ele.id)
         if (state.login) {
-            axios.get("https://api.cannabaze.com/UserPanel/AddandUpdateHelpfullButton/", {
+            axios.post("https://api.cannabaze.com/UserPanel/AddandUpdateHelpfullButton/", {
                 Review: ele.id,
                 helpfull:true,
             },   {
