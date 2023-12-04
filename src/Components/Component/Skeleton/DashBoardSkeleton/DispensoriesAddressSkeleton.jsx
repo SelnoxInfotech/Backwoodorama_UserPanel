@@ -9,7 +9,7 @@ const DispensoriesAddressSkeleton = () => {
     const classes = useStyles()
     return (
         <React.Fragment>
-            <div className="dispensoriesAddressSkeletonPadding">
+            <div className="">
 
                 <Box>
                     <Skeleton variant="text" sx={{ width: "30%", height: "25px" }} className={classes.dispensoriesAddressSkeletonHeading} />

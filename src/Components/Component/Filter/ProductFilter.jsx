@@ -6,7 +6,7 @@ import ClickAwayListener from 'react-click-away-listener';
 import Axios from "axios"
 import _ from "lodash"
 import { FormControl, Grid, MenuItem, Select } from "@mui/material"
-import SearchBar from '@mkyy/mui-search-bar';
+import SearchBar from 'material-ui-search-bar';
 import { useParams, useNavigate, useLocation } from "react-router-dom"
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
@@ -234,6 +234,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
     };
 
     function searchHnadelchange(e) {
+
         let timer;
         clearTimeout(timer);
         timer = setTimeout(() => {

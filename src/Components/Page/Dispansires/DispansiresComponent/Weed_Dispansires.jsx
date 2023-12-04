@@ -1,99 +1,104 @@
 import useStyles from "../../../../Style";
 import { useLocation } from "react-router-dom";
-import SearchBar from '@mkyy/mui-search-bar';
+import SearchBar from 'material-ui-search-bar';
 import React from "react";
 import Axios from "axios";
 import Dispensoriescart from './Dispensoriescart'
-import {DespensioriesItem} from '../../../../Api/Api';
+import { DespensioriesItem } from '../../../../Api/Api';
 import { DispensariesSco } from "../../../Component/ScoPage/DispensariesSco"
 import Createcontext from "../../../../Hooks/Context"
 const Weed_Dispansires = () => {
     const classes = useStyles()
     const [Store, SetStore] = React.useState([])
     const [Search, SetSearch] = React.useState([])
-    const [searchtext,setsearchtext] = React.useState("")
+    const [searchtext, setsearchtext] = React.useState("")
     const { state } = React.useContext(Createcontext)
+
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
         str = str.trim().replaceAll(' ', "-");
         let a = 0;
         while (a < 1) {
-          if (str.includes("--")) {
-            str = str.replaceAll("--", "-")
-          } else if (str.includes("//")) {
-            str = str.replaceAll("//", "/")
-          } else if (str.includes("//")) {
-            str = str.replaceAll("-/", "/")
-          } else if (str.includes("//")) {
-            str = str.replaceAll("/-", "/")
-          } else {
-            a++
-          }
+            if (str.includes("--")) {
+                str = str.replaceAll("--", "-")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("//", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("-/", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("/-", "/")
+            } else {
+                a++
+            }
         }
-    
-        return str
-      }
 
+        return str
+    }
     React.useEffect(() => {
-       
-        if(searchtext !== ""){
+
+        if (searchtext !== "") {
             const getData = setTimeout(() => {
-       
-                Axios.post(`https://api.cannabaze.com/UserPanel/FilterDispensaries/`,{
-                  "store": searchtext
-                })
-                .then(function (response) {
-                    SetStore(response?.data);
-                  
-                })
-                .catch(function (error) {
-                  console.trace(error);
-                  SetStore([]);
-                });
+                const json = {
+                    "store": searchtext,
+                    "City": state.City,
+                    "Country" : state.Country?.replace(/-/g, " "),
+                     "State": state.State
+                }
+                Axios.post(`https://api.cannabaze.com/UserPanel/FilterDispensaries/`,
+                    json
+                )
+                    .then(function (response) {
+                        SetStore(response?.data);
+
+                    })
+                    .catch(function (error) {
+                        console.trace(error);
+                        SetStore([]);
+                    });
             }, 1000)
             return () => clearTimeout(getData)
-        }else{
+        } else {
             if (state.City !== "") {
                 const object = { City: state.City.replace(/-/g, " ") }
                 DespensioriesItem(object).then((res) => {
                     if (res.length !== 0) {
                         SetStore(res)
-    
+
                     }
-                    else{
+                    else {
                         const object = { State: state.State.replace(/-/g, " ") }
                         DespensioriesItem(object).then((res) => {
-                         if(res.length !== 0){
-                            SetStore(res)
-                         
-                         }
-                         else{
-                            const object = { Country: state.Country.replace(/-/g, " ") }
-                            DespensioriesItem(object).then((res) => {
+                            if (res.length !== 0) {
                                 SetStore(res)
-                             
-                            })
-                         }
+
+                            }
+                            else {
+                                const object = { Country: state.Country.replace(/-/g, " ") }
+                                DespensioriesItem(object).then((res) => {
+                                    SetStore(res)
+
+                                })
+                            }
                         })
                     }
-    
+
                 })
             }
             else {
                 if (state.State !== "") {
                     const object = { State: state.State.replace(/-/g, " ") }
                     DespensioriesItem(object).then((res) => {
-                     if(res.length !== 0){
-                        SetStore(res)
-                        
-                     }
-                     else{
-                        const object = { Country: state.Country.replace(/-/g, " ") }
-                        DespensioriesItem(object).then((res) => {
+                        if (res.length !== 0) {
                             SetStore(res)
-                          
-                        })
-                     }
+
+                        }
+                        else {
+                            const object = { Country: state.Country.replace(/-/g, " ") }
+                            DespensioriesItem(object).then((res) => {
+                                SetStore(res)
+
+                            })
+                        }
                     })
                 }
                 else {
@@ -101,16 +106,16 @@ const Weed_Dispansires = () => {
                         const object = { Country: state.Country.replace(/-/g, " ") }
                         DespensioriesItem(object).then((res) => {
                             SetStore(res)
-                            
+
                         })
                     }
                 }
             }
-          
-             
+
+
         }
-      }, [searchtext,state])
- 
+    }, [searchtext, state])
+
     return (
         <React.Fragment>
             <DispensariesSco location={useLocation().pathname}></DispensariesSco>
@@ -121,7 +126,7 @@ const Weed_Dispansires = () => {
                             <div className="col-12 dispensories_open_result_heading">
                                 <div className="row">
                                     <div className="col-12 dispensories_open_search_result mt-2">
-                                        <SearchBar onChange={(e)=>setsearchtext(e)} style={{ background: "#FFFFF", border: "1px solid gray" }} width={"100%"} placeholder="Search dispensaries address" />
+                                        <SearchBar onCancelSearch={() => setsearchtext('')} onChange={(e) => setsearchtext(e)} style={{ background: "#FFFFF", border: "1px solid gray" }} width={"100%"} placeholder="Search dispensaries address" />
                                         {
                                             Search?.map((data) => {
                                                 return (
@@ -136,15 +141,15 @@ const Weed_Dispansires = () => {
                                 <div className='col-12 dispensoriesOpenResultHeadingss py-2'>
                                     <span className='dispensories_result_head'>Showing result</span>
                                     <span className='dispensories_result_head'>{Store?.length}</span>
-                                </div>                       
+                                </div>
                             </div>
                         </div>
 
 
                         {Store?.map((ele, index) => {
-                           
+
                             return (
-                                <Dispensoriescart index={index} ele={ele}  />
+                                <Dispensoriescart index={index} ele={ele} />
                             )
                         })}
                     </div>

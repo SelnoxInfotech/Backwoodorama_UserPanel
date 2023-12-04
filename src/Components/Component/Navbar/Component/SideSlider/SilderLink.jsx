@@ -21,6 +21,9 @@ export default function DashBoardLink({ state }) {
     Setcurrent_route(location.pathname)
 
   }, [location])
+  const scrollToTop = () => {
+    window.scrollTo(0, 0)
+}
   return (
     <React.Fragment>
 
@@ -45,9 +48,9 @@ export default function DashBoardLink({ state }) {
 
                 id={`${(current_route?.slice(0, 16) === "/weed-deliveries" ? "Active" : "")}`}><li>Deliveries</li></Link>
                 <Link to="/brands" id={`${(current_route === "/brands" ? "Active" : "")}`}> <li>Brand</li></Link>
-                <Link to="/products" id={`${(current_route === "/products" ? "Active" : "")}`}><li>Product</li></Link>
+                <Link  onClick={scrollToTop} to="/products" id={`${(current_route === "/products" ? "Active" : "")}`}><li>Product</li></Link>
                 {/* <Link to="/Deals"  id={`${(current_route ===  "/Deals" ? "Active" : "")}`}><li>Deals</li></Link> */}
-                <Link to="/deals" id={`${(current_route === "/deals" ? "Active" : "")}`}><li>Deals</li></Link>
+                <Link  to="/deals" id={`${(current_route === "/deals" ? "Active" : "")}`}><li  onClick={scrollToTop} >Deals</li></Link>
                 <Link to="/learn" id={`${(current_route === "/learn" ? "Active" : "")}`}><li >Learn</li></Link>
                 {/* <Link to="/strain" id={`${(current_route === "/strain" ? "Active" : "")}`}><li>Strain</li></Link> */}
                 {/* <Link to="/Strain" id={`${(current_route === "/Strain" ? "Active" : "")}`}><li>Strain</li></Link> */}
