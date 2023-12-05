@@ -135,7 +135,7 @@ const NewProductDetails = () => {
       SetGetProductReview({ ...GetProductReview, 'popup':true })
      }
 function HellFull (ReviewId , UserId){
- ProductHelpFull(ReviewId , UserId).then((res)=>{
+ ProductHelpFull(ReviewId.id , ReviewId.user).then((res)=>{
   SetApi(!api)
  }).catch(()=>{
 
@@ -151,7 +151,7 @@ return (
       <NewProductinfoText Product={{ heading: "Product Description", text: Product?.Product_Description }} />
 
       <ProductSearchResult RelatedProductResult={StoreProduct} currentProductID={Product.id} CategoryName={heading} />
-      <Review HellFull={HellFull} handleEdit={handleEdit}  handleDelete={handleDelete} Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview ={SetReview}></Review>
+      <Review reviewloading={reviewloading} HellFull={HellFull} handleEdit={handleEdit}  handleDelete={handleDelete} Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview ={SetReview}></Review>
     </div>
   )
 }

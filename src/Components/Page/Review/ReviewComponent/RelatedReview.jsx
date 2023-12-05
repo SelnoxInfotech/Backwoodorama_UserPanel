@@ -240,7 +240,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                                 <div className='related_review_footer '>
 
                                     <div className='related_review_footer_paragraph ellipsis'>
-                                        <Button className={classes.WriteReviewBtn_Color} variant="outlined" onClick={() => { HelpFull(ele) }}> 
+                                        <Button className={classes.WriteReviewBtn_Color} variant="outlined" onClick={() => { HellFull(ele) }}> 
                                             <Badge badgeContent={ele?.count} className={classes.sliderLink_badge}>
                                         <AiFillLike /> 
                                         </Badge>    
