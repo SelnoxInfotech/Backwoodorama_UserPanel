@@ -56,22 +56,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
         }
     }
 
-    function commenthelpful(ele){
-        console.log(token_data ,'token_data')
-        console.log(ele.id)
-        if (state.login) {
-            axios.post("https://api.cannabaze.com/UserPanel/AddandUpdateHelpfullButton/", {   
-                Review: ele.id,
-                helpfull:true,
-            },   {
-                headers: { Authorization: `Bearer ${token_data}` }
-              },).then((res)=>{
-                console.log(res)
-            })
-          } else {
-            navigate("/login")
-          }
-    }
+ 
    function calculateTImefromDate(value){
         //  new Date() = 'Mon Nov 20 2023 13:00:15 GMT+0530 (India Standard Time)'
       let diffTime = Math.abs(new Date().valueOf() - new Date(value).valueOf());
