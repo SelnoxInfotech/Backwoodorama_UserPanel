@@ -1275,13 +1275,8 @@ const useStyles = makeStyles({
        color:"red" ,
         border: '1px solid red',
         borderRadius:'30px',
-    },
-    "&.MuiButtonBase-root:hover":{
-    
-       color:"red" ,
-       backgroundColor:'#fff',
-        border: '1px solid red',
     }
+   
   },
   WriteReviewBtn_Color: {
     "&.MuiButtonBase-root": {
@@ -1312,12 +1307,8 @@ const useStyles = makeStyles({
       fontSize:"14px",
       borderColor:'#31B665',
       backgroundColor:'#31B655'
-    },
-    "&.MuiButtonBase-root:hover": {
-      color: "#fff",
-      border: "1px solid #f0f0f0",
-      background: "#31B655"
-  }
+    }
+
 },
   WriteReviewStarIcons: {
     "&.MuiRating-root": {

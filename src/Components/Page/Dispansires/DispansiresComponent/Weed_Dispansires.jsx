@@ -138,8 +138,8 @@ const Weed_Dispansires = () => {
                                         } */}
                                         {/* <div class="input-group"> */}
                                             <div class="form-outline" data-mdb-input-init>
-                                                <input onChange={ setsearchtext(e)}  type="search" id="form1" class="form-control" />
-                                                {/* <label class="form-label" for="form1">Search</label> */}
+                                                <input  type="search" id="form1" class="form-control" />
+                                               
                                             </div>
                                         {/* </div> */}
                                     </div>
