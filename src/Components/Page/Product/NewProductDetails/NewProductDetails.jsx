@@ -135,7 +135,7 @@ const NewProductDetails = () => {
       SetGetProductReview({ ...GetProductReview, 'popup':true })
      }
 function HellFull (ReviewId , UserId){
- ProductHelpFull(ReviewId.id , ReviewId.user).then((res)=>{
+ ProductHelpFull(ReviewId.id ,state.Profile.id).then((res)=>{
   SetApi(!api)
  }).catch(()=>{
 
