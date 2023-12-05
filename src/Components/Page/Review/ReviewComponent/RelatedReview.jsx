@@ -106,7 +106,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                     {(state.login ? moveObject(AllReview, 'user', state.Profile.id, 0) : AllReview)?.map((ele, index) => {
                         const text = ele?.comment;
                         console.log(ele ,'ele')
-                        console.log(ele.helpfull.includes(ele.user))
+                        console.log(ele.user)
                         return (
 
                             <div className="w-100 related_review_container" key={index}>
