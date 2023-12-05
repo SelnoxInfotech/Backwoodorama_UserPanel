@@ -5,7 +5,7 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import useStyles from "../../../../Style"
 import WriteReviewPopup from "../ReviewPopup/WriteReviewPopup"
-const OverAllReview = ({ Rating, api,noReview, SetApi  ,onSubmit,  GetProductReview, SetGetProductReview}) => {
+const OverAllReview = ({ Rating, api,noReview, SetApi  ,onSubmit,reviewloading,  GetProductReview, SetGetProductReview}) => {
     const classes = useStyles()
 
     const testData = [
@@ -24,7 +24,7 @@ const OverAllReview = ({ Rating, api,noReview, SetApi  ,onSubmit,  GetProductRev
                     <div className="overall_review_container">
                         <div className="">
                             <div className="m-2 text-end">
-                                <WriteReviewPopup onSubmit={onSubmit}   GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview}  api={api} SetApi={SetApi} />
+                                <WriteReviewPopup onSubmit={onSubmit}   GetProductReview={GetProductReview} reviewloading={reviewloading} SetGetProductReview={SetGetProductReview}  api={api} SetApi={SetApi} />
                                 {/* <button className="overall_review_Button px-2">Write review</button> */}
                             </div>
 

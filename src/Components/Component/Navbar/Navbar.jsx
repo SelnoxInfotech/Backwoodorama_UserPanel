@@ -31,8 +31,8 @@ const Navbar = () => {
   const [Open, SetOpen] = React.useState(false)
   const [DropDownState, SetDropDownState] = React.useState(false);
   const [ProfileSlectedState, SetProfileSelectedState] = React.useState(1)
-  const ProfileList = [{ id: 1, item: "My Order" }, { id: 2, item: "Favorites" },
-  { id: 3, item: "Review" }, { id: 4, item: "Help" }]
+  const ProfileList = [{ id: 1, item: "My Order" , link:'/myorder' }, { id: 2, item: "Favorites", link:'/whislists' },
+  { id: 3, item: "Review", link:'/' }, { id: 4, item: "Help", link:'/' }]
    
   React.useEffect(() => {
 
@@ -97,16 +97,7 @@ const Navbar = () => {
     })
   }
   const navigate = useNavigate()
-  const Redirect = (items, listId) => {
-    SetProfileSelectedState(listId)
-    if (items === "My Order") {
-      navigate("/myorder")
-      SetDropDownState((DropDownState) => {
-        return !DropDownState;
-      })
-    }
 
-  }
   const ViewProfiles = () => {
     navigate("/profile")
     SetDropDownState((DropDownState) => {
@@ -210,7 +201,7 @@ const Navbar = () => {
                             {ProfileList.map((value, index) => {
                               return (
                                 <div key={index}>
-                                  <li className='profile_list' style={{ color: ProfileSlectedState === value.id ? "#31B665" : "" }} onClick={() => { Redirect(value.item, value.id) }}>{value.item}</li>
+                                 <Link to={value.link} onClick={()=>{SetDropDownState(false)}}> <li className='profile_list' style={{ color: ProfileSlectedState === value.id ? "#31B665" : "" }} >{value.item}</li></Link>
                                   <hr />
                                 </div>
                               )

@@ -3,10 +3,11 @@ import RelatedReview from "./ReviewComponent/RelatedReview"
 import React from "react"
 import WriteReviewPopup from "./ReviewPopup/WriteReviewPopup"
 import './Review.css'
-const Review = ({handleEdit, delBtn , Rating, handleDelete,onSubmit ,api ,SetApi, GetProductReview, SetGetProductReview ,AllReview, SetReview} ) => {
+const Review = ({handleEdit, delBtn , Rating, handleDelete,onSubmit , reviewloading ,api ,SetApi, GetProductReview, SetGetProductReview ,AllReview, SetReview} ) => {
 
 let noofreview = AllReview.length
 
+console.log(reviewloading ,'reviewloading')
 
     return (
         <React.Fragment>
@@ -20,7 +21,7 @@ let noofreview = AllReview.length
                    
                        
                    
-                    <OverAllReview Rating={Rating} noReview={noofreview} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} onSubmit={onSubmit} api ={api} SetApi ={ SetApi}/>
+                    <OverAllReview Rating={Rating} noReview={noofreview} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} onSubmit={onSubmit} reviewloading={reviewloading} api ={api} SetApi ={ SetApi}/>
               
                     </div>
                 <div className="col-md-7">

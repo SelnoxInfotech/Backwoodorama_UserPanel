@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import Createcontext from "../../../Hooks/Context"
 import { IoLogoFacebook } from 'react-icons/io';
 import { FcGoogle } from "react-icons/fc"
-
+import LoginWithGoogle from '../Login/LoginWithGoogle'
 import React from 'react';
 import { SignupSeo } from '../../Component/ScoPage/CommenpageSeo';
 const Signup = () => {
@@ -98,11 +98,7 @@ const Signup = () => {
                         </div>
                         <div className='signup_margins_top'>
                             <div className='col-lg-12 signup_btn_height'>
-                                <Box
-                                    className={`${classes.Signup_loading_btn_Googles}`}
-                                >
-                                    <LoadingButton variant="outlined" startIcon={<FcGoogle />}>Continue with Google</LoadingButton>
-                                </Box>
+                               <LoginWithGoogle/>
                             </div>
 
                         </div>

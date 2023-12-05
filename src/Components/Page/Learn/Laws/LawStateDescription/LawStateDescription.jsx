@@ -55,8 +55,7 @@ const LawStateDescription = () => {
         }
       },[offset])
       function gothroughID(ID){
-        console.log(allHeigths)
-
+    
         allHeigths.forEach((item)=>{
           if(item.id === ID){
             window.scrollTo(0, item.topheigth - divElement)

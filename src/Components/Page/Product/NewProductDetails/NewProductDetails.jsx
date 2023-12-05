@@ -18,6 +18,7 @@ const NewProductDetails = () => {
   const navigate = useNavigate();
   const heading = "You may also like"
   const [Product, SetProduct] = React.useState([])
+  const [reviewloading, setReviewloading] = React.useState(true)
   const [StoreProduct, SetStoreProduct] = React.useState([])
   const [Despen, SetDespens] = React.useState([])
   const [api, SetApi] = React.useState(false)
@@ -95,11 +96,13 @@ const NewProductDetails = () => {
       Title: GetProductReview.Title,
       comment: GetProductReview.comment
     }
+    setReviewloading(true)
     Product_Add_Review(Review).then((res) => {
-      // setOpen(false);
       SetGetProductReview({ ...GetProductReview, 'popup':false })
       SetApi(!api)
+      setReviewloading(false)
     }).catch(() => {
+      setReviewloading(false)
 
     })
   };
@@ -142,7 +145,7 @@ return (
       <NewProductinfoText Product={{ heading: "Product Description", text: Product?.Product_Description }} />
 
       <ProductSearchResult RelatedProductResult={StoreProduct} currentProductID={Product.id} CategoryName={heading} />
-      <Review handleEdit={handleEdit}  handleDelete={handleDelete} Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview ={SetReview}></Review>
+      <Review handleEdit={handleEdit}  handleDelete={handleDelete} Rating={Rating} onSubmit={onSubmit} reviewloading={reviewloading} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview ={SetReview}></Review>
     </div>
   )
 }

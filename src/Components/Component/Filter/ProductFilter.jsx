@@ -16,9 +16,10 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
     const classes = useStyles()
     const { id } = useParams()
     const { state, dispatch } = React.useContext(Createcontext)
-    console.log(state ,'state dmkfksdv v jkvmc vmvk x dm km')
     const [select, setselect] = useState("Sort by A to Z")
-    const [seaerchitems, setsearchitems] = useState([])
+    const [weightitems, setweightitems] = useState([])
+    const [loading, setloading] = useState(false)
+    const [stainitems, setstainitems] = useState([])
     const [OpenEvent, SetOpenEvent] = useState(null);
     const [OpenSortedData, SetOpenSortedData] = useState(null);
     const [Filter, SetFilter] = useState([])
@@ -32,12 +33,9 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
     function valuetext(value) {
         return `${value}°C`;
     }
-
     const handleChangepp = (event, newValue) => {
-         console.log(newValue ,'newValue')
         setValue(newValue);
     };
-
     const HandleOpenSortedData = (Id, name) => {
         if (catname2 === name) {
             SetOpenSortedData(null)
@@ -61,6 +59,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
             setcatname(Name)
         }
         if(Name === "Category"){
+            setloading(true)
             Axios.post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/ ",
                 {
 
@@ -72,11 +71,11 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                 response.data.map((data) => {
                     d.push(data[0])
                     var uniqueUsersByID = _.uniqBy(d, 'id'); //removed if had duplicate id
-                    console.log(uniqueUsersByID ,'uniqueUsersByID')
+                   
                     SetFilter(uniqueUsersByID)
                     return data
                 })
-
+                setloading(false)
             }).catch(
                 function (error) {
                 })
@@ -84,10 +83,11 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
 
         }
         else if (Name === "Brand"){  
-           
+            setloading(true)
             Axios(`https://api.cannabaze.com/UserPanel/Get-BrandByStore/${Store_id}`).then(response => {
           
                 SetFilter(_.uniqBy(response.data, 'name'))
+                setloading(false)
             }).catch(
                 function (error) {
 
@@ -96,9 +96,11 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
 
         }
         else if (Name === "Strain"){
+          
             SetFilter([{ id: "I", name: "Indica", }, { id: "Sativa", name: "Sativa", }, { id: "hybrid", name: "hybrid", }, { id: "CBD", name: "CBD", }])
 
         }else if (Name === "Weight"){
+              setloading(true)
             Axios.get("https://api.cannabaze.com/UserPanel/Get-Net_Weight/").then((res)=>{
              
               let newArr = res.data.data.map((item)=>{
@@ -110,12 +112,14 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
               })
               
                SetFilter(newArr)
+               setloading(false)
             })
         }
         SetOpenSortedData(null)
-        setsearchitems([])
+        setweightitems([])
     }
     function Category_Drop(i, name , values={}){
+     
         if (name === "Category") {
 
             Axios.post(`https://api.cannabaze.com/UserPanel/Get-filterSubcategorybyStoreandCategory/`, {
@@ -141,21 +145,30 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
 
                 })
         }else if(name === "Weight"){
-            if(seaerchitems.includes(values.name)){
-                let newerr=seaerchitems.filter((item)=>{
+            if(weightitems.includes(values.name)){
+                let newerr=weightitems.filter((item)=>{
                  return item!== values.name
                 })
-                setsearchitems(newerr)
+                setweightitems(newerr)
             }else{
-              setsearchitems([...seaerchitems , values.name])
+              setweightitems([...weightitems , values.name])
+            }
+        }else if(name === "Strain"){
+            if(stainitems.includes(values.name)){
+                let newerr=stainitems.filter((item)=>{
+                 return item!== values.name
+                })
+                setstainitems(newerr)
+            }else{
+                setstainitems([...stainitems , values.name])
             }
         } 
     }
     React.useEffect(()=>{
-       if(seaerchitems.length !== 0){
+       if(weightitems.length !== 0){
          Axios.post('https://api.cannabaze.com/UserPanel/WeightFilter/',{
                 "store":Store_id,
-                "weight":seaerchitems,
+                "weight":weightitems,
          }).then((res)=>{
             Setarr1(res.data)
          })
@@ -165,7 +178,22 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
             Setarr1(response.data)
         })
        }
-    },[seaerchitems])
+    },[weightitems])
+    React.useEffect(()=>{
+        if(stainitems.length !== 0){
+          Axios.post('https://api.cannabaze.com/UserPanel/StrainFilterProduct/',{
+                 "store":Store_id,
+                 "strain":stainitems,
+          }).then((res)=>{
+             Setarr1(res.data)
+          })
+        }else{
+         Axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
+         }).then(response => {
+             Setarr1(response.data)
+         })
+        }
+     },[stainitems])
     function FilterSubCategorydata(SubCategoryid, SubCategory_name, categoryName) {
         dispatch({ type: 'Loading', Loading: true })
         Axios.post(`https://api.cannabaze.com/UserPanel/Get-filterProductbyStoreandSubCategory/`, {
@@ -335,71 +363,76 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
 
           
                             </div>
-                            {(Id === OpenEvent) ?
-                                (
-                                    <ClickAwayListener onClickAway={handleClickAway}>
-                                        <div className=" product_category_border product_category_dropdown" id="Related_Brand_Data" >
+                         
+                                    {(Id === OpenEvent) ?
+                                        (
+                                            <ClickAwayListener onClickAway={handleClickAway}>
+                                                {
+                                                   loading ? <span className="mx-4">Loading....</span>
+                                                 :
+                                                    <div className=" product_category_border product_category_dropdown" id="Related_Brand_Data" >
 
-                                            {
-                                                Filter.length !== 0 ?
-                                                    Filter?.map((data) => {
-                                                      
-                                                        return (
-                                                            <div>
-                                                                <div className="col-10 product_category_dropdown_cursor">
-                                                                  {ele.Name === "Category" ? <p  className="m-0" onClick={() => { Category_Drop(data.id, ele.Name) }}>{data.name}</p> : <div>  <input type="checkbox" onChange={()=>{Category_Drop(data.id, ele.Name , data )}} id={data.name} name={data.name} value={data.name} /> <label htmlFor={data.name} className="m-0" >{data.name}</label> </div>}
-                                                                </div>
-                                                                {
-                                                                    SubCategory?.map((SubCategory) => {
-                                                                        return (
-                                                                            SubCategory.CatgoryId === data.id
-                                                                            &&
-                                                                            <div className="col-10 px-2 py-0 product_sub_category_dropDown_cursor"  >
-                                                                               <input type="checkbox" id={data.name} name={data.name} value={data.name} />  <label htmlFor={data.name} onClick={() => { FilterSubCategorydata(SubCategory.id, SubCategory.SubCategory_name, data.name, SubCategory.Store_id) }}>{SubCategory.SubCategory_name}</label>
-
+                                                        {
+                                                            Filter.length !== 0 ?
+                                                                Filter?.map((data) => {
+                                                                
+                                                                    return (
+                                                                        <div>
+                                                                            <div className="col-10 product_category_dropdown_cursor">
+                                                                            {ele.Name === "Category" ? <p  className="m-0" onClick={() => { Category_Drop(data.id, ele.Name) }}>{data.name}</p> : <div>  <input type="checkbox" onChange={()=>{Category_Drop(data.id, ele.Name , data )}} id={data.name} name={data.name} value={data.name} /> <label htmlFor={data.name} className="m-0" >{data.name}</label> </div>}
                                                                             </div>
-                                                                        )
-                                                                    })
-                                                                }
-                                                            </div>
-                                                        )
-                                                    })
-                                                    :
-                                                    Id === 4 ?
-                                                        <Box >
-                                                            <Slider
-                                                                getAriaLabel={() => "Price range"}
-                                                                sx={{
-                                                                    '& .MuiSlider-thumb': {
-                                                                        color: "#31B665"
-                                                                    },
-                                                                    '& .MuiSlider-track': {
-                                                                        color: "#31B665"
-                                                                    },
-                                                                    '& .MuiSlider-rail': {
-                                                                        color: "black"
-                                                                    },
-                                                                    '& .MuiSlider-active': {
-                                                                        color: "green"
-                                                                    }
-                                                                }}
-                                                                value={value}
-                                                                onChange={handleChangepp}
-                                                                getAriaValueText={valuetext}
-                                                                valueLabelDisplay="auto"
-                                                                min={1}
-                                                                max={1000}
-                                                                defaultValue={[100, 500]}
-                                                            />
-                                                        </Box> :
-                                                    <p className="m-0">No Category Found</p>
-                                            }
-                                        </div>
-                                    </ClickAwayListener>
-                                )
-                                :
-                                ""
-                            }
+                                                                            {
+                                                                                SubCategory?.map((SubCategory) => {
+                                                                                    return (
+                                                                                        SubCategory.CatgoryId === data.id
+                                                                                        &&
+                                                                                        <div className="col-10 px-2 py-0 product_sub_category_dropDown_cursor"  >
+                                                                                        <input type="checkbox" id={data.name} name={data.name} value={data.name} />  <label htmlFor={data.name} onClick={() => { FilterSubCategorydata(SubCategory.id, SubCategory.SubCategory_name, data.name, SubCategory.Store_id) }}>{SubCategory.SubCategory_name}</label>
+
+                                                                                        </div>
+                                                                                    )
+                                                                                })
+                                                                            }
+                                                                        </div>
+                                                                    )
+                                                                })
+                                                                :
+                                                                Id === 4 ?
+                                                                    <Box >
+                                                                        <Slider
+                                                                            getAriaLabel={() => "Price range"}
+                                                                            sx={{
+                                                                                '& .MuiSlider-thumb': {
+                                                                                    color: "#31B665"
+                                                                                },
+                                                                                '& .MuiSlider-track': {
+                                                                                    color: "#31B665"
+                                                                                },
+                                                                                '& .MuiSlider-rail': {
+                                                                                    color: "black"
+                                                                                },
+                                                                                '& .MuiSlider-active': {
+                                                                                    color: "green"
+                                                                                }
+                                                                            }}
+                                                                            value={value}
+                                                                            onChange={handleChangepp}
+                                                                            getAriaValueText={valuetext}
+                                                                            valueLabelDisplay="auto"
+                                                                            min={1}
+                                                                            max={1000}
+                                                                            defaultValue={[100, 500]}
+                                                                        />
+                                                                    </Box> :
+                                                                <p className="m-0">No Category Found</p>
+                                                        }
+                                                    </div>
+                                                  }
+                                            </ClickAwayListener>
+                                        )
+                                        :
+                                        ""
+                                    }
                         </div>
                     )
 

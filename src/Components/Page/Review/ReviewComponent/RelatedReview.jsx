@@ -60,8 +60,7 @@ const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => 
     }
 
     function commenthelpful(ele){
-        console.log(token_data ,'token_data')
-        console.log(ele.id)
+       
         if (state.login) {
             axios.post("https://api.cannabaze.com/UserPanel/AddandUpdateHelpfullButton/", {   
                 Review: ele.id,
@@ -69,7 +68,7 @@ const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => 
             },   {
                 headers: { Authorization: `Bearer ${token_data}` }
               },).then((res)=>{
-                console.log(res)
+               
             })
           } else {
             navigate("/login")
@@ -98,7 +97,7 @@ const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => 
         return minutes + " minutes ago"
       }
       else {
-        return secs + " secs ago"
+        return  "Just Now"
       }
       }
     return (

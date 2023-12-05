@@ -15,6 +15,7 @@ import NewFlavourBanner from "../../../Component/NewFlavour/NewFlavourBanner";
 import StoreDetailMenuItem from "../../StoreDetail/StoreDetailComponent/StoreDetailMenuItem";
 import CategoryProduct from "../../Home/Dashboard/ComponentDashboard/CategoryProduct";
 import ComponentStoreDetails from "../../StoreDetail/ComponentStoreDetails"
+import SkeletonCard from '../../../Component/Skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton'
 import Review from "../../Review/Review";
 import Media from "../../Media/Media";
 import { StoreDetails } from "../../../../Components/Component/ScoPage/StoreDetails"
@@ -24,9 +25,11 @@ export default function DispensoriesDetails() {
     const navigate = useNavigate()
     const { state ,dispatch } = React.useContext(Createcontext)
     const location = useLocation()
+    const [reviewloading, setReviewloading] = React.useState(false)
     const params = useParams();
     const { id, tab, Category, SubCategory } = params
     const classes = useStyles()
+    const [getproducts,setgetproducts]= React.useState(false)
     const [category, SetCategory] = React.useState([])
     const [DespensariesData, SetDespensariesProductData] = React.useState([])
     const [Despen, SetDespens] = React.useState([])
@@ -76,6 +79,7 @@ export default function DispensoriesDetails() {
         axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
         }).then(response => {
             SetDespensariesProductData(response.data)
+            setgetproducts(true)
         })
     }, [params])
 
@@ -245,9 +249,10 @@ export default function DispensoriesDetails() {
                                     arr={DespensariesData}
                                 />
                                 <div className="col-12 col-lg-10 prod_cat_right_sec">
-                                    <ProductList arr={DespensariesData}
-                                        ProductNavigate={ProductNavigate}
-                                    />
+                                    {
+                                        getproducts ?  <ProductList arr={DespensariesData}  ProductNavigate={ProductNavigate} /> : <SkeletonCard/>
+                                    }
+                                   
                                 </div>
                             </div>
                         </React.Fragment>
@@ -256,7 +261,7 @@ export default function DispensoriesDetails() {
                         tab === 'store-details' && <ComponentStoreDetails storeDetails={Despen}></ComponentStoreDetails>
                     }
                     {
-                        tab === 'review' && <Review delBtn={Despen} handleEdit={handleEdit} handleDelete={handleDelete} Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview={SetReview}></Review>
+                        tab === 'review' && <Review delBtn={Despen} handleEdit={handleEdit} handleDelete={handleDelete} Rating={Rating} onSubmit={onSubmit} reviewloading={reviewloading} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview={SetReview}></Review>
                     }
                     {
                         tab === 'deals' && <>Deal</>
