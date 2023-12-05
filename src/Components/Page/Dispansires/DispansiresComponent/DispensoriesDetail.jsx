@@ -233,7 +233,7 @@ export default function DispensoriesDetails() {
 
 
     function HellFull (ReviewId){
-        StoreHelpFull(ReviewId.id , ReviewId.user).then((res)=>{
+        StoreHelpFull(ReviewId.id ,state.Profile.id).then((res)=>{
             SetApi(!api)
         }).catch(()=>{
        
