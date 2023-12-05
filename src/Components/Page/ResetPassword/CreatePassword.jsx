@@ -92,7 +92,9 @@ const CreatePassword = () => {
                                                 message: 'Password must be more than 8 characters'
                                             },
                                             pattern: {
-                                                value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                                                value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%#*?&])[A-Za-z\d@$#!%*?&]{8,}$/,
+                                                       
+                                        
                                                 message: "At least one uppercase,lowercase,number,one special character"
                                             }
                                         },

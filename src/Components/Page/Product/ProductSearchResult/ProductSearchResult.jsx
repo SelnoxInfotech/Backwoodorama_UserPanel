@@ -168,10 +168,10 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
     React.useEffect(() => {   
         localStorage.setItem('items', JSON.stringify(AddTOCard))
     }, [AddTOCard])
-    React.useEffect(()=>{
-       window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+    // React.useEffect(()=>{
+    //    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
 
-    },[])
+    // },[])
     const handleWhishList = (id) => {
         if (state.login === false) {
             SetWishList(!Whishlist)
@@ -208,10 +208,10 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
         return str
       }
 
-      React.useEffect(()=>{
-        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+    //   React.useEffect(()=>{
+    //     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
  
-     },[RelatedProductResult])
+    //  },[RelatedProductResult])
 
 
 

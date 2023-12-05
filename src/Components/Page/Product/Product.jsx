@@ -418,7 +418,9 @@ const Product = () => {
         <>
             {!params.id ? <ProductSeo location={location.pathname}></ProductSeo> :
                 <ProductCategorySeo categoryname={params.categoryname}  location={location.pathname} ></ProductCategorySeo>}
-            <div className="container-fluid product_container" >
+                {/* <div className="product_container"> */}
+
+            <div className="container " >
                 <div className="row">
                     <div className="col-12 mt-4">
                         <CategoryProduct Category={Category} ShowCategoryProduct={ShowCategoryProduct}></CategoryProduct>
@@ -475,6 +477,7 @@ const Product = () => {
                     </div>
                 </div>
             </div>
+                {/* </div> */}
         </>
     )
 }
