@@ -241,7 +241,7 @@ const useStyles = makeStyles({
   },
   muiIcons: {
     fontSize: "large",
-    color: "gray",
+    color: "#31B655",
   },
   Signup_loading_btn_Googles: {
     "& .MuiButton-text": {

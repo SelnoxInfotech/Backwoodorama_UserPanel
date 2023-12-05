@@ -82,7 +82,7 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                 </div>
                                 <div className='row p-2'>
 
-                                    <div className='col-xl-8 col-lg-10 col-md-12 delivery_items_button_div bg-light'>
+                                    <div className='col-md-12 delivery_items_button_div bg-light'>
                                         <div className='row'>
                                             <div className='col-lg-7 delivery_item_paragraphBtn delivery_btn_delivery delivery_items_card_flex center'>
                                                 <div className='deliverItemCard_icons'>

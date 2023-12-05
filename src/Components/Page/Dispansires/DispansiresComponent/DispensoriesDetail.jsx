@@ -9,7 +9,6 @@ import { MdOutlineBrandingWatermark } from "react-icons/md"
 import { MdOutlinePriceChange } from "react-icons/md"
 import { BsStripe } from "react-icons/bs"
 import { GiWeightScale } from "react-icons/gi"
-import { RiProductHuntLine } from "react-icons/ri"
 import _ from "lodash"
 import NewFlavourBanner from "../../../Component/NewFlavour/NewFlavourBanner";
 import StoreDetailMenuItem from "../../StoreDetail/StoreDetailComponent/StoreDetailMenuItem";
