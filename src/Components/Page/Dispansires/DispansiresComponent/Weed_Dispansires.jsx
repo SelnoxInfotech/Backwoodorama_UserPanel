@@ -116,6 +116,7 @@ const Weed_Dispansires = () => {
         }
     }, [searchtext, state])
 
+    console.log(searchtext)
     return (
         <React.Fragment>
             <DispensariesSco location={useLocation().pathname}></DispensariesSco>
@@ -138,7 +139,7 @@ const Weed_Dispansires = () => {
                                         } */}
                                         {/* <div class="input-group"> */}
                                             <div class="form-outline" data-mdb-input-init>
-                                                <input onChange={ setsearchtext(e)}  type="search" id="form1" class="form-control" />
+                                                <input value={searchtext} onChange={(e) => setsearchtext(e.target.value)}  type="search" id="form1" class="form-control" />
                                                 {/* <label class="form-label" for="form1">Search</label> */}
                                             </div>
                                         {/* </div> */}
