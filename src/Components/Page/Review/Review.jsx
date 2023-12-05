@@ -3,12 +3,18 @@ import RelatedReview from "./ReviewComponent/RelatedReview"
 import React from "react"
 import WriteReviewPopup from "./ReviewPopup/WriteReviewPopup"
 import './Review.css'
+<<<<<<< HEAD
 const Review = ({handleEdit, delBtn , Rating, handleDelete,onSubmit , reviewloading ,api ,SetApi, GetProductReview, SetGetProductReview ,AllReview, SetReview} ) => {
 
 let noofreview = AllReview.length
 
 console.log(reviewloading ,'reviewloading')
 
+=======
+const Review = ({handleEdit, delBtn , Rating, handleDelete,onSubmit ,api ,SetApi, GetProductReview, SetGetProductReview ,AllReview, SetReview ,HellFull} ) => {
+
+let noofreview = AllReview.length
+>>>>>>> 3404744 (helpfull)
     return (
         <React.Fragment>
 
@@ -25,14 +31,14 @@ console.log(reviewloading ,'reviewloading')
               
                     </div>
                 <div className="col-md-7">
-                    <RelatedReview storeDetails={delBtn} handleEdit={handleEdit} handleDelete={handleDelete}  AllReview={AllReview} SetReview ={SetReview}/>
+                    <RelatedReview HellFull={HellFull} storeDetails={delBtn} handleEdit={handleEdit} handleDelete={handleDelete}  AllReview={AllReview} SetReview ={SetReview} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview}/>
                 </div>
                 </div>
                  :
                 <div className="noReview">
                     <h3 className="noreview_title">Be the first to review</h3>
                     <p className="noreview_description">Share your experience with the weedx community.</p>
-                    <WriteReviewPopup onSubmit={onSubmit} button className={'noReviewBtn'}   GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview}  api={api} SetApi={SetApi} />
+                    <WriteReviewPopup  onSubmit={onSubmit} button className={'noReviewBtn'}   GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview}  api={api} SetApi={SetApi} />
                 </div>
             }
           

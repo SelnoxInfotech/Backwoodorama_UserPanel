@@ -7,7 +7,7 @@ import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import Review from "../../Review/Review"
 import { AiOutlineLeft } from "react-icons/ai";
 import { ProductDetailsSeo } from "../../../Component/ScoPage/ProductSeo"
-import { product_OverAllGet_Review  , Product_Add_Review ,  Product_Get_UserComment, Product_Get_Review ,Delete_Review} from "../ProductApi"
+import { product_OverAllGet_Review  , Product_Add_Review ,  Product_Get_UserComment, Product_Get_Review ,Delete_Review , ProductHelpFull} from "../ProductApi"
 import Createcontext from "../../../../Hooks/Context"
 import _ from 'lodash'
 import axios from "axios";
@@ -134,7 +134,13 @@ const NewProductDetails = () => {
      function handleEdit(){
       SetGetProductReview({ ...GetProductReview, 'popup':true })
      }
+function HellFull (ReviewId , UserId){
+ ProductHelpFull(ReviewId , UserId).then((res)=>{
+  SetApi(!api)
+ }).catch(()=>{
 
+ })
+}
 return (
     <div className="container-fluid">
       <ProductDetailsSeo Productname={Product.Product_Name} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={ useLocation().pathname } ></ProductDetailsSeo>
@@ -145,7 +151,7 @@ return (
       <NewProductinfoText Product={{ heading: "Product Description", text: Product?.Product_Description }} />
 
       <ProductSearchResult RelatedProductResult={StoreProduct} currentProductID={Product.id} CategoryName={heading} />
-      <Review handleEdit={handleEdit}  handleDelete={handleDelete} Rating={Rating} onSubmit={onSubmit} reviewloading={reviewloading} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview ={SetReview}></Review>
+      <Review HellFull={HellFull} handleEdit={handleEdit}  handleDelete={handleDelete} Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview ={SetReview}></Review>
     </div>
   )
 }
