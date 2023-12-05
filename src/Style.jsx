@@ -1302,6 +1302,23 @@ const useStyles = makeStyles({
 
     },
   },
+  WriteReviewBtn_Coloractive:{
+    "&.MuiButtonBase-root": {
+      color: "#fff",
+      border:"1px solid #f0f0f0",
+      borderRadius:"14px",
+      textTransform:"none",
+      height:"32  px",
+      fontSize:"14px",
+      borderColor:'#31B665',
+      backgroundColor:'#31B655'
+    },
+    "&.MuiButtonBase-root:hover": {
+      color: "#fff",
+      border: "1px solid #f0f0f0",
+      background: "#31B655"
+  }
+},
   WriteReviewStarIcons: {
     "&.MuiRating-root": {
       color: "#31B665",
@@ -1439,7 +1456,7 @@ const useStyles = makeStyles({
     margin: '0px',
     // transform: translate('494px',' 62px')
   },  
-});
+})
 
 
 
