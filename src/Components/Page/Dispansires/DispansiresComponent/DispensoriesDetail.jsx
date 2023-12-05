@@ -28,6 +28,7 @@ export default function DispensoriesDetails() {
     const classes = useStyles()
     const [category, SetCategory] = React.useState([])
     const [DespensariesData, SetDespensariesProductData] = React.useState([])
+    const [reviewloading, setReviewloading] = React.useState(false)
     const [Despen, SetDespens] = React.useState([])
     const [Rating, SetRating] = React.useState()
     const [api, SetApi] = React.useState(false)
@@ -175,11 +176,15 @@ export default function DispensoriesDetails() {
             Title: GetProductReview.Title,
             comment: GetProductReview.comment
         }
+        setReviewloading(true)
         Store_Add_Review(Review).then((res) => {
             // setOpen(false)
             SetGetProductReview({ ...GetProductReview, 'popup': false })
             SetApi(!api)
+        setReviewloading(false)
+
         }).catch(() => {
+            setReviewloading(false)
 
         })
     };
@@ -266,7 +271,7 @@ export default function DispensoriesDetails() {
                         tab === 'store-details' && <ComponentStoreDetails storeDetails={Despen}></ComponentStoreDetails>
                     }
                     {
-                        tab === 'review' && <Review HellFull={HellFull} delBtn={Despen} handleEdit={handleEdit} handleDelete={handleDelete} Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview={SetReview}></Review>
+                        tab === 'review' && <Review HellFull={HellFull} delBtn={Despen} handleEdit={handleEdit} reviewloading={reviewloading} handleDelete={handleDelete} Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview={SetReview}></Review>
                     }
                     {
                         tab === 'deals' && <>Deal</>

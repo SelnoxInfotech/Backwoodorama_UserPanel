@@ -18,7 +18,7 @@ const NewProductDetails = () => {
   const navigate = useNavigate();
   const heading = "You may also like"
   const [Product, SetProduct] = React.useState([])
-  const [reviewloading, setReviewloading] = React.useState(true)
+  const [reviewloading, setReviewloading] = React.useState(false)
   const [StoreProduct, SetStoreProduct] = React.useState([])
   const [Despen, SetDespens] = React.useState([])
   const [api, SetApi] = React.useState(false)

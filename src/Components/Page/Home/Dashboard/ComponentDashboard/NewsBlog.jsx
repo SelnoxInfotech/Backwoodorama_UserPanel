@@ -46,11 +46,10 @@ const NewsBlog = () => {
                                                     src={`${ele.Image}`} alt={ele.Title} style={{ pointerEvents: "none" }} />
                                                 </div>
                                                 <div className="new_blog_card_text">  
-                                                    <span className="fontStyle latest_font_size  ">
+                                                    <span className="fontStyle latest_font_size text-capitalize">
                                                         {ele.Title}
                                                     </span>
-                                                    {/* <span className=" common_sub_head">{parse(ele?.Description)}</span>
-                                                */}
+                                                  
                                                 </div>
                                             </div>
                                         </Link>

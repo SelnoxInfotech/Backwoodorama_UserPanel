@@ -26,6 +26,7 @@ const Review = ({ reviewloading, handleEdit, delBtn, Rating, handleDelete, onSub
                                     onSubmit={onSubmit}
                                     api={api}
                                     SetApi={SetApi}
+                                    reviewloading={reviewloading}
                                 />
 
                             </div>

@@ -10,12 +10,16 @@ import ListItem from "@material-ui/core/ListItem";
 import { BsThreeDotsVertical } from "react-icons/bs"
 import useStyles from "../../../../Style";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios'
 import React from 'react';
 import Badge from '@mui/material/Badge';
 import ReportReviewPopup from '../ReviewPopup/ReportReviewPopup';
+import Cookies from 'universal-cookie';
 import { useState } from 'react';
 import Createcontext from "../../../../Hooks/Context"
 const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, HellFull}) => {
+    const cookies = new Cookies();
+    const token_data = cookies.get('Token_access')
     const classes = useStyles();
     const navigate = useNavigate();
     const { state, dispatch } = React.useContext(Createcontext);
@@ -101,6 +105,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                 <div className="row center reviewCardWrapper">
                     {(state.login ? moveObject(AllReview, 'user', state.Profile.id, 0) : AllReview)?.map((ele, index) => {
                         const text = ele?.comment;
+                        console.log(ele ,'ele')
                         return (
 
                             <div className="w-100 related_review_container" key={index}>
@@ -242,8 +247,8 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                                     <div className='related_review_footer_paragraph ellipsis'>
                                         <Button className={classes.WriteReviewBtn_Color} variant="outlined" onClick={() => { HellFull(ele) }}> 
                                             <Badge badgeContent={ele?.count} className={classes.sliderLink_badge}>
-                                        <AiFillLike /> 
-                                        </Badge>    
+                                              <AiFillLike /> 
+                                            </Badge>    
                                         
                                         Helpful
                                         </Button>

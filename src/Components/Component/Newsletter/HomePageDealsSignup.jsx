@@ -9,7 +9,7 @@ import './newsletter.css'
 import React from 'react';
 const HomePageDealsSignup = () => {
     const classes = useStyles()
-    const [submited,setsubmited]= React.useState(false)
+    const [submited,setsubmited]= React.useState(true)
     const { register, handleSubmit, errors, reset, setError } = useForm();
     const [email, setEmail] = React.useState('');
     const onSubmit = (data) => {

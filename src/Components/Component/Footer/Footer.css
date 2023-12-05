@@ -19,14 +19,15 @@
   }
   .footer_logo_container{
       width: 34%;
-      border-right: 2px solid white;
+      border-right: 2px solid #e1e1e1;
+      padding-left: 5%;
   }
   .footerLogo{
       width: 180px;
   }
   .footer_list{
       width: 22%;
-      border-right: 2px solid white;
+      border-right: 2px solid #e1e1e1;
       box-sizing: border-box;
       cursor: pointer;
       text-transform: capitalize;
@@ -65,8 +66,8 @@
     line-height: normal;
   }
   .bottom_white_line{
-    height: 5px;
-    background-color: white;
+    height: 3px;
+    background-color: #e1e1e1;
     width: 100%;
     margin: 20px 0;
   }
@@ -97,7 +98,7 @@
   }
   .bottom_menu_items ul li.footer_li{
     width: 33.33%;
-    border-right: 3px solid white;
+    border-right: 3px solid #e1e1e1;
     text-align: center;
   }
   .footer_main_list p.footer_menu_heading{
