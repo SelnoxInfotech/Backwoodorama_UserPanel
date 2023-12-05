@@ -11,18 +11,15 @@ import { BsThreeDotsVertical } from "react-icons/bs"
 import useStyles from "../../../../Style";
 import { useNavigate } from "react-router-dom";
 import React from 'react';
-import axios from 'axios';
-import Cookies from 'universal-cookie';
+import Badge from '@mui/material/Badge';
 import ReportReviewPopup from '../ReviewPopup/ReportReviewPopup';
 import { useState } from 'react';
 import Createcontext from "../../../../Hooks/Context"
-const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => {
-    const classes = useStyles()
-    const cookies = new Cookies();
-    let navigate =  useNavigate();
-    const token_data = cookies.get('Token_access')  
-    const { state, dispatch } = React.useContext(Createcontext)
-    const [readopen, setreadopen] = useState(true)
+const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, HellFull}) => {
+    const classes = useStyles();
+    const navigate = useNavigate();
+    const { state, dispatch } = React.useContext(Createcontext);
+    const [readopen, setreadopen] = useState(true);
     function textgive(text) {
         let arrofstr = text?.split(' ');
         let finalstr = ""
@@ -37,11 +34,7 @@ const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => 
         return finalstr
     }
 
-
-
     const moveObject = (arr, targetKey, targetValue, newIndex) => {
-
-
         try {
             const target = arr.find(value => value[targetKey] === targetValue)
             if (target === undefined) {
@@ -60,7 +53,8 @@ const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => 
     }
 
     function commenthelpful(ele){
-       
+        console.log(token_data ,'token_data')
+        console.log(ele.id)
         if (state.login) {
             axios.post("https://api.cannabaze.com/UserPanel/AddandUpdateHelpfullButton/", {   
                 Review: ele.id,
@@ -68,7 +62,7 @@ const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => 
             },   {
                 headers: { Authorization: `Bearer ${token_data}` }
               },).then((res)=>{
-               
+                console.log(res)
             })
           } else {
             navigate("/login")
@@ -97,7 +91,7 @@ const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => 
         return minutes + " minutes ago"
       }
       else {
-        return  "Just Now"
+        return secs + " secs ago"
       }
       }
     return (
@@ -110,10 +104,10 @@ const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => 
                         return (
 
                             <div className="w-100 related_review_container" key={index}>
-                                    <div className="d-flex gap-2">
-                                        <div className="related_img_container">
+                                <div className="d-flex gap-2">
+                                    <div className="related_img_container">
 
-                                            <div className="related_review_image">
+                                        <div className="related_review_image">
 
                                             <LazyLoadImage
                                                 onError={event => {
@@ -124,9 +118,9 @@ const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => 
                                                 src={`${ele?.userImage}`}
                                                 alt="userImage"
                                             />
-                                            </div>
-
                                         </div>
+
+                                    </div>
                                     <div className="related_review_content">
 
                                         <h3 className='reviews_title'>{ele.Title}</h3>
@@ -151,107 +145,113 @@ const RelatedReview = ({ handleEdit,storeDetails, AllReview, handleDelete }) => 
                                                 state.login &&
                                                 state.Profile.id === ele.user && <><Select
 
-                                                IconComponent={BsThreeDotsVertical} labelId="demo-simple-select-error-label"
-                                                sx={{
-                                                    boxShadow: "none",
-                                                    padding:'0',
-                                               
-                                                    ".MuiOutlinedInput-notchedOutline": { border: 0 },
-                                                    "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
-                                                    {
-                                                        border: 0,
-                                                        outline: "none"
-                    
-                                                    },
-                                                    "& .MuiSelect-select":{
-                                                      padding:'0 10px !important'
-                                                    },
-                                                    "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                                                    {
-                                                        border: 0,
-                                                        outline: "none"
-                                                    },
-                                                    "&.Mui-focused .MuiSelect-icon": { color: "#31B665" },
-                                                    "&:hover": {
-                                                        ".MuiSelect-icon": {
-                                                            color: "#31B665"
-                                                        }
-                                                    },
-                                                }}
-                                            >
-                                                   <List className={classes.orderEditList}>
-                    
-                                                  
-                                                        <ListItem button className={classes.orderEditListitem}  onClick={()=>handleDelete(ele.id)}>
-                                                          <AiFillDelete  color='31B665'/> 
-                                                            Delete   
+                                                    IconComponent={BsThreeDotsVertical} labelId="demo-simple-select-error-label"
+                                                    sx={{
+                                                        boxShadow: "none",
+                                                        padding: '0',
+
+                                                        ".MuiOutlinedInput-notchedOutline": { border: 0 },
+                                                        "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                                                        {
+                                                            border: 0,
+                                                            outline: "none"
+
+                                                        },
+                                                        "& .MuiSelect-select": {
+                                                            padding: '0 10px !important'
+                                                        },
+                                                        "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                                                        {
+                                                            border: 0,
+                                                            outline: "none"
+                                                        },
+                                                        "&.Mui-focused .MuiSelect-icon": { color: "#31B665" },
+                                                        "&:hover": {
+                                                            ".MuiSelect-icon": {
+                                                                color: "#31B665"
+                                                            }
+                                                        },
+                                                    }}
+                                                >
+                                                    <List className={classes.orderEditList}>
+
+
+                                                        <ListItem button className={classes.orderEditListitem} onClick={() => handleDelete(ele.id)}>
+                                                            <AiFillDelete color='31B665' />
+                                                            Delete
                                                         </ListItem>
-                                                        <ListItem button className={classes.orderEditListitem} onClick={()=>handleEdit()}>
-                                                  
-                                                            <FaEdit  color='31B665'/> 
+                                                        <ListItem button className={classes.orderEditListitem} onClick={() => handleEdit()}>
+
+                                                            <FaEdit color='31B665' />
                                                             Edit
                                                         </ListItem>
-                                                   
-                    
-                                               
-                                                  </List>
-                                            </Select>
-                                         
-                                             </>
+
+
+
+                                                    </List>
+                                                </Select>
+
+                                                </>
                                             }</span>
                                         </div>
-                                         </div>
-
-                                    </div>
-                                    <div className='review_description_container'>
-                                     
-                                        <p>{textgive(text)}   { text?.split(' ')?.length >= 100 &&<span className='band_shlebtn' onClick={()=>setreadopen(!readopen)}>Read { readopen ? "More" : "Less"}</span>}</p>
                                     </div>
 
-                                    { ele.Reply !== null &&  "Reply" in ele && ele.Reply !== "" &&
-                                        <div className='container-fluid mx-2 review_reply'>
+                                </div>
+                                <div className='review_description_container'>
+
+                                    <p>{textgive(text)}   {text?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => setreadopen(!readopen)}>Read {readopen ? "More" : "Less"}</span>}</p>
+                                </div>
+
+                                {ele.Reply !== null && "Reply" in ele && ele.Reply !== "" &&
+                                    <div className='container-fluid mx-2 review_reply'>
                                         <div className="d-flex gap-2">
                                             <div className="related_img_container">
-                                            <div className="related_review_image">
-                                                <LazyLoadImage
-                                                    onError={event => {
-                                                        event.target.src = "/image/user.webp"
-                                                        event.onerror = null
-                                                    }}
-                                                    className='realted_review_images'
-                                                    src={`${storeDetails[0]?.Store_Image}`}
-                                                    alt="userImage"
-                                                />
+                                                <div className="related_review_image">
+                                                    <LazyLoadImage
+                                                        onError={event => {
+                                                            event.target.src = "/image/user.webp"
+                                                            event.onerror = null
+                                                        }}
+                                                        className='realted_review_images'
+                                                        src={`${storeDetails[0]?.Store_Image}`}
+                                                        alt="userImage"
+                                                    />
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className="related_review_content">
+                                            <div className="related_review_content">
 
-                                            <h3 className='reviews_title'>Response from the Owner</h3>
-                                            <p className='reviews_writer'>{storeDetails[0]?.Store_Name}</p>
-                                            <div className='review_date'>
-                                              
-                                                <p>{calculateTImefromDate(ele?.ReplyTime)}</p>
+                                                <h3 className='reviews_title'>Response from the Owner</h3>
+                                                <p className='reviews_writer'>{storeDetails[0]?.Store_Name}</p>
+                                                <div className='review_date'>
+
+                                                    <p>{calculateTImefromDate(ele?.ReplyTime)}</p>
+                                                </div>
                                             </div>
-                                        </div>
 
                                         </div>
                                         <div className='review_description_container'>
+
+                                            <p>{textgive(ele.Reply)}   {text?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => setreadopen(!readopen)}>Read {readopen ? "More" : "Less"}</span>}</p>
+                                        </div>
+
+                                    </div>
+                                }
+
+                                <div className='related_review_footer '>
+
+                                    <div className='related_review_footer_paragraph ellipsis'>
+                                        <Button className={classes.WriteReviewBtn_Color} variant="outlined" onClick={() => { HellFull(ele) }}> 
+                                            <Badge badgeContent={ele?.count} className={classes.sliderLink_badge}>
+                                        <AiFillLike /> 
+                                        </Badge>    
                                         
-                                            <p>{textgive(ele.Reply)}   { text?.split(' ')?.length >= 100 &&<span className='band_shlebtn' onClick={()=>setreadopen(!readopen)}>Read { readopen ? "More" : "Less"}</span>}</p>
-                                        </div>
+                                        Helpful
+                                        </Button>
+                                    </div>
+                                    <div className='related_review_footer_paragraph ellipsis px-0'>
 
-                                        </div>
-                                    }
-
-                                    <div className='related_review_footer '>
-                                       
-                                            <div className='related_review_footer_paragraph ellipsis'>
-                                               <Button className={classes.WriteReviewBtn_Color} variant="outlined" onClick={()=>{commenthelpful(ele)}}> <AiFillLike/> Helpful</Button>
-                                            </div>
-                                            <div className='related_review_footer_paragraph ellipsis px-0'>
-                                              
-                                                <ReportReviewPopup/>
-                                            </div>
+                                        <ReportReviewPopup />
+                                    </div>
 
 
                                 </div>

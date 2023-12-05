@@ -311,3 +311,28 @@ export function PriceFilter(value, Store_id) {
     )
 
 }
+export function StoreHelpFull(ReviewID, USerID) {
+    const cookies = new Cookies();
+    const token_data = cookies.get('Token_access')
+    const config = {
+      headers: { Authorization: `Bearer ${token_data}` }
+  };
+    return (
+        axios.post(`https://api.cannabaze.com/UserPanel/Add-Helpfull/`,
+        
+         {
+          "review":ReviewID,
+          "userid": USerID
+      },
+      config
+
+        ).then((res) => {
+            return (res)
+        })
+    )
+
+}
+
+
+
+

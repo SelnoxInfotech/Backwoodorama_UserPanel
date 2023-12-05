@@ -45,7 +45,27 @@ function Product_Add_Review(data) {
     );
     return res;
   }
+   function ProductHelpFull(ReviewID, USerID) {
+    const cookies = new Cookies();
+    const token_data = cookies.get('Token_access')
+    const config = {
+      headers: { Authorization: `Bearer ${token_data}` }
+  };
+    return (
+        axios.post(`https://api.cannabaze.com/UserPanel/Add-ProductHelpfull/`,
+        
+         {
+          "review":ReviewID,
+          "userid": USerID
+      },
+      config
+
+        ).then((res) => {
+            return (res)
+        })
+    )
+
+}
 
 
-
-export {product_OverAllGet_Review ,  Product_Add_Review , Product_Get_UserComment , Product_Get_Review ,Delete_Review}
+export {product_OverAllGet_Review ,  Product_Add_Review , Product_Get_UserComment , Product_Get_Review ,Delete_Review , ProductHelpFull}
