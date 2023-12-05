@@ -90,13 +90,11 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                 SetFilter(_.uniqBy(response.data, 'name'))
             }).catch(
                 function (error) {
-
                     alert("SomeThing Goes wrong")
             })
-
         }
         else if (Name === "Strain"){
-            SetFilter([{ id: "I", name: "Indica", }, { id: "Sativa", name: "Sativa", }, { id: "hybrid", name: "hybrid", }, { id: "CBD", name: "CBD", }])
+            SetFilter([{ id: "I", name: "Indica", }, { id: "Sativa", name: "Sativa", }, { id: "Hybrid", name: "Hybrid", }, { id: "CBD", name: "CBD", }])
 
         }else if (Name === "Weight"){
             Axios.get("https://api.cannabaze.com/UserPanel/Get-Net_Weight/").then((res)=>{
