@@ -236,7 +236,6 @@ export default function DispensoriesDetails() {
         StoreHelpFull(ReviewId.id ,state.Profile.id).then((res)=>{
             SetApi(!api)
         }).catch(()=>{
-       
         })
        }
 

@@ -1275,6 +1275,12 @@ const useStyles = makeStyles({
        color:"red" ,
         border: '1px solid red',
         borderRadius:'30px',
+    },
+    "&.MuiButtonBase-root:hover":{
+        backgroundColor:'#fff',
+        color:"red" ,
+        border: '1px solid red',
+        borderRadius:'30px',
     }
    
   },

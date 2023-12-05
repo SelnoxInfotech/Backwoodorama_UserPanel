@@ -86,7 +86,7 @@ const Signup = () => {
                         <div className='w-100 d-flex mt-4 center'>
                             <div className='signupHorizontalLine'></div> <span className='px-2 login_OR'>OR</span> <div className='signupHorizontalLine'></div>
                         </div>
-                        <div className='row  signup_margins_top'>
+                        {/* <div className='row  signup_margins_top'>
                             <div className='col-lg-12 signup_btn_height'>
                                 <Box
                                     className={`  ${classes.Signup_loading_btn_facebook}`}
@@ -95,7 +95,7 @@ const Signup = () => {
                                 </Box>
                             </div>
 
-                        </div>
+                        </div> */}
                         <div className='signup_margins_top'>
                             <div className='col-lg-12 signup_btn_height'>
                                <LoginWithGoogle/>

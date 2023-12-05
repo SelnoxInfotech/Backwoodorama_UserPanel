@@ -94,7 +94,8 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                     {(state.login ? moveObject(AllReview, 'user', state.Profile.id, 0) : AllReview)?.map((ele, index) => {
                         const text = ele?.comment;
                        
-                        console.log(state.Profile)
+                        console.log(state.login
+                            ,'login')
                         return (
 
                             <div className="w-100 related_review_container" key={index}>
@@ -235,7 +236,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
 
                                     <div className='related_review_footer_paragraph ellipsis'>
                                             <Badge badgeContent={ele?.count} className={classes.sliderLink_badge}>
-                                             {ele.helpfull.includes(state.Profile.id) ? <AiTwotoneLike color='#31B655' size={25} onClick={() => { HellFull(ele) }}/> : <AiOutlineLike color='#31B655' size={25} onClick={() => { HellFull(ele) }}/>} 
+                                             {ele.helpfull.includes(state.Profile.id) ? <AiTwotoneLike color='#31B655' size={25} onClick={() =>{  state.login ? HellFull(ele) : navigate('/login')  }}/> : <AiOutlineLike color='#31B655' size={25} onClick={() =>{  state.login ? HellFull(ele) : navigate('/login')  }}/>} 
                                             </Badge>
                                          
                                     </div>
