@@ -47,6 +47,13 @@
 .cursor-pointer{
     cursor: pointer;
 }
+.shareiconcontainer svg{
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.shareiconcontainer:hover svg{
+   fill: #31B655;
+}
 @media only screen and (max-width: 600px) {
     .deals_card .card_img .product_search_result_image{
         width: 100%;

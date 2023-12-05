@@ -41,8 +41,8 @@ const Weed_Dispansires = () => {
                 const json = {
                     "store": searchtext,
                     "City": state.City,
-                    "Country" : state.Country?.replace(/-/g, " "),
-                     "State": state.State
+                    "Country": state.Country?.replace(/-/g, " "),
+                    "State": state.State
                 }
                 Axios.post(`https://api.cannabaze.com/UserPanel/FilterDispensaries/`,
                     json
@@ -116,6 +116,7 @@ const Weed_Dispansires = () => {
         }
     }, [searchtext, state])
 
+    console.log(searchtext)
     return (
         <React.Fragment>
             <DispensariesSco location={useLocation().pathname}></DispensariesSco>
@@ -126,7 +127,7 @@ const Weed_Dispansires = () => {
                             <div className="col-12 dispensories_open_result_heading">
                                 <div className="row">
                                     <div className="col-12 dispensories_open_search_result mt-2">
-                                        <SearchBar onCancelSearch={() => setsearchtext('')} onChange={(e) => setsearchtext(e)} style={{ background: "#FFFFF", border: "1px solid gray" }} width={"100%"} placeholder="Search dispensaries address" />
+                                        {/* <SearchBar onCancelSearch={() => setsearchtext('')} onChange={(e) => setsearchtext(e)} style={{ background: "#FFFFF", border: "1px solid gray" }} width={"100%"} placeholder="Search dispensaries address" />
                                         {
                                             Search?.map((data) => {
                                                 return (
@@ -135,7 +136,13 @@ const Weed_Dispansires = () => {
                                                     </ul>
                                                 )
                                             })
-                                        }
+                                        } */}
+                                        {/* <div class="input-group"> */}
+                                            <div class="form-outline" data-mdb-input-init>
+                                                <input value={searchtext} onChange={(e) => setsearchtext(e.target.value)} placeholder="Search......"  type="search" id="form1" className={searchtext.length !== 0 ? "form-control customSearchBar" : "form-control customSearchBar customSearchBarsearchicon"} />
+                                               
+                                            </div>
+                                        {/* </div> */}
                                     </div>
                                 </div>
                                 <div className='col-12 dispensoriesOpenResultHeadingss py-2'>

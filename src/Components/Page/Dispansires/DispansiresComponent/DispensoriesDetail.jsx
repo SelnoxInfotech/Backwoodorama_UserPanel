@@ -9,7 +9,6 @@ import { MdOutlineBrandingWatermark } from "react-icons/md"
 import { MdOutlinePriceChange } from "react-icons/md"
 import { BsStripe } from "react-icons/bs"
 import { GiWeightScale } from "react-icons/gi"
-import { RiProductHuntLine } from "react-icons/ri"
 import _ from "lodash"
 import NewFlavourBanner from "../../../Component/NewFlavour/NewFlavourBanner";
 import StoreDetailMenuItem from "../../StoreDetail/StoreDetailComponent/StoreDetailMenuItem";
@@ -18,17 +17,18 @@ import ComponentStoreDetails from "../../StoreDetail/ComponentStoreDetails"
 import Review from "../../Review/Review";
 import Media from "../../Media/Media";
 import { StoreDetails } from "../../../../Components/Component/ScoPage/StoreDetails"
-import { Store_Add_Review, Store_OverAllGet_Review, Store_Get_UserComment, Store_Get_Review ,Delete_StoreReview } from "../../../../Api/Api";
+import { Store_Add_Review, Store_OverAllGet_Review, Store_Get_UserComment, Store_Get_Review, Delete_StoreReview , StoreHelpFull } from "../../../../Api/Api";
 import Createcontext from "../../../../Hooks/Context"
 export default function DispensoriesDetails() {
     const navigate = useNavigate()
-    const { state ,dispatch } = React.useContext(Createcontext)
+    const { state, dispatch } = React.useContext(Createcontext)
     const location = useLocation()
     const params = useParams();
     const { id, tab, Category, SubCategory } = params
     const classes = useStyles()
     const [category, SetCategory] = React.useState([])
     const [DespensariesData, SetDespensariesProductData] = React.useState([])
+    const [reviewloading, setReviewloading] = React.useState(false)
     const [Despen, SetDespens] = React.useState([])
     const [Rating, SetRating] = React.useState()
     const [api, SetApi] = React.useState(false)
@@ -44,7 +44,7 @@ export default function DispensoriesDetails() {
         axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${id}`, {
         }).then(response => {
             SetDespens(response.data)
-           
+
         })
 
         axios.post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/ ",
@@ -155,10 +155,12 @@ export default function DispensoriesDetails() {
                         "Title": res.data[0]?.Title, "value": res.data[0]?.rating
                     })
                 }
-                else{
-                    SetGetProductReview({...GetProductReview , "comment": '' , 
-                    "Title" : '' , "value":0})
-                  }
+                else {
+                    SetGetProductReview({
+                        ...GetProductReview, "comment": '',
+                        "Title": '', "value": 0
+                    })
+                }
             }).catch((error) => {
                 console.trace(error)
             })
@@ -174,11 +176,15 @@ export default function DispensoriesDetails() {
             Title: GetProductReview.Title,
             comment: GetProductReview.comment
         }
+        setReviewloading(true)
         Store_Add_Review(Review).then((res) => {
             // setOpen(false)
             SetGetProductReview({ ...GetProductReview, 'popup': false })
             SetApi(!api)
+        setReviewloading(false)
+
         }).catch(() => {
+            setReviewloading(false)
 
         })
     };
@@ -196,7 +202,7 @@ export default function DispensoriesDetails() {
     }, [id, api])
     const Swal = require('sweetalert2')
 
-    function handleDelete (id){
+    function handleDelete(id) {
         Swal.fire({
             title: "Are you sure?",
             text: "You are sure to want to delete this comment",
@@ -205,26 +211,35 @@ export default function DispensoriesDetails() {
             confirmButtonColor: "#31B655",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
-                Delete_StoreReview(id).then((response)=>{
-                    response.data.status === 'success'&& SetApi(!api)
+                Delete_StoreReview(id).then((response) => {
+                    response.data.status === 'success' && SetApi(!api)
                     Swal.fire({
                         title: "Deleted!",
                         text: "Your comment has been deleted.",
                         icon: "success"
-                      });
-                 })
-             
+                    });
+                })
+
             }
-          });
-      
+        });
+
     }
 
-       function handleEdit(){
-        SetGetProductReview({ ...GetProductReview, 'popup':true })
+    function handleEdit() {
+        SetGetProductReview({ ...GetProductReview, 'popup': true })
+    }
+
+
+    function HellFull (ReviewId){
+        StoreHelpFull(ReviewId.id ,state.Profile.id).then((res)=>{
+            SetApi(!api)
+        }).catch(()=>{
+       
+        })
        }
-   
+
     return (
         <div>
             <StoreDetails Despen={Despen} locationStore={useLocation().pathname}></StoreDetails>
@@ -256,7 +271,7 @@ export default function DispensoriesDetails() {
                         tab === 'store-details' && <ComponentStoreDetails storeDetails={Despen}></ComponentStoreDetails>
                     }
                     {
-                        tab === 'review' && <Review delBtn={Despen} handleEdit={handleEdit} handleDelete={handleDelete} Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview={SetReview}></Review>
+                        tab === 'review' && <Review HellFull={HellFull} delBtn={Despen} handleEdit={handleEdit} reviewloading={reviewloading} handleDelete={handleDelete} Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview={SetReview}></Review>
                     }
                     {
                         tab === 'deals' && <>Deal</>

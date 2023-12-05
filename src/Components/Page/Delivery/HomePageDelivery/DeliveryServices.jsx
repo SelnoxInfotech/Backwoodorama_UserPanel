@@ -152,7 +152,7 @@ const DeliveryServices = () => {
                                 <span className="viewallbtn">View All <FaArrowRight   /></span>
                             </Link>
                         </div>
-                        <div className="col-12  my-4 recentViewProductSlider" id="width" ref={ref}>
+                        <div className="col-12  my-4 mt-2 recentViewProductSlider" id="width" ref={ref}>
                             <ScrollContainer className="ScrollContainerRelative">
                                 {DeliveryService?.map((items, index) => {
                                     return (

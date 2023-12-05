@@ -241,7 +241,7 @@ const useStyles = makeStyles({
   },
   muiIcons: {
     fontSize: "large",
-    color: "gray",
+    color: "#31B655",
   },
   Signup_loading_btn_Googles: {
     "& .MuiButton-text": {
@@ -1275,13 +1275,8 @@ const useStyles = makeStyles({
        color:"red" ,
         border: '1px solid red',
         borderRadius:'30px',
-    },
-    "&.MuiButtonBase-root:hover":{
-    
-       color:"red" ,
-       backgroundColor:'#fff',
-        border: '1px solid red',
     }
+   
   },
   WriteReviewBtn_Color: {
     "&.MuiButtonBase-root": {
@@ -1302,6 +1297,19 @@ const useStyles = makeStyles({
 
     },
   },
+  WriteReviewBtn_Coloractive:{
+    "&.MuiButtonBase-root": {
+      color: "#fff",
+      border:"1px solid #f0f0f0",
+      borderRadius:"14px",
+      textTransform:"none",
+      height:"32  px",
+      fontSize:"14px",
+      borderColor:'#31B665',
+      backgroundColor:'#31B655'
+    }
+
+},
   WriteReviewStarIcons: {
     "&.MuiRating-root": {
       color: "#31B665",
@@ -1439,7 +1447,7 @@ const useStyles = makeStyles({
     margin: '0px',
     // transform: translate('494px',' 62px')
   },  
-});
+})
 
 
 

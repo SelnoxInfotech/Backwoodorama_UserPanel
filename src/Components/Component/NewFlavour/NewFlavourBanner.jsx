@@ -108,15 +108,15 @@ const NewFlavourBanner = ({ delBtn }) => {
                                         </div>
 
                                     </div>
-                                    <div className='position-absolute w-auto top-0 p-2 end-0'>
+                                    <div className='shareiconcontainer position-absolute w-auto top-0 p-2 end-0'>
                                     
-                                    <RWebShare
-                                        data={{ url: window.location.href }}
-                                        sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
-                                        onClick={() => console.info("share successful!")}
-                                        color="#31B665" >
-                                        <BsShareFill />
-                                    </RWebShare>
+                                        <RWebShare
+                                            data={{ url: window.location.href }}
+                                            sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
+                                            onClick={() => console.info("share successful!")}
+                                            color="#31B665" >
+                                            <BsShareFill />
+                                        </RWebShare>
                                 
                                     </div>
                                    

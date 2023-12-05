@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { IoMdStar } from "react-icons/io";
 import useStyles from "../../../../../Style";
 import { Swiper, SwiperSlide } from "swiper/react";
+import IconButton from '@mui/material/IconButton';
 import { BsShareFill } from "react-icons/bs";
+import { AiOutlineHeart ,AiFillHeart  } from "react-icons/ai"
+import { WishListPost } from "../../../../Component/Whishlist/WishListApi_"
 import { RWebShare } from "react-web-share";
 import axios from "axios";
 import Cookies from 'universal-cookie';
@@ -17,7 +19,9 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import { Link, useParams } from "react-router-dom";
 import AddToCartPopUp from "../../AddToCartPopUp/AddToCartPopUp";
+import {WhisList} from '../../../../Component/Whishlist/WhisList'
 const NewProductDetailsCards = ({ Product }) => {
+  
     const cookies = new Cookies();
     const params = useParams()
     const [quentity, setquentity] = useState(1);
@@ -34,6 +38,7 @@ const NewProductDetailsCards = ({ Product }) => {
         return initialValue || []
     })
     const [NewData, SetNewData] = React.useState([])
+    const [Whishlist, SetWishList] = React.useState(false)
     const [SelectVariant, SetSelectVariant] = React.useState('')
     const Addtocard = async (Event) => {
         if (token_data) {
@@ -41,7 +46,7 @@ const NewProductDetailsCards = ({ Product }) => {
             const h = Event?.Prices[0].Price
             const PriceArrry = h.find((data)=>data.id === parseInt( AddData[0]?.Item_id) && data)
             let PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
-
+          
             const config = {
                 headers: { Authorization: `Bearer ${token_data}` }
             };
@@ -190,7 +195,21 @@ const NewProductDetailsCards = ({ Product }) => {
         })
         SetPrice(Price => [...Price, { Product_id: Product, Item_id: Item }]);
     }
-
+    const handleWhishList = (id) => {
+        if (state.login === false) {
+            SetWishList(!Whishlist)
+        }
+        else {
+            WishListPost(id).then(async (res) => {
+                if (res.data.data === 'Remove From WishList') {
+                    dispatch({ type: 'WishList', WishList: { ...state.WishList, [id]: !state.WishList[id] } })
+                }
+                else {
+                    dispatch({ type: 'WishList', WishList: { ...state.WishList, [id]: true } })
+                }
+            }).catch((err) => { });
+        }
+    }
 
     return (
         <div className=" w-100">
@@ -416,17 +435,25 @@ const NewProductDetailsCards = ({ Product }) => {
                     </div>
                 </div>
                 <div className='position-absolute w-auto top-0 p-2  end-0'>
-
-                    <RWebShare
-                        data={{ url: window.location.href }}
-                        sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
-                        onClick={() => console.info("share successful!")}
-                        color="#31B665" >
-                        <BsShareFill />
-                    </RWebShare>
+                
+                                                            <IconButton onClick={() => { handleWhishList(Product?.id) }} aria-label="Example">
+                                                                {
+                                                                    state.login ?   state.WishList[Product?.id] ? <AiFillHeart color="31B665"></AiFillHeart> : <AiOutlineHeart  color="31B665" /> : <AiOutlineHeart color="31B665" />
+                                                                }
+                                                            </IconButton>
+                    <span className="shareiconcontainer">
+                        <RWebShare
+                            data={{ url: window.location.href }}
+                            sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
+                            onClick={() => console.info("share successful!")}
+                            color="#31B665" >
+                            <BsShareFill />
+                        </RWebShare>
+                    </span>
 
                 </div>
             </div>
+            {Whishlist && <WhisList open1={Whishlist} SetWishList={SetWishList}></WhisList>}
         </div>
     )
 }

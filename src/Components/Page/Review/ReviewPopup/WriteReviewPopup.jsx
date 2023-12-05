@@ -11,13 +11,13 @@ import { Box, FormControl } from "@mui/material";
 import { useForm, Controller } from "react-hook-form";
 import Createcontext from "../../../../Hooks/Context";
 import { useNavigate } from "react-router-dom";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-const WriteReviewPopup = ({
-  onSubmit,
-  buttonclass,
-  GetProductReview,
-  SetGetProductReview,
-}) => {
+  const WriteReviewPopup = ({
+    reviewloading,
+    onSubmit,
+    buttonclass,
+    GetProductReview,
+    SetGetProductReview,
+  }) => {
   if (buttonclass === undefined) {
     buttonclass = "WriteReviewBtn_Color";
   }
@@ -25,8 +25,7 @@ const WriteReviewPopup = ({
   const { state } = React.useContext(Createcontext);
   const { register, handleSubmit, errors, getValues, control } = useForm();
   const classes = useStyles();
-  // const [open, setOpen] = React.useState(GetProductReview.popup);
-
+  console.log(reviewloading ,'reviewloading')
   const handleClickOpen = () => {
     if (state.login) {
       SetGetProductReview({ ...GetProductReview, popup: true });
@@ -126,29 +125,7 @@ const WriteReviewPopup = ({
                     <label className="writeReviewLabel" htmlFor="review">
                       Review
                     </label>
-                    {/* <TextField
-                      name="comment"
-                      value={GetProductReview.comment}
-                      onChange={(e) => {
-                        SetGetProductReview({
-                          ...GetProductReview,
-                          [e.target.name]: e.target.value,
-                        });
-                      }}
-                      id="review"
-                      className="textinput"
-                      placeholder="Comment"
-                      inputRef={register({
-                        minLength: {
-                          value: 5,
-                          message: "Please enter valid title",
-                        },
-                        maxLength: {
-                          value: 150,
-                          message: "Please enter shot valid title",
-                        },
-                      })}
-                    ></TextField> */}
+                  
                   
                     <TextField
                       className='textinput'
@@ -184,7 +161,7 @@ const WriteReviewPopup = ({
                       className={`edit_UserPopUp_btn_container mt-4
                                               ${classes.editEmail_loadingBtn}`}
                     >
-                      <LoadingButton type="submit" variant="outlined">
+                      <LoadingButton loading={reviewloading} type="submit" variant="outlined">
                         Submit
                       </LoadingButton>
                     </Box>
