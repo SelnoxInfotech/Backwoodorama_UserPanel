@@ -113,6 +113,19 @@
    .customteatfsdfg.MuiRating-root .MuiRating-iconEmpty{
     color: red;
    }
+   .related_review_footer_paragraph{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all .3s ease;
+   }
+   .related_review_footer_paragraph:active {
+    filter: drop-shadow(0 0 0 #15111a);
+    transform: translate(0, 5px);
+  }
    @media screen and (max-width: 1024px){
        .reviews_title{
         font-size: 18px;

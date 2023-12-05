@@ -139,8 +139,8 @@ const Weed_Dispansires = () => {
                                         } */}
                                         {/* <div class="input-group"> */}
                                             <div class="form-outline" data-mdb-input-init>
-                                                <input value={searchtext} onChange={(e) => setsearchtext(e.target.value)}  type="search" id="form1" class="form-control" />
-                                                {/* <label class="form-label" for="form1">Search</label> */}
+                                                <input value={searchtext} onChange={(e) => setsearchtext(e.target.value)} placeholder="Search......"  type="search" id="form1" className={searchtext.length !== 0 ? "form-control customSearchBar" : "form-control customSearchBar customSearchBarsearchicon"} />
+                                               
                                             </div>
                                         {/* </div> */}
                                     </div>

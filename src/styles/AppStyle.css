@@ -2375,12 +2375,26 @@ scrollbar-width: none;  /* Firefox */
   height: auto;
   padding-left: 14px;
 }
-
+.customSearchBar:focus{
+  border: 1px solid #31B655;
+  box-shadow: none !important;
+  border-color: #31B655 !important;
+}
 #width {
   padding: 0px;
 }
 
-
+.customSearchBarsearchicon{
+  position: relative;
+}
+.customSearchBarsearchicon::before{
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background: url();
+}
 .featuredBrandHeading {
   font-weight: 700;
   font-size: 25px;
@@ -2438,7 +2452,12 @@ scrollbar-width: none;  /* Firefox */
 .dispensoriesContentContainer {
   padding: 20px;
 }
-
+.lawOptionCountry_state_List{
+  transition: all .3s ease;
+}
+.lawOptionCountry_state_List:hover{
+  color: #31B655;
+}
 .dispensories_image {
   width: 80%;
   height: 180px;

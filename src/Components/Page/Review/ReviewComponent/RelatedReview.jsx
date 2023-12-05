@@ -5,8 +5,11 @@ import Button from '@mui/material/Button';
 import { FaEdit } from 'react-icons/fa';
 import { AiFillDelete } from 'react-icons/ai';
 import Select from '@mui/material/Select';
+import { AiOutlineLike } from "react-icons/ai";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
+import { AiTwotoneLike } from "react-icons/ai";
+
 import { BsThreeDotsVertical } from "react-icons/bs"
 import useStyles from "../../../../Style";
 import { useNavigate } from "react-router-dom";
@@ -231,12 +234,10 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                                 <div className='related_review_footer '>
 
                                     <div className='related_review_footer_paragraph ellipsis'>
-                                        <Button className={ ele.helpfull.includes(state.Profile.id) ? classes.WriteReviewBtn_Coloractive : classes.WriteReviewBtn_Color } variant="outlined" onClick={() => { HellFull(ele) }}> 
                                             <Badge badgeContent={ele?.count} className={classes.sliderLink_badge}>
-                                              <AiFillLike />
+                                             {ele.helpfull.includes(state.Profile.id) ? <AiTwotoneLike color='#31B655' size={25} onClick={() => { HellFull(ele) }}/> : <AiOutlineLike color='#31B655' size={25} onClick={() => { HellFull(ele) }}/>} 
                                             </Badge>
-                                            Helpful
-                                        </Button>
+                                         
                                     </div>
                                     <div className='related_review_footer_paragraph ellipsis px-0'>
 
