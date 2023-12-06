@@ -36,13 +36,13 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
     { type: "Sort by high to low" },
   ];
 
-  const [value, setValue] = React.useState();
-  function valuetext(value) {
-    return `${value}°C`;
-  }
-  const handleChangepp = (event, newValue) => {
-    setValue(newValue);
-  };
+      const [value, setValue] = React.useState();
+      function valuetext(value) {
+        return `${value}°C`;
+      }
+    const handleChangepp = (event, newValue) => {
+      setValue(newValue);
+    };
     const HandleOpenSortedData = (Id, name) => {
       if (catname2 === name) {
         SetOpenSortedData(null);
@@ -292,7 +292,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
         let timer;
         clearTimeout(timer);
         timer = setTimeout(() => {
-            if (e !== '') {
+            if (searchtext !== '') {
               
                 dispatch({ type: 'Loading', Loading: true })
                 Axios.post(`https://api.cannabaze.com/UserPanel/Get-SearchFilter/`, 
@@ -340,23 +340,18 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
         <>
             <div className="col-12  p-0 mt-4 product_search_and_select">
                 <div className="col-2 product_search_bar">
-                    {/* <SearchBar
-                        onChange={(e) => { searchHnadelchange(e) }}
-                        style={{ border: "1px solid #dee2e6" }} width={"100%"} 
-                     
-                        /> */}
+                   
                        <div  className="form-outline" data-mdb-input-init>
                         <input value={searchtext} onChange={(e) => {
-                            searchHnadelchange(e.target.value)
-                            setsearchtext(e.target.value)
-                        }
-                        }
-                        placeholder="Search.."
+                              searchHnadelchange(e.target.value)
+                              setsearchtext(e.target.value)
+                            }}
+                         placeholder="Search.."
                          type="search" 
                          id="form1" 
 
                          className={searchtext.length !== 0 ? "form-control customSearchBar" : "form-control customSearchBar customSearchBarsearchicon"} />
-                        
+                      
                     </div>
                 </div>
                 <div className="col-10 product_select">

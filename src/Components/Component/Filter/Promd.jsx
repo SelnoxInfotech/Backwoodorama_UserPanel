@@ -317,17 +317,11 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
         <>
             <div className="col-12  p-0 mt-4 product_search_and_select">
                 <div className="col-2 product_search_bar">
-                    {/* <SearchBar
-                        onChange={(e) => { searchHnadelchange(e) }}
-                        style={{ border: "1px solid #dee2e6" }} width={"100%"} 
-                     
-                        /> */}
+                   
                     <div  className="form-outline" data-mdb-input-init>
                         <input value={searchtext} onChange={(e) => {
                             searchHnadelchange(e.target.value)
-                            setsearchtext(e.target.value)
-                        }
-                        }
+                            setsearchtext(e.target.value) }}
                         placeholder="Search.."
                          type="search" 
                          id="form1" 
