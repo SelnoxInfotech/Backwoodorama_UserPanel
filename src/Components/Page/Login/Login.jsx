@@ -163,7 +163,7 @@ const Login = () => {
                             <div className='w-100 loginCenterDiv'>
                                 <span className='loginParagraphFontSize'>Having trouble to access your account?</span>
                                 <span>
-                                <Link to="/forgot-password"><span className='loginParagraphFontSize'>Click here</span></Link>
+                                <Link to="/forgot-password"><span className='loginParagraphFontSize loginCkBtn'>Click here</span></Link>
                                 </span>
                             </div>
                             <div className='row  signup_margins_top'>
@@ -180,15 +180,7 @@ const Login = () => {
                         <div className='w-100 d-flex mt-4 center'>
                             <div className='login_horizontalLine '></div> <span className='px-2 login_OR'>OR</span> <div className='login_horizontalLine '></div>
                         </div>
-                        {/* <div className='row  signup_margins_top'>
-                            <div className='col-lg-12 signup_btn_height'>
-                                {/* <Box className={`${classes.Signup_loading_btn_facebook}`}>
-                                   <LoadingButton variant='outlined'   loadingPosition="start"  startIcon={<FaFacebookF />}>Continue with Facebook</LoadingButton>
-                                </Box> */}
-                                {/* <FaceBookLogin></FaceBookLogin> */}
-                            {/* </div> */}
-
-                        {/* </div> */} 
+                  
                         <div className='row  signup_margins_top'>
                             <div className='col-lg-12 signup_btn_height'>
 
