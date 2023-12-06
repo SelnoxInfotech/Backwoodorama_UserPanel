@@ -18,6 +18,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
   const ref = useRef();
   const { state, dispatch } = React.useContext(Createcontext);
   const [select, setselect] = useState("Sort by A to Z");
+  const [searchtext, setsearchtext] = React.useState("")
   const [weightitems, setweightitems] = useState([]);
   const [loading, setloading] = useState(false);
   const [stainitems, setstainitems] = useState([]);
@@ -42,14 +43,15 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
   const handleChangepp = (event, newValue) => {
     setValue(newValue);
   };
-  const HandleOpenSortedData = (Id, name) => {
-    if (catname2 === name) {
-      SetOpenSortedData(null);
-      setcatname2(null);
-      return false;
-    } else {
-      SetOpenSortedData(Id);
-      setcatname2(name);
+    const HandleOpenSortedData = (Id, name) => {
+      if (catname2 === name) {
+        SetOpenSortedData(null);
+        setcatname2(null);
+        return false;
+      } else {
+        SetOpenSortedData(Id);
+        setcatname2(name);
+      }
     }
     const HandleOpenEvent = (Id, Name) => {
         SetFilter([])
@@ -127,7 +129,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
         setweightitems([])
     }
     function Category_Drop(i, name , values={}){
-        console.log(name ,'name')
+       
         if (name === "Category") {
 
             Axios.post(`https://api.cannabaze.com/UserPanel/Get-filterSubcategorybyStoreandCategory/`, {
@@ -170,7 +172,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
             }else{
                 setstainitems([...stainitems , values.name])
             }
-        } else if (name === "Unit") {
+        }else if (name === "Unit") {
           if( ref.current.childNodes[0].childNodes[0].childNodes[0].childNodes[1].checked ){
              Axios.post("https://api.cannabaze.com/UserPanel/UnitFilter/", {
                  store: 4,
@@ -186,6 +188,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                 Setarr1(response.data);
               });
          }
+        }
     }
     React.useEffect(()=>{
        if(weightitems.length !== 0){
@@ -286,28 +289,31 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
 
     function searchHnadelchange(e) {
 
-        let timer;
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-            if (e !== '') {
-              
-                dispatch({ type: 'Loading', Loading: true })
-                Axios.get(`https://api.cannabaze.com/UserPanel/Get-SearchFilter/?search=${e}`, {
-                }).then(response => {
-                    let newdata = response.data.filter((item) => {
-                        return item.Store_id === Store_id
-                    })
-                    Setarr1(newdata)
-                    dispatch({ type: 'Loading', Loading: false })
-                }).catch(
-                    function (error) {
-                })
-            } else {
-               
-                Setarr1(arr)
-            }
+      let timer;
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+          if (searchtext !== '') {
 
-        }, 1500);
+              dispatch({ type: 'Loading', Loading: true })
+              Axios.post(`https://api.cannabaze.com/UserPanel/Get-SearchFilter/`, 
+              {
+                  search:e,
+                  store:Store_id
+              }).then(response => {
+                  let newdata = response.data.filter((item) => {
+                      return item.Store_id === Store_id
+                  })
+                  Setarr1(newdata)
+                  dispatch({ type: 'Loading', Loading: false })
+              }).catch(
+                  function (error) {
+                  })
+          } else {
+
+              Setarr1(arr)
+          }
+
+      }, 1500);
 
     };
 
@@ -334,12 +340,24 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
         <>
             <div className="col-12  p-0 mt-4 product_search_and_select">
                 <div className="col-2 product_search_bar">
-                    <SearchBar
+                    {/* <SearchBar
                         onChange={(e) => { searchHnadelchange(e) }}
                         style={{ border: "1px solid #dee2e6" }} width={"100%"} 
                      
-                        />
+                        /> */}
+                       <div  className="form-outline" data-mdb-input-init>
+                        <input value={searchtext} onChange={(e) => {
+                            searchHnadelchange(e.target.value)
+                            setsearchtext(e.target.value)
+                        }
+                        }
+                        placeholder="Search.."
+                         type="search" 
+                         id="form1" 
 
+                         className={searchtext.length !== 0 ? "form-control customSearchBar" : "form-control customSearchBar customSearchBarsearchicon"} />
+                        
+                    </div>
                 </div>
                 <div className="col-10 product_select">
                     <Grid container display={{ xs: "none", md: "contents", lg: "contents" }}>
@@ -394,7 +412,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                                                 {
                                                    loading ? <span className="mx-4">Loading....</span>
                                                  :
-                                                    <div className=" product_category_border product_category_dropdown" id="Related_Brand_Data" >
+                                                    <div className=" product_category_border product_category_dropdown" id="Related_Brand_Data" ref={ref}>
 
                                                         {
                                                             Filter.length !== 0 ?
@@ -503,9 +521,9 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
               </div>
             );
           })}
-        </Grid>
-      </div>
-    </>
-  );
+                </Grid>
+            </div>
+      </>
+    );
 };
-export default ProductFilter;
+export default ProductFilter
