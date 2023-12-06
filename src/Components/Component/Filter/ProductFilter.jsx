@@ -190,6 +190,8 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
          }
         }
     }
+
+]
     React.useEffect(()=>{
        if(weightitems.length !== 0){
          Axios.post('https://api.cannabaze.com/UserPanel/WeightFilter/',{
