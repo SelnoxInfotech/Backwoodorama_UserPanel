@@ -5263,6 +5263,7 @@ footer{
 }
 .product_category_border{
   padding: 0 10px;
+  gap: 10px;
 }
 .searchBarSpanValue {
   display: flex;

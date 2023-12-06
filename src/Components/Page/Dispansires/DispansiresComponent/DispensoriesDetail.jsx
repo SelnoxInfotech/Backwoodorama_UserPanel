@@ -14,6 +14,7 @@ import NewFlavourBanner from "../../../Component/NewFlavour/NewFlavourBanner";
 import StoreDetailMenuItem from "../../StoreDetail/StoreDetailComponent/StoreDetailMenuItem";
 import CategoryProduct from "../../Home/Dashboard/ComponentDashboard/CategoryProduct";
 import ComponentStoreDetails from "../../StoreDetail/ComponentStoreDetails"
+import { AiOutlineDeploymentUnit } from "react-icons/ai";
 import Review from "../../Review/Review";
 import Media from "../../Media/Media";
 import { StoreDetails } from "../../../../Components/Component/ScoPage/StoreDetails"
@@ -136,6 +137,7 @@ export default function DispensoriesDetails() {
     { Id: 3, Name: "Strain", Type1: "Indica", Type2: "Hybrid", Icons: <BsStripe className={classes.muiIcons} /> },
     { Id: 4, Name: "Price", Type1: "Any", Type2: "$25", Price: "$100", Icons: <MdOutlinePriceChange className={classes.muiIcons} /> },
     { Id: 5, Name: "Weight", Type1: "Any", Type2: "$25", Price: "$100", Icons: <GiWeightScale className={classes.muiIcons} /> },
+    { Id: 6, Name: "Unit", Type1: "Any", Type2: "$25", Price: "$100", Icons: <AiOutlineDeploymentUnit className={classes.muiIcons} /> },
     ]
 
 

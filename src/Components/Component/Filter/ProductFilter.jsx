@@ -111,12 +111,14 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                SetFilter(newArr)
                setloading(false)
             })
+        }else if(Name === "Unit"){
+            SetFilter([{ id: "unite", name: "Product By Units", }])
         }
         SetOpenSortedData(null)
         setweightitems([])
     }
     function Category_Drop(i, name , values={}){
-     
+        console.log(name ,'name')
         if (name === "Category") {
 
             Axios.post(`https://api.cannabaze.com/UserPanel/Get-filterSubcategorybyStoreandCategory/`, {
@@ -159,7 +161,9 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
             }else{
                 setstainitems([...stainitems , values.name])
             }
-        } 
+        }else if(name === "Unit"){
+
+        }
     }
     React.useEffect(()=>{
        if(weightitems.length !== 0){
