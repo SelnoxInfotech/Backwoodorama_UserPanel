@@ -49,16 +49,16 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
     const HandleOpenEvent = (Id, Name) => {
         SetFilter([])
         SetSubCategory([])
-      
+
         if (catname === Name) {
             SetOpenEvent(null)
             setcatname(null)
             return false;
-        }else {
+        } else {
             SetOpenEvent(Id)
             setcatname(Name)
         }
-        if(Name === "Category"){
+        if (Name === "Category") {
             setloading(true)
             Axios.post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/ ",
                 {
@@ -71,7 +71,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                 response.data.map((data) => {
                     d.push(data[0])
                     var uniqueUsersByID = _.uniqBy(d, 'id'); //removed if had duplicate id
-                   
+
                     SetFilter(uniqueUsersByID)
                     return data
                 })
@@ -82,34 +82,36 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
 
 
         }
-        else if (Name === "Brand"){  
+        else if (Name === "Brand") {
             setloading(true)
             Axios(`https://api.cannabaze.com/UserPanel/Get-BrandByStore/${Store_id}`).then(response => {
-          
+
                 SetFilter(_.uniqBy(response.data, 'name'))
                 setloading(false)
             }).catch(
                 function (error) {
                     alert("SomeThing Goes wrong")
             })
+
         }
         else if (Name === "Strain"){
-            SetFilter([{ id: "Indica", name: "Indica", }, { id: "Sativa", name: "Sativa", }, { id: "Hybrid", name: "Hybrid", }, { id: "CBD", name: "CBD", }])
+          
+            SetFilter([{ id: "I", name: "Indica", }, { id: "Sativa", name: "Sativa", }, { id: "hybrid", name: "hybrid", }, { id: "CBD", name: "CBD", }])
 
-        }else if (Name === "Weight"){
-              setloading(true)
-            Axios.get("https://api.cannabaze.com/UserPanel/Get-Net_Weight/").then((res)=>{
-             
-              let newArr = res.data.data.map((item)=>{
-             
-                return {
+        } else if (Name === "Weight") {
+            setloading(true)
+            Axios.get("https://api.cannabaze.com/UserPanel/Get-Net_Weight/").then((res) => {
+
+                let newArr = res.data.data.map((item) => {
+
+                    return {
                         id: item.id,
                         name: item.Weight
-                        }
-              })
-              
-               SetFilter(newArr)
-               setloading(false)
+                    }
+                })
+
+                SetFilter(newArr)
+                setloading(false)
             })
         }else if(Name === "Unit"){
             SetFilter([{ id: "unite", name: "Product By Units", }])
@@ -118,7 +120,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
         setweightitems([])
     }
     function Category_Drop(i, name , values={}){
-        console.log(name ,'name')
+     
         if (name === "Category") {
 
             Axios.post(`https://api.cannabaze.com/UserPanel/Get-filterSubcategorybyStoreandCategory/`, {
@@ -130,8 +132,8 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                 SetSubCategory(_.uniqBy(response.data, "id"))
             }).catch(
                 function (error) {
-            })
-        }else if (name === "Brand") {
+                })
+        } else if (name === "Brand") {
             dispatch({ type: 'Loading', Loading: true })
             Axios(`https://api.cannabaze.com/UserPanel/Get-ProductByStoreAndBrand/${id}/${i}`, {
 
@@ -143,58 +145,56 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                 function (error) {
 
                 })
-        }else if(name === "Weight"){
-            if(weightitems.includes(values.name)){
-                let newerr=weightitems.filter((item)=>{
-                 return item!== values.name
+        } else if (name === "Weight") {
+            if (weightitems.includes(values.name)) {
+                let newerr = weightitems.filter((item) => {
+                    return item !== values.name
                 })
                 setweightitems(newerr)
-            }else{
-              setweightitems([...weightitems , values.name])
+            } else {
+                setweightitems([...weightitems, values.name])
             }
-        }else if(name === "Strain"){
-            if(stainitems.includes(values.name)){
-                let newerr=stainitems.filter((item)=>{
-                 return item!== values.name
+        } else if (name === "Strain") {
+            if (stainitems.includes(values.name)) {
+                let newerr = stainitems.filter((item) => {
+                    return item !== values.name
                 })
                 setstainitems(newerr)
-            }else{
-                setstainitems([...stainitems , values.name])
+            } else {
+                setstainitems([...stainitems, values.name])
             }
-        }else if(name === "Unit"){
-
-        }
+        } 
     }
-    React.useEffect(()=>{
-       if(weightitems.length !== 0){
-         Axios.post('https://api.cannabaze.com/UserPanel/WeightFilter/',{
-                "store":Store_id,
-                "weight":weightitems,
-         }).then((res)=>{
-            Setarr1(res.data)
-         })
-       }else{
-        Axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
-        }).then(response => {
-            Setarr1(response.data)
-        })
-       }
-    },[weightitems])
-    React.useEffect(()=>{
-        if(stainitems.length !== 0){
-          Axios.post('https://api.cannabaze.com/UserPanel/StrainFilterProduct/',{
-                 "store":Store_id,
-                 "strain":stainitems,
-          }).then((res)=>{
-             Setarr1(res.data)
-          })
-        }else{
-         Axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
-         }).then(response => {
-             Setarr1(response.data)
-         })
+    React.useEffect(() => {
+        if (weightitems.length !== 0) {
+            Axios.post('https://api.cannabaze.com/UserPanel/WeightFilter/', {
+                "store": Store_id,
+                "weight": weightitems,
+            }).then((res) => {
+                Setarr1(res.data)
+            })
+        } else {
+            Axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
+            }).then(response => {
+                Setarr1(response.data)
+            })
         }
-     },[stainitems])
+    }, [weightitems])
+    React.useEffect(() => {
+        if (stainitems.length !== 0) {
+            Axios.post('https://api.cannabaze.com/UserPanel/StrainFilterProduct/', {
+                "store": Store_id,
+                "strain": stainitems,
+            }).then((res) => {
+                Setarr1(res.data)
+            })
+        } else {
+            Axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
+            }).then(response => {
+                Setarr1(response.data)
+            })
+        }
+    }, [stainitems])
     function FilterSubCategorydata(SubCategoryid, SubCategory_name, categoryName) {
         dispatch({ type: 'Loading', Loading: true })
         Axios.post(`https://api.cannabaze.com/UserPanel/Get-filterProductbyStoreandSubCategory/`, {
@@ -261,14 +261,14 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
     const handleClickAway = () => {
         SetOpenEvent(null)
     };
-
+    const [searchtext, setsearchtext] = React.useState("")
     function searchHnadelchange(e) {
 
         let timer;
         clearTimeout(timer);
         timer = setTimeout(() => {
-            if (e !== '') {
-              
+            if (searchtext !== '') {
+
                 dispatch({ type: 'Loading', Loading: true })
                 Axios.get(`https://api.cannabaze.com/UserPanel/Get-SearchFilter/?search=${e}`, {
                 }).then(response => {
@@ -279,9 +279,9 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                     dispatch({ type: 'Loading', Loading: false })
                 }).catch(
                     function (error) {
-                })
+                    })
             } else {
-               
+
                 Setarr1(arr)
             }
 
@@ -291,20 +291,20 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
 
     React.useEffect(() => {
 
-        
-       const timer = setTimeout(() => {
-        value !== undefined && dispatch({ type: 'Loading', Loading: true })
-        value !== undefined && 
-      
-        PriceFilter(value,Store_id).then((res) => {
-            Setarr1(res.data)
-            dispatch({ type: 'Loading', Loading: false })
-            }).catch(() => {
-                // navigate('/fourzerothree')   
-                dispatch({ type: 'Loading', Loading: false });
-            })
+
+        const timer = setTimeout(() => {
+            value !== undefined && dispatch({ type: 'Loading', Loading: true })
+            value !== undefined &&
+
+                PriceFilter(value, Store_id).then((res) => {
+                    Setarr1(res.data)
+                    dispatch({ type: 'Loading', Loading: false })
+                }).catch(() => {
+                    // navigate('/fourzerothree')   
+                    dispatch({ type: 'Loading', Loading: false });
+                })
         }, 1500);
-     
+
         return () => clearTimeout(timer)
     }, [value])
 
@@ -312,12 +312,24 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
         <>
             <div className="col-12  p-0 mt-4 product_search_and_select">
                 <div className="col-2 product_search_bar">
-                    <SearchBar
+                    {/* <SearchBar
                         onChange={(e) => { searchHnadelchange(e) }}
                         style={{ border: "1px solid #dee2e6" }} width={"100%"} 
                      
-                        />
+                        /> */}
+                    <div  className="form-outline" data-mdb-input-init>
+                        <input value={searchtext} onChange={(e) => {
+                            searchHnadelchange(e.target.value)
+                            setsearchtext(e.target.value)
+                        }
+                        }
+                        placeholder="Search.."
+                         type="search" 
+                         id="form1" 
 
+                         className={searchtext.length !== 0 ? "form-control customSearchBar" : "form-control customSearchBar customSearchBarsearchicon"} />
+                        {/* <label class="form-label" for="form1">Search</label> */}
+                    </div>
                 </div>
                 <div className="col-10 product_select">
                     <Grid container display={{ xs: "none", md: "contents", lg: "contents" }}>
@@ -353,88 +365,88 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                         <div key={index} className="filter_manu_items">
                             <div className="col-12 d-flex align-items-center prodCat_gap product_category_border " onClick={() => HandleOpenEvent(Id, Name)}>
 
-                              
-                                    <p className="m-0 prod_filter_icon" >{Icons}</p>
-                               
-                               
-                                    <p className="m-0 product_filter_name">{Name}</p>
-               
-                               
 
-                                    <p className="m-0 brand_right_arrow">{(Id === OpenEvent) ? <IoIosArrowDown className={classes.muiIcons} /> : <FiChevronRight className={classes.muiIcons} />}</p>
+                                <p className="m-0 prod_filter_icon" >{Icons}</p>
 
-          
+
+                                <p className="m-0 product_filter_name">{Name}</p>
+
+
+
+                                <p className="m-0 brand_right_arrow">{(Id === OpenEvent) ? <IoIosArrowDown className={classes.muiIcons} /> : <FiChevronRight className={classes.muiIcons} />}</p>
+
+
                             </div>
-                         
-                                    {(Id === OpenEvent) ?
-                                        (
-                                            <ClickAwayListener onClickAway={handleClickAway}>
-                                                {
-                                                   loading ? <span className="mx-4">Loading....</span>
-                                                 :
-                                                    <div className=" product_category_border product_category_dropdown" id="Related_Brand_Data" >
 
-                                                        {
-                                                            Filter.length !== 0 ?
-                                                                Filter?.map((data) => {
-                                                                
-                                                                    return (
-                                                                        <div>
-                                                                            <div className="col-10 product_category_dropdown_cursor">
-                                                                            {ele.Name === "Category" ? <p  className="m-0" onClick={() => { Category_Drop(data.id, ele.Name) }}>{data.name}</p> : <div>  <input type="checkbox" onChange={()=>{Category_Drop(data.id, ele.Name , data )}} id={data.name} name={data.name} value={data.name} /> <label htmlFor={data.name} className="m-0" >{data.name}</label> </div>}
-                                                                            </div>
-                                                                            {
-                                                                                SubCategory?.map((SubCategory) => {
-                                                                                    return (
-                                                                                        SubCategory.CatgoryId === data.id
-                                                                                        &&
-                                                                                        <div className="col-10 px-2 py-0 product_sub_category_dropDown_cursor"  >
+                            {(Id === OpenEvent) ?
+                                (
+                                    <ClickAwayListener onClickAway={handleClickAway}>
+                                        {
+                                            loading ? <span className="mx-4">Loading....</span>
+                                                :
+                                                <div className=" product_category_border product_category_dropdown" id="Related_Brand_Data" >
+
+                                                    {
+                                                        Filter.length !== 0 ?
+                                                            Filter?.map((data) => {
+
+                                                                return (
+                                                                    <div>
+                                                                        <div className="col-10 product_category_dropdown_cursor">
+                                                                            {ele.Name === "Category" ? <p className="m-0" onClick={() => { Category_Drop(data.id, ele.Name) }}>{data.name}</p> : <div>  <input type="checkbox" onChange={() => { Category_Drop(data.id, ele.Name, data) }} id={data.name} name={data.name} value={data.name} /> <label htmlFor={data.name} className="m-0" >{data.name}</label> </div>}
+                                                                        </div>
+                                                                        {
+                                                                            SubCategory?.map((SubCategory) => {
+                                                                                return (
+                                                                                    SubCategory.CatgoryId === data.id
+                                                                                    &&
+                                                                                    <div className="col-10 px-2 py-0 product_sub_category_dropDown_cursor"  >
                                                                                         <input type="checkbox" id={data.name} name={data.name} value={data.name} />  <label htmlFor={data.name} onClick={() => { FilterSubCategorydata(SubCategory.id, SubCategory.SubCategory_name, data.name, SubCategory.Store_id) }}>{SubCategory.SubCategory_name}</label>
 
-                                                                                        </div>
-                                                                                    )
-                                                                                })
+                                                                                    </div>
+                                                                                )
+                                                                            })
+                                                                        }
+                                                                    </div>
+                                                                )
+                                                            })
+                                                            :
+                                                            Id === 4 ?
+                                                                <Box >
+                                                                    <Slider
+                                                                        getAriaLabel={() => "Price range"}
+                                                                        sx={{
+                                                                            '& .MuiSlider-thumb': {
+                                                                                color: "#31B665"
+                                                                            },
+                                                                            '& .MuiSlider-track': {
+                                                                                color: "#31B665"
+                                                                            },
+                                                                            '& .MuiSlider-rail': {
+                                                                                color: "black"
+                                                                            },
+                                                                            '& .MuiSlider-active': {
+                                                                                color: "green"
                                                                             }
-                                                                        </div>
-                                                                    )
-                                                                })
-                                                                :
-                                                                Id === 4 ?
-                                                                    <Box >
-                                                                        <Slider
-                                                                            getAriaLabel={() => "Price range"}
-                                                                            sx={{
-                                                                                '& .MuiSlider-thumb': {
-                                                                                    color: "#31B665"
-                                                                                },
-                                                                                '& .MuiSlider-track': {
-                                                                                    color: "#31B665"
-                                                                                },
-                                                                                '& .MuiSlider-rail': {
-                                                                                    color: "black"
-                                                                                },
-                                                                                '& .MuiSlider-active': {
-                                                                                    color: "green"
-                                                                                }
-                                                                            }}
-                                                                            value={value}
-                                                                            onChange={handleChangepp}
-                                                                            getAriaValueText={valuetext}
-                                                                            valueLabelDisplay="auto"
-                                                                            min={1}
-                                                                            max={1000}
-                                                                            defaultValue={[100, 500]}
-                                                                        />
-                                                                    </Box> :
+                                                                        }}
+                                                                        value={value}
+                                                                        onChange={handleChangepp}
+                                                                        getAriaValueText={valuetext}
+                                                                        valueLabelDisplay="auto"
+                                                                        min={1}
+                                                                        max={1000}
+                                                                        defaultValue={[100, 500]}
+                                                                    />
+                                                                </Box> :
                                                                 <p className="m-0">No Category Found</p>
-                                                        }
-                                                    </div>
-                                                  }
-                                            </ClickAwayListener>
-                                        )
-                                        :
-                                        ""
-                                    }
+                                                    }
+                                                </div>
+                                        }
+                                    </ClickAwayListener>
+                                )
+                                :
+                                ""
+                            }
                         </div>
                     )
 
