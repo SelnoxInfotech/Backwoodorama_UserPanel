@@ -289,29 +289,29 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
 
     function searchHnadelchange(e) {
 
-      let timer;
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-          if (searchtext !== '') {
-
-              dispatch({ type: 'Loading', Loading: true })
-              Axios.post(`https://api.cannabaze.com/UserPanel/Get-SearchFilter/`, 
-              {
-                  search:e,
-                  store:Store_id
-              }).then(response => {
-                  let newdata = response.data.filter((item) => {
-                      return item.Store_id === Store_id
-                  })
-                  Setarr1(newdata)
-                  dispatch({ type: 'Loading', Loading: false })
-              }).catch(
-                  function (error) {
-                  })
-          } else {
-
-              Setarr1(arr)
-          }
+        let timer;
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            if (e !== '') {
+              
+                dispatch({ type: 'Loading', Loading: true })
+                Axios.post(`https://api.cannabaze.com/UserPanel/Get-SearchFilter/`, 
+                {
+                    search:e,
+                    store:Store_id
+                }).then(response => {
+                    let newdata = response.data.filter((item) => {
+                        return item.Store_id === Store_id
+                    })
+                    Setarr1(newdata)
+                    dispatch({ type: 'Loading', Loading: false })
+                }).catch(
+                    function (error) {
+                })
+            } else {
+               
+                Setarr1(arr)
+            }
 
       }, 1500);
 
