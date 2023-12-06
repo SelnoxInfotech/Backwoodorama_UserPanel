@@ -258,7 +258,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                                                <div className=" product_search_result_content_div ">
                                                     <Link to={`/products/${items.category_name.toLowerCase()}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${items.Product_Name.replace(/%20| /g, "-").toLowerCase()}/${items.id}`} state={items.id}>
                                                         <p className="productSearchResultParagraph text-truncate">{items.Product_Name}</p>
-                                                    </Link>                                                
+                                                                                          
                                                     <p className="product_search_result_sub_heading text-truncate">by {items.StoreName}</p>                                       
                                                     <div className="product_category_list">
                                                         <span className="product_search_result_span1">15% THC | 0.2% CBD</span>
@@ -275,6 +275,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                                                     <div className=" productPriceDivHeight">
                                                         <p className="productSearch text-truncate"><span className="productSearchPrice">${parseInt(items.Prices[0].Price[0].SalePrice)}  { parseInt(items.Prices[0].Price[0].Price) > parseInt(items.Prices[0].Price[0].SalePrice) &&   <del className="text-muted">${parseInt(items.Prices[0].Price[0].Price)}</del> } </span> per {items.Prices[0].Price[0].Weight ? items.Prices[0].Price[0].Weight  : `${items.Prices[0].Price[0].Unit} Unit`}</p>
                                                     </div>
+                                                    </Link>         
                                                     <div className="my-2">
                                                         <Box className={`center ${classes.loadingBtnTextAndBack}`}>
                                                             {

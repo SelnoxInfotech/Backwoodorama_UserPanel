@@ -1,5 +1,4 @@
 import { MdShare } from "react-icons/md"
-import { AiTwotoneHeart } from "react-icons/ai"
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import IconButton from "@mui/material/IconButton";
 import { RWebShare } from "react-web-share";
@@ -9,7 +8,7 @@ import React from "react";
 
 const RelatedVerifyBanner = ({ BrandDetails }) => {
     const [readmore, setreadmore] = useState(false)
-
+  
     const handleContainerClick = (e) => {
         if (e.target.tagName === 'SPAN') {
             setreadmore(!readmore)
@@ -17,15 +16,12 @@ const RelatedVerifyBanner = ({ BrandDetails }) => {
     };
 
     return (
-        <React.Fragment>
-
             <div className="brandProfileBanner row center">
 
                 <div className={"relatedVerifyBrand_Banner"}>
 
                     <div className="relatedVerifyBrand_icons">
-                        <IconButton aria-label="share icons"><AiTwotoneHeart color="#31B665" size={20} /></IconButton>
-
+                      
                         <IconButton aria-label="share icons">
                             <RWebShare
                                 data={{ url: window.location.href }}
@@ -66,7 +62,6 @@ const RelatedVerifyBanner = ({ BrandDetails }) => {
 
                 </div>
             </div>
-        </React.Fragment>
     )
 }
 export default RelatedVerifyBanner
