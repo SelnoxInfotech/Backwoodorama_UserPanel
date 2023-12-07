@@ -62,42 +62,35 @@ const Product = () => {
     React.useEffect(() => {
         if (params.subCategory) {
             SetLoading(true)
-            const object = {
-                City: state.City.replace(/-/g, " "),
-                Country: state.Country.replace(/-/g, " "),
-                State: state.State.replace(/-/g, " ")
-            }
-            SubcategoryProduct(object, params.id).then((response) => {
+            // const object = {
+            //     City: state.City.replace(/-/g, " "),
+            //     Country: state.Country.replace(/-/g, " "),
+            //     State: state.State.replace(/-/g, " ")
+            // }
+            // SubcategoryProduct(object, params.id).then((response) => {
 
-                SetLoading(false)
-                if (response?.length !== 0) {
-                    f(response[0]?.category_name)
+            //     SetLoading(false)
+            //     if (response?.length !== 0) {
+            //         f(response[0]?.category_name)
 
-                    SetProduct(response)
-                    SubCategoryApi(response[0]?.category_id).then((response) => {
-                        setsubcategories(response.data.data)
-                    }).catch((error) => {
-                        console.trace(error)
-                    })
+            //         SetProduct(response)
+            //         SubCategoryApi(response[0]?.category_id).then((response) => {
+            //             setsubcategories(response.data.data)
+            //         }).catch((error) => {
+            //             console.trace(error)
+            //         })
 
-                }
-                else {
-                    SetProduct([])
-
-
-                }
-
-            })
+            //     }
+            //     else {
+            //         SetProduct([])
 
 
+            //     }
 
-
+            // })
         }
         else {
-
-
             if (params.categoryname) {
-
                 // // window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
                 const object = {
                     City: state.City.replace(/-/g, " "),
