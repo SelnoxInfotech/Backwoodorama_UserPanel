@@ -11,6 +11,7 @@
   .MyOrder_list {
     gap: 105px;
   }
+ 
 }
 @media(max-width:1084px) {
   .deliverySkeletonBox {
@@ -54,9 +55,11 @@
   }
 
   .prod_filter_icon {
-    visibility: hidden;
+    display: none;
   }
-
+  .filter_manu_items{
+    width: 16%;
+  }
   .product_category_dropdown {
     z-index: 1;
     cursor: pointer;
@@ -390,7 +393,7 @@
   }
 
   .prod_filter_icon {
-    visibility: hidden;
+   display: none;
   }
   .add_prod_inner_div {
     min-width: 19% !important;
@@ -697,6 +700,13 @@
   }
 }
 @media (max-width:480px) {
+  .loginParagraphFontSize{
+    font-size: 10px;
+    font-weight: 500;
+  }
+  .loginCkBtn:hover{
+    font-size: 12px;
+  }
   .feature_brands .FeaturedBrandContainer .FeaturedBrandImageContainer {
     width: 120px;
     height: 80px;

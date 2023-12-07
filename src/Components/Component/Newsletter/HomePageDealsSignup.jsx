@@ -22,9 +22,9 @@ const HomePageDealsSignup = () => {
 
         ).then((res) => {
                 if (res.data.status === "success") {
-                    alert("Thank You For Subscribe")
+                    setsubmited(true)
                 }
-                setsubmited(true)
+               
             })
             .catch((error) => {
                 setError("email", {

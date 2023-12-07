@@ -260,7 +260,7 @@ export default function DispensoriesDetails() {
                                     Setarr1={SetDespensariesProductData}
                                     arr={DespensariesData}
                                 />
-                                <div className="col-12 col-lg-10 prod_cat_right_sec">
+                                <div className="col-12 col-lg-9 col-xxl-10 prod_cat_right_sec">
                                     <ProductList arr={DespensariesData}
                                         ProductNavigate={ProductNavigate}
                                     />
