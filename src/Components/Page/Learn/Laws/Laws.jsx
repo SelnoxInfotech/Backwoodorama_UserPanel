@@ -10,7 +10,6 @@ const Laws = () => {
         <h1 className="canabisLawMainHeadings">Cannabis Law in USA, Canada & Internationals</h1>
         <LearnBanner />
         <LawsOptions />
-
       </div>
     
     </div>
