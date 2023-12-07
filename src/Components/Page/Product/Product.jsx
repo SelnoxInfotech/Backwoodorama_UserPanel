@@ -62,45 +62,33 @@ const Product = () => {
     React.useEffect(() => {
         if (params.subCategory) {
             SetLoading(true)
-            // const object = {
-            //     City: state.City.replace(/-/g, " "),
-            //     Country: state.Country.replace(/-/g, " "),
-            //     State: state.State.replace(/-/g, " ")
-            // }
-            // SubcategoryProduct(object, params.id).then((response) => {
+            const object = {
+                City: state.City.replace(/-/g, " "),
+                Country: state.Country.replace(/-/g, " "),
+                State: state.State.replace(/-/g, " ")
+            }
+            SubcategoryProduct(object, params.id).then((response) => {
 
-            //     SetLoading(false)
-            //     if (response?.length !== 0) {
-            //         f(response[0]?.category_name)
-
-            //         SetProduct(response)
-            //         SubCategoryApi(response[0]?.category_id).then((response) => {
-            //             setsubcategories(response.data.data)
-            //         }).catch((error) => {
-            //             console.trace(error)
-            //         })
-
-            //     }
-            //     else {
-            //         SetProduct([])
-
-
-            //     }
-
-            // })
+                SetLoading(false)
+                if (response !== "No Product Found") {
+                    f(response[0]?.category_name)
+                    SetProduct(response)
+                }
+                else {
+                  
+                }
+            })
         }
         else {
             if (params.categoryname) {
-                // // window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
                 const object = {
                     City: state.City.replace(/-/g, " "),
                     Country: state.Country.replace(/-/g, " "),
                     State: state.State.replace(/-/g, " ")
                 }
                 SetLoading(true)
-
                 CategoryProductsearch(object, params.id).then((response) => {
-                    if (response.length !== 0) {
+                    if (response !== "No Product Found") {
                         SetLoading(false)
                         f(response[0]?.category_name)
                         SetProduct(response)
@@ -112,7 +100,7 @@ const Product = () => {
                     }
                     else {
                         SetLoading(false)
-                        SetProduct(response.data)
+                        SetProduct(response.data.data)
 
                     }
                 })
@@ -233,7 +221,7 @@ const Product = () => {
                                     <SkeletonCard />
                                 </div>
                                 :
-                                Product?.length ?
+                                Product?.length !== 0 && Product !== undefined  ?
 
                                     <div className="col-12 mt-sm-4 mt-0">
                                         <ProductSearchResult RelatedProductResult={Product} CategoryName={C} />
