@@ -81,7 +81,7 @@ const LawStateDecriptionBanner = () => {
         <React.Fragment>
             <div className='col-12 lawStateDescBannerCol'>
                 <LawStateDecriptionBanner {...settings}>
-                    {LearnBannerArray.map((items, index) => {
+                    {LearnBannerArray?.map((items, index) => {
                         return (
                             <div className='learn_banner_header' key={index}>
                                 <div className='col-12 learn_image_slider'>
