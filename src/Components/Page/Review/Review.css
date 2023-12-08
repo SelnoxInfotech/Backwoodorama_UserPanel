@@ -3,6 +3,12 @@
 .review_secton{
     position: relative;
 }
+.reviews_writer{
+  padding: 0;
+  margin: 0;  
+  color: #a3a3a3;
+  font-size: 14px;
+}
 .reviews_description {
     position: sticky;
     top: 150px;

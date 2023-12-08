@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import useStyles from "../../../../Style"
@@ -25,6 +25,7 @@ export default function DispensoriesDetails() {
     const { state, dispatch } = React.useContext(Createcontext)
     const location = useLocation()
     const params = useParams();
+    const [reviewtype,setReviewtype] = React.useState(' ')
     const { id, tab, Category, SubCategory } = params
     const classes = useStyles()
     const [category, SetCategory] = React.useState([])
@@ -139,13 +140,48 @@ export default function DispensoriesDetails() {
     { Id: 5, Name: "Weight", Type1: "Any", Type2: "$25", Price: "$100", Icons: <GiWeightScale className={classes.muiIcons} /> },
     { Id: 6, Name: "Unit", Type1: "Any", Type2: "$25", Price: "$100", Icons: <AiOutlineDeploymentUnit className={classes.muiIcons} /> },
     ]
-
+   useEffect(()=>{
+    if(reviewtype === "product"){
+        axios.post('https://api.cannabaze.com/UserPanel/GetallProductReviewbyStore/',{
+            "store":id
+        }).then((res)=>{ 
+            SetReview(res.data)
+        })
+    }else if(reviewtype === "store" ){
+        Store_Get_Review(id).then((res) => {
+            SetReview(() => {
+                return res.data
+            })
+            var Obj = _.find(res.data, { user: state.Profile.id });
+            SetGetProductReview({ ...GetProductReview, 'popup': false, 'value': Obj.rating, 'Title': Obj.Title, 'comment': Obj.comment })
+        }).catch((e) => {
+            console.error(e)
+        })
+    }else{
+        Store_Get_Review(id).then((res) => {
+          
+            SetReview(res.data)
+            var Obj = _.find(res.data, { user: state.Profile.id });
+            SetGetProductReview({ ...GetProductReview, 'popup': false, 'value': Obj.rating, 'Title': Obj.Title, 'comment': Obj.comment })
+        }).catch((e) => {
+            console.error(e)
+        })
+        axios.post('https://api.cannabaze.com/UserPanel/GetallProductReviewbyStore/',{
+            "store":id
+        }).then((res)=>{
+           
+            SetReview([...AllReview,...res.data])
+        })
+    }
+   },[reviewtype,id])
 
     React.useEffect(() => {
         Store_OverAllGet_Review(id).then((res) => {
             SetRating(res)
+            
         }).catch(() => { })
-    }, [id, api])
+     }, [ id, api])
+
 
     React.useEffect(() => {
         if (state.login && state.Profile.id !== undefined && id !== undefined) {
@@ -191,17 +227,18 @@ export default function DispensoriesDetails() {
         })
     };
 
-    React.useEffect(() => {
-        Store_Get_Review(id).then((res) => {
-            SetReview(() => {
-                return res.data
-            })
-            var Obj = _.find(res.data, { user: state.Profile.id });
-            SetGetProductReview({ ...GetProductReview, 'popup': false, 'value': Obj.rating, 'Title': Obj.Title, 'comment': Obj.comment })
-        }).catch((e) => {
-            console.error(e)
-        })
-    }, [id, api])
+    // React.useEffect(() => {
+    //     Store_Get_Review(id).then((res) => {
+    //         SetReview(() => {
+    //             return res.data
+    //         })
+    //         var Obj = _.find(res.data, { user: state.Profile.id });
+    //         SetGetProductReview({ ...GetProductReview, 'popup': false, 'value': Obj.rating, 'Title': Obj.Title, 'comment': Obj.comment })
+    //     }).catch((e) => {
+    //         console.error(e)
+    //     })
+    // }, [id, api])
+
     const Swal = require('sweetalert2')
 
     function handleDelete(id) {
@@ -232,8 +269,6 @@ export default function DispensoriesDetails() {
     function handleEdit() {
         SetGetProductReview({ ...GetProductReview, 'popup': true })
     }
-
-
     function HellFull (ReviewId){
         StoreHelpFull(ReviewId.id ,state.Profile.id).then((res)=>{
             SetApi(!api)
@@ -272,7 +307,7 @@ export default function DispensoriesDetails() {
                         tab === 'store-details' && <ComponentStoreDetails storeDetails={Despen}></ComponentStoreDetails>
                     }
                     {
-                        tab === 'review' && <Review HellFull={HellFull} delBtn={Despen} handleEdit={handleEdit} reviewloading={reviewloading} handleDelete={handleDelete} Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview={SetReview}></Review>
+                        tab === 'review' && <Review HellFull={HellFull} type={`store`} reviewtype={reviewtype} setReviewtype={setReviewtype} delBtn={Despen} handleEdit={handleEdit} reviewloading={reviewloading} handleDelete={handleDelete} Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview={SetReview}></Review>
                     }
                     {
                         tab === 'deals' && <>Deal</>

@@ -1,11 +1,32 @@
 import OverAllReview from "./ReviewComponent/OverAllReview"
 import RelatedReview from "./ReviewComponent/RelatedReview"
-import React from "react"
+import sortBy from "lodash/sortBy";
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import style from "../../../Style"
+import Select from '@mui/material/Select';
+import React,{useEffect, useState} from "react"
 import WriteReviewPopup from "./ReviewPopup/WriteReviewPopup"
 import './Review.css'
-const Review = ({ reviewloading, handleEdit, delBtn, Rating, handleDelete, onSubmit, api, SetApi, GetProductReview, SetGetProductReview, AllReview, SetReview, HellFull }) => {
-
+const Review = ({ reviewloading, handleEdit, delBtn,reviewtype, setReviewtype, type, Rating, handleDelete, onSubmit, api, SetApi, GetProductReview, SetGetProductReview, AllReview, SetReview, HellFull }) => {
+    const [short,setSort] = useState(' ')
+    const [sorteddata , setsorteddata] = useState([])
     let noofreview = AllReview.length
+    const classes = style()
+    useEffect(()=>{
+       if(short === "helpful"){
+        setsorteddata(sortBy(AllReview, [function(o) { return o.count; }]).reverse())
+       }else if(short === "newest"){
+        setsorteddata(sortBy(AllReview, [function(o) { return o.created_at; }]).reverse())
+       
+       }else if(short === "highrate"){
+        setsorteddata(sortBy(AllReview, [function(o) { return o.rating; }]).reverse())
+       }else if(short === "lowrate"){
+        setsorteddata(sortBy(AllReview, [function(o) { return o.rating; }]))
+       }
+    },[short , AllReview])
+
+  
     return (
         <React.Fragment>
 
@@ -14,10 +35,28 @@ const Review = ({ reviewloading, handleEdit, delBtn, Rating, handleDelete, onSub
                 {
                     noofreview !== 0 ?
                         <div className="row">
+                            <div className="col-12">
+                                <div className="filter_review gap-3 d-flex justify-content-end">
+                               { type=== "store" &&
+                                 <FormControl className={`${classes.reviewFilter}`} >
+                                <Select value={reviewtype}   onChange={(e)=>{setReviewtype(e.target.value)}} >
+                                    <MenuItem value={' '}>All Review</MenuItem>
+                                    <MenuItem value={"product"}>Product Review</MenuItem>
+                                    <MenuItem value={"store"}>Store Review</MenuItem>
+                                </Select></FormControl>
+                                }
+                                  <FormControl className={`${classes.reviewFilter}`} >
+                                <Select value={short}   onChange={(e)=>{setSort(e.target.value)}}  >
+                                    <MenuItem value={' '}><span>Short By</span></MenuItem>
+                                    <MenuItem value={'helpful'}>Most Relevant</MenuItem>
+                                    <MenuItem value={'newest'}>Newest Rating</MenuItem>
+                                    <MenuItem value={'highrate'}>Highest Rating</MenuItem>
+                                    <MenuItem value={'lowrate'}>Lowest Rating</MenuItem>
+                                </Select>
+                                </FormControl>
+                                </div>
+                            </div>
                             <div className="col-md-5 reviews_description">
-
-
-
                                 <OverAllReview
                                     Rating={Rating}
                                     noReview={noofreview}
@@ -28,7 +67,6 @@ const Review = ({ reviewloading, handleEdit, delBtn, Rating, handleDelete, onSub
                                     SetApi={SetApi}
                                     reviewloading={reviewloading}
                                 />
-
                             </div>
                             <div className="col-md-7">
                                 <RelatedReview
@@ -36,7 +74,7 @@ const Review = ({ reviewloading, handleEdit, delBtn, Rating, handleDelete, onSub
                                     storeDetails={delBtn}
                                     handleEdit={handleEdit}
                                     handleDelete={handleDelete}
-                                    AllReview={AllReview}
+                                    AllReview={sorteddata?.length !== 0 ? sorteddata : AllReview } 
                                     SetReview={SetReview}
                                     GetProductReview={GetProductReview}
                                     SetGetProductReview={SetGetProductReview}

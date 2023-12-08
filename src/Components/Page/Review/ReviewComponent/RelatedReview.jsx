@@ -13,7 +13,6 @@ import { AiTwotoneLike } from "react-icons/ai";
 import { BsThreeDotsVertical } from "react-icons/bs"
 import useStyles from "../../../../Style";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios'
 import React from 'react';
 import Badge from '@mui/material/Badge';
 import ReportReviewPopup from '../ReviewPopup/ReportReviewPopup';
@@ -86,20 +85,17 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
         return secs + " secs ago"
       }
       }
+
     return (
         <React.Fragment>
             <div className='container-fluid'>
-
                 <div className="row center reviewCardWrapper">
                     {(state.login ? moveObject(AllReview, 'user', state.Profile.id, 0) : AllReview)?.map((ele, index) => {
                         const text = ele?.comment;
-                       
-                        console.log(state.login
-                            ,'login')
                         return (
 
                             <div className="w-100 related_review_container" key={index}>
-                                <div className="d-flex gap-2">
+                                <div className="d-flex gap-2  align-items-center">
                                     <div className="related_img_container">
 
                                         <div className="related_review_image">
@@ -125,14 +121,19 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
 
                                             <div className='reviewSectionRating'>
                                                 {ele.rating && new Array(ele.rating).fill(null).map(() => (
-                                                    <BsStarFill size={10} color="#31B665" className="product_search_rating_star" />
+                                                    <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />
                                                 ))}
 
                                                 {new Array(5 - ele.rating).fill(null).map(() => (
-                                                    <BsStar size={10} color="#31B665" className="product_search_rating_star" />
+                                                    <BsStar size={16} color="#31B665" className="product_search_rating_star" />
                                                 ))}
                                             </div>
                                         </div>
+                                        {textgive(text) &&
+                                            <div className='review_description_container'>
+                                              <p>{textgive(text)}   {text?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => setreadopen(!readopen)}>Read {readopen ? "More" : "Less"}</span>}</p>
+                                            </div>
+                    }
                                         <div className='review_date'>
                                             {/* <p>{ele.created_at.slice(0, 10)?.split("-").reverse().join("-")}</p> */}
                                             <p>{calculateTImefromDate(ele.created_at)}</p>
@@ -192,14 +193,11 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                                     </div>
 
                                 </div>
-                                <div className='review_description_container'>
-
-                                    <p>{textgive(text)}   {text?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => setreadopen(!readopen)}>Read {readopen ? "More" : "Less"}</span>}</p>
-                                </div>
+                               
 
                                 {ele.Reply !== null && "Reply" in ele && ele.Reply !== "" &&
                                     <div className='container-fluid mx-2 review_reply'>
-                                        <div className="d-flex gap-2">
+                                        <div className="d-flex gap-2 align-items-center">
                                             <div className="related_img_container">
                                                 <div className="related_review_image">
                                                     <LazyLoadImage
@@ -236,7 +234,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
 
                                     <div className='related_review_footer_paragraph ellipsis'>
                                             <Badge badgeContent={ele?.count} className={classes.sliderLink_badge}>
-                                             {ele.helpfull.includes(state.Profile.id) ? <AiTwotoneLike color='#31B655' size={25} onClick={() =>{  state.login ? HellFull(ele) : navigate('/login')  }}/> : <AiOutlineLike color='#31B655' size={25} onClick={() =>{  state.login ? HellFull(ele) : navigate('/login')  }}/>} 
+                                             {ele?.helpfull?.includes(state?.Profile?.id) ? <AiTwotoneLike color='#31B655' size={25} onClick={() =>{  state?.login ? HellFull(ele) : navigate('/login')  }}/> : <AiOutlineLike color='#31B655' size={25} onClick={() =>{  state.login ? HellFull(ele) : navigate('/login')  }}/>} 
                                             </Badge>
                                          
                                     </div>

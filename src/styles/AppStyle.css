@@ -930,7 +930,9 @@ scrollbar-width: none;  /* Firefox */
 .create_container_height {
   height: auto;
 }
-
+.filter_review {
+  margin: 20px 0;
+}
 /* end */
 /* DeliveryOption_container */
 .DeliveryOption_container {

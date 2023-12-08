@@ -1284,6 +1284,39 @@ const useStyles = makeStyles({
     }
    
   },
+  reviewFilter:{
+    "&.MuiFormControl-root": {
+      width: "140px",
+      height: "38px",
+      minWidth: "120px",
+      margin: "1px"
+    },
+    "& .MuiInputLabel-root.Mui-focused ": {
+      color: "#31B665"
+    },
+    "& .MuiOutlinedInput-root": {
+      " &.Mui-focused fieldset": {
+        borderColor: "#31B665",
+      },
+
+      '&:hover fieldset': {
+        borderColor: '#31B665', // - Set the Input border when parent has :hover
+      },
+    },
+    "& .MuiInputBase-root": {
+      width: "140px",
+      height: "38px",
+    
+    },
+    "& .MuiOutlinedInput-input": {
+      // width: "119px",
+      // border:"2px solid green"
+    },
+    "& .MuiSelect-nativeInput": {
+      height: "33px",
+      // width: "119px",
+    }
+  },
   WriteReviewBtn_Color: {
     "&.MuiButtonBase-root": {
       color: "#707070",

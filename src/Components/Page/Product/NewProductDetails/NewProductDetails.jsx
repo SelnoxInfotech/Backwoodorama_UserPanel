@@ -152,7 +152,7 @@ return (
       <NewProductinfoText Product={{ heading: "Product Description", text: Product?.Product_Description }} />
 
       <ProductSearchResult RelatedProductResult={StoreProduct} currentProductID={Product.id} CategoryName={heading} />
-      <Review reviewloading={reviewloading} HellFull={HellFull} handleEdit={handleEdit}  handleDelete={handleDelete} Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview ={SetReview}></Review>
+      <Review reviewloading={reviewloading} HellFull={HellFull} storeID={null} handleEdit={handleEdit}  handleDelete={handleDelete} Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview ={SetReview} type={"product"}></Review>
     </div>
   )
 }
