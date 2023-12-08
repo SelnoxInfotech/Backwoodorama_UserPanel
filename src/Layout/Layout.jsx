@@ -6,7 +6,7 @@ import Footer from '../Components/Component/Footer/Footer';
 export default function BasicGrid() {
 
     return (
-        <div>
+        <div >
             <Navbar></Navbar>
             <div className='container ' id='layout'>
                 <Grid item={true} xs={12} md={12} xl={12}>

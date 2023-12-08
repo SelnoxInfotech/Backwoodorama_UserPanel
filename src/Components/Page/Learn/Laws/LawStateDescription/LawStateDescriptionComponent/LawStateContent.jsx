@@ -6,10 +6,10 @@ const LawStateContent = ({ head , gothroughID}) => {
     const [Selected, SetSelected] = React.useState(1)
     const divElement = document.getElementById('Navbar_box')?.clientHeight
 
-    function test(id){
-        window.scrollTo(0, 1000)
+    // function test(id){
+    //     window.scrollTo(0, 1000)
      
-    }
+    // }
     return (
         <React.Fragment>
             <div className="col-lg-11 col-md-12 LawStateContentsContainer ">
@@ -21,7 +21,7 @@ const LawStateContent = ({ head , gothroughID}) => {
                             <React.Fragment key={index}>
                                
                                 <a href={`#${items.title.replaceAll(' ','_')}`}>
-                                     <li className="py-3 tableList" onClick={() => test(items.title.replaceAll(' ','_'))} id={items.title.replaceAll(' ','_')} style={{ color: Selected === items.id ? "#31B665" : "" }} >{items.title}</li></a>
+                                     <li className="py-3 tableList" id={items.title.replaceAll(' ','_')} style={{ color: Selected === items.id ? "#31B665" : "" }} >{items.title}</li></a>
                             </React.Fragment>
                         )
                     })}
