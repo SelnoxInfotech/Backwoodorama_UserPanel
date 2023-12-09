@@ -36,7 +36,7 @@ const OverAllReview = ({ Rating, api,noReview, SetApi  ,onSubmit,reviewloading, 
                                     <div className="col-lg-12 left_circularbar">
                                         <div style={{ width: 100, height: 100 }}>
                                             <CircularProgressbar 
-                                                value={ Rating?.AverageReview *100 /5 } text={Rating?.AverageReview}     styles={{
+                                                value={ Math.round( Rating?.AverageReview *100 /5 )  } text={ Math.round(Rating?.AverageReview)}     styles={{
                                                 
                                                     path: {
                                                     

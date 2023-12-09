@@ -32,7 +32,7 @@ const Navbar = () => {
   const [DropDownState, SetDropDownState] = React.useState(false);
   const [ProfileSlectedState, SetProfileSelectedState] = React.useState(1)
   const ProfileList = [{ id: 1, item: "My Order" , link:'/myorder' }, { id: 2, item: "Favorites", link:'/whislists' },
-  { id: 3, item: "Review", link:'/' }, { id: 4, item: "Help", link:'/' }]
+  { id: 3, item: "Review", link:'/myreviews' }, { id: 4, item: "Help", link:'/' }]
    
   React.useEffect(() => {
 

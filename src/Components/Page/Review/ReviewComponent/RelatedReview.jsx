@@ -197,7 +197,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
 
                                 {ele.Reply !== null && "Reply" in ele && ele.Reply !== "" &&
                                     <div className='container-fluid mx-2 review_reply'>
-                                        <div className="d-flex gap-2 align-items-center">
+                                        <div className="d-flex gap-2">
                                             <div className="related_img_container">
                                                 <div className="related_review_image">
                                                     <LazyLoadImage
