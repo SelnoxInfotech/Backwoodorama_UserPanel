@@ -1336,6 +1336,42 @@ const useStyles = makeStyles({
 
     },
   },
+  WritehelpfullBtn_Color: {
+    "&.MuiButtonBase-root": {
+      color: "#707070",
+      border:"1px solid #f0f0f0",
+      borderRadius:"14px",
+      textTransform:"none",
+      height:"32  px",
+      fontSize:"14px",
+      borderColor:'#31B665',
+    },
+    "&.MuiButtonBase-root:hover": {
+
+      color: "#fff",
+      border: "1px solid #f0f0f0",
+      background: "#31B655",
+     
+"& .MuiBadge-root svg":{
+  fill:'white',
+}
+    },
+  },
+  donehelpfullBtn_Color:{
+    "&.MuiButtonBase-root": {
+      color: "#fff",
+      border:"1px solid #f0f0f0",
+      borderRadius:"14px",
+      textTransform:"none",
+      height:"32  px",
+      fontSize:"14px",
+      borderColor:'#31B665',
+      backgroundColor:'#31B655',
+      "& .MuiBadge-root svg":{
+        fill:'white',
+      }
+    },
+  },
   WriteReviewBtn_Coloractive:{
     "&.MuiButtonBase-root": {
       color: "#fff",
