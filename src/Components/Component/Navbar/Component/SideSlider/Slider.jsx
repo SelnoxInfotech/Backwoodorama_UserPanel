@@ -25,7 +25,7 @@ const SideNavbar = ({ closeNav, Open }) => {
    
     const classes = useStyles()
     function Logout() {
-        cookies.remove('Token_access')
+        cookies.remove('User_Token_access')
         dispatch({ type: 'Login', login: false })
         dispatch({ type: 'ApiProduct' })
         closeNav()

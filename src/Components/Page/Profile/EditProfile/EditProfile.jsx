@@ -11,7 +11,7 @@ import Createcontext from "../../../../Hooks/Context"
 const EditProfile = () => {
     const { dispatch } = React.useContext(Createcontext)
     const cookies = new Cookies();
-    const token_data = cookies.get('Token_access')
+    const token_data = cookies.get('User_Token_access')
    const [Profile ,SetProfile] =  React.useState([])
    const [Api , SetApi] =  React.useState(false)
     React.useEffect( ()=>{

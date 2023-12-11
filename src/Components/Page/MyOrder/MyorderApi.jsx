@@ -3,7 +3,7 @@ import Cookies from 'universal-cookie';
 import Axios from "axios"
 function order() {
   const cookies = new Cookies();
-  const token_data = cookies.get('Token_access')
+  const token_data = cookies.get('User_Token_access')
   const config = {
     headers: { Authorization: `Bearer ${token_data}` }
   };
@@ -15,7 +15,7 @@ function order() {
 }
 function PendingOrder() {
   const cookies = new Cookies();
-  const token_data = cookies.get('Token_access')
+  const token_data = cookies.get('User_Token_access')
   const config = {
     headers: { Authorization: `Bearer ${token_data}` }
   };
@@ -28,7 +28,7 @@ function PendingOrder() {
 
 function OrderBYID(id) {
   const cookies = new Cookies();
-  const token_data = cookies.get('Token_access')
+  const token_data = cookies.get('User_Token_access')
   const config = {
     headers: { Authorization: `Bearer ${token_data}` }
   };
@@ -38,7 +38,7 @@ function OrderBYID(id) {
 }
 function Cancel(id) {
   const cookies = new Cookies();
-  const token_data = cookies.get('Token_access')
+  const token_data = cookies.get('User_Token_access')
   const config = {
     headers: { Authorization: `Bearer ${token_data}` }
   };
@@ -49,7 +49,7 @@ function Cancel(id) {
 
 function GetCancelOrder() {
   const cookies = new Cookies();
-  const token_data = cookies.get('Token_access')
+  const token_data = cookies.get('User_Token_access')
   const config = {
     headers: { Authorization: `Bearer ${token_data}` }
   };

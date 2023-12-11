@@ -13,7 +13,7 @@ import Cookies from 'universal-cookie';
 import Axios from 'axios';
 const AddDateOfBirth = ({ Profile, Api, SetApi }) => {
     const cookies = new Cookies();
-    const token_data = cookies.get('Token_access')
+    const token_data = cookies.get('User_Token_access')
     const { register, handleSubmit, errors, reset, setError } = useForm();
     const classes = useStyles()
     const [Open, SetOpen] = React.useState(false)

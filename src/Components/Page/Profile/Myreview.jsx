@@ -25,7 +25,7 @@ const Myreview = () => {
         })
        }
 
-    const token_data = cookies.get('Token_access')
+    const token_data = cookies.get('User_Token_access')
     React.useEffect(()=>{
         axios.get('https://api.cannabaze.com/UserPanel/Get-ProductReviewbyUser/',
         {

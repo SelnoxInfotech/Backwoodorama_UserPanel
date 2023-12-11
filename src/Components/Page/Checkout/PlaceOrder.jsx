@@ -12,7 +12,7 @@ const PlaceOrder = () => {
     const classes = useStyles()
     const { state, dispatch } = React.useContext(Createcontext)
     const cookies = new Cookies();
-    const token_data = cookies.get('Token_access')
+    const token_data = cookies.get('User_Token_access')
     const [Order, SetOrder] = React.useState([])
     const today = new Date(location.state.OrderDate);
     const yyyy = today.getFullYear();

@@ -21,7 +21,7 @@ import { useState } from 'react';
 import Createcontext from "../../../../Hooks/Context"
 const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, HellFull}) => {
     const cookies = new Cookies();
-    const token_data = cookies.get('Token_access')
+    const token_data = cookies.get('User_Token_access')
     const classes = useStyles();
     const navigate = useNavigate();
     const { state, dispatch } = React.useContext(Createcontext);

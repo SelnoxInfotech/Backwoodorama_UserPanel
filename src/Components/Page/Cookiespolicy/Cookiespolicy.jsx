@@ -46,7 +46,11 @@ const Termsconditions = () => {
    
     allHeigths.forEach((item)=>{
       if(item.id === ID){
-        window.scrollTo(0, item.topheigth - divElement)
+        document.documentElement.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "instant", // Optional if you want to skip the scrolling animation
+      });
       }
     })
   }

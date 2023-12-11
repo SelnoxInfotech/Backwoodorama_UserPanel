@@ -128,43 +128,6 @@ const Product = () => {
                         }
                     }
                 })
-                // if (state.City !== "") {
-                //     const object = { City: state.City.replace(/-/g, " ") }
-                //     SetLoading(true)
-
-                // }
-                // else {
-                //     if (state.State !== "") {
-                //         const object = { State: state.State.replace(/-/g, " ") }
-                //         GetProduct(object).then((response) => {
-                //             if (response.data.length !== 0) {
-                //                 SetLoading(false)
-                //                 f("All Product")
-                //                 SetProduct(response.data)
-                //             }
-                //             else {
-                //                 const object = { Country: state.Country.replace(/-/g, " ") }
-                //                 GetProduct(object).then((response) => {
-                //                     SetLoading(false)
-                //                     f("All Product")
-                //                     SetProduct(response.data)
-
-                //                 })
-                //             }
-                //         })
-                //     }
-                //     else {
-                //         if (state.Country !== "") {
-                //             const object = { Country: state.Country.replace(/-/g, " ") }
-                //             GetProduct(object).then((response) => {
-                //                 SetLoading(false)
-                //                 f("All Product")
-                //                 SetProduct(response.data)
-
-                //             })
-                //         }
-                //     }
-                // }
             }
 
         }

@@ -14,7 +14,7 @@ import Axios from 'axios';
 const EditEmailPopup = ({ email , Api, SetApi }) => {
     const nam = email
     const cookies = new Cookies();
-    const token_data = cookies.get('Token_access')
+    const token_data = cookies.get('User_Token_access')
     const classes = useStyles()
     const { register, handleSubmit, errors, reset ,setError} = useForm();
     const [open, setOpen] = React.useState(false);

@@ -17,7 +17,7 @@ import Cookies from 'universal-cookie';
 import AddToCartPopUp from "./AddToCartPopUp/AddToCartPopUp"
 const ProductDetail = () => {
     const cookies = new Cookies();
-    const token_data = cookies.get('Token_access')
+    const token_data = cookies.get('User_Token_access')
     const location = useLocation()
     const Id = location.state
     const { state, dispatch } = React.useContext(Createcontext)
@@ -64,10 +64,10 @@ const ProductDetail = () => {
 
         }).then(response => {
             SetProduct(response.data)
-            window.scrollTo({
+            document.documentElement.scrollTo({
                 top: 0,
-                behavior: 'smooth'
-
+                left: 0,
+                behavior: "instant", // Optional if you want to skip the scrolling animation
             });
         }).catch(
             function (error) {

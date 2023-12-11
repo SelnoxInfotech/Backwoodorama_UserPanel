@@ -13,7 +13,7 @@ export default function CookiesAccept() {
         let date = new Date();
         date.setTime(date.getTime() + (60 * 60 * 8000))
         cookies.set('CookiesAcceptAll', 1, { expires: date })
-        dispatch({ type: 'Cookies', Cookies: cookies.get('CookiesAcceptAll') })
+        dispatch({ type: 'Cookies', Cookies: cookies.get('CookiesAcceptAll')})
     }
     return (
         <div className='col-12 AcceptCookies'>

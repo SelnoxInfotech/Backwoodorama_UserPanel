@@ -18,7 +18,7 @@ const Profile = () => {
     const classes = useStyles()
     const { state, dispatch } = React.useContext(Createcontext)
     const cookies = new Cookies();
-    const token_data = cookies.get("Token_access")
+    const token_data = cookies.get("User_Token_access")
     const [selectedImage, setSelectedImage] = React.useState(null);
     const [Error, SetError] = React.useState('')
     const Navigate = useNavigate()
@@ -28,7 +28,7 @@ const Profile = () => {
     { id: 3, icons: <AiFillStar color="#707070" size={22} />, item: "Review" },
     { id: 4, icons: <IoIosSettings color="#707070" size={22} />, item: "Help" }]
     function Logout() {
-        cookies.remove('Token_access')
+        cookies.remove('User_Token_access')
         dispatch({ type: 'Login', login: false })
         dispatch({ type: 'ApiProduct' });
         Navigate("/")

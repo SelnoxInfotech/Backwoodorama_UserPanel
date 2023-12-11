@@ -20,7 +20,7 @@ export function StaticImages() {
 // blog Api
 export function BlogLike(ID) {
     const cookies = new Cookies();
-    const token_data = cookies.get('Token_access')
+    const token_data = cookies.get('User_Token_access')
     if (token_data) {
         let data = axios.get(`https://api.cannabaze.com/UserPanel/Get-BlogLike/${ID}`,
             {
@@ -38,7 +38,7 @@ export function BlogLike(ID) {
 
 export function Post_BlogLike(id, like) {
     const cookies = new Cookies();
-    const token_data = cookies.get('Token_access')
+    const token_data = cookies.get('User_Token_access')
     let data = axios.post('https://api.cannabaze.com/UserPanel/Add-BlogLike/',
         {
             Blog: id,
@@ -52,7 +52,7 @@ export function Post_BlogLike(id, like) {
 }
 export function Get_Comment(ID) {
     const cookies = new Cookies();
-    const token_data = cookies.get('Token_access')
+    const token_data = cookies.get('User_Token_access')
     if (token_data) {
         let data = axios.get(`https://api.cannabaze.com/UserPanel/Get-Comment/${ID}`,
             {
@@ -69,7 +69,7 @@ export function Get_Comment(ID) {
 }
 export function Post_Comment(id, Comment) {
     const cookies = new Cookies();
-    const token_data = cookies.get('Token_access')
+    const token_data = cookies.get('User_Token_access')
     let data = axios.post('https://api.cannabaze.com/UserPanel/Add-Comment/',
         {
             Blog: id,
@@ -119,7 +119,7 @@ export function Store_OverAllGet_Review(id) {
 export function Store_Add_Review(Review) {
 
     const cookies = new Cookies();
-    const token_data = cookies.get('Token_access')
+    const token_data = cookies.get('User_Token_access')
     let data = axios.post(`https://api.cannabaze.com/UserPanel/Add-StoreReview/`,
         Review,
         {
@@ -135,7 +135,7 @@ export function Store_Add_Review(Review) {
 }
 export function Delete_StoreReview(id) {
     const cookies = new Cookies();
-    const token_data = cookies.get('Token_access')
+    const token_data = cookies.get('User_Token_access')
     let data = axios.delete(`https://api.cannabaze.com/UserPanel/Delete-StoreReview/${id}`,
         {
             headers: { Authorization: `Bearer ${token_data}` }
@@ -151,7 +151,7 @@ export function Delete_StoreReview(id) {
 
 export async function Store_Get_UserComment(id, storeId) {
     const cookies = new Cookies();
-    const token_data = cookies.get('Token_access')
+    const token_data = cookies.get('User_Token_access')
     let res = await axios.get(`https://api.cannabaze.com/UserPanel/Get-getStoreReviewbyId/${id}/${storeId}`,
         {
             headers: { Authorization: `Bearer ${token_data}` }
@@ -313,7 +313,7 @@ export function PriceFilter(value, Store_id) {
 }
 export function StoreHelpFull(ReviewID, USerID) {
     const cookies = new Cookies();
-    const token_data = cookies.get('Token_access')
+    const token_data = cookies.get('User_Token_access')
     const config = {
         headers: { Authorization: `Bearer ${token_data}` }
     };
