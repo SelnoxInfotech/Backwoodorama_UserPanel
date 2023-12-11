@@ -867,7 +867,7 @@ scrollbar-width: none;  /* Firefox */
 /* Cookies Accept */
 .AcceptCookies {
   display: flex;
-  background-color: rgba(52, 70, 90, .87);
+  /* background-color: rgba(52, 70, 90, .87); */
   bottom: 0;
   color: #fff;
   font-size: 14px;
