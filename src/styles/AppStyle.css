@@ -2403,7 +2403,7 @@ scrollbar-width: none;  /* Firefox */
   height: 20px;
   background-size: cover;
   background-repeat: no-repeat;
-  background: url();
+  /* background: url(); */
 }
 .featuredBrandHeading {
   font-weight: 700;
