@@ -5924,6 +5924,48 @@ line-height: 2;
   color: #202124;
   word-wrap: break-word;
 }
+.faq_centent{
+  margin-top: 5%;
+}
+.help_toc{
+  border: 1px solid black;
+}
+.help_tocHeading_box{
+ background-color: #31B655;
+
+
+}
+.help_tocHeading_box .sideTableHeading{
+   color: #fff;
+   text-align: center;
+   line-height: 60px;
+   margin: 0;
+}
+.helpHeading{
+  margin-top: 40px;
+  font-size: 22px;
+  line-height: 1.4;
+  color: #000;
+  font-weight:700;
+}
+.cursor_pointer{
+  cursor: pointer;
+}
+.helpTitle{
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #000;
+}
+.helpDescription{
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #000;
+}
+.help_contentBox{
+  padding-left: 20px;
+}
 @media screen and (max-width: 480px){
   .productreview_imgcircle{
     width: 50px;

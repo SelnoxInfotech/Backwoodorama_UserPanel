@@ -26,6 +26,8 @@ import FourZeroThree from "../Components/Page/ErrorPage/FourZeroThree"
 import FiveZeroThree from "../Components/Page/ErrorPage/FiveZeroThree"
 import FourZeroFour from "../Components/Page/ErrorPage/FourZeroFour"
 import Brand from "../Components/Page/Brand/Brand"
+import Faq from '../Components/Page/Faq/Faq'
+import Helpcenter from '../Components/Page/Helpcenter/Helpcenter'
 import Deliveries from "../Components/Page/Deliveries/Deliveries"
 import EmptyCard from "../Components/Page/Profile/EditProfile/EditProfile"
 import Profile from "../Components/Page/Profile/Profile"
@@ -60,6 +62,14 @@ const routesConfig = [
       {
         path: "/login",
         element: <RoutingList Component={Login} ></RoutingList>,
+      },
+      {
+        path: "/faq",
+        element: <RoutingList Component={Faq} ></RoutingList>,
+      },
+      {
+        path: "/helpcenter",
+        element: <RoutingList Component={Helpcenter} ></RoutingList>,
       },
       {
         path: "/signupwithemail",

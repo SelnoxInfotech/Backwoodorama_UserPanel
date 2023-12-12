@@ -1284,6 +1284,11 @@ const useStyles = makeStyles({
     }
    
   },
+  faqbox:{
+   "&.MuiPaper-root":{
+    marginBottom:'12px',
+   }
+  },
   reviewFilter:{
     "&.MuiFormControl-root": {
       width: "140px",
@@ -1335,6 +1340,54 @@ const useStyles = makeStyles({
      
 
     },
+  },
+  faqHeading:{
+    "&.MuiButtonBase-root":{
+      backgroundColor:'#ededed',
+    },
+    "& .MuiTypography-root":{
+      fontSize:'22px',
+      fontWeight:'700',
+      lineHeight:'1.5',
+    },
+    '@media(max-Width: 780px)' : {
+      "& .MuiTypography-root":{
+        fontSize:'18px',
+        fontWeight:'600',
+        lineHeight:'1.5',
+      },
+    },
+    '@media(max-Width: 480px)' : {
+      "& .MuiTypography-root":{
+        fontSize:'16px',
+        fontWeight:'600',
+        lineHeight:'1.5',
+      },
+    }
+  },
+  helpaccordionHeading:{
+    "& .MuiTypography-root":{
+      fontSize:'16px',
+      fontWeight:'600',
+      lineHeight:'1.5',
+    },
+  },
+  faqParagraph:{
+    "&.MuiTypography-root":{
+      fontSize:'18px',
+      fontWeight:'500',
+      padding:'20px',
+      lineHeight:'1.5',
+      color:'#666666'
+    },
+    '@media(max-Width: 780px)' : {
+      "&.MuiTypography-root":{
+        fontSize:'14px',
+        fontWeight:'400',
+        lineHeight:'1.5',
+      },
+    },
+   
   },
   WritehelpfullBtn_Color: {
     "&.MuiButtonBase-root": {

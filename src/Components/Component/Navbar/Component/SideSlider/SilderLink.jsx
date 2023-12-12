@@ -82,9 +82,28 @@ export default function DashBoardLink({ state }) {
                   <IconButton className={classes.navBarButton_icons} aria-label="whislist"><AiFillHeart color="#858585" size={22}></AiFillHeart></IconButton>
                 </Badge>
               </Link>
-              <Badge badgeContent={4} className={classes.sliderLink_badge}>
-                <IconButton className={classes.navBarButton_icons} aria-label="notification"> <IoIosNotifications color="#858585" size={23}></IoIosNotifications></IconButton>
-              </Badge>
+              <div className="notification_icon">
+                <Badge badgeContent={4} className={classes.sliderLink_badge}>
+                  <IconButton className={classes.navBarButton_icons} aria-label="notification"> <IoIosNotifications color="#858585" size={23}></IoIosNotifications> </IconButton>
+                </Badge>
+                <div className="notificationList">
+                   <div className="notification_box">
+                    <div className="row">
+                      <div className="col-3">
+                        <div className="notification_img">
+                          <div className="notiimgCircle">
+                            <img src="/image/cat_pro_img1.png" alt="img" />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col-9">
+                        <h4 className="notititle">This is title</h4>
+                        <p className="notipara">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui, perferendis?</p>
+                      </div>
+                    </div>
+                   </div>
+                </div>
+              </div>
               <Link to="/cart">
                 <Badge className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`} badgeContent={state.AllProduct?.length > 0 ? state.AllProduct?.length : null}>
                   <IconButton className={classes.navBarButton_icons} aria-label="shopping-cart"><MdOutlineShoppingCart color="#858585" size={22}></MdOutlineShoppingCart></IconButton>
