@@ -95,7 +95,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                         return (
 
                             <div className="w-100 related_review_container" key={index}>
-                                <div className="d-flex gap-2  align-items-center">
+                                <div className="d-flex gap-2 py-sm-0 py-2   align-items-center">
                                     <div className="related_img_container">
 
                                         <div className="related_review_image">

@@ -67,6 +67,7 @@ const Review = ({ reviewloading, handleEdit, delBtn,reviewtype, setReviewtype, t
                                     api={api}
                                     SetApi={SetApi}
                                     reviewloading={reviewloading}
+                                    AllReview={AllReview}
                                 />
                             </div>
                             <div className="col-md-7">

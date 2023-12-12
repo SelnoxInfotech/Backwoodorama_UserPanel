@@ -158,20 +158,22 @@ export default function DispensoriesDetails() {
             console.error(e)
         })
     }else{
+       
         Store_Get_Review(id).then((res) => {
           
-            SetReview(res.data)
-            var Obj = _.find(res.data, { user: state.Profile.id });
-            SetGetProductReview({ ...GetProductReview, 'popup': false, 'value': Obj.rating, 'Title': Obj.Title, 'comment': Obj.comment })
+            // SetReview(res.data)
+            // var Obj = _.find(res.data, { user: state.Profile.id });
+            // SetGetProductReview({ ...GetProductReview, 'popup': false, 'value': Obj.rating, 'Title': Obj.Title, 'comment': Obj.comment })
+           
+            axios.post('https://api.cannabaze.com/UserPanel/GetallProductReviewbyStore/',{
+                "store":id
+            }).then((response)=>{
+                SetReview([...res.data,...response.data])
+            })
         }).catch((e) => {
             console.error(e)
         })
-        axios.post('https://api.cannabaze.com/UserPanel/GetallProductReviewbyStore/',{
-            "store":id
-        }).then((res)=>{
-           
-            SetReview([...AllReview,...res.data])
-        })
+       
     }
    },[reviewtype,id])
 

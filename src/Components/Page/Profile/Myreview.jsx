@@ -5,6 +5,7 @@ import { IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios'
 import Button from '@mui/material/Button';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Cookies from 'universal-cookie';
 import { AiOutlineLike } from "react-icons/ai";
 import { AiTwotoneLike } from "react-icons/ai";
@@ -12,18 +13,27 @@ import Badge from '@mui/material/Badge';
 import Createcontext from "../../../Hooks/Context"
 import useStyles from "../../../Style";
 import {StoreHelpFull} from '../../../Api/Api';
+import {ProductHelpFull} from '../Product/ProductApi'
 const Myreview = () => {
     const Navigate= useNavigate()
     const classes = useStyles()
-    const [allreiew,setallreviews]=useState([])
+    const [allproductreiew,setallproductreviews]=useState([])
+    const [allstorereiew,setallstorereviews]=useState([])
     const cookies = new Cookies();
     const { state, dispatch } = React.useContext(Createcontext);
     function HellFull (ReviewId){
-        StoreHelpFull(ReviewId.id ,state.Profile.id).then((res)=>{
-
-        }).catch(()=>{
+        ProductHelpFull(ReviewId.id ,state.Profile.id).then((res)=>{
+            axios.get('https://api.cannabaze.com/UserPanel/Get-ProductReviewbyUser/',
+            {
+                headers: { Authorization: `Bearer ${token_data}` }
+            }).then((res)=>{
+                setallproductreviews(res.data)
+            })
+        }).catch((error)=>{
+             console.trace(error)
         })
-       }
+      
+    }
 
     const token_data = cookies.get('User_Token_access')
     React.useEffect(()=>{
@@ -31,9 +41,33 @@ const Myreview = () => {
         {
             headers: { Authorization: `Bearer ${token_data}` }
         }).then((res)=>{
-            setallreviews(res.data)
+            setallproductreviews(res.data)
+            console.log(res.data)
+        })
+        axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreReviewbyUser/`, {
+            headers: { Authorization: `Bearer ${token_data}` }
+        }).then((response)=>{
+            setallstorereviews(response.data)
+          
         })
     },[])
+
+    const [readopen, setreadopen] = useState(true);
+    function textgive(text) {
+        let arrofstr = text?.split(' ');
+        let finalstr = ""
+        if (arrofstr?.length >= 100 && readopen) {
+
+            for (let i = 0; i < 100; i++) {
+                finalstr += `${arrofstr[i]} `
+            }
+        } else {
+            finalstr = text
+        }
+        return finalstr
+    }
+
+    
     function calculateTImefromDate(value){
         //  new Date() = 'Mon Nov 20 2023 13:00:15 GMT+0530 (India Standard Time)'
       let diffTime = Math.abs(new Date().valueOf() - new Date(value).valueOf());
@@ -60,7 +94,17 @@ const Myreview = () => {
         return secs + " secs ago"
       }
       }
-
+    function helpfullStoe(ReviewId){
+        StoreHelpFull(ReviewId.id ,state.Profile.id).then((res)=>{
+            axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreReviewbyUser/`, {
+                headers: { Authorization: `Bearer ${token_data}` }
+            }).then((response)=>{
+                setallstorereviews(response.data)
+              
+            })
+        }).catch(()=>{
+        })
+    }
   return (
     <div className='container'>
         <div className='myreviewContainer'>
@@ -69,43 +113,159 @@ const Myreview = () => {
             </div>
             
             <div className='reviews'>
+
                 {
-                    allreiew?.length !== 0 &&
-                    allreiew?.map((item)=>{
-                        return <div className='myreviewBox'>
-                        <div className='reviewHeaders mb-sm-4 mb-3 d-flex gap-3'>
-                            <div className='productReviewImg'>
-                                <div className='productreview_imgcircle'>
-                                    <img src={item.userImage}   alt="img" / >
-                                </div>
-                            </div>
-                            <div className='productReviewText'>
-                                <h2 className='producRRRtitle'>{item.ProductName}</h2>
-                                <h4>{calculateTImefromDate(item.created_at)}</h4>
-                            </div>
-                        </div>
-                        <div className="product_cart_review">
-                                                                {4 &&  new Array(item.rating).fill(null).map(() => (
-                                                                    <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />  
-                                                                ))}
-                                                                
-                                                                {new Array(5- item.rating).fill(null).map(() => (
-                                                                    <BsStar size={16} color="#31B665" className="product_search_rating_star" />  
-                                                                ))}
-                        </div>
-                        <h2 className="Myreview_titile">{item.Title}</h2>
-                        <p className='myreviewComment'>{item.comment}</p>
-                        <div className='myreview_footer'>
-                        <Button className={item?.helpfull?.includes(state?.Profile?.id) ? classes.donehelpfullBtn_Color : classes.WritehelpfullBtn_Color} variant="outlined" onClick={() =>{  state.login ? HellFull(item) : Navigate("/login")  }}>
-                                  Helpfull  <Badge badgeContent={item?.count} className={classes.sliderLink_badge}>
-                                             {item?.helpfull?.includes(state?.Profile?.id) ? <AiTwotoneLike color='#31B655' size={25} onClick={() =>{  state?.login ? HellFull(item) : Navigate('/login')  }}/> : <AiOutlineLike color='#31B655' size={25} onClick={() =>{  state.login ? HellFull(item) : Navigate("/login")  }}/>} 
-                                            </Badge>
-                       </Button>
-                         </div>
-                    </div>
+                    
+                    allproductreiew?.map((item)=>{
+                        return  <div className='myreviewBox'>
+                                    <div className='reviewHeaders mb-sm-4 mb-3 d-flex gap-3'>
+                                        <div className='productReviewImg'>
+                                            <div className='productreview_imgcircle'>
+                                             
+                                                <LazyLoadImage onError={event => {
+                                        event.target.src = "/image/user.webp"
+                                        event.onerror = null
+                                        }}
+                                        src={  item?.Product.images[0]?.image }
+                                        alt='Profile' className="Navbar_profile_imgs" />
+                                            </div>
+                                        </div>
+                                        <div className='productReviewText'>
+                                            <h2 className='producRRRtitle'>{item.review.ProductName}</h2>
+                                            <h4>{calculateTImefromDate(item.review.created_at)}</h4>
+                                        </div>
+                                    </div>
+                                    <div className="product_cart_review">
+                                                                            {   new Array(item?.review?.rating).fill(null).map(() => (
+                                                                                <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />  
+                                                                            ))}
+                                                                            
+                                                                            {new Array(5- item.review?.rating).fill(null).map(() => (
+                                                                                <BsStar size={16} color="#31B665" className="product_search_rating_star" />  
+                                                                            ))}
+                                    </div>
+                                    <h2 className="Myreview_titile">{item.review.Title}</h2>
+                                    <p className='myreviewComment'>{item.review.comment}</p>
+                                     { item.review.Reply !== null && <div className='replyByvenderreview'>
+                                        <div className='container-fluid mx-2 review_reply'>
+                                            <div className="d-flex gap-2">
+                                                <div className="related_img_container">
+                                                    <div className="related_review_image">
+                                                        <LazyLoadImage
+                                                            onError={event => {
+                                                                event.target.src = "/image/user.webp"
+                                                                event.onerror = null
+                                                            }}
+                                                            className='realted_review_images'
+                                                            src={item?.review.StoreImage}
+                                                            alt="userImage"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="related_review_content">
+
+                                                    <h3 className='reviews_title'>Response from the Owner</h3>
+                                                    <p className='reviews_writer'>{item?.review.Store_Name}</p>
+                                                    <div className='review_date'>
+
+                                                        <p>{calculateTImefromDate(item?.review.ReplyTime)}</p>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div className='review_description_container'>
+
+                                                <p>{textgive(item.Reply)}   {item?.Reply?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => setreadopen(!readopen)}>Read {readopen ? "More" : "Less"}</span>}</p>
+                                            </div>
+
+                                        </div>
+                                    </div>}
+                                    <div className='myreview_footer text-end px-3'>
+                                                <Badge badgeContent={item?.review.count} className={classes.sliderLink_badge} >
+                                                        {item?.review.helpfull?.includes(state?.Profile?.id) ? <AiTwotoneLike color='#31B655' size={25} onClick={() =>{  state?.login ? HellFull(item.review) : Navigate('/login')  }}/> : <AiOutlineLike color='#31B655' size={25} onClick={() =>{  state.login ? HellFull(item.review) : Navigate("/login")  }}/>} 
+                                                </Badge>
+
+                                    </div>
+                               </div>
                     })
                 
-            }
+                }
+                {
+                    
+                    allstorereiew?.length !== 0 &&
+                    allstorereiew?.map((item)=>{
+                        return  <div className='myreviewBox'>
+                                    <div className='reviewHeaders mb-sm-4 mb-3 d-flex gap-3'>
+                                        <div className='productReviewImg'>
+                                            <div className='productreview_imgcircle'>
+                                              
+                                                <LazyLoadImage onError={event => {
+                                                        event.target.src = "/image/user.webp"
+                                                        event.onerror = null
+                                                        }}
+                                                        src={ item?.StoreImage  }
+                                                        alt='Profile' className="Navbar_profile_imgs" />
+                                            </div>
+                                        </div>
+                                        <div className='productReviewText'>
+                                         <h2 className='producRRRtitle'>{item.StoreName}</h2>
+                                            <h4>{calculateTImefromDate(item.created_at)}</h4>
+                                        </div>
+                                    </div>
+                                    <div className="product_cart_review">
+                                                                            {  new Array(item?.rating).fill(null).map(() => (
+                                                                                <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />  
+                                                                            ))}
+                                                                            
+                                                                            {new Array( 5 - item?.rating).fill(null).map(() => (
+                                                                                <BsStar size={16} color="#31B665" className="product_search_rating_star" />  
+                                                                            ))}
+                                    </div>
+                                    <h2 className="Myreview_titile">{item.Title}</h2>
+                                    <p className='myreviewComment'>{item.comment}</p>
+                                     { item.Reply !== null && <div className='replyByvenderreview'>
+                                        <div className='container-fluid mx-2 review_reply'>
+                                            <div className="d-flex gap-2">
+                                                <div className="related_img_container">
+                                                    <div className="related_review_image">
+                                                        <LazyLoadImage
+                                                            onError={event => {
+                                                                event.target.src = "/image/user.webp"
+                                                                event.onerror = null
+                                                            }}
+                                                            className='realted_review_images'
+                                                            src={item?.StoreImage}
+                                                            alt="userImage"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="related_review_content">
+
+                                                    <h3 className='reviews_title'>Response from the Owner</h3>
+                                                    <p className='reviews_writer'>{item?.StoreName}</p>
+                                                    <div className='review_date'>
+
+                                                        <p>{calculateTImefromDate(item?.ReplyTime)}</p>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div className='review_description_container'>
+
+                                                <p>{textgive(item?.Reply)}   {item?.Reply?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => setreadopen(!readopen)}>Read {readopen ? "More" : "Less"}</span>}</p>
+                                            </div>
+
+                                        </div>
+                                    </div>}
+                                    <div className='myreview_footer text-end px-3'>
+                                                <Badge badgeContent={item?.count} className={classes.sliderLink_badge} >
+                                                     {item?.helpfull?.includes(state?.Profile?.id) ? <AiTwotoneLike color='#31B655' size={25} onClick={() =>{  state?.login ? helpfullStoe(item) : Navigate('/login')  }}/> : <AiOutlineLike color='#31B655' size={25} onClick={() =>{  state.login ? helpfullStoe(item) : Navigate("/login")  }}/>} 
+                                                </Badge>
+
+                                    </div>
+                               </div>
+                    })
+                }
             </div>
         </div>
    </div>

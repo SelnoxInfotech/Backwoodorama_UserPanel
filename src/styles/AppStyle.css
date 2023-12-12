@@ -5834,7 +5834,7 @@ line-height: 2;
 }
 .noReview{
   width: 100%;
-  background-color: #7bd994;
+  background-color: #EEFFF5;
   color: #282625;
   padding: 20px;
   height: 300px;
@@ -5884,6 +5884,10 @@ line-height: 2;
   width: 80%;
   margin: 0 auto;
   margin-bottom: 30px;
+  transition: all .4s ease;
+}
+.myreviewBox:hover{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 .productreview_imgcircle{
   width: 80px;
@@ -5907,23 +5911,30 @@ line-height: 2;
   color: gray;
 }
 .Myreview_titile{
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1.5;
+  margin: 0;
   color: #000000;
+  word-wrap: break-word;
 }
 .myreviewComment{
-  font-size: 18px;
-  font-weight: 500;
-  color: black;
+  font-size: 16px;
+  font-weight: 400;
+  color: #202124;
+  word-wrap: break-word;
 }
 @media screen and (max-width: 480px){
+  .productreview_imgcircle{
+    width: 50px;
+    height: 50px;
+  }
   .myreviewBox{
     padding: 15px;
     width: 100%;
   }
   .Myreview_titile{
-    font-size: 18px;
+    font-size: 16px;
   }
   .myreviewComment{
     font-size: 14px;

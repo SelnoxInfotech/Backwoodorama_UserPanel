@@ -5,7 +5,7 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import useStyles from "../../../../Style"
 import WriteReviewPopup from "../ReviewPopup/WriteReviewPopup"
-const OverAllReview = ({ Rating, api,noReview, SetApi  ,onSubmit,reviewloading,  GetProductReview, SetGetProductReview}) => {
+const OverAllReview = ({ Rating, api,noReview,AllReview, SetApi  ,onSubmit,reviewloading,  GetProductReview, SetGetProductReview}) => {
     const classes = useStyles()
 
     const testData = [
@@ -13,7 +13,6 @@ const OverAllReview = ({ Rating, api,noReview, SetApi  ,onSubmit,reviewloading, 
         { starValue: 4, bgcolor: "#31B665", completed: Rating?.FourStar },
         { starValue: 3, bgcolor: "#31B665", completed: Rating?.ThreeStar },
         { starValue: 2, bgcolor: "#31B665", completed: Rating?.TwoStar },
-
         { starValue: 1, bgcolor: "#31B665", completed: Rating?.OneStar },
 
     ];
@@ -63,7 +62,7 @@ const OverAllReview = ({ Rating, api,noReview, SetApi  ,onSubmit,reviewloading, 
                                                     },
                                                 }} />
                                         </div>
-                                        <p>{Rating?.TotalReview} Review</p>
+                                        <p>{AllReview?.length} Review</p>
                                     </div>
 
                                 </div>
