@@ -3,7 +3,7 @@ import React from "react"
 const StoreDetailMenuItem = ({SelectionTab , tab}) => {
 
     const StoreDetailMenuItem = [{ item: "Menu",color:"#31B665" }, { item: "Store Details",color:"#31B665" },
-     { item: "Review",color:"#31B665" },  { item: "Deals",color:"#31B665" }, { item: "Media",color:"#31B665" },
+     { item: "Review",color:"#31B665" },  { item: "Deals",color:"#31B665" },
     ]
 
 
