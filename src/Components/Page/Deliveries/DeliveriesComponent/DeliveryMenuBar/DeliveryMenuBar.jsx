@@ -106,7 +106,7 @@ const DeliveryMenuBar = () => {
                                 <Tab label="Order Online" value="1" />
                                 <Tab label="Order now" value="2" />
                                 <Tab label="Best of WeedX" value="3" />
-                                <Tab label="Recreational" value="4" />
+                                {/* <Tab label="Recreational" value="4" /> */}
 
                             </TabList>
                         </Box>
@@ -116,7 +116,7 @@ const DeliveryMenuBar = () => {
                             </TabPanel>
                             <TabPanel value="2"><DeliveryItemsCard Deliverie={Deliverie} /></TabPanel>
                             <TabPanel value="3"><DeliveryItemsCard Deliverie={Deliverie} /></TabPanel>
-                            <TabPanel value="4"><DeliveryItemsCard Deliverie={Deliverie} /></TabPanel>
+                            {/* <TabPanel value="4"><DeliveryItemsCard Deliverie={Deliverie} /></TabPanel> */}
                         </Box>
                     </TabContext>
                 </Box>

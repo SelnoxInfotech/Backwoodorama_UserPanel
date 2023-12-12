@@ -16,7 +16,6 @@ import CategoryProduct from "../../Home/Dashboard/ComponentDashboard/CategoryPro
 import ComponentStoreDetails from "../../StoreDetail/ComponentStoreDetails"
 import { AiOutlineDeploymentUnit } from "react-icons/ai";
 import Review from "../../Review/Review";
-import Media from "../../Media/Media";
 import { StoreDetails } from "../../../../Components/Component/ScoPage/StoreDetails"
 import { Store_Add_Review, Store_OverAllGet_Review, Store_Get_UserComment, Store_Get_Review, Delete_StoreReview , StoreHelpFull } from "../../../../Api/Api";
 import Createcontext from "../../../../Hooks/Context"
@@ -314,9 +313,7 @@ export default function DispensoriesDetails() {
                     {
                         tab === 'deals' && <>Deal</>
                     }
-                    {
-                        tab === 'media' && <Media></Media>
-                    }
+                  
                 </div>
             </div>
         </div>
