@@ -27,6 +27,14 @@ const Helpcenter = () => {
      let a=allheight[listno-1]
       window.scrollTo(0, a);
     }
+    React.useEffect(() => {
+        document.documentElement.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "instant", // Optional if you want to skip the scrolling animation
+        });
+        // window.scrollTo(0, 0);
+    }, [])
   return (
     <div className='helpcenter'>
         <div className='container-fluid'>

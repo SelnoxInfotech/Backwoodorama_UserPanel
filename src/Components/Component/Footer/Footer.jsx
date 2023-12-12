@@ -25,7 +25,7 @@ const Footer = () => {
         })
     }, [])
 
-    const AboutUs = [{ head: "About Us" }, { head: "Company" }, { head: "Investor" }, { head: "Help Center" }, { head: "Download App" }]
+    const AboutUs = [{ head: "About Us",Link:'/aboutus'}, { head: "FAQ",Link:'/faq'},  { head: "Help Center",Link:'/helpcenter' }]
 
 
 
@@ -68,7 +68,7 @@ const Footer = () => {
                                     <p className="footer_menu_heading">About</p>
                                     {AboutUs.map((ele, index) => {
                                         return (
-                                            <Link to="/aboutus" key={index}><li className="footer_li ellipsis">{ele.head}</li></Link>
+                                            <Link to={ele.Link} key={index}><li className="footer_li ellipsis">{ele.head}</li></Link>
                                         )
                                     })}
                                       <Link to={`/cannabis-news`}>
@@ -99,13 +99,13 @@ const Footer = () => {
                             <div className="footer_list">
                                 <ol className="footer_main_list">
                                     <p className="footer_menu_heading">For Business</p>
-                                    <Link to={`https://cannabaze.com/bookdemo`}>
+                                    <Link to={`https://cannabaze.com/signup`}>
                                         <li className="footer_li ellipsis" >Add Dispansires</li>
                                     </Link>
-                                    <Link to={`https://cannabaze.com/bookdemo`}>
+                                    <Link to={`https://cannabaze.com/signup`}>
                                         <li className="footer_li ellipsis" >Add Brand</li>
                                     </Link>
-                                    <Link to={`https://cannabaze.com/bookdemo`}>
+                                    <Link to={`https://cannabaze.com/signup`}>
                                         <li className="footer_li ellipsis" >Add Delivery</li>
                                     </Link>
                                   

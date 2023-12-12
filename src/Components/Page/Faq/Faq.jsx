@@ -134,6 +134,14 @@ const Faq = () => {
             the future. `
         }
     ])
+    React.useEffect(() => {
+        document.documentElement.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "instant", 
+        });
+       
+    }, [])
   return (
     <div className='FAQsection'>
         <div className='container-fluid'>
