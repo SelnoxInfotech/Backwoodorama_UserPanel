@@ -25,7 +25,7 @@ const OverAllReview = ({ Rating, api,noReview, SetApi  ,onSubmit,reviewloading, 
                         <div className="">
                             <div className="m-2 text-end">
                                 <WriteReviewPopup onSubmit={onSubmit}   GetProductReview={GetProductReview} reviewloading={reviewloading} SetGetProductReview={SetGetProductReview}  api={api} SetApi={SetApi} />
-                                {/* <button className="overall_review_Button px-2">Write review</button> */}
+                             
                             </div>
 
                         </div>
@@ -36,7 +36,7 @@ const OverAllReview = ({ Rating, api,noReview, SetApi  ,onSubmit,reviewloading, 
                                     <div className="col-lg-12 left_circularbar">
                                         <div style={{ width: 100, height: 100 }}>
                                             <CircularProgressbar 
-                                                value={ Rating?.AverageReview *100 /5 } text={Rating?.AverageReview}     styles={{
+                                                value={( Rating?.AverageReview *100 /5).toFixed(1) } text={Rating?.AverageReview.toFixed(1)}     styles={{
                                                 
                                                     path: {
                                                     
