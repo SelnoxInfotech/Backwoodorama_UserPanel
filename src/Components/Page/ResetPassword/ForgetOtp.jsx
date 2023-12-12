@@ -74,7 +74,7 @@ export default function ForgetOtp({ Otppopup, Setotppopup, Email, setLoading, re
                                 <div className="col-12 center  ">
                                     <div className="otp_input">
                                         {
-                                            invalide && <span>InValide Otp</span>
+                                            invalide && <span style={{ color: "red" }}>InValide Otp</span>
                                         }
                                         <OtpInput
                                             value={OTP}

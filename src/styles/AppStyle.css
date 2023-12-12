@@ -4223,6 +4223,7 @@ footer{
 }
 
 .MyOrder_searchBar {
+  background: #ECECEC;
   width: 100%;
   display: flex;
   align-items: center;
@@ -4232,9 +4233,23 @@ footer{
 }
 
 .yourOrder_search {
+font-family: Poppins;
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
   width: 20%;
-  font-size: 18px;
-  color: #707070;
+  font-size: 20px;
+  color: black;
+}
+.Order_Text{
+  background: #F0FFF6;
+}
+.OrderSearchFiter{
+  display: block;
+  justify-items: end;
+  align-self: center;
+  text-align: end;
 }
 
 .MyOrderSearchBar_container {
@@ -4358,6 +4373,7 @@ footer{
 }
 
 .AllOrder_heading {
+  word-break: break-word;
   color: #000000;
   font-weight: 700;
   font-size: 20px;

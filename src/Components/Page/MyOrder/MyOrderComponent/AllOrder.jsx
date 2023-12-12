@@ -16,11 +16,11 @@ const AllOrder = ({ props }) => {
     }, [])
     return (
         <div className="container-fluid">
-            <div className="row">
+            <div className="row center  ">
                 {(props === undefined ? AllOrder_data : props).map((val, index) => {
                     return (
                         <React.Fragment key={index}>
-                            <div className=" col-lg-10 col-xl-7   AllOrderContainer px-0 mt-4">
+                            <div className=" col-lg-10    AllOrderContainer px-0 mt-4">
                                 <div className="row  mx-0">
                                     <div className="col-6 AllOrderCol1_height">
 
@@ -40,7 +40,7 @@ const AllOrder = ({ props }) => {
                                         <h1 className="sellerName_date">Seller  Name : {val.SellerName}</h1>
                                     </div>
                                     <div className="col-6 AllOrderCol_height text-end">
-                                        <span className="sellerName_date ">{val.OrderDate}</span>
+                                        <span className="sellerName_date ">{val.OrderDate.slice(0,10)}</span>
                                     </div>
 
                                 </div>
