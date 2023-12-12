@@ -313,7 +313,9 @@ export default function DispensoriesDetails() {
                     {
                         tab === 'deals' && <>Deal</>
                     }
-                  
+                    {/* {
+                        tab === 'media' && <Media></Media>
+                    } */}
                 </div>
             </div>
         </div>
