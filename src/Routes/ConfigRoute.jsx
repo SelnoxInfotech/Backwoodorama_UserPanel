@@ -3,6 +3,7 @@ import Layout from "../Layout/Layout"
 import Dashboard from "../Components/Page/Home/Dashboard/Dashboard";
 import ProtectRout from "../Routes/ProtectRout"
 import RoutingDespen from "../Routes/RoutingDespen"
+import Myreview from "../Components/Page/Profile/Myreview.jsx";
 import RoutingList from "../Routes/RoutingList"
 import Learnproductcontent from "../Components/Page/Learn/Product/Learnproductcontent";
 import Blogs from "../Components/Page/Blog/Blog"
@@ -152,6 +153,10 @@ const routesConfig = [
       {
         path: "/products/:categoryname/:subCategory/:id",
         element: <RoutingList Component={Product} ></RoutingList>
+      },
+      {
+        path: "/myreviews",
+        element: <RoutingList Component={Myreview} ></RoutingList>
       },
 
       {

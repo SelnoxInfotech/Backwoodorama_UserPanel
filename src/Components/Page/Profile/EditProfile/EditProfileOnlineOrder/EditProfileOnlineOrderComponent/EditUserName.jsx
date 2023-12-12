@@ -13,7 +13,7 @@ import Cookies from 'universal-cookie';
 import Axios from 'axios';
 const EditUserName = ({ Username, Api, SetApi }) => {
     const cookies = new Cookies();
-    const token_data = cookies.get('Token_access')
+    const token_data = cookies.get('User_Token_access')
     const classes = useStyles()
     const { register, handleSubmit, errors, reset, setError } = useForm();
     const [Open, SetOpen] = React.useState(false)

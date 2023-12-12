@@ -1,5 +1,6 @@
 import OverAllReview from "./ReviewComponent/OverAllReview"
 import RelatedReview from "./ReviewComponent/RelatedReview"
+import { AiFillLike } from "react-icons/ai";
 import sortBy from "lodash/sortBy";
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -83,6 +84,9 @@ const Review = ({ reviewloading, handleEdit, delBtn,reviewtype, setReviewtype, t
                         </div>
                         :
                         <div className="noReview">
+                            <div className="noreviewicon">
+                                <div className="iconcircl"><AiFillLike size={70} color="gray" /></div>
+                            </div>
                             <h3 className="noreview_title">Be the first to review</h3>
                             <p className="noreview_description">Share your experience with the weedx community.</p>
                             <WriteReviewPopup onSubmit={onSubmit} button className={'noReviewBtn'} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} api={api} SetApi={SetApi} />

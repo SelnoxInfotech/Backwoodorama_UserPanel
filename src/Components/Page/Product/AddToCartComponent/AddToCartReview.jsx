@@ -13,7 +13,7 @@ const AddToCartReview = () => {
     const { state, dispatch } = React.useContext(Createcontext)
     const navigate = useNavigate();
     const cookies = new Cookies();
-    const token_data = cookies.get('Token_access');
+    const token_data = cookies.get('User_Token_access');
     const [Loadingmines, SetLoadingmines] = React.useState(false);
     const [LoadingPlue, SetLoadingPluse] = React.useState(false);
     const [LoadingDelete, SetLoadingDelete] = React.useState(false);

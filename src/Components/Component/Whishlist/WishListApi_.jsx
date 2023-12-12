@@ -5,7 +5,7 @@ import Cookies from 'universal-cookie';
 
 function WishListPost(id) {
   const cookies = new Cookies();
-  const token_data = cookies.get('Token_access')
+  const token_data = cookies.get('User_Token_access')
 
 
   let data = axios.post(` https://api.cannabaze.com/UserPanel/Add-Wishlist/`,
@@ -18,7 +18,7 @@ function WishListPost(id) {
 }
 async function WishListget() {
   const cookies = new Cookies();
-  const token_data = cookies.get('Token_access')
+  const token_data = cookies.get('User_Token_access')
   const config = {
     headers: { Authorization: `Bearer ${token_data}` }
   };

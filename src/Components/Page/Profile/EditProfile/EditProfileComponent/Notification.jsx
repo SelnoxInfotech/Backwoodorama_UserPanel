@@ -4,7 +4,7 @@ import Cookies from 'universal-cookie';
 import Axios from 'axios';
 const Notification = ({ Profile, Api, SetApi }) => {
     const cookies = new Cookies();
-    const token_data = cookies.get('Token_access')
+    const token_data = cookies.get('User_Token_access')
     const [Checked, SetChecked] = React.useState({
         Email: false,
         News_Letter: false,

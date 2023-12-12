@@ -51,7 +51,11 @@ export default function Dispansires() {
         setValue(newValue);
     };
     React.useEffect(() => {
-        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+        document.documentElement.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "instant", // Optional if you want to skip the scrolling animation
+        });
     }, [])
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");

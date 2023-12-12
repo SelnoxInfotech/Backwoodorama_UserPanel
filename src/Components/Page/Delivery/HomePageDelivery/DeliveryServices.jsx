@@ -90,10 +90,10 @@ const DeliveryServices = () => {
                 axios.post(`https://api.cannabaze.com/UserPanel/Get-GetDeliveryStoresHomepage/`,
                     object
                 ).then((response) => {
-                    if(response.data.length !==0)
+                    if(response?.data?.length !==0)
                     {
 
-                        return response.data
+                        return response?.data
                     }
                     else{
                         SetSkeleton(false)

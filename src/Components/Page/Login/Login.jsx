@@ -50,7 +50,7 @@ const Login = () => {
                 
                 let date = new Date();
                 date.setTime(date.getTime() + (1000*60*60*24*365))
-                cookies.set('Token_access', response?.data?.tokens?.access, { expires: date })
+                cookies.set('User_Token_access', response?.data?.tokens?.access, { expires: date })
                 dispatch({ type: 'Login', login: true })
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
                 if (location.pathname === "/signupwithemail") {
@@ -79,7 +79,11 @@ const Login = () => {
     }
 
     React.useEffect(()=>{
-        window.scrollTo(0, 0)
+        document.documentElement.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "instant", // Optional if you want to skip the scrolling animation
+        });
     },[])
 
 

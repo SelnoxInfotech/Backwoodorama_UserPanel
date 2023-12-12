@@ -13,6 +13,7 @@ const VerifyBrands = () => {
     const location = useLocation()
     const classes = useStyles()
     const [VerifyArrayData, SetVerifyArrayData] = React.useState([])
+
     React.useEffect(() => {
        
         Axios.get(
@@ -20,6 +21,11 @@ const VerifyBrands = () => {
 
         ).then(response => {
             SetVerifyArrayData(response.data)
+            document.documentElement.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: "instant", // Optional if you want to skip the scrolling animation
+            });
         }).catch(
             function (error) {
 

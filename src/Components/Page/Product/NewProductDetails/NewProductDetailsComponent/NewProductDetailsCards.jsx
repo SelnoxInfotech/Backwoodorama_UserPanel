@@ -28,7 +28,7 @@ const NewProductDetailsCards = ({ Product }) => {
     const [dynamicWeight, setdynamicWeight] = useState(0);
     const p = Product?.images === undefined ? "" : Product?.images[0].image;
     const classes = useStyles();
-    const token_data = cookies.get('Token_access');
+    const token_data = cookies.get('User_Token_access');
     const [CartClean, SetCartClean] = React.useState(false)
     const { state, dispatch } = React.useContext(Createcontext)
     const [Price, SetPrice] = React.useState([])
@@ -148,7 +148,11 @@ const NewProductDetailsCards = ({ Product }) => {
         localStorage.setItem('items', JSON.stringify(AddTOCard))
     }, [AddTOCard])
     React.useEffect(() => {
-        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })    
+        document.documentElement.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "instant", // Optional if you want to skip the scrolling animation
+        }); 
     }, [params])
 
 

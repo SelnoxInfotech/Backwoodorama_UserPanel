@@ -2403,7 +2403,7 @@ scrollbar-width: none;  /* Firefox */
   height: 20px;
   background-size: cover;
   background-repeat: no-repeat;
-  background: url();
+  /* background: url(); */
 }
 .featuredBrandHeading {
   font-weight: 700;
@@ -5834,7 +5834,7 @@ line-height: 2;
 }
 .noReview{
   width: 100%;
-  background-color: #f8f8f8b3;
+  background-color: #7bd994;
   color: #282625;
   padding: 20px;
   height: 300px;
@@ -5876,4 +5876,65 @@ line-height: 2;
   margin: 0;
   font-size: 16px;
   color: #333333a2;
+}
+.myreviewBox{
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.productreview_imgcircle{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.productReviewText .producRRRtitle{
+   font-size: 18px;
+   font-weight: 700;
+   line-height: 1.5;
+   color: #000000;
+}
+.productReviewText h4{
+  font-size: 14px;
+  color: gray;
+}
+.Myreview_titile{
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #000000;
+}
+.myreviewComment{
+  font-size: 18px;
+  font-weight: 500;
+  color: black;
+}
+@media screen and (max-width: 480px){
+  .myreviewBox{
+    padding: 15px;
+    width: 100%;
+  }
+  .Myreview_titile{
+    font-size: 18px;
+  }
+  .myreviewComment{
+    font-size: 14px;
+   
+  }
+  .productReviewText .producRRRtitle{
+    font-size: 16px;
+  
+ }
+ .productReviewText h4{
+   font-size: 12px;
+   color: gray;
+ }
 }

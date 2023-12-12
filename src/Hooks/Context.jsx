@@ -9,7 +9,7 @@ import { WishListget } from '../Components/Component/Whishlist/WishListApi_';
 import { StaticImages } from '../Api/Api';
 const Createcontext = createContext();
 const cookies = new Cookies();
-const login = cookies.get("Token_access")
+const login = cookies.get("User_Token_access")
 const log = login ? true : false
 
 const initialUser = {
@@ -27,7 +27,7 @@ const initialUser = {
     DefalutLocation: "",
     // Set Location From  Google  AutoComplete
     Location: "",
-    permission:false,
+    permission: false,
     LocationData: [],
     cookies: 1,
     CookiesMarketing: 1,
@@ -35,25 +35,25 @@ const initialUser = {
     DeliveryAddress: "",
     selectDeliveryoptions: "",
     Profile: [],
-    GoogleImage:"",
+    GoogleImage: "",
     WishList: [],
     // Get For Routing 
     Country: "",
     State: "",
     City: "",
-    route:"",
+    route: "",
     // End
     // StaticImage
-    StaticImage:[],
+    StaticImage: [],
     //  Loading Circule
-    Loading:false
+    Loading: false
 }
 
 function Context(props) {
     const [state, dispatch] = useReducer(Reducer, initialUser)
     React.useEffect(() => {
         const cookies = new Cookies();
-        const logi = cookies.get("Token_access")
+        const logi = cookies.get("User_Token_access")
         let date = new Date();
         date.setTime(date.getTime() + (60 * 60 * 8000))
         if (!cookies.get('CookiesAcceptAll')) {
@@ -137,20 +137,20 @@ function Context(props) {
             }
         }
     }, [state.ApiProduct, state.login])
-    
-React.useEffect(()=>{
-  StaticImages().then((response)=>{
-    dispatch({ type: 'StaticImage', StaticImage: response.data.data[0] })
-  }).catch((error)=>{
-    console.trace(error)
-  })
-},[])
+
+    React.useEffect(() => {
+        StaticImages().then((response) => {
+            dispatch({ type: 'StaticImage', StaticImage: response.data.data[0] })
+        }).catch((error) => {
+            console.trace(error)
+        })
+    }, [])
 
 
     return (
 
         <Createcontext.Provider value={{ state, dispatch }} container>
-             {/* <CurrentLocation></CurrentLocation> */}
+            {/* <CurrentLocation></CurrentLocation> */}
             <CheckAgeEligbilityPopup value={cookies.get("CheckAge") === undefined ? true : false} ></CheckAgeEligbilityPopup>
             {
                 parseInt(state.Cookies) === 0 && <CookiesAccept></CookiesAccept>

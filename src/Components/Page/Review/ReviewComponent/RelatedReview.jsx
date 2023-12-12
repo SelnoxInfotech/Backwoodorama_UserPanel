@@ -21,7 +21,7 @@ import { useState } from 'react';
 import Createcontext from "../../../../Hooks/Context"
 const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, HellFull}) => {
     const cookies = new Cookies();
-    const token_data = cookies.get('Token_access')
+    const token_data = cookies.get('User_Token_access')
     const classes = useStyles();
     const navigate = useNavigate();
     const { state, dispatch } = React.useContext(Createcontext);
@@ -197,7 +197,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
 
                                 {ele.Reply !== null && "Reply" in ele && ele.Reply !== "" &&
                                     <div className='container-fluid mx-2 review_reply'>
-                                        <div className="d-flex gap-2 align-items-center">
+                                        <div className="d-flex gap-2">
                                             <div className="related_img_container">
                                                 <div className="related_review_image">
                                                     <LazyLoadImage

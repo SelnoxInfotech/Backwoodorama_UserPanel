@@ -32,7 +32,7 @@ const Navbar = () => {
   const [DropDownState, SetDropDownState] = React.useState(false);
   const [ProfileSlectedState, SetProfileSelectedState] = React.useState(1)
   const ProfileList = [{ id: 1, item: "My Order" , link:'/myorder' }, { id: 2, item: "Favorites", link:'/whislists' },
-  { id: 3, item: "Review", link:'/' }, { id: 4, item: "Help", link:'/' }]
+  { id: 3, item: "Review", link:'/myreviews' }, { id: 4, item: "Help", link:'/' }]
    
   React.useEffect(() => {
 
@@ -58,7 +58,7 @@ const Navbar = () => {
     SetOpen(false)
   }
   async function Logout() {
-    await cookies.remove('Token_access')
+    await cookies.remove('User_Token_access')
     await dispatch({ type: 'Login', login: false })
     await dispatch({ type: 'ApiProduct' })
     await dispatch({ type: 'Profile' , Profile :[] })
