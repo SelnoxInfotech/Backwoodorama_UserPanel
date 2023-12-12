@@ -52,8 +52,8 @@ const MyOrder = () => {
                         <div className="col-4 col-lg-6 OrderSearchFiter">
                             <TextField
                                  value={'Filter'}
-                            size="small"
-                                style={{ height: "10%" }}
+                                  size="small"
+                               
                                 name="cls"
                                 select
                                 SelectProps={{
@@ -69,11 +69,7 @@ const MyOrder = () => {
                                         <InputAdornment position="start"><HiArrowsUpDown color="#31B665" /></InputAdornment>
                                     )
                                 }}
-                                sx={{
-                                    height: '2.5rem',
-                                    color: 'white',
-                                  
-                                }}
+                                className={classes.texttoselect}
                             > 
                                 <MenuItem>Item 1</MenuItem>
                                 <MenuItem>Item 2</MenuItem>

@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import useStyles from "../../../Style"
 import SearchBar from "./Component/SearchBar"
 import { AiFillHeart } from "react-icons/ai"
+import  ClickAwayListener from '@mui/base/ClickAwayListener';
 import { IoIosNotifications } from "react-icons/io"
 import { MdOutlineShoppingCart } from "react-icons/md"
 import { Link, NavLink } from "react-router-dom";
@@ -25,6 +26,7 @@ const Navbar = () => {
   const profileRef = React.useRef(null)
   const Location = useLocation()
   const { state, dispatch } = React.useContext(Createcontext)
+  const [notify, setnotify] = React.useState(false)
   const [windowSize, setWindowSize] = React.useState()
   const [Hamburger, SetHamburger] = React.useState(window.innerWidth >= 900)
   const classes = useStyles()
@@ -145,10 +147,32 @@ const Navbar = () => {
                   <IconButton className={classes.navBarButton_icons} aria-label='whishlist'><AiFillHeart color="#858585" size={22} /></IconButton>
                 </Badge>
               </Link>
+              <div className="notification_icon" onClick={()=>{setnotify(!notify)}}>
                 <Badge badgeContent={0} className={classes.sliderLink_badge}>
 
                   <IconButton className={classes.navBarButton_icons} aria-label='notification'><IoIosNotifications color="#858585" size={22}></IoIosNotifications></IconButton>
                 </Badge>
+                {
+                  notify &&
+                  <ClickAwayListener onClickAway={()=>{setnotify(false)}}>
+                    <div className="notificationList">
+                      <div className="notification_box">
+                      
+                            <div className="notification_img">
+                              <div className="notiimgCircle">
+                                <img src="/image/cat_pro_img1.png" alt="img" />
+                              </div>
+                            </div>
+                            <div className="notifytext">
+                            <div className="d-flex align-items-center justify-content-between"><h4 className="notititle">This is title</h4> <span className="notify_date">2 Hours ago</span></div>
+                            <p className="notipara">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui, perferendis?</p>
+                      
+                            </div>
+                      </div>
+                    </div>
+                  </ClickAwayListener>
+                }
+              </div>
               <Link to="/cart">
                 <Badge  badgeContent={ state.AllProduct?.length > 0 ? state.AllProduct?.length : null } className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`}>
 

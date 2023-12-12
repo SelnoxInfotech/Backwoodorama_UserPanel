@@ -4251,11 +4251,69 @@ line-height: normal;
   align-self: center;
   text-align: end;
 }
-
+.OrderSearchFiter .MuiFormControl-root {
+  margin: 0 ;
+}
+.OrderSearchFiter .MuiFormControl-root .Mui-focused .MuiOutlinedInput-notchedOutline{
+  border-color: #31B655;
+}
 .MyOrderSearchBar_container {
   width: 80%;
 }
-
+.notification_icon{
+  position: relative;
+}
+.notificationList{
+  padding: 15px;
+  position: absolute;
+  top: 100%;
+  right:0 ;
+  border: 1px solid gray;
+  background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 5px );
+  -webkit-backdrop-filter: blur( 5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  min-height: 500px;
+}
+.notification_box{
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 320px;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background-color: #fff;
+}
+.notify_date{
+  font-size: 12px;
+  font-weight: 400;
+  color: gray;
+}
+.notiimgCircle{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.notiimgCircle img{
+  width: 100%;
+  height: 100%;
+}
+.notititle{
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
+.notipara{
+  font-size: 14px;
+  font-weight: 400;
+  color: #282828;
+}
+.notification_img{
+  width: 70px;
+}
 .MyOrder_tabs_list {
   height: 60px;
   display: flex;

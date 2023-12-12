@@ -1134,6 +1134,25 @@ const useStyles = makeStyles({
         marginTop: "0px",
       }
     },
+    texttoselect:{
+      '& label.Mui-focused': {
+        color: 'white',
+      },
+      '& .MuiInput-underline:after': {
+        borderBottomColor: 'yellow',
+      },
+      '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+          borderColor: 'white',
+        },
+        '&:hover fieldset': {
+          borderColor: 'white',
+        },
+        '&.Mui-focused fieldset': {
+          borderColor: 'yellow',
+        },
+      },
+    },
     HomePageBaneerSkeletonGrid: {
       "& .MuiSkeleton-root": {
         width: "100%",

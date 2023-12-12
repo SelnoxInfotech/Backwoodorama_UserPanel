@@ -3,6 +3,7 @@ import Grid from '@mui/system/Unstable_Grid';
 import { BsLinkedin } from "react-icons/bs"
 import { AiFillHeart } from "react-icons/ai"
 import { IoIosNotifications } from "react-icons/io"
+import  ClickAwayListener from '@mui/base/ClickAwayListener';
 import { MdOutlineShoppingCart } from "react-icons/md"
 import { ImFacebook } from "react-icons/im"
 import { RiInstagramLine } from "react-icons/ri"
@@ -15,6 +16,7 @@ import { useParams } from "react-router-dom";
 export default function DashBoardLink({ state }) {
   const classes = useStyles()
   const [current_route, Setcurrent_route] = React.useState()
+  const [notify, setnotify] = React.useState(false)
   const location = useLocation();
   React.useEffect(() => {
 
@@ -82,27 +84,30 @@ export default function DashBoardLink({ state }) {
                   <IconButton className={classes.navBarButton_icons} aria-label="whislist"><AiFillHeart color="#858585" size={22}></AiFillHeart></IconButton>
                 </Badge>
               </Link>
-              <div className="notification_icon">
+              <div className="notification_icon" onClick={()=>{setnotify(!notify)}}>
                 <Badge badgeContent={4} className={classes.sliderLink_badge}>
                   <IconButton className={classes.navBarButton_icons} aria-label="notification"> <IoIosNotifications color="#858585" size={23}></IoIosNotifications> </IconButton>
                 </Badge>
-                {/* <div className="notificationList">
-                   <div className="notification_box">
-                    <div className="row">
-                      <div className="col-3">
-                        <div className="notification_img">
-                          <div className="notiimgCircle">
-                            <img src="/image/cat_pro_img1.png" alt="img" />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-9">
-                        <div className="d-flex align-items-center justify-content-between"><h4 className="notititle">This is title</h4> <span className="notify.date">2 Hours ago</span></div>
-                        <p className="notipara">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui, perferendis?</p>
+                {
+                  notify &&
+                  <ClickAwayListener onClickAway={()=>{setnotify(false)}}>
+                    <div className="notificationList">
+                      <div className="notification_box">
+                      
+                            <div className="notification_img">
+                              <div className="notiimgCircle">
+                                <img src="/image/cat_pro_img1.png" alt="img" />
+                              </div>
+                            </div>
+                            <div className="notifytext">
+                            <div className="d-flex align-items-center justify-content-between"><h4 className="notititle">This is title</h4> <span className="notify_date">2 Hours ago</span></div>
+                            <p className="notipara">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui, perferendis?</p>
+                      
+                            </div>
                       </div>
                     </div>
-                   </div>
-                </div> */}
+                  </ClickAwayListener>
+                }
               </div>
               <Link to="/cart">
                 <Badge className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`} badgeContent={state.AllProduct?.length > 0 ? state.AllProduct?.length : null}>
