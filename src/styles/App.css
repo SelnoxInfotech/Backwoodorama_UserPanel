@@ -966,6 +966,7 @@ scrollbar-width: none;  /* Firefox */
 #center1 {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .BolgCommentBOx{
@@ -984,7 +985,9 @@ scrollbar-width: none;  /* Firefox */
 .BlogSocal{
   gap: 10px;
 }
-
+.BlogSocal:hover svg{
+  fill: #31B665 !important;
+}
 .Display_blog {
   display: flex;
   height: 50px;

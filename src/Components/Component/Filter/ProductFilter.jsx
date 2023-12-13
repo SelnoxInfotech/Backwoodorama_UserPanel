@@ -259,7 +259,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                 console.trace(error)
 
             })
-        } else if (event.target.value === 'Price low to high') {
+        } else if (event.target.value === 'Price hight to low') {
             Axios.get(`https://api.cannabaze.com/UserPanel/HighPriceToLowPrice/${id}`).then((response) => {
                 let newdata = response.data.map((res) => {
 
@@ -276,7 +276,8 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
 
                     return res[0]
                 })
-                Setarr1(newdata.reverse())
+                let aee= newdata.reverse()
+                Setarr1(aee)
 
             }).catch((error) => {
                 console.trace(error)
@@ -369,8 +370,11 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
 
                                 <MenuItem value={"Sort by A to Z"}>  Sort by A to Z </MenuItem>
                                 <MenuItem value={"Sort by Z to A"}>Sort by Z to A</MenuItem>
-                                <MenuItem value={"Price low to high"}>Price low to high</MenuItem>
                                 <MenuItem value={"Price hight to low"}>Price high to low</MenuItem>
+                                <MenuItem value={"Price low to high"}>Price low to high</MenuItem>
+
+
+
                             </Select>
                         </FormControl>
 

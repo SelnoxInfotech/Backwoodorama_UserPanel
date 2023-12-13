@@ -87,11 +87,9 @@
     font-weight: 400;
     line-height: 2;
     transition: all .3s ease;
-    text-transform: lowercase;
   }
-  .bottom_menu_items ul li.footer_li::first-letter, .footer_main_list .footer_li::first-letter{
-  text-transform: uppercase;
-  }
+
+
   .bottom_menu_items ul li.footer_li:hover, .footer_main_list .footer_li:hover{
     color: #31B665;
     font-weight:600 ;

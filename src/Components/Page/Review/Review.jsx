@@ -10,7 +10,7 @@ import React,{useEffect, useState} from "react"
 import WriteReviewPopup from "./ReviewPopup/WriteReviewPopup"
 import './Review.css'
 const Review = ({ reviewloading, handleEdit, delBtn,reviewtype, setReviewtype, type, Rating, handleDelete, onSubmit, api, SetApi, GetProductReview, SetGetProductReview, AllReview, SetReview, HellFull }) => {
-    const [short,setSort] = useState(' ')
+    const [short,setSort] = useState('highrate')
     const [sorteddata , setsorteddata] = useState([])
     let noofreview = AllReview.length
     const classes = style()

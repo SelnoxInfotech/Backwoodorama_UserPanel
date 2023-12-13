@@ -38,7 +38,7 @@ const Helpcenter = () => {
   return (
     <div className='helpcenter'>
         <div className='container-fluid'>
-            <Bgheader text="Welcome To The WeedX.Io Help Center"/>
+            <Bgheader text="Welcome To The WeedX.io Help Center"/>
             <div className='helpcenterConent row'>
                 <div className="col-lg-8 col-12">
                  
@@ -142,9 +142,9 @@ environment.
                     <AccordionDetails>
                  
                         <ul>
-                            <li className='cursor_pointer' onClick={()=>{scrolltocontent(1)}}>Registering an Account</li>
-                            <li  className='cursor_pointer'  onClick={()=>{scrolltocontent(2)}}>Logging In</li>
-                            <li  className='cursor_pointer'  onClick={()=>{scrolltocontent(3)}}> Updating Your Profile </li>
+                            <li className='cursor_pointer  tbhelplist' onClick={()=>{scrolltocontent(1)}}>Registering an Account</li>
+                            <li  className='cursor_pointer tbhelplist'  onClick={()=>{scrolltocontent(2)}}>Logging In</li>
+                            <li  className='cursor_pointer tbhelplist'  onClick={()=>{scrolltocontent(3)}}> Updating Your Profile </li>
                         </ul>
                  
                     </AccordionDetails>
@@ -161,9 +161,9 @@ environment.
                                 <AccordionDetails>
                              
                                     <ul>
-                                        <li  className='cursor_pointer'  onClick={()=>{scrolltocontent(4)}}>Placing an Order</li>
-                                        <li  className='cursor_pointer'  onClick={()=>{scrolltocontent(5)}}>Tracking Your Order</li>
-                                        <li  className='cursor_pointer'  onClick={()=>{scrolltocontent(6)}}>Delivery Information</li>
+                                        <li  className='cursor_pointer tbhelplist'  onClick={()=>{scrolltocontent(4)}}>Placing an Order</li>
+                                        <li  className='cursor_pointer tbhelplist'  onClick={()=>{scrolltocontent(5)}}>Tracking Your Order</li>
+                                        <li  className='cursor_pointer tbhelplist'  onClick={()=>{scrolltocontent(6)}}>Delivery Information</li>
                                     </ul>
                                
                                 </AccordionDetails>
@@ -180,9 +180,9 @@ environment.
                                 <AccordionDetails>
                               
                                 <ul>
-                                        <li  className='cursor_pointer'  onClick={()=>{scrolltocontent(7)}}>Finding Dispensaries</li>
-                                        <li  className='cursor_pointer'  onClick={()=>{scrolltocontent(8)}}>Exploring Retailers</li>
-                                        <li  className='cursor_pointer'  onClick={()=>{scrolltocontent(9)}}>Reviews and Ratings</li>
+                                        <li  className='cursor_pointer tbhelplist'  onClick={()=>{scrolltocontent(7)}}>Finding Dispensaries</li>
+                                        <li  className='cursor_pointer tbhelplist'  onClick={()=>{scrolltocontent(8)}}>Exploring Retailers</li>
+                                        <li  className='cursor_pointer tbhelplist'  onClick={()=>{scrolltocontent(9)}}>Reviews and Ratings</li>
                                     </ul>
                                
                                 </AccordionDetails>
@@ -199,9 +199,9 @@ environment.
                                 <AccordionDetails>
                                
                                     <ul>
-                                        <li  className='cursor_pointer'  onClick={()=>{scrolltocontent(10)}}>Age Verification</li>
-                                        <li  className='cursor_pointer'  onClick={()=>{scrolltocontent(11)}}>Legal Guidelines</li>
-                                        <li  className='cursor_pointer'  onClick={()=>{scrolltocontent(12)}}>Reporting Compliance Concerns</li>
+                                        <li  className='cursor_pointer tbhelplist'  onClick={()=>{scrolltocontent(10)}}>Age Verification</li>
+                                        <li  className='cursor_pointer tbhelplist'  onClick={()=>{scrolltocontent(11)}}>Legal Guidelines</li>
+                                        <li  className='cursor_pointer tbhelplist'  onClick={()=>{scrolltocontent(12)}}>Reporting Compliance Concerns</li>
                                     </ul>
                                 
                                 </AccordionDetails>

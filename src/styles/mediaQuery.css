@@ -639,12 +639,8 @@
   }
   .delivery_item_paragraph {
     font-size: .8rem;
+    white-space: none !important;
   }
-
-  .delivery_items_right_side_container_height {
-    display: none;
-  }
-
   .CategorySkeletons {
     height: 200px;
     padding: 0px 10px;

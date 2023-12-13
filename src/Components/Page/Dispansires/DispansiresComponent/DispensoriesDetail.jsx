@@ -228,17 +228,9 @@ export default function DispensoriesDetails() {
         })
     };
 
-    // React.useEffect(() => {
-    //     Store_Get_Review(id).then((res) => {
-    //         SetReview(() => {
-    //             return res.data
-    //         })
-    //         var Obj = _.find(res.data, { user: state.Profile.id });
-    //         SetGetProductReview({ ...GetProductReview, 'popup': false, 'value': Obj.rating, 'Title': Obj.Title, 'comment': Obj.comment })
-    //     }).catch((e) => {
-    //         console.error(e)
-    //     })
-    // }, [id, api])
+    React.useEffect(() => {
+      
+    }, [])
 
     const Swal = require('sweetalert2')
 

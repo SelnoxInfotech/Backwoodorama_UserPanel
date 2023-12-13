@@ -25,14 +25,7 @@ const Footer = () => {
         })
     }, [])
 
-    const AboutUs = [{ head: "About Us",Link:'/aboutus'}, { head: "FAQ",Link:'/faq'},  { head: "Help Center",Link:'/helpcenter' }]
 
-
-
-    // function sendEmail() 
-    // {
-    //     window.location = "mailto://xyz@yourapplicationdomain.com";
-    // }
     return (
         <>
             <footer>
@@ -66,13 +59,13 @@ const Footer = () => {
                             <div className="footer_list">
                                 <ol className="footer_main_list">
                                     <p className="footer_menu_heading">About</p>
-                                    {AboutUs.map((ele, index) => {
-                                        return (
-                                            <Link to={ele.Link} key={index}><li className="footer_li ellipsis">{ele.head}</li></Link>
-                                        )
-                                    })}
+                                 
+                                            <Link to={'/aboutus'}><li className="footer_li text-capitalize ellipsis">About Us</li></Link>
+                                            <Link to={'/faq'}><li className="footer_li ellipsis">FAQ's</li></Link>
+                                            <Link to={'/helpcenter'}><li className="footer_li text-capitalize ellipsis">Help Center</li></Link>
+                                          
                                       <Link to={`/cannabis-news`}>
-                                        <li className="footer_li ellipsis" >All News</li>
+                                        <li className="footer_li text-capitalize ellipsis" >All News</li>
                                     </Link>
                                 </ol>
                             </div>
@@ -82,12 +75,12 @@ const Footer = () => {
                                     {Categorys.map((ele, index) => {
                                         if (index >= 4) {
                                             return <Link to={`/products/${ele.name.replace(/%20| /g, "-").toLowerCase()}/${ele.id}`} key={index} className={morelist ? '' : 'showmoreList'}>
-                                                <li className="footer_li ellipsis" >{ele.name}</li>
+                                                <li className="footer_li text-capitalize ellipsis" >{ele.name}</li>
                                             </Link>
                                         } else {
                                             return (
                                                 <Link to={`/products/${ele.name.replace(/%20| /g, "-").toLowerCase()}/${ele.id}`} key={index}  >
-                                                    <li className="footer_li ellipsis" >{ele.name}</li>
+                                                    <li className="footer_li text-capitalize ellipsis" >{ele.name}</li>
                                                 </Link>
                                             )
                                         }
@@ -100,13 +93,13 @@ const Footer = () => {
                                 <ol className="footer_main_list">
                                     <p className="footer_menu_heading">For Business</p>
                                     <Link to={`https://cannabaze.com/signup`}>
-                                        <li className="footer_li ellipsis" >Add Dispansires</li>
+                                        <li className="footer_li ellipsis" >Add <span className="text-capitalize"> Dispensires</span></li>
                                     </Link>
                                     <Link to={`https://cannabaze.com/signup`}>
-                                        <li className="footer_li ellipsis" >Add Brand</li>
+                                        <li className="footer_li ellipsis" ><span className="text-capitalize">Add Brand</span></li>
                                     </Link>
                                     <Link to={`https://cannabaze.com/signup`}>
-                                        <li className="footer_li ellipsis" >Add Delivery</li>
+                                        <li className="footer_li ellipsis" ><span className="text-capitalize">Add Delivery</span></li>
                                     </Link>
                                   
                                 </ol>
@@ -141,22 +134,22 @@ const Footer = () => {
                             <div className="col-lg-3 col-sm-3 footer_icons_column ">
                                 <ol className="px-0">
                                     <li>
-                                        <Link to={"https://www.linkedin.com/company/weedx-io/"}>
+                                        <Link target="_blank" to={"https://www.linkedin.com/company/weedx-io/"}>
                                           <BsLinkedin className={`footer_icons ${classes.footer_icons_color}`} />
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to={"https://www.facebook.com/profile.php?id=61550742531174"}>
+                                        <Link target="_blank" to={"https://www.facebook.com/profile.php?id=61550742531174"}>
                                            <FaFacebook className={` footer_icons ${classes.footer_icons_color}`} />
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to={"https://www.instagram.com/weedx_io"}>
+                                        <Link target="_blank" to={"https://www.instagram.com/weedx_io"}>
                                            <FaInstagram className={` footer_icons ${classes.footer_icons_color}`} />
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to={"https://twitter.com/Weedx_io"}>
+                                        <Link target="_blank" to={"https://twitter.com/Weedx_io"}>
                                             <span className="x_icon">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="#31B665" height="1em" viewBox="0 0 500 500"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" /></svg>
                                             </span>

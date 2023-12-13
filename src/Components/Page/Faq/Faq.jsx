@@ -145,7 +145,7 @@ const Faq = () => {
   return (
     <div className='FAQsection'>
         <div className='container-fluid'>
-          <Bgheader text="FAQ Page"/>
+          <Bgheader text="FAQ's  Page"/>
           <div className='faq_centent'>
           {
             data.map((item,index)=>{

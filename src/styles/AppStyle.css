@@ -1958,11 +1958,6 @@ scrollbar-width: none;  /* Firefox */
 .delivery_image_content_Container_height {
   height: 220px;
 }
-
-.delivery_items_right_side_container_height {
-  height: 220px;
-}
-
 .delivery_items_card_img_container {
   height: 200px;
   border: 1px solid rgb(157, 158, 160);
@@ -5978,6 +5973,17 @@ line-height: 2;
 }
 .myreviewBox:hover{
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+.helpcenterConent{
+  justify-content: space-between;
+  margin: 5px;
+  font-weight: 500;
+}
+.tbhelplist{
+  transition: all .3s ease;
+}
+.tbhelplist:hover{
+  color: #31B655;
 }
 .productreview_imgcircle{
   width: 80px;

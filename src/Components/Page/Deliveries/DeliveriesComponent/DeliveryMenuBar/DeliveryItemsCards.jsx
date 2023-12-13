@@ -41,7 +41,7 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                                         <span className='disOPenResRating'>Rating</span>
 
                                                         <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={items.rating === null ? 0 : items.rating} readOnly />
-                                                        < span style={{color:"black"}}>{items.rating === null ? 0 : items.rating+".0"}({items.TotalRating})</span>
+                                                        < span style={{color:"black"}}>{items.rating === null ? 0 : items.rating+".0"}</span>
                                                     </div>
                                                         </Link>
 
@@ -93,7 +93,7 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                                 <Box
                                                     className={`${classes.loadingBtnTextAndBack}`}
                                                 >
-                                                    <Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g,'-').toLowerCase()}/${items.id}`}><LoadingButton style={{ width: "100%", height: "30px" }} variant="outlined">view menu</LoadingButton></Link>
+                                                    <Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g,'-').toLowerCase()}/${items.id}`}><LoadingButton style={{ width: "100%", height: "30px" }} variant="outlined">View Menu</LoadingButton></Link>
 
                                                 </Box>
 

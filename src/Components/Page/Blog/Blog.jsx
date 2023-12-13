@@ -154,13 +154,17 @@ const Blogs = () => {
                             {/* <div className="col-12 BlogLink"> */}
                             <div className="col-12 Linkofblog ">
                                 <div className="col BlogSocal" id="center1">
-                                    <RWebShare
-                                        data={{url: "https://www.weedx.io/" + Location.pathname }}
-                                        sites={["facebook" , "twitter" , "whatsapp" , "telegram" , "linkedin" , 'mail' , 'copy']}
-                                        onClick={() => console.info("share successful!")}
-                                        color="#31B665" >
-                                        <BsFillShareFill></BsFillShareFill>
-                                    </RWebShare>
+                               
+                                        <RWebShare
+                                            data={{url: "https://www.weedx.io/" + Location.pathname }}
+                                            sites={["facebook" , "twitter" , "whatsapp" , "telegram" , "linkedin" , 'mail' , 'copy']}
+                                            onClick={() => console.info("share successful!")}
+                                            color="#31B665" >
+                                            <IconButton>
+                                              <BsFillShareFill size={16}></BsFillShareFill>
+                                            </IconButton>
+                                        </RWebShare>
+                                   
                                      <div className="blogViewCounts destop_view">Share</div>
                                 </div>
                                 <div className="col viewsBlog" id="center1">
@@ -173,7 +177,7 @@ const Blogs = () => {
                                    
                                 </div>
                               
-                                <div className="col viewsBlog" id="center1">
+                                <div className="col viewsBlog BlogSocal" id="center1">
                                     {/* <IoEyeSharp></IoEyeSharp> */}
                             <IconButton> 
                                     <BiCommentDetail/>
@@ -181,7 +185,7 @@ const Blogs = () => {
                                     <span className="blogViewCounts">{Getcommnet.CommentCounts} <span className="destop_view"> Comment</span> </span>
                                     {/* <span className="blogViewCounts">Comment</span> */}
                                 </div>
-                                <div className="col viewsBlog like" id="center1">
+                                <div className="col viewsBlog BlogSocal like" id="center1">
                                     <IconButton onClick={(() => { PostLike(color()?.like) })}>
                                         <AiFillHeart color={state?.login && color()?.like && "#31B665"}></AiFillHeart>
                                     </IconButton>
