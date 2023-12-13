@@ -21,7 +21,33 @@
   background-color: #007bff;
   color: #fff;
 }
+.NODataInOrderPage{
+  height: 453px;
+  background: #F0FFF6;
+}
+.nodatainOderText
+{
+  color: #000;
 
+font-family: Poppins;
+font-size: 32px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+.nodatainOderTextp{
+  color: #707070;
+
+font-family: Poppins;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.nodataAlie{
+  display: grid;
+  justify-items: center;
+}
 
 div a {
 
@@ -90,6 +116,7 @@ div a::before {
 }
 
 .center {
+  align-items: center;
   display: flex;
   justify-content: center;
 }

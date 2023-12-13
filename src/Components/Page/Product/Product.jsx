@@ -74,8 +74,7 @@ const Product = () => {
                     f(response[0]?.category_name)
                     SetProduct(response)
                 }
-                else {
-                  
+                else {                 
                 }
             })
         }
@@ -101,12 +100,10 @@ const Product = () => {
                     else {
                         SetLoading(false)
                         SetProduct(response.data.data)
-
                     }
                 })
             }
             else {
-
                 // Get All Product
                 const object = {
                     City: state.City.replace(/-/g, " "),
@@ -120,7 +117,6 @@ const Product = () => {
                         if (response.data.length !== 0) {
                             SetLoading(false)
                             f("All Product")
-
                         }
                         else {
                             SetLoading(false)
@@ -129,7 +125,6 @@ const Product = () => {
                     }
                 })
             }
-
         }
     }, [state.Location, params])
 

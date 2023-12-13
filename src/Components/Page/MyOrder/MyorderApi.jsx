@@ -1,6 +1,5 @@
 import axios from 'axios'
 import Cookies from 'universal-cookie';
-import Axios from "axios"
 function order() {
   const cookies = new Cookies();
   const token_data = cookies.get('User_Token_access')
@@ -60,10 +59,23 @@ function GetCancelOrder() {
   return data;
 }
 
+function GetDeliveredOrder() {
+  const cookies = new Cookies();
+  const token_data = cookies.get('User_Token_access')
+  const config = {
+    headers: { Authorization: `Bearer ${token_data}` }
+  };
+
+  let data = axios.get(`https://api.cannabaze.com/UserPanel/Get-GetDeliveredOrder/`,
+    config,
+  );
+  return data;
+}
 
 
 
-export { order, PendingOrder, OrderBYID, Cancel,GetCancelOrder }
+
+export { order, PendingOrder, OrderBYID, Cancel,GetCancelOrder , GetDeliveredOrder }
 
 
 // https://api.cannabaze.com/UserPanel/Get-GetCancelOrder/ 

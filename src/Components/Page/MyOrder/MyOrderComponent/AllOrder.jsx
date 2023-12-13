@@ -5,19 +5,12 @@ import { Link } from "react-router-dom";
 import { order } from "../MyorderApi"
 import { useLocation } from 'react-router-dom';
 
-const AllOrder = ({ props }) => {
-    const [AllOrder_data, SetAllOrder_data] = React.useState([])
+const AllOrder = ({AllOrder_data }) => {
     const location = useLocation();
-    React.useEffect(() => {
-        window.scroll(0, 0)
-        order().then((res) => {
-            SetAllOrder_data(res.data.reverse())
-        }).catch()
-    }, [])
     return (
         <div className="container-fluid">
             <div className="row center  ">
-                {(props === undefined ? AllOrder_data : props).map((val, index) => {
+                {AllOrder_data.map((val, index) => {
                     return (
                         <React.Fragment key={index}>
                             <div className=" col-lg-10    AllOrderContainer px-0 mt-4">
