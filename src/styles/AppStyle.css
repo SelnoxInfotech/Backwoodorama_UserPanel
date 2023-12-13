@@ -5914,6 +5914,7 @@ line-height: 2;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin: 20px 0;
 }
 .noReview .noreview_description{
    font-size: 14px;

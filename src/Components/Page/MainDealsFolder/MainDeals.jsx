@@ -2,7 +2,6 @@ import NewProductSearchResult from "../Product/NewProductDetails/NewProductDetai
 import { DealsSeo } from "../../Component/ScoPage/DealsSeo";
 import ProductSearchResult from "../Product/ProductSearchResult/ProductSearchResult"
 import axios from "axios";
-import { AiFillLike } from "react-icons/ai";
 import { FaIdeal } from "react-icons/fa";
 
 import React from "react";
