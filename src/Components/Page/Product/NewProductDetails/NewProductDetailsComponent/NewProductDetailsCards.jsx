@@ -4,7 +4,7 @@ import useStyles from "../../../../../Style";
 import { Swiper, SwiperSlide } from "swiper/react";
 import IconButton from '@mui/material/IconButton';
 import { BsShareFill } from "react-icons/bs";
-import { AiOutlineHeart ,AiFillHeart  } from "react-icons/ai"
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
 import { WishListPost } from "../../../../Component/Whishlist/WishListApi_"
 import { RWebShare } from "react-web-share";
 import axios from "axios";
@@ -19,9 +19,9 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import { Link, useParams } from "react-router-dom";
 import AddToCartPopUp from "../../AddToCartPopUp/AddToCartPopUp";
-import {WhisList} from '../../../../Component/Whishlist/WhisList'
-const NewProductDetailsCards = ({ Product }) => {
-  
+import { WhisList } from '../../../../Component/Whishlist/WhisList'
+const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
+
     const cookies = new Cookies();
     const params = useParams()
     const [quentity, setquentity] = useState(1);
@@ -44,9 +44,9 @@ const NewProductDetailsCards = ({ Product }) => {
         if (token_data) {
             const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
             const h = Event?.Prices[0].Price
-            const PriceArrry = h.find((data)=>data.id === parseInt( AddData[0]?.Item_id) && data)
+            const PriceArrry = h.find((data) => data.id === parseInt(AddData[0]?.Item_id) && data)
             let PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
-          
+
             const config = {
                 headers: { Authorization: `Bearer ${token_data}` }
             };
@@ -94,7 +94,7 @@ const NewProductDetailsCards = ({ Product }) => {
         else {
             const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
             const h = Event?.Prices[0].Price
-            const PriceArrry = h.find((data)=>data.id === parseInt( AddData[0]?.Item_id) && data)
+            const PriceArrry = h.find((data) => data.id === parseInt(AddData[0]?.Item_id) && data)
             let PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
 
             const Arry = {
@@ -152,7 +152,7 @@ const NewProductDetailsCards = ({ Product }) => {
             top: 0,
             left: 0,
             behavior: "instant", // Optional if you want to skip the scrolling animation
-        }); 
+        });
     }, [params])
 
 
@@ -193,7 +193,7 @@ const NewProductDetailsCards = ({ Product }) => {
 
     }
     async function PriceSelect(Product, Item) {
-      
+
         SetPrice(Price => {
             return Price.filter(Price => Price.Product_id !== Product)
         })
@@ -214,7 +214,7 @@ const NewProductDetailsCards = ({ Product }) => {
             }).catch((err) => { });
         }
     }
-
+    const h = typeof DiscountedValue !== 'object' ? 0 : DiscountedValue.PercentageAmount !== "" || null ? DiscountedValue.PercentageAmount : DiscountedValue.ValueAmount !== "" || null ?  DiscountedValue.ValueAmount : 0
     return (
         <div className=" w-100">
             <div className=" newProductDetailsContainer position-relative  mt-4">
@@ -371,15 +371,25 @@ const NewProductDetailsCards = ({ Product }) => {
                             </div>
                         </span>
                     </div>
-                    <div className="col-12 ">
-                  <p>
-                    <span className="newProduct_doller_price">
-                            $ {parseInt(dynamicWeight) !== 0 ?
+                    <div className="col-12">
+                        <p className="d-flex">
+                            <span className="newProduct_doller_price d-flex">
+                                $ {parseInt(dynamicWeight) !== 0 ?
 
-                                dynamicWeight * quentity
+                                    dynamicWeight * quentity
 
-                                : Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)}
-                        </span><span className="mx-3 newProduct_Gms">/ {quentity} piece</span>
+                                    : h === 0
+                                        ?
+                                        Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity) :
+                                        <div >
+                                            <strike >{Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)}</strike> <span >{Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity - parseInt(h))}</span>
+
+                                        </div>
+                                }
+                            </span><span className="mx-3 newProduct_Gms">/ {quentity} piece</span>
+                            {
+                                h !== 0 && <span className="mx-3 newProduct_Gms" style={{color:"#31B665"}}>Offer Applied</span>
+                            }
                         </p>
                     </div>
                     <div className="col-12">
@@ -439,12 +449,12 @@ const NewProductDetailsCards = ({ Product }) => {
                     </div>
                 </div>
                 <div className='position-absolute w-auto top-0 p-2  end-0'>
-                
-                                                            <IconButton onClick={() => { handleWhishList(Product?.id) }} aria-label="Example">
-                                                                {
-                                                                    state.login ?   state.WishList[Product?.id] ? <AiFillHeart color="31B665"></AiFillHeart> : <AiOutlineHeart  color="31B665" /> : <AiOutlineHeart color="31B665" />
-                                                                }
-                                                            </IconButton>
+
+                    <IconButton onClick={() => { handleWhishList(Product?.id) }} aria-label="Example">
+                        {
+                            state.login ? state.WishList[Product?.id] ? <AiFillHeart color="31B665"></AiFillHeart> : <AiOutlineHeart color="31B665" /> : <AiOutlineHeart color="31B665" />
+                        }
+                    </IconButton>
                     <span className="shareiconcontainer">
                         <RWebShare
                             data={{ url: window.location.href }}
@@ -458,7 +468,7 @@ const NewProductDetailsCards = ({ Product }) => {
                 </div>
             </div>
             {Whishlist && <WhisList open1={Whishlist} SetWishList={SetWishList}></WhisList>}
-        </div>
+        </div >
     )
 }
 export default NewProductDetailsCards
