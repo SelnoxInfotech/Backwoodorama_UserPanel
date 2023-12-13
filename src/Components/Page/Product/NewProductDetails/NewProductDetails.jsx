@@ -41,7 +41,7 @@ const NewProductDetails = () => {
     popup: false
   })
 
-  // const Navigate = useNavigate()
+  const classes = style()
   React.useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
     Axios(`https://api.cannabaze.com/UserPanel/Get-ProductById/${id}`, {
@@ -153,51 +153,59 @@ const NewProductDetails = () => {
       SetApi(!api)
     }).catch(() => {
 
- })
-}
-return (
+    })
+  }
+  const discountOptions = (data) => {
+    const uniqueNames = data.filter((val, id, data) => {
+      return data.indexOf(val) === id;
+    });
+    return uniqueNames
+  }
+  return (
     <div className="container-fluid">
       <ProductDetailsSeo Productname={Product.Product_Name} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={useLocation().pathname} ></ProductDetailsSeo>
 
       <span onClick={() => Tolastpage()} className="BackPageBtn"> <AiOutlineLeft size={22} />{'StoreName' in Params ? <> <span className="backPgBtnImg"><img src={`${Despen.Store_Image}`} alt="" /></span> {Despen.Store_Name}</> : 'Back to products'}</span>
       <NewProductDetailsCards Product={Product} />
-     
+
       <NewProductinfoText Product={{ heading: "Product Description", text: Product?.Product_Description }} />
-      {  Product?.CategoryCoupoun?.length || Product?.ProductCoupoun?.length  && 
-       <div className="DiscountSection">
-       
+      {Product?.CategoryCoupoun?.length || Product?.ProductCoupoun?.length &&
+        <div className="DiscountSection">
+
           <FormControl fullWidth>
-            
+
             <Select
               id="discount select"
               value={discount}
               onChange={handlediscountChange}
               className={classes.dsicounSelects}
             >
-             <MenuItem value={' '}>All Offers and Coupon</MenuItem>
-             {  discountOptions( [ ...Product?.CategoryCoupoun , ...Product?.ProductCoupoun]).map((item)=>{
-                  return  <MenuItem value={item}>{item?.DiscountType}</MenuItem>
-               })}
+              <MenuItem value={' '}>All Offers and Coupon</MenuItem>
+              {discountOptions([...Product?.CategoryCoupoun, ...Product?.ProductCoupoun]).map((item) => {
+                return <MenuItem value={item}>{item?.DiscountType}</MenuItem>
+              })}
             </Select>
           </FormControl>
-  
-       </div>
+
+        </div>
       }
       <ProductSearchResult RelatedProductResult={StoreProduct} currentProductID={Product.id} CategoryName={heading} />
       <Review
+        delBtn={Despen}
         reviewloading={reviewloading}
         HellFull={HellFull}
         storeID={null}
         handleEdit={handleEdit}
         handleDelete={handleDelete}
         Rating={Rating}
-         delBtn={Despen}
         onSubmit={onSubmit}
         GetProductReview={GetProductReview}
+
         SetGetProductReview={SetGetProductReview}
         AllReview={AllReview}
         SetReview={SetReview}
-        type={"product"}></Review>
+        type={"product"}
+      ></Review>
     </div>
   )
 }
