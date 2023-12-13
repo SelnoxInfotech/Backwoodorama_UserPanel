@@ -57,11 +57,9 @@ const SideNavbar = ({ closeNav, Open }) => {
         })
     }
     const Redirect=(items)=>{
-        if(items==="My Order"){
-            Navigate("/MyOrder")
+     
+            Navigate("/profile")
             closeNav()
-        }
-
     }
     return (
         <React.Fragment>
@@ -86,18 +84,20 @@ const SideNavbar = ({ closeNav, Open }) => {
                                      
                                                 <section className="image_name_section">
                                                     <div className="SliderImageProfile_container">
+                                                      
                                                         <LazyLoadImage  onError={event => {
                                                                 event.target.src = "/image/user.webp"
                                                                 event.onerror = null
-                                                            }} alt='Profile' src={state?.Profile?.image} className="Slider_inner_profile_imgs" />
+                                                            }} alt='Profile' onClick={Redirect} src={state?.Profile?.image} className="Slider_inner_profile_imgs" />
+                                                           
                                                     </div>
                                                     <div className="slider_image_profile_names_conatiner">
-                                                        <h1 className="slider_image_name_heading ellipsis">{state.Profile.username}</h1>
-                                                        <p className="slider_view_heading"  onClick={sliderProfileHandler}>View Profile</p>
+                                                   <h1 className="slider_image_name_heading ellipsis" onClick={Redirect}>{state.Profile.username}</h1> 
+                                                        {/* <p className="slider_view_heading"  onClick={sliderProfileHandler}>View Profile</p> */}
                                                     </div>
                                                 </section>
                                         {/* </div> */}
-                                        {SliderStateDropDown &&
+                                        {/* {SliderStateDropDown &&
                                             (<div className="sliderProfile_image_list_container">
                                                
                                                 <section className="sliderProfile_list">
@@ -122,7 +122,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                                                 </Box>
 
                                             </div>)
-                                        }
+                                        } */}
                                     </div>
                                     <div className='col-3 text-end'>
                                         <span className="manuclosebtn d-flex justify-content-end " onClick={closeNav}> <RxCross2 color="#fff" size={25}/>

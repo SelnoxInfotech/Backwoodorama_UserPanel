@@ -1283,8 +1283,11 @@ scrollbar-width: none;  /* Firefox */
   background: #FFFFFF;
   padding: 15px 5px;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all .4s ease-in;
 }
-
+.despensories_card_container:hover{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
 .disOPenResRating {
   color: #949494;
   font-size: 16px;
@@ -5906,7 +5909,7 @@ line-height: 2;
   background-color: #EEFFF5;
   color: #282625;
   padding: 20px;
-  height: 300px;
+  min-height: 350px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -5915,6 +5918,7 @@ line-height: 2;
 .noReview .noreview_description{
    font-size: 14px;
    text-align: center;
+   width: 50%;
 }
 
 

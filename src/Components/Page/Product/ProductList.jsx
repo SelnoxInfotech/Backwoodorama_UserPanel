@@ -305,11 +305,11 @@ const ProductList = ({ arr, ProductNavigate }) => {
                                    <h3  className="productListHeadings ellipsis"  >   {ele.Product_Name} </h3>
                                 </div>
                                 <div className="col-12  prod_para prod_sub_heading_height ellipsis">
-                                   <p className="fontStyle m-0 common_sub_head"> {ele.StoreName} </p>
+                                   <p className="fontStyle m-0 common_sub_head"> {ele?.StoreName} </p>
                                 </div>
                                 <div className="discount_boc">
                                      {
-                                                        ele.CategoryCoupoun.length !== 0 || ele.ProductCoupoun.length !== 0 &&  <div className="discountinfo">
+                                                        ele?.CategoryCoupoun?.length !== 0 || ele?.ProductCoupoun?.length !== 0 &&  <div className="discountinfo">
                                                                                                                             <span className="carddiscountoffer">{discountshoer(ele.CategoryCoupoun ,ele.ProductCoupoun )} </span>  and more Offers
                                                                                                                         </div>
                                      }
