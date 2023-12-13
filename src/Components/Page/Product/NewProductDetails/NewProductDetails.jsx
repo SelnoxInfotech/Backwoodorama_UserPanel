@@ -24,10 +24,10 @@ const usePlaceholderStyles = makeStyles(theme => ({
 }));
 const NewProductDetails = () => {
   const { id } = useParams();
-  const [discount, setdiscount] = React.useState('');
+  const [discount, setdiscount] = React.useState(0);
 
   const handlediscountChange = (event) => {
-    console.log(event.target.value.DiscountType      )
+    console.log(event)
     setdiscount(event.target.value);
   };
   const Params = useParams()
@@ -52,6 +52,7 @@ const NewProductDetails = () => {
     // window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
     Axios(`https://api.cannabaze.com/UserPanel/Get-ProductById/${id}`, {
     }).then(response => {
+      setdiscount(0)
       SetProduct(() => {
         return response.data[0]
       })
@@ -177,7 +178,7 @@ const NewProductDetails = () => {
       <ProductDetailsSeo Productname={Product.Product_Name} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={useLocation().pathname} ></ProductDetailsSeo>
 
       <span onClick={() => Tolastpage()} className="BackPageBtn"> <AiOutlineLeft size={22} />{'StoreName' in Params ? <> <span className="backPgBtnImg"><img src={`${Despen.Store_Image}`} alt="" /></span> {Despen.Store_Name}</> : 'Back to products'}</span>
-      <NewProductDetailsCards Product={Product} />
+      <NewProductDetailsCards Product={Product} DiscountedValue={discount} />
 
       <NewProductinfoText Product={{ heading: "Product Description", text: Product?.Product_Description }} />
       {Product?.CategoryCoupoun?.length || Product?.ProductCoupoun?.length &&
@@ -189,7 +190,7 @@ const NewProductDetails = () => {
               id="discount select"
               value={discount}
               displayEmpty
-              renderValue={discount === "" ? () =>  <Placeholder>Select Coupon</Placeholder>  : () => discount.DiscountType}
+              renderValue={discount === 0 ? () =>  <Placeholder>Select Coupon</Placeholder>  : () => discount.DiscountType}
               onChange={handlediscountChange}
               className={classes.dsicounSelects}>
               {discountOptions([...Product?.CategoryCoupoun, ...Product?.ProductCoupoun]).map((item) => {
