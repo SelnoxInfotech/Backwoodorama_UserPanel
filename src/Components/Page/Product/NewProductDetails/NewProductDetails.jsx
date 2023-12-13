@@ -15,12 +15,19 @@ import { ProductDetailsSeo } from "../../../Component/ScoPage/ProductSeo"
 import { product_OverAllGet_Review, Product_Add_Review, Product_Get_UserComment, Product_Get_Review, Delete_Review, ProductHelpFull } from "../ProductApi"
 import Createcontext from "../../../../Hooks/Context"
 import _ from 'lodash'
-import axios from "axios";
+import { makeStyles } from "@material-ui/core/styles";
+const usePlaceholderStyles = makeStyles(theme => ({
+  placeholder: {
+    color: "#aaa",
+    fontWeight:'400'
+  }
+}));
 const NewProductDetails = () => {
   const { id } = useParams();
-  const [discount, setdiscount] = React.useState(' ');
+  const [discount, setdiscount] = React.useState('');
 
   const handlediscountChange = (event) => {
+    console.log(event.target.value.DiscountType      )
     setdiscount(event.target.value);
   };
   const Params = useParams()
@@ -40,10 +47,9 @@ const NewProductDetails = () => {
     Title: "",
     popup: false
   })
-
   const classes = style()
   React.useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+    // window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
     Axios(`https://api.cannabaze.com/UserPanel/Get-ProductById/${id}`, {
     }).then(response => {
       SetProduct(() => {
@@ -101,7 +107,6 @@ const NewProductDetails = () => {
 
     }
   }, [api, state.Profile, Product])
-
   const onSubmit = (data) => {
     const Review = {
       product: Product.id,
@@ -161,6 +166,12 @@ const NewProductDetails = () => {
     });
     return uniqueNames
   }
+  const Placeholder = ({ children }) => {
+    const classes = usePlaceholderStyles();
+    return <div className={classes.placeholder}>{children}</div>;
+  };
+
+
   return (
     <div className="container-fluid">
       <ProductDetailsSeo Productname={Product.Product_Name} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={useLocation().pathname} ></ProductDetailsSeo>
@@ -177,10 +188,10 @@ const NewProductDetails = () => {
             <Select
               id="discount select"
               value={discount}
+              displayEmpty
+              renderValue={discount === "" ? () =>  <Placeholder>Select Coupon</Placeholder>  : () => discount.DiscountType}
               onChange={handlediscountChange}
-              className={classes.dsicounSelects}
-            >
-              <MenuItem value={' '}>All Offers and Coupon</MenuItem>
+              className={classes.dsicounSelects}>
               {discountOptions([...Product?.CategoryCoupoun, ...Product?.ProductCoupoun]).map((item) => {
                 return <MenuItem value={item}>{item?.DiscountType}</MenuItem>
               })}
@@ -200,7 +211,6 @@ const NewProductDetails = () => {
         Rating={Rating}
         onSubmit={onSubmit}
         GetProductReview={GetProductReview}
-
         SetGetProductReview={SetGetProductReview}
         AllReview={AllReview}
         SetReview={SetReview}
