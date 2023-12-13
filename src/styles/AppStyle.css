@@ -5951,6 +5951,22 @@ line-height: 2;
   font-size: 16px;
   color: #333333a2;
 }
+.discountinfo{
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(177, 177, 177);
+  margin: 10px 0;
+}
+.discount_boc{
+   height: 30px;
+}
+.carddiscountoffer{
+  padding: 5px 10px;
+  color: #fff;
+  background-color: #31B665;
+  font-size: 12px;
+  font-weight: 400;
+}
 .myreviewBox{
   border: 1px solid black;
   border-radius: 5px;

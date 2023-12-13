@@ -74,6 +74,7 @@
 .product_category_list{
     color: rgba(0, 0, 0, 0.623);
 }
+
 @media only screen and (max-width: 768px){
     .productSearch_result_container{
         width: 45%;

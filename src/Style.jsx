@@ -1369,16 +1369,23 @@ const useStyles = makeStyles({
       fontWeight:'700',
       lineHeight:'1.5',
     },
-    '@media(max-Width: 780px)' : {
+    '@media(max-Width: 1400px)' : {
       "& .MuiTypography-root":{
         fontSize:'18px',
         fontWeight:'600',
         lineHeight:'1.5',
       },
     },
-    '@media(max-Width: 480px)' : {
+    '@media(max-Width: 780px)' : {
       "& .MuiTypography-root":{
         fontSize:'16px',
+        fontWeight:'600',
+        lineHeight:'1.5',
+      },
+    },
+    '@media(max-Width: 480px)' : {
+      "& .MuiTypography-root":{
+        fontSize:'14px',
         fontWeight:'600',
         lineHeight:'1.5',
       },
@@ -1399,14 +1406,39 @@ const useStyles = makeStyles({
       lineHeight:'1.5',
       color:'#666666'
     },
-    '@media(max-Width: 780px)' : {
+    '@media(max-Width: 1400px)' : {
       "&.MuiTypography-root":{
-        fontSize:'14px',
+        fontSize:'16px',
         fontWeight:'400',
         lineHeight:'1.5',
       },
     },
    
+    '@media(max-Width: 780px)' : {
+      "&.MuiTypography-root":{
+        fontSize:'14px',
+        fontWeight:'400',
+        lineHeight:'1.5',
+        padding:'10px',
+      },
+    },
+   
+  },
+  dsicounSelects:{
+    margin:"20px 0",
+    "& .MuiSelect-select":{
+       fontSize:'16px',
+       fontWeight:'700',
+    },
+    "& .MuiOutlinedInput-notchedOutline": {
+      borderColor: "#31B655 !important",
+    },
+    "& .MuiOutlinedInput-notchedOutline:hover": { 
+      borderColor: "#31B655 !important",
+    },
+    "& .MuiOutlinedInput-notchedOutline:focus": { 
+      borderColor: "#31B655 !important",
+    },
   },
   WritehelpfullBtn_Color: {
     "&.MuiButtonBase-root": {

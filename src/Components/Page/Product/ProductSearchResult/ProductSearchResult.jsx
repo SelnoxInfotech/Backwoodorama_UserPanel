@@ -205,7 +205,23 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
         return str
       }
 
-
+      function discountshoer(CategoryCoupoun,ProductCoupoun ){
+          let newarr = CategoryCoupoun.concat(ProductCoupoun)
+          if(newarr[0].DiscountType === "Amount off Order"){
+              let showdata=''
+            newarr[0].PercentageAmount  === null ? showdata="Flat " + newarr[0].ValueAmount+ " Off" :showdata=`Save ${newarr[0].PercentageAmount} %`
+           return  showdata
+             
+          }else if(newarr[0].DiscountType === "Amount off Products"){
+            let showdata=''
+            newarr[0].PercentageAmount  === null ? showdata="Flat " + newarr[0].ValueAmount+ " Off" :showdata=`Save ${newarr[0].PercentageAmount} %`
+            return  showdata
+          }else if(newarr[0].DiscountType === "Buy X get Y"){
+            return "Buy X get Y"
+          }else if(newarr[0].DiscountType === "Free Shipping"){
+            return "Free Shipping"
+          }
+      }
     return (
         <React.Fragment>
             <div className="row mx-0 marginProductSearchResult">
@@ -266,6 +282,12 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName,currentProduct
                                                     <div className=" productPriceDivHeight">
                                                         <p className="productSearch text-truncate"><span className="productSearchPrice">${parseInt(items.Prices[0]?.Price[0]?.SalePrice)}  { parseInt(items.Prices[0].Price[0].Price) > parseInt(items.Prices[0].Price[0].SalePrice) &&   <del className="text-muted">${parseInt(items.Prices[0].Price[0].Price)}</del> } </span> per {items.Prices[0].Price[0].Weight ? items.Prices[0].Price[0].Weight  : `${items.Prices[0].Price[0].Unit} Unit`}</p>
                                                     </div>
+                                                    <div className="discount_boc">{
+                                                        items.CategoryCoupoun.length !== 0 || items.ProductCoupoun.length !== 0 &&  <div className="discountinfo">
+                                                                                                                            <span className="carddiscountoffer">{discountshoer(items.CategoryCoupoun ,items.ProductCoupoun )} </span>  and more Offers
+                                                                                                                        </div>
+                                                    }</div>
+                                                  
                                                     </Link>         
                                                     <div className="my-2">
                                                         <Box className={`center ${classes.loadingBtnTextAndBack}`}>

@@ -208,7 +208,23 @@ const ProductList = ({ arr, ProductNavigate }) => {
 
     return str;
   }
-
+  function discountshoer(CategoryCoupoun,ProductCoupoun ){
+    let newarr = CategoryCoupoun.concat(ProductCoupoun)
+    if(newarr[0].DiscountType === "Amount off Order"){
+        let showdata=''
+      newarr[0].PercentageAmount  === null ? showdata="Flat " + newarr[0].ValueAmount+ " Off" :showdata=`Save ${newarr[0].PercentageAmount} %`
+     return  showdata
+       
+    }else if(newarr[0].DiscountType === "Amount off Products"){
+      let showdata=''
+      newarr[0].PercentageAmount  === null ? showdata="Flat " + newarr[0].ValueAmount+ " Off" :showdata=`Save ${newarr[0].PercentageAmount} %`
+      return  showdata
+    }else if(newarr[0].DiscountType === "Buy X get Y"){
+      return "Buy X get Y"
+    }else if(newarr[0].DiscountType === "Free Shipping"){
+      return "Free Shipping"
+    }
+}
   return (
     <>
       {arr.length !== 0 ? (
@@ -285,22 +301,21 @@ const ProductList = ({ arr, ProductNavigate }) => {
                             
                             </div>
                             <div className="product_cat_allProduct" onClick={() => ProductNavigate(ele)}>
-                                <div
-                                className="col-12  prod_para_name"
-                                style={{ marginBottom: "" }}
-                                >
-                                <h3  className="productListHeadings ellipsis"  >   {ele.Product_Name} </h3>
+                                <div className="col-12  prod_para_name"  style={{ marginBottom: "" }}>
+                                   <h3  className="productListHeadings ellipsis"  >   {ele.Product_Name} </h3>
                                 </div>
                                 <div className="col-12  prod_para prod_sub_heading_height ellipsis">
-                                <p className="fontStyle m-0 common_sub_head">
-                                    {ele.StoreName}
-                                </p>
+                                   <p className="fontStyle m-0 common_sub_head"> {ele.StoreName} </p>
                                 </div>
-                                <div
-                                className="col-12 py-2 d-flex prod_para prod_sub_heading_height ellipsis"
-                                style={{ marginBottom: "0px" }}
-                                >
-                                {ele.rating &&
+                                <div className="discount_boc">
+                                     {
+                                                        ele.CategoryCoupoun.length !== 0 || ele.ProductCoupoun.length !== 0 &&  <div className="discountinfo">
+                                                                                                                            <span className="carddiscountoffer">{discountshoer(ele.CategoryCoupoun ,ele.ProductCoupoun )} </span>  and more Offers
+                                                                                                                        </div>
+                                     }
+                                </div>
+                                <div className="col-12 py-2 d-flex prod_para prod_sub_heading_height ellipsis"   style={{ marginBottom: "0px" }} >
+                                   {ele.rating &&
                                     new Array(ele.rating)
                                     .fill(null)
                                     .map(() => (

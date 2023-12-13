@@ -2,7 +2,8 @@ import React, { useState } from "react"
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi"
 import { IoIosArrowDown } from "react-icons/io"
 import useStyles from "../../../Style"
-import ClickAwayListener from 'react-click-away-listener';
+
+import ClickAwayListener from '@mui/base/ClickAwayListener';
 import Axios from "axios"
 import _ from "lodash"
 import { FormControl, Grid, MenuItem, Select } from "@mui/material"
@@ -260,9 +261,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
             })
         }
     };
-    const handleClickAway = () => {
-        SetOpenEvent(null)
-    };
+  
     const [searchtext, setsearchtext] = React.useState("")
     function searchHnadelchange(e) {
 
@@ -379,7 +378,9 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
 
                             {(Id === OpenEvent) ?
                                 (
-                                    <ClickAwayListener onClickAway={handleClickAway}>
+                                    <ClickAwayListener onClickAway={() => {
+                                        SetOpenEvent(null)
+                                    }}>
                                         {
                                             loading ? <span className="mx-4">Loading....</span>
                                                 :

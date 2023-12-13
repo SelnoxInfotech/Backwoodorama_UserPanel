@@ -3,6 +3,11 @@ import NewProductDetailsCards from "./NewProductDetailsComponent/NewProductDetai
 import NewProductinfoText from "./NewProductDetailsComponent/NewProductinfoText"
 import ProductSearchResult from "../ProductSearchResult/ProductSearchResult"
 import Axios from "axios";
+import Box from '@mui/material/Box';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import style from "../../../../Style"
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import Review from "../../Review/Review"
 import { AiOutlineLeft } from "react-icons/ai";
@@ -13,6 +18,11 @@ import _ from 'lodash'
 import axios from "axios";
 const NewProductDetails = () => {
   const { id } = useParams();
+  const [discount, setdiscount] = React.useState(' ');
+
+  const handlediscountChange = (event) => {
+    setdiscount(event.target.value);
+  };
   const Params = useParams()
   const { state } = React.useContext(Createcontext)
   const navigate = useNavigate();
@@ -31,7 +41,7 @@ const NewProductDetails = () => {
     popup:false
   })
     
-  // const Navigate = useNavigate()
+  const classes = style()
   React.useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
     Axios(`https://api.cannabaze.com/UserPanel/Get-ProductById/${id}`, {
@@ -142,15 +152,40 @@ function HellFull (ReviewId , UserId){
 
  })
 }
+ const discountOptions=(data)=>{
+  const uniqueNames = data.filter((val, id, data) => {
+    return data.indexOf(val) === id;  
+ });
+    return uniqueNames
+ }
 return (
     <div className="container-fluid">
       <ProductDetailsSeo Productname={Product.Product_Name} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={ useLocation().pathname } ></ProductDetailsSeo>
 
       <span onClick={() => Tolastpage()} className="BackPageBtn"> <AiOutlineLeft size={22} />{ 'StoreName' in Params ? <> <span className="backPgBtnImg"><img src={`${Despen.Store_Image}`} alt="" /></span> {Despen.Store_Name}</> : 'Back to products'}</span>
       <NewProductDetailsCards Product={Product} />
-
+     
       <NewProductinfoText Product={{ heading: "Product Description", text: Product?.Product_Description }} />
-
+      {  Product?.CategoryCoupoun?.length || Product?.ProductCoupoun?.length  && 
+       <div className="DiscountSection">
+       
+          <FormControl fullWidth>
+            
+            <Select
+              id="discount select"
+              value={discount}
+              onChange={handlediscountChange}
+              className={classes.dsicounSelects}
+            >
+             <MenuItem value={' '}>All Offers and Coupon</MenuItem>
+             {  discountOptions( [ ...Product?.CategoryCoupoun , ...Product?.ProductCoupoun]).map((item)=>{
+                  return  <MenuItem value={item}>{item?.DiscountType}</MenuItem>
+               })}
+            </Select>
+          </FormControl>
+  
+       </div>
+      }
       <ProductSearchResult RelatedProductResult={StoreProduct} currentProductID={Product.id} CategoryName={heading} />
       <Review reviewloading={reviewloading} HellFull={HellFull} storeID={null} handleEdit={handleEdit}  handleDelete={handleDelete} Rating={Rating} onSubmit={onSubmit} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} AllReview={AllReview} SetReview ={SetReview} type={"product"}></Review>
     </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import CategoryProduct from "../../../Components/Page/Home/Dashboard/ComponentDashboard/CategoryProduct"
-import ClickAwayListener from 'react-click-away-listener';
+import ClickAwayListener  from '@mui/base/ClickAwayListener';
 import { useLocation, useNavigate, useParams } from "react-router-dom"
 import { ProductSeo, ProductCategorySeo } from "../../Component/ScoPage/ProductSeo"
 import SkeletonCard from '../../Component/Skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton';
