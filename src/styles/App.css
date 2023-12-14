@@ -48,7 +48,10 @@ line-height: normal;
   display: grid;
   justify-items: center;
 }
-
+.DisplayDiscount{
+  display: flex;
+  gap:10px
+}
 div a {
 
 

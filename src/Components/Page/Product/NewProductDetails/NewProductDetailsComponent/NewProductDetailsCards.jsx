@@ -214,7 +214,12 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
             }).catch((err) => { });
         }
     }
-    const h = typeof DiscountedValue !== 'object' ? 0 : DiscountedValue.PercentageAmount !== "" || null ? DiscountedValue.PercentageAmount : DiscountedValue.ValueAmount !== "" || null ?  DiscountedValue.ValueAmount : 0
+
+    console.log(DiscountedValue?.Percentage, Boolean(DiscountedValue?.Percentage),
+        (34-(34 * (Boolean(DiscountedValue?.Percentage) ? ( parseInt(DiscountedValue?.Percentage) / 100) : parseInt(DiscountedValue.Amount))))
+
+    )
+    // console.log(DiscountedValue?.Percentage);
     return (
         <div className=" w-100">
             <div className=" newProductDetailsContainer position-relative  mt-4">
@@ -316,10 +321,8 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
                             {Product?.Prices?.map((item) => {
                                 let vl = item.Price.map((item) => {
                                     if (item.Weight) {
-                                        //    if(!dynamicWeight){setdynamicprice(item.SalePrice); setdynamicWeight(item.Weight)};
                                         return 'Weight :'
                                     } else {
-                                        // if(!dynamicWeight){setdynamicprice(item.SalePrice); setdynamicWeight(`${item.Unit} Unit`)}
                                         return ` Unit :`
                                     }
 
@@ -374,21 +377,36 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
                     <div className="col-12">
                         <p className="d-flex">
                             <span className="newProduct_doller_price d-flex">
-                                $ {parseInt(dynamicWeight) !== 0 ?
-
-                                    dynamicWeight * quentity
-
-                                    : h === 0
+                                $ {
+                                    DiscountedValue?.Reflect
                                         ?
-                                        Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity) :
-                                        <div >
-                                            <strike >{Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)}</strike> <span >{Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity - parseInt(h))}</span>
 
+                                        < div  className="DisplayDiscount" >
+                                                <span>
+                                                {
+                                                    parseInt(dynamicWeight) !== 0
+                                                        ? dynamicWeight * quentity - ( (dynamicWeight * quentity) * (Boolean(DiscountedValue?.Percentage) ? parseInt(DiscountedValue?.Percentage) : parseInt(DiscountedValue.Amount)))
+                                                        :
+                                                        Product?.Prices?.map((data) => (data.Price[0].SalePrice * quentity - parseInt((data.Price[0].SalePrice * quentity )*(Boolean(DiscountedValue?.Percentage) ? parseInt(DiscountedValue?.Percentage) / 100 : parseInt(DiscountedValue.Amount)))))
+
+                                                }
+                                            </span>
+                                            <strike >{Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)}</strike>
                                         </div>
+
+
+                                        :
+                                        parseInt(dynamicWeight) !== 0 ? dynamicWeight * quentity : Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)
+
+                                    //     < div >
+                                    //     <strike >{Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)}</strike> <span >{Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity - parseInt(h))}</span>
+
+                                    // </div>
                                 }
-                            </span><span className="mx-3 newProduct_Gms">/ {quentity} piece</span>
+                            </span>
+                            <span className="mx-3 newProduct_Gms">/ {quentity} piece</span>
                             {
-                                h !== 0 && <span className="mx-3 newProduct_Gms" style={{color:"#31B665"}}>Offer Applied</span>
+                              DiscountedValue?.Reflect && <span className="mx-3 newProduct_Gms" style={{ color: "#31B665" }}>Offer Applied</span>
                             }
                         </p>
                     </div>

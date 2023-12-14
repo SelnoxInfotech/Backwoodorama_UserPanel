@@ -19,17 +19,19 @@ import { makeStyles } from "@material-ui/core/styles";
 const usePlaceholderStyles = makeStyles(theme => ({
   placeholder: {
     color: "#aaa",
-    fontWeight:'400'
+    fontWeight: '400'
   }
 }));
 const NewProductDetails = () => {
   const { id } = useParams();
-  const [discount, setdiscount] = React.useState(0);
+  const [discount, setdiscount] = React.useState({
+    Product: id,
+    Amount: '',
+    Reflect: false,
+    Percentage: '',
+    CouponMassage: ""
+  });
 
-  const handlediscountChange = (event) => {
-    console.log(event)
-    setdiscount(event.target.value);
-  };
   const Params = useParams()
   const { state } = React.useContext(Createcontext)
   const navigate = useNavigate();
@@ -49,10 +51,9 @@ const NewProductDetails = () => {
   })
   const classes = style()
   React.useEffect(() => {
-  
     Axios(`https://api.cannabaze.com/UserPanel/Get-ProductById/${id}`, {
     }).then(response => {
-      setdiscount(0)
+      // setdiscount(0)
       SetProduct(() => {
         return response.data[0]
       })
@@ -172,6 +173,160 @@ const NewProductDetails = () => {
     return <div className={classes.placeholder}>{children}</div>;
   };
 
+  const handlediscountChange = (event) => {
+    console.log(event)
+    if (event.target.value.DiscountType === "Amount off Order") {
+      // setdiscount({ ...discount, "DiscountType": "Amount off Order" });
+      if (event.target.value.NoMinimumRequirements === true) {
+        if (event.target.value.PercentageAmount !== null || "") {
+          setdiscount({
+            ...discount,
+            "Percentage": event.target.value.PercentageAmount,
+            'Reflect': false, "DiscountType": "Amount off Order",
+            'CouponMassage': "Offer Apply on Add To Cart ",
+          });
+        }
+        else {
+          setdiscount({ ...discount,
+             "Amount": event.target.value.ValueAmount, 
+             'Reflect': false,
+              "DiscountType": "Amount off Order" ,
+              'CouponMassage': "Offer Apply on Add To Cart ",
+            });
+        }
+      }
+      else {
+        if (event.target.value.MinimumQuantityofItem !== null || "") {
+
+          if (event.target.value.PercentageAmount !== null || "") {
+            setdiscount({
+              ...discount,
+              "MinimumQuantityofItem": event.target.value.MinimumQuantityofItem,
+              'Reflect': false,
+              "DiscountType": "Amount off Order",
+              'CouponMassage': "Minimum Quantity of Item ",
+              "Percentage": event.target.value.PercentageAmount,
+
+            });
+
+          }
+          else {
+            setdiscount({
+              ...discount,
+              "MinimumQuantityofItem": event.target.value.MinimumQuantityofItem,
+              'Reflect': false,
+              "DiscountType": "Amount off Order",
+              'CouponMassage': "Minimum Quantity of Item ",
+              "Amount": event.target.value.ValueAmount,
+            });
+          }
+        }
+        else {
+          if (event.target.value.MinimumPurchaseAmount !== null || "") {
+
+            if (event.target.value.PercentageAmount !== null || "") {
+
+              setdiscount({
+                ...discount,
+                "MinimumPurchaseAmount": event.target.value.MinimumPurchaseAmount,
+                'Reflect': false,
+                "DiscountType": "Amount off Order",
+                'CouponMassage': "Minimum Purchase of Amount ",
+                "Percentage": event.target.value.PercentageAmount,
+
+              });
+            }
+            else {
+              setdiscount({
+                ...discount,
+                "MinimumPurchaseAmount": event.target.value.MinimumPurchaseAmount,
+                'Reflect': false,
+                "DiscountType": "Amount off Order",
+                'CouponMassage': "Minimum Purchase of Amount ",
+                "Amount": event.target.value.ValueAmount
+
+              });
+
+            }
+          }
+        }
+      }
+
+    }
+    else if (event.target.value.DiscountType === "Amount off Products") {
+      if (event.target.value.NoMinimumRequirements === true) {
+        if (event.target.value.PercentageAmount !== null || "") {
+          setdiscount({ ...discount, "Percentage": event.target.value.PercentageAmount, 'Reflect': true, "DiscountType": "Amount off Products" });
+        }
+        else {
+          setdiscount({ ...discount, "Amount": event.target.value.ValueAmount, 'Reflect': true, "DiscountType": "Amount off Products" });
+        }
+      }
+      else {
+        if (event.target.value.MinimumQuantityofItem !== null || "") {
+
+          if (event.target.value.PercentageAmount !== null || "") {
+            setdiscount({
+              ...discount,
+              "MinimumQuantityofItem": event.target.value.MinimumQuantityofItem,
+              'Reflect': false,
+              "DiscountType": "Amount off Products",
+              'CouponMassage': "Minimum Quantity of Item ",
+              "Percentage": event.target.value.PercentageAmount,
+
+            });
+
+          }
+          else {
+            setdiscount({
+              ...discount,
+              "MinimumQuantityofItem": event.target.value.MinimumQuantityofItem,
+              'Reflect': false,
+              "DiscountType": "Amount off Products",
+              'CouponMassage': "Minimum Quantity of Item ",
+              "Amount": event.target.value.ValueAmount,
+            });
+          }
+        }
+        else {
+          if (event.target.value.MinimumPurchaseAmount !== null || "") {
+
+            if (event.target.value.PercentageAmount !== null || "") {
+
+              setdiscount({
+                ...discount,
+                "MinimumPurchaseAmount": event.target.value.MinimumPurchaseAmount,
+                'Reflect': false,
+                "DiscountType": "Amount off Products",
+                'CouponMassage': "Minimum Purchase of Amount ",
+                "Percentage": event.target.value.PercentageAmount,
+
+              });
+            }
+            else {
+              setdiscount({
+                ...discount,
+                "MinimumPurchaseAmount": event.target.value.MinimumPurchaseAmount,
+                'Reflect': false,
+                "DiscountType": "Amount off Products",
+                'CouponMassage': "Minimum Purchase of Amount ",
+                "Amount": event.target.value.ValueAmount
+
+              });
+
+            }
+          }
+        }
+      }
+    }
+    else if (event.target.value.DiscountType === "Amount off Order") {
+
+    }
+    else if (event.target.value.DiscountType === "Amount off Order") {
+
+    }
+  };
+  console.log(discount)
 
   return (
     <div className="container-fluid">
@@ -181,16 +336,14 @@ const NewProductDetails = () => {
       <NewProductDetailsCards Product={Product} DiscountedValue={discount} />
 
       <NewProductinfoText Product={{ heading: "Product Description", text: Product?.Product_Description }} />
-      {Product?.CategoryCoupoun?.length || Product?.ProductCoupoun?.length &&
-        <div className="DiscountSection">
-
+      {Product?.CategoryCoupoun?.length !== 0 || Product?.ProductCoupoun?.length !== 0 &&
+        <div className="DiscountSection ">
           <FormControl fullWidth>
-
             <Select
               id="discount select"
               value={discount}
               displayEmpty
-              renderValue={discount === 0 ? () =>  <Placeholder>Select Coupon</Placeholder>  : () => discount.DiscountType}
+              renderValue={!Boolean(discount?.DiscountType) ? () => <Placeholder>Select Coupon</Placeholder> : () => discount.DiscountType}
               onChange={handlediscountChange}
               className={classes.dsicounSelects}>
               {discountOptions([...Product?.CategoryCoupoun, ...Product?.ProductCoupoun]).map((item) => {
@@ -198,7 +351,10 @@ const NewProductDetails = () => {
               })}
             </Select>
           </FormControl>
-
+          {discount.CouponMassage !== "" && <div className="col-12 center " style={{ height: "100px", color: "#31B655" }}>
+            <p>{discount.CouponMassage}</p>
+          </div>
+          }
         </div>
       }
       <ProductSearchResult RelatedProductResult={StoreProduct} currentProductID={Product.id} CategoryName={heading} />
