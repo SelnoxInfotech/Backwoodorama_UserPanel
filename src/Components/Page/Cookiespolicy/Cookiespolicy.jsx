@@ -1,64 +1,45 @@
 import React from 'react'
 import Newsletter from '../../Component/Newsletter/HomePageDealsSignup';
 import { CookiesPolicy } from '../../Component/ScoPage/CommenpageSeo';
-import { Link } from 'react-router-dom';
+import { Link , useLocation} from 'react-router-dom';
 import { useRef } from 'react';
 const Termsconditions = () => {
+  const location = useLocation()
   const ref = useRef(null);
-  const [offset, setOffset] = React.useState(0);
-  const [Id, setId] = React.useState("");
- const allHeigths = []
-  React.useEffect(() => {
+  const [allHeigths,setallheight] = React.useState([])
+ 
+
+  React.useEffect(()=>{
     document.documentElement.scrollTo({
       top: 0,
       left: 0,
       behavior: "instant",
     }); 
+        let data =[]
+        ref.current.childNodes.forEach((item , index)=>{
     
-    const onScroll = () => setOffset(window.pageYOffset);
-    window.removeEventListener('scroll', onScroll);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+            data.push({
+                topheigth: item.offsetTop,
+                id : item.id,
+                height : item.clientHeight
+            })   
+        })
+        setallheight(data)
     
-  }, [])
-  let divElement = document.getElementById('Navbar_box').clientHeight
-  React.useEffect(()=>{
-    
+  },[])
 
- 
-    ref.current.childNodes.forEach((item , index)=>{
-      allHeigths.push({
-       topheigth: item.offsetTop,
-       id : item.id,
-       height : item.clientHeight
-      })
-    })
-   
-    for(let i=0 ; i < allHeigths.length -1 ; i++){
-       if(offset > allHeigths[i].topheigth - divElement - 100   && offset < allHeigths[i+1].topheigth - divElement ){
-        setId(allHeigths[i].id)
-       }else if(offset < allHeigths[0].topheigth){
-        setId(allHeigths[0].id)
-        
-       }else if(offset > allHeigths[allHeigths.length -1].topheigth){
-        setId(allHeigths[allHeigths.length -1].id)
-        
+React.useEffect(() => {
+     let divElement = document.getElementById('Navbar_box')?.clientHeight
+      
+       allHeigths.forEach((item)=>{
+       
+       if(location.hash === `#${item.id}`){
+       
+         window.scroll(0 , item.topheigth - divElement)
        }
-    }
-  },[offset])
-
-  function gothroughID(ID){
-   
-    allHeigths.forEach((item)=>{
-      if(item.id === ID){
-        document.documentElement.scrollTo({
-          top: 0,
-          left: 0,
-          behavior: "instant", // Optional if you want to skip the scrolling animation
-      });
-      }
     })
-  }
+  }, [location,allHeigths])
+
   return (
     <>
     <CookiesPolicy></CookiesPolicy>
@@ -71,19 +52,19 @@ const Termsconditions = () => {
         <div className="row tc_content justify-content-between">
          <div className="col-md-7 tc_main-centent"> 
             <ol ref={ref}>
-              <li id='aot'>
+              <li id='introduction'>
                 <span className='question'>Introduction</span>
                 <span className="answer">
                 Welcome to <Link>weedx.io</Link>  (the "Website"), owned and operated by selnox infotech ("we," "us," "our"). This Cookie Policy explains how we use cookies and similar tracking technologies when you access or use our Website.
                 </span>
               </li>
-              <li id='etuw'>
+              <li id='what_are_cookies'>
                 <span className='question'>What Are Cookies?</span>
                 <span className="answer">
                 Cookies are small text files that are placed on your device when you visit a website. They help websites remember your preferences, enhance your browsing experience, and collect information about your usage.
                 </span>
               </li>
-              <li id='voa'>
+              <li id='types_of_Cookies_we_use'>
                 <span className='question'> Types of Cookies We Use</span>
                 <span className="answer">
                 We may use the following types of cookies:
@@ -98,7 +79,7 @@ const Termsconditions = () => {
 
                 </span>
               </li>
-              <li id='pp'>
+              <li id='how_we_use_cookies'>
                 <span className='question'> How We Use Cookies</span>
                 <span className="answer">
                     We use cookies for various purposes, including:
@@ -108,25 +89,25 @@ const Termsconditions = () => {
                     Delivering targeted advertisements.
                 </span>
               </li>
-              <li id='ur'>
+              <li id='managing_your_cookie_preferences'>
                 <span className='question'> Managing Your Cookie Preferences</span>
                 <span className="answer">
                 You can manage your cookie preferences through your browser settings. Most browsers allow you to control cookies, including accepting or rejecting them and deleting existing cookies.
                 </span>
               </li>
-              <li id='oods'>
+              <li id='third_party_cookies'>
                 <span className='question'> Third-Party Cookies </span>
                 <span className="answer">
                 We may allow third-party service providers to place cookies on our Website to analyze user behavior and deliver targeted advertisements. These third-party cookies are subject to the privacy policies of the respective providers.
                 </span>
               </li>
-              <li id='drl'>
+              <li id='changes_to_this_cookie_policy'>
                 <span className='question'>Changes to This Cookie Policy </span>
                 <span className="answer">
                 We may update this Cookie Policy to reflect changes in our cookie usage practices. We will post the updated Cookie Policy on this page with a revised "Last Updated" date.
                 </span>
               </li>
-              <li id='cwll'>
+              <li id='contact_us'>
                 <span className='question'>Contact Us</span>
                 <span className="answer">
                 If you have any questions, concerns, or requests regarding this Cookie Policy, please contact us at mailto:info@weedx.io
@@ -141,14 +122,14 @@ const Termsconditions = () => {
             <h3 className='text-white m-0 sideTableHeading'>Table of Contents</h3>
             </div>
             <ul>
-              <li onClick={()=>{gothroughID("aot")}} className={Id === "aot" && "activeTable"  }>1.  Introduction </li>
-              <li onClick={()=>{gothroughID("etuw")}} className={Id === "etuw" && "activeTable"  }> 2. What Are Cookies? </li>
-              <li onClick={()=>{gothroughID("voa")}} className={Id === "voa" && "activeTable"  }> 3. Types of Cookies We Use </li>
-              <li onClick={()=>{gothroughID("pp")}} className={Id === "pp" && "activeTable"  }>4. How We Use Cookies</li>
-              <li onClick={()=>{gothroughID("ur")}} className={Id === "ur" && "activeTable"  }> 5. Managing Your Cookie Preferences </li>
-              <li onClick={()=>{gothroughID("oods")}} className={Id === "oods" && "activeTable"  }>6. Third-Party Cookies</li>
-              <li onClick={()=>{gothroughID("drl")}} className={Id === "drl" && "activeTable"  }> 7. Changes to This Cookie Policy </li>
-              <li onClick={()=>{gothroughID("cwll")}} className={Id === "cwll" && "activeTable"  }> 8. Contact Us </li>
+              <Link to={{ hash:`#introduction`,}} ><li  className={location.hash === "#introduction" && "activeTable"  }>1.  Introduction </li></Link>
+              <Link to={{ hash:`#what_are_cookies`,}} ><li  className={location.hash === "#what_are_cookies?" && "activeTable"  }> 2. What Are Cookies? </li></Link>
+              <Link to={{ hash:`#types_of_Cookies_we_use`,}} ><li  className={location.hash === "#types_of_Cookies_we_use" && "activeTable"  }> 3. Types of Cookies We Use </li></Link>
+              <Link to={{ hash:`#how_we_use_cookies`,}} ><li className={location.hash === "#how_we_use_cookies<" && "activeTable"  }>4. How We Use Cookies</li></Link>
+              <Link to={{ hash:`#managing_your_cookie_preferences`,}} ><li className={location.hash === "#managing_your_cookie_preferences" && "activeTable"  }> 5. Managing Your Cookie Preferences </li></Link>
+              <Link to={{ hash:`#third_party_cookies`,}} ><li  className={location.hash === "#third_party_cookies" && "activeTable"  }>6. Third-Party Cookies</li></Link>
+              <Link to={{ hash:`#changes_to_this_cookie_policy`,}} ><li  className={location.hash === "changes_to_this_cookie_policy" && "activeTable"  }> 7. Changes to This Cookie Policy </li></Link>
+              <Link to={{ hash:`#contact_us`,}} ><li  className={location.hash === "#contact_us" && "activeTable"  }> 8. Contact Us </li></Link>
               
             </ul>
            </div>

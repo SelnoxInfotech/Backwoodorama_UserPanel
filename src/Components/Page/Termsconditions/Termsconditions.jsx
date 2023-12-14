@@ -7,8 +7,6 @@ import { Link } from 'react-router-dom';
 const Termsconditions = () => {
   const location = useLocation()
   const ref = useRef(null);
-  const [offset, setOffset] = React.useState(0);
-  const [Id, setId] = React.useState("");
   const [allHeigths,setallheight] = React.useState([])
  
 

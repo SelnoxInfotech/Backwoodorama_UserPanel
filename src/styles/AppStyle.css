@@ -4572,7 +4572,7 @@ line-height: normal;
 }
 
 .orderDetails_innerSection1 {
-  height: 130px;
+  padding: 20px 0;
   width: 100%;
   padding: 0px 10px;
   border-bottom: 1px solid #EFEFEF;
@@ -4637,11 +4637,10 @@ line-height: normal;
 }
 
 .MyOrderDeliverSection {
-  height: 50%;
-  width: 98%;
-  display: grid;
+ 
+  display: flex;
   align-items: center;
-
+  justify-content: space-between;
 }
 
 .MyOrderDeliveryAddress_head_cont {
@@ -4650,17 +4649,13 @@ line-height: normal;
 
 /* end */
 /* MyOrderProductDetailStoreName */
-.MyOrderProductDetailStoreName_container {
-  height: 130px;
-  border: 1px solid #EFEFEF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 .MyOrderProductDetailStoreName_innercontainer {
   height: 80px;
-  width: 98%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .MyOrderProdDeta_storeNamediv {
@@ -4681,13 +4676,7 @@ line-height: normal;
 
 /* end */
 /* MyOrderProductDetailCustomerName */
-.MyOrderProductDetailCustomerName_cont {
-  height: 130px;
-  border: 1px solid #EFEFEF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 
 .MyOrderProductDetailCustomerName_inner_cont {
   height: 80px;

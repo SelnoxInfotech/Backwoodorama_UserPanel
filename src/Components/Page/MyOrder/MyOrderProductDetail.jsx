@@ -31,8 +31,6 @@ const MyOrderProductDetail = () => {
                 </div>
                 <div className="col-12  myOrder_orderId mt-4">
                     <h1 className="orderId_span">Order ID : {AllOrder_data[0]?.OrderId}</h1>
-
-
                 </div>
                 <div className="col-12  myOrder_orderId">
                     <h1 className="orderId_span">Payment Method : Cash on delivery</h1>
@@ -76,14 +74,62 @@ const MyOrderProductDetail = () => {
                     <h1 className="productDetails_headingss">Product Detail</h1>
                 </div>
                 <AllOrder  props={AllOrder_data}/>
-
-
                 <MyOrderProductRating  props={AllOrder_data}/>
                 <OrderTracking props={AllOrder_data} />
-                <OrderDetails  props={AllOrder_data}/>
-                <MyOrderDeliveryAddress props={AllOrder_data} />
-                <MyOrderProductDetailStoreName  props={AllOrder_data}/>
-                <MyOrderProductDetailCustomerName  props={AllOrder_data}/>
+                {/* <OrderDetails  props={AllOrder_data}/> */}
+                {/* <MyOrderDeliveryAddress props={AllOrder_data} /> */}
+                        <section className="MyOrderDeliverSection">
+                           <div className=" MyOrderDeliveryAddress_head_cont">
+                                <h1 className="MyOrderDeliveryAddress_headingss">Delivery Address</h1>
+                            </div>
+                            <div className=" MyOrderDeliveryAddress_head_cont">
+                                <h1 className="MyOrderDeliveryAddress_subHeading">{AllOrder_data[0]?.Address}</h1>
+                            </div>
+                        </section>
+
+                {/* <MyOrderProductDetailStoreName  props={AllOrder_data}/> */}
+
+
+                
+                    <div className="MyOrderProductDetailStoreName_innercontainer">
+                        <div className="MyOrderProdDeta_storeNamediv">
+                            <h1 className="MyOrderProdDeta_storeNamediv_head">Store Name</h1>
+                        </div>
+                        <div className="MyOrderProdDeta_storeNamediv">
+                            <h3 className="MyOrderProdDeta_storeNamediv_head_name">{AllOrder_data[0]?.SellerName}</h3>
+                        </div>
+
+                    </div>
+             
+
+                {/* <MyOrderProductDetailCustomerName  props={AllOrder_data}/> */}
+                    <div className="MyOrderProductDetailCustomerName_inner_cont">
+                        <div className="w-100 MyOrderProductDetailCustomerName_div">
+                            <span className="customerNameFontss">Customer Name</span><span className="customerName">{AllOrder_data[0]?.username}</span>
+
+                        </div>
+                        <div className="w-100 MyOrderProductDetailCustomerName_div">
+                            <span className="customerNameFontss">Customer Number</span><span className="customerNumber">{AllOrder_data[0]?.MobileNo}</span>
+
+                        </div>
+
+                    </div>
+
+
+                <section className="orderDetails_innerSection1">
+                  
+                    <div className="ordetailAmount_container">
+                        <span className="amount_spanss">Amount</span><span className="amount_spanss">$ {AllOrder_data[0]?.subtotal}</span>
+                    </div>
+                </section>
+                <section className="orderDetails_innerSection2">
+                    <div className="ordetailAmount_container">
+                        <span className="amount_spanss">Total</span><span className="totalAmounts">$ {AllOrder_data[0]?.subtotal}</span>
+                    </div>
+
+                </section>
+
+          
 
             </div>
 
