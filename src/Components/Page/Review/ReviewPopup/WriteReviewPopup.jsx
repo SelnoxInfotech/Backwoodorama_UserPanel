@@ -25,7 +25,6 @@ import { useNavigate } from "react-router-dom";
   const { state } = React.useContext(Createcontext);
   const { register, handleSubmit, errors, getValues, control } = useForm();
   const classes = useStyles();
-  console.log(reviewloading ,'reviewloading')
   const handleClickOpen = () => {
     if (state.login) {
       SetGetProductReview({ ...GetProductReview, popup: true });
@@ -68,7 +67,6 @@ import { useNavigate } from "react-router-dom";
                       render={() => (
                         <Rating
                           name="rating"
-
                           className={`mx-2 ${classes.WriteReviewStarIcons} ${errors.rating && 'customteatfsdfg'}` }
                           value={GetProductReview.value}
                           onChange={(e) => SetGetProductReview({ ...GetProductReview, 'value': e.target.value })}
@@ -106,8 +104,8 @@ import { useNavigate } from "react-router-dom";
                         placeholder="Title"
                         variant="filled"
                         fullWidth
-                        inputRef={register({
-                          required: GetProductReview.comment !== "" && "Title is required*.",
+                        inputRef={register("Title",{
+                          required: GetProductReview.Title !== "" && "Title is required*.",
                           minLength: {
                             value: 5,
                             message: "Please enter valid Title",
@@ -144,14 +142,14 @@ import { useNavigate } from "react-router-dom";
                       fullWidth
                       multiline
                       rows={5}
-                      inputRef={register({
+                      inputRef={register("comment",{
                         minLength: {
                           value: 5,
-                          message: "Please enter valid Title",
+                          message: "Please enter valid Review",
                         },
                         maxLength: {
-                          value: 150,
-                          message: "Please enter shot valid Title",
+                          value: 250,
+                          message: "Please enter shot valid Review",
                         },
                       })}
                     />
@@ -161,7 +159,7 @@ import { useNavigate } from "react-router-dom";
                       className={`edit_UserPopUp_btn_container mt-4
                                               ${classes.editEmail_loadingBtn}`}
                     >
-                      <LoadingButton loading={reviewloading} type="submit" variant="outlined">
+                      <LoadingButton loading={reviewloading}   type="submit" variant="outlined">
                         Submit
                       </LoadingButton>
                     </Box>

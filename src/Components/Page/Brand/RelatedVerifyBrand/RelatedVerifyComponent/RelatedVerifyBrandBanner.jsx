@@ -50,7 +50,7 @@ const RelatedVerifyBanner = ({ BrandDetails }) => {
                                     dangerouslySetInnerHTML=
                                     {{
                                         __html: readmore ? BrandDetails.Brand_description +
-                                            `<span id="band_shlebtn" class="band_shlebtn">Read less</span>` :
+                                            `<span id="band_shlebtn" class="band_shlebtn">...Read less</span>` :
                                             BrandDetails.Brand_description.split('</p>')[0] + '<span id="band_shlebtn" class="band_shlebtn">...Read more</span>'
                                     }} />
 

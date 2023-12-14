@@ -67,6 +67,7 @@ const OrderTracking = () => {
                                             disabled={index === 0}
                                             onClick={handleBack}
                                             sx={{ mt: 1, mr: 1 }}
+                                            variant="outlined"
                                         >
                                             Back
                                         </Button>
@@ -87,15 +88,10 @@ const OrderTracking = () => {
 
             <Box className={`mt-4 center ${classes.OrderTrackingLoadingBtn}`}>
   
-                    <LoadingButton >Tracking Link</LoadingButton>
+                    <LoadingButton>Tracking Link</LoadingButton>
                     <LoadingButton startIcon={<IoMdShare color='#8A8A8A'/>} className="mx-2"> Share</LoadingButton>
 
-                    </Box>
-            
-             
-         
-
-
+            </Box>
 
         </div>
     )

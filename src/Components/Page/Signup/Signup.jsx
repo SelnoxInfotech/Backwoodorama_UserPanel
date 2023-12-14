@@ -8,16 +8,31 @@ import Createcontext from "../../../Hooks/Context"
 import { IoLogoFacebook } from 'react-icons/io';
 import { FcGoogle } from "react-icons/fc"
 import LoginWithGoogle from '../Login/LoginWithGoogle'
-import React from 'react';
+import React,{useState} from 'react';
+import Axios from 'axios'
 import { SignupSeo } from '../../Component/ScoPage/CommenpageSeo';
 const Signup = () => {
     const { state } = React.useContext(Createcontext)
- 
+ const [emailvalid,setemailvalid]=useState(false)
     const navigate = useNavigate()
     const method = useForm()
     const classes = useStyles()
     function Submit(State) {
-        navigate("/signupwithemail", { state: { State } })
+      
+      Axios.post('https://api.cannabaze.com/UserPanel/UserAlreadyExist/',{
+        email:State.email
+      }).then((res)=>{
+        if(res.data.email !== "Email is already Registered"){
+            navigate("/signupwithemail", { state: { State } })
+       
+        }else{
+            setemailvalid(true)
+        }
+      }).catch((error)=>{
+
+      })
+     
+      
     }
 
     React.useEffect(()=>{
@@ -51,6 +66,7 @@ const Signup = () => {
                                         placeholder="Enter Your Email"
                                         name='email'
                                         variant="outlined"
+                                        onChange={()=>{setemailvalid(false)}}
                                         fullWidth
                                         size='small'
                                         inputRef={method.register({
@@ -59,12 +75,13 @@ const Signup = () => {
                                                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                                                 message: "invalid email address"
                                             }
-
                                         }
                                         )}
                                         helperText={method.errors?.email?.message}
                                         error={Boolean(method.errors?.email)}
+
                                     />
+                                    {emailvalid && <p className='errorPara'>Email is already Registered</p>}
                                 </div>
                             </div>
                             <div className='row  signup_margins_top'>
@@ -82,7 +99,7 @@ const Signup = () => {
                             <div className='col-12 signup_Col'>
                                 <span className='Signup_spanss'>Already a member?</span>
                                 <span>
-                                    <Link to="/login" className='signupLinkColor'><span>Signin</span></Link>
+                                    <Link to="/login" className='signupLinkColor'><span >Signin</span></Link>
                                 </span>
                             </div>
 

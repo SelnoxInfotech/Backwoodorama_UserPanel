@@ -4604,7 +4604,7 @@ line-height: normal;
 
 .amount_spanss {
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 600;
   color: #000000;
 }
 
@@ -5508,16 +5508,27 @@ line-height: normal;
 .lawStateDescription_Laws_Content {
   display: flex;
 }
+.tableList{
+  color: #2b2b2b;
+  transition: all .3s ease;
+}
 .tableList:hover{
   cursor: pointer;
   color: #31B655;
+}
+.tableList.tableListActive{
+  color: #31B655;
+  font-weight: 500;
 }
 .isweedLegalHeading {
   color: #000000;
   font-weight: 700;
   font-size: 28px;
 }
-
+.errorPara{
+  color: red;
+  font-size: 12px;
+}
 .frequentlySubHeading {
   color: #000000;
   font-weight: 700;
@@ -5921,8 +5932,13 @@ line-height: 2;
    text-align: center;
    width: 50%;
 }
-
-
+.noReview .noreview_description a{
+  color: black;
+  transition: all .3s ease;
+}
+.noReview .noreview_description a:hover{
+  color: #31B655;
+}
 /* recent order page start */
 
 .order_conform_card{

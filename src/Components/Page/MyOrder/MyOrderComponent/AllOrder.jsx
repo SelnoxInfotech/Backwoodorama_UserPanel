@@ -10,7 +10,7 @@ const AllOrder = ({AllOrder_data }) => {
     return (
         <div className="container-fluid">
             <div className="row center  ">
-                {AllOrder_data.map((val, index) => {
+                {AllOrder_data?.map((val, index) => {
                     return (
                         <React.Fragment key={index}>
                             <div className=" col-lg-10    AllOrderContainer px-0 mt-4">
@@ -75,8 +75,6 @@ const AllOrder = ({AllOrder_data }) => {
 
                                                         </section>
                                                     </div>
-
-
                                                 </div>
 
                                             </React.Fragment>

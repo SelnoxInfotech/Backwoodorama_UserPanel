@@ -2,56 +2,47 @@ import React from 'react'
 import Newsletter from '../../Component/Newsletter/HomePageDealsSignup';
 import { TermsAndConditions } from '../../Component/ScoPage/CommenpageSeo';
 import { useRef } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 const Termsconditions = () => {
- 
+  const location = useLocation()
   const ref = useRef(null);
   const [offset, setOffset] = React.useState(0);
   const [Id, setId] = React.useState("");
- const allHeigths = []
-  React.useEffect(() => {     document.documentElement.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: "instant", // Optional if you want to skip the scrolling animation
-}); 
-    
-    const onScroll = () => setOffset(window.pageYOffset);
-    window.removeEventListener('scroll', onScroll);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [])
-  let divElement = document.getElementById('Navbar_box')?.clientHeight
-  React.useEffect(()=>{
-    ref.current.childNodes.forEach((item , index)=>{
-      allHeigths.push({
-       topheigth: item.offsetTop,
-       id : item.id,
-       height : item.clientHeight
-      })
-    })
-   
-    for(let i=0 ; i < allHeigths.length -1 ; i++){
-       if(offset > allHeigths[i].topheigth - divElement - 100   && offset < allHeigths[i+1].topheigth - divElement ){
-        setId(allHeigths[i].id)
-       }else if(offset < allHeigths[0].topheigth){
-        setId(allHeigths[0].id)
-        
-       }else if(offset > allHeigths[allHeigths.length -1].topheigth){
-        setId(allHeigths[allHeigths.length -1].id)
-        
-       }
-    }
-  },[offset])
+  const [allHeigths,setallheight] = React.useState([])
+ 
 
-  function gothroughID(ID){
-  
-    allHeigths.forEach((item)=>{
-      if(item.id === ID){
-        window.scrollTo(0, item.topheigth - divElement)
-      }
+  React.useEffect(()=>{
+    document.documentElement.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    }); 
+        let data =[]
+        ref.current.childNodes.forEach((item , index)=>{
+    
+            data.push({
+                topheigth: item.offsetTop,
+                id : item.id,
+                height : item.clientHeight
+            })   
+        })
+        setallheight(data)
+    
+  },[])
+
+React.useEffect(() => {
+     let divElement = document.getElementById('Navbar_box')?.clientHeight
+      
+       allHeigths.forEach((item)=>{
+       
+       if(location.hash === `#${item.id}`){
+       
+         window.scroll(0 , item.topheigth - divElement)
+       }
     })
-  }
-  
+  }, [location,allHeigths])
+
   return (
     <>
       <div className='term_condition'>
@@ -64,7 +55,7 @@ const Termsconditions = () => {
           <div className="row tc_content justify-content-between" >
           <div className="col-md-7 tc_main-centent"> 
               <ol ref={ref} >
-                <li id='first'>
+                <li id='acceptance_of_terms'>
                   <span className='question'>Acceptance of Terms</span>
                   <span className="answer">
                       By accessing or using weedx.io, you agree to abide by these 
@@ -72,7 +63,7 @@ const Termsconditions = () => {
                       terms, you should not use the website.
                   </span>
                 </li>
-                <li id='etuw'>
+                <li id='eligibility_to_use_website'>
                   <span className='question'>Eligibility to Use Website</span>
                   <span className="answer">
                     By using weedx.io, you represent and warrant that you are at 
@@ -81,7 +72,7 @@ const Termsconditions = () => {
                     consumption in your jurisdiction, you may not use this website.
                   </span>
                 </li>
-                <li id='voa'>
+                <li id='verification_of_age'>
                   <span className='question'>Verification of Age</span>
                   <span className="answer">weedx.io reserves the right to verify the age of users and may 
                         request additional information or documentation to confirm 
@@ -89,13 +80,13 @@ const Termsconditions = () => {
                         with age verification requests may result in the suspension or 
                         termination of your account and access to the website.</span>
                 </li>
-                <li id='pp'>
+                <li id='privacy_policy'>
                   <span className='question'>Privacy Policy</span>
                   <span className="answer">Your use of the website is also governed by our <Link to={'/privacy-policy'}>Privacy Policy</Link>, 
                     which can be found. By using the website, you consent to 
                     the practices outlined in the <Link to={'/privacy-policy'}>Privacy Policy</Link>.</span>
                 </li>
-                <li id='ur'>
+                <li id='user_registration'>
                   <span className='question'>User Registration</span>
                   <span className="answer">
                     To access certain features of the website, you may be required 
@@ -104,7 +95,7 @@ const Termsconditions = () => {
                     activities that occur under your account.
                   </span>
                 </li>
-                <li id='oods'>
+                <li id='online_ordering_&_Delivery_Services'>
                   <span className='question'> Online Ordering and Delivery Services </span>
                   <span className="answer">
                     <b>a.</b> Online ordering and delivery services may be available in certain areas. Users are responsible for 
@@ -115,7 +106,7 @@ const Termsconditions = () => {
                     retailers listed on the platform.
                   </span>
                 </li>
-                <li id='drl'>
+                <li id='dispensary_and_retailer_listings'>
                   <span className='question'>  Dispensary and Retailer Listings </span>
                   <span className="answer">
                   <b>a.</b> Dispensary and retailer listings are provided for informational purposes only. weedx.io does not 
@@ -125,14 +116,14 @@ const Termsconditions = () => {
                   <b>b.</b> Users are encouraged to conduct their research and due diligence before making any purchases.
                    </span>
                 </li>
-                <li id='cwll'>
+                <li id='compliance_with_local_laws'>
                   <span className='question'>   Compliance with Local Laws</span>
                   <span className="answer">
                     Users are responsible for ensuring compliance with local laws and regulations regarding the possession, 
                     purchase, and use of cannabis. weedx.io does not provide legal advice.
                   </span>
                 </li>
-                <li id='ip'>
+                <li id='intellectual_property'>
                   <span className='question'> Intellectual Property </span>
                   <span className="answer">
                   <b> a.</b> The content and materials on weedx.io, including logos, text, images, and trademarks, are protected by 
@@ -143,7 +134,7 @@ const Termsconditions = () => {
                   permission.
                   </span>
                 </li>
-                <li id='lol'>
+                <li id='limitation_of_liability'>
                   <span className='question'>  Limitation of Liability</span>
                   <span className="answer">
                       weedx.io is not liable for any direct, indirect, incidental, special, or consequential damages arising out of 
@@ -151,7 +142,7 @@ const Termsconditions = () => {
 
                   </span>
                 </li> 
-                <li id='ctt'>
+                <li id='changes_to_terms'>
                   <span className='question'> Changes to Terms</span>
                   <span className="answer">
                   weedx.io reserves the right to modify or revise these Terms and Conditions at any time without notice. 
@@ -176,18 +167,18 @@ const Termsconditions = () => {
               <h3 className='text-white m-0 sideTableHeading'>Table of Contents</h3>
               </div>
               <ul>
-                <li onClick={()=>{gothroughID("first")}} className={Id === "first" && "activeTable"  }>1. Acceptance of Terms </li>
-                <li onClick={()=>{gothroughID("etuw" )}} className={Id === "etuw" && "activeTable"  }> 2.  Eligibility to Use Website </li>
-                <li onClick={()=>{gothroughID("voa")}} className={Id === "voa" && "activeTable"  }>  3. Verification of Age  </li>
-                <li onClick={()=>{gothroughID("pp")}} className={Id === "pp" && "activeTable"  }>  4.  Privacy Policy</li>
-                <li onClick={()=>{gothroughID("ur")}} className={Id === "ur" && "activeTable"  }> 5.  User Registration </li>
-                <li onClick={()=>{gothroughID("oods")}} className={Id === "oods" && "activeTable"  }> 6.   Online Ordering & Delivery Services</li>
-                <li onClick={()=>{gothroughID("drl")}} className={Id === "drl" && "activeTable"  }>  7. Dispensary and Retailer Listings </li>
-                <li onClick={()=>{gothroughID("cwll")}} className={Id === "cwll" && "activeTable"  }>  8.  Compliance with Local Laws </li>
-                <li onClick={()=>{gothroughID("ip")}} className={Id === "ip" && "activeTable"  }>  9. Intellectual Property </li>
-                <li onClick={()=>{gothroughID("lol")}} className={Id === "lol" && "activeTable"  }> 10.  Limitation of Liability </li>
-                <li onClick={()=>{gothroughID("ctt")}} className={Id === "ctt" && "activeTable"  }>  11. Changes to Terms  </li>
-                <li onClick={()=>{gothroughID("termination")}} className={Id === "termination" && "activeTable"  }> 12. Termination  </li>
+                 <Link to={{ hash:`#acceptance_of_terms`,}} > <li className={location.hash === `#acceptance_of_terms` && "activeTable"  }>1. Acceptance of Terms </li></Link>
+                 <Link to={{ hash:`#eligibility_to_use_website`,}} > <li className={location.hash ===`#eligibility_to_use_website` && "activeTable"  }> 2.  Eligibility to Use Website </li></Link>
+                 <Link to={{ hash:`#verification_of_age`,}} > <li className={location.hash === `#verification_of_age` && "activeTable"  }>  3. Verification of Age  </li></Link>
+                 <Link to={{ hash:`#privacy_policy`,}} > <li className={location.hash ===`#privacy_policy` && "activeTable"  }>  4.  Privacy Policy</li></Link>
+                 <Link to={{ hash:`#user_registration`,}} > <li className={location.hash === `#user_registration` && "activeTable"  }> 5.  User Registration </li></Link>
+                 <Link to={{ hash:`#online_ordering_&_Delivery_Services`,}} > <li className={location.hash === `#online_ordering_&_Delivery_Services` && "activeTable"  }> 6.   Online Ordering & Delivery Services</li></Link>
+                 <Link to={{ hash:`#dispensary_and_retailer_listings`,}} > <li className={location.hash ===`#dispensary_and_retailer_listings` && "activeTable"  }>  7. Dispensary and Retailer Listings </li></Link>
+                 <Link to={{ hash:`#compliance_with_local_laws`,}} > <li className={location.hash ===`#compliance_with_local_laws` && "activeTable"  }>  8.  Compliance with Local Laws </li></Link>
+                 <Link to={{ hash:`#intellectual_property`,}} > <li className={location.hash === `#intellectual_property` && "activeTable"  }>  9. Intellectual Property </li></Link>
+                 <Link to={{ hash:`#limitation_of_liability`,}} > <li className={location.hash ===`#limitation_of_liability` && "activeTable"  }> 10.  Limitation of Liability </li></Link>
+                 <Link to={{ hash:`#changes_to_terms`,}} > <li className={location.hash ===`#changes_to_terms` && "activeTable"  }>  11. Changes to Terms  </li></Link>
+                 <Link to={{ hash:`#termination`,}} > <li className={location.hash === `#termination` && "activeTable"  }> 12. Termination  </li></Link>
               </ul>
             </div>
           </div>

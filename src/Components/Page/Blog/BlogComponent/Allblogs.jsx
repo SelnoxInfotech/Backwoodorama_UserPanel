@@ -17,7 +17,11 @@ const Allblogs = () => {
   const [searchtext , setsearchtext] = useState('')
   const classes = useStyles()
   useEffect(() => {
-    window.scroll(0, 0)
+    document.documentElement.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    }); 
     const news = getAllNews()
     news.then((res) => {
 

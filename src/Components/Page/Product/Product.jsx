@@ -52,6 +52,11 @@ const Product = () => {
     const [Category, SetCategory] = React.useState([])
     const [C, f] = React.useState('')
     React.useEffect(() => {
+        document.documentElement.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "instant",
+          }); 
         const fetchData = async () => {
             const apidata = await fetch("https://api.cannabaze.com/UserPanel/Get-Categories/");
             const data = await apidata.json()
@@ -129,7 +134,7 @@ const Product = () => {
     }, [state.Location, params])
 
     return (
-        <>
+        <React.Fragment>
             {!params.id ? <ProductSeo location={location.pathname}></ProductSeo> :
                 <ProductCategorySeo categoryname={params.categoryname} location={location.pathname} ></ProductCategorySeo>}
             {/* <div className="product_container"> */}
@@ -192,7 +197,7 @@ const Product = () => {
                 </div>
             </div>
             {/* </div> */}
-        </>
+        </React.Fragment>
     )
 }
 export default Product

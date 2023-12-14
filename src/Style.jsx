@@ -1049,8 +1049,9 @@ const useStyles = makeStyles({
       color: "#8A8A8A",
     },
     "& .MuiButtonBase-root:hover": {
-      color: "#8A8A8A",
-      border: "1px solid #31B665"
+      color: "#fff",
+      border: "1px solid #31B665",
+      backgroundColor:'#31B655',
     },
   },
   OrderTrackingBtn: {

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import CircularProgress from '@mui/material/CircularProgress';
 import { BsStar, BsStarFill } from "react-icons/bs";
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
@@ -299,7 +300,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                             :
 
                                                             items?.Prices[0].Price[0].Stock === "IN Stock" ?
-                                                                <LoadingButton loading={adding === items.id} loadingIndicator="Adding" style={{ width: "100%", height: "30px", fontSize: "14px" }}
+                                                                <LoadingButton loading={adding === items.id} loadingIndicator={<CircularProgress color="inherit" size={16} />} style={{ width: "100%", height: "30px", fontSize: "14px" }}
                                                                     onClick={() => { AddToCart(items) }} >
                                                                     Add To Cart
                                                                 </LoadingButton>

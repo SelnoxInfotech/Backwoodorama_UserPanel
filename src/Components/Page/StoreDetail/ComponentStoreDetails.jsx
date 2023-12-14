@@ -13,6 +13,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { MdSecurity } from "react-icons/md";
 import Openingtime from "./StoreDetailComponent/Openingtime";
 const StoreDetail1 = ({ storeDetails }) => {
+  console.log(storeDetails)
   return (
     <div className="container-fluid container-lg-full mt-3">
       <div className="amenities_container">
@@ -24,15 +25,7 @@ const StoreDetail1 = ({ storeDetails }) => {
         <div className="row">
           <div className="col-12 ">
             <ol className="amenities_list">
-              {/* {
-                                    storeDetails[0]?.CurbSide_Pickup === true && <li className="amenties_list_items">
-                                       
-                                            <p className="m-0 amenities_list_item_paragrap listfontStyle">
-                                            <BsFillCarFrontFill/> Curbside Pickup
-                                            </p>
-                                     
-                                    </li>
-                                } */}
+            
               {storeDetails[0]?.Recreational === true && (
                 <li className="amenties_list_items">
                   <p className="m-0 amenities_list_item_paragrap listfontStyle">
@@ -123,33 +116,36 @@ const StoreDetail1 = ({ storeDetails }) => {
             </div>
 
             <div className="row mx-0">
-              {storeDetails[0]?.CurbSide_Pickup &&
+              {
                 storeDetails[0]?.CurbSidePickupHours !== null && (
                   <div className="p-md-2 p-0 col-md-5 col-12">
                     <Openingtime
                       storeDetails={storeDetails}
                       heading={"CurbSide PickUp Hours"}
                       type={storeDetails[0]?.CurbSidePickupHours}
+                      key={"CurbSidePickupHours"}
                     />
                   </div>
                 )}
-              {storeDetails[0]?.StoreFront &&
+              {
                 storeDetails[0]?.Hours !== null && (
                   <div className="p-md-2 p-0 col-md-5 col-12">
                     <Openingtime
                       storeDetails={storeDetails}
                       heading={"Store Hours"}
                       type={storeDetails[0]?.Hours}
+                      key={"Hours"}
                     />
                   </div>
                 )}
-              {storeDetails[0]?.Delivery &&
+              {
                 storeDetails[0]?.DeliveryHours !== null && (
                   <div className="p-md-2 p-0 col-md-5 col-12">
                     <Openingtime
                       storeDetails={storeDetails}
                       heading={"Delivery Hours"}
                       type={storeDetails[0]?.DeliveryHours}
+                      key={"DeliveryHours"}
                     />
                   </div>
                 )}
@@ -173,7 +169,6 @@ const StoreDetail1 = ({ storeDetails }) => {
                     </span>
                   </li>
                 )}
-
                 {storeDetails[0]?.Stores_MobileNo && (
                   <li className="StoreDetailSidemenuBarList">
                     <BsTelephone />

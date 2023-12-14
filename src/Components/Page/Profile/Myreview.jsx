@@ -175,7 +175,7 @@ const Myreview = () => {
                                             </div>
                                             <div className='review_description_container'>
 
-                                                <p>{textgive(item.Reply)}   {item?.Reply?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => setreadopen(!readopen)}>Read {readopen ? "More" : "Less"}</span>}</p>
+                                                <p>{textgive(item.Reply)}   {item?.Reply?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => setreadopen(!readopen)}>...Read {readopen ? "More" : "Less"}</span>}</p>
                                             </div>
 
                                         </div>
@@ -252,7 +252,7 @@ const Myreview = () => {
                                             </div>
                                             <div className='review_description_container'>
 
-                                                <p>{textgive(item?.Reply)}   {item?.Reply?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => setreadopen(!readopen)}>Read {readopen ? "More" : "Less"}</span>}</p>
+                                                <p>{textgive(item?.Reply)}   {item?.Reply?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => setreadopen(!readopen)}>...Read {readopen ? "More" : "Less"}</span>}</p>
                                             </div>
 
                                         </div>

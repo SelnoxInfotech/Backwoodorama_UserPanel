@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useParams, useNavigate, useLocation,Link } from "react-router-dom";
 import axios from "axios";
 import useStyles from "../../../../Style"
 import ProductFilter from "../../../Component/Filter/ProductFilter";
@@ -269,7 +269,6 @@ export default function DispensoriesDetails() {
         }).catch(() => {
         })
     }
-
     return (
         <div>
             <StoreDetails Despen={Despen} locationStore={useLocation().pathname}></StoreDetails>
@@ -323,8 +322,8 @@ export default function DispensoriesDetails() {
                             <div className="iconcircl"><FaIdeal size={70} color="gray" /></div>
                         </div>
                         <h3 className="noreview_title">Discover More Savings Soon!</h3>
-                        <p className="noreview_description w-lg-50 ">It looks like there are no active deals at the moment from [Store Name]. Don't worry, though – our partnered stores frequently update their promotions. Be sure to check back regularly for exciting discounts and special offers on your favorite products.</p>
-                        <p className="noreview_description w-lg-50">In the meantime, explore the diverse range of products available at [Store Name]. We're constantly working to bring you the best deals, so stay tuned for upcoming promotions.</p>
+                        <p className="noreview_description w-lg-50 ">It looks like there are no active deals at the moment at <Link target="_blank" to={`/weed-dispensaries/${Despen[0]?.Store_Name.toLowerCase().replaceAll(" ","-")}/${Despen[0]?.id}`}><b>{Despen[0]?.Store_Name}</b></Link>. Don't worry, though – our partnered stores frequently update their promotions. Be sure to check back regularly for exciting discounts and special offers on your favorite products.</p>
+                        <p className="noreview_description w-lg-50">In the meantime, explore the diverse range of products available at <Link target="_blank" to={`/weed-dispensaries/${Despen[0]?.Store_Name.toLowerCase().replaceAll(" ","-")}/${Despen[0]?.id}`}><b>{Despen[0]?.Store_Name}</b></Link>. We're constantly working to bring you the best deals, so stay tuned for upcoming promotions.</p>
         </div>
                     }
                     {/* {

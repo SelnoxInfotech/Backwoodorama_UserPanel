@@ -49,7 +49,7 @@ const NewProductDetails = () => {
   })
   const classes = style()
   React.useEffect(() => {
-    // window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+  
     Axios(`https://api.cannabaze.com/UserPanel/Get-ProductById/${id}`, {
     }).then(response => {
       setdiscount(0)
@@ -60,7 +60,7 @@ const NewProductDetails = () => {
       Axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${response.data[0]?.Store_id}`, {
       }).then(response => {
         SetDespens(response.data[0])
-        // window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
+    
       })
       Axios.post(`https://api.cannabaze.com/UserPanel/YouMayAlsoLike/`,
         {

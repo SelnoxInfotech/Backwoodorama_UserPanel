@@ -9,12 +9,17 @@ const Termsconditions = () => {
   const [Id, setId] = React.useState("");
  const allHeigths = []
   React.useEffect(() => {
-    window.scrollTo(0, 0)
+    document.documentElement.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    }); 
     
     const onScroll = () => setOffset(window.pageYOffset);
     window.removeEventListener('scroll', onScroll);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
+    
   }, [])
   let divElement = document.getElementById('Navbar_box').clientHeight
   React.useEffect(()=>{

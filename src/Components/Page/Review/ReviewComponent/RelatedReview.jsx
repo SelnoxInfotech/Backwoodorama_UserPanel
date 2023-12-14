@@ -132,7 +132,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                                         </div>
                                         {textgive(text) &&
                                             <div className='review_description_container'>
-                                              <p>{textgive(text)}   {text?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => setreadopen(!readopen)}>Read {readopen ? "More" : "Less"}</span>}</p>
+                                              <p>{textgive(text)}   {text?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => setreadopen(!readopen)}>...Read {readopen ? "More" : "Less"}</span>}</p>
                                             </div>
                     }
                                         <div className='review_date'>
@@ -225,7 +225,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                                         </div>
                                         <div className='review_description_container'>
 
-                                            <p>{textgive(ele.Reply)}   {text?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => setreadopen(!readopen)}>Read {readopen ? "More" : "Less"}</span>}</p>
+                                            <p>{textgive(ele.Reply)}   {text?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => setreadopen(!readopen)}>...Read {readopen ? "More" : "Less"}</span>}</p>
                                         </div>
 
                                     </div>
