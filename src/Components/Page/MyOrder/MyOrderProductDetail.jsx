@@ -7,20 +7,31 @@ import OrderDetails from "./MyOrderProductDetailComponent/OrderDetails";
 import MyOrderDeliveryAddress from "./MyOrderProductDetailComponent/MyOrderDeliveryAddress";
 import MyOrderProductDetailStoreName from "./MyOrderProductDetailComponent/MyOrderProductDetailStoreName";
 import MyOrderProductDetailCustomerName from "./MyOrderProductDetailComponent/MyOrderProductDetailCustomerName";
+import  Rating from "@mui/material/Rating"
 import {OrderBYID} from "../MyOrder/MyorderApi"
 import { IconButton } from "@mui/material";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { BsFillCircleFill } from "react-icons/bs";
 import { useNavigate,useParams } from "react-router-dom";
-
+import useStyles from "../../../Style"
 const MyOrderProductDetail = () => {
     const params = useParams();
+    const classes=useStyles()
     const [AllOrder_data, SetAllOrder_data] = React.useState([])
+    const [statuscolor, Setstatuscolor] = React.useState("#31B655")
      const navigate = useNavigate()
     React.useEffect(() => {
         OrderBYID(params.id).then((res) => {
             SetAllOrder_data(res.data.reverse())
+            
+        if(AllOrder_data[0]?.Order_Status === "Cancel"){
+            Setstatuscolor('#d33')
+        }else if(AllOrder_data[0]?.Order_Status === "Delivered"){
+            Setstatuscolor('gold')
+        }
         }).catch()
+        
+
     }, [])
     console.log(AllOrder_data ,'AllOrder_data')
     return (
@@ -29,12 +40,16 @@ const MyOrderProductDetail = () => {
                 <div className="col-12 d-flex px-0  productDetails_heading_container">
                 <IconButton onClick={()=>navigate(-1)} >  <AiOutlineLeft color="#000000" size={20} /> </IconButton ><span  onClick={()=>navigate(-1) }className="productDetails_headings">Product Details</span>
                 </div>
-                <div className="col-12  myOrder_orderId mt-4">
-                    <h1 className="orderId_span">Order ID : {AllOrder_data[0]?.OrderId}</h1>
-                </div>
-                <div className="col-12  myOrder_orderId">
-                    <h1 className="orderId_span">Payment Method : Cash on delivery</h1>
-                    <div className="col-12 allOrderCard_container ">
+                    {/* <div className="col-12  myOrder_orderId mt-4">
+                        <h1 className="orderId_span">Order ID : {AllOrder_data[0]?.OrderId}</h1>
+                    </div>
+                    <div className="col-12  myOrder_orderId">
+                        <h1 className="orderId_span">Payment Method : Cash on delivery</h1>
+                    
+                    </div> */}
+                <div className="p-0 mt-4">
+                  
+                    <div className="col-12 allOrderCard_container border p-3 ">
                         <div className="imageSectionWrapper">
                             <section className="allOrder_Card_Image_section">
                                 <div className="Allorder_img_container">
@@ -60,7 +75,7 @@ const MyOrderProductDetail = () => {
                                 <div className="w-100 allOrder_icons_container">
                                     <span className="allOrder_spanName">Amount :<span className="Amount_price"> {AllOrder_data[0]?.Product[0]?.Price.SalePrice}</span></span>
                                     <div className="allOrder_icons_div">
-                                        <BsFillCircleFill color="#31B665" size={20} />
+                                        <BsFillCircleFill color={statuscolor} size={20} />
                                         <span className="allOrder_spanName">{AllOrder_data[0]?.Order_Status}</span>
                                     </div>
 
@@ -70,67 +85,67 @@ const MyOrderProductDetail = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-12 myOrder_orderId mt-4">
-                    <h1 className="productDetails_headingss">Product Detail</h1>
-                </div>
                 <AllOrder  props={AllOrder_data}/>
-                <MyOrderProductRating  props={AllOrder_data}/>
-                <OrderTracking props={AllOrder_data} />
-                {/* <OrderDetails  props={AllOrder_data}/> */}
-                {/* <MyOrderDeliveryAddress props={AllOrder_data} /> */}
-                        <section className="MyOrderDeliverSection">
-                           <div className=" MyOrderDeliveryAddress_head_cont">
-                                <h1 className="MyOrderDeliveryAddress_headingss">Delivery Address</h1>
-                            </div>
-                            <div className=" MyOrderDeliveryAddress_head_cont">
-                                <h1 className="MyOrderDeliveryAddress_subHeading">{AllOrder_data[0]?.Address}</h1>
+                {/* <MyOrderProductRating  props={AllOrder_data}/> */}
+
+                <div className="row p-0 mt-4">
+                <OrderTracking AllOrder_data={AllOrder_data} />
+               
+                <div className=" col-xl-5 col-lg-4 col-12 ">
+                    <div className=" border px-3">
+                        <div className="w-100 MyOrderProductRating_innerContainer">
+                            <h1 className="productRating_heading">How was the product?</h1>
+                            <Rating name="read-only" className={classes.myOrderRatingStarIcons} color="#31B665" value={4} readOnly />
+                        </div>
+
+                    </div>
+                    <div className="orderTracking_container mt-4">
+                        <section className="">
+                            
+                                <span className="customerNameFontss">Delivery Address : </span>
+                            
+                                <span className="MyOrderDeliveryAddress_subHeading"> {AllOrder_data[0]?.Address}</span>
+                            
+                        </section>
+                        <div className="">
+                        
+                                <span className="customerNameFontss">Store Name :</span>
+                        
+                                <span className=""> {AllOrder_data[0]?.SellerName}</span>
+                        
+                        </div>
+                        <div className=" ">
+                            <span className="customerNameFontss">Customer Name : </span><span className="customerName"> {AllOrder_data[0]?.username}</span>
+
+                        </div>
+                        <div className=" ">
+                            <span className="customerNameFontss">Customer Number : </span><span className="customerNumber"> {AllOrder_data[0]?.MobileNo}</span>
+
+                        </div>
+                        <div className=" ">
+                            <span className="customerNameFontss">Order ID : </span><span className="customerNumber"> {AllOrder_data[0]?.OrderId}</span>
+
+                        </div>
+                        <div className=" ">
+                            <span className="customerNameFontss">Payment Method : </span><span className="customerNumber">  Cash On Delivery  </span>
+
+                        </div>
+                        
+                        <section className="orderDetails_innerSection1">
+                        
+                            <div className="ordetailAmount_container">
+                                <span className="amount_spanss">Amount</span><span className="amount_spanss">$ {AllOrder_data[0]?.subtotal}</span>
                             </div>
                         </section>
+                        <section className="orderDetails_innerSection2">
+                            <div className="ordetailAmount_container">
+                                <span className="amount_spanss">Total</span><span className="totalAmounts">$ {AllOrder_data[0]?.subtotal}</span>
+                            </div>
 
-                {/* <MyOrderProductDetailStoreName  props={AllOrder_data}/> */}
-
-
-                
-                    <div className="MyOrderProductDetailStoreName_innercontainer">
-                        <div className="MyOrderProdDeta_storeNamediv">
-                            <h1 className="MyOrderProdDeta_storeNamediv_head">Store Name</h1>
-                        </div>
-                        <div className="MyOrderProdDeta_storeNamediv">
-                            <h3 className="MyOrderProdDeta_storeNamediv_head_name">{AllOrder_data[0]?.SellerName}</h3>
-                        </div>
-
+                        </section>
                     </div>
-             
-
-                {/* <MyOrderProductDetailCustomerName  props={AllOrder_data}/> */}
-                    <div className="MyOrderProductDetailCustomerName_inner_cont">
-                        <div className="w-100 MyOrderProductDetailCustomerName_div">
-                            <span className="customerNameFontss">Customer Name</span><span className="customerName">{AllOrder_data[0]?.username}</span>
-
-                        </div>
-                        <div className="w-100 MyOrderProductDetailCustomerName_div">
-                            <span className="customerNameFontss">Customer Number</span><span className="customerNumber">{AllOrder_data[0]?.MobileNo}</span>
-
-                        </div>
-
-                    </div>
-
-
-                <section className="orderDetails_innerSection1">
-                  
-                    <div className="ordetailAmount_container">
-                        <span className="amount_spanss">Amount</span><span className="amount_spanss">$ {AllOrder_data[0]?.subtotal}</span>
-                    </div>
-                </section>
-                <section className="orderDetails_innerSection2">
-                    <div className="ordetailAmount_container">
-                        <span className="amount_spanss">Total</span><span className="totalAmounts">$ {AllOrder_data[0]?.subtotal}</span>
-                    </div>
-
-                </section>
-
-          
-
+                </div>
+                </div>
             </div>
 
         </div>

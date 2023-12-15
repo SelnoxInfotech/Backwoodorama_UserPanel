@@ -6,7 +6,7 @@ import useStyles from "../../../Style";
 import { Button, IconButton, InputAdornment, MenuItem, TextField } from "@mui/material";
 import Pending_Order from "../MyOrder/MyOrderComponent/Pending_Order"
 import { useNavigate } from "react-router-dom";
-import { GetCancelOrder, PendingOrder, order, GetDeliveredOrder } from "../MyOrder/MyorderApi";
+import { GetCancelOrder, PendingOrder,Cancel, order, GetDeliveredOrder } from "../MyOrder/MyorderApi";
 import { HiArrowsUpDown } from "react-icons/hi2";
 import axios from "axios"
 import Cookies from 'universal-cookie';
@@ -17,6 +17,7 @@ const MyOrder = () => {
     const navigate = useNavigate()
     const classes = useStyles()
     const [AllOrder_data, SetAllOrder_data] = React.useState([])
+    const [ordertype, Setordertype] = React.useState('')
     const [GetFilter, SetFilter] = React.useState('')
     const [loading, SetLoading] = React.useState(false)
     React.useEffect(() => {
@@ -34,7 +35,52 @@ const MyOrder = () => {
             }).catch()
         }
     }, [])
+    const Swal = require('sweetalert2')
+    function CencelOrder(id) {
+       
+Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#31B655",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) {
+    SetLoading(true)
+    Cancel(id).then((res) => {
+           
+        PendingOrder().then((res) => {
+            SetAllOrder_data(res.data)
+            SetLoading(false)
+            Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+              });
+        }).catch((error) => {
+            console.log(error)
+            SetLoading(false)
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+                footer: '<a href="#">Why do I have this issue?</a>'
+              });
+        })
 
+       
+
+
+
+    }).catch(SetLoading(false))
+    SetLoading(false)
+   
+  }
+});
+      
+     }
     React.useEffect(() => {
         const getData = setTimeout(() => {
             Getsearch !== "" && axios.post(`https://api.cannabaze.com/UserPanel/OrderSearch/`,
@@ -55,6 +101,7 @@ const MyOrder = () => {
     function filter(e) {
         SetLoading(true)
         SetFilter(e.target.value)
+        Setordertype(e.target.value)
         if (e.target.value === "All Order") {
             order().then((res) => {
                 SetAllOrder_data(res?.data?.reverse())
@@ -176,7 +223,7 @@ const MyOrder = () => {
                         <div className="loaderFLower"></div>
                     </div>
                         :
-                        <AllOrder AllOrder_data={AllOrder_data} />
+                        <AllOrder AllOrder_data={AllOrder_data} CencelOrder={CencelOrder} ordertype={ordertype} />
                     }
 
                     <div className="col-10 NODataInOrderPage center mt-3">
@@ -195,15 +242,6 @@ const MyOrder = () => {
 
 
 
-                    {/* {Selected === 1 ?
-                        (
-                            <AllOrder />
-                        )
-                        : Selected === 2 ? (<div className="col-12 center" style={{ paddingLeft: "30px" }}><h2><Pending_Order></Pending_Order></h2></div>) :
-                            Selected === 3 ? (<div><h2>Shipped</h2></div>) :
-                                Selected === 4 ? (<div><h2>Delivered</h2></div>) :
-                                    Selected === 5 ? (<div><h2><AllOrder props={AllOrder_data} /></h2></div>) : ""
-                    } */}
 
                 </div>
             </div>
