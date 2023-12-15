@@ -3,8 +3,7 @@ import { AiOutlineLeft } from "react-icons/ai"
 import SearchBar from 'material-ui-search-bar';
 import AllOrder from "./MyOrderComponent/AllOrder";
 import useStyles from "../../../Style";
-import { Button, IconButton, InputAdornment, MenuItem, TextField } from "@mui/material";
-import Pending_Order from "../MyOrder/MyOrderComponent/Pending_Order"
+import { IconButton, InputAdornment, MenuItem, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { GetCancelOrder, PendingOrder,Cancel, order, GetDeliveredOrder } from "../MyOrder/MyorderApi";
 import { HiArrowsUpDown } from "react-icons/hi2";
@@ -149,7 +148,7 @@ Swal.fire({
                         <h1 className="myorderHeadings">
                             <IconButton >
                                 <AiOutlineLeft onClick={() => navigate(-1)} className="myOrderSpanIcons" size={20} color="#000000" style={{ marginLeft: "-6px" }} /></IconButton>
-                            <span onClick={(() => navigate(-1))} className="My_order_span_name">Back</span>
+                            <span onClick={(() => navigate('/'))} className="My_order_span_name">Back</span>
                         </h1>
                     </div>
                     <div className="col-lg-10   searchBar_container  px-0">
@@ -219,27 +218,22 @@ Swal.fire({
                         </div>
                     </div>
 
-                    {loading ? <div className="center" >
-                        <div className="loaderFLower"></div>
-                    </div>
-                        :
-                        <AllOrder AllOrder_data={AllOrder_data} CencelOrder={CencelOrder} ordertype={ordertype} />
-                    }
-
-                    <div className="col-10 NODataInOrderPage center mt-3">
+                    { 
+                       
+                        Boolean(AllOrder_data[0]) ?  <AllOrder AllOrder_data={AllOrder_data} loading={loading} CencelOrder={CencelOrder} ordertype={ordertype} />:
+                        <div className="col-10 NODataInOrderPage center mt-3">
                         <div className="col-8 nodataAlie">
                             <p className="nodatainOderText">{GetFilter}</p>
                             <p className="nodatainOderTextp">
                                 No orders to display at the moment. Start shopping to see your order history here!
                             </p>
                             <div className="col-4 nodataAlie mt-5">
-                                <Button onClick={()=>navigate("/")}> GO TO HOME PAGE </Button>
+                                <button onClick={()=>navigate("/")} className="noorderbtn"> Shop Now </button>
                             </div>
                         </div>
 
-                    </div>
-
-
+                        </div>
+                    }
 
 
 

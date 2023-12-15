@@ -183,6 +183,7 @@ const DeliveryServices = () => {
                                                             <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={items.rating === null ? 0 : items.rating} readOnly />
                                                         </div>
                                                     </Link>
+                                                    <button className='actionBtn'>Order Now</button>
                                                 </div>
                                             </div>
                                         </div>

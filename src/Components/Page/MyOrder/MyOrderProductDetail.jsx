@@ -12,7 +12,7 @@ import { OrderBYID } from "../MyOrder/MyorderApi";
 import { IconButton } from "@mui/material";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { BsFillCircleFill } from "react-icons/bs";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams,Link } from "react-router-dom";
 import useStyles from "../../../Style";
 const MyOrderProductDetail = () => {
   const params = useParams();
@@ -32,8 +32,19 @@ const MyOrderProductDetail = () => {
         }
       })
       .catch();
-  }, []);
-  console.log(AllOrder_data, "AllOrder_data");
+  }, [params]);
+  React.useEffect(()=>{
+    document.documentElement.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    }); 
+    if (AllOrder_data[0]?.Order_Status === "Cancel") {
+      Setstatuscolor("#d33");
+    } else if (AllOrder_data[0]?.Order_Status === "Delivered") {
+      Setstatuscolor("gold");
+    }
+  },[])
   return (
     <div className="container-fluid">
       <div className="row ">
@@ -94,7 +105,7 @@ const MyOrderProductDetail = () => {
                     </span>
                   </span>
                   <div className="allOrder_icons_div">
-                    <BsFillCircleFill color={statuscolor} size={20} />
+                    <BsFillCircleFill color={AllOrder_data[0]?.Order_Status === "Cancel" ? "#d33": "#31B655"} size={20} />
                     <span className="allOrder_spanName">
                       {AllOrder_data[0]?.Order_Status}
                     </span>
@@ -111,7 +122,8 @@ const MyOrderProductDetail = () => {
      <div className="col-12 d-lg-flex orderdetailscontainer d-block "> 
             <OrderTracking AllOrder_data={AllOrder_data} />
             <div className="col ">
-            <div className=" border px-3 mt-lg-0 mt-3">
+            {/* <div className=" border px-3 mt-lg-0 mt-3">
+               <Link to={`/products/${AllOrder_data[0]?.Product[0]?.category?.toLowerCase().replaceAll(' ',"-")}/${AllOrder_data[0]?.Product[0]?.SubcategoryName?.toLowerCase().replaceAll(' ',"-")}/${AllOrder_data[0]?.Product[0]?.ProductName?.toLowerCase().replaceAll(' ',"-")}/${AllOrder_data[0]?.Product[0]?.Product_id}`}>
                 <div className="w-100 MyOrderProductRating_innerContainer">
                 <h1 className="productRating_heading">How was the product?</h1>
                 <Rating
@@ -122,8 +134,9 @@ const MyOrderProductDetail = () => {
                     readOnly
                 />
                 </div>
-            </div>
-            <div className="orderTracking_container mt-4">
+                </Link>
+            </div> */}
+            <div className="orderTracking_container">
                 <section className="">
                 <span className="customerNameFontss">Delivery Address : </span>
 

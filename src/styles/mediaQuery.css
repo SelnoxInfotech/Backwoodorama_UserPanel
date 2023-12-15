@@ -225,6 +225,15 @@
   .term_condition .tc_topic_list ul li{
     font-size: 14px;
   }
+  .sellerName_date{
+    font-size: 16px;
+  }
+  .AllOrderCol_height{
+    height: 50px;
+  }
+  .AllOrder_heading{
+    font-size: 16px;
+  }
 }
 @media(max-width:1330px) {
   .prod_inc_dec_quant_heading h1 {
@@ -289,12 +298,14 @@
     height: 120px;
     width: 100px;
   }
-
   .prod_price_font {
     height: 16px;
   }
 }
 @media (max-width:992px) {
+  .allOrderCard_container {
+     height: auto;
+  }
   .noReview .noreview_description{
     width: 100%;
   }
@@ -379,6 +390,7 @@
 
 }
 @media (max-width:768px) {
+  
   .feature_brands .FeaturedBrandContainer .FeaturedBrandImageContainer {
     width: 150px;
     height: 90px;
@@ -425,7 +437,7 @@
 
   .allOrder_Card_Content_section {
     width: 75%;
-    height: 280px;
+    height: auto;
     padding-top: 10px;
     padding-left: 20px;
   }
@@ -449,6 +461,7 @@
 
   .allOrder_Card_Image_section {
     width: 25%;
+    height: auto;
   }
 
   .Allorder_img_container {

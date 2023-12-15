@@ -4603,7 +4603,37 @@ line-height: normal;
   font-weight: 700;
   color: #000000;
 }
-
+.noorderbtn{
+  padding: 6px 15px;
+  color: #ffffff;
+  border: 1px solid #fff;
+  background-color: #228b22;
+  transition: all .3s ease;
+  border-radius: 4px;
+}
+.noorderbtn:hover{
+  color: #31B655;
+  border: 1px solid #31B655;
+  background-color: White;
+}
+.allOrder_span_quantity{
+  font-size: 16px;
+}
+.allOrder_spanName{
+  font-size: 16px;
+}
+.allOrderTotals{
+  font-size: 20px;
+}
+.customerNameFontss{
+  font-size: 16px;
+}
+.Amount_price{
+  font-size: 16px;
+}
+.orderId_heading{
+  font-size: 16px;
+}
 .totalAmounts {
   font-size: 18px;
   font-weight: 700;

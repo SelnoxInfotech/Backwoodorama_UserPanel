@@ -1,7 +1,7 @@
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import parse from 'html-react-parser';
+import _, { reverse } from "lodash";
 import { FaArrowRight } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -13,9 +13,11 @@ const NewsBlog = () => {
         const getApi = async () => {
             const res = await fetch("https://api.cannabaze.com/UserPanel/Get-News/");
             const data = await res.json();
-            SetNews(data)
+            // SetNews(data)
           
-
+           let newdata= _.sortBy(data,
+                [function (o) { return o.Publish_Date; }]).reverse()
+                SetNews(newdata)
         }
         getApi()
 
@@ -25,7 +27,7 @@ const NewsBlog = () => {
         <React.Fragment>
             <div className="px-sm-0 px-3">
                    <div className="d-flex align-items-center justify-content-between">
-                      <h3 className="section_main_title">Blogs</h3>
+                      <h3 className="section_main_title">Trendings</h3>
                       <Link to={'/cannabis-news'}>
                         <span className="viewallbtn">View All <FaArrowRight   /></span>
                       </Link>

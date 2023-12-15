@@ -1025,13 +1025,25 @@ const useStyles = makeStyles({
   },
   OrderTrackingCircleColor: {
     '& .MuiStepLabel-root .Mui-completed': {
-      color: "#31B665"
+      color: "#31B665",
+      width:'35px',
+      height:'35px',
+
     },
     "& $disabled": {
       color: "pink"
     },
     "& .MuiStepLabel-root .Mui-active": {
-      color: "#707070"
+      color: "#707070",
+      width:'35px',
+      height:'35px',
+      "& .MuiStepLabel-root .Mui-active svg": {
+         border:'1px solid #31B655'
+      }
+    },
+    '& .MuiStepLabel-iconContainer .MuiSvgIcon-root':{
+      width:'35px',
+      height:'35px',
     }
   },
 

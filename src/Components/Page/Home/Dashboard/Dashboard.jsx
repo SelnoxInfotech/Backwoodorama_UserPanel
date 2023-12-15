@@ -76,12 +76,12 @@ export default function Dashboard() {
             <DeliveryServices Skeleton={Skeleton}></DeliveryServices>
             <HomePageWeedBanner></HomePageWeedBanner>
             <Dispensorieslider></Dispensorieslider>
+          
+
+            <FeaturedBrand CardDataArray={FeaturedBrandArray} BrandSkeleton={BrandSkeleton} />
             <div className="col-12 border" style={{ height: "300px", position: "relative", top: "15px" }}>
                 <Map height={"297px"} width={"100%"}></Map>
             </div>
-
-            <FeaturedBrand CardDataArray={FeaturedBrandArray} BrandSkeleton={BrandSkeleton} />
-
             {/* <WeedProduct></WeedProduct> */}
 
             <div className="About_weedx">
