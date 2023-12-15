@@ -42,7 +42,7 @@ const Weed_Dispansires = () => {
                     "store": searchtext,
                     "City": state.City,
                     "Country": state.Country?.replace(/-/g, " "),
-                    "State": state.State
+                    "State": state.State?.replace(/-/g, " "),
                 }
                 Axios.post(`https://api.cannabaze.com/UserPanel/FilterDispensaries/`,
                     json
@@ -58,65 +58,17 @@ const Weed_Dispansires = () => {
             }, 1000)
             return () => clearTimeout(getData)
         } else {
-            if (state.City !== "") {
-                const object = { City: state.City.replace(/-/g, " ") }
-                DespensioriesItem(object).then((res) => {
-                    if (res.length !== 0) {
+            const object = { City: state.City.replace(/-/g, " ")  ,  "Country": state.Country?.replace(/-/g, " "), "State": state.State?.replace(/-/g, " "),}
+            state.Country !=="" &&   DespensioriesItem(object).then((res) => {
+                    if (res !== "No Dispensary in your area") {
+                        SetStore([])
+                    }
+                    else{
                         SetStore(res)
-
                     }
-                    else {
-                        const object = { State: state.State.replace(/-/g, " ") }
-                        DespensioriesItem(object).then((res) => {
-                            if (res.length !== 0) {
-                                SetStore(res)
-
-                            }
-                            else {
-                                const object = { Country: state.Country.replace(/-/g, " ") }
-                                DespensioriesItem(object).then((res) => {
-                                    SetStore(res)
-
-                                })
-                            }
-                        })
-                    }
-
                 })
-            }
-            else {
-                if (state.State !== "") {
-                    const object = { State: state.State.replace(/-/g, " ") }
-                    DespensioriesItem(object).then((res) => {
-                        if (res.length !== 0) {
-                            SetStore(res)
-
-                        }
-                        else {
-                            const object = { Country: state.Country.replace(/-/g, " ") }
-                            DespensioriesItem(object).then((res) => {
-                                SetStore(res)
-
-                            })
-                        }
-                    })
-                }
-                else {
-                    if (state.Country !== "") {
-                        const object = { Country: state.Country.replace(/-/g, " ") }
-                        DespensioriesItem(object).then((res) => {
-                            SetStore(res)
-
-                        })
-                    }
-                }
-            }
-
-
         }
     }, [searchtext, state])
-
-    console.log(searchtext)
     return (
         <React.Fragment>
             <DispensariesSco location={useLocation().pathname}></DispensariesSco>
