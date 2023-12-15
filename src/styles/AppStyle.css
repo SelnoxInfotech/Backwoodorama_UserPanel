@@ -4615,6 +4615,10 @@ line-height: normal;
   line-height: 2;
   font-weight: 600;
 }
+.orderdetailscontainer{
+  gap: 10px;
+  padding: 8px;
+}
 /* end */
 /* MyOrderDeliveryAddress */
 .MyOrderDeliveryAddress_Container {

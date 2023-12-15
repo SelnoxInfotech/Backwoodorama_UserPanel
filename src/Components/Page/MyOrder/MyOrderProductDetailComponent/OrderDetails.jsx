@@ -3,7 +3,7 @@ const OrderDetails = ({props}) => {
   
     return (
         <React.Fragment>
-            <div className="col-xl-7 col-lg-10 col-md-12 orderDetails_container px-0 mt-4">
+            <div className="col-xl-7 col-lg-10 col-md-12 orderDetails_container  mt-4">
                 <section className="orderDetails_innerSection1">
                     <div className="w-100 orderDetail_heading_container">
                         <h1 className="orderDetails_headings">Order  Details</h1>
