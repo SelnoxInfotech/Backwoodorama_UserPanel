@@ -415,11 +415,16 @@ const useStyles = makeStyles({
     "& .MuiTab-root.Mui-selected": {
       color: "#31B665",
     },
+    "& .MuiTabs-flexContainer":{
+       gap:"none",
+       justifyContent:'space-around'
+    },
     "@media(Max-width:480px)": {
       "& .MuiTab-root": {
         fontSize: "12px"
       }
-    }
+    },
+    
   },
   delivery_menuBar: {
     "& .MuiTabPanel-root": {
@@ -447,12 +452,12 @@ const useStyles = makeStyles({
   dispensory_tab_background: {
     "& .MuiTabs-flexContainer": {
       backgroundColor: "#F9F9F9",
-      gap: '190px',
+      justifyContent:'space-around',
       minWidth: "max-content",
     },
     "@media(max-width:1280px)": {
       "& .MuiTabs-flexContainer": {
-        gap: '10px',
+        
       },
     },
 
