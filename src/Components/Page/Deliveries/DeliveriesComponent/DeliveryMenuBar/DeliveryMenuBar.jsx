@@ -14,84 +14,18 @@ const DeliveryMenuBar = () => {
     const { state } = React.useContext(Createcontext)
     const [Deliverie, SetDelivery] = React.useState([])
     React.useEffect(() => {
-
-        if (state.City !== "") {
-            const object = { City: state.City.replace(/-/g, " ") }
+            const object = { City: state.City.replace(/-/g, " ") , State: state.State.replace(/-/g, " "), Country: state.Country.replace(/-/g, " ") }
             GetAllDelivery(object).then((response) => {
                 if (response?.length !== 0) {
                     SetDelivery(response)
                 }
-                else {
-                    const object = { State: state.State.replace(/-/g, " ") }
-                    GetAllDelivery(object).then((response) => {
-                        if (response?.length !== 0) {
-                            SetDelivery(response)
-
-                        }
-                        else {
-                            const object = { Country: state.Country.replace(/-/g, " ") }
-                            GetAllDelivery(object).then((response) => {
-                                if (response?.length !== 0) {
-                                    SetDelivery(response)
-        
-                                }
-
-                            })
-                        }
-                    })
+                else{
+                    SetDelivery([])
                 }
             })
-        }
-        else {
-            if (state.State !== "") {
-                const object = { State: state.State }
-                GetAllDelivery(object).then((response) => {
-                  
-                    if (response?.length !== 0) {
-                        SetDelivery(response)
-                    }
-                    else {
-                        const object = { Country: state.Country.replace(/-/g, " ") }
-                        GetAllDelivery(object).then((response) => {
-                            if (response?.length !== 0) {
-                                SetDelivery(response)
-                            }
-                        })
-                    }
-                })
-            }
-            else {
-                if (state.Country !== "") {
-                    const object = { Country: state.Country.replace(/-/g, " ") }
-                    GetAllDelivery(object).then((response) => {
-                        if (response?.length !== 0) {
-                            SetDelivery(response)
-                        }
-                    })
-                }
-            }
-        }
-
-
-        // GetAllDelivery().then((response) => {
-      
-        // })
-
-
-        // axios.get(
-        //     'https://api.cannabaze.com/UserPanel/Get-PickupStores/',
-        // ).then(response => {
-
-        //     SetPickup(response.data)
-        // }).catch(
-        //     function (error) {
-
-        //     })
-    }, [state ])
-
+    }, [state])
     const classes = useStyles()
     const [value, setValue] = React.useState('1');
-
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
@@ -116,13 +50,10 @@ const DeliveryMenuBar = () => {
                             </TabPanel>
                             <TabPanel value="2"><DeliveryItemsCard Deliverie={Deliverie} /></TabPanel>
                             <TabPanel value="3"><DeliveryItemsCard Deliverie={Deliverie} /></TabPanel>
-                            {/* <TabPanel value="4"><DeliveryItemsCard Deliverie={Deliverie} /></TabPanel> */}
                         </Box>
                     </TabContext>
                 </Box>
             </div>
-
-
         </React.Fragment>
     )
 }
