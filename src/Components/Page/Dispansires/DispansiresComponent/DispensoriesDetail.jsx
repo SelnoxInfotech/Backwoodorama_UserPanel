@@ -319,7 +319,7 @@ export default function DispensoriesDetails() {
                     {
                         tab === 'deals' && <div className="noReview">
                         <div className="noreviewicon">
-                            <div className="iconcircl"><FaIdeal size={70} color="gray" /></div>
+                            <div className="iconcircl"><img src={'/image/nodeal.png'} className="nodealsicon"  alt="no Deals"/></div>
                         </div>
                         <h3 className="noreview_title">Discover More Savings Soon!</h3>
                         <p className="noreview_description w-lg-50 ">It looks like there are no active deals at the moment at <Link target="_blank" to={`/weed-dispensaries/${Despen[0]?.Store_Name.toLowerCase().replaceAll(" ","-")}/${Despen[0]?.id}`}><b>{Despen[0]?.Store_Name}</b></Link>. Don't worry, though – our partnered stores frequently update their promotions. Be sure to check back regularly for exciting discounts and special offers on your favorite products.</p>

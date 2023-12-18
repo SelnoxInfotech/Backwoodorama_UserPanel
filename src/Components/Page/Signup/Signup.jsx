@@ -51,7 +51,7 @@ const Signup = () => {
                     <div className="col-lg-4 col-md-6 col-sm-8 col-10 signup_padding_bottom login_signup_reset_container signup_container_height">
                         <div className='row'>
                             <div className='col-12 signup_head'>
-                                <p>signup</p>
+                                <p>Sign Up</p>
 
                             </div>
                         </div>

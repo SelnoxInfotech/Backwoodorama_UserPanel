@@ -59,7 +59,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
     }
 
  
-   function calculateTImefromDate(value){
+    function calculateTImefromDate(value){
         //  new Date() = 'Mon Nov 20 2023 13:00:15 GMT+0530 (India Standard Time)'
       let diffTime = Math.abs(new Date().valueOf() - new Date(value).valueOf());
       let months = Math.trunc( diffTime / (24*60*60*1000)/30);
@@ -84,7 +84,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
       else {
         return secs + " secs ago"
       }
-      }
+    }
 
 
     return (

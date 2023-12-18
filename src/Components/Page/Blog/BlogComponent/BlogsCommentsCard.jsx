@@ -37,7 +37,7 @@ const BlogsCommentsCard = ({ Getcommnet }) => {
     };
    
     return (
-        <section className="px-0">
+        <section className="px-0" >
             <div className="col-12 blogsCommentCountCol">
                 <div className="col-6">
                     <h2 className="blogsCommentheadings">Comments ({CommentCardArrays?.length})</h2>

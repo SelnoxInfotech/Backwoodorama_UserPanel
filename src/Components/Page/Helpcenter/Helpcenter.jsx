@@ -18,7 +18,7 @@ const Helpcenter = () => {
         heighr.push(elemHeight-navheight)
         
        }
-       console.log(heighr)
+      
        setallheighth(heighr)
     },[])
     const classes=useStyles()

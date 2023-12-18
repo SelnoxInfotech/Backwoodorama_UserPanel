@@ -43,7 +43,7 @@ function LoginWithGoogle() {
         <Box
             className={`${classes.Signup_loading_btn_Googles}`}
         >
-            <LoadingButton onClick={login} variant="outlined"  loadingPosition="start"  startIcon={<FcGoogle />}> Continue with Google</LoadingButton>
+            <LoadingButton onClick={login} variant="outlined"  loadingPosition="center" className={classes.logingoolgebtn}  startIcon={<FcGoogle />}> Continue with Google</LoadingButton>
         </Box>
     )
 }

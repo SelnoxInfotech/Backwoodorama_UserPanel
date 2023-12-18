@@ -95,7 +95,7 @@ const Login = () => {
                     <div className="col-xl-6 col-xxl-4 col-lg-6 col-md-8 col-sm-11 col-11 signup_padding_bottom login_signup_reset_container login_container_height">
                         <div className='row'>
                             <div className='col-12 fontStyle signup_head'>
-                                <p>Login</p>
+                                <p>Log In</p>
 
                             </div>
                         </div>
@@ -194,9 +194,11 @@ const Login = () => {
                         </div>
 
 
-                        <div className='w-100 center my-2 '>
+                        <div className='w-100 text-center my-2 '>
                             {/* <p className='login_bottom'>New weedx ?</p> */}
-                            <Link className='login_bottom' to={'/signup'}>New weedx ?</Link>
+                            <h5 className='login_bottom'>New To weedx ?</h5> 
+                          
+                            <Link className='signInfo' to={'/signup'}><span>Create your Weedx Account</span></Link>
                         </div>
 
 

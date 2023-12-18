@@ -9,7 +9,7 @@ const Openingtime = ({storeDetails , heading , type ,key}) => {
   const easternTime = date.toLocaleString("en-US", {timeZone: "America/New_York"})
   let day = new Date(easternTime)
 
-console.log(  storeDetails[0]?.[type])
+
   return (
     <React.Fragment>
       <div className='destop_view'>

@@ -113,16 +113,22 @@ background: #FFF;
     width: 100%;
     padding: 6px 0;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 20px;
     background-color: transparent;
     color: #31B655;
     border:  1px solid #31b655;
     margin-top: 10px;
     transition: all .4s ease;
   }
+  .textCapitalize{
+    text-transform: lowercase;
+  }
+  .textCapitalize::first-letter{
+    text-transform: uppercase;
+  }
   .actionBtn:hover{
     color: #fff;
-    border:  1px solid #31b655; 
+    border:  1px solid #31B655; 
     background-color: #31B655;
   }
   .new_blog_card .new_blog_card_img{

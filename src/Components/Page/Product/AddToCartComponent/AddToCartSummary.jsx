@@ -8,7 +8,7 @@ import Createcontext from "../../../../Hooks/Context";
 import DeliverAutoCompleteAddress from "./DeliverAutoCompleteAddress";
 // import { useForm, FormProvider, Controller } from "react-hook-form";
 import PromoCode from "../Promocode/Promocode";
-const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading  }) => {
+const AddToCartSummary = ({anyoutstock, SubmitData, CheckOut_Loading, SetLoading  }) => {
   const classes = useStyles();
   // const method = useForm()
   const { state, dispatch } = React.useContext(Createcontext);
@@ -269,6 +269,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading  }) => {
               <LoadingButton
                 variant="outlined"
                 loading={CheckOut_Loading}
+                disabled={anyoutstock}
                 onClick={(e) => {
                   CheckoutProcess(e);
                 }}
@@ -290,6 +291,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading  }) => {
                 CheckoutProcess(e);
               }}
               className={classes.flotchceckoutbtn}
+             
               type="submit"
             >
               checkout

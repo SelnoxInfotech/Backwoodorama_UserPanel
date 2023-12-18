@@ -54,7 +54,7 @@ const RelatedVerifyBrand = () => {
                     </div>
                     <div className="col-md-9">
                         <div>  <SearchBar style={{ background: "#FFFFF", border: "1px solid #31B665" }} 
-                         onCancelSearch={() => console.log('hello wolrd')}
+                    
                           value={searchval} onChange={(e)=>{Setsearchval(e)}}
                            className={classes.strainTypSearchBar} 
                            width={"100%"} placeholder="Search Menu" 

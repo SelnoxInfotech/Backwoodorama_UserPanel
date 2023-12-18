@@ -75,12 +75,12 @@ const Footer = () => {
                                     {Categorys.map((ele, index) => {
                                         if (index >= 4) {
                                             return <Link to={`/products/${ele.name.replace(/%20| /g, "-").toLowerCase()}/${ele.id}`} key={index} className={morelist ? '' : 'showmoreList'}>
-                                                <li className="footer_li text-capitalize ellipsis" >{ele.name}</li>
+                                                <li className="footer_li textCapitalize ellipsis" >{ele.name}</li>
                                             </Link>
                                         } else {
                                             return (
                                                 <Link to={`/products/${ele.name.replace(/%20| /g, "-").toLowerCase()}/${ele.id}`} key={index}  >
-                                                    <li className="footer_li text-capitalize ellipsis" >{ele.name}</li>
+                                                    <li className="footer_li textCapitalize ellipsis" >{ele.name}</li>
                                                 </Link>
                                             )
                                         }
@@ -93,7 +93,7 @@ const Footer = () => {
                                 <ol className="footer_main_list">
                                     <p className="footer_menu_heading">For Business</p>
                                     <Link to={`https://cannabaze.com/signup`}>
-                                        <li className="footer_li ellipsis" >Add <span className="text-capitalize"> Dispensires</span></li>
+                                        <li className="footer_li ellipsis" >Add <span className="text-capitalize"> Dispensaries</span></li>
                                     </Link>
                                     <Link to={`https://cannabaze.com/signup`}>
                                         <li className="footer_li ellipsis" ><span className="text-capitalize">Add Brand</span></li>

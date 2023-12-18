@@ -449,6 +449,11 @@ const useStyles = makeStyles({
     "& .MuiTabs-scroller": {
     }
   },
+  logingoolgebtn:{
+    justifyContent:'center !important',
+    fontSize:'16px !important',
+    fontWeight:'500 !important',
+  },
   dispensory_tab_background: {
     "& .MuiTabs-flexContainer": {
       backgroundColor: "#F9F9F9",

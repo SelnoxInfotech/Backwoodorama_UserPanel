@@ -91,7 +91,7 @@ Swal.fire({
                 },
             )
                 .then((response) => {
-                    console.log(response.data);
+                   
                 });
         }, 2000)
         return () => clearTimeout(getData)

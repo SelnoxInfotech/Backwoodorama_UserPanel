@@ -3191,7 +3191,7 @@ const Content = [
             {
                 Country: 'Canada',
                 id: 37,
-                name: "Nova Scotia",
+                name: "Nunavut",
                 content: [
                     {
                         title: "Is Weed Legal in  Nunavut ?",

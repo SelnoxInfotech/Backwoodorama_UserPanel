@@ -8,7 +8,7 @@ import Cookies from 'universal-cookie';
 import Createcontext from "../../../../Hooks/Context"
 import { LoadingButton } from '@mui/lab';
 import { Link, useNavigate } from 'react-router-dom';
-const AddToCartReview = () => {
+const AddToCartReview = ({setanyoutstock}) => {
     const Swal = require('sweetalert2')
     const { state, dispatch } = React.useContext(Createcontext)
     const navigate = useNavigate();
@@ -220,14 +220,14 @@ const AddToCartReview = () => {
                     <div className=" Add_product_cart_left_container_item" >
 
                         {state?.AllProduct?.map((ele, index) => {
-                            let wrigh;
-                            if (ele.Price.Weight) {
-                                wrigh = ele.Price.Weight;
-                            } else {
-                                wrigh = `${ele.Price.Unit} Unit`
+                            let wrigh= Boolean(ele.Price.Weight) ? ele.Price.Weight:  `${ele.Price.Unit} Unit`;
+                            
+                            if( ele?.Price?.Stock !== "IN Stock"){
+                                setanyoutstock(true)
                             }
+
                             return (
-                                <div className="row py-3 px-0 border-top border-bottom justify-content-center   align-items-center" key={index}>
+                                <div className="ssss row py-3 px-0 border-top border-bottom justify-content-center   align-items-center" key={index}>
                                     <div className='row align-items-center col-5'>
                                         <div className="p-0 col-3 Add_prod_item_image_cont">
                                             <Link to={`/products/${modifystr(ele.category)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.ProductName)}/${ele.Product_id}`}>
@@ -241,8 +241,8 @@ const AddToCartReview = () => {
                                         <div className="col-9 Add_prod_content_cont p-2">
 
 
-                                            <h5 className='add_prod_cart_p_title' onClick={() => { Navigate(ele) }}>{ele.ProductName + "(" + wrigh + ")"}</h5>
-                                            <h4 className='add_prod_cart_p'>{ele.StoreName}</h4>
+                                            <h5 className={`add_prod_cart_p_title ${ ele?.Price?.Stock !== "IN Stock" &&  'text-danger'}`} onClick={() => { Navigate(ele) }}>{ele.ProductName + "(" + wrigh + ")"}</h5>
+                                            <h4 className={`add_prod_cart_p ${ ele?.Price?.Stock !== "IN Stock" &&  'text-danger'}`}>{ele.StoreName}</h4>
                                         </div>
                                     </div>
                                     <div className="col-2 text-center">
@@ -288,7 +288,7 @@ const AddToCartReview = () => {
                                 wrigh = `${ele.Price.Unit} Unit`
                             }
                             return (
-                                <div className=" addtoproduct_card" key={index}>
+                                <div className="addtoproduct_card" key={index}>
                                     <div className='mb_addtoproduct_card_img'>
                                         <Link to={`/products/${modifystr(ele.category)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.ProductName)}/${ele.Sub_Category_id}`}>
 

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import EmptyCard from "../EmptyCard/EmptyCard"
 const AddToCart = () => {
     const { state } = React.useContext(Createcontext)
-   
+    const[anyoutstock,setanyoutstock]=React.useState(false)
     React.useEffect(()=>{
         window.scroll(0,0)
     },[])
@@ -29,11 +29,11 @@ const AddToCart = () => {
 
                                 <div className="col-sm-8 AddProductCartContainerinner">
 
-                                    <AddToCartReview />
+                                    <AddToCartReview setanyoutstock={setanyoutstock} />
 
                                 </div>
                                 <div className="col-sm-4   p-2 Add_product_cart_right_container_summary">
-                                    <AddToCartSummary />
+                                    <AddToCartSummary anyoutstock={anyoutstock}/>
                                 </div>
 
 

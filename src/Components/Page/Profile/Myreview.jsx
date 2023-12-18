@@ -42,7 +42,7 @@ const Myreview = () => {
             headers: { Authorization: `Bearer ${token_data}` }
         }).then((res)=>{
             setallproductreviews(res.data)
-            console.log(res.data)
+          
         })
         axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreReviewbyUser/`, {
             headers: { Authorization: `Bearer ${token_data}` }

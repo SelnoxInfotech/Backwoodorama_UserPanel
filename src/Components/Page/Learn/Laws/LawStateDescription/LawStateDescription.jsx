@@ -25,7 +25,7 @@ const LawStateDescription = () => {
       
        
        
-        console.log(GetContant?.content ,"")
+    
         if(GetContant?.content !== undefined){
             let data =[]
             ref.current.childNodes.forEach((item , index)=>{

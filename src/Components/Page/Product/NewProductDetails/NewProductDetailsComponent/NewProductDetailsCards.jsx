@@ -215,11 +215,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
         }
     }
 
-    console.log(DiscountedValue?.Percentage, Boolean(DiscountedValue?.Percentage),
-        (34-(34 * (Boolean(DiscountedValue?.Percentage) ? ( parseInt(DiscountedValue?.Percentage) / 100) : parseInt(DiscountedValue.Amount))))
-
-    )
-    // console.log(DiscountedValue?.Percentage);
+  
     return (
         <div className=" w-100">
             <div className=" newProductDetailsContainer position-relative  mt-4">

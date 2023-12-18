@@ -116,7 +116,6 @@ const Weed_Dispansires = () => {
         }
     }, [searchtext, state])
 
-    console.log(searchtext)
     return (
         <React.Fragment>
             <DispensariesSco location={useLocation().pathname}></DispensariesSco>

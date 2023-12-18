@@ -174,7 +174,7 @@ const NewProductDetails = () => {
   };
 
   const handlediscountChange = (event) => {
-    console.log(event)
+  
     if (event.target.value.DiscountType === "Amount off Order") {
       // setdiscount({ ...discount, "DiscountType": "Amount off Order" });
       if (event.target.value.NoMinimumRequirements === true) {
@@ -326,7 +326,7 @@ const NewProductDetails = () => {
 
     }
   };
-  console.log(discount)
+
 
   return (
     <div className="container-fluid">

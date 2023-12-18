@@ -5,7 +5,7 @@ import useStyles from "../../../../Style";
 import { Post_Comment } from "../../../../Api/Api"
 import Createcontext from "../../../../Hooks/Context"
 import _ from "lodash"
-const RecentPostComment = ({ id, GetUserComment, SetUserComment,Get }) => {
+const RecentPostComment = ({  scrolltocomment, id, GetUserComment, SetUserComment,Get }) => {
     const { state } = React.useContext(Createcontext)
     const [GetComment, SetComment] = React.useState('')
     const classes = useStyles()
@@ -23,6 +23,8 @@ const RecentPostComment = ({ id, GetUserComment, SetUserComment,Get }) => {
         await Post_Comment(id, GetComment).then((res) => {
                   SetUserComment({ ...GetUserComment, "CommentCounts": res.data.CommentCounts })
                   Get(id)
+                  SetComment('')
+                  scrolltocomment()
         }).catch((error) => {
            
         })

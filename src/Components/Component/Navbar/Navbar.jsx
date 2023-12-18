@@ -246,12 +246,12 @@ const Navbar = () => {
                 <div className=' col-12 Login_Sigup_button  Sapceing'>
                   <div className='col-lg-4 col-sm-4'>
                     <Grid display={{ xs: "none", md: "block", lg: "block", }} >
-                      <NavLink to="/login" >   <Button className={classes.muiBtn} >Login</Button></NavLink>
+                      <NavLink to="/login" >   <Button className={classes.muiBtn} >Log In</Button></NavLink>
                     </Grid>
                   </div>
                   <div className='col-lg-4 col-sm-4'>
                     <Grid display={{ xs: "none", md: "block", lg: "block" }}>
-                      <NavLink to="/signup" >    <Button sx={{ boxShadow: 3 }} className={classes.muiBtn_Signup} >Signup</Button></NavLink>
+                      <NavLink to="/signup" >    <Button sx={{ boxShadow: 3 }} className={classes.muiBtn_Signup} >Sign Up</Button></NavLink>
                     </Grid>
                   </div>
                 </div>
