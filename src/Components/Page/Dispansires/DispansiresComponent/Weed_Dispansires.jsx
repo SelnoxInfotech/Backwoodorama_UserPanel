@@ -42,7 +42,7 @@ const Weed_Dispansires = () => {
                     "store": searchtext,
                     "City": state.City,
                     "Country": state.Country?.replace(/-/g, " "),
-                    "State": state.State
+                    "State": state.State?.replace(/-/g, " "),
                 }
                 Axios.post(`https://api.cannabaze.com/UserPanel/FilterDispensaries/`,
                     json
@@ -58,61 +58,15 @@ const Weed_Dispansires = () => {
             }, 1000)
             return () => clearTimeout(getData)
         } else {
-            if (state.City !== "") {
-                const object = { City: state.City.replace(/-/g, " ") }
-                DespensioriesItem(object).then((res) => {
-                    if (res.length !== 0) {
-                        SetStore(res)
-
-                    }
-                    else {
-                        const object = { State: state.State.replace(/-/g, " ") }
-                        DespensioriesItem(object).then((res) => {
-                            if (res.length !== 0) {
-                                SetStore(res)
-
-                            }
-                            else {
-                                const object = { Country: state.Country.replace(/-/g, " ") }
-                                DespensioriesItem(object).then((res) => {
-                                    SetStore(res)
-
-                                })
-                            }
-                        })
-                    }
-
-                })
-            }
-            else {
-                if (state.State !== "") {
-                    const object = { State: state.State.replace(/-/g, " ") }
-                    DespensioriesItem(object).then((res) => {
-                        if (res.length !== 0) {
-                            SetStore(res)
-
-                        }
-                        else {
-                            const object = { Country: state.Country.replace(/-/g, " ") }
-                            DespensioriesItem(object).then((res) => {
-                                SetStore(res)
-
-                            })
-                        }
-                    })
+            const object = { City: state.City.replace(/-/g, " "), "Country": state.Country?.replace(/-/g, " "), "State": state.State?.replace(/-/g, " "), }
+            state.Country !== "" && DespensioriesItem(object).then((res) => {
+                if (res === "No Dispensary in your area") {
+                    SetStore([])
                 }
                 else {
-                    if (state.Country !== "") {
-                        const object = { Country: state.Country.replace(/-/g, " ") }
-                        DespensioriesItem(object).then((res) => {
-                            SetStore(res)
-
-                        })
-                    }
+                    SetStore(res)
                 }
-            }
-
-
+            })
         }
     }, [searchtext, state])
 
@@ -137,10 +91,10 @@ const Weed_Dispansires = () => {
                                             })
                                         } */}
                                         {/* <div class="input-group"> */}
-                                            <div class="form-outline" data-mdb-input-init>
-                                                <input value={searchtext} onChange={(e) => setsearchtext(e.target.value)} placeholder="Search......"  type="search" id="form1" className={searchtext.length !== 0 ? "form-control customSearchBar" : "form-control customSearchBar customSearchBarsearchicon"} />
-                                               
-                                            </div>
+                                        <div class="form-outline" data-mdb-input-init>
+                                            <input value={searchtext} onChange={(e) => setsearchtext(e.target.value)} placeholder="Search......" type="search" id="form1" className={searchtext.length !== 0 ? "form-control customSearchBar" : "form-control customSearchBar customSearchBarsearchicon"} />
+
+                                        </div>
                                         {/* </div> */}
                                     </div>
                                 </div>
@@ -153,7 +107,6 @@ const Weed_Dispansires = () => {
 
 
                         {Store?.map((ele, index) => {
-
                             return (
                                 <Dispensoriescart index={index} ele={ele} />
                             )
