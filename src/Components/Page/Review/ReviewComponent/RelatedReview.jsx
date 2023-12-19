@@ -233,9 +233,9 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
 
                                 <div className='related_review_footer '>
 
-                                    <div className='related_review_footer_paragraph ellipsis'>
+                                    <div className='related_review_footer_paragraph ellipsis'  onClick={() =>{  state?.login ? HellFull(ele) : navigate('/login')  }}>
                                             <Badge badgeContent={ele?.count} className={classes.sliderLink_badge}>
-                                             {ele?.helpfull?.includes(state?.Profile?.id) ? <AiTwotoneLike color='#31B655' size={25} onClick={() =>{  state?.login ? HellFull(ele) : navigate('/login')  }}/> : <AiOutlineLike color='#31B655' size={25} onClick={() =>{  state.login ? HellFull(ele) : navigate('/login')  }}/>} 
+                                             {ele?.helpfull?.includes(state?.Profile?.id) ? <AiTwotoneLike color='#31B655' size={25}/> : <AiOutlineLike color='#31B655' size={25} onClick={() =>{  state.login ? HellFull(ele) : navigate('/login')  }}/>} 
                                             </Badge>
                                          
                                     </div>

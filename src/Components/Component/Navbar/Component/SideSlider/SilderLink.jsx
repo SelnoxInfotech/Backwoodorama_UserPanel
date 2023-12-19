@@ -12,12 +12,13 @@ import SearchBar from "../../Component/SearchBar"
 import Badge from '@mui/material/Badge';
 import useStyles from "../../../../../Style";
 import IconButton from "@mui/material/IconButton";
-import { useParams } from "react-router-dom";
+import Notification from "../../Notification";
 export default function DashBoardLink({ state }) {
   const classes = useStyles()
   const [current_route, Setcurrent_route] = React.useState()
   const [notify, setnotify] = React.useState(false)
   const location = useLocation();
+  const [notificationdata, Setnotificationdata] = React.useState([])
   React.useEffect(() => {
 
     Setcurrent_route(location.pathname)
@@ -85,29 +86,13 @@ export default function DashBoardLink({ state }) {
                 </Badge>
               </Link>
               <div className="notification_icon" onClick={()=>{setnotify(!notify)}}>
-                <Badge badgeContent={4} className={classes.sliderLink_badge}>
+                <Badge badgeContent={notificationdata.length} className={classes.sliderLink_badge}>
                   <IconButton className={classes.navBarButton_icons} aria-label="notification"> <IoIosNotifications color="#858585" size={23}></IoIosNotifications> </IconButton>
                 </Badge>
-                {
-                  notify &&
-                  <ClickAwayListener onClickAway={()=>{setnotify(false)}}>
-                    <div className="notificationList">
-                      <div className="notification_box">
-                      
-                            <div className="notification_img">
-                              <div className="notiimgCircle">
-                                <img src="/image/cat_pro_img1.png" alt="img" />
-                              </div>
-                            </div>
-                            <div className="notifytext">
-                            <div className="d-flex align-items-center justify-content-between"><h4 className="notititle">This is title</h4> <span className="notify_date">2 Hours ago</span></div>
-                            <p className="notipara">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui, perferendis?</p>
-                      
-                            </div>
-                      </div>
-                    </div>
-                  </ClickAwayListener>
-                }
+                
+               
+                    <Notification notify={notify} setnotify={setnotify} notificationdata={notificationdata} Setnotificationdata={Setnotificationdata}></Notification>
+                
               </div>
               <Link to="/cart">
                 <Badge className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`} badgeContent={state.AllProduct?.length > 0 ? state.AllProduct?.length : null}>
