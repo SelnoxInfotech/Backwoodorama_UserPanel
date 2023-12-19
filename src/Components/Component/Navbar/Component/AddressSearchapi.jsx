@@ -85,58 +85,58 @@
 //     Setdefault(event.target.value);
 
 //   }
-  // function current(event) {
-  //   navigator.permissions.query({ name: 'geolocation' }).then(permissionStatus => {
+// function current(event) {
+//   navigator.permissions.query({ name: 'geolocation' }).then(permissionStatus => {
 
-  //     if (permissionStatus.state === 'denied') {
-  //       alert('Please allow location access.');
-  //     } else {
-  //       navigator.geolocation.getCurrentPosition(function (position) {
-  //         fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
-  //           .then(res => res.json())
-  //           .then((response) => {
-  //             dispatch({ type: 'Location', Location: response?.plus_code?.compound_code.slice(9) });
-  //             Setdefault(response?.plus_code?.compound_code.slice(9))
-  //             var Coun
-  //             var sta
-  //             var ci
-  //             response?.results?.map((data) => {
-  //               if (data.types.indexOf('country') !== -1) {
-  //                 Coun = data?.formatted_address.replace(/\s/g, '-')
-  //                 return dispatch({ type: 'Country', Country: data?.formatted_address.replace(/\s/g, '-') })
-  //               }
-  //               if (data.types.indexOf('administrative_area_level_1') !== -1) {
-  //                 data.address_components.map((state) => {
-  //                   if (state.types.indexOf('administrative_area_level_1') !== -1) {
-  //                     sta = state?.long_name.replace(/\s/g, '-')
-  //                     return dispatch({ type: 'State', State: state?.long_name.replace(/\s/g, '-') })
-  //                   }
-  //                   return state
-  //                 })
-  //               }
-  //               if (data.types.indexOf('administrative_area_level_3') !== -1 || data.types.indexOf('administrative_area_level_2') !== -1) {
-  //                 data.address_components.map((city) => {
-  //                   if (city.types.indexOf('administrative_area_level_3') !== -1 || city.types.indexOf('locality') !== -1 || data.types.indexOf('locality') !== -1) {
-  //                     ci = city?.long_name?.replace(/\s/g, '-')
-  //                     return dispatch({ type: 'City', City: city?.long_name?.replace(/\s/g, '-') })
-  //                   }
-  //                   return city
-  //                 })
+//     if (permissionStatus.state === 'denied') {
+//       alert('Please allow location access.');
+//     } else {
+//       navigator.geolocation.getCurrentPosition(function (position) {
+//         fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
+//           .then(res => res.json())
+//           .then((response) => {
+//             dispatch({ type: 'Location', Location: response?.plus_code?.compound_code.slice(9) });
+//             Setdefault(response?.plus_code?.compound_code.slice(9))
+//             var Coun
+//             var sta
+//             var ci
+//             response?.results?.map((data) => {
+//               if (data.types.indexOf('country') !== -1) {
+//                 Coun = data?.formatted_address.replace(/\s/g, '-')
+//                 return dispatch({ type: 'Country', Country: data?.formatted_address.replace(/\s/g, '-') })
+//               }
+//               if (data.types.indexOf('administrative_area_level_1') !== -1) {
+//                 data.address_components.map((state) => {
+//                   if (state.types.indexOf('administrative_area_level_1') !== -1) {
+//                     sta = state?.long_name.replace(/\s/g, '-')
+//                     return dispatch({ type: 'State', State: state?.long_name.replace(/\s/g, '-') })
+//                   }
+//                   return state
+//                 })
+//               }
+//               if (data.types.indexOf('administrative_area_level_3') !== -1 || data.types.indexOf('administrative_area_level_2') !== -1) {
+//                 data.address_components.map((city) => {
+//                   if (city.types.indexOf('administrative_area_level_3') !== -1 || city.types.indexOf('locality') !== -1 || data.types.indexOf('locality') !== -1) {
+//                     ci = city?.long_name?.replace(/\s/g, '-')
+//                     return dispatch({ type: 'City', City: city?.long_name?.replace(/\s/g, '-') })
+//                   }
+//                   return city
+//                 })
 
-  //               }
-  //               return data
+//               }
+//               return data
 
-  //             })
-  //             window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
-  //             window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
-  //           }
+//             })
+//             window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
+//             window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
+//           }
 
-  //           )
+//           )
 
-  //       });
-  //     }
-  //   });
-  // }
+//       });
+//     }
+//   });
+// }
 //   function OnBlur() {
 //     setOpenLocation(false)
 //     Setdefault(state.Location)
@@ -195,7 +195,7 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
   const navigate = useNavigate();
   const [formatted_address, Setformatted_address] = React.useState('')
   const { state, dispatch } = React.useContext(Createcontext)
-  const[dropdwondata,Setdropwondata]=React.useState([])
+  const [dropdwondata, Setdropwondata] = React.useState([])
   React.useEffect(() => {
     Setformatted_address(state.Location)
   }, [state])
@@ -204,10 +204,10 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
     placesService?.getDetails({ placeId: value?.place_id }, (placeDetails) => {
       Setformatted_address(placeDetails.formatted_address);
       dispatch({ type: 'permission', permission: true })
-      var Coun
-      var sta
-      var ci
-      var route
+      var Coun 
+      var sta 
+      var ci 
+      var route 
       placeDetails?.address_components?.map((data) => {
         if (data.types.indexOf('country') !== -1) {
           Coun = data?.long_name.replace(/\s/g, '-')
@@ -222,11 +222,18 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
           ci = data?.long_name.replace(/\s/g, '-')
           dispatch({ type: 'City', City: data?.long_name.replace(/\s/g, '-') })
         }
-        if (data.types.indexOf('route') !== -1 || data.types.indexOf('sublocality_level_2') !== -1 || data.types.indexOf("establishment") !== -1 
-        ||data.types.indexOf("neighborhood") !== -1 ) {
+        if (data.types.indexOf('route') !== -1 || data.types.indexOf('sublocality_level_2') !== -1 || data.types.indexOf("establishment") !== -1
+          || data.types.indexOf("neighborhood") !== -1) {
           route = data?.long_name.replace(/\s/g, '-')
           dispatch({ type: 'route', route: data?.long_name.replace(/\s/g, '-') })
+          
         }
+         if(ci === undefined){
+          if (data.types.indexOf('administrative_area_level_2') !== -1 || data.types.indexOf('political') !== -1 ) {
+            ci = data?.long_name.replace(/\s/g, '-')
+            dispatch({ type: 'City', City: data?.long_name.replace(/\s/g, '-') })
+          }
+         }
         return data
       })
       if (sta !== undefined && ci !== undefined && route !== undefined) {
@@ -254,11 +261,11 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
           Setformatted_address(state.Location)
         }
       }
-      if(ci === undefined){
-        dispatch({ type: 'City', City:''})
+      if (ci === undefined) {
+        dispatch({ type: 'City', City: '' })
       }
-       if ( sta  === undefined){
-        dispatch({ type: 'State', State:''})
+      if (sta === undefined) {
+        dispatch({ type: 'State', State: '' })
       }
       dispatch({ type: 'Location', Location: placeDetails?.formatted_address })
 
@@ -275,87 +282,93 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
   }
   const [open, setOpen] = React.useState(false);
 
-React.useEffect(()=>{
-  Setdropwondata(placePredictions)
-},[placePredictions])  
+  React.useEffect(() => {
+    Setdropwondata(placePredictions)
+  }, [placePredictions])
 
-function current(event) {
-  navigator.permissions.query({ name: 'geolocation' }).then(permissionStatus => {
+  function current(event) {
+    navigator.permissions.query({ name: 'geolocation' }).then(permissionStatus => {
 
-    if (permissionStatus.state === 'denied') {
-      alert('Please allow location access.');
-    } else {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
-          .then(res => res.json())
-          .then((response) => {
-      
-            dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address});
-            Setformatted_address(response?.results[0]?.formatted_address)
-            var Coun
-            var sta
-            var ci
-            var route
-            response?.results[0]?.address_components?.map((data) => {
-              if (data.types.indexOf('country') !== -1) {
-                Coun = data?.long_name?.replace(/\s/g, '-')
-                return dispatch({ type: 'Country', Country: data?.long_name?.replace(/\s/g, '-') })
-              }
-              if (data.types.indexOf('administrative_area_level_1') !== -1) {
-                sta = data?.long_name?.replace(/\s/g, '-')
-                return dispatch({ type: 'State', State: data?.long_name?.replace(/\s/g, '-') })
-              }else{
-                dispatch({ type: 'State', State: '' })
-              }
-              if ((data.types.indexOf('locality') !== -1 && data.types.indexOf('administrative_area_level_3' !== -1)) || data.types.indexOf("postal_town") !== -1
-                ||  data.types.indexOf('sublocality') !== -1) {
-                ci = data?.long_name?.replace(/\s/g, '-')
-                dispatch({ type: 'City', City: data?.long_name?.replace(/\s/g, '-') })
-              }else{
-                dispatch({ type: 'City', City: ''})
-              }
-              if (data.types.indexOf('route') !== -1 || data.types.indexOf('sublocality_level_2') !== -1 || data.types.indexOf("establishment") !== -1 ) {
-                route = data?.long_name?.replace(/\s/g, '-')
-                dispatch({ type: 'route', route: data?.long_name?.replace(/\s/g, '-') })
-              }else{
-                dispatch({ type: 'route', route: '' })
-              }
-              
-            })
-            if (sta !== undefined && ci !== undefined && route !== undefined) {
-              window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}/${route?.toLowerCase()}`)
-              window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}/${route?.toLowerCase()}`)
-      
-            }
-            else {
-              if (sta !== undefined && ci !== undefined && Coun !== undefined) {
-                window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
-                window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
-      
-              }
-              else if (Coun !== undefined && sta !== undefined) {
-      
-                window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}`)
-                window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}`)
-              }
-              else if (Coun !== undefined) {
-      
-                window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}`)
-                window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}`)
+      if (permissionStatus.state === 'denied') {
+        alert('Please allow location access.');
+      } else {
+        navigator.geolocation.getCurrentPosition(function (position) {
+          fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
+            .then(res => res.json())
+            .then((response) => {
+
+              dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address });
+              Setformatted_address(response?.results[0]?.formatted_address)
+              var Coun
+              var sta
+              var ci
+              var route
+              response?.results[0]?.address_components?.map((data) => {
+                if (data.types.indexOf('country') !== -1) {
+                  Coun = data?.long_name?.replace(/\s/g, '-')
+                  return dispatch({ type: 'Country', Country: data?.long_name?.replace(/\s/g, '-') })
+                }
+                if (data.types.indexOf('administrative_area_level_1') !== -1) {
+                  sta = data?.long_name?.replace(/\s/g, '-')
+                  return dispatch({ type: 'State', State: data?.long_name?.replace(/\s/g, '-') })
+                } else {
+                  dispatch({ type: 'State', State: '' })
+                }
+                if ((data.types.indexOf('locality') !== -1 && data.types.indexOf('administrative_area_level_3' !== -1)) || data.types.indexOf("postal_town") !== -1
+                  || data.types.indexOf('sublocality') !== -1) {
+                  ci = data?.long_name?.replace(/\s/g, '-')
+                  dispatch({ type: 'City', City: data?.long_name?.replace(/\s/g, '-') })
+                } else {
+                  dispatch({ type: 'City', City: '' })
+                }
+                if (data.types.indexOf('route') !== -1 || data.types.indexOf('sublocality_level_2') !== -1 || data.types.indexOf("establishment") !== -1) {
+                  route = data?.long_name?.replace(/\s/g, '-')
+                  dispatch({ type: 'route', route: data?.long_name?.replace(/\s/g, '-') })
+                } else {
+                  dispatch({ type: 'route', route: '' })
+                }
+                if(ci === undefined){
+                  if (data.types.indexOf('administrative_area_level_2') !== -1 || data.types.indexOf('political') !== -1 ) {
+                    ci = data?.long_name.replace(/\s/g, '-')
+                    dispatch({ type: 'City', City: data?.long_name.replace(/\s/g, '-') })
+                  }
+                 }
+
+              })
+              if (sta !== undefined && ci !== undefined && route !== undefined) {
+                window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}/${route?.toLowerCase()}`)
+                window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}/${route?.toLowerCase()}`)
+
               }
               else {
-                Setformatted_address(state.Location)
+                if (sta !== undefined && ci !== undefined && Coun !== undefined) {
+                  window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
+                  window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
+
+                }
+                else if (Coun !== undefined && sta !== undefined) {
+
+                  window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}`)
+                  window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}`)
+                }
+                else if (Coun !== undefined) {
+
+                  window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}`)
+                  window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}`)
+                }
+                else {
+                  Setformatted_address(state.Location)
+                }
               }
+              dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address })
             }
-            dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address })
-          }
 
-          )
+            )
 
-      });
-    }
-  });
-}
+        });
+      }
+    });
+  }
 
   return (
     <Autocomplete
@@ -371,10 +384,10 @@ function current(event) {
       id="autocomplete-demo"
       onFocus={onFocus}
       className={`sec_input_search SearchBar ${classes.SearchBar_Text}`}
-      style={{ width: "100%", height:"45px", borderRadius: (openLocation && SearchBarWidth) ? " 16px 16px 16px 16px" : " 0px 16px 16px 0px", top: "0px", display: open1 && SearchBarWidth ? "none" : "inline-flex", }}
+      style={{ width: "100%", height: "45px", borderRadius: (openLocation && SearchBarWidth) ? " 16px 16px 16px 16px" : " 0px 16px 16px 0px", top: "0px", display: open1 && SearchBarWidth ? "none" : "inline-flex", }}
       onBlur={OnBlur}
       sx={{ width: "100%" }}
-      options={dropdwondata }
+      options={dropdwondata}
       inputValue={formatted_address}
       value={formatted_address}
       onChange={((element, value) => { handlechnage(element, value) })}
@@ -384,7 +397,7 @@ function current(event) {
         )
       }}
       getOptionSelected={option => option?.description}
-      getOptionLabel={(option) => (option?.description ? option?.description:'')}
+      getOptionLabel={(option) => (option?.description ? option?.description : '')}
       renderInput={(params) => (
         <TextField
           {...params}
@@ -408,7 +421,7 @@ function current(event) {
               <IconButton onClick={current}>
                 <MdOutlineMyLocation color="inherit" size={16} style={{ cursor: 'pointer' }} />
               </IconButton>
-  
+
             ),
           }}
 
