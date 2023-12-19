@@ -41,7 +41,11 @@ const MyOrder = () => {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
-            icon: "warning",
+        
+            imageUrl: "./image/warning.png",
+            imageClass: "loginsweetimg",
+            imageWidth: 60,
+            imageHeight: 60,
             showCancelButton: true,
             confirmButtonColor: "#31B655",
             cancelButtonColor: "#d33",
@@ -270,7 +274,6 @@ const MyOrder = () => {
     ];
 
 
-    console.log(Getsearch)
     return (
         <React.Fragment>
             <div className="container-fluid">
@@ -406,7 +409,7 @@ const MyOrder = () => {
                                 No orders to display at the moment. Start shopping to see your order history here!
                             </p>
                             <div className="col-4 nodataAlie mt-5">
-                                <button onClick={()=>navigate("/")} className="noorderbtn"> Shop Now </button>
+                                <button onClick={()=>navigate("/products")} className="noorderbtn"> Shop Now </button>
                             </div>
                         </div>
 

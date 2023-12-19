@@ -1,7 +1,11 @@
 import React, { useState } from "react"
 import CategoryProduct from "../../../Components/Page/Home/Dashboard/ComponentDashboard/CategoryProduct"
+import { MdOutlineProductionQuantityLimits } from "react-icons/md";
 import ClickAwayListener  from '@mui/base/ClickAwayListener';
 import { useLocation, useNavigate, useParams } from "react-router-dom"
+import useStyles from "../../../Style"
+import LoadingButton from '@mui/lab/LoadingButton';
+import Box from '@mui/material/Box';
 import { ProductSeo, ProductCategorySeo } from "../../Component/ScoPage/ProductSeo"
 import SkeletonCard from '../../Component/Skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton';
 import ProductSearchResult from "./ProductSearchResult/ProductSearchResult"
@@ -9,6 +13,7 @@ import Createcontext from "../../../Hooks/Context"
 import { GetProduct, CategoryProductsearch, SubCategoryApi, SubcategoryProduct } from "../../../Api/Api"
 const Product = () => {
     const navigate = useNavigate();
+    const classes = useStyles()
     const params = useParams();
     const location = useLocation()
     const { state, dispatch } = React.useContext(Createcontext)
@@ -17,7 +22,7 @@ const Product = () => {
     const [Product, SetProduct] = React.useState([])
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
-
+  
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
         str = str.trim().replaceAll(' ', "-");
@@ -52,11 +57,7 @@ const Product = () => {
     const [Category, SetCategory] = React.useState([])
     const [C, f] = React.useState('')
     React.useEffect(() => {
-        document.documentElement.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "instant",
-          }); 
+       
         const fetchData = async () => {
             const apidata = await fetch("https://api.cannabaze.com/UserPanel/Get-Categories/");
             const data = await apidata.json()
@@ -131,8 +132,13 @@ const Product = () => {
                 })
             }
         }
+        document.documentElement.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "instant",
+          }); 
     }, [state.Location, params])
-
+  
     return (
         <React.Fragment>
             {!params.id ? <ProductSeo location={location.pathname}></ProductSeo> :
@@ -189,9 +195,43 @@ const Product = () => {
                                     <div className="col-12 mt-sm-4 mt-0">
                                         <ProductSearchResult RelatedProductResult={Product} CategoryName={C} />
                                     </div> :
-                                    <div className="no_product">
-                                        <h2>No Product Found</h2>
-                                    </div>
+                                    <div className="container-fluid Product_Empty_container">
+                                        <div className="row">
+                                            <div className="col-12 EmtyCard_container">
+                                                <div className="row">
+                                                    <div className="col-12 image_container">
+                                                        <div className="Empty_card_image">
+                                                            {/* <LazyLoadImage className="Empty_image" src="/image/empty_image.jpg"/> */}
+                                                            <Box className={classes.muiIcons}>
+                                                            <MdOutlineProductionQuantityLimits size={45} />
+                                                            </Box>
+                                                        </div>
+                        
+                                                    </div>
+                                                    <div className="col-12 center height_empty_div_heading">
+                                                        <h2>No Product Found</h2>
+                                                    </div>
+                                                    <div className="col-12 center height_empty_div_paragraph ellipsis">
+                                                        <p>Don't wait to bake. Add items to your cart and enjoy</p><br/>
+                        
+                                                    </div>
+                                                    <div className="col-12 center height_empty_div_paragraph ellipsis">
+                                                    <p> your weed today.</p>
+                        
+                                                    </div>
+                                                    <div className="col-12 center height_Empty_btnDiv mt-2">
+                                                    <Box
+                                                            className={`  ${classes.loadingBtnTextAndBack}`}
+                                                        >
+                                                            <LoadingButton  style={{width:"100%",height:"100%"}} variant="outlined" loading={false} type={'submit'}>Shop now</LoadingButton>
+                                                        </Box>
+                                                    </div>
+                                                </div>
+                                            </div>
+                        
+                                        </div>
+                    
+                                    </div >
                         }
                     </div>
                 </div>

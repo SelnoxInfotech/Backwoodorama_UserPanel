@@ -20,6 +20,7 @@ const Login = () => {
     const cookies = new Cookies();
     const method = useForm()
     const location = useLocation();
+    const Swal = require('sweetalert2')
     const { state, dispatch } = React.useContext(Createcontext)
     const Navigate = useNavigate()
     const [loading, Setloading] = React.useState(false)
@@ -64,7 +65,21 @@ const Login = () => {
                 Setloading(false)
             }
             else{
-                alert("SomeThing Worng")
+                // alert("SomeThing Worng")
+                Swal.fire({
+                    imageUrl: "./image/cross.png",
+                    imageClass: "loginsweetimg",
+                    imageWidth: 60,
+                    imageHeight: 60,
+                    title: "Oops...",
+                    text: "Login Credentials Incorrect     ",
+                    footer:"Invalid email or password. Please check and try again. If not registered, use the correct email or sign up for a new account.",
+                    customClass: {
+                        confirmButton: 'loginSweetbtn',
+                        title: 'title-class',
+                        icon: 'loginSweeticon'
+                      },
+                  });
                 Setloading(false) 
             }
         }
@@ -73,8 +88,12 @@ const Login = () => {
         }).catch(
             function (error) {
                 Setloading(false)
-                alert(error.response.data.message)
-
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: error.response.data.message,
+                   
+                  });
             })
     }
 

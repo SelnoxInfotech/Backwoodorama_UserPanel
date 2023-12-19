@@ -28,7 +28,6 @@ import _ from "lodash"
 import Cookies from 'universal-cookie';
 import { RWebShare } from "react-web-share";
 import { WhisList } from "../../Component/Whishlist/WhisList";
-import BlogsCommentsCard from "./BlogComponent/BlogsCommentsCard"
 import { useLocation,Link ,useNavigate,useParams} from "react-router-dom";
 import axios from "axios";
 import {SingleNewsSeo} from "../../Component/ScoPage/NewsSeo.jsx";
@@ -85,11 +84,9 @@ const Blogs = () => {
          
           }); 
         }
-        
-       
     },[News])
 
-
+console.log(News ,'News')
     async function GetComment(id) {
         await Get_Comment(id).then((res) => {
 

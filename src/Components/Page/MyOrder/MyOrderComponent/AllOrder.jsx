@@ -117,16 +117,16 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,loading}) => {
                     </div>
                   </div>
                   {
-                ordertype==="Pending Order" &&  <Box className={`  ${classes.Cencell}  `}
-                sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    marginTop: "10px"
+                ordertype==="Pending Order" && 
+                <div className=" col-lg-10  text-end   border-0 p-0">
+                <Box className={`  ${classes.Cencell}  `}
+                    sx={{
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        marginTop: "10px"
 
-                }}
-            >
-                <LoadingButton loading={Loading} onClick={() => { CencelOrder(val.OrderId) }}>Cancel </LoadingButton>
-            </Box>
+                    }}   >  <LoadingButton loading={Loading} onClick={() => { CencelOrder(val.OrderId) }}>Cancel </LoadingButton> </Box>
+                    </div>
             }
                 </React.Fragment>
               );
