@@ -86,7 +86,6 @@ const Blogs = () => {
         }
     },[News])
 
-console.log(News ,'News')
     async function GetComment(id) {
         await Get_Comment(id).then((res) => {
 

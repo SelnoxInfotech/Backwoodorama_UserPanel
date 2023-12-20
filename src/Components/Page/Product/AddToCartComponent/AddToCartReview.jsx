@@ -222,9 +222,10 @@ const AddToCartReview = ({setanyoutstock}) => {
                         {state?.AllProduct?.map((ele, index) => {
                             let wrigh= Boolean(ele.Price.Weight) ? ele.Price.Weight:  `${ele.Price.Unit} Unit`;
                             
-                            if( ele?.Price?.Stock !== "IN Stock"){
+                            if( ele?.Price?.Stock === "IN Stock"){
                                 setanyoutstock(true)
                             }
+                           
                             return (
                                 <div className="ssss row py-3 px-0 border-top border-bottom justify-content-center   align-items-center" key={index}>
                                     <div className='row align-items-center col-5'>

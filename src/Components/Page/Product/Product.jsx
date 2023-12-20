@@ -211,14 +211,11 @@ const Product = () => {
                                                     <div className="col-12 center height_empty_div_heading">
                                                         <h2>No Product Found</h2>
                                                     </div>
-                                                    <div className="col-12 center height_empty_div_paragraph ellipsis">
-                                                        <p>Don't wait to bake. Add items to your cart and enjoy</p><br/>
+                                                    <div className="col-md-6 col-12 center height_empty_div_paragraph mx-auto text-center my-3 ">
+                                                        <p>Apologies, this page is currently empty, but stay tuned as we're working to bring you exciting products soon!</p>
                         
                                                     </div>
-                                                    <div className="col-12 center height_empty_div_paragraph ellipsis">
-                                                    <p> your weed today.</p>
-                        
-                                                    </div>
+                                                   
                                                     <div className="col-12 center height_Empty_btnDiv mt-2">
                                                     <Box
                                                             className={`  ${classes.loadingBtnTextAndBack}`}

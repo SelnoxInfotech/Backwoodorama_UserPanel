@@ -1447,3 +1447,14 @@ margin: 0;
     font-size: 16px;
   }
 }
+@media(max-width:350px) {
+  .delivery_btn_delivery{
+    height: auto;
+  }
+  .delivery_items_card_flex .deliverItemCard_icons{
+    flex-wrap: wrap;
+  }
+  .dispensories_content_paragraphs span:last-child{
+    display: none;
+  }
+}

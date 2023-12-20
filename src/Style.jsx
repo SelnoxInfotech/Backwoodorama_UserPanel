@@ -226,6 +226,11 @@ const useStyles = makeStyles({
       color: "white",
       background: "#31B665",
       
+    },
+    '@media (max-width: 350px)': {
+     "&.MuiButtonBase-root":{
+       fontSize:'12px',
+     }
     }
   },
 
@@ -598,6 +603,12 @@ const useStyles = makeStyles({
   homePageDealSignup_TextFields: {
     "& fieldset": {
       border: 'none',
+    },
+    '@media (max-width: 350px)': {
+     "& .MuiOutlinedInput-input":{
+      fontSize:'12px',
+      padding:'4px 10px',
+     }
     }
   },
   check_age_selectTag: {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { getAllNews } from '../../../../Api/Api.jsx';
 import { AiFillHeart, AiFillEye } from "react-icons/ai";
 import { BiCommentDetail } from "react-icons/bi";
@@ -6,16 +6,26 @@ import { Link } from 'react-router-dom';
 import SearchBar from '@mkyy/mui-search-bar';
 import useStyles from "../../../../Style.jsx";
 import axios from "axios";
+import { BlogLike,Post_BlogLike} from "../../../../Api/Api"
 import { BsShareFill } from "react-icons/bs";
 import { NewsSeo } from "../../../Component/ScoPage/NewsSeo.jsx";
 import DeliveryItemsCardSkeleton from '../../../Component/Skeleton/Deliveries/DeliveriesComponent/DeliveryMenu/DeliveryItemsCardSkeleton.jsx';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import _ from "lodash"
+import Createcontext from '../../../../Hooks/Context.jsx';
 import { RWebShare } from "react-web-share";
+import { IconButton } from "@material-ui/core";
 const Allblogs = () => {
   const [allblogs, setallblogs] = useState([])
+  const { state } = React.useContext(Createcontext)
+  const [value, SetValue] = React.useState([])
+  const [allLikes, SetallLikes] = React.useState([])
   const [isdata, setisdata] = useState(false)
+  
+  const [Getlikes, SetLikes] = React.useState([])
   const [searchtext , setsearchtext] = useState('')
   const classes = useStyles()
+ 
   useEffect(() => {
     document.documentElement.scrollTo({
       top: 0,
@@ -26,7 +36,7 @@ const Allblogs = () => {
     news.then((res) => {
 
       setallblogs(res);
-      setisdata(true)
+      setisdata(true);
     }).catch((err) => {
       console.trace(err)
     })
@@ -43,7 +53,34 @@ const Allblogs = () => {
     setallblogs(res.data)
    })
   }
+  function PostLike(News, like) {
+    if (state.login) {
+        Post_BlogLike(News?.id, !like).then((res) => {
+       
+            BlogLike(News.id).then((res) => {
+             
+                SetLikes(res.data.Like)
+                SetValue({ ...value, "LinkCount": res.data.LikeCount })
+            }).catch((error) => {
+                console.error(error)
+            })
+        }).catch(() => {
 
+        })
+    }
+    else {
+       
+    }
+  }
+  
+  function color() {
+      const l = _.find(Getlikes, function (n) {
+          return n?.user === state?.Profile?.id;
+      })
+      return l
+
+  }
+  
   return (
     <React.Fragment>
       <NewsSeo></NewsSeo>
@@ -56,6 +93,7 @@ const Allblogs = () => {
            isdata ? <div className='blogListWrapper'>
             {
               allblogs.map((items, index) => {
+           
                 return (
 
                   <div className='row blogListCard mx-0' key={index}>
@@ -91,7 +129,10 @@ const Allblogs = () => {
                             <span>{items.commentCount}</span>
                           </div>
                           <div className='col-3'>
-                            <span className='action_icons'><AiFillHeart /></span>
+                            {/* <span className='action_icons'><AiFillHeart /></span> */}
+                                   <IconButton onClick={(() => { PostLike(items ,color()?.like) })}>
+                                        <AiFillHeart color={state?.login  ? "#31B655" : "red" }></AiFillHeart>
+                                    </IconButton>
                             <span>{items.likeCount}</span>
                           </div>
                           <div className='col-3'>
@@ -123,6 +164,9 @@ const Allblogs = () => {
                         </div>
                         <div className='col-3'>
                           <span className='action_icons'><AiFillHeart /></span>
+                                    <IconButton onClick={(() => { PostLike(items ,color()?.like) })}>
+                                        <AiFillHeart color={state?.login && "#31B655"}></AiFillHeart>
+                                    </IconButton>
                           <span>{items.likeCount}</span>
                         </div>
                         <div className='col-3'>

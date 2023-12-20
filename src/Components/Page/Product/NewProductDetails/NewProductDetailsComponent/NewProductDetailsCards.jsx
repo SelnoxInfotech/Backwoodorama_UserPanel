@@ -214,8 +214,30 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
             }).catch((err) => { });
         }
     }
+    const Swal = require('sweetalert2')
+        function incressQuanity(){
+            console.log(dynamicWeight)
+            Product?.Prices[0]?.Price?.forEach((item, index) => {
+            console.log(item.Quantity  , dynamicWeight)
+            if( item.Price  === dynamicWeight   &&   item.Quantity >= quentity ){
+              
+                setquentity(quentity + 1)
+            }else if(item.Price  === dynamicWeight   &&   item.Quantity <= quentity){
+                
+                Swal.fire({
+                    title: " Insufficient Stock  ",
+                    text: "The requested quantity exceeds the available stock for this product.",
+                    imageUrl: "./image/",
+                    footer:`The maximum available quantity for this item is ${ item.Stock === "Out of Stock"? "0" : quentity}.`,
+                    imageWidth: 60,
+                    imageHeight: 60,
+                    timer: 4000
+                });
 
-  
+            }
+
+            })
+        }
     return (
         <div className=" w-100">
             <div className=" newProductDetailsContainer position-relative  mt-4">
@@ -366,7 +388,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
                             <div className="qty_selector">
                                 <span className="qty_btn" onClick={() => { if (quentity > 1) { setquentity(quentity - 1) } }}>-</span>
                                 <span className="qty_input">{quentity}</span>
-                                <span className="qty_btn" onClick={() => { setquentity(quentity + 1) }}>+</span>
+                                <span className="qty_btn" onClick={() => { incressQuanity() }}>+</span>
                             </div>
                         </span>
                     </div>
