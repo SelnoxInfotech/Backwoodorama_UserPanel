@@ -21,26 +21,26 @@ export default function Notification({ notify, setnotify , Setnotificationdata ,
                         Setnotificationdata([{...notificationdata , "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title }])
                     })
                 }
-                // SubCategoryApi(res.data[0].category_id)
-                // SetLoading(false)
-
             }).catch((err) => {
-                // SetLoading(false)
-                // SetProduct([])
+
             })
         }
         else {
             axios.get(`https://api.cannabaze.com/UserPanel/GetUserNotification/`,
-            ).then((res) => {
-                console.log(res.data)
+            ).then((respones) => {
+                if (respones?.data?.Blog) {
+                    respones.data.Blog.map((data) => {
+                        Setnotificationdata([{...notificationdata , "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title }])
+                    })
+                }
+                else{
+                    Setnotificationdata([{...notificationdata , "link": `/`, 'title': "Welcome TO WeedX" }])
+                }
             }).catch((err) => {
 
             })
         }
     }, [notify])
-
-
-    console.log(notificationdata)
 
     return (
         notify &&
