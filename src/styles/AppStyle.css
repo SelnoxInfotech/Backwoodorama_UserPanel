@@ -2699,6 +2699,7 @@ background: #31B665;
   display: grid;
   place-items: center;
   background: #F5F5F5;
+  cursor: pointer;
 }
 
 .swiper-pagination-bullets {
@@ -4283,18 +4284,26 @@ line-height: normal;
   position: relative;
 }
 .notificationList{
+  min-width: 350px;
   padding: 15px;
   position: absolute;
   top: 100%;
   right:0 ;
   border: 1px solid gray;
-  background: rgba( 255, 255, 255, 0.25 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 5px );
-  -webkit-backdrop-filter: blur( 5px );
+  background: rgba( 255, 255, 255 );
   border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
-  min-height: 500px;
+  height: 400px;
+  overflow-y: scroll;
+
+}
+.notificationList::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.notificationList {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 .notification_box{
   border: 1px solid black;

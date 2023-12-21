@@ -45,10 +45,10 @@ export default function Notification({ notify, setnotify , Setnotificationdata ,
     return (
         notify &&
         <ClickAwayListener onClickAway={() => { setnotify(false) }}>
-            <div className="notificationList">
+            <div className={`notificationList ${ !Boolean(notificationdata?.length) && "nonewnotify"} `}>
            
 
-                    {
+                    { Boolean(notificationdata?.length)?
                         notificationdata?.map((data) => {
                             return (
                                 <div className='notification_box'>
@@ -68,6 +68,8 @@ export default function Notification({ notify, setnotify , Setnotificationdata ,
                                 </div>
                             )
                         })
+                        :
+                        <div className='w-100 h-100 d-flex align-items-center justify-content-center '>No New Notification</div>
                     }
               
             </div>
