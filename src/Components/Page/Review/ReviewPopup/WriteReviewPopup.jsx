@@ -105,7 +105,7 @@ import { useNavigate } from "react-router-dom";
                         variant="filled"
                         fullWidth
                         inputRef={register("Title",{
-                          required: GetProductReview.Title !== "" && "Title is required*.",
+                          required: GetProductReview.comment !== "" && "Title is required*.",
                           minLength: {
                             value: 5,
                             message: "Please enter valid Title",
