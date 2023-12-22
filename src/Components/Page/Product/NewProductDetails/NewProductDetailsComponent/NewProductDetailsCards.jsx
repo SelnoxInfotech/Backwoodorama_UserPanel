@@ -255,7 +255,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue , Price, SetPrice}) =
 
         })
     }
-console.log(Product ,'Product')
+
     return (
         <React.Fragment>
             {
