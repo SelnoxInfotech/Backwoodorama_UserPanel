@@ -343,8 +343,8 @@ const NewProductDetails = () => {
     h(Price.length !== 0 && Product.Prices[0].Price.filter((data) => data.id === parseInt(Price[0].Item_id)))
   }, [Price])
 
-  
 
+console.log(j[0]?.Coupoun.length , j)
 
   return (
     <div className="container-fluid">
@@ -367,7 +367,7 @@ const NewProductDetails = () => {
             onChange={handlediscountChange}
           >
 
-            {j[0]?.Coupoun.map((da) => <MenuItem value={da}>{da.DiscountType}</MenuItem>)}
+            {j.length !== 0 && j[0]?.Coupoun.length!== 0 ? j[0]?.Coupoun.map((da) => <MenuItem value={da}>{da.DiscountType}</MenuItem>) :<MenuItem value=''>No Coupon</MenuItem>}
           </Select>
 
         }
