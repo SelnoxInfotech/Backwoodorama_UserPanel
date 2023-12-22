@@ -257,8 +257,9 @@ const NewProductDetailsCards = ({ Product, DiscountedValue , Price, SetPrice}) =
     }
 console.log(Product ,'Product')
     return (
-     
-           
+        <React.Fragment>
+            {
+                Product?.length !==0 &&
         
                 <div className=" w-100">
                     <div className=" newProductDetailsContainer position-relative  mt-4">
@@ -271,7 +272,7 @@ console.log(Product ,'Product')
                                             event.onerror = null
                                             console.log(event)
                                         }}
-                                        src={displaypic} />
+                                        src={Boolean(displaypic) ? displaypic:Product?.images[0]?.image } />
                                 </div>
                                 {
                                     Product?.images?.length > 1 ? <div className=" newProductDetailsLowerImage_container">
@@ -532,8 +533,8 @@ console.log(Product ,'Product')
                 }
                     {Whishlist && <WhisList open1={Whishlist} SetWishList={SetWishList}></WhisList>}
                 </div >
-            
-       
+            }
+        </React.Fragment>
     )
 }
 export default NewProductDetailsCards
