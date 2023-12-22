@@ -424,41 +424,60 @@ console.log(Product ,'Product')
                                             DiscountedValue?.Reflect
                                                 ?
 
-                                                < div className="DisplayDiscount" >
-                                                    <span>
-                                                        {
-                                                            parseInt(dynamicWeight) !== 0
-                                                                ? 
-                                                                dynamicWeight * quentity - ( (dynamicWeight * quentity) * (Boolean(DiscountedValue?.Percentage) ? parseInt(DiscountedValue?.Percentage) : parseInt(DiscountedValue.Amount)))
-                                                                :
-                                                                Product?.Prices?.map((data) => (data.Price[0].SalePrice * quentity - parseInt((data.Price[0].SalePrice * quentity) * (Boolean(DiscountedValue?.Percentage) ? parseInt(DiscountedValue?.Percentage) / 100 : parseInt(DiscountedValue.Amount)))))
+                                        < div className="DisplayDiscount" >
+                                            <span>
+                                                {
+                                                    parseInt(dynamicWeight) !== 0
+                                                        ? dynamicWeight * quentity - ((dynamicWeight * quentity) * (Boolean(DiscountedValue?.Percentage) ? parseInt(DiscountedValue?.Percentage) : parseInt(DiscountedValue.Amount)))
+                                                        :
+                                                        Product?.Prices?.map((data) => (data.Price[0].SalePrice * quentity - parseInt((data.Price[0].SalePrice * quentity) * (Boolean(DiscountedValue?.Percentage) ? parseInt(DiscountedValue?.Percentage) / 100 : parseInt(DiscountedValue.Amount)))))
 
-                                                        }
-                                                    </span>
-                                                    <strike >{Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)}</strike>
-                                                </div>
+                                                }
+                                            </span>
+                                            <strike >{Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)}</strike>
+                                        </div>
 
 
                                                 :
                                                 parseInt(dynamicWeight) !== 0 ? dynamicWeight * quentity : Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)
 
 
+                                }
+                            </span>
+                            <span className="mx-3 newProduct_Gms">/ {quentity} piece</span>
+                            {
+                                DiscountedValue?.Reflect && <span className="mx-3 newProduct_Gms" style={{ color: "#31B665" }}>Offer Applied</span>
+                            }
+                        </p>
+                    </div>
+                    <div className="col-12">
+                        {
+                            Product?.Prices?.map((data) => {
+                                if (dynamicWeight === 0) {
+                                    if (data.Price[0]) {
+                                        if (data.Price[0].Stock === "IN Stock") {
+                                            return (
+                                                <Box className={`   ${classes.loadingBtnTextAndBack}`} >
+                                                    <LoadingButton onClick={() => { Addtocard(Product) }} variant="outlined" >Add To Cart</LoadingButton>
+                                                </Box>
+                                            )
                                         }
-                                    </span>
-                                    <span className="mx-3 newProduct_Gms">/ {quentity} piece</span>
-                                    {
-                                        DiscountedValue?.Reflect && <span className="mx-3 newProduct_Gms" style={{ color: "#31B665" }}>Offer Applied</span>
+                                        else {
+                                            return (
+                                                <Box >
+                                                    <LoadingButton className={`${classes.odsbtn}`}>Out of Stock</LoadingButton>
+                                                </Box>
+                                            )
+                                        }
                                     }
-                                </p>
-                            </div>
-                            <div className="col-12">
-                                {
-                                    Product?.Prices?.map((data) => {
-                                        if (dynamicWeight === 0) {
-                                            if (data.Price[0]) {
-                                                if (data.Price[0].Stock === "IN Stock") {
+                                }
+                                else {
+                                    return (
+                                        data.Price.map((arry) => {
+                                            if (SelectVariant.id === arry.id) {
+                                                if (arry.Stock === "IN Stock") {
                                                     return (
-                                                        <Box className={`   ${classes.loadingBtnTextAndBack}`} >
+                                                        <Box className={`${classes.loadingBtnTextAndBack}`} >
                                                             <LoadingButton onClick={() => { Addtocard(Product) }} variant="outlined" >Add To Cart</LoadingButton>
                                                         </Box>
                                                     )
@@ -470,26 +489,6 @@ console.log(Product ,'Product')
                                                         </Box>
                                                     )
                                                 }
-                                            }
-                                        }
-                                        else {
-                                            return (
-                                                data.Price.map((arry) => {
-                                                    if (SelectVariant.id === arry.id) {
-                                                        if (arry.Stock === "IN Stock") {
-                                                            return (
-                                                                <Box className={`${classes.loadingBtnTextAndBack}`} >
-                                                                    <LoadingButton onClick={() => { Addtocard(Product) }} variant="outlined" >Add To Cart</LoadingButton>
-                                                                </Box>
-                                                            )
-                                                        }
-                                                        else {
-                                                            return (
-                                                                <Box >
-                                                                    <LoadingButton className={`${classes.odsbtn}`}>Out of Stock</LoadingButton>
-                                                                </Box>
-                                                            )
-                                                        }
 
                                                     }
                                                 })
