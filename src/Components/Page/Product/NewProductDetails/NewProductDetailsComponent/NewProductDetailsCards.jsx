@@ -20,7 +20,7 @@ import Box from '@mui/material/Box';
 import { Link, useParams } from "react-router-dom";
 import AddToCartPopUp from "../../AddToCartPopUp/AddToCartPopUp";
 import { WhisList } from '../../../../Component/Whishlist/WhisList'
-const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
+const NewProductDetailsCards = ({ Product, DiscountedValue , Price, SetPrice}) => {
 
     const cookies = new Cookies();
     const params = useParams()
@@ -32,7 +32,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
     const token_data = cookies.get('User_Token_access');
     const [CartClean, SetCartClean] = React.useState(false)
     const { state, dispatch } = React.useContext(Createcontext)
-    const [Price, SetPrice] = React.useState([])
+  
     const [AddTOCard, SetAddToCard] = React.useState(() => {
         const saved = localStorage.getItem("items");
         const initialValue = JSON.parse(saved);
@@ -147,8 +147,8 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
 
     React.useEffect(() => {
         localStorage.setItem('items', JSON.stringify(AddTOCard))
-       let p = Product?.images === undefined ? "" : Product?.images[0].image;
-       Setdisplaypic(p)
+        let p = Product?.images === undefined ? "" : Product?.images[0].image;
+        Setdisplaypic(p)
     }, [AddTOCard])
 
     React.useEffect(() => {
@@ -218,30 +218,30 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
         }
     }
     const Swal = require('sweetalert2')
-    function incressQuanity(){
-    let val= Boolean(dynamicWeight)? dynamicWeight : Product?.Prices[0]?.Price[0].SalePrice
+    function incressQuanity() {
+        let val = Boolean(dynamicWeight) ? dynamicWeight : Product?.Prices[0]?.Price[0].SalePrice
         Product?.Prices[0]?.Price?.forEach((item, index) => {
-    
-            if( item.SalePrice  === val  &&  item.Quantity-1 >= quentity ){
+
+            if (item.SalePrice === val && item.Quantity - 1 >= quentity) {
                 setquentity(quentity + 1)
-            }else if(item.SalePrice  === val   &&   item.Quantity-1 <= quentity){
-                
+            } else if (item.SalePrice === val && item.Quantity - 1 <= quentity) {
+
                 Swal.fire({
                     title: " Insufficient Stock  ",
                     text: "The requested quantity exceeds the available stock for this product.",
                     imageUrl: "./image/",
-                    footer:`The maximum available quantity for this item is ${ item.Stock === "Out of Stock"? "0" : quentity}.`,
+                    footer: `The maximum available quantity for this item is ${item.Stock === "Out of Stock" ? "0" : quentity}.`,
                     imageWidth: 60,
                     imageHeight: 60,
                     timer: 4000
                 });
 
-            }else if(item.SalePrice  === val   &&   item.Quantity === 1){
+            } else if (item.SalePrice === val && item.Quantity === 1) {
                 Swal.fire({
                     title: " Insufficient Stock  ",
                     text: "The requested quantity exceeds the available stock for this product.",
                     imageUrl: "./image/",
-                    footer:`The maximum available quantity for this item is 1.`,
+                    footer: `The maximum available quantity for this item is 1.`,
                     imageWidth: 60,
                     imageHeight: 60,
                     timer: 4000
@@ -252,7 +252,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
     }
 
 
-    console.log(dynamicWeight)
+    console.log(Price)
 
 
 
@@ -315,8 +315,8 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
                                                             event.target.src = "/image/delivery.png"
                                                             event.onerror = null
                                                         }}
-                                                        className="NewProductDetails_image" height={"100px"} src={items.image} 
-                                                        onClick={()=>{Setdisplaypic(items?.image)}}/>
+                                                        className="NewProductDetails_image" height={"100px"} src={items.image}
+                                                        onClick={() => { Setdisplaypic(items?.image) }} />
 
                                                 </div>
 
@@ -420,16 +420,16 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
                                     DiscountedValue?.Reflect
                                         ?
 
-                                        < div  className="DisplayDiscount" >
-                                                <span>
+                                        < div className="DisplayDiscount" >
+                                            <span>
                                                 {
                                                     parseInt(dynamicWeight) !== 0
-                                                        ? dynamicWeight * quentity - ( (dynamicWeight * quentity) * (Boolean(DiscountedValue?.Percentage) ? parseInt(DiscountedValue?.Percentage) : parseInt(DiscountedValue.Amount)))
+                                                        ? dynamicWeight * quentity - ((dynamicWeight * quentity) * (Boolean(DiscountedValue?.Percentage) ? parseInt(DiscountedValue?.Percentage) : parseInt(DiscountedValue.Amount)))
                                                         :
-                                                        Product?.Prices?.map((data) => (data.Price[0].SalePrice * quentity - parseInt((data.Price[0].SalePrice * quentity )*(Boolean(DiscountedValue?.Percentage) ? parseInt(DiscountedValue?.Percentage) / 100 : parseInt(DiscountedValue.Amount)))))
+                                                        Product?.Prices?.map((data) => (data.Price[0].SalePrice * quentity - parseInt((data.Price[0].SalePrice * quentity) * (Boolean(DiscountedValue?.Percentage) ? parseInt(DiscountedValue?.Percentage) / 100 : parseInt(DiscountedValue.Amount)))))
 
                                                 }
-                                                </span>
+                                            </span>
                                             <strike >{Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)}</strike>
                                         </div>
 
@@ -437,12 +437,12 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
                                         :
                                         parseInt(dynamicWeight) !== 0 ? dynamicWeight * quentity : Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)
 
-                                  
+
                                 }
                             </span>
                             <span className="mx-3 newProduct_Gms">/ {quentity} piece</span>
                             {
-                              DiscountedValue?.Reflect && <span className="mx-3 newProduct_Gms" style={{ color: "#31B665" }}>Offer Applied</span>
+                                DiscountedValue?.Reflect && <span className="mx-3 newProduct_Gms" style={{ color: "#31B665" }}>Offer Applied</span>
                             }
                         </p>
                     </div>
