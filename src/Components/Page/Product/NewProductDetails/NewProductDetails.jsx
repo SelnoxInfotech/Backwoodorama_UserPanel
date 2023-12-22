@@ -336,9 +336,21 @@ const NewProductDetails = () => {
       <NewProductDetailsCards Product={Product} DiscountedValue={discount} />
 
       <NewProductinfoText Product={{ heading: "Product Description", text: Product?.Product_Description }} />
-      {Product?.CategoryCoupoun?.length !== 0 || Product?.ProductCoupoun?.length !== 0 &&
+      <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={'age'}
+          label="Age"
+          renderValue={!Boolean(discount?.DiscountType) ? () => <Placeholder>Select Coupon</Placeholder> : () => discount.DiscountType} 
+          onChange={handlediscountChange}
+        >
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+        </Select>
+      {Product?.CategoryCoupoun?.length === 0 || Product?.ProductCoupoun?.length === 0 &&
         <div className="DiscountSection ">
-          <FormControl fullWidth>
+          {/* <FormControl fullWidth>
             <Select
               id="discount select"
               value={discount}
@@ -354,7 +366,22 @@ const NewProductDetails = () => {
           {discount.CouponMassage !== "" && <div className="col-12 center " style={{ height: "100px", color: "#31B655" }}>
             <p>{discount.CouponMassage}</p>
           </div>
-          }
+          } */}
+            <FormControl fullWidth>
+            <Select
+              id="discount select"
+              value={discount}
+              displayEmpty
+              renderValue={!Boolean(discount?.DiscountType) ? () => <Placeholder>Select Coupon</Placeholder> : () => discount.DiscountType}
+              onChange={handlediscountChange}
+              className={classes.dsicounSelects}>
+              {/* {discountOptions([]).map((item) => {
+                return <MenuItem value={item}>{item?.DiscountType}</MenuItem>
+              })} */}
+              <MenuItem value={"item"}>{"item?.DiscountType"}</MenuItem>
+            </Select>
+          </FormControl>
+      
         </div>
       }
       <ProductSearchResult RelatedProductResult={StoreProduct} currentProductID={Product.id} CategoryName={heading} />

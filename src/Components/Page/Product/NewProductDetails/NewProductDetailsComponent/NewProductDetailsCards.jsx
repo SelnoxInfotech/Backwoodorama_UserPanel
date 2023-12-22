@@ -144,11 +144,13 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
             // dispatch({ type: 'Cart_subTotal' })
         }
     }
+
     React.useEffect(() => {
         localStorage.setItem('items', JSON.stringify(AddTOCard))
        let p = Product?.images === undefined ? "" : Product?.images[0].image;
        Setdisplaypic(p)
     }, [AddTOCard])
+
     React.useEffect(() => {
         document.documentElement.scrollTo({
             top: 0,
@@ -156,7 +158,6 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
             behavior: "instant", // Optional if you want to skip the scrolling animation
         });
     }, [params])
-
 
     function modifystr(str) {
         str = str === undefined ? "" : str
@@ -249,6 +250,13 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
 
         })
     }
+
+
+    console.log(dynamicWeight)
+
+
+
+
     return (
         <div className=" w-100">
             <div className=" newProductDetailsContainer position-relative  mt-4">
