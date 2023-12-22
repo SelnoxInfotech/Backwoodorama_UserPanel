@@ -166,6 +166,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
 
         }
     }
+    
     React.useEffect(() => {
         localStorage.setItem('items', JSON.stringify(AddTOCard))
     }, [AddTOCard])

@@ -43,12 +43,15 @@ const NewProductDetails = () => {
   const [api, SetApi] = React.useState(false)
   const [Rating, SetRating] = React.useState()
   const [AllReview, SetReview] = React.useState([])
+  const [Price, SetPrice] = React.useState([])
+  const [j, h] = React.useState([])
   const [GetProductReview, SetGetProductReview] = React.useState({
     value: 0,
     comment: '',
     Title: "",
     popup: false
   })
+
   const classes = style()
   React.useEffect(() => {
     Axios(`https://api.cannabaze.com/UserPanel/Get-ProductById/${id}`, {
@@ -57,11 +60,21 @@ const NewProductDetails = () => {
       SetProduct(() => {
         return response.data[0]
       })
-
+      h(response.data[0].Prices[0].Price?.filter((data) => {
+        if (data.id === parseInt(Price[0]?.Item_id)) {
+          return data
+        }
+        else {
+          if (data.id === 1) {
+            return data
+          }
+        }
+      })
+      )
       Axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${response.data[0]?.Store_id}`, {
       }).then(response => {
         SetDespens(response.data[0])
-    
+
       })
       Axios.post(`https://api.cannabaze.com/UserPanel/YouMayAlsoLike/`,
         {
@@ -162,21 +175,19 @@ const NewProductDetails = () => {
 
     })
   }
-  const discountOptions = (data) => {
-    const uniqueNames = data.filter((val, id, data) => {
-      return data.indexOf(val) === id;
-    });
-    return uniqueNames
-  }
+  // const discountOptions = (data) => {
+  //   const uniqueNames = data.filter((val, id, data) => {
+  //     return data.indexOf(val) === id;
+  //   });
+  //   return uniqueNames
+  // }
   const Placeholder = ({ children }) => {
     const classes = usePlaceholderStyles();
     return <div className={classes.placeholder}>{children}</div>;
   };
 
   const handlediscountChange = (event) => {
-  
     if (event.target.value.DiscountType === "Amount off Order") {
-      // setdiscount({ ...discount, "DiscountType": "Amount off Order" });
       if (event.target.value.NoMinimumRequirements === true) {
         if (event.target.value.PercentageAmount !== null || "") {
           setdiscount({
@@ -187,12 +198,13 @@ const NewProductDetails = () => {
           });
         }
         else {
-          setdiscount({ ...discount,
-             "Amount": event.target.value.ValueAmount, 
-             'Reflect': false,
-              "DiscountType": "Amount off Order" ,
-              'CouponMassage': "Offer Apply on Add To Cart ",
-            });
+          setdiscount({
+            ...discount,
+            "Amount": event.target.value.ValueAmount,
+            'Reflect': false,
+            "DiscountType": "Amount off Order",
+            'CouponMassage': "Offer Apply on Add To Cart ",
+          });
         }
       }
       else {
@@ -327,63 +339,40 @@ const NewProductDetails = () => {
     }
   };
 
+  React.useEffect(() => {
+    h(Price.length !== 0 && Product.Prices[0].Price.filter((data) => data.id === parseInt(Price[0].Item_id)))
+  }, [Price])
+
+  
+
 
   return (
     <div className="container-fluid">
       <ProductDetailsSeo Productname={Product.Product_Name} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={useLocation().pathname} ></ProductDetailsSeo>
 
       <span onClick={() => Tolastpage()} className="BackPageBtn"> <AiOutlineLeft size={22} />{'StoreName' in Params ? <> <span className="backPgBtnImg"><img src={`${Despen.Store_Image}`} alt="" /></span> {Despen.Store_Name}</> : 'Back to products'}</span>
-      <NewProductDetailsCards Product={Product} DiscountedValue={discount} />
+      <NewProductDetailsCards Product={Product} DiscountedValue={discount} Price={Price} SetPrice={SetPrice} />
 
       <NewProductinfoText Product={{ heading: "Product Description", text: Product?.Product_Description }} />
-      <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={'age'}
-          label="Age"
-          renderValue={!Boolean(discount?.DiscountType) ? () => <Placeholder>Select Coupon</Placeholder> : () => discount.DiscountType} 
-          onChange={handlediscountChange}
-        >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
-      {Product?.CategoryCoupoun?.length === 0 || Product?.ProductCoupoun?.length === 0 &&
-        <div className="DiscountSection ">
-          {/* <FormControl fullWidth>
-            <Select
-              id="discount select"
-              value={discount}
-              displayEmpty
-              renderValue={!Boolean(discount?.DiscountType) ? () => <Placeholder>Select Coupon</Placeholder> : () => discount.DiscountType}
-              onChange={handlediscountChange}
-              className={classes.dsicounSelects}>
-              {discountOptions([...Product?.CategoryCoupoun, ...Product?.ProductCoupoun]).map((item) => {
-                return <MenuItem value={item}>{item?.DiscountType}</MenuItem>
-              })}
-            </Select>
-          </FormControl>
-          {discount.CouponMassage !== "" && <div className="col-12 center " style={{ height: "100px", color: "#31B655" }}>
-            <p>{discount.CouponMassage}</p>
-          </div>
-          } */}
-            <FormControl fullWidth>
-            <Select
-              id="discount select"
-              value={discount}
-              displayEmpty
-              renderValue={!Boolean(discount?.DiscountType) ? () => <Placeholder>Select Coupon</Placeholder> : () => discount.DiscountType}
-              onChange={handlediscountChange}
-              className={classes.dsicounSelects}>
-              {/* {discountOptions([]).map((item) => {
-                return <MenuItem value={item}>{item?.DiscountType}</MenuItem>
-              })} */}
-              <MenuItem value={"item"}>{"item?.DiscountType"}</MenuItem>
-            </Select>
-          </FormControl>
-      
-        </div>
-      }
+      <div className="DiscountSection ">
+        {
+
+
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={discount}
+            className={classes.dsicounSelects}
+            renderValue={!Boolean(discount?.DiscountType) ? () => <Placeholder>Select Coupon</Placeholder> : () => discount.DiscountType}
+            onChange={handlediscountChange}
+          >
+
+            {j[0]?.Coupoun.map((da) => <MenuItem value={da}>{da.DiscountType}</MenuItem>)}
+          </Select>
+
+        }
+
+      </div>
       <ProductSearchResult RelatedProductResult={StoreProduct} currentProductID={Product.id} CategoryName={heading} />
       <Review
         delBtn={Despen}
