@@ -49,7 +49,7 @@ const MyOrder = () => {
             showCancelButton: true,
             confirmButtonColor: "#31B655",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
+            confirmButtonText: "Yes, Cancel it!"
         }).then((result) => {
             if (result.isConfirmed) {
                 SetLoading(true)

@@ -31,6 +31,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
     const classes = useStyles();
     const token_data = cookies.get('User_Token_access');
     const [CartClean, SetCartClean] = React.useState(false)
+    const [startload, setstartload] = React.useState(true)
     const { state, dispatch } = React.useContext(Createcontext)
     const [Price, SetPrice] = React.useState([])
     const [AddTOCard, SetAddToCard] = React.useState(() => {
@@ -157,6 +158,9 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
             left: 0,
             behavior: "instant", // Optional if you want to skip the scrolling animation
         });
+        setTimeout(() => {
+            setstartload(false)
+          }, "2000");
     }, [params])
 
     function modifystr(str) {
@@ -252,9 +256,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
     }
 
 
-    console.log(dynamicWeight)
-
-
+  
 
 
     return (
@@ -415,8 +417,8 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
                     <div className="col-12">
                         <p className="d-flex">
                             <span className="newProduct_doller_price d-flex">
-                                $ 
-                                {
+                             
+                               $ {
                                     DiscountedValue?.Reflect
                                         ?
 
@@ -424,7 +426,8 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
                                                 <span>
                                                 {
                                                     parseInt(dynamicWeight) !== 0
-                                                        ? dynamicWeight * quentity - ( (dynamicWeight * quentity) * (Boolean(DiscountedValue?.Percentage) ? parseInt(DiscountedValue?.Percentage) : parseInt(DiscountedValue.Amount)))
+                                                        ? 
+                                                        dynamicWeight * quentity - ( (dynamicWeight * quentity) * (Boolean(DiscountedValue?.Percentage) ? parseInt(DiscountedValue?.Percentage) : parseInt(DiscountedValue.Amount)))
                                                         :
                                                         Product?.Prices?.map((data) => (data.Price[0].SalePrice * quentity - parseInt((data.Price[0].SalePrice * quentity )*(Boolean(DiscountedValue?.Percentage) ? parseInt(DiscountedValue?.Percentage) / 100 : parseInt(DiscountedValue.Amount)))))
 
@@ -521,6 +524,11 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
 
                 </div>
             </div>
+        
+          {startload &&  <div className="loader_container">
+                <span class="newloader"></span>
+            </div>
+           }
             {Whishlist && <WhisList open1={Whishlist} SetWishList={SetWishList}></WhisList>}
         </div >
     )

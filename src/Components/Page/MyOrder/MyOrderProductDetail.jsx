@@ -8,14 +8,16 @@ import MyOrderDeliveryAddress from "./MyOrderProductDetailComponent/MyOrderDeliv
 import MyOrderProductDetailStoreName from "./MyOrderProductDetailComponent/MyOrderProductDetailStoreName";
 import MyOrderProductDetailCustomerName from "./MyOrderProductDetailComponent/MyOrderProductDetailCustomerName";
 import Rating from "@mui/material/Rating";
-import { OrderBYID } from "../MyOrder/MyorderApi";
 import { IconButton } from "@mui/material";
+import { LoadingButton } from "@mui/lab";
+import { OrderBYID, PendingOrder, Cancel } from "../MyOrder/MyorderApi";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { BsFillCircleFill } from "react-icons/bs";
 import { useNavigate, useParams,Link } from "react-router-dom";
 import useStyles from "../../../Style";
 const MyOrderProductDetail = () => {
   const params = useParams();
+  const [loading, SetLoading] = React.useState(false)
   const classes = useStyles();
   const [AllOrder_data, SetAllOrder_data] = React.useState([]);
   const [statuscolor, Setstatuscolor] = React.useState("#31B655");
@@ -45,6 +47,49 @@ const MyOrderProductDetail = () => {
       Setstatuscolor("gold");
     }
   },[])
+  const Swal = require('sweetalert2')
+
+  function CencelOrder(id) {
+
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+    
+        imageUrl: "./image/warning.png",
+        imageClass: "loginsweetimg",
+        imageWidth: 60,
+        imageHeight: 60,
+        showCancelButton: true,
+        confirmButtonColor: "#31B655",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Cancel it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            SetLoading(true)
+            Cancel(id).then((res) => {
+
+              OrderBYID(params.id)
+              .then((res) => {
+                console.log(res)
+                SetAllOrder_data(res.data.reverse());
+        
+                if (AllOrder_data[0]?.Order_Status === "Cancel") {
+                  Setstatuscolor("#d33");
+                } else if (AllOrder_data[0]?.Order_Status === "Delivered") {
+                  Setstatuscolor("gold");
+                }
+              })
+
+
+
+
+            }).catch(SetLoading(false))
+            SetLoading(false)
+
+        }
+    });
+
+  }
   return (
     <div className="container-fluid">
       <div className="row ">
@@ -111,6 +156,11 @@ const MyOrderProductDetail = () => {
                     </span>
                   </div>
                 </div>
+              {  AllOrder_data[0]?.Order_Status !== "Cancel" &&
+                <div><LoadingButton className={classes.cncelbtnorder} onClick={()=>{CencelOrder(params.id)}}>Cancel</LoadingButton></div>
+              }
+
+
               </section>
             </div>
           </div>

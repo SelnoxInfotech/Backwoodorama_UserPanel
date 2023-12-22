@@ -300,7 +300,7 @@ const AddToCartReview = () => {
                                     </div>
                                     <div className="mb_addtoproduct_card_content">
                                         <div className='d-flex align-items-start'>
-                                            <h5 className='add_prod_cart_p_title col-10' onClick={() => { Navigate(ele) }}>{ele.ProductName + "(" + wrigh + ")"}</h5>   
+                                            <h5 className={`add_prod_cart_p_title col-10 ${ ele?.Price?.Stock !== "IN Stock" &&  'text-danger'}`} onClick={() => { Navigate(ele) }}>{ele.ProductName + "(" + wrigh + ")"}</h5>   
                                             <span className='col-2 d-flex justify-content-center align-items-center'><button loading={LoadingDelete} className="center border-0 bg-transparent" onClick={(() => { DeleteItem(ele.Product_id, ele.id) })}> <RiDeleteBin6Line className='delete_icons_add' color='gray' size={22} /></button></span>
                                         </div>
                                         <div className='d-flex justify-content-between align-items-end'>
