@@ -407,7 +407,8 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
                     <div className="col-12">
                         <p className="d-flex">
                             <span className="newProduct_doller_price d-flex">
-                                $ {
+                                $ 
+                                {
                                     DiscountedValue?.Reflect
                                         ?
 

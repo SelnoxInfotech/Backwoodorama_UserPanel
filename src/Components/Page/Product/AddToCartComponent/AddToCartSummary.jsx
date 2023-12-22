@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import LoadingButton from "@mui/lab/LoadingButton";
 import useStyles from "../../../../Style";
@@ -8,10 +8,11 @@ import Createcontext from "../../../../Hooks/Context";
 import DeliverAutoCompleteAddress from "./DeliverAutoCompleteAddress";
 // import { useForm, FormProvider, Controller } from "react-hook-form";
 import PromoCode from "../Promocode/Promocode";
-const AddToCartSummary = ({anyoutstock, SubmitData, CheckOut_Loading, SetLoading  }) => {
+const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading  }) => {
   const classes = useStyles();
   // const method = useForm()
   const { state, dispatch } = React.useContext(Createcontext);
+  const[anyoutstock,setanyoutstock]=React.useState([])
   const navigate = useNavigate();
   const location = useLocation();
   const [OpenDelivery, SetOpenDelivery] = React.useState(false);
@@ -107,7 +108,17 @@ const AddToCartSummary = ({anyoutstock, SubmitData, CheckOut_Loading, SetLoading
   function ChnageDeliveryAddress() {
     navigate("/cart" );
   }
-
+  useEffect(()=>{
+      let nss=  state?.AllProduct?.map((ele) => {
+        if( ele?.Price?.Stock !== "IN Stock"){
+        return  'oos'
+        }else{
+        return 'ins'
+        }
+      })
+      setanyoutstock(nss)
+  },[state?.AllProduct])
+console.log(anyoutstock)
   return (
     <div className="col-12   p-2 Add_product_cart_right_container_summary">
       <div className="col-12 fontStyle AddProdCartFont_weight">
@@ -269,7 +280,7 @@ const AddToCartSummary = ({anyoutstock, SubmitData, CheckOut_Loading, SetLoading
               <LoadingButton
                 variant="outlined"
                 loading={CheckOut_Loading}
-                disabled={anyoutstock}
+                disabled={ anyoutstock.includes('oos') ? true :false}
                 onClick={(e) => {
                   CheckoutProcess(e);
                 }}

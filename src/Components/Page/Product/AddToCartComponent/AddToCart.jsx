@@ -7,16 +7,15 @@ import { Link } from "react-router-dom";
 import EmptyCard from "../EmptyCard/EmptyCard"
 const AddToCart = () => {
     const { state } = React.useContext(Createcontext)
-    const[anyoutstock,setanyoutstock]=React.useState(false)
     React.useEffect(()=>{
         document.documentElement.scrollTo({
             top: 0,
             left: 0,
             behavior: "instant", // Optional if you want to skip the scrolling animation
         });
+    
     },[])
 
-    
     return (
 
         <div className="container">
@@ -35,11 +34,11 @@ const AddToCart = () => {
 
                                 <div className="col-sm-8 AddProductCartContainerinner">
 
-                                    <AddToCartReview setanyoutstock={setanyoutstock} />
+                                    <AddToCartReview />
 
                                 </div>
                                 <div className="col-sm-4   p-2 Add_product_cart_right_container_summary">
-                                    <AddToCartSummary anyoutstock={anyoutstock}/>
+                                    <AddToCartSummary />
                                 </div>
 
 
