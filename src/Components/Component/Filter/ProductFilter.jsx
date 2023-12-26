@@ -395,9 +395,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                          
                                     {(Id === OpenEvent) ?
                                         (
-                                            <ClickAwayListener onClickAway={() => {
-                                                SetOpenEvent(null)
-                                            }}>
+                                            <ClickAwayListener onClickAway={() => {SetOpenEvent(null) }}>
                                                 {
                                                    loading ? <span className="mx-4">Loading....</span>
                                                  :
@@ -417,9 +415,8 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                                                                                     return (
                                                                                         SubCategory.CatgoryId === data.id
                                                                                         &&
-                                                                                        <div className="col-10 px-2 py-0 product_sub_category_dropDown_cursor"  >
-                                                                                        <input type="checkbox" id={data.name} name={data.name} value={data.name} />  <label htmlFor={data.name} onClick={() => { FilterSubCategorydata(SubCategory.id, SubCategory.SubCategory_name, data.name, SubCategory.Store_id) }}>{SubCategory.SubCategory_name}</label>
-
+                                                                                        <div onClick={() => { FilterSubCategorydata(SubCategory.id, SubCategory.SubCategory_name, data.name, SubCategory.Store_id) }} className="col-10 px-2 py-0 product_sub_category_dropDown_cursor"  >
+                                                                                            <input type="checkbox" id={data.name} name={data.name} value={data.name} />  <label htmlFor={data.name}>{SubCategory.SubCategory_name}</label>
                                                                                         </div>
                                                                                     )
                                                                                 })
@@ -454,7 +451,8 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                                                                             max={1000}
                                                                             defaultValue={[100, 500]}
                                                                         />
-                                                                    </Box> :
+                                                                    </Box>
+                                                                     :
                                                                 <p className="m-0">No Category Found</p>
                                                         }
                                                     </div>
