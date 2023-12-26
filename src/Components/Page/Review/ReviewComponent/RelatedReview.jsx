@@ -140,54 +140,52 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                                             <p>{calculateTImefromDate(ele.created_at)}</p>
                                             <span className='userreviewaction'> {
                                                 state.login &&
-                                                state.Profile.id === ele.user && <><Select
+                                                state.Profile.id === ele.user && 
+                                                <>
+                                                    <Select IconComponent={BsThreeDotsVertical} labelId="demo-simple-select-error-label"
+                                                        sx={{
+                                                            boxShadow: "none",
+                                                            padding: '0',
 
-                                                    IconComponent={BsThreeDotsVertical} labelId="demo-simple-select-error-label"
-                                                    sx={{
-                                                        boxShadow: "none",
-                                                        padding: '0',
+                                                            ".MuiOutlinedInput-notchedOutline": { border: 0 },
+                                                            "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                                                            {
+                                                                border: 0,
+                                                                outline: "none"
 
-                                                        ".MuiOutlinedInput-notchedOutline": { border: 0 },
-                                                        "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
-                                                        {
-                                                            border: 0,
-                                                            outline: "none"
-
-                                                        },
-                                                        "& .MuiSelect-select": {
-                                                            padding: '0 10px !important'
-                                                        },
-                                                        "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                                                        {
-                                                            border: 0,
-                                                            outline: "none"
-                                                        },
-                                                        "&.Mui-focused .MuiSelect-icon": { color: "#31B665" },
-                                                        "&:hover": {
-                                                            ".MuiSelect-icon": {
-                                                                color: "#31B665"
-                                                            }
-                                                        },
-                                                    }}
-                                                >
-                                                    <List className={classes.orderEditList}>
-
-
-                                                        <ListItem button className={classes.orderEditListitem} onClick={() => handleDelete(ele.id)}>
-                                                            <AiFillDelete color='31B665' />
-                                                            Delete
-                                                        </ListItem>
-                                                        <ListItem button className={classes.orderEditListitem} onClick={() => handleEdit()}>
-
-                                                            <FaEdit color='31B665' />
-                                                            Edit
-                                                        </ListItem>
+                                                            },
+                                                            "& .MuiSelect-select": {
+                                                                padding: '0 10px !important'
+                                                            },
+                                                            "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                                                            {
+                                                                border: 0,
+                                                                outline: "none"
+                                                            },
+                                                            "&.Mui-focused .MuiSelect-icon": { color: "#31B665" },
+                                                            "&:hover": {
+                                                                ".MuiSelect-icon": {
+                                                                    color: "#31B665"
+                                                                }
+                                                            },
+                                                        }}>
+                                                        <List className={classes.orderEditList}>
 
 
+                                                            <ListItem button className={classes.orderEditListitem} onClick={() => handleDelete(ele.id)}>
+                                                                <AiFillDelete color='31B665' />
+                                                                Delete
+                                                            </ListItem>
+                                                            <ListItem button className={classes.orderEditListitem} onClick={() => handleEdit()}>
 
-                                                    </List>
-                                                </Select>
+                                                                <FaEdit color='31B665' />
+                                                                Edit
+                                                            </ListItem>
 
+
+
+                                                        </List>
+                                                    </Select>
                                                 </>
                                             }</span>
                                         </div>
@@ -237,19 +235,12 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                                             <Badge badgeContent={ele?.count} className={classes.sliderLink_badge}>
                                              {ele?.helpfull?.includes(state?.Profile?.id) ? <AiTwotoneLike color='#31B655' size={25}/> : <AiOutlineLike color='#31B655' size={25} />} 
                                             </Badge>
-                                         
                                     </div>
-                                    <div className='related_review_footer_paragraph ellipsis px-0'>
-
-                                        <ReportReviewPopup />
-                                    </div>
+                                    <div className='related_review_footer_paragraph ellipsis px-0'>  <ReportReviewPopup />  </div>
 
 
                                 </div>
                             </div>
-
-
-
                         )
                     })}
                 </div>

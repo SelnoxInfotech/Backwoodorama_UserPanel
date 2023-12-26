@@ -172,7 +172,6 @@ const NewProductDetails = () => {
     ProductHelpFull(ReviewId.id, state.Profile.id).then((res) => {
       SetApi(!api)
     }).catch(() => {
-
     })
   }
   // const discountOptions = (data) => {
