@@ -20,18 +20,20 @@ import Box from '@mui/material/Box';
 import { Link, useParams } from "react-router-dom";
 import AddToCartPopUp from "../../AddToCartPopUp/AddToCartPopUp";
 import { WhisList } from '../../../../Component/Whishlist/WhisList'
-const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
+const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice }) => {
 
     const cookies = new Cookies();
     const params = useParams()
     const [quentity, setquentity] = useState(1);
     const [dynamicWeight, setdynamicWeight] = useState(0);
-    const p = Product?.images === undefined ? "" : Product?.images[0].image;
+    const [displaypic, Setdisplaypic] = useState('');
+    let p = Product?.images === undefined ? "" : Product?.images[0].image;
     const classes = useStyles();
     const token_data = cookies.get('User_Token_access');
     const [CartClean, SetCartClean] = React.useState(false)
+    const [startload, setstartload] = React.useState(true)
     const { state, dispatch } = React.useContext(Createcontext)
-    const [Price, SetPrice] = React.useState([])
+
     const [AddTOCard, SetAddToCard] = React.useState(() => {
         const saved = localStorage.getItem("items");
         const initialValue = JSON.parse(saved);
@@ -61,7 +63,8 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
                 category: Event.category_name,
                 Sub_Category_id: Event.Sub_Category_id,
                 SubcategoryName: Event.SubcategoryName,
-                StoreName: Event.StoreName
+                StoreName: Event.StoreName,
+                CoupounField:DiscountedValue
             })
             await axios.post("https://api.cannabaze.com/UserPanel/Add-AddtoCart/",
 
@@ -76,7 +79,8 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
                     category: Event.category_name,
                     Sub_Category_id: Event.Sub_Category_id,
                     SubcategoryName: Event.SubcategoryName,
-                    StoreName: Event.StoreName
+                    StoreName: Event.StoreName,
+                    CoupounField:DiscountedValue
                 }
                 , config
             ).then(response => {
@@ -112,7 +116,9 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
                 category: Event.category_name,
                 Sub_Category_id: Event.Sub_Category_id,
                 SubcategoryName: Event.SubcategoryName,
-                StoreName: Event.StoreName
+                StoreName: Event.StoreName,
+                CoupounField:DiscountedValue
+                
             }
             SetNewData(Arry)
             if (AddTOCard.length !== 0) {
@@ -143,18 +149,24 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
             // dispatch({ type: 'Cart_subTotal' })
         }
     }
+
     React.useEffect(() => {
-        // window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
         localStorage.setItem('items', JSON.stringify(AddTOCard))
+
     }, [AddTOCard])
+
+
     React.useEffect(() => {
         document.documentElement.scrollTo({
             top: 0,
             left: 0,
             behavior: "instant", // Optional if you want to skip the scrolling animation
         });
-    }, [params])
+        setTimeout(() => {
+            setstartload(false)
+        }, "1000");
 
+    }, [params])
 
     function modifystr(str) {
         str = str === undefined ? "" : str
@@ -215,247 +227,240 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
         }
     }
     const Swal = require('sweetalert2')
-        function incressQuanity(){
-            console.log(dynamicWeight)
-            Product?.Prices[0]?.Price?.forEach((item, index) => {
-            console.log(item.Quantity  , dynamicWeight)
-            if( item.Price  === dynamicWeight   &&   item.Quantity >= quentity ){
-              
+    function incressQuanity() {
+        let val = Boolean(dynamicWeight) ? dynamicWeight : Product?.Prices[0]?.Price[0].SalePrice
+        Product?.Prices[0]?.Price?.forEach((item, index) => {
+
+            if (item.SalePrice === val && item.Quantity - 1 >= quentity) {
                 setquentity(quentity + 1)
-            }else if(item.Price  === dynamicWeight   &&   item.Quantity <= quentity){
-                
+            } else if (item.SalePrice === val && item.Quantity - 1 <= quentity) {
+
                 Swal.fire({
                     title: " Insufficient Stock  ",
                     text: "The requested quantity exceeds the available stock for this product.",
                     imageUrl: "./image/",
-                    footer:`The maximum available quantity for this item is ${ item.Stock === "Out of Stock"? "0" : quentity}.`,
+                    footer: `The maximum available quantity for this item is ${item.Stock === "Out of Stock" ? "0" : quentity}.`,
                     imageWidth: 60,
                     imageHeight: 60,
                     timer: 4000
                 });
 
+            } else if (item.SalePrice === val && item.Quantity === 1) {
+                Swal.fire({
+                    title: " Insufficient Stock  ",
+                    text: "The requested quantity exceeds the available stock for this product.",
+                    imageUrl: "./image/",
+                    footer: `The maximum available quantity for this item is 1.`,
+                    imageWidth: 60,
+                    imageHeight: 60,
+                    timer: 4000
+                });
             }
 
-            })
-        }
+        })
+    }
+
+
+     console.log(DiscountedValue)
     return (
-        <div className=" w-100">
-            <div className=" newProductDetailsContainer position-relative  mt-4">
-                <div className="newProductDetailsCardLeftCol">
-                    <div className="">
-                        <div className="newProductDetailsUpperimage_container">
-                            <LazyLoadImage className="newProductDetails_upper_image"
-                                onError={event => {
-                                    event.target.src = "/image/blankImage.jpg"
-                                    event.onerror = null
-                                }}
-                                src={p} />
+        <React.Fragment>
+            {
+                Product?.length !== 0 &&
+
+                <div className=" w-100">
+                    <div className=" newProductDetailsContainer position-relative  mt-4">
+                        <div className="newProductDetailsCardLeftCol">
+                            <div className="">
+                                <div className="newProductDetailsUpperimage_container">
+                                    <LazyLoadImage className="newProductDetails_upper_image"
+                                        onError={event => {
+                                            event.target.src = local
+                                            event.onerror = null
+                                            console.log(event)
+                                        }}
+                                        src={Boolean(displaypic) ? displaypic : Product?.images[0]?.image} />
+                                      
+                                </div>
+                                {
+                                    Product?.images?.length > 1 ? <div className=" newProductDetailsLowerImage_container">
+                                        <Swiper
+                                            breakpoints={{
+                                                540: {
+                                                    slidesPerView: 3,
+                                                    spaceBetween: 20,
+                                                },
+                                                768: {
+                                                    slidesPerView: 4,
+                                                    spaceBetween: 40,
+                                                },
+                                                991: {
+                                                    slidesPerView: 3,
+                                                    spaceBetween: 20,
+                                                },
+                                                1124: {
+                                                    slidesPerView: 4,
+                                                    spaceBetween: 10,
+                                                },
+                                                1490: {
+                                                    slidesPerView: 4,
+                                                    spaceBetween: 20,
+                                                },
+                                            }}
+                                            slidesPerView={4}
+                                            spaceBetween={10}
+                                            pagination={{
+                                                clickable: false,
+                                            }}
+
+
+                                            modules={[Pagination]}
+                                            className="mySwiper"
+                                        >
+                                            {Product?.images?.map((items, index) => {
+                                                return (
+                                                    <SwiperSlide key={index}>
+
+                                                        <div className="col-12 NewProductDetails_image_container">
+                                                            <LazyLoadImage
+                                                                onError={event => {
+                                                                    event.target.src = "/image/delivery.png"
+                                                                    event.onerror = null
+                                                                }}
+                                                                className="NewProductDetails_image" height={"100px"} src={items.image}
+                                                                onClick={() => { Setdisplaypic(items?.image) }} />
+
+                                                        </div>
+
+                                                    </SwiperSlide>
+
+                                                )
+                                            })}
+
+                                        </Swiper>
+                                    </div> : ""
+                                }
+
+
+                            </div>
                         </div>
-                        {
-                            Product?.images?.length > 1 ? <div className=" newProductDetailsLowerImage_container">
-                                <Swiper
-                                    breakpoints={{
-                                        540: {
-                                            slidesPerView: 3,
-                                            spaceBetween: 20,
-                                        },
-                                        768: {
-                                            slidesPerView: 4,
-                                            spaceBetween: 40,
-                                        },
-                                        991: {
-                                            slidesPerView: 3,
-                                            spaceBetween: 20,
-                                        },
-                                        1124: {
-                                            slidesPerView: 4,
-                                            spaceBetween: 10,
-                                        },
-                                        1490: {
-                                            slidesPerView: 4,
-                                            spaceBetween: 20,
-                                        },
-                                    }}
-                                    slidesPerView={4}
-                                    spaceBetween={10}
-                                    pagination={{
-                                        clickable: false,
-                                    }}
+                        <div className="newProductdetails_rightSideContent_container">
+                            <h1 className="newProductDetails_heading">{Product?.Product_Name}</h1>
+                            <div className=" ">
+                                <Link to={`/weed-deliveries/${modifystr(Product?.StoreName)}/${Product?.Store_id}`}>
+                                    <h3 className="newProductDetails_subHeadingss">By {Product.StoreName}</h3>
+                                </Link>
+                            </div>
+                            <div className="newProductDetailsButon">
+                                {Product.THC !== 0 && <button className="newProductdetailsButtonss">{Product.THC}% THC</button>}
+                                {Product.CBD !== 0 && <button className="newProductdetailsButtonss">{Product.CBD}% CBD</button>}
+                                {Product.strain !== "None" && <button className="newProductdetailsButtonss">{Product.strain}</button>}
 
 
-                                    modules={[Pagination]}
-                                    className="mySwiper"
-                                >
-                                    {Product?.images?.map((items, index) => {
-                                        return (
-                                            <SwiperSlide key={index}>
+                            </div>
+                            <div className="col-12 mt-2">
+                                <p>
+                                    <Rating name="read-only" className={`mx-2 ${classes.homePageStarIcons}`} value={Product.rating === null ? 0 : parseInt(Product?.rating)} size="small" readOnly />
+                                    <span>
+                                    </span><span className="mx-2">{Product.rating === null ? 0 : Product.rating + ".0"} ({Product.TotalRating})
 
-                                                <div className="col-12 NewProductDetails_image_container">
-                                                    <LazyLoadImage
-                                                        onError={event => {
-                                                            event.target.src = "/image/delivery.png"
-                                                            event.onerror = null
-                                                        }}
-                                                        className="NewProductDetails_image" height={"100px"} src={items.image} />
-
-                                                </div>
-
-                                            </SwiperSlide>
-
-                                        )
-                                    })}
-
-                                </Swiper>
-                            </div> : ""
-                        }
-
-
-                    </div>
-                </div>
-                <div className="newProductdetails_rightSideContent_container">
-                    <h1 className="newProductDetails_heading">{Product?.Product_Name}</h1>
-                    <div className=" ">
-                        <Link to={`/weed-deliveries/${modifystr(Product?.StoreName)}/${Product?.Store_id}`}>
-                            <h3 className="newProductDetails_subHeadingss">By {Product.StoreName}</h3>
-                        </Link>
-                    </div>
-                    <div className="newProductDetailsButon">
-                        {Product.THC !== 0 && <button className="newProductdetailsButtonss">{Product.THC}% THC</button>}
-                        {Product.CBD !== 0 && <button className="newProductdetailsButtonss">{Product.CBD}% CBD</button>}
-                        {Product.strain !== "None" && <button className="newProductdetailsButtonss">{Product.strain}</button>}
-
-
-                    </div>
-                    <div className="col-12 mt-2">
-                        <p>
-                            <Rating name="read-only" className={`mx-2 ${classes.homePageStarIcons}`} value={Product.rating === null ? 0 : parseInt(Product?.rating)} size="small" readOnly />
-                            <span>
-                            </span><span className="mx-2">{Product.rating === null ? 0 : Product.rating + ".0"} ({Product.TotalRating})
-
-                            </span></p>
-                    </div>
-                    <div className="col-12 productDetailsCardWeigth">
-                        <span className="newProduct_Weight">
-                            {Product?.Prices?.map((item) => {
-                                let vl = item.Price.map((item) => {
-                                    if (item.Weight) {
-                                        return 'Weight :'
-                                    } else {
-                                        return ` Unit :`
-                                    }
-
-                                })
-                                return vl[0]
-                            })
-                            }
-                        </span><span className="mx-3 newProd_grms productDetailsCardWeigthOptions">
-                            {
-                                Product?.Prices?.map((data) => data.Price.length)[0] > 1 ?
-                                    <select className="form-select" aria-label="Default select example" onChange={(e) => {
-
-                                        k(e.target.value)
-                                    }}
-                                        onClick={(e) => PriceSelect(Product.id, e.target.value)}
-                                    >
-                                        {
-                                            Product?.Prices[0]?.Price?.map((item, index) => {
-
-                                                if (item.Weight) {
-                                                    return <option value={item.id} key={index}>{item.Weight}</option>
-                                                } else {
-                                                    return <option n value={item.id} key={index} >{item.Unit} Unit</option>
-                                                }
-
-                                            })
-                                        }
-                                    </select> :
-                                    Product?.Prices?.map((item) => {
+                                    </span></p>
+                            </div>
+                            <div className="col-12 productDetailsCardWeigth">
+                                <span className="newProduct_Weight">
+                                    {Product?.Prices?.map((item) => {
                                         let vl = item.Price.map((item) => {
                                             if (item.Weight) {
-                                                return item.Weight
+                                                return 'Weight :'
                                             } else {
-                                                return `${item.Unit} Unit`
+                                                return ` Unit :`
                                             }
+
                                         })
                                         return vl[0]
                                     })
-                            }
-                        </span>
-                    </div>
-                    <div className="col-12 productDetailsCardQuestity">
-                        <span className="newProduct_Weight">Quantity : </span>
-                        <span className="mx-3 newProd_grms">
-                            <div className="qty_selector">
-                                <span className="qty_btn" onClick={() => { if (quentity > 1) { setquentity(quentity - 1) } }}>-</span>
-                                <span className="qty_input">{quentity}</span>
-                                <span className="qty_btn" onClick={() => { incressQuanity() }}>+</span>
-                            </div>
-                        </span>
-                    </div>
-                    <div className="col-12">
-                        <p className="d-flex">
-                            <span className="newProduct_doller_price d-flex">
-                                $ {
-                                    DiscountedValue?.Reflect
-                                        ?
-
-                                        < div  className="DisplayDiscount" >
-                                                <span>
-                                                {
-                                                    parseInt(dynamicWeight) !== 0
-                                                        ? dynamicWeight * quentity - ( (dynamicWeight * quentity) * (Boolean(DiscountedValue?.Percentage) ? parseInt(DiscountedValue?.Percentage) : parseInt(DiscountedValue.Amount)))
-                                                        :
-                                                        Product?.Prices?.map((data) => (data.Price[0].SalePrice * quentity - parseInt((data.Price[0].SalePrice * quentity )*(Boolean(DiscountedValue?.Percentage) ? parseInt(DiscountedValue?.Percentage) / 100 : parseInt(DiscountedValue.Amount)))))
-
-                                                }
-                                            </span>
-                                            <strike >{Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)}</strike>
-                                        </div>
-
-
-                                        :
-                                        parseInt(dynamicWeight) !== 0 ? dynamicWeight * quentity : Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)
-
-                                    //     < div >
-                                    //     <strike >{Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)}</strike> <span >{Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity - parseInt(h))}</span>
-
-                                    // </div>
-                                }
-                            </span>
-                            <span className="mx-3 newProduct_Gms">/ {quentity} piece</span>
-                            {
-                              DiscountedValue?.Reflect && <span className="mx-3 newProduct_Gms" style={{ color: "#31B665" }}>Offer Applied</span>
-                            }
-                        </p>
-                    </div>
-                    <div className="col-12">
-                        {
-                            Product?.Prices?.map((data) => {
-                                if (dynamicWeight === 0) {
-                                    if (data.Price[0]) {
-                                        if (data.Price[0].Stock === "IN Stock") {
-                                            return (
-                                                <Box className={`   ${classes.loadingBtnTextAndBack}`} >
-                                                    <LoadingButton onClick={() => { Addtocard(Product) }} variant="outlined" >Add To Cart</LoadingButton>
-                                                </Box>
-                                            )
-                                        }
-                                        else {
-                                            return (
-                                                <Box >
-                                                    <LoadingButton className={`${classes.odsbtn}`}>Out of Stock</LoadingButton>
-                                                </Box>
-                                            )
-                                        }
                                     }
-                                }
-                                else {
-                                    return (
-                                        data.Price.map((arry) => {
-                                            if (SelectVariant.id === arry.id) {
-                                                if (arry.Stock === "IN Stock") {
+                                </span><span className="mx-3 newProd_grms productDetailsCardWeigthOptions">
+                                    {
+                                        Product?.Prices?.map((data) => data.Price.length)[0] > 1 ?
+                                            <select className="form-select" aria-label="Default select example" onChange={(e) => {
+                                                setquentity(1)
+                                                k(e.target.value)
+                                            }}
+                                                onClick={(e) => PriceSelect(Product.id, e.target.value)}
+                                            >
+                                                {
+                                                    Product?.Prices[0]?.Price?.map((item, index) => {
+
+                                                        if (Boolean(item.Weight)) {
+                                                            return <option value={item.id} key={index}>{item.Weight}</option>
+                                                        } else {
+                                                            return <option n value={item.id} key={index} >{item.Unit} Unit</option>
+                                                        }
+
+                                                    })
+                                                }
+                                            </select> :
+                                            Product?.Prices?.map((item) => {
+                                                let vl = item.Price.map((item) => {
+                                                    if (Boolean(item.Weight)) {
+                                                        return item.Weight
+                                                    } else {
+                                                        return `${item.Unit} Unit`
+                                                    }
+                                                })
+                                                return vl[0]
+                                            })
+                                    }
+                                </span>
+                            </div>
+                            <div className="col-12 productDetailsCardQuestity">
+                                <span className="newProduct_Weight">Quantity : </span>
+                                <span className="mx-3 newProd_grms">
+                                    <div className="qty_selector">
+                                        <span className="qty_btn" onClick={() => { if (quentity > 1) { setquentity(quentity - 1) } }}>-</span>
+                                        <span className="qty_input">{quentity}</span>
+                                        <span className="qty_btn" onClick={() => { incressQuanity() }}>+</span>
+                                    </div>
+                                </span>
+                            </div>
+                            <div className="col-12">
+                                <p className="d-flex">
+                                    <span className="newProduct_doller_price d-flex">
+
+                                        $ {
+                                            DiscountedValue?.Reflect
+                                                ?
+                                                < div className="DisplayDiscount" >
+                                                    <span>
+                                                        {
+                                                            parseInt(dynamicWeight) !== 0
+                                                                ? parseInt(dynamicWeight * quentity) - ((Boolean(DiscountedValue?.Percentage) ? (dynamicWeight * quentity) * parseInt(DiscountedValue?.Percentage) / 100 : parseInt(DiscountedValue.Amount)))
+                                                                :
+                                                                Product?.Prices?.map((data) => (data.Price[0].SalePrice * quentity - (Boolean(DiscountedValue?.Percentage) ? parseInt((data.Price[0].SalePrice * quentity) * parseInt(DiscountedValue?.Percentage) / 100) : parseInt(DiscountedValue.Amount))))
+                                                        }
+                                                    </span>
+                                                    <strike >{parseInt(dynamicWeight) !== 0 ? dynamicWeight : Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)}</strike>
+                                                </div>
+                                                :
+                                                parseInt(dynamicWeight) !== 0 ? dynamicWeight * quentity : Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)
+
+
+                                        }
+                                    </span>
+                                    <span className="mx-3 newProduct_Gms">/ {quentity} piece</span>
+                                    {
+                                        DiscountedValue?.Reflect && <span className="mx-3 newProduct_Gms" style={{ color: "#31B665" }}>Offer Applied</span>
+                                    }
+                                </p>
+                            </div>
+                            <div className="col-12">
+                                {
+                                    Product?.Prices?.map((data) => {
+                                        if (dynamicWeight === 0) {
+                                            if (data.Price[0]) {
+                                                if (data.Price[0].Stock === "IN Stock") {
                                                     return (
-                                                        <Box className={`${classes.loadingBtnTextAndBack}`} >
+                                                        <Box className={`   ${classes.loadingBtnTextAndBack}`} >
                                                             <LoadingButton onClick={() => { Addtocard(Product) }} variant="outlined" >Add To Cart</LoadingButton>
                                                         </Box>
                                                     )
@@ -467,44 +472,71 @@ const NewProductDetailsCards = ({ Product, DiscountedValue }) => {
                                                         </Box>
                                                     )
                                                 }
-
                                             }
-                                        })
-                                    )
+                                        }
+                                        else {
+                                            return (
+                                                data.Price.map((arry) => {
+                                                    if (SelectVariant.id === arry.id) {
+                                                        if (arry.Stock === "IN Stock") {
+                                                            return (
+                                                                <Box className={`${classes.loadingBtnTextAndBack}`} >
+                                                                    <LoadingButton onClick={() => { Addtocard(Product) }} variant="outlined" >Add To Cart</LoadingButton>
+                                                                </Box>
+                                                            )
+                                                        }
+                                                        else {
+                                                            return (
+                                                                <Box >
+                                                                    <LoadingButton className={`${classes.odsbtn}`}>Out of Stock</LoadingButton>
+                                                                </Box>
+                                                            )
+                                                        }
 
+                                                    }
+                                                })
+                                            )
+
+
+                                        }
+                                    })
 
                                 }
-                            })
-
-                        }
 
 
-                        {
-                            CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />
-                        }
+                                {
+                                    CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />
+                                }
+                            </div>
+                        </div>
+                        <div className='position-absolute w-auto top-0 p-2  end-0'>
+
+                            <IconButton onClick={() => { handleWhishList(Product?.id) }} aria-label="Example">
+                                {
+                                    state.login ? state.WishList[Product?.id] ? <AiFillHeart color="31B665"></AiFillHeart> : <AiOutlineHeart color="31B665" /> : <AiOutlineHeart color="31B665" />
+                                }
+                            </IconButton>
+                            <span className="shareiconcontainer">
+                                <RWebShare
+                                    data={{ url: window.location.href }}
+                                    sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
+                                    onClick={() => console.info("share successful!")}
+                                    color="#31B665" >
+                                    <BsShareFill />
+                                </RWebShare>
+                            </span>
+
+                        </div>
                     </div>
-                </div>
-                <div className='position-absolute w-auto top-0 p-2  end-0'>
 
-                    <IconButton onClick={() => { handleWhishList(Product?.id) }} aria-label="Example">
-                        {
-                            state.login ? state.WishList[Product?.id] ? <AiFillHeart color="31B665"></AiFillHeart> : <AiOutlineHeart color="31B665" /> : <AiOutlineHeart color="31B665" />
-                        }
-                    </IconButton>
-                    <span className="shareiconcontainer">
-                        <RWebShare
-                            data={{ url: window.location.href }}
-                            sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
-                            onClick={() => console.info("share successful!")}
-                            color="#31B665" >
-                            <BsShareFill />
-                        </RWebShare>
-                    </span>
-
-                </div>
-            </div>
-            {Whishlist && <WhisList open1={Whishlist} SetWishList={SetWishList}></WhisList>}
-        </div >
+                    {startload && <div className="loader_container">
+                        <span class="newloader"></span>
+                    </div>
+                    }
+                    {Whishlist && <WhisList open1={Whishlist} SetWishList={SetWishList}></WhisList>}
+                </div >
+            }
+        </React.Fragment>
     )
 }
 export default NewProductDetailsCards

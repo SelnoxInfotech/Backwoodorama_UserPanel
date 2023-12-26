@@ -233,7 +233,19 @@ const useStyles = makeStyles({
      }
     }
   },
+  cncelbtnorder:{
+   "&.MuiButton-root":{
+    border:'1px solid #31B655 !important',
+    padding:'4px 10px',
+    minWidth:'120px',
+   
+   },
+   "&.MuiButton-text":{
+    color:'#31B655'
 
+   }
+
+  },
   muiIcon: {
     fontSize: "x-large",
     color: "#4267B2",

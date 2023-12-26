@@ -16,6 +16,7 @@ import StoreDetailMenuItem from "../../StoreDetail/StoreDetailComponent/StoreDet
 import CategoryProduct from "../../Home/Dashboard/ComponentDashboard/CategoryProduct";
 import ComponentStoreDetails from "../../StoreDetail/ComponentStoreDetails"
 import { AiOutlineDeploymentUnit } from "react-icons/ai";
+import {ProductHelpFull} from '../../Product/ProductApi'
 import Review from "../../Review/Review";
 import { StoreDetails } from "../../../../Components/Component/ScoPage/StoreDetails"
 import { Store_Add_Review, Store_OverAllGet_Review, Store_Get_UserComment, Store_Get_Review, Delete_StoreReview, StoreHelpFull } from "../../../../Api/Api";
@@ -268,10 +269,17 @@ export default function DispensoriesDetails() {
         SetGetProductReview({ ...GetProductReview, 'popup': true })
     }
     function HellFull(ReviewId) {
-        StoreHelpFull(ReviewId.id, state.Profile.id).then((res) => {
-            SetApi(!api)
-        }).catch(() => {
-        })
+        if("ProductName" in ReviewId){
+            ProductHelpFull(ReviewId.id, state.Profile.id).then((res) => {
+                SetApi(!api)
+              }).catch(() => {
+              })
+        }else{
+            StoreHelpFull(ReviewId.id, state.Profile.id).then((res) => {
+                SetApi(!api)
+            }).catch(() => {
+            })
+        }
     }
     return (
         <div>

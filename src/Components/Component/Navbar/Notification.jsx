@@ -16,11 +16,13 @@ export default function Notification({ notify, setnotify , Setnotificationdata ,
             axios.get(`https://api.cannabaze.com/UserPanel/GetUserNotificationByLogin/`,
                 config,
             ).then((res) => {
-                if (res.data[0].blog) {
-                    res.data[0].blog.map((data) => {
-                        Setnotificationdata([{...notificationdata , "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title }])
-                    })
-                }
+                const k= []
+                res.data.map((data)=>{
+                    if(data.Order){
+                         k.push({...notificationdata , "link": `/MyOrderProductDetail/${data.Order[0].OrderId }`, 'title': "Your Order Has Been Placed"})
+                    }
+                })
+                Setnotificationdata(k)
             }).catch((err) => {
 
             })
@@ -45,10 +47,10 @@ export default function Notification({ notify, setnotify , Setnotificationdata ,
     return (
         notify &&
         <ClickAwayListener onClickAway={() => { setnotify(false) }}>
-            <div className="notificationList">
+            <div className={`notificationList ${ !Boolean(notificationdata?.length) && "nonewnotify"} `}>
            
 
-                    {
+                    { Boolean(notificationdata?.length)?
                         notificationdata?.map((data) => {
                             return (
                                 <div className='notification_box'>
@@ -68,6 +70,8 @@ export default function Notification({ notify, setnotify , Setnotificationdata ,
                                 </div>
                             )
                         })
+                        :
+                        <div className='w-100 h-100 d-flex align-items-center justify-content-center '>No New Notification</div>
                     }
               
             </div>

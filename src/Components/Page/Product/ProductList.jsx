@@ -18,6 +18,7 @@ import { WishListPost } from "../../Component/Whishlist/WishListApi_";
 import { WhisList } from "../../Component/Whishlist/WhisList";
 const ProductList = ({ arr, ProductNavigate }) => {
   const cookies = new Cookies();
+  
   const [CartClean, SetCartClean] = React.useState(false);
   const token_data = cookies.get("User_Token_access");
   const { state, dispatch } = React.useContext(Createcontext);
@@ -227,8 +228,8 @@ const ProductList = ({ arr, ProductNavigate }) => {
 }
   return (
     <>
-      {arr.length !== 0 ? (
-        !state.Loading ? (
+      {(arr?.length !== 0 && typeof(arr) !== "string" ) ? (
+        !state?.Loading ? (
           <React.Fragment>
             <div
               className="row  mx-2"

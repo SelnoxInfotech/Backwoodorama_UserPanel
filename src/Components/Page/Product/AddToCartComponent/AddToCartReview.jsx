@@ -8,7 +8,7 @@ import Cookies from 'universal-cookie';
 import Createcontext from "../../../../Hooks/Context"
 import { LoadingButton } from '@mui/lab';
 import { Link, useNavigate } from 'react-router-dom';
-const AddToCartReview = ({setanyoutstock}) => {
+const AddToCartReview = () => {
     const Swal = require('sweetalert2')
     const { state, dispatch } = React.useContext(Createcontext)
     const navigate = useNavigate();
@@ -104,7 +104,7 @@ const AddToCartReview = ({setanyoutstock}) => {
 
                 })
                 .catch((error) => {
-                    console.error(error)
+                    console.trace(error)
                     SetLoadingPluse(false)
                 })
 
@@ -204,7 +204,8 @@ const AddToCartReview = ({setanyoutstock}) => {
     }
     useEffect(() => {
         setWindowWidth(window.innerWidth)
-    })
+      
+    },[])
     return (
         <React.Fragment>
             <div className="col-12  AddProductCartContainerinner">
@@ -221,10 +222,8 @@ const AddToCartReview = ({setanyoutstock}) => {
 
                         {state?.AllProduct?.map((ele, index) => {
                             let wrigh= Boolean(ele.Price.Weight) ? ele.Price.Weight:  `${ele.Price.Unit} Unit`;
-                            
-                            if( ele?.Price?.Stock === "IN Stock"){
-                                setanyoutstock(true)
-                            }
+                           
+                           
                            
                             return (
                                 <div className="ssss row py-3 px-0 border-top border-bottom justify-content-center   align-items-center" key={index}>
@@ -243,6 +242,7 @@ const AddToCartReview = ({setanyoutstock}) => {
 
                                             <h5 className={`add_prod_cart_p_title ${ ele?.Price?.Stock !== "IN Stock" &&  'text-danger'}`} onClick={() => { Navigate(ele) }}>{ele.ProductName + "(" + wrigh + ")"}</h5>
                                             <h4 className={`add_prod_cart_p ${ ele?.Price?.Stock !== "IN Stock" &&  'text-danger'}`}>{ele.StoreName}</h4>
+                                             {ele?.Price?.Stock !== "IN Stock"   && <h3 className='add_prod_cart_p text-danger'>This Product is Out of Stock Now Please remove it from the cart</h3>} 
                                         </div>
                                     </div>
                                     <div className="col-2 text-center">
@@ -300,7 +300,7 @@ const AddToCartReview = ({setanyoutstock}) => {
                                     </div>
                                     <div className="mb_addtoproduct_card_content">
                                         <div className='d-flex align-items-start'>
-                                            <h5 className='add_prod_cart_p_title col-10' onClick={() => { Navigate(ele) }}>{ele.ProductName + "(" + wrigh + ")"}</h5>   
+                                            <h5 className={`add_prod_cart_p_title col-10 ${ ele?.Price?.Stock !== "IN Stock" &&  'text-danger'}`} onClick={() => { Navigate(ele) }}>{ele.ProductName + "(" + wrigh + ")"}</h5>   
                                             <span className='col-2 d-flex justify-content-center align-items-center'><button loading={LoadingDelete} className="center border-0 bg-transparent" onClick={(() => { DeleteItem(ele.Product_id, ele.id) })}> <RiDeleteBin6Line className='delete_icons_add' color='gray' size={22} /></button></span>
                                         </div>
                                         <div className='d-flex justify-content-between align-items-end'>

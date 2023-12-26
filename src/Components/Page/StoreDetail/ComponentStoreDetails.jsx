@@ -13,7 +13,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { MdSecurity } from "react-icons/md";
 import Openingtime from "./StoreDetailComponent/Openingtime";
 const StoreDetail1 = ({ storeDetails }) => {
-
+   console.log(storeDetails ,'storeDetails')
   return (
     <div className="container-fluid container-lg-full mt-3">
       <div className="amenities_container">
@@ -117,7 +117,7 @@ const StoreDetail1 = ({ storeDetails }) => {
 
             <div className="row mx-0">
               {
-                storeDetails[0]?.CurbSidePickupHours !== null && (
+                storeDetails[0]?.CurbSide_Pickup && 
                   <div className="p-md-2 p-0 col-md-5 col-12">
                     <Openingtime
                       storeDetails={storeDetails}
@@ -126,9 +126,9 @@ const StoreDetail1 = ({ storeDetails }) => {
                       key={"CurbSidePickupHours"}
                     />
                   </div>
-                )}
+                }
               {
-                storeDetails[0]?.Hours !== null && (
+                storeDetails[0]?.StoreFront  && (
                   <div className="p-md-2 p-0 col-md-5 col-12">
                     <Openingtime
                       storeDetails={storeDetails}
@@ -139,7 +139,7 @@ const StoreDetail1 = ({ storeDetails }) => {
                   </div>
                 )}
               {
-                storeDetails[0]?.DeliveryHours !== null && (
+                storeDetails[0]?.Delivery && (
                   <div className="p-md-2 p-0 col-md-5 col-12">
                     <Openingtime
                       storeDetails={storeDetails}

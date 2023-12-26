@@ -98,17 +98,23 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,loading}) => {
                         );
                       })}
                     </div>
-                    <div className="row mx-0">
-                      <div className="col-6 viewOrderDetals">
+                    <div className="row mx-0 py-2">
+                      <div className="col-6 viewOrderDetals d-flex align-items-center gap-4">
                         {location.pathname.slice(0, 21) ===
                         "/MyOrderProductDetail" ? (
                           ""
                         ) : (
-                          <div className="viewOrderDetals_container border">
+                          <>
+                          <div className=" ">
                             <Link to={`/MyOrderProductDetail/${val.OrderId}`}>
-                              <span className="viewDetailsFont">view details</span>
+                              <LoadingButton className={classes.cncelbtnorder}>view details</LoadingButton>
                             </Link>
                           </div>
+                          {
+                            val.Order_Status !=="Cancel" &&
+                         
+                          <div><LoadingButton loading={Loading} className={classes.cncelbtnorder}  onClick={() => { CencelOrder(val.OrderId) }}>Cancel </LoadingButton></div>}
+                         </>
                         )}
                       </div>
                       <div className="col-6 text-end viewOrderDetals">

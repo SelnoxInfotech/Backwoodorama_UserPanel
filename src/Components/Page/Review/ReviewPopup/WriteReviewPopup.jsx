@@ -36,6 +36,9 @@ import { useNavigate } from "react-router-dom";
   const handleClose = () => {
     SetGetProductReview({ ...GetProductReview, popup: false });
   };
+console.log(GetProductReview)
+
+
   return (
     <>
       <Button
@@ -105,7 +108,7 @@ import { useNavigate } from "react-router-dom";
                         variant="filled"
                         fullWidth
                         inputRef={register("Title",{
-                          required: GetProductReview.Title !== "" && "Title is required*.",
+                          required: GetProductReview.comment !== '' ?  GetProductReview.Title === "" && "Title is required*." : false,
                           minLength: {
                             value: 5,
                             message: "Please enter valid Title",

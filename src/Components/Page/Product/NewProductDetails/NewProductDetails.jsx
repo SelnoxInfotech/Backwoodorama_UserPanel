@@ -16,6 +16,7 @@ import { product_OverAllGet_Review, Product_Add_Review, Product_Get_UserComment,
 import Createcontext from "../../../../Hooks/Context"
 import _ from 'lodash'
 import { makeStyles } from "@material-ui/core/styles";
+import axios from "axios";
 const usePlaceholderStyles = makeStyles(theme => ({
   placeholder: {
     color: "#aaa",
@@ -29,7 +30,8 @@ const NewProductDetails = () => {
     Amount: '',
     Reflect: false,
     Percentage: '',
-    CouponMassage: ""
+    CouponMassage: "",
+    DiscountType: ""
   });
 
   const Params = useParams()
@@ -43,12 +45,15 @@ const NewProductDetails = () => {
   const [api, SetApi] = React.useState(false)
   const [Rating, SetRating] = React.useState()
   const [AllReview, SetReview] = React.useState([])
+  const [Price, SetPrice] = React.useState([])
+  const [j, h] = React.useState([])
   const [GetProductReview, SetGetProductReview] = React.useState({
     value: 0,
     comment: '',
     Title: "",
     popup: false
   })
+
   const classes = style()
   React.useEffect(() => {
     Axios(`https://api.cannabaze.com/UserPanel/Get-ProductById/${id}`, {
@@ -57,11 +62,21 @@ const NewProductDetails = () => {
       SetProduct(() => {
         return response.data[0]
       })
-
+      h(response.data[0].Prices[0].Price?.filter((data) => {
+        if (data.id === parseInt(Price[0]?.Item_id)) {
+          return data
+        }
+        else {
+          if (data.id === 1) {
+            return data
+          }
+        }
+      })
+      )
       Axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${response.data[0]?.Store_id}`, {
       }).then(response => {
         SetDespens(response.data[0])
-    
+
       })
       Axios.post(`https://api.cannabaze.com/UserPanel/YouMayAlsoLike/`,
         {
@@ -159,24 +174,17 @@ const NewProductDetails = () => {
     ProductHelpFull(ReviewId.id, state.Profile.id).then((res) => {
       SetApi(!api)
     }).catch(() => {
-
     })
   }
-  const discountOptions = (data) => {
-    const uniqueNames = data.filter((val, id, data) => {
-      return data.indexOf(val) === id;
-    });
-    return uniqueNames
-  }
+
   const Placeholder = ({ children }) => {
     const classes = usePlaceholderStyles();
     return <div className={classes.placeholder}>{children}</div>;
   };
 
   const handlediscountChange = (event) => {
-  
+    console.log(event.target.value.DiscountCode === null, event.target.value.AutomaticDiscount)
     if (event.target.value.DiscountType === "Amount off Order") {
-      // setdiscount({ ...discount, "DiscountType": "Amount off Order" });
       if (event.target.value.NoMinimumRequirements === true) {
         if (event.target.value.PercentageAmount !== null || "") {
           setdiscount({
@@ -187,12 +195,13 @@ const NewProductDetails = () => {
           });
         }
         else {
-          setdiscount({ ...discount,
-             "Amount": event.target.value.ValueAmount, 
-             'Reflect': false,
-              "DiscountType": "Amount off Order" ,
-              'CouponMassage': "Offer Apply on Add To Cart ",
-            });
+          setdiscount({
+            ...discount,
+            "Amount": event.target.value.ValueAmount,
+            'Reflect': false,
+            "DiscountType": "Amount off Order",
+            'CouponMassage': "Offer Apply on Add To Cart ",
+          });
         }
       }
       else {
@@ -256,63 +265,159 @@ const NewProductDetails = () => {
     else if (event.target.value.DiscountType === "Amount off Products") {
       if (event.target.value.NoMinimumRequirements === true) {
         if (event.target.value.PercentageAmount !== null || "") {
-          setdiscount({ ...discount, "Percentage": event.target.value.PercentageAmount, 'Reflect': true, "DiscountType": "Amount off Products" });
+          if (event.target.value.DiscountCode === null || '') {
+            setdiscount({
+              ...discount,
+              "Percentage": event.target.value.PercentageAmount,
+              'Reflect': true, 
+              "DiscountType": "Amount off Products",
+              "AutomaticDiscount": event.target.value.AutomaticDiscount
+            });
+          } else {
+            setdiscount({
+              ...discount,
+              "Percentage": event.target.value.PercentageAmount,
+              'Reflect': true,
+              "DiscountType": "Amount off Products",
+              "DiscountCode": event.target.value.DiscountCode
+            });
+          }
         }
         else {
-          setdiscount({ ...discount, "Amount": event.target.value.ValueAmount, 'Reflect': true, "DiscountType": "Amount off Products" });
+          if (event.target.value.DiscountCode === null || '') {
+
+            setdiscount({
+              ...discount,
+              "Amount": event.target.value.ValueAmount,
+              'Reflect': true,
+              "DiscountType": "Amount off Products",
+              "AutomaticDiscount": event.target.value.AutomaticDiscount
+  
+            });
+          }
+          else{
+            setdiscount({
+              ...discount,
+              "Amount": event.target.value.ValueAmount,
+              'Reflect': true,
+              "DiscountType": "Amount off Products",
+              "DiscountCode": event.target.value.DiscountCode
+  
+            });
+          }
         }
       }
       else {
         if (event.target.value.MinimumQuantityofItem !== null || "") {
 
           if (event.target.value.PercentageAmount !== null || "") {
-            setdiscount({
-              ...discount,
-              "MinimumQuantityofItem": event.target.value.MinimumQuantityofItem,
-              'Reflect': false,
-              "DiscountType": "Amount off Products",
-              'CouponMassage': "Minimum Quantity of Item ",
-              "Percentage": event.target.value.PercentageAmount,
+            if (event.target.value.DiscountCode === null || '') {
 
-            });
+              setdiscount({
+                ...discount,
+                "MinimumQuantityofItem": event.target.value.MinimumQuantityofItem,
+                'Reflect': false,
+                "DiscountType": "Amount off Products",
+                'CouponMassage': "Minimum Quantity of Item",
+                "Percentage": event.target.value.PercentageAmount,
+                // "Coupoun": event.target.value.PercentageAmount,
+                "AutomaticDiscount": event.target.value.AutomaticDiscount
+              });
+            }
+            else {
+              setdiscount({
+                ...discount,
+                "MinimumQuantityofItem": event.target.value.MinimumQuantityofItem,
+                'Reflect': false,
+                "DiscountType": "Amount off Products",
+                'CouponMassage': "Minimum Quantity of Item ",
+                "Amount": event.target.value.ValueAmount,
+                "DiscountCode": event.target.value.DiscountCode
+              });
+            }
 
           }
           else {
-            setdiscount({
-              ...discount,
-              "MinimumQuantityofItem": event.target.value.MinimumQuantityofItem,
-              'Reflect': false,
-              "DiscountType": "Amount off Products",
-              'CouponMassage': "Minimum Quantity of Item ",
-              "Amount": event.target.value.ValueAmount,
-            });
+            if (event.target.value.DiscountCode === null || '') {
+
+              setdiscount({
+                ...discount,
+                "MinimumQuantityofItem": event.target.value.MinimumQuantityofItem,
+                'Reflect': false,
+                "DiscountType": "Amount off Products",
+                'CouponMassage': "Minimum Quantity of Item ",
+                "Amount": event.target.value.ValueAmount,
+                "AutomaticDiscount": event.target.value.AutomaticDiscount
+              });
+            }
+            else {
+              setdiscount({
+                ...discount,
+                "MinimumQuantityofItem": event.target.value.MinimumQuantityofItem,
+                'Reflect': false,
+                "DiscountType": "Amount off Products",
+                'CouponMassage': "Minimum Quantity of Item ",
+                "Amount": event.target.value.ValueAmount,
+                "DiscountCode": event.target.value.DiscountCode
+              });
+            }
           }
         }
         else {
           if (event.target.value.MinimumPurchaseAmount !== null || "") {
 
             if (event.target.value.PercentageAmount !== null || "") {
+              if (event.target.value.DiscountCode === null || '') {
 
-              setdiscount({
-                ...discount,
-                "MinimumPurchaseAmount": event.target.value.MinimumPurchaseAmount,
-                'Reflect': false,
-                "DiscountType": "Amount off Products",
-                'CouponMassage': "Minimum Purchase of Amount ",
-                "Percentage": event.target.value.PercentageAmount,
+                setdiscount({
+                  ...discount,
+                  "MinimumPurchaseAmount": event.target.value.MinimumPurchaseAmount,
+                  'Reflect': false,
+                  "DiscountType": "Amount off Products",
+                  'CouponMassage': "Minimum Purchase of Amount ",
+                  "Percentage": event.target.value.PercentageAmount,
+                  "AutomaticDiscount": event.target.value.AutomaticDiscount
 
-              });
+                });
+              }
+              else {
+                setdiscount({
+                  ...discount,
+                  "MinimumPurchaseAmount": event.target.value.MinimumPurchaseAmount,
+                  'Reflect': false,
+                  "DiscountType": "Amount off Products",
+                  'CouponMassage': "Minimum Purchase of Amount ",
+                  "Percentage": event.target.value.PercentageAmount,
+                  "DiscountCode": event.target.value.DiscountCode
+
+                });
+              }
             }
             else {
-              setdiscount({
-                ...discount,
-                "MinimumPurchaseAmount": event.target.value.MinimumPurchaseAmount,
-                'Reflect': false,
-                "DiscountType": "Amount off Products",
-                'CouponMassage': "Minimum Purchase of Amount ",
-                "Amount": event.target.value.ValueAmount
+              if (event.target.value.DiscountCode === null || '') {
 
-              });
+                setdiscount({
+                  ...discount,
+                  "MinimumPurchaseAmount": event.target.value.MinimumPurchaseAmount,
+                  'Reflect': false,
+                  "DiscountType": "Amount off Products",
+                  'CouponMassage': "Minimum Purchase of Amount ",
+                  "Amount": event.target.value.ValueAmount,
+                  "AutomaticDiscount": event.target.value.AutomaticDiscount
+
+                });
+              }
+              else {
+                setdiscount({
+                  ...discount,
+                  "MinimumPurchaseAmount": event.target.value.MinimumPurchaseAmount,
+                  'Reflect': false,
+                  "DiscountType": "Amount off Products",
+                  'CouponMassage': "Minimum Purchase of Amount ",
+                  "Amount": event.target.value.ValueAmount,
+                  "DiscountCode": event.target.value.DiscountCode
+                });
+              }
 
             }
           }
@@ -327,36 +432,58 @@ const NewProductDetails = () => {
     }
   };
 
+  React.useEffect(() => {
+    h(Price.length !== 0 && Product.Prices[0].Price.filter((data) => data.id === parseInt(Price[0].Item_id)))
+  }, [Price])
 
+
+
+
+
+  React.useEffect(() => {
+    // function fetchImageAndConvertToBase64() {
+    //   // Fetch the image
+    //   const imageUrl = 'https://selnoxmedia.s3.amazonaws.com/media/product_images/cbd.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAS4WSA6KJNP6NPPES%2F20231226%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231226T100932Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=ae217f12c7cc72c71d32f506e2f3b1276343424625e521da023c2c90cdfa5296';
+
+    //   var reader = new window.FileReader();
+    //   reader.readAsArrayBuffer(imageUrl);
+    //   reader.readAsDataURL(input);//line with error
+    //   reader.onloadend = function() {
+    //       var base64data = reader.result;
+    //       console.log(base64data);
+    //   };
+
+    // }
+    // fetchImageAndConvertToBase64();    
+    console.log(discount)
+  }, [discount])
   return (
     <div className="container-fluid">
       <ProductDetailsSeo Productname={Product.Product_Name} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={useLocation().pathname} ></ProductDetailsSeo>
 
       <span onClick={() => Tolastpage()} className="BackPageBtn"> <AiOutlineLeft size={22} />{'StoreName' in Params ? <> <span className="backPgBtnImg"><img src={`${Despen.Store_Image}`} alt="" /></span> {Despen.Store_Name}</> : 'Back to products'}</span>
-      <NewProductDetailsCards Product={Product} DiscountedValue={discount} />
+      <NewProductDetailsCards Product={Product} DiscountedValue={discount} Price={Price} SetPrice={SetPrice} />
 
       <NewProductinfoText Product={{ heading: "Product Description", text: Product?.Product_Description }} />
-      {Product?.CategoryCoupoun?.length !== 0 || Product?.ProductCoupoun?.length !== 0 &&
-        <div className="DiscountSection ">
-          <FormControl fullWidth>
-            <Select
-              id="discount select"
-              value={discount}
-              displayEmpty
-              renderValue={!Boolean(discount?.DiscountType) ? () => <Placeholder>Select Coupon</Placeholder> : () => discount.DiscountType}
-              onChange={handlediscountChange}
-              className={classes.dsicounSelects}>
-              {discountOptions([...Product?.CategoryCoupoun, ...Product?.ProductCoupoun]).map((item) => {
-                return <MenuItem value={item}>{item?.DiscountType}</MenuItem>
-              })}
-            </Select>
-          </FormControl>
-          {discount.CouponMassage !== "" && <div className="col-12 center " style={{ height: "100px", color: "#31B655" }}>
-            <p>{discount.CouponMassage}</p>
-          </div>
-          }
-        </div>
-      }
+      <div className="DiscountSection ">
+        {
+
+
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={discount}
+            className={classes.dsicounSelects}
+            renderValue={!Boolean(discount?.DiscountType) ? () => <Placeholder>Select Coupon</Placeholder> : () => discount.DiscountType}
+            onChange={handlediscountChange}
+          >
+
+            {j.length !== 0 && j[0]?.Coupoun.length !== 0 ? j[0]?.Coupoun.map((da) => <MenuItem value={da}>{da.DiscountType}</MenuItem>) : <MenuItem value=''>No Coupon</MenuItem>}
+          </Select>
+
+        }
+
+      </div>
       <ProductSearchResult RelatedProductResult={StoreProduct} currentProductID={Product.id} CategoryName={heading} />
       <Review
         delBtn={Despen}

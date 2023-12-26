@@ -175,17 +175,17 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
         }else if (name === "Unit") {
           if( ref.current.childNodes[0].childNodes[0].childNodes[0].childNodes[1].checked ){
              Axios.post("https://api.cannabaze.com/UserPanel/UnitFilter/", {
-                 store: 4,
+                 store: Store_id,
                  unit: true,
                }).then((res) => {
-                 Setarr1(res.data);
+                 Setarr1(res?.data);
                });
           }else{
             Axios.get(
                 `https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${id}`,
                 {}
               ).then((response) => {
-                Setarr1(response.data);
+                Setarr1(response?.data);
               });
          }
         }
@@ -323,7 +323,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
         value !== undefined && 
       
         PriceFilter(value,Store_id).then((res) => {
-            Setarr1(res.data)
+            Setarr1(res?.data)
             dispatch({ type: 'Loading', Loading: false })
             }).catch(() => {
                 // navigate('/fourzerothree')   
