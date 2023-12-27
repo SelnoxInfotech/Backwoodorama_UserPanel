@@ -271,7 +271,8 @@ const NewProductDetails = () => {
               "Percentage": event.target.value.PercentageAmount,
               'Reflect': true, 
               "DiscountType": "Amount off Products",
-              "AutomaticDiscount": event.target.value.AutomaticDiscount
+              "AutomaticDiscount": event.target.value.AutomaticDiscount,
+              "DiscountCode": ""
             });
           } else {
             setdiscount({
@@ -279,7 +280,8 @@ const NewProductDetails = () => {
               "Percentage": event.target.value.PercentageAmount,
               'Reflect': true,
               "DiscountType": "Amount off Products",
-              "DiscountCode": event.target.value.DiscountCode
+              "DiscountCode": event.target.value.DiscountCode,
+              "AutomaticDiscount":""
             });
           }
         }
@@ -291,7 +293,8 @@ const NewProductDetails = () => {
               "Amount": event.target.value.ValueAmount,
               'Reflect': true,
               "DiscountType": "Amount off Products",
-              "AutomaticDiscount": event.target.value.AutomaticDiscount
+              "AutomaticDiscount": event.target.value.AutomaticDiscount,
+              "DiscountCode":""
   
             });
           }
@@ -301,15 +304,14 @@ const NewProductDetails = () => {
               "Amount": event.target.value.ValueAmount,
               'Reflect': true,
               "DiscountType": "Amount off Products",
-              "DiscountCode": event.target.value.DiscountCode
-  
+              "DiscountCode": event.target.value.DiscountCode,
+              "AutomaticDiscount":""
             });
           }
         }
       }
       else {
         if (event.target.value.MinimumQuantityofItem !== null || "") {
-
           if (event.target.value.PercentageAmount !== null || "") {
             if (event.target.value.DiscountCode === null || '') {
 
@@ -321,7 +323,8 @@ const NewProductDetails = () => {
                 'CouponMassage': "Minimum Quantity of Item",
                 "Percentage": event.target.value.PercentageAmount,
                 // "Coupoun": event.target.value.PercentageAmount,
-                "AutomaticDiscount": event.target.value.AutomaticDiscount
+                "AutomaticDiscount": event.target.value.AutomaticDiscount,
+                "DiscountCode":""
               });
             }
             else {
@@ -332,7 +335,8 @@ const NewProductDetails = () => {
                 "DiscountType": "Amount off Products",
                 'CouponMassage': "Minimum Quantity of Item ",
                 "Amount": event.target.value.ValueAmount,
-                "DiscountCode": event.target.value.DiscountCode
+                "DiscountCode": event.target.value.DiscountCode,
+                "AutomaticDiscount": "",
               });
             }
 
@@ -347,7 +351,8 @@ const NewProductDetails = () => {
                 "DiscountType": "Amount off Products",
                 'CouponMassage': "Minimum Quantity of Item ",
                 "Amount": event.target.value.ValueAmount,
-                "AutomaticDiscount": event.target.value.AutomaticDiscount
+                "AutomaticDiscount": event.target.value.AutomaticDiscount,
+                "DiscountCode":""
               });
             }
             else {
@@ -358,7 +363,8 @@ const NewProductDetails = () => {
                 "DiscountType": "Amount off Products",
                 'CouponMassage': "Minimum Quantity of Item ",
                 "Amount": event.target.value.ValueAmount,
-                "DiscountCode": event.target.value.DiscountCode
+                "DiscountCode": event.target.value.DiscountCode,
+                "AutomaticDiscount":""
               });
             }
           }
@@ -376,8 +382,8 @@ const NewProductDetails = () => {
                   "DiscountType": "Amount off Products",
                   'CouponMassage': "Minimum Purchase of Amount ",
                   "Percentage": event.target.value.PercentageAmount,
-                  "AutomaticDiscount": event.target.value.AutomaticDiscount
-
+                  "AutomaticDiscount": event.target.value.AutomaticDiscount,
+                  'DiscountCode':""
                 });
               }
               else {
@@ -388,7 +394,9 @@ const NewProductDetails = () => {
                   "DiscountType": "Amount off Products",
                   'CouponMassage': "Minimum Purchase of Amount ",
                   "Percentage": event.target.value.PercentageAmount,
-                  "DiscountCode": event.target.value.DiscountCode
+                  "DiscountCode": event.target.value.DiscountCode,
+                  "AutomaticDiscount":""
+
 
                 });
               }
@@ -403,7 +411,8 @@ const NewProductDetails = () => {
                   "DiscountType": "Amount off Products",
                   'CouponMassage': "Minimum Purchase of Amount ",
                   "Amount": event.target.value.ValueAmount,
-                  "AutomaticDiscount": event.target.value.AutomaticDiscount
+                  "AutomaticDiscount": event.target.value.AutomaticDiscount,
+                  "DiscountCode":""
 
                 });
               }
@@ -415,7 +424,8 @@ const NewProductDetails = () => {
                   "DiscountType": "Amount off Products",
                   'CouponMassage': "Minimum Purchase of Amount ",
                   "Amount": event.target.value.ValueAmount,
-                  "DiscountCode": event.target.value.DiscountCode
+                  "DiscountCode": event.target.value.DiscountCode,
+                  "AutomaticDiscount":""
                 });
               }
 
@@ -478,7 +488,15 @@ const NewProductDetails = () => {
             onChange={handlediscountChange}
           >
 
-            {j.length !== 0 && j[0]?.Coupoun.length !== 0 ? j[0]?.Coupoun.map((da) => <MenuItem value={da}>{da.DiscountType}</MenuItem>) : <MenuItem value=''>No Coupon</MenuItem>}
+            {j.length !== 0 && j[0]?.Coupoun.length !== 0 ?
+             j[0]?.Coupoun.map((da) =>(  
+              // console.log((da.AutomaticDiscount === null  || da.AutomaticDiscount === "" )  , da.AutomaticDiscount)
+              
+              (da.AutomaticDiscount === null  || da.AutomaticDiscount === "" )   &&  <MenuItem value={da}> {da.DiscountType}</MenuItem> 
+              
+              ))
+             
+             : <MenuItem value=''>No Coupon</MenuItem>}
           </Select>
 
         }

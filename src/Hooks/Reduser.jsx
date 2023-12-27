@@ -110,8 +110,14 @@ const reducer = (state, action) => {
       {
         return { ...state, route: action.route }
       }
-
-
+    case "Coupoun":
+      {
+        return { ...state, Coupoun: action.Coupoun }
+      }
+    case "PromoCode":
+      {
+        return { ...state, PromoCode: action.PromoCode }
+      }
 
     default: return state
   }

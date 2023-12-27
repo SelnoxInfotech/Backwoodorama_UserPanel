@@ -274,7 +274,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice }) =
                                 <div className="newProductDetailsUpperimage_container">
                                     <LazyLoadImage className="newProductDetails_upper_image"
                                         onError={event => {
-                                            event.target.src = local
+                                            event.target.src = '/image/blankImage.jpg'
                                             event.onerror = null
                                             console.log(event)
                                         }}

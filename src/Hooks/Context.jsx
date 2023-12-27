@@ -46,7 +46,12 @@ const initialUser = {
     // StaticImage
     StaticImage: [],
     //  Loading Circule
-    Loading: false
+    Loading: false,
+    // Coupoun :
+    PromoCode: "",
+    Coupoun: []
+
+
 }
 
 function Context(props) {
@@ -83,6 +88,23 @@ function Context(props) {
                     return AllTotal += parseInt(data?.TotalPrice)
                 })
                 dispatch({ type: 'Cart_subTotal', Cart_subTotal: AllTotal })
+             
+                // const l = CarTProduct.reverse()
+                // for (let i = 0; i < l.length; i++) {
+                //     if (l[i].CoupounField.DiscountType !== "" || l[i].CoupounField.AutomaticDiscount !== "") {
+                //         if (l[i].CoupounField.DiscountType !== "") {
+                //             dispatch({ type: 'Coupoun', 'Coupoun': l[i].CoupounField })
+                //             break
+                //         }
+                //         else {
+                //             if (l[i].CoupounField.AutomaticDiscount !== "") {
+                //                 dispatch({ type: 'Coupoun', 'Coupoun': l[i].CoupounField })
+                //                 break
+                //             }
+                //         }
+                //         return l
+                //     }
+                // }
             })
                 .catch(function (error) {
                     return error

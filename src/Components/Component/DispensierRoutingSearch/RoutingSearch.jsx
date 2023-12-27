@@ -7,75 +7,69 @@ export default function RoutingSearch({ city, State, country, pathname  ,route})
   React.useEffect(() => {
 
  if(route !== undefined){
-  location(route, "route")
+  location(route +" "+city +" "+State+" "+country  , "route")
  }
  else {
   if (city === undefined) {
     if (State !== undefined) {
-      location(State, "state")
+      location(State+" "+country, "state")
     }
     else {
       location(country, "Country")
     }
   }
   else {
-    location(city, "city")
+    location(city+" "+State+" "+country, "city")
   }
  }
   }, [])
 
 
   function location(value, type) {
-    var SearchCity, SearchState, SearchCountry , route;
+    console.log(value , type)
+    // var SearchCity, SearchState, SearchCountry , route;    
     fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
       .then(res => res.json())
       .then(response => {
-       
         if (response.results.length !== 0) {
           dispatch({ type: 'permission', permission: true })
           dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address })
+          var Coun
+          var sta
+          var ci
+          var route
           response?.results[0]?.address_components?.map((data) => {
             if (data.types.indexOf('country') !== -1) {
-              dispatch({ type: 'Country', Country: data?.long_name.replace(/\s/g, '-') })
-              SearchCountry = data?.long_name.replace(/\s/g, '-')
+              Coun = data?.long_name?.replace(/\s/g, '-')
+              return dispatch({ type: 'Country', Country: data?.long_name?.replace(/\s/g, '-') })
             }
-
             if (data.types.indexOf('administrative_area_level_1') !== -1) {
-              dispatch({ type: 'State', State: data?.long_name.replace(/\s/g, '-') })
-              SearchState = data?.long_name.replace(/\s/g, '-')
+              sta = data?.long_name?.replace(/\s/g, '-')
+              return dispatch({ type: 'State', State: data?.long_name?.replace(/\s/g, '-') })
+            } else {
+              dispatch({ type: 'State', State: '' })
             }
-
-
-            if (data.types.indexOf('locality') !== -1 || data.types.indexOf('administrative_area_level_3') !== -1 || data.types.indexOf('sublocality') !== -1 || data.types.indexOf('establishment') !== -1) {
+            if ((data.types.indexOf('locality') !== -1 && data.types.indexOf('administrative_area_level_3' !== -1)) || data.types.indexOf("postal_town") !== -1
+              || data.types.indexOf('sublocality') !== -1) {
+              ci = data?.long_name?.replace(/\s/g, '-')
               dispatch({ type: 'City', City: data?.long_name?.replace(/\s/g, '-') })
-              SearchCity = data?.long_name.replace(/\s/g, '-')
-
+            } else {
+              dispatch({ type: 'City', City: '' })
             }
-            if (data.types.indexOf('route') !== -1 ) {
-              route = data?.long_name.replace(/\s/g, '-')
-              dispatch({ type: 'route', route: data?.long_name.replace(/\s/g, '-') })
+            if (data.types.indexOf('route') !== -1 || data.types.indexOf('sublocality_level_2') !== -1 || data.types.indexOf("establishment") !== -1) {
+              route = data?.long_name?.replace(/\s/g, '-')
+              dispatch({ type: 'route', route: data?.long_name?.replace(/\s/g, '-') })
+            } else {
+              dispatch({ type: 'route', route: '' })
             }
-
+            if(ci === undefined){
+              if (data.types.indexOf('administrative_area_level_2') !== -1 || data.types.indexOf('political') !== -1 ) {
+                ci = data?.long_name.replace(/\s/g, '-')
+                dispatch({ type: 'City', City: data?.long_name.replace(/\s/g, '-') })
+              }
+             }
 
           })
-
-          if (SearchCity !== undefined && SearchState !== undefined && SearchCountry !== undefined && route !== undefined) {
-
-            navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}/${SearchState.toLowerCase()}/${SearchCity.toLowerCase()}/${route.toLowerCase()}`)
-          }
-         else if (SearchCity !== undefined && SearchState !== undefined && SearchCountry !== undefined) {
-   
-            navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}/${SearchState.toLowerCase()}/${SearchCity.toLowerCase()}`)
-          }
-
-          else if (SearchState !== undefined && SearchCountry !== undefined) {
-       
-            navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}/${SearchState.toLowerCase()}`)
-          }
-          else if (SearchCountry !== undefined) {
-            navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}`)
-          }
-
 
         }
         else {
@@ -105,9 +99,6 @@ export default function RoutingSearch({ city, State, country, pathname  ,route})
                   }
 
                 })
-
-
-
                 if (SearchCity !== undefined && SearchState !== undefined && SearchCountry !== undefined) {
 
                   navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}/${SearchState.toLowerCase()}/${SearchCity.toLowerCase()}/`)
