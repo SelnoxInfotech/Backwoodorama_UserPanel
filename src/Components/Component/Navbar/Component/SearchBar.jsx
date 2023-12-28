@@ -47,7 +47,8 @@ const SearchBar = ({ path }) => {
 
     React.useEffect(() => {
         const getdata = setTimeout(() => {
-            Axios.post(`https://api.cannabaze.com/UserPanel/Get-HomePageFilter/`,
+            if(input!==''){
+                Axios.post(`https://api.cannabaze.com/UserPanel/Get-HomePageFilter/`,
                 {
 
                     search: input
@@ -85,6 +86,7 @@ const SearchBar = ({ path }) => {
             }).catch(
                 function (error) { }
             )
+            }
         }, 500)
         return () => clearTimeout(getdata);
     }, [input]);

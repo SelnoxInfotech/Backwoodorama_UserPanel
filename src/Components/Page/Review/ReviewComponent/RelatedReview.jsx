@@ -134,7 +134,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                                             <div className='review_description_container'>
                                               <p>{textgive(text)}   {text?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => setreadopen(!readopen)}>...Read {readopen ? "More" : "Less"}</span>}</p>
                                             </div>
-                    }
+                                        }
                                         <div className='review_date'>
                                             {/* <p>{ele.created_at.slice(0, 10)?.split("-").reverse().join("-")}</p> */}
                                             <p>{calculateTImefromDate(ele.created_at)}</p>

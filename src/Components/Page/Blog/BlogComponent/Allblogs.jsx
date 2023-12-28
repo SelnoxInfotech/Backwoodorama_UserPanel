@@ -7,6 +7,7 @@ import SearchBar from '@mkyy/mui-search-bar';
 import useStyles from "../../../../Style.jsx";
 import axios from "axios";
 import { BlogLike,Post_BlogLike} from "../../../../Api/Api"
+import { FaRegHeart } from "react-icons/fa";
 import { BsShareFill } from "react-icons/bs";
 import { NewsSeo } from "../../../Component/ScoPage/NewsSeo.jsx";
 import DeliveryItemsCardSkeleton from '../../../Component/Skeleton/Deliveries/DeliveriesComponent/DeliveryMenu/DeliveryItemsCardSkeleton.jsx';
@@ -15,6 +16,7 @@ import _ from "lodash"
 import Createcontext from '../../../../Hooks/Context.jsx';
 import { RWebShare } from "react-web-share";
 import { IconButton } from "@material-ui/core";
+import { cssNumber } from 'jquery';
 const Allblogs = () => {
   const [allblogs, setallblogs] = useState([])
   const { state } = React.useContext(Createcontext)
@@ -32,11 +34,26 @@ const Allblogs = () => {
       left: 0,
       behavior: "instant",
     }); 
-    const news = getAllNews()
-    news.then((res) => {
-
-      setallblogs(res);
-      setisdata(true);
+    getAllNews().then(async (res) => {
+    
+            res.forEach( async(item)=>{
+             let getss
+            
+               await  BlogLike(item.id).then((resposce2) => {
+                getss = resposce2.data.Like.map((itemss)=>{
+                  return itemss.user
+                })
+               console.log(getss)
+               allLikes.push(getss)
+             
+            }).catch((error) => {
+                console.error(error)
+            })
+             
+           
+            })
+         setallblogs(res);
+         setisdata(true);
     }).catch((err) => {
       console.trace(err)
     })
@@ -54,16 +71,33 @@ const Allblogs = () => {
    })
   }
   function PostLike(News, like) {
+   
     if (state.login) {
         Post_BlogLike(News?.id, !like).then((res) => {
        
-            BlogLike(News.id).then((res) => {
+            getAllNews().then(async (res) => {
+            SetallLikes([])
+            await res.forEach((item)=>{
+                BlogLike(item.id).then((res) => {
+                  let a = res.data.Like.map((itemss)=>{
+                    return itemss.user
+                  })
              
-                SetLikes(res.data.Like)
-                SetValue({ ...value, "LinkCount": res.data.LikeCount })
-            }).catch((error) => {
-                console.error(error)
+                allLikes.push(a)
+          
+                }).catch((error) => {
+                    console.error(error)
+                })
+             
             })
+
+              setallblogs(res);
+              setisdata(true);
+            }).catch((err) => {
+              console.trace(err)
+            })
+
+
         }).catch(() => {
 
         })
@@ -80,7 +114,7 @@ const Allblogs = () => {
       return l
 
   }
-  
+ console.log(allLikes.splice(-7))
   return (
     <React.Fragment>
       <NewsSeo></NewsSeo>
@@ -129,9 +163,10 @@ const Allblogs = () => {
                             <span>{items.commentCount}</span>
                           </div>
                           <div className='col-3'>
-                            {/* <span className='action_icons'><AiFillHeart /></span> */}
+                        
                                    <IconButton onClick={(() => { PostLike(items ,color()?.like) })}>
-                                        <AiFillHeart color={state?.login  ? "#31B655" : "red" }></AiFillHeart>
+                                        
+                                        {(state?.login && allLikes[index]?.includes(state.Profile.id) )? <AiFillHeart color={"#31B655"}></AiFillHeart> : <FaRegHeart color="#31B655" /> }
                                     </IconButton>
                             <span>{items.likeCount}</span>
                           </div>

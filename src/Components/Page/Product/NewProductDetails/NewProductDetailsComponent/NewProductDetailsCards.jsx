@@ -20,7 +20,7 @@ import Box from '@mui/material/Box';
 import { Link, useParams } from "react-router-dom";
 import AddToCartPopUp from "../../AddToCartPopUp/AddToCartPopUp";
 import { WhisList } from '../../../../Component/Whishlist/WhisList'
-const NewProductDetailsCards = ({ Product, DiscountedValue , Price, SetPrice}) => {
+const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice }) => {
 
     const cookies = new Cookies();
     const params = useParams()
@@ -33,7 +33,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue , Price, SetPrice}) =
     const [CartClean, SetCartClean] = React.useState(false)
     const [startload, setstartload] = React.useState(true)
     const { state, dispatch } = React.useContext(Createcontext)
-  
+
     const [AddTOCard, SetAddToCard] = React.useState(() => {
         const saved = localStorage.getItem("items");
         const initialValue = JSON.parse(saved);
@@ -63,7 +63,8 @@ const NewProductDetailsCards = ({ Product, DiscountedValue , Price, SetPrice}) =
                 category: Event.category_name,
                 Sub_Category_id: Event.Sub_Category_id,
                 SubcategoryName: Event.SubcategoryName,
-                StoreName: Event.StoreName
+                StoreName: Event.StoreName,
+                CoupounField:DiscountedValue
             })
             await axios.post("https://api.cannabaze.com/UserPanel/Add-AddtoCart/",
 
@@ -78,7 +79,8 @@ const NewProductDetailsCards = ({ Product, DiscountedValue , Price, SetPrice}) =
                     category: Event.category_name,
                     Sub_Category_id: Event.Sub_Category_id,
                     SubcategoryName: Event.SubcategoryName,
-                    StoreName: Event.StoreName
+                    StoreName: Event.StoreName,
+                    CoupounField:DiscountedValue
                 }
                 , config
             ).then(response => {
@@ -114,7 +116,9 @@ const NewProductDetailsCards = ({ Product, DiscountedValue , Price, SetPrice}) =
                 category: Event.category_name,
                 Sub_Category_id: Event.Sub_Category_id,
                 SubcategoryName: Event.SubcategoryName,
-                StoreName: Event.StoreName
+                StoreName: Event.StoreName,
+                CoupounField:DiscountedValue
+                
             }
             SetNewData(Arry)
             if (AddTOCard.length !== 0) {
@@ -148,9 +152,9 @@ const NewProductDetailsCards = ({ Product, DiscountedValue , Price, SetPrice}) =
 
     React.useEffect(() => {
         localStorage.setItem('items', JSON.stringify(AddTOCard))
-       
+
     }, [AddTOCard])
-    
+
 
     React.useEffect(() => {
         document.documentElement.scrollTo({
@@ -160,8 +164,8 @@ const NewProductDetailsCards = ({ Product, DiscountedValue , Price, SetPrice}) =
         });
         setTimeout(() => {
             setstartload(false)
-          }, "1000");
-         
+        }, "1000");
+
     }, [params])
 
     function modifystr(str) {
@@ -256,11 +260,13 @@ const NewProductDetailsCards = ({ Product, DiscountedValue , Price, SetPrice}) =
         })
     }
 
+
+     console.log(DiscountedValue)
     return (
         <React.Fragment>
             {
-                Product?.length !==0 &&
-        
+                Product?.length !== 0 &&
+
                 <div className=" w-100">
                     <div className=" newProductDetailsContainer position-relative  mt-4">
                         <div className="newProductDetailsCardLeftCol">
@@ -268,11 +274,12 @@ const NewProductDetailsCards = ({ Product, DiscountedValue , Price, SetPrice}) =
                                 <div className="newProductDetailsUpperimage_container">
                                     <LazyLoadImage className="newProductDetails_upper_image"
                                         onError={event => {
-                                            event.target.src = "/image/blankImage.jpg"
+                                            event.target.src = '/image/blankImage.jpg'
                                             event.onerror = null
                                             console.log(event)
                                         }}
-                                        src={Boolean(displaypic) ? displaypic:Product?.images[0]?.image } />
+                                        src={Boolean(displaypic) ? displaypic : Product?.images[0]?.image} />
+                                      
                                 </div>
                                 {
                                     Product?.images?.length > 1 ? <div className=" newProductDetailsLowerImage_container">
@@ -419,65 +426,41 @@ const NewProductDetailsCards = ({ Product, DiscountedValue , Price, SetPrice}) =
                             <div className="col-12">
                                 <p className="d-flex">
                                     <span className="newProduct_doller_price d-flex">
-                                    
-                                    $ {
+
+                                        $ {
                                             DiscountedValue?.Reflect
                                                 ?
-
-                                        < div className="DisplayDiscount" >
-                                            <span>
-                                                {
-                                                    parseInt(dynamicWeight) !== 0
-                                                        ? dynamicWeight * quentity - ((dynamicWeight * quentity) * (Boolean(DiscountedValue?.Percentage) ? parseInt(DiscountedValue?.Percentage) : parseInt(DiscountedValue.Amount)))
-                                                        :
-                                                        Product?.Prices?.map((data) => (data.Price[0].SalePrice * quentity - parseInt((data.Price[0].SalePrice * quentity) * (Boolean(DiscountedValue?.Percentage) ? parseInt(DiscountedValue?.Percentage) / 100 : parseInt(DiscountedValue.Amount)))))
-
-                                                }
-                                            </span>
-                                            <strike >{Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)}</strike>
-                                        </div>
-
-
+                                                < div className="DisplayDiscount" >
+                                                    <span>
+                                                        {
+                                                            parseInt(dynamicWeight) !== 0
+                                                                ? parseInt(dynamicWeight * quentity) - ((Boolean(DiscountedValue?.Percentage) ? (dynamicWeight * quentity) * parseInt(DiscountedValue?.Percentage) / 100 : parseInt(DiscountedValue.Amount)))
+                                                                :
+                                                                Product?.Prices?.map((data) => (data.Price[0].SalePrice * quentity - (Boolean(DiscountedValue?.Percentage) ? parseInt((data.Price[0].SalePrice * quentity) * parseInt(DiscountedValue?.Percentage) / 100) : parseInt(DiscountedValue.Amount))))
+                                                        }
+                                                    </span>
+                                                    <strike >{parseInt(dynamicWeight) !== 0 ? dynamicWeight : Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)}</strike>
+                                                </div>
                                                 :
                                                 parseInt(dynamicWeight) !== 0 ? dynamicWeight * quentity : Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)
 
 
-                                }
-                            </span>
-                            <span className="mx-3 newProduct_Gms">/ {quentity} piece</span>
-                            {
-                                DiscountedValue?.Reflect && <span className="mx-3 newProduct_Gms" style={{ color: "#31B665" }}>Offer Applied</span>
-                            }
-                        </p>
-                    </div>
-                    <div className="col-12">
-                        {
-                            Product?.Prices?.map((data) => {
-                                if (dynamicWeight === 0) {
-                                    if (data.Price[0]) {
-                                        if (data.Price[0].Stock === "IN Stock") {
-                                            return (
-                                                <Box className={`   ${classes.loadingBtnTextAndBack}`} >
-                                                    <LoadingButton onClick={() => { Addtocard(Product) }} variant="outlined" >Add To Cart</LoadingButton>
-                                                </Box>
-                                            )
                                         }
-                                        else {
-                                            return (
-                                                <Box >
-                                                    <LoadingButton className={`${classes.odsbtn}`}>Out of Stock</LoadingButton>
-                                                </Box>
-                                            )
-                                        }
+                                    </span>
+                                    <span className="mx-3 newProduct_Gms">/ {quentity} piece</span>
+                                    {
+                                        DiscountedValue?.Reflect && <span className="mx-3 newProduct_Gms" style={{ color: "#31B665" }}>Offer Applied</span>
                                     }
-                                }
-                                else {
-                                    return (
-                                        data.Price.map((arry) => {
-                                            if (SelectVariant.id === arry.id) {
-                                                if (arry.Stock === "IN Stock") {
+                                </p>
+                            </div>
+                            <div className="col-12">
+                                {
+                                    Product?.Prices?.map((data) => {
+                                        if (dynamicWeight === 0) {
+                                            if (data.Price[0]) {
+                                                if (data.Price[0].Stock === "IN Stock") {
                                                     return (
-                                                        <Box className={`${classes.loadingBtnTextAndBack}`} >
+                                                        <Box className={`   ${classes.loadingBtnTextAndBack}`} >
                                                             <LoadingButton onClick={() => { Addtocard(Product) }} variant="outlined" >Add To Cart</LoadingButton>
                                                         </Box>
                                                     )
@@ -489,6 +472,26 @@ const NewProductDetailsCards = ({ Product, DiscountedValue , Price, SetPrice}) =
                                                         </Box>
                                                     )
                                                 }
+                                            }
+                                        }
+                                        else {
+                                            return (
+                                                data.Price.map((arry) => {
+                                                    if (SelectVariant.id === arry.id) {
+                                                        if (arry.Stock === "IN Stock") {
+                                                            return (
+                                                                <Box className={`${classes.loadingBtnTextAndBack}`} >
+                                                                    <LoadingButton onClick={() => { Addtocard(Product) }} variant="outlined" >Add To Cart</LoadingButton>
+                                                                </Box>
+                                                            )
+                                                        }
+                                                        else {
+                                                            return (
+                                                                <Box >
+                                                                    <LoadingButton className={`${classes.odsbtn}`}>Out of Stock</LoadingButton>
+                                                                </Box>
+                                                            )
+                                                        }
 
                                                     }
                                                 })
@@ -525,11 +528,11 @@ const NewProductDetailsCards = ({ Product, DiscountedValue , Price, SetPrice}) =
 
                         </div>
                     </div>
-                
-                {startload &&  <div className="loader_container">
+
+                    {startload && <div className="loader_container">
                         <span class="newloader"></span>
                     </div>
-                }
+                    }
                     {Whishlist && <WhisList open1={Whishlist} SetWishList={SetWishList}></WhisList>}
                 </div >
             }

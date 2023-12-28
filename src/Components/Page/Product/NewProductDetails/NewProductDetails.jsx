@@ -16,6 +16,7 @@ import { product_OverAllGet_Review, Product_Add_Review, Product_Get_UserComment,
 import Createcontext from "../../../../Hooks/Context"
 import _ from 'lodash'
 import { makeStyles } from "@material-ui/core/styles";
+import axios from "axios";
 const usePlaceholderStyles = makeStyles(theme => ({
   placeholder: {
     color: "#aaa",
@@ -29,7 +30,8 @@ const NewProductDetails = () => {
     Amount: '',
     Reflect: false,
     Percentage: '',
-    CouponMassage: ""
+    CouponMassage: "",
+    DiscountType: ""
   });
 
   const Params = useParams()
@@ -174,18 +176,14 @@ const NewProductDetails = () => {
     }).catch(() => {
     })
   }
-  // const discountOptions = (data) => {
-  //   const uniqueNames = data.filter((val, id, data) => {
-  //     return data.indexOf(val) === id;
-  //   });
-  //   return uniqueNames
-  // }
+
   const Placeholder = ({ children }) => {
     const classes = usePlaceholderStyles();
     return <div className={classes.placeholder}>{children}</div>;
   };
 
   const handlediscountChange = (event) => {
+    console.log(event.target.value.DiscountCode === null, event.target.value.AutomaticDiscount)
     if (event.target.value.DiscountType === "Amount off Order") {
       if (event.target.value.NoMinimumRequirements === true) {
         if (event.target.value.PercentageAmount !== null || "") {
@@ -267,63 +265,169 @@ const NewProductDetails = () => {
     else if (event.target.value.DiscountType === "Amount off Products") {
       if (event.target.value.NoMinimumRequirements === true) {
         if (event.target.value.PercentageAmount !== null || "") {
-          setdiscount({ ...discount, "Percentage": event.target.value.PercentageAmount, 'Reflect': true, "DiscountType": "Amount off Products" });
+          if (event.target.value.DiscountCode === null || '') {
+            setdiscount({
+              ...discount,
+              "Percentage": event.target.value.PercentageAmount,
+              'Reflect': true, 
+              "DiscountType": "Amount off Products",
+              "AutomaticDiscount": event.target.value.AutomaticDiscount,
+              "DiscountCode": ""
+            });
+          } else {
+            setdiscount({
+              ...discount,
+              "Percentage": event.target.value.PercentageAmount,
+              'Reflect': true,
+              "DiscountType": "Amount off Products",
+              "DiscountCode": event.target.value.DiscountCode,
+              "AutomaticDiscount":""
+            });
+          }
         }
         else {
-          setdiscount({ ...discount, "Amount": event.target.value.ValueAmount, 'Reflect': true, "DiscountType": "Amount off Products" });
+          if (event.target.value.DiscountCode === null || '') {
+
+            setdiscount({
+              ...discount,
+              "Amount": event.target.value.ValueAmount,
+              'Reflect': true,
+              "DiscountType": "Amount off Products",
+              "AutomaticDiscount": event.target.value.AutomaticDiscount,
+              "DiscountCode":""
+  
+            });
+          }
+          else{
+            setdiscount({
+              ...discount,
+              "Amount": event.target.value.ValueAmount,
+              'Reflect': true,
+              "DiscountType": "Amount off Products",
+              "DiscountCode": event.target.value.DiscountCode,
+              "AutomaticDiscount":""
+            });
+          }
         }
       }
       else {
         if (event.target.value.MinimumQuantityofItem !== null || "") {
-
           if (event.target.value.PercentageAmount !== null || "") {
-            setdiscount({
-              ...discount,
-              "MinimumQuantityofItem": event.target.value.MinimumQuantityofItem,
-              'Reflect': false,
-              "DiscountType": "Amount off Products",
-              'CouponMassage': "Minimum Quantity of Item ",
-              "Percentage": event.target.value.PercentageAmount,
+            if (event.target.value.DiscountCode === null || '') {
 
-            });
+              setdiscount({
+                ...discount,
+                "MinimumQuantityofItem": event.target.value.MinimumQuantityofItem,
+                'Reflect': false,
+                "DiscountType": "Amount off Products",
+                'CouponMassage': "Minimum Quantity of Item",
+                "Percentage": event.target.value.PercentageAmount,
+                // "Coupoun": event.target.value.PercentageAmount,
+                "AutomaticDiscount": event.target.value.AutomaticDiscount,
+                "DiscountCode":""
+              });
+            }
+            else {
+              setdiscount({
+                ...discount,
+                "MinimumQuantityofItem": event.target.value.MinimumQuantityofItem,
+                'Reflect': false,
+                "DiscountType": "Amount off Products",
+                'CouponMassage': "Minimum Quantity of Item ",
+                "Amount": event.target.value.ValueAmount,
+                "DiscountCode": event.target.value.DiscountCode,
+                "AutomaticDiscount": "",
+              });
+            }
 
           }
           else {
-            setdiscount({
-              ...discount,
-              "MinimumQuantityofItem": event.target.value.MinimumQuantityofItem,
-              'Reflect': false,
-              "DiscountType": "Amount off Products",
-              'CouponMassage': "Minimum Quantity of Item ",
-              "Amount": event.target.value.ValueAmount,
-            });
+            if (event.target.value.DiscountCode === null || '') {
+
+              setdiscount({
+                ...discount,
+                "MinimumQuantityofItem": event.target.value.MinimumQuantityofItem,
+                'Reflect': false,
+                "DiscountType": "Amount off Products",
+                'CouponMassage': "Minimum Quantity of Item ",
+                "Amount": event.target.value.ValueAmount,
+                "AutomaticDiscount": event.target.value.AutomaticDiscount,
+                "DiscountCode":""
+              });
+            }
+            else {
+              setdiscount({
+                ...discount,
+                "MinimumQuantityofItem": event.target.value.MinimumQuantityofItem,
+                'Reflect': false,
+                "DiscountType": "Amount off Products",
+                'CouponMassage': "Minimum Quantity of Item ",
+                "Amount": event.target.value.ValueAmount,
+                "DiscountCode": event.target.value.DiscountCode,
+                "AutomaticDiscount":""
+              });
+            }
           }
         }
         else {
           if (event.target.value.MinimumPurchaseAmount !== null || "") {
 
             if (event.target.value.PercentageAmount !== null || "") {
+              if (event.target.value.DiscountCode === null || '') {
 
-              setdiscount({
-                ...discount,
-                "MinimumPurchaseAmount": event.target.value.MinimumPurchaseAmount,
-                'Reflect': false,
-                "DiscountType": "Amount off Products",
-                'CouponMassage': "Minimum Purchase of Amount ",
-                "Percentage": event.target.value.PercentageAmount,
+                setdiscount({
+                  ...discount,
+                  "MinimumPurchaseAmount": event.target.value.MinimumPurchaseAmount,
+                  'Reflect': false,
+                  "DiscountType": "Amount off Products",
+                  'CouponMassage': "Minimum Purchase of Amount ",
+                  "Percentage": event.target.value.PercentageAmount,
+                  "AutomaticDiscount": event.target.value.AutomaticDiscount,
+                  'DiscountCode':""
+                });
+              }
+              else {
+                setdiscount({
+                  ...discount,
+                  "MinimumPurchaseAmount": event.target.value.MinimumPurchaseAmount,
+                  'Reflect': false,
+                  "DiscountType": "Amount off Products",
+                  'CouponMassage': "Minimum Purchase of Amount ",
+                  "Percentage": event.target.value.PercentageAmount,
+                  "DiscountCode": event.target.value.DiscountCode,
+                  "AutomaticDiscount":""
 
-              });
+
+                });
+              }
             }
             else {
-              setdiscount({
-                ...discount,
-                "MinimumPurchaseAmount": event.target.value.MinimumPurchaseAmount,
-                'Reflect': false,
-                "DiscountType": "Amount off Products",
-                'CouponMassage': "Minimum Purchase of Amount ",
-                "Amount": event.target.value.ValueAmount
+              if (event.target.value.DiscountCode === null || '') {
 
-              });
+                setdiscount({
+                  ...discount,
+                  "MinimumPurchaseAmount": event.target.value.MinimumPurchaseAmount,
+                  'Reflect': false,
+                  "DiscountType": "Amount off Products",
+                  'CouponMassage': "Minimum Purchase of Amount ",
+                  "Amount": event.target.value.ValueAmount,
+                  "AutomaticDiscount": event.target.value.AutomaticDiscount,
+                  "DiscountCode":""
+
+                });
+              }
+              else {
+                setdiscount({
+                  ...discount,
+                  "MinimumPurchaseAmount": event.target.value.MinimumPurchaseAmount,
+                  'Reflect': false,
+                  "DiscountType": "Amount off Products",
+                  'CouponMassage': "Minimum Purchase of Amount ",
+                  "Amount": event.target.value.ValueAmount,
+                  "DiscountCode": event.target.value.DiscountCode,
+                  "AutomaticDiscount":""
+                });
+              }
 
             }
           }
@@ -343,8 +447,26 @@ const NewProductDetails = () => {
   }, [Price])
 
 
-console.log(j[0]?.Coupoun.length , j)
 
+
+
+  React.useEffect(() => {
+    // function fetchImageAndConvertToBase64() {
+    //   // Fetch the image
+    //   const imageUrl = 'https://selnoxmedia.s3.amazonaws.com/media/product_images/cbd.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAS4WSA6KJNP6NPPES%2F20231226%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231226T100932Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=ae217f12c7cc72c71d32f506e2f3b1276343424625e521da023c2c90cdfa5296';
+
+    //   var reader = new window.FileReader();
+    //   reader.readAsArrayBuffer(imageUrl);
+    //   reader.readAsDataURL(input);//line with error
+    //   reader.onloadend = function() {
+    //       var base64data = reader.result;
+    //       console.log(base64data);
+    //   };
+
+    // }
+    // fetchImageAndConvertToBase64();    
+    console.log(discount)
+  }, [discount])
   return (
     <div className="container-fluid">
       <ProductDetailsSeo Productname={Product.Product_Name} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={useLocation().pathname} ></ProductDetailsSeo>
@@ -366,7 +488,15 @@ console.log(j[0]?.Coupoun.length , j)
             onChange={handlediscountChange}
           >
 
-            {j.length !== 0 && j[0]?.Coupoun.length!== 0 ? j[0]?.Coupoun.map((da) => <MenuItem value={da}>{da.DiscountType}</MenuItem>) :<MenuItem value=''>No Coupon</MenuItem>}
+            {j.length !== 0 && j[0]?.Coupoun.length !== 0 ?
+             j[0]?.Coupoun.map((da) =>(  
+              // console.log((da.AutomaticDiscount === null  || da.AutomaticDiscount === "" )  , da.AutomaticDiscount)
+              
+              (da.AutomaticDiscount === null  || da.AutomaticDiscount === "" )   &&  <MenuItem value={da}> {da.DiscountType}</MenuItem> 
+              
+              ))
+             
+             : <MenuItem value=''>No Coupon</MenuItem>}
           </Select>
 
         }
