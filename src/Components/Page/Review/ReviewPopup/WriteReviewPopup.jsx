@@ -36,7 +36,7 @@ import { useNavigate } from "react-router-dom";
   const handleClose = () => {
     SetGetProductReview({ ...GetProductReview, popup: false });
   };
-console.log(GetProductReview)
+// console.log(GetProductReview)
 
 
   return (

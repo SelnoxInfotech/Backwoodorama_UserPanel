@@ -47,6 +47,10 @@ const NewProductDetails = () => {
   const [AllReview, SetReview] = React.useState([])
   const [Price, SetPrice] = React.useState([])
   const [j, h] = React.useState([])
+  const [quentity, setquentity] = React.useState(1);
+  const [dynamicWeight, setdynamicWeight] = React.useState(0);
+
+
   const [GetProductReview, SetGetProductReview] = React.useState({
     value: 0,
     comment: '',
@@ -183,7 +187,7 @@ const NewProductDetails = () => {
   };
 
   const handlediscountChange = (event) => {
-    console.log(event.target.value.DiscountCode === null, event.target.value.AutomaticDiscount)
+    // console.log(event.target.value.id)
     if (event.target.value.DiscountType === "Amount off Order") {
       if (event.target.value.NoMinimumRequirements === true) {
         if (event.target.value.PercentageAmount !== null || "") {
@@ -265,169 +269,124 @@ const NewProductDetails = () => {
     else if (event.target.value.DiscountType === "Amount off Products") {
       if (event.target.value.NoMinimumRequirements === true) {
         if (event.target.value.PercentageAmount !== null || "") {
-          if (event.target.value.DiscountCode === null || '') {
+      
             setdiscount({
               ...discount,
               "Percentage": event.target.value.PercentageAmount,
               'Reflect': true, 
               "DiscountType": "Amount off Products",
               "AutomaticDiscount": event.target.value.AutomaticDiscount,
-              "DiscountCode": ""
+              "DiscountCode": "",
+              'id':event.target.value.id,
+              'price':  parseInt(dynamicWeight) !== 0
+              ? parseInt(dynamicWeight * quentity) - ((Boolean(event.target.value.PercentageAmount) ? (dynamicWeight * quentity) * parseInt(event.target.value.PercentageAmount) / 100 : parseInt(DiscountedValue.Amount)))
+              :
+              Product?.Prices?.map((data) =>   { return ( (data.Price[0].SalePrice * quentity - (Boolean(event.target.value.PercentageAmount) ? parseInt((data.Price[0].SalePrice * quentity) * parseInt(event.target.value.PercentageAmount) / 100) : parseInt(DiscountedValue.Amount))))})[0]
+     
             });
-          } else {
-            setdiscount({
-              ...discount,
-              "Percentage": event.target.value.PercentageAmount,
-              'Reflect': true,
-              "DiscountType": "Amount off Products",
-              "DiscountCode": event.target.value.DiscountCode,
-              "AutomaticDiscount":""
-            });
-          }
         }
         else {
-          if (event.target.value.DiscountCode === null || '') {
+          setdiscount({
+            ...discount,
+            "Amount": event.target.value.ValueAmount,
+            'Reflect': true,
+            "DiscountType": "Amount off Products",
+            "AutomaticDiscount": event.target.value.AutomaticDiscount,
+            "DiscountCode":"",
+            'id':event.target.value.id,
+            'price':  parseInt(dynamicWeight) !== 0
+            ? parseInt(dynamicWeight * quentity) - ((Boolean(event.target.value.PercentageAmount) ? (dynamicWeight * quentity) * parseInt(event.target.value.PercentageAmount) / 100 : parseInt(DiscountedValue.Amount)))
+            :
+            Product?.Prices?.map((data) =>   { return ( (data.Price[0].SalePrice * quentity - (Boolean(event.target.value.PercentageAmount) ? parseInt((data.Price[0].SalePrice * quentity) * parseInt(event.target.value.PercentageAmount) / 100) : parseInt(DiscountedValue.Amount))))})[0]
+   
 
-            setdiscount({
-              ...discount,
-              "Amount": event.target.value.ValueAmount,
-              'Reflect': true,
-              "DiscountType": "Amount off Products",
-              "AutomaticDiscount": event.target.value.AutomaticDiscount,
-              "DiscountCode":""
-  
-            });
-          }
-          else{
-            setdiscount({
-              ...discount,
-              "Amount": event.target.value.ValueAmount,
-              'Reflect': true,
-              "DiscountType": "Amount off Products",
-              "DiscountCode": event.target.value.DiscountCode,
-              "AutomaticDiscount":""
-            });
-          }
+          });
         }
       }
       else {
         if (event.target.value.MinimumQuantityofItem !== null || "") {
           if (event.target.value.PercentageAmount !== null || "") {
-            if (event.target.value.DiscountCode === null || '') {
-
-              setdiscount({
-                ...discount,
-                "MinimumQuantityofItem": event.target.value.MinimumQuantityofItem,
-                'Reflect': false,
-                "DiscountType": "Amount off Products",
-                'CouponMassage': "Minimum Quantity of Item",
-                "Percentage": event.target.value.PercentageAmount,
-                // "Coupoun": event.target.value.PercentageAmount,
-                "AutomaticDiscount": event.target.value.AutomaticDiscount,
-                "DiscountCode":""
-              });
-            }
-            else {
-              setdiscount({
-                ...discount,
-                "MinimumQuantityofItem": event.target.value.MinimumQuantityofItem,
-                'Reflect': false,
-                "DiscountType": "Amount off Products",
-                'CouponMassage': "Minimum Quantity of Item ",
-                "Amount": event.target.value.ValueAmount,
-                "DiscountCode": event.target.value.DiscountCode,
-                "AutomaticDiscount": "",
-              });
-            }
+            setdiscount({
+              ...discount,
+              "MinimumQuantityofItem": event.target.value.MinimumQuantityofItem,
+              'Reflect': false,
+              "DiscountType": "Amount off Products",
+              'CouponMassage': "Minimum Quantity of Item",
+              "Percentage": event.target.value.PercentageAmount,
+              // "Coupoun": event.target.value.PercentageAmount,
+              "AutomaticDiscount": event.target.value.AutomaticDiscount,
+              "DiscountCode":"",
+              'id':event.target.value.id,
+              'price':  parseInt(dynamicWeight) !== 0
+              ? parseInt(dynamicWeight * quentity) - ((Boolean(event.target.value.PercentageAmount) ? (dynamicWeight * quentity) * parseInt(event.target.value.PercentageAmount) / 100 : parseInt(DiscountedValue.Amount)))
+              :
+              Product?.Prices?.map((data) =>   { return ( (data.Price[0].SalePrice * quentity - (Boolean(event.target.value.PercentageAmount) ? parseInt((data.Price[0].SalePrice * quentity) * parseInt(event.target.value.PercentageAmount) / 100) : parseInt(DiscountedValue.Amount))))})[0]
+     
+  
+            });
 
           }
           else {
-            if (event.target.value.DiscountCode === null || '') {
-
-              setdiscount({
-                ...discount,
-                "MinimumQuantityofItem": event.target.value.MinimumQuantityofItem,
-                'Reflect': false,
-                "DiscountType": "Amount off Products",
-                'CouponMassage': "Minimum Quantity of Item ",
-                "Amount": event.target.value.ValueAmount,
-                "AutomaticDiscount": event.target.value.AutomaticDiscount,
-                "DiscountCode":""
-              });
-            }
-            else {
-              setdiscount({
-                ...discount,
-                "MinimumQuantityofItem": event.target.value.MinimumQuantityofItem,
-                'Reflect': false,
-                "DiscountType": "Amount off Products",
-                'CouponMassage': "Minimum Quantity of Item ",
-                "Amount": event.target.value.ValueAmount,
-                "DiscountCode": event.target.value.DiscountCode,
-                "AutomaticDiscount":""
-              });
-            }
+            setdiscount({
+              ...discount,
+              "MinimumQuantityofItem": event.target.value.MinimumQuantityofItem,
+              'Reflect': false,
+              "DiscountType": "Amount off Products",
+              'CouponMassage': "Minimum Quantity of Item ",
+              "Amount": event.target.value.ValueAmount,
+              "AutomaticDiscount": event.target.value.AutomaticDiscount,
+              "DiscountCode":"",
+              'id':event.target.value.id,
+              'price':  parseInt(dynamicWeight) !== 0
+              ? parseInt(dynamicWeight * quentity) - ((Boolean(event.target.value.PercentageAmount) ? (dynamicWeight * quentity) * parseInt(event.target.value.PercentageAmount) / 100 : parseInt(DiscountedValue.Amount)))
+              :
+              Product?.Prices?.map((data) =>   { return ( (data.Price[0].SalePrice * quentity - (Boolean(event.target.value.PercentageAmount) ? parseInt((data.Price[0].SalePrice * quentity) * parseInt(event.target.value.PercentageAmount) / 100) : parseInt(DiscountedValue.Amount))))})[0]
+     
+  
+            });
           }
         }
         else {
           if (event.target.value.MinimumPurchaseAmount !== null || "") {
 
             if (event.target.value.PercentageAmount !== null || "") {
-              if (event.target.value.DiscountCode === null || '') {
-
-                setdiscount({
-                  ...discount,
-                  "MinimumPurchaseAmount": event.target.value.MinimumPurchaseAmount,
-                  'Reflect': false,
-                  "DiscountType": "Amount off Products",
-                  'CouponMassage': "Minimum Purchase of Amount ",
-                  "Percentage": event.target.value.PercentageAmount,
-                  "AutomaticDiscount": event.target.value.AutomaticDiscount,
-                  'DiscountCode':""
-                });
-              }
-              else {
-                setdiscount({
-                  ...discount,
-                  "MinimumPurchaseAmount": event.target.value.MinimumPurchaseAmount,
-                  'Reflect': false,
-                  "DiscountType": "Amount off Products",
-                  'CouponMassage': "Minimum Purchase of Amount ",
-                  "Percentage": event.target.value.PercentageAmount,
-                  "DiscountCode": event.target.value.DiscountCode,
-                  "AutomaticDiscount":""
-
-
-                });
-              }
+              setdiscount({
+                ...discount,
+                "MinimumPurchaseAmount": event.target.value.MinimumPurchaseAmount,
+                'Reflect': false,
+                "DiscountType": "Amount off Products",
+                'CouponMassage': "Minimum Purchase of Amount ",
+                "Percentage": event.target.value.PercentageAmount,
+                "AutomaticDiscount": event.target.value.AutomaticDiscount,
+                'DiscountCode':"",
+                'id':event.target.value.id,
+                'price':  parseInt(dynamicWeight) !== 0
+                ? parseInt(dynamicWeight * quentity) - ((Boolean(event.target.value.PercentageAmount) ? (dynamicWeight * quentity) * parseInt(event.target.value.PercentageAmount) / 100 : parseInt(DiscountedValue.Amount)))
+                :
+                Product?.Prices?.map((data) =>   { return ( (data.Price[0].SalePrice * quentity - (Boolean(event.target.value.PercentageAmount) ? parseInt((data.Price[0].SalePrice * quentity) * parseInt(event.target.value.PercentageAmount) / 100) : parseInt(DiscountedValue.Amount))))})[0]
+       
+    
+              });
             }
             else {
-              if (event.target.value.DiscountCode === null || '') {
+              setdiscount({
+                ...discount,
+                "MinimumPurchaseAmount": event.target.value.MinimumPurchaseAmount,
+                'Reflect': false,
+                "DiscountType": "Amount off Products",
+                'CouponMassage': "Minimum Purchase of Amount ",
+                "Amount": event.target.value.ValueAmount,
+                "AutomaticDiscount": event.target.value.AutomaticDiscount,
+                "DiscountCode":"",
+                'id':event.target.value.id,
+                'price':  parseInt(dynamicWeight) !== 0
+                ? parseInt(dynamicWeight * quentity) - ((Boolean(event.target.value.PercentageAmount) ? (dynamicWeight * quentity) * parseInt(event.target.value.PercentageAmount) / 100 : parseInt(DiscountedValue.Amount)))
+                :
+                Product?.Prices?.map((data) =>   { return ( (data.Price[0].SalePrice * quentity - (Boolean(event.target.value.PercentageAmount) ? parseInt((data.Price[0].SalePrice * quentity) * parseInt(event.target.value.PercentageAmount) / 100) : parseInt(DiscountedValue.Amount))))})[0]
+       
+    
 
-                setdiscount({
-                  ...discount,
-                  "MinimumPurchaseAmount": event.target.value.MinimumPurchaseAmount,
-                  'Reflect': false,
-                  "DiscountType": "Amount off Products",
-                  'CouponMassage': "Minimum Purchase of Amount ",
-                  "Amount": event.target.value.ValueAmount,
-                  "AutomaticDiscount": event.target.value.AutomaticDiscount,
-                  "DiscountCode":""
-
-                });
-              }
-              else {
-                setdiscount({
-                  ...discount,
-                  "MinimumPurchaseAmount": event.target.value.MinimumPurchaseAmount,
-                  'Reflect': false,
-                  "DiscountType": "Amount off Products",
-                  'CouponMassage': "Minimum Purchase of Amount ",
-                  "Amount": event.target.value.ValueAmount,
-                  "DiscountCode": event.target.value.DiscountCode,
-                  "AutomaticDiscount":""
-                });
-              }
+              });
 
             }
           }
@@ -465,14 +424,14 @@ const NewProductDetails = () => {
 
     // }
     // fetchImageAndConvertToBase64();    
-    console.log(discount)
+    // console.log(discount)
   }, [discount])
   return (
     <div className="container-fluid">
       <ProductDetailsSeo Productname={Product.Product_Name} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={useLocation().pathname} ></ProductDetailsSeo>
 
       <span onClick={() => Tolastpage()} className="BackPageBtn"> <AiOutlineLeft size={22} />{'StoreName' in Params ? <> <span className="backPgBtnImg"><img src={`${Despen.Store_Image}`} alt="" /></span> {Despen.Store_Name}</> : 'Back to products'}</span>
-      <NewProductDetailsCards Product={Product} DiscountedValue={discount} Price={Price} SetPrice={SetPrice} />
+      <NewProductDetailsCards dynamicWeight={dynamicWeight} setdynamicWeight={ setdynamicWeight} quentity={quentity} setquentity={setquentity} Product={Product} DiscountedValue={discount} Price={Price} SetPrice={SetPrice} />
 
       <NewProductinfoText Product={{ heading: "Product Description", text: Product?.Product_Description }} />
       <div className="DiscountSection ">
@@ -484,7 +443,7 @@ const NewProductDetails = () => {
             id="demo-simple-select"
             value={discount}
             className={classes.dsicounSelects}
-            renderValue={!Boolean(discount?.DiscountType) ? () => <Placeholder>Select Coupon</Placeholder> : () => discount.DiscountType}
+            renderValue={!Boolean(discount?.AutomaticDiscount) ? () => <Placeholder>Select Coupon</Placeholder> : () => discount.AutomaticDiscount}
             onChange={handlediscountChange}
           >
 
@@ -492,7 +451,8 @@ const NewProductDetails = () => {
              j[0]?.Coupoun.map((da) =>(  
               // console.log((da.AutomaticDiscount === null  || da.AutomaticDiscount === "" )  , da.AutomaticDiscount)
               
-              (da.AutomaticDiscount === null  || da.AutomaticDiscount === "" )   &&  <MenuItem value={da}> {da.DiscountType}</MenuItem> 
+              (da.AutomaticDiscount !== null  || da.AutomaticDiscount !== "" )   && ( da.DiscountCode ==="" || da.DiscountCode === null)  &&
+              <MenuItem value={da}> {da.AutomaticDiscount}</MenuItem> 
               
               ))
              

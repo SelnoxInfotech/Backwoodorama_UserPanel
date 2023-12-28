@@ -26,7 +26,7 @@ export default function RoutingSearch({ city, State, country, pathname  ,route})
 
 
   function location(value, type) {
-    console.log(value , type)
+    // console.log(value , type)
     // var ci, sta, Coun , route;    
     fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
       .then(res => res.json())
@@ -56,6 +56,7 @@ export default function RoutingSearch({ city, State, country, pathname  ,route})
               ci = data?.long_name?.replace(/\s/g, '-')
               dispatch({ type: 'City', City: data?.long_name?.replace(/\s/g, '-') })
             } else {
+              if(ci === undefined)
               dispatch({ type: 'City', City: '' })
             }
             if (data.types.indexOf('route') !== -1 || data.types.indexOf('sublocality_level_2') !== -1 || data.types.indexOf("establishment") !== -1) {
@@ -68,6 +69,8 @@ export default function RoutingSearch({ city, State, country, pathname  ,route})
               if (data.types.indexOf('administrative_area_level_2') !== -1 || data.types.indexOf('political') !== -1 ) {
                 ci = data?.long_name.replace(/\s/g, '-')
                 dispatch({ type: 'City', City: data?.long_name.replace(/\s/g, '-') })
+              }else{
+                dispatch({ type: 'City', City: '' })
               }
              }
 

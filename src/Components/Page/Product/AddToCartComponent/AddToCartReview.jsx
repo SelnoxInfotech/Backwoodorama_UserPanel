@@ -18,7 +18,7 @@ const AddToCartReview = () => {
     const [LoadingPlue, SetLoadingPluse] = React.useState(false);
     const [LoadingDelete, SetLoadingDelete] = React.useState(false);
     const [wondowWidth, setWindowWidth] = useState('')
-    const [AfterDiscount , SetAfterDiscount] =  React.useState(state.AllProduct)
+    const [AfterDiscount, SetAfterDiscount] = React.useState()
 
 
 
@@ -208,16 +208,8 @@ const AddToCartReview = () => {
     }
     useEffect(() => {
         setWindowWidth(window.innerWidth)
-        console.log(state  , AfterDiscount) 
-        state.AllProduct.map((data) => {
-            if((state?.Coupoun?.DiscountCode || data?.Coupoun?.AutomaticDiscount) === (data?.CoupounField?.AutomaticDiscount || data?.CoupounField?.DiscountCode)){
-                console.log(data)
-                 
-            }
-        
-        })
-    }, [])
-
+        SetAfterDiscount(state.AllProduct)
+    }, [state.AllProduct])
     return (
         <React.Fragment>
             <div className="col-12  AddProductCartContainerinner">
@@ -275,7 +267,28 @@ const AddToCartReview = () => {
                                             </div>
                                         </div>
                                         <div className="col-2 text-center">
-                                            <span className="add_prod_span_amount fontStyle" value={ele.Price.SalePrice * ele.Cart_Quantity} >${parseInt(ele.Price.SalePrice * ele.Cart_Quantity)}</span>
+                                            {console.log(ele?.CoupounField, (ele.CoupounField === null || ele.CoupounField.DiscountType === ""))}
+                                            {
+                                                (ele.CoupounField === null || ele.CoupounField.DiscountType === "")
+                                                    ?
+                                                    <span className="add_prod_span_amount fontStyle" value={ele.Price.SalePrice * ele.Cart_Quantity} >${parseInt(ele.Price.SalePrice * ele.Cart_Quantity)}</span>
+
+                                                    :
+                                                  <div>
+                                                      <div className='gap-1 d-flex '>
+                                                        <span className="add_prod_span_amount fontStyle">
+                                                            ${parseInt(ele.CoupounField.price * ele.Cart_Quantity)}
+                                                        </span>
+                                                        <strike>
+                                                            <span className="add_prod_span_amount fontStyle" value={ele.Price.SalePrice * ele.Cart_Quantity} >${parseInt(ele.Price.SalePrice * ele.Cart_Quantity)}</span>
+                                                        </strike>
+                                                    </div>
+                                                        <p>Offer Applied</p>
+                                                  </div>
+
+
+                                            }
+                                            {/* <span className="add_prod_span_amount fontStyle" value={ele.Price.SalePrice * ele.Cart_Quantity} >${parseInt(ele.Price.SalePrice * ele.Cart_Quantity)}</span> */}
                                         </div>
                                         <div className="col-1 text-center">
                                             <span><LoadingButton loading={LoadingDelete} className="center" style={{ width: "15px" }} onClick={(() => { DeleteItem(ele.Product_id, ele.id) })}> <RiDeleteBin6Line size={20} color='gray' /></LoadingButton></span>
@@ -288,7 +301,7 @@ const AddToCartReview = () => {
                     </>
                     :
                     <div className="  " >
-                        {state.AllProduct?.map((ele, index) => {
+                        {AfterDiscount?.map((ele, index) => {
 
                             let wrigh;
                             if (ele.Price.Weight) {
@@ -329,6 +342,9 @@ const AddToCartReview = () => {
                                                 </div>
 
                                             </div>
+                                            {/* {
+                                                 console.log(AfterDiscount)
+                                            } */}
                                             <span className="add_prod_span_amount fontStyle" value={ele.Price.SalePrice * ele.Cart_Quantity} >${parseInt(ele.Price.SalePrice * ele.Cart_Quantity)}</span>
                                         </div>
                                     </div>

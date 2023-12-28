@@ -13,7 +13,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { MdSecurity } from "react-icons/md";
 import Openingtime from "./StoreDetailComponent/Openingtime";
 const StoreDetail1 = ({ storeDetails }) => {
-   console.log(storeDetails ,'storeDetails')
+  //  console.log(storeDetails ,'storeDetails')
   return (
     <div className="container-fluid container-lg-full mt-3">
       <div className="amenities_container">

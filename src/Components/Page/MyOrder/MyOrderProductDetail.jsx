@@ -70,7 +70,7 @@ const MyOrderProductDetail = () => {
 
               OrderBYID(params.id)
               .then((res) => {
-                console.log(res)
+                // console.log(res)
                 SetAllOrder_data(res.data.reverse());
         
                 if (AllOrder_data[0]?.Order_Status === "Cancel") {

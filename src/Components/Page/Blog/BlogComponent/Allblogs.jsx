@@ -43,7 +43,7 @@ const Allblogs = () => {
                 getss = resposce2.data.Like.map((itemss)=>{
                   return itemss.user
                 })
-               console.log(getss)
+              //  console.log(getss)
                allLikes.push(getss)
              
             }).catch((error) => {
@@ -114,7 +114,7 @@ const Allblogs = () => {
       return l
 
   }
- console.log(allLikes.splice(-7))
+//  console.log(allLikes.splice(-7))
   return (
     <React.Fragment>
       <NewsSeo></NewsSeo>

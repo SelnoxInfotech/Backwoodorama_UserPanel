@@ -20,12 +20,12 @@ import Box from '@mui/material/Box';
 import { Link, useParams } from "react-router-dom";
 import AddToCartPopUp from "../../AddToCartPopUp/AddToCartPopUp";
 import { WhisList } from '../../../../Component/Whishlist/WhisList'
-const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice }) => {
+const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , quentity, setquentity , dynamicWeight, setdynamicWeight }) => {
 
     const cookies = new Cookies();
     const params = useParams()
-    const [quentity, setquentity] = useState(1);
-    const [dynamicWeight, setdynamicWeight] = useState(0);
+    // const [quentity, setquentity] = useState(1);
+    // const [dynamicWeight, setdynamicWeight] = useState(0);
     const [displaypic, Setdisplaypic] = useState('');
     let p = Product?.images === undefined ? "" : Product?.images[0].image;
     const classes = useStyles();
@@ -42,6 +42,10 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice }) =
     const [NewData, SetNewData] = React.useState([])
     const [Whishlist, SetWishList] = React.useState(false)
     const [SelectVariant, SetSelectVariant] = React.useState('')
+
+
+
+
     const Addtocard = async (Event) => {
         if (token_data) {
             const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
@@ -64,7 +68,8 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice }) =
                 Sub_Category_id: Event.Sub_Category_id,
                 SubcategoryName: Event.SubcategoryName,
                 StoreName: Event.StoreName,
-                CoupounField:DiscountedValue
+                CoupounField:DiscountedValue ,
+                PromoCodeid:DiscountedValue.id
             })
             await axios.post("https://api.cannabaze.com/UserPanel/Add-AddtoCart/",
 
@@ -80,7 +85,8 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice }) =
                     Sub_Category_id: Event.Sub_Category_id,
                     SubcategoryName: Event.SubcategoryName,
                     StoreName: Event.StoreName,
-                    CoupounField:DiscountedValue
+                    CoupounField:DiscountedValue,
+                    PromoCodeid:DiscountedValue.id
                 }
                 , config
             ).then(response => {
@@ -101,7 +107,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice }) =
             const PriceArrry = h.find((data) => data.id === parseInt(AddData[0]?.Item_id) && data)
             let PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
 
-            const Arry = {
+            const Arry = {  
                 Image: Event.images[0].image,
                 Product_id: Event.id,
                 Store_id: Event.Store_id,
@@ -117,7 +123,8 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice }) =
                 Sub_Category_id: Event.Sub_Category_id,
                 SubcategoryName: Event.SubcategoryName,
                 StoreName: Event.StoreName,
-                CoupounField:DiscountedValue
+                CoupounField:DiscountedValue,
+                PromoCodeid:DiscountedValue.id
                 
             }
             SetNewData(Arry)
@@ -261,7 +268,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice }) =
     }
 
 
-     console.log(DiscountedValue)
+    //  console.log(DiscountedValue)
     return (
         <React.Fragment>
             {
@@ -276,7 +283,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice }) =
                                         onError={event => {
                                             event.target.src = '/image/blankImage.jpg'
                                             event.onerror = null
-                                            console.log(event)
+                                            // console.log(event)
                                         }}
                                         src={Boolean(displaypic) ? displaypic : Product?.images[0]?.image} />
                                       
@@ -436,7 +443,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice }) =
                                                             parseInt(dynamicWeight) !== 0
                                                                 ? parseInt(dynamicWeight * quentity) - ((Boolean(DiscountedValue?.Percentage) ? (dynamicWeight * quentity) * parseInt(DiscountedValue?.Percentage) / 100 : parseInt(DiscountedValue.Amount)))
                                                                 :
-                                                                Product?.Prices?.map((data) => (data.Price[0].SalePrice * quentity - (Boolean(DiscountedValue?.Percentage) ? parseInt((data.Price[0].SalePrice * quentity) * parseInt(DiscountedValue?.Percentage) / 100) : parseInt(DiscountedValue.Amount))))
+                                                                Product?.Prices?.map((data) =>   { return ( (data.Price[0].SalePrice * quentity - (Boolean(DiscountedValue?.Percentage) ? parseInt((data.Price[0].SalePrice * quentity) * parseInt(DiscountedValue?.Percentage) / 100) : parseInt(DiscountedValue.Amount))))})
                                                         }
                                                     </span>
                                                     <strike >{parseInt(dynamicWeight) !== 0 ? dynamicWeight : Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)}</strike>

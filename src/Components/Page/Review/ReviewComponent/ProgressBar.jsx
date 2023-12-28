@@ -1,6 +1,6 @@
 const ProgressBar = (props) => {
     const { bgcolor, completed } = props;
-  
+  //  console.log(completed)
     const containerStyles = {
       height: 11,
       width: '100%',
@@ -31,7 +31,7 @@ const ProgressBar = (props) => {
     return (
       <div style={containerStyles} className="">
         <div style={fillerStyles}>
-          <span style={labelStyles}>{`${completed}%`}</span>
+          <span style={labelStyles}>{ ` ${ completed === 0 ? '' :completed+"%"}`}</span>
         </div>
       </div>
     );

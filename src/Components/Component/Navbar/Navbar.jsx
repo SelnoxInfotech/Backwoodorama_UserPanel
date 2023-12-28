@@ -65,6 +65,10 @@ const Navbar = () => {
     await dispatch({ type: 'ApiProduct' })
     await dispatch({ type: 'Profile' , Profile :[] })
   }
+
+
+
+  
   React.useEffect(() => {
     const handleClickOutside = (event) => {
       if (ref.current && !ref.current.contains(event.target)) {

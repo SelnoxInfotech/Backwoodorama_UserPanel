@@ -24,12 +24,12 @@ const SideNavbar = ({ closeNav, Open }) => {
     { item: "Review" }, { item: "Help" }]
    
     const classes = useStyles()
-    function Logout() {
-        cookies.remove('User_Token_access')
-        dispatch({ type: 'Login', login: false })
-        dispatch({ type: 'ApiProduct' })
-        closeNav()
-    }
+    // function Logout() {
+    //     cookies.remove('User_Token_access')
+    //     dispatch({ type: 'Login', login: false })
+    //     dispatch({ type: 'ApiProduct' })
+    //     closeNav()
+    // }
     function Login() {
         Navigate("/login")
         closeNav()
