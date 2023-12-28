@@ -276,7 +276,7 @@ const AddToCartReview = () => {
                                                     :
                                                   <div>
                                                       <div className='gap-1 d-flex '>
-                                                        <span className="add_prod_span_amount fontStyle">
+                                                        <span className="add_prod_span_amount fontStyle" value={parseInt(ele.CoupounField.price * ele.Cart_Quantity)}>
                                                             ${parseInt(ele.CoupounField.price * ele.Cart_Quantity)}
                                                         </span>
                                                         <strike>

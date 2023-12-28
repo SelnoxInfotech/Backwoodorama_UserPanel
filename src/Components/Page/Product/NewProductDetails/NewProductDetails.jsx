@@ -279,9 +279,9 @@ const NewProductDetails = () => {
               "DiscountCode": "",
               'id':event.target.value.id,
               'price':  parseInt(dynamicWeight) !== 0
-              ? parseInt(dynamicWeight * quentity) - ((Boolean(event.target.value.PercentageAmount) ? (dynamicWeight * quentity) * parseInt(event.target.value.PercentageAmount) / 100 : parseInt(DiscountedValue.Amount)))
+              ? parseInt(dynamicWeight * quentity) - ((Boolean(event.target.value.PercentageAmount) ? (dynamicWeight * quentity) * parseInt(event.target.value.PercentageAmount) / 100 : parseInt(event.target.value.Amount)))
               :
-              Product?.Prices?.map((data) =>   { return ( (data.Price[0].SalePrice * quentity - (Boolean(event.target.value.PercentageAmount) ? parseInt((data.Price[0].SalePrice * quentity) * parseInt(event.target.value.PercentageAmount) / 100) : parseInt(DiscountedValue.Amount))))})[0]
+              Product?.Prices?.map((data) =>   { return ( (data.Price[0].SalePrice * quentity - (Boolean(event.target.value.PercentageAmount) ? parseInt((data.Price[0].SalePrice * quentity) * parseInt(event.target.value.PercentageAmount) / 100) : parseInt(event.target.value.Amount))))})[0]
      
             });
         }
@@ -295,9 +295,9 @@ const NewProductDetails = () => {
             "DiscountCode":"",
             'id':event.target.value.id,
             'price':  parseInt(dynamicWeight) !== 0
-            ? parseInt(dynamicWeight * quentity) - ((Boolean(event.target.value.PercentageAmount) ? (dynamicWeight * quentity) * parseInt(event.target.value.PercentageAmount) / 100 : parseInt(DiscountedValue.Amount)))
+            ? parseInt(dynamicWeight * quentity) - ((Boolean(event.target.value.PercentageAmount) ? (dynamicWeight * quentity) * parseInt(event.target.value.PercentageAmount) / 100 : parseInt(event.target.value.Amount)))
             :
-            Product?.Prices?.map((data) =>   { return ( (data.Price[0].SalePrice * quentity - (Boolean(event.target.value.PercentageAmount) ? parseInt((data.Price[0].SalePrice * quentity) * parseInt(event.target.value.PercentageAmount) / 100) : parseInt(DiscountedValue.Amount))))})[0]
+            Product?.Prices?.map((data) =>   { return ( (data.Price[0].SalePrice * quentity - (Boolean(event.target.value.PercentageAmount) ? parseInt((data.Price[0].SalePrice * quentity) * parseInt(event.target.value.PercentageAmount) / 100) : parseInt(event.target.value.Amount))))})[0]
    
 
           });
@@ -318,9 +318,9 @@ const NewProductDetails = () => {
               "DiscountCode":"",
               'id':event.target.value.id,
               'price':  parseInt(dynamicWeight) !== 0
-              ? parseInt(dynamicWeight * quentity) - ((Boolean(event.target.value.PercentageAmount) ? (dynamicWeight * quentity) * parseInt(event.target.value.PercentageAmount) / 100 : parseInt(DiscountedValue.Amount)))
+              ? parseInt(dynamicWeight * quentity) - ((Boolean(event.target.value.PercentageAmount) ? (dynamicWeight * quentity) * parseInt(event.target.value.PercentageAmount) / 100 : parseInt(event.target.value.Amount)))
               :
-              Product?.Prices?.map((data) =>   { return ( (data.Price[0].SalePrice * quentity - (Boolean(event.target.value.PercentageAmount) ? parseInt((data.Price[0].SalePrice * quentity) * parseInt(event.target.value.PercentageAmount) / 100) : parseInt(DiscountedValue.Amount))))})[0]
+              Product?.Prices?.map((data) =>   { return ( (data.Price[0].SalePrice * quentity - (Boolean(event.target.value.PercentageAmount) ? parseInt((data.Price[0].SalePrice * quentity) * parseInt(event.target.value.PercentageAmount) / 100) : parseInt(event.target.value.Amount))))})[0]
      
   
             });
@@ -338,9 +338,9 @@ const NewProductDetails = () => {
               "DiscountCode":"",
               'id':event.target.value.id,
               'price':  parseInt(dynamicWeight) !== 0
-              ? parseInt(dynamicWeight * quentity) - ((Boolean(event.target.value.PercentageAmount) ? (dynamicWeight * quentity) * parseInt(event.target.value.PercentageAmount) / 100 : parseInt(DiscountedValue.Amount)))
+              ? parseInt(dynamicWeight * quentity) - ((Boolean(event.target.value.PercentageAmount) ? (dynamicWeight * quentity) * parseInt(event.target.value.PercentageAmount) / 100 : parseInt(event.target.value.Amount)))
               :
-              Product?.Prices?.map((data) =>   { return ( (data.Price[0].SalePrice * quentity - (Boolean(event.target.value.PercentageAmount) ? parseInt((data.Price[0].SalePrice * quentity) * parseInt(event.target.value.PercentageAmount) / 100) : parseInt(DiscountedValue.Amount))))})[0]
+              Product?.Prices?.map((data) =>   { return ( (data.Price[0].SalePrice * quentity - (Boolean(event.target.value.PercentageAmount) ? parseInt((data.Price[0].SalePrice * quentity) * parseInt(event.target.value.PercentageAmount) / 100) : parseInt(event.target.value.Amount))))})[0]
      
   
             });
@@ -361,9 +361,9 @@ const NewProductDetails = () => {
                 'DiscountCode':"",
                 'id':event.target.value.id,
                 'price':  parseInt(dynamicWeight) !== 0
-                ? parseInt(dynamicWeight * quentity) - ((Boolean(event.target.value.PercentageAmount) ? (dynamicWeight * quentity) * parseInt(event.target.value.PercentageAmount) / 100 : parseInt(DiscountedValue.Amount)))
+                ? parseInt(dynamicWeight * quentity) - ((Boolean(event.target.value.PercentageAmount) ? (dynamicWeight * quentity) * parseInt(event.target.value.PercentageAmount) / 100 : parseInt(event.target.value.Amount)))
                 :
-                Product?.Prices?.map((data) =>   { return ( (data.Price[0].SalePrice * quentity - (Boolean(event.target.value.PercentageAmount) ? parseInt((data.Price[0].SalePrice * quentity) * parseInt(event.target.value.PercentageAmount) / 100) : parseInt(DiscountedValue.Amount))))})[0]
+                Product?.Prices?.map((data) =>   { return ( (data.Price[0].SalePrice * quentity - (Boolean(event.target.value.PercentageAmount) ? parseInt((data.Price[0].SalePrice * quentity) * parseInt(event.target.value.PercentageAmount) / 100) : parseInt(event.target.value.Amount))))})[0]
        
     
               });
@@ -380,9 +380,9 @@ const NewProductDetails = () => {
                 "DiscountCode":"",
                 'id':event.target.value.id,
                 'price':  parseInt(dynamicWeight) !== 0
-                ? parseInt(dynamicWeight * quentity) - ((Boolean(event.target.value.PercentageAmount) ? (dynamicWeight * quentity) * parseInt(event.target.value.PercentageAmount) / 100 : parseInt(DiscountedValue.Amount)))
+                ? parseInt(dynamicWeight * quentity) - ((Boolean(event.target.value.PercentageAmount) ? (dynamicWeight * quentity) * parseInt(event.target.value.PercentageAmount) / 100 : parseInt(event.target.value.Amount)))
                 :
-                Product?.Prices?.map((data) =>   { return ( (data.Price[0].SalePrice * quentity - (Boolean(event.target.value.PercentageAmount) ? parseInt((data.Price[0].SalePrice * quentity) * parseInt(event.target.value.PercentageAmount) / 100) : parseInt(DiscountedValue.Amount))))})[0]
+                Product?.Prices?.map((data) =>   { return ( (data.Price[0].SalePrice * quentity - (Boolean(event.target.value.PercentageAmount) ? parseInt((data.Price[0].SalePrice * quentity) * parseInt(event.target.value.PercentageAmount) / 100) : parseInt(event.target.value.Amount))))})[0]
        
     
 

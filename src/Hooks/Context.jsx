@@ -85,13 +85,12 @@ function Context(props) {
                 dispatch({ type: 'LoadingApi', LoadingApi: false })
                 let AllTotal = 0
                 CarTProduct.map((data) => {
-                    // console.log(data.CoupounField.DiscountType === ""  , data.CoupounField.DiscountType === null  , data.CoupounField)
                     if(data?.CoupounField?.DiscountType !== ""  || null){
-                        return AllTotal += parseInt(data?.CoupounField?.price)
+                        return AllTotal += parseInt(data?.CoupounField?.price) * data.Cart_Quantity
                     }
                     else{
 
-                        return AllTotal += parseInt(data?.TotalPrice)
+                        return AllTotal += parseInt(data?.TotalPrice) 
                     }
                 })
                 dispatch({ type: 'Cart_subTotal', Cart_subTotal: AllTotal })

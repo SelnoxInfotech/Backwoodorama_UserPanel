@@ -50,6 +50,7 @@ const PlaceOrder = () => {
                 console.error(error)
             })
     }, [])
+    console.log(pricess)
     return (
         <React.Fragment>
             <div className="container-fluid">
@@ -70,12 +71,24 @@ const PlaceOrder = () => {
 
                                 {
                                     location.state.Product.map((item) => {
+                                        console.log(item)
+                                        if(item.CoupounField?.DiscountType !== ""  || null)
+                                        {
+                                            pricess.Subtotal = parseInt(item?.CoupounField?.price) * item.Cart_Quantity;
+                                            pricess.Delivery += 0
+                                            pricess.Taxes += 0
+    
+                                            pricess.Paid += 0
+                                            pricess.DueLater += pricess.Subtotal + item.Price.SalePrice
+                                        }
+                                      else{
                                         pricess.Subtotal = pricess.Subtotal + item.Price.SalePrice;
                                         pricess.Delivery += 0
                                         pricess.Taxes += 0
 
                                         pricess.Paid += 0
                                         pricess.DueLater += pricess.Subtotal + item.Price.SalePrice
+                                      }
 
 
                                         return <div className="place_order_product_cart  row border-bottom py-3">
@@ -88,7 +101,7 @@ const PlaceOrder = () => {
                                                 {/* <img src={item.Image} alt="" className='w-100' /> */}
                                             </div>
                                             <div className="col-sm-10 col-9">
-                                                <div className='d-flex justify-content-between align-items-start'>  <h4 className='w-75 text-wrap text-break'>{item.ProductName}</h4>  <p className="price">$ {item.Price.SalePrice}</p>  </div>
+                                                <div className='d-flex justify-content-between align-items-start'>  <h4 className='w-75 text-wrap text-break'>{item.ProductName}</h4>  <p className="price">$ {pricess.Subtotal}</p>  </div>
                                                 <p><b>Qty</b> : {item.Cart_Quantity}</p>
                                             </div>
                                         </div>
