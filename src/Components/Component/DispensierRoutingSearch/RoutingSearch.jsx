@@ -27,17 +27,19 @@ export default function RoutingSearch({ city, State, country, pathname  ,route})
 
   function location(value, type) {
     console.log(value , type)
-    // var SearchCity, SearchState, SearchCountry , route;    
+    // var ci, sta, Coun , route;    
     fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
       .then(res => res.json())
       .then(response => {
+        var Coun;
+        var sta;
+        var ci;
+        var route;
+
         if (response.results.length !== 0) {
           dispatch({ type: 'permission', permission: true })
           dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address })
-          var Coun
-          var sta
-          var ci
-          var route
+        
           response?.results[0]?.address_components?.map((data) => {
             if (data.types.indexOf('country') !== -1) {
               Coun = data?.long_name?.replace(/\s/g, '-')
@@ -82,34 +84,34 @@ export default function RoutingSearch({ city, State, country, pathname  ,route})
                 response?.results[0]?.address_components?.map((data) => {
                   if (data.types.indexOf('country') !== -1) {
                     dispatch({ type: 'Country', Country: data?.long_name.replace(/\s/g, '-') })
-                    SearchCountry = data?.long_name.replace(/\s/g, '-')
+                    Coun = data?.long_name.replace(/\s/g, '-')
                   }
                   if (data.types.indexOf('administrative_area_level_1') !== -1) {
                     if (data.types.indexOf('administrative_area_level_1') !== -1) {
                       dispatch({ type: 'State', State: data?.long_name.replace(/\s/g, '-') })
-                      SearchState = data?.long_name.replace(/\s/g, '-')
+                      sta = data?.long_name.replace(/\s/g, '-')
                     }
                   }
                   if (data.types.indexOf('administrative_area_level_3') !== -1) {
                     if (data.types.indexOf('administrative_area_level_3') !== -1 || data.types.indexOf('locality') !== -1) {
                       dispatch({ type: 'City', City: data?.long_name?.replace(/\s/g, '-') })
-                      SearchCity = data?.long_name.replace(/\s/g, '-')
+                      ci = data?.long_name.replace(/\s/g, '-')
 
                     }
                   }
 
                 })
-                if (SearchCity !== undefined && SearchState !== undefined && SearchCountry !== undefined) {
+                if (ci !== undefined && sta !== undefined && Coun !== undefined) {
 
-                  navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}/${SearchState.toLowerCase()}/${SearchCity.toLowerCase()}/`)
+                  navigate(pathname + `/${'in'}/${Coun.toLowerCase()}/${sta.toLowerCase()}/${ci.toLowerCase()}/`)
                 }
                 else {
-                  if (SearchState !== undefined && SearchCountry !== undefined) {
-                    navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}/${SearchState.toLowerCase()}/`)
+                  if (sta !== undefined && Coun !== undefined) {
+                    navigate(pathname + `/${'in'}/${Coun.toLowerCase()}/${sta.toLowerCase()}/`)
                   }
                   else {
-                    if (SearchCountry !== undefined) {
-                      navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}/`)
+                    if (Coun !== undefined) {
+                      navigate(pathname + `/${'in'}/${Coun.toLowerCase()}/`)
                     }
 
                   }
@@ -125,18 +127,18 @@ export default function RoutingSearch({ city, State, country, pathname  ,route})
                       response?.results[0]?.address_components?.map((data) => {
                         if (data.types.indexOf('country') !== -1) {
                           dispatch({ type: 'Country', Country: data?.long_name.replace(/\s/g, '-') })
-                          SearchCountry = data?.long_name.replace(/\s/g, '-')
+                          Coun = data?.long_name.replace(/\s/g, '-')
                         }
                         if (data.types.indexOf('administrative_area_level_1') !== -1) {
                           if (data.types.indexOf('administrative_area_level_1') !== -1) {
                             dispatch({ type: 'State', State: data?.long_name.replace(/\s/g, '-') })
-                            SearchState = data?.long_name.replace(/\s/g, '-')
+                            sta = data?.long_name.replace(/\s/g, '-')
                           }
                         }
                         if (data.types.indexOf('administrative_area_level_3') !== -1) {
                           if (data.types.indexOf('administrative_area_level_3') !== -1 || data.types.indexOf('locality') !== -1) {
                             dispatch({ type: 'City', City: data?.long_name?.replace(/\s/g, '-') })
-                            SearchCity = data?.long_name.replace(/\s/g, '-')
+                            ci = data?.long_name.replace(/\s/g, '-')
 
                           }
                         }
@@ -145,17 +147,17 @@ export default function RoutingSearch({ city, State, country, pathname  ,route})
 
 
 
-                      if (SearchCity !== undefined && SearchState !== undefined && SearchCountry !== undefined) {
+                      if (ci !== undefined && sta !== undefined && Coun !== undefined) {
 
-                        navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}/${SearchState.toLowerCase()}/${SearchCity.toLowerCase()}/`)
+                        navigate(pathname + `/${'in'}/${Coun.toLowerCase()}/${sta.toLowerCase()}/${ci.toLowerCase()}/`)
                       }
                       else {
-                        if (SearchState !== undefined && SearchCountry !== undefined) {
-                          navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}/${SearchState.toLowerCase()}/`)
+                        if (sta !== undefined && Coun !== undefined) {
+                          navigate(pathname + `/${'in'}/${Coun.toLowerCase()}/${sta.toLowerCase()}/`)
                         }
                         else {
-                          if (SearchCountry !== undefined) {
-                            navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}/`)
+                          if (Coun !== undefined) {
+                            navigate(pathname + `/${'in'}/${Coun.toLowerCase()}/`)
                           }
 
                         }
@@ -170,34 +172,34 @@ export default function RoutingSearch({ city, State, country, pathname  ,route})
                           response?.results[0]?.address_components?.map((data) => {
                             if (data.types.indexOf('country') !== -1) {
                               dispatch({ type: 'Country', Country: data?.long_name.replace(/\s/g, '-') })
-                              SearchCountry = data?.long_name.replace(/\s/g, '-')
+                              Coun = data?.long_name.replace(/\s/g, '-')
                             }
                             if (data.types.indexOf('administrative_area_level_1') !== -1) {
                               if (data.types.indexOf('administrative_area_level_1') !== -1) {
                                 dispatch({ type: 'State', State: data?.long_name.replace(/\s/g, '-') })
-                                SearchState = data?.long_name.replace(/\s/g, '-')
+                                sta = data?.long_name.replace(/\s/g, '-')
                               }
                             }
                             if (data.types.indexOf('administrative_area_level_3') !== -1) {
                               if (data.types.indexOf('administrative_area_level_3') !== -1 || data.types.indexOf('locality') !== -1) {
                                 dispatch({ type: 'City', City: data?.long_name?.replace(/\s/g, '-') })
-                                SearchCity = data?.long_name.replace(/\s/g, '-')
+                                ci = data?.long_name.replace(/\s/g, '-')
 
                               }
                             }
 
                           })
-                          if (SearchCity !== undefined && SearchState !== undefined && SearchCountry !== undefined) {
+                          if (ci !== undefined && sta !== undefined && Coun !== undefined) {
 
-                            navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}/${SearchState.toLowerCase()}/${SearchCity.toLowerCase()}/`)
+                            navigate(pathname + `/${'in'}/${Coun.toLowerCase()}/${sta.toLowerCase()}/${ci.toLowerCase()}/`)
                           }
                           else {
-                            if (SearchState !== undefined && SearchCountry !== undefined) {
-                              navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}/${SearchState.toLowerCase()}/`)
+                            if (sta !== undefined && Coun !== undefined) {
+                              navigate(pathname + `/${'in'}/${Coun.toLowerCase()}/${sta.toLowerCase()}/`)
                             }
                             else {
-                              if (SearchCountry !== undefined) {
-                                navigate(pathname + `/${'in'}/${SearchCountry.toLowerCase()}/`)
+                              if (Coun !== undefined) {
+                                navigate(pathname + `/${'in'}/${Coun.toLowerCase()}/`)
                               }
 
                             }
