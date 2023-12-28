@@ -7,7 +7,6 @@ import useStyles from "../../../../Style"
 import WriteReviewPopup from "../ReviewPopup/WriteReviewPopup"
 const OverAllReview = ({ Rating, api,noReview,AllReview, SetApi  ,onSubmit,reviewloading,  GetProductReview, SetGetProductReview}) => {
     const classes = useStyles()
-
     const testData = [
         { starValue: 5, bgcolor: "#31B665", completed: Rating?.FiveStar },
         { starValue: 4, bgcolor: "#31B665", completed: Rating?.FourStar },

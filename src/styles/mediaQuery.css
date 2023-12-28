@@ -30,18 +30,7 @@
     height: 200px;
   }
 }
-@media only screen and (min-width: 768px) and (max-width:991px) {
-  
-  .dispensories_image {
-    height: 220px;
-  }
-}
-@media only screen and (min-width: 480px) and (max-width:767px) {
-  
-  .dispensories_image {
-    height: 200px;
-  }
-}
+
 @media(max-width:1400px) {
   .StoreDetailSideMenu_listItems {
     font-size: 14px;
@@ -1049,9 +1038,7 @@
     cursor: pointer;
 }
  
-  .dispensories_image {
-    height: 200px;
-  }
+
   .dispensoriesContentContainer {
     padding: 10px;
 }
@@ -1375,6 +1362,21 @@ margin: 0;
   .New_flav_btn a{
     width: 100%;
   }
+  .deliveryServicesCard{
+    width: 180px;
+    transition: all .3s ease;
+  }
+  .deliveryServicesImage_container{
+    height: 140px;
+    padding: 10px;
+  }
+ 
+  .dispensories_image {
+    height: 140px;
+  }
+  .dispensoriesContainer{
+    width: 200px;
+  }
 }
 @media (max-width:425px) {
   .order_conform_card{
@@ -1392,6 +1394,7 @@ margin: 0;
   .Category_title {
     font-size: 12px;
   }
+ 
 }
 @media (max-width:408px) {
   .weedx_number_container ol li {

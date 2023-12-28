@@ -168,7 +168,7 @@ const DeliveryServices = () => {
                                                         className='deliveryServicesImage' src={`${items.Store_Image}`} alt={items.Store_Name} />
                                                     </div>
                                                 </Link>
-                                                <div className='col-12 deliveryServicesContent_container px-4'>
+                                                <div className='col-12 deliveryServicesContent_container'>
                                                     <Link to={`/weed-deliveries/${modifystr(items.Store_Name)}/${items.id}`}>
                                                         <div className='w-100  deliveryServicesTitle'>
                                                             <p className='ellipsis'>{items.Store_Name}</p>

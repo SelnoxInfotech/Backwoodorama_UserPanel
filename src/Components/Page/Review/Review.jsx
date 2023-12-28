@@ -27,7 +27,7 @@ const Review = ({ reviewloading, handleEdit, delBtn,reviewtype, setReviewtype, t
        }
     },[short , AllReview])
 
-  
+  console.log(Rating)
     return (
         <React.Fragment>
 
