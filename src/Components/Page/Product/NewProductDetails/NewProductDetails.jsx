@@ -187,7 +187,7 @@ const NewProductDetails = () => {
   };
 
   const handlediscountChange = (event) => {
-    // console.log(event.target.value.id)
+    console.log(event.target.value)
     if (event.target.value.DiscountType === "Amount off Order") {
       if (event.target.value.NoMinimumRequirements === true) {
         if (event.target.value.PercentageAmount !== null || "") {
@@ -393,7 +393,19 @@ const NewProductDetails = () => {
         }
       }
     }
-    else if (event.target.value.DiscountType === "Amount off Order") {
+    else if (event.target.value.DiscountType === "Buy X get Y") {
+      setdiscount({
+        ...discount,
+        "MinimumPurchaseAmount": event.target.value.MinimumPurchaseAmount,
+        'Reflect': false,
+        "DiscountType": "Buy X get Y",
+        'CouponMassage': "Minimum Purchase of Amount ",
+        "Amount": event.target.value.ValueAmount,
+        "AutomaticDiscount": event.target.value.AutomaticDiscount,
+        "DiscountCode":"",
+        'id':event.target.value.id,
+        'CustomerGets':event.target.value.CustomerGets
+      });
 
     }
     else if (event.target.value.DiscountType === "Amount off Order") {

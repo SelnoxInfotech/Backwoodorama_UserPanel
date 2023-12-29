@@ -44,7 +44,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , qu
     const [SelectVariant, SetSelectVariant] = React.useState('')
 
 
-
+  console.log(DiscountedValue.DiscountType  === "" ,  DiscountedValue.DiscountType === 'Buy X get Y')
 
     const Addtocard = async (Event) => {
         if (token_data) {
@@ -68,8 +68,10 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , qu
                 Sub_Category_id: Event.Sub_Category_id,
                 SubcategoryName: Event.SubcategoryName,
                 StoreName: Event.StoreName,
-                CoupounField:DiscountedValue ,
-                PromoCodeid:DiscountedValue.id
+                CoupounField:DiscountedValue.DiscountType === "" ? null : DiscountedValue ,
+                PromoCodeid:DiscountedValue.id,
+                CustomerGets:  DiscountedValue.DiscountType === 'Buy X get Y' ? DiscountedValue.CustomerGets : null
+
             })
             await axios.post("https://api.cannabaze.com/UserPanel/Add-AddtoCart/",
 
@@ -85,8 +87,9 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , qu
                     Sub_Category_id: Event.Sub_Category_id,
                     SubcategoryName: Event.SubcategoryName,
                     StoreName: Event.StoreName,
-                    CoupounField:DiscountedValue,
-                    PromoCodeid:DiscountedValue.id
+                    CoupounField:DiscountedValue.DiscountType === "" ? null : DiscountedValue,
+                    PromoCodeid:DiscountedValue.id,
+                    CustomerGets: DiscountedValue.DiscountType === 'Buy X get Y' ? DiscountedValue.CustomerGets : null
                 }
                 , config
             ).then(response => {
@@ -123,8 +126,9 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , qu
                 Sub_Category_id: Event.Sub_Category_id,
                 SubcategoryName: Event.SubcategoryName,
                 StoreName: Event.StoreName,
-                CoupounField:DiscountedValue,
-                PromoCodeid:DiscountedValue.id
+                CoupounField:DiscountedValue.DiscountType === "" ? null : DiscountedValue,
+                PromoCodeid:DiscountedValue.id,
+                CustomerGets: DiscountedValue.DiscountType === 'Buy X get Y' ? DiscountedValue.CustomerGets : null
                 
             }
             SetNewData(Arry)

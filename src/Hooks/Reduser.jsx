@@ -118,6 +118,10 @@ const reducer = (state, action) => {
       {
         return { ...state, PromoCode: action.PromoCode }
       }
+      case "BeforeCoupoun":
+        {
+          return { ...state, BeforeCoupoun: action.BeforeCoupoun }
+        }
 
     default: return state
   }

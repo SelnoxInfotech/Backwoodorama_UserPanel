@@ -49,7 +49,8 @@ const initialUser = {
     Loading: false,
     // Coupoun :
     PromoCode: "",
-    Coupoun: []
+    Coupoun: [],
+    BeforeCoupoun: ""
 
 
 }
@@ -84,17 +85,27 @@ function Context(props) {
                 dispatch({ type: 'AllProduct', AllProduct: CarTProduct })
                 dispatch({ type: 'LoadingApi', LoadingApi: false })
                 let AllTotal = 0
+                let BeforeCoupoun
                 CarTProduct.map((data) => {
-                    if(data?.CoupounField?.DiscountType !== ""  || null){
-                        return AllTotal += parseInt(data?.CoupounField?.price) * data.Cart_Quantity
-                    }
-                    else{
+                    if (data?.CoupounField !== null) {
+                        if (data?.CoupounField.DiscountType !== "Buy X get Y") {
 
-                        return AllTotal += parseInt(data?.TotalPrice) 
+                            return AllTotal += parseInt(data?.CoupounField?.price) * data.Cart_Quantity
+                        }
+                        else {
+                            BeforeCoupoun = data?.CoupounField.CustomerGets
+                            return AllTotal += parseInt(data?.TotalPrice)
+                        }
+
+                    }
+                    else {
+                        return AllTotal += parseInt(data?.TotalPrice)
                     }
                 })
+                console.log(BeforeCoupoun)
+                dispatch({type:"BeforeCoupoun" , BeforeCoupoun : BeforeCoupoun})
                 dispatch({ type: 'Cart_subTotal', Cart_subTotal: AllTotal })
-            
+
             })
                 .catch(function (error) {
                     return error

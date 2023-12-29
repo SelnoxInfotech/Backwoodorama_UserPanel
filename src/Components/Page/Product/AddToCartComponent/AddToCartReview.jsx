@@ -274,18 +274,21 @@ const AddToCartReview = () => {
                                                     <span className="add_prod_span_amount fontStyle" value={ele.Price.SalePrice * ele.Cart_Quantity} >${parseInt(ele.Price.SalePrice * ele.Cart_Quantity)}</span>
 
                                                     :
-                                                  <div>
-                                                      <div className='gap-1 d-flex '>
-                                                        <span className="add_prod_span_amount fontStyle" value={parseInt(ele.CoupounField.price * ele.Cart_Quantity)}>
-                                                            ${parseInt(ele.CoupounField.price * ele.Cart_Quantity)}
-                                                        </span>
-                                                        <strike>
-                                                            <span className="add_prod_span_amount fontStyle" value={ele.Price.SalePrice * ele.Cart_Quantity} >${parseInt(ele.Price.SalePrice * ele.Cart_Quantity)}</span>
-                                                        </strike>
-                                                    </div>
-                                                        <p>Offer Applied</p>
-                                                  </div>
+                                                    ele.CoupounField.DiscountType !== "Buy X get Y" ?
+                                                        <div>
+                                                            <div className='gap-1 d-flex '>
+                                                                <span className="add_prod_span_amount fontStyle" value={parseInt(ele.CoupounField.price * ele.Cart_Quantity)}>
+                                                                    ${parseInt(ele.CoupounField.price * ele.Cart_Quantity)}
+                                                                </span>
+                                                                <strike>
+                                                                    <span className="add_prod_span_amount fontStyle" value={ele.Price.SalePrice * ele.Cart_Quantity} >${parseInt(ele.Price.SalePrice * ele.Cart_Quantity)}</span>
+                                                                </strike>
+                                                            </div>
+                                                            <p>Offer Applied</p>
+                                                        </div>
+                                                        :
 
+                                                        <span className="add_prod_span_amount fontStyle" value={ele.Price.SalePrice * ele.Cart_Quantity} >${parseInt(ele.Price.SalePrice * ele.Cart_Quantity)}</span>
 
                                             }
                                             {/* <span className="add_prod_span_amount fontStyle" value={ele.Price.SalePrice * ele.Cart_Quantity} >${parseInt(ele.Price.SalePrice * ele.Cart_Quantity)}</span> */}
