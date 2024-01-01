@@ -49,9 +49,15 @@ export default function Notification({ notify, setnotify , Setnotificationdata ,
         notify &&
         <ClickAwayListener onClickAway={() => { setnotify(false) }}>
             <div className={`notificationList ${ !Boolean(notificationdata?.length) && "nonewnotify"} `}>
-           
 
-                    { Boolean(notificationdata?.length)?
+          
+                <div className='notificationHeader'>
+                    <h4 className='notifytitle'>Notification</h4>
+                    <span className='clearNotify'>Clear All X</span>
+                </div>
+                <div className='notificationContainer'>
+                    { Boolean(notificationdata?.length)
+                        ?
                         notificationdata?.map((data) => {
                             return (
                                 <div className='notification_box'>
@@ -63,8 +69,9 @@ export default function Notification({ notify, setnotify , Setnotificationdata ,
                                             </div>
                                         </div>
                                         <div className="notifytext" >
-                                            <div className="d-flex align-items-center justify-content-between gap-5"><h4 className="notititle">{data.title} <span className="notify_date">2 Hours ago</span></h4> </div>
-                                            <p> </p>
+                                        <span className="notify_date ">2 Hours ago</span>
+                                            <div className="d-flex align-items-center justify-content-between gap-5"><h4 className="notititle">{data.title} </h4> </div>
+                                            <p className='notifyDesctiptio'>iufh dhdu xcijdnfuhun vu urdjknjf nbujkdc jfnvdfsjv d jndfju</p>
                                         </div>
                                     </Link>
                                 </div>
@@ -73,7 +80,12 @@ export default function Notification({ notify, setnotify , Setnotificationdata ,
                         :
                         <div className='w-100 h-100 d-flex align-items-center justify-content-center '>No New Notification</div>
                     }
-              
+                    </div>
+
+                <div className='notificationFooter'>
+                  <span className='clearNotify'>View All</span>
+                </div>
+            
             </div>
         </ClickAwayListener>
 
