@@ -4336,9 +4336,14 @@ line-height: normal;
   height: 100%;
 }
 .notititle{
-  font-size: 16px;
-  font-weight: 600;
-  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2b2b2b;
+  width: calc(100% - 0);
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .notipara{
   font-size: 14px;

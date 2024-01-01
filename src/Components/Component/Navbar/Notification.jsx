@@ -30,6 +30,7 @@ export default function Notification({ notify, setnotify , Setnotificationdata ,
         else {
             axios.get(`https://api.cannabaze.com/UserPanel/GetUserNotification/`,
             ).then((respones) => {
+                console.log(respones.data)
                 if (respones?.data?.Blog) {
                     respones.data.Blog.map((data) => {
                         Setnotificationdata([{...notificationdata , "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title }])
@@ -62,9 +63,8 @@ export default function Notification({ notify, setnotify , Setnotificationdata ,
                                             </div>
                                         </div>
                                         <div className="notifytext" >
-                                            <div className="d-flex align-items-center justify-content-between gap-5"><h4 className="notititle">{data.title}</h4> <span className="notify_date">2 Hours ago</span></div>
-                                            {/* <p className="notipara">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui, perferendis?</p> */}
-
+                                            <div className="d-flex align-items-center justify-content-between gap-5"><h4 className="notititle">{data.title} <span className="notify_date">2 Hours ago</span></h4> </div>
+                                            <p> </p>
                                         </div>
                                     </Link>
                                 </div>

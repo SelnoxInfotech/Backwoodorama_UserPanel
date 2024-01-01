@@ -21,6 +21,7 @@ import { WishListPost } from "../../../Component/Whishlist/WishListApi_"
 import { WhisList } from "../../../Component/Whishlist/WhisList"
 
 const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProductID, title }) => {
+
     const { state, dispatch } = React.useContext(Createcontext)
     const classes = useStyles()
     const cookies = new Cookies();
@@ -29,6 +30,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
     const [adding, setadding] = React.useState('')
     const [popup, SetPopup] = useState(true)
     const [NewData, SetNewData] = useState([])
+    const [showdata, Setshowdata] = useState([])
     const [Whishlist, SetWishList] = useState(false)
     const [AddTOCard, SetAddToCard] = useState(() => {
         const saved = localStorage.getItem("items");
@@ -206,7 +208,6 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
 
         return str
     }
-
     function discountshoer(CategoryCoupoun, ProductCoupoun) {
         let newarr = CategoryCoupoun.concat(ProductCoupoun)
         if (newarr[0].DiscountType === "Amount off Order") {
@@ -224,6 +225,20 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
             return "Free Shipping"
         }
     }
+    React.useEffect(()=>{
+       let a =  RelatedProductResult.filter((item)=>{
+            return item?.Prices[0]?.Price[0]?.Stock === "IN Stock"
+        })
+        let b =  RelatedProductResult.filter((item)=>{
+            return item?.Prices[0]?.Price[0]?.Stock !== "IN Stock"
+        })
+        Setshowdata(a.concat(b))
+    },[RelatedProductResult])
+
+
+
+
+
     return (
         <React.Fragment>
             <div className="row mx-0 marginProductSearchResult">
@@ -234,7 +249,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
 
                 <div className="product_card_wrapper">
                     {
-                        RelatedProductResult?.map((items, index) => {
+                        showdata?.map((items, index) => {
 
                             if (items.id !== currentProductID) {
                                 return (
