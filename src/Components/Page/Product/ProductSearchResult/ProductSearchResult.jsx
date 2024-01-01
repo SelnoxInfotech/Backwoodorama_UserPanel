@@ -225,7 +225,6 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
             return "Free Shipping"
         }
     }
-<<<<<<< HEAD
     React.useEffect(()=>{
        let a =  RelatedProductResult.filter((item)=>{
             return item?.Prices[0]?.Price[0]?.Stock === "IN Stock"
@@ -240,11 +239,6 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
 
 
 
-=======
-
-
-    
->>>>>>> f393c4c (chnagj blog url)
     return (
         <React.Fragment>
             <div className="row mx-0 marginProductSearchResult">
