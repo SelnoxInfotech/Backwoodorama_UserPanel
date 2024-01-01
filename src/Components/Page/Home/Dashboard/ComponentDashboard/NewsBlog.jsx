@@ -22,7 +22,26 @@ const NewsBlog = () => {
         getApi()
 
     }, [])
-  
+    function modifystr(str) {
+        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str.trim().replaceAll(' ', "-");
+        let a = 0;
+        while (a < 1) {
+            if (str.includes("--")) {
+                str = str.replaceAll("--", "-")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("//", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("-/", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("/-", "/")
+            } else {
+                a++
+            }
+        }
+
+        return str
+    }
     return (
         <React.Fragment>
             <div className="px-sm-0 px-3">
@@ -37,7 +56,7 @@ const NewsBlog = () => {
                            
                                 {News?.map((ele, index) => {
                                     return (
-                                        <Link to={`/cannabis-news/${ele.Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${ele.id}`} key={index}> 
+                                        <Link to={`/cannabis-news/${modifystr(ele.Title.replace(/ /g, "-").replace("?", "").toLowerCase())}/${ele.id}`} key={index}> 
                                             <div className="new_blog_card">
                                                 <div className="new_blog_card_img">
                                                     <LazyLoadImage 

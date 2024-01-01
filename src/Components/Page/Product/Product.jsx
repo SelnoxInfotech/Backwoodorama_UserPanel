@@ -126,6 +126,7 @@ const Product = () => {
                         }
                         else {
                             SetLoading(false)
+                            
                             SetProduct(response.data)
                         }
                     }
