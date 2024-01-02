@@ -1662,7 +1662,42 @@ const useStyles = makeStyles({
     //   },
     // }
   },
-
+  weightSelectbox:{
+    minWidth:'80px',
+    fontSize:'14px !important',
+    fontWeight:'600 !important',
+    padding:'7px 15px !important',
+    backgroundColor:'#fff',
+    '&.MuiSelect-root ': {
+      backgroundColor:'#fff',
+      color: 'text.light'
+      },
+      '& .MuiSelect-select': {
+        padding:'0  25px 0 0 !important',
+        backgroundColor:'#fff',
+      },
+      "&.MuiOutlinedInput-root": {
+        " &.Mui-focused fieldset": {
+          border: "1px solid #BFBFBF",
+        },
+  
+        '&:hover fieldset': {
+          borderColor: '#BFBFBF', 
+        },
+      },
+      "&.MuiInputBase-root": {
+        width: "140px",
+        height: "38px",
+      
+      },
+      "&.MuiOutlinedInput-input": {
+       
+      },
+      "&.MuiSelect-nativeInput": {
+        height: "33px",
+       
+      }
+  },
   paper: {
     // left: '100px',
     width: '100%',

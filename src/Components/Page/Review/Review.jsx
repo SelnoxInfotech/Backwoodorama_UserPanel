@@ -4,6 +4,7 @@ import { AiFillLike } from "react-icons/ai";
 import sortBy from "lodash/sortBy";
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
+import { useLocation } from "react-router-dom";
 import style from "../../../Style"
 import Select from '@mui/material/Select';
 import React,{useEffect, useState} from "react"
@@ -11,6 +12,7 @@ import WriteReviewPopup from "./ReviewPopup/WriteReviewPopup"
 import './Review.css'
 const Review = ({ reviewloading, handleEdit, delBtn,reviewtype, setReviewtype, type, Rating, handleDelete, onSubmit, api, SetApi, GetProductReview, SetGetProductReview, AllReview, SetReview, HellFull }) => {
     const [short,setSort] = useState('highrate')
+    const location = useLocation()
     const [sorteddata , setsorteddata] = useState([])
     let noofreview = AllReview.length
     const classes = style()
@@ -26,13 +28,12 @@ const Review = ({ reviewloading, handleEdit, delBtn,reviewtype, setReviewtype, t
         setsorteddata(sortBy(AllReview, [function(o) { return o.rating; }]))
        }
     },[short , AllReview])
-
-  console.log(Rating)
+    console.log(location.pathname.slice(1, 9) ,'location')
     return (
         <React.Fragment>
 
             <div className="review_secton">
-                <h2 className="section_main_title">Product Reviews</h2>
+                <h2 className="section_main_title">{location.pathname.slice(1, 9) === "products" ?"products Review" : `${reviewtype} Reviews`}</h2>
                 {
                     noofreview !== 0 ?
                         <div className="row">
@@ -41,7 +42,7 @@ const Review = ({ reviewloading, handleEdit, delBtn,reviewtype, setReviewtype, t
                                { type=== "store" &&
                                  <FormControl className={`${classes.reviewFilter}`} >
                                 <Select value={reviewtype}   onChange={(e)=>{setReviewtype(e.target.value)}} >
-                                    <MenuItem value={' '}>All Review</MenuItem>
+                                    <MenuItem value={'All'}>All Review</MenuItem>
                                     <MenuItem value={"product"}>Product Review</MenuItem>
                                     <MenuItem value={"store"}>Store Review</MenuItem>
                                 </Select></FormControl>

@@ -26,7 +26,7 @@ export default function DispensoriesDetails() {
     const { state, dispatch } = React.useContext(Createcontext)
     const location = useLocation()
     const params = useParams();
-    const [reviewtype, setReviewtype] = React.useState(' ')
+    const [reviewtype, setReviewtype] = React.useState('All')
     const { id, tab, Category, SubCategory } = params
     const classes = useStyles()
     const [category, SetCategory] = React.useState([])

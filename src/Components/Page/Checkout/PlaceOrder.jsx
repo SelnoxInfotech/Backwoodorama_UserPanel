@@ -5,6 +5,7 @@ import Createcontext from "../../../Hooks/Context"
 import Cookies from 'universal-cookie';
 import { FaRegPaperPlane } from "react-icons/fa";
 import { useLocation } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import Axios from 'axios';
 const PlaceOrder = () => {
@@ -39,7 +40,6 @@ const PlaceOrder = () => {
 
         Axios.get(`https://api.cannabaze.com/UserPanel/Get-Order/`,
             config,
-
         )
             .then((res) => {
                 SetOrder(res.data.reverse()[0])
@@ -72,7 +72,8 @@ const PlaceOrder = () => {
                                 {
                                     location.state.Product.map((item) => {
                                         console.log(item)
-                                        if(item.CoupounField?.DiscountType !== ""  || null)
+                                        // if(item.CoupounField?.DiscountType !== ""  || null)
+                                        if(false)
                                         {
                                             pricess.Subtotal = parseInt(item?.CoupounField?.price) * item.Cart_Quantity;
                                             pricess.Delivery += 0
@@ -150,6 +151,11 @@ const PlaceOrder = () => {
                                 <h4>Payment Method</h4>
                                 <p>Offline</p>
                             </div>
+                        </div>
+                        <div className='d-flex justify-content-center py-4'>
+                            <Link to={`/MyOrderProductDetail/${location?.state?.OrderId}`}>
+                               <button className='trackorderbtn'>Track Order</button>
+                            </Link>
                         </div>
                     </div>
 

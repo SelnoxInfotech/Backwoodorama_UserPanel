@@ -4371,6 +4371,22 @@ padding: 5px 0;
   font-weight: 700;
   margin: 0;
 }
+.trackorderbtn{
+  min-width: 120px;
+  background-color: #fff;
+  color: #31B655;
+  border: 1px solid #31B655;
+  text-align: center;
+  transition: all .3s ease;
+  cursor: pointer;
+  padding: 8px 0;
+  border-radius: 8px;
+}
+.trackorderbtn:hover{
+  background-color: #31B655;
+  color: #fff;
+  border: 1px solid #31B655;
+}
 .clearNotify{
   font-size: 12px;
   font-weight: 600;
@@ -5899,9 +5915,13 @@ width: max-content;
     box-shadow: 0 0 0 2px #228b2255;
 }
 .productDetailsCardWeigthOptions .form-select option:hover{
-   background-color: #228b22;
+   background-color: #31B655;
    color: white;
 }
+.productDetailsCardWeigthOptions select:checked option:hover {
+  box-shadow: 0 0 10px 100px #31B655 inset;
+}
+
 .qty_selector{
   width: 180px;
   display: flex;

@@ -3,8 +3,10 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import useStyles from "../../../../../Style";
 import { Swiper, SwiperSlide } from "swiper/react";
 import IconButton from '@mui/material/IconButton';
+import Select from '@mui/material/Select';
 import { BsShareFill } from "react-icons/bs";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
+import MenuItem from '@mui/material/MenuItem';
 import { WishListPost } from "../../../../Component/Whishlist/WishListApi_"
 import { RWebShare } from "react-web-share";
 import axios from "axios";
@@ -21,7 +23,7 @@ import { Link, useParams } from "react-router-dom";
 import AddToCartPopUp from "../../AddToCartPopUp/AddToCartPopUp";
 import { WhisList } from '../../../../Component/Whishlist/WhisList'
 const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , quentity, setquentity , dynamicWeight, setdynamicWeight }) => {
-
+    console.log(Product)
     const cookies = new Cookies();
     const params = useParams()
     // const [quentity, setquentity] = useState(1);
@@ -42,10 +44,6 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , qu
     const [NewData, SetNewData] = React.useState([])
     const [Whishlist, SetWishList] = React.useState(false)
     const [SelectVariant, SetSelectVariant] = React.useState('')
-
-
-  console.log(DiscountedValue.DiscountType  === "" ,  DiscountedValue.DiscountType === 'Buy X get Y')
-
     const Addtocard = async (Event) => {
         if (token_data) {
             const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
@@ -56,7 +54,6 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , qu
             const config = {
                 headers: { Authorization: `Bearer ${token_data}` }
             };
-
             SetNewData({
                 Product_id: Event?.id,
                 Store_id: Event?.Store_id,
@@ -102,7 +99,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , qu
                     if (error.response.status === 406) {
                         alert("This Product " + error.response.data[0])
                     }
-                })
+            })
         }
         else {
             const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
@@ -247,20 +244,22 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , qu
             } else if (item.SalePrice === val && item.Quantity - 1 <= quentity) {
 
                 Swal.fire({
-                    title: " Insufficient Stock  ",
+                    title: " Insufficient Stock",
                     text: "The requested quantity exceeds the available stock for this product.",
-                    imageUrl: "./image/",
                     footer: `The maximum available quantity for this item is ${item.Stock === "Out of Stock" ? "0" : quentity}.`,
-                    imageWidth: 60,
-                    imageHeight: 60,
-                    timer: 4000
+                    timer: 4000,
+                    imageUrl: 'https://i.ibb.co/k0kZTwd/Empty-Card-Image.png',
+                    imageAlt: 'Custom image',
+                    imageWidth: 80,
+                    imageHeight: 80,
                 });
 
             } else if (item.SalePrice === val && item.Quantity === 1) {
                 Swal.fire({
                     title: " Insufficient Stock  ",
                     text: "The requested quantity exceeds the available stock for this product.",
-                    imageUrl: "./image/",
+                    imageUrl: 'https://i.ibb.co/k0kZTwd/Empty-Card-Image.png',
+                    imageAlt: 'Custom image',
                     footer: `The maximum available quantity for this item is 1.`,
                     imageWidth: 60,
                     imageHeight: 60,
@@ -270,9 +269,12 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , qu
 
         })
     }
-
-
-    //  console.log(DiscountedValue)
+    React.useEffect(()=>{
+        if(Product.length !== 0){
+            console.log(Product?.Prices[0]?.Price[0]?.id)
+          SetSelectVariant( Product?.Prices[0]?.Price[0]?.id)
+        }
+    },[Product])
     return (
         <React.Fragment>
             {
@@ -393,24 +395,24 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , qu
                                 </span><span className="mx-3 newProd_grms productDetailsCardWeigthOptions">
                                     {
                                         Product?.Prices?.map((data) => data.Price.length)[0] > 1 ?
-                                            <select className="form-select" aria-label="Default select example" onChange={(e) => {
+                                            <Select className={classes.weightSelectbox}  onChange={(e) => {
                                                 setquentity(1)
                                                 k(e.target.value)
-                                            }}
-                                                onClick={(e) => PriceSelect(Product.id, e.target.value)}
-                                            >
+                                            }}  onClick={(e) => PriceSelect(Product.id, e.target.value)}  >
                                                 {
                                                     Product?.Prices[0]?.Price?.map((item, index) => {
 
                                                         if (Boolean(item.Weight)) {
-                                                            return <option value={item.id} key={index}>{item.Weight}</option>
+                                                            // return <option value={item.id} key={index}>{item.Weight}</option>
+                                                           return <MenuItem value={item.id} key={index}>{item.Weight}</MenuItem>
                                                         } else {
-                                                            return <option n value={item.id} key={index} >{item.Unit} Unit</option>
+                                                            // return <option n value={item.id} key={index} >{item.Unit} Unit</option>
+                                                            return <MenuItem value={item.id} key={index}>{item.Unit} unit</MenuItem>
                                                         }
 
                                                     })
                                                 }
-                                            </select> :
+                                            </Select> :
                                             Product?.Prices?.map((item) => {
                                                 let vl = item.Price.map((item) => {
                                                     if (Boolean(item.Weight)) {

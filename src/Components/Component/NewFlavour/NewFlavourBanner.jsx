@@ -57,7 +57,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                                             <div className='col-12  d-flex gap-lg-4 gap-md-3 justify-content-sm-start justify-content-between align-items-center'>
 
                                                 <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph'>
-                                                    <p className='newFlavBanerRatingFontStyle'>{data.rating}</p>
+                                                    <p className='newFlavBanerRatingFontStyle'>{data?.rating?.toFixed(1)}</p>
                                                     <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />  
                                                     {/* <div className="product_cart_review">
                                                             {delBtn[0].rating &&  new Array(delBtn[0].rating).fill(null).map(() => (
