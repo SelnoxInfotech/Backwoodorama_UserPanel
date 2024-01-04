@@ -341,12 +341,14 @@ const useStyles = makeStyles({
       backgroundColor: "#ffff",
       color: "#31B665",
       textTransform: "none",
-      border: "2px solid #31B665"
+      border: "2px solid #31B665",
+      transition:'none',
+     
     },
     "& .MuiButtonBase-root:hover": {
       color: "#ffff",
       backgroundColor: "#00b96a",
-      border: "2px solid #31B665"
+      border: "2px solid #31B665",
     },
   },
   Cencell: {

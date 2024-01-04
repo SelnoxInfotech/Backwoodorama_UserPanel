@@ -19,10 +19,6 @@ const AddToCartReview = () => {
     const [LoadingDelete, SetLoadingDelete] = React.useState(false);
     const [wondowWidth, setWindowWidth] = useState('')
     const [AfterDiscount, SetAfterDiscount] = React.useState()
-
-
-
-
     async function DeleteItem(Id, id) {
         Swal.fire({
             title: 'Are you sure?',
@@ -82,54 +78,64 @@ const AddToCartReview = () => {
 
     }
     async function Quantity(Id, Cart, Event) {
+        console.log(Event?.Price?.Quantity)
+            if(Event?.Price?.Quantity > Event.Cart_Quantity  ){
+                if (state.login || token_data) {
 
-        if (state.login || token_data) {
-            const config = {
-                headers: { Authorization: `Bearer ${token_data}` }
-            };
-            let Arry =
-            {
-                Brand_Name: Event.Brand_Name,
-                Product_id: Event.Product_id,
-                Store_id: Event.Store_id,
-                Image_id: Event.Image_id,
-                Price: Event.Price,
-                Cart_Quantity: Event.Cart_Quantity + 1,
-                PriceId: Event.Price.id
-            }
-            await Axios.post(`https://api.cannabaze.com/UserPanel/Update-AddtoCart/${Id}`,
-                Arry,
-                config,
-                SetLoadingPluse(true)
-            )
-                .then((res) => {
-                    SetLoadingPluse(false)
-                    dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+                    const config = {
+                        headers: { Authorization: `Bearer ${token_data}` }
+                    };
+                    let Arry =
+                    {
+                        Brand_Name: Event.Brand_Name,
+                        Product_id: Event.Product_id,
+                        Store_id: Event.Store_id,
+                        Image_id: Event.Image_id,
+                        Price: Event.Price,
+                        Cart_Quantity: Event.Cart_Quantity + 1,
+                        PriceId: Event.Price.id
+                    }
+                    await Axios.post(`https://api.cannabaze.com/UserPanel/Update-AddtoCart/${Id}`,
+                        Arry,
+                        config,
+                        SetLoadingPluse(true)
+                    ).then((res) => {
+                        SetLoadingPluse(false)
+                        dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
 
-                })
-                .catch((error) => {
-                    console.trace(error)
-                    SetLoadingPluse(false)
-                })
+                    })
+                    .catch((error) => {
+                        console.trace(error)
+                        SetLoadingPluse(false)
+                    })
 
-        }
+                }else {
+                    var obj = JSON.parse(localStorage.getItem("items"));
+                    var s = obj?.map((arr) => {
 
-        else {
-            var obj = JSON.parse(localStorage.getItem("items"));
-            var s = obj?.map((arr) => {
+                        if (arr.Product_id === Event.Product_id && arr.Price.id === Event.Price.id) {
 
-                if (arr.Product_id === Event.Product_id && arr.Price.id === Event.Price.id) {
+                            return { ...arr, Cart_Quantity: arr.Cart_Quantity + 1 }
+                        }
+                        return arr
 
-                    return { ...arr, Cart_Quantity: arr.Cart_Quantity + 1 }
+                    })
+                    localStorage.setItem("items", JSON.stringify(s));
+
                 }
-                return arr
-
-            })
-            localStorage.setItem("items", JSON.stringify(s));
-
-        }
-        dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-
+                dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+            }else{
+                Swal.fire({
+                    title: " Insufficient Stock",
+                    text: "The requested quantity exceeds the available stock for this product.",
+                    footer: `The maximum available quantity for this item is ${Event?.Price?.Quantity}.`,
+                    timer: 4000,
+                    imageUrl: 'https://i.ibb.co/k0kZTwd/Empty-Card-Image.png',
+                    imageAlt: 'Custom image',
+                    imageWidth: 80,
+                    imageHeight: 80,
+                });
+            }
     }
     async function decreaseQuantity(Id, Event) {
         if (state.login || token_data) {

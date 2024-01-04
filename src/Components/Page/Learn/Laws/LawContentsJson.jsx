@@ -85,7 +85,7 @@ const Content = [
                                 <li>Can I grow my own medical marijuana plants as a patient?</li>
                                 <p>No, home cultivation of marijuana is not permitted for medical or recreational use in Alabama.</p>
                                 <li>What penalties can I face for possessing marijuana illegally?</li>
-                                <p>A: Possession of marijuana for recreational use is illegal and can lead to legal consequences, including fines and potential incarceration.</p>
+                                <p>Possession of marijuana for recreational use is illegal and can lead to legal consequences, including fines and potential incarceration.</p>
                                 <li>Can the Compassion Act change in the future?</li>
                                 <p>Yes, like any legislation, the Compassion Act can be amended or modified by future legislative actions.</p>
                             </ol>
@@ -101,8 +101,8 @@ const Content = [
                 content: [{
                     title: "Is weed legal in Alaska?",
                     content: <div>
-                        <h2>Yes, both medical and adult-use cannabis are legal in Alaska. </h2>
-                        <p>With the passage of Measure 2 in 2014, Alaska became the third state to legalize recreational cannabis.
+                     
+                        <p>Yes, both medical and adult-use cannabis are legal in Alaska. With the passage of Measure 2 in 2014, Alaska became the third state to legalize recreational cannabis.
                             Medical cannabis use was legalized in 1998 after voters approved the Alaska Medical Marijuana Initiative, or Measure 8</p>
                     </div>
                 },
@@ -125,8 +125,7 @@ const Content = [
                             over its own county and the ability to determine its own onsite regulations.</p>
                         <p>Measure 2's passage changed the Alcohol Beverage Control Board into the Alcohol and Marijuana Control Office (AMCO),
                             which established the Marijuana Control Board (MCB) in 2015 to regulate and govern recreational cannabis use.</p>
-                        <p>Measure 2's passage changed the Alcohol Beverage Control Board into the Alcohol and Marijuana Control Office (AMCO),
-                            which established the Marijuana Control Board (MCB) in 2015 to regulate and govern recreational cannabis use.</p>
+                      
                         <p>The Alaska Department of Health and Social Services (DHSS) oversees the Medical Marijuana Registry</p>
                     </div>
                 },
@@ -291,12 +290,17 @@ const Content = [
                             Many nonprofit dispensaries offer discounts for patients in financial need</p>
                         <p>Dispensaries are allowed one retail location for every 10 pharmacies registered in Arizona. Patients located far from their closest dispensary may opt to use a medical cannabis delivery service.
                             These services will deliver medical cannabis directly to a registered patient's or designated caregiver's residence.</p>
-                        <h2>Finding licensed dispensaries in Arizona</h2>
-                        <p>
-                            Adult-use and medical marijuana card holders can find licensed dispensaries in Arizona and search by major metro areas including Phoenix, Tempe, and Tucson. Some dispensaries in Arizona offer delivery and curbside pickup services in addition to storefront sales.
-                        </p>
+                      
                     </div>
 
+                },
+                {
+                    title: "Finding licensed dispensaries in Arizona",
+                    content: <div>
+                         <p>
+                            Adult-use and medical marijuana card holders can find licensed dispensaries in Arizona and search by major metro areas including Phoenix, Tempe, and Tucson. Some dispensaries in Arizona offer delivery and curbside pickup services in addition to storefront sales.
+                        </p>
+                        </div>
                 },
                 {
                     title: "Where is it safe to consume cannabis?",
@@ -324,14 +328,28 @@ const Content = [
                         <p>No landlord may refuse to lease to or otherwise penalize a person solely for their status as a medical cannabis cardholder.</p>
                     </div>
                 },
-
                 {
                     title: "Medical marijuana registry",
                     content: <div>
                         <p>Adults and patients younger than 18 must meet certain requirements for ADHS approval before being placed on the medical marijuana registry. For minors, the parent or legal guardian must be designated as their caregiver.</p>
                         <p>Adults are not required to designate a caregiver, but can choose to designate one as needed. A registered patient may designate a caregiver to assist with medical marijuana purchases and deliveries, as well as administration and cultivation of medical marijuana. Arizona law specifies that only a qualified patient can apply for a designated caregiver.</p>
-                        <h2>Qualifying conditions</h2>
+                       
+                        
+                        <p>Qualifying patients must be 18 or older to apply for a registry identification card. Minors seeking to apply for a medical cannabis registry identification card must meet the following requirements:</p>
                         <ul>
+                            <li>The qualifying patient's physician has explained both the risks and benefits of medical cannabis use to the patient's parent or legal guardian.</li>
+                            <li>The patient's parent or legal guardian must submit a written certification from two physicians.</li>
+                            <li>The patient's parent or legal guardian must agree to serve as the patient's designated caregiver and control the acquisition, dosage, and use of medical cannabis.</li>
+                        </ul>
+                 
+                       
+                     
+                       </div>
+                },
+                {
+                    title: "Qualifying conditions",
+                    content: <div>
+                         <ul>
                             <li>Alzheimer's disease</li><li>Cancer</li><li>Crohn's Disease</li><li>Glaucoma</li>
                             <li>Hepatitis C</li><li>HIV/AIDS</li><li>Post-traumatic stress disorder (PTSD)</li>
                             <li>A chronic or debilitating disease or medical condition, or the treatment of such a condition that includes:
@@ -344,15 +362,13 @@ const Content = [
                                 </ul>
                             </li>
                         </ul>
-                        <h2>The public may petition ADHS to add debilitating medical conditions to this list.</h2>
-                        <h2>Patient qualifications</h2>
-                        <p>Qualifying patients must be 18 or older to apply for a registry identification card. Minors seeking to apply for a medical cannabis registry identification card must meet the following requirements:</p>
-                        <ul>
-                            <li>The qualifying patient's physician has explained both the risks and benefits of medical cannabis use to the patient's parent or legal guardian.</li>
-                            <li>The patient's parent or legal guardian must submit a written certification from two physicians.</li>
-                            <li>The patient's parent or legal guardian must agree to serve as the patient's designated caregiver and control the acquisition, dosage, and use of medical cannabis.</li>
-                        </ul>
-                        <h2>Registry process</h2>
+                    </div>
+                },
+                {
+                    title: "Patient qualifications",
+                    content: <div>
+                        <p>ADHS recognizes out-of-state medical marijuana registration, offering the same legal protections for visiting patients as those offered to state residents. Out-of-state patients may not purchase from Arizona state-licensed dispensaries, but are allowed to possess up to 2.5 ounces (70 grams) of usable cannabis. </p>
+                        <h3 className="text-black">Registry process</h3>
                         <ol>
                             <li>Receive a written certification of a qualifying debilitating condition from an Arizona-licensed physician. The written certification has to be on a form provided by ADHS and completed within 90 days of submitting an application for a registry identification card.</li>
                             <li>Complete the online patient registry application.</li>
@@ -362,19 +378,27 @@ const Content = [
                             <li>Pay a $150 fee for a medical marijuana registry identification card. The cards expire one year after the date of issue and must be renewed for $150 annually. Patients must apply for renewals at least 30 days before the card expires.</li>
                         </ol>
                         <p>The department will approve or deny an application or renewal within 10 days of receiving a completed application or renewal. A registry identification card is issued within five days following approval. All application or renewal records are confidential.</p>
-                        <h2>Caregiver qualifications</h2>
+                       
+                    </div>
+                },
+               
+                {
+                    title: "Caregiver qualifications",
+                    content: <div>
                         <p>Arizona law specifies that only a qualifying patient can apply for a designated caregiver. Registered caregivers must be age 21 or older, a resident of Arizona, and meet all eligibility requirements prior to ADHS approval. A designated caregiver may provide care for up to five patients and hold a registry identification card for each patient.</p>
                         <p>Caregivers are eligible to be reimbursed for costs incurred while assisting patients with access and use of medical marijuana.</p>
-                        <h2>Registry process</h2>
-                        <ol>
+                       <h3 className="text-black">Registry process</h3>
+                       <ol>
                             <li>Caregivers must provide proof of residency.</li>
                             <li>Caregivers must complete a mandatory criminal background check conducted by ADHS.</li>
                             <li>Once approved, designated caregivers must print, sign, and date the Medical Marijuana Caregiver Attestation form and submit a copy of the form online before receiving a registry identification card.</li>
                             <li>A $150 identification card fee must also be paid to ADHS. The registry ID card will expire one year after the date it was issued. The qualifying patient must apply for renewal at least 30 days before the expiration date.</li>
                         </ol>
                         <p>The department will approve or deny an application or renewal within 10 days of receiving a completed application or renewal. A registry identification card is issued within five days following approval. All application or renewal records are confidential.</p>
+                    
                     </div>
                 },
+             
                 {
                     title: "Reciprocity",
                     content: <div>
@@ -402,26 +426,27 @@ const Content = [
                 {
                     title: "Frequently asked questions",
                     content: <div>
-                        <h2>When is weed going to be legal in Arizona?</h2>
+                        <ol>
+                        <li>When is weed going to be legal in Arizona?</li>
                         <p>On November 3, 2020, Arizona voters passed the Smart and Safe Act, or Proposition 207, legalizing recreational marijuana use for adults 21 and older. Adults without a medical marijuana card can purchase cannabis legally. </p>
-                        <h2>What are the laws of possession of marijuana in Arizona? </h2>
+                        <li>What are the laws of possession of marijuana in Arizona? </li>
                         <p>Patients can possess up to 2.5 ounces (70 grams) in a 14-day period. Allowed forms include flower, edibles, topicals, salves, and capsules, along with consumption accessories. Adults 21 and older can possess up to 1 ounce (28 grams) of marijuana with no more than 5 grams of cannabis concentrates and cultivate up to 6 cannabis plants at their primary residence.</p>
-                        <h2>What are the laws for smoking medical marijuana in Arizona?</h2>
+                        <li>What are the laws for smoking medical marijuana in Arizona?</li>
                         <p>Smoking cannabis in any public place is prohibited. Patients and adults 21 and older can smoke in private as long as it's not a place where tobacco smoking is prohibited. </p>
-                        <h2>What are the laws on medical marijuana use in the workplace in Arizona?</h2>
+                        <li>What are the laws on medical marijuana use in the workplace in Arizona?</li>
                         <p>Arizona's medical marijuana statute does not allow employers to discriminate against a medical marijuana cardholder when hiring, firing, or penalizing based solely on their status as a cardholder unless the employer would lose federal benefits by not doing so. A positive drug test can't be held against a patient unless they used, possessed, or were impaired by cannabis while at work or on the premises during working hours. However, being a medical marijuana patient does not allow anyone to do anything while under the influence that could be considered negligence or professional malpractice. Patients also can't possess or use medical marijuana on any school property, including buses, or in a jail or prison. Operating a vehicle, plane, or boat while impaired is illegal. </p>
-                        <h2>How much marijuana is legal in Arizona?</h2>
+                        <li>How much marijuana is legal in Arizona?</li>
                         <p>Patients can possess up to 2.5 ounces (70 grams) in a 14-day period. Adults over age 21 can possess 1 ounce (28 grams) of marijuana with no more than 5 grams being cannabis concentrates.</p>
-                        <h2>What type of marijuana is legal in Arizona?</h2>
+                        <li>What type of marijuana is legal in Arizona?</li>
                         <p>Allowed forms include flower, edibles, topicals, salves, and capsules, along with consumption accessories.</p>
-                        <h2>What are the weed laws in Arizona for growing your own cannabis?</h2>
+                        <li>What are the weed laws in Arizona for growing your own cannabis?</li>
                         <p>Registered patients and designated caregivers may cultivate 12 cannabis plants for medical use if there is no non-profit cannabis dispensary within 25 miles (40 kilometers) of their home address. Adults 21 and older may grow six plants at their primary residence. Households with two or more adults may grow up to 12 plants. </p>
-                        <h2>Can you go into a dispensary without a card in Arizona?</h2>
+                        <li>Can you go into a dispensary without a card in Arizona?</li>
                         <p>Arizona law doesn't require a medical marijuana card to enter a dispensary but dispensaries may ask for cards at the door or require advanced orders. Patients who wish to purchase more than the 1-ounce recreational limit will need to show a card or be in the registry.  </p>
-                        <h2>Can anyone buy CBD oil in Arizona?</h2>
+                        <li>Can anyone buy CBD oil in Arizona?</li>
                         <p>Yes</p>
-                        <p>This page was last updated January 22, 2021.</p>
-
+                      
+                        </ol>
                     </div>
                 }
                 ]
@@ -432,7 +457,7 @@ const Content = [
                 name: "Arkansas",
                 content: [
                     {
-                        title: " Cannabis Law in Arkansas?",
+                        title: "Arkansas?",
                         content: <div>
                             <p>As the societal attitude towards marijuana undergoes a seismic shift across the United States, many states have begun to reassess their stance on its legality. Arkansas, nestled in the heart of the South, has also joined this nationwide conversation. But is weed legal in Arkansas? The answer is yes, with certain regulations in place.</p>
                         </div>
@@ -459,7 +484,7 @@ const Content = [
                     {
                         title: "Possession and Cultivation Limits?",
                         content: <div>
-                            <p>While marijuana has seen a shift in its legal status, it's important to understand the possession and cultivation limits in Arkansas. As of my last update in September 2021, adults aged 21 and over are allowed to possess up to 2.5 ounces of marijuana for personal use. Moreover, individuals can cultivate a limited number of marijuana plants at their private residence, with a maximum of six flowering plants.</p>
+                            <p>While marijuana has seen a shift in its legal status, it's important to understand the possession and cultivation limits in Arkansas.  adults aged 21 and over are allowed to possess up to 2.5 ounces of marijuana for personal use. Moreover, individuals can cultivate a limited number of marijuana plants at their private residence, with a maximum of six flowering plants.</p>
                         </div>
                     },
                     {
@@ -501,9 +526,16 @@ const Content = [
                                 <p>For those whose medical needs don't align with the listed conditions, an avenue for consideration is available:</p>
                                 <li>Patients facing unaddressed medical challenges can petition the ADH for access to medical marijuana, allowing for a comprehensive and inclusive approach to patient care.</li>
                             </ul>
-                            <h2>The application process serves as a bridge to relief:</h2>
+                           
+                          </div>
+                    },
+                    {
+                        title: "The application process serves as a bridge to relief:",
+                        content: <div>
                             <p>Patients, under the guidance of their healthcare providers, navigate the application process to gain access to medical marijuana. This process involves adhering to the established guidelines, ensuring that the treatment reaches those who genuinely need </p>
+                        
                         </div>
+
                     },
                     {
                         title: "Lab Testing",
@@ -516,16 +548,18 @@ const Content = [
                     {
                         title: "Frequently Asked Questions",
                         content: <div>
-                            <h2>Can I use marijuana for recreational purposes?</h2>
-                            <p>As of my last update in September 2021, Arkansas has legalized marijuana for medical purposes only.</p>
-                            <h2>How can I qualify for medical marijuana use?</h2>
+                            <ol>
+                            <li>Can I use marijuana for recreational purposes?</li>
+                            <p>Arkansas has legalized marijuana for medical purposes only.</p>
+                            <li>How can I qualify for medical marijuana use?</li>
                             <p>To qualify, you must have a qualifying medical condition and obtain a recommendation from a certified physician.</p>
-                            <h2>Are there penalties for violating marijuana laws?</h2>
+                            <li>Are there penalties for violating marijuana laws?</li>
                             <p>Yes, violations can lead to fines and legal consequences. It's important to understand and follow the laws in place.</p>
-                            <h2>Can I grow marijuana at home?</h2>
+                            <li>Can I grow marijuana at home?</li>
                             <p>Yes, you can cultivate a limited number of marijuana plants at home for personal use, but it's important to adhere to the maximum plant limit.</p>
-                            <h2>Can I travel with marijuana within the state?</h2>
+                            <li>Can I travel with marijuana within the state?</li>
                             <p>While possessing marijuana within the state might be legal, it's recommended to keep it in its original packaging and avoid crossing state lines with it.</p>
+                            </ol>
                         </div>
                     }
                 ]
@@ -674,7 +708,7 @@ const Content = [
                     {
                         title: "Is Home Cultivation Allowed in Colorado?",
                         content: <div>
-                            <h2>Caregivers</h2>
+                            <h3 className="text-black">Caregivers</h3>
                             <p>Colorado's medical marijuana program includes provisions for caregivers who can assist patients in obtaining and using their medication. Caregivers play a vital role in supporting patients who may have difficulty accessing or using cannabis on their own due to medical conditions. However, caregivers must follow state regulations and be registered with the Colorado Department of Public Health & Environment.</p>
                             <p>Yes, Colorado allows adults to cultivate their own marijuana plants. However, there are restrictions on the number of plants one can grow at home. Individuals are permitted to cultivate up to 6 plants per person, with a maximum of 12 plants per household if more than one adult resides there. This provision has empowered individuals to cultivate their own cannabis for personal use, but it's essential to adhere to these limits to avoid legal complications.</p>
                         </div>
@@ -689,16 +723,18 @@ const Content = [
                     {
                         title: "Frequently Asked Questions",
                         content: <div>
-                            <h2>Can tourists purchase cannabis?</h2>
-                            <p>Yes, adults 21 and older, including tourists, can purchase cannabis from licensed dispensaries.</p>
-                            <h2>Can I drive under the influence of cannabis?</h2>
-                            <p>No, driving under the influence of cannabis is illegal and can result in serious legal consequences.</p>
-                            <h2>Can I take cannabis out of Colorado?</h2>
-                            <p>No, it is illegal to transport marijuana across state lines, even if you're traveling to another state where it's legal.</p>
-                            <h2>Can landlords prohibit cannabis use in rental properties?</h2>
-                            <p>Yes, landlords have the right to prohibit cannabis use in their rental properties.</p>
-                            <h2>Can employers still enforce drug tests?</h2>
-                            <p>Yes, employers can maintain drug-free workplace policies and enforce drug tests, even though cannabis is legal.</p>
+                            <ol>
+                                <li>Can tourists purchase cannabis?</li>
+                                <p>Yes, adults 21 and older, including tourists, can purchase cannabis from licensed dispensaries.</p>
+                                <li>Can I drive under the influence of cannabis?</li>
+                                <p>No, driving under the influence of cannabis is illegal and can result in serious legal consequences.</p>
+                                <li>Can I take cannabis out of Colorado?</li>
+                                <p>No, it is illegal to transport marijuana across state lines, even if you're traveling to another state where it's legal.</p>
+                                <li>Can landlords prohibit cannabis use in rental properties?</li>
+                                <p>Yes, landlords have the right to prohibit cannabis use in their rental properties.</p>
+                                <li>Can employers still enforce drug tests?</li>
+                                <p>Yes, employers can maintain drug-free workplace policies and enforce drug tests, even though cannabis is legal.</p>
+                            </ol>
                         </div>
                     }
                 ]
@@ -744,8 +780,8 @@ const Content = [
                     }, {
                         title: "Is Home Cultivation Allowed in Connecticut?",
                         content: <div>
-                            <p>Yes, adults in Connecticut are allowed to cultivate marijuana plants at home for personal use. Each household can grow up to [insert number of plants] plants, provided they are kept in a secure and discreet location not visible to the public.</p>
-                            <h2>Caregiving</h2>
+                            <p>Yes, adults in Connecticut are allowed to cultivate marijuana plants at home for personal use. Each household can grow up to 12 plants, provided they are kept in a secure and discreet location not visible to the public.</p>
+                            <h3 className="text-black">Caregiving</h3>
                             <p>Qualified patients who require assistance with obtaining and using medical marijuana are allowed to designate a caregiver. Caregivers play a vital role in helping patients navigate the complexities of using medical marijuana effectively and responsibly.</p>
                         </div>
                     },
@@ -756,16 +792,18 @@ const Content = [
                     {
                         title: "Frequently Asked Questions",
                         content: <div>
-                            <h2>Can I drive under the influence of marijuana in Connecticut?</h2>
-                            <p>No, driving under the influence of marijuana is illegal and can result in serious legal consequences.
-                            </p>
-                            <h2>Can I take marijuana purchased in Connecticut to another state where it's legal?</h2>
-                            <p>It is illegal to transport marijuana across state lines, even if both states have legalized its use.</p>
+                            <ol>
+                                <li>Can I drive under the influence of marijuana in Connecticut?</li>
+                                <p>No, driving under the influence of marijuana is illegal and can result in serious legal consequences.
+                                </p>
+                                <li>Can I take marijuana purchased in Connecticut to another state where it's legal?</li>
+                                <p>It is illegal to transport marijuana across state lines, even if both states have legalized its use.</p>
 
-                            <h2>Can employers in Connecticut still enforce drug testing for marijuana?</h2>
-                            <p>Yes, employers can maintain drug-free workplace policies and enforce drug testing, even though marijuana is legal in the state.</p>
-                            <h2>What is the tax structure for marijuana in Connecticut?</h2>
-                            <p>Recreational marijuana is subject to state and local taxes, with the revenue contributing to various programs and initiatives.</p>
+                                <li>Can employers in Connecticut still enforce drug testing for marijuana?</li>
+                                <p>Yes, employers can maintain drug-free workplace policies and enforce drug testing, even though marijuana is legal in the state.</p>
+                                <li>What is the tax structure for marijuana in Connecticut?</li>
+                                <p>Recreational marijuana is subject to state and local taxes, with the revenue contributing to various programs and initiatives.</p>
+                            </ol>
                         </div>
                     }
                 ]
@@ -814,9 +852,12 @@ const Content = [
                         title: "Where is it Safe to Consume in Delaware?",
                         content: <div>
                             <p>Delaware law prohibits public consumption of marijuana, whether for medical or recreational use. Consumption is generally restricted to private property, with property owners' consent. This can present challenges, especially for individuals who live in rental properties with no-smoking clauses or for tourists visiting the state.</p>
-                            <h2>Caregiver Requirements</h2>
-                            <p>Delaware's medical marijuana program extends provision for designated caregivers to aid registered patients in procuring and administering their prescribed medication. The caregiver qualification process is rigorous and entails undergoing background checks and adhering to specific prerequisites. To legally purchase medical cannabis for a patient, caregivers must obtain a Designated Caregiver ID card. These caregivers should be at least 21 years old or the parent/legal guardian of a minor patient, a resident of Delaware, committed to aiding the patient's medical cannabis use, and limited to assisting no more than five qualifying patients. The application procedure mandates a $125 fee for each patient, encompassing submission of the patient's 10-digit registry number, along with evidence of a $65 payment to the State Bureau of Identification for a criminal background report to be dispatched to the Office of Medical Marijuana (OMM).</p>
+                      
                         </div>
+                    },
+                    {
+                        title: "Caregiver Requirements",
+                        content: <p>Delaware's medical marijuana program extends provision for designated caregivers to aid registered patients in procuring and administering their prescribed medication. The caregiver qualification process is rigorous and entails undergoing background checks and adhering to specific prerequisites. To legally purchase medical cannabis for a patient, caregivers must obtain a Designated Caregiver ID card. These caregivers should be at least 21 years old or the parent/legal guardian of a minor patient, a resident of Delaware, committed to aiding the patient's medical cannabis use, and limited to assisting no more than five qualifying patients. The application procedure mandates a $125 fee for each patient, encompassing submission of the patient's 10-digit registry number, along with evidence of a $65 payment to the State Bureau of Identification for a criminal background report to be dispatched to the Office of Medical Marijuana (OMM).</p>
                     },
                     {
                         title: "Lab Testing",
@@ -825,13 +866,15 @@ const Content = [
                     {
                         title: "Frequently Asked Questions",
                         content: <div>
-                            <h2>Can I grow my own marijuana in Delaware?</h2>
+                            <ol>
+                            <li>Can I grow my own marijuana in Delaware?</li>
                             <p>No, home cultivation is not permitted for either medical or recreational use.</p>
-                            <h2>What medical conditions qualify for the use of medical marijuana?</h2>
+                            <li>What medical conditions qualify for the use of medical marijuana?</li>
                             <p>Qualifying conditions include cancer, multiple sclerosis, epilepsy, PTSD, chronic pain, and more. A full list is available through the Delaware Department of Health and Social Services.</p>
 
-                            <h2>Is driving under the influence of marijuana allowed?</h2>
+                            <li>Is driving under the influence of marijuana allowed?</li>
                             <p>No, driving under the influence of marijuana is illegal and can result in DUI charges.</p>
+                            </ol>
                         </div>
                     },
 
@@ -857,28 +900,53 @@ const Content = [
                         title: "Legalisation History",
                         content: <div>
                             <p>In 2014, the Compassionate Medical Cannabis Act was enacted in Florida, enabling severely ill patients with conditions like cancer and epilepsy to utilize low-THC cannabis. The Florida Department of Health (DOH) established the Office of Compassionate Use (OCU) to oversee the state's medical cannabis program. Governor Rick Scott signed the Florida Right to Try Act in 2015, empowering physicians to offer experimental treatments to seriously ill patients, including non-FDA-approved medicines. In March 2016, the scope of this act expanded to include low-THC and medical cannabis through HB 307. Florida's medical landscape saw a pivotal shift with the passage of the Florida Medical Marijuana Legalization Initiative (Amendment 2) in November 2016, securing over 70% voter approval. This amendment not only broadened medical cannabis legalization but also diversified the list of qualifying conditions. The OCU transitioned into the Office of Medical Marijuana Use (OMMU), and the establishment of Medical Marijuana Treatment Centers (MMTC) was mandated. Responsible for regulatory oversight, the Office of Medical Marijuana Use, under the state Department of Health, now plays a pivotal role in Florida's medical cannabis program.</p>
-                            <h2>Cannabis Possession in Florida</h2>
+                          
+                          
+                        </div>
+                    },
+                    {
+                        title: "Cannabis Possession in Florida",
+                        content: <div>
                             <p>Florida's categorization of cannabis encompasses two distinctions: low-THC cannabis and medical marijuana. For cannabis to fall within the low-THC category, components like flowers, seeds, resin, and other derivatives must contain no more than 0.8% THC and over 10% CBD by weight. Patients and caregivers are subject to possession limits, with a cap on possessing more than a 70-day supply of cannabis, all of which must be retained in its original packaging. Patient purchases are confined to a maximum 35-day supply (2.5 ounces) or ownership of more than 4 ounces of smokable cannabis at any single instance. The transfer of marijuana is restricted solely to caregivers purchasing and transporting for designated patients, serving no other purposes.</p>
                         </div>
                     }, {
                         title: "Where to Purchase Cannabis in Florida?",
                         content: <div>
                             <p>Licensed Medical Marijuana Treatment Centers (MMTCs) are the authorized dispensaries where medical marijuana can be purchased in Florida. These centers provide a range of cannabis products, from flowers to oils and edibles, under strict regulatory guidelines.</p>
-                            <h2>Finding Licensed Dispensaries in Florida</h2>
-                            <p>Florida residents can locate licensed MMTCs through the Florida Department of Health's Office of Medical Marijuana Use (OMMU) website. This ensures safe and legal access to medical cannabis products.</p>
-                            <h2>Where is it Safe to Consume in Florida?</h2>
-                            <p>Florida law prohibits the public consumption of marijuana, whether for medical or recreational purposes. Consumption is generally confined to private residences, ensuring discretion and compliance with the law.</p>
-                            <h2>Is Home Cultivation Allowed in Florida?</h2>
-                            <p>No, home cultivation of marijuana for personal use is not permitted in Florida. All cannabis products must be obtained through licensed MMTCs.</p>
-                        </div>
+                         
+                         
+                          </div>
                     },
+                    {
+                        title: "Finding Licensed Dispensaries in Florida",
+                        content: <div>
+                             <p>Florida residents can locate licensed MMTCs through the Florida Department of Health's Office of Medical Marijuana Use (OMMU) website. This ensures safe and legal access to medical cannabis products.</p>
+                             </div>
+                    }, 
+                    {
+                        title: "Where is it Safe to Consume in Florida?",
+                        content: <div>
+                            <p>Florida law prohibits the public consumption of marijuana, whether for medical or recreational purposes. Consumption is generally confined to private residences, ensuring discretion and compliance with the law.</p>
+                           </div>
+                    }, 
+                    {
+                        title: "Is Home Cultivation Allowed in Florida?",
+                        content: <div>
+                              <p>No, home cultivation of marijuana for personal use is not permitted in Florida. All cannabis products must be obtained through licensed MMTCs.</p>
+                        </div>
+                    }, 
+                  
                     {
                         title: "Medical Marijuana in Florida",
                         content: <div>
                             <p>Florida's medical marijuana program allows qualified patients to access cannabis as a treatment option. Patients must have a qualifying medical condition, obtain a recommendation from a qualified physician, and apply for a Medical Marijuana Use Registry Identification Card.</p>
-                            <h2>Caregiver Requirements</h2>
-                            <p>Patients in Florida have the option to assign a caregiver during their registry application process. Designated caregivers holding valid registry ID cards are authorized to procure cannabis for their patients and aid in administering their medication. Caregivers must be at least 21 years old, not be qualifying physicians, and refrain from having financial stakes in an MMTC. Patients are limited to designating a single caregiver, while those under 18 must appoint an adult caregiver or legal representative to assist them in their medical cannabis use.</p>
-                        </div>
+                           
+                           </div>
+                    },
+                    {
+                        title: "Caregiver Requirements",
+                        content: <p>Patients in Florida have the option to assign a caregiver during their registry application process. Designated caregivers holding valid registry ID cards are authorized to procure cannabis for their patients and aid in administering their medication. Caregivers must be at least 21 years old, not be qualifying physicians, and refrain from having financial stakes in an MMTC. Patients are limited to designating a single caregiver, while those under 18 must appoint an adult caregiver or legal representative to assist them in their medical cannabis use.</p>
+                        
                     },
                     {
                         title: "Lab Testing",
@@ -888,19 +956,21 @@ const Content = [
                     {
                         title: "Frequently Asked Questions",
                         content: <div>
-                            <h2>Can I travel with medical marijuana within Florida?</h2>
-                            <p>Yes, registered patients can travel with their medical marijuana within the state, as long as they adhere to possession limits and guidelines.</p>
+                            <ol>
+                                <li>Can I travel with medical marijuana within Florida?</li>
+                                <p>Yes, registered patients can travel with their medical marijuana within the state, as long as they adhere to possession limits and guidelines.</p>
 
-                            <h2>Can I use my out-of-state medical marijuana card in Florida?</h2>
-                            <p>No, Florida does not recognize out-of-state medical marijuana cards. Only registered Florida patients can legally purchase and possess cannabis within the state.</p>
-                            <h2>When is recreational weed going to be legal in Florida?</h2>
-                            <p>As of now, recreational use of marijuana remains illegal in Florida. The state has only legalized medical marijuana for qualified patients with specific medical conditions.</p>
-                            <h2>Is pot a felony in Florida?</h2>
-                            <p>Possession of marijuana can result in different legal consequences in Florida. While possession of small amounts for personal use has been decriminalized to some extent, possession of larger amounts or intent to distribute can lead to felony charges.</p>
-                            <h2>What cannabinoids are legal in Florida?</h2>
-                            <p>Florida's laws primarily revolve around the legality of THC (tetrahydrocannabinol) and CBD (cannabidiol). Low-THC cannabis is allowed for medical use, and CBD products with very low THC content are also legal under certain conditions.</p>
-                            <h2>Is adult use marijuana legal in Florida?</h2>
-                            <p>No, adult-use or recreational marijuana is not legal in Florida. The state has only legalized medical marijuana for specific medical conditions and qualified patients.</p>
+                                <li>Can I use my out-of-state medical marijuana card in Florida?</li>
+                                <p>No, Florida does not recognize out-of-state medical marijuana cards. Only registered Florida patients can legally purchase and possess cannabis within the state.</p>
+                                <li>When is recreational weed going to be legal in Florida?</li>
+                                <p>As of now, recreational use of marijuana remains illegal in Florida. The state has only legalized medical marijuana for qualified patients with specific medical conditions.</p>
+                                <li>Is pot a felony in Florida?</li>
+                                <p>Possession of marijuana can result in different legal consequences in Florida. While possession of small amounts for personal use has been decriminalized to some extent, possession of larger amounts or intent to distribute can lead to felony charges.</p>
+                                <li>What cannabinoids are legal in Florida?</li>
+                                <p>Florida's laws primarily revolve around the legality of THC (tetrahydrocannabinol) and CBD (cannabidiol). Low-THC cannabis is allowed for medical use, and CBD products with very low THC content are also legal under certain conditions.</p>
+                                <li>Is adult use marijuana legal in Florida?</li>
+                                <p>No, adult-use or recreational marijuana is not legal in Florida. The state has only legalized medical marijuana for specific medical conditions and qualified patients.</p>
+                            </ol>
                         </div>
 
                     },
@@ -914,7 +984,7 @@ const Content = [
                 content: [
                     {
                         title: "Is Weed Legal in Georgia?",
-                        content: <p>Marijuana legalisation has been a topic of ongoing debate across the United States, and Georgia is no exception. As of my last update in September 2021, recreational marijuana remains illegal in the state of Georgia. However, the landscape for medical marijuana has seen significant changes in recent years.</p>
+                        content: <p>Marijuana legalisation has been a topic of ongoing debate across the United States, and Georgia is no exception.  recreational marijuana remains illegal in the state of Georgia. However, the landscape for medical marijuana has seen significant changes in recent years.</p>
                     },
                     {
                         title: "Legislation History",
@@ -946,16 +1016,18 @@ const Content = [
                     {
                         title: "Frequently Asked Questions",
                         content: <div>
-                            <h2>Can I legally possess recreational marijuana in Georgia?</h2>
+                            <ol>
+                            <li>Can I legally possess recreational marijuana in Georgia?</li>
                             <p>No, recreational marijuana is illegal in Georgia.</p>
-                            <h2>What medical conditions qualify for the use of medical cannabis in Georgia?</h2>
+                            <li>What medical conditions qualify for the use of medical cannabis in Georgia?</li>
                             <p>Conditions such as epilepsy, multiple sclerosis, Parkinson's disease, and certain types of cancer qualify for the use of low-THC cannabis oil.</p>
-                            <h2>Can I purchase medical cannabis from dispensaries in Georgia?</h2>
+                            <li>Can I purchase medical cannabis from dispensaries in Georgia?</li>
                             <p>No, the state currently does not permit the sale or cultivation of medical marijuana.</p>
-                            <h2>What are the penalties for marijuana possession in Georgia?</h2>
+                            <li>What are the penalties for marijuana possession in Georgia?</li>
                             <p>Penalties vary based on the amount of marijuana and an individual's criminal history, but they can include fines and potential jail time.</p>
-                            <h2>Are there efforts to expand Georgia's medical marijuana program?</h2>
+                            <li>Are there efforts to expand Georgia's medical marijuana program?</li>
                             <p>Efforts to expand the program have been ongoing, with advocates pushing for broader access and more qualifying conditions.</p>
+                            </ol>
                         </div>
                     }
                 ]
@@ -967,7 +1039,7 @@ const Content = [
                 content: [
                     {
                         title: "Is Weed Legal in Guam?",
-                        content: <p>The landscape of marijuana laws is continually evolving across the globe, and Guam is no exception. As of my last update in September 2021, marijuana is legal for both medical and adult-use (recreational) purposes in Guam, marking a significant departure from its historical stance on cannabis.
+                        content: <p>The landscape of marijuana laws is continually evolving across the globe, and Guam is no exception. Marijuana is legal for both medical and adult-use (recreational) purposes in Guam, marking a significant departure from its historical stance on cannabis.
                         </p>
                     },
                     {
@@ -993,20 +1065,28 @@ const Content = [
                         title: "Where is it Safe to Consume in Guam?",
                         content: <div>
                             <p>While cannabis is legal, consuming it in public spaces remains prohibited. It's crucial to consume responsibly in the confines of private spaces to adhere to the law and respect others' preferences. Choosing the right setting ensures a positive experience for all.</p>
-                            <h2>*Headline 6: Is Home Cultivation Allowed in Guam?*</h2>
-                            <p>Home cultivation of cannabis is legal in Guam, with certain limitations. Individuals can grow up to six mature plants and six immature plants for personal use. This provision empowers individuals to have greater control over their cannabis supply while staying within the limits set by the law.</p>
-                        </div>
+                           
+                           </div>
+                    },
+                    {
+                        title: "Is Home Cultivation Allowed in Guam?*",
+                        content: <p>Home cultivation of cannabis is legal in Guam, with certain limitations. Individuals can grow up to six mature plants and six immature plants for personal use. This provision empowers individuals to have greater control over their cannabis supply while staying within the limits set by the law.</p>
                     },
                     {
                         title: "Medical Marijuana in Guam",
                         content: <div>
                             <p>Guam has embraced the medical potential of cannabis. Qualified patients with debilitating medical conditions can access medical marijuana through a regulated system. This system ensures that patients receive the care they need while maintaining quality standards for medical cannabis products.</p>
-                            <h2>Caregiving</h2>
-                            <p>In Guam's medical marijuana program, caregivers play an indispensable role, standing as pillars of support for qualifying patients seeking relief through cannabis. Endowed with the authority to aid patients in accessing and utilizing medical cannabis, caregivers are integral to the program's success. They embark on a carefully orchestrated registration journey, a process meticulously designed to ensure the security and wellness of patients. These caregivers must be Guam residents aged 21 or above and are permitted to assist up to five patients, acting as dedicated guides in the realm of medical cannabis.</p>
-                            <p>As a testament to Guam's commitment to responsible caregiving, while patient registration remains voluntary, caregivers are mandated to register and carry their registration card at all times—whether they're procuring, cultivating, or transporting cannabis on behalf of their patients. The meticulous approach safeguards the integrity of the program and fortifies the bond between caregivers and patients.</p>
-                            <p>In scenarios where caregivers cultivate plants for multiple patients, stringent guidelines are enforced. The plants must either flourish within the homes of patients or caregivers or be centralized at a single cultivation site. This stipulation ensures accountable cultivation practices and adheres to the essence of patient-focused caregiving.</p>
-                            <p>Distinguishing between cultivation scopes, caregivers are authorized to nurture plants for up to three patients sans the need for a cultivation license. For those caring for a larger number—up to five patients—a special commercial cultivation license comes into play, requiring a nominal fee of $10 per patient. This pragmatic approach echoes Guam's dedication to fostering a responsible and inclusive medical marijuana framework.</p>
-                            <p>Caregivers stand as guardians of wellness, forging a crucial bridge between patients and the benefits of medical cannabis. Their pivotal role, fortified by stringent regulations, signifies Guam's unwavering commitment to patient-centered care within the realm of medical marijuana. </p>
+                         
+                        </div>
+                    },
+                    {
+                        title: "Caregiving",
+                        content:<div>
+                        <p>In Guam's medical marijuana program, caregivers play an indispensable role, standing as pillars of support for qualifying patients seeking relief through cannabis. Endowed with the authority to aid patients in accessing and utilizing medical cannabis, caregivers are integral to the program's success. They embark on a carefully orchestrated registration journey, a process meticulously designed to ensure the security and wellness of patients. These caregivers must be Guam residents aged 21 or above and are permitted to assist up to five patients, acting as dedicated guides in the realm of medical cannabis.</p>
+                        <p>As a testament to Guam's commitment to responsible caregiving, while patient registration remains voluntary, caregivers are mandated to register and carry their registration card at all times—whether they're procuring, cultivating, or transporting cannabis on behalf of their patients. The meticulous approach safeguards the integrity of the program and fortifies the bond between caregivers and patients.</p>
+                        <p>In scenarios where caregivers cultivate plants for multiple patients, stringent guidelines are enforced. The plants must either flourish within the homes of patients or caregivers or be centralized at a single cultivation site. This stipulation ensures accountable cultivation practices and adheres to the essence of patient-focused caregiving.</p>
+                        <p>Distinguishing between cultivation scopes, caregivers are authorized to nurture plants for up to three patients sans the need for a cultivation license. For those caring for a larger number—up to five patients—a special commercial cultivation license comes into play, requiring a nominal fee of $10 per patient. This pragmatic approach echoes Guam's dedication to fostering a responsible and inclusive medical marijuana framework.</p>
+                        <p>Caregivers stand as guardians of wellness, forging a crucial bridge between patients and the benefits of medical cannabis. Their pivotal role, fortified by stringent regulations, signifies Guam's unwavering commitment to patient-centered care within the realm of medical marijuana. </p>
                         </div>
                     },
                     {
@@ -1017,17 +1097,18 @@ const Content = [
                     {
                         title: "Frequently Asked Questions",
                         content: <div>
-                            <h2>Can I possess marijuana in Guam?</h2>
+                            <ol>
+                            <li>Can I possess marijuana in Guam?</li>
                             <p>Yes, adults aged 21 and older can possess limited amounts of marijuana for personal use</p>
-                            <h2>Can I purchase cannabis in Guam?</h2>
+                            <li>Can I purchase cannabis in Guam?</li>
                             <p>Yes, licensed dispensaries offer legal cannabis products to eligible individuals.</p>
-                            <h2>Is home cultivation allowed?</h2>
+                            <li>Is home cultivation allowed?</li>
                             <p>Yes, residents can cultivate a limited number of cannabis plants for personal use.</p>
-                            <h2>What about medical marijuana?</h2>
+                            <li>What about medical marijuana?</li>
                             <p>Qualified patients can access medical marijuana through a regulated system.</p>
-                            <h2>Where can I consume cannabis?</h2>
+                            <li>Where can I consume cannabis?</li>
                             <p>Consumption should take place in private spaces; public consumption is prohibited.</p>
-                            <p>As the legal landscape for marijuana continues to evolve, staying informed is crucial. The information presented here offers a snapshot of Guam's marijuana laws, but it's essential to stay up-to-date with the latest developments and adhere to the regulations in place.</p>
+                            </ol>
                         </div>
                     }
                 ]
@@ -1039,7 +1120,7 @@ const Content = [
                 content: [{
                     title: "Is weed legal in Hawaii?",
                     content: <div>
-                        <p>When it comes to the legalization of marijuana, the laws in the United States have been undergoing significant changes in recent years. Hawaii, known for its stunning landscapes and relaxed atmosphere, has also seen shifts in its stance towards cannabis. But what exactly are the marijuana laws in the Aloha State? Let's dive into the details.</p>
+                        <p>When it comes to the legalization of marijuana, the laws in the United States have been undergoing significant changes in recent years. Hawaii, known for its stunning landscapes and relaxed atmosphere, has also seen shifts in its stance towards cannabis.</p>
                     </div>
                 },
                 {
@@ -1092,11 +1173,11 @@ const Content = [
                             <p>Yes, as long as they are 21 or older and purchase from licensed dispensaries.</p>
                             <li>Are there limits to how much cannabis an adult can possess?</li>
                             <p>Yes, adults can possess up to one ounce (28 grams) of cannabis.</p>
-                            <li>. **Can I consume cannabis on beaches or in parks?**</li>
+                            <li>Can I consume cannabis on beaches or in parks?</li>
                             <p> No, public consumption is not allowed. Consume cannabis in private spaces.</p>
-                            <li> **What medical conditions qualify for medical marijuana in Hawaii?**</li>
+                            <li> What medical conditions qualify for medical marijuana in Hawaii?</li>
                             <p>   Qualifying conditions include cancer, epilepsy, HIV/AIDS, multiple sclerosis, and more. Check the updated list from the Department of Health.</p>
-                            <li>. **Can I grow cannabis at home for medical use?**</li>
+                            <li>Can I grow cannabis at home for medical use?</li>
                             <p> Only registered medical marijuana patients are allowed to cultivate a limited number of plants at home.</p>
                             <p>Navigating Hawaii's marijuana laws requires a clear understanding of the regulations to ensure compliance. Whether you're a resident seeking medical treatment or a visitor interested in recreational use, staying informed is key to enjoying cannabis responsibly in the Aloha State. Remember, laws and regulations can evolve, so it's always a good idea to check for updates from official sources.</p>
                         </ol>
@@ -1111,7 +1192,7 @@ const Content = [
                 name: "Idaho",
                 content: [
                     {
-                        title: "IdaIs Weed Legal in Idaho?ho",
+                        title: "IdaIs Weed Legal in Idaho?",
                         content: <p>The United States' shifting stance on marijuana has sparked a multitude of discussions across the nation. Among the states, Idaho stands firm as one that maintains strict regulations around cannabis. In the Gem State, understanding the marijuana laws is crucial for residents and visitors alike.</p>
 
                     },
@@ -1157,7 +1238,7 @@ const Content = [
                 name: "Illinois",
                 content: [
                     {
-                        title: "Cannabis Law in Illinois",
+                        title: "Illinois",
                         content: <p>In recent years, the legal landscape surrounding marijuana has undergone significant changes across the United States. One state that has been at the forefront of this movement is Illinois. With evolving legislation, regulations, and guidelines, it's important to have a clear understanding of the marijuana laws in the Land of Lincoln. Whether you're a resident, a traveller, or just curious about the topic, this comprehensive guide will help you navigate through the complexities of marijuana laws in Illinois.</p>
                     },
                     {
@@ -1244,9 +1325,8 @@ const Content = [
                 name: "Indiana",
                 content: [
                     {
-                        title: "Cannabis Law in Indiana",
+                        title: "Indiana",
                         content: <div>
-                            <h2>Introduction</h2>
                             <p>As the landscape of marijuana laws continues to evolve across the United States, it's important to understand the specific regulations that govern each state. Indiana, known for its conservative stance on cannabis, has unique laws and policies surrounding its use and possession. Whether you're an Indiana resident or simply curious about the legal framework, this comprehensive guide will shed light on the marijuana laws in the Hoosier State.</p>
                         </div>
                     },
@@ -1322,7 +1402,7 @@ const Content = [
                     {
                         title: "Medical Marijuana in Kansas?",
                         content:
-                            <p>As of my last knowledge update in September 2021, Kansas had not legalised medical marijuana. However, it's important to stay updated on legislative changes, as attitudes and laws regarding cannabis are shifting across the country. At that time, patients seeking medical cannabis had to explore options in neighbouring states where medical marijuana programs were established.</p>
+                            <p>Kansas had not legalised medical marijuana. However, it's important to stay updated on legislative changes, as attitudes and laws regarding cannabis are shifting across the country. At that time, patients seeking medical cannabis had to explore options in neighbouring states where medical marijuana programs were established.</p>
                     },
                     {
                         title: "Where is it safe to consume cannabis in Kansas?",
@@ -1345,7 +1425,7 @@ const Content = [
 
                                 <p>Penalties for marijuana possession in Kansas can range from fines to potential jail time, depending on the amount and circumstances.</p>
                                 <li>Is there any hope for marijuana legalization in Kansas in the future?</li>
-                                <p>While the possibility of legalization is always present, as of my last update in September 2021, there were no significant moves toward marijuana legalization in Kansas. However, the landscape of cannabis legislation can change, so it's important to stay informed about potential changes.</p>
+                                <p>While the possibility of legalization is always present,  there were no significant moves toward marijuana legalization in Kansas. However, the landscape of cannabis legislation can change, so it's important to stay informed about potential changes.</p>
                             </ol>
                         </div>
                     },
@@ -1372,7 +1452,7 @@ const Content = [
                     {
                         title: "Medical Marijuana in Kentucky?",
                         content:
-                            <p>As of my last update in September 2021, Kentucky had introduced limited provisions for medical marijuana use. In 2014, the state passed a law allowing the use of low-THC cannabidiol (CBD) oil for specific medical conditions. However, the law was restrictive in its scope, and broader medical marijuana programs had not been implemented at that time. It's important to stay informed about any developments in Kentucky's medical marijuana legislation, as attitudes and laws are evolving across the nation.</p>
+                            <p> Kentucky had introduced limited provisions for medical marijuana use. In 2014, the state passed a law allowing the use of low-THC cannabidiol (CBD) oil for specific medical conditions. However, the law was restrictive in its scope, and broader medical marijuana programs had not been implemented at that time. It's important to stay informed about any developments in Kentucky's medical marijuana legislation, as attitudes and laws are evolving across the nation.</p>
                     },
                     {
                         title: "Where is it Safe to Consume Cannabis in Kentucky?",
@@ -1412,7 +1492,7 @@ const Content = [
                     {
                         title: "Is Weed Legal in Louisiana?",
                         content:
-                            <p>Navigating the intricate web of marijuana laws across the United States can be challenging. As of my last update in September 2021, Louisiana maintains a nuanced stance on marijuana. While the state has taken steps toward medical cannabis legalization, recreational use remains illegal. Understanding the nuances of Louisiana's marijuana laws is essential to avoid legal complications.</p>
+                            <p>Navigating the intricate web of marijuana laws across the United States can be challenging.  Louisiana maintains a nuanced stance on marijuana. While the state has taken steps toward medical cannabis legalization, recreational use remains illegal. Understanding the nuances of Louisiana's marijuana laws is essential to avoid legal complications.</p>
                     },
                     {
                         title: "Legislation History in Louisiana",
@@ -1476,7 +1556,7 @@ const Content = [
                                 <li>How can I access medical marijuana in Louisiana?</li>
                                 <p>Qualified patients must be diagnosed with specific medical conditions and obtain a recommendation from a registered physician. Registration with the state's medical marijuana program is required.</p>
                                 <li>Can I grow my own marijuana plants if I'm a registered medical marijuana patient?</li>
-                                <p>A: No, home cultivation is not allowed in Louisiana. Medical marijuana is only available through licensed dispensaries.</p>
+                                <p>No, home cultivation is not allowed in Louisiana. Medical marijuana is only available through licensed dispensaries.</p>
                                 <li>Are there specific medical conditions that qualify for medical marijuana in Louisiana?</li>
                                 <p>Yes, the state has a list of qualifying medical conditions, including conditions like cancer, epilepsy, and multiple sclerosis. However, it's important to consult the most up-to-date list as it may evolve over time.</p>
                                 <li>Can I consume medical marijuana in public places?</li>
@@ -1493,7 +1573,7 @@ const Content = [
                 name: "lowa",
                 content: [
                     {
-                        title: "Cannabis Law In lowa",
+                        title: "Iowa",
                         content: <p>As states across the nation grapple with the evolving landscape of marijuana legislation, Iowa maintains a distinct approach to cannabis. Whether you're an Iowa resident or curious about the state's stance, this comprehensive guide sheds light on the intricacies of marijuana laws in the Hawkeye State.</p>
                     },
                     {
@@ -1580,7 +1660,7 @@ const Content = [
                 content: [
                     {
                         title: "Is Weed Legal in Maine?",
-                        content: <p>The landscape of marijuana laws in the United States is a complex tapestry, and Maine has woven its unique pattern within this fabric. As of my last update in September 2021, Maine has legalized both recreational and medical use of marijuana for adults. However, understanding the intricacies of Maine's marijuana laws is essential to navigate this evolving terrain. </p>
+                        content: <p>The landscape of marijuana laws in the United States is a complex tapestry, and Maine has woven its unique pattern within this fabric.  Maine has legalized both recreational and medical use of marijuana for adults. However, understanding the intricacies of Maine's marijuana laws is essential to navigate this evolving terrain. </p>
                     },
                     {
                         title: "Legislation History in Maine",
@@ -1658,7 +1738,7 @@ const Content = [
                 content: [
                     {
                         title: "Is Weed Legal in Maryland?",
-                        content: <p>The landscape of marijuana laws in the United States is diverse, and Maryland has established its unique stance within this intricate tapestry. As of my last update in September 2021, Maryland has taken steps toward both medical and decriminalized recreational use of marijuana. However, understanding the nuances of Maryland's marijuana laws is essential for residents and visitors alike.</p>
+                        content: <p>The landscape of marijuana laws in the United States is diverse, and Maryland has established its unique stance within this intricate tapestry.  Maryland has taken steps toward both medical and decriminalized recreational use of marijuana. However, understanding the nuances of Maryland's marijuana laws is essential for residents and visitors alike.</p>
                     },
                     {
                         title: "Legislation History in Maryland",
@@ -1716,9 +1796,9 @@ const Content = [
                                 <li>Can I purchase medical marijuana from any dispensary in Maryland?</li>
                                 <p>Registered patients can purchase medical marijuana products from licensed dispensaries in Maryland.</p>
                                 <li>Is public consumption of marijuana allowed in Maryland?</li>
-                                <p>A: No, public consumption of marijuana remains illegal. Consumption should be limited to private spaces.</p>
+                                <p> No, public consumption of marijuana remains illegal. Consumption should be limited to private spaces.</p>
                                 <li>Can I grow my own marijuana plants for personal use in Maryland?</li>
-                                <p>A: No, home cultivation of marijuana is not allowed in Maryland, even for medical purposes.</p>
+                                <p> No, home cultivation of marijuana is not allowed in Maryland, even for medical purposes.</p>
                                 <li>How can I become a registered medical marijuana patient in Maryland?</li>
                                 <p>Qualified patients with specific medical conditions can apply for a medical marijuana card by obtaining a physician's recommendation and following the application process.</p>
                             </ol>
@@ -1797,14 +1877,14 @@ const Content = [
                         title: "Frequently Asked Questions",
                         content: <div>
                             <ol>
-                                <li> Q1.Can I smoke weed in public parks or on the streets in Massachusetts?</li>
-                                <p>A1. No, public consumption of cannabis is illegal in Massachusetts. You can only consume cannabis in private residences or on private property with the owner's permission.</p>
-                                <li>Q2. What are the penalties for underage possession of marijuana in Massachusetts?</li>
-                                <p>A2. Possession of marijuana by individuals under 21 can result in fines and mandatory drug education programs, but it does not lead to criminal charges.</p>
-                                <li>Q3. Can I transport marijuana in my car in Massachusetts?</li>
-                                <p>A3. Yes, you can transport marijuana in your car, but it must be in a sealed container or stored in the trunk or a locked glove compartment.</p>
-                                <li>Q4. Is weed legal in Boston?</li>
-                                <p>A4. Yes, it's legal throughout Massachusetts.</p>
+                                <li>Can I smoke weed in public parks or on the streets in Massachusetts?</li>
+                                <p>No, public consumption of cannabis is illegal in Massachusetts. You can only consume cannabis in private residences or on private property with the owner's permission.</p>
+                                <li> What are the penalties for underage possession of marijuana in Massachusetts?</li>
+                                <p> Possession of marijuana by individuals under 21 can result in fines and mandatory drug education programs, but it does not lead to criminal charges.</p>
+                                <li> Can I transport marijuana in my car in Massachusetts?</li>
+                                <p> Yes, you can transport marijuana in your car, but it must be in a sealed container or stored in the trunk or a locked glove compartment.</p>
+                                <li> Is weed legal in Boston?</li>
+                                <p>Yes, it's legal throughout Massachusetts.</p>
                             </ol>
                         </div>
                     },
@@ -1823,7 +1903,7 @@ const Content = [
                     {
                         title: "Legislation History in Michigan",
                         content: <div>
-                            <h2>Michigan's path to marijuana legalization has witnessed transformative changes:</h2>
+                            <p>Michigan's path to marijuana legalization has witnessed transformative changes:</p>
                             <ol>
                                 <li>Medical Marijuana (2008): In 2008, Michigan voters approved the Michigan Compassionate Care Initiative, legalizing medical marijuana for patients with qualifying conditions. This marked the beginning of a regulated medical cannabis program.</li>
                                 <li>Recreational Legalization (2018): In November 2018, Proposal 1, also known as the Michigan Regulation and Taxation of Marihuana Act, was passed, allowing recreational marijuana for adults aged 21 and older. This legislation established the framework for regulating and taxing the adult-use cannabis market.</li>
@@ -1881,11 +1961,11 @@ const Content = [
                         content: <div>
                             <ol>
                                 <li>Can I smoke weed in public in Michigan?</li>
-                                <p>- No, public consumption of cannabis is illegal in Michigan. It should only be consumed in private residences.</p>
+                                <p>No, public consumption of cannabis is illegal in Michigan. It should only be consumed in private residences.</p>
                                 <li>What are the penalties for underage possession of marijuana in Michigan?</li>
-                                <p>- Possession of marijuana by individuals under 21 can result in fines and mandatory drug education programs, but it does not lead to criminal charges.</p>
+                                <p>Possession of marijuana by individuals under 21 can result in fines and mandatory drug education programs, but it does not lead to criminal charges.</p>
                                 <li> Can I transport marijuana in my car in Michigan?</li>
-                                <p>   - Yes, you can transport marijuana in your car, but it must be in a sealed container in the trunk or a locked glove compartment.</p>
+                                <p>Yes, you can transport marijuana in your car, but it must be in a sealed container in the trunk or a locked glove compartment.</p>
                                 <li>Can you go to a dispensary in Michigan without a card?</li>
                                 <p>No, to enter a medical marijuana dispensary, you need an MMMP card. But cannabis is legal for adults 21 and older in the state so you can go to any recreational retailer.</p>
                             </ol>
@@ -1965,11 +2045,11 @@ const Content = [
                         content: <div>
                             <ol>
                                 <li> Can I use marijuana recreationally in Minnesota?</li>
-                                <p>   - No, recreational marijuana use is illegal in Minnesota.</p>
+                                <p>   No, recreational marijuana use is illegal in Minnesota.</p>
                                 <li> What are the qualifying conditions for medical marijuana in Minnesota?</li>
-                                <p>   - Qualifying conditions include cancer, glaucoma, HIV/AIDS, intractable pain, and several other chronic or debilitating conditions. The list of qualifying conditions may change over time, so it's essential to check the latest updates from the Medical Cannabis Program.</p>
+                                <p>  Qualifying conditions include cancer, glaucoma, HIV/AIDS, intractable pain, and several other chronic or debilitating conditions. The list of qualifying conditions may change over time, so it's essential to check the latest updates from the Medical Cannabis Program.</p>
                                 <li>Can I grow my own cannabis in Minnesota for medical use?</li>
-                                <p>   - No, home cultivation is not allowed in Minnesota, even for medical purposes. All medical marijuana must be obtained through authorized dispensaries.</p>
+                                <p>  No, home cultivation is not allowed in Minnesota, even for medical purposes. All medical marijuana must be obtained through authorized dispensaries.</p>
                             </ol>
                         </div>
                     },
@@ -2006,12 +2086,24 @@ const Content = [
                         title: "Recreational Marijuana Legalisation:",
                         content: <div>
                             <p>Washington, D.C., took a significant step towards cannabis reform in 2014 when voters approved Initiative 71. This ballot measure legalised the possession, use, and cultivation of small amounts of marijuana for adults aged 21 and older. While it allowed for personal use and cultivation, it did not establish a regulated retail market for recreational sales.</p>
-                            <h2>Possession Limits:</h2>
-                            <p>Under Initiative 71, adults in Washington, D.C., are allowed to possess up to two ounces (approximately 56.7 grams) of marijuana and cultivate up to six cannabis plants (with no more than three being mature) in their private residences. It's important to note that possession limits may vary when it comes to cannabis concentrates and edibles.</p>
-                            <h2>Purchasing Options:</h2>
+                      
+                             <h2>Purchasing Options:</h2>
 
-                            <h2>Consumption Restrictions:</h2> <p>Initiative 71 did not establish a system for the legal sale of recreational marijuana. While personal cultivation and sharing of small amounts were allowed, there were no licensed dispensaries for retail sales of recreational cannabis in the District. Medical marijuana, however, could be obtained from licensed dispensaries by registered patients.</p>
-                            <p>Initiative 71 permits the consumption of marijuana in private residences. Public consumption and consumption within view of the public remained illegal. Driving under the influence of marijuana is strictly prohibited, with laws in place to deter impaired driving.</p>
+                           
+                        </div>
+                    },
+                    {
+                        title: "Consumption Restrictions:",
+                        content: <div>
+                            <p>Initiative 71 did not establish a system for the legal sale of recreational marijuana. While personal cultivation and sharing of small amounts were allowed, there were no licensed dispensaries for retail sales of recreational cannabis in the District. Medical marijuana, however, could be obtained from licensed dispensaries by registered patients.</p>
+                                <p>Initiative 71 permits the consumption of marijuana in private residences. Public consumption and consumption within view of the public remained illegal. Driving under the influence of marijuana is strictly prohibited, with laws in place to deter impaired driving.</p>
+                        </div>
+                    },
+                    {
+                        title: "Possession Limits:",
+                        content: <div>
+                          <p>Under Initiative 71, adults in Washington, D.C., are allowed to possess up to two ounces (approximately 56.7 grams) of marijuana and cultivate up to six cannabis plants (with no more than three being mature) in their private residences. It's important to note that possession limits may vary when it comes to cannabis concentrates and edibles.</p>
+                           
                         </div>
                     },
                     {
@@ -2023,9 +2115,9 @@ const Content = [
                     {
                         title: "Frequently Asked Questions",
                         content: <div>
-                            <ul>
+                            <ol>
                                 <li>Can I purchase recreational marijuana in Washington, D.C.?</li>
-                                <p>Yes, Washington, D.C., allows for the legal possession and use of marijuana for both recreational and medical purposes. However, it's important to note that while possession and use are legalised, there is no regulated retail market for recreational sales. Medical marijuana can be obtained from licensed dispensaries by registered patients.</p>
+                                <p>Yes, Washington, D.C., allows for the legal possession and use of marijuana for both recreational and medical purposes. However, it's important to note that while possession and use are legalised, there is no regolated retail market for recreational sales. Medical marijuana can be obtained from licensed dispensaries by registered patients.</p>
                                 <li>What are the qualifying conditions for medical marijuana in Washington, D.C.?</li>
                                 <p>The Medical Marijuana Program in the District of Columbia covered various medical conditions, including HIV/AIDS, cancer, chronic pain, and more. Eligibility for medical cannabis required a physician's recommendation.</p>
 
@@ -2033,7 +2125,7 @@ const Content = [
                                 <p>Marijuana consumption is generally limited to private residences. Public consumption and consumption within view of the public are illegal.</p>
                                 <li>What are the penalties for driving under the influence of marijuana in Washington, D.C.?</li>
                                 <p>Driving under the influence of marijuana is strictly prohibited and subject to penalties, including fines, licence suspension, and mandatory education programs.</p>
-                            </ul>
+                            </ol>
                         </div>
                     },
 
@@ -2075,17 +2167,34 @@ const Content = [
                         title: "Medical Marijuana Legalisation:",
                         content: <div>
                             <p>West Virginia legalised medical marijuana with a focus on ensuring patient access to safe and regulated cannabis products. Under this program, patients with qualifying conditions, such as chronic pain, cancer, and epilepsy, could apply for a medical marijuana card. This card allowed them to purchase medical cannabis from licensed dispensaries.</p>
-                            <h2>Possession Limits:</h2>
-                            <p>These limits typically included a specific quantity of usable marijuana over a defined period. It's essential to consult the most up-to-date information to understand the current possession limits for medical cannabis patients in the state.</p>
-                            <h2>Purchasing Options:</h2>
-                            <p>Registered medical marijuana patients in West Virginia could purchase cannabis products from licensed dispensaries. The state implemented a strict regulatory framework to ensure the quality and safety of these products, including detailed labeling requirements.</p>
-                            <h2>Consumption Restrictions:</h2>
-                            <p>While medical marijuana use is legal for registered patients, there were restrictions on where and how it could be consumed. Smoking marijuana is generally prohibited, but alternative methods of consumption, such as vaping or consuming edibles, are allowed. Consumption in public places or while operating a motor vehicle is strictly prohibited.</p>
-
+                           
                         </div>
 
                     },
 
+                    
+                    {
+                        title: "Possession Limits:",
+                        content: <div>
+                             <p>These limits typically included a specific quantity of usable marijuana over a defined period. It's essential to consult the most up-to-date information to understand the current possession limits for medical cannabis patients in the state.</p>
+                        </div>
+                    },
+                    
+                    {
+                        title: "Purchasing Options:",
+                        content: <div>
+                            <p>Registered medical marijuana patients in West Virginia could purchase cannabis products from licensed dispensaries. The state implemented a strict regulatory framework to ensure the quality and safety of these products, including detailed labeling requirements.</p>
+                        </div>
+                    },
+                    
+                    {
+                        title: "Consumption Restrictions:",
+                        content: <div>
+                           <p>While medical marijuana use is legal for registered patients, there were restrictions on where and how it could be consumed. Smoking marijuana is generally prohibited, but alternative methods of consumption, such as vaping or consuming edibles, are allowed. Consumption in public places or while operating a motor vehicle is strictly prohibited.</p>
+
+                        </div>
+                    },
+                    
                     {
                         title: "Lab Testing Protocols:",
                         content: <div>
@@ -2095,7 +2204,7 @@ const Content = [
                     {
                         title: "Frequently Asked Questions",
                         content: <div>
-                            <ul>
+                            <ol>
                                 <li> Is recreational marijuana legal in West Virginia?</li>
                                 <p>Cannabis in West Virginia is illegal for recreational use, but partially decriminalized in the city of Morgantown. Possession of small amounts is a misdemeanor crime. Medical use was legalized in 2017 through legislation signed by Governor Jim Justice</p>
                                 <li>Who can access medical marijuana in West Virginia?</li>
@@ -2108,7 +2217,7 @@ const Content = [
                                 <p>No, consuming medical marijuana in public places or while operating a motor vehicle is generally prohibited. There are strict consumption restrictions in place to ensure public safety.</p>
                                 <li>Are there possession limits for medical marijuana in West Virginia?</li>
                                 <p>There are possession limits for medical marijuana patients in West Virginia.</p>
-                            </ul>
+                            </ol>
                         </div>
                     },
 
@@ -2147,16 +2256,25 @@ const Content = [
                         title: "Medical Marijuana Program:",
                         content: <div>
                             <p>Wisconsin's medical marijuana program has been limited in scope. While the state legalized the use of CBD oil for specific medical conditions, the list of qualifying conditions was initially quite narrow. This made it difficult for many patients to access the treatment they needed. Changes to the program's regulations over the years aimed to expand access, but challenges remained in providing comprehensive medical cannabis options to patients.</p>
-                            <h2>Possession Limits:</h2>
-                            <p>Under Wisconsin law, possession of any amount of marijuana for recreational use was illegal. Those found in possession could face criminal charges and potential penalties. Medical marijuana patients are allowed to possess CBD oil with a limited THC content as prescribed by a physician.</p>
-                            <h2>Purchasing Options:</h2>
-                            <p>With recreational use still illegal, there are no legal avenues for purchasing marijuana for non-medical purposes in Wisconsin. Medical marijuana patients could obtain CBD oil through licensed dispensaries or pharmacies, but the options is limited due to the strict qualifying conditions.</p>
-                            <h2>Consumption Restrictions:</h2>
-                            <p>For both recreational and medical users, consuming marijuana in public spaces is prohibited. Additionally, impaired driving laws applied to marijuana use, and driving under the influence of cannabis could result in legal consequences similar to those of alcohol-impaired driving.</p>
                         </div>
 
                     },
-
+                    {
+                        title: "Possession Limits:",
+                        content: <div>
+                             <p>Under Wisconsin law, possession of any amount of marijuana for recreational use was illegal. Those found in possession could face criminal charges and potential penalties. Medical marijuana patients are allowed to possess CBD oil with a limited THC content as prescribed by a physician.</p>
+                        </div>
+                    },  {
+                        title: "Purchasing Options:",
+                        content: <div>
+                            <p>With recreational use still illegal, there are no legal avenues for purchasing marijuana for non-medical purposes in Wisconsin. Medical marijuana patients could obtain CBD oil through licensed dispensaries or pharmacies, but the options is limited due to the strict qualifying conditions.</p>
+                        </div>
+                    },  {
+                        title: "Consumption Restrictions:",
+                        content: <div>
+                             <p>For both recreational and medical users, consuming marijuana in public spaces is prohibited. Additionally, impaired driving laws applied to marijuana use, and driving under the influence of cannabis could result in legal consequences similar to those of alcohol-impaired driving.</p>
+                        </div>
+                    },
                     {
                         title: "Lab Testing Protocols:",
                         content: <div>
@@ -2166,7 +2284,7 @@ const Content = [
                     {
                         title: "Frequently Asked Questions",
                         content: <div>
-                            <ul>
+                            <ol>
                                 <li>Is recreational marijuana legal in Wisconsin?</li>
                                 <p>No, recreational marijuana is not legal in Wisconsin. Possession, sale, and use for non-medical purposes are illegal.</p>
                                 <li>What is the status of medical marijuana in the state?</li>
@@ -2177,7 +2295,7 @@ const Content = [
                                 <p>Yes, there are licensed dispensaries and pharmacies that provide CBD oil to eligible medical marijuana patients.</p>
                                 <li>What are the penalties for marijuana possession in Wisconsin?</li>
                                 <p>Possession of marijuana for recreational use can result in criminal charges and potential penalties, including fines and incarceration.</p>
-                            </ul>
+                            </ol>
                         </div>
                     },
 
@@ -2238,7 +2356,7 @@ const Content = [
                     {
                         title: "Frequently Asked Questions",
                         content: <div>
-                            <ul>
+                            <ol>
                                 <li>Is medical marijuana legal in Wyoming?</li>
                                 <p>No, medical marijuana is not legal in Wyoming. The state has not passed any laws permitting medical cannabis use.</p>
                                 <li>Are there any exceptions to Wyoming's cannabis laws?</li>
@@ -2249,7 +2367,7 @@ const Content = [
                                 <p>CBD derived from hemp with less than 0.3% THC is legal in Wyoming. However, the legality of CBD products can vary, so it's important to ensure compliance with state laws.</p>
                                 <li>Could Wyoming's cannabis laws change in the future?</li>
                                 <p>While it's always possible for laws to change, any potential change in Wyoming's cannabis laws would likely require significant shifts in public opinion and legislative priorities.</p>
-                            </ul>
+                            </ol>
                         </div>
                     },
 

@@ -32,6 +32,7 @@ export function modifystr(str) {
     return str.toLowerCase()
 }
 function isShopOpen(storeDetails){
+   
     let done = false
     let ans = false
     var date = new Date();
@@ -39,8 +40,14 @@ function isShopOpen(storeDetails){
     let day = new Date(easternTime)
     storeDetails[0]?.Hours !== null && storeDetails[0]?.Hours.forEach((items , index)=>{
          
-       if(!done){
+     
+        if(!done){
             if(index === day.getDay()-1){
+                
+               if(items.Open[0].Time1 ===  "24 Hours"){
+                 
+                   ans=true
+               }else{
                 items.Open.forEach((item)=>{
                     if( new Date(day).getHours() > item.Time1.split(":")[0] ){   
                             if( new Date(day).getHours() < item.Time2.split(":")[0]){
@@ -60,8 +67,9 @@ function isShopOpen(storeDetails){
                         }    
                 }
                 })
+               }
             }
-       }
+        }
     })
      return ans
 }

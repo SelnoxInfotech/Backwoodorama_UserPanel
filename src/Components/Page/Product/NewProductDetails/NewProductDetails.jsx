@@ -446,7 +446,7 @@ const NewProductDetails = () => {
       <NewProductDetailsCards dynamicWeight={dynamicWeight} setdynamicWeight={ setdynamicWeight} quentity={quentity} setquentity={setquentity} Product={Product} DiscountedValue={discount} Price={Price} SetPrice={SetPrice} />
 
       <NewProductinfoText Product={{ heading: "Product Description", text: Product?.Product_Description }} />
-      <div className="DiscountSection ">
+      {/* <div className="DiscountSection ">
         {
 
 
@@ -473,7 +473,7 @@ const NewProductDetails = () => {
 
         }
 
-      </div>
+      </div> */}
       <ProductSearchResult RelatedProductResult={StoreProduct} currentProductID={Product.id} CategoryName={heading} />
       <Review
         delBtn={Despen}

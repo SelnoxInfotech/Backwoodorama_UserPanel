@@ -77,7 +77,7 @@ const AddToCartPopUp = ({ CartClean, SetCartClean, NewData, SetAddToCard }) => {
                     <div className='container-fluid marginRow'>
                         <div className='row '>
                             <div className='col-12 AddToCartImageContainer'>
-                                <div className='addToCartPopUpImage_background'>
+                                <div className='addToCartPopUpImage_background mx-auto'>
                                     <LazyLoadImage src='/image/addtocart1.jpg' alt='not avail' height={"100px"} width={"100px"} />
 
                                 </div>
