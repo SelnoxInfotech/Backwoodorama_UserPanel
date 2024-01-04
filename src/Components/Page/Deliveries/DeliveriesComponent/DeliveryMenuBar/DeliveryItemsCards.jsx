@@ -40,8 +40,8 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                                     <div className="col-12 d-flex dispensories_content_paragraphs mt-2">
                                                         <span className='disOPenResRating'>Rating</span>
 
-                                                        <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={items.rating === null ? 0 : items.rating} readOnly />
-                                                        < span style={{color:"black"}}>{items.rating === null ? 0 : items.rating+".0"}</span>
+                                                        <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={items.rating === null ? 0 : items.rating?.toFixed(1)} readOnly />
+                                                        < span style={{color:"black"}}>{items.rating === null ? 0 : items.rating.toFixed(0) +".0"}</span>
                                                     </div>
                                                         </Link>
 

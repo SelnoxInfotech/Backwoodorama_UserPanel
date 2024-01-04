@@ -18,8 +18,8 @@ import { WishListPost } from "../../Component/Whishlist/WishListApi_";
 import { WhisList } from "../../Component/Whishlist/WhisList";
 const ProductList = ({ arr, ProductNavigate }) => {
   const cookies = new Cookies();
-  
   const [CartClean, SetCartClean] = React.useState(false);
+  const [showdata, setShowdata] = React.useState([]);
   const token_data = cookies.get("User_Token_access");
   const { state, dispatch } = React.useContext(Createcontext);
   const [Whishlist, SetWishList] = React.useState(false);
@@ -225,17 +225,28 @@ const ProductList = ({ arr, ProductNavigate }) => {
     }else if(newarr[0].DiscountType === "Free Shipping"){
       return "Free Shipping"
     }
-}
+  }
+
+
+  React.useEffect(() => {
+   let newdata = arr.filter((item)=>{
+    return item.Prices[0]?.Price[0]?.Stock === "IN Stock"
+   })
+   let newdata2 = arr.filter((item)=>{
+    return item.Prices[0]?.Price[0]?.Stock !== "IN Stock"
+   })
+   setShowdata(newdata.concat(newdata2))
+  }, [arr]);
   return (
     <>
-      {(arr?.length !== 0 && typeof(arr) !== "string" ) ? (
+      {(showdata?.length !== 0 && typeof(showdata) !== "string" ) ? (
         !state?.Loading ? (
           <React.Fragment>
             <div
               className="row  mx-2"
               style={{ height: "auto", marginBottom: "10px" }}
             >
-              {arr?.map((ele, index) => {
+              {showdata?.map((ele, index) => {
                
                 return (
                   <div
@@ -336,51 +347,51 @@ const ProductList = ({ arr, ProductNavigate }) => {
                                 ))}
                                 </div>
                                 <div className="mobile_view_weigth">
-                                <div className="prod_cat_cont_btn product_price_tabs">
-                                    {ele.Prices?.map((ele1) => {
-                                    return ele1.Price?.map((data, index) => {
-                                        let s = false;
-                                        if (Price.length === 0) {
-                                        if (data.id === 1) {
-                                            s = true;
-                                        }
-                                        } else
-                                        Price?.map((Price) => {
-                                            if (
-                                            ele.id === Price?.Product_id &&
-                                            data.id === Price?.Item_id
-                                            ) {
-                                            s = true;
-                                            } else {
-                                            s = false;
-                                            }
-                                            return s;
-                                        });
-                                        return (
-                                        <div
-                                            className="prod_cat_btn_cont"
-                                            id=""
-                                            key={index}
-                                        >
-                                            <section
-                                            className={
-                                                "prod_cat_btns " + (s ? "active" : "")
-                                            }
-                                            value={data.id}
-                                            onClick={() =>
-                                                PriceSelect(ele.id, data.id)
-                                            }
-                                            >
-                                            {data.Weight || data.Unit}
-                                            <p className="rs m-0">
-                                                ${data?.SalePrice?.toFixed()}
-                                            </p>
-                                            </section>
-                                        </div>
-                                        );
-                                    });
-                                    })}
-                                </div>
+                                  <div className="prod_cat_cont_btn product_price_tabs">
+                                      {ele.Prices?.map((ele1) => {
+                                      return ele1.Price?.map((data, index) => {
+                                          let s = false;
+                                          if (Price.length === 0) {
+                                          if (data.id === 1) {
+                                              s = true;
+                                          }
+                                          } else
+                                          Price?.map((Price) => {
+                                              if (
+                                              ele.id === Price?.Product_id &&
+                                              data.id === Price?.Item_id
+                                              ) {
+                                              s = true;
+                                              } else {
+                                              s = false;
+                                              }
+                                              return s;
+                                          });
+                                          return (
+                                          <div
+                                              className="prod_cat_btn_cont"
+                                              id=""
+                                              key={index}
+                                          >
+                                              <section
+                                              className={
+                                                  "prod_cat_btns " + (s ? "active" : "")
+                                              }
+                                              value={data.id}
+                                              onClick={() =>
+                                                  PriceSelect(ele.id, data.id)
+                                              }
+                                              >
+                                              {data.Weight || data.Unit}
+                                              <p className="rs m-0">
+                                                  ${data?.SalePrice?.toFixed()}
+                                              </p>
+                                              </section>
+                                          </div>
+                                          );
+                                      });
+                                      })}
+                                  </div>
                                 </div>
                              
                             </div>
