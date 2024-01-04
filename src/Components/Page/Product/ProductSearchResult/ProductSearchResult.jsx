@@ -171,6 +171,13 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
     
     React.useEffect(() => {
         localStorage.setItem('items', JSON.stringify(AddTOCard))
+        const scrollToTop = () => {
+            document.documentElement.scrollTo({
+              top: 0,
+              left: 0,
+              behavior: "instant", // Optional if you want to skip the scrolling animation
+          });
+        }
     }, [AddTOCard])
 
     const handleWhishList = (id) => {
@@ -233,6 +240,13 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
             return item?.Prices[0]?.Price[0]?.Stock !== "IN Stock"
         })
         Setshowdata(a.concat(b))
+        const scrollToTop = () => {
+            document.documentElement.scrollTo({
+              top: 0,
+              left: 0,
+              behavior: "instant", // Optional if you want to skip the scrolling animation
+          });
+        }
     },[RelatedProductResult])
 
 

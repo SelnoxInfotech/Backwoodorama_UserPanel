@@ -312,21 +312,21 @@ const ProductList = ({ arr, ProductNavigate }) => {
                                 </div>
                             
                             </div>
-                            <div className="product_cat_allProduct" onClick={() => ProductNavigate(ele)}>
-                                <div className="col-12  prod_para_name"  style={{ marginBottom: "" }}>
+                            <div className="product_cat_allProduct" >
+                                <div className="col-12  prod_para_name" onClick={() => ProductNavigate(ele)} style={{ marginBottom: "" }}>
                                    <h3  className="productListHeadings ellipsis"  >   {ele.Product_Name} </h3>
                                 </div>
-                                <div className="col-12  prod_para prod_sub_heading_height ellipsis">
+                                <div className="col-12  prod_para prod_sub_heading_height ellipsis" onClick={() => ProductNavigate(ele)}>
                                    <p className="fontStyle m-0 common_sub_head"> {ele?.StoreName} </p>
                                 </div>
-                                <div className="discount_boc">
+                                <div className="discount_boc" onClick={() => ProductNavigate(ele)}>
                                      {
                                                         ele?.CategoryCoupoun?.length !== 0 || ele?.ProductCoupoun?.length !== 0 &&  <div className="discountinfo">
                                                                                                                             <span className="carddiscountoffer">{discountshoer(ele.CategoryCoupoun ,ele.ProductCoupoun )} </span>  and more Offers
                                                                                                                         </div>
                                      }
                                 </div>
-                                <div className="col-12 py-2 d-flex prod_para prod_sub_heading_height ellipsis"   style={{ marginBottom: "0px" }} >
+                                <div className="col-12 py-2 d-flex prod_para prod_sub_heading_height ellipsis" onClick={() => ProductNavigate(ele)}  style={{ marginBottom: "0px" }} >
                                    {ele.rating &&
                                     new Array(ele.rating)
                                     .fill(null)
@@ -393,7 +393,6 @@ const ProductList = ({ arr, ProductNavigate }) => {
                                       })}
                                   </div>
                                 </div>
-                             
                             </div>
                             <div className="col-12 d-flex mt-sm-4 mt-3 mb-2 Fly">
                                 {ele.Prices[0]?.Price[0]?.Stock === "IN Stock" ? (
