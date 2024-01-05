@@ -57,7 +57,7 @@ const CheckOutMainPage = () => {
         formdata.append('Address', state.selectDeliveryoptions === "pickup_btn" ? state.AllProduct[0]?.StoreAddress : state.DeliveryAddress);
         formdata.append('DeliveryTime', Time);
         formdata.append('Email', Details.Email)
-        formdata.append('Order_Type', state.selectDeliveryoptions === "pickup_btn" ? "StoreFront" : 'Delivery')
+        // formdata.append('Order_Type', state.selectDeliveryoptions === "pickup_btn" ? "StoreFront" : 'Delivery')
 
         await Axios.post(
             'https://api.cannabaze.com/UserPanel/Add-Order/ ',
