@@ -26,7 +26,7 @@ export default function RoutingSearch({ city, State, country, pathname  ,route})
 
 
   function location(value, type) {
-    // console.log(value , type)
+  
     // var ci, sta, Coun , route;    
     fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
       .then(res => res.json())

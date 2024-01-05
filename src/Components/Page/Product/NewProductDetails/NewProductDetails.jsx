@@ -187,7 +187,6 @@ const NewProductDetails = () => {
   };
 
   const handlediscountChange = (event) => {
-    console.log(event.target.value)
     if (event.target.value.DiscountType === "Amount off Order") {
       if (event.target.value.NoMinimumRequirements === true) {
         if (event.target.value.PercentageAmount !== null || "") {

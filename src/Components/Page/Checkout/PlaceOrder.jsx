@@ -50,7 +50,7 @@ const PlaceOrder = () => {
                 console.error(error)
             })
     }, [])
-    console.log(pricess)
+
     return (
         <React.Fragment>
             <div className="container-fluid">
@@ -71,7 +71,7 @@ const PlaceOrder = () => {
 
                                 {
                                     location.state.Product.map((item) => {
-                                        console.log(item)
+                                     
                                         // if(item.CoupounField?.DiscountType !== ""  || null)
                                         if(false)
                                         {

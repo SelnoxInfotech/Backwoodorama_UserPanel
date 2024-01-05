@@ -181,8 +181,7 @@ export default function DispensoriesDetails() {
     React.useEffect(() => {
         Store_OverAllGet_Review(id).then((res) => {
             SetRating(res)
-            console.log(res , 'resresresresres')
-
+          
         }).catch(() => { })
     }, [id, api])
 

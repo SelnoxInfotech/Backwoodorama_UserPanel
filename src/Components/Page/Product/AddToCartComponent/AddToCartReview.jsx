@@ -78,7 +78,7 @@ const AddToCartReview = () => {
 
     }
     async function Quantity(Id, Cart, Event) {
-        console.log(Event?.Price?.Quantity)
+      
             if(Event?.Price?.Quantity > Event.Cart_Quantity  ){
                 if (state.login || token_data) {
 
@@ -333,9 +333,7 @@ const AddToCartReview = () => {
                                                 </div>
 
                                             </div>
-                                            {/* {
-                                                 console.log(AfterDiscount)
-                                            } */}
+                                           
                                             <span className="add_prod_span_amount fontStyle" value={ele.Price.SalePrice * ele.Cart_Quantity} >${parseInt(ele.Price.SalePrice * ele.Cart_Quantity)}</span>
                                         </div>
                                     </div>

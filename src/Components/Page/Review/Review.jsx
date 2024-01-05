@@ -28,7 +28,7 @@ const Review = ({ reviewloading, handleEdit, delBtn,reviewtype, setReviewtype, t
         setsorteddata(sortBy(AllReview, [function(o) { return o.rating; }]))
        }
     },[short , AllReview])
-    console.log(location.pathname.slice(1, 9) ,'location')
+ 
     return (
         <React.Fragment>
 

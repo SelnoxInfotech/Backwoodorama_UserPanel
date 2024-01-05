@@ -8,7 +8,7 @@ import Createcontext from "../../../../Hooks/Context";
 import DeliverAutoCompleteAddress from "./DeliverAutoCompleteAddress";
 // import { useForm, FormProvider, Controller } from "react-hook-form";
 import PromoCode from "../Promocode/Promocode";
-const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading  }) => {
+const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails ,Details  }) => {
   const classes = useStyles();
   // const method = useForm()
   const { state, dispatch } = React.useContext(Createcontext);
@@ -25,8 +25,8 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading  }) => {
     const { name, value } = e.target;
     SetInputValues({ ...InputValues, [name]: value });
   };
-
   const HandlePickupAndDelivery = (e) => {
+   
     SetOpenPickup(!OpenPickup);
     SetOpenDelivery(false);
     if (e.currentTarget.id === "pickup_btn") {
@@ -92,7 +92,6 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading  }) => {
       }
     }
   };
-
   React.useEffect(() => {
     if (location.pathname === "/cart") {
       
@@ -118,7 +117,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading  }) => {
       })
       setanyoutstock(nss)
   },[state?.AllProduct])
-  // console.log(state)
+  
   return (
     <div className="col-12   p-2 Add_product_cart_right_container_summary">
       <div className="col-12 fontStyle AddProdCartFont_weight">
@@ -187,6 +186,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading  }) => {
           </LoadingButton>
         </Box>
       )}
+
       <div className="col-12">
         {OpenDelivery && (
           <div className="col-12 mt-4 ">

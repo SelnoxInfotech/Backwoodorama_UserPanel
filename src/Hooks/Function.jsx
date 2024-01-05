@@ -43,8 +43,9 @@ function isShopOpen(storeDetails){
      
         if(!done){
             if(index === day.getDay()-1){
-                
-               if(items.Open[0].Time1 ===  "24 Hours"){
+               if(items.close){
+                ans=false
+               }else if(Boolean(items.Open[0].Time1 ===  "24 Hours" || items.Open[0].Time2 ===  "24 Hours")){
                  
                    ans=true
                }else{

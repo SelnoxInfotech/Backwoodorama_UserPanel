@@ -23,7 +23,7 @@ import { Link, useParams } from "react-router-dom";
 import AddToCartPopUp from "../../AddToCartPopUp/AddToCartPopUp";
 import { WhisList } from '../../../../Component/Whishlist/WhisList'
 const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , quentity, setquentity , dynamicWeight, setdynamicWeight }) => {
-    console.log(Product)
+
     const cookies = new Cookies();
     const params = useParams()
     // const [quentity, setquentity] = useState(1);
@@ -271,7 +271,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , qu
     }
     React.useEffect(()=>{
         if(Product.length !== 0){
-            console.log(Product?.Prices[0]?.Price[0]?.id)
+        
           SetSelectVariant( Product?.Prices[0]?.Price[0]?.id)
         }
     },[Product])

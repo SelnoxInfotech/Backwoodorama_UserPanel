@@ -9,9 +9,11 @@ import Createcontext from "../../../Hooks/Context"
 import { useLocation, useNavigate } from 'react-router-dom';
 import Axios from "axios"
 const CheckOutMainPage = () => {
+    
     const { state, dispatch } = React.useContext(Createcontext)
     const cookies = new Cookies();
     const navigate = useNavigate()
+    console.log(state ,'state')
     const token_data = cookies.get('User_Token_access')
     const [ShowData, SetShowData] = React.useState(false)
     const [ShowDeliveryInformation, SetShowDeliveryInformation] = React.useState(false)
@@ -29,8 +31,8 @@ const CheckOutMainPage = () => {
         MobileNo: "",
         MedicalMarijuanaNumber: "",
         Address: "",
-        Email:""
-
+        Email:"",
+        Ordertype:'',
     })
     const [CheckOut_Loading, SetLoading] = React.useState(false)
     React.useEffect(() => {
@@ -55,6 +57,8 @@ const CheckOutMainPage = () => {
         formdata.append('Address', state.selectDeliveryoptions === "pickup_btn" ? state.AllProduct[0]?.StoreAddress : state.DeliveryAddress);
         formdata.append('DeliveryTime', Time);
         formdata.append('Email', Details.Email)
+        formdata.append('Order_Type', state.selectDeliveryoptions === "pickup_btn" ? "StoreFront" : 'Delivery')
+
         await Axios.post(
             'https://api.cannabaze.com/UserPanel/Add-Order/ ',
             formdata,
@@ -154,7 +158,8 @@ const CheckOutMainPage = () => {
                                 <AddToCartSummary SetDeliveryOptionData={SetDeliveryOptionData} Total={abc} SubmitData={SubmitData}
                                     CheckOut_Loading={CheckOut_Loading}
                                     SetLoading={SetLoading}
-                                  
+                                    Details={Details}
+                                    SetDetails={SetDetails}
                                 />
 
                             </div>

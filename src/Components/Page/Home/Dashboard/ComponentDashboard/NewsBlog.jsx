@@ -18,7 +18,7 @@ const NewsBlog = () => {
            let newdata= _.sortBy(data,
                 [function (o) { return o.Publish_Date; }]).reverse()
                 SetNews(newdata)
-        }
+         }
         getApi()
 
     }, [])

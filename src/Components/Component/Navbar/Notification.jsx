@@ -16,13 +16,19 @@ export default function Notification({ notify, setnotify , Setnotificationdata ,
             axios.get(`https://api.cannabaze.com/UserPanel/GetUserNotificationByLogin/`,
                 config,
             ).then((res) => {
-                const k= []
+               
+               
                 res.data.map((data)=>{
-                    if(data.Order){
-                         k.push({...notificationdata , "link": `/MyOrderProductDetail/${data.Order[0].OrderId }`, 'title': "Your Order Has Been Placed"})
-                    }
+                   
+                    data.blog.map((data)=> Setnotificationdata([{...notificationdata , "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title  }]))
+                    data.StoreHelpFull.map((data)=> Setnotificationdata([{...notificationdata , "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title  }]))
+                    data.ProductHelpfull.map((data)=> Setnotificationdata([{...notificationdata , "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title  }]))
+                    data.StoreReview.map((data)=> Setnotificationdata([{...notificationdata , "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title  }]))
+                    data.ProductReview.map((data)=> Setnotificationdata([{...notificationdata , "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title  }]))
+                    data.Order.map((data)=> Setnotificationdata([{...notificationdata , "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': 'Thank you for your Order Placed is placed'  }]))
+                  
                 })
-                Setnotificationdata(k)
+               
             }).catch((err) => {
 
             })
@@ -30,7 +36,7 @@ export default function Notification({ notify, setnotify , Setnotificationdata ,
         else {
             axios.get(`https://api.cannabaze.com/UserPanel/GetUserNotification/`,
             ).then((respones) => {
-                console.log(respones.data)
+               
                 if (respones?.data?.Blog) {
                     respones.data.Blog.map((data) => {
                         Setnotificationdata([{...notificationdata , "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title }])
@@ -44,6 +50,8 @@ export default function Notification({ notify, setnotify , Setnotificationdata ,
             })
         }
     }, [notify])
+
+ console.log(notificationdata)
 
     return (
         notify &&

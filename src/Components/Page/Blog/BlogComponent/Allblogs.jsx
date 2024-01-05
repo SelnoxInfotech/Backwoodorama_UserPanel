@@ -12,7 +12,7 @@ import { BsShareFill } from "react-icons/bs";
 import { NewsSeo } from "../../../Component/ScoPage/NewsSeo.jsx";
 import DeliveryItemsCardSkeleton from '../../../Component/Skeleton/Deliveries/DeliveriesComponent/DeliveryMenu/DeliveryItemsCardSkeleton.jsx';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import _ from "lodash"
+import _, { reverse } from "lodash";
 import Createcontext from '../../../../Hooks/Context.jsx';
 import { RWebShare } from "react-web-share";
 import { IconButton } from "@material-ui/core";
@@ -43,7 +43,7 @@ const Allblogs = () => {
                 getss = resposce2.data.Like.map((itemss)=>{
                   return itemss.user
                 })
-              //  console.log(getss)
+             
                allLikes.push(getss)
              
             }).catch((error) => {
@@ -52,7 +52,11 @@ const Allblogs = () => {
              
            
             })
-         setallblogs(res);
+
+
+          let newdata= _.sortBy(res,
+              [function (o) { return o.Publish_Date; }]).reverse()
+         setallblogs(newdata);
          setisdata(true);
     }).catch((err) => {
       console.trace(err)
@@ -114,7 +118,7 @@ const Allblogs = () => {
       return l
 
   }
-//  console.log(allLikes.splice(-7))
+
   return (
     <React.Fragment>
       <NewsSeo></NewsSeo>

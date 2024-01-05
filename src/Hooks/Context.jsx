@@ -52,7 +52,6 @@ const initialUser = {
     Coupoun: [],
     BeforeCoupoun: ""
 
-
 }
 
 function Context(props) {
@@ -102,7 +101,6 @@ function Context(props) {
                         return AllTotal += parseInt(data?.TotalPrice)
                     }
                 })
-                console.log(BeforeCoupoun)
                 dispatch({type:"BeforeCoupoun" , BeforeCoupoun : BeforeCoupoun})
                 dispatch({ type: 'Cart_subTotal', Cart_subTotal: AllTotal })
 
