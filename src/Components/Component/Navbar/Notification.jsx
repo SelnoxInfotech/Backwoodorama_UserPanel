@@ -79,7 +79,7 @@ export default function Notification({ notify, setnotify , Setnotificationdata ,
                                         <div className="notifytext" >
                                         <span className="notify_date ">2 Hours ago</span>
                                             <div className="d-flex align-items-center justify-content-between gap-5"><h4 className="notititle">{data.title} </h4> </div>
-                                            <p className='notifyDesctiptio'>iufh dhdu xcijdnfuhun vu urdjknjf nbujkdc jfnvdfsjv d jndfju</p>
+                                            {/* <p className='notifyDesctiptio'>iufh dhdu xcijdnfuhun vu urdjknjf nbujkdc jfnvdfsjv d jndfju</p> */}
                                         </div>
                                     </Link>
                                 </div>
