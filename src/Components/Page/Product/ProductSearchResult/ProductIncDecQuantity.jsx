@@ -116,19 +116,18 @@ const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart, setadding, a
                                     ))}
                                 </div>
                                 <div className='weight_font my-3'>
-
-                                    <FormControl sx={{ width: '100%' }} size="small">
-                                        <FormLabel sx={{ width: "100%", color: 'black' }}>weight</FormLabel>
+                                   <FormLabel sx={{ width: "100%", color: 'black' }}>weight</FormLabel>
+                                    <FormControl sx={{ width: '100%' }} size="small" className={`${classes.reviewFilter}`}>
+                                      
                                         <Select
                                             value={SelectWeight}
                                             onChange={handleChange}
                                             displayEmpty
                                             inputProps={{ 'aria-label': 'Without label' }}
                                             sx={{ width: "100%", color: 'black' }}
+                                            // className={classes.}
                                         >
-                                            <MenuItem value="">
-                                                select weight
-                                            </MenuItem>
+                                          
                                             {
                                                 items?.Prices[0]?.Price.map((data) => {
 
@@ -143,9 +142,9 @@ const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart, setadding, a
                                         </Select>
                                     </FormControl>
                                 </div>
-                                <div className='prod_quant_num my-3'>
+                                <div className='prod_quant_num mt-4'>
 
-                                    <FormLabel sx={{ width: "100%", color: 'black' }}>Quantity</FormLabel>
+                                    <FormLabel>Quantity</FormLabel>
 
                                     <div className='prod_inc_plus_minus d-flex'>
 
@@ -159,7 +158,7 @@ const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart, setadding, a
                                         </div>
 
                                         <LoadingButton className='aaBtn2' onClick={increase}>
-                                            <MdAdd />
+                                            <MdAdd  color='#000'/>
 
                                         </LoadingButton>
 

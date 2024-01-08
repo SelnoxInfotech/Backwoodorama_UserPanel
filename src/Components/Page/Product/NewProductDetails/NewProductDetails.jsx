@@ -430,12 +430,10 @@ const NewProductDetails = () => {
     //   reader.readAsDataURL(input);//line with error
     //   reader.onloadend = function() {
     //       var base64data = reader.result;
-    //       console.log(base64data);
     //   };
-
     // }
     // fetchImageAndConvertToBase64();    
-    // console.log(discount)
+   
   }, [discount])
   return (
     <div className="container-fluid">
@@ -460,7 +458,7 @@ const NewProductDetails = () => {
 
             {j.length !== 0 && j[0]?.Coupoun.length !== 0 ?
              j[0]?.Coupoun.map((da) =>(  
-              // console.log((da.AutomaticDiscount === null  || da.AutomaticDiscount === "" )  , da.AutomaticDiscount)
+             
               
               (da.AutomaticDiscount !== null  || da.AutomaticDiscount !== "" )   && ( da.DiscountCode ==="" || da.DiscountCode === null)  &&
               <MenuItem value={da}> {da.AutomaticDiscount}</MenuItem> 

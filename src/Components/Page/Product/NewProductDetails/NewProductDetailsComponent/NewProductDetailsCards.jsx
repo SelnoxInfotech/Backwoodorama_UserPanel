@@ -289,7 +289,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , qu
                                         onError={event => {
                                             event.target.src = '/image/blankImage.jpg'
                                             event.onerror = null
-                                            // console.log(event)
+                                            
                                         }}
                                         src={Boolean(displaypic) ? displaypic : Product?.images[0]?.image} />
                                       

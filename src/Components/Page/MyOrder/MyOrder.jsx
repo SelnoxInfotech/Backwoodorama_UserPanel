@@ -64,7 +64,7 @@ const MyOrder = () => {
                             icon: "success"
                         });
                     }).catch((error) => {
-                        // console.log(error)
+                   
                         SetLoading(false)
                         Swal.fire({
                             icon: "error",
@@ -117,7 +117,7 @@ const MyOrder = () => {
                 SetAllOrder_data(res.data)
                 SetLoading(false)
             }).catch((error) => {
-                // console.log(error)
+               
                 SetLoading(false)
             })
         }
@@ -126,7 +126,7 @@ const MyOrder = () => {
                 SetAllOrder_data(res.data)
                 SetLoading(false)
             }).catch((error) => {
-                // console.log(error)
+           
                 SetLoading(false)
             })
         }
@@ -136,7 +136,7 @@ const MyOrder = () => {
                 SetAllOrder_data(res.data)
                 SetLoading(false)
             }).catch((error) => {
-                // console.log(error)
+              
                 SetLoading(false)
             })
         }

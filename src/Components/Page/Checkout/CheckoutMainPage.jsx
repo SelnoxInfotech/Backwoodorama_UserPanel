@@ -13,7 +13,6 @@ const CheckOutMainPage = () => {
     const { state, dispatch } = React.useContext(Createcontext)
     const cookies = new Cookies();
     const navigate = useNavigate()
-    console.log(state ,'state')
     const token_data = cookies.get('User_Token_access')
     const [ShowData, SetShowData] = React.useState(false)
     const [ShowDeliveryInformation, SetShowDeliveryInformation] = React.useState(false)
@@ -57,7 +56,7 @@ const CheckOutMainPage = () => {
         formdata.append('Address', state.selectDeliveryoptions === "pickup_btn" ? state.AllProduct[0]?.StoreAddress : state.DeliveryAddress);
         formdata.append('DeliveryTime', Time);
         formdata.append('Email', Details.Email)
-        // formdata.append('Order_Type', state.selectDeliveryoptions === "pickup_btn" ? "StoreFront" : 'Delivery')
+        formdata.append('Order_Type', state.selectDeliveryoptions === "pickup_btn" ? "Pickup" : 'Delivery')
 
         await Axios.post(
             'https://api.cannabaze.com/UserPanel/Add-Order/ ',

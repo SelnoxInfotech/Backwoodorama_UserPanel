@@ -43,8 +43,7 @@ export default function Notification({ notify, setnotify , Setnotificationdata ,
             axios.get(`https://api.cannabaze.com/UserPanel/GetUserNotificationByLogin/`,
                 config,
             ).then((res) => {
-               console.log(res.data)
-               
+              
                 res.data.map((data)=>{
                     data.blog.map((data)=>  Setnotificationdata((notificationdata)=>[ ...notificationdata ,{ "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title  }]))
                     // data.blog.map((data)=> Setnotificationdata([ ...notificationdata ,{ "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title  }]))
@@ -77,8 +76,6 @@ export default function Notification({ notify, setnotify , Setnotificationdata ,
             })
         }
     }, [])
-
- console.log(notificationdata)
 
     return (
         notify &&
