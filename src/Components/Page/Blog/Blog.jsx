@@ -50,14 +50,19 @@ const Blogs = () => {
         const getApi = async () => {
             const res = await fetch(`https://api.cannabaze.com/UserPanel/Get-GetNewsById/${id}`);
             const data = await res.json();
-            SetNews(data[0])
-            await BlogLike(data[0].id).then((res) => {
-                SetLikes(res.data.Like)
-                SetValue({ ...value, "LinkCount": res.data.LikeCount })
-            }).catch((error) => {
-                console.error(error)
-            })
-            GetComment(data[0].id)
+            console.log(data)
+                 if(data.length !== 0){
+                    SetNews(data[0])
+                    await BlogLike(data[0].id).then((res) => {
+                        SetLikes(res.data.Like)
+                        SetValue({ ...value, "LinkCount": res.data.LikeCount })
+                    }).catch((error) => {
+                        console.error(error)
+                    })
+                    GetComment(data[0].id)
+                 }else{
+navigate("/FourZeroFour")
+                 }
             // await ViewCountApi(id).then((res) => {
             //      SetViewCount(res.data.data)
             //      SetBlogReviewCount(res.data.ViewCount)

@@ -36,12 +36,12 @@ const RelatedVerifyBanner = ({ BrandDetails }) => {
                     <div className="related_verifyBrandBanner_maincol">
                         <div className="RelatedVerifyBrandBanner_image_box">
                             <div className="realtedVerifyBanner_image_inner_container">
-                                <LazyLoadImage className="related_verify_banner_img" src={BrandDetails.Brand_Logo} alt="Brand_Logo image not available" />
+                                <LazyLoadImage className="related_verify_banner_img" src={BrandDetails?.Brand_Logo} alt="Brand_Logo image not available" />
                             </div>
                         </div>
                         <div className="RelatedVerifyBanner_content_box">
 
-                            <h1 className="section_main_title">{BrandDetails.name}</h1>
+                            <h1 className="section_main_title">{BrandDetails?.name}</h1>
 
                             <div className={readmore ? "related_verify_paragraph" : " brandMoreLess"}>
 
@@ -49,9 +49,9 @@ const RelatedVerifyBanner = ({ BrandDetails }) => {
                                     onClick={handleContainerClick}
                                     dangerouslySetInnerHTML=
                                     {{
-                                        __html: readmore ? BrandDetails.Brand_description +
+                                        __html: readmore ? BrandDetails?.Brand_description +
                                             `<span id="band_shlebtn" class="band_shlebtn">...Read less</span>` :
-                                            BrandDetails.Brand_description.split('</p>')[0] + '<span id="band_shlebtn" class="band_shlebtn">...Read more</span>'
+                                            BrandDetails?.Brand_description.split('</p>')[0] + '<span id="band_shlebtn" class="band_shlebtn">...Read more</span>'
                                     }} />
 
                             </div>

@@ -19,7 +19,7 @@ const SearchBar = ({ path }) => {
     const [optionwidth, setoptionwidth] = React.useState()
     const classes = useStyles()
     const [input, Setinput] = React.useState('')
-
+    const [loading , Setloading] = React.useState(false)
     const Search = (event) => {
         event.preventDefault()
         Setinput(event.target.value)
@@ -46,8 +46,12 @@ const SearchBar = ({ path }) => {
     }
 
     React.useEffect(() => {
+        
         const getdata = setTimeout(() => {
+            Setloading(false)
             if(input!==''){
+                // loading = true
+                Setloading(true)
                 Axios.post(`https://api.cannabaze.com/UserPanel/Get-HomePageFilter/`,
                 {
 
@@ -56,15 +60,12 @@ const SearchBar = ({ path }) => {
             ).then(response => {
                 SetSearchData([])
                 if (response.status === 200) {
-
                     const o = Object?.entries(response?.data).map((data, index, value) => {
                         return (data)
                     })
                     const y = o?.map((data) => {
                         return data
                     });
-
-
                     y.map((data1) => {
                         return (
                             data1[1].map((data) => {
@@ -78,9 +79,9 @@ const SearchBar = ({ path }) => {
                         )
                     })
                 }
-
                 else (
                     SetSearchData([])
+                   
                 )
 
             }).catch(
@@ -92,7 +93,7 @@ const SearchBar = ({ path }) => {
     }, [input]);
     const [open, setOpen] = React.useState(false);
     const [openLocation, setOpenLocation] = React.useState(false);
-    const loading = open
+
     React.useEffect(() => {
         const handleResize = () => {
             setWindowSize(window.innerWidth)
@@ -132,6 +133,7 @@ const SearchBar = ({ path }) => {
     }, [])
 
     function SearchAPi(id, type, t) {
+        Setloading(false)
         if (type === 'Product') {
             Navigation(`/products/${modifystr(t.Category)}/${modifystr(t.SubcategoryName)}/${modifystr(t.value)}/${t.id}`);
         }
@@ -214,7 +216,7 @@ const SearchBar = ({ path }) => {
                                 </div>
                             )
                         }}
-                        loading={loading}
+                        // loading={loading}
                         sx={{ width: open && SearchBarWidth ? "100%" : "100%" }}
                         renderInput={(params) => <TextField
                             {...params}
