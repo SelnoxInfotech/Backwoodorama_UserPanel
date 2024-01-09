@@ -46,51 +46,56 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
     }
   };
   const CheckoutProcess = (event, j) => {
-    if (state.selectDeliveryoptions === "delivery_btn") {
-      if (state.DeliveryAddress === "") {
-        alert("Select Delivery address");
+    if(state.login){
+      if (state.selectDeliveryoptions === "delivery_btn") {
+        if (state.DeliveryAddress === "") {
+          alert("Select Delivery address");
+        } else {
+          if (location.pathname === "/cart") {
+            if (state.login) {
+              navigate("/checkout", {
+                state: { InputValues, abc: state.Cart_subTotal , orderBtn : state.selectDeliveryoptions },
+              });
+            } else {
+              navigate("/login");
+            }
+          } else {
+            if (state.DeliveryOption === false) {
+              alert("First Fill form ");
+            } else if (state.DeliveryInformation === false) {
+              alert("First Fill form ");
+            }
+          }
+          if (location.pathname === "/checkout") {
+            SubmitData();
+            // SetLoading(true)DeliveryAddress
+          }
+        }
       } else {
-        if (location.pathname === "/cart") {
-          if (state.login) {
+        if (state.selectDeliveryoptions === "pickup_btn") {
+          if (location.pathname === "/cart") {
             navigate("/checkout", {
-              state: { InputValues, abc: state.Cart_subTotal , orderBtn : state.selectDeliveryoptions },
+              state: { InputValues, abc: state.Cart_subTotal , orderBtn : state.selectDeliveryoptions},
             });
           } else {
-            navigate("/login");
+            if (state.DeliveryOption === false) {
+              alert("First Fill form ");
+            } else if (state.DeliveryInformation === false) {
+              alert("First Fill form ");
+            }
+          }
+          if (location.pathname === "/checkout") {
+            SubmitData();
+            // SetLoading(true)DeliveryAddress
           }
         } else {
-          if (state.DeliveryOption === false) {
-            alert("First Fill form ");
-          } else if (state.DeliveryInformation === false) {
-            alert("First Fill form ");
-          }
-        }
-        if (location.pathname === "/checkout") {
-          SubmitData();
-          // SetLoading(true)DeliveryAddress
+          alert("Select Delivery address");
         }
       }
-    } else {
-      if (state.selectDeliveryoptions === "pickup_btn") {
-        if (location.pathname === "/cart") {
-          navigate("/checkout", {
-            state: { InputValues, abc: state.Cart_subTotal , orderBtn : state.selectDeliveryoptions},
-          });
-        } else {
-          if (state.DeliveryOption === false) {
-            alert("First Fill form ");
-          } else if (state.DeliveryInformation === false) {
-            alert("First Fill form ");
-          }
-        }
-        if (location.pathname === "/checkout") {
-          SubmitData();
-          // SetLoading(true)DeliveryAddress
-        }
-      } else {
-        alert("Select Delivery address");
-      }
+    }else{
+      navigate("/login");
     }
+   
   };
   React.useEffect(() => {
     if (location.pathname === "/cart") {

@@ -52,7 +52,7 @@ const Footer = () => {
                                     </div>
                                     <div className="Footer_Left_side_menu ">
 
-                                        <Link to={'https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=weedxselnox@gmail.com'}>    <HiOutlineMail color="#31B665" size={22} /><span className="footer_middle_icons_text">weedxselnox@gmail.com</span></Link>
+                                        <Link to={'https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=info@weedx.io'}>    <HiOutlineMail color="#31B665" size={22} /><span className="footer_middle_icons_text">info@weedx.io</span></Link>
                                     </div>
                                 </div>
                             </div>

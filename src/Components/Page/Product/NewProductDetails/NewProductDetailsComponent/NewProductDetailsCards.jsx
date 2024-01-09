@@ -455,7 +455,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , qu
                                                     <strike >{parseInt(dynamicWeight) !== 0 ? dynamicWeight : Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)}</strike>
                                                 </div>
                                                 :
-                                                parseInt(dynamicWeight) !== 0 ? dynamicWeight * quentity : Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)
+                                                parseInt(dynamicWeight) !== 0 ?( dynamicWeight * quentity).toFixed(1) : Product?.Prices?.map((data) => (data.Price[0].SalePrice * quentity).toFixed(1))
 
 
                                         }

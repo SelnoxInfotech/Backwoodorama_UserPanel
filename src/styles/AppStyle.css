@@ -4350,10 +4350,11 @@ line-height: normal;
   padding: 5px ;
   background-color: #fff;
   border-bottom: 1px dashed #000;
-  height: 10%;
+  height: 12%;
+  background-color: #a5a5a56e;
 }
 .notificationContainer{
-  height: 80%;
+  height: 87%;
   overflow-y: scroll;
 padding: 5px 0;
 }

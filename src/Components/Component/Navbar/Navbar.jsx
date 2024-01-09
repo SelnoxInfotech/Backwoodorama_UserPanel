@@ -219,7 +219,7 @@ const Navbar = () => {
                           </div>
                           <div className='profile_name_container'>
                             <p className='profile_names ellipsis'>{state.Profile.username}</p>
-                            <p className='profile_viewAll' onClick={ViewProfiles}>Edit Profile</p>
+                            <p className='profile_viewAll m-0' onClick={ViewProfiles}>Edit Profile</p>
                           </div>
 
                         </section>

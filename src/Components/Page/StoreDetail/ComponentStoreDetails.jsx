@@ -162,7 +162,7 @@ const StoreDetail1 = ({ storeDetails }) => {
                   <li className="StoreDetailSidemenuBarList">
                     <CiGlobe />
 
-                    <span className="StoreDetailSideMenu_listItems">
+                    <span className="StoreDetailSideMenu_listItems text-lowercase">
                       {" "}
                       {storeDetails[0]?.Stores_Website}
                     </span>
