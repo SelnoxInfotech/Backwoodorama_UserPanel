@@ -5,10 +5,9 @@ import HomePageWeedBanner from "./ComponentDashboard/HomePageWeedBanner";
 import NewsBlog from "./ComponentDashboard/NewsBlog";
 import HomePageBanner from "./ComponentDashboard/HomePageBanner";
 import DeliveryServices from "../../Delivery/HomePageDelivery/DeliveryServices";
-import { useLocation, useNavigate, Link } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import React from "react";
 import Newsletter from "../../../Component/Newsletter/HomePageDealsSignup";
-import StrainTypeCards from "../../Strain/StrainComponent/StrainTypeCards";
 import FeaturedBrand from "./ComponentDashboard/FeaturedBrand";
 import Axios from "axios";
 import { HomePageSco } from "../../../Component/ScoPage/HomePageSco"
@@ -38,6 +37,7 @@ export default function Dashboard() {
 
                 })
                 .catch((error) => {
+
                 })
 
         }
@@ -45,14 +45,15 @@ export default function Dashboard() {
 
     }, [])
     React.useEffect(() => {
-        Axios("https://api.cannabaze.com/UserPanel/Get-AllBrand/ ", {})
-            .then((response) => {
+    Axios("https://api.cannabaze.com/UserPanel/Get-AllBrand/ ", {})
+    .then((response) => {
 
-                SetFeaturedBrandArray(response?.data)
-                SetBrandSkeleton(false)
-            })
-            .catch((error) => {
-            })
+        SetFeaturedBrandArray(response?.data)
+        SetBrandSkeleton(false)
+    })
+    .catch((error) => {
+    })
+  
     }, [])
     React.useEffect(() => {
         document.documentElement.scrollTo({
@@ -62,12 +63,6 @@ export default function Dashboard() {
         });
         // window.scrollTo(0, 0);
     }, [])
-    const StrainTypeCardArray = [
-        { imgUrl: state?.StaticImage?.Indica, head1: "Indica", },
-        { imgUrl: state?.StaticImage?.Hybrid, head1: "Hybrid" },
-        { imgUrl: state?.StaticImage?.Sativa, head1: "Sativa" },
-        { imgUrl: state?.StaticImage?.CBD, head1: "CBD" },
-    ]
     return (
         <div >
             <HomePageSco location={useLocation().pathname}></HomePageSco>
@@ -76,14 +71,11 @@ export default function Dashboard() {
             <DeliveryServices Skeleton={Skeleton}></DeliveryServices>
             <HomePageWeedBanner></HomePageWeedBanner>
             <Dispensorieslider></Dispensorieslider>
-          
-
             <FeaturedBrand CardDataArray={FeaturedBrandArray} BrandSkeleton={BrandSkeleton} />
             <div className="col-12 border" style={{ height: "300px", position: "relative", top: "15px" }}>
                 <Map height={"297px"} width={"100%"}></Map>
             </div>
             {/* <WeedProduct></WeedProduct> */}
-
             <div className="About_weedx">
                 <div className="container-fluid">
                     <h2 className="section_main_title mb-sm-1 mb-3">Welcome to weedx.io</h2>
@@ -182,13 +174,8 @@ export default function Dashboard() {
                     </div>
                 </div>
             </div>
-
-
             <NewsBlog></NewsBlog>
-
             <Newsletter></Newsletter>
-
-
         </div>
     )
 }

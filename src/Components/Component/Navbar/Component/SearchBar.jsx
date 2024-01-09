@@ -19,7 +19,7 @@ const SearchBar = ({ path }) => {
     const [optionwidth, setoptionwidth] = React.useState()
     const classes = useStyles()
     const [input, Setinput] = React.useState('')
-
+    const [loading , Setloading] = React.useState(false)
     const Search = (event) => {
         event.preventDefault()
         Setinput(event.target.value)
@@ -46,8 +46,12 @@ const SearchBar = ({ path }) => {
     }
 
     React.useEffect(() => {
+        
         const getdata = setTimeout(() => {
+            Setloading(false)
             if(input!==''){
+                // loading = true
+                Setloading(true)
                 Axios.post(`https://api.cannabaze.com/UserPanel/Get-HomePageFilter/`,
                 {
 
@@ -56,7 +60,7 @@ const SearchBar = ({ path }) => {
             ).then(response => {
                 SetSearchData([])
                 if (response.status === 200) {
-
+                    // loading = false
                     const o = Object?.entries(response?.data).map((data, index, value) => {
                         return (data)
                     })
@@ -81,6 +85,7 @@ const SearchBar = ({ path }) => {
 
                 else (
                     SetSearchData([])
+                    // loading = true
                 )
 
             }).catch(
@@ -92,7 +97,8 @@ const SearchBar = ({ path }) => {
     }, [input]);
     const [open, setOpen] = React.useState(false);
     const [openLocation, setOpenLocation] = React.useState(false);
-    const loading = open
+
+    console.log(loading)
     React.useEffect(() => {
         const handleResize = () => {
             setWindowSize(window.innerWidth)
@@ -214,7 +220,7 @@ const SearchBar = ({ path }) => {
                                 </div>
                             )
                         }}
-                        loading={loading}
+                        // loading={loading}
                         sx={{ width: open && SearchBarWidth ? "100%" : "100%" }}
                         renderInput={(params) => <TextField
                             {...params}

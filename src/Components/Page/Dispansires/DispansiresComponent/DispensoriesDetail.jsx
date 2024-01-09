@@ -46,8 +46,15 @@ export default function DispensoriesDetails() {
     React.useEffect(() => {
         axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${id}`, {
         }).then(response => {
-            SetDespens(response.data)
+            if (response.data.length === 0){
+                      navigate("/FourZeroFour")
+            }else{
 
+                SetDespens(response.data)
+            }
+
+        }).catch((error)=>{
+     console.log(error)
         })
 
         axios.post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/ ",

@@ -1,19 +1,22 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import LoadingButton from "@mui/lab/LoadingButton"
 import Box from '@mui/material/Box';
-
+import Createcontext from "../../../Hooks/Context"                                           
 import useStyles from "../../../Style";
 import { Link } from "react-router-dom";
-
-const FourZeroFour = () => {
+import React from "react";
+import {FourZeroFour} from "../../../Components/Component/ScoPage/FourZeroFour"
+const FourZero = () => {
+    const { state } = React.useContext(Createcontext)
     const classes=useStyles()
     return (
         <div className="container-fluid">
+            <FourZeroFour></FourZeroFour>
             <div className="row mt-4">
                 <div className="col-12 four_zero_four_img_content_container">
                     <div className="col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12">
                         <section className="Image_section ">
-                            <LazyLoadImage src="https://selnoxmedia.s3.amazonaws.com/media/BlankImage/FourZeroFour.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAS4WSA6KJNP6NPPES%2F20231017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231017T091513Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=b87bcd334f115329dac671e91f1008755ad971201423f89d1d4168077581e08a" className="fourZero_image" />
+                            <LazyLoadImage src={state?.StaticImage?.Fourhundredfour} className="fourZero_image" />
                         </section>
                         <section className="fourZero_content_section mt-2">
                             <div className="fourZeroFour_div_width">
@@ -37,4 +40,4 @@ const FourZeroFour = () => {
         </div>
     )
 }
-export default FourZeroFour
+export default FourZero
