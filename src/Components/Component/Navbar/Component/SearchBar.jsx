@@ -60,15 +60,12 @@ const SearchBar = ({ path }) => {
             ).then(response => {
                 SetSearchData([])
                 if (response.status === 200) {
-                    // loading = false
                     const o = Object?.entries(response?.data).map((data, index, value) => {
                         return (data)
                     })
                     const y = o?.map((data) => {
                         return data
                     });
-
-
                     y.map((data1) => {
                         return (
                             data1[1].map((data) => {
@@ -82,10 +79,9 @@ const SearchBar = ({ path }) => {
                         )
                     })
                 }
-
                 else (
                     SetSearchData([])
-                    // loading = true
+                   
                 )
 
             }).catch(
@@ -98,7 +94,6 @@ const SearchBar = ({ path }) => {
     const [open, setOpen] = React.useState(false);
     const [openLocation, setOpenLocation] = React.useState(false);
 
-    console.log(loading)
     React.useEffect(() => {
         const handleResize = () => {
             setWindowSize(window.innerWidth)
@@ -138,6 +133,7 @@ const SearchBar = ({ path }) => {
     }, [])
 
     function SearchAPi(id, type, t) {
+        Setloading(false)
         if (type === 'Product') {
             Navigation(`/products/${modifystr(t.Category)}/${modifystr(t.SubcategoryName)}/${modifystr(t.value)}/${t.id}`);
         }

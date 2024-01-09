@@ -22,7 +22,7 @@ import Box from '@mui/material/Box';
 import { Link, useParams } from "react-router-dom";
 import AddToCartPopUp from "../../AddToCartPopUp/AddToCartPopUp";
 import { WhisList } from '../../../../Component/Whishlist/WhisList'
-const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , quentity, setquentity , dynamicWeight, setdynamicWeight }) => {
+const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, quentity, setquentity, dynamicWeight, setdynamicWeight }) => {
 
     const cookies = new Cookies();
     const params = useParams()
@@ -65,9 +65,9 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , qu
                 Sub_Category_id: Event.Sub_Category_id,
                 SubcategoryName: Event.SubcategoryName,
                 StoreName: Event.StoreName,
-                CoupounField:DiscountedValue.DiscountType === "" ? null : DiscountedValue ,
-                PromoCodeid:DiscountedValue.id,
-                CustomerGets:  DiscountedValue.DiscountType === 'Buy X get Y' ? DiscountedValue.CustomerGets : null
+                CoupounField: DiscountedValue.DiscountType === "" ? null : DiscountedValue,
+                PromoCodeid: DiscountedValue.id,
+                CustomerGets: DiscountedValue.DiscountType === 'Buy X get Y' ? DiscountedValue.CustomerGets : null
 
             })
             await axios.post("https://api.cannabaze.com/UserPanel/Add-AddtoCart/",
@@ -84,8 +84,8 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , qu
                     Sub_Category_id: Event.Sub_Category_id,
                     SubcategoryName: Event.SubcategoryName,
                     StoreName: Event.StoreName,
-                    CoupounField:DiscountedValue.DiscountType === "" ? null : DiscountedValue,
-                    PromoCodeid:DiscountedValue.id,
+                    CoupounField: DiscountedValue.DiscountType === "" ? null : DiscountedValue,
+                    PromoCodeid: DiscountedValue.id,
                     CustomerGets: DiscountedValue.DiscountType === 'Buy X get Y' ? DiscountedValue.CustomerGets : null
                 }
                 , config
@@ -99,7 +99,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , qu
                     if (error.response.status === 406) {
                         alert("This Product " + error.response.data[0])
                     }
-            })
+                })
         }
         else {
             const AddData = _.filter(Price, Price => Price.Product_id === Event.id);
@@ -107,7 +107,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , qu
             const PriceArrry = h.find((data) => data.id === parseInt(AddData[0]?.Item_id) && data)
             let PriceIndex = PriceArrry === undefined ? Event?.Prices[0].Price[0] : PriceArrry;
 
-            const Arry = {  
+            const Arry = {
                 Image: Event.images[0].image,
                 Product_id: Event.id,
                 Store_id: Event.Store_id,
@@ -123,10 +123,10 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , qu
                 Sub_Category_id: Event.Sub_Category_id,
                 SubcategoryName: Event.SubcategoryName,
                 StoreName: Event.StoreName,
-                CoupounField:DiscountedValue.DiscountType === "" ? null : DiscountedValue,
-                PromoCodeid:DiscountedValue.id,
+                CoupounField: DiscountedValue.DiscountType === "" ? null : DiscountedValue,
+                PromoCodeid: DiscountedValue.id,
                 CustomerGets: DiscountedValue.DiscountType === 'Buy X get Y' ? DiscountedValue.CustomerGets : null
-                
+
             }
             SetNewData(Arry)
             if (AddTOCard.length !== 0) {
@@ -212,12 +212,22 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , qu
         })
 
     }
-    async function PriceSelect(Product, Item) {
-
+    async function PriceSelect(Product1, Item) {
+  
         SetPrice(Price => {
-            return Price.filter(Price => Price.Product_id !== Product)
+            return Price.filter(Price => Price.Product_id !== Product1)
         })
-        SetPrice(Price => [...Price, { Product_id: Product, Item_id: Item }]);
+        SetPrice(Price => [...Price, { Product_id: Product1, Item_id: Item }]);
+        Product?.Prices?.map((item) => {
+            let vl = item.Price.filter((items) => {
+                if (items.id === parseInt(Item)) {
+                    SetSelectVariant(items.id)
+                    setdynamicWeight(items.SalePrice)
+                    return items.SalePrice
+                }
+            })
+            return vl[0]
+        })
     }
     const handleWhishList = (id) => {
         if (state.login === false) {
@@ -269,12 +279,20 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , qu
 
         })
     }
-    React.useEffect(()=>{
-        if(Product.length !== 0){
-        
-          SetSelectVariant( Product?.Prices[0]?.Price[0]?.id)
+
+
+
+    React.useEffect(() => {
+        if (Product.length !== 0) {
+            SetSelectVariant(Product?.Prices[0]?.Price[0]?.id)
+            console.log(Product?.Prices[0]?.Price[0]?.id)
         }
-    },[Product])
+    }, [Product])
+
+    console.log(Price, SelectVariant , dynamicWeight)
+
+
+
     return (
         <React.Fragment>
             {
@@ -289,10 +307,10 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , qu
                                         onError={event => {
                                             event.target.src = '/image/blankImage.jpg'
                                             event.onerror = null
-                                            
+
                                         }}
                                         src={Boolean(displaypic) ? displaypic : Product?.images[0]?.image} />
-                                      
+
                                 </div>
                                 {
                                     Product?.images?.length > 1 ? <div className=" newProductDetailsLowerImage_container">
@@ -394,17 +412,30 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , qu
                                     }
                                 </span><span className="mx-3 newProd_grms productDetailsCardWeigthOptions">
                                     {
+
                                         Product?.Prices?.map((data) => data.Price.length)[0] > 1 ?
-                                            <Select className={classes.weightSelectbox}  onChange={(e) => {
-                                                setquentity(1)
-                                                k(e.target.value)
-                                            }}  onClick={(e) => PriceSelect(Product.id, e.target.value)}  >
+                                            <Select
+
+                                                className={classes.weightSelectbox}
+                                                // onChange={(e) => {
+                                                //     setquentity(1)
+                                                //     k(e.target.value)
+                                                // }}
+                                                value={SelectVariant}
+                                                onChange={(e) => {
+                                                    // console.log( e.target.value)
+                                                    PriceSelect(Product.id, e.target.value)
+                                                        // setquentity(1),
+                                                        // k(e.target.value)
+                                                }
+                                                }
+                                            >
                                                 {
                                                     Product?.Prices[0]?.Price?.map((item, index) => {
 
                                                         if (Boolean(item.Weight)) {
                                                             // return <option value={item.id} key={index}>{item.Weight}</option>
-                                                           return <MenuItem value={item.id} key={index}>{item.Weight}</MenuItem>
+                                                            return <MenuItem value={item.id} key={index}>{item.Weight}</MenuItem>
                                                         } else {
                                                             // return <option n value={item.id} key={index} >{item.Unit} Unit</option>
                                                             return <MenuItem value={item.id} key={index}>{item.Unit} unit</MenuItem>
@@ -449,7 +480,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , qu
                                                             parseInt(dynamicWeight) !== 0
                                                                 ? parseInt(dynamicWeight * quentity) - ((Boolean(DiscountedValue?.Percentage) ? (dynamicWeight * quentity) * parseInt(DiscountedValue?.Percentage) / 100 : parseInt(DiscountedValue.Amount)))
                                                                 :
-                                                                Product?.Prices?.map((data) =>   { return ( (data.Price[0].SalePrice * quentity - (Boolean(DiscountedValue?.Percentage) ? parseInt((data.Price[0].SalePrice * quentity) * parseInt(DiscountedValue?.Percentage) / 100) : parseInt(DiscountedValue.Amount))))})
+                                                                Product?.Prices?.map((data) => { return ((data.Price[0].SalePrice * quentity - (Boolean(DiscountedValue?.Percentage) ? parseInt((data.Price[0].SalePrice * quentity) * parseInt(DiscountedValue?.Percentage) / 100) : parseInt(DiscountedValue.Amount)))) })
                                                         }
                                                     </span>
                                                     <strike >{parseInt(dynamicWeight) !== 0 ? dynamicWeight : Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)}</strike>
@@ -490,7 +521,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice , qu
                                         else {
                                             return (
                                                 data.Price.map((arry) => {
-                                                    if (SelectVariant.id === arry.id) {
+                                                    if (SelectVariant === arry.id) {
                                                         if (arry.Stock === "IN Stock") {
                                                             return (
                                                                 <Box className={`${classes.loadingBtnTextAndBack}`} >
