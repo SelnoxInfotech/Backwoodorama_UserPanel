@@ -10,9 +10,7 @@ export default function Notification({ notify, setnotify, Setnotificationdata, n
     const cookies = new Cookies();
     const token_data = cookies.get('User_Token_access')
     const { state } = React.useContext(Createcontext)
-
     function calculateTImefromDate(value) {
-
         let diffTime = Math.abs(new Date().valueOf() - new Date(value).valueOf());
         let months = Math.trunc(diffTime / (24 * 60 * 60 * 1000) / 30);
         let days = diffTime / (24 * 60 * 60 * 1000);
@@ -36,7 +34,6 @@ export default function Notification({ notify, setnotify, Setnotificationdata, n
             return secs + " secs ago"
         }
     }
-
     React.useEffect(() => {
         if (state.login) {
             const config = {
@@ -58,7 +55,6 @@ export default function Notification({ notify, setnotify, Setnotificationdata, n
                 // })
                 let datax = []
                 res.data.forEach((item, index) => {
-                    console.log(item)
                     if (item.Order.length !== 0) {
                         datax.push({
                             Image: item.Order[0].IdCard,
@@ -106,13 +102,6 @@ export default function Notification({ notify, setnotify, Setnotificationdata, n
         }
     }, [state.login])
 
-    // function removeitem(indexNo) {
-    //     let newdata = notificationdata.filter((item, index) => {
-    //         return index !== indexNo
-    //     })
-    //     Setnotificationdata(newdata)
-
-    // }
     function ClearAll() {
         const config = {
             headers: { Authorization: `Bearer ${token_data}` }
