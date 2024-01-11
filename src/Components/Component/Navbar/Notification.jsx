@@ -85,8 +85,8 @@ export default function Notification({ notify, setnotify, Setnotificationdata, n
         else {
             axios.get(`https://api.cannabaze.com/UserPanel/GetUserNotification/`,
             ).then((respones) => {
-
-                if (Boolean(respones?.data?.Blog.length)) {
+                  console.log(respones ,'respones')
+                if (Boolean(respones?.data)) {
                     let newdata = respones.data.Blog.map((data) => {
                         return { "link": `/cannabis-news/${data.blog[0].Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${data.blog[0].id}`, 'title': data.Title, "image": data.Image, 'date': data.updated }
                     })
@@ -144,7 +144,7 @@ export default function Notification({ notify, setnotify, Setnotificationdata, n
 
                 <div className='notificationHeader'>
                     <h4 className='notifytitle'>Notification</h4>
-                    {state.login && <span className='clearNotify' onClick={() => ClearAll()}>Clear All X</span>}
+                  { ( Boolean(notificationdata?.length) && state.login ) && <span className='clearNotify' onClick={() => ClearAll()}>Clear All </span>}
                 </div>
                 <div className='notificationContainer'>
                     {Boolean(notificationdata?.length)
