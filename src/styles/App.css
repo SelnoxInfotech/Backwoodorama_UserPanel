@@ -1119,4 +1119,6 @@ scrollbar-width: none;  /* Firefox */
 }
 
 
-
+.linkTaginsideEditer a span  {
+  color: #31B665 !important ;
+}
