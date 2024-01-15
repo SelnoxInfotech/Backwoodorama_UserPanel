@@ -186,7 +186,7 @@ navigate("/FourZeroFour")
                     <div className="col-12 w-100 row align-items-center justify-content-between blog_searchBar_container px-0">
                         <section className=" col-2 backButton_section">
                             <div className="col-12 backBtnCol_searchBar_height">
-                                <span onClick={() => { navigate(-1) }} style={{ marginLeft: "-4px", cursor: 'pointer' }}> <IoChevronBack color="#000000" size={20} /></span><span onClick={() => { navigate(-1) }} style={{ cursor: 'pointer' }} className="blogBackSpan">Back</span>
+                                <span onClick={() => { navigate('/cannabis-news') }} style={{ marginLeft: "-4px", cursor: 'pointer' }}> <IoChevronBack color="#000000" size={20} /></span><span onClick={() => { navigate('/cannabis-news') }} style={{ cursor: 'pointer' }} className="blogBackSpan">Back</span>
 
                             </div>
                         </section>
@@ -200,7 +200,7 @@ navigate("/FourZeroFour")
                                 </div>
                             </div>
                             <div className=" UserNmae  ">
-                                <h6>{News?.username}</h6>
+                                <h6>{`${News?.username}`}</h6>
                             </div> 
                         </div>
                         <section className="blog_Image" style={{backgroundImage:`url(${state?.StaticImage?.blogbanner})`}} >
