@@ -96,7 +96,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                                                 
                                                 {
                                                     data.Stores_MobileNo !== '' && data.Stores_MobileNo !== null &&  <Box
-                                                    className={`New_flav_btn ${classes.loadingBtnTextAndBack}`}    >
+                                                    className={`mx-2 ${classes.loadingBtnTextAndBack}`}    >
                                                     <Link to={`tel:${delBtn[0].Stores_MobileNo}`}>
                                                       <LoadingButton style={{  height: "30px" , maxWidth:'250px' , width:'100%' }} variant="outlined">Call</LoadingButton>
                                                     </Link>

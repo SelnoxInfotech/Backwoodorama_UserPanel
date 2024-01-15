@@ -1486,7 +1486,7 @@ scrollbar-width: none;  /* Firefox */
   align-items: center;
   /* justify-content: space-around; */
   height: 100%;
-
+ margin: 0;
 }
 
 .StoreDetailMenuItem_container {
