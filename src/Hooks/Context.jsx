@@ -86,20 +86,20 @@ function Context(props) {
                 let AllTotal = 0
                 let BeforeCoupoun
                 CarTProduct.map((data) => {
-                    if (data?.CoupounField !== null) {
-                        if (data?.CoupounField.DiscountType !== "Buy X get Y") {
+                    // if (data?.CoupounField !== null) {
+                    //     if (data?.CoupounField.DiscountType !== "Buy X get Y") {
 
-                            return AllTotal += parseInt(data?.CoupounField?.price) * data.Cart_Quantity
-                        }
-                        else {
-                            BeforeCoupoun = data?.CoupounField.CustomerGets
-                            return AllTotal += parseInt(data?.TotalPrice)
-                        }
+                    //         return AllTotal += parseInt(data?.CoupounField?.price) * data.Cart_Quantity
+                    //     }
+                    //     else {
+                    //         BeforeCoupoun = data?.CoupounField.CustomerGets
+                    //         return AllTotal += parseInt(data?.TotalPrice)
+                    //     }
 
-                    }
-                    else {
+                    // }
+                    // else {
                         return AllTotal += parseInt(data?.TotalPrice)
-                    }
+                    // }
                 })
                 dispatch({type:"BeforeCoupoun" , BeforeCoupoun : BeforeCoupoun})
                 dispatch({ type: 'Cart_subTotal', Cart_subTotal: AllTotal })
