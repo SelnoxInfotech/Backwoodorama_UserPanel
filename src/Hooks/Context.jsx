@@ -161,8 +161,9 @@ function Context(props) {
 
     React.useEffect(() => {
         StaticImages().then((response) => {
-            dispatch({ type: 'StaticImage', StaticImage: response.data.data[0] })
+            dispatch({ type: 'StaticImage', StaticImage: response?.data?.data[0] })
         }).catch((error) => {
+            dispatch({ type: 'StaticImage', StaticImage: []})
             console.trace(error)
         })
     }, [])

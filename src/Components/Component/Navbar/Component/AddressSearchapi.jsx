@@ -195,11 +195,11 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
   const navigate = useNavigate();
   const [formatted_address, Setformatted_address] = React.useState('')
   const { state, dispatch } = React.useContext(Createcontext)
+  // let dropdwondata  = placePredictions
   const [dropdwondata, Setdropwondata] = React.useState([])
   React.useEffect(() => {
-    Setformatted_address(state.Location)
+    Setformatted_address(state?.Location)
   }, [state])
-
   function handlechnage(e, value) {
     placesService?.getDetails({ placeId: value?.place_id }, (placeDetails) => {
       Setformatted_address(placeDetails.formatted_address);
@@ -387,13 +387,13 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
       style={{ width: "100%", height: "45px", borderRadius: (openLocation && SearchBarWidth) ? " 16px 16px 16px 16px" : " 0px 16px 16px 0px", top: "0px", display: open1 && SearchBarWidth ? "none" : "inline-flex", }}
       onBlur={OnBlur}
       sx={{ width: "100%" }}
-      options={dropdwondata}
+      options={placePredictions}
       inputValue={formatted_address}
       value={formatted_address}
       onChange={((element, value) => { handlechnage(element, value) })}
       renderOption={(props, value, index) => {
         return (
-          <li  {...props} >  <IoLocationSharp />{value.description}</li>
+          <li  {...props} >  <IoLocationSharp />{value?.description}</li>
         )
       }}
       getOptionSelected={option => option?.description}
