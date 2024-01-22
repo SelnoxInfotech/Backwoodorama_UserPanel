@@ -16,92 +16,87 @@ const CurrentLocation = () => {
       watchLocationPermissionChange: true,
 
     });
-  React.useEffect(()=>{
-    if(coords !== undefined)
-    {
-      Setloca( coords?.longitude )
+  React.useEffect(() => {
+    if (coords !== undefined) {
+      Setloca(coords?.longitude)
     }
-  },[coords])
+  }, [coords])
 
-  React.useEffect(()=>{
-    dispatch({ type: 'permission', permission:  coords === undefined ? false : true  })
+  React.useEffect(() => {
+    dispatch({ type: 'permission', permission: coords === undefined ? false : true })
     coords !== undefined ?
 
-    fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${coords?.latitude},${coords?.longitude}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
-    .then(res => {
-      res.json()
-    })
-      .then(response => {
-        console.log(response)
-    //  if(response.error_message){
-    //   dispatch({ type: 'Location', Location: 'New York, NY, USA'})
-    //   dispatch({ type: 'Country', Country: "United-States" })
-    //   dispatch({ type: 'State', State: 'New-York' })
-    //   dispatch({ type: 'City', City: "New-York" })
-    //  }
-    //  else{
-      dispatch({ type: 'Location', Location: response?.plus_code?.compound_code.slice(9) })
-      response?.results?.map((data) => {
-        if (data.types.indexOf('country') !== -1) {
-          dispatch({ type: 'Country', Country: data?.formatted_address.replace(/\s/g, '-') })
-        }
-        if (data.types.indexOf('administrative_area_level_1') !== -1) {
-          data.address_components.map((state) => {
-            if (state.types.indexOf('administrative_area_level_1') !== -1) {
-              dispatch({ type: 'State', State: state?.long_name.replace(/\s/g, '-') })
-            }
-          })
-        }
-        if (data.types.indexOf('administrative_area_level_3') !== -1) {
-          data.address_components.map((city) => {
-            if (city.types.indexOf('administrative_area_level_3') !== -1 || city.types.indexOf('locality') !== -1) {
-              dispatch({ type: 'City', City: city?.long_name?.replace(/\s/g, '-') })
-            }
-          })
-        }
-      })
-    //  }
-
-      }).catch((error)=>{
-        console.trace(error ,  'GeoCode Api')
-      })
-
-    : 
-    fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${cookies.get("Location") ? cookies.get("Location") : "New York"}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
-      .then(res =>   res.json())
-      .then(response => {     
-        console.log(response.error_message)  
-        if(response.error_message)
-        {
-          dispatch({ type: 'Location', Location: 'New York, NY, USA'})
-          dispatch({ type: 'Country', Country: "United-States" })
-          dispatch({ type: 'State', State: 'New-York' })
-          dispatch({ type: 'City', City: "New-York" })
-        }
-        else{
-          dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address })
-          response?.results[0]?.address_components?.map((data) => {
+      fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${coords?.latitude},${coords?.longitude}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
+        .then(res => res.json() )
+        .then(response => {
+           if(response.error_message){
+            dispatch({ type: 'Location', Location: 'New York, NY, USA'})
+            dispatch({ type: 'Country', Country: "United-States" })
+            dispatch({ type: 'State', State: 'New-York' })
+            dispatch({ type: 'City', City: "New-York" })
+           }
+           else{
+          dispatch({ type: 'Location', Location: response?.plus_code?.compound_code.slice(9) })
+          response?.results?.map((data) => {
             if (data.types.indexOf('country') !== -1) {
-              dispatch({ type: 'Country', Country: data?.long_name.replace(/\s/g, '-') })
+              dispatch({ type: 'Country', Country: data?.formatted_address.replace(/\s/g, '-') })
             }
             if (data.types.indexOf('administrative_area_level_1') !== -1) {
-              if (data.types.indexOf('administrative_area_level_1') !== -1) {
-                dispatch({ type: 'State', State: data?.long_name.replace(/\s/g, '-') })
-              }
+              data.address_components.map((state) => {
+                if (state.types.indexOf('administrative_area_level_1') !== -1) {
+                  dispatch({ type: 'State', State: state?.long_name.replace(/\s/g, '-') })
+                }
+              })
             }
             if (data.types.indexOf('administrative_area_level_3') !== -1) {
-              if (data.types.indexOf('administrative_area_level_3') !== -1 || data.types.indexOf('locality') !== -1) {
-                dispatch({ type: 'City', City: data?.long_name?.replace(/\s/g, '-') })
-  
-              }
+              data.address_components.map((city) => {
+                if (city.types.indexOf('administrative_area_level_3') !== -1 || city.types.indexOf('locality') !== -1) {
+                  dispatch({ type: 'City', City: city?.long_name?.replace(/\s/g, '-') })
+                }
+              })
             }
           })
-        }
-      }).catch((error)=>{
-        console.trace(error ,  'GeoCode Api')
-      })
-  },[loca , state.DefalutLocation])
-  
+           }
+
+        }).catch((error) => {
+          console.trace(error, 'GeoCode Api')
+        })
+
+      :
+      fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${cookies.get("Location") ? cookies.get("Location") : "New York"}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
+        .then(res => res.json())
+        .then(response => {
+
+          if (response.error_message) {
+            dispatch({ type: 'Location', Location: 'New York, NY, USA' })
+            dispatch({ type: 'Country', Country: "United-States" })
+            dispatch({ type: 'State', State: 'New-York' })
+            dispatch({ type: 'City', City: "New-York" })
+          }
+          else {
+            dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address })
+            response?.results[0]?.address_components?.map((data) => {
+              if (data.types.indexOf('country') !== -1) {
+                dispatch({ type: 'Country', Country: data?.long_name.replace(/\s/g, '-') })
+              }
+              if (data.types.indexOf('administrative_area_level_1') !== -1) {
+                if (data.types.indexOf('administrative_area_level_1') !== -1) {
+                  dispatch({ type: 'State', State: data?.long_name.replace(/\s/g, '-') })
+                }
+              }
+              if (data.types.indexOf('administrative_area_level_3') !== -1) {
+                if (data.types.indexOf('administrative_area_level_3') !== -1 || data.types.indexOf('locality') !== -1) {
+                  dispatch({ type: 'City', City: data?.long_name?.replace(/\s/g, '-') })
+
+                }
+              }
+            })
+          }
+        }).catch((error) => {
+          console.trace(error, 'GeoCode Api')
+        })
+  }, [loca, state.DefalutLocation])
+
 }
 
 export default CurrentLocation
