@@ -71,28 +71,13 @@ const PlaceOrder = () => {
 
                                 {
                                     location.state.Product.map((item) => {
-                                     
-                                        // if(item.CoupounField?.DiscountType !== ""  || null)
-                                        if(false)
-                                        {
-                                            pricess.Subtotal = parseInt(item?.CoupounField?.price) * item.Cart_Quantity;
-                                            pricess.Delivery += 0
-                                            pricess.Taxes += 0
-    
-                                            pricess.Paid += 0
-                                            pricess.DueLater += pricess.Subtotal + item.Price.SalePrice
-                                        }
-                                      else{
-                                        pricess.Subtotal = pricess.Subtotal + item.Price.SalePrice;
+                                        pricess.Subtotal =  item.Price.SalePrice * item.Cart_Quantity;
                                         pricess.Delivery += 0
                                         pricess.Taxes += 0
-
                                         pricess.Paid += 0
                                         pricess.DueLater += pricess.Subtotal + item.Price.SalePrice
-                                      }
 
-
-                                        return <div className="place_order_product_cart  row border-bottom py-3">
+                                        return (<div className="place_order_product_cart  row border-bottom py-3">
                                             <div className="col-sm-2 col-3 col-sm-2">
                                                 <LazyLoadImage onError={event => {
                                                     event.target.src = "/image/blankImage.jpg"
@@ -105,7 +90,7 @@ const PlaceOrder = () => {
                                                 <div className='d-flex justify-content-between align-items-start'>  <h4 className='w-75 text-wrap text-break'>{item.ProductName}</h4>  <p className="price">$ {pricess.Subtotal}</p>  </div>
                                                 <p><b>Qty</b> : {item.Cart_Quantity}</p>
                                             </div>
-                                        </div>
+                                        </div>)
                                     })
 
                                 }
@@ -154,7 +139,7 @@ const PlaceOrder = () => {
                         </div>
                         <div className='d-flex justify-content-center py-4'>
                             <Link to={`/MyOrderProductDetail/${location?.state?.OrderId}`}>
-                               <button className='trackorderbtn'>Track Order</button>
+                                <button className='trackorderbtn'>Track Order</button>
                             </Link>
                         </div>
                     </div>

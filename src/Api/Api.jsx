@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+ 
 import Cookies from 'universal-cookie';
 import React from 'react';
 export function registerEmp(usrdata) {
