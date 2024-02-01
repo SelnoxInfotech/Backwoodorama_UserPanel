@@ -32,10 +32,18 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
     if (e.currentTarget.id === "pickup_btn") {
       SetOpenPickup(!OpenPickup);
       SetOpenDelivery(false);
-      dispatch({
-        type: "selectDeliveryoptions",
-        selectDeliveryoptions: "pickup_btn",
-      });
+      if(state.AllProduct[0]?.StoreCurbsidePickup){
+        dispatch({
+          type: "selectDeliveryoptions",
+          selectDeliveryoptions: "CurbsidePickup",
+        });
+      }else{
+        dispatch({
+          type: "selectDeliveryoptions",
+          selectDeliveryoptions: "pickup_btn",
+        });
+      }
+    
     } else if (e.currentTarget.id === "delivery_btn") {
       SetOpenDelivery(!OpenDelivery);
       SetOpenPickup(false);
@@ -44,7 +52,9 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
         selectDeliveryoptions: "delivery_btn",
       });
     }
+
   };
+  console.log(state.selectDeliveryoptions ,'state.selectDeliveryoptions')
   const CheckoutProcess = (event, j) => {
     if(state.login){
       if (state.selectDeliveryoptions === "delivery_btn") {
@@ -72,7 +82,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
           }
         }
       } else {
-        if (state.selectDeliveryoptions === "pickup_btn") {
+        if (state.selectDeliveryoptions === "pickup_btn" || state.selectDeliveryoptions === "CurbsidePickup" ) {
           if (location.pathname === "/cart") {
             navigate("/checkout", {
               state: { InputValues, abc: state.Cart_subTotal , orderBtn : state.selectDeliveryoptions},

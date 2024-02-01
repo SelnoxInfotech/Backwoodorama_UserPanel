@@ -43,6 +43,18 @@ const CheckOutMainPage = () => {
     async function SubmitData() {
 
      if(image !== undefined) {
+        let asdsd = 'Delivery'
+
+        if(state.selectDeliveryoptions === "pickup_btn"){
+            asdsd ="Pickup"
+        }
+        else if(state.selectDeliveryoptions === "CurbsidePickup"){
+            asdsd = 'Delivery and Pickup'
+        }else if(state.selectDeliveryoptions === "delivery_btn"){
+            asdsd ='Delivery'
+        }
+
+
         const formdata = new FormData();
         formdata.append('IdCard', Dataimage);
         formdata.append('FirstName', Details.FirstName);
@@ -56,7 +68,7 @@ const CheckOutMainPage = () => {
         formdata.append('Address', state.selectDeliveryoptions === "pickup_btn" ? state.AllProduct[0]?.StoreAddress : state.DeliveryAddress);
         formdata.append('DeliveryTime', Time);
         formdata.append('Email', Details.Email)
-        formdata.append('Order_Type', state.selectDeliveryoptions === "pickup_btn" ? "Pickup" : 'Delivery')
+        formdata.append('Order_Type', asdsd)
 
         await Axios.post(
             'https://api.cannabaze.com/UserPanel/Add-Order/ ',
@@ -78,9 +90,9 @@ const CheckOutMainPage = () => {
             function (error) {
                 SetLoading(false)
         })
-         Axios.post(`https://api.cannabaze.com/UserPanel/Add-UserProfileOrderDetails/`, formdata, config).then((data) => {
+        // Axios.post(`https://api.cannabaze.com/UserPanel/Add-UserProfileOrderDetails/`, formdata, config).then((data) => {
             
-        })
+        // })
 
      }
      else(
@@ -88,6 +100,7 @@ const CheckOutMainPage = () => {
      )
 
     }
+    console.log(state.selectDeliveryoptions ,'state')
     React.useEffect(() => {
       state.login &&   Axios.get(`https://api.cannabaze.com/UserPanel/Get-UserProfileOrderDetails/`, config).then((data) => {
         if (data.data.length !== 0) {
