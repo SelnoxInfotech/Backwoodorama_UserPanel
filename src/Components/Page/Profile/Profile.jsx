@@ -119,7 +119,7 @@ const Profile = () => {
                                 </section>
                                 <section className="profile_edit_text">
                                     <div className="ProfileName_container">
-                                        <h1 className="profile_user_name ellipsis">{state.Profile.username}</h1>
+                                        <h2 className="profile_user_name ellipsis">{state.Profile.username}</h2>
                                     </div>
                                     <div className="profileEdit_Icon">
                                         <Link to="/EditProfile"><span><MdEdit color="#707070" size={18} /></span><span className="profileEdit">Edit User Profile</span></Link>
