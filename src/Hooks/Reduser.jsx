@@ -122,6 +122,21 @@ const reducer = (state, action) => {
         {
           return { ...state, BeforeCoupoun: action.BeforeCoupoun }
         }
+        case "DeliveryCountry":
+          {
+            return { ...state, DeliveryCountry: action.DeliveryCountry }
+          }
+
+          case "DeliveryCity":
+            {
+              return { ...state, DeliveryCity: action.DeliveryCity }
+            }
+
+            case "DeliveryState":
+              {
+                return { ...state, DeliveryState: action.DeliveryState }
+              }
+      
 
     default: return state
   }

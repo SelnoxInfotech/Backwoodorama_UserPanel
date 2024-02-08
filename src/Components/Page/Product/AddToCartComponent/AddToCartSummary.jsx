@@ -54,7 +54,6 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
     }
 
   };
-  console.log(state.selectDeliveryoptions ,'state.selectDeliveryoptions')
   const CheckoutProcess = (event, j) => {
     if(state.login){
       if (state.selectDeliveryoptions === "delivery_btn") {

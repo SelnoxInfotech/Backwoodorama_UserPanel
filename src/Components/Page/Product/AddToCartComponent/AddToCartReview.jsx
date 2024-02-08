@@ -231,15 +231,12 @@ const AddToCartReview = () => {
                         <div className=" Add_product_cart_left_container_item" >
 
                             {AfterDiscount?.map((ele, index) => {
-                                console.log(ele)
                                 let wrigh = Boolean(ele.Price.Weight) ? ele.Price.Weight : `${ele.Price.Unit} Unit`;
                                 return (
                                     <div className="ssss row py-3 px-0 border-top border-bottom justify-content-center   align-items-center" key={index}>
                                         <div className='row align-items-center col-5'>
                                             <div className="p-0 col-3 Add_prod_item_image_cont">
-                                                {
-                                                      console.log(ele.Product_id)
-                                                }
+                                        
                                                 <Link to={`/products/${modifystr(ele.category)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.ProductName)}/${ele.Product_id}`}>
 
                                                     <LazyLoadImage onError={event => {

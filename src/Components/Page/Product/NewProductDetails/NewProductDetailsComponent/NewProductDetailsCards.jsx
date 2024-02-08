@@ -285,11 +285,9 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
     React.useEffect(() => {
         if (Product.length !== 0) {
             SetSelectVariant(Product?.Prices[0]?.Price[0]?.id)
-            console.log(Product?.Prices[0]?.Price[0]?.id)
         }
     }, [Product])
 
-    console.log(Price, SelectVariant , dynamicWeight)
 
 
 
