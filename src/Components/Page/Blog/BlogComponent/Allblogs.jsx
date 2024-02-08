@@ -30,8 +30,6 @@ const Allblogs = () => {
   const classes = useStyles()
   const cookies = new Cookies();
   const token_data = cookies.get('User_Token_access')
-
-
   useEffect(() => {
       document.documentElement.scrollTo({
         top: 0,
