@@ -19,7 +19,9 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery , Store}) {
   const { ref } = usePlacesWidget({
     apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
     onPlaceSelected: (place) => {
+   
       if (place.address_components) {
+        console.log(place) 
         try {
           for (var i = 0; i < place?.address_components.length; i++) {
             var component = place.address_components[i];
@@ -27,6 +29,9 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery , Store}) {
               CheckPostal(component.long_name, place.formatted_address)
               SetAddress(place.formatted_address)
               dispatch({ type: 'DeliveryAddress', DeliveryAddress: place.formatted_address })
+              if(component.types.indexOf('postal_code')){
+
+              }
               break;
             }
             else {
@@ -80,14 +85,13 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery , Store}) {
     options: {
 
       fields: ["address_components", "geometry", "icon", "formatted_address", "name",],
-      strictBounds: true,
-      types: ["geocode"],
+     
+      types: [ "point_of_interest" ],
     },
   });
 
-
-
   function CheckPostal(data, name) {
+    console.log(data)
     Axios.post(`https://api.cannabaze.com/UserPanel/Get-GetDeliveryCheck/`,
       {
         "PinCode": data,
@@ -111,6 +115,7 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery , Store}) {
         }
       })
   }
+
   function handlechnage(e) {
     SetAddress(e.target.value)
   }
