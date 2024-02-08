@@ -118,8 +118,7 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery, Store }) {
             if ((data.types.indexOf('locality') !== -1 && data.types.indexOf('administrative_area_level_3' !== -1)) || data.types.indexOf("postal_town") !== -1
             || data.types.indexOf("establishment") !== -1) {
               dispatch({ type: 'DeliveryCity', DeliveryCity: data.long_name })
-              // Coun = data?.long_name.replace(/\s/g, '-')
-              // return dispatch({ type: 'Country', Country: data?.long_name.replace(/\s/g, '-') })
+
             }
             if (data.types.indexOf('administrative_area_level_1') !== -1) {
               dispatch({ type: 'DeliveryState', DeliveryState: data.long_name })
