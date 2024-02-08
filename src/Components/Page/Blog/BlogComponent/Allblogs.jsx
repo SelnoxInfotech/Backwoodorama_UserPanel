@@ -33,26 +33,26 @@ const Allblogs = () => {
 
 
   useEffect(() => {
-    document.documentElement.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "instant",
-    }); 
+      document.documentElement.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "instant",
+      }); 
        
-    if (state.login) {
+      if (state.login) {
       axios.get('https://api.cannabaze.com/UserPanel/GetNewsbyUser/',{
       
           headers: { Authorization: `Bearer ${token_data}` }
       
       }).then(async (res) => {
-         setallblogs(res.data)
+         setallblogs(res.data.reverse())
          setisdata(true)
         }).catch((err) => {
           console.trace(err)
         })
       }else{
-        getAllNews().then(async (res) => {
-          setallblogs(res.data)
+          getAllNews().then(async (res) => {
+          setallblogs(res.data.reverse())
           setisdata(true)
         }).catch((err) => {
           console.trace(err)
@@ -81,7 +81,7 @@ const Allblogs = () => {
           headers: { Authorization: `Bearer ${token_data}` }
       
           }).then(async (res) => {
-          setallblogs(res.data)
+          setallblogs(res.data.reverse())
           setisdata(true)
           }).catch((err) => {
             console.trace(err)
