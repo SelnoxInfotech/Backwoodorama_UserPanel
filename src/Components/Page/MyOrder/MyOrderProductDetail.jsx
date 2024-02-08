@@ -105,13 +105,7 @@ const MyOrderProductDetail = () => {
             Product Details
           </span>
         </div>
-        {/* <div className="col-12  myOrder_orderId mt-4">
-                        <h1 className="orderId_span">Order ID : {AllOrder_data[0]?.OrderId}</h1>
-                    </div>
-                    <div className="col-12  myOrder_orderId">
-                        <h1 className="orderId_span">Payment Method : Cash on delivery</h1>
-                    
-                    </div> */}
+       
         <div className="p-2 mt-4">
           <div className="col-12 allOrderCard_container border p-3 ">
             <div className="imageSectionWrapper">
@@ -172,20 +166,7 @@ const MyOrderProductDetail = () => {
      <div className="col-12 d-lg-flex orderdetailscontainer d-block "> 
             <OrderTracking AllOrder_data={AllOrder_data} />
             <div className="col ">
-            {/* <div className=" border px-3 mt-lg-0 mt-3">
-               <Link to={`/products/${AllOrder_data[0]?.Product[0]?.category?.toLowerCase().replaceAll(' ',"-")}/${AllOrder_data[0]?.Product[0]?.SubcategoryName?.toLowerCase().replaceAll(' ',"-")}/${AllOrder_data[0]?.Product[0]?.ProductName?.toLowerCase().replaceAll(' ',"-")}/${AllOrder_data[0]?.Product[0]?.Product_id}`}>
-                <div className="w-100 MyOrderProductRating_innerContainer">
-                <h1 className="productRating_heading">How was the product?</h1>
-                <Rating
-                    name="read-only"
-                    className={classes.myOrderRatingStarIcons}
-                    color="#31B665"
-                    value={4}
-                    readOnly
-                />
-                </div>
-                </Link>
-            </div> */}
+          
             <div className="orderTracking_container">
                 <section className="">
                 <span className="customerNameFontss">Delivery Address : </span>

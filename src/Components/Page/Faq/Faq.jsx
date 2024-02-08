@@ -6,6 +6,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import useStyles from "../../../Style";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import {Faqseo} from '../../Component/ScoPage/Faq'
 const Faq = () => {
     const classes=useStyles()
     const [data , setData]= React.useState([
@@ -144,6 +145,7 @@ const Faq = () => {
     }, [])
   return (
     <div className='FAQsection'>
+        <Faqseo></Faqseo>
         <div className='container-fluid'>
           <Bgheader text="FAQ's  Page"/>
           <div className='faq_centent'>

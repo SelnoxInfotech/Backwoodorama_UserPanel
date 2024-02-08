@@ -3171,13 +3171,17 @@ footer{
 .text_on_Learn_banner {
   position: absolute;
   width: 100%;
-  left: 70%;
-  bottom: 35%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50% , -50%);
+  width: fit-content;
+  display: inline;
 }
 
 .learn_banner_text {
   color: #FFFFFF;
   font: 24px;
+  display: inline;
 }
 
 .learnContent_container_height {

@@ -9,7 +9,7 @@ const Learn=()=>{
 
     return(
         <div className="">
-         <LearnSeo location={useLocation().pathname}>  </LearnSeo>
+            <LearnSeo location={useLocation().pathname}>  </LearnSeo>
             <LearnBanner/>
             <div className="row">
               <LearnContent/>

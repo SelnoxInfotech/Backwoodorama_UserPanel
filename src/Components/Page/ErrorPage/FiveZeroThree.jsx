@@ -17,11 +17,11 @@ const FiveZeroThree = () => {
                         <section className="fiveZero_content_section mt-2">
                             
                             <div className="fiveZeroThree_div_width">
-                                <h1 className="fiveZero_sub_heading">Sorry we're under maintenance!</h1>
+                                <h2 className="fiveZero_sub_heading">Sorry we're under maintenance!</h2>
                             </div>
                             <div className="fourZeroThree_div_width_sec">
-                                <h1 className="five_zero_three_message">Hang on till we get the error fixed.
-                                </h1>
+                                <h2 className="five_zero_three_message">Hang on till we get the error fixed.
+                                </h2>
 
                             </div>
                             <div className="fourZeroThree_div_width_sec">

@@ -1,5 +1,5 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { BsFillCircleFill } from "react-icons/bs";
+import { BsFillCircleFill, BsTypeH2 } from "react-icons/bs";
 import React from "react";
 import { LoadingButton } from "@mui/lab";
 import Box from '@mui/material/Box';
@@ -29,14 +29,14 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,loading}) => {
                         <p className="orderId_heading">Order ID :{val.OrderId}</p>
                       </div>
                       <div className="col-6 AllOrderCol1_height text-end">
-                        <h1 className="orderId_heading">{val.trackOrder}</h1>
+                        <h2 className="orderId_heading">{val.trackOrder}</h2>
                       </div>
                     </div>
                     <div className="row mx-0">
                       <div className="col-8 AllOrderCol_height">
-                        <h1 className="sellerName_date">
+                        <h2 className="sellerName_date">
                           Seller Name : {val.SellerName}
-                        </h1>
+                        </h2>
                       </div>
                       <div className="col-4 AllOrderCol_height text-end">
                         <span className="sellerName_date ">
@@ -64,9 +64,9 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,loading}) => {
                                 </section>
                                 <section className="allOrder_Card_Content_section">
                                   <div className="col-12">
-                                    <h1 className="AllOrder_heading">
+                                    <h2 className="AllOrder_heading">
                                       {items.ProductName}
-                                    </h1>
+                                    </h2>
                                   </div>
                                   <div className="w-100  allOrder_span_quantity_div">
                                     <span className="allOrder_span_quantity">

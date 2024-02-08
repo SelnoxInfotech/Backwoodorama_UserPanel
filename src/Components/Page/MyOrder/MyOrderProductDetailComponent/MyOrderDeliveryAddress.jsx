@@ -8,7 +8,7 @@ const MyOrderDeliveryAddress = ({props}) => {
                     <h1 className="MyOrderDeliveryAddress_headingss">Delivery Address</h1>
                 </div>
                 <div className="w-100 MyOrderDeliveryAddress_head_cont">
-                    <h1 className="MyOrderDeliveryAddress_subHeading">{props[0]?.Address}</h1>
+                    <h2 className="MyOrderDeliveryAddress_subHeading">{props[0]?.Address}</h2>
                 </div>
                </section>
 

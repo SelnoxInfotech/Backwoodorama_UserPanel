@@ -23,8 +23,8 @@ const FourZeroThree=()=>{
                                 <h1 className="fourZero_Three_sub_heading">403 ERROR FORBIDDEN</h1>
                             </div>
                             <div className="fourZeroThree_div_width_sec">
-                                <h1 className="four_zero_three_message">You dont have permission to access this resource.
-                                </h1>
+                                <h2 className="four_zero_three_message">You dont have permission to access this resource.
+                                </h2>
 
                             </div>
                             

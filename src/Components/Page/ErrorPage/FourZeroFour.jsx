@@ -20,15 +20,15 @@ const FourZero = () => {
                         </section>
                         <section className="fourZero_content_section mt-2">
                             <div className="fourZeroFour_div_width">
-                                <h1 className="four_zero_heading">Oops!</h1>
+                                <h2 className="four_zero_heading">Oops!</h2>
                             </div>
                             <div className="fourZeroFour_div_width">
                                 <h1 className="fourZero_sub_heading">404 -PAGE NOT FOUND</h1>
                             </div>
                             <div className="fourZeroFour_div_width">
-                                <h1 className="four_zero_message">The page you are for might have been removed had its name changed
+                                <h3 className="four_zero_message">The page you are for might have been removed had its name changed
                                     is temporarily unavailable.
-                                </h1>
+                                </h3>
                             </div>
                         </section>
                         <Box className={`center mt-4 ${classes.fourZeroFourBtn}`}>

@@ -16,51 +16,48 @@ import _, { reverse } from "lodash";
 import Createcontext from '../../../../Hooks/Context.jsx';
 import { RWebShare } from "react-web-share";
 import { IconButton } from "@material-ui/core";
-import { cssNumber } from 'jquery';
+import Cookies from 'universal-cookie';
+import {useNavigation} from 'react-router-dom'
 const Allblogs = () => {
   const [allblogs, setallblogs] = useState([])
+  const navigate = useNavigation()
   const { state } = React.useContext(Createcontext)
   const [value, SetValue] = React.useState([])
   const [allLikes, SetallLikes] = React.useState([])
   const [isdata, setisdata] = useState(false)
-  
   const [Getlikes, SetLikes] = React.useState([])
   const [searchtext , setsearchtext] = useState('')
   const classes = useStyles()
- 
+  const cookies = new Cookies();
+  const token_data = cookies.get('User_Token_access')
+
+
   useEffect(() => {
     document.documentElement.scrollTo({
       top: 0,
       left: 0,
       behavior: "instant",
     }); 
-    getAllNews().then(async (res) => {
-    
-            res.forEach( async(item)=>{
-             let getss
-            
-               await  BlogLike(item.id).then((resposce2) => {
-                getss = resposce2.data.Like.map((itemss)=>{
-                  return itemss.user
-                })
-             
-               allLikes.push(getss)
-             
-            }).catch((error) => {
-                console.error(error)
-            })
-             
-           
-            })
-
-
-          let newdata= _.sortBy(res,
-              [function (o) { return o.Publish_Date; }]).reverse()
-         setallblogs(newdata);
-         setisdata(true);
-    }).catch((err) => {
-      console.trace(err)
-    })
+       
+    if (state.login) {
+      axios.get('https://api.cannabaze.com/UserPanel/GetNewsbyUser/',{
+      
+          headers: { Authorization: `Bearer ${token_data}` }
+      
+      }).then(async (res) => {
+         setallblogs(res.data)
+         setisdata(true)
+        }).catch((err) => {
+          console.trace(err)
+        })
+      }else{
+        getAllNews().then(async (res) => {
+          setallblogs(res.data)
+          setisdata(true)
+        }).catch((err) => {
+          console.trace(err)
+        })
+      }
   }, [])
   function Searchbar(e){
     setsearchtext(e)
@@ -74,50 +71,32 @@ const Allblogs = () => {
     setallblogs(res.data)
    })
   }
-  function PostLike(News, like) {
+  function PostLike(item) {
    
     if (state.login) {
-        Post_BlogLike(News?.id, !like).then((res) => {
+        Post_BlogLike(item?.id , !item.Liked ).then((res) => {
        
-            getAllNews().then(async (res) => {
-            SetallLikes([])
-            await res.forEach((item)=>{
-                BlogLike(item.id).then((res) => {
-                  let a = res.data.Like.map((itemss)=>{
-                    return itemss.user
-                  })
-             
-                allLikes.push(a)
-          
-                }).catch((error) => {
-                    console.error(error)
-                })
-             
-            })
-
-              setallblogs(res);
-              setisdata(true);
-            }).catch((err) => {
-              console.trace(err)
-            })
-
+        axios.get('https://api.cannabaze.com/UserPanel/GetNewsbyUser/',{
+      
+          headers: { Authorization: `Bearer ${token_data}` }
+      
+          }).then(async (res) => {
+          setallblogs(res.data)
+          setisdata(true)
+          }).catch((err) => {
+            console.trace(err)
+          })
 
         }).catch(() => {
 
         })
     }
     else {
-       
+      navigate('/login')
     }
   }
   
-  function color() {
-      const l = _.find(Getlikes, function (n) {
-          return n?.user === state?.Profile?.id;
-      })
-      return l
 
-  }
 
   return (
     <React.Fragment>
@@ -168,9 +147,8 @@ const Allblogs = () => {
                           </div>
                           <div className='col-3'>
                         
-                                   <IconButton onClick={(() => { PostLike(items ,color()?.like) })}>
-                                        
-                                        {(state?.login && allLikes[index]?.includes(state.Profile.id) )? <AiFillHeart color={"#31B655"}></AiFillHeart> : <FaRegHeart color="#31B655" /> }
+                                   <IconButton onClick={(() => { PostLike(items) })}>
+                                        {(state?.login && items.Liked )? <AiFillHeart color={"#31B655"}></AiFillHeart> : <FaRegHeart color="#31B655" /> }
                                     </IconButton>
                             <span>{items.likeCount}</span>
                           </div>
@@ -202,11 +180,12 @@ const Allblogs = () => {
                           <span>{items.commentCount} </span>
                         </div>
                         <div className='col-3'>
-                          <span className='action_icons'><AiFillHeart /></span>
-                                    <IconButton onClick={(() => { PostLike(items ,color()?.like) })}>
-                                        <AiFillHeart color={state?.login && "#31B655"}></AiFillHeart>
-                                    </IconButton>
-                          <span>{items.likeCount}</span>
+                          <span className='action_icons'>
+                        
+                                        {(state?.login && items.Liked )? <AiFillHeart color={"#31B655"} onClick={()=>{ PostLike(items)}}></AiFillHeart> : <FaRegHeart onClick={()=>{ PostLike(items)}} color="#31B655" /> }
+                                   
+                                        <span>{items.likeCount}</span>
+                            </span>
                         </div>
                         <div className='col-3'>
                           <span className='action_icons'>

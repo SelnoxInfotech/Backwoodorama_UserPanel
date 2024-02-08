@@ -16,7 +16,10 @@
   justify-content: center;
 }
 /*  */
+.noreview_title{
+  font-size: 28px;
 
+}
 .selected {
   background-color: #007bff;
   color: #fff;

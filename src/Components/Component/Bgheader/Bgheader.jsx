@@ -4,7 +4,7 @@ import './Bgheader.css'
 const Bgheader = ({text}) => {
   return (
     <div className='bgHedaer'>
-        <span>{text}</span>
+        <h1>{text}</h1>
     </div>
   )
 }

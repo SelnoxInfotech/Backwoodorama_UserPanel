@@ -146,14 +146,14 @@ const AboutUs = () => {
 
                 <LazyLoadImage src='./image/about_us_banner.jpg' alt='imgs not available' className='About_us_banner_image' />
                 <div className='text-on-image'>
-                    <h3>About us</h3>
+                    <h1>About us</h1>
                 </div>
 
             </div>
             <div className="weedxByTheNumber_container">
 
                 <div className="weedx_heading_container">
-                    <h1 className="backwoodar_heading">WeedX  by the numbers</h1>
+                    <h2 className="backwoodar_heading">WeedX  by the numbers</h2>
                 </div>
                 
                 <div className="weedx_number_container bg-light ">
@@ -178,14 +178,14 @@ const AboutUs = () => {
                 </div>
             </div>
             <div className="AboutUsjourney_container">                  
-                   <h1 className="About_Journey_mainheading">Weedx Marijuana Dispensaries & Delivery Near Me</h1>
+                   <h2 className="About_Journey_mainheading">Weedx Marijuana Dispensaries & Delivery Near Me</h2>
                    <div className="journy_container">
 
                   
                         {AboutUsJourney.map((items, index) => {
                             return (
                                 <div className="about_us_inner_section_container" key={index}>
-                                    <h1 className="About_Journey_heading">{items.head}</h1>
+                                    <h2 className="About_Journey_heading">{items.head}</h2>
                                     <p className="journey_paragraph">
                                         {items.paragraph}
                                     </p>
@@ -195,7 +195,7 @@ const AboutUs = () => {
                     </div>
             </div>
             <div className="our_valuesSection">
-               <h1 className="ourValue_main_headings  section_title">Our Values</h1>
+               <h2 className="ourValue_main_headings  section_title">Our Values</h2>
                 <div className="valueCardWrapper row">
                     {OurValuesArray.map((items, index) => {
                         return (
@@ -205,7 +205,7 @@ const AboutUs = () => {
                                         <span>{items.icons}</span>
                                     </div>
                                     <div className="w-100 values_heading_container ">
-                                        <h1 className="ellipsis values_heading">{items.head}</h1>
+                                        <h2 className="ellipsis values_heading">{items.head}</h2>
                                     </div>
                                     <div className="values_paragraph_container">
                                         <p className="values_paragraph">{items.paragraph}</p>
@@ -220,7 +220,7 @@ const AboutUs = () => {
             </div>
             <div className='testimonial'>
 
-                <h1 className='section_title'>Clients preach the WeedX</h1>
+                <h2 className='section_title'>Clients preach the WeedX</h2>
 
                 <div className="testiminial_card_wrapper row">
                     <ClientPreachSlider {...settings}>

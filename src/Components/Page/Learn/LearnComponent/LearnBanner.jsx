@@ -75,11 +75,9 @@ const LearnBanner = () => {
             }
         ]
     };
-    const LearnBannerArray = [{ imgUrl:" /image/learnBanner.webp" }, { imgUrl: "/image/learnBanner2.jpg" }]
+    const LearnBannerArray = [{ imgUrl:" /image/learnBanner.webp" }]
 
     return (
-
-
         <div className='col-12 '>
             <LearnSlider {...settings}>
                 {LearnBannerArray?.map((items, index) => {
@@ -89,7 +87,7 @@ const LearnBanner = () => {
                                 <LazyLoadImage src={items.imgUrl} alt='img_not_available' />
                             </div>
                             <div className='text_on_Learn_banner'>
-                                <h3 className='learn_banner_text'>Learn</h3>
+                                <h1 className='learn_banner_text'>Learn</h1>
                             </div>
                         </div>
                     )
@@ -97,7 +95,6 @@ const LearnBanner = () => {
 
             </LearnSlider>
         </div>
-
     )
 }
 export default LearnBanner;

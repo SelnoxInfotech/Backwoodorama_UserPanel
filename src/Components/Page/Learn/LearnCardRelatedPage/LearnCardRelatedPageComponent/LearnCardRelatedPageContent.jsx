@@ -43,7 +43,7 @@ const LearnCardRelatedPageContent = () => {
             </section>
             <section className='Enabling_section'>
                 <div className='w-100 Enabling_container'>
-                    <h1 className='ellipsis Enabling_heading'>Enabling cannabis discovery</h1>
+                    <h2 className='ellipsis Enabling_heading'>Enabling cannabis discovery</h2>
                     <p className='Enabling_paragraph'>
                         With more than 5,000 strains in the Leafly database and 11,000+ cannabis articles and resources,
                         Leafly’s independent journalism provides more than 100 million cannabis consumers worldwide the
@@ -56,7 +56,7 @@ const LearnCardRelatedPageContent = () => {
                     </p>
                 </div>
                 <div className='w-100 Enabling_container'>
-                    <h1 className='ellipsis Enabling_heading'> Empowering the cannabis marketplace</h1>
+                    <h2 className='ellipsis Enabling_heading'> Empowering the cannabis marketplace</h2>
                     <p className='Enabling_paragraph'>   Leafly is the leading customer acquisition tool for more than 7,800 brands and 4,600 retailers who use
                         Leafly to connect with millions of shoppers every year. Connect your cannabusiness to an industry-
                         leading audience and start capturing more customers and orders than ever before with Leafly Retail
@@ -64,7 +64,7 @@ const LearnCardRelatedPageContent = () => {
 
                 </div>
                 <div className='w-100 Enabling_container'>
-                    <h1 className='ellipsis Enabling_heading'>Cultivating a fair and just cannabis industry</h1>
+                    <h2 className='ellipsis Enabling_heading'>Cultivating a fair and just cannabis industry</h2>
                     <p className='Enabling_paragraph'>At Leafly, we believe that cannabis can be a force for positive change in our world—and that we have a
                         unique responsibility to create a cannabis industry in which all communities can thrive. Learn more
                         about social justice and how we can build a stronger cannabis community.
@@ -74,7 +74,7 @@ const LearnCardRelatedPageContent = () => {
 
                 </div>
                 <div className='w-100 Enabling_container'>
-                    <h1 className='ellipsis Enabling_heading'>Leadership</h1>
+                    <h2 className='ellipsis Enabling_heading'>Leadership</h2>
                     <p className='Enabling_paragraph'>
                         Leadership Leafly is headquartered in Seattle, WA, and was founded in 2010
                     </p>
