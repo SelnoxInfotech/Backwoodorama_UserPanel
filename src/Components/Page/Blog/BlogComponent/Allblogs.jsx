@@ -17,14 +17,14 @@ import Createcontext from '../../../../Hooks/Context.jsx';
 import { RWebShare } from "react-web-share";
 import { IconButton } from "@material-ui/core";
 import Cookies from 'universal-cookie';
-import {useNavigation} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 const Allblogs = () => {
   const [allblogs, setallblogs] = useState([])
-  const navigate = useNavigation()
+  const navigate = useNavigate()
   const { state } = React.useContext(Createcontext)
   const [value, SetValue] = React.useState([])
   const [allLikes, SetallLikes] = React.useState([])
-  const [isdata, setisdata] = useState(false)
+  const [isdata, setisdata] = useState(true)
   const [Getlikes, SetLikes] = React.useState([])
   const [searchtext , setsearchtext] = useState('')
   const classes = useStyles()
@@ -43,14 +43,16 @@ const Allblogs = () => {
           headers: { Authorization: `Bearer ${token_data}` }
       
       }).then(async (res) => {
-         setallblogs(res.data.reverse())
+         setallblogs(res.data)
+      
          setisdata(true)
         }).catch((err) => {
           console.trace(err)
         })
       }else{
           getAllNews().then(async (res) => {
-          setallblogs(res.data.reverse())
+          setallblogs(res)
+          console.log(res)
           setisdata(true)
         }).catch((err) => {
           console.trace(err)
@@ -79,7 +81,7 @@ const Allblogs = () => {
           headers: { Authorization: `Bearer ${token_data}` }
       
           }).then(async (res) => {
-          setallblogs(res.data.reverse())
+          setallblogs(res.data)
           setisdata(true)
           }).catch((err) => {
             console.trace(err)
@@ -93,21 +95,18 @@ const Allblogs = () => {
       navigate('/login')
     }
   }
-  
-
-
   return (
-    <React.Fragment>
+    <React.Fragment>   
       <NewsSeo></NewsSeo>
       <div>
          <div className='p-md-0 p-2 d-md-flex  justify-content-between align-items-center'>    
             <h2 className='section_main_title'>Read blogs from weedx</h2>
-           <div className='search_bar_box'></div> <SearchBar value={searchtext}  onChange={(e)=>Searchbar(e)} style={{ background: "#FFFFF", border: "1px solid #31B665" }} width={"100%"} placeholder="Search Menu" />
+            <div className='search_bar_box'></div> <SearchBar value={searchtext}  onChange={(e)=>Searchbar(e)} style={{ background: "#FFFFF", border: "1px solid #31B665" }} width={"100%"} placeholder="Search Menu" />
           </div>
           { 
            isdata ? <div className='blogListWrapper'>
             {
-              allblogs.map((items, index) => {
+              allblogs?.map((items, index) => {
            
                 return (
 
