@@ -256,7 +256,6 @@ const SearchBar = ({ path }) => {
                         open1={open}
                         path={path}
                     ></AddressSearchapi>
-                    {console.log(openLocation , SearchBarWidth , setOpenLocation , path)}
 
                 </div>
             </div>

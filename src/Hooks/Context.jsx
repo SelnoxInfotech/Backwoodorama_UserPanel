@@ -50,7 +50,14 @@ const initialUser = {
     // Coupoun :
     PromoCode: "",
     Coupoun: [],
-    BeforeCoupoun: ""
+    BeforeCoupoun: "",
+
+    // Delivery Address
+    DeliveryCountry:"",
+    DeliveryCity:"",
+    DeliveryState:"",
+
+
 
 }
 

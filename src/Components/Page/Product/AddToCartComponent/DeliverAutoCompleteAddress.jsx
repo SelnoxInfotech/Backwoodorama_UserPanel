@@ -7,32 +7,31 @@ import { BiErrorCircle } from "react-icons/bi"
 import useStyles from '../../../../Style';
 import Createcontext from "../../../../Hooks/Context"
 import Axios from 'axios';
-export default function DeliverAutoCompleteAddress({ OpenDelivery , Store}) {
+export default function DeliverAutoCompleteAddress({ OpenDelivery, Store }) {
   const classes = useStyles()
   const { state, dispatch } = React.useContext(Createcontext)
-  const [Address, SetAddress] = React.useState(()=>{
-       const g =  state.DeliveryAddress
-     return  g === "" ? '' : g
+  const [Address, SetAddress] = React.useState(() => {
+    const g = state.DeliveryAddress
+    return g === "" ? '' : g
   })
 
   const [error, Seterror] = React.useState()
   const { ref } = usePlacesWidget({
     apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
     onPlaceSelected: (place) => {
-   
+      console.log(place, "1")
       if (place.address_components) {
-        console.log(place) 
+        console.log(place, "2")
         try {
           for (var i = 0; i < place?.address_components.length; i++) {
             var component = place.address_components[i];
-            if (component.types.indexOf('postal_code') !== -1 || component.types.indexOf('street_number') !== -1) {
-              CheckPostal(component.long_name, place.formatted_address)
+            if (component.types.indexOf('postal_code') !== -1) {
+              CheckPostal(component.long_name, place.formatted_address , place.address_components)
               SetAddress(place.formatted_address)
               dispatch({ type: 'DeliveryAddress', DeliveryAddress: place.formatted_address })
-              if(component.types.indexOf('postal_code')){
-
-              }
-              break;
+              i = place?.address_components.length;
+              Seterror("")
+              // break;
             }
             else {
               dispatch({ type: 'DeliveryAddress', DeliveryAddress: '' })
@@ -42,20 +41,21 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery , Store}) {
 
           }
         } catch (error) {
-      
+
           Seterror("Street Address Missing")
         }
       }
       else {
         Axios(`https://maps.googleapis.com/maps/api/geocode/json?address=${place.name}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
           .then(response => {
+            console.log(response, "3")
             try {
               if (response.data.results.length !== 0) {
                 response.data.results[0]?.address_components?.map((data) => {
                   return (
                     data.types.map((data1) => {
                       if (data1 === "postal_code" || data1 === "street_number") {
-          
+
                         return CheckPostal(data.long_name, place.name)
 
                       }
@@ -85,17 +85,16 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery , Store}) {
     options: {
 
       fields: ["address_components", "geometry", "icon", "formatted_address", "name",],
-     
-      types: [ "point_of_interest" ],
+
+      types: ["point_of_interest"],
     },
   });
 
-  function CheckPostal(data, name) {
-    console.log(data)
+  function CheckPostal(data, name , alldata) {
     Axios.post(`https://api.cannabaze.com/UserPanel/Get-GetDeliveryCheck/`,
       {
         "PinCode": data,
-        Store:Store
+        Store: Store
       }
     )
 
@@ -106,12 +105,27 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery , Store}) {
           dispatch({ type: 'DeliveryAddress', DeliveryAddress: '' })
         }
         else {
-          SetAddress((name)=>{
+          SetAddress((name) => {
             return name
           })
           dispatch({ type: 'DeliveryAddress', DeliveryAddress: name })
           Seterror(response.data)
-         
+          alldata.map((data) => {
+            if (data.types.indexOf('country') !== -1) {
+           
+              dispatch({ type: 'DeliveryCountry', DeliveryCountry: data.long_name })
+            }
+            if ((data.types.indexOf('locality') !== -1 && data.types.indexOf('administrative_area_level_3' !== -1)) || data.types.indexOf("postal_town") !== -1
+            || data.types.indexOf("establishment") !== -1) {
+              dispatch({ type: 'DeliveryCity', DeliveryCity: data.long_name })
+
+            }
+            if (data.types.indexOf('administrative_area_level_1') !== -1) {
+              dispatch({ type: 'DeliveryState', DeliveryState: data.long_name })
+           
+            }
+          })
+
         }
       })
   }
@@ -146,7 +160,7 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery , Store}) {
         error={Boolean(error === 'Street Address Missings' || error === 'Out Of Delivery Zone')}
       />
       {
-        error !== "" && <span className="help-block" style={{color: error === "Success" && "green" }}>{error}</span>
+        error !== "" && <span className="help-block" style={{ color: error === "Success" && "green" }}>{error}</span>
       }
     </React.Fragment>
   )

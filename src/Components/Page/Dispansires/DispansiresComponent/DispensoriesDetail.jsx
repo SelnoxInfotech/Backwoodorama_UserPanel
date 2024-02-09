@@ -54,7 +54,6 @@ export default function DispensoriesDetails() {
             }
 
         }).catch((error)=>{
-     console.log(error)
         })
 
         axios.post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/ ",

@@ -69,6 +69,9 @@ const CheckOutMainPage = () => {
         formdata.append('DeliveryTime', Time);
         formdata.append('Email', Details.Email)
         formdata.append('Order_Type', asdsd)
+        formdata.append('Country', state.DeliveryCountry);
+        formdata.append('State', state.DeliveryState)
+        formdata.append('City', state.DeliveryCity)
 
         await Axios.post(
             'https://api.cannabaze.com/UserPanel/Add-Order/ ',
@@ -100,7 +103,6 @@ const CheckOutMainPage = () => {
      )
 
     }
-    console.log(state.selectDeliveryoptions ,'state')
     React.useEffect(() => {
       state.login &&   Axios.get(`https://api.cannabaze.com/UserPanel/Get-UserProfileOrderDetails/`, config).then((data) => {
         if (data.data.length !== 0) {
