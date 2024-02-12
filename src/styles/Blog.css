@@ -105,7 +105,7 @@
     position: absolute;
     color: rgb(255, 255, 255);
     text-transform: capitalize;
-    word-break: break-all;
+    word-break:break-word;
   }
   .blog_text_container h1{
     font-size: 28px;
