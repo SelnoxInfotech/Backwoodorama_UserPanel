@@ -1,11 +1,12 @@
 import { Helmet } from "react-helmet-async"
 import { useLocation, useParams } from "react-router-dom"
 import React from "react"
-function StoreDetails({ Despen , locationStore }) {
+function StoreDetails({ Despen, locationStore }) {
     const [MetaTag, SetMetaTag] = React.useState({ title: "", discription: "" })
     const location = useLocation()
     const params = useParams()
     const { tab, Category, SubCategory } = params
+    console.log(tab, Category, SubCategory)
     React.useEffect(() => {
         if (location.pathname.slice(0, 16) !== "/weed-deliveries") {
             if (tab === undefined) {
@@ -45,13 +46,13 @@ function StoreDetails({ Despen , locationStore }) {
                     case 'store-details':
                         SetMetaTag({
                             ...MetaTag, title: `Weed dispensary in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name}| ${tab.replace("-", " ")} | Weedx.io`,
-                            discription: `Checkout Store Details of ${Despen[0]?.Store_Name} marijuana dispensary in ${Despen[0]?.City}, ${Despen[0]?.State}. Get to know store timings, services, contact information and more. `
+                            discription: ` Explore weed dispensary in   ${Despen[0]?.City}, ${Despen[0]?.State} with ${Despen[0]?.Store_Name}. Check out store deals and find more savings on Weedx.io. `
                         })
                         break;
                     case 'review':
                         SetMetaTag({
-                            ...MetaTag, title: `Weed dispensary in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name}| ${tab.replace("-", " ")} | Weedx.io`,
-                            discription: `Customer Reviews of ${Despen[0]?.Store_Name} marijuana dispensary in ${Despen[0]?.City}, ${Despen[0]?.State}. Checkout how customers find the dispensary products. 100% true insights `
+                            ...MetaTag, title: `Weedx.io Reviews | Share Your Experience with Us`,
+                            discription: `Explore and leave your review on Weedx.io. Share your experiences with our products and services. Your feedback helps us improve our offerings.`
                         })
                         break;
                     case 'deal':
@@ -65,6 +66,11 @@ function StoreDetails({ Despen , locationStore }) {
                             ...MetaTag, title: `Weed dispensary in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name}| ${tab.replace("-", " ")} | Weedx.io`,
                             discription: `Browse media and updates from ${Despen[0]?.Store_Name} marijuana dispensary in  ${Despen[0]?.City}, ${Despen[0]?.State}. Get the best cannabis dispensary services with high quality products`
                         })
+                        case 'menu':
+                            SetMetaTag({
+                                ...MetaTag, title: `Weed dispensary in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name}| ${tab.replace("-", " ")} | Weedx.io`,
+                                discription: `Discover convenient weed dispensary in ${Despen[0]?.City}  ${Despen[0]?.State} with ${Despen[0]?.Store_Name}  Explore our menu on Weedx.io for quality products and easy ordering.`
+                            })
                         break;
                     default:
                     // code block
@@ -78,7 +84,7 @@ function StoreDetails({ Despen , locationStore }) {
                     ...MetaTag, title: `Weed Delivery in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name}| Weedx.io`,
                     discription: `Shop your favorite cannabis products from ${Despen[0]?.Store_Name} Weed delivery ${Despen[0]?.City}, ${Despen[0]?.State}. High Quality marijuana products near you. Get the best deals and offers now. 
                     `
-                })
+                })  
 
             }
             else {
@@ -110,13 +116,13 @@ function StoreDetails({ Despen , locationStore }) {
                     case 'store-details':
                         SetMetaTag({
                             ...MetaTag, title: `Weed Delivery in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name}  | Store Details | Weedx.io`,
-                            discription: `Checkout Store Details of ${Despen[0]?.Store_Name} marijuana delivery in ${Despen[0]?.City}, ${Despen[0]?.State}. Get to know store timings, services, contact information and more `
+                            discription: `Explore weed delivery in  ${Despen[0]?.City}, ${Despen[0]?.State} with ${Despen[0]?.Store_Name}. Check out store deals and find more savings on Weedx.io `
                         })
                         break;
                     case 'review':
                         SetMetaTag({
-                            ...MetaTag, title: `Weed Delivery in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name} | Reviews | Weedx.io`,
-                            discription: `Customer Reviews of ${Despen[0]?.Store_Name} marijuana delivery in ${Despen[0]?.City}, ${Despen[0]?.State}. Checkout how customers find the delivery products. 100% true insights`
+                            ...MetaTag, title: `Weedx.io Reviews | Share Your Experience with Us                            `,
+                            discription: `Explore and leave your review on Weedx.io. Share your experiences with our products and services. Your feedback helps us improve our offerings.`
                         })
                         break;
                     case 'deal':
@@ -129,6 +135,11 @@ function StoreDetails({ Despen , locationStore }) {
                         SetMetaTag({
                             ...MetaTag, title: ` Weed Delivery in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name} | Media | Weedx.io`,
                             discription: ` Browse media and updates from ${Despen[0]?.Store_Name}  marijuana delivery in ${Despen[0]?.City}, ${Despen[0]?.State}. Get the best cannabis delivery Services with high qualtiy products.`
+                        })
+                    case 'menu':
+                        SetMetaTag({
+                            ...MetaTag, title: ` Weed Delivery in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name} | Menu | Weedx.io`,
+                            discription: ` Discover convenient weed delivery in ${Despen[0]?.City}  ${Despen[0]?.State} with ${Despen[0]?.Store_Name}  Explore our menu on Weedx.io for quality products and easy ordering.`
                         })
                         break;
                     default:
@@ -144,7 +155,7 @@ function StoreDetails({ Despen , locationStore }) {
             <title>{MetaTag.title}</title>
             <meta name="title" content={`Marijuana Dispensaries & Delivery Near Me | weedx.io |`} />
             <meta name='description' content={MetaTag.discription} />
-            <link rel="canonical" href={`https://www.weedx.io${locationStore}`} /> 
+            <link rel="canonical" href={`https://www.weedx.io${locationStore}`} />
             <meta itemprop="name" content="WeedX" />
             <meta itemprop="description" content={MetaTag.discription} />
             {/* Facebook tags */}

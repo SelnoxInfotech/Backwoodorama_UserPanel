@@ -1,9 +1,11 @@
+import { HistorySeo } from "../../../Component/ScoPage/LearnSeo";
 import LearnBanner from "../LearnComponent/LearnBanner";
 import HistoryEditorData from "./HistoryComponent/HistoryEditorData";
 import React from "react";
 const History = () => {
     return (
         <div className="container-fluid">
+          <HistorySeo></HistorySeo>
             <div className="row px-2">
                 <LearnBanner />
                 <HistoryEditorData />

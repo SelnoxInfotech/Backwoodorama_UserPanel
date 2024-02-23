@@ -30,6 +30,27 @@ const Allblogs = () => {
   const classes = useStyles()
   const cookies = new Cookies();
   const token_data = cookies.get('User_Token_access')
+
+  function modifystr(str) {
+    str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+    str = str.trim().replaceAll(' ', "-");
+    let a = 0;
+    while (a < 1) {
+        if (str.includes("--")) {
+            str = str.replaceAll("--", "-")
+        } else if (str.includes("//")) {
+            str = str.replaceAll("//", "/")
+        } else if (str.includes("//")) {
+            str = str.replaceAll("-/", "/")
+        } else if (str.includes("//")) {
+            str = str.replaceAll("/-", "/")
+        } else {
+            a++
+        }
+    }
+
+    return str.toLowerCase()
+}
   useEffect(() => {
       document.documentElement.scrollTo({
         top: 0,
@@ -113,7 +134,7 @@ const Allblogs = () => {
                   <div className='row blogListCard mx-0' key={index}>
                     <div className='col-3  d-flex align-items-center'>
                       <div className='blogCardImg'>
-                        <Link to={`/cannabis-news/${items.Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${items.id}`} key={index}>
+                        <Link to={`/cannabis-news/${modifystr(items.Title)}/${items.id}`} key={index}>
                           <LazyLoadImage
                             onError={event => {
                               event.target.src = "/image/blog.jpg"
@@ -126,10 +147,10 @@ const Allblogs = () => {
                     <div className='col-9'>
                       <div className='blogcardText'>
                         <div className='blogDate'> <span>{items.Publish_Date.slice(0, 10)}</span></div>
-                        <Link to={`/cannabis-news/${items.Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${items.id}`} key={index}>
+                        <Link to={`/cannabis-news/${modifystr(items.Title)}/${items.id}`} key={index}>
                           <h2 className='blogcardHeading'>{items.Title}</h2>
                         </Link>
-                        <Link to={`/cannabis-news/${items.Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${items.id}`} key={index}>
+                        <Link to={`/cannabis-news/${modifystr(items.Title)}/${items.id}`} key={index}>
                           <p className='blogcardDescription'>   <div dangerouslySetInnerHTML={{ __html: items?.Description.split('</p>')[0]}} /></p>
                         </Link>
                         {/* <p onClick={handlechmnag}>click</p>  */}

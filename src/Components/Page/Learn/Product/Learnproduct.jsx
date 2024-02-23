@@ -1,9 +1,11 @@
 import LearnBanner from "../LearnComponent/LearnBanner"
 import { Link } from "react-router-dom";
+import { ProductSeo } from "../../../Component/ScoPage/LearnSeo";
 
 const Learnproduct = () => {
     return (
         <div className="container-fluid">
+            <ProductSeo></ProductSeo>
             <div className="row px-2">
                 <LearnBanner />
             </div>

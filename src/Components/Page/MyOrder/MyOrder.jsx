@@ -10,6 +10,7 @@ import { HiArrowsUpDown } from "react-icons/hi2";
 import axios from "axios"
 import Autocomplete from '@mui/material/Autocomplete';
 import Cookies from 'universal-cookie';
+import {MyOrderSeo} from "../../Component/ScoPage/CommenpageSeo"
 const MyOrder = () => {
     const cookies = new Cookies();
     const token_data = cookies.get('User_Token_access')
@@ -276,6 +277,7 @@ const MyOrder = () => {
 
     return (
         <React.Fragment>
+            <MyOrderSeo></MyOrderSeo>
             <div className="container-fluid">
                 <div className="row px-2 center">
                     <div className="col-10 myOrder_columns px-0">

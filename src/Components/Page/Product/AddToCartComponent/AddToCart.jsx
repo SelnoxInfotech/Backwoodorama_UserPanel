@@ -5,6 +5,7 @@ import AddToCartSummary from "./AddToCartSummary"
 import Createcontext from "../../../../Hooks/Context"
 import { Link } from "react-router-dom";
 import EmptyCard from "../EmptyCard/EmptyCard"
+import { Cart } from "../../../Component/ScoPage/CommenpageSeo";
 const AddToCart = () => {
     const { state } = React.useContext(Createcontext)
     React.useEffect(()=>{
@@ -19,7 +20,7 @@ const AddToCart = () => {
     return (
 
         <div className="container">
-
+ <Cart></Cart>
             {
                 state?.AllProduct?.length !== 0
                  ?

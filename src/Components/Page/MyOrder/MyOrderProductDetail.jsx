@@ -15,6 +15,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { BsFillCircleFill } from "react-icons/bs";
 import { useNavigate, useParams,Link } from "react-router-dom";
 import useStyles from "../../../Style";
+import { MyOrderSeoDetail } from "../../Component/ScoPage/CommenpageSeo";
 const MyOrderProductDetail = () => {
   const params = useParams();
   const [loading, SetLoading] = React.useState(false)
@@ -92,6 +93,7 @@ const MyOrderProductDetail = () => {
   }
   return (
     <div className="container-fluid">
+      <MyOrderSeoDetail></MyOrderSeoDetail>
       <div className="row ">
         <div className="col-12 d-flex px-0  productDetails_heading_container">
           <IconButton onClick={() => navigate(-1)}>

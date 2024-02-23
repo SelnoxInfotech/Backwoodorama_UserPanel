@@ -85,5 +85,48 @@ function StrainSeo({location}) {
         </Helmet>
     )
 }
+function HistorySeo({location}) {
+    return (
+        <Helmet>
+            <title>{"Explore Cannabis History | WeedX.io Articles"}</title>
+            <meta name="title" content={'Explore Cannabis History | WeedX.io Articles'}/>
+            <meta name='description' content={" Explore the history of cannabis prohibition and legalization on WeedX.io. Learn about dispensary POS systems and their importance in the cannabis industry."} />
+           <link rel="canonical" href={`https://www.weedx.io${location}`} /> 
+            {/* Facebook tags */}
+            <meta property="og:type" content={"website"} />
+            <meta property="og:title" content={"Discover Weed Strains: Indica, Sativa, Hybrid | weedx.io |"} />
+            <meta property="og:description" content={" Explore the history of cannabis prohibition and legalization on WeedX.io. Learn about dispensary POS systems and their importance in the cannabis industry."} />
+            { /* End Facebook tags */}
 
-export { LearnSeo,Law , StrainSeo, LawState}
+            { /* Twitter tags */}
+            <meta name="twitter:creator" content={"website"} />
+            <meta name="twitter:card" content={"Marijuana Dispensaries & Delivery Near Me"} />
+            <meta name="twitter:title" content={"Discover Weed Strains: Indica, Sativa, Hybrid | weedx.io |"} />
+            <meta name="twitter:description" content={" Explore the history of cannabis prohibition and legalization on WeedX.io. Learn about dispensary POS systems and their importance in the cannabis industry."} />
+        </Helmet>
+    )
+}
+
+function ProductSeo({location}) {
+    return (
+        <Helmet>
+            <title>{"Learn About Cannabis Products | WeedX.io Articles"}</title>
+            <meta name="title" content={'Learn About Cannabis Products | WeedX.io Articles'}/>
+            <meta name='description' content={" Discover informative articles about various cannabis products on WeedX.io. Explore insights, reviews, and recommendations to enhance your cannabis experience."} />
+           <link rel="canonical" href={`https://www.weedx.io${location}`} /> 
+            {/* Facebook tags */}
+            <meta property="og:type" content={"website"} />
+            <meta property="og:title" content={"Discover Weed Strains: Indica, Sativa, Hybrid | weedx.io |"} />
+            <meta property="og:description" content={" Discover informative articles about various cannabis products on WeedX.io. Explore insights, reviews, and recommendations to enhance your cannabis experience."} />
+            { /* End Facebook tags */}
+
+            { /* Twitter tags */}
+            <meta name="twitter:creator" content={"website"} />
+            <meta name="twitter:card" content={"Marijuana Dispensaries & Delivery Near Me"} />
+            <meta name="twitter:title" content={"Discover Weed Strains: Indica, Sativa, Hybrid | weedx.io |"} />
+            <meta name="twitter:description" content={" Discover informative articles about various cannabis products on WeedX.io. Explore insights, reviews, and recommendations to enhance your cannabis experience."} />
+        </Helmet>
+    )
+}   
+
+export { LearnSeo,Law , StrainSeo, LawState , ProductSeo , HistorySeo}

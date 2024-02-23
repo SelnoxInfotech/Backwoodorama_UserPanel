@@ -6,7 +6,7 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import { Forget_password } from "./ForgetApi"
 import ForgetOtp from './ForgetOtp';
-
+import { Forgot } from '../../Component/ScoPage/CommenpageSeo';
 const ForgotPassword = () => {
     const [Otppopup, Setotppopup] = React.useState(false)
     const [Email, SetEmail] = React.useState()
@@ -23,6 +23,8 @@ const ForgotPassword = () => {
     })
     return (
         <React.Fragment>
+            <Forgot></Forgot>
+            {/* <Forgot></Forgot> */}
             <div className="container signup_margins_top ">
                 <div className="row center">
                     <div className="col-lg-4 col-md-6 col-sm-8 col-10 signup_padding_bottom login_signup_reset_container reset_container_height">
