@@ -87,7 +87,7 @@ const LearnBanner = () => {
                                 <LazyLoadImage src={items.imgUrl} alt='img_not_available' />
                             </div>
                             <div className='text_on_Learn_banner'>
-                                <h1 className='learn_banner_text'>Learn</h1>
+                                <h2 className='learn_banner_text'>Learn</h2>
                             </div>
                         </div>
                     )
