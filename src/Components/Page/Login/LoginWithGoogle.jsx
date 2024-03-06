@@ -4,14 +4,14 @@ import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
 import { useGoogleLogin } from '@react-oauth/google'
 import axios from 'axios';
-
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , useLocation } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import Createcontext from "../../../Hooks/Context"
 import {FcGoogle} from "react-icons/fc"
 function LoginWithGoogle() {
     const classes = useStyles()
     const cookies = new Cookies();
+    const location = useLocation();
     const Navigate = useNavigate()
     const { state, dispatch } = React.useContext(Createcontext)
     const login = useGoogleLogin({
@@ -31,11 +31,13 @@ function LoginWithGoogle() {
                 cookies.set('User_Token_access', response.data.access_token, { expires: date })
                 dispatch({ type: 'Login', login: true })
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-                Navigate(-1)
+                if( location?.state?.location?.pathname === '/cart'){
+                    Navigate('/cart')
+                }else{ Navigate('/')}
             
         }).catch(
             function (error) {
-                alert(error.response.data.message)
+                alert(error?.response?.data?.message)
 
             })
     }

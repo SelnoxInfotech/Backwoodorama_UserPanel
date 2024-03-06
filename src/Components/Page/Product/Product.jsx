@@ -105,7 +105,7 @@ const Product = () => {
                     }
                     else {
                         SetLoading(false)
-                        SetProduct(response.data.data)
+                        SetProduct(response?.data?.data)
                     }
                 })
             }
@@ -143,9 +143,7 @@ const Product = () => {
     return (
         <React.Fragment>
             {!params.id ? <ProductSeo location={location.pathname}></ProductSeo> :
-                <ProductCategorySeo categoryname={params.categoryname} location={location.pathname} ></ProductCategorySeo>}
-            {/* <div className="product_container"> */}
-
+            <ProductCategorySeo categoryname={params.categoryname} location={location.pathname} ></ProductCategorySeo>}
             <div className="container " >
                 <div className="row">
                     <div className="col-12 mt-4">
@@ -234,7 +232,6 @@ const Product = () => {
                     </div>
                 </div>
             </div>
-            {/* </div> */}
         </React.Fragment>
     )
 }

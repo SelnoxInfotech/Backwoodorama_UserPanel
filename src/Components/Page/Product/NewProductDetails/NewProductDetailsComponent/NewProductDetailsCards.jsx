@@ -373,7 +373,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                             </div>
                         </div>
                         <div className="newProductdetails_rightSideContent_container">
-                            <h1 className="newProductDetails_heading">{Product?.Product_Name}</h1>
+                            <h2 className="newProductDetails_heading">{Product?.Product_Name}</h2>
                             <div className=" ">
                                 <Link to={`/weed-deliveries/${modifystr(Product?.StoreName)}/${Product?.Store_id}`}>
                                     <h3 className="newProductDetails_subHeadingss">By {Product.StoreName}</h3>

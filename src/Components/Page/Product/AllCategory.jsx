@@ -47,9 +47,6 @@ const AllCategory = () => {
             behavior: "instant", // Optional if you want to skip the scrolling animation
         });
     }, [])
-
-
-
     return (
         <div>
             {/* <ProductCategorySeo categoryname={categoryname} ></ProductCategorySeo> */}

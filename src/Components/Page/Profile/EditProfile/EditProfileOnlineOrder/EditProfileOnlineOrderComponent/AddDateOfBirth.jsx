@@ -7,7 +7,10 @@ import { Box } from '@mui/system';
 import LoadingButton from "@mui/lab/LoadingButton"
 import useStyles from '../../../../../../Style';
 import IconButton from '@mui/material/IconButton';
+import Snackbar from '@material-ui/core/Snackbar';
 import { RiCloseCircleFill } from "react-icons/ri"
+import { MdEdit } from "react-icons/md";
+import { RxCross2 } from "react-icons/rx";  
 import { useForm } from "react-hook-form";
 import Cookies from 'universal-cookie';
 import Axios from 'axios';
@@ -17,6 +20,8 @@ const AddDateOfBirth = ({ Profile, Api, SetApi }) => {
     const { register, handleSubmit, errors, reset, setError } = useForm();
     const classes = useStyles()
     const [Open, SetOpen] = React.useState(false)
+    const [status, setstatus] = React.useState(false)
+  
     const handleClick = () => {
         SetOpen(true)
     }
@@ -39,6 +44,7 @@ const AddDateOfBirth = ({ Profile, Api, SetApi }) => {
                 reset()
                 SetOpen(false);
                 SetApi(!Api)
+                setstatus(true)
             })
             .catch((error) => {
                
@@ -48,10 +54,27 @@ const AddDateOfBirth = ({ Profile, Api, SetApi }) => {
                 })
             })
     }
+    function getFormattedDate() {
+        let date = new Date()
+        date.setYear(date.getFullYear() - 18);
+        date.toLocaleString()
+
+        console.log(date)
+        var year = date.getFullYear();
+      
+        var month = (1 + date.getMonth()).toString();
+        month = month.length > 1 ? month : '0' + month;
+      
+        var day = date.getDate().toString();
+        day = day.length > 1 ? day : '0' + day;
+        
+        return  year + '-' + month  + '-' + day  ;
+    }
+
     return (
         <div>
-            <Button className={`${classes.EditProfileBtn_Color}`} onClick={handleClick} startIcon={<AiFillPlusCircle color='#707070' size={20} />}>
-                Add
+            <Button className={`${classes.EditProfileBtn_Color}`} onClick={handleClick} startIcon={  Boolean(Profile.DateOfBirth) ? <MdEdit color='#707070' size={20} /> :  <AiFillPlusCircle color='#707070' size={20} /> }>
+             { Boolean(Profile.DateOfBirth) ? "Edit" : "Add" } 
             </Button>
             <Dialog open={Open} onClose={handleClose} className={classes.addDateOfBirthPopup} >
                 <div className='container-fluid py-4 px-4'>
@@ -81,10 +104,13 @@ const AddDateOfBirth = ({ Profile, Api, SetApi }) => {
                                     variant='filled'
                                     inputRef={register({
                                         required: "Date Of Birth required*.",
-
+                                    
                                     })}
+                                 
                                     error={Boolean(errors?.DateOfBirth)}
                                     helperText={errors.DateOfBirth?.message}
+                                    InputProps={{inputProps: { max: getFormattedDate()} }}
+
                                 />
                             </div>
 
@@ -96,11 +122,27 @@ const AddDateOfBirth = ({ Profile, Api, SetApi }) => {
                             <LoadingButton onClick={handleClose}>Cancel</LoadingButton>
                         </Box>
                     </form>
-
+                    
                 </div>
+               
 
+ 
             </Dialog>
-
+            <Snackbar
+        anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'left',
+        }}
+        autoHideDuration={2000}
+        TransitionComponent={'SlideTransition'}
+        open={status}
+        onClose={()=>setstatus(false)}
+        message="Success"
+        className={classes.promptstyle}
+        action={
+            <RxCross2 size={22}  onClick={()=>setstatus(false)} />
+          }
+/>
         </div>
     )
 }

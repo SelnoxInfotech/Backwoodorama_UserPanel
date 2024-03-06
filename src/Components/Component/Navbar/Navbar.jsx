@@ -32,7 +32,7 @@ const Navbar = () => {
   const classes = useStyles()
   const [Open, SetOpen] = React.useState(false)
   const [DropDownState, SetDropDownState] = React.useState(false);
-  const [ProfileSlectedState, SetProfileSelectedState] = React.useState(1)
+  const [ProfileSlectedState, SetProfileSelectedState] = React.useState('')
   const ProfileList = [{ id: 1, item: "My Order" , link:'/myorder' }, { id: 2, item: "Favorites", link:'/whislists' },
   { id: 3, item: "Review", link:'/myreviews' }, { id: 4, item: "Help", link:'/helpcenter' }]
    
@@ -229,7 +229,7 @@ const Navbar = () => {
                             {ProfileList.map((value, index) => {
                               return (
                                 <div key={index}>
-                                 <Link to={value.link} onClick={()=>{SetDropDownState(false)}}> <li className='profile_list' style={{ color: ProfileSlectedState === value.id ? "#31B665" : "" }} >{value.item}</li></Link>
+                                  <Link to={value.link} onClick={()=>{SetDropDownState(false) ; SetProfileSelectedState(value.id)}}> <li className='profile_list' style={{ color: ProfileSlectedState === value.id ? "#31B665" : "" }} >{value.item}</li></Link>
                                   <hr />
                                 </div>
                               )

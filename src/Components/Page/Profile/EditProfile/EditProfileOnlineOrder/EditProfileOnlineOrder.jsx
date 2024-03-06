@@ -5,6 +5,7 @@ import AddPhotoId from './EditProfileOnlineOrderComponent/AddPhotoId';
 import MedicalCardDetailsPopup from './EditProfileOnlineOrderComponent/MedicalCardDetailsPopup';
 import AddDateOfBirth from './EditProfileOnlineOrderComponent/AddDateOfBirth';
 const EditProfileOnlineOrder = ({Profile,Api,SetApi}) => {
+    console.log(Profile ,'Profile')
     return (
         <div className="col-12 EditProfileOnlineOrder_main_column mt-4">
             <div>
@@ -107,7 +108,8 @@ const EditProfileOnlineOrder = ({Profile,Api,SetApi}) => {
                                 <span className='editProfile_name'>Add Date Of Birth</span>
                             </div>
                             <div className="EditProfileOnlineOrder">
-                                <p className="editProfileLoginParaStyle">Add Date Of Birth</p>
+                              
+                                {Boolean(Profile.DateOfBirth) ? <p className="editProfileLoginParaStyle">{Profile.DateOfBirth}</p> : <p className="editProfileLoginParaStyle">Add Date Of Birth</p>}
                             </div>
                         </div>
                         <div className="col-6 EditProfilOnlineEdit_icons_flelds">

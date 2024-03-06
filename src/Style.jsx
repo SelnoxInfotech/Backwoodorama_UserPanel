@@ -1709,6 +1709,18 @@ const useStyles = makeStyles({
     margin: '0px',
     // transform: translate('494px',' 62px')
   },  
+  promptstyle:{
+   
+      "& .MuiPaper-root":{
+        backgroundColor:'#31B655 !important',
+        padding:'10px !important',
+        "& .MuiSnackbarContent-action":{
+          marginRight:'0',
+          cursor:'pointer'
+        }
+      }
+    
+  }
 })
 
 

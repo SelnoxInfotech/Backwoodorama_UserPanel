@@ -6,6 +6,9 @@ import TextField from "@mui/material/TextField"
 import useStyles from "../../../../../../Style"
 import { Box } from "@mui/material"
 import LoadingButton from "@mui/lab/LoadingButton"
+import { RxCross2 } from "react-icons/rx";
+import Snackbar from '@material-ui/core/Snackbar';
+
 import { RiCloseCircleFill } from "react-icons/ri"
 import IconButton from '@mui/material/IconButton';
 import { useForm } from "react-hook-form";
@@ -17,6 +20,7 @@ const EditUserName = ({ Username, Api, SetApi }) => {
     const classes = useStyles()
     const { register, handleSubmit, errors, reset, setError } = useForm();
     const [Open, SetOpen] = React.useState(false)
+    const [status, setstatus] = React.useState(false)
     const handleClickOpen = () => {
         SetOpen(true)
     }
@@ -41,6 +45,7 @@ const EditUserName = ({ Username, Api, SetApi }) => {
                 reset()
                 SetOpen(false);
                 SetApi(!Api)
+                setstatus(true)
             })
             .catch((error) => {
                
@@ -97,6 +102,21 @@ const EditUserName = ({ Username, Api, SetApi }) => {
 
                 </div>
             </Dialog>
+            <Snackbar
+        anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'left',
+        }}
+        autoHideDuration={2000}
+        TransitionComponent={'SlideTransition'}
+        open={status}
+        onClose={()=>setstatus(false)}
+        message="Success"
+        className={classes.promptstyle}
+        action={
+            <RxCross2 size={22}  onClick={()=>setstatus(false)} />
+          }
+/>
         </div>
     )
 }

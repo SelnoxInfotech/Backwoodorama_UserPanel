@@ -168,7 +168,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
 
         }
     }
-    
+  
     React.useEffect(() => {
         localStorage.setItem('items', JSON.stringify(AddTOCard))
         const scrollToTop = () => {
@@ -248,17 +248,12 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
           });
         }
     },[RelatedProductResult])
-
-
-
-
-
     return (
         <React.Fragment>
             <div className="row mx-0 marginProductSearchResult">
 
                 <div className="col-12 mt-sm-4 mt-2  fontStyle">
-                    <h1 className="section_main_title ">{CategoryName}</h1>
+                   {CategoryName?.length !== undefined  && <h1 className="section_main_title ">{CategoryName}</h1>}
                 </div>
 
                 <div className="product_card_wrapper">

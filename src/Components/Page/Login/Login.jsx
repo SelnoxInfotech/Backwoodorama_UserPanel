@@ -2,7 +2,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
 import TextField from '@mui/material/TextField';
-import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { Link, useNavigate, useLocation} from 'react-router-dom'
 import React from 'react';
 import axios from 'axios';
 import { useForm } from "react-hook-form";
@@ -14,7 +14,6 @@ import { CiLock } from "react-icons/ci"
 import LoginWithGoogle from './LoginWithGoogle';
 import Cookies from 'universal-cookie';
 import Createcontext from "../../../Hooks/Context"
-import FaceBookLogin from "./FaceBookLogin"
 import { LoginSeo } from '../../Component/ScoPage/CommenpageSeo';
 const Login = () => {
     const cookies = new Cookies();
@@ -97,7 +96,7 @@ const Login = () => {
                   });
             })
     }
-
+  
     React.useEffect(()=>{
         document.documentElement.scrollTo({
             top: 0,
@@ -115,7 +114,7 @@ const Login = () => {
                     <div className="col-xl-6 col-xxl-4 col-lg-6 col-md-8 col-sm-11 col-11 signup_padding_bottom login_signup_reset_container login_container_height">
                         <div className='row'>
                             <div className='col-12 fontStyle signup_head'>
-                                <p>Log In</p>
+                                <h1>Log In</h1>
 
                             </div>
                         </div>

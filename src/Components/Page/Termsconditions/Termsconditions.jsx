@@ -47,7 +47,7 @@ React.useEffect(() => {
         <TermsAndConditions></TermsAndConditions>
         <div className="container-fluid">
           <div className="tc_hero">
-            <h3 className="page_heading">  Website Terms and Conditions  </h3>
+            <h1 className="page_heading">  Website Terms and Conditions  </h1>
           </div>
 
           <div className="row tc_content justify-content-between" >

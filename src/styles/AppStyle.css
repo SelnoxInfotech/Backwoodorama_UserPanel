@@ -901,7 +901,7 @@ scrollbar-width: none;  /* Firefox */
   color: #909090;
 }
 
-.signup_head p {
+.signup_head h1{
   color: #333333;
   font-size: 28px;
   font-weight: 700;

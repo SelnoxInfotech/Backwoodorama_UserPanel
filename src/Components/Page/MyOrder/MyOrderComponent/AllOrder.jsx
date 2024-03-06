@@ -118,7 +118,7 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,loading}) => {
                         )}
                       </div>
                       <div className="col-6 text-end viewOrderDetals">
-                        <h1 className="allOrderTotals">{val.subtotal}</h1>
+                        <h2 className="allOrderTotals">{val.subtotal}</h2>
                       </div>
                     </div>
                   </div>

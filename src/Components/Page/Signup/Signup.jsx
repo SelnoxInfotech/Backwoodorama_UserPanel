@@ -13,7 +13,7 @@ import Axios from 'axios'
 import { SignupSeo } from '../../Component/ScoPage/CommenpageSeo';
 const Signup = () => {
     const { state } = React.useContext(Createcontext)
- const [emailvalid,setemailvalid]=useState(false)
+    const [emailvalid,setemailvalid]=useState(false)
     const navigate = useNavigate()
     const method = useForm()
     const classes = useStyles()
@@ -51,7 +51,7 @@ const Signup = () => {
                     <div className="col-lg-4 col-md-6 col-sm-8 col-10 signup_padding_bottom login_signup_reset_container signup_container_height">
                         <div className='row'>
                             <div className='col-12 signup_head'>
-                                <p>Sign Up</p>
+                                <h1>Sign Up</h1>
 
                             </div>
                         </div>

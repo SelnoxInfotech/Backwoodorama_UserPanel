@@ -46,7 +46,7 @@ React.useEffect(() => {
     <div className='term_condition'>
       <div className="container-fluid">
         <div className="tc_hero">
-          <h3 className="page_heading">  Weedx.io Cookies policy</h3>
+          <h1 className="page_heading">  Weedx.io Cookies policy</h1>
         </div>
 
         <div className="row tc_content justify-content-between">

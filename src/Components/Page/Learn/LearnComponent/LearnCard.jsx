@@ -19,7 +19,8 @@ const LearnCards = () => {
 
                                 </div>
                                 <div className='learnCard_title_container'>
-                                    <p className='learnCard_title ellipsis'>{items.title}</p>
+                                   { index === 0 ? <h1 className='learnCard_title ellipsis'>{items.title}</h1>:
+                                    <h2 className='learnCard_title ellipsis'>{items.title}</h2>}
                                 </div>
                             </section>
                             </Link>

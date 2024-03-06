@@ -29,7 +29,7 @@ const EmptyCard = () => {
 
                             </div>
                             <div className="col-12 center height_empty_div_heading">
-                                <h2>Your cart is empty</h2>
+                                <h1>Your cart is empty</h1>
                             </div>
                             <div className="col-12 center height_empty_div_paragraph ellipsis">
                                 <p>Don't wait to bake. Add items to your cart and enjoy</p><br/>

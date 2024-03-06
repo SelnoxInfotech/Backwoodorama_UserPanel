@@ -23,10 +23,13 @@ const Profile = () => {
     const [Error, SetError] = React.useState('')
     const Navigate = useNavigate()
     const [ProfileListSelected, SetProfileListSelected] = React.useState(1)
-    const ProfileList = [{ id: 1, icons: <MdOutlineShoppingBasket color="#707070" size={22} />, item: "Order" ,Link:"/myorder" },
-    { id: 2, icons: <AiFillHeart color="#707070" size={22} />, item: "Favorite" },
-    { id: 3, icons: <AiFillStar color="#707070" size={22} />, item: "Review" },
-    { id: 4, icons: <IoIosSettings color="#707070" size={22} />, item: "Help" }]
+    const ProfileList = [  
+                            { id: 1, icons: <MdOutlineShoppingBasket color="#707070" size={22} />, item: "Order" ,Link:"/myorder" },
+                            { id: 2, icons: <AiFillHeart color="#707070" size={22} />, item: "Favorite" ,Link:"/whislists" },
+                            { id: 3, icons: <AiFillStar color="#707070" size={22} />, item: "Review" ,Link:"/myreviews" },
+                            { id: 4, icons: <IoIosSettings color="#707070" size={22} />, item: "Help" ,Link:"/helpcenter" }
+                        ]
+
     function Logout() {
         cookies.remove('User_Token_access')
         dispatch({ type: 'Login', login: false })
@@ -49,7 +52,6 @@ const Profile = () => {
         }
 
     }
-
     React.useEffect(() => {
         document.documentElement.scrollTo({
             top: 0,
@@ -69,17 +71,15 @@ const Profile = () => {
                 }
                 ,
             }
-        )
-            .then((res) => {
+        ).then((res) => {
                 dispatch({ type: 'Profile', Profile: res.data.data            })
-            })
-            .catch((error) => {
-              
-                // setError("Username", {
-                //     type: "manual",
-                //     message: error.response.data.error.username[0],
-                // })
-            })
+        }).catch((error) => {
+            
+            // setError("Username", {
+            //     type: "manual",
+            //     message: error.response.data.error.username[0],
+            // })
+        })
     }
 
 
@@ -92,16 +92,15 @@ const Profile = () => {
                             <div className="col-12  px-0 d-flex">
                                 <section className="profile_image_section">
                                     <div className="profile_image ">
-                                    {
+                                       {
                                             selectedImage !== null ? <LazyLoadImage src={selectedImage} alt='profile_image'    className="profile_images" />
                                                 :
                                                 <LazyLoadImage
-                                                    onError={event => {
+                                                    onError={ event => {
                                                         event.target.src = "./image/user.webp"
                                                         event.onerror = null
                                                     }}
                                                     src={ state.Profile.googlelink === null ?`${state.Profile.image} ` : state.Profile.googlelink}
-                                                    // src={image}
                                                     alt='profile_image'
                                                     className="profile_images"
                                                 />
@@ -137,7 +136,7 @@ const Profile = () => {
                                         <div className="profile_list_div" key={index}>
                                             <li className="profileListItems_cursor">
                                                 <span>{val.icons}</span>
-                                              <Link to={val.Link}>  <span className="profileListItems" style={{ color: ProfileListSelected === val.id ? "#31B665" : "" }} onClick={() => handleProfileListAndRedirect(val.id)}>{val.item}</span></Link>
+                                              <Link to={val.Link}>  <span className="profileListItems" onClick={() => handleProfileListAndRedirect(val.id)}>{val.item}</span></Link>
                                             </li>
                                             <hr />
                                         </div>

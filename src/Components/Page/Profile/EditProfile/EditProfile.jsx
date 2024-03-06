@@ -12,8 +12,8 @@ const EditProfile = () => {
     const { dispatch } = React.useContext(Createcontext)
     const cookies = new Cookies();
     const token_data = cookies.get('User_Token_access')
-   const [Profile ,SetProfile] =  React.useState([])
-   const [Api , SetApi] =  React.useState(false)
+    const [Profile ,SetProfile] =  React.useState([])
+    const [Api , SetApi] =  React.useState(false)
     React.useEffect( ()=>{
         const config = {
             headers: { Authorization: `Bearer ${token_data}` }
@@ -39,7 +39,7 @@ const EditProfile = () => {
                         <h1 className="EditProfile_heading">Profile Setting</h1>
                     </div>
                     <div className="EditProfile_heading_cont">
-                     <Link to="/Profile"><span><IconButton><IoChevronBackSharp color="#707070"size={18} /></IconButton></span><span className="editProfile_backBtn">Back Profile</span></Link>
+                      <Link to="/Profile"><span><IconButton><IoChevronBackSharp color="#707070"size={18} /></IconButton></span><span className="editProfile_backBtn">Back Profile</span></Link>
                     </div>
                 </div>
                 <EditProfileLogin Profile ={Profile} Api={Api}  SetApi = {SetApi}/>

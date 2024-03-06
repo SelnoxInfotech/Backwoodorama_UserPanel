@@ -29,7 +29,7 @@ const AddToCart = () => {
                         <div className="col-12 addTocard_main_container_height">
                             <div className="col-12 addtoCart_headingss">
                                 <p className="mb-0">Your Cart from</p>
-                                <Link to={`/weed-deliveries/${state.AllProduct[0]?.StoreName.replaceAll(' ' ,'-')}/${state.AllProduct[0]?.Store_id}`}>          <h3 className="addToCartHeadingss"> {state.AllProduct[0]?.StoreName} </h3> </Link>
+                                <Link to={`/weed-deliveries/${state.AllProduct[0]?.StoreName.replaceAll(' ' ,'-')}/${state.AllProduct[0]?.Store_id}`}>          <h1 className="addToCartHeadingss"> {state.AllProduct[0]?.StoreName} </h1> </Link>
                             </div>
                             <div className="row  AddProductCartContainer">
 

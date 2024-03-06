@@ -96,7 +96,7 @@ React.useEffect(() => {
       <PrivacyPolicy></PrivacyPolicy>
       <div className="container-fluid">
         <div className="tc_hero">
-          <h3 className="page_heading">  Weedx.io Privacy policy  </h3>
+          <h1 className="page_heading">  Weedx.io Privacy policy  </h1>
         </div>
 
         <div className="row tc_content justify-content-between">

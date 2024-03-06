@@ -13,7 +13,7 @@ const Learnproduct = () => {
                 <Link to='/learn/product/1'>
                 <div className="learn_product_card">
                     <div className="card_ig"><img src="/image/learnproduct1.jpg" alt="" /></div>
-                    <div className="card_titile_box"><h3 className="card_title">Do Edibles Lose Their Freshness Over Time?</h3></div>
+                    <div className="card_titile_box"><h1 className="card_title">Do Edibles Lose Their Freshness Over Time?</h1></div>
                 </div>
                 </Link>
                 <Link to='/learn/product/2'>
