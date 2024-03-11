@@ -31,6 +31,8 @@ const ProductList = ({ arr, ProductNavigate }) => {
   });
   const [NewData, SetNewData] = React.useState([]);
   const Addtocard = async (Event) => {
+   console.log(Event)
+
     if (token_data) {
       const AddData = _.filter(
         Price,
@@ -59,6 +61,10 @@ const ProductList = ({ arr, ProductNavigate }) => {
         Sub_Category_id: Event.Sub_Category_id,
         SubcategoryName: Event.SubcategoryName,
         StoreName: Event.StoreName,
+        City:Event.Store_City,
+        State:Event.Store_State,
+        Country:Event.Store_Country
+        
       });
       await axios
         .post(
@@ -76,6 +82,9 @@ const ProductList = ({ arr, ProductNavigate }) => {
             Sub_Category_id: Event.Sub_Category_id,
             SubcategoryName: Event.SubcategoryName,
             StoreName: Event.StoreName,
+            City:Event.Store_City,
+            State:Event.Store_State,
+            Country:Event.Store_Country
           },
           config
         )
@@ -117,6 +126,9 @@ const ProductList = ({ arr, ProductNavigate }) => {
         Sub_Category_id: Event.Sub_Category_id,
         SubcategoryName: Event.SubcategoryName,
         StoreName: Event.StoreName,
+        City:Event.Store_City,
+        State:Event.Store_State,
+        Country:Event.Store_Country
       };
       SetNewData(Arry);
       if (AddTOCard.length !== 0) {

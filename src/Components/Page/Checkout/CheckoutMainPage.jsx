@@ -9,8 +9,9 @@ import Createcontext from "../../../Hooks/Context"
 import { useLocation, useNavigate } from 'react-router-dom';
 import Axios from "axios"
 const CheckOutMainPage = () => {
-    
+
     const { state, dispatch } = React.useContext(Createcontext)
+    console.log(state)
     const cookies = new Cookies();
     const navigate = useNavigate()
     const token_data = cookies.get('User_Token_access')
@@ -20,7 +21,7 @@ const CheckOutMainPage = () => {
     const location = useLocation();
     const { InputValues, abc } = location?.state
     const [image, setImage] = React.useState()
-    const [DefalutImage , SetDefalutimage  ] =  React.useState(false)
+    const [DefalutImage, SetDefalutimage] = React.useState(false)
     const [Dataimage, setDataImage] = React.useState()
     const [Time, SetTime] = React.useState('');
     const [Details, SetDetails] = React.useState({
@@ -30,8 +31,8 @@ const CheckOutMainPage = () => {
         MobileNo: "",
         MedicalMarijuanaNumber: "",
         Address: "",
-        Email:"",
-        Ordertype:'',
+        Email: "",
+        Ordertype: '',
     })
     const [CheckOut_Loading, SetLoading] = React.useState(false)
     React.useEffect(() => {
@@ -42,82 +43,82 @@ const CheckOutMainPage = () => {
     };
     async function SubmitData() {
 
-     if(image !== undefined) {
-        let asdsd = 'Delivery'
+        if (image !== undefined) {
+            let asdsd = 'Delivery'
 
-        if(state.selectDeliveryoptions === "pickup_btn"){
-            asdsd ="Pickup"
-        }
-        else if(state.selectDeliveryoptions === "CurbsidePickup"){
-            asdsd = 'Delivery and Pickup'
-        }else if(state.selectDeliveryoptions === "delivery_btn"){
-            asdsd ='Delivery'
-        }
+            if (state.selectDeliveryoptions === "pickup_btn") {
+                asdsd = "Pickup"
+            }
+            else if (state.selectDeliveryoptions === "CurbsidePickup") {
+                asdsd = 'Delivery and Pickup'
+            } else if (state.selectDeliveryoptions === "delivery_btn") {
+                asdsd = 'Delivery'
+            }
+            console.log(asdsd, "Delivery and Pickup", asdsd, state.AllProduct[0])
 
+            const formdata = new FormData();
+            formdata.append('IdCard', Dataimage);
+            formdata.append('FirstName', Details.FirstName);
+            formdata.append('LastName', Details.LastName);
+            formdata.append('DateOfBirth', Details.DateOfBirth);
+            formdata.append('MobileNo', Details.MobileNo);
+            formdata.append('MedicalMarijuanaNumber', Details.MedicalMarijuanaNumber);
+            formdata.append('subtotal', state?.Cart_subTotal);
+            formdata.append('Product', JSON.stringify(state.AllProduct));
+            formdata.append('Store', state.AllProduct[0]?.Store_id);
+            formdata.append('Address', state.selectDeliveryoptions === "pickup_btn" ? state.AllProduct[0]?.StoreAddress : state.DeliveryAddress);
+            formdata.append('DeliveryTime', Time);
+            formdata.append('Email', Details.Email)
+            formdata.append('Order_Type', asdsd)
+            formdata.append('Country', asdsd === "Delivery" ? state.DeliveryCountry : state.AllProduct[0]?.Country);
+            formdata.append('State', asdsd === "Delivery" ? state.DeliveryState : state.AllProduct[0]?.State)
+            formdata.append('City', asdsd === "Delivery" ? state.DeliveryCity : state.AllProduct[0]?.City)
 
-        const formdata = new FormData();
-        formdata.append('IdCard', Dataimage);
-        formdata.append('FirstName', Details.FirstName);
-        formdata.append('LastName', Details.LastName);
-        formdata.append('DateOfBirth', Details.DateOfBirth);
-        formdata.append('MobileNo', Details.MobileNo);
-        formdata.append('MedicalMarijuanaNumber', Details.MedicalMarijuanaNumber);
-        formdata.append('subtotal', state?.Cart_subTotal);
-        formdata.append('Product', JSON.stringify(state.AllProduct));
-        formdata.append('Store', state.AllProduct[0]?.Store_id);
-        formdata.append('Address', state.selectDeliveryoptions === "pickup_btn" ? state.AllProduct[0]?.StoreAddress : state.DeliveryAddress);
-        formdata.append('DeliveryTime', Time);
-        formdata.append('Email', Details.Email)
-        formdata.append('Order_Type', asdsd)
-        formdata.append('Country', state.DeliveryCountry);
-        formdata.append('State', state.DeliveryState)
-        formdata.append('City', state.DeliveryCity)
+            await Axios.post(
+                'https://api.cannabaze.com/UserPanel/Add-Order/ ',
+                formdata,
+                config,
 
-        await Axios.post(
-            'https://api.cannabaze.com/UserPanel/Add-Order/ ',
-            formdata,
-            config,
-
-            {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                }
-            },
-            SetLoading(true)
-        ).then(response => {
-            SetLoading(false)
-            let datanew = {orterbtn : location.state.orderBtn  , ...response.data.data } 
-            navigate("/order-placed" , {state: datanew})
-            dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-        }).catch(
-            function (error) {
+                {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    }
+                },
+                SetLoading(true)
+            ).then(response => {
                 SetLoading(false)
-        })
-        // Axios.post(`https://api.cannabaze.com/UserPanel/Add-UserProfileOrderDetails/`, formdata, config).then((data) => {
-            
-        // })
+                let datanew = { orterbtn: location.state.orderBtn, ...response.data.data }
+                navigate("/order-placed", { state: datanew })
+                dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+            }).catch(
+                function (error) {
+                    SetLoading(false)
+                })
+            // Axios.post(`https://api.cannabaze.com/UserPanel/Add-UserProfileOrderDetails/`, formdata, config).then((data) => {
 
-     }
-     else(
-        SetDefalutimage(true)
-     )
+            // })
+
+        }
+        else (
+            SetDefalutimage(true)
+        )
 
     }
     React.useEffect(() => {
-      state.login &&   Axios.get(`https://api.cannabaze.com/UserPanel/Get-UserProfileOrderDetails/`, config).then((data) => {
-        if (data.data.length !== 0) {
-            data.data.map((user, key) => {
-             
-                    SetDetails({ 
-                        ...Details, MobileNo:user.MobileNo, Email:user.Email, "DateOfBirth": user.DateOfBirth ,  "FirstName": user.FirstName , "LastName": user.LastName , "MedicalMarijuanaNumber": user.MedicalMarijuanaNumber,  "MobileNo": user.MobileNo
+        state.login && Axios.get(`https://api.cannabaze.com/UserPanel/Get-UserProfileOrderDetails/`, config).then((data) => {
+            if (data.data.length !== 0) {
+                data.data.map((user, key) => {
+
+                    SetDetails({
+                        ...Details, MobileNo: user.MobileNo, Email: user.Email, "DateOfBirth": user.DateOfBirth, "FirstName": user.FirstName, "LastName": user.LastName, "MedicalMarijuanaNumber": user.MedicalMarijuanaNumber, "MobileNo": user.MobileNo
                     });
-              
-            })
+
+                })
 
 
-        }
+            }
 
-    })
+        })
 
     }, [])
     return (

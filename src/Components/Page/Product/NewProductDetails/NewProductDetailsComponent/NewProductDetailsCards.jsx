@@ -67,7 +67,10 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                 StoreName: Event.StoreName,
                 CoupounField: DiscountedValue.DiscountType === "" ? null : DiscountedValue,
                 PromoCodeid: DiscountedValue.id,
-                CustomerGets: DiscountedValue.DiscountType === 'Buy X get Y' ? DiscountedValue.CustomerGets : null
+                CustomerGets: DiscountedValue.DiscountType === 'Buy X get Y' ? DiscountedValue.CustomerGets : null,
+                City:Event.Store_City,
+                State:Event.Store_State,
+                Country:Event.Store_Country
 
             })
             await axios.post("https://api.cannabaze.com/UserPanel/Add-AddtoCart/",
@@ -86,7 +89,10 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                     StoreName: Event.StoreName,
                     CoupounField: DiscountedValue.DiscountType === "" ? null : DiscountedValue,
                     PromoCodeid: DiscountedValue.id,
-                    CustomerGets: DiscountedValue.DiscountType === 'Buy X get Y' ? DiscountedValue.CustomerGets : null
+                    CustomerGets: DiscountedValue.DiscountType === 'Buy X get Y' ? DiscountedValue.CustomerGets : null,
+                    City:Event.Store_City,
+                    State:Event.Store_State,
+                    Country:Event.Store_Country
                 }
                 , config
             ).then(response => {
@@ -125,7 +131,10 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                 StoreName: Event.StoreName,
                 CoupounField: DiscountedValue.DiscountType === "" ? null : DiscountedValue,
                 PromoCodeid: DiscountedValue.id,
-                CustomerGets: DiscountedValue.DiscountType === 'Buy X get Y' ? DiscountedValue.CustomerGets : null
+                CustomerGets: DiscountedValue.DiscountType === 'Buy X get Y' ? DiscountedValue.CustomerGets : null,
+                City:Event.Store_City,
+                State:Event.Store_State,
+                Country:Event.Store_Countryx
 
             }
             SetNewData(Arry)

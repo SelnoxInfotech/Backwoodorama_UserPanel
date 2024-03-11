@@ -39,6 +39,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
     })
 
     async function AddToCart(Event, counter, SelectWeight, handleClose) {
+        console.log(Event.Store_City ,Event.Store_Country ,      Event.Store_State      )
         setadding(Event.id)
         const AddData = _.filter(Event.Prices, Price => Price);
         const PriceArrry = _.find(AddData[0].Price, Price => Price.id === SelectWeight);
@@ -62,8 +63,10 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                 category: Event.category_name,
                 Sub_Category_id: Event.Sub_Category_id,
                 SubcategoryName: Event.SubcategoryName,
-                StoreName: Event.StoreName
-
+                StoreName: Event.StoreName,
+                Country:Event.Store_Country,
+                State: Event.Store_State,
+                City:Event.Store_City 
 
             })
             await axios.post("https://api.cannabaze.com/UserPanel/Add-AddtoCart/",
@@ -80,6 +83,9 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                     StoreName: Event.StoreName,
                     Sub_Category_id: Event.Sub_Category_id,
                     SubcategoryName: Event.SubcategoryName,
+                    Country:Event.Store_Country,
+                    State: Event.Store_State,
+                    City:Event.Store_City 
 
                 }
                 , config
@@ -121,7 +127,10 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                 category: Event.category_name,
                 Sub_Category_id: Event.Sub_Category_id,
                 SubcategoryName: Event.SubcategoryName,
-                StoreName: Event.StoreName
+                StoreName: Event.StoreName,
+                Country:Event.Store_Country,
+                State: Event.Store_State,
+                City:Event.Store_City 
 
             }
             SetNewData(Arry)
