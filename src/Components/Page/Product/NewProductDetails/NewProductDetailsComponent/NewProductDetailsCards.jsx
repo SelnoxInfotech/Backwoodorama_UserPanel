@@ -134,7 +134,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                 CustomerGets: DiscountedValue.DiscountType === 'Buy X get Y' ? DiscountedValue.CustomerGets : null,
                 City:Event.Store_City,
                 State:Event.Store_State,
-                Country:Event.Store_Countryx
+                Country:Event.Store_Country
 
             }
             SetNewData(Arry)
