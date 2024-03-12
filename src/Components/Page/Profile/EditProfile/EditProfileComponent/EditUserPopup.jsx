@@ -5,6 +5,8 @@ import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import { Box } from "@mui/material"
 import LoadingButton from '@mui/lab/LoadingButton';
+import { RxCross2 } from "react-icons/rx";
+import Snackbar from '@material-ui/core/Snackbar';
 import useStyles from '../../../../../Style';
 import { MdEdit } from "react-icons/md"
 import { RiCloseCircleFill } from "react-icons/ri"
@@ -22,7 +24,7 @@ const EditUserPopup = ({ username, Api, SetApi }) => {
     const handleClickOpen = () => {
         setOpen(true);
     };
-
+    const [status, setstatus] = React.useState(false)
     const handleClose = () => {
         setOpen(false);
     };
@@ -46,6 +48,7 @@ const EditUserPopup = ({ username, Api, SetApi }) => {
                 reset()
                 setOpen(false);
                 SetApi(!Api)
+                setstatus(true)
             })
             .catch((error) => {
             
@@ -107,6 +110,21 @@ const handleChnage = (e) =>{
 
 
             </Dialog>
+            <Snackbar
+               anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'left',
+        }}
+        autoHideDuration={2000}
+        TransitionComponent={'SlideTransition'}
+        open={status}
+        onClose={()=>setstatus(false)}
+        message="Success"
+        className={classes.promptstyle}
+        action={
+            <RxCross2 size={22}  onClick={()=>setstatus(false)} />
+               }
+             />
         </div>
 
     )

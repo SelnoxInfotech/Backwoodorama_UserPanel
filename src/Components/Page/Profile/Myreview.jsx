@@ -21,7 +21,9 @@ const Myreview = () => {
     const [allstorereiew,setallstorereviews]=useState([])
     const cookies = new Cookies();
     const { state, dispatch } = React.useContext(Createcontext);
+    console.log(state ,'state')
     function HellFull (ReviewId){
+        if(state.login){
         ProductHelpFull(ReviewId.id ,state.Profile.id).then((res)=>{
             axios.get('https://api.cannabaze.com/UserPanel/Get-ProductReviewbyUser/',
             {
@@ -32,11 +34,12 @@ const Myreview = () => {
         }).catch((error)=>{
              console.trace(error)
         })
-      
+    }
     }
 
     const token_data = cookies.get('User_Token_access')
     React.useEffect(()=>{
+        if(state.login){
         axios.get('https://api.cannabaze.com/UserPanel/Get-ProductReviewbyUser/',
         {
             headers: { Authorization: `Bearer ${token_data}` }
@@ -50,6 +53,7 @@ const Myreview = () => {
             setallstorereviews(response.data)
           
         })
+    }
     },[])
 
     const [readopen, setreadopen] = useState(true);
@@ -95,6 +99,7 @@ const Myreview = () => {
       }
       }
     function helpfullStoe(ReviewId){
+        if(state.login){
         StoreHelpFull(ReviewId.id ,state.Profile.id).then((res)=>{
             axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreReviewbyUser/`, {
                 headers: { Authorization: `Bearer ${token_data}` }
@@ -105,13 +110,14 @@ const Myreview = () => {
         }).catch(()=>{
         })
     }
+    }
   return (
     <div className='container'>
         <div className='myreviewContainer'>
             <div className='w-100 d-flex gap-2 align-items-center my-4'>
                <span><IconButton onClick={() => Navigate('-1')}><MdOutlineKeyboardArrowLeft color="#000000"/></IconButton></span><span onClick={() => Navigate(-1)} className="BackPageBtn">Back</span>
             </div>
-            
+            <div class="col-12 mt-sm-4 mt-2  fontStyle"><h1 class="section_main_title ">My Reviews</h1></div>
             <div className='reviews'>
 
                 {

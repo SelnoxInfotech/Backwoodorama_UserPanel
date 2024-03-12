@@ -56,6 +56,7 @@ export default function Notification({ notify, setnotify, Setnotificationdata, n
                 let datax = []
                 res.data.forEach((item, index) => {
                     if (item.Order.length !== 0) {
+                        console.log(item)
                         datax.push({
                             Image: item.Order[0].IdCard,
                             title: `Thank you for ordering with WeedX.io! Your order #${item.Order[0].OrderId} is confirmed for $${item.Order[0].subtotal}.`,
@@ -64,6 +65,8 @@ export default function Notification({ notify, setnotify, Setnotificationdata, n
                         })
                     }
                     if (item.blog.length !== 0) {
+                        console.log(item)
+
                         datax.push({
                             Image: item.blog[0].Image,
                             title: item.blog[0].Title,
@@ -85,14 +88,18 @@ export default function Notification({ notify, setnotify, Setnotificationdata, n
         else {
             axios.get(`https://api.cannabaze.com/UserPanel/GetUserNotification/`,
             ).then((respones) => {
-                if (Boolean(respones?.data)) {
+                console.log(Boolean(respones?.data) ,'newdata')
+
+                if(Boolean(respones?.data)){
                     let newdata = respones.data.Blog.map((data) => {
-                        return { "link": `/cannabis-news/${data.blog[0].Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${data.blog[0].id}`, 'title': data.Title, "image": data.Image, 'date': data.updated }
+                        return { "link": `/cannabis-news/${data.Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${data.id}`, 'title': data.Title, "image": data.Image, 'date': data.updated }
                     })
+                    console.log(newdata)
                     Setnotificationdata(newdata)
 
                 }
                 else {
+                    console.log('newdata')
                     Setnotificationdata([{ ...notificationdata, "link": `/`, 'title': "Welcome TO WeedX" }])
                 }
             }).catch((err) => {
@@ -119,21 +126,25 @@ export default function Notification({ notify, setnotify, Setnotificationdata, n
         })
     }
     function Clear(e) {
-        // const config = {
-        //     headers: { Authorization: `Bearer ${token_data}` }
-        // }
-        // axios.post(`https://api.cannabaze.com/UserPanel/ClearNotification/`,
-        //     {
-        //         ClearAll: 'ClearAll'
-        //     },
-        //     config
-        // ).then((respones) => {
+        const config = {
+            headers: { Authorization: `Bearer ${token_data}` }
+        }
+
+        axios.post(`https://api.cannabaze.com/UserPanel/ClearNotification/`,
+            {
+                Clear: e.id
+            },
+            config
+        ).then((respones) => {
 
 
-        // }).catch((err) => {
+        }).catch((err) => {
 
-        // })
+        })
     }
+
+
+    let dummydata=[{Image:"https://i.ibb.co/3rCKfC6/Ellipse-446.png", title:'this is title'  , link:"link"}]
     return (
         notify &&
         <ClickAwayListener onClickAway={() => { setnotify(false) }}>
@@ -145,10 +156,11 @@ export default function Notification({ notify, setnotify, Setnotificationdata, n
                   { ( Boolean(notificationdata?.length) && state.login ) && <span className='clearNotify' onClick={() => ClearAll()}>Clear All </span>}
                 </div>
                 <div className='notificationContainer'>
-                    {Boolean(notificationdata?.length)
+                    { 
+                    Boolean(notificationdata?.length)
                         ?
                         notificationdata?.map((data, index) => {
-
+                            console.log(data ,'data')
                             return (
                                 <div className='notification_box'>
 

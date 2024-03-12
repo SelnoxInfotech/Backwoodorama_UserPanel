@@ -103,7 +103,7 @@ const EditUserName = ({ Username, Api, SetApi }) => {
                 </div>
             </Dialog>
             <Snackbar
-        anchorOrigin={{
+               anchorOrigin={{
             vertical: 'bottom',
             horizontal: 'left',
         }}
@@ -115,8 +115,8 @@ const EditUserName = ({ Username, Api, SetApi }) => {
         className={classes.promptstyle}
         action={
             <RxCross2 size={22}  onClick={()=>setstatus(false)} />
-          }
-/>
+               }
+             />
         </div>
     )
 }

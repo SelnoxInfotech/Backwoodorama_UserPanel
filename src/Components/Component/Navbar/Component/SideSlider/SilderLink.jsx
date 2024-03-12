@@ -85,8 +85,8 @@ export default function DashBoardLink({ state }) {
                   <IconButton className={classes.navBarButton_icons} aria-label="whislist"><AiFillHeart color="#858585" size={22}></AiFillHeart></IconButton>
                 </Badge>
               </Link>
-              <div className="notification_icon" onClick={()=>{setnotify(!notify)}}>
-                <Badge badgeContent={notificationdata.length} className={classes.sliderLink_badge}>
+              <div className="notification_icon" >
+                <Badge badgeContent={notificationdata.length} className={classes.sliderLink_badge} onClick={()=>{setnotify(!notify)}}>
                   <IconButton className={classes.navBarButton_icons} aria-label="notification"> <IoIosNotifications color="#858585" size={23}></IoIosNotifications> </IconButton>
                 </Badge>
                 
