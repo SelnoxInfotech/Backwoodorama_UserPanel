@@ -6,10 +6,10 @@ import Cookies from 'universal-cookie';
 import Createcontext from "../../../Hooks/Context"
 import { Link, useNavigation } from 'react-router-dom';
 import { RxCross2 } from "react-icons/rx";
-export default function Notification({ notify, setnotify, Setnotificationdata, notificationdata }) {
+export default function Notification({ notify, setnotify,Settotalnotify, Setnotificationdata, notificationdata }) {
     const cookies = new Cookies();
     const token_data = cookies.get('User_Token_access')
-    const { state } = React.useContext(Createcontext)
+    const { state , dispatch } = React.useContext(Createcontext)
     function calculateTImefromDate(value) {
         let diffTime = Math.abs(new Date().valueOf() - new Date(value).valueOf());
         let months = Math.trunc(diffTime / (24 * 60 * 60 * 1000) / 30);
@@ -34,6 +34,7 @@ export default function Notification({ notify, setnotify, Setnotificationdata, n
             return secs + " secs ago"
         }
     }
+   
     React.useEffect(() => {
         if (state.login) {
             const config = {
@@ -43,25 +44,19 @@ export default function Notification({ notify, setnotify, Setnotificationdata, n
                 config,
             ).then((res) => {
 
-                // res.data.map((data)=>{
-
-                //     data.blog.map((data)=> Setnotificationdata((notificationdata)=>[ ...notificationdata ,{ "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title , date:calculateTImefromDate(data.updated) , image:data?.Image  }]))
-                //     data.StoreHelpFull.map((data)=> Setnotificationdata([...notificationdata ,{  "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title  }]))
-                //     data.ProductHelpfull.map((data)=> Setnotificationdata([...notificationdata,{ "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title  }]))
-                //     data.StoreReview.map((data)=> Setnotificationdata([...notificationdata ,{ "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title  }]))
-                //     data.ProductReview.map((data)=> Setnotificationdata([...notificationdata,{ "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title  }]))
-                //     data.Order.map((data)=> Setnotificationdata([...notificationdata ,{ "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': `Thank you for ordering with WeedX.io! Your order #${data.OrderId} is confirmed for $${data.subtotal}.`,date:calculateTImefromDate(data.OrderDate) ,image:data.IdCard  }]))
-
-                // })
+              
                 let datax = []
+            
                 res.data.forEach((item, index) => {
+
                     if (item.Order.length !== 0) {
                         console.log(item)
                         datax.push({
                             Image: item.Order[0].IdCard,
                             title: `Thank you for ordering with WeedX.io! Your order #${item.Order[0].OrderId} is confirmed for $${item.Order[0].subtotal}.`,
                             date: item.Order[0].OrderDate,
-                            link: `/MyOrderProductDetail/${item.Order[0].OrderId}`
+                            link: `/MyOrderProductDetail/${item.Order[0].OrderId}`,
+                            Id: item.Notification
                         })
                     }
                     if (item.blog.length !== 0) {
@@ -71,14 +66,18 @@ export default function Notification({ notify, setnotify, Setnotificationdata, n
                             Image: item.blog[0].Image,
                             title: item.blog[0].Title,
                             date: item.blog[0].updated,
-                            link: `/cannabis-news/${item.blog[0].Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${item.blog[0].id}`
+                            link: `/cannabis-news/${item.blog[0].Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${item.blog[0].id}`,
+                            Id:item.Notification
                         })
                     }
+
+                
+
                 })
                 let newddt = _.sortBy(datax, function (dateObj) {
                     return dateObj.date;
                 });
-
+                Settotalnotify(newddt)
                 Setnotificationdata(newddt.reverse())
 
             }).catch((err) => {
@@ -112,15 +111,19 @@ export default function Notification({ notify, setnotify, Setnotificationdata, n
         const config = {
             headers: { Authorization: `Bearer ${token_data}` }
         }
+        let ab = notificationdata.map((item)=>{
+            return item.Id
+        })
+   
         axios.post(`https://api.cannabaze.com/UserPanel/ClearNotification/`,
             {
-                ClearAll: 'ClearAll'
+                Clear: ab
             },
             config
         ).then((respones) => {
-            if (respones.data === "All Notification Clear") {
+            dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
                 Setnotificationdata([])
-            }
+            
         }).catch((err) => {
 
         })
@@ -129,21 +132,64 @@ export default function Notification({ notify, setnotify, Setnotificationdata, n
         const config = {
             headers: { Authorization: `Bearer ${token_data}` }
         }
-
         axios.post(`https://api.cannabaze.com/UserPanel/ClearNotification/`,
             {
-                Clear: e.id
+                Clear: [e.Id]
             },
             config
         ).then((respones) => {
 
+            axios.get(`https://api.cannabaze.com/UserPanel/GetUserNotificationByLogin/`,
+            config,
+                ).then((res) => {
 
+                    // res.data.map((data)=>{
+
+                    //     data.blog.map((data)=> Setnotificationdata((notificationdata)=>[ ...notificationdata ,{ "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title , date:calculateTImefromDate(data.updated) , image:data?.Image  }]))
+                    //     data.StoreHelpFull.map((data)=> Setnotificationdata([...notificationdata ,{  "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title  }]))
+                    //     data.ProductHelpfull.map((data)=> Setnotificationdata([...notificationdata,{ "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title  }]))
+                    //     data.StoreReview.map((data)=> Setnotificationdata([...notificationdata ,{ "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title  }]))
+                    //     data.ProductReview.map((data)=> Setnotificationdata([...notificationdata,{ "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title  }]))
+                    //     data.Order.map((data)=> Setnotificationdata([...notificationdata ,{ "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': `Thank you for ordering with WeedX.io! Your order #${data.OrderId} is confirmed for $${data.subtotal}.`,date:calculateTImefromDate(data.OrderDate) ,image:data.IdCard  }]))
+
+                    // })
+                    let datax = []
+                    res.data.forEach((item, index) => {
+
+                        if (item.Order.length !== 0) {
+                            console.log(item)
+                            datax.push({
+                                Image: item.Order[0].IdCard,
+                                title: `Thank you for ordering with WeedX.io! Your order #${item.Order[0].OrderId} is confirmed for $${item.Order[0].subtotal}.`,
+                                date: item.Order[0].OrderDate,
+                                link: `/MyOrderProductDetail/${item.Order[0].OrderId}`,
+                                Id: item.Notification
+                            })
+                        }
+                        if (item.blog.length !== 0) {
+                            console.log(item)
+
+                            datax.push({
+                                Image: item.blog[0].Image,
+                                title: item.blog[0].Title,
+                                date: item.blog[0].updated,
+                                link: `/cannabis-news/${item.blog[0].Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${item.blog[0].id}`,
+                                Id:item.Notification
+                            })
+                        }
+                    })
+                    let newddt = _.sortBy(datax, function (dateObj) {
+                        return dateObj.date;
+                    });
+                    dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+                    Setnotificationdata(newddt.reverse())
+
+                }).catch((err) => {
+                })
         }).catch((err) => {
 
         })
     }
-
-
     let dummydata=[{Image:"https://i.ibb.co/3rCKfC6/Ellipse-446.png", title:'this is title'  , link:"link"}]
     return (
         notify &&
@@ -157,11 +203,12 @@ export default function Notification({ notify, setnotify, Setnotificationdata, n
                 </div>
                 <div className='notificationContainer'>
                     { 
-                    Boolean(notificationdata?.length)
+                        Boolean(notificationdata?.length)
                         ?
                         notificationdata?.map((data, index) => {
-                            console.log(data ,'data')
-                            return (
+                          console.log()
+                           if(Boolean(!state.Profile.RemovedNotification.includes(data.Id))){
+                             return (
                                 <div className='notification_box'>
 
                                     <Link to={data.link}>
@@ -179,6 +226,7 @@ export default function Notification({ notify, setnotify, Setnotificationdata, n
 
                                 </div>
                             )
+                        }
                         })
                         :
                         <div className='w-100 h-100 d-flex align-items-center justify-content-center '>No New Notification</div>
