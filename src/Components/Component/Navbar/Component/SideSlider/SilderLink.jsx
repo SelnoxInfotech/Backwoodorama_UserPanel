@@ -203,7 +203,7 @@ export default function DashBoardLink({ state }) {
                 <Badge
                   badgeContent={
                    
-                    totalnotify?.length ===state?.Profile?.RemovedNotification?.length ? 0 : totalnotify?.length - state?.Profile?.RemovedNotification?.length
+                     state.login ? (totalnotify?.length ===state?.Profile?.RemovedNotification?.length ? 0 : totalnotify?.length - state?.Profile?.RemovedNotification?.length) :  notificationdata?.length
                
                     // notificationdata.map((item, index) => {
                   //   console.log(

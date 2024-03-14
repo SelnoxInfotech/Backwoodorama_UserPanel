@@ -87,8 +87,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
         else {
             axios.get(`https://api.cannabaze.com/UserPanel/GetUserNotification/`,
             ).then((respones) => {
-                console.log(Boolean(respones?.data) ,'newdata')
-
+               
                 if(Boolean(respones?.data)){
                     let newdata = respones.data.Blog.map((data) => {
                         return { "link": `/cannabis-news/${data.Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${data.id}`, 'title': data.Title, "image": data.Image, 'date': data.updated }
@@ -98,7 +97,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
 
                 }
                 else {
-                    console.log('newdata')
+                  
                     Setnotificationdata([{ ...notificationdata, "link": `/`, 'title': "Welcome TO WeedX" }])
                 }
             }).catch((err) => {
@@ -206,27 +205,50 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                         Boolean(notificationdata?.length)
                         ?
                         notificationdata?.map((data, index) => {
-                          console.log()
-                           if(Boolean(!state.Profile.RemovedNotification.includes(data.Id))){
-                             return (
-                                <div className='notification_box'>
+                           if(state.login){
+                                if(Boolean(!state.Profile.RemovedNotification.includes(data.Id))){
+                                    return (
+                                        <div className='notification_box'>
 
-                                    <Link to={data.link}>
-                                        <div className="notification_img">
-                                            <div className="notiimgCircle">
-                                                <img src={data.Image} alt="img" />
+                                            <Link to={data.link}>
+                                                <div className="notification_img">
+                                                    <div className="notiimgCircle">
+                                                        <img src={data.Image} alt="img" />
+                                                    </div>
+                                                </div>
+                                            </Link>
+                                            <div className="notifytext w-100" >
+                                                <div className='d-flex justify-content-between align-items-center'> <Link to={data.link}>    <span className="notify_date ">{calculateTImefromDate(data.date)}</span> </Link><span className='cursor-pointer' onClick={(e) => Clear(data)}><RxCross2 size={15} color={"#000"} /></span></div>
+                                                <Link to={data.link}>  <div className="d-flex align-items-center justify-content-between gap-5"><h4 className="notititle">{data.title} </h4> </div>  </Link>
+
                                             </div>
+
                                         </div>
-                                    </Link>
-                                    <div className="notifytext w-100" >
-                                        <div className='d-flex justify-content-between align-items-center'> <Link to={data.link}>    <span className="notify_date ">{calculateTImefromDate(data.date)}</span> </Link><span className='cursor-pointer' onClick={(e) => Clear(data)}><RxCross2 size={15} color={"#000"} /></span></div>
-                                        <Link to={data.link}>  <div className="d-flex align-items-center justify-content-between gap-5"><h4 className="notititle">{data.title} </h4> </div>  </Link>
+                                    )
+                                }
+                           }else{
+
+                           
+                                return (
+                                    <div className='notification_box'>
+
+                                        <Link to={data.link}>
+                                            <div className="notification_img">
+                                                <div className="notiimgCircle">
+                                                    <img src={data?.Image} alt="img" />
+                                                </div>
+                                            </div>
+                                        </Link>
+                                        <div className="notifytext w-100" >
+                                            <div className='d-flex justify-content-between align-items-center'> <Link to={data.link}>    <span className="notify_date ">{calculateTImefromDate(data.date)}</span> </Link> </div>
+                                            <Link to={data.link}>  <div className="d-flex align-items-center justify-content-between gap-5"><h4 className="notititle">{data.title} </h4> </div>  </Link>
+
+                                        </div>
 
                                     </div>
-
-                                </div>
-                            )
-                        }
+                                )
+                            
+                           }
                         })
                         :
                         <div className='w-100 h-100 d-flex align-items-center justify-content-center '>No New Notification</div>
