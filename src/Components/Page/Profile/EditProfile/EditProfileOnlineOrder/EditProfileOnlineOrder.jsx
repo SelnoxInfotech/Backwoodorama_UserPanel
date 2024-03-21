@@ -5,7 +5,7 @@ import AddPhotoId from './EditProfileOnlineOrderComponent/AddPhotoId';
 import MedicalCardDetailsPopup from './EditProfileOnlineOrderComponent/MedicalCardDetailsPopup';
 import AddDateOfBirth from './EditProfileOnlineOrderComponent/AddDateOfBirth';
 const EditProfileOnlineOrder = ({Profile,Api,SetApi}) => {
-    console.log(Profile ,'Profile')
+   
     return (
         <div className="col-12 EditProfileOnlineOrder_main_column mt-4">
             <div>

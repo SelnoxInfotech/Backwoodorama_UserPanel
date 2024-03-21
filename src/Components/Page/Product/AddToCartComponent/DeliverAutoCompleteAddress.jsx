@@ -19,9 +19,9 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery, Store }) {
   const { ref } = usePlacesWidget({
     apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
     onPlaceSelected: (place) => {
-      console.log(place, "1")
+    
       if (place.address_components) {
-        console.log(place, "2")
+       
         try {
           for (var i = 0; i < place?.address_components.length; i++) {
             var component = place.address_components[i];
@@ -48,7 +48,7 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery, Store }) {
       else {
         Axios(`https://maps.googleapis.com/maps/api/geocode/json?address=${place.name}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
           .then(response => {
-            console.log(response, "3")
+          
             try {
               if (response.data.results.length !== 0) {
                 response.data.results[0]?.address_components?.map((data) => {

@@ -50,7 +50,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                 res.data.forEach((item, index) => {
 
                     if (item.Order.length !== 0) {
-                        console.log(item)
+                     
                         datax.push({
                             Image: item.Order[0].IdCard,
                             title: `Thank you for ordering with WeedX.io! Your order #${item.Order[0].OrderId} is confirmed for $${item.Order[0].subtotal}.`,
@@ -60,8 +60,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                         })
                     }
                     if (item.blog.length !== 0) {
-                        console.log(item)
-
+                       
                         datax.push({
                             Image: item.blog[0].Image,
                             title: item.blog[0].Title,
@@ -92,7 +91,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                     let newdata = respones.data.Blog.map((data) => {
                         return { "link": `/cannabis-news/${data.Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${data.id}`, 'title': data.Title, "image": data.Image, 'date': data.updated }
                     })
-                    console.log(newdata)
+                  
                     Setnotificationdata(newdata)
 
                 }
@@ -156,7 +155,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                     res.data.forEach((item, index) => {
 
                         if (item.Order.length !== 0) {
-                            console.log(item)
+                         
                             datax.push({
                                 Image: item.Order[0].IdCard,
                                 title: `Thank you for ordering with WeedX.io! Your order #${item.Order[0].OrderId} is confirmed for $${item.Order[0].subtotal}.`,
@@ -166,8 +165,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                             })
                         }
                         if (item.blog.length !== 0) {
-                            console.log(item)
-
+                           
                             datax.push({
                                 Image: item.blog[0].Image,
                                 title: item.blog[0].Title,
@@ -205,6 +203,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                         Boolean(notificationdata?.length)
                         ?
                         notificationdata?.map((data, index) => {
+                           
                            if(state.login){
                                 if(Boolean(!state.Profile.RemovedNotification.includes(data.Id))){
                                     return (
@@ -227,15 +226,13 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                                     )
                                 }
                            }else{
-
-                           
-                                return (
+                              return (
                                     <div className='notification_box'>
 
                                         <Link to={data.link}>
                                             <div className="notification_img">
                                                 <div className="notiimgCircle">
-                                                    <img src={data?.Image} alt="img" />
+                                                    <img src={data?.image} alt="img" onError={() => this.img.src = './image/logo.png'} />
                                                 </div>
                                             </div>
                                         </Link>

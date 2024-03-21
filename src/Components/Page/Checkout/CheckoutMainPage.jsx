@@ -11,7 +11,7 @@ import Axios from "axios"
 const CheckOutMainPage = () => {
 
     const { state, dispatch } = React.useContext(Createcontext)
-    console.log(state)
+    
     const cookies = new Cookies();
     const navigate = useNavigate()
     const token_data = cookies.get('User_Token_access')
@@ -54,8 +54,7 @@ const CheckOutMainPage = () => {
             } else if (state.selectDeliveryoptions === "delivery_btn") {
                 asdsd = 'Delivery'
             }
-            console.log(asdsd, "Delivery and Pickup", asdsd, state.AllProduct[0])
-
+      
             const formdata = new FormData();
             formdata.append('IdCard', Dataimage);
             formdata.append('FirstName', Details.FirstName);

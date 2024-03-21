@@ -21,7 +21,6 @@ const Myreview = () => {
     const [allstorereiew,setallstorereviews]=useState([])
     const cookies = new Cookies();
     const { state, dispatch } = React.useContext(Createcontext);
-    console.log(state ,'state')
     function HellFull (ReviewId){
         if(state.login){
         ProductHelpFull(ReviewId.id ,state.Profile.id).then((res)=>{

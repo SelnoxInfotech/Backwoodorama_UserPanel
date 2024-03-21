@@ -164,13 +164,11 @@ const Navbar = () => {
                       
                             <div className="notification_img">
                               <div className="notiimgCircle">
-                                <img src="/image/cat_pro_img1.png" alt="img" />
+                                <img src="/image/logo.png" alt="img" />
                               </div>
                             </div>
                             <div className="notifytext">
                             <div className="d-flex align-items-center justify-content-between"><h4 className="notititle">This is title</h4> <span className="notify_date">2 Hours ago</span></div>
-                            {/* <p className="notipara">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui, perferendis?</p> */}
-                      
                             </div>
                       </div>
                     </div>

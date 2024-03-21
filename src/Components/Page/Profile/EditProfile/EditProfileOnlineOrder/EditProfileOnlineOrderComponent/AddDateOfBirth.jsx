@@ -58,8 +58,6 @@ const AddDateOfBirth = ({ Profile, Api, SetApi }) => {
         let date = new Date()
         date.setYear(date.getFullYear() - 18);
         date.toLocaleString()
-
-        console.log(date)
         var year = date.getFullYear();
       
         var month = (1 + date.getMonth()).toString();

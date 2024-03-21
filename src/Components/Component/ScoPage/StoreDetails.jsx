@@ -6,7 +6,6 @@ function StoreDetails({ Despen, locationStore }) {
     const location = useLocation()
     const params = useParams()
     const { tab, Category, SubCategory } = params
-    console.log(tab, Category, SubCategory)
     React.useEffect(() => {
         if (location.pathname.slice(0, 16) !== "/weed-deliveries") {
             if (tab === undefined) {

@@ -73,7 +73,7 @@ const Allblogs = () => {
       }else{
           getAllNews().then(async (res) => {
           setallblogs(res)
-          console.log(res)
+     
           setisdata(true)
         }).catch((err) => {
           console.trace(err)

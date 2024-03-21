@@ -430,7 +430,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                                                 // }}
                                                 value={SelectVariant}
                                                 onChange={(e) => {
-                                                    // console.log( e.target.value)
+                                                  
                                                     PriceSelect(Product.id, e.target.value)
                                                         // setquentity(1),
                                                         // k(e.target.value)

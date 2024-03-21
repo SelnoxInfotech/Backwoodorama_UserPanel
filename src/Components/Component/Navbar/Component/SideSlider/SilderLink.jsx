@@ -21,8 +21,6 @@ export default function DashBoardLink({ state }) {
   const location = useLocation();
   const [notificationdata, Setnotificationdata] = React.useState([]);
   const [totalnotify, Settotalnotify] = React.useState([]);
-  console.log(state?.Profile?.RemovedNotification)
-  console.log(totalnotify)
  
   React.useEffect(() => {
     Setcurrent_route(location.pathname);
@@ -206,10 +204,7 @@ export default function DashBoardLink({ state }) {
                      state.login ? (totalnotify?.length ===state?.Profile?.RemovedNotification?.length ? 0 : totalnotify?.length - state?.Profile?.RemovedNotification?.length) :  notificationdata?.length
                
                     // notificationdata.map((item, index) => {
-                  //   console.log(
-                  //     item,
-                  //     state?.Profile.RemovedNotification[index]
-                  //   );
+               
 
                   //   if (
                   //     Boolean(
@@ -219,7 +214,7 @@ export default function DashBoardLink({ state }) {
                   //     a.push(item?.Id);
                   //     return a?.length;
                   //   }
-                  //   // console.log(a);
+       
                     
                   // })
                  }
