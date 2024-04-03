@@ -3,7 +3,6 @@ import Grid from "@mui/system/Unstable_Grid";
 import { BsLinkedin } from "react-icons/bs";
 import { AiFillHeart } from "react-icons/ai";
 import { IoIosNotifications } from "react-icons/io";
-import ClickAwayListener from "@mui/base/ClickAwayListener";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { ImFacebook } from "react-icons/im";
 import { RiInstagramLine } from "react-icons/ri";
@@ -35,6 +34,7 @@ export default function DashBoardLink({ state }) {
   useEffect(()=>{
     settextnotify(!textnotify)
   },[notificationdata])
+
   return (
     <React.Fragment>
       <div className="container-fluid Top ">
@@ -200,24 +200,8 @@ export default function DashBoardLink({ state }) {
               <div className="notification_icon">
                 <Badge
                   badgeContent={
-                   
-                     state.login ? (totalnotify?.length ===state?.Profile?.RemovedNotification?.length ? 0 : totalnotify?.length - state?.Profile?.RemovedNotification?.length) :  notificationdata?.length
-               
-                    // notificationdata.map((item, index) => {
-               
-
-                  //   if (
-                  //     Boolean(
-                  //       item?.Id !== state?.Profile.RemovedNotification[index]
-                  //     )
-                  //   ) {
-                  //     a.push(item?.Id);
-                  //     return a?.length;
-                  //   }
-       
-                    
-                  // })
-                 }
+                     state.login ? ( totalnotify?.length === state?.Profile?.RemovedNotification?.length ? 0 : (totalnotify?.length - state?.Profile?.RemovedNotification?.length) >0 ? totalnotify?.length - state?.Profile?.RemovedNotification?.length : 0  ) :  notificationdata?.length
+                  }
                   className={classes.sliderLink_badge}
                   onClick={() => {
                     setnotify(!notify);

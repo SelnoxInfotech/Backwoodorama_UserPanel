@@ -42,11 +42,8 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
             }
             axios.get(`https://api.cannabaze.com/UserPanel/GetUserNotificationByLogin/`,
                 config,
-            ).then((res) => {
-
-              
+            ).then((res) => { 
                 let datax = []
-            
                 res.data.forEach((item, index) => {
 
                     if (item.Order.length !== 0) {
@@ -77,6 +74,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                     return dateObj.date;
                 });
                 Settotalnotify(newddt)
+              
                 Setnotificationdata(newddt.reverse())
 
             }).catch((err) => {
@@ -196,11 +194,11 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
 
                 <div className='notificationHeader'>
                     <h4 className='notifytitle'>Notification</h4>
-                  { ( Boolean(notificationdata?.length) && state.login ) && <span className='clearNotify' onClick={() => ClearAll()}>Clear All </span>}
+                  { ( Boolean(notificationdata?.length > state?.Profile?.RemovedNotification?.length ) && state.login ) && <span className='clearNotify' onClick={() => ClearAll()}>Clear All </span>}
                 </div>
                 <div className='notificationContainer'>
                     { 
-                        Boolean(notificationdata?.length)
+                        Boolean(notificationdata?.length >state?.Profile?.RemovedNotification?.length)
                         ?
                         notificationdata?.map((data, index) => {
                            

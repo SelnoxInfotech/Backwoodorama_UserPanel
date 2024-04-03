@@ -235,7 +235,7 @@ const AddToCartReview = () => {
                                 return (
                                     <div className="ssss row py-3 px-0 border-top border-bottom justify-content-center   align-items-center" key={index}>
                                         <div className='row align-items-center col-5'>
-                                            <div className="p-0 col-3 Add_prod_item_image_cont">
+                                            <div className="p-0 Add_prod_item_image_cont">
                                         
                                                 <Link to={`/products/${modifystr(ele.category)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.ProductName)}/${ele.Product_id}`}>
 
@@ -245,7 +245,7 @@ const AddToCartReview = () => {
                                                     }} src={`${ele.Image}`} alt="imag not found" />
                                                 </Link>
                                             </div>
-                                            <div className="col-9 Add_prod_content_cont p-2">
+                                            <div className="Add_prod_content_cont ">
 
 
                                                 <h5 className={`add_prod_cart_p_title ${ele?.Price?.Stock !== "IN Stock" && 'text-danger'}`} onClick={() => { Navigate(ele) }}>{ele.ProductName + "(" + wrigh + ")"}</h5>

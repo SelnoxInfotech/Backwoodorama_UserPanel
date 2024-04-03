@@ -305,12 +305,12 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                 <div className="product_category_list">
                                                     <span className="product_search_result_span1">15% THC | 0.2% CBD</span>
                                                     <div className="product_cart_review">
-                                                        {items.rating && new Array(items.rating).fill(null).map(() => (
-                                                            <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />
+                                                        {items.rating && new Array(items.rating).fill(null).map((itwm , index) => (
+                                                            <BsStarFill key={index +1}  size={16} color="#31B665" className="product_search_rating_star" />
                                                         ))}
 
-                                                        {new Array(5 - items.rating).fill(null).map(() => (
-                                                            <BsStar size={16} color="#31B665" className="product_search_rating_star" />
+                                                        {new Array(5 - items.rating).fill(null).map((item , index) => (
+                                                            <BsStar  key={index +1} size={16} color="#31B665" className="product_search_rating_star" />
                                                         ))}
                                                     </div>
                                                 </div>
