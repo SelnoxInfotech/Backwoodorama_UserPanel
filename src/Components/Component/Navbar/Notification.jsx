@@ -196,59 +196,117 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                     <h4 className='notifytitle'>Notification</h4>
                   { ( Boolean(notificationdata?.length > state?.Profile?.RemovedNotification?.length ) && state.login ) && <span className='clearNotify' onClick={() => ClearAll()}>Clear All </span>}
                 </div>
-                <div className='notificationContainer'>
+                {
+                    state.login ?
+                    <div className='notificationContainer'>
                     { 
-                        Boolean(notificationdata?.length >state?.Profile?.RemovedNotification?.length)
+                        Boolean(notificationdata?.length > state?.Profile?.RemovedNotification?.length)
                         ?
-                        notificationdata?.map((data, index) => {
-                           
-                           if(state.login){
-                                if(Boolean(!state.Profile.RemovedNotification.includes(data.Id))){
-                                    return (
+                            notificationdata?.map((data, index) => {
+                            
+                            if(state.login){
+                                    if(Boolean(!state.Profile.RemovedNotification.includes(data.Id))){
+                                        return (
+                                            <div className='notification_box'>
+
+                                                <Link to={data.link}>
+                                                    <div className="notification_img">
+                                                        <div className="notiimgCircle">
+                                                            <img src={data.Image} alt="img" />
+                                                        </div>
+                                                    </div>
+                                                </Link>
+                                                <div className="notifytext w-100" >
+                                                    <div className='d-flex justify-content-between align-items-center'> <Link to={data.link}>    <span className="notify_date ">{calculateTImefromDate(data.date)}</span> </Link><span className='cursor-pointer' onClick={(e) => Clear(data)}><RxCross2 size={15} color={"#000"} /></span></div>
+                                                    <Link to={data.link}>  <div className="d-flex align-items-center justify-content-between gap-5"><h4 className="notititle">{data.title} </h4> </div>  </Link>
+
+                                                </div>
+
+                                            </div>
+                                        )
+                                    }
+                            }else{
+                                return (
                                         <div className='notification_box'>
 
                                             <Link to={data.link}>
                                                 <div className="notification_img">
                                                     <div className="notiimgCircle">
-                                                        <img src={data.Image} alt="img" />
+                                                        <img src={data?.image} alt="img" onError={() => this.img.src = './image/logo.png'} />
                                                     </div>
                                                 </div>
                                             </Link>
                                             <div className="notifytext w-100" >
-                                                <div className='d-flex justify-content-between align-items-center'> <Link to={data.link}>    <span className="notify_date ">{calculateTImefromDate(data.date)}</span> </Link><span className='cursor-pointer' onClick={(e) => Clear(data)}><RxCross2 size={15} color={"#000"} /></span></div>
+                                                <div className='d-flex justify-content-between align-items-center'> <Link to={data.link}>    <span className="notify_date ">{calculateTImefromDate(data.date)}</span> </Link> </div>
                                                 <Link to={data.link}>  <div className="d-flex align-items-center justify-content-between gap-5"><h4 className="notititle">{data.title} </h4> </div>  </Link>
 
                                             </div>
 
                                         </div>
                                     )
-                                }
-                           }else{
-                              return (
-                                    <div className='notification_box'>
-
-                                        <Link to={data.link}>
-                                            <div className="notification_img">
-                                                <div className="notiimgCircle">
-                                                    <img src={data?.image} alt="img" onError={() => this.img.src = './image/logo.png'} />
-                                                </div>
-                                            </div>
-                                        </Link>
-                                        <div className="notifytext w-100" >
-                                            <div className='d-flex justify-content-between align-items-center'> <Link to={data.link}>    <span className="notify_date ">{calculateTImefromDate(data.date)}</span> </Link> </div>
-                                            <Link to={data.link}>  <div className="d-flex align-items-center justify-content-between gap-5"><h4 className="notititle">{data.title} </h4> </div>  </Link>
-
-                                        </div>
-
-                                    </div>
-                                )
-                            
-                           }
-                        })
+                                
+                            }
+                            })
                         :
                         <div className='w-100 h-100 d-flex align-items-center justify-content-center '>No New Notification</div>
                     }
-                </div>
+                    </div>
+                    :
+                    <div className='notificationContainer'>
+                    { 
+                        Boolean(notificationdata?.length !==0)
+                        ?
+                            notificationdata?.map((data, index) => {
+                            
+                            if(state.login){
+                                    if(Boolean(!state.Profile.RemovedNotification.includes(data.Id))){
+                                        return (
+                                            <div className='notification_box'>
+
+                                                <Link to={data.link}>
+                                                    <div className="notification_img">
+                                                        <div className="notiimgCircle">
+                                                            <img src={data.Image} alt="img" />
+                                                        </div>
+                                                    </div>
+                                                </Link>
+                                                <div className="notifytext w-100" >
+                                                    <div className='d-flex justify-content-between align-items-center'> <Link to={data.link}>    <span className="notify_date ">{calculateTImefromDate(data.date)}</span> </Link><span className='cursor-pointer' onClick={(e) => Clear(data)}><RxCross2 size={15} color={"#000"} /></span></div>
+                                                    <Link to={data.link}>  <div className="d-flex align-items-center justify-content-between gap-5"><h4 className="notititle">{data.title} </h4> </div>  </Link>
+
+                                                </div>
+
+                                            </div>
+                                        )
+                                    }
+                            }else{
+                                return (
+                                        <div className='notification_box'>
+
+                                            <Link to={data.link}>
+                                                <div className="notification_img">
+                                                    <div className="notiimgCircle">
+                                                        <img src={data?.image} alt="img" onError={() => this.img.src = './image/logo.png'} />
+                                                    </div>
+                                                </div>
+                                            </Link>
+                                            <div className="notifytext w-100" >
+                                                <div className='d-flex justify-content-between align-items-center'> <Link to={data.link}>    <span className="notify_date ">{calculateTImefromDate(data.date)}</span> </Link> </div>
+                                                <Link to={data.link}>  <div className="d-flex align-items-center justify-content-between gap-5"><h4 className="notititle">{data.title} </h4> </div>  </Link>
+
+                                            </div>
+
+                                        </div>
+                                    )
+                                
+                            }
+                            })
+                        :
+                        <div className='w-100 h-100 d-flex align-items-center justify-content-center '>No New Notification</div>
+                    }
+                    </div>
+                }
+               
 
                 {/* <div className='notificationFooter'>
                   <span className='clearNotify'>View All</span>
