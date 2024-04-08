@@ -37,7 +37,7 @@ const PromoCode = () => {
                     </div>
                     <div className="col-5 px-2 promoCodeBtn_Col">
                         <Box className={`${classes.loadingBtnTextAndBack}`}>
-                            <LoadingButton variant="outlined">Remove</LoadingButton>
+                            <LoadingButton variant="outlined">Apply</LoadingButton>
                         </Box>
                     </div>
                 </div>

@@ -22,7 +22,7 @@ const AddToCartReview = () => {
     async function DeleteItem(Id, id) {
         Swal.fire({
             title: 'Are you sure?',
-            text: "You won'to remove this product from Cart!",
+            text: "You want to remove this product from Cart!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#31B665',

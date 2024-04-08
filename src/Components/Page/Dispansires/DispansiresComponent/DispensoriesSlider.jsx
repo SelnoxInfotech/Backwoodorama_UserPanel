@@ -14,7 +14,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 const Dispensories = () => {
     const ref = React.useRef(null);
     const Navigate = useNavigate();
-    const { state, dispatch } = React.useContext(Createcontext)
+    const { state    } = React.useContext(Createcontext)
     const [Store, SetStore] = React.useState([])
     const [Skeleton, SetSkeleton] = React.useState(true)
     React.useEffect(() => {

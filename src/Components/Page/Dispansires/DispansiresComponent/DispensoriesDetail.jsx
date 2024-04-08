@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams, useNavigate, useLocation,Link } from "react-router-dom";
+import { useParams, useNavigate, useLocation, Link } from "react-router-dom";
 import axios from "axios";
 import useStyles from "../../../../Style"
 import ProductFilter from "../../../Component/Filter/ProductFilter";
@@ -16,7 +16,7 @@ import StoreDetailMenuItem from "../../StoreDetail/StoreDetailComponent/StoreDet
 import CategoryProduct from "../../Home/Dashboard/ComponentDashboard/CategoryProduct";
 import ComponentStoreDetails from "../../StoreDetail/ComponentStoreDetails"
 import { AiOutlineDeploymentUnit } from "react-icons/ai";
-import {ProductHelpFull} from '../../Product/ProductApi'
+import { ProductHelpFull } from '../../Product/ProductApi'
 import Review from "../../Review/Review";
 import { StoreDetails } from "../../../../Components/Component/ScoPage/StoreDetails"
 import { Store_Add_Review, Store_OverAllGet_Review, Store_Get_UserComment, Store_Get_Review, Delete_StoreReview, StoreHelpFull } from "../../../../Api/Api";
@@ -46,14 +46,14 @@ export default function DispensoriesDetails() {
     React.useEffect(() => {
         axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${id}`, {
         }).then(response => {
-            if (response.data.length === 0){
-                      navigate("/FourZeroFour")
-            }else{
+            if (response.data.length === 0) {
+                navigate("/FourZeroFour")
+            } else {
 
                 SetDespens(response.data)
             }
 
-        }).catch((error)=>{
+        }).catch((error) => {
         })
 
         axios.post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/ ",
@@ -187,7 +187,7 @@ export default function DispensoriesDetails() {
     React.useEffect(() => {
         Store_OverAllGet_Review(id).then((res) => {
             SetRating(res)
-          
+
         }).catch(() => { })
     }, [id, api])
 
@@ -275,20 +275,36 @@ export default function DispensoriesDetails() {
         SetGetProductReview({ ...GetProductReview, 'popup': true })
     }
     function HellFull(ReviewId) {
-        if("ProductName" in ReviewId){
+        if ("ProductName" in ReviewId) {
             ProductHelpFull(ReviewId.id, state.Profile.id).then((res) => {
                 SetApi(!api)
-              }).catch(() => {
-              })
-        }else{
+            }).catch(() => {
+            })
+        } else {
             StoreHelpFull(ReviewId.id, state.Profile.id).then((res) => {
                 SetApi(!api)
             }).catch(() => {
             })
         }
     }
+    // console.log(location.pathname.slice(0, 18) === "/weed-dispensaries", params)
+    function navigationtab(route, store, tab, id) {
+
+       
+        //   navigate(`${route/store/tab}`)
+        if(Boolean(tab)){
+            console.log(tab)
+        }
+        else if (Boolean(store)){
+         navigate(`/weed-dispensaries/${store}/${params.id}`)
+        }
+    }
+
     return (
         <div>
+            <p> {location.pathname.slice(0, 18) === "/weed-dispensaries" &&
+                <div style={{ fontSize: '12px' , cursor : 'pointer'}}> <span >weed-dispensaries</span> / <span onClick={() => navigationtab( "/weed-dispensaries", params.StoreName  )}> {params.StoreName}</span> /  <span> {params?.tab}</span> </div>
+            }</p>
             <StoreDetails Despen={Despen} locationStore={useLocation().pathname}></StoreDetails>
             <div className="container-fluid product_container" >
                 <NewFlavourBanner delBtn={Despen}></NewFlavourBanner>
@@ -336,13 +352,13 @@ export default function DispensoriesDetails() {
                     }
                     {
                         tab === 'deals' && <div className="noReview">
-                        <div className="noreviewicon">
-                            <div className="iconcircl"><img src={'/image/nodeal.png'} className="nodealsicon"  alt="no Deals"/></div>
+                            <div className="noreviewicon">
+                                <div className="iconcircl"><img src={'/image/nodeal.png'} className="nodealsicon" alt="no Deals" /></div>
+                            </div>
+                            <h3 className="noreview_title">Discover More Savings Soon!</h3>
+                            <p className="noreview_description w-lg-50 ">It looks like there are no active deals at the moment at <Link target="_blank" to={`/weed-dispensaries/${Despen[0]?.Store_Name.toLowerCase().replaceAll(" ", "-")}/${Despen[0]?.id}`}><b>{Despen[0]?.Store_Name}</b></Link>. Don't worry, though – our partnered stores frequently update their promotions. Be sure to check back regularly for exciting discounts and special offers on your favorite products.</p>
+                            <p className="noreview_description w-lg-50">In the meantime, explore the diverse range of products available at <Link target="_blank" to={`/weed-dispensaries/${Despen[0]?.Store_Name.toLowerCase().replaceAll(" ", "-")}/${Despen[0]?.id}`}><b>{Despen[0]?.Store_Name}</b></Link>. We're constantly working to bring you the best deals, so stay tuned for upcoming promotions.</p>
                         </div>
-                        <h3 className="noreview_title">Discover More Savings Soon!</h3>
-                        <p className="noreview_description w-lg-50 ">It looks like there are no active deals at the moment at <Link target="_blank" to={`/weed-dispensaries/${Despen[0]?.Store_Name.toLowerCase().replaceAll(" ","-")}/${Despen[0]?.id}`}><b>{Despen[0]?.Store_Name}</b></Link>. Don't worry, though – our partnered stores frequently update their promotions. Be sure to check back regularly for exciting discounts and special offers on your favorite products.</p>
-                        <p className="noreview_description w-lg-50">In the meantime, explore the diverse range of products available at <Link target="_blank" to={`/weed-dispensaries/${Despen[0]?.Store_Name.toLowerCase().replaceAll(" ","-")}/${Despen[0]?.id}`}><b>{Despen[0]?.Store_Name}</b></Link>. We're constantly working to bring you the best deals, so stay tuned for upcoming promotions.</p>
-        </div>
                     }
                     {/* {
                         tab === 'media' && <Media></Media>
