@@ -120,8 +120,10 @@ const Allblogs = () => {
     <React.Fragment>   
       <NewsSeo></NewsSeo>
       <div>
-         <div className='p-md-0 p-2 d-md-flex  justify-content-between align-items-center'>    
+         <div className='p-md-0 p-2 d-md-flex  justify-content-between align-items-center'>   
+         <div className='col-3'>
             <h1 className='section_main_title'>Latest news</h1>
+          </div> 
             <SearchBar value={searchtext}  onChange={(e)=>Searchbar(e)} style={{ background: "#FFFFF", border: "1px solid #31B665" }} width={"100%"} placeholder="Search Menu" />
           </div>
           { 

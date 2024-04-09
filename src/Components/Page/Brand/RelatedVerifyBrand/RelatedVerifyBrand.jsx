@@ -37,7 +37,7 @@ const RelatedVerifyBrand = () => {
             Axios.get(`https://api.cannabaze.com/UserPanel/Get-BrandById/${id}`,
             ).then(response => {
                 if (response.data.length === 0) {
-                    navigate("/FourZeroFour")
+                    navigate("/404")
                 }
                 else {
 

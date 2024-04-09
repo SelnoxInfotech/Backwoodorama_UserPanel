@@ -42,9 +42,9 @@ const LearnTabs = () => {
                         <TabContext value={value}>
                             <Box className={`${classes.learn_tab_background} ${classes.learn_tab}`} sx={{ marginLeft: "-5px", borderColor: 'divider' }}>
                                 <TabList scrollButtons={false} variant="scrollable" onChange={handleChange} aria-label="lab API tabs example">
-                                    <Tab label="Learn" value="/learn" />
+                                    {/* <Tab label="Learn" value="/learn" />
                                     <Tab label="Product" value="/learn/product" />
-                                    <Tab label="History" value="/History" />
+                                    <Tab label="History" value="/History" /> */}
                                     <Tab label="Law" value="/learn/laws-and-regulation" />
 
                                 </TabList>

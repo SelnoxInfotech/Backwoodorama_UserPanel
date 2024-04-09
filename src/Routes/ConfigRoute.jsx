@@ -250,7 +250,7 @@ const routesConfig = [
         element: <RoutingList Component={EditProfile} ></RoutingList>
       },
       {
-        path: "/FourZeroFour",
+        path: "/404",
         element: <RoutingList Component={FourZeroFour} ></RoutingList>
       },
       {

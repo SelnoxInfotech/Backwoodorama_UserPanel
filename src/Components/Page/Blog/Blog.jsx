@@ -60,7 +60,7 @@ const Blogs = () => {
                 })
                 GetComment(data[0].id)
             } else {
-                navigate("/FourZeroFour")
+                navigate("/404")
             }
             // await ViewCountApi(id).then((res) => {
             //      SetViewCount(res.data.data)
@@ -217,13 +217,13 @@ const Blogs = () => {
 
                     <div className="p-0 blogEditorContainer">
                         <div className=" UserNmae_Blog">
-                            <div className="">
-                                <div className="Col_BlogUSerIcon">
-                                    <h2>{News?.username?.slice(0, 1)}</h2>
-                                </div>
-                            </div>
-                            <div className=" UserNmae  ">
-                                <h6>{News?.username}</h6>
+                            {/* <div className=""> */}
+                                {/* <div className="Col_BlogUSerIcon"> */}
+                                    {/* <h2>{News?.username?.slice(0, 1)}</h2> */}
+                                {/* </div> */}
+                            {/* </div> */}
+                            <div className="UserNmae">
+                                {/* <h6>{News?.username}</h6> */}
                             </div>
                         </div>
                         <section className="blog_Image" style={{ backgroundImage: `url(${state?.StaticImage?.blogbanner})` }} >

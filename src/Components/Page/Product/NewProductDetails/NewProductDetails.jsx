@@ -63,7 +63,7 @@ const NewProductDetails = () => {
     Axios(`https://api.cannabaze.com/UserPanel/Get-ProductById/${id}`, {
     }).then(response => {
       if (response.data.length === 0) {
-        navigate('/FourZeroFour')
+        navigate('/404')
       }
       else {
         SetProduct(() => {
@@ -98,7 +98,7 @@ const NewProductDetails = () => {
       }
     }).catch(
       function (error) {
-        navigate('/FourZeroFour') 
+        navigate('/404') 
       })
 
 
