@@ -78,7 +78,7 @@ const OverAllReview = ({ Rating, api,noReview,AllReview, SetApi  ,onSubmit,revie
                                                         <span>{item.starValue}</span> <span><AiFillStar className={classes.disp_star_color} /></span>
                                                     </div>
                                                     <div className="col-10 overAll_Progress_center over_col_height ">
-                                                        <ProgressBar    bgcolor={item.bgcolor} completed={item.completed *100 /5} />
+                                                        <ProgressBar    bgcolor={item.bgcolor} completed={item.completed} />
                                                     </div>
                                                 </div>
                                             )
