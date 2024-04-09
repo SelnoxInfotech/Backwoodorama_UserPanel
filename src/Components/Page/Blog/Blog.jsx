@@ -179,19 +179,31 @@ const Blogs = () => {
     }
 
     React.useEffect(() => {
-        // Update the document's title and meta tags on component mount
-        document.title = News?.Meta_title;
-        document.querySelector('meta[property="og:title"]').setAttribute("content", News?.Meta_title);
-        document.querySelector('meta[property="og:description"]').setAttribute("content", News?.Meta_Description);
-        document.querySelector('meta[property="og:image"]').setAttribute("content", News?.Image);
-        document.querySelector('meta[property="og:url"]').setAttribute("content", window.location.href);
-      }, [News]);
-
-
+        if(Object.keys(News).length !== 0) {
+            document.title = News?.Meta_title;
+            const ogTitleMeta = document.querySelector('meta[property="og:title"]');
+            if (ogTitleMeta) {
+                ogTitleMeta.setAttribute("content", News?.Meta_title);
+            }
+            const ogDescriptionMeta = document.querySelector('meta[property="og:description"]');
+            if (ogDescriptionMeta) {
+                ogDescriptionMeta.setAttribute("content", News?.Meta_Description);
+            }
+            const ogImageMeta = document.querySelector('meta[property="og:image"]');
+            if (ogImageMeta) {
+                ogImageMeta.setAttribute("content", News?.Image);
+            }
+            const ogUrlMeta = document.querySelector('meta[property="og:url"]');
+            if (ogUrlMeta) {
+                ogUrlMeta.setAttribute("content", window.location.href);
+            }
+        }
+    }, [News]);
+    
 
     return (
         <React.Fragment>
-            <SingleNewsSeo Title={News?.Meta_title} Description={News?.Meta_Description} location={useLocation().pathname}></SingleNewsSeo>
+            {/* <SingleNewsSeo Title={News?.Meta_title} Description={News?.Meta_Description} location={useLocation().pathname}></SingleNewsSeo> */}
             <div className="container" >
                 <div className="row mx-1" ref={ref}>
                     <div className="col-12 w-100 row align-items-center justify-content-between blog_searchBar_container px-0">
