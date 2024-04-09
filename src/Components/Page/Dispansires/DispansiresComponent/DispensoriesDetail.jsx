@@ -299,6 +299,7 @@ export default function DispensoriesDetails() {
          navigate(`/weed-dispensaries/${store}/${params.id}`)
         }
     }
+    console.log(reviewtype);
 
     return (
         <div>
