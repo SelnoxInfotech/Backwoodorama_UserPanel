@@ -173,7 +173,7 @@ const Allblogs = () => {
                           <div className='col-3'>
                             <span className='action_icons'>
                               <RWebShare
-                                data={{ url: window.location.href }}
+                                data={{ url: `https://www.weedx.io/cannabis-news/${modifystr(items.Title)}/${items.id}` }}
                                 sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
                                 onClick={() => console.info("share successful!")}
                                 color="#31B665"

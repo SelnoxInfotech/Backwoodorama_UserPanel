@@ -222,7 +222,7 @@ const Blogs = () => {
                                 <div className="col BlogSocal" id="center1">
 
                                     <RWebShare
-                                        data={{ url: "https://www.weedx.io/" + Location.pathname }}
+                                        data={{ url: "https://www.weedx.io" + Location.pathname }}
                                         sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
                                         onClick={() => console.info("share successful!")}
                                         color="#31B665" >
