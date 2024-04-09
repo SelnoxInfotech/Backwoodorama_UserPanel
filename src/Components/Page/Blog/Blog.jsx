@@ -177,6 +177,18 @@ const Blogs = () => {
                 })
             })
     }
+
+    React.useEffect(() => {
+        // Update the document's title and meta tags on component mount
+        document.title = News?.Meta_title;
+        document.querySelector('meta[property="og:title"]').setAttribute("content", News?.Meta_title);
+        document.querySelector('meta[property="og:description"]').setAttribute("content", News?.Meta_Description);
+        document.querySelector('meta[property="og:image"]').setAttribute("content", News?.Image);
+        document.querySelector('meta[property="og:url"]').setAttribute("content", window.location.href);
+      }, [News]);
+
+
+
     return (
         <React.Fragment>
             <SingleNewsSeo Title={News?.Meta_title} Description={News?.Meta_Description} location={useLocation().pathname}></SingleNewsSeo>

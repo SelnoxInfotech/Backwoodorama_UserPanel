@@ -121,8 +121,8 @@ const Allblogs = () => {
       <NewsSeo></NewsSeo>
       <div>
          <div className='p-md-0 p-2 d-md-flex  justify-content-between align-items-center'>    
-            <h1 className='section_main_title'>Read blogs from weedx</h1>
-            <div className='search_bar_box'></div> <SearchBar value={searchtext}  onChange={(e)=>Searchbar(e)} style={{ background: "#FFFFF", border: "1px solid #31B665" }} width={"100%"} placeholder="Search Menu" />
+            <h1 className='section_main_title'>Latest news</h1>
+            <SearchBar value={searchtext}  onChange={(e)=>Searchbar(e)} style={{ background: "#FFFFF", border: "1px solid #31B665" }} width={"100%"} placeholder="Search Menu" />
           </div>
           { 
            isdata ? <div className='blogListWrapper'>
