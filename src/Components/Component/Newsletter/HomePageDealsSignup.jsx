@@ -42,57 +42,70 @@ const HomePageDealsSignup = () => {
     return (
         <div className=" mt-4">
                 <div className="col-12 HomePageDealsSignupContainer">
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <div className="">
-
-                            <div className="envelop_icon text-center">
-                                <span className=''><HiOutlineEnvelope color='#fff' fontSize={70} /></span>
+                    <div className='row'>
+                        <div className='col-md-6 col-12 d-md-inline d-none'>
+                            <div className='newsletterImage text-center'>
+                                <img src='./image/logo.png'/>
                             </div>
-                            <div className=" homePageSignup_paragraph   ">
-                                <p>Subscribe To Our Newsletters</p>
-                            </div>
-                          
-                          {
-                            submited ? <h2 className='thankforsubscribe'>Thanks For Subscribe</h2>:
-                            <div className='newsletterFormFeild'>
-                                <TextField
-                                    className={classes.homePageDealSignup_TextFields}
-                                    InputProps={{
-                                        style: {
-                                            borderRadius: "20px",
-                                            backgroundColor: "#FFFFFF"
-                                        }
-                                    }}
-                                    type='email'
-                                    placeholder="Enter Your Email"
-                                    variant="outlined"
-                                    fullWidth
-                                    size='small'
-                                    value={email}
-                                    name="email"
-                                    onChange={handleChange}
-                                    helperText={errors.email?.message}
-                                    error={Boolean(errors?.email)}
-                                    inputRef={register({
-                                        required: " Email not Valid",
-                                        pattern: {
-                                            value: /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/,
-                                            message: "Email not Valid"
-                                        }
-                                    })}
-
-                                />
-                                <span className='newsletter_btn'>
-                                    <Button className={` ${classes.homePageButton}`} type='submit' >Subscribe</Button>
-                                </span>
-                            </div>
-                             }
-
-
-
-
                         </div>
-                    </form>
+                        <div className='col-md-6  col-12'>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <div className="contentarea">
+
+                                {/* <div className="envelop_icon ">
+                                    <span className=''><HiOutlineEnvelope color='#fff' fontSize={70} /></span>
+                                </div> */}
+                                <div className=" homePageSignup_heading   ">
+                                    <h3>Subscribe To Our Newsletters</h3>
+                                </div>
+                                <div className=" homePageSignup_paragraph   ">
+                                    <p>Subscribe to our weekly newsletter and be a part of our journey to self discovery and love.</p>
+                                </div>
+                            
+                            {
+                                submited ? <h2 className='thankforsubscribe'>Thanks For Subscribe</h2>:
+                                <div className='newsletterFormFeild'>
+                                    <TextField
+                                        className={classes.homePageDealSignup_TextFields}
+                                        InputProps={{
+                                            style: {
+                                                borderRadius: "20px 0 0 20px",
+                                                backgroundColor: "#efefef"
+                                            }
+                                        }}
+                                        type='email'
+                                        placeholder="Enter Your Email"
+                                        variant="outlined"
+                                        fullWidth
+                                        size='small'
+                                        value={email}
+                                        name="email"
+                                        onChange={handleChange}
+                                        helperText={errors.email?.message}
+                                        error={Boolean(errors?.email)}
+                                        inputRef={register({
+                                            required: " Email not Valid",
+                                            pattern: {
+                                                value: /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/,
+                                                message: "Email not Valid"
+                                            }
+                                        })}
+
+                                    />
+                                    <span className='newsletter_btn'>
+                                        <Button className={` ${classes.homePageButton}`} type='submit' >Subscribe</Button>
+                                    </span>
+                                </div>
+                                }
+
+
+
+
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                 
                 </div>
         </div >
 

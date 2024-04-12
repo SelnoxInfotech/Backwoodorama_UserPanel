@@ -141,7 +141,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
   },[state?.AllProduct])
   
   return (
-    <div className="col-12   p-2 Add_product_cart_right_container_summary">
+    <div className="col-12 Add_product_cart_right_container_summary">
       <div className="col-12 fontStyle AddProdCartFont_weight">
         <h5>Order Summary</h5>
       </div>
@@ -280,24 +280,25 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
         </div>
       </div>
       <div className="col-12 order_Summary_total_container">
-        <div className="col-12 order_summary_flex">
+        <div className=" order_summary_flex">
           <div className=" fontStyle add_prod_cart_summary_p">
-            <p>Total</p>
+            <p className="m-0">Total Amount</p>
           </div>
           <div className=" fontStyle">
-            <p>${state.Cart_subTotal}</p>
+            <p className="m-0">${state.Cart_subTotal}</p>
           </div>
         </div>
-        <div className="col-12 add_prod_cart_p">
+       
+      </div>
+      <div className="add_prod_cart_p">
           <p>Taxes are Shows</p>
         </div>
         <PromoCode />
-      </div>
       <div className="col-12 AddProd_cart_center_btn">
         {location.pathname === "/cart" ? (
           (OpenDelivery || OpenPickup) && (
             <Box
-              className={` add_product_btn floatingbtn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
+              className={` add_product_btn floatingbtn AddProduct_Cart_Btn `}
             >
               <LoadingButton
                 variant="outlined"
@@ -316,7 +317,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
           )
         ) : (
           <Box
-            className={` add_product_btn floatingbtn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
+            className={` add_product_btn floatingbtn AddProduct_Cart_Btn`}
           >
             <LoadingButton
               loading={CheckOut_Loading}

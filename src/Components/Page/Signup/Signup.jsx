@@ -48,7 +48,7 @@ const Signup = () => {
             <SignupSeo></SignupSeo>
             <div className="container signup_margins_top ">
                 <div className="row center">
-                    <div className="col-lg-4 col-md-6 col-sm-8 col-10 signup_padding_bottom login_signup_reset_container signup_container_height">
+                    <div className="col-xl-4 col-xxl-3 col-lg-5 col-md-8  col-11  signup_padding_bottom login_signup_reset_container ">
                         <div className='row'>
                             <div className='col-12 signup_head'>
                                 <h1>Sign Up</h1>
@@ -57,7 +57,7 @@ const Signup = () => {
                         </div>
                         <form onSubmit={method.handleSubmit(Submit)}>
                             <div className='row'>
-                                <label htmlFor='Email'>Email</label>
+                                {/* <label htmlFor='Email'>Email</label> */}
 
                                 <div className='col-lg-12 signup_btn_height mt-2'>
                                     <TextField
@@ -95,7 +95,7 @@ const Signup = () => {
 
                             </div>
                         </form>
-                        <div className='row'>
+                        {/* <div className='row'>
                             <div className='col-12 signup_Col'>
                                 <span className='Signup_spanss'>Already a member?</span>
                                 <span>
@@ -103,20 +103,10 @@ const Signup = () => {
                                 </span>
                             </div>
 
-                        </div>
+                        </div> */}
                         <div className='w-100 d-flex mt-4 center'>
                             <div className='signupHorizontalLine'></div> <span className='px-2 login_OR'>OR</span> <div className='signupHorizontalLine'></div>
                         </div>
-                        {/* <div className='row  signup_margins_top'>
-                            <div className='col-lg-12 signup_btn_height'>
-                                <Box
-                                    className={`  ${classes.Signup_loading_btn_facebook}`}
-                                >
-                                    <LoadingButton variant="outlined" startIcon={<IoLogoFacebook />}>Continue with Facebook</LoadingButton>
-                                </Box>
-                            </div>
-
-                        </div> */}
                         <div className='signup_margins_top'>
                             <div className='col-lg-12 signup_btn_height'>
                                <LoginWithGoogle/>
@@ -124,9 +114,11 @@ const Signup = () => {
 
                         </div>
 
-
+                        <div className='w-100 text-center my-2 '>
+                            <h5 className='login_bottom'>New To weedx ?</h5> 
+                            <Link className='signInfo' to={'/login'}><span>Already a member? Login</span></Link>
+                        </div>
                     </div>
-
                 </div>
 
             </div>

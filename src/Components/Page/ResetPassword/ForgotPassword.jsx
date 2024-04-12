@@ -27,11 +27,11 @@ const ForgotPassword = () => {
             {/* <Forgot></Forgot> */}
             <div className="container signup_margins_top ">
                 <div className="row center">
-                    <div className="col-lg-4 col-md-6 col-sm-8 col-10 signup_padding_bottom login_signup_reset_container reset_container_height">
+                    <div className="col-xl-4 col-xxl-3 col-lg-5 col-md-8  col-11 signup_padding_bottom login_signup_reset_container reset_container_height">
                         <form onSubmit={method.handleSubmit(Submit)}>
                             <div className='row'>
                                 <div className='col-12 fontStyle signup_head'>
-                                    <p>Forgot Password</p>
+                                    <h1>Forgot Password</h1>
 
                                 </div>
                             </div>
@@ -42,8 +42,7 @@ const ForgotPassword = () => {
                                 </div>
                             </div>
                             <div className='row'>
-                                <label htmlFor='EmailUser'>Email</label>
-
+                                {/* <label htmlFor='EmailUser'>Email</label> */}
                                 <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
                                     <TextField
                                         id="EmailUser"

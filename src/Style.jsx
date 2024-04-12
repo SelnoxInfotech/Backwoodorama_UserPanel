@@ -217,7 +217,7 @@ const useStyles = makeStyles({
       background: "#31B665",
       color: "#FFFFFF",
       border: "1px solid #31B665",
-      borderRadius: "25px 25px",
+      borderRadius: "0 25px 25px 0 ",
       minWidth: "100%",
       textTransform: "none",
     },
@@ -262,7 +262,7 @@ const useStyles = makeStyles({
   },
   Signup_loading_btn_Googles: {
     "& .MuiButton-text": {
-      fontSize: ".6rem",
+      fontSize: "18px",
     },
     "& .MuiLoadingButton-root": {
       textTransform: "none",
@@ -270,14 +270,16 @@ const useStyles = makeStyles({
       display: "flex",
       justifyContent: "flex-start",
       height: "38px",
-      borderRadius: "40px",
-      color: "#ffff",
-      backgroundColor: "#3A559F",
-      gap: "25px",
-      paddingLeft: "40px"
+      borderRadius: "8px",
+      color: "#344054",
+      fontFamily: 'Inter',
+      fontSize: '16px',
+      fontWeight: '600',
+     
     },
     "& .MuiButtonBase-root:hover": {
-      backgroundColor: "#3A559F"
+      backgroundColor: "#3A559F",
+      color:'#fff',
 
     }
   },
@@ -380,7 +382,7 @@ const useStyles = makeStyles({
     "& .MuiLoadingButton-root": {
       width: "100%",
       height: "38px",
-      borderRadius: "40px",
+      borderRadius: "8px",
       textTransform: "none",
       border: "2px solid #31B665",
       color: "#ffff",
@@ -493,16 +495,34 @@ const useStyles = makeStyles({
       padding: "0px",
     }
   },
-
-  flotchceckoutbtn:{
-   
+  promoapplybtn:{
+    width:'100%',
     '&.MuiLoadingButton-root':{
       backgroundColor:'#31B665',
-      color:'#fff',
+      color:'#fff', 
      
+      fontSize:'16px',
+      fontWeight:'600',
+      "&:hover":{
+           backgroundColor:'#fff',
+           borderColor:'#31B655',
+           color:'#31B655'
+      }
+    }
+  },
+  flotchceckoutbtn:{
+    width:'100%',
+    '&.MuiLoadingButton-root':{
+      backgroundColor:'#31B665',
+      color:'#fff', 
       height:'50px',
-      fontSize:'18px',
-      fontWeight:'700'
+      fontSize:'16px',
+      fontWeight:'600',
+      "&:hover":{
+           backgroundColor:'#fff',
+           borderColor:'#31B655',
+           color:'#31B655'
+      }
     }
   },
   homePage_iconsColor: {

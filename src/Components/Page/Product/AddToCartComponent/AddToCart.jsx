@@ -38,7 +38,7 @@ const AddToCart = () => {
                                     <AddToCartReview />
 
                                 </div>
-                                <div className="col-sm-4   p-2 Add_product_cart_right_container_summary">
+                                <div className="col-sm-4">
                                     <AddToCartSummary />
                                 </div>
 

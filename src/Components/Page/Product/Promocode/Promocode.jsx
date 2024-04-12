@@ -14,8 +14,8 @@ const PromoCode = () => {
                 <div className="col-12 promocodeLabelCol">
                     <label htmlFor="promocode" className="promoCode_label">Enter a promo code</label>
                 </div>
-                <div className="col-12 promoCode_textfield_btn_Col">
-                    <div className="col-7 promoCode_textfield_col">
+                <div className="row promoCode_textfield_btn_Col">
+                    <div className="col-8 promoCode_textfield_col">
                         <TextField
                             className={classes.textFieldFocusBorderColor}
                             placeholder="Enter a promo code"
@@ -35,9 +35,9 @@ const PromoCode = () => {
                             }}
                             variant="outlined" fullWidth />
                     </div>
-                    <div className="col-5 px-2 promoCodeBtn_Col">
-                        <Box className={`${classes.loadingBtnTextAndBack}`}>
-                            <LoadingButton variant="outlined">Apply</LoadingButton>
+                    <div className="col-4 px-2 promoCodeBtn_Col">
+                        <Box>
+                            <LoadingButton   className={`${classes.promoapplybtn}`} variant="outlined">Apply</LoadingButton>
                         </Box>
                     </div>
                 </div>

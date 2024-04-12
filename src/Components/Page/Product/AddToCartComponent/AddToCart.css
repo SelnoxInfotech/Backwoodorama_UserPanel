@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 .AddProductCartContainerinner {
     display: block;
     height: auto;
@@ -99,7 +100,16 @@
   font-weight: 700;
   font-size: 18px;
 }
-
+.order_summary_flex .fontStyle{
+  font-size: 18px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+}
+.add_prod_cart_summary_p p {
+  font-size: 18px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+}
 .add_to_product_btn_div {
   height: 30px !important;
   border: 1px solid #dee2e6;
@@ -141,8 +151,6 @@
 .Add_product_cart_right_container_summary {
   margin-top: 19px;
 }
-
-
 .addtoproduct_card{
   width: 95%;
   margin: 10px auto;
@@ -300,11 +308,16 @@
   justify-content: space-between;
 }
 .Add_product_cart_right_container_summary {
-  background: #F5F5F5;
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 20px;
 }
 .order_Summary_total_container {
-  background: #FFFFFF;
+  background: #31B665;
   padding: 10px;
+  border-radius: 4px;
+  color: #fff;
+
 }
 .AddProdCartFont_weight h5 {
   font-weight: 700;

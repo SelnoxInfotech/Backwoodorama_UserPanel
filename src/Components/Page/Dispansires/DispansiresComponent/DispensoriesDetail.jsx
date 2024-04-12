@@ -89,8 +89,8 @@ export default function DispensoriesDetails() {
     }, [params])
 
     function modifystr(str) {
-        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
-        str = str.trim().replaceAll(' ', "-");
+        str = str?.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str?.trim()?.replaceAll(' ', "-");
         let a = 0;
         while (a < 1) {
             if (str.includes("--")) {
@@ -337,7 +337,7 @@ export default function DispensoriesDetails() {
                         tab === 'review' && <Review
                             HellFull={HellFull}
                             type={`store`}
-                            reviewtype={reviewtype}
+                            reviewtype={'Store'}
                             setReviewtype={setReviewtype}
                             delBtn={Despen}
                             handleEdit={handleEdit}

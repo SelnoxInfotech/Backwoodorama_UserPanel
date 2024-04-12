@@ -8,6 +8,10 @@ import { BsShareFill } from "react-icons/bs";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
 import MenuItem from '@mui/material/MenuItem';
 import { WishListPost } from "../../../../Component/Whishlist/WishListApi_"
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { RWebShare } from "react-web-share";
 import axios from "axios";
 import Cookies from 'universal-cookie';
@@ -21,6 +25,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import { Link, useParams } from "react-router-dom";
 import AddToCartPopUp from "../../AddToCartPopUp/AddToCartPopUp";
+import { FaPlus ,FaMinus } from "react-icons/fa";
 import { WhisList } from '../../../../Component/Whishlist/WhisList'
 const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, quentity, setquentity, dynamicWeight, setdynamicWeight }) => {
 
@@ -33,6 +38,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
     const classes = useStyles();
     const token_data = cookies.get('User_Token_access');
     const [CartClean, SetCartClean] = React.useState(false)
+    const [productdescription, setproductdescription] = React.useState(false)
     const [startload, setstartload] = React.useState(true)
     const { state, dispatch } = React.useContext(Createcontext)
 
@@ -297,9 +303,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
         }
     }, [Product])
 
-
-
-
+    console.log(Product ,'Product')
     return (
         <React.Fragment>
             {
@@ -558,6 +562,22 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                                 {
                                     CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />
                                 }
+                            </div>
+                            <div className="productdetailsaccordion">
+                             
+                                  
+                                         <Accordion className={classes.productdescription}>
+                                            <AccordionSummary
+                                            expandIcon={<ExpandMoreIcon />}
+                                            aria-controls="panel1-content"
+                                            id="panel1-header"
+                                            >
+                                               Product Details
+                                            </AccordionSummary>
+                                            <AccordionDetails>
+                                               <div className='newProductAboutUs_description'  dangerouslySetInnerHTML={{__html: Product?.Product_Description}}  />
+                                            </AccordionDetails>
+                                        </Accordion>
                             </div>
                         </div>
                         <div className='position-absolute w-auto top-0 p-2  end-0'>

@@ -342,11 +342,12 @@ const ProductList = ({ arr, ProductNavigate }) => {
                                    {ele.rating &&
                                     new Array(ele.rating)
                                     .fill(null)
-                                    .map(() => (
+                                    .map((ine, indesx) => (
                                         <BsStarFill
                                         size={16}
                                         color="#31B665"
                                         className="product_search_rating_star"
+                                        key={indesx}
                                         />
                                     ))}
 

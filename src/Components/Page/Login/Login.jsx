@@ -111,17 +111,16 @@ const Login = () => {
             <LoginSeo></LoginSeo>
             <div className="container signup_margins_top ">
                 <div className="row center">
-                    <div className="col-xl-6 col-xxl-4 col-lg-6 col-md-8 col-sm-11 col-11 signup_padding_bottom login_signup_reset_container login_container_height">
-                        <div className='row'>
+                    <div className="col-xl-4 col-xxl-3 col-lg-5 col-md-8  col-11 signup_padding_bottom login_signup_reset_container ">
+                      
                             <div className='col-12 fontStyle signup_head'>
                                 <h1>Log In</h1>
-
                             </div>
-                        </div>
+                     
 
                         <form onSubmit={method.handleSubmit(Submit)}>
-                            <div className='row'>
-                                <label htmlFor='Email'>Email</label>
+                            <div className='logininputbox'>
+                                {/* <label htmlFor='Email'>Email</label> */}
 
                                 <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
                                     <TextField
@@ -145,13 +144,13 @@ const Login = () => {
                                     />
                                 </div>
                             </div>
-                            <div className='row signup_margins_top'>
-                                <label htmlFor='Password'>Password</label>
+                            <div className='row logininputbox'>
+                                {/* <label htmlFor='Password'>Password</label> */}
 
                                 <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
                                     <TextField
                                         type={showPassword ? 'text' : 'password'}
-                                        placeholder="Enter Your Password"
+                                        placeholder="Password"
                                         variant="outlined"
                                         fullWidth
                                         className={`${classes.textFieldFocusBorderColor}`}
@@ -183,24 +182,22 @@ const Login = () => {
                                     />
                                 </div>
                             </div>
-                            <div className='w-100 loginCenterDiv'>
+                            {/* <div className='w-100 logininputbox loginCenterDiv'>
                                 <span className='loginParagraphFontSize'>Having trouble to access your account?</span>
                               
                                   <Link to="/forgot-password"><span className='loginParagraphFontSize loginCkBtn'>Click here</span></Link>
                                
-                            </div>
+                            </div> */}
                             <div className='row  signup_margins_top'>
                                 <div className=' col-lg-12 signup_btn_height'>
-                                    <Box
-                                        className={ !loading ?`${classes.loginBtnTextAndBackground} ` : `${classes.loginBtnTextAndBackgroundAfter}`}
-                                    >
+                                    <Box className={ !loading ?`${classes.loginBtnTextAndBackground}` : `${classes.loginBtnTextAndBackgroundAfter}`} >
                                         <LoadingButton variant="outlined" loading={loading} type='submit'>LOGIN</LoadingButton>
                                     </Box>
                                 </div>
 
                             </div>
                         </form>
-                        <div className='w-100 d-flex mt-4 center'>
+                        <div className='w-100 d-flex mt-4 center align-items-center'>
                             <div className='login_horizontalLine '></div> <span className='px-2 login_OR'>OR</span> <div className='login_horizontalLine '></div>
                         </div>
                   
@@ -214,9 +211,7 @@ const Login = () => {
 
 
                         <div className='w-100 text-center my-2 '>
-                            {/* <p className='login_bottom'>New weedx ?</p> */}
                             <h5 className='login_bottom'>New To weedx ?</h5> 
-                          
                             <Link className='signInfo' to={'/signup'}><span>Create your Weedx Account</span></Link>
                         </div>
 

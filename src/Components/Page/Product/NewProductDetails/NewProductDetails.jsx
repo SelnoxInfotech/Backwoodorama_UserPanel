@@ -1,12 +1,9 @@
-import React from "react"
+import React, { useEffect } from "react"
 import NewProductDetailsCards from "./NewProductDetailsComponent/NewProductDetailsCards"
-import NewProductinfoText from "./NewProductDetailsComponent/NewProductinfoText"
+import Tooltip from '@mui/material/Tooltip';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
 import ProductSearchResult from "../ProductSearchResult/ProductSearchResult"
 import Axios from "axios";
-import Box from '@mui/material/Box';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
 import style from "../../../../Style"
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import Review from "../../Review/Review"
@@ -15,8 +12,8 @@ import { ProductDetailsSeo } from "../../../Component/ScoPage/ProductSeo"
 import { product_OverAllGet_Review, Product_Add_Review, Product_Get_UserComment, Product_Get_Review, Delete_Review, ProductHelpFull } from "../ProductApi"
 import Createcontext from "../../../../Hooks/Context"
 import _ from 'lodash'
+import {Link} from 'react-router-dom'
 import { makeStyles } from "@material-ui/core/styles";
-import axios from "axios";
 const usePlaceholderStyles = makeStyles(theme => ({
   placeholder: {
     color: "#aaa",
@@ -425,15 +422,54 @@ const NewProductDetails = () => {
   React.useEffect(() => {
     h(Price.length !== 0 && Product.Prices[0].Price.filter((data) => data.id === parseInt(Price[0].Item_id)))
   }, [Price])
+    function discountype(type , amount ){
+      switch(type) {
+        case "PercentageDiscount":
+           return `Get ${amount}%  OFF`
+          break;
 
+        default:
+          // code block
+      }
+    }
+   const [copyed, setcopyed] = React.useState('');
+
+    useEffect(()=>{
+       if(copyed !== ''){
+        setTimeout(()=>setcopyed('') , 2000)
+       }
+    },[copyed])
+   console.log(Product) 
   return (
     <div className="container-fluid">
       <ProductDetailsSeo Productname={Product.Product_Name} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={useLocation().pathname} ></ProductDetailsSeo>
 
       <span onClick={() => Tolastpage()} className="BackPageBtn"> <AiOutlineLeft size={22} />{'StoreName' in Params ? <> <span className="backPgBtnImg"><img src={`${Despen.Store_Image}`} alt="" /></span> {Despen.Store_Name}</> : 'Back to products'}</span>
       <NewProductDetailsCards dynamicWeight={dynamicWeight} setdynamicWeight={setdynamicWeight} quentity={quentity} setquentity={setquentity} Product={Product} DiscountedValue={discount} Price={Price} SetPrice={SetPrice} />
-
-      <NewProductinfoText Product={{ heading: "Product Description", text: Product?.Product_Description }} />
+      <div className="offerlist">
+        <h2 className="section_main_title">Offers</h2>
+        <div className="offerlistwrapper">
+          {
+            Product.copuon?.map((item)=>{
+              return <div className="offercard">
+                <div className="leftcoupon">
+                  <span>Use Code</span>
+                 
+                    <span  onClick={() =>{navigator.clipboard.writeText(item.CouponCode) ; setcopyed(item.CouponCode)}}>{item.CouponCode} { copyed === item.CouponCode && <span className="copytooltip"> copied</span>}  </span>
+               
+                  <span>T&C</span>
+                </div>
+                <div className="rightcoupon">
+                   <span>{discountype(item.DiscountType , item.PercentageAmount)}</span>
+                  <span>Shopping Above {item.MinimumOrderValue}/-</span>
+                  <Link to="/"><span>View All Product</span></Link>
+                </div>
+              </div>
+            })
+          }
+        </div>
+      </div>
+      {/* <NewProductinfoText Product={{ heading: "Product Description", text: Product?.Product_Description }} /> */}
       {/* <div className="DiscountSection ">
         {
 
@@ -466,6 +502,7 @@ const NewProductDetails = () => {
       <Review
         delBtn={Despen}
         reviewloading={reviewloading}
+        reviewtype={'Product'}
         HellFull={HellFull}
         storeID={null}
         handleEdit={handleEdit}
