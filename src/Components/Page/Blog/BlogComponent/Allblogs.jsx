@@ -120,9 +120,11 @@ const Allblogs = () => {
     <React.Fragment>   
       <NewsSeo></NewsSeo>
       <div>
-         <div className='p-md-0 p-2 d-md-flex  justify-content-between align-items-center'>    
-            <h1 className='section_main_title'>Read blogs from weedx</h1>
-            <div className='search_bar_box'></div> <SearchBar value={searchtext}  onChange={(e)=>Searchbar(e)} style={{ background: "#FFFFF", border: "1px solid #31B665" }} width={"100%"} placeholder="Search Menu" />
+         <div className='p-md-0 p-2 d-md-flex  justify-content-between align-items-center'>   
+         <div className='col-3'>
+            <h1 className='section_main_title'>Latest news</h1>
+          </div> 
+            <SearchBar value={searchtext}  onChange={(e)=>Searchbar(e)} style={{ background: "#FFFFF", border: "1px solid #31B665" }} width={"100%"} placeholder="Search Menu" />
           </div>
           { 
            isdata ? <div className='blogListWrapper'>
@@ -173,7 +175,7 @@ const Allblogs = () => {
                           <div className='col-3'>
                             <span className='action_icons'>
                               <RWebShare
-                                data={{ url: window.location.href }}
+                                data={{ url: `https://www.weedx.io/cannabis-news/${modifystr(items.Title)}/${items.id}` }}
                                 sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
                                 onClick={() => console.info("share successful!")}
                                 color="#31B665"

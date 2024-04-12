@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async"
 function FourZeroFour() {
     return (
         <Helmet>
-            <title>{"FourZeroFour | weedx.io |"}</title>
+            <title>{"404 | weedx.io |"}</title>
             <meta name="title" content={`Learn everything about you favorite Cannabis | weedx.io |`}/>
             <meta name='description' content={"Learn everything about your favorite Cannabis. Read this guide on weedx.io to understand the laws related to marijuana and about its legalization worldwide."} />
             <link rel="canonical" href={`https://www.weedx.io`} /> 

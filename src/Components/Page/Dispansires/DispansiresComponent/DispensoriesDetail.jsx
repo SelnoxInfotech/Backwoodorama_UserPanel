@@ -47,7 +47,7 @@ export default function DispensoriesDetails() {
         axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${id}`, {
         }).then(response => {
             if (response.data.length === 0) {
-                navigate("/FourZeroFour")
+                navigate("/404")
             } else {
 
                 SetDespens(response.data)
@@ -299,6 +299,7 @@ export default function DispensoriesDetails() {
          navigate(`/weed-dispensaries/${store}/${params.id}`)
         }
     }
+    console.log(reviewtype);
 
     return (
         <div>

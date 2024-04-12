@@ -60,7 +60,7 @@ const Blogs = () => {
                 })
                 GetComment(data[0].id)
             } else {
-                navigate("/FourZeroFour")
+                navigate("/404")
             }
             // await ViewCountApi(id).then((res) => {
             //      SetViewCount(res.data.data)
@@ -177,9 +177,33 @@ const Blogs = () => {
                 })
             })
     }
+
+    React.useEffect(() => {
+        if(Object.keys(News).length !== 0) {
+            document.title = News?.Meta_title;
+            const ogTitleMeta = document.querySelector('meta[property="og:title"]');
+            if (ogTitleMeta) {
+                ogTitleMeta.setAttribute("content", News?.Meta_title);
+            }
+            const ogDescriptionMeta = document.querySelector('meta[property="og:description"]');
+            if (ogDescriptionMeta) {
+                ogDescriptionMeta.setAttribute("content", News?.Meta_Description);
+            }
+            const ogImageMeta = document.querySelector('meta[property="og:image"]');
+            if (ogImageMeta) {
+                ogImageMeta.setAttribute("content", News?.Image);
+            }
+            const ogUrlMeta = document.querySelector('meta[property="og:url"]');
+            if (ogUrlMeta) {
+                ogUrlMeta.setAttribute("content", window.location.href);
+            }
+        }
+    }, [News]);
+    
+
     return (
         <React.Fragment>
-            <SingleNewsSeo Title={News?.Meta_title} Description={News?.Meta_Description} location={useLocation().pathname}></SingleNewsSeo>
+            {/* <SingleNewsSeo Title={News?.Meta_title} Description={News?.Meta_Description} location={useLocation().pathname}></SingleNewsSeo> */}
             <div className="container" >
                 <div className="row mx-1" ref={ref}>
                     <div className="col-12 w-100 row align-items-center justify-content-between blog_searchBar_container px-0">
@@ -193,13 +217,13 @@ const Blogs = () => {
 
                     <div className="p-0 blogEditorContainer">
                         <div className=" UserNmae_Blog">
-                            <div className="">
-                                <div className="Col_BlogUSerIcon">
-                                    <h2>{News?.username?.slice(0, 1)}</h2>
-                                </div>
-                            </div>
-                            <div className=" UserNmae  ">
-                                <h6>{News?.username}</h6>
+                            {/* <div className=""> */}
+                                {/* <div className="Col_BlogUSerIcon"> */}
+                                    {/* <h2>{News?.username?.slice(0, 1)}</h2> */}
+                                {/* </div> */}
+                            {/* </div> */}
+                            <div className="UserNmae">
+                                {/* <h6>{News?.username}</h6> */}
                             </div>
                         </div>
                         <section className="blog_Image" style={{ backgroundImage: `url(${state?.StaticImage?.blogbanner})` }} >
@@ -222,7 +246,7 @@ const Blogs = () => {
                                 <div className="col BlogSocal" id="center1">
 
                                     <RWebShare
-                                        data={{ url: "https://www.weedx.io/" + Location.pathname }}
+                                        data={{ url: "https://www.weedx.io" + Location.pathname }}
                                         sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
                                         onClick={() => console.info("share successful!")}
                                         color="#31B665" >

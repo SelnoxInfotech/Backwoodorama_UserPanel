@@ -33,13 +33,13 @@ const Review = ({ reviewloading, handleEdit, delBtn,reviewtype, setReviewtype, t
         <React.Fragment>
 
             <div className="review_secton">
-                <h2 className="section_main_title">{location.pathname.slice(1, 9) === "products" ?"products Review" : `${reviewtype} Reviews`}</h2>
+                <h2 className="section_main_title">{location.pathname.slice(1, 9) === "products" ?"products Review" : `${"All"} Reviews`}</h2>
                 {
                     noofreview !== 0 ?
                         <div className="row">
                             <div className="col-12">
                                 <div className="filter_review gap-3 d-flex justify-content-end">
-                               { type=== "store" &&
+                               { type === "store" &&
                                  <FormControl className={`${classes.reviewFilter}`} >
                                 <Select value={reviewtype}   onChange={(e)=>{setReviewtype(e.target.value)}} >
                                     <MenuItem value={'All'}>All Review</MenuItem>
