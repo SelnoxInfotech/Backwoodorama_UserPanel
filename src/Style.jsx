@@ -27,6 +27,47 @@ const useStyles = makeStyles({
       }
     }
   },
+  reviewTextFieldStyle: {
+    "& .MuiInputBase-root":{
+      "& .MuiInputBase-input":{
+         padding:'10px',
+         fontSize:'16px',
+         fontWeight:'500'
+      }
+    },
+    '& .MuiOutlinedInput-root': {
+      
+     
+      '& fieldset': {
+        borderColor: `#BEBEBE`
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: `#31B665 `
+      }
+    }  
+  },
+  Reviewtextarea:{
+    marginTop:'23px !important',
+    backgroundColor:'#F6F6F6',
+    borderRadius:'12px',
+    '& .MuiOutlinedInput-root': {
+      
+     
+      '& fieldset': {
+        border:'none',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: `#31B665 `
+      }
+    }  ,
+     "& .MuiInputBase-root":{
+         padding:'0',
+         "& textarea":{
+          padding:'10px',
+         }
+      }
+    
+  },
   textFieldFocusBorderColor: {
     "& .MuiOutlinedInput-root": {
       " &.Mui-focused fieldset": {
@@ -37,7 +78,23 @@ const useStyles = makeStyles({
       },
     }
   },
+  submitreviewbtn:{
+    "&.MuiButtonBase-root":{
+      width:'100%',
+      border:'1px solid #31B655',
+      backgroundColor:'#31B655',
+      color:'#fff',
+      borderRadius:'20px',
+      marginTop:'20px',
+      "&:hover":{
+        color:'#31B655',
+        border:'1px solid #31B655',
+        backgroundColor:'#fff',
 
+      }
+    }
+
+  },
   textFieldcartPage: {
     "& .MuiOutlinedInput-root": {
       color:"#000",
@@ -79,7 +136,6 @@ const useStyles = makeStyles({
   },
   root: {
     background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-
   },
   mui_signup_btn: {
     "&.MuiButtonBase-root": {
@@ -577,6 +633,9 @@ const useStyles = makeStyles({
         borderRadius: "15px",
         border: "1px solid #31B665"
       }
+    },
+    "& .MuiModal-backdrop":{
+      backgroundColor:'#000000ed'
     }
   },
   checAgeEligibiltyHeight: {

@@ -5,6 +5,8 @@ import useStyles from "../../../../Style";
 import { RiCloseCircleFill } from "react-icons/ri";
 import { IconButton, Select } from "@mui/material";
 import { Rating } from "@mui/material";
+import { IoCloudUploadOutline } from "react-icons/io5";
+import '../Review.css'
 import TextField from "@mui/material/TextField";
 import LoadingButton from "@mui/lab/LoadingButton";
 import { Box, FormControl } from "@mui/material";
@@ -60,9 +62,9 @@ import { useNavigate } from "react-router-dom";
                 </IconButton>
               </div>
               <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="col-12 writeReviewTextCenter">
-                  <h2 className="writeReviewHeadings">Write a review</h2>
-                  <h3 className="secRatingHeadings">My rating</h3>
+                <div className="col-12 text-center">
+                  <h2 className="writeReviewHeadings">Leave a Review for Weedx.io</h2>
+                  <h3 className="secRatingHeadings">How would you rate working at weedx.io?</h3>
                   <FormControl size={"small"}>
                     <Controller
                       render={() => (
@@ -85,13 +87,13 @@ import { useNavigate } from "react-router-dom";
                 {/* <FormHelperText>{errors.Gender?.message}</FormHelperText> */}
 
                 <div className="col-12 px-4 py-4">
-                  <div className="col-12"></div>
+                 
                   <div className="col-12">
                     <label className="writeReviewLabel" htmlFor="title">
-                      Title
+                    Your Title at Work
                     </label>
                       <TextField
-                        className={`${classes.FilledTextFieldStyle}`}
+                        className={`${classes.reviewTextFieldStyle}`}
                         size="medium"
                         id="title"
                         value={GetProductReview.Title}
@@ -102,8 +104,8 @@ import { useNavigate } from "react-router-dom";
                           });
                         }}
                         name="Title"
-                        placeholder="Title"
-                        variant="filled"
+                        placeholder="Enter your title at work"
+                      
                         fullWidth
                         inputRef={register("Title",{
                           required: GetProductReview.comment !== '' ?  GetProductReview.Title === "" && "Title is required*." : false,
@@ -120,14 +122,10 @@ import { useNavigate } from "react-router-dom";
                         error={Boolean(errors?.Title)}
                       />
                   </div>
-                  <div className="col-12 writReviewMarginTop">
-                    <label className="writeReviewLabel" htmlFor="review">
-                      Review
-                    </label>
-                  
+                  <div className="col-12 ">
                   
                     <TextField
-                      className='textinput'
+                      className={classes.Reviewtextarea}
                       size="medium"
                       id="title"
                       value={GetProductReview.comment}
@@ -138,8 +136,7 @@ import { useNavigate } from "react-router-dom";
                         });
                       }}
                       name="comment"
-                      placeholder="comment"
-                      variant="filled"
+                      placeholder="Write a review...."
                       fullWidth
                       multiline
                       rows={5}
@@ -156,14 +153,21 @@ import { useNavigate } from "react-router-dom";
                     />
                   </div>
                   <div className="col-12">
-                    <Box
-                      className={`edit_UserPopUp_btn_container mt-4
-                                              ${classes.editEmail_loadingBtn}`}
-                    >
-                      <LoadingButton loading={reviewloading}   type="submit" variant="outlined">
+                     <div className="reviewImage">
+                      <input type='file' id="Reviewimage" accept="image/*" className="d-none"/>
+                        <label htmlFor="Reviewimage" className="Reviewimagebox">
+                           
+                              <IoCloudUploadOutline size={22} /> <span>Drop files here or click to upload</span>
+                           
+                        </label>
+                     </div> 
+                  </div>
+                  <div className="col-12">
+                    
+                      <LoadingButton loading={reviewloading} className={classes.submitreviewbtn}   type="submit" variant="outlined">
                         Submit
                       </LoadingButton>
-                    </Box>
+                 
                   </div>
                 </div>
               </form>

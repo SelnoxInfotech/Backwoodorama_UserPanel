@@ -4,7 +4,6 @@ import axios from "axios";
 import useStyles from "../../../../Style"
 import ProductFilter from "../../../Component/Filter/ProductFilter";
 import ProductList from "../../Product/ProductList";
-import { FaIdeal } from "react-icons/fa";
 import { BsLayoutSplit } from "react-icons/bs"
 import { MdOutlineBrandingWatermark } from "react-icons/md"
 import { MdOutlinePriceChange } from "react-icons/md"

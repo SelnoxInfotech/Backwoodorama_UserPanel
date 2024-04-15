@@ -47,9 +47,37 @@ import Privatepolicy from "../Components/Page/Privacypolicy/Privacypolicy.jsx"
 import Cookiespolicy from "../Components/Page/Cookiespolicy/Cookiespolicy.jsx"
 import Termsconditions from '../Components/Page/Termsconditions/Termsconditions.jsx'
 import MyLocationSearch from "../Components/Component/Navbar/Component/locationFuntion"
+import Layout1 from '../Layout1/Layout1.jsx'
 const routesConfig = [
-
+ 
   {
+
+    element: <Layout1 />,
+    children: [
+      {
+        path: "/login",
+        element: <RoutingList Component={Login} ></RoutingList>,
+      },
+      {
+        path: "/signupwithemail",
+        element: <RoutingList Component={SignupWithEmail} ></RoutingList>,
+      },
+      {
+        path: "/signup",
+        element: <RoutingList Component={Signup} ></RoutingList>
+      },
+      {
+        path: "/forgot-password",
+        element: <RoutingList Component={ForgotPassword} ></RoutingList>,
+      },
+      {
+        path: "/CreatePassword",
+        element: <RoutingList Component={CreatePassword} ></RoutingList>,
+      },
+    ]
+  },
+  {
+
     element: <Layout />,
 
     children: [
@@ -59,10 +87,7 @@ const routesConfig = [
         path: "/MyLocationSearch",
         element: <RoutingList Component={MyLocationSearch} ></RoutingList>,
       },
-      {
-        path: "/login",
-        element: <RoutingList Component={Login} ></RoutingList>,
-      },
+    
       {
         path: "/faq",
         element: <RoutingList Component={Faq} ></RoutingList>,
@@ -211,14 +236,7 @@ const routesConfig = [
         path: "/order-placed",
         element: <RoutingList Component={PlaceOrder} ></RoutingList>,
       },
-      {
-        path: "/forgot-password",
-        element: <RoutingList Component={ForgotPassword} ></RoutingList>,
-      },
-      {
-        path: "/CreatePassword",
-        element: <RoutingList Component={CreatePassword} ></RoutingList>,
-      },
+      
 
       {
         path: "/checkout",

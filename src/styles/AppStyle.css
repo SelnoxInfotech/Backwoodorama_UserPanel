@@ -39,7 +39,12 @@ a{
 input[type=checkbox] {
   accent-color: #31B665;
 }
-
+.loginsignwrapper{
+   height: calc(100vh - 150px);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  }
 
 .multine-ellipsis {
   -webkit-box-orient: vertical;
@@ -782,7 +787,8 @@ scrollbar-width: none;  /* Firefox */
   border: 1px solid #31B665;
   border-radius: 10px;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-
+ width: 320px;
+ padding: 15px;
   /* height:450px; */
 }
 
@@ -2654,7 +2660,7 @@ padding: 3px 10px;
 .newProduct_Gms {
 
   color: #707070;
-  font-family: Poppins;
+  font-family: "Poppins";
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -3142,27 +3148,21 @@ footer{
 }
 .checkAgeEligibility_footer {
   color: #B6B6B6;
-  font-size: 11px;
+  font-size: 13px;
   margin-bottom: 0px;
   padding: 0px 15px;
 }
-
 .checkEligibiltypopCol {
   border-top: 1px solid #DCD9D9;
   margin-top: 23px;
-  height: 78px;
   padding-top: 10px;
   background-color: #E7E7E7;
 }
-
 .checkAge_thankP {
   text-align: center;
   color: #B6B6B6;
-  font-size: 11px;
+  font-size: 14px;
 }
-
-
-
 /* end */
 
 
@@ -4323,17 +4323,14 @@ line-height: normal;
   scrollbar-width: none;  /* Firefox */
 }
 .notification_box{
-  border: 1px solid black;
-  border-radius: 5px;
   width: 320px;
   display: flex;
   gap: 10px;
-  padding: 5px;
   background-color: #fff;
-  align-items: center;
+  align-items: flex-start;
   margin: 0 auto;
-  margin-bottom: 10px;
-
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
 }
 .notificationFooter{
   text-align: center;
@@ -4362,9 +4359,11 @@ line-height: normal;
   align-items: center;
   padding: 5px ;
   background-color: #fff;
-  border-bottom: 1px dashed #000;
+  /* border-bottom: 1px dashed #000; */
   height: 12%;
-  background-color: #a5a5a56e;
+  /* background-color: #a5a5a56e; */
+  width: 320px;
+  margin: 0 auto;
 }
 .notificationContainer{
   height: 87%;
@@ -4384,6 +4383,8 @@ padding: 5px 0;
   font-size: 18px;
   font-weight: 700;
   margin: 0;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5;
 }
 .trackorderbtn{
   min-width: 120px;
@@ -4402,9 +4403,10 @@ padding: 5px 0;
   border: 1px solid #31B655;
 }
 .clearNotify{
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 700;
   cursor: pointer;
+  color: #000;
   transition: all .3s ease;
 }
 .clearNotify:hover{
@@ -4417,8 +4419,8 @@ padding: 5px 0;
   color: #242424;
 }
 .notiimgCircle{
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -4428,12 +4430,13 @@ padding: 5px 0;
 }
 .notititle{
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 700;
   color: #2b2b2b;
   width: calc(100% - 0);
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  margin: 0;
   overflow: hidden;
 }
 .notipara{
@@ -4442,7 +4445,7 @@ padding: 5px 0;
   color: #282828;
 }
 .notification_img{
-  width: 70px;
+  width: 50px;
 }
 .MyOrder_tabs_list {
   height: 60px;
@@ -5531,23 +5534,32 @@ padding: 5px 0;
   padding: 20px 20px;
 }
 
-.writeReviewTextCenter {
-  text-align: center;
-  border-bottom: 1px solid #ECECEC;
-}
 
+.reviewImage .Reviewimagebox{
+  min-height: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px dashed #727CA4;
+  width: 1005;
+ 
+}
 .writeReviewHeadings {
-  color: #000000;
-  font-weight: 700;
-  font-size: 28px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  text-align: center;
+  
 }
-
 .secRatingHeadings {
-  color: #000000;
-  font-weight: 700;
-  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 32px;
+  text-align: center;
+  
 }
-
 .textinput  textarea:focus{
    border: none;
    outline: none;
@@ -5573,14 +5585,13 @@ padding: 5px 0;
 
 .writeReviewLabel {
   color: #363535;
-  font-size: 20px;
+  font-size: 14px;
   margin-bottom: 7px;
-  font-weight: 400;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
 }
 
-.writReviewMarginTop {
-  margin-top: 30px;
-}
+
 
 /* end */
 /* ReportReviewPopup */

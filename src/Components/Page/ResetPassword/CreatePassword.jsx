@@ -43,150 +43,140 @@ const CreatePassword = () => {
 
     }
     return (
+        <div className="login_signup_reset_container">
+            <form onSubmit={method.handleSubmit(Submit)}>
+                <div className='row'>
+                    <div className='col-12 fontStyle signup_head'>
+                        <p>Create Password</p>
 
-        <React.Fragment>
-            <div className="container signup_margins_top ">
-                <div className="row center">
-                    <div className="col-lg-4 col-md-6 col-sm-8 col-10 signup_padding_bottom login_signup_reset_container create_container_height">
-                        <form onSubmit={method.handleSubmit(Submit)}>
-                            <div className='row'>
-                                <div className='col-12 fontStyle signup_head'>
-                                    <p>Create Password</p>
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className='col-12 fontStyle resetPassword_paragraph'>
+                        <p>Enter your email address and we’ll send you instructions to reset your password.</p>
 
-                                </div>
-                            </div>
-                            <div className='row'>
-                                <div className='col-12 fontStyle resetPassword_paragraph'>
-                                    <p>Enter your email address and we’ll send you instructions to reset your password.</p>
+                    </div>
+                </div>
+                <div className='row'>
+                    <label htmlFor='NewPassword'>New Password</label>
 
-                                </div>
-                            </div>
-                            <div className='row'>
-                                <label htmlFor='NewPassword'>New Password</label>
-
-                                <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
-                                    <TextField
-                                        className={`${classes.textFieldFocusBorderColor}`}
-                                        type={showPassword ? 'text' : 'password'}
-                                        id="NewPassword"
-                                        name='NewPassword'
-                                        InputProps={{
-                                            startAdornment: (
-                                                <InputAdornment position="start">
-                                                    <CiLock />
-                                                </InputAdornment>
-                                            ),
-                                            endAdornment: <InputAdornment position="end">
-                                                <IconButton
-                                                    aria-label="toggle password visibility"
-                                                    onClick={handleClickShowPassword}
-                                                >
-                                                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                                                </IconButton>
-                                            </InputAdornment>
-                                        }}
-                                        inputRef={method.register({
-                                            required: "password  is required*.",
-                                            minLength: {
-                                                value: 8,
-                                                message: 'Password must be more than 8 characters'
-                                            },
-                                            pattern: {
-                                                value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%#*?&])[A-Za-z\d@$#!%*?&]{8,}$/,
-                                                       
-                                        
-                                                message: "At least one uppercase,lowercase,number,one special character"
-                                            }
-                                        },
-                                        )}
-                                        helperText={method.errors?.NewPassword?.message}
-                                        error={Boolean(method.errors?.NewPassword)}
-                                        placeholder="Enter Your New Password"
-                                        variant="outlined"
-                                        fullWidth
-                                        size='small'
-                                    />
-
-                                </div>
-                            </div>
-                            <div className='row mt-4'>
-                                <label htmlFor='ConfirmPassword'>Confirm Password</label>
-
-                                <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
-                                    <TextField
-                                        defaultValue={''}
-                                        className={`${classes.textFieldFocusBorderColor}`}
-                                        type={showConfirmPassword ? "text" : "password"}
-                                        id="ConfirmPassword"
-                                        name='ConfirmPassword'
-                                        InputProps={{
-                                            startAdornment: (
-                                                <InputAdornment position="start">
-                                                    <CiLock />
-                                                </InputAdornment>
-                                            ),
-                                            endAdornment: <InputAdornment position="end">
-                                                <IconButton
-                                                    aria-label="toggle password visibility"
-                                                    onClick={handleClickConfirmShowPassword}
-                                                >
-                                                    {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
-                                                </IconButton>
-                                            </InputAdornment>
-                                        }}
-                                        inputRef={method.register({
-                                            validate: value => value === NewPassword.current || "The passwords do not match"
-
-                                        },
-
-                                        )}
-
-                                        helperText={method.errors?.ConfirmPassword?.message}
-                                        error={Boolean(method.errors?.ConfirmPassword)}
-                                        placeholder="Enter Confirm Password"
-                                        variant="outlined"
-                                        fullWidth
-                                        size='small'
-                                    />
-
-                                </div>
+                    <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
+                        <TextField
+                            className={`${classes.textFieldFocusBorderColor}`}
+                            type={showPassword ? 'text' : 'password'}
+                            id="NewPassword"
+                            name='NewPassword'
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        <CiLock />
+                                    </InputAdornment>
+                                ),
+                                endAdornment: <InputAdornment position="end">
+                                    <IconButton
+                                        aria-label="toggle password visibility"
+                                        onClick={handleClickShowPassword}
+                                    >
+                                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                                    </IconButton>
+                                </InputAdornment>
+                            }}
+                            inputRef={method.register({
+                                required: "password  is required*.",
+                                minLength: {
+                                    value: 8,
+                                    message: 'Password must be more than 8 characters'
+                                },
+                                pattern: {
+                                    value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%#*?&])[A-Za-z\d@$#!%*?&]{8,}$/,
+                                            
                             
-                            </div>
+                                    message: "At least one uppercase,lowercase,number,one special character"
+                                }
+                            },
+                            )}
+                            helperText={method.errors?.NewPassword?.message}
+                            error={Boolean(method.errors?.NewPassword)}
+                            placeholder="Enter Your New Password"
+                            variant="outlined"
+                            fullWidth
+                            size='small'
+                        />
 
+                    </div>
+                </div>
+                <div className='row mt-4'>
+                    <label htmlFor='ConfirmPassword'>Confirm Password</label>
 
-
-                            <div className='row  signup_margins_top'>
-                                <div className=' col-lg-12 signup_btn_height'>
-                                    <Box
-                                        className={` ${classes.loadingBtnTextAndBack}`}
+                    <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
+                        <TextField
+                            defaultValue={''}
+                            className={`${classes.textFieldFocusBorderColor}`}
+                            type={showConfirmPassword ? "text" : "password"}
+                            id="ConfirmPassword"
+                            name='ConfirmPassword'
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        <CiLock />
+                                    </InputAdornment>
+                                ),
+                                endAdornment: <InputAdornment position="end">
+                                    <IconButton
+                                        aria-label="toggle password visibility"
+                                        onClick={handleClickConfirmShowPassword}
                                     >
-                                        <LoadingButton variant="outlined" type={"submit"}>Save</LoadingButton>
-                                    </Box>
-                                </div>
+                                        {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
+                                    </IconButton>
+                                </InputAdornment>
+                            }}
+                            inputRef={method.register({
+                                validate: value => value === NewPassword.current || "The passwords do not match"
 
-                            </div>
-                            <div className='row  signup_margins_top'>
-                                <div className='col-lg-12 signup_btn_height'>
-                                    <Box
-                                        className={`  ${classes.Reset_password_canel_loading_btn}`}
-                                    >
-                                        <LoadingButton variant="outlined">Cancel</LoadingButton>
-                                    </Box>
-                                </div>
+                            },
 
-                            </div>
+                            )}
 
-                        </form>
+                            helperText={method.errors?.ConfirmPassword?.message}
+                            error={Boolean(method.errors?.ConfirmPassword)}
+                            placeholder="Enter Confirm Password"
+                            variant="outlined"
+                            fullWidth
+                            size='small'
+                        />
+
+                    </div>
+                
+                </div>
 
 
 
+                <div className='row  signup_margins_top'>
+                    <div className=' col-lg-12 signup_btn_height'>
+                        <Box
+                            className={` ${classes.loadingBtnTextAndBack}`}
+                        >
+                            <LoadingButton variant="outlined" type={"submit"}>Save</LoadingButton>
+                        </Box>
+                    </div>
+
+                </div>
+                <div className='row  signup_margins_top'>
+                    <div className='col-lg-12 signup_btn_height'>
+                        <Box
+                            className={`  ${classes.Reset_password_canel_loading_btn}`}
+                        >
+                            <LoadingButton variant="outlined">Cancel</LoadingButton>
+                        </Box>
                     </div>
 
                 </div>
 
-            </div>
+            </form>
 
-        </React.Fragment>
+
+
+        </div>
     )
 }
 export default CreatePassword

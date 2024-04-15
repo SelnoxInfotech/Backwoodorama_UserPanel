@@ -23,8 +23,7 @@
 .related_review_container{
   padding: 20px;
   margin-bottom: 20px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-  border-radius: 8px;
+  border-bottom: 2px solid  #F8F7F4;
 }
  .related_review_image{
  width: 50px;
@@ -132,6 +131,18 @@
    .related_review_footer_paragraph:active {
     filter: drop-shadow(0 0 0 #15111a);
     transform: translate(0, 5px);
+  }
+  .reviewImage .Reviewimagebox{
+    margin-top: 20px;
+    min-height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed #727CA4;
+    width: 100%;
+    border-radius: 20px;
+    background-color: hsla(229, 21%, 85%, 0.2);
+    gap: 10px;
   }
    @media screen and (max-width: 1024px){
        .reviews_title{

@@ -102,7 +102,7 @@ const CheckAgeEligbilityPopup = ({value}) => {
 
                                 </div>
 
-                            </div>
+                    </div>
 
                 </div>
             </Dialog>

@@ -142,8 +142,8 @@ const Product = () => {
   
     return (
         <React.Fragment>
-            {!params.id ? <ProductSeo location={location.pathname}></ProductSeo> :
-            <ProductCategorySeo categoryname={params.categoryname} location={location.pathname} ></ProductCategorySeo>}
+            {!params.id ? <ProductSeo location={location?.pathname}></ProductSeo> :
+            <ProductCategorySeo categoryname={params?.categoryname} location={location?.pathname} ></ProductCategorySeo>}
             <div className="container " >
                 <div className="row">
                     <div className="col-12 mt-4">

@@ -3,9 +3,10 @@ import ClickAwayListener from '@mui/base/ClickAwayListener';
 import axios from 'axios';
 import _ from 'lodash';
 import Cookies from 'universal-cookie';
+import { RxCross2 } from "react-icons/rx";
+
 import Createcontext from "../../../Hooks/Context"
 import { Link, useNavigation } from 'react-router-dom';
-import { RxCross2 } from "react-icons/rx";
 export default function Notification({ notify, setnotify,Settotalnotify, Setnotificationdata, notificationdata }) {
     const cookies = new Cookies();
     const token_data = cookies.get('User_Token_access')
@@ -194,7 +195,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
 
                 <div className='notificationHeader'>
                     <h4 className='notifytitle'>Notification</h4>
-                  { ( Boolean(notificationdata?.length > state?.Profile?.RemovedNotification?.length ) && state.login ) && <span className='clearNotify' onClick={() => ClearAll()}>Clear All </span>}
+                  { ( Boolean(notificationdata?.length > state?.Profile?.RemovedNotification?.length ) && state.login ) && <span className='clearNotify' onClick={() => ClearAll()}> <RxCross2 /> </span>}
                 </div>
                 {
                     state.login ?
@@ -217,8 +218,18 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                                                     </div>
                                                 </Link>
                                                 <div className="notifytext w-100" >
-                                                    <div className='d-flex justify-content-between align-items-center'> <Link to={data.link}>    <span className="notify_date ">{calculateTImefromDate(data.date)}</span> </Link><span className='cursor-pointer' onClick={(e) => Clear(data)}><RxCross2 size={15} color={"#000"} /></span></div>
-                                                    <Link to={data.link}>  <div className="d-flex align-items-center justify-content-between gap-5"><h4 className="notititle">{data.title} </h4> </div>  </Link>
+                                                    <div className='d-flex justify-content-between align-items-center'> 
+                                                           <div className="d-flex align-items-center justify-content-between gap-5"> <h4 className="notititle">{data.title} </h4></div>
+                                                           <span className='cursor-pointer' onClick={(e) => Clear(data)}><RxCross2 size={15} color={"#000"} /></span>
+                                                    </div>
+
+
+
+                                                    <Link to={data.link}>
+                                                          <div className="d-flex align-items-center justify-content-between gap-5">
+                                                            <span className="notify_date ">{calculateTImefromDate(data.date)}</span>
+                                                          </div>  
+                                                    </Link>
 
                                                 </div>
 

@@ -24,73 +24,67 @@ const ForgotPassword = () => {
     return (
         <React.Fragment>
             <Forgot></Forgot>
-            {/* <Forgot></Forgot> */}
-            <div className="container signup_margins_top ">
-                <div className="row center">
-                    <div className="col-xl-4 col-xxl-3 col-lg-5 col-md-8  col-11 signup_padding_bottom login_signup_reset_container reset_container_height">
-                        <form onSubmit={method.handleSubmit(Submit)}>
-                            <div className='row'>
-                                <div className='col-12 fontStyle signup_head'>
-                                    <h1>Forgot Password</h1>
+            <div className="login_signup_reset_container">
+                <form onSubmit={method.handleSubmit(Submit)}>
+                    <div className='row'>
+                        <div className='col-12 fontStyle signup_head'>
+                            <h1>Forgot Password</h1>
 
-                                </div>
-                            </div>
-                            <div className='row'>
-                                <div className='col-12 fontStyle resetPassword_paragraph'>
-                                    <p>Enter your email address and we’ll send you instructions to reset your password.</p>
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className='col-12 fontStyle resetPassword_paragraph'>
+                            <p>Enter your email address and we’ll send you instructions to reset your password.</p>
 
-                                </div>
-                            </div>
-                            <div className='row'>
-                                {/* <label htmlFor='EmailUser'>Email</label> */}
-                                <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
-                                    <TextField
-                                        id="EmailUser"
-                                        name="email"
-                                        inputRef={method.register({
-                                            required: "Email is required*",
-                                            pattern: {
-                                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                                message: "invalid email address"
-                                            }
-                                        })}
-                                        helperText={method.errors?.email?.message}
-                                        error={Boolean(method.errors?.email)}
-                                        className={`${classes.textFieldFocusBorderColor}`}
+                        </div>
+                    </div>
+                    <div className='row'>
+                        {/* <label htmlFor='EmailUser'>Email</label> */}
+                        <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
+                            <TextField
+                                id="EmailUser"
+                                name="email"
+                                inputRef={method.register({
+                                    required: "Email is required*",
+                                    pattern: {
+                                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                        message: "invalid email address"
+                                    }
+                                })}
+                                helperText={method.errors?.email?.message}
+                                error={Boolean(method.errors?.email)}
+                                className={`${classes.textFieldFocusBorderColor}`}
 
-                                        placeholder="Enter Your Email" variant="outlined" fullWidth size='small' />
-                                </div>
-
-                            </div>
-                            <div className='row  signup_margins_top'>
-                                <div className=' col-lg-12 signup_btn_height'>
-                                    <Box
-                                        className={` ${classes.loadingBtnTextAndBack}`}
-                                    >
-                                        <LoadingButton variant="outlined" type={"submit"}>Send email</LoadingButton>
-                                    </Box>
-                                </div>
-
-                            </div>
-                            <div className='row  signup_margins_top'>
-                                <div className='col-lg-12 signup_btn_height'>
-                                    <Box
-                                        className={`  ${classes.Reset_password_canel_loading_btn}`}
-                                    >
-                                        <LoadingButton variant="outlined">Cancel</LoadingButton>
-                                    </Box>
-                                </div>
-
-                            </div>
-                        </form>
-
-
+                                placeholder="Enter Your Email" variant="outlined" fullWidth size='small' />
+                        </div>
 
                     </div>
+                    <div className='row  signup_margins_top'>
+                        <div className=' col-lg-12 signup_btn_height'>
+                            <Box
+                                className={` ${classes.loadingBtnTextAndBack}`}
+                            >
+                                <LoadingButton variant="outlined" type={"submit"}>Send email</LoadingButton>
+                            </Box>
+                        </div>
 
-                </div>
+                    </div>
+                    <div className='row  signup_margins_top'>
+                        <div className='col-lg-12 signup_btn_height'>
+                            <Box
+                                className={`  ${classes.Reset_password_canel_loading_btn}`}
+                            >
+                                <LoadingButton variant="outlined">Cancel</LoadingButton>
+                            </Box>
+                        </div>
+
+                    </div>
+                </form>
+
+
 
             </div>
+
             {Otppopup && <ForgetOtp Otppopup={Otppopup} Setotppopup={Setotppopup} Email={Email} setLoading={false}></ForgetOtp>}
 
         </React.Fragment>

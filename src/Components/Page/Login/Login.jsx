@@ -108,10 +108,8 @@ const Login = () => {
 
     return (
         <React.Fragment>
-            <LoginSeo></LoginSeo>
-            <div className="container signup_margins_top ">
-                <div className="row center">
-                    <div className="col-xl-4 col-xxl-3 col-lg-5 col-md-8  col-11 signup_padding_bottom login_signup_reset_container ">
+                    <LoginSeo></LoginSeo>
+                    <div className="login_signup_reset_container ">
                       
                             <div className='col-12 fontStyle signup_head'>
                                 <h1>Log In</h1>
@@ -216,11 +214,9 @@ const Login = () => {
                         </div>
 
 
+                 
+
                     </div>
-
-                </div>
-
-            </div>
         </React.Fragment>
     )
 }
