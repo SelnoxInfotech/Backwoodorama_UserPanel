@@ -1113,6 +1113,16 @@ const useStyles = makeStyles({
       backgroundColor: "#D9D9D9",
       color: "Black",
     },
+    "@media(max-width:500px)": {
+      "& .MuiLoadingButton-root": {
+        width: "100%",
+        height: "32px",
+        textTransform: "none",
+        borderRadius: "10px",
+        color: "white",
+        backgroundColor: "#00b96a",
+      },
+    }
   },
   CookiesSetting: {
     "& .MuiButton-text": {
@@ -1129,6 +1139,16 @@ const useStyles = makeStyles({
     "& .MuiButtonBase-root:hover": {
       backgroundColor: "#D9D9D9",
     },
+    "@media(max-width:500px)": {
+      "& .MuiLoadingButton-root": {
+        width: "100%",
+        height: "32px",
+        textTransform: "none",
+        borderRadius: "10px",
+        color: "#000000",
+        backgroundColor: "#D9D9D9",
+      },
+    }
   },
 
   myOrderRatingStarIcons: {

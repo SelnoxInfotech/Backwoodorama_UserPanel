@@ -902,7 +902,7 @@ scrollbar-width: none;  /* Firefox */
   font-size: 14px;
   justify-content: center;
   line-height: 1.5;
-  padding: 20px 32px;
+  padding: 20px;
   position: fixed;
   z-index: 1000;
 }
@@ -911,7 +911,9 @@ scrollbar-width: none;  /* Firefox */
   /* border: 1px solid black; */
   text-align: center;
 }
-
+.AcceptCookiesContent P{
+  font-size: 12px;
+}
 .Cookiessetting {
   margin-top: 20px;
   font-size: 13px;

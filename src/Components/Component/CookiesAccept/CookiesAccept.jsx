@@ -17,7 +17,7 @@ export default function CookiesAccept() {
     }
     return (
         <div className='col-12 AcceptCookies'>
-            <div className='col-10 AcceptCookiesContent'>
+            <div className='col-md-10 col-12 AcceptCookiesContent'>
                 <div className='row' style={{ gap: '3px' }}>
 
                     <div className="col">
