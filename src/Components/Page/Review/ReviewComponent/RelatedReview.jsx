@@ -5,11 +5,13 @@ import Button from '@mui/material/Button';
 import { FaEdit } from 'react-icons/fa';
 import { AiFillDelete } from 'react-icons/ai';
 import Select from '@mui/material/Select';
+import IconButton from '@mui/material/IconButton';
 import { AiOutlineLike } from "react-icons/ai";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import { AiTwotoneLike } from "react-icons/ai";
-
+import { MdVerified } from "react-icons/md";
+import Tooltip from '@mui/material/Tooltip';
 import { BsThreeDotsVertical } from "react-icons/bs"
 import useStyles from "../../../../Style";
 import { useNavigate } from "react-router-dom";
@@ -25,7 +27,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
     const classes = useStyles();
     const navigate = useNavigate();
     const { state, dispatch } = React.useContext(Createcontext);
-    const [readopen, setreadopen] = useState(true);
+    const [readopen, setreadopen] = useState('');
     function textgive(text) {
         let arrofstr = text?.split(' ');
         let finalstr = ""
@@ -86,58 +88,27 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
       }
     }
 
-
+console.log(AllReview)
+function readmoreopen(id){
+    if(readopen === id){
+        setreadopen('')
+    }else{
+        setreadopen(id)
+    }
+}
     return (
         <React.Fragment>
             <div className='container-fluid'>
                 <div className="row center reviewCardWrapper">
                     {(state.login ? moveObject(AllReview, 'user', state.Profile.id, 0) : AllReview)?.map((ele, index) => {
                         const text = ele?.comment;
+                       console.log(ele.id)
                         return (
 
                             <div className="w-100 related_review_container" key={index}>
-                                <div className="d-flex gap-2 py-sm-0 py-2 ">
-                                    <div className="related_img_container">
-
-                                        <div className="related_review_image">
-
-                                            <LazyLoadImage
-                                                onError={event => {
-                                                    event.target.src = "/image/user.webp"
-                                                    event.onerror = null
-                                                }}
-                                                className='realted_review_images'
-                                                src={`${ele?.userImage}`}
-                                                alt="userImage"
-                                            />
-                                        </div>
-
-                                    </div>
-                                    <div className="related_review_content">
-
-                                        <h3 className='reviews_title'>{ele.Title}</h3>
-                                        <p className='reviews_writer'>{ele.username}</p>
-
-                                        <div className="reviwerName_rating">
-
-                                            <div className='reviewSectionRating'>
-                                                {ele.rating && new Array(ele.rating).fill(null).map(() => (
-                                                    <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />
-                                                ))}
-
-                                                {new Array(5 - ele.rating).fill(null).map(() => (
-                                                    <BsStar size={16} color="#31B665" className="product_search_rating_star" />
-                                                ))}
-                                            </div>
-                                        </div>
-                                        {textgive(text) &&
-                                            <div className='review_description_container'>
-                                              <p>{textgive(text)}   {text?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => setreadopen(!readopen)}>...Read {readopen ? "More" : "Less"}</span>}</p>
-                                            </div>
-                                        }
+                                        <p className='reviewdateTexyt'>{calculateTImefromDate(ele.created_at)}</p>
                                         <div className='review_date'>
-                                            {/* <p>{ele.created_at.slice(0, 10)?.split("-").reverse().join("-")}</p> */}
-                                            <p>{calculateTImefromDate(ele.created_at)}</p>
+                                           
                                             <span className='userreviewaction'> {
                                                 state.login &&
                                                 state.Profile.id === ele.user && 
@@ -173,26 +144,62 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
 
 
                                                             <ListItem button className={classes.orderEditListitem} onClick={() => handleDelete(ele.id)}>
-                                                                <AiFillDelete color='31B665' />
-                                                                Delete
+                                                                <AiFillDelete color='31B665' /> Delete
                                                             </ListItem>
                                                             <ListItem button className={classes.orderEditListitem} onClick={() => handleEdit()}>
-
-                                                                <FaEdit color='31B665' />
-                                                                Edit
+                                                                <FaEdit color='31B665' />  Edit
                                                             </ListItem>
-
-
-
                                                         </List>
                                                     </Select>
                                                 </>
                                             }</span>
                                         </div>
-                                    </div>
+                                        <div className="reviwerName_rating">
 
-                                </div>
-                               
+                                            <div className='reviewSectionRating'>
+                                                {ele.rating && new Array(ele.rating).fill(null).map(() => (
+                                                    <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />
+                                                ))}
+
+                                                {new Array(5 - ele.rating).fill(null).map(() => (
+                                                    <BsStar size={16} color="#31B665" className="product_search_rating_star" />
+                                                ))}
+                                            </div>
+                                        </div>
+                                        <div className="d-flex align-items-center gap-2 py-sm-0 py-4 ">
+                                            <div className="related_img_container">
+
+                                                <div className="related_review_image">
+
+                                                    <LazyLoadImage
+                                                        onError={event => {
+                                                            event.target.src = "/image/user.webp"
+                                                            event.onerror = null
+                                                        }}
+                                                        className='realted_review_images'
+                                                        src={`${ele?.userImage}`}
+                                                        alt="userImage"
+                                                    />
+                                                </div>
+
+                                            </div>
+                                            <div className="related_review_content">
+                                                <p className='reviews_writer'>{ele.username}</p>
+                                            </div>
+                                            <span>
+                                                <Tooltip title="Verified">
+                                                <IconButton>
+                                                    <MdVerified color={'#31B655'} size={22}/>
+                                                    </IconButton>
+                                                </Tooltip>
+                                            </span>
+                                        </div>
+                                        <h3 className='reviews_title'>{ele.Title}</h3>
+                                        {textgive(text) &&
+                                            <div className='review_description_container'>
+                                              <p>{textgive(text)}   {text?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => readmoreopen(ele.id)}>...Read {ele.id ===readopen ? "More" : "Less"}</span>}</p>
+                                            </div>
+                                        }
 
                                 {ele.Reply !== null && "Reply" in ele && ele.Reply !== "" &&
                                     <div className='container-fluid mx-2 review_reply'>
@@ -205,7 +212,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                                                             event.onerror = null
                                                         }}
                                                         className='realted_review_images'
-                                                        src={`${storeDetails[0]?.Store_Image}`}
+                                                        src={`${storeDetails?.Store_Image}`}
                                                         alt="userImage"
                                                     />
                                                 </div>
@@ -213,7 +220,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                                             <div className="related_review_content">
 
                                                 <h3 className='reviews_title'>Response from the Owner</h3>
-                                                <p className='reviews_writer'>{storeDetails[0]?.Store_Name}</p>
+                                                <p className='reviews_writer'>{storeDetails?.Store_Name}</p>
                                                 <div className='review_date'>
 
                                                     <p>{calculateTImefromDate(ele?.ReplyTime)}</p>
@@ -223,7 +230,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                                         </div>
                                         <div className='review_description_container'>
 
-                                            <p>{textgive(ele.Reply)}   {text?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => setreadopen(!readopen)}>...Read {readopen ? "More" : "Less"}</span>}</p>
+                                            <p>{textgive(ele.Reply)}   {text?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => readmoreopen(ele.id)}>...Read {ele.id !==readopen ? "More" : "Less"}</span>}</p>
                                         </div>
 
                                     </div>
@@ -235,8 +242,9 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                                             <Badge badgeContent={ele?.count} className={classes.sliderLink_badge}>
                                              {ele?.helpfull?.includes(state?.Profile?.id) ? <AiTwotoneLike color='#31B655' size={25}/> : <AiOutlineLike color='#31B655' size={25} />} 
                                             </Badge>
+                                            
                                     </div>
-                                    <div className='related_review_footer_paragraph ellipsis px-0'>  <ReportReviewPopup />  </div>
+                                    <div className=' ellipsis'>  <ReportReviewPopup />  </div>
 
 
                                 </div>

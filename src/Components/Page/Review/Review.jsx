@@ -28,12 +28,11 @@ const Review = ({ reviewloading, handleEdit, delBtn,reviewtype, setReviewtype, t
         setsorteddata(sortBy(AllReview, [function(o) { return o.rating; }]))
        }
     },[short , AllReview])
- console.log(reviewtype)
     return (
         <React.Fragment>
 
             <div className="review_secton">
-                <h2 className="section_main_title">{location.pathname.slice(1, 9) === "products" ?"products Review" : `${"All"} Reviews`}</h2>
+                <h2 className="section_main_title">{location.pathname.slice(1, 9) === "products" ?"products Review" : `${reviewtype} Reviews`}</h2>
                 {
                     noofreview !== 0 ?
                         <div className="row">

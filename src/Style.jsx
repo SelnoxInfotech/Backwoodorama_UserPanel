@@ -44,7 +44,16 @@ const useStyles = makeStyles({
       '&.Mui-focused fieldset': {
         borderColor: `#31B665 `
       }
-    }  
+    },
+    "@media(max-width:480px)": {
+      "& .MuiInputBase-root":{
+        "& .MuiInputBase-input":{
+           padding:'8px',
+           fontSize:'14px',
+           fontWeight:'500'
+        }
+      },
+    } 
   },
   Reviewtextarea:{
     marginTop:'23px !important',
@@ -60,12 +69,18 @@ const useStyles = makeStyles({
         borderColor: `#31B665 `
       }
     }  ,
-     "& .MuiInputBase-root":{
-         padding:'0',
-         "& textarea":{
-          padding:'10px',
-         }
-      }
+    "& .MuiInputBase-root":{
+        padding:'0',
+        "& textarea":{
+        padding:'10px',
+        }
+    },
+    "@media(max-width:480px)": {
+       height:'100px',
+       '& textarea':{
+         fontSize:'14px',
+       }
+    },
     
   },
   textFieldFocusBorderColor: {
@@ -635,7 +650,7 @@ const useStyles = makeStyles({
       }
     },
     "& .MuiModal-backdrop":{
-      backgroundColor:'#000000ed'
+      backgroundColor:'#000000ad'
     }
   },
   checAgeEligibiltyHeight: {
@@ -1429,6 +1444,7 @@ const useStyles = makeStyles({
       "& .MuiDialog-container": {
         "& .MuiPaper-root": {
           minWidth: "90%",
+          paddingBottom:"0px !important",
         },
       },
     }
@@ -1491,19 +1507,15 @@ const useStyles = makeStyles({
   WriteReviewBtn_Color: {
     "&.MuiButtonBase-root": {
       color: "#707070",
-      border:"1px solid #f0f0f0",
-      borderRadius:"14px",
+      border:"none",
+      fontWeight:'500',
       textTransform:"none",
-      height:"32  px",
       fontSize:"14px",
-      borderColor:'#31B665',
     },
     "&.MuiButtonBase-root:hover": {
-
-      color: "#fff",
-      border: "1px solid #f0f0f0",
-      background: "#31B655",
-     
+      transition:'all .3s ease',
+      fontWeight:'600',
+      border:'none',
 
     },
   },

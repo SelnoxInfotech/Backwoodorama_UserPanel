@@ -703,6 +703,24 @@
   }
 }
 @media (max-width:480px) {
+  .writeReviewHeadings {
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 0;
+  }
+  .secRatingHeadings{
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0;
+  }
+  .writeReviewLabel{
+    margin: 0;
+    font-size: 12px;
+  }
+  .reviewImage .Reviewimagebox{
+    font-size: 12px;
+    min-height: 100px !important;
+  }
   .Slider_inner_profile_imgs{
     width: 30px;
     height: 30px;

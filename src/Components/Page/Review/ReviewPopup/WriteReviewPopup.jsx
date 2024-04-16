@@ -6,6 +6,8 @@ import { RiCloseCircleFill } from "react-icons/ri";
 import { IconButton, Select } from "@mui/material";
 import { Rating } from "@mui/material";
 import { IoCloudUploadOutline } from "react-icons/io5";
+import { RxCross2 } from "react-icons/rx";
+
 import '../Review.css'
 import TextField from "@mui/material/TextField";
 import LoadingButton from "@mui/lab/LoadingButton";
@@ -25,6 +27,8 @@ import { useNavigate } from "react-router-dom";
   }
   const navigate = useNavigate();
   const { state } = React.useContext(Createcontext);
+  const [images, setImages] = React.useState([])
+  const [mediaurls, setmediaurls] = React.useState([])
   const { register, handleSubmit, errors, getValues, control } = useForm();
   const classes = useStyles();
   const handleClickOpen = () => {
@@ -34,11 +38,34 @@ import { useNavigate } from "react-router-dom";
       navigate("/login");
     }
   };
-
+  console.log(mediaurls)
   const handleClose = () => {
     SetGetProductReview({ ...GetProductReview, popup: false });
   };
-
+  const onImageChange = (event) => {
+    if (event.target.files[0].type.includes('image') && ( event.target.files[0].size < 1*1024*1024) ){
+      setImages([ ...images , event.target.files]);
+      setmediaurls([ ...mediaurls , URL.createObjectURL(event.target.files[0])]);
+    }else if (event.target.files[0].type.includes('image') && ( event.target.files[0].size > 1*1024*1024) ){
+       window.alert('Image Size should not be More than 1 MB')
+    }else if (event.target.files[0].type.includes('video') && ( event.target.files[0].size < 10*1024*1024) ){
+      setImages([ ...images , event.target.files]);
+      setmediaurls([ ...mediaurls , URL.createObjectURL(event.target.files[0])]);
+    }else if (event.target.files[0].type.includes('video') && ( event.target.files[0].size > 10*1024*1024) ){
+      window.alert('Video Size should not be More than 10 MB')
+    }
+   } 
+   
+   function removemedia(index){
+    let a= images.filter((item,indexx)=>{
+      return indexx !== index
+    })  
+    setImages(a)
+    let b= mediaurls.filter((item,indexx)=>{
+      return indexx !== index
+    })  
+    setmediaurls(b)
+   }
   return (
     <>
       <Button
@@ -154,20 +181,32 @@ import { useNavigate } from "react-router-dom";
                   </div>
                   <div className="col-12">
                      <div className="reviewImage">
-                      <input type='file' id="Reviewimage" accept="image/*" className="d-none"/>
+                      <input type='file' id="Reviewimage" accept="image/*,video/*" className="d-none" onChange={onImageChange}  />
                         <label htmlFor="Reviewimage" className="Reviewimagebox">
                            
                               <IoCloudUploadOutline size={22} /> <span>Drop files here or click to upload</span>
                            
                         </label>
                      </div> 
+                   
+                      {
+                          mediaurls.length !==0 && <div className="media_list">{
+                            mediaurls.map((item, index)=>{
+                              if(Boolean(images[index][0]?.type?.includes('image'))){
+                                return <span className="uploadedImage"> <span onClick={()=>{removemedia(index)}} className="crossbtn"><RxCross2 />
+                                </span> <img src={item} width={100} alt="adkgfdg" /> </span>
+                              }else{
+                                return <span className="uploadedVideo"> <span onClick={()=>{removemedia(index)}} className="crossbtn"><RxCross2 />
+                                </span> <video src={item} width="320" height="240" muted controls autoplay />   </span>
+                              }
+                            })}
+                         </div>
+                      }
+                  
+                    
                   </div>
                   <div className="col-12">
-                    
-                      <LoadingButton loading={reviewloading} className={classes.submitreviewbtn}   type="submit" variant="outlined">
-                        Submit
-                      </LoadingButton>
-                 
+                      <LoadingButton loading={reviewloading} className={classes.submitreviewbtn}   type="submit" variant="outlined">Submit</LoadingButton>
                   </div>
                 </div>
               </form>

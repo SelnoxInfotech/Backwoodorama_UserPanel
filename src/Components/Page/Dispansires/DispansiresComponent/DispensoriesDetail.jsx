@@ -41,7 +41,6 @@ export default function DispensoriesDetails() {
         Title: "",
         popup: false
     })
-    // const [Tab, SetTab] = React.useState()
     React.useEffect(() => {
         axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${id}`, {
         }).then(response => {
@@ -86,7 +85,7 @@ export default function DispensoriesDetails() {
             SetDespensariesProductData(response.data)
         })
     }, [params])
-
+console.log(state)
     function modifystr(str) {
         str = str?.replace(/[^a-zA-Z0-9/ ]/g, "-");
         str = str?.trim()?.replaceAll(' ', "-");
@@ -107,7 +106,25 @@ export default function DispensoriesDetails() {
 
         return str.toLowerCase()
     }
-
+    useEffect(()=>{
+        console.log(reviewtype)
+        if(reviewtype === "All"){
+            axios.get(`https://api.cannabaze.com/UserPanel/Get-AllAverage/${id}`).then((res) => {
+                SetRating(res.data)
+              
+            }).catch(() => { })
+        }else if(reviewtype === "product"){
+            axios.get(`https://api.cannabaze.com/UserPanel/Get-AverageofProduct/${id}`).then((res) => {
+                SetRating(res.data)
+               
+            }).catch(() => { })
+        }else{
+            Store_OverAllGet_Review(id).then((res) => {
+                SetRating(res)
+               
+            }).catch(() => { })
+        }
+    },[reviewtype , id, api])
     function SelectionTab(item) {
 
         navigate(`${location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${modifystr(Despen[0]?.Store_Name.toLowerCase())}/${modifystr(item.toLowerCase())}/${id}`)
@@ -182,13 +199,12 @@ export default function DispensoriesDetails() {
 
         }
     }, [reviewtype, id, api])
-
-    React.useEffect(() => {
-        Store_OverAllGet_Review(id).then((res) => {
-            SetRating(res)
-
-        }).catch(() => { })
-    }, [id, api])
+    // React.useEffect(() => {
+    //     Store_OverAllGet_Review(id).then((res) => {
+    //         SetRating(res)
+           
+    //     }).catch(() => { })
+    // }, [id, api])
 
 
     React.useEffect(() => {
@@ -286,19 +302,18 @@ export default function DispensoriesDetails() {
             })
         }
     }
-    // console.log(location.pathname.slice(0, 18) === "/weed-dispensaries", params)
     function navigationtab(route, store, tab, id) {
 
        
         //   navigate(`${route/store/tab}`)
         if(Boolean(tab)){
-            console.log(tab)
+        
         }
         else if (Boolean(store)){
          navigate(`/weed-dispensaries/${store}/${params.id}`)
         }
     }
-    console.log(reviewtype);
+   
 
     return (
         <div>
@@ -337,7 +352,7 @@ export default function DispensoriesDetails() {
                         tab === 'review' && <Review
                             HellFull={HellFull}
                             type={`store`}
-                            reviewtype={'Store'}
+                            reviewtype={reviewtype}
                             setReviewtype={setReviewtype}
                             delBtn={Despen}
                             handleEdit={handleEdit}

@@ -439,9 +439,9 @@ const NewProductDetails = () => {
         setTimeout(()=>setcopyed('') , 2000)
        }
     },[copyed])
-   console.log(Product) 
+
    let path= useLocation()?.pathname
-   console.log(Boolean(Product) , Object.keys(Product).length !==0 )
+
   return (
     <div className="container-fluid">
     { Object.keys(Product).length !==0 &&  <ProductDetailsSeo Productname={Product.Product_Name} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={path} ></ProductDetailsSeo>

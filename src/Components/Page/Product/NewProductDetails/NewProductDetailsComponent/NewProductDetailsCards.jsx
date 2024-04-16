@@ -303,7 +303,6 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
         }
     }, [Product])
 
-    console.log(Product ,'Product')
     return (
         <React.Fragment>
             {

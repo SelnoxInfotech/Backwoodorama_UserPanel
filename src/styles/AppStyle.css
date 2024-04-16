@@ -4305,7 +4305,7 @@ line-height: normal;
 .notificationList{
   min-width: 350px;
   position: absolute;
-  top: 100%;
+  top: 110%;
   right:0 ;
   border: 1px solid gray;
   background: rgba( 255, 255, 255 );
@@ -4430,7 +4430,7 @@ padding: 5px 0;
 }
 .notititle{
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 600;
   color: #2b2b2b;
   width: calc(100% - 0);
   display: -webkit-box;
