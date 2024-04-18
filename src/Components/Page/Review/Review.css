@@ -19,7 +19,7 @@
 }
 .related_review_content{
     position: relative;
-   display: contents;
+    display: contents;
     width: -webkit-fill-available;
     word-break: break-all;
 }
@@ -104,18 +104,38 @@
     line-height: 1.4;
     color: rgb(65, 65, 65);
    }
-   .review_description_container{
-
-   }
    .review_description_container p{
     font-family: "Poppins", sans-serif;
     font-size: 14px;
     font-weight: 400;
-    line-height: 18px;
+    line-height: 1.5;
     text-align: left;
     word-wrap: break-word;
-    color: #0D0C22;
+    color: #a5a5a5;
     margin: 0;
+   }
+   .reviewImagewrapper{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+   }
+   .reviewImagewrapper .reviewimagebox{
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+   }
+   .reviewImagewrapper .reviewvideobox{
+    width: 120px;
+    max-height: 100px;
+   }
+   .reviewImagewrapper .reviewvideobox video{
+    width: 100%;
+    cursor: pointer;
+   }
+
+   .reviewImagewrapper .reviewimagebox  .reviewImage{
+    width: 100%;
+    height: 100%;
    }
    .related_review_footer{
     display: flex;
@@ -127,6 +147,36 @@
     border-left: 1px solid gray;
     margin-top: 20px;
     position: relative;
+   }
+   .review_reply .related_review_content{
+    position: relative;
+    display: block;
+    width: -webkit-fill-available;
+    word-break: break-all;
+   }
+   .review_reply .review_date{
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    display: flex;
+    gap: 9px;
+    align-items: flex-start;
+   }
+   .review_reply .review_date p{
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.4;
+    margin: 0;
+   }
+   .review_reply .reviews_title{
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-align: left;
+    color: #858585;
+    margin-top: 0;
+    margin: 0;
    }
    .customteatfsdfg.MuiRating-root .MuiRating-iconEmpty{
     color: red;

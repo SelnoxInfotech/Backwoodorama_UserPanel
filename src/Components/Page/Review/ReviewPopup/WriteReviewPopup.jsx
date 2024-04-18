@@ -15,6 +15,7 @@ import { Box, FormControl } from "@mui/material";
 import { useForm, Controller } from "react-hook-form";
 import Createcontext from "../../../../Hooks/Context";
 import { useNavigate } from "react-router-dom";
+import CustomAlert from "../../../Component/CustomAlert/CustomAlert";
   const WriteReviewPopup = ({
     reviewloading,
     onSubmit,
@@ -29,6 +30,12 @@ import { useNavigate } from "react-router-dom";
   const { state } = React.useContext(Createcontext);
   const [images, setImages] = React.useState([])
   const [mediaurls, setmediaurls] = React.useState([])
+  const [alert, setalert] = React.useState({
+        title:'',
+        description:''
+  })
+  const [isvideo , setIsvideo] = React.useState(false)
+  const [isalert , setisalert] = React.useState(false)
   const { register, handleSubmit, errors, getValues, control } = useForm();
   const classes = useStyles();
   const handleClickOpen = () => {
@@ -38,21 +45,42 @@ import { useNavigate } from "react-router-dom";
       navigate("/login");
     }
   };
-  console.log(mediaurls)
   const handleClose = () => {
     SetGetProductReview({ ...GetProductReview, popup: false });
   };
   const onImageChange = (event) => {
     if (event.target.files[0].type.includes('image') && ( event.target.files[0].size < 1*1024*1024) ){
-      setImages([ ...images , event.target.files]);
+      setImages([ ...images , event.target.files[0]]);
       setmediaurls([ ...mediaurls , URL.createObjectURL(event.target.files[0])]);
     }else if (event.target.files[0].type.includes('image') && ( event.target.files[0].size > 1*1024*1024) ){
-       window.alert('Image Size should not be More than 1 MB')
+       setalert({
+        title:'Image Size',
+        description:'Image Size should not be More than 1 MB'
+       })
+       setisalert(true)
     }else if (event.target.files[0].type.includes('video') && ( event.target.files[0].size < 10*1024*1024) ){
-      setImages([ ...images , event.target.files]);
-      setmediaurls([ ...mediaurls , URL.createObjectURL(event.target.files[0])]);
+      console.log(isvideo ,'isvideo')
+      if(isvideo){
+      
+        setalert({
+          title:'Video Limit',
+          description:'You can upload only one video file'
+        })
+        setisalert(true)
+      }else{
+        setImages([ ...images , event.target.files[0]]);
+        setmediaurls([ ...mediaurls , URL.createObjectURL(event.target.files[0])]);
+        setIsvideo(true)
+      }
+      // setImages([ ...images , event.target.files]);
+      // setmediaurls([ ...mediaurls , URL.createObjectURL(event.target.files[0])]);
     }else if (event.target.files[0].type.includes('video') && ( event.target.files[0].size > 10*1024*1024) ){
-      window.alert('Video Size should not be More than 10 MB')
+     
+      setalert({
+        title:'Video Size',
+        description:'Video Size should not be More than 10 MB'
+      })
+      setisalert(true)
     }
    } 
    
@@ -66,15 +94,12 @@ import { useNavigate } from "react-router-dom";
     })  
     setmediaurls(b)
    }
+   React.useEffect(()=>{
+    SetGetProductReview({ ...GetProductReview, media: images });
+   },[images])
   return (
     <>
-      <Button
-        className={classes[buttonclass]}
-        variant="outlined"
-        onClick={handleClickOpen}
-      >
-        Write a review
-      </Button>
+      <Button className={classes[buttonclass]} variant="outlined" onClick={handleClickOpen}> Write a review </Button>
       <Dialog
         open={GetProductReview.popup}
         onClose={handleClose}
@@ -183,8 +208,11 @@ import { useNavigate } from "react-router-dom";
                      <div className="reviewImage">
                       <input type='file' id="Reviewimage" accept="image/*,video/*" className="d-none" onChange={onImageChange}  />
                         <label htmlFor="Reviewimage" className="Reviewimagebox">
-                           
-                              <IoCloudUploadOutline size={22} /> <span>Drop files here or click to upload</span>
+                           <div className="text-center">
+                               <p className="text-center"><IoCloudUploadOutline size={22} /> <span>Drop Image And Video here or click to upload</span>
+                              </p>
+                              <span className="reviewnote"><b>Note:-</b> Image Size should be less than 1 MB , Video Size should be less than 10 MB and Only One Video is allow</span>
+                            </div>
                            
                         </label>
                      </div> 
@@ -192,7 +220,7 @@ import { useNavigate } from "react-router-dom";
                       {
                           mediaurls.length !==0 && <div className="media_list">{
                             mediaurls.map((item, index)=>{
-                              if(Boolean(images[index][0]?.type?.includes('image'))){
+                              if(Boolean(images[index]?.type?.includes('image'))){
                                 return <span className="uploadedImage"> <span onClick={()=>{removemedia(index)}} className="crossbtn"><RxCross2 />
                                 </span> <img src={item} width={100} alt="adkgfdg" /> </span>
                               }else{
@@ -210,6 +238,7 @@ import { useNavigate } from "react-router-dom";
                   </div>
                 </div>
               </form>
+             { isalert && <CustomAlert title={alert.title}  discription={alert.description} setisalert={setisalert}/>}
             </div>
           </div>
         </div>

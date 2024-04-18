@@ -11,16 +11,18 @@ import { CiLock } from "react-icons/ci"
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import axios from 'axios';
-
+import Tooltip from '@mui/material/Tooltip';
+import { RxCross2 } from "react-icons/rx";
 const SignupWithEmail = () => {
     const Navigate = useNavigate()
     const location = useLocation();
-    let { State } = location.state;
+    console.log(location , ' location')
+    let state  = location.state;
     const [showPassword, setShowPassword] = React.useState(false);
     const [loading, Setloading] = React.useState(false)
     const [EmailDisabled, SetEmailDisabled] = React.useState(true)
     const [dulicate, Setduplicate] = React.useState([])
-    const [Email, SetEmail] = React.useState(State?.email)
+    const [Email, SetEmail] = React.useState(state?.email)
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     const method = useForm()
     const classes = useStyles()
@@ -54,15 +56,15 @@ const SignupWithEmail = () => {
        
                     <div className="login_signup_reset_container">
                         <div className='row'>
-                            <div className='col-12 fontStyle signup_head'>
-                                <p>Signup With Email</p>
+                            <div className='col-12 signup_head'>
+                                <h1>Signup With Email</h1>
 
                             </div>
                         </div>
                         <div className='row'>
                             <label>Email</label>
 
-                            <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
+                            <div className='col-lg-12 signup_margins_top_textfield '>
                                 <TextField
                                     value={Email}
                                     disabled={EmailDisabled}
@@ -92,7 +94,7 @@ const SignupWithEmail = () => {
                             <div className='row signup_margins_top'>
                                 <label>Password</label>
 
-                                <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
+                                <div className='col-lg-12 signup_margins_top_textfield '>
                                     <TextField
                                         autoComplete="on"
                                         className={`${classes.textFieldFocusBorderColor}`}
@@ -137,7 +139,7 @@ const SignupWithEmail = () => {
                             <div className='row signup_margins_top'>
                                 <label>Enter your username 8 character</label>
 
-                                <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
+                                <div className='col-lg-12 signup_margins_top_textfield '>
                                     <TextField
                                         placeholder='Enter your username 8 character'
                                         variant="outlined"
@@ -160,7 +162,7 @@ const SignupWithEmail = () => {
                                 </div>
                             </div>
                             <div className='row  signup_margins_top'>
-                                <div className='col-lg-12 signup_btn_height'>
+                                <div className='col-lg-12 '>
                                     <Box
                                         className={`  ${classes.loadingBtnTextAndBack}`}
                                     >
@@ -172,7 +174,14 @@ const SignupWithEmail = () => {
 
                         </form>
 
-
+                      
+                        <div className='crosslogin'>
+                              <Tooltip title="Back">
+                                 <IconButton>
+                                    <RxCross2 color={'#000'} size={22}  onClick={()=>{Navigate(-1)}}/>
+                                 </IconButton>
+                               </Tooltip>
+                            </div>
 
                     </div>
        

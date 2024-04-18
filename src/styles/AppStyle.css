@@ -40,7 +40,7 @@ input[type=checkbox] {
   accent-color: #31B665;
 }
 .loginsignwrapper{
-   height: calc(100vh - 150px);
+  padding-top: 100px;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -54,7 +54,63 @@ input[type=checkbox] {
   text-overflow: ellipsis;
   white-space: normal;
 }
+.customalertpopupwrapper{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: #00000081;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.customalertpopupwrapper .customalertpopup{
+  width: 360px;
+  height: 360px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 0px 27px 0px rgba(255,255,255,1);
+  -moz-box-shadow: 0px 0px 27px 0px rgba(255,255,255,1);
+  box-shadow: 0px 0px 27px 0px rgba(255,255,255,1);  
+  border-radius: 5px;
+}
+  .customalertpopupwrapper .customalertpopup .alerticons{
+          font-size: 54px;
+  }
 
+  .customalertpopupwrapper .customalertpopup .alertpopupheading{
+      font-size: 24px;
+      line-height: 1.4;
+      font-weight: 600;
+      color: #000;
+      margin: 0;
+  }
+
+  .customalertpopupwrapper .customalertpopup .alertpopupdescription{
+      font-size: 16px;
+      line-height: 1.4;
+      width: 80%;
+      font-weight: 400;
+      color: #464646;
+      text-align: center;
+      margin: 0 auto;
+  }
+  .customalertpopupwrapper .customalertpopup button{
+     padding: 5px 15px;
+     border: none;
+     background-color: #31B655;
+     font-size: 18px;
+     line-height: 1.4;
+     border-radius: 5px;
+     font-weight: 500;
+     color: #fff;
+  }
 
 
 .comm_head_prop {
@@ -784,14 +840,18 @@ scrollbar-width: none;  /* Firefox */
 /* signup */
 .login_signup_reset_container {
   background: #FFFFFF;
-  border: 1px solid #31B665;
   border-radius: 10px;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
- width: 320px;
- padding: 15px;
-  /* height:450px; */
+  width: 360px;
+  padding: 25px;
+  position: relative;
 }
-
+.login_signup_reset_container .crosslogin{
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   cursor: pointer;
+}
 .signup_container_height {
   height: 500px;
 }
@@ -804,7 +864,6 @@ scrollbar-width: none;  /* Firefox */
   width: 15px;
   height: 15px;
 }
-
 .loginCenterDiv {
   display: flex;
   align-items: center;
@@ -921,9 +980,6 @@ scrollbar-width: none;  /* Firefox */
   font-size: 12px;
 }
 
-.signup_btn_height {
-  height: 45px;
-}
 .history_blog{
   margin-bottom: 40px;
 }
@@ -2150,7 +2206,7 @@ scrollbar-width: none;  /* Firefox */
 .product_inc_dec_quantity_btn {
   border-style: none;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 14px;
   line-height: 1.5;
   color: #949494;
@@ -2159,7 +2215,7 @@ scrollbar-width: none;  /* Firefox */
 .product_inc_dec_quantity_btn_indica {
   border-style: none;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 14px;
   line-height: 1.5;
 
@@ -2172,25 +2228,29 @@ scrollbar-width: none;  /* Firefox */
 }
 
 .prod_inc_dec_quant_heading{
-  font-size: 18px;
+  font-size: 24px;
   font-style: normal;
   font-weight: 700;
-  color: #000000a1;
+  color: #000000ec;
   margin: 0;
+  font-family: 'Inter', sans-serif;
+
 }
 
 .prod_inc_dec_quant_subheading{
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  line-height: 36px;
+  line-height: 1.4;
   color: #949494;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 20px;
 } 
 
 .prod_price_font {
   font-style: normal;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 48px;
   color: #282625;
 }
@@ -2210,7 +2270,6 @@ scrollbar-width: none;  /* Firefox */
 
 .productInc_dec_content {
   height: auto;
-  margin-bottom: 100px;
 }
 
 .prod_inc_plus_minus {
@@ -2260,24 +2319,22 @@ scrollbar-width: none;  /* Firefox */
 
 .weight_font {
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 18px;
-  line-height: 36px;
-
+  line-height: 1.5;
   color: #949494;
 }
 
 .prod_quant_font {
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
-  line-height: 48px;
-
-  color: #282625;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #949494;
 }
 
 .prod_quant_num p {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 18px;
   line-height: 36px;
 
@@ -5543,6 +5600,14 @@ padding: 5px 0;
   border: 1px dashed #727CA4;
   width: 1005;
  
+}
+.reviewImage .Reviewimagebox span.reviewnote{
+    font-size: 12px;
+    line-height: 1.5;
+    font-weight: 400;
+    width: 80%;
+    margin: 0 auto;
+    display: block;
 }
 .writeReviewHeadings {
   font-family: 'Poppins', sans-serif;

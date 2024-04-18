@@ -3,10 +3,11 @@ import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
 import TextField from '@mui/material/TextField';
 import { Link, useNavigate } from 'react-router-dom';
+import Tooltip from '@mui/material/Tooltip';
+import IconButton from '@mui/material/IconButton';
+import { RxCross2 } from "react-icons/rx";
 import { useForm } from "react-hook-form";
 import Createcontext from "../../../Hooks/Context"
-import { IoLogoFacebook } from 'react-icons/io';
-import { FcGoogle } from "react-icons/fc"
 import LoginWithGoogle from '../Login/LoginWithGoogle'
 import React,{useState} from 'react';
 import Axios from 'axios'
@@ -34,7 +35,6 @@ const Signup = () => {
      
       
     }
-
     React.useEffect(()=>{
         document.documentElement.scrollTo({
             top: 0,
@@ -57,7 +57,7 @@ const Signup = () => {
                             <div className='row'>
                                 {/* <label htmlFor='Email'>Email</label> */}
 
-                                <div className='col-lg-12 signup_btn_height mt-2'>
+                                <div className='col-lg-12  mt-2'>
                                     <TextField
                                         id="Email"
                                         className={`${classes.textFieldFocusBorderColor}`}
@@ -83,7 +83,7 @@ const Signup = () => {
                                 </div>
                             </div>
                             <div className='row  signup_margins_top'>
-                                <div className='col-lg-12 signup_btn_height'>
+                                <div className='col-lg-12 '>
                                     <Box
                                         className={`  ${classes.loadingBtnTextAndBack}`}
                                     >
@@ -106,7 +106,7 @@ const Signup = () => {
                             <div className='signupHorizontalLine'></div> <span className='px-2 login_OR'>OR</span> <div className='signupHorizontalLine'></div>
                         </div>
                         <div className='signup_margins_top'>
-                            <div className='col-lg-12 signup_btn_height'>
+                            <div className='col-lg-12 '>
                                <LoginWithGoogle/>
                             </div>
 
@@ -116,6 +116,13 @@ const Signup = () => {
                             <h5 className='login_bottom'>New To weedx ?</h5> 
                             <Link className='signInfo' to={'/login'}><span>Already a member? Login</span></Link>
                         </div>
+                        <div className='crosslogin'>
+                              <Tooltip title="Back">
+                                 <IconButton>
+                                    <RxCross2 color={'#000'} size={22}  onClick={()=>{navigate(-1)}}/>
+                                 </IconButton>
+                               </Tooltip>
+                            </div>
                     </div>
         </React.Fragment>
     )

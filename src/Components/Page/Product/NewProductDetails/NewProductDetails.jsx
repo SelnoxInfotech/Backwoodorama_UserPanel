@@ -52,6 +52,7 @@ const NewProductDetails = () => {
     value: 0,
     comment: '',
     Title: "",
+    media:[],
     popup: false
   })
 
@@ -132,16 +133,31 @@ const NewProductDetails = () => {
 
     }
   }, [api, state.Profile, Product])
-
   const onSubmit = (data) => {
-    const Review = {
-      product: Product.id,
-      rating: GetProductReview.value,
-      Title: GetProductReview.Title,
-      comment: GetProductReview.comment
-    }
+    const formdata = new FormData();
+    let a =GetProductReview?.media?.forEach((item)=>{
+        if( item?.type.includes('image')){
+           formdata.append('multipleimages',item)
+        }
+      })
+    let b =GetProductReview?.media?.forEach((item)=>{
+        if( item?.type.includes('video')){
+          formdata.append('multiplevideos',item)
+        }
+  })
+    formdata.append('product' ,Product.id )
+    formdata.append('rating' ,GetProductReview.value )
+    formdata.append('Title' ,GetProductReview.Title )
+    formdata.append('comment' ,GetProductReview.comment )
+  
+    // const Review = {
+    //   product: Product.id,
+    //   rating: GetProductReview.value,
+    //   Title: GetProductReview.Title,
+    //   comment: GetProductReview.comment
+    // }
     setReviewloading(true)
-    Product_Add_Review(Review).then((res) => {
+    Product_Add_Review(formdata).then((res) => {
       SetGetProductReview({ ...GetProductReview, 'popup': false })
       SetApi(!api)
       setReviewloading(false)

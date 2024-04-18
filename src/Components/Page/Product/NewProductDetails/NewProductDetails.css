@@ -45,7 +45,11 @@
 }
 .deals_card .productSearch{
     margin: 0;
-    font-size: 16px;    
+    font-size: 16px;
+        
+}
+.deals_card .productSearch p{
+    margin: 10px 0;
 }
 .cursor-pointer{
     cursor: pointer;

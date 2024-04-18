@@ -28,10 +28,10 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
     const navigate = useNavigate();
     const { state, dispatch } = React.useContext(Createcontext);
     const [readopen, setreadopen] = useState('');
-    function textgive(text) {
+    function textgive(text , id) {
         let arrofstr = text?.split(' ');
         let finalstr = ""
-        if (arrofstr?.length >= 100 && readopen) {
+        if (arrofstr?.length >= 100 && readopen !== id) {
 
             for (let i = 0; i < 100; i++) {
                 finalstr += `${arrofstr[i]} `
@@ -88,7 +88,6 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
       }
     }
 
-console.log(AllReview)
 function readmoreopen(id){
     if(readopen === id){
         setreadopen('')
@@ -96,13 +95,14 @@ function readmoreopen(id){
         setreadopen(id)
     }
 }
+console.log(readopen)
     return (
         <React.Fragment>
             <div className='container-fluid'>
                 <div className="row center reviewCardWrapper">
                     {(state.login ? moveObject(AllReview, 'user', state.Profile.id, 0) : AllReview)?.map((ele, index) => {
                         const text = ele?.comment;
-                       console.log(ele.id)
+                        console.log(ele ,'ele')
                         return (
 
                             <div className="w-100 related_review_container" key={index}>
@@ -197,44 +197,63 @@ function readmoreopen(id){
                                         <h3 className='reviews_title'>{ele.Title}</h3>
                                         {textgive(text) &&
                                             <div className='review_description_container'>
-                                              <p>{textgive(text)}   {text?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => readmoreopen(ele.id)}>...Read {ele.id ===readopen ? "More" : "Less"}</span>}</p>
+                                              <p>{textgive(text ,ele.id )}   {text?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => readmoreopen(ele.id)}>...Read {ele.id !==readopen ? "More" : "Less"}</span>}</p>
                                             </div>
                                         }
-
-                                {ele.Reply !== null && "Reply" in ele && ele.Reply !== "" &&
-                                    <div className='container-fluid mx-2 review_reply'>
-                                        <div className="d-flex gap-2">
-                                            <div className="related_img_container">
-                                                <div className="related_review_image">
-                                                    <LazyLoadImage
-                                                        onError={event => {
-                                                            event.target.src = "/image/user.webp"
-                                                            event.onerror = null
-                                                        }}
-                                                        className='realted_review_images'
-                                                        src={`${storeDetails?.Store_Image}`}
-                                                        alt="userImage"
-                                                    />
-                                                </div>
+                                        {
+                                            ele.images.length !== 0 &&  <div className='reviewImagewrapper'>
+                                                {
+                                                    ele.images.map((item)=>{
+                                                         return     <div className='reviewimagebox'>
+                                                                        <img src={item.image} className='reviewImage' alt='image'/>
+                                                                    </div>
+                                                    })
+                                                }
+                                                 {
+                                                    ele.videos.map((item)=>{
+                                                         return     <div className='reviewvideobox'>
+                                                                        <video  autoPlay={true} muted controls src={item.video} className='reviewVideo' alt='image'/>
+                                                                    </div>
+                                                    })
+                                                }
+                                             
                                             </div>
-                                            <div className="related_review_content">
+                                        }
+                                     
+                                        {ele.Reply !== null && "Reply" in ele && ele.Reply !== "" &&
+                                            <div className='container-fluid mx-2 review_reply'>
+                                                <div className="d-flex gap-2">
+                                                    <div className="related_img_container">
+                                                        <div className="related_review_image">
+                                                            <LazyLoadImage
+                                                                onError={event => {
+                                                                    event.target.src = "/image/user.webp"
+                                                                    event.onerror = null
+                                                                }}
+                                                                className='realted_review_images'
+                                                                src={`${storeDetails?.Store_Image}`}
+                                                                alt="userImage"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="related_review_content">
 
-                                                <h3 className='reviews_title'>Response from the Owner</h3>
-                                                <p className='reviews_writer'>{storeDetails?.Store_Name}</p>
-                                                <div className='review_date'>
+                                                        <h3 className='reviews_title'>Response from the Owner</h3>
+                                                        <p className='reviews_writer'>{storeDetails?.Store_Name}</p>
+                                                        <div className='review_date'>
 
-                                                    <p>{calculateTImefromDate(ele?.ReplyTime)}</p>
+                                                            <p>{calculateTImefromDate(ele?.ReplyTime)}</p>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
+                                                <div className='review_description_container'>
+                                                
+                                                    <p>{textgive(ele.Reply , `${ele.id}reply`)}   {ele.Reply?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => {readmoreopen(`${ele.id}reply`)}}>...Read {`${ele.id}reply` !== readopen ? "More" : "Less"}</span>}</p>
+                                                </div>
+
                                             </div>
-
-                                        </div>
-                                        <div className='review_description_container'>
-
-                                            <p>{textgive(ele.Reply)}   {text?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => readmoreopen(ele.id)}>...Read {ele.id !==readopen ? "More" : "Less"}</span>}</p>
-                                        </div>
-
-                                    </div>
-                                }
+                                        }
 
                                 <div className='related_review_footer '>
 

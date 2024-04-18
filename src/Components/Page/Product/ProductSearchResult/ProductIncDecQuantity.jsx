@@ -33,7 +33,7 @@ const style = {
     },
 
     bgcolor: 'background.paper',
-    boxShadow: 24,
+    boxShadow: '0px 0px 15px 0px rgba(255,255,255,1)',
     p: 4,
 };
 
@@ -172,15 +172,13 @@ const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart, setadding, a
                                     items?.Prices[0]?.Price.map((data, index) => {
                                         return (
                                             SelectWeight === data.id &&
-                                            <h2><span className='prod_quant_font'>${parseInt(data.SalePrice * counter)}</span><span className='mx-2   prod_price_font'>/{data.Weight === '' ? "Unit" : data.Weight} </span></h2>
+                                            <h2><span className='prod_price_font'>${parseInt(data.SalePrice * counter)}</span><span className='mx-2 prod_quant_font  '>/ {data.Weight === '' ? "Unit" : data.Weight} </span></h2>
                                         )
 
                                     })
                                 }
 
-                                <Box
-                                    className={` boxWidth ${classes.loadingBtnTextAndBack}`}
-                                >
+                                <Box  className={` boxWidth ${classes.loadingBtnTextAndBack}`} >
                                     {/* <LoadingButton style={{ width: "100%", height: "35px" }} variant="outlined" onClick={() => { AddToCart(items,counter , SelectWeight  , handleClose)  }} >Add to Cart</LoadingButton> */}
                                     {/* {items?.Prices[0].Price[0].Stock !== "IN Stock" ?
                                         <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" }}
@@ -207,7 +205,7 @@ const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart, setadding, a
                                             }
                                             else {
                                                 return (
-                                                    <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" , color:"red" , border: '1px solid red' }} >
+                                                    <LoadingButton className={classes.outofstockbtn} >
                                                         Out of Stock
                                                     </LoadingButton>
                                                 )

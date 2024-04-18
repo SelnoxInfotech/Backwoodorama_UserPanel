@@ -2,16 +2,21 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
 import TextField from '@mui/material/TextField';
+import Tooltip from '@mui/material/Tooltip';
+import IconButton from '@mui/material/IconButton';
+import { RxCross2 } from "react-icons/rx";
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { Forget_password } from "./ForgetApi"
 import ForgetOtp from './ForgetOtp';
 import { Forgot } from '../../Component/ScoPage/CommenpageSeo';
+import { useNavigate } from 'react-router-dom';
 const ForgotPassword = () => {
     const [Otppopup, Setotppopup] = React.useState(false)
     const [Email, SetEmail] = React.useState()
     const classes = useStyles()
     const method = useForm()
+    const navigate = useNavigate();
     const Submit = (data) => {
         Forget_password(data).then((res) => { 
             SetEmail(res?.data.data.Otp_Sent_To)
@@ -40,7 +45,7 @@ const ForgotPassword = () => {
                     </div>
                     <div className='row'>
                         {/* <label htmlFor='EmailUser'>Email</label> */}
-                        <div className='col-lg-12 signup_margins_top_textfield signup_btn_height'>
+                        <div className='col-lg-12 signup_margins_top_textfield '>
                             <TextField
                                 id="EmailUser"
                                 name="email"
@@ -60,7 +65,7 @@ const ForgotPassword = () => {
 
                     </div>
                     <div className='row  signup_margins_top'>
-                        <div className=' col-lg-12 signup_btn_height'>
+                        <div className=' col-lg-12 '>
                             <Box
                                 className={` ${classes.loadingBtnTextAndBack}`}
                             >
@@ -70,7 +75,7 @@ const ForgotPassword = () => {
 
                     </div>
                     <div className='row  signup_margins_top'>
-                        <div className='col-lg-12 signup_btn_height'>
+                        <div className='col-lg-12 '>
                             <Box
                                 className={`  ${classes.Reset_password_canel_loading_btn}`}
                             >
@@ -80,7 +85,13 @@ const ForgotPassword = () => {
 
                     </div>
                 </form>
-
+                <div className='crosslogin'>
+                    <Tooltip title="Back">
+                        <IconButton>
+                            <RxCross2 color={'#000'} size={22}  onClick={()=>{navigate(-1)}}/>
+                        </IconButton>
+                    </Tooltip>
+                </div>
 
 
             </div>

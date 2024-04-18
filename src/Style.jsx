@@ -409,14 +409,16 @@ const useStyles = makeStyles({
     "& .MuiLoadingButton-root": {
       fontSize: "14px",
       width: "100%",
-      height: "38px",
-      borderRadius: "40px",
+      height: "40px",
+      borderRadius: "5px",
       backgroundColor: "#ffff",
       color: "#31B665",
       textTransform: "none",
       border: "2px solid #31B665",
       transition:'none',
-     
+      "& span":{
+
+      }
     },
     "& .MuiButtonBase-root:hover": {
       color: "#ffff",
@@ -652,6 +654,17 @@ const useStyles = makeStyles({
     "& .MuiModal-backdrop":{
       backgroundColor:'#000000ad'
     }
+  },
+  outofstockbtn:{
+    "&.MuiButtonBase-root":{
+      color:'red',
+      border:'1px solid red',
+      "&:hover":{
+        backgroundColor:'red',
+        borderColor:'red',
+      }
+    }
+     
   },
   checAgeEligibiltyHeight: {
     "& .MuiOutlinedInput-root": {

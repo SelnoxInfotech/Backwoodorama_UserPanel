@@ -8,13 +8,13 @@ import useStyles from "../../../../Style";
 import { AiOutlineHeart, AiFillHeart, AiOutlineLeft } from "react-icons/ai"
 import IconButton from '@mui/material/IconButton';
 import ProductIncDecQuantity from "./ProductIncDecQuantity"
+import { MdShoppingCart } from "react-icons/md";
 import PreCheckout from "../PreCheckout/PreCheckout";
 import axios from "axios";
 import Cookies from 'universal-cookie';
 import Createcontext from "../../../../Hooks/Context"
 import './ProductSearchResult.css'
 import _ from "lodash";
-import SkeletonCard from '../../../Component/Skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton'
 import AddToCartPopUp from "../AddToCartPopUp/AddToCartPopUp";
 import { Link } from "react-router-dom";
 import { WishListPost } from "../../../Component/Whishlist/WishListApi_"
@@ -334,14 +334,14 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                             :
 
                                                             items?.Prices[0].Price[0].Stock === "IN Stock" ?
-                                                                <LoadingButton loading={adding === items.id} loadingIndicator={<CircularProgress color="inherit" size={16} />} style={{ width: "100%", height: "30px", fontSize: "14px" }}
-                                                                    onClick={() => { AddToCart(items) }} >
-                                                                    Add To Cart
-                                                                </LoadingButton>
+                                                                    <LoadingButton loading={adding === items.id} loadingIndicator={<CircularProgress color="inherit" size={16} />}
+                                                                        onClick={() => { AddToCart(items) }} >
+                                                                        <span><MdShoppingCart  size={22} /> </span>Add To Cart
+                                                                    </LoadingButton>
                                                                 :
-                                                                <LoadingButton className={`${classes.odsbtn}`} >
-                                                                    Out of Stock
-                                                                </LoadingButton>
+                                                                    <LoadingButton className={`${classes.odsbtn}`} >
+                                                                    <span><MdShoppingCart size={22} /> </span>  Out of Stock
+                                                                    </LoadingButton>
                                                     }
                                                     {
                                                         CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />

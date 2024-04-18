@@ -39,6 +39,7 @@ export default function DispensoriesDetails() {
         value: 0,
         comment: '',
         Title: "",
+        media:[],
         popup: false
     })
     React.useEffect(() => {
@@ -85,7 +86,6 @@ export default function DispensoriesDetails() {
             SetDespensariesProductData(response.data)
         })
     }, [params])
-console.log(state)
     function modifystr(str) {
         str = str?.replace(/[^a-zA-Z0-9/ ]/g, "-");
         str = str?.trim()?.replaceAll(' ', "-");
@@ -107,7 +107,7 @@ console.log(state)
         return str.toLowerCase()
     }
     useEffect(()=>{
-        console.log(reviewtype)
+      
         if(reviewtype === "All"){
             axios.get(`https://api.cannabaze.com/UserPanel/Get-AllAverage/${id}`).then((res) => {
                 SetRating(res.data)
@@ -199,14 +199,6 @@ console.log(state)
 
         }
     }, [reviewtype, id, api])
-    // React.useEffect(() => {
-    //     Store_OverAllGet_Review(id).then((res) => {
-    //         SetRating(res)
-           
-    //     }).catch(() => { })
-    // }, [id, api])
-
-
     React.useEffect(() => {
         if (state.login && state.Profile.id !== undefined && id !== undefined) {
             Store_Get_UserComment(state.Profile.id, id).then((res) => {
@@ -232,14 +224,34 @@ console.log(state)
 
 
     const onSubmit = () => {
-        const Review = {
-            Store: id,
-            rating: GetProductReview.value,
-            Title: GetProductReview.Title,
-            comment: GetProductReview.comment
-        }
+        const formdata = new FormData();
+    let a =GetProductReview?.media?.filter((item)=>{
+        return item?.type.includes('image')
+      })
+    let b =GetProductReview?.media?.filter((item)=>{
+        return item?.type.includes('video')
+  })
+    formdata.append('product' ,id )
+    formdata.append('rating' ,GetProductReview.value )
+    formdata.append('Title' ,GetProductReview.Title )
+    formdata.append('comment' ,GetProductReview.comment )
+    console.log(a)
+    console.log(b)
+    for (let i = 0; i < a.length; i++) {
+      formdata.append('multipleimages', a[i]);
+    }
+    for (let i = 0; i < b.length; i++) {
+      formdata.append('multiplevideos', b[i]);
+    }
+
+        // const Review = {
+        //     Store: id,
+        //     rating: GetProductReview.value,
+        //     Title: GetProductReview.Title,
+        //     comment: GetProductReview.comment
+        // }
         setReviewloading(true)
-        Store_Add_Review(Review).then((res) => {
+        Store_Add_Review(formdata).then((res) => {
             // setOpen(false)
             SetGetProductReview({ ...GetProductReview, 'popup': false })
             SetApi(!api)
