@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import useStyles from "../../../Style";
 import WeedDispansires from "./DispansiresComponent/Weed_Dispansires"
 import Createcontext from "../../../Hooks/Context"
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 function TabPanel(props) {
 
@@ -42,9 +42,9 @@ function a11yProps(index) {
     };
 }
 export default function Dispansires() {
-    const params = useParams()
+    const navigate = useNavigate()
     const Location = useLocation()
-    const { state } = React.useContext(Createcontext)
+    const { state, dispatch } = React.useContext(Createcontext)
     const [value, setValue] = React.useState(0);
     const DispensorShopLocation = [{ name: "Weed Dispensaries in", city: state.Location }]
     const handleChange = (event, newValue) => {
@@ -79,28 +79,56 @@ export default function Dispansires() {
     }
 
     React.useEffect(() => {
-       axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/14`,
-                {
-                    j: 'https://www.weedx.io'+ modifystr(Location.pathname)
-                },
-            ).then((res) => {
-               
+        axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/14`,
+            {
+                j: 'https://www.weedx.io' + modifystr(Location.pathname)
+            },
+        ).then((res) => {
 
-            }).catch((err) => {
-                
-            })
-    }, [Location])
 
+        }).catch((err) => {
+
+        })
+    }, [Location, state])
+
+    function breadcrumCountry(country, state1, city) {
+        if (Boolean(city)) {
+            dispatch({ type: 'route', route: "" })
+            dispatch({ type: 'Location', Location: state.City })
+            navigate(`/weed-dispensaries/in/${modifystr(state.Country.toLowerCase())}/${modifystr(state.State.toLowerCase())}/${modifystr(state.City.toLowerCase())}`)
+        }
+        else if (Boolean(state1)) {
+            dispatch({ type: 'Location', Location: state.State })
+            dispatch({ type: 'City', City: "" })
+            dispatch({ type: 'route', route: "" })
+            navigate(`/weed-dispensaries/in/${modifystr(state.Country)}/${modifystr(state?.State)}`)
+        }
+        else if (Boolean(country)) {
+            dispatch({ type: 'State', State: "" })
+            dispatch({ type: 'City', City: "" })
+            dispatch({ type: 'route', route: "" })
+            dispatch({ type: 'Location', Location: state.Country })
+            navigate(`/weed-dispensaries/in/${modifystr(state.Country.toLowerCase())}/`)
+        }
+
+    }
 
 
     const classes = useStyles()
     return (
         <React.Fragment>
             <div className="container-fluid">
-
                 <div className="row  dispensaries_centers">
                     <div className="col-12  col-md-10 col-sm-12">
-                    
+                        <div>
+
+                            <span onClick={() => navigate("/")}>{"Home"}</span>
+                            {Boolean(state.Country) && <span> {">"} <span onClick={() => breadcrumCountry("Country")}>{state.Country}</span></span>}
+                            {Boolean(state.State) && <span> {">"} <span onClick={() => breadcrumCountry("Country", "state")}>{state.State}</span></span>}
+                            {Boolean(state.City) && <span> {">"} <span onClick={() => breadcrumCountry("Country", "state", "City")}>{state.City}</span></span>}
+                            {Boolean(state.route) && <span> {">"} <span>{state.route}</span></span>}
+                        </div>
+
                         {DispensorShopLocation.map((ele, index) => {
                             return (
                                 <div key={index}>

@@ -2,7 +2,6 @@ import React, { useReducer, createContext } from 'react';
 import Reducer from '../Hooks/Reduser'
 import Cookies from 'universal-cookie';
 import axios from 'axios';
-import CurrentLocation from '../Components/Component/Navbar/Component/CurrentLocation';
 import CheckAgeEligbilityPopup from '../Components/Page/CheckAgeEligblityPopup/CheckAgeEligbilityPopup';
 import CookiesAccept from '../Components/Component/CookiesAccept/CookiesAccept';
 import { WishListget } from '../Components/Component/Whishlist/WishListApi_';
@@ -53,9 +52,9 @@ const initialUser = {
     BeforeCoupoun: "",
 
     // Delivery Address
-    DeliveryCountry:"",
-    DeliveryCity:"",
-    DeliveryState:"",
+    DeliveryCountry: "",
+    DeliveryCity: "",
+    DeliveryState: "",
 
 
 
@@ -93,22 +92,9 @@ function Context(props) {
                 let AllTotal = 0
                 let BeforeCoupoun
                 CarTProduct.map((data) => {
-                    // if (data?.CoupounField !== null) {
-                    //     if (data?.CoupounField.DiscountType !== "Buy X get Y") {
-
-                    //         return AllTotal += parseInt(data?.CoupounField?.price) * data.Cart_Quantity
-                    //     }
-                    //     else {
-                    //         BeforeCoupoun = data?.CoupounField.CustomerGets
-                    //         return AllTotal += parseInt(data?.TotalPrice)
-                    //     }
-
-                    // }
-                    // else {
-                        return AllTotal += parseInt(data?.TotalPrice)
-                    // }
+                    return AllTotal += parseInt(data?.TotalPrice)
                 })
-                dispatch({type:"BeforeCoupoun" , BeforeCoupoun : BeforeCoupoun})
+                dispatch({ type: "BeforeCoupoun", BeforeCoupoun: BeforeCoupoun })
                 dispatch({ type: 'Cart_subTotal', Cart_subTotal: AllTotal })
 
             })
@@ -133,7 +119,7 @@ function Context(props) {
                     return data
 
                 })
-                dispatch({ type: 'WishList', WishList: object })
+                dispatch({ type: 'WishList', WishList:object})
 
 
             }).catch((err) => { });
@@ -170,7 +156,7 @@ function Context(props) {
         StaticImages().then((response) => {
             dispatch({ type: 'StaticImage', StaticImage: response?.data?.data[0] })
         }).catch((error) => {
-            dispatch({ type: 'StaticImage', StaticImage: []})
+            dispatch({ type: 'StaticImage', StaticImage: [] })
             console.trace(error)
         })
     }, [])
@@ -184,8 +170,6 @@ function Context(props) {
             {
                 parseInt(state.Cookies) === 0 && <CookiesAccept></CookiesAccept>
             }
-
-
             {props.children}
         </Createcontext.Provider>
 

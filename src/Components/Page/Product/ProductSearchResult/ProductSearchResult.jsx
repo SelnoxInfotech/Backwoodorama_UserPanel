@@ -176,6 +176,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
             dispatch({ type: 'Cart_subTotal' })
 
         }
+        
     }
   
     React.useEffect(() => {

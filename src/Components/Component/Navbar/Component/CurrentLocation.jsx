@@ -21,6 +21,26 @@ const CurrentLocation = () => {
       Setloca(coords?.longitude)
     }
   }, [coords])
+  function modifystr(str) {
+    str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+    str = str.trim().replaceAll(' ', "-");
+    let a = 0;
+    while (a < 1) {
+        if (str.includes("--")) {
+            str = str.replaceAll("--", "-")
+        } else if (str.includes("//")) {
+            str = str.replaceAll("//", "/")
+        } else if (str.includes("//")) {
+            str = str.replaceAll("-/", "/")
+        } else if (str.includes("//")) {
+            str = str.replaceAll("/-", "/")
+        } else {
+            a++
+        }
+    }
+
+    return str.toLowerCase()
+}
 
   React.useEffect(() => {
     dispatch({ type: 'permission', permission: coords === undefined ? false : true })
@@ -39,19 +59,19 @@ const CurrentLocation = () => {
           dispatch({ type: 'Location', Location: response?.plus_code?.compound_code.slice(9) })
           response?.results?.map((data) => {
             if (data.types.indexOf('country') !== -1) {
-              dispatch({ type: 'Country', Country: data?.formatted_address.replace(/\s/g, '-') })
+              dispatch({ type: 'Country', Country: modifystr(data?.formatted_address.replace(/\s/g, '-')) })
             }
             if (data.types.indexOf('administrative_area_level_1') !== -1) {
               data.address_components.map((state) => {
                 if (state.types.indexOf('administrative_area_level_1') !== -1) {
-                  dispatch({ type: 'State', State: state?.long_name.replace(/\s/g, '-') })
+                  dispatch({ type: 'State', State: modifystr(state?.long_name.replace(/\s/g, '-')) })
                 }
               })
             }
             if (data.types.indexOf('administrative_area_level_3') !== -1) {
               data.address_components.map((city) => {
                 if (city.types.indexOf('administrative_area_level_3') !== -1 || city.types.indexOf('locality') !== -1) {
-                  dispatch({ type: 'City', City: city?.long_name?.replace(/\s/g, '-') })
+                  dispatch({ type: 'City', City: modifystr(city?.long_name?.replace(/\s/g, '-')) })
                 }
               })
             }
@@ -95,7 +115,7 @@ const CurrentLocation = () => {
         }).catch((error) => {
           console.trace(error, 'GeoCode Api')
         })
-  }, [loca, state.DefalutLocation])
+  }, [loca, state.DefalutLocation ])
 
 }
 
