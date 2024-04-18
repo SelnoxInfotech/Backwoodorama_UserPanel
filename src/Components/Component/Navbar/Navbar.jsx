@@ -67,8 +67,6 @@ const Navbar = () => {
   }
 
 
-
-  
   React.useEffect(() => {
     const handleClickOutside = (event) => {
       if (ref.current && !ref.current.contains(event.target)) {
@@ -83,6 +81,7 @@ const Navbar = () => {
     };
   }, [Open, windowSize]);
 
+  
   React.useEffect(() => {
     const handleClickOutsideprofile = (event) => {
       if (profileRef.current && !profileRef.current.contains(event.target)) {

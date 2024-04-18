@@ -31,6 +31,9 @@ import { WhisList } from "../../Component/Whishlist/WhisList";
 import { useLocation, Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { SingleNewsSeo } from "../../Component/ScoPage/NewsSeo.jsx";
+
+
+
 const Blogs = () => {
     const ref = useRef(null)
     const classes = useStyles()
@@ -178,27 +181,28 @@ const Blogs = () => {
             })
     }
 
-    React.useEffect(() => {
-        if(Object.keys(News).length !== 0) {
-            document.title = News?.Meta_title;
-            const ogTitleMeta = document.querySelector('meta[property="og:title"]');
-            if (ogTitleMeta) {
-                ogTitleMeta.setAttribute("content", News?.Meta_title);
-            }
-            const ogDescriptionMeta = document.querySelector('meta[property="og:description"]');
-            if (ogDescriptionMeta) {
-                ogDescriptionMeta.setAttribute("content", News?.Meta_Description);
-            }
-            const ogImageMeta = document.querySelector('meta[property="og:image"]');
-            if (ogImageMeta) {
-                ogImageMeta.setAttribute("content", News?.Image);
-            }
-            const ogUrlMeta = document.querySelector('meta[property="og:url"]');
-            if (ogUrlMeta) {
-                ogUrlMeta.setAttribute("content", window.location.href);
-            }
-        }
-    }, [News]);
+    // React.useEffect(() => {
+    //     if(Object.keys(News).length !== 0) {
+    //         document.title = News?.Meta_title;
+    //         const ogTitleMeta = document.querySelector('meta[property="og:title"]');
+    //         if (ogTitleMeta) {
+    //             ogTitleMeta.setAttribute("content", News?.Meta_title);
+    //         }
+    //         const ogDescriptionMeta = document.querySelector('meta[property="og:description"]');
+    //         if (ogDescriptionMeta) {
+    //             ogDescriptionMeta.setAttribute("content", News?.Meta_Description);
+    //         }
+    //         const ogImageMeta = document.querySelector('meta[property="og:image"]');
+    //         if (ogImageMeta) {
+    //             updateOGImage(News?.Image)
+    //             // ogImageMeta.setAttribute("content", News?.Image);
+    //         }
+    //         const ogUrlMeta = document.querySelector('meta[property="og:url"]');
+    //         if (ogUrlMeta) {
+    //             ogUrlMeta.setAttribute("content", window.location.href);
+    //         }
+    //     }
+    // }, [News]);
     
 
     return (

@@ -107,24 +107,24 @@ export default function DispensoriesDetails() {
         return str.toLowerCase()
     }
     useEffect(()=>{
-      
+        console.log(reviewtype)
         if(reviewtype === "All"){
             axios.get(`https://api.cannabaze.com/UserPanel/Get-AllAverage/${id}`).then((res) => {
                 SetRating(res.data)
-              
+
             }).catch(() => { })
-        }else if(reviewtype === "product"){
+        } else if (reviewtype === "product") {
             axios.get(`https://api.cannabaze.com/UserPanel/Get-AverageofProduct/${id}`).then((res) => {
                 SetRating(res.data)
-               
+
             }).catch(() => { })
-        }else{
+        } else {
             Store_OverAllGet_Review(id).then((res) => {
                 SetRating(res)
-               
+
             }).catch(() => { })
         }
-    },[reviewtype , id, api])
+    }, [reviewtype, id, api])
     function SelectionTab(item) {
 
         navigate(`${location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${modifystr(Despen[0]?.Store_Name.toLowerCase())}/${modifystr(item.toLowerCase())}/${id}`)
@@ -199,6 +199,14 @@ export default function DispensoriesDetails() {
 
         }
     }, [reviewtype, id, api])
+    // React.useEffect(() => {
+    //     Store_OverAllGet_Review(id).then((res) => {
+    //         SetRating(res)
+           
+    //     }).catch(() => { })
+    // }, [id, api])
+
+
     React.useEffect(() => {
         if (state.login && state.Profile.id !== undefined && id !== undefined) {
             Store_Get_UserComment(state.Profile.id, id).then((res) => {
@@ -314,23 +322,30 @@ export default function DispensoriesDetails() {
             })
         }
     }
-    function navigationtab(route, store, tab, id) {
+    function navigationtab(route ,store, id) {
+        if (Boolean(store)) {
 
-       
-        //   navigate(`${route/store/tab}`)
-        if(Boolean(tab)){
-        
+            navigate(`/${route}/${store.toLowerCase()}/${id}`)
         }
-        else if (Boolean(store)){
-         navigate(`/weed-dispensaries/${store}/${params.id}`)
+        else if (Boolean(route)) {
+            if (Boolean(state.City)) {
+                navigate(`/${route}/in/${state.Country.toLowerCase()}/${state.State.toLowerCase()}/${state.City.toLowerCase()}`)
+            }
+            else if (Boolean(state.State)) {
+                navigate(`/${route}/in/${modifystr(state.Country)}/${modifystr(state.State)}`)
+            }
+            else {
+                navigate(`/${(route)}/in/${modifystr(state.Country)}`)
+            }
         }
     }
-   
 
     return (
         <div>
-            <p> {location.pathname.slice(0, 18) === "/weed-dispensaries" &&
-                <div style={{ fontSize: '12px' , cursor : 'pointer'}}> <span >weed-dispensaries</span> / <span onClick={() => navigationtab( "/weed-dispensaries", params.StoreName  )}> {params.StoreName}</span> /  <span> {params?.tab}</span> </div>
+            <p> {(location.pathname.slice(0, 18) === "/weed-dispensaries" ||  location.pathname.slice(0, 16) === "/weed-deliveries")   &&
+                <div style={{ fontSize: '12px' }} > <span style={{ fontSize: '12px', cursor: 'pointer' }} onClick={() => navigationtab("/weed-deliveries")}>weed-dispensaries</span> 
+                {" >"} <span style={{ fontSize: '12px', cursor: 'pointer' }} onClick={() => navigationtab("/weed-deliveries", params.StoreName, id)}> {params.StoreName}</span> 
+                {" >"}  <span> {params?.tab}</span> </div>
             }</p>
             <StoreDetails Despen={Despen} locationStore={useLocation().pathname}></StoreDetails>
             <div className="container-fluid product_container" >

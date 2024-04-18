@@ -72,6 +72,7 @@ const Weed_Dispansires = () => {
 
     return (
         <React.Fragment>
+          
             <DispensariesSco location={useLocation().pathname}></DispensariesSco>
             <div className="">
                 <div className="row">
