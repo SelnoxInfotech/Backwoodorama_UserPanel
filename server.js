@@ -79,7 +79,9 @@ app.get('/cannabis-news/:news?/:postId', async (req, res) => {
         res.status(500).send('Error fetching news post data');
     }
 });
-
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 // Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
