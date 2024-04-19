@@ -203,11 +203,14 @@ const Blogs = () => {
     //         }
     //     }
     // }, [News]);
-    
+    if (!Object.keys(News).length) {
+        return <p>Loading...</p>
+    }
+
 
     return (
         <React.Fragment>
-            <SingleNewsSeo Title={News?.Meta_title} Description={News?.Meta_Description} location={useLocation().pathname}></SingleNewsSeo>
+            <SingleNewsSeo Title={News?.Meta_title} Description={News?.Meta_Description} location={Location.pathname}></SingleNewsSeo>
             <div className="container" >
                 <div className="row mx-1" ref={ref}>
                     <div className="col-12 w-100 row align-items-center justify-content-between blog_searchBar_container px-0">
@@ -222,9 +225,9 @@ const Blogs = () => {
                     <div className="p-0 blogEditorContainer">
                         <div className=" UserNmae_Blog">
                             {/* <div className=""> */}
-                                {/* <div className="Col_BlogUSerIcon"> */}
-                                    {/* <h2>{News?.username?.slice(0, 1)}</h2> */}
-                                {/* </div> */}
+                            {/* <div className="Col_BlogUSerIcon"> */}
+                            {/* <h2>{News?.username?.slice(0, 1)}</h2> */}
+                            {/* </div> */}
                             {/* </div> */}
                             <div className="UserNmae">
                                 {/* <h6>{News?.username}</h6> */}
