@@ -339,6 +339,9 @@ export default function DispensoriesDetails() {
             }
         }
     }
+    if (!Despen.length) {
+        return <p>Loading....</p>
+    }
 
     return (
         <div>
