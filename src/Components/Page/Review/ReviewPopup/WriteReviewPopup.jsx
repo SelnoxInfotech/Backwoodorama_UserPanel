@@ -7,7 +7,6 @@ import { IconButton, Select } from "@mui/material";
 import { Rating } from "@mui/material";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
-
 import '../Review.css'
 import TextField from "@mui/material/TextField";
 import LoadingButton from "@mui/lab/LoadingButton";
@@ -59,7 +58,7 @@ import CustomAlert from "../../../Component/CustomAlert/CustomAlert";
        })
        setisalert(true)
     }else if (event.target.files[0].type.includes('video') && ( event.target.files[0].size < 10*1024*1024) ){
-      console.log(isvideo ,'isvideo')
+    
       if(isvideo){
       
         setalert({

@@ -1,15 +1,21 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { AiFillLike } from "react-icons/ai"
 import { BsStar, BsStarFill } from "react-icons/bs";
-import Button from '@mui/material/Button';
+import Dialog from "@mui/material/Dialog";
+import { RiCloseCircleFill } from "react-icons/ri";
 import { FaEdit } from 'react-icons/fa';
 import { AiFillDelete } from 'react-icons/ai';
+import { Pagination, Navigation } from 'swiper/modules';
 import Select from '@mui/material/Select';
 import IconButton from '@mui/material/IconButton';
 import { AiOutlineLike } from "react-icons/ai";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import { AiTwotoneLike } from "react-icons/ai";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import { MdVerified } from "react-icons/md";
 import Tooltip from '@mui/material/Tooltip';
 import { BsThreeDotsVertical } from "react-icons/bs"
@@ -24,6 +30,12 @@ import Createcontext from "../../../../Hooks/Context"
 const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, HellFull}) => {
     const cookies = new Cookies();
     const token_data = cookies.get('User_Token_access')
+    const [imageopup , setImagepopup] = useState(false)
+    const [sliderdata,setsliderdata]= useState({
+    image:[],
+    video:[],
+    index:0,
+    })
     const classes = useStyles();
     const navigate = useNavigate();
     const { state, dispatch } = React.useContext(Createcontext);
@@ -88,23 +100,28 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
       }
     }
 
-function readmoreopen(id){
-    if(readopen === id){
-        setreadopen('')
-    }else{
-        setreadopen(id)
+    function readmoreopen(id){
+        if(readopen === id){
+            setreadopen('')
+        }else{
+            setreadopen(id)
+        }
     }
-}
-console.log(readopen)
+    function openimageslider(element, type, index ){
+        setImagepopup(true)
+        let a= type==='video' ? element.images.length : index
+            sliderdata.image=element.images
+            sliderdata.video=element.videos
+            sliderdata.index=a
+        console.log(a)
+    }
     return (
         <React.Fragment>
             <div className='container-fluid'>
                 <div className="row center reviewCardWrapper">
                     {(state.login ? moveObject(AllReview, 'user', state.Profile.id, 0) : AllReview)?.map((ele, index) => {
                         const text = ele?.comment;
-                        console.log(ele ,'ele')
                         return (
-
                             <div className="w-100 related_review_container" key={index}>
                                         <p className='reviewdateTexyt'>{calculateTImefromDate(ele.created_at)}</p>
                                         <div className='review_date'>
@@ -203,16 +220,16 @@ console.log(readopen)
                                         {
                                             ele.images.length !== 0 &&  <div className='reviewImagewrapper'>
                                                 {
-                                                    ele.images.map((item)=>{
-                                                         return     <div className='reviewimagebox'>
+                                                    ele.images.map((item , index)=>{
+                                                         return     <div className='reviewimagebox' onClick={()=>openimageslider(ele , 'image' ,index)}>
                                                                         <img src={item.image} className='reviewImage' alt='image'/>
                                                                     </div>
                                                     })
                                                 }
-                                                 {
-                                                    ele.videos.map((item)=>{
-                                                         return     <div className='reviewvideobox'>
-                                                                        <video  autoPlay={true} muted controls src={item.video} className='reviewVideo' alt='image'/>
+                                                {
+                                                    ele.videos.map((item , index)=>{
+                                                         return     <div className='reviewvideobox' >
+                                                                        <video  autoPlay={false} onClick={()=>{ console.log('sdfgsdfg'); openimageslider(ele , 'video' , index)}} muted  src={item.video} className='reviewVideo' alt='video'/>
                                                                     </div>
                                                     })
                                                 }
@@ -220,7 +237,8 @@ console.log(readopen)
                                             </div>
                                         }
                                      
-                                        {ele.Reply !== null && "Reply" in ele && ele.Reply !== "" &&
+                                        {   
+                                            ele.Reply !== null && "Reply" in ele && ele.Reply !== "" &&
                                             <div className='container-fluid mx-2 review_reply'>
                                                 <div className="d-flex gap-2">
                                                     <div className="related_img_container">
@@ -259,7 +277,7 @@ console.log(readopen)
 
                                     <div className='related_review_footer_paragraph ellipsis'  onClick={() =>{  state?.login ? HellFull(ele) : navigate('/login')  }}>
                                             <Badge badgeContent={ele?.count} className={classes.sliderLink_badge}>
-                                             {ele?.helpfull?.includes(state?.Profile?.id) ? <AiTwotoneLike color='#31B655' size={25}/> : <AiOutlineLike color='#31B655' size={25} />} 
+                                               {ele?.helpfull?.includes(state?.Profile?.id) ? <AiTwotoneLike color='#31B655' size={25}/> : <AiOutlineLike color='#31B655' size={25} />} 
                                             </Badge>
                                             
                                     </div>
@@ -272,7 +290,49 @@ console.log(readopen)
                     })}
                 </div>
             </div>
-
+            <Dialog
+        open={imageopup}
+        onClose={()=>{setImagepopup(false)}}
+        className={classes.WriteReviewDialog}
+      >
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-12 writeReviewContainer px-0">
+              <div className="col-12 writeReviewCloseIconContainer">
+                <IconButton onClick={()=>{setImagepopup(false)}} aria-label="closebutton">
+                  <RiCloseCircleFill color="#949494" size={24} />
+                </IconButton>
+              </div>
+              <div className='Reviewimageslidewrapper'>
+                   <Swiper
+                    pagination={{
+                    type: 'fraction',
+                    }}
+                    initialSlide={sliderdata.index}
+                    navigation={true}
+                    modules={[Pagination, Navigation]}
+                    className="mySwiper"
+                   >
+                    {
+                        sliderdata?.image?.map((item , index)=>{
+                            console.log(index)
+                            return  <SwiperSlide> <div className='Reviewimageslidebox'><img src={item.image} alt='image'/></div></SwiperSlide>
+                        })
+                    }
+                     {
+                        sliderdata?.video?.map((item, index )=>{
+                            console.log(index)
+                            return  <SwiperSlide> <div className='Reviewimageslidebox'>  <video  autoPlay={true} muted controls src={item.video} className='reviewVideo' alt='video'/></div></SwiperSlide>
+                        })
+                    }
+                        {/* <SwiperSlide> <div className='Reviewimageslidebox'></div></SwiperSlide> */}
+                        
+                   </Swiper>
+             </div>
+            </div>
+          </div>
+        </div>
+      </Dialog >
         </React.Fragment>
     )
 }

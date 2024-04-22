@@ -412,11 +412,12 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                                                                             </div>
                                                                             {
                                                                                 SubCategory?.map((SubCategory) => {
+                                                                                    console.log(data)
                                                                                     return (
                                                                                         SubCategory.CatgoryId === data.id
                                                                                         &&
                                                                                         <div onClick={() => { FilterSubCategorydata(SubCategory.id, SubCategory.SubCategory_name, data.name, SubCategory.Store_id) }} className="col-10 px-2 py-0 product_sub_category_dropDown_cursor"  >
-                                                                                            <input type="checkbox" id={data.name} name={data.name} value={data.name} />  <label htmlFor={data.name}>{SubCategory.SubCategory_name}</label>
+                                                                                            <input type="radio" id={SubCategory.SubCategory_name} name={data.name} value={SubCategory.SubCategory_name} />  <label htmlFor={SubCategory.SubCategory_name}>{SubCategory.SubCategory_name}</label>
                                                                                         </div>
                                                                                     )
                                                                                 })

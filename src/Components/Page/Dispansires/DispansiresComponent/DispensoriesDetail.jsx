@@ -350,7 +350,7 @@ export default function DispensoriesDetails() {
                 {" >"} <span style={{ fontSize: '12px', cursor: 'pointer' }} onClick={() => navigationtab("/weed-deliveries", params.StoreName, id)}> {params.StoreName}</span> 
                 {" >"}  <span> {params?.tab}</span> </div>
             }</p>
-            <StoreDetails Despen={Despen} locationStore={useLocation().pathname}></StoreDetails>
+            <StoreDetails Despen={Despen} locationStore={location.pathname}></StoreDetails>
             <div className="container-fluid product_container" >
                 <NewFlavourBanner delBtn={Despen}></NewFlavourBanner>
                 <div className="row">

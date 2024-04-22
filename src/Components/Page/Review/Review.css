@@ -238,6 +238,44 @@
     background-color: hsla(229, 21%, 85%, 0.2);
     gap: 10px;
   }
+  .Reviewimageslidewrapper .mySwiper{
+   height: unset !important;
+  }
+  .Reviewimageslidewrapper .mySwiper .swiper-slide{
+    min-height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .Reviewimageslidewrapper .mySwiper .Reviewimageslidebox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 30px;
+    height: 100%;
+  }
+  .Reviewimageslidewrapper .mySwiper .swiper-button-prev, .Reviewimageslidewrapper .mySwiper .swiper-button-next {
+    position: absolute;
+    width: 50px;
+    height:50px ;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    z-index: 10;
+    color: #31B655;
+}
+.Reviewimageslidewrapper .mySwiper .swiper-button-prev:after,   .Reviewimageslidewrapper .mySwiper .swiper-button-next:after {
+  font-size:24px;
+  font-weight: 700;
+}
+  .Reviewimageslidewrapper .mySwiper .Reviewimageslidebox img{
+    max-width: 100%;
+
+  }
+  .Reviewimageslidewrapper .mySwiper .Reviewimageslidebox video{
+    max-width: 100%;
+  }
    @media screen and (max-width: 1024px){
        .reviews_title{
         font-size: 18px;
