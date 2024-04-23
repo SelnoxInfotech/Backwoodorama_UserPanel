@@ -1468,16 +1468,14 @@ const useStyles = makeStyles({
       height: "30px",
        fontSize: "14px" ,
        color:"red" ,
-        border: '1px solid red',
-        borderRadius:'30px',
+        border: '2px solid red',
+        borderRadius:'4px',
     },
     "&.MuiButtonBase-root:hover":{
-        backgroundColor:'#fff',
-        color:"red" ,
-        border: '1px solid red',
-        borderRadius:'30px',
+        backgroundColor:'red',
+        color:"#fff" ,
+        border: '2px solid red',
     }
-   
   },
   faqbox:{
    "&.MuiPaper-root":{

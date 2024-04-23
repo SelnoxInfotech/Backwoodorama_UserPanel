@@ -205,7 +205,7 @@ const Login = () => {
 
                             </div>
                             <div className='w-100 text-center my-2 '>
-                                <h5 className='login_bottom'>New To weedx ?</h5> 
+                                <h2 className='login_bottom'>New To weedx ?</h2> 
                                 <Link className='signInfo' to={'/signup'}><span>Create your Weedx Account</span></Link>
                             </div>
                             <div className='crosslogin'>
