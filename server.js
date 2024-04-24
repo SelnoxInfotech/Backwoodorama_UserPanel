@@ -67,18 +67,70 @@ app.get('/cannabis-news/:news?/:postId', async (req, res) => {
         // Make API call to fetch news post data including OG image URL
         const response = await axios.get(`https://api.cannabaze.com/UserPanel/Get-GetNewsById/${postId}`);
         const postData = response.data[0]; // Assuming response is an array
-        
+
         // Generate dynamic meta tags and title
         const ogImageMetaTag = `<meta property="og:image" content="${postData.Image}">`;
 
         let indexHtml = fs.readFileSync(path.resolve(__dirname, 'build', 'index.html'), 'utf-8');
-        indexHtml = indexHtml.replace(/<meta\s+property="og:image"\s+content="[^"]*">/, ogImageMetaTag); 
+        indexHtml = indexHtml.replace(/<meta\s+property="og:image"\s+content="[^"]*">/, ogImageMetaTag);
         res.send(indexHtml);
     } catch (error) {
         // console.error('Error fetching news post data:', error);
         res.status(500).send('Error fetching news post data');
     }
 });
+app.get("/Sitemap/:category", async (req, res) => {
+    switch (req.url) {
+        case "/Sitemap/weed-dispensaries.xml":
+            const response1 = await axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/14`);
+            if (response1.data[0].Xml) {
+
+                const sitemapXmll = `<?xml version="1.0" encoding="UTF-8"?>
+          <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            ${response1.data[0].Xml.map((url) => `
+              <url>
+                <loc>${url}</loc>
+                <changefreq>daily</changefreq>
+                <priority>0.7</priority>
+              </url>
+            `).join('')}
+          </urlset>`;
+                res.setHeader('Content-Type', 'text/xml');
+                res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
+                res.write(sitemapXmll);
+                res.end();
+                //   fs.writeFileSync('./build/Sitemap/weed-dispensaries.xml', sitemapXmll);
+            }
+            break;
+        case "/Sitemap/weed-deliveries.xml":
+            const response2 = await axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/11`);
+
+            if (response2.data[0].Xml) {
+
+                const sitemapXmll = `<?xml version="1.0" encoding="UTF-8"?>
+          <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            ${response2.data[0].Xml.map((url) => `
+              <url>
+                <loc>${url}</loc>
+                <changefreq>daily</changefreq>
+                <priority>0.7</priority>
+              </url>
+            `).join('')}
+          </urlset>`;
+                res.setHeader('Content-Type', 'text/xml');
+                res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
+                res.write(sitemapXmll);
+                res.end();
+                //   fs.writeFileSync('./build/Sitemap/weed-dispensaries.xml', sitemapXmll);
+            }
+            break;
+        // additional cases as needed
+        default:
+        // code block executed if expression doesn't match any case
+    }
+})
+
+
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "build", "index.html"));
 });

@@ -11,6 +11,7 @@ import { Delivery } from '../../../../Component/ScoPage/Deliveries';
 import { GetAllDelivery } from "../../../../../Api/Api"
 import { useLocation } from 'react-router-dom';
 const DeliveryMenuBar = () => {
+    const location =  useLocation()
     const { state } = React.useContext(Createcontext)
     const [Deliverie, SetDelivery] = React.useState([])
     React.useEffect(() => {
@@ -32,7 +33,7 @@ const DeliveryMenuBar = () => {
     return (
         <React.Fragment>
             <div className="col-lg-12 col-11 delivery_menuBar_container px-0 mt-4">
-                <Delivery location={useLocation().pathname}></Delivery>
+                <Delivery location={location.pathname}></Delivery>
                 <Box className={``} sx={{ width: '100%', typography: 'body1', }}>
                     <TabContext value={value}>
                         <Box className={`${classes.open_dispensory_tab_background} ${classes.open_dispensory_tab}`} sx={{ borderBottom: 1, borderColor: 'divider' }}>

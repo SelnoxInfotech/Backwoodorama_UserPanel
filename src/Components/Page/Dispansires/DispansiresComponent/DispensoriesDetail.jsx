@@ -16,7 +16,7 @@ import CategoryProduct from "../../Home/Dashboard/ComponentDashboard/CategoryPro
 import ComponentStoreDetails from "../../StoreDetail/ComponentStoreDetails"
 import { AiOutlineDeploymentUnit } from "react-icons/ai";
 import { ProductHelpFull } from '../../Product/ProductApi'
-import Review from "../../Review/Review";
+import Review from "../../../Component/Review/Review";
 import { StoreDetails } from "../../../../Components/Component/ScoPage/StoreDetails"
 import { Store_Add_Review, Store_OverAllGet_Review, Store_Get_UserComment, Store_Get_Review, Delete_StoreReview, StoreHelpFull } from "../../../../Api/Api";
 import Createcontext from "../../../../Hooks/Context"
@@ -350,7 +350,7 @@ export default function DispensoriesDetails() {
                 {" >"} <span style={{ fontSize: '12px', cursor: 'pointer' }} onClick={() => navigationtab("/weed-deliveries", params.StoreName, id)}> {params.StoreName}</span> 
                 {" >"}  <span> {params?.tab}</span> </div>
             }</p>
-            <StoreDetails Despen={Despen} locationStore={location.pathname.pathname}></StoreDetails>
+            <StoreDetails Despen={Despen} locationStore={location.pathname}></StoreDetails>
             <div className="container-fluid product_container" >
                 <NewFlavourBanner delBtn={Despen}></NewFlavourBanner>
                 <div className="row">

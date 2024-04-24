@@ -6,7 +6,7 @@ import ProductSearchResult from "../ProductSearchResult/ProductSearchResult"
 import Axios from "axios";
 import style from "../../../../Style"
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
-import Review from "../../Review/Review"
+import Review from "../../../Component/Review/Review"
 import { AiOutlineLeft } from "react-icons/ai";
 import { ProductDetailsSeo } from "../../../Component/ScoPage/ProductSeo"
 import { product_OverAllGet_Review, Product_Add_Review, Product_Get_UserComment, Product_Get_Review, Delete_Review, ProductHelpFull } from "../ProductApi"

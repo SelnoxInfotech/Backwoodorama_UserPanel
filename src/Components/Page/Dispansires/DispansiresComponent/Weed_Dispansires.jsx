@@ -8,6 +8,7 @@ import { DespensioriesItem } from '../../../../Api/Api';
 import { DispensariesSco } from "../../../Component/ScoPage/DispensariesSco"
 import Createcontext from "../../../../Hooks/Context"
 const Weed_Dispansires = () => {
+    const locaton = useLocation()
     const classes = useStyles()
     const [Store, SetStore] = React.useState([])
     const [Search, SetSearch] = React.useState([])
@@ -73,7 +74,7 @@ const Weed_Dispansires = () => {
     return (
         <React.Fragment>
           
-            <DispensariesSco location={useLocation().pathname}></DispensariesSco>
+            <DispensariesSco location={locaton.pathname}></DispensariesSco>
             <div className="">
                 <div className="row">
                     <div className="col-xl-4 col-lg-6 col-md-8 col-sm-10 col-12 dispensories_main_container">
