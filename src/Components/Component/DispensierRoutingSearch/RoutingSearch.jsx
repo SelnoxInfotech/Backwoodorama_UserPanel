@@ -5,7 +5,6 @@ export default function RoutingSearch({ city, State, country, pathname, route })
   const { state, dispatch } = React.useContext(Createcontext)
   const navigate = useNavigate()
   React.useEffect(() => {
-
     if (route !== undefined) {
       location(route + " " + city + " " + State + " " + country, "route")
     }
@@ -22,15 +21,15 @@ export default function RoutingSearch({ city, State, country, pathname, route })
         location(city + " " + State + " " + country, "city")
       }
     }
+    dispatch({ type: 'permission', permission: true })
   }, [])
 
 
-  function location(value, type) {
-
+  async function location(value, type) {
     // var ci, sta, Coun , route;    
     fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
       .then(res => res.json())
-      .then(response => {
+      .then(async response => {
         var Coun;
         var sta;
         var ci;
@@ -43,50 +42,43 @@ export default function RoutingSearch({ city, State, country, pathname, route })
         }
         else {
           if (response?.results?.length !== 0) {
-            dispatch({ type: 'permission', permission: true })
-            dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address })
+            await dispatch({ type: 'permission', permission: true });
+            await dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address })
+            const firstResult = response.results[0];
+            const addressComponents = firstResult.address_components || [];
 
-            response?.results[0]?.address_components?.map((data) => {
-              if (data.types.indexOf('country') !== -1) {
-                Coun = data?.long_name?.replace(/\s/g, '-')
-                return dispatch({ type: 'Country', Country: data?.long_name?.replace(/\s/g, '-') })
+            const locationPromises = addressComponents.map(async (data) => {
+              switch (true) {
+                case data.types.includes('country'):
+                  Coun = data.long_name.replace(/\s/g, '-');
+                  await dispatch({ type: 'Country', Country: Coun });
+                  break;
+                case data.types.includes('administrative_area_level_1'):
+                  sta = data.long_name.replace(/\s/g, '-');
+                  await dispatch({ type: 'State', State: sta });
+                  break;
+                case data.types.includes('locality') || data.types.includes('administrative_area_level_3') || data.types.includes('postal_town') || data.types.includes('sublocality'):
+                  ci = data.long_name.replace(/\s/g, '-');
+                  await dispatch({ type: 'City', City: ci })
+                  break;
+                case data.types.includes('route') || data.types.includes('sublocality_level_2') || data.types.includes('establishment'):
+                  route = data.long_name.replace(/\s/g, '-');
+                  await dispatch({ type: 'route', route: route });
+                  break;
+                case !ci && (data.types.includes('administrative_area_level_2') || data.types.includes('political')):
+                  ci = data.long_name.replace(/\s/g, '-');
+                  await dispatch({ type: 'City', City: ci });
+                  break;
               }
-              if (data.types.indexOf('administrative_area_level_1') !== -1) {
-                sta = data?.long_name?.replace(/\s/g, '-')
-                return dispatch({ type: 'State', State: data?.long_name?.replace(/\s/g, '-') })
-              } else {
-                dispatch({ type: 'State', State: '' })
-              }
-              if ((data.types.indexOf('locality') !== -1 && data.types.indexOf('administrative_area_level_3' !== -1)) || data.types.indexOf("postal_town") !== -1
-                || data.types.indexOf('sublocality') !== -1) {
-                ci = data?.long_name?.replace(/\s/g, '-')
-                dispatch({ type: 'City', City: data?.long_name?.replace(/\s/g, '-') })
-              } else {
-                if (ci === undefined)
-                  dispatch({ type: 'City', City: '' })
-              }
-              if (data.types.indexOf('route') !== -1 || data.types.indexOf('sublocality_level_2') !== -1 || data.types.indexOf("establishment") !== -1) {
-                route = data?.long_name?.replace(/\s/g, '-')
-                dispatch({ type: 'route', route: data?.long_name?.replace(/\s/g, '-') })
-              } else {
-                dispatch({ type: 'route', route: '' })
-              }
-              if (ci === undefined) {
-                if (data.types.indexOf('administrative_area_level_2') !== -1 || data.types.indexOf('political') !== -1) {
-                  ci = data?.long_name.replace(/\s/g, '-')
-                  dispatch({ type: 'City', City: data?.long_name.replace(/\s/g, '-') })
-                } else {
-                  dispatch({ type: 'City', City: '' })
-                }
-              }
+            });
 
-            })
-
+            await Promise.all(locationPromises);
           }
           else {
-            fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${type === 'city' ? state : type === "state" && country}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
+            fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${type === 'city' ? city + " " + State + " " + country : type === "state" && country}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
               .then(res => res.json())
               .then(response => {
+                console.log(esponse?.results)
                 if (response?.results?.length !== 0) {
                   dispatch({ type: 'permission', permission: true })
                   dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address })
@@ -238,8 +230,5 @@ export default function RoutingSearch({ city, State, country, pathname, route })
         console.trace(error)
       })
   }
-
-
-
 
 } 

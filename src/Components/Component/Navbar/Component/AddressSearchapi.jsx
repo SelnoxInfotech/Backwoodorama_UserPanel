@@ -24,8 +24,6 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
   const navigate = useNavigate();
   const [formatted_address, Setformatted_address] = React.useState('')
   const { state, dispatch } = React.useContext(Createcontext)
-  // let dropdwondata  = placePredictions
-  const [dropdwondata, Setdropwondata] = React.useState([])
   React.useEffect(() => {
     Setformatted_address(state?.Location)
   }, [state])
@@ -134,9 +132,9 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
   }
   const [open, setOpen] = React.useState(false);
 
-  React.useEffect(() => {
-    Setdropwondata(placePredictions)
-  }, [placePredictions])
+  // React.useEffect(() => {
+  //   Setdropwondata(placePredictions)
+  // }, [])
 
   function current(event) {
     navigator.permissions.query({ name: 'geolocation' }).then(permissionStatus => {

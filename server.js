@@ -54,38 +54,61 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
-
+const multer = require('multer');
 const app = express();
+const csv = require('csv-parser');
 
 // Middleware to serve static files
 app.use(express.static(path.resolve(__dirname, 'build')));
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+function modifystr(str) {
 
+  str = str?.replace(/[^a-zA-Z0-9/ ]/g, "-");
+  str = str?.trim().replaceAll(' ', "-");
+  let a = 0;
+  while (a < 1) {
+    if (str?.includes("--")) {
+      str = str?.replaceAll("--", "-")
+    } else if (str?.includes("//")) {
+      str = str?.replaceAll("//", "/")
+    } else if (str?.includes("//")) {
+      str = str?.replaceAll("-/", "/")
+    } else if (str?.includes("//")) {
+      str = str?.replaceAll("/-", "/")
+    } else {
+      a++
+    }
+  }
+
+  return str?.toLowerCase()
+}
 // API endpoint to fetch news post data
 app.get('/cannabis-news/:news?/:postId', async (req, res) => {
-    const postId = req.params.postId;
-    try {
-        // Make API call to fetch news post data including OG image URL
-        const response = await axios.get(`https://api.cannabaze.com/UserPanel/Get-GetNewsById/${postId}`);
-        const postData = response.data[0]; // Assuming response is an array
+  const postId = req.params.postId;
+  try {
+    // Make API call to fetch news post data including OG image URL
+    const response = await axios.get(`https://api.cannabaze.com/UserPanel/Get-GetNewsById/${postId}`);
+    const postData = response.data[0]; // Assuming response is an array
 
-        // Generate dynamic meta tags and title
-        const ogImageMetaTag = `<meta property="og:image" content="${postData.Image}">`;
+    // Generate dynamic meta tags and title
+    const ogImageMetaTag = `<meta property="og:image" content="${postData.Image}">`;
 
-        let indexHtml = fs.readFileSync(path.resolve(__dirname, 'build', 'index.html'), 'utf-8');
-        indexHtml = indexHtml.replace(/<meta\s+property="og:image"\s+content="[^"]*">/, ogImageMetaTag);
-        res.send(indexHtml);
-    } catch (error) {
-        // console.error('Error fetching news post data:', error);
-        res.status(500).send('Error fetching news post data');
-    }
+    let indexHtml = fs.readFileSync(path.resolve(__dirname, 'build', 'index.html'), 'utf-8');
+    indexHtml = indexHtml.replace(/<meta\s+property="og:image"\s+content="[^"]*">/, ogImageMetaTag);
+    res.send(indexHtml);
+  } catch (error) {
+    // console.error('Error fetching news post data:', error);
+    res.status(500).send('Error fetching news post data');
+  }
 });
 app.get("/Sitemap/:category", async (req, res) => {
-    switch (req.url) {
-        case "/Sitemap/weed-dispensaries.xml":
-            const response1 = await axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/14`);
-            if (response1.data[0].Xml) {
+  switch (req.url) {
+    case "/Sitemap/weed-dispensaries.xml":
+      const response1 = await axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/14`);
+      if (response1.data[0].Xml) {
 
-                const sitemapXmll = `<?xml version="1.0" encoding="UTF-8"?>
+        const sitemapXmll = `<?xml version="1.0" encoding="UTF-8"?>
           <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
             ${response1.data[0].Xml.map((url) => `
               <url>
@@ -95,19 +118,19 @@ app.get("/Sitemap/:category", async (req, res) => {
               </url>
             `).join('')}
           </urlset>`;
-                res.setHeader('Content-Type', 'text/xml');
-                res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
-                res.write(sitemapXmll);
-                res.end();
-                //   fs.writeFileSync('./build/Sitemap/weed-dispensaries.xml', sitemapXmll);
-            }
-            break;
-        case "/Sitemap/weed-deliveries.xml":
-            const response2 = await axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/11`);
+        res.setHeader('Content-Type', 'text/xml');
+        res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
+        res.write(sitemapXmll);
+        res.end();
+        //   fs.writeFileSync('./build/Sitemap/weed-dispensaries.xml', sitemapXmll);
+      }
+      break;
+    case "/Sitemap/weed-deliveries.xml":
+      const response2 = await axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/11`);
 
-            if (response2.data[0].Xml) {
+      if (response2.data[0].Xml) {
 
-                const sitemapXmll = `<?xml version="1.0" encoding="UTF-8"?>
+        const sitemapXmll = `<?xml version="1.0" encoding="UTF-8"?>
           <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
             ${response2.data[0].Xml.map((url) => `
               <url>
@@ -117,25 +140,209 @@ app.get("/Sitemap/:category", async (req, res) => {
               </url>
             `).join('')}
           </urlset>`;
-                res.setHeader('Content-Type', 'text/xml');
-                res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
-                res.write(sitemapXmll);
-                res.end();
-                //   fs.writeFileSync('./build/Sitemap/weed-dispensaries.xml', sitemapXmll);
-            }
-            break;
-        // additional cases as needed
-        default:
-        // code block executed if expression doesn't match any case
-    }
+        res.setHeader('Content-Type', 'text/xml');
+        res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
+        res.write(sitemapXmll);
+        res.end();
+        //   fs.writeFileSync('./build/Sitemap/weed-dispensaries.xml', sitemapXmll);
+      }
+      break;
+    case "/Sitemap/news.xml":
+      const response3 = await axios.get(`https://api.cannabaze.com/UserPanel/Get-News/`);
+      if (response3) {
+        const sitemapXmll = `<?xml version="1.0" encoding="UTF-8"?>
+          <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            ${response3.data.map((url) => `
+              <url>
+                <loc>${`${"https://www.weedx.io/cannabis-news"}/${modifystr(url.Title)}/${url.id}`}</loc>
+                <changefreq>daily</changefreq>
+                <priority>0.7</priority>
+              </url>
+            `).join('')}
+          </urlset>`;
+        res.setHeader('Content-Type', 'text/xml');
+        res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
+        res.write(sitemapXmll);
+        res.end();
+      }
+      break
+    // additional cases as needed
+    default:
+    // code block executed if expression doesn't match any case
+  }
 })
+// app.post('/upload-csv', upload.single('csvFile'), (req, res) => {
+//   try {
+//     // Check if a file is uploaded
+//     if (!req.file) {
+//       res.status(400).send('No CSV file uploaded');
+//       return;
+//     }
 
+//     // Parse CSV data into JSON
+//     let jsonData = [];
+//     req.file.buffer
+//       .toString('utf8')
+//       .split('\n')
+//       .forEach((line, index) => {
+//         // Skip empty lines
+//         if (!line.trim()) return;
+
+//         // Split the line into columns
+//         const columns = line.split(',');
+//         // Create an object for each row
+//         const rowObject = {
+//           country: columns[0].trim(),
+//           state: columns[1].trim(),
+//           city: columns[2].trim()
+//         };
+
+//         // Add row object to JSON data
+//         jsonData.push(rowObject);
+//       });
+//     // Log parsed JSON data
+//     console.log(jsonData.slice(1));
+//     jsonData.slice(1).forEach((data) => {
+//       console.log(data.country, "map")
+//       axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/20`,
+//         {
+//           j: `"https://www.weedx.io"/${modifystr(data.country)}/${modifystr(data.state)}/${modifystr(data.city)}`
+//         },
+//       ).then((resdata) => {
+//        console.log(resdata)
+
+//       }).catch((err) => {
+//       })
+//     })
+
+//     res.status(200).send('CSV file received and parsed successfully');
+//   } catch (error) {
+//     console.error('Error processing CSV file:', error);
+//     res.status(500).send('Internal Server Error');
+//   }
+// });
+
+app.post('/weed-dispensaries/upload-csv', upload.single('csvFile'), async (req, res) => {
+  try {
+    // Check if a file is uploaded
+    if (!req.file) {
+      res.status(400).send('No CSV file uploaded');
+      return;
+    }
+
+    // Parse CSV data into JSON
+    const jsonData = req.file.buffer
+      .toString('utf8')
+      .split('\n')
+      .map((line, index) => {
+        // Skip empty lines
+        if (!line.trim()) return null;
+
+        // Split the line into columns
+        const columns = line.split(',');
+
+        // Skip headers (assuming they are in the first row)
+        if (index === 0) return null;
+
+        // Create an object for each row
+        return {
+          country: columns[0].trim(),
+          state: columns[1].trim(),
+          city: columns[2].trim()
+        };
+      })
+      .filter(row => row !== null); // Remove null entries (headers or empty lines)
+
+    // Log parsed JSON data
+
+    // Array to store all HTTP request promises
+    const requestPromises = [];
+
+    // Send HTTP requests for each row of data
+    jsonData.forEach(data => {
+      const requestPromise = axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/14`, {
+        j: `https://www.weedx.io/weed-dispensaries/in/${modifystr(data.country)}/${modifystr(data.state)}/${modifystr(data.city)}`
+      })
+      .then(response => {
+      })
+      .catch(error => {
+        console.error('Error making HTTP request:', error);
+      });
+      requestPromises.push(requestPromise);
+    });
+    await Promise.all(requestPromises);
+
+    // Send the response after all requests have completed
+    res.status(200).send('CSV file received and processed successfully');
+  } catch (error) {
+    console.error('Error processing CSV file:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+app.post('/weed-deliveries/upload-csv', upload.single('csvFile'), async (req, res) => {
+  try {
+    // Check if a file is uploaded
+    if (!req.file) {
+      res.status(400).send('No CSV file uploaded');
+      return;
+    }
+
+    // Parse CSV data into JSON
+    const jsonData = req.file.buffer
+      .toString('utf8')
+      .split('\n')
+      .map((line, index) => {
+        // Skip empty lines
+        if (!line.trim()) return null;
+
+        // Split the line into columns
+        const columns = line.split(',');
+
+        // Skip headers (assuming they are in the first row)
+        if (index === 0) return null;
+
+        // Create an object for each row
+        return {
+          country: columns[0].trim(),
+          state: columns[1].trim(),
+          city: columns[2].trim()
+        };
+      })
+      .filter(row => row !== null); // Remove null entries (headers or empty lines)
+
+    // Log parsed JSON data
+
+    // Array to store all HTTP request promises
+    const requestPromises = [];
+
+    // Send HTTP requests for each row of data
+    jsonData.forEach(data => {
+      const requestPromise = axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/11`, {
+        j: `https://www.weedx.io/weed-deliveries/in/${modifystr(data.country)}/${modifystr(data.state)}/${modifystr(data.city)}`
+      })
+      .then(response => {
+      })
+      .catch(error => {
+        console.error('Error making HTTP request:', error);
+      });
+      requestPromises.push(requestPromise);
+    });
+    await Promise.all(requestPromises);
+
+    // Send the response after all requests have completed
+    res.status(200).send('CSV file received and processed successfully');
+  } catch (error) {
+    console.error('Error processing CSV file:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
 
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "build", "index.html"));
+  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 // Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });

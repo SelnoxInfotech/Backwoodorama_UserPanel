@@ -1,5 +1,5 @@
 
-const reducer = (state, action) => {
+const reducer = (state, action) => {  
   switch (action.type) {
     case 'Login':
       return { ...state, login: action.login }

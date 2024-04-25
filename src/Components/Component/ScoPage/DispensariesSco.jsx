@@ -2,7 +2,6 @@ import { Helmet } from 'react-helmet-async';
 import Createcontext from "../../../Hooks/Context"
 import React from "react"
 function DispensariesSco({location}) {
-    console.log(location)
     const { state } = React.useContext(Createcontext)
     return (
         <Helmet>
