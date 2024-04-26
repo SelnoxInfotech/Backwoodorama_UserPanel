@@ -78,7 +78,6 @@ export default function RoutingSearch({ city, State, country, pathname, route })
             fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${type === 'city' ? city + " " + State + " " + country : type === "state" && country}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
               .then(res => res.json())
               .then(response => {
-                console.log(esponse?.results)
                 if (response?.results?.length !== 0) {
                   dispatch({ type: 'permission', permission: true })
                   dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address })
@@ -139,7 +138,7 @@ export default function RoutingSearch({ city, State, country, pathname, route })
                           if (data.types.indexOf('administrative_area_level_3') !== -1) {
                             if (data.types.indexOf('administrative_area_level_3') !== -1 || data.types.indexOf('locality') !== -1) {
                               dispatch({ type: 'City', City: data?.long_name?.replace(/\s/g, '-') })
-                              ci = data?.long_name.replace(/\s/g, '-')
+                              ci = data?.long_name.replace(/\s/g, '-').toLowerCase()
 
                             }
                           }

@@ -117,7 +117,7 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
         }
     }
 
-    return str.toLowerCase()
+    return str
 }
 
 
