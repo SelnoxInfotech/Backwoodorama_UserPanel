@@ -48,6 +48,7 @@ import Cookiespolicy from "../Components/Page/Cookiespolicy/Cookiespolicy.jsx"
 import Termsconditions from '../Components/Page/Termsconditions/Termsconditions.jsx'
 import MyLocationSearch from "../Components/Component/Navbar/Component/locationFuntion"
 import Layout1 from '../Layout1/Layout1.jsx'
+import sitemap from "../Components/Page/websitemap/sitemap.jsx";
 const routesConfig = [
  
   {
@@ -209,6 +210,10 @@ const routesConfig = [
       {
         path: "/privacy-policy",
         element: <RoutingList Component={Privatepolicy} ></RoutingList>
+      },
+      {
+        path: "/sitemap",
+        element: <RoutingList Component={sitemap} ></RoutingList>
       },
       // blogs
       {

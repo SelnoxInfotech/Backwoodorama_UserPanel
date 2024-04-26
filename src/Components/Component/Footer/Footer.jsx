@@ -40,7 +40,7 @@ const Footer = () => {
                         <div className="row main_content_logo">
                             <div className=" footer_logo_container">
                                 <div className="footerLogo">
-                                    <LazyLoadImage className="footer_logo_image" src={state?.StaticImage?.Logo  } alt="weedx.io logo" />
+                                    <LazyLoadImage className="footer_logo_image" src={state?.StaticImage?.Logo} alt="weedx.io logo" />
                                 </div>
 
                                 <div className="contact_info">
@@ -59,12 +59,12 @@ const Footer = () => {
                             <div className="footer_list">
                                 <ol className="footer_main_list">
                                     <p className="footer_menu_heading">About</p>
-                                 
-                                            <Link to={'/aboutus'}><li className="footer_li text-capitalize ellipsis">About Us</li></Link>
-                                            <Link to={'/faq'}><li className="footer_li ellipsis">FAQ's</li></Link>
-                                            <Link to={'/helpcenter'}><li className="footer_li text-capitalize ellipsis">Help Center</li></Link>
-                                          
-                                      <Link to={`/cannabis-news`}>
+
+                                    <Link to={'/aboutus'}><li className="footer_li text-capitalize ellipsis">About Us</li></Link>
+                                    <Link to={'/faq'}><li className="footer_li ellipsis">FAQ's</li></Link>
+                                    <Link to={'/helpcenter'}><li className="footer_li text-capitalize ellipsis">Help Center</li></Link>
+
+                                    <Link to={`/cannabis-news`}>
                                         <li className="footer_li text-capitalize ellipsis" >All News</li>
                                     </Link>
                                 </ol>
@@ -101,7 +101,7 @@ const Footer = () => {
                                     <Link to={`https://cannabaze.com/signup`}>
                                         <li className="footer_li ellipsis" ><span className="text-capitalize">Add Delivery</span></li>
                                     </Link>
-                                  
+
                                 </ol>
                             </div>
 
@@ -113,10 +113,6 @@ const Footer = () => {
                             <div className="col-lg-3 col-12"></div>
                             <div className=" col-lg-6  col-sm-9 bottom_menu_items ">
                                 <ul className="px-0 row">
-
-
-
-
                                     <Link to={'/terms-and-conditions'}>
 
                                         <li className="footer_li" > Terms & Conditions </li>
@@ -129,23 +125,27 @@ const Footer = () => {
 
                                         <li className="footer_li" > Privacy Policy </li>
                                     </Link>
+                                    <Link to={'/sitemap'}>
+
+                                        <li className="footer_li" > Sitemap </li>
+                                    </Link>
                                 </ul>
                             </div>
                             <div className="col-lg-3 col-sm-3 footer_icons_column ">
                                 <ol className="px-0">
                                     <li>
                                         <Link target="_blank" to={"https://www.linkedin.com/company/weedx-io/"}>
-                                          <BsLinkedin className={`footer_icons ${classes.footer_icons_color}`} />
+                                            <BsLinkedin className={`footer_icons ${classes.footer_icons_color}`} />
                                         </Link>
                                     </li>
                                     <li>
                                         <Link target="_blank" to={"https://www.facebook.com/profile.php?id=61550742531174"}>
-                                           <FaFacebook className={` footer_icons ${classes.footer_icons_color}`} />
+                                            <FaFacebook className={` footer_icons ${classes.footer_icons_color}`} />
                                         </Link>
                                     </li>
                                     <li>
                                         <Link target="_blank" to={"https://www.instagram.com/weedx_io"}>
-                                           <FaInstagram className={` footer_icons ${classes.footer_icons_color}`} />
+                                            <FaInstagram className={` footer_icons ${classes.footer_icons_color}`} />
                                         </Link>
                                     </li>
                                     <li>

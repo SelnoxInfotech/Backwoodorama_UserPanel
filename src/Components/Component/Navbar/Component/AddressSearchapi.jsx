@@ -121,6 +121,7 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
 }
 
 
+
   function OnBlur() {
     setOpenLocation(false)
     Setformatted_address(state.Location)
