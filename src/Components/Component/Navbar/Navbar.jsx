@@ -160,7 +160,6 @@ const Navbar = () => {
 
                   <IconButton className={classes.navBarButton_icons} aria-label='notification'><IoIosNotifications color="#858585" size={22}></IoIosNotifications></IconButton>
                 </Badge>
-               
                        <Notification
                         notify={notify}
                         setnotify={setnotify}
