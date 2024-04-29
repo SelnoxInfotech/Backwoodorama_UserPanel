@@ -62,7 +62,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                         datax.push({
                             Image: item.blog[0].Image,
                             title: item.blog[0].Title,
-                            date: item.blog[0].updated,
+                            date: item.blog[0].created,
                             link: `/cannabis-news/${item.blog[0].Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${item.blog[0].id}`,
                             Id:item.Notification
                         })
@@ -88,7 +88,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                
                 if(Boolean(respones?.data)){
                     let newdata = respones.data.Blog.map((data) => {
-                        return { "link": `/cannabis-news/${data.Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${data.id}`, 'title': data.Title, "image": data.Image, 'date': data.updated }
+                        return { "link": `/cannabis-news/${data.Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${data.id}`, 'title': data.Title, "image": data.Image, 'date': data.created }
                     })
                   
                     Setnotificationdata(newdata)
