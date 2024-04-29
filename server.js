@@ -166,7 +166,7 @@ app.get("/Sitemap/:category", async (req, res) => {
         res.end();
       }
       break
-      case "/Sitemap/sitemapproduct.xml":
+    case "/Sitemap/sitemapproduct.xml":
       const response4 = await axios.get(`https://api.cannabaze.com/UserPanel/ListProductView/`);
       if (response4) {
         const sitemapXmll = `<?xml version="1.0" encoding="UTF-8"?>
@@ -185,61 +185,58 @@ app.get("/Sitemap/:category", async (req, res) => {
         res.end();
       }
       break
+    case "/Sitemap/Dispensaries_stores.xml":
+      const response5 = await axios.get(`https://api.cannabaze.com/UserPanel/Get-Stores/`);
+
+      if (response5 && response5.data) {
+        const dispensaryUrls = response5.data.filter(url => url.Store_Type === "dispensary")
+          .map(url => `
+                <url>
+                  <loc>https://www.weedx.io/weed-dispensaries/${modifystr(url.Store_Name)}/${url.id}</loc>
+                  <changefreq>daily</changefreq>
+                  <priority>0.7</priority>
+                </url>`).join('');
+
+        const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+          <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            ${dispensaryUrls}
+          </urlset>`;
+
+        res.setHeader('Content-Type', 'text/xml');
+        res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
+        res.write(sitemapXml);
+        res.end();
+      }
+      break
+    case "/Sitemap/Delivery_stores.xml":
+      const response6 = await axios.get(`https://api.cannabaze.com/UserPanel/Get-Stores/`);
+
+      if (response6 && response6.data) {
+        const dispensaryUrls = response6.data.filter(url => url.Store_Type !== "dispensary")
+          .map(url => `
+                  <url>
+                    <loc>https://www.weedx.io/weed-deliveries/${modifystr(url.Store_Name)}/${url.id}</loc>
+                    <changefreq>daily</changefreq>
+                    <priority>0.7</priority>
+                  </url>`).join('');
+
+        const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+            <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+              ${dispensaryUrls}
+            </urlset>`;
+
+        res.setHeader('Content-Type', 'text/xml');
+        res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
+        res.write(sitemapXml);
+        res.end();
+      }
+      break
     // additional cases as needed
     default:
     // code block executed if expression doesn't match any case
   }
 })
-// app.post('/upload-csv', upload.single('csvFile'), (req, res) => {
-//   try {
-//     // Check if a file is uploaded
-//     if (!req.file) {
-//       res.status(400).send('No CSV file uploaded');
-//       return;
-//     }
 
-//     // Parse CSV data into JSON
-//     let jsonData = [];
-//     req.file.buffer
-//       .toString('utf8')
-//       .split('\n')
-//       .forEach((line, index) => {
-//         // Skip empty lines
-//         if (!line.trim()) return;
-
-//         // Split the line into columns
-//         const columns = line.split(',');
-//         // Create an object for each row
-//         const rowObject = {
-//           country: columns[0].trim(),
-//           state: columns[1].trim(),
-//           city: columns[2].trim()
-//         };
-
-//         // Add row object to JSON data
-//         jsonData.push(rowObject);
-//       });
-//     // Log parsed JSON data
-//     console.log(jsonData.slice(1));
-//     jsonData.slice(1).forEach((data) => {
-//       console.log(data.country, "map")
-//       axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/20`,
-//         {
-//           j: `"https://www.weedx.io"/${modifystr(data.country)}/${modifystr(data.state)}/${modifystr(data.city)}`
-//         },
-//       ).then((resdata) => {
-//        console.log(resdata)
-
-//       }).catch((err) => {
-//       })
-//     })
-
-//     res.status(200).send('CSV file received and parsed successfully');
-//   } catch (error) {
-//     console.error('Error processing CSV file:', error);
-//     res.status(500).send('Internal Server Error');
-//   }
-// });
 
 app.post('/weed-dispensaries/upload-csv', upload.single('csvFile'), async (req, res) => {
   try {
@@ -282,11 +279,11 @@ app.post('/weed-dispensaries/upload-csv', upload.single('csvFile'), async (req, 
       const requestPromise = axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/14`, {
         j: `https://www.weedx.io/weed-dispensaries/in/${modifystr(data.country)}/${modifystr(data.state)}/${modifystr(data.city)}`
       })
-      .then(response => {
-      })
-      .catch(error => {
-        console.error('Error making HTTP request:', error);
-      });
+        .then(response => {
+        })
+        .catch(error => {
+          console.error('Error making HTTP request:', error);
+        });
       requestPromises.push(requestPromise);
     });
     await Promise.all(requestPromises);
@@ -298,6 +295,7 @@ app.post('/weed-dispensaries/upload-csv', upload.single('csvFile'), async (req, 
     res.status(500).send('Internal Server Error');
   }
 });
+
 
 app.post('/weed-deliveries/upload-csv', upload.single('csvFile'), async (req, res) => {
   try {
@@ -340,11 +338,11 @@ app.post('/weed-deliveries/upload-csv', upload.single('csvFile'), async (req, re
       const requestPromise = axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/11`, {
         j: `https://www.weedx.io/weed-deliveries/in/${modifystr(data.country)}/${modifystr(data.state)}/${modifystr(data.city)}`
       })
-      .then(response => {
-      })
-      .catch(error => {
-        console.error('Error making HTTP request:', error);
-      });
+        .then(response => {
+        })
+        .catch(error => {
+          console.error('Error making HTTP request:', error);
+        });
       requestPromises.push(requestPromise);
     });
     await Promise.all(requestPromises);
@@ -356,6 +354,7 @@ app.post('/weed-deliveries/upload-csv', upload.single('csvFile'), async (req, re
     res.status(500).send('Internal Server Error');
   }
 });
+
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
