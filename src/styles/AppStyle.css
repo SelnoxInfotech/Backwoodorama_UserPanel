@@ -481,13 +481,13 @@ line-height: normal;
 .product_sub_category_dropDown_cursor input[type="radio"]{
   accent-color: #31B655;
 }
-[type="radio"]:checked,
-[type="radio"]:not(:checked) {
+.product_sub_category_dropDown_cursor [type="radio"]:checked,
+.product_sub_category_dropDown_cursor [type="radio"]:not(:checked) {
     position: absolute;
     left: -9999px;
 }
-[type="radio"]:checked + label,
-[type="radio"]:not(:checked) + label
+ .product_sub_category_dropDown_cursor[type="radio"]:checked + label,
+ .product_sub_category_dropDown_cursor[type="radio"]:not(:checked) + label
 {
     position: relative;
     padding-left: 28px;
@@ -496,8 +496,8 @@ line-height: normal;
     display: inline-block;
     color: #020202;
 }
-[type="radio"]:checked + label:before,
-[type="radio"]:not(:checked) + label:before {
+ .product_sub_category_dropDown_cursor[type="radio"]:checked + label:before,
+ .product_sub_category_dropDown_cursor[type="radio"]:not(:checked) + label:before {
     content: '';
     position: absolute;
     left: 0;
@@ -508,8 +508,8 @@ line-height: normal;
     border-radius: 100%;
     background: #fff;
 }
-[type="radio"]:checked + label:after,
-[type="radio"]:not(:checked) + label:after {
+ .product_sub_category_dropDown_cursor[type="radio"]:checked + label:after,
+ .product_sub_category_dropDown_cursor[type="radio"]:not(:checked) + label:after {
     content: '';
     width: 10px;
     height: 10px;
@@ -521,12 +521,12 @@ line-height: normal;
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
 }
-[type="radio"]:not(:checked) + label:after {
+ .product_sub_category_dropDown_cursor[type="radio"]:not(:checked) + label:after {
     opacity: 0;
     -webkit-transform: scale(0);
     transform: scale(0);
 }
-[type="radio"]:checked + label:after {
+ .product_sub_category_dropDown_cursor[type="radio"]:checked + label:after {
     opacity: 1;
     -webkit-transform: scale(1);
     transform: scale(1);
@@ -4436,19 +4436,10 @@ line-height: normal;
   background-color: #fff;
   align-items: flex-start;
   margin: 0 auto;
-  padding-bottom: 10px;
+  padding: 5px 0;
   border-bottom: 1px solid #ddd;
 }
-.notificationFooter{
-  text-align: center;
-  padding: 7px 0;
-  background-color: #e7e7e7;
-  position: sticky;
-  bottom: 0px;
-  left: 0;
-  width: 100%;
-  height: 10%;
-}
+
 .notify_date{
   font-size: 12px;
   font-weight: 400;

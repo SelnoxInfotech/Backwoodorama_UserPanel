@@ -186,7 +186,6 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
 
         })
     }
-    let dummydata=[{Image:"https://i.ibb.co/3rCKfC6/Ellipse-446.png", title:'this is title'  , link:"link"}]
     return (
         notify &&
         <ClickAwayListener onClickAway={() => { setnotify(false) }}>
@@ -199,7 +198,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                 </div>
                 {
                     state.login ?
-                    <div className='notificationContainer'>
+                    <div className='notificationContainer'>  
                     { 
                         Boolean(notificationdata?.length > state?.Profile?.RemovedNotification?.length)
                         ?
@@ -317,12 +316,6 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                     }
                     </div>
                 }
-               
-
-                {/* <div className='notificationFooter'>
-                  <span className='clearNotify'>View All</span>
-                </div> */}
-
             </div>
         </ClickAwayListener>
 

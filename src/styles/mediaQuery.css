@@ -703,6 +703,11 @@
   }
 }
 @media (max-width:480px) {
+  .notificationList{
+    min-width: 300px;
+    z-index: 10;
+    right: -50px;
+  }
   .writeReviewHeadings {
     font-size: 18px;
     line-height: 1.5;

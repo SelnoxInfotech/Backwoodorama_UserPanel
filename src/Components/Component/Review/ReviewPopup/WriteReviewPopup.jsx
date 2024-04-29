@@ -71,8 +71,6 @@ import CustomAlert from "../../../Component/CustomAlert/CustomAlert";
         setmediaurls([ ...mediaurls , URL.createObjectURL(event.target.files[0])]);
         setIsvideo(true)
       }
-      // setImages([ ...images , event.target.files]);
-      // setmediaurls([ ...mediaurls , URL.createObjectURL(event.target.files[0])]);
     }else if (event.target.files[0].type.includes('video') && ( event.target.files[0].size > 10*1024*1024) ){
      
       setalert({

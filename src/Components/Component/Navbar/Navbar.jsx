@@ -18,6 +18,7 @@ import Box from '@mui/material/Box';
 import LoadingButton from '@mui/lab/LoadingButton';
 import IconButton from '@mui/material/IconButton';
 import { useNavigate , useLocation } from 'react-router-dom';
+import Notification from './Notification'
 import './Navbar.css'
 // import logo from ""
 const Navbar = () => {
@@ -35,6 +36,8 @@ const Navbar = () => {
   const [ProfileSlectedState, SetProfileSelectedState] = React.useState('')
   const ProfileList = [{ id: 1, item: "My Order" , link:'/myorder' }, { id: 2, item: "Favorites", link:'/whislists' },
   { id: 3, item: "Review", link:'/myreviews' }, { id: 4, item: "Help", link:'/helpcenter' }]
+  const [notificationdata, Setnotificationdata] = React.useState([]);
+  const [totalnotify, Settotalnotify] = React.useState([]);
    
   React.useEffect(() => {
 
@@ -151,32 +154,24 @@ const Navbar = () => {
                 </Badge>
               </Link>
               <div className="notification_icon" onClick={()=>{setnotify(!notify)}}>
-                <Badge badgeContent={0} className={classes.sliderLink_badge}>
+                <Badge  badgeContent={
+                     state.login ? ( totalnotify?.length === state?.Profile?.RemovedNotification?.length ? 0 : (totalnotify?.length - state?.Profile?.RemovedNotification?.length) >0 ? totalnotify?.length - state?.Profile?.RemovedNotification?.length : 0  ) :  notificationdata?.length
+                  } className={classes.sliderLink_badge}>
 
                   <IconButton className={classes.navBarButton_icons} aria-label='notification'><IoIosNotifications color="#858585" size={22}></IoIosNotifications></IconButton>
                 </Badge>
-                {
-                  notify &&
-                  <ClickAwayListener onClickAway={()=>{setnotify(false)}}>
-                    <div className="notificationList">
-                      <div className="notification_box">
-                      
-                            <div className="notification_img">
-                              <div className="notiimgCircle">
-                                <img src="/image/logo.png" alt="img" />
-                              </div>
-                            </div>
-                            <div className="notifytext">
-                            <div className="d-flex align-items-center justify-content-between"><h4 className="notititle">This is title</h4> <span className="notify_date">2 Hours ago</span></div>
-                            </div>
-                      </div>
-                    </div>
-                  </ClickAwayListener>
-                }
+               
+                       <Notification
+                        notify={notify}
+                        setnotify={setnotify}
+                        notificationdata={notificationdata}
+                        Setnotificationdata={Setnotificationdata}
+                        Settotalnotify={Settotalnotify}
+                      ></Notification>
+                 
               </div>
               <Link to="/cart">
                 <Badge  badgeContent={ state.AllProduct?.length > 0 ? state.AllProduct?.length : null } className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`}>
-
                   <IconButton className={classes.navBarButton_icons} aria-label='shopping-cart'><MdOutlineShoppingCart color="#858585" size={22}></MdOutlineShoppingCart></IconButton>
                 </Badge>
               </Link>
