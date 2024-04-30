@@ -48,7 +48,7 @@ const HomePageWeedBanner=()=>{
                             event.target.src = "/image/VANNER_2.png"
                             event.onerror = null
                         }}
-                    
+                        width="100" height="auto"
                         src={`${ele?.Banner}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
                         </a>
                     </div>
@@ -74,6 +74,7 @@ const HomePageWeedBanner=()=>{
                                     event.target.src = "/image/M11.jpg"
                                     event.onerror = null
                                 }}
+                                width="100" height="auto"
                         src={`${ele?.mobile}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
                         </a>
                     </div>

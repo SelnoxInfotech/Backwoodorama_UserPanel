@@ -1,6 +1,11 @@
   footer li{
     list-style-type: none;
   }
+  .footer_main_list{
+    margin-left: 5%;
+    padding: 0;
+    display: grid
+   }
   .footer_main_div_display {
     border: 1px solid #E7E7E7;
     background-color: #f8f8f8;
@@ -17,6 +22,11 @@
     width: 60%;
     margin: 0 auto;
   }
+  .footer_icons_column p{
+    justify-content: center;
+    justify-content: flex-end;
+    gap: 10px;
+   }
   .footer_logo_container{
       width: 34%;
       border-right: 2px solid #e1e1e1;
@@ -71,16 +81,13 @@
     width: 100%;
     margin: 20px 0;
   }
-  .bottom_menu_items ul, .footer_icons_column ol{
+  .bottom_menu_items p, .footer_icons_column p{
     display: flex;
     align-items: center;
 
   }
-  .footer_icons_column ol{
-    justify-content: flex-end;
-    gap: 10px;
-  }
-  .bottom_menu_items ul li.footer_li, .footer_main_list .footer_li {
+
+  .bottom_menu_items .footer_li, .footer_main_list .footer_li {
     color: #183B56;
     font-size: 16px;
     font-style: normal;
@@ -90,11 +97,11 @@
   }
 
 
-  .bottom_menu_items ul li.footer_li:hover, .footer_main_list .footer_li:hover{
+  .bottom_menu_items p span.footer_li:hover, .footer_main_list .footer_li:hover{
     color: #31B665;
     font-weight:600 ;
   }
-  .bottom_menu_items ul li.footer_li{
+  .bottom_menu_items p span.footer_li{
     width:24.33%;
     border-right: 3px solid #e1e1e1;
     text-align: center;
@@ -137,7 +144,7 @@
   .footer_main_list p.footer_menu_heading{
     font-size: 18px;
   }
-  .bottom_menu_items ul li.footer_li, .footer_main_list .footer_li{
+  .bottom_menu_items p span.footer_li, .footer_main_list .footer_li{
     font-size: 16px;
   }
   }
@@ -159,7 +166,7 @@
   .footer_main_list p.footer_menu_heading{
     font-size: 16px;
   }
-  .bottom_menu_items ul li.footer_li, .footer_main_list .footer_li{
+  .bottom_menu_items p span.footer_li, .footer_main_list .footer_li{
     font-size: 14px;
   }
   .footerLogo {
@@ -215,12 +222,8 @@
       width: 29%;
       padding: 0;
   }
-   .footer_main_list{
-    padding: 0;
-   }
-   .footer_icons_column ol{
-    justify-content: center;
-   }
+
+
    .main_content_logo {
     justify-content: space-between;
 }

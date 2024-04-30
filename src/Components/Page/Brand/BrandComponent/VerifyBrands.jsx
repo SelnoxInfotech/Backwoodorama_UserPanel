@@ -44,9 +44,9 @@ const VerifyBrands = () => {
                             <div className="col-xl-6 col-md-12 col-12 verify_brand_container" key={index}>
                                 <div className="row verifyBrand_row mx-1 my-3">
                             
-                                    <Link  to={`/brands/${items.name.replace(/\s/g, '').toLowerCase()}/${items.id}`}> 
+                                    <Link   to={`/brands/${items.name.replace(/\s/g, '').toLowerCase()}/${items.id}`}> 
                                     <div className="col-6  verifyBrand_image_container ">
-                                    <LazyLoadImage className="verify_brand_image"  src={`${items.Brand_Logo}`}  alt="image not found" />
+                                    <LazyLoadImage  className="verify_brand_image"  src={`${items.Brand_Logo}`}  alt="image not found" />
 
                                     </div>
                                     <div className="col-6 verify_content_container">

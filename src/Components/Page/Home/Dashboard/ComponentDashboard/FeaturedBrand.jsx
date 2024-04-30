@@ -52,7 +52,7 @@ const FeaturedBrand = ({ CardDataArray ,BrandSkeleton}) => {
                                         <div className="row  FeaturedBrandContainer  mx-0 my-2">
                                             <div className="col-12 FeaturedBrandImageContainer px-0">
                                                
-                                                  <LazyLoadImage alt={items.name} className="w-100" src={`${items.Brand_Logo}`} />
+                                                  <LazyLoadImage width="100" height="auto" alt={items.name} className="w-100" src={`${items.Brand_Logo}`} />
                                                
                                             </div>
                                             <p className="ellipsis featuredBrandTitle">{items.name}</p>

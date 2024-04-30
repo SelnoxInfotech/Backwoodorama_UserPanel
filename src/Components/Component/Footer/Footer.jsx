@@ -57,52 +57,50 @@ const Footer = () => {
                                 </div>
                             </div>
                             <div className="footer_list">
-                                <ol className="footer_main_list">
+                                <div className="footer_main_list">
                                     <p className="footer_menu_heading">About</p>
 
-                                    <Link to={'/aboutus'}><li className="footer_li text-capitalize ellipsis">About Us</li></Link>
-                                    <Link to={'/faq'}><li className="footer_li ellipsis">FAQ's</li></Link>
-                                    <Link to={'/helpcenter'}><li className="footer_li text-capitalize ellipsis">Help Center</li></Link>
+                                    <Link to={'/aboutus'}><span className="footer_li text-capitalize ellipsis">About Us</span></Link>
+                                    <Link to={'/faq'}><span className="footer_li ellipsis">FAQ's</span></Link>
+                                    <Link to={'/helpcenter'}><span className="footer_li text-capitalize ellipsis">Help Center</span></Link>
 
-                                    <Link to={`/cannabis-news`}>
-                                        <li className="footer_li text-capitalize ellipsis" >All News</li>
-                                    </Link>
-                                </ol>
+                                    <Link to={`/cannabis-news`}><span className="footer_li text-capitalize ellipsis" >All News</span> </Link>
+                                </div>
                             </div>
                             <div className="footer_list">
-                                <ol className="footer_main_list">
+                                <div className="footer_main_list">
                                     <p className="footer_menu_heading">Category</p>
                                     {Categorys.map((ele, index) => {
                                         if (index >= 4) {
-                                            return <Link to={`/products/${ele.name.replace(/%20| /g, "-").toLowerCase()}/${ele.id}`} key={index} className={morelist ? '' : 'showmoreList'}>
-                                                <li className="footer_li textCapitalize ellipsis" >{ele.name}</li>
+                                            return <Link aria-label="Homepage" to={`/products/${ele.name.replace(/%20| /g, "-").toLowerCase()}/${ele.id}`} key={index} className={morelist ? '' : 'showmoreList'}>
+                                                <span className="footer_li textCapitalize ellipsis" >{ele.name}</span>
                                             </Link>
                                         } else {
                                             return (
-                                                <Link to={`/products/${ele.name.replace(/%20| /g, "-").toLowerCase()}/${ele.id}`} key={index}  >
-                                                    <li className="footer_li textCapitalize ellipsis" >{ele.name}</li>
+                                                <Link aria-label="Homepage" to={`/products/${ele.name.replace(/%20| /g, "-").toLowerCase()}/${ele.id}`} key={index}  >
+                                                    <span className="footer_li textCapitalize ellipsis" >{ele.name}</span>
                                                 </Link>
                                             )
                                         }
                                     })}
-                                    <li className="footer_li ellipsis" onClick={() => { setmorelist(!morelist) }}>{morelist ? "Less" : "More"}</li>
-                                </ol>
+                                    <span className="footer_li ellipsis" onClick={() => { setmorelist(!morelist) }}>{morelist ? "Less" : "More"}</span>
+                                </div>
 
                             </div>
                             <div className="footer_list">
-                                <ol className="footer_main_list">
+                                <div className="footer_main_list">
                                     <p className="footer_menu_heading">For Business</p>
-                                    <Link to={`https://cannabaze.com/signup`}>
-                                        <li className="footer_li ellipsis" >Add <span className="text-capitalize"> Dispensaries</span></li>
+                                    <Link to={`https://cannabaze.com/signup`} >
+                                        <span className="footer_li ellipsis" >Add <span className="text-capitalize"> Dispensaries</span></span>
                                     </Link>
                                     <Link to={`https://cannabaze.com/signup`}>
-                                        <li className="footer_li ellipsis" ><span className="text-capitalize">Add Brand</span></li>
+                                        <span className="footer_li ellipsis" ><span className="text-capitalize">Add Brand</span></span>
                                     </Link>
                                     <Link to={`https://cannabaze.com/signup`}>
-                                        <li className="footer_li ellipsis" ><span className="text-capitalize">Add Delivery</span></li>
+                                        <span className="footer_li ellipsis" ><span className="text-capitalize">Add Delivery</span></span>
                                     </Link>
 
-                                </ol>
+                                </div>
                             </div>
 
                         </div>
@@ -112,51 +110,51 @@ const Footer = () => {
                         <div className=" row bottom_menu_items_mainCol mt-2">
                             <div className="col-lg-3 col-12"></div>
                             <div className=" col-lg-6  col-sm-9 bottom_menu_items ">
-                                <ul className="px-0 row">
+                                <p className="px-0 row">
                                     <Link to={'/terms-and-conditions'}>
 
-                                        <li className="footer_li" > Terms & Conditions </li>
+                                        <span className="footer_li" > Terms & Conditions </span>
                                     </Link>
                                     <Link to={'/cookies-policy'}>
 
-                                        <li className="footer_li" > Cookies Policy </li>
+                                        <span className="footer_li" > Cookies Policy </span>
                                     </Link>
                                     <Link to={'/privacy-policy'}>
 
-                                        <li className="footer_li" > Privacy Policy </li>
+                                        <span className="footer_li" > Privacy Policy </span>
                                     </Link>
                                     <Link to={'/sitemap'}>
 
-                                        <li className="footer_li" > Sitemap </li>
+                                        <span className="footer_li" > Sitemap </span>
                                     </Link>
-                                </ul>
+                                </p>
                             </div>
                             <div className="col-lg-3 col-sm-3 footer_icons_column ">
-                                <ol className="px-0">
-                                    <li>
+                                <p className="px-0">
+                                    <span>
                                         <Link target="_blank" to={"https://www.linkedin.com/company/weedx-io/"}>
                                             <BsLinkedin className={`footer_icons ${classes.footer_icons_color}`} />
                                         </Link>
-                                    </li>
-                                    <li>
+                                    </span>
+                                    <span>
                                         <Link target="_blank" to={"https://www.facebook.com/profile.php?id=61550742531174"}>
                                             <FaFacebook className={` footer_icons ${classes.footer_icons_color}`} />
                                         </Link>
-                                    </li>
-                                    <li>
+                                    </span>
+                                    <span>
                                         <Link target="_blank" to={"https://www.instagram.com/weedx_io"}>
                                             <FaInstagram className={` footer_icons ${classes.footer_icons_color}`} />
                                         </Link>
-                                    </li>
-                                    <li>
+                                    </span>
+                                    <span>
                                         <Link target="_blank" to={"https://twitter.com/Weedx_io"}>
                                             <span className="x_icon">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="#31B665" height="1em" viewBox="0 0 500 500"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" /></svg>
                                             </span>
                                         </Link>
-                                    </li>
+                                    </span>
 
-                                </ol>
+                                </p>
                             </div>
 
                         </div>

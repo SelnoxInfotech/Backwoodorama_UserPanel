@@ -89,7 +89,9 @@ export default function Dashboard() {
                                 <LazyLoadImage onError={event => {
                                     event.target.src = "/image/VANNER_2.png"
                                     event.onerror = null
-                                }} src={state?.StaticImage?.AboutUs1} alt=" Online Ordering" />
+                              
+                                }}       width={100}
+                                height={'auto'} src={state?.StaticImage?.AboutUs1} alt=" Online Ordering" />
                             </div>
                             <div className="about_text">
                                 <h3 className="acard_title">
@@ -111,6 +113,8 @@ export default function Dashboard() {
                                         event.target.src = "/image/delivery.png"
                                         event.onerror = null
                                     }}
+                                    width={100}
+                                    height={'auto'}
                                     src={state?.StaticImage?.AboutUs2} alt="Delivery Services" />
                             </div>
                             <div className="about_text">
@@ -133,6 +137,8 @@ export default function Dashboard() {
                                         event.target.src = "/image/delivery.png"
                                         event.onerror = null
                                     }}
+                                    width={100}
+                                    height={'auto'}
                                     src={state?.StaticImage?.AboutUs3} alt="Dispensary Listings" />
                             </div>
                             <div className="about_text">
@@ -156,6 +162,8 @@ export default function Dashboard() {
                                         event.target.src = "/image/delivery.png"
                                         event.onerror = null
                                     }}
+                                    width={100}
+                                    height={'auto'}
                                     src={state?.StaticImage?.AboutUs4} alt="Retailer Listings" />
                             </div>
                             <div className="about_text">

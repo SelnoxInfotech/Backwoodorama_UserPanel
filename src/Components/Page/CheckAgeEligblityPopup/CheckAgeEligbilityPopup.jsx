@@ -42,6 +42,7 @@ const CheckAgeEligbilityPopup = ({value}) => {
             <Dialog open={open}
                overlayStyle={{backgroundColor: 'red'}}
                 className={`${classes.checkAgeEligibility} ${classes.checAgeEligibiltyHeight}`}
+                role="dialog" aria-labelledby="dialog-label"
             >
                 <div className='container-fluid'>
                     <div className='row'>

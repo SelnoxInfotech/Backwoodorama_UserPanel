@@ -42,7 +42,7 @@ const HomePageBanner = () => {
                                             event.target.src = "/image/1.jpg"
                                             event.onerror = null
                                         }}
-                                    
+                                        width="100" height="auto"
                                     src={`${items?.Banner}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
                                     </a>
                                 </div>
@@ -68,7 +68,7 @@ const HomePageBanner = () => {
                                             event.target.src = "/image/m1.jpg"
                                             event.onerror = null
                                         }}
-                                        
+                                        width="100" height="auto"
                                         src={`${items.mobile}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
                                         </a>
                                     </div>
