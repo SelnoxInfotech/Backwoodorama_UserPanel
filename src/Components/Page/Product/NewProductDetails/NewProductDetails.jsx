@@ -181,9 +181,12 @@ const NewProductDetails = () => {
 
   const Tolastpage = () => {
     let output1 = 'StoreName' in Params;
-
+    let sttp=Product.Store_Type.replace(/y$/, "ies").toLowerCase()
+    if(Product.Store_Type==="Curbside Pickup"){
+      sttp='dispensaries'
+    }
     if (output1) {
-      navigate(`/weed-${Product.Store_Type.replace(/y$/, "ies")}/${Params.StoreName.replaceAll(' ', '-')}/${Product.Store_id}`)
+      navigate(`/weed-${sttp}/${Params.StoreName.replaceAll(' ', '-').toLowerCase()}/${Product.Store_id}`)
     } else {
       navigate(`/products`)
     }
