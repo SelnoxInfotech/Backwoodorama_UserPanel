@@ -71,7 +71,6 @@ const Weed_Dispansires = () => {
         }
     }, [searchtext, state])
 
-console.log(state   )
 
     return (
         <React.Fragment>
