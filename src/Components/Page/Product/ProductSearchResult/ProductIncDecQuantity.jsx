@@ -11,7 +11,7 @@ import { MdAdd } from "react-icons/md"
 import LoadingButton from '@mui/lab/LoadingButton';
 import useStyles from '../../../../Style';
 import { FormLabel } from '@mui/material';
-import { MdShoppingCart } from "react-icons/md";
+import { FaShoppingCart } from "react-icons/fa";
 const style = {
     borderRadius: '8px',
     position: 'absolute',
@@ -71,7 +71,7 @@ const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart, setadding, a
         <>
             <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" }}
                 onClick={handleOpen} >
-               <span><MdShoppingCart  size={22} /> </span>  Add To Cart
+               <span><FaShoppingCart  size={18} /> </span>  Add To Cart
             </LoadingButton>
             <Modal
                 open={open}

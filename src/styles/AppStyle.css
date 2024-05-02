@@ -5352,11 +5352,12 @@ padding: 5px 0;
 
 .promoCode_textfield_btn_Col {
   display: flex;
-  height: 60px;
+
+  align-items: flex-start;
 }
 
 .promoCode_textfield_col {
-  height: 60px;
+ 
   display: grid;
   align-items: center;
 }

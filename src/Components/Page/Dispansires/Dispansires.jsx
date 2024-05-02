@@ -163,10 +163,11 @@ export default function Dispansires() {
                                 </TabPanel>
                             </Box>
                             <div className="Dispansires_map">
-                                {/* <Map height={"740px"} Theme={Dispansires_MapTheme.Dispansires_MapTheme}></Map> */}
                             </div>
                         </Box>
-
+                       <div className="nodatafoundcontainer">
+                        
+                       </div>
                     </div>
 
                 </div>

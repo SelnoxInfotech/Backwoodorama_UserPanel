@@ -338,11 +338,11 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                             items?.Prices[0].Price[0].Stock === "IN Stock" ?
                                                                     <LoadingButton loading={adding === items.id} loadingIndicator={<CircularProgress color="inherit" size={16} />}
                                                                         onClick={() => { AddToCart(items) }} >
-                                                                        <span><FaShoppingCart  size={22} /> </span>Add To Cart
+                                                                        <span><FaShoppingCart  size={18} /> </span> Add To Cart
                                                                     </LoadingButton>
                                                                 :
                                                                     <LoadingButton className={`${classes.odsbtn}`} >
-                                                                    <span><FaShoppingCart size={22} /> </span>  Out of Stock
+                                                                       <span><FaShoppingCart size={18} /> </span>  Out of Stock
                                                                     </LoadingButton>
                                                     }
                                                     {

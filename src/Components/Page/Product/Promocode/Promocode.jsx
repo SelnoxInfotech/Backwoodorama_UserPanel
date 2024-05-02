@@ -9,17 +9,20 @@ import { AiOutlineCheck } from "react-icons/ai"
 import Createcontext from "../../../../Hooks/Context"
 import Cookies from 'universal-cookie';
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const PromoCode = () => {
     const { state, dispatch } = React.useContext(Createcontext);
     const classes = useStyles()
+    const navigate =useNavigate()
     const [promocode, Setpromocode] = React.useState(state.coupoun_code)
     const [error, SetError] = React.useState('')
+    const cookies = new Cookies();
+    const token_data = cookies.get('User_Token_access')
     const [success, Setsuccess] = React.useState('')
     function handlechnage() {
-        console.log(promocode)
+       if(state.login){
         dispatch({ type: 'coupoun_code', coupoun_code: promocode })
-        const cookies = new Cookies();
-        const token_data = cookies.get('User_Token_access')
+      
         const data = {
             "promocode": promocode,
             "store": 13,
@@ -42,14 +45,29 @@ const PromoCode = () => {
             dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
 
         })
-
+    }else{
+        navigate('/login')
+    }
         // return res;
     }
 function clear(){
-    Setpromocode('')
-    SetError('')
-}
-    console.log(state.coupoun_code, state )
+  
+
+  
+        axios.get(`https://api.cannabaze.com/UserPanel/RemovePromocode/`,{
+            headers: { Authorization: `Bearer ${token_data}` }
+        }).then((res)=>{
+    
+        }).catch((error)=>{
+            if(!state.login){
+                navigate('/login')
+            }
+         })
+        Setpromocode('')
+        SetError('')
+      
+     
+    }
 
     return (
         <React.Fragment>
@@ -74,7 +92,7 @@ function clear(){
                                     </InputAdornment>
                                 ),
                                 endAdornment: (
-                                    <InputAdornment onClick={() => clear()} style={{ cursor: 'pointer' }} position="end">
+                                    <InputAdornment onClick={() => clear()} style={{ cursor: 'pointer' , display : !promocode?'none':'flex'  }} position="end">
                                         <RxCross1 />
                                     </InputAdornment>
                                 )
