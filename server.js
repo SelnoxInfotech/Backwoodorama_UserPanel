@@ -269,24 +269,20 @@ app.post('/weed-dispensaries/upload-csv', upload.single('csvFile'), async (req, 
       })
       .filter(row => row !== null); // Remove null entries (headers or empty lines)
 
-    // Log parsed JSON data
-
     // Array to store all HTTP request promises
     const requestPromises = [];
 
     // Send HTTP requests for each row of data
-    jsonData.forEach(data => {
-      const requestPromise = axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/14`, {
-        j: `https://www.weedx.io/weed-dispensaries/in/${modifystr(data.country)}/${modifystr(data.state)}/${modifystr(data.city)}`
-      })
-        .then(response => {
-        })
-        .catch(error => {
-          console.error('Error making HTTP request:', error);
+    for (const data of jsonData) {
+      try {
+        const response = await axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/14`, {
+          j: `https://www.weedx.io/weed-dispensaries/in/${modifystr(data.country)}/${modifystr(data.state)}/${modifystr(data.city)}`
         });
-      requestPromises.push(requestPromise);
-    });
-    await Promise.all(requestPromises);
+        // Do something with the response if needed
+      } catch (error) {
+        console.error('Error making HTTP request:', error);
+      }
+    }
 
     // Send the response after all requests have completed
     res.status(200).send('CSV file received and processed successfully');
@@ -328,24 +324,20 @@ app.post('/weed-deliveries/upload-csv', upload.single('csvFile'), async (req, re
       })
       .filter(row => row !== null); // Remove null entries (headers or empty lines)
 
-    // Log parsed JSON data
-
     // Array to store all HTTP request promises
     const requestPromises = [];
 
     // Send HTTP requests for each row of data
-    jsonData.forEach(data => {
-      const requestPromise = axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/11`, {
-        j: `https://www.weedx.io/weed-deliveries/in/${modifystr(data.country)}/${modifystr(data.state)}/${modifystr(data.city)}`
-      })
-        .then(response => {
-        })
-        .catch(error => {
-          console.error('Error making HTTP request:', error);
+    for (const data of jsonData) {
+      try {
+        const response = await axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/11`, {
+          j: `https://www.weedx.io/weed-deliveries/in/${modifystr(data.country)}/${modifystr(data.state)}/${modifystr(data.city)}`
         });
-      requestPromises.push(requestPromise);
-    });
-    await Promise.all(requestPromises);
+        // Do something with the response if needed
+      } catch (error) {
+        console.error('Error making HTTP request:', error);
+      }
+    }
 
     // Send the response after all requests have completed
     res.status(200).send('CSV file received and processed successfully');

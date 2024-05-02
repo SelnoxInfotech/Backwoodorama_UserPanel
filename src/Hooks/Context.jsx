@@ -49,12 +49,14 @@ const initialUser = {
     // Coupoun :
     PromoCode: "",
     Coupoun: [],
-    BeforeCoupoun: "",
+    CoupounAmount: "",
 
     // Delivery Address
     DeliveryCountry: "",
     DeliveryCity: "",
     DeliveryState: "",
+    // Coupoun Code 
+    coupoun_code:""
 
 
 
@@ -90,11 +92,27 @@ function Context(props) {
                 dispatch({ type: 'AllProduct', AllProduct: CarTProduct })
                 dispatch({ type: 'LoadingApi', LoadingApi: false })
                 let AllTotal = 0
-                let BeforeCoupoun
-                CarTProduct.map((data) => {
-                    return AllTotal += parseInt(data?.TotalPrice)
+                let CoupounAmount = 0
+                CarTProduct.map((data1) => {
+                    if(state.coupoun_code === "")
+                    {
+                        dispatch({ type: 'coupoun_code', coupoun_code: data1.Coupon })
+                    }
+                    // console.log(parseInt( (-data1?.DiscountedAmount))  )
+                    if(Boolean(data1.Coupon)){
+                        if(data1?.DiscountedAmount === 0) {
+
+                            CoupounAmount +=  parseInt(data1?.TotalPrice)
+                        }
+                        else{
+                            CoupounAmount +=  parseInt(data1?.DiscountedAmount)
+                        }
+                    }
+                    return AllTotal += parseInt(data1?.TotalPrice)
                 })
-                dispatch({ type: "BeforeCoupoun", BeforeCoupoun: BeforeCoupoun })
+                CarTProduct.length === 0 &&  dispatch({ type: 'coupoun_code', coupoun_code: '' })
+                console.log(CoupounAmount)
+                dispatch({ type: "CoupounAmount", CoupounAmount: Math.abs(CoupounAmount)})
                 dispatch({ type: 'Cart_subTotal', Cart_subTotal: AllTotal })
 
             })
@@ -142,14 +160,14 @@ function Context(props) {
                 const data = localStorage?.getItem("items")
                 dispatch({ type: 'AllProduct', AllProduct: length })
                 let AllTotal = 0
-                JSON.parse(data)?.map((data) => {
-
-                    return AllTotal += parseInt(data.Price.SalePrice * data.Cart_Quantity);
+                JSON.parse(data)?.map((data1) => {
+                
+                    return AllTotal += parseInt(data1.Price.SalePrice * data1.Cart_Quantity);
                 })
                 dispatch({ type: 'LoadingApi', LoadingApi: false })
                 dispatch({ type: 'Cart_subTotal', Cart_subTotal: AllTotal })
             }
-        }
+        }   
     }, [state.ApiProduct, state.login])
 
     React.useEffect(() => {

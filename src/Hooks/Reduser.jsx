@@ -1,5 +1,5 @@
 
-const reducer = (state, action) => {  
+const reducer = (state, action) => {
   switch (action.type) {
     case 'Login':
       return { ...state, login: action.login }
@@ -118,28 +118,37 @@ const reducer = (state, action) => {
       {
         return { ...state, PromoCode: action.PromoCode }
       }
-      case "BeforeCoupoun":
-        {
-          return { ...state, BeforeCoupoun: action.BeforeCoupoun }
-        }
-        case "DeliveryCountry":
-          {
-            return { ...state, DeliveryCountry: action.DeliveryCountry }
-          }
+    case "CoupounAmount":
+      {
+        return { ...state, CoupounAmount: action.CoupounAmount }
+      }
+    case "DeliveryCountry":
+      {
+        return { ...state, DeliveryCountry: action.DeliveryCountry }
+      }
 
-          case "DeliveryCity":
-            {
-              return { ...state, DeliveryCity: action.DeliveryCity }
-            }
+    case "DeliveryCity":
+      {
+        return { ...state, DeliveryCity: action.DeliveryCity }
+      }
 
-            case "DeliveryState":
-              {
-                return { ...state, DeliveryState: action.DeliveryState }
-              }
-      
+    case "DeliveryState":
+      {
+        return { ...state, DeliveryState: action.DeliveryState }
+      }
+    case "coupoun_code":
+      {
+        return { ...state, coupoun_code: action.coupoun_code }
+      }
+
 
     default: return state
   }
 };
 
 export default reducer
+
+
+
+
+

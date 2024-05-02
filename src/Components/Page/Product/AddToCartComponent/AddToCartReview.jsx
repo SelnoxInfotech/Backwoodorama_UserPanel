@@ -20,6 +20,7 @@ const AddToCartReview = () => {
     const [wondowWidth, setWindowWidth] = useState('')
     const [AfterDiscount, SetAfterDiscount] = React.useState()
     async function DeleteItem(Id, id) {
+        console.log(Id, id)
         Swal.fire({
             title: 'Are you sure?',
             text: "You want to remove this product from Cart!",
@@ -231,6 +232,7 @@ const AddToCartReview = () => {
                         <div className=" Add_product_cart_left_container_item" >
 
                             {AfterDiscount?.map((ele, index) => {
+                                console.log(ele)
                                 let wrigh = Boolean(ele.Price.Weight) ? ele.Price.Weight : `${ele.Price.Unit} Unit`;
                                 return (
                                     <div className="ssss row py-3 px-0 border-top border-bottom justify-content-center   align-items-center" key={index}>
@@ -332,9 +334,7 @@ const AddToCartReview = () => {
                                                     }} ><AiOutlinePlus color='gray' /></LoadingButton>
 
                                                 </div>
-
                                             </div>
-                                           
                                             <span className="add_prod_span_amount fontStyle" value={ele.Price.SalePrice * ele.Cart_Quantity} >${parseInt(ele.Price.SalePrice * ele.Cart_Quantity)}</span>
                                         </div>
                                     </div>

@@ -1,57 +1,23 @@
-let webpack = require("webpack");
-let path = require('path');
+const PurifyCSSPlugin = require('purifycss-webpack');
+const glob = require('glob');
 
 module.exports = {
-    webpack5: true,
-    rules: [
-        {
-            test: /\.js$/,
-            exclude: /node_modules/,
-            use: {
-                loader: "babel-loader",
-                options: {
-                    presets: [
-                        "@babel/preset-env",
-                        "@babel/preset-react"
-                    ].map(require.resolve)
-                }
-            }
-        },
-        {
-            test: /\.css$/,
-            use: [
-                {loader: "style-loader"},
-                {loader: "css-loader"}
-            ]
-        },
-        {
-            test: /\.(png|jpg|gif)$/i,
-            use: [
-                {
-                    loader: 'url-loader',
-                    options: {
-                        limit: 8192
-                    }
-                }
-            ]
-        },
-        {
-            test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-            use: [{
-                loader: 'file-loader',
-                options: {
-                    name: '[name].[ext]',
-                    outputPath: 'fonts/'
-                }
-            }]
-        },
-        {
-            test: /\.(js|jsx|ts|tsx)$/,
-            use: ['source-map-loader'],
-            enforce: 'pre', // This ensures source maps are loaded before other loaders
-          },
-         {
-            fallback: { "timers": require.resolve("timers") }
-        },
-    ]
-}
+  // Other Webpack configuration settings...
+
+  plugins: [
+    new PurifyCSSPlugin({
+      paths: glob.sync([
+        // Path to your React components
+        path.join(__dirname, 'src/**/*.js'),
+        // Path to your JSX/HTML files
+        path.join(__dirname, 'src/**/*.jsx'),
+        // Path to your CSS/SASS/SCSS files
+        path.join(__dirname, 'src/**/*.css'),
+        // Add more paths if needed
+      ]),
+      minimize: true, // Minimize the CSS output
+      // Additional options...
+    }),
+    // Other plugins...
+  ],
+};
