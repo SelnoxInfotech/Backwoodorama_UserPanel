@@ -708,6 +708,9 @@
     z-index: 10;
     right: -50px;
   }
+  .nodatafoundcontainer p{
+     width: 90%;
+  }
   .writeReviewHeadings {
     font-size: 18px;
     line-height: 1.5;

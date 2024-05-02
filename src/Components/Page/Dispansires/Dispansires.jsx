@@ -8,7 +8,9 @@ import useStyles from "../../../Style";
 import WeedDispansires from "./DispansiresComponent/Weed_Dispansires"
 import Createcontext from "../../../Hooks/Context"
 import { useLocation, useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios, { Axios } from "axios";
+import { DespensioriesItem } from '../../../Api/Api';
+import Wronglocation from "../../Component/Skeleton/Wronglocation";
 function TabPanel(props) {
 
     const { children, value, index, ...other } = props;
@@ -42,10 +44,13 @@ function a11yProps(index) {
     };
 }
 export default function Dispansires() {
+    const [searchtext, setsearchtext] = React.useState("");
     const navigate = useNavigate()
     const Location = useLocation()
     const { state, dispatch } = React.useContext(Createcontext)
     const [value, setValue] = React.useState(0);
+    const [Store, SetStore] = React.useState([]);
+
     const DispensorShopLocation = [{ name: "Weed Dispensaries in", city: state.Location }]
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -91,6 +96,43 @@ export default function Dispansires() {
         })
     }, [Location, state])
 
+
+    React.useEffect(() => {
+
+        if (searchtext !== "") {
+            const getData = setTimeout(() => {
+                const json = {
+                    "store": searchtext,
+                    "City": state.City,
+                    "Country": state.Country?.replace(/-/g, " "),
+                    "State": state.State?.replace(/-/g, " "),
+                }
+                Axios.post(`https://api.cannabaze.com/UserPanel/FilterDispensaries/`,
+                    json
+                )
+                    .then(function (response) {
+                        SetStore(response?.data);
+                      
+                    })
+                    .catch(function (error) {
+                        console.trace(error);
+                        SetStore([]);
+                        
+                    });
+            }, 1000)
+            return () => clearTimeout(getData)
+        } else {
+            const object = { City: state.City.replace(/-/g, " "), "Country": state.Country?.replace(/-/g, " "), "State": state.State?.replace(/-/g, " "), }
+            state.Country !== "" && DespensioriesItem(object).then((res) => {
+                if (res === "No Dispensary in your area") {
+                    SetStore([])
+                }
+                else {
+                    SetStore(res)
+                }
+            })
+        }
+    }, [searchtext, state])
     function breadcrumCountry(country, state1, city) {
         if (Boolean(city)) {
             dispatch({ type: 'route', route: "" })
@@ -139,36 +181,38 @@ export default function Dispansires() {
                         })}
                     </div>
                     <div className="col-12 col-lg-10 col-md-10 col-sm-12 dispensory_menu my-2">
-                        <Box className={`dispensories_tabss ${classes.dispensory_tab_background}`} sx={{ width: '100%' }}>
-                            <Box className={classes.open_dispensory_tab} sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                                <Tabs scrollButtons={false} variant="scrollable" sx={{ justifyContent: 'space-around' }} value={value} onChange={handleChange} aria-label="basic tabs example">
-                                    <Tab label="Open" {...a11yProps(0)} />
-                                    <Tab label="Storefronts" {...a11yProps(1)} />
-                                    <Tab label="delivery" {...a11yProps(2)} />
-                                    <Tab label="Order online" {...a11yProps(3)} />
-                                </Tabs>
-                            </Box>
-                            <Box sx={{ "& .MuiBox-root": { paddingLeft: "0px", paddingRight: "0px", paddingTop: "20px" } }}>
-                                <TabPanel value={value} index={0}>
-                                    <WeedDispansires />
-                                </TabPanel>
-                                <TabPanel value={value} index={1}>
-                                    <WeedDispansires />
-                                </TabPanel>
-                                <TabPanel value={value} index={2}>
-                                    <WeedDispansires />
-                                </TabPanel>
-                                <TabPanel value={value} index={3}>
-                                    <WeedDispansires />
-                                </TabPanel>
-                            </Box>
-                            <div className="Dispansires_map">
-                            </div>
-                        </Box>
-                       <div className="nodatafoundcontainer">
-                        
-                       </div>
-                    </div>
+                        {
+                            Boolean(Store.length) ?
+                                <Box className={`dispensories_tabss ${classes.dispensory_tab_background}`} sx={{ width: '100%' }}>
+                                <Box className={classes.open_dispensory_tab} sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                                    <Tabs scrollButtons={false} variant="scrollable" sx={{ justifyContent: 'space-around' }} value={value} onChange={handleChange} aria-label="basic tabs example">
+                                        <Tab label="Open" {...a11yProps(0)} />
+                                        <Tab label="Storefronts" {...a11yProps(1)} />
+                                        <Tab label="delivery" {...a11yProps(2)} />
+                                        <Tab label="Order online" {...a11yProps(3)} />
+                                    </Tabs>
+                                </Box>
+                                <Box sx={{ "& .MuiBox-root": { paddingLeft: "0px", paddingRight: "0px", paddingTop: "20px" } }}>
+                                    <TabPanel value={value} index={0}>
+                                        <WeedDispansires Store={Store} SetStore={SetStore} searchtext={searchtext} setsearchtext={setsearchtext} />
+                                    </TabPanel>
+                                    <TabPanel value={value} index={1}>
+                                        <WeedDispansires Store={Store} SetStore={SetStore}  searchtext={searchtext} setsearchtext={setsearchtext}/>
+                                    </TabPanel>
+                                    <TabPanel value={value} index={2}>
+                                        <WeedDispansires Store={Store} SetStore={SetStore} searchtext={searchtext} setsearchtext={setsearchtext} />
+                                    </TabPanel>
+                                    <TabPanel value={value} index={3}>
+                                        <WeedDispansires Store={Store} SetStore={SetStore}  searchtext={searchtext} setsearchtext={setsearchtext}/>
+                                    </TabPanel>
+                                </Box>
+                                <div className="Dispansires_map">
+                                </div>
+                                </Box>
+                            :
+                                <Wronglocation title={' No dispensaries available'} description={'We apologize, but it appears that there are no dispensaries available in your location. Would you like to enter a different address to search for a nearby dispensary?'}/>
+                        }
+                        </div>
 
                 </div>
             </div>

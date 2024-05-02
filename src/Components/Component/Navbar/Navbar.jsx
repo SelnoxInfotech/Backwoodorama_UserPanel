@@ -125,7 +125,7 @@ const Navbar = () => {
                 justifyContent="center"
               >
                 <span >
-                  <Link to="/"><img className='navbar_logo_image' alt='WeedX.io' src={"./image/G11.png"} /></Link>
+                  <Link to="/"><img className='navbar_logo_image' alt='WeedX.io' src={"/image/G11.png"} /></Link>
                 </span>
 
               </Grid>
@@ -143,7 +143,7 @@ const Navbar = () => {
             <SearchBar path={Location.pathname}/>
             :
             <span className='mobileNavLogo' >
-            <Link to="/"><LazyLoadImage className='navbar_logo_image' alt="WeedX.io" src={'./image/G11.png'} /></Link>
+            <Link to="/"><LazyLoadImage className='navbar_logo_image' alt="WeedX.io" src={'/image/G11.png'} /></Link>
           </span>
           }
           </Grid>

@@ -132,11 +132,6 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
     Setformatted_address('')
   }
   const [open, setOpen] = React.useState(false);
-
-  // React.useEffect(() => {
-  //   Setdropwondata(placePredictions)
-  // }, [])
-
   function current(event) {
     navigator.permissions.query({ name: 'geolocation' }).then(permissionStatus => {
 
