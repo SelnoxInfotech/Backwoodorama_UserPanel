@@ -140,10 +140,6 @@ function Context(props) {
 
 
             }).catch((err) => { });
-
-
-
-
         }
         else {
             const data = localStorage?.getItem("items")
