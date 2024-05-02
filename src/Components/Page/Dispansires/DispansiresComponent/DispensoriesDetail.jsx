@@ -130,7 +130,7 @@ export default function DispensoriesDetails() {
         navigate(`${location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${modifystr(Despen[0]?.Store_Name.toLowerCase())}/${modifystr(item.toLowerCase())}/${id}`)
 
     }
-    function ShowCategoryProduct(Id, name) {
+    function ShowCategoryProduct(Id, name) { //https://api.cannabaze.com/UserPanel/Get-filterProductbyStoreandCategory/`,
         dispatch({ type: 'Loading', Loading: true })
         axios.post(`https://api.cannabaze.com/UserPanel/Get-filterProductbyStoreandCategory/`,
             {

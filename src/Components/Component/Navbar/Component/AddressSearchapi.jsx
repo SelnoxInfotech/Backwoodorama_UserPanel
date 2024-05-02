@@ -123,6 +123,7 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
 
 
   function OnBlur() {
+    
     setOpenLocation(false)
     Setformatted_address(state.Location)
 
@@ -131,6 +132,7 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
     setOpenLocation(true)
     Setformatted_address('')
   }
+  
   const [open, setOpen] = React.useState(false);
   function current(event) {
     navigator.permissions.query({ name: 'geolocation' }).then(permissionStatus => {

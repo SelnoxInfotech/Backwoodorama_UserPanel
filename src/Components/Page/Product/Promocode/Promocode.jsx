@@ -13,60 +13,85 @@ import { useNavigate } from "react-router-dom";
 const PromoCode = () => {
     const { state, dispatch } = React.useContext(Createcontext);
     const classes = useStyles()
-    const navigate =useNavigate()
+    const navigate = useNavigate()
     const [promocode, Setpromocode] = React.useState(state.coupoun_code)
     const [error, SetError] = React.useState('')
     const cookies = new Cookies();
     const token_data = cookies.get('User_Token_access')
     const [success, Setsuccess] = React.useState('')
-    function handlechnage() {
-       if(state.login){
-        dispatch({ type: 'coupoun_code', coupoun_code: promocode })
-      
-        const data = {
-            "promocode": promocode,
-            "store": 13,
-            "date": "2024-04-30",
-            "Time": ""
-        }
-        axios.post(` https://api.cannabaze.com/UserPanel/PromoCodeCheck/`,
-            data,
-            {
-                headers: { Authorization: `Bearer ${token_data}` }
-            },
-        ).then((res) => {
-            console.log(res.data)
-            Setsuccess(res.data)
-            SetError('')
-            dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-        }).catch((error) => {
-            Setsuccess('')
-            SetError(error.response.data)
-            dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
 
-        })
-    }else{
-        navigate('/login')
+    function formatDate() {
+        const currentDate = new Date();
+        const year = currentDate.getFullYear();
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+        const day = String(currentDate.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
     }
+    function getCurrentTime() {
+        // Create a new Date object to get the current date and time
+        var currentTime = new Date();
+
+        // Extract hours, minutes, and seconds
+        var hours = currentTime.getHours();
+        var minutes = currentTime.getMinutes();
+        var seconds = currentTime.getSeconds();
+
+        // Add leading zeros if necessary
+        hours = (hours < 10 ? "0" : "") + hours;
+        minutes = (minutes < 10 ? "0" : "") + minutes;
+        seconds = (seconds < 10 ? "0" : "") + seconds;
+
+        // Construct the time string
+        var timeString = hours + ":" + minutes;
+        return timeString
+    }
+
+
+    function handlechnage() {
+        if (state.login) {
+            dispatch({ type: 'coupoun_code', coupoun_code: promocode })
+
+            const data = {
+                "promocode": promocode,
+                "store": state.AllProduct[0].Store_id,
+                "date": formatDate(),
+                "Time": getCurrentTime()
+            }
+            axios.post(` https://api.cannabaze.com/UserPanel/PromoCodeCheck/`,
+                data,
+                {
+                    headers: { Authorization: `Bearer ${token_data}` }
+                },
+            ).then((res) => {
+                console.log(res.data)
+                Setsuccess(res.data)
+                SetError('')
+                dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+            }).catch((error) => {
+                Setsuccess('')
+                SetError(error.response.data)
+                dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+
+            })
+        } else {
+            navigate('/login')
+
+        }
         // return res;
     }
-function clear(){
-  
 
-  
-        axios.get(`https://api.cannabaze.com/UserPanel/RemovePromocode/`,{
+    function clear() {
+        axios.get(`https://api.cannabaze.com/UserPanel/RemovePromocode/`, {
             headers: { Authorization: `Bearer ${token_data}` }
-        }).then((res)=>{
-    
-        }).catch((error)=>{
-            if(!state.login){
+        }).then((res) => {
+            dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
+        }).catch((error) => {
+            if (!state.login) {
                 navigate('/login')
             }
-         })
+        })
         Setpromocode('')
         SetError('')
-      
-     
     }
 
     return (
@@ -92,7 +117,7 @@ function clear(){
                                     </InputAdornment>
                                 ),
                                 endAdornment: (
-                                    <InputAdornment onClick={() => clear()} style={{ cursor: 'pointer' , display : !promocode?'none':'flex'  }} position="end">
+                                    <InputAdornment onClick={() => clear()} style={{ cursor: 'pointer', display: !promocode ? 'none' : 'flex' }} position="end">
                                         <RxCross1 />
                                     </InputAdornment>
                                 )

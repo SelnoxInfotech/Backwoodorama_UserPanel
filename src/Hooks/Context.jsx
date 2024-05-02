@@ -111,7 +111,6 @@ function Context(props) {
                     return AllTotal += parseInt(data1?.TotalPrice)
                 })
                 CarTProduct.length === 0 &&  dispatch({ type: 'coupoun_code', coupoun_code: '' })
-                console.log(CoupounAmount)
                 dispatch({ type: "CoupounAmount", CoupounAmount: Math.abs(CoupounAmount)})
                 dispatch({ type: 'Cart_subTotal', Cart_subTotal: AllTotal })
 
@@ -141,10 +140,6 @@ function Context(props) {
 
 
             }).catch((err) => { });
-
-
-
-
         }
         else {
             const data = localStorage?.getItem("items")
