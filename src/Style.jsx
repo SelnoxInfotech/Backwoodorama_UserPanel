@@ -417,7 +417,7 @@ const useStyles = makeStyles({
       border: "2px solid #31B665",
       transition:'none',
       "& span":{
-
+          marginRight:'5px',
       }
     },
     "& .MuiButtonBase-root:hover": {
@@ -1470,6 +1470,9 @@ const useStyles = makeStyles({
        color:"red" ,
         border: '2px solid red',
         borderRadius:'4px',
+        "& span":{
+          marginRight:'5px',
+        }
     },
     "&.MuiButtonBase-root:hover":{
         backgroundColor:'red',
