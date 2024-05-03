@@ -6,7 +6,7 @@ import Cookies from 'universal-cookie';
 import Createcontext from "../../../Hooks/Context"
 import CookieSetting from './CookiesSetting';
 export default function CookiesAccept() {
-    const {dispatch } = React.useContext(Createcontext)
+    const { dispatch } = React.useContext(Createcontext)
     const classes = style()
     const cookies = new Cookies();
     const handleCookies = () => {

@@ -116,7 +116,7 @@ const Myreview = () => {
             <div className='w-100 d-flex gap-2 align-items-center my-4'>
                <span><IconButton onClick={() => Navigate('-1')}><MdOutlineKeyboardArrowLeft color="#000000"/></IconButton></span><span onClick={() => Navigate(-1)} className="BackPageBtn">Back</span>
             </div>
-            <div class="col-12 mt-sm-4 mt-2  fontStyle"><h1 class="section_main_title ">My Reviews</h1></div>
+            <div className="col-12 mt-sm-4 mt-2  fontStyle"><h1 className="section_main_title ">My Reviews</h1></div>
             <div className='reviews'>
 
                 {

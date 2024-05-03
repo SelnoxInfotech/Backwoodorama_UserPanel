@@ -50,7 +50,7 @@ const initialUser = {
     PromoCode: "",
     Coupoun: [],
     CoupounAmount: "",
-
+    locationFocus:false,
     // Delivery Address
     DeliveryCountry: "",
     DeliveryCity: "",

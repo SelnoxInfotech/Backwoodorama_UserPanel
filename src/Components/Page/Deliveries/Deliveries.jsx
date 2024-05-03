@@ -81,8 +81,11 @@ const Deliveries=()=>{
         <div className="container-fluid">
             <div className="row  deliveries_centers">
                 <div className="headerBoxdescription">
-                   <h1 className="d-flex"> <span className="dispensories_name">Weed Delivery In </span> <span className="dispensories_city">{state.Location}</span></h1>
-                   <p>{ `find Nearby Weed Delivery in  ${state.Location}  for Recreational & Medical Uses. Browse Top Cannabis Products and Place Orders from Trusted weed delivery near you.`}</p>
+                   <h1 className="m-0">
+                     <span className="dispensories_name">Weed Delivery In </span>
+                    <span className="dispensories_city">{state.Location}</span></h1>
+                     <p>{ `find Nearby Weed Delivery in  ${state.Location}  for Recreational & Medical Uses. Browse Top Cannabis Products and Place Orders from Trusted weed delivery near you.`}</p>
+                 
                 </div>
                
             <div className="col-lg-12 col-11 delivery_menuBar_container px-0 mt-4">
@@ -114,7 +117,7 @@ const Deliveries=()=>{
                     :
                     <Wronglocation title={'No deliveries available'} description={`Delivery service isn't available at your location. Would you like to try a different address ?`}/>)  
                    : <div className="loader_container">
-                    <span class="newloader"></span>
+                    <span className="newloader"></span>
                 </div>
               
               }

@@ -326,7 +326,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                          id="form1" 
 
                          className={searchtext.length !== 0 ? "form-control customSearchBar" : "form-control customSearchBar customSearchBarsearchicon"} />
-                         <label class="form-label" for="form1">Search</label> 
+                         <label className="form-label" for="form1">Search</label> 
                     </div>
                 </div>
                 <div className="col-10 product_select">

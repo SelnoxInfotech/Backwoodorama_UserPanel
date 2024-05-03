@@ -27,7 +27,7 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
   React.useEffect(() => {
     Setformatted_address(state?.Location)
   }, [state])
-  
+ 
   function handlechnage(e, value) {
     placesService?.getDetails({ placeId: value?.place_id }, (placeDetails) => {
       Setformatted_address(placeDetails.formatted_address);
@@ -217,7 +217,13 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
       }
     });
   }
+  React.useEffect(()=>{
+    console.log(state.locationFocus)
 
+    if(state.locationFocus){
+      onFocus()
+    }
+    },[state.locationFocus])
   return (
     <Autocomplete
       freeSolo

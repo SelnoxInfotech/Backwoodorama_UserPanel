@@ -58,6 +58,11 @@ const reducer = (state, action) => {
       {
         return { ...state, Cookies: action.Cookies }
       }
+    case "locationchange":
+      {
+        console.log('CHALA')
+        return { ...state, locationFocus: !state.locationFocus }
+      }
     case "DeliveryAddress":
       {
         return { ...state, DeliveryAddress: action.DeliveryAddress }

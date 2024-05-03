@@ -599,7 +599,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                     </div>
 
                     {startload && <div className="loader_container">
-                        <span class="newloader"></span>
+                        <span className="newloader"></span>
                     </div>
                     }
                     {Whishlist && <WhisList open1={Whishlist} SetWishList={SetWishList}></WhisList>}

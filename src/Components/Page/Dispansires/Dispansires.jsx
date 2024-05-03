@@ -180,7 +180,7 @@ export default function Dispansires() {
                             return (
                                 <div key={index}>
 
-                                    <h1 className="d-flex"> <span className="dispensories_name">{ele.name}</span> <span className="dispensories_city">{ele.city}</span></h1>
+                                    <h1 className=""> <span className="dispensories_name">{ele.name}</span> <span className="dispensories_city">{ele.city}</span></h1>
                                 </div>
                             )
                         })}
@@ -220,7 +220,7 @@ export default function Dispansires() {
                                 <Wronglocation title={' No dispensaries available'} description={'We apologize, but it appears that there are no dispensaries available in your location. Would you like to enter a different address to search for a nearby dispensary?'}/>)
                                 :
                                 <div className="loader_container">
-                                    <span class="newloader"></span>
+                                    <span className="newloader"></span>
                                 </div>
                         }
                       

@@ -1,6 +1,7 @@
-import React from 'react'
-
+import React, { useContext } from 'react'
+import Createcontext from '../../../Hooks/Context'
 const Wronglocation = ({title ,description}) => {
+  const {state ,dispatch}=useContext(Createcontext)
   let image=''
   if(title.includes('dispensaries')){
     image='/image/error.webp'
@@ -12,7 +13,7 @@ const Wronglocation = ({title ,description}) => {
             <img src={image} alt='Image' />
             <h3>{title}</h3>
             <p>{description}</p>
-            <button>Change Location</button>
+            <button onClick={()=>{dispatch({ type: 'locationchange', login: false })}}>Change Location</button>
      </div>
   )
 }
