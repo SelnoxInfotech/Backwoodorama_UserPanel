@@ -1416,6 +1416,7 @@ scrollbar-width: none;  /* Firefox */
   padding: 15px 5px;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
   transition: all .4s ease-in;
+  border-radius: 5px;
 }
 .despensories_card_container:hover{
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
@@ -5413,7 +5414,15 @@ padding: 5px 0;
   min-height: 70vh;
 }
 .nodatafoundcontainer img{
-   width: 160px;
+   width: 200px;
+   margin-bottom: 30px;
+}
+.headerBoxdescription{
+  border: 1px solid #e7e7e7;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  background-color: #f9f9f9;
 }
 .nodatafoundcontainer h3{
    font-size: 20px;

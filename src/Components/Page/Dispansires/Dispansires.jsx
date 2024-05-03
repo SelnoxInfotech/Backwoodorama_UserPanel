@@ -30,19 +30,19 @@ function TabPanel(props) {
             )}
         </div>
     );
-}
-TabPanel.propTypes = {
-    children: PropTypes.node,
-    index: PropTypes.number.isRequired,
-    value: PropTypes.number.isRequired,
-};
-
-function a11yProps(index) {
-    return {
-        id: `simple-tab-${index}`,
-        'aria-controls': `simple-tabpanel-${index}`,
+    }
+    TabPanel.propTypes = {
+        children: PropTypes.node,
+        index: PropTypes.number.isRequired,
+        value: PropTypes.number.isRequired,
     };
-}
+
+    function a11yProps(index) {
+        return {
+            id: `simple-tab-${index}`,
+            'aria-controls': `simple-tabpanel-${index}`,
+        };
+    }
 export default function Dispansires() {
     const [searchtext, setsearchtext] = React.useState("");
     const navigate = useNavigate()
@@ -50,6 +50,7 @@ export default function Dispansires() {
     const { state, dispatch } = React.useContext(Createcontext)
     const [value, setValue] = React.useState(0);
     const [Store, SetStore] = React.useState([]);
+    const [loader, setloader] = React.useState(false);
 
     const DispensorShopLocation = [{ name: "Weed Dispensaries in", city: state.Location }]
     const handleChange = (event, newValue) => {
@@ -82,7 +83,6 @@ export default function Dispansires() {
 
         return str.toLowerCase()
     }
-
     React.useEffect(() => {
         axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/14`,
             {
@@ -94,9 +94,7 @@ export default function Dispansires() {
         }).catch((err) => {
 
         })
-    }, [Location, state])
-
-
+    }, [Location])
     React.useEffect(() => {
 
         if (searchtext !== "") {
@@ -111,10 +109,14 @@ export default function Dispansires() {
                     json
                 )
                     .then(function (response) {
+                setloader(()=>true)
+
                         SetStore(response?.data);
                       
                     })
                     .catch(function (error) {
+                setloader(()=>true)
+
                         console.trace(error);
                         SetStore([]);
                         
@@ -124,6 +126,8 @@ export default function Dispansires() {
         } else {
             const object = { City: state.City.replace(/-/g, " "), "Country": state.Country?.replace(/-/g, " "), "State": state.State?.replace(/-/g, " "), }
             state.Country !== "" && DespensioriesItem(object).then((res) => {
+                setloader(()=>true)
+
                 if (res === "No Dispensary in your area") {
                     SetStore([])
                 }
@@ -154,8 +158,6 @@ export default function Dispansires() {
         }
 
     }
-
-
     const classes = useStyles()
     return (
         <React.Fragment>
@@ -171,6 +173,9 @@ export default function Dispansires() {
                             {Boolean(state.route) && <span> {">"} <span>{state.route}</span></span>}
                         </div>
 
+
+
+                    <div className="headerBoxdescription">
                         {DispensorShopLocation.map((ele, index) => {
                             return (
                                 <div key={index}>
@@ -179,10 +184,12 @@ export default function Dispansires() {
                                 </div>
                             )
                         })}
+                        <p>{`find Nearby Dispensaries in ${state?.Location} for Recreational & Medical weed. Browse Top Cannabis Products and Place Orders from Trusted Local Dispensaries.`}</p>
+                    </div>
                     </div>
                     <div className="col-12 col-lg-10 col-md-10 col-sm-12 dispensory_menu my-2">
                         {
-                            Boolean(Store.length) ?
+                          loader ? ( Boolean(Store.length) ?
                                 <Box className={`dispensories_tabss ${classes.dispensory_tab_background}`} sx={{ width: '100%' }}>
                                 <Box className={classes.open_dispensory_tab} sx={{ borderBottom: 1, borderColor: 'divider' }}>
                                     <Tabs scrollButtons={false} variant="scrollable" sx={{ justifyContent: 'space-around' }} value={value} onChange={handleChange} aria-label="basic tabs example">
@@ -209,9 +216,14 @@ export default function Dispansires() {
                                 <div className="Dispansires_map">
                                 </div>
                                 </Box>
-                            :
-                                <Wronglocation title={' No dispensaries available'} description={'We apologize, but it appears that there are no dispensaries available in your location. Would you like to enter a different address to search for a nearby dispensary?'}/>
+                                 :
+                                <Wronglocation title={' No dispensaries available'} description={'We apologize, but it appears that there are no dispensaries available in your location. Would you like to enter a different address to search for a nearby dispensary?'}/>)
+                                :
+                                <div className="loader_container">
+                                    <span class="newloader"></span>
+                                </div>
                         }
+                      
                         </div>
 
                 </div>

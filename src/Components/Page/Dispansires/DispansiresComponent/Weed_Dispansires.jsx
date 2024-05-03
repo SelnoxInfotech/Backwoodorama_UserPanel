@@ -7,50 +7,12 @@ import { DispensariesSco } from "../../../Component/ScoPage/DispensariesSco"
 import Createcontext from "../../../../Hooks/Context"
 const Weed_Dispansires = ({Store,SetStore ,searchtext ,setsearchtext }) => {
     const locaton = useLocation();
-    // const [searchtext, setsearchtext] = React.useState("");
     const { state } = React.useContext(Createcontext);
-//  console.log(state ,'state')
-    // React.useEffect(() => {
-
-    //     if (searchtext !== "") {
-    //         const getData = setTimeout(() => {
-    //             const json = {
-    //                 "store": searchtext,
-    //                 "City": state.City,
-    //                 "Country": state.Country?.replace(/-/g, " "),
-    //                 "State": state.State?.replace(/-/g, " "),
-    //             }
-    //             Axios.post(`https://api.cannabaze.com/UserPanel/FilterDispensaries/`,
-    //                 json
-    //             )
-    //                 .then(function (response) {
-    //                     SetStore(response?.data);
-                      
-    //                 })
-    //                 .catch(function (error) {
-    //                     console.trace(error);
-    //                     SetStore([]);
-                        
-    //                 });
-    //         }, 1000)
-    //         return () => clearTimeout(getData)
-    //     } else {
-    //         const object = { City: state.City.replace(/-/g, " "), "Country": state.Country?.replace(/-/g, " "), "State": state.State?.replace(/-/g, " "), }
-    //         state.Country !== "" && DespensioriesItem(object).then((res) => {
-    //             if (res === "No Dispensary in your area") {
-    //                 SetStore([])
-    //             }
-    //             else {
-    //                 SetStore(res)
-    //             }
-    //         })
-    //     }
-    // }, [searchtext, state])
     return (
         <React.Fragment>
           
             <DispensariesSco location={locaton.pathname}></DispensariesSco>
-            <div className="">
+            <div className="container">
                 <div className="row">
                     <div className="col-xl-4 col-lg-6 col-md-8 col-sm-10 col-12 dispensories_main_container">
                         <div className="row dispensories_search_result">
