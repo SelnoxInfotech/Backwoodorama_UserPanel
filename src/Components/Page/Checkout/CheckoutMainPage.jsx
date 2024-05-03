@@ -11,7 +11,6 @@ import Axios from "axios"
 const CheckOutMainPage = () => {
 
     const { state, dispatch } = React.useContext(Createcontext)
-    console.log(state)
     const cookies = new Cookies();
     const navigate = useNavigate()
     const token_data = cookies.get('User_Token_access')
