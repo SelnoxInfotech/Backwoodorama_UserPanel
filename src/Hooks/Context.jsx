@@ -94,7 +94,7 @@ function Context(props) {
                 let AllTotal = 0
                 let CoupounAmount = 0
                 CarTProduct.map((data1) => {
-                    if(state.coupoun_code === "")
+                    if(data1.Coupon !== "")
                     {
                         dispatch({ type: 'coupoun_code', coupoun_code: data1.Coupon })
                     }
@@ -102,10 +102,10 @@ function Context(props) {
                     if(Boolean(data1.Coupon)){
                         if(data1?.DiscountedAmount === 0) {
 
-                            CoupounAmount +=  parseInt(data1?.TotalPrice)
+                            // CoupounAmount +=  parseInt(data1?.TotalPrice)
                         }
                         else{
-                            CoupounAmount +=  parseInt(data1?.DiscountedAmount)
+                            CoupounAmount +=  parseInt(data1?.DiscountedAmount) -  parseInt(data1?.TotalPrice)
                         }
                     }
                     return AllTotal += parseInt(data1?.TotalPrice)

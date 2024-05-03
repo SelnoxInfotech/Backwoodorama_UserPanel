@@ -31,6 +31,7 @@ const PlaceOrder = () => {
         Taxes: 0,
         Total: 0,
         Paid: 0,
+        discount:0,
         DueLater: 0
     }
     React.useEffect(() => {
@@ -51,6 +52,7 @@ const PlaceOrder = () => {
             })
     }, [])
 
+    console.log(Boolean(state.CoupounAmount) , location)
     return (
         <React.Fragment>
             <div className="container-fluid">
@@ -71,12 +73,13 @@ const PlaceOrder = () => {
 
                                 {
                                     location.state.Product.map((item) => {
-                                        pricess.Subtotal =  item.Price.SalePrice * item.Cart_Quantity;
+                                        pricess.Subtotal += item.TotalPrice
                                         pricess.Delivery += 0
                                         pricess.Taxes += 0
                                         pricess.Paid += 0
+                                        pricess.discount += item.DiscountedAmount
                                         pricess.DueLater += pricess.Subtotal + item.Price.SalePrice
-
+                                        
                                         return (<div className="place_order_product_cart  row border-bottom py-3">
                                             <div className="col-sm-2 col-3 col-sm-2">
                                                 <LazyLoadImage onError={event => {
@@ -87,13 +90,16 @@ const PlaceOrder = () => {
                                                 {/* <img src={item.Image} alt="" className='w-100' /> */}
                                             </div>
                                             <div className="col-sm-10 col-9">
-                                                <div className='d-flex justify-content-between align-items-start'>  <h4 className='w-75 text-wrap text-break'>{item.ProductName}</h4>  <p className="price">$ {pricess.Subtotal}</p>  </div>
+                                                <div className='d-flex justify-content-between align-items-start'>  <h4 className='w-75 text-wrap text-break'>{item.ProductName}</h4>  <p className="price">$ {item.TotalPrice}</p>  </div>
                                                 <p><b>Qty</b> : {item.Cart_Quantity}</p>
                                             </div>
                                         </div>)
                                     })
 
-                                }
+                                },
+                                      {
+                            // console.log( pricess.Subtotal - (pricess.Subtotal-pricess.discount))
+                        }
                                 <div className='d-flex justify-content-end'>
                                     <div className="order_price_details col-md-4 col-12 ml-auto p-sm-3 mt-3 p-2 border">
                                         <div className="d-flex justify-content-between align-items-center">
@@ -110,8 +116,15 @@ const PlaceOrder = () => {
                                         </div>
                                         <hr />
                                         <div className="d-flex justify-content-between align-items-center">
-                                            <span>Total</span>
-                                            <span>${pricess.Subtotal}</span>
+                                            <div style={{ display: "grid" }}>
+                                                <span>Total</span>
+                                              {Boolean(pricess.discount)&&  <span>Discount Amount</span>
+}
+                                            </div >
+                                            <div style={{ display: "grid" }}>
+                                                {Boolean(pricess.discount)?  <del>${pricess.Subtotal}</del> :   <span>${pricess.Subtotal}</span>}
+                                            {Boolean(pricess.discount)&& <span>${(pricess.Subtotal-pricess.discount) }</span>}
+                                            </div>
                                         </div>
 
 
