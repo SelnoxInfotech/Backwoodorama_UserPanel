@@ -13,7 +13,7 @@ const Wronglocation = ({title ,description}) => {
             <img src={image} alt='Image' />
             <h3>{title}</h3>
             <p>{description}</p>
-            <button onClick={()=>{dispatch({ type: 'locationchange', login: false })}}>Change Location</button>
+            <button onClick={()=>{dispatch({ type: 'locationchange', focus: true })}}>Change Location</button>
      </div>
   )
 }

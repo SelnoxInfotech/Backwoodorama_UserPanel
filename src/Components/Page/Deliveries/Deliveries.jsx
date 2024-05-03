@@ -81,10 +81,10 @@ const Deliveries=()=>{
         <div className="container-fluid">
             <div className="row  deliveries_centers">
                 <div className="headerBoxdescription">
-                   <h1 className="m-0">
+                   <h1 className="m-0 lh-1">
                      <span className="dispensories_name">Weed Delivery In </span>
                     <span className="dispensories_city">{state.Location}</span></h1>
-                     <p>{ `find Nearby Weed Delivery in  ${state.Location}  for Recreational & Medical Uses. Browse Top Cannabis Products and Place Orders from Trusted weed delivery near you.`}</p>
+                     <p>{ `Find Nearby Weed Delivery in  ${state.Location}  for Recreational & Medical Uses. Browse Top Cannabis Products and Place Orders from Trusted weed delivery near you.`}</p>
                  
                 </div>
                

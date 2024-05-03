@@ -14,7 +14,6 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
     placesService,
     placePredictions,
     getPlacePredictions,
-    isPlacePredictionsLoading
   } = useGoogle({
     debounce: 500,
     language: 'en',

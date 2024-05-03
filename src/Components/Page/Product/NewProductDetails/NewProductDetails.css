@@ -158,4 +158,15 @@ text-align: center;
         width: 100%;
         height: 180px;
     }
+    .offercard{
+        width: 100%;
+     }
+     .offercard .leftcoupon{
+        width: 50%;
+       
+    }
+    .offercard .rightcoupon{
+        width: 50%;
+       
+    }
 }

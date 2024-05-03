@@ -180,11 +180,11 @@ export default function Dispansires() {
                             return (
                                 <div key={index}>
 
-                                    <h1 className=""> <span className="dispensories_name">{ele.name}</span> <span className="dispensories_city">{ele.city}</span></h1>
+                                    <h1 className=" lh-1 m-0"> <span className="dispensories_name">{ele.name}</span> <span className="dispensories_city">{ele.city}</span></h1>
                                 </div>
                             )
                         })}
-                        <p>{`find Nearby Dispensaries in ${state?.Location} for Recreational & Medical weed. Browse Top Cannabis Products and Place Orders from Trusted Local Dispensaries.`}</p>
+                        <p>{`Find Nearby Dispensaries in ${state?.Location} for Recreational & Medical weed. Browse Top Cannabis Products and Place Orders from Trusted Local Dispensaries.`}</p>
                     </div>
                     </div>
                     <div className="col-12 col-lg-10 col-md-10 col-sm-12 dispensory_menu my-2">
