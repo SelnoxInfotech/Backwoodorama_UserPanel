@@ -21,7 +21,7 @@ const Deliveries=()=>{
     React.useEffect(() => {
             const object = { City: state.City.replace(/-/g, " ") , State: state.State.replace(/-/g, " "), Country: state.Country.replace(/-/g, " ") }
             GetAllDelivery(object).then((response) => {
-                if (response?.length !== 0) {
+                if (Boolean(response)) {
                     SetDelivery(response)
                 }
                 else{

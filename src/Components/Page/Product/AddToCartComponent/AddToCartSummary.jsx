@@ -285,11 +285,11 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
         <div className=" order_summary_flex">
           <div className=" fontStyle add_prod_cart_summary_p">
             <p className="m-0">Total Amount</p>
-          {state.CoupounAmount !== 0 &&  <p className="m-0">Discount Amount</p>}
+          {state.CoupounAmount !== (0 || '') &&  <p className="m-0">Discount Amount</p>}
           </div>
           <div className=" fontStyle">
-         {state.CoupounAmount !== 0 ?    <del   ><span className="m-0" style={{color:'#fff' , textDecoration:'line-through 2px #000'}}>${state.Cart_subTotal }</span></del> :<p className="m-0">${state.Cart_subTotal }</p> } 
-          { state.CoupounAmount !== 0 && <p className="m-0">${state.CoupounAmount}</p>}
+         {state.CoupounAmount !== (0 || '')?     <del   ><span className="m-0" style={{color:'#fff' , textDecoration:'line-through 2px #000'}}>${state.Cart_subTotal }</span></del> :<p className="m-0">${state.Cart_subTotal }</p> } 
+          { state.CoupounAmount !== (0 || '') && <p className="m-0">${state.CoupounAmount}</p>}
           </div>
         </div>
        
