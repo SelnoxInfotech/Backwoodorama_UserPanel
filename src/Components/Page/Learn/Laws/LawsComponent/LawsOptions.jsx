@@ -9,28 +9,9 @@ import { useParams } from "react-router-dom"
 import {modifystr}  from "../../../../../Hooks/Function"
 const LawsOptions = () => {
     const [Values, SetValues] = React.useState([])
-//   console.log(Content)
-//   function k () {
-//     const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
-//     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-//         ${Content.map((urlObject) => 
-//             urlObject.state.map((state, index) => `
-//                 <url>
-//                     <loc>${`https://www.weedx.io/learn/laws-and-regulation/Cannabis-Law-in-${state.name.toLowerCase()}/${state.id}`}</loc>
-//                     <changefreq>daily</changefreq>
-//                     <priority>0.7</priority>
-//                 </url>
-//             `).join('')
-//         ).join('')}
-//     </urlset>`;
-
-//     console.log(sitemapXml);
-//     return sitemapXml;
-//   }
-// console.log(k)
     return (
         <div className="col-12 lawsContainer my-4">
-            {console.log(k())}
+          
     {/* <LawState Title={''}></LawState> */}
             {Content?.map((items ,index) => {
                 return (
