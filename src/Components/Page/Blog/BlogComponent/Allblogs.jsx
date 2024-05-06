@@ -25,7 +25,7 @@ const Allblogs = () => {
   const [value, SetValue] = React.useState([])
   const [allLikes, SetallLikes] = React.useState([])
   const [isdata, setisdata] = useState(true)
-  const [Getlikes, SetLikes] = React.useState([])
+  const [loader, setloader] = React.useState(true)
   const [searchtext , setsearchtext] = useState('')
   const classes = useStyles()
   const cookies = new Cookies();
@@ -65,7 +65,7 @@ const Allblogs = () => {
       
       }).then(async (res) => {
          setallblogs(res.data)
-      
+         setloader(false)
          setisdata(true)
         }).catch((err) => {
           console.trace(err)
@@ -73,7 +73,7 @@ const Allblogs = () => {
       }else{
           getAllNews().then(async (res) => {
           setallblogs(res)
-     
+          setloader(false)
           setisdata(true)
         }).catch((err) => {
           console.trace(err)
@@ -103,6 +103,8 @@ const Allblogs = () => {
       
           }).then(async (res) => {
           setallblogs(res.data)
+         setloader(false)
+
           setisdata(true)
           }).catch((err) => {
             console.trace(err)
@@ -234,6 +236,9 @@ const Allblogs = () => {
 
             </div>
             : <DeliveryItemsCardSkeleton></DeliveryItemsCardSkeleton>
+          }
+          {
+            loader && <div className="loader_container"> <span className="newloader"></span> </div>
           }
 
       </div>

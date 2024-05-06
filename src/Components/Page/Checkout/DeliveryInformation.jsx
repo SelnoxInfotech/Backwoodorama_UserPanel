@@ -48,7 +48,12 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
         });
     }
   
-      
+      function maxagelimit(){
+         let date = new Date()
+         let y = date.getFullYear() -18
+         console.log(`${y}-01-01`)
+         return `${y}-01-01`
+      }
     return (
         <div className="container-fluid">
 
@@ -160,9 +165,12 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                                 value={Details.DateOfBirth}
                                                 onChange={handleChange}
                                                 label="Birth date"
+                                                inputProps={{
+                                                    max: maxagelimit(),
+                                                    min: "1960-01-01"
+                                                  }}
                                                 InputLabelProps={{ shrink: true, required: true }}
                                                 type="date"
-                                                // defaultValue={`${new Date().getFullYear() -21} + "01","01"`}
                                                 inputRef={method.register({
                                                     required: "Birthdate is required*.",
                                                 }

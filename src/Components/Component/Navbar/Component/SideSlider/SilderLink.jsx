@@ -37,16 +37,16 @@ export default function DashBoardLink({ state }) {
 
   return (
     <React.Fragment>
-      <div className="container-fluid Top ">
+      <div className="container-fluid Top p-sm-0 p-2 m-0 mt-sm-4">
         <Grid container spacing={2}>
           <Grid
             xs={8}
-            md={7.5}
-            xl={8.2}
+            md={8}
+            xl={8}
             display={{ xs: "none", md: "block", lg: "block" }}
           >
             <div className="ccol  nav_list1">
-              <ul>
+              <ul className="p-0">
                 <Link
                   to={
                     state?.Country !== "" &&
@@ -118,8 +118,8 @@ export default function DashBoardLink({ state }) {
                   <li onClick={scrollToTop}>Deals</li>
                 </Link>
                 <Link
-                  to="/learn"
-                  id={`${current_route === "/learn" ? "Active" : ""}`}
+                  to="/learn/laws-and-regulation"
+                  id={`${current_route === "/learn/laws-and-regulation" ? "Active" : ""}`}
                 >
                   <li>Learn</li>
                 </Link>
@@ -172,7 +172,7 @@ export default function DashBoardLink({ state }) {
           <Grid
             xs={6}
             md={2}
-            xl={1}
+            xl={2}
             spacing={2}
             display={{ xs: "none", md: "block", lg: "block" }}
           >

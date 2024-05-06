@@ -116,153 +116,152 @@ const Navbar = () => {
 
   return (
     <React.Fragment>
-      <div ref={ref} className='sticky-top' id='Navbar_box' style={{ background: "white", padding: "10px" }}>
-        <Grid container spacing={0} rowSpacing={0.3}   >
-          {
-            Hamburger ?
-              <Grid container xs={2} md={2} xl={2}
-                alignItems="center"
-                justifyContent="center"
-              >
-                <span >
-                  <Link to="/"><img className='navbar_logo_image' alt='WeedX.io' src={"/image/G11.png"} /></Link>
-                </span>
-
-              </Grid>
-              :
-              <Grid container xs={3} md={2} xl={2}    alignItems="center"
-             >
-                <div className='center' style={{ marginLeft: "15px" }}>
-                  <button className="openbtn Border" onClick={() => { openNav() }}>☰</button>
-                </div>
-              </Grid>
-          }
-          <Grid xs={6} md={6} xl={7} display={{ xs: "block", md: "block", lg: "block" }}>
-          {
-            Hamburger ?
-            <SearchBar path={Location.pathname}/>
-            :
-            <span className='mobileNavLogo' >
-            <Link to="/"><LazyLoadImage className='navbar_logo_image' alt="WeedX.io" src={'/image/G11.png'} /></Link>
-          </span>
-          }
-          </Grid>
-          <Grid xs={3} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }} >
-            <div className=' col-12 Login_Sigup_button  Heder_icon ' style={{ justifyContent: "end", marginLeft: "-20px" }}>
-              <Link to="/WhisLists">
-             
-                <Badge badgeContent={state.login && Object.values(state.WishList).reduce((a, item) => a + item, 0) >= 1  ? Object.values(state.WishList).reduce((a, item) => a + item, 0) : 0 } className={classes.sliderLink_badge}>
-                  <IconButton className={classes.navBarButton_icons} aria-label='whishlist'><AiFillHeart color="#858585" size={22} /></IconButton>
-                </Badge>
-              </Link>
-              <div className="notification_icon" onClick={()=>{setnotify(!notify)}}>
-                <Badge  badgeContent={
-                     state.login ? ( totalnotify?.length === state?.Profile?.RemovedNotification?.length ? 0 : (totalnotify?.length - state?.Profile?.RemovedNotification?.length) >0 ? totalnotify?.length - state?.Profile?.RemovedNotification?.length : 0  ) :  notificationdata?.length
-                  } className={classes.sliderLink_badge}>
-
-                  <IconButton className={classes.navBarButton_icons} aria-label='notification'><IoIosNotifications color="#858585" size={22}></IoIosNotifications></IconButton>
-                </Badge>
-                       <Notification
-                        notify={notify}
-                        setnotify={setnotify}
-                        notificationdata={notificationdata}
-                        Setnotificationdata={Setnotificationdata}
-                        Settotalnotify={Settotalnotify}
-                      ></Notification>
-                 
-              </div>
-              <Link to="/cart">
-                <Badge  badgeContent={ state.AllProduct?.length > 0 ? state.AllProduct?.length : null } className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`}>
-                  <IconButton className={classes.navBarButton_icons} aria-label='shopping-cart'><MdOutlineShoppingCart color="#858585" size={22}></MdOutlineShoppingCart></IconButton>
-                </Badge>
-              </Link>
-            </div>
-          </Grid>
-          <Grid xs={5} md={3} xl={3} >
+      <div className='container p-0'>
+        <div ref={ref} className='sticky-top' id='Navbar_box' style={{ background: "white", padding: "10px 0" }}>
+          <Grid container spacing={0} rowSpacing={0.3}  justifyContent="between"   >
             {
-              state.login === true
-                ?
+              Hamburger ?
+                <Grid container xs={2} md={2} xl={2}
+                  alignItems="center"
+                  justifyContent="start"
+                >
+                  <span >
+                    <Link to="/"><img className='navbar_logo_image' alt='WeedX.io' src={"/image/G11.png"} /></Link>
+                  </span>
 
-                <div className=' col-12 Login_Sigup_button '>
-                  <div className='col-lg-4 col-sm-4 navbarProfileDropDown_container' ref={profileRef}>
-                    <Grid display={{ xs: "none", md: "block", lg: "block" }}>
-                      <div className='Navbar_profile_logo_container'>
-                        <LazyLoadImage
-                          onError={event => {
-                            event.target.src = "/image/user.webp"
-                            event.onerror = null
-                          }}
-                          src={ state.Profile.googlelink === null ?`${state.Profile.image} ` : state.Profile.googlelink}
-                          alt='Profile'
-                          className="Navbar_logo_imgs"
-                          onClick={handleClickDropdown}
-                        />
-                      </div>
-                    </Grid>
-                    {DropDownState && (
-                      <div className='profileDropdown_container'>
-                        <section className='Navbar_proflie_image_name_section'>
-                          <div className='profile_image_container'>
-                            <LazyLoadImage onError={event => {
+                </Grid>
+                :
+                <Grid container xs={3} md={2} xl={2}    alignItems="center"
+              >
+                  <div className='center' style={{ marginLeft: "15px" }}>
+                    <button className="openbtn Border" onClick={() => { openNav() }}>☰</button>
+                  </div>
+                </Grid>
+            }
+            <Grid xs={6} md={6} xl={7} display={{ xs: "block", md: "block", lg: "block" }}>
+            {
+              Hamburger ?
+              <SearchBar path={Location.pathname}/>
+              :
+              <span className='mobileNavLogo' >
+              <Link to="/"><LazyLoadImage className='navbar_logo_image' alt="WeedX.io" src={'/image/G11.png'} /></Link>
+            </span>
+            }
+            </Grid>
+            <Grid xs={3} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }} >
+              <div className=' col-12 Login_Sigup_button  Heder_icon ' style={{ justifyContent: "end", marginLeft: "-20px" }}>
+                <Link to="/WhisLists">
+              
+                  <Badge badgeContent={state.login && Object.values(state.WishList).reduce((a, item) => a + item, 0) >= 1  ? Object.values(state.WishList).reduce((a, item) => a + item, 0) : 0 } className={classes.sliderLink_badge}>
+                    <IconButton className={classes.navBarButton_icons} aria-label='whishlist'><AiFillHeart color="#858585" size={22} /></IconButton>
+                  </Badge>
+                </Link>
+                <div className="notification_icon" onClick={()=>{setnotify(!notify)}}>
+                  <Badge  badgeContent={
+                      state.login ? ( totalnotify?.length === state?.Profile?.RemovedNotification?.length ? 0 : (totalnotify?.length - state?.Profile?.RemovedNotification?.length) >0 ? totalnotify?.length - state?.Profile?.RemovedNotification?.length : 0  ) :  notificationdata?.length
+                    } className={classes.sliderLink_badge}>
+
+                    <IconButton className={classes.navBarButton_icons} aria-label='notification'><IoIosNotifications color="#858585" size={22}></IoIosNotifications></IconButton>
+                  </Badge>
+                        <Notification
+                          notify={notify}
+                          setnotify={setnotify}
+                          notificationdata={notificationdata}
+                          Setnotificationdata={Setnotificationdata}
+                          Settotalnotify={Settotalnotify}
+                        ></Notification>
+                  
+                </div>
+                <Link to="/cart">
+                  <Badge  badgeContent={ state.AllProduct?.length > 0 ? state.AllProduct?.length : null } className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`}>
+                    <IconButton className={classes.navBarButton_icons} aria-label='shopping-cart'><MdOutlineShoppingCart color="#858585" size={22}></MdOutlineShoppingCart></IconButton>
+                  </Badge>
+                </Link>
+              </div>
+            </Grid>
+            <Grid xs={5} md={4} xl={3} >
+              {
+                state.login === true
+                  ?
+
+                  <div className=' col-12 Login_Sigup_button '>
+                    <div className='col-lg-4 col-sm-4 navbarProfileDropDown_container' ref={profileRef}>
+                      <Grid display={{ xs: "none", md: "block", lg: "block" }}>
+                        <div className='Navbar_profile_logo_container'>
+                          <LazyLoadImage
+                            onError={event => {
                               event.target.src = "/image/user.webp"
                               event.onerror = null
                             }}
-                              src={state.Profile.googlelink === null ?`${state.Profile.image} ` : state.Profile.googlelink}
-                              alt='Profile' className="Navbar_profile_imgs" />
-                          </div>
-                          <div className='profile_name_container'>
-                            <p className='profile_names ellipsis'>{state.Profile.username}</p>
-                            <p className='profile_viewAll m-0' onClick={ViewProfiles}>Edit Profile</p>
-                          </div>
+                            src={ state.Profile.googlelink === null ?`${state.Profile.image} ` : state.Profile.googlelink}
+                            alt='Profile'
+                            className="Navbar_logo_imgs"
+                            onClick={handleClickDropdown}
+                          />
+                        </div>
+                      </Grid>
+                      {DropDownState && (
+                        <div className='profileDropdown_container'>
+                          <section className='Navbar_proflie_image_name_section'>
+                            <div className='profile_image_container'>
+                              <LazyLoadImage onError={event => {
+                                event.target.src = "/image/user.webp"
+                                event.onerror = null
+                              }}
+                                src={state.Profile.googlelink === null ?`${state.Profile.image} ` : state.Profile.googlelink}
+                                alt='Profile' className="Navbar_profile_imgs" />
+                            </div>
+                            <div className='profile_name_container'>
+                              <p className='profile_names ellipsis'>{state.Profile.username}</p>
+                              <p className='profile_viewAll m-0' onClick={ViewProfiles}>Edit Profile</p>
+                            </div>
 
-                        </section>
-                        <hr />
-                        <section className='bg-light navbarProfileDropDownSection'>
-                          <ol className='navbar_profile_orderList px-0'>
-                            {ProfileList.map((value, index) => {
-                              return (
-                                <div key={index}>
-                                  <Link to={value.link} onClick={()=>{SetDropDownState(false) ; SetProfileSelectedState(value.id)}}> <li className='profile_list' style={{ color: ProfileSlectedState === value.id ? "#31B665" : "" }} >{value.item}</li></Link>
-                                  <hr />
-                                </div>
-                              )
-                            })}
-                          </ol>
+                          </section>
+                          <hr />
+                          <section className='bg-light navbarProfileDropDownSection'>
+                            <ol className='navbar_profile_orderList px-0'>
+                              {ProfileList.map((value, index) => {
+                                return (
+                                  <div key={index}>
+                                    <Link to={value.link} onClick={()=>{SetDropDownState(false) ; SetProfileSelectedState(value.id)}}> <li className='profile_list' style={{ color: ProfileSlectedState === value.id ? "#31B665" : "" }} >{value.item}</li></Link>
+                                    <hr />
+                                  </div>
+                                )
+                              })}
+                            </ol>
 
-                        </section>
-                        <Box className={`mt-4 navbar_profileLodingBtn_position ${classes.navbarprofileLoadingBtn}`}>
-                          <LoadingButton onClick={Logout}>Logout</LoadingButton>
-                        </Box>
-                      </div>
+                          </section>
+                          <Box className={`mt-4 navbar_profileLodingBtn_position ${classes.navbarprofileLoadingBtn}`}>
+                            <LoadingButton onClick={Logout}>Logout</LoadingButton>
+                          </Box>
+                        </div>
 
-                    )}
+                      )}
 
+                    </div>
                   </div>
-                </div>
-                :
-                <div className=' col-12 Login_Sigup_button  Sapceing'>
-                  <div className='col-lg-4 col-sm-4'>
-                    <Grid display={{ xs: "none", md: "block", lg: "block", }} >
-                      <NavLink to="/login" >   <Button className={classes.muiBtn} >Log In</Button></NavLink>
-                    </Grid>
+                  :
+                  <div className=' col-12 Login_Sigup_button justify-content-end  Sapceing'>
+                    <div className='col-lg-4 col-sm-4'>
+                      <Grid display={{ xs: "none", md: "block", lg: "block", }} >
+                        <NavLink to="/login" >   <Button className={classes.muiBtn} >Log In</Button></NavLink>
+                      </Grid>
+                    </div>
+                    <div className='col-lg-4 col-sm-4'>
+                      <Grid display={{ xs: "none", md: "block", lg: "block" }}>
+                        <NavLink to="/signup" >    <Button sx={{ boxShadow: 3 }} className={classes.muiBtn_Signup} >Sign Up</Button></NavLink>
+                      </Grid>
+                    </div>
                   </div>
-                  <div className='col-lg-4 col-sm-4'>
-                    <Grid display={{ xs: "none", md: "block", lg: "block" }}>
-                      <NavLink to="/signup" >    <Button sx={{ boxShadow: 3 }} className={classes.muiBtn_Signup} >Sign Up</Button></NavLink>
-                    </Grid>
-                  </div>
-                </div>
-            }
+              }
+            </Grid>
+            <Grid xs={12} md={12} xl={12} >
+              <SliderLink state={state}></SliderLink>
+              <SideNavbar closeNav={closeNav} Open={Open}></SideNavbar>
+            </Grid>
           </Grid>
-          <Grid xs={12} md={12} xl={12} >
-            <SliderLink state={state}></SliderLink>
-            <SideNavbar closeNav={closeNav} Open={Open}></SideNavbar>
-          </Grid>
-        </Grid>
+        </div>
       </div>
-
-
-
     </React.Fragment>
   )
 }

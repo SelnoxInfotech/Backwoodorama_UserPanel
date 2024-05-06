@@ -48,20 +48,17 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
    if(Time === ""){
      if(Hours !== null  && Hours !== undefined){
 
-         const h =  Hours?.map((data)=>data?.day)
+             const h  =  Hours?.map((data)=>data?.day)
              const t1 =  Hours?.map((data)=>data?.Open.map((data)=> data?.Time1))
              const t2 =  Hours?.map((data)=>data?.Open.map((data)=> data?.Time2))
-             SetTime(h[0]+t1[0][0]+t2[0][0])
+             SetTime(h[0] + " " +t1[0][0]+"-"+t2[0][0])
      }
      else{
 
-        SetTime('Monday04:0004:00')
+        SetTime(`Monday 00:30-23:30`)
      }
    }
     },[])
-
-    //   dataFormate(new Date().getDate)
-
     return (
         <React.Fragment>
             <div className="container-fluid">
@@ -123,10 +120,10 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                                         </div>
                                     :
                                         <React.Fragment>
-                                            <div><p  style={{fontWeight:'600'}}> Pickup Time</p> 
+                                            <div><p  style={{fontWeight:'600'}}> Pickup Time </p> 
                                             </div>
                                         
-                                            <p>{Time}</p>
+                                            <p className='m-0'> {Time}</p>
                                         </React.Fragment>
                               
                             } 
@@ -154,7 +151,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                                                     {
                                                         Hours?.map((data)=>{
                                                             return(
-                                                                <MenuItem value={data?.day + data?.Open?.map((time)=>time.Time1) + data?.Open?.map((time)=>time.Time2)}>
+                                                                <MenuItem value={data?.day + " " + data?.Open?.map((time)=>time.Time1) +"-"+ data?.Open?.map((time)=>time.Time2)}>
                                                                   <div> <span className='col-7'> { data?.day[0].toUpperCase() + data?.day.slice(1)} :- </span> <span>{data?.Open?.map((time)=>time.Time1)}</span>-<span>{data?.Open?.map((time)=>time.Time2)}</span></div>
                                                                 </MenuItem>
                                                             )

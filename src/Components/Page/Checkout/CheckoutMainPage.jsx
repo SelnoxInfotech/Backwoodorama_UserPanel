@@ -119,12 +119,14 @@ const CheckOutMainPage = () => {
         })
 
     }, [])
+
+    console.log(state?.AllProduct[0]?.StoreHours)
     return (
         <React.Fragment>
             <div className="container">
 
 
-                <div className="row center">
+                <div className="row">
                     <div className="col-md-8 col-lg-6 col-sm-12 col-12">
                         <div className="row ">
                             <div className="col-lg-12">

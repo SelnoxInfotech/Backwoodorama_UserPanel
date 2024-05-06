@@ -46,17 +46,18 @@ const LearnTabs = () => {
                                     <Tab label="Product" value="/learn/product" />
                                     <Tab label="History" value="/History" /> */}
                                     <Tab label="Law" value="/learn/laws-and-regulation" />
+                                    <Tab label="All News" value="" onClick={()=>{Naviagte('/cannabis-news')}} />
 
                                 </TabList>
                             </Box>
                             <Box className={`${classes.learnTabPadding}`}>
-                                <TabPanel value="/learn" >
+                                {/* <TabPanel value="/learn" >
                                     <Learn />
                                 </TabPanel>
                                 <TabPanel value="/learn/product">
                                     <Learnproduct />
                                 </TabPanel>
-                                <TabPanel value="/History"><History /></TabPanel>
+                                <TabPanel value="/History"><History /></TabPanel> */}
                                 <TabPanel value="/learn/laws-and-regulation"><Laws /></TabPanel>
                             </Box>
                         </TabContext>

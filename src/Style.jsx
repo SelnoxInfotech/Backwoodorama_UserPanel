@@ -209,7 +209,7 @@ const useStyles = makeStyles({
   },
   muiSelectTime:{
     "&.MuiFormControl-root": {
-      width: "246px",
+      width: "320px",
       height: "38px",
       minWidth: "120px",
       margin: "1px"
@@ -227,7 +227,6 @@ const useStyles = makeStyles({
       },
     },
     "& .MuiInputBase-root": {
-      width: "246px",
       height: "38px",
       minWidth: "150px",
       // border:"1px solid yellow"

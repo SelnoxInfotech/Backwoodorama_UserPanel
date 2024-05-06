@@ -70,7 +70,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                             <div className=" px-3 d-flex w-100 ml-0 py-3 align-items-center manuheader justify-content-between">
                                 <div className='w-50'>
                                     <span >
-                                        <Link to="/"><LazyLoadImage className='navbar_logo_image'  src='./image/WeedWhiteLogo.png' alt='WeedX.io' /></Link>
+                                        <Link to="/"><LazyLoadImage className='navbar_logo_image'  src='./image/WeedWhiteLogo.webp' alt='WeedX.io' /></Link>
                                     </span>
                                 </div>
                                 <div className='w-50 text-end'>
@@ -159,7 +159,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                 </div>
                 <hr></hr>
                 <div className="col-12 Slider_content_center " >
-                    <Link className="LinkColor" to="/learn"><p onClick={closeNav} className="m-0 d-flex"><span><SiFuturelearn color="#31B655" fontSize={25}/></span>Learn</p></Link>
+                    <Link className="LinkColor" to="/learn/laws-and-regulation"><p onClick={closeNav} className="m-0 d-flex"><span><SiFuturelearn color="#31B655" fontSize={25}/></span>Learn</p></Link>
                 </div>
                 <hr></hr>
                

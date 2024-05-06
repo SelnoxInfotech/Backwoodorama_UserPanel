@@ -295,39 +295,6 @@ a {
   margin-top: 37px;
   border-bottom: 1px solid #AFAFAF;
 }
-
-.nav_list1 {
-  margin-left: 83px;
-}
-
-@media (max-width:1535px) {
-  .nav_list1 {
-    margin-left: 65px;
-
-  }
-
-}
-
-@media (max-width:1185px) {
-  .nav_list1 {
-    margin-left: 32px;
-
-  }
-
-}
-@media(max-width:899px){
-  .Top{
-    margin-top: 0px;
-  }
-}
-@media (max-width:910px) {
-  .nav_list1 {
-    margin-left: 12px;
-
-  }
-
-}
-
 @media (max-width:1800px) {
   .nav_li.nav_list1 ul {
     gap: 6%
@@ -347,7 +314,7 @@ a {
   gap: 6%;
   cursor: pointer;
   display: flex;
-  /* justify-content: center; */
+   /* justify-content: center;  */
   list-style-type: none;
   color: gray;
 }
@@ -392,6 +359,7 @@ a {
 .addyocardIcon {
   display: flex;
   gap: 11%;
+  justify-content: end;
 }
 
 @media(max-width:1076px) {
@@ -843,7 +811,7 @@ scrollbar-width: none;  /* Firefox */
 
 @media (max-width: 1439px) {
   .addyocardIcon {
-    justify-content: start;
+    justify-content: end;
   }
 
 }
