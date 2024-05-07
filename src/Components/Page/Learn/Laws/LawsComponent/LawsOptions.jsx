@@ -11,7 +11,7 @@ const LawsOptions = () => {
     const [Values, SetValues] = React.useState([])
     return (
         <div className="col-12 lawsContainer my-4">
-          
+            
     {/* <LawState Title={''}></LawState> */}
             {Content?.map((items ,index) => {
                 return (
@@ -27,7 +27,7 @@ const LawsOptions = () => {
                                             return (
 
                                                 <Link to={{
-                                                    pathname: `/learn/laws-and-regulation/${'Cannabis-Law-in-'+modifystr(val.name)}/${val.id }`,
+                                                    pathname: `/learn/laws-and-regulation/${'cannabis-Law-in-'+modifystr(val.name)}/${val.id }`,
                                                 }}
                                                     key={index}
                                                 >
