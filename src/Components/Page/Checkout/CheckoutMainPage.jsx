@@ -33,13 +33,16 @@ const CheckOutMainPage = () => {
         Email: "",
         Ordertype: '',
     })
+
     const [CheckOut_Loading, SetLoading] = React.useState(false)
+
     React.useEffect(() => {
         window.scroll(0, 0)
     }, [ShowData, ShowDeliveryInformation, DeliveryOptionData])
     const config = {
         headers: { Authorization: `Bearer ${token_data}` }
     };
+
     async function SubmitData() {
 
         if (image !== undefined) {
@@ -71,7 +74,7 @@ const CheckOutMainPage = () => {
             formdata.append('Country', asdsd === "Delivery" ? state.DeliveryCountry : state.AllProduct[0]?.Country);
             formdata.append('State', asdsd === "Delivery" ? state.DeliveryState : state.AllProduct[0]?.State)
             formdata.append('City', asdsd === "Delivery" ? state.DeliveryCity : state.AllProduct[0]?.City)
-
+            formdata.append('DiscountedAmount',   state?.Cart_subTotal - state.CoupounAmount)
             await Axios.post(
                 'https://api.cannabaze.com/UserPanel/Add-Order/ ',
                 formdata,
@@ -85,6 +88,7 @@ const CheckOutMainPage = () => {
                 SetLoading(true)
             ).then(response => {
                 SetLoading(false)
+                // console.log(location.state.orderBtn ,  response.data.data)
                 let datanew = { orterbtn: location.state.orderBtn, ...response.data.data }
                 navigate("/order-placed", { state: datanew })
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
