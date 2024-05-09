@@ -49,6 +49,7 @@ import Termsconditions from '../Components/Page/Termsconditions/Termsconditions.
 import MyLocationSearch from "../Components/Component/Navbar/Component/locationFuntion"
 import Layout1 from '../Layout1/Layout1.jsx'
 import sitemap from "../Components/Page/websitemap/sitemap.jsx";
+import ProductRedirction from "./productionRedirction.js";
 const routesConfig = [
  
   {
@@ -133,7 +134,7 @@ const routesConfig = [
       },
       {
         path: "/weed-dispensaries/:StoreName/menu/:category/:subcategory/:product/:id/",
-        element: <RoutingList Component={NewProductDetails} ></RoutingList>
+        element: <ProductRedirction Component={NewProductDetails} ></ProductRedirction>
       },
       {
         path: "/weed-deliveries/in/:Country/:state?/:city?/:route?",
@@ -145,7 +146,7 @@ const routesConfig = [
       },
       {
         path: "/weed-deliveries/:StoreName/menu/:Category/:SubCategory/:Product/:id/",
-        element: <RoutingList Component={NewProductDetails} ></RoutingList>
+        element: <ProductRedirction Component={NewProductDetails} ></ProductRedirction>
       },
       // End
       //  Learn Rout
