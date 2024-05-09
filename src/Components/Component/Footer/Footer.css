@@ -14,7 +14,7 @@
   }
   .footer_sub_heading {
     color: #707070;
-    font-size: 20px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -33,7 +33,7 @@
       padding-left: 5%;
   }
   .footerLogo{
-      width: 180px;
+      width: 120px;
   }
   .footer_list{
       width: 22%;
@@ -51,7 +51,7 @@
   .footer_heading{
     text-align: center;
     color: #31B665;
-    font-size: 32px;
+    font-size: 24px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -70,7 +70,7 @@
   }
   .Footer_Left_side_menu .footer_middle_icons_text{
     color: #5A7184;
-    font-size: 16px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -89,7 +89,7 @@
 
   .bottom_menu_items .footer_li, .footer_main_list .footer_li {
     color: #183B56;
-    font-size: 16px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: 2;
@@ -108,10 +108,11 @@
   }
   .footer_main_list p.footer_menu_heading{
     color: #183B56;
-    font-size: 20px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    margin-bottom: 10px;
   }
   .footer_bootom_headings_container{
    background-color: #31B665;
@@ -120,14 +121,14 @@
   }
   .footer_bootom_headings_container .copyright_title{
     color: #FFF;
-    font-size: 20px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 3;
     margin: 0;
   }
   .main_content_logo{
-    padding: 40px 0;
+    padding: 40px 0 0;
   }
   .showmoreList{
     display: none;

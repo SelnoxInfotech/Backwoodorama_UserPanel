@@ -118,7 +118,7 @@ const Dispensories = () => {
                             {Store?.map((ele, index) => {
                                 return (
 
-                                    <div className='dispensoriesContainer  dispensoriesCard' key={index}>
+                                    <div className='dispensoriesContainer' key={index}>
                                         <div className=' dispensoriesAddressBorder'>
                                             <div className='dispensoriesAddresCardimg'>
                                                 <Link to={`/weed-dispensaries/${modifystr(ele.Store_Name)}/${ele.id}`}>
@@ -150,19 +150,17 @@ const Dispensories = () => {
 
                                                         </div>
                                                     </div>
-                                                    <div className='col-12  '>
-                                                        <div className='Dispensaries_card_discription'>
-                                                            <span className='ellipsis'>{ele.Store_Type}</span>
-                                                        </div>
-                                                    </div>
+                                                
                                                 </Link>
+                                                <div className='homecardRating'>
                                                 <Link to={`/weed-dispensaries/${modifystr(ele.Store_Name)}/${'review'}/${ele.id}`}>
                                                     <div className=' w-100 d-flex align-items-center gap-2'>
-                                                        <span className='DeliveryServicesRatingTitle'>Rating</span>
+                                                        <span className='DeliveryServicesRatingTitle'>{ele?.rating !== null ?   ele?.rating?.toFixed(1) : 0}</span>
                                                         <Rating className={classes.homePageStarIcons} color='green' name="read-only" value={ele.rating === null ? 0 : ele.rating} readOnly />
                                                     </div>
                                                 </Link>
-                                                <div className='col-12  mt-4'>
+                                                </div>
+                                                <div className='col-12  mt-2'>
                                                     <Box  className={`${classes.loadingBtnTextAndBack}`} >
                                                         <LoadingButton onClick={() => { Navigate(`/weed-dispensaries/${modifystr(ele.Store_Name)}/${ele.id}`) }} style={{ width: "100%" }}>Order Pickup</LoadingButton>
                                                     </Box>

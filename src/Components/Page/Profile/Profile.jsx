@@ -2,10 +2,9 @@ import { MdEdit } from "react-icons/md"
 import React from "react";
 import { MdOutlineShoppingBasket } from "react-icons/md"
 import { AiFillHeart } from "react-icons/ai";
+import { FaHandsHelping } from "react-icons/fa";
 import { AiFillStar } from "react-icons/ai"
-import { IoIosSettings } from "react-icons/io"
 import LoadingButton from '@mui/lab/LoadingButton';
-import { AiFillCamera } from "react-icons/ai"
 import Box from '@mui/material/Box';
 import useStyles from "../../../Style";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -23,11 +22,11 @@ const Profile = () => {
     const [Error, SetError] = React.useState('')
     const Navigate = useNavigate()
     const [ProfileListSelected, SetProfileListSelected] = React.useState(1)
-    const ProfileList = [  
+    const ProfileList = [
                             { id: 1, icons: <MdOutlineShoppingBasket color="#707070" size={22} />, item: "Order" ,Link:"/myorder" },
                             { id: 2, icons: <AiFillHeart color="#707070" size={22} />, item: "Favorite" ,Link:"/whislists" },
                             { id: 3, icons: <AiFillStar color="#707070" size={22} />, item: "Review" ,Link:"/myreviews" },
-                            { id: 4, icons: <IoIosSettings color="#707070" size={22} />, item: "Help" ,Link:"/helpcenter" }
+                            { id: 4, icons: <FaHandsHelping color="#707070" size={22} />, item: "Help" ,Link:"/helpcenter" }
                         ]
 
     function Logout() {
@@ -84,12 +83,12 @@ const Profile = () => {
 
 
     return (
-        <div className="container">
-            <div className="row mx-2">
-                <div className="col-sm-8 col-12 profile_container px-0">
+      <div className="d-flex justify-content-center">
+           
+                <div className="profile_container">
                     <form>
-                        <div className="row mx-0">
-                            <div className="col-12  px-0 d-flex">
+                       
+                            <div className="ProfileCartheader">
                                 <section className="profile_image_section">
                                     <div className="profile_image ">
                                        {
@@ -97,7 +96,7 @@ const Profile = () => {
                                                 :
                                                 <LazyLoadImage
                                                     onError={ event => {
-                                                        event.target.src = "./image/user.webp"
+                                                        event.target.src = "/image/user.webp"
                                                         event.onerror = null
                                                     }}
                                                     src={ state.Profile.googlelink === null ?`${state.Profile.image} ` : state.Profile.googlelink}
@@ -107,13 +106,13 @@ const Profile = () => {
                                         }
                                     </div>
 
-                                    <div className="w-100 profileInput_container">
+                                    {/* <div className="w-100 profileInput_container">
                                         <label for="profile image" className="change_profile_container_padding">
                                             <input onChange={(event) => { handleImage(event) }} type="file" hidden id="profile image" />
                                             <AiFillCamera color="#707070" size={22} /><span className="nameChangeProfile">Change profile</span>
                                             {Error !== '' && <p style={{color:"red",fontSize: 'x-small'}}>{Error}</p>}
                                         </label>
-                                    </div>
+                                    </div> */}
 
                                 </section>
                                 <section className="profile_edit_text">
@@ -121,16 +120,15 @@ const Profile = () => {
                                         <h1 className="profile_user_name ellipsis">{state.Profile.username}</h1>
                                     </div>
                                     <div className="profileEdit_Icon">
-                                        <Link to="/EditProfile"><span><MdEdit color="#707070" size={18} /></span><span className="profileEdit">Edit User Profile</span></Link>
+                                        <Link to="/EditProfile"><span><MdEdit color="#707070" size={16} /></span><span className="profileEdit">Edit Profile</span></Link>
                                     </div>
                                 </section>
                             </div>
 
 
-                        </div>
-                        <hr />
+                    
                         <section className="px-0 profile_list_items_section">
-                            <ol className="px-0 ProfileOrderList">
+                            <ol className="m-0  px-0">
                                 {ProfileList.map((val, index) => {
                                     return (
                                         <div className="profile_list_div" key={index}>
@@ -138,21 +136,19 @@ const Profile = () => {
                                                 <span>{val.icons}</span>
                                               <Link to={val.Link}>  <span className="profileListItems" onClick={() => handleProfileListAndRedirect(val.id)}>{val.item}</span></Link>
                                             </li>
-                                            <hr />
                                         </div>
                                     )
                                 })}
                             </ol>
                         </section>
-                        <Box className={`mt-4 profileLodingBtn_position ${classes.profileLoadingBtn}`}>
+                        <Box className={classes.profileLoadingBtn}>
                             <LoadingButton onClick={Logout}>Logout</LoadingButton>
                         </Box>
                     </form>
                 </div>
 
-            </div>
-
-        </div>
+           
+       </div>
     )
 }
 export default Profile

@@ -246,8 +246,7 @@ const useStyles = makeStyles({
       color: "#707070",
       // outline: "1px solid #00b96a",
       border: "1px solid #31B665",
-      borderRadius: " 71px  71px",
-
+      borderRadius: "5px",
       minWidth: "100%",
       textTransform: "none",
       width: "120px",
@@ -267,7 +266,7 @@ const useStyles = makeStyles({
       color: "white",
       // outline: "1px solid #00b96a",
       backgroundColor: "#00b96a",
-      borderRadius: " 71px  71px",
+      borderRadius: "5px",
       // boxShadow:"box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;",
       minWidth: "100%",
       textTransform: "none",
@@ -620,9 +619,20 @@ const useStyles = makeStyles({
   },
   homePageStarIcons: {
     "&.MuiRating-root": {
-      color: "#31B665",
-      fontSize:"18px"
+     
+      fontSize:"14px",
+      "& .MuiRating-iconFilled":{
+        color: "#FFDA03",
+      },
+      "& .MuiRating-iconEmpty":{
+        color:'#fff',
+        "& .MuiSvgIcon-root":{
+          fill:'#fff'
+        }
+  
+      }
     },
+  
   },
   productSearchIcons: {
     fontSize: "25px",
@@ -778,21 +788,19 @@ const useStyles = makeStyles({
   },
   profileLoadingBtn: {
     "& .MuiButton-text": {
-      fontSize: "1.5rem",
+      fontSize: "16px",
+      fontWeight:'500',
     },
     "& .MuiLoadingButton-root": {
       width: "100%",
-      height: "52px",
       textTransform: "none",
-      border: "2px solid #D9D9D9",
       borderRadius: "0px",
       color: "#000000",
-      backgroundColor: "#D9D9D9",
+      backgroundColor: "#f1f1f1",
     },
     "& .MuiButtonBase-root:hover": {
       color: "#000000",
-      backgroundColor: "#D9D9D9",
-      border: "1px solid #D9D9D9",
+      backgroundColor: "#f1f1f1",
       borderRadius: "0px",
     },
   },
@@ -1070,26 +1078,6 @@ const useStyles = makeStyles({
       color: "#434343",
       backgroundColor: "#FFFFFF",
       border: "1px solid #31B665"
-    },
-  },
-  navbarprofileLoadingBtn: {
-    "& .MuiButton-text": {
-      fontSize: "12px",
-    },
-    "& .MuiLoadingButton-root": {
-      width: "100%",
-      height: "52px",
-      textTransform: "none",
-      border: "2px solid #D9D9D9",
-      borderRadius: "0px",
-      color: "#000000",
-      backgroundColor: "#D9D9D9",
-    },
-    "& .MuiButtonBase-root:hover": {
-      color: "#000000",
-      backgroundColor: "#D9D9D9",
-      border: "1px solid #D9D9D9",
-      borderRadius: "0px",
     },
   },
   sliderProfile_loadingBtn: {

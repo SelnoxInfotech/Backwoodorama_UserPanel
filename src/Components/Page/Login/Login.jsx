@@ -69,7 +69,7 @@ const Login = () => {
             else{
                 // alert("SomeThing Worng")
                 Swal.fire({
-                    imageUrl: "./image/cross.png",
+                    imageUrl: "/image/cross.png",
                     imageClass: "loginsweetimg",
                     imageWidth: 60,
                     imageHeight: 60,

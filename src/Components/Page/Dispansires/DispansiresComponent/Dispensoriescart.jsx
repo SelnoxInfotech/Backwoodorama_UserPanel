@@ -65,7 +65,7 @@ const Dispensoriescart = ({index ,ele }) => {
                        
                         }
 
-                    </div>
+                   
                    { ele.CurbSide_Pickup && <div className="col-12 dispensories_buttonsContainer mt-2">
                         <button className="dispensories_pickup_btn">Pickup delivery</button>
                     </div>}
@@ -77,12 +77,15 @@ const Dispensoriescart = ({index ,ele }) => {
                         <button className="dispensories_pickup_btn">Store Front</button>
                     </div>
                     }
+                     </div>
+                     <div className='homecardRating'>
                         <Link  to={`/weed-dispensaries/${modifystr(ele.Store_Name.toLowerCase())}/${"review"}/${ele.id}`}>
-                    <div className="col-12 d-flex dispensories_content_paragraphs mt-2">
-                        <span className='disOPenResRating'>Rating</span>
-                        <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={ele.rating === null ? 0 : ele.rating} readOnly />
-                    </div>
+                            <div className="col-12 d-flex dispensories_content_paragraphs">
+                                <span className='disOPenResRating'>{ele?.rating !== null ? ele?.rating.toFixed(1) : 0}</span>
+                                <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={ele.rating === null ? 0 : ele.rating} readOnly />
+                            </div>
                         </Link>
+                     </div>
                     <div className="col-12">
                         <Box className={classes.loadingBtnTextAndBack}>
                         <Link  to={`/weed-dispensaries/${modifystr(ele.Store_Name.toLowerCase())}/${ele.id}`}>

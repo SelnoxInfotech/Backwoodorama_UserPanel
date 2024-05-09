@@ -33,12 +33,12 @@ const AddToCart = () => {
                             </div>
                             <div className="row  AddProductCartContainer">
 
-                                <div className="col-sm-8 AddProductCartContainerinner">
+                                <div className="col-lg-8 col-12 AddProductCartContainerinner">
 
                                     <AddToCartReview />
 
                                 </div>
-                                <div className="col-sm-4">
+                                <div className="col-lg-4 col-md-6 col-12">
                                     <AddToCartSummary />
                                 </div>
 

@@ -11,7 +11,7 @@ import { useLocation, useParams, useNavigate } from "react-router-dom";
 import axios, { Axios } from "axios";
 import { DespensioriesItem } from '../../../Api/Api';
 import Wronglocation from "../../Component/Skeleton/Wronglocation";
-function TabPanel(props) {
+    function TabPanel(props) {
 
     const { children, value, index, ...other } = props;
 
@@ -160,10 +160,8 @@ export default function Dispansires() {
     }
     const classes = useStyles()
     return (
-        <React.Fragment>
-            <div className="container-fluid">
                 <div className="row  dispensaries_centers">
-                    <div className="col-12  col-md-10 col-sm-12">
+                    <div className="col-12 col-sm-12">
                         <div>
 
                             <span onClick={() => navigate("/")}>{"Home"}</span>
@@ -187,7 +185,7 @@ export default function Dispansires() {
                         <p>{`Find Nearby Dispensaries in ${state?.Location} for Recreational & Medical weed. Browse Top Cannabis Products and Place Orders from Trusted Local Dispensaries.`}</p>
                     </div>
                     </div>
-                    <div className="col-12 col-lg-10 col-md-10 col-sm-12 dispensory_menu my-2">
+                    <div className="col-12 col-sm-12 dispensory_menu my-2">
                         {
                           loader ? ( Boolean(Store.length) ?
                                 <Box className={`dispensories_tabss ${classes.dispensory_tab_background}`} sx={{ width: '100%' }}>
@@ -220,16 +218,13 @@ export default function Dispansires() {
                                 <Wronglocation title={' No dispensaries available'} description={'We apologize, but it appears that there are no dispensaries available in your location. Would you like to enter a different address to search for a nearby dispensary?'}/>)
                                 :
                                 <div className="loader_container">
-                                    <span className="newloader"></span>
+                                    <span className="newloader shine"><img src='/image/logo.png' alt="image" /></span>
                                 </div>
                         }
-                      
+                     
                         </div>
 
                 </div>
-            </div>
-
-        </React.Fragment>
     )
 
 

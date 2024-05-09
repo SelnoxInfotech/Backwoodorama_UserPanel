@@ -25,7 +25,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import { Link, useParams } from "react-router-dom";
 import AddToCartPopUp from "../../AddToCartPopUp/AddToCartPopUp";
-import { FaPlus ,FaMinus } from "react-icons/fa";
+// import logoiamge from '../../../../../../public/image/logo.png'
 import { WhisList } from '../../../../Component/Whishlist/WhisList'
 const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, quentity, setquentity, dynamicWeight, setdynamicWeight }) => {
 
@@ -599,7 +599,9 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                     </div>
 
                     {startload && <div className="loader_container">
-                        <span className="newloader"></span>
+                        <span className="newloader shine">
+                            <img src="https://i.ibb.co/KG0yQcM/logo.png" />
+                        </span>
                     </div>
                     }
                     {Whishlist && <WhisList open1={Whishlist} SetWishList={SetWishList}></WhisList>}

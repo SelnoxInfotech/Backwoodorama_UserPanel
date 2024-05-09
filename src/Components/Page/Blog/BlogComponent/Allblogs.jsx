@@ -123,7 +123,7 @@ const Allblogs = () => {
       <NewsSeo></NewsSeo>
       <div>
          <div className='p-md-0 p-2 d-md-flex  justify-content-between align-items-center'>   
-         <div className='col-3'>
+         <div className='col-lg-3'>
             <h1 className='section_main_title'>Latest news</h1>
           </div> 
             <SearchBar value={searchtext}  onChange={(e)=>Searchbar(e)} style={{ background: "#FFFFF", border: "1px solid #31B665" }} width={"100%"} placeholder="Search Menu" />
@@ -136,7 +136,7 @@ const Allblogs = () => {
                 return (
 
                   <div className='row blogListCard mx-0' key={index}>
-                    <div className='col-3  d-flex align-items-center'>
+                    <div className='col-3 p-0 d-flex align-items-center'>
                       <div className='blogCardImg'>
                         <Link to={`/cannabis-news/${modifystr(items.Title)}/${items.id}`} key={index}>
                           <LazyLoadImage
@@ -237,8 +237,8 @@ const Allblogs = () => {
             </div>
             : <DeliveryItemsCardSkeleton></DeliveryItemsCardSkeleton>
           }
-          {
-            loader && <div className="loader_container"> <span className="newloader"></span> </div>
+          { 
+            loader && <div className="loader_container"> <span className="newloader shine"><img src='/image/logo.png' alt='image' /></span> </div>
           }
 
       </div>

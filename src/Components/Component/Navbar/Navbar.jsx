@@ -3,9 +3,14 @@ import Grid from '@mui/system/Unstable_Grid';
 import SideNavbar from "../Navbar/Component/SideSlider/Slider"
 import Button from '@mui/material/Button';
 import useStyles from "../../../Style"
+import { FiShoppingBag } from "react-icons/fi";
+import { FaHeart } from "react-icons/fa";
+import { MdReviews } from "react-icons/md";
+import { TbLogout } from "react-icons/tb";
+import { TbEdit } from "react-icons/tb";
+import { FaHandsHelping } from "react-icons/fa";
 import SearchBar from "./Component/SearchBar"
 import { AiFillHeart } from "react-icons/ai"
-import  ClickAwayListener from '@mui/base/ClickAwayListener';
 import { IoIosNotifications } from "react-icons/io"
 import { MdOutlineShoppingCart } from "react-icons/md"
 import { Link, NavLink } from "react-router-dom";
@@ -14,8 +19,6 @@ import Createcontext from "../../../Hooks/Context"
 import Cookies from 'universal-cookie';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Badge from '@mui/material/Badge';
-import Box from '@mui/material/Box';
-import LoadingButton from '@mui/lab/LoadingButton';
 import IconButton from '@mui/material/IconButton';
 import { useNavigate , useLocation } from 'react-router-dom';
 import Notification from './Notification'
@@ -33,9 +36,6 @@ const Navbar = () => {
   const classes = useStyles()
   const [Open, SetOpen] = React.useState(false)
   const [DropDownState, SetDropDownState] = React.useState(false);
-  const [ProfileSlectedState, SetProfileSelectedState] = React.useState('')
-  const ProfileList = [{ id: 1, item: "My Order" , link:'/myorder' }, { id: 2, item: "Favorites", link:'/whislists' },
-  { id: 3, item: "Review", link:'/myreviews' }, { id: 4, item: "Help", link:'/helpcenter' }]
   const [notificationdata, Setnotificationdata] = React.useState([]);
   const [totalnotify, Settotalnotify] = React.useState([]);
    
@@ -107,12 +107,12 @@ const Navbar = () => {
   
   const navigate = useNavigate()
 
-  const ViewProfiles = () => {
-    navigate("/profile")
-    SetDropDownState((DropDownState) => {
-      return !DropDownState;
-    })
-  }
+  // const ViewProfiles = () => {
+  //   navigate("/profile")
+  //   SetDropDownState((DropDownState) => {
+  //     return !DropDownState;
+  //   })
+  // }
 
   return (
     <React.Fragment>
@@ -184,9 +184,9 @@ const Navbar = () => {
                 state.login === true
                   ?
 
-                  <div className=' col-12 Login_Sigup_button '>
-                    <div className='col-lg-4 col-sm-4 navbarProfileDropDown_container' ref={profileRef}>
-                      <Grid display={{ xs: "none", md: "block", lg: "block" }}>
+             
+                    <div className='navbarProfileDropDown_container' ref={profileRef}>
+                      <Grid display={{ xs: "none", md: "flex"}}  justifyContent="flex-end">
                         <div className='Navbar_profile_logo_container'>
                           <LazyLoadImage
                             onError={event => {
@@ -203,43 +203,43 @@ const Navbar = () => {
                       {DropDownState && (
                         <div className='profileDropdown_container'>
                           <section className='Navbar_proflie_image_name_section'>
-                            <div className='profile_image_container'>
+                            {/* <div className='profile_image_container'>
                               <LazyLoadImage onError={event => {
                                 event.target.src = "/image/user.webp"
                                 event.onerror = null
                               }}
                                 src={state.Profile.googlelink === null ?`${state.Profile.image} ` : state.Profile.googlelink}
                                 alt='Profile' className="Navbar_profile_imgs" />
-                            </div>
+                            </div> */}
                             <div className='profile_name_container'>
                               <p className='profile_names ellipsis'>{state.Profile.username}</p>
-                              <p className='profile_viewAll m-0' onClick={ViewProfiles}>Edit Profile</p>
+                              {/* <p className='profile_viewAll m-0' onClick={ViewProfiles}>Edit Profile</p> */}
                             </div>
 
                           </section>
                           <hr />
-                          <section className='bg-light navbarProfileDropDownSection'>
+                          <section className=' navbarProfileDropDownSection'>
                             <ol className='navbar_profile_orderList px-0'>
-                              {ProfileList.map((value, index) => {
-                                return (
-                                  <div key={index}>
-                                    <Link to={value.link} onClick={()=>{SetDropDownState(false) ; SetProfileSelectedState(value.id)}}> <li className='profile_list' style={{ color: ProfileSlectedState === value.id ? "#31B665" : "" }} >{value.item}</li></Link>
-                                    <hr />
-                                  </div>
-                                )
-                              })}
+                             
+                                 <Link to={'/EditProfile'} onClick={()=>{SetDropDownState(false)}}> <li className='profile_list'>  <span><TbEdit  /></span> EDIT PROFILE</li></Link>
+                                 <Link to={'/myorder'} onClick={()=>{SetDropDownState(false)}}> <li className='profile_list' > <span><FiShoppingBag /></span> MY ORDER</li></Link>
+                                 <Link to={'/whislists'} onClick={()=>{SetDropDownState(false) }}> <li className='profile_list'> <span><FaHeart /></span> FAVORITES </li></Link>
+                                 <Link to={'/myreviews'} onClick={()=>{SetDropDownState(false) }}> <li className='profile_list' >  <span><MdReviews /></span>MY REVIEW </li></Link>
+                                 <Link to={'/helpcenter'} onClick={()=>{SetDropDownState(false)}}> <li className='profile_list'>  <span><FaHandsHelping /></span> HELP</li></Link>
+                                 
+                                 <li className='profile_list' onClick={()=>{Logout()}}>  <span><TbLogout /></span> LOGOUT</li>
+                                   
+                                
+                              
                             </ol>
 
                           </section>
-                          <Box className={`mt-4 navbar_profileLodingBtn_position ${classes.navbarprofileLoadingBtn}`}>
-                            <LoadingButton onClick={Logout}>Logout</LoadingButton>
-                          </Box>
+                       
                         </div>
-
                       )}
 
                     </div>
-                  </div>
+                
                   :
                   <div className=' col-12 Login_Sigup_button justify-content-end  Sapceing'>
                     <div className='col-lg-4 col-sm-4'>

@@ -4,32 +4,18 @@ import Button from '@mui/material/Button';
 import useStyles from "../../../../../Style"
 import { Link, useNavigate } from "react-router-dom"
 import Createcontext from "../../../../../Hooks/Context"
-import Cookies from 'universal-cookie';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { FaHome , FaClinicMedical , FaIdeal ,FaProductHunt } from "react-icons/fa";
 import { TbTruckDelivery } from "react-icons/tb";
 import { SiBrandfolder ,SiFuturelearn} from "react-icons/si";
-import { IoIosMore } from "react-icons/io";
-import { MdArrowBackIosNew } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
-import LoadingButton from "@mui/lab/LoadingButton";
-import Box from "@mui/material/Box";
 const SideNavbar = ({ closeNav, Open }) => {
   const profileRef=React.useRef(null)
-    const cookies = new Cookies();
     const Navigate = useNavigate()
-    const { state, dispatch } = React.useContext(Createcontext)
+    const { state } = React.useContext(Createcontext)
     const [SliderStateDropDown, SetSliderStateDropdown] = React.useState(null)
-    const SliderProfileList = [{ item: "My Order" }, { item: "Whislists" },
-    { item: "Review" }, { item: "Help" }]
-   
     const classes = useStyles()
-    // function Logout() {
-    //     cookies.remove('User_Token_access')
-    //     dispatch({ type: 'Login', login: false })
-    //     dispatch({ type: 'ApiProduct' })
-    //     closeNav()
-    // }
+  
     function Login() {
         Navigate("/login")
         closeNav()
@@ -80,7 +66,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                             </div> 
                             :
                               <div className="row w-100 d-flex align-items-center manuheader justify-content-between mx-0">
-                                    <div className="col-9 " ref={profileRef}>
+                                    <div className="col-9" ref={profileRef}>
                                      
                                                 <section className="image_name_section">
                                                     <div className="SliderImageProfile_container">
@@ -93,36 +79,9 @@ const SideNavbar = ({ closeNav, Open }) => {
                                                     </div>
                                                     <div className="slider_image_profile_names_conatiner">
                                                    <h2 className="slider_image_name_heading ellipsis" onClick={Redirect}>{state.Profile.username}</h2> 
-                                                        {/* <p className="slider_view_heading"  onClick={sliderProfileHandler}>View Profile</p> */}
                                                     </div>
                                                 </section>
-                                        {/* </div> */}
-                                        {/* {SliderStateDropDown &&
-                                            (<div className="sliderProfile_image_list_container">
-                                               
-                                                <section className="sliderProfile_list">
-                                                    <ol className="px-0">
-                                                        {SliderProfileList.map((items, index) => {
-                                                            return (
-                                                                <div key={index}>
-                                                                    <li className="slider_profile_list" onClick={()=>{Redirect(items.item); closeNav()}}>{items.item}</li>
-                                                                    <hr />
-                                                                </div>
-
-                                                            )
-                                                        })}
-                                                          <div >
-                                                                    <li className="slider_profile_list" onClick={()=>{Navigate('/profile'); closeNav()}}>Edit Profile</li>
-                                                                    <hr />
-                                                          </div>
-                                                    </ol>
-                                                </section>
-                                                <Box className={`sliderProfile_logout_btn ${classes.sliderProfile_loadingBtn}`}>
-                                                    <LoadingButton onClick={Logout}>Logout</LoadingButton>
-                                                </Box>
-
-                                            </div>)
-                                        } */}
+                                      
                                     </div>
                                     <div className='col-3 text-end'>
                                         <span className="manuclosebtn d-flex justify-content-end " onClick={closeNav}> <RxCross2 color="#fff" size={25}/>
@@ -146,10 +105,10 @@ const SideNavbar = ({ closeNav, Open }) => {
                     <Link className="LinkColor" to={`/weed-deliveries/in/${state?.Country?.toLowerCase()}/${state?.State?.toLowerCase()}/${state?.City?.toLowerCase()}`}><p onClick={closeNav} className="m-0 d-flex"><span><TbTruckDelivery color="#31B655"  fontSize={25} /></span>Deliveries</p></Link>
                 </div>
                 <hr></hr>
-                <div className="col-12 Slider_content_center " >
+                {/* <div className="col-12 Slider_content_center " >
                     <Link className="LinkColor" to="/brands"><p onClick={closeNav} className="m-0 d-flex"><span><SiBrandfolder color="#31B655" fontSize={25}/></span> Brand</p></Link>
                 </div>
-                <hr></hr>
+                <hr></hr> */}
                 <div className="col-12 Slider_content_center " >
                     <Link className="LinkColor" to="/products"> <p onClick={closeNav} className="m-0 d-flex"><span><FaProductHunt color="#31B655" fontSize={25}/></span>Products</p></Link>
                 </div>

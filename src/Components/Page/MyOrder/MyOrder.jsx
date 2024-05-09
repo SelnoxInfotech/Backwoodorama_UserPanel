@@ -43,7 +43,7 @@ const MyOrder = () => {
             title: "Are you sure?",
             text: "You won't be able to revert this!",
         
-            imageUrl: "./image/warning.png",
+            imageUrl: "/image/warning.png",
             imageClass: "loginsweetimg",
             imageWidth: 60,
             imageHeight: 60,

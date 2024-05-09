@@ -9,7 +9,7 @@ const CategoryProduct = ({ ShowCategoryProduct, Category, Skeleton }) => {
  
     return (
         <React.Fragment>
-            <div className='container-fluid CategoryBordrr'>
+            <div className=' CategoryBordrr'>
                 <div className='row'>
                        {
                              !Skeleton?

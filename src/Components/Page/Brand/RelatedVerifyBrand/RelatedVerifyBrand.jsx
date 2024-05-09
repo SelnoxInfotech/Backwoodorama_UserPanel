@@ -52,7 +52,7 @@ const RelatedVerifyBrand = () => {
         }
     }, [searchval, id])
     return (
-        BrandDetails?.length !== 0 && <div className="container-fluid">
+        BrandDetails?.length !== 0 && <div className="">
             <BrandDetailsSeo brandname={Name} location={pathname}></BrandDetailsSeo>
             <RelatedVerifyBanner BrandDetails={BrandDetails} />
             <div className="row  center mx-0 mt-4 mb-4">

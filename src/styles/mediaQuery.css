@@ -146,6 +146,7 @@
   }
 }
 @media(max-width:850px) {
+ 
   .Add_prod_btn_div {
     width: 12% !important;
   }
@@ -182,12 +183,6 @@
 
 /**********************   PERFECT CSS   ******************************/
 
-@media(min-width:1600px){
-  .container {
-    
-    max-width: 1536px !important;
-  }
-}
 @media(max-width:1536px) {
   .CategorySkeletons {
     overflow-y: hidden;
@@ -292,6 +287,13 @@
   }
 }
 @media (max-width:992px) {
+  .learn_banner_header {
+    height: 180px;
+  }
+  .learn_banner_text {
+    font-size: 26px;
+  }
+  
   .allOrderCard_container {
      height: auto;
   }
@@ -583,7 +585,7 @@
   }
 
   .editProfile_name {
-    font-size: 12px;
+    font-size: 14px;
   }
   
   .newProductSearchResult_ScrollContainerRelative {
@@ -602,6 +604,27 @@
   }
 }
 @media (max-width:576px) {
+  .learn_banner_header {
+    height: 120px;
+  }
+  .canabisLawMainHeadings{
+    font-size: 16px;
+  }
+  .learn_banner_text {
+    font-size: 18px;
+  }
+  .listCountryName{
+    font-size: 16px;
+  }
+  .law_Inner_OPtionList_Ol li{
+    padding: 10px 0;
+  }
+  .law_Inner_OPtionList_Ol li span{
+    font-size: 14px;
+  }
+  .lawsListStyle {
+    height: 30px;
+  }
   .dispensories_name {
     font-size: 12px;
   }
@@ -703,6 +726,10 @@
   }
 }
 @media (max-width:480px) {
+  .delivery_items_cards_container{
+    width: 100%;
+    padding: 25px 10px 10px;
+  }
   .notificationList{
     min-width: 300px;
     z-index: 10;
@@ -879,28 +906,28 @@
     height: 300px;
 
   }
-
+  .EditProfilOnlineOrder_name_flelds {
+    height: 50px;
+  }
+  .editProfileLogin_emailField_container{
+    height: 70px;
+  }
   .newProduct_category_slider_image {
     width: 80px;
     height: 80px;
     border-radius: 40px;
   }
-
   .newProductCategory_image {
     width: 60px;
     height: 60px;
     border-radius: 30px;
   }
-
-
+  .editProfileLoginParaStyle{
+    font-size: 12px;
+  }
   .newProductCategorySliderName p {
     font-size: 10px;
   }
-
-  .editProfile_name {
-    font-size: 10px;
-  }
-
   .editProfile_label {
     font-size: 12px;
   }
@@ -920,18 +947,7 @@
   .profile_user_name {
     font-size: 12px;
   }
-
-  .profile_edit_text {
-    margin-left: 15px;
-  }
-  .email_notification_sub_headings {
-    font-size: 11px;
-  }
-
-  .email_notification_inner_headings {
-    font-size: 12px;
-  }
-
+  
   .email_notification_headings {
     font-size: 14px;
   }
@@ -1041,7 +1057,7 @@
     margin-left: 0px;
   }
   .CategoryBordrr{
-   padding: 0;
+   padding: 0 16px;
   }
   .common_sub_head {
     font-size: 12px;
@@ -1075,21 +1091,10 @@
 .dispensoriesHeadings {
   font-size: 16px;
 }
-.deliveryServicesTitle p {
-font-size: 16px;
-font-weight: 600;
-margin: 0;
-}
-.deliveryServices_SubTitle p {
-  font-size: 14px;
- margin: 0;
-}
+
 .DeliveryServicesRatingTitle {
   
   font-size: 14px;
-}
-.deliveryServicesContent_container {
-  padding:10px;
 }
 
   .section_main_title {
@@ -1162,18 +1167,16 @@ margin: 0;
   }
 
   .delivery_items_card_img_container {
-    height: 139px;
+   width: 80px;
+   max-width: 80px;
+   min-width: 80px;
   }
-
+  .delivery_items_card_info_container{
+    width: calc(100% - 90px);
+  }
   .DeliveryItem_heading {
     font-size: .8rem;
   }
-
-  .delivery_image_content_Container_height {
-    height: 155px;
-
-  }
-
   .height_empty_div_paragraph p {
     font-size: 11px;
   }
@@ -1392,20 +1395,16 @@ margin: 0;
   .New_flav_btn a{
     width: 100%;
   }
-  .deliveryServicesCard{
-    width: 180px;
-    transition: all .3s ease;
-  }
-  .deliveryServicesImage_container{
-    height: 140px;
-    padding: 10px;
-  }
  
   .dispensories_image {
     height: 140px;
   }
   .dispensoriesContainer{
-    width: 200px;
+    min-width: 180px;
+  } 
+  .contentarea .thankforsubscribe {
+    font-size: 20px;
+    word-spacing: 7px;
   }
 }
 @media (max-width:425px) {
@@ -1481,9 +1480,7 @@ margin: 0;
   }
 }
 @media(max-width:350px) {
-  .delivery_btn_delivery{
-    height: auto;
-  }
+  
   .delivery_items_card_flex .deliverItemCard_icons{
     flex-wrap: wrap;
   }

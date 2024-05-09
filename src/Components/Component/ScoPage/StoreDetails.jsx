@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async"
 import { useLocation, useParams } from "react-router-dom"
 import React from "react"
-function StoreDetails({ Despen, locationStore }) {
+function StoreDetails({ Despen, locationStore  }) {
     const [MetaTag, SetMetaTag] = React.useState({ title: "", discription: "" })
     const location = useLocation()
     const params = useParams()
@@ -50,8 +50,8 @@ function StoreDetails({ Despen, locationStore }) {
                         break;
                     case 'review':
                         SetMetaTag({
-                            ...MetaTag, title: `Weedx.io Reviews | Share Your Experience with Us`,
-                            discription: `Explore and leave your review on Weedx.io. Share your experiences with our products and services. Your feedback helps us improve our offerings.`
+                            ...MetaTag, title: `${Despen[0]?.Store_Name !== null ? Despen[0]?.Store_Name : "Weedx.io"}  Reviews | Share Your Experience with Us`,
+                            discription: `Explore and leave your review on ${Despen[0]?.Store_Name !== null ? Despen[0]?.Store_Name : "Weedx.io"}. Share your experiences with our products and services. Your feedback helps us improve our offerings.`
                         })
                         break;
                     case 'deal':
@@ -120,8 +120,8 @@ function StoreDetails({ Despen, locationStore }) {
                         break;
                     case 'review':
                         SetMetaTag({
-                            ...MetaTag, title: `Weedx.io Reviews | Share Your Experience with Us                            `,
-                            discription: `Explore and leave your review on Weedx.io. Share your experiences with our products and services. Your feedback helps us improve our offerings.`
+                            ...MetaTag, title: `${Despen[0]?.Legal_Store_Name !== null ? Despen[0]?.Legal_Store_Name : 'Weedx.io'} Reviews | Share Your Experience with Us                            `,
+                            discription: `Explore and leave your review on ${Despen[0]?.Legal_Store_Name !== null ? Despen[0]?.Legal_Store_Name : 'Weedx.io'}. Share your experiences with our products and services. Your feedback helps us improve our offerings.`
                         })
                         break;
                     case 'deal':

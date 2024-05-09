@@ -41,8 +41,7 @@ export default function DashBoardLink({ state }) {
         <Grid container spacing={2}>
           <Grid
             xs={8}
-            md={8}
-            xl={8}
+            md={9}
             display={{ xs: "none", md: "block", lg: "block" }}
           >
             <div className="ccol  nav_list1">
@@ -96,13 +95,13 @@ export default function DashBoardLink({ state }) {
                 >
                   <li>Deliveries</li>
                 </Link>
-                <Link
+                {/* <Link
                   to="/brands"
                   id={`${current_route === "/brands" ? "Active" : ""}`}
                 >
                   {" "}
                   <li>Brand</li>
-                </Link>
+                </Link> */}
                 <Link
                   onClick={scrollToTop}
                   to="/products"
@@ -128,7 +127,7 @@ export default function DashBoardLink({ state }) {
               </ul>
             </div>
           </Grid>
-          <Grid
+          {/* <Grid
             xs={6}
             md={2}
             xl={2}
@@ -166,13 +165,13 @@ export default function DashBoardLink({ state }) {
                   </svg>
                 </span>
               </a>
-              {/* <RiTwitterXFill size={22} color="#00acee"></RiTwitterXFill> */}
+            
             </div>
-          </Grid>
+          </Grid> */}
           <Grid
             xs={6}
-            md={2}
-            xl={2}
+            md={3}
+           
             spacing={2}
             display={{ xs: "none", md: "block", lg: "block" }}
           >

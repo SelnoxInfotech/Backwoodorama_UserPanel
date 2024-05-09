@@ -263,11 +263,11 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
         <React.Fragment>
             <div className="row mx-0 marginProductSearchResult">
 
-                <div className="col-12 mt-sm-4 mt-2  fontStyle">
+                <div className="col-12 mt-sm-4 mt-2 p-0 fontStyle">
                    {CategoryName?.length !== undefined  && <h1 className="section_main_title ">{CategoryName}</h1>}
                 </div>
 
-                <div className="product_card_wrapper">
+                <div className="product_card_wrapper p-0">
                     {
                         showdata?.map((items, index) => {
 

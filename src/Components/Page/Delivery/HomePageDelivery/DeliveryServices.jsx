@@ -4,7 +4,10 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Rating } from '@mui/material';
 import useStyles from '../../../../Style';
 import { FaArrowRight } from "react-icons/fa";
-import Axios from "axios"
+import { BiMap } from "react-icons/bi"
+import LoadingButton from '@mui/lab/LoadingButton';
+import { useNavigate } from 'react-router-dom';
+import Box from '@mui/material/Box';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Createcontext from "../../../../Hooks/Context"
@@ -13,7 +16,7 @@ import axios from 'axios';
 
 const DeliveryServices = () => {
     const [DeliveryService, SetDeliveryService] = useState([])
-
+    const navigate =useNavigate()
     const { state } = React.useContext(Createcontext)
     const classes = useStyles()
     const [Skeleton, SetSkeleton] = React.useState(true)
@@ -155,38 +158,58 @@ const DeliveryServices = () => {
                         <div className="col-12  my-4 mt-2 recentViewProductSlider" id="width" ref={ref}>
                             <ScrollContainer className="ScrollContainerRelative">
                                 {DeliveryService?.map((items, index) => {
+                                    console.log(items)
                                     return (
-                                        <div className='deliveryServicesCard' key={index}>
-                                            <div className='deliveryServicesBorder '>
-                                                <Link to={`/weed-deliveries/${modifystr(items.Store_Name)}/${items.id}`}>
-                                                    <div className='col-12 deliveryServicesImage_container'>
-                                                        <LazyLoadImage
-                                                          onError={event => {
-                                                            event.target.src = "/image/delivery.png"
-                                                            event.onerror = null
-                                                        }}
-                                                        className='deliveryServicesImage' src={`${items.Store_Image}`} alt={items.Store_Name} />
-                                                    </div>
-                                                </Link>
-                                                <div className='col-12 deliveryServicesContent_container'>
-                                                    <Link to={`/weed-deliveries/${modifystr(items.Store_Name)}/${items.id}`}>
-                                                        <div className='w-100  deliveryServicesTitle'>
-                                                            <p className='ellipsis'>{items.Store_Name}</p>
-                                                        </div>
-                                                        <div className='w-100 deliveryServices_SubTitle'>
-                                                            <p className='ellipsis'>{items.Store_Address}</p>
+                                         <div className='dispensoriesContainer' key={index}>
+                                          <div className=' dispensoriesAddressBorder'>
+                                              <div className='dispensoriesAddresCardimg'>
+                                                  <Link to={`/weed-dispensaries/${modifystr(items?.Store_Name)}/${items?.id}`}>
+                                                  <LazyLoadImage
+                                                            onError={event => {
+                                                              event.target.src = "/image/delivery.png"
+                                                              event.onerror = null
+                                                          }} src={`${items?.Store_Image}`} alt={items?.Store_Name.charAt(0).toUpperCase() + items?.Store_Name.slice(1)} className=' dispensories_image  center-block' />
+                                                  </Link>
+                                              </div>
+                                              <div className='dispensoriesContentContainer'>
+                                                  <Link to={`/weed-dispensaries/${modifystr(items?.Store_Name)}/${items?.id}`}>
+                                                      <div className='col-12'>
+  
+                                                          <div className=' dis_right_div'>
+                                                              <p className='ellipsis dispensoriesHeadings'>{items?.Store_Name.charAt(0).toUpperCase() + items?.Store_Name.slice(1)}</p>
+                                                          </div>
+                                                      </div>
+                                                      <div className='col-12 '>
+  
+                                                          <div className=' Dispensaries_card_discription'>
+                                                              <div className=''>
+                                                                  <span className='span_nav'><BiMap className={classes.disPen_Icons} /></span>
+                                                              </div>
+  
+                                                              <div className='col-10'>
+                                                                  <p className='ellipsis mb-0'>{items?.Store_Address}</p>
+                                                              </div>
+  
+                                                          </div>
+                                                      </div>
+                                                   
+                                                  </Link>
+                                                  <div className='homecardRating'>
+                                                    <Link to={`/weed-dispensaries/${modifystr(items?.Store_Name)}/${'review'}/${items?.id}`}>
+                                                        <div className=' w-100 d-flex align-items-center gap-2'>
+                                                            <span className='DeliveryServicesRatingTitle'>{items?.rating !== null ?  items?.rating.toFixed(1) : 0 }</span>
+                                                            <Rating className={classes.homePageStarIcons} color='#fff' name="read-only" value={items?.rating === null ? 0 : items?.rating} readOnly />
                                                         </div>
                                                     </Link>
-                                                    <Link to={`/weed-deliveries/${modifystr(items.Store_Name)}/${"review"}/${items.id}`}>
-                                                        <div className='w-100 d-flex align-items-center'>
-                                                            <span className='DeliveryServicesRatingTitle'>Rating</span>
-                                                            <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={items.rating === null ? 0 : items.rating} readOnly />
-                                                        </div>
-                                                    </Link>
-                                                    <button className='actionBtn'>Order Now</button>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                  </div>
+                                                  <div className='col-12  mt-2'>
+                                                      <Box  className={`${classes.loadingBtnTextAndBack}`} >
+                                                          <LoadingButton onClick={() => { navigate(`/weed-dispensaries/${modifystr(items?.Store_Name)}/${items?.id}`) }} style={{ width: "100%" }}>Order Pickup</LoadingButton>
+                                                      </Box>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                         </div>
                                     )
                                 })}
                             </ScrollContainer>

@@ -5,10 +5,10 @@
     gap: 25px;
 }
 .productSearch_result_container{
-    width: 260px;
+    width: 220px;
     border: 1px solid rgb(209, 209, 209);
     border-radius: 8px;
-    padding: 15px;
+    padding: 10px;
     position: relative;
     transition: all .3s ease;
     cursor: pointer;
@@ -39,7 +39,7 @@
    margin-top: 10px;
 }
 .product_search_result_content_div .productSearchResultParagraph{
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 600;
     line-height: 1.5;
     margin: 0;
@@ -60,7 +60,7 @@
  font-size: 12px;
 }
 .productSearchPrice{
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
 }
 .product_cart_review{

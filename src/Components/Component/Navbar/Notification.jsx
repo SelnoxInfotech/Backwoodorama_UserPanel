@@ -242,7 +242,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                                             <Link to={data.link}>
                                                 <div className="notification_img">
                                                     <div className="notiimgCircle">
-                                                        <img src={data?.image} alt="img" onError={() => this.img.src = './image/logo.png'} />
+                                                        <img src={data?.image} alt="img" onError={() => this.img.src = '/image/logo.png'} />
                                                     </div>
                                                 </div>
                                             </Link>
@@ -296,7 +296,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                                             <Link to={data.link}>
                                                 <div className="notification_img">
                                                     <div className="notiimgCircle">
-                                                        <img src={data?.image} alt="img" onError={() => this.img.src = './image/logo.png'} />
+                                                        <img src={data?.image} alt="img" onError={() => this.img.src = '/image/logo.png'} />
                                                     </div>
                                                 </div>
                                             </Link>
