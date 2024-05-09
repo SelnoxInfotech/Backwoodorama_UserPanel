@@ -152,8 +152,8 @@ export default function DispensoriesDetails() {
     }
 
     function ProductNavigate(Product) {
-        const Route = location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"
-        navigate(`${Route}/${modifystr(Product.StoreName)}/menu/${modifystr(Product.category_name)}/${modifystr(Product.SubcategoryName)}/${modifystr(Product.Product_Name)}/${Product.id}`)
+        // const Route = location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"
+        navigate(`/products/${modifystr(Product.category_name)}/${modifystr(Product.SubcategoryName)}/${modifystr(Product.Product_Name)}/${Product.id}`)
     }
 
     const ProductFilterData = [{ Id: 1, Name: "Category", Type1: "Flower", Type2: "CBD", Icons: <BsLayoutSplit className={classes.muiIcons} /> },
@@ -277,6 +277,7 @@ export default function DispensoriesDetails() {
             left: 0,
             behavior: "instant", // Optional if you want to skip the scrolling animation
         });
+        console.log(location)
     }, [])
 
     const Swal = require('sweetalert2')

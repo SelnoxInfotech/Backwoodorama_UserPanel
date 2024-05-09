@@ -99,7 +99,7 @@ export function DespensioriesItem(object) {
     }).then((res) => {
         return res
     }).catch(
-        function (error) { }
+        function (error) { return [] }
     )
 
     return data

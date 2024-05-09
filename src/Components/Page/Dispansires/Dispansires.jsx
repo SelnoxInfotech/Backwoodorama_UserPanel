@@ -84,17 +84,27 @@ export default function Dispansires() {
         return str.toLowerCase()
     }
     React.useEffect(() => {
-        axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/14`,
-            {
-                j: 'https://www.weedx.io' + modifystr(Location.pathname)
-            },
-        ).then((res) => {
+        // Define a function to send the POST request
+        const sendPostRequest = () => {
+            axios.post(
+                `https://api.cannabaze.com/UserPanel/Update-SiteMap/14`,
+                {
+                    j: 'https://www.weedx.io' + modifystr(Location.pathname.replace(/\/+$/, ""))
+                }
+            ).then((res) => {
+                // Handle response if needed
+            }).catch((err) => {
+                // Handle error if needed
+            });
+        };
 
+        // Call the sendPostRequest function after 2 seconds
+        const timeoutId = setTimeout(sendPostRequest, 2000);
 
-        }).catch((err) => {
+        // Cleanup function to clear the timeout if the component unmounts or Location changes
+        return () => clearTimeout(timeoutId);
+    }, [Location]); 
 
-        })
-    }, [Location])
     React.useEffect(() => {
 
         if (searchtext !== "") {
@@ -124,19 +134,32 @@ export default function Dispansires() {
             }, 1000)
             return () => clearTimeout(getData)
         } else {
-            const object = { City: state.City.replace(/-/g, " "), "Country": state.Country?.replace(/-/g, " "), "State": state.State?.replace(/-/g, " "), }
-            state.Country !== "" && DespensioriesItem(object).then((res) => {
-                setloader(()=>true)
-
-                if (res === "No Dispensary in your area") {
-                    SetStore([])
+            const sendPostRequest = () => {
+                try {
+                    const object = { City: state.City.replace(/-/g, " "), "Country": state.Country?.replace(/-/g, " "), "State": state.State?.replace(/-/g, " "), }
+                state.Country !== "" && DespensioriesItem(object)
+                .then((res) => {
+                    setloader(()=>true)
+    
+                    if (res === "No Dispensary in your area") {
+                        SetStore([])
+                    }
+                    else {
+                        SetStore(res)
+                    }
+                })
+                } catch (error) {
+                  console.log(error)  
                 }
-                else {
-                    SetStore(res)
-                }
-            })
+            }
+            // Call the sendPostRequest function after 2 seconds
+            const timeoutId = setTimeout(sendPostRequest, 1000);
+    
+            // Cleanup function to clear the timeout if the component unmounts or Location changes
+            return () => clearTimeout(timeoutId);
         }
     }, [searchtext, state])
+
     function breadcrumCountry(country, state1, city) {
         if (Boolean(city)) {
             dispatch({ type: 'route', route: "" })
@@ -158,7 +181,9 @@ export default function Dispansires() {
         }
 
     }
+
     const classes = useStyles()
+    
     return (
                 <div className="row  dispensaries_centers">
                     <div className="col-12 col-sm-12">

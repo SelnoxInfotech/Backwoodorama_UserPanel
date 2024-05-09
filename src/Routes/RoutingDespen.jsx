@@ -12,10 +12,12 @@ export default function RoutingDespen(props) {
 
         <div>
            
-                <Component />
+         
                 {((state.permission === false) && (params?.city?.toLowerCase() !== state?.City?.toLowerCase() || params?.state?.toLowerCase() !== state?.State?.toLowerCase() || params?.Country?.toLowerCase() !== state?.Country?.toLowerCase() || params.route?.toLowerCase() !== state?.route?.toLowerCase() )) && <RoutingSearch city={params.city} State={params.state} country={params.Country} route={params.route}
-                    pathname={Location.pathname.slice(0, 18) === '/weed-dispensaries' ? "/weed-dispensaries" : "/weed-deliveries"}
-                ></RoutingSearch>}
+                      pathname={Location.pathname.slice(0, 18) === '/weed-dispensaries' ? "/weed-dispensaries" : "/weed-deliveries"}
+                  
+              ></RoutingSearch>}
+                  <Component />     
             
         </div>
     )

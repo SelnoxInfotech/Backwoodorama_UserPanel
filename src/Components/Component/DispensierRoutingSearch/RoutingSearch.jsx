@@ -1,7 +1,7 @@
 import React from 'react'
 import Createcontext from "../../../Hooks/Context"
 import { useNavigate } from 'react-router-dom'
-export default function RoutingSearch({ city, State, country, pathname, route }) {
+export default function RoutingSearch({ city, State, country, pathname, route,com }) {
   const { state, dispatch } = React.useContext(Createcontext)
   const navigate = useNavigate()
   React.useEffect(() => {
@@ -73,6 +73,22 @@ export default function RoutingSearch({ city, State, country, pathname, route })
             });
 
             await Promise.all(locationPromises);
+            if (ci !== undefined && sta !== undefined && Coun !== undefined) {
+
+              navigate(pathname + `/${'in'}/${Coun.toLowerCase()}/${sta.toLowerCase()}/${ci.toLowerCase()}/`)
+
+            }
+            else {
+              if (sta !== undefined && Coun !== undefined) {
+                navigate(pathname + `/${'in'}/${Coun.toLowerCase()}/${sta.toLowerCase()}/`)
+              }
+              else {
+                if (Coun !== undefined) {
+                  navigate(pathname + `/${'in'}/${Coun.toLowerCase()}/`)
+                }
+
+              }
+            }
           }
           else {
             fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${type === 'city' ? city + " " + State + " " + country : type === "state" && country}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
@@ -229,5 +245,6 @@ export default function RoutingSearch({ city, State, country, pathname, route })
         console.trace(error)
       })
   }
+  // return com
 
 } 
