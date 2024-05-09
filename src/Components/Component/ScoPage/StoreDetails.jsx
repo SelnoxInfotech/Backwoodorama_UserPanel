@@ -50,8 +50,8 @@ function StoreDetails({ Despen, locationStore  }) {
                         break;
                     case 'review':
                         SetMetaTag({
-                            ...MetaTag, title: `${Despen[0]?.Store_Name !== null ? Despen[0]?.Store_Name : "Weedx.io"}  Reviews | Share Your Experience with Us`,
-                            discription: `Explore and leave your review on ${Despen[0]?.Store_Name !== null ? Despen[0]?.Store_Name : "Weedx.io"}. Share your experiences with our products and services. Your feedback helps us improve our offerings.`
+                            ...MetaTag, title: `${Despen[0]?.Store_Name !== null ? Despen[0]?.Store_Name : "Weedx.io"}  Reviews | Weedx.io`,
+                            discription: `Discover reviews for ${Despen[0]?.Store_Name !== null ? Despen[0]?.Store_Name : "Weedx.io"} dispensary and delivery service on WeedX.io. Read user feedback, ratings, and experiences to find the best cannabis products and services near you.`
                         })
                         break;
                     case 'deal':
@@ -120,8 +120,8 @@ function StoreDetails({ Despen, locationStore  }) {
                         break;
                     case 'review':
                         SetMetaTag({
-                            ...MetaTag, title: `${Despen[0]?.Legal_Store_Name !== null ? Despen[0]?.Legal_Store_Name : 'Weedx.io'} Reviews | Share Your Experience with Us                            `,
-                            discription: `Explore and leave your review on ${Despen[0]?.Legal_Store_Name !== null ? Despen[0]?.Legal_Store_Name : 'Weedx.io'}. Share your experiences with our products and services. Your feedback helps us improve our offerings.`
+                            ...MetaTag, title: `${Despen[0]?.Legal_Store_Name !== null ? Despen[0]?.Legal_Store_Name : 'Weedx.io'} Reviews | weedx.io `,
+                            discription: `Discover reviews for  ${Despen[0]?.Legal_Store_Name} dispensary and delivery service on WeedX.io. Read user feedback, ratings, and experiences to find the best cannabis products and services near you.`
                         })
                         break;
                     case 'deal':

@@ -169,9 +169,9 @@ const Allblogs = () => {
                           </div>
                           <div className='col-3'>
                         
-                                   <IconButton onClick={(() => { PostLike(items) })}>
-                                        {(state?.login && items.Liked )? <AiFillHeart color={"#31B655"}></AiFillHeart> : <FaRegHeart color="#31B655" /> }
-                                    </IconButton>
+                                
+                                   <span onClick={(() => { PostLike(items) })} className='action_icons'> {(state?.login && items.Liked )? <AiFillHeart color={"#31B655"}></AiFillHeart> : <FaRegHeart color="#31B655" /> }</span>
+                                
                             <span>{items.likeCount}</span>
                           </div>
                           <div className='col-3'>

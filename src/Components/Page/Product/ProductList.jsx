@@ -351,13 +351,15 @@ const ProductList = ({ arr, ProductNavigate }) => {
                                         />
                                     ))}
 
-                                {new Array(5 - ele.rating).fill(null).map(() => (
+                                {new Array(5 - ele.rating).fill(null).map(() => {
+                                   console.log(ele.rating)
+                                  return(
                                     <BsStar
                                     size={16}
                                     color="#31B665"
                                     className="product_search_rating_star"
                                     />
-                                ))}
+                                )})}
                                 </div>
                                 <div className="mobile_view_weigth">
                                   <div className="prod_cat_cont_btn product_price_tabs">

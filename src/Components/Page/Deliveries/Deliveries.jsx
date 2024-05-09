@@ -104,40 +104,6 @@ const Deliveries = () => {
                         <Delivery location={Location.pathname}></Delivery>
 
                         {
-                            loader ? (Boolean(Deliverie.length) ?
-
-                                <Box className={``} sx={{ width: '100%', typography: 'body1', }}>
-                                    <TabContext value={value}>
-                                        <Box className={`${classes.open_dispensory_tab_background} ${classes.open_dispensory_tab}`} sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                                            <TabList scrollButtons={false} variant="scrollable" onChange={handleChange} aria-label="lab API tabs example">
-                                                <Tab label="Order Online" value="1" />
-                                                <Tab label="Order now" value="2" />
-                                                <Tab label="Best of WeedX" value="3" />
-                                                {/* <Tab label="Recreational" value="4" /> */}
-
-                                            </TabList>
-                                        </Box>
-                                        <Box className={`${classes.deliverItemCardPadding}`}>
-                                            <TabPanel value="1" >
-                                                <DeliveryItemsCard Deliverie={Deliverie} />
-                                            </TabPanel>
-                                            <TabPanel value="2"><DeliveryItemsCard Deliverie={Deliverie} /></TabPanel>
-                                            <TabPanel value="3"><DeliveryItemsCard Deliverie={Deliverie} /></TabPanel>
-                                        </Box>
-                                    </TabContext>
-                                </Box>
-                                :
-                                <Wronglocation title={'No deliveries available'} description={`Delivery service isn't available at your location. Would you like to try a different address ?`} />)
-                                : <div className="loader_container">
-                                    <span className="newloader"></span>
-                                </div>
-
-                        }
-                    </div>
-
-                </div>
-
-                {
                    loader? ( Boolean(Deliverie.length) ?
               
                     <Box className={``} sx={{ width: '100%', typography: 'body1', }}>
@@ -167,6 +133,11 @@ const Deliveries = () => {
                 </div>
               
               }
+                    </div>
+
+                </div>
+
+              
             </div>
         </React.Fragment>
     )
