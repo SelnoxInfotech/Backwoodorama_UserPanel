@@ -207,11 +207,6 @@ const NewProductDetails = () => {
     })
   }
 
-  const Placeholder = ({ children }) => {
-    const classes = usePlaceholderStyles();
-    return <div className={classes.placeholder}>{children}</div>;
-  };
-
 
   React.useEffect(() => {
     h(Price.length !== 0 && Product.Prices[0].Price.filter((data) => data.id === parseInt(Price[0].Item_id)))
@@ -239,6 +234,9 @@ const NewProductDetails = () => {
   if (!StoreProduct.length) {
     return <p>Loading....</p>
   }
+
+
+
 
   return (
     <div className="container-fluid">
