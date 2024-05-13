@@ -13,12 +13,11 @@ const DeliveryItemsCard = ({ Deliverie }) => {
     return (
         <React.Fragment>
             <div className="container-fluid">
-              
                     {Deliverie?.map((items, index) => {
                         return (
                             <div className="delivery_items_cards_container mt-4" key={index}>
-                                <div className='d-flex w-100 justify-content-between align-items-center'>
-                                        <div className='delivery_items_card_img_container px-0'>
+                                <div className='d-flex w-100 justify-content-between'>
+                                        <div className='delivery_items_card_img_container'>
                                             <Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g,'-').toLowerCase()}/${items.id}`}>
                                                 <LazyLoadImage 
                                                     onError={event => {
@@ -87,10 +86,6 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                             </div>
                         )
                     })}
-
-
-              
-
             </div>
         </React.Fragment>
     )

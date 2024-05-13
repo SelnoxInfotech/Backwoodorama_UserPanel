@@ -100,7 +100,7 @@ const Dispensories = () => {
     return (
         <React.Fragment>
             <div className="px-sm-0 px-3">
-                {!Skeleton ? <div className=''>
+                {   !Skeleton ? <div className=''>
                     <div className='col-12  mt-sm-4 mt-0 p-0'>
                        
                         <div className="d-flex align-items-center justify-content-between">

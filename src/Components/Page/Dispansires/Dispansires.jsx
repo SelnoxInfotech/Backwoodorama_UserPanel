@@ -84,7 +84,6 @@ export default function Dispansires() {
         return str.toLowerCase()
     }
     React.useEffect(() => {
-        // Define a function to send the POST request
         const sendPostRequest = () => {
             axios.post(
                 `https://api.cannabaze.com/UserPanel/Update-SiteMap/14`,
@@ -92,16 +91,13 @@ export default function Dispansires() {
                     j: 'https://www.weedx.io' + modifystr(Location.pathname.replace(/\/+$/, ""))
                 }
             ).then((res) => {
-                // Handle response if needed
             }).catch((err) => {
-                // Handle error if needed
             });
         };
 
-        // Call the sendPostRequest function after 2 seconds
+        
         const timeoutId = setTimeout(sendPostRequest, 2000);
 
-        // Cleanup function to clear the timeout if the component unmounts or Location changes
         return () => clearTimeout(timeoutId);
     }, [Location]); 
 
@@ -152,14 +148,10 @@ export default function Dispansires() {
                   console.log(error)  
                 }
             }
-            // Call the sendPostRequest function after 2 seconds
             const timeoutId = setTimeout(sendPostRequest, 1000);
-    
-            // Cleanup function to clear the timeout if the component unmounts or Location changes
             return () => clearTimeout(timeoutId);
         }
     }, [searchtext, state])
-
     function breadcrumCountry(country, state1, city) {
         if (Boolean(city)) {
             dispatch({ type: 'route', route: "" })
@@ -181,7 +173,6 @@ export default function Dispansires() {
         }
 
     }
-
     const classes = useStyles()
     
     return (
@@ -212,7 +203,8 @@ export default function Dispansires() {
                     </div>
                     <div className="col-12 col-sm-12 dispensory_menu my-2">
                         {
-                          loader ? ( Boolean(Store.length) ?
+                        //   loader ?
+                           ( Boolean(Store.length) ?
                                 <Box className={`dispensories_tabss ${classes.dispensory_tab_background}`} sx={{ width: '100%' }}>
                                 <Box className={classes.open_dispensory_tab} sx={{ borderBottom: 1, borderColor: 'divider' }}>
                                     <Tabs scrollButtons={false} variant="scrollable" sx={{ justifyContent: 'space-around' }} value={value} onChange={handleChange} aria-label="basic tabs example">
@@ -241,10 +233,10 @@ export default function Dispansires() {
                                 </Box>
                                  :
                                 <Wronglocation title={' No dispensaries available'} description={'We apologize, but it appears that there are no dispensaries available in your location. Would you like to enter a different address to search for a nearby dispensary?'}/>)
-                                :
-                                <div className="loader_container">
-                                    <span className="newloader shine"><img src='/image/logo.png' alt="image" /></span>
-                                </div>
+                                // :
+                                // <div className="loader_container">
+                                //     <span className="newloader shine"><img src='/image/logo.png' alt="image" /></span>
+                                // </div>
                         }
                      
                         </div>

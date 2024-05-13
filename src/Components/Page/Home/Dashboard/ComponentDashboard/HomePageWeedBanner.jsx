@@ -2,15 +2,13 @@ import React from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from 'swiper/modules';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import HomePageBannerSkeleton from '../../../../Component/Skeleton/DashBoardSkeleton/HomePageBannerSkeleton';
+import useStyles from '../../../../../Style';
 import Axios from "axios";
-import { Link } from 'react-router-dom';
+import HomePageBannerSkeleton from '../../../../Component/Skeleton/DashBoardSkeleton/HomePageBannerSkeleton';
 const HomePageWeedBanner=()=>{
-    const [Skeleton , SetSkeleton]= React.useState(true)
+    const [Skeletoncom , SetSkeleton]= React.useState(true)
     const [data,setdata] = React.useState([]) 
    
-   
-    // const HomePageWeedBanner=[{imgUrl:"./image/homePageBanner.jpg"},{imgUrl:"./image/homePageBanner.jpg"}]
     React.useEffect(() => {
         Axios("https://api.cannabaze.com/UserPanel/Get-PromotionalBanners/ ")
         .then((response)=>{
@@ -26,8 +24,8 @@ const HomePageWeedBanner=()=>{
 
     return(
         <div className='homepagebanner2 '>
-         { !Skeleton   ?
-         <React.Fragment>
+         { !Skeletoncom   ?
+           <React.Fragment>
             <div className='destop_image'>
 
            
@@ -85,9 +83,10 @@ const HomePageWeedBanner=()=>{
            </div>
            </React.Fragment>
         :
-        <HomePageBannerSkeleton></HomePageBannerSkeleton>
+       <HomePageBannerSkeleton/>
+
     }
-    </div>
+        </div>
     )
 }
 export default HomePageWeedBanner

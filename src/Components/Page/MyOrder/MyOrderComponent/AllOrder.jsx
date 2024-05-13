@@ -15,40 +15,43 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,loading}) => {
   return (
     <div className="container-fluid">
       {loading?
-          <div className="center" >
-                        <div className="loaderFLower"></div>
-          </div>
+         <div className="loader_container">
+         <span className="newloader shine"><img src='/image/logo.png' alt='image' /></span>
+     </div>
             :
           <div className="row center  ">
             {AllOrder_data?.map((val, index) => {
               return (
                 <React.Fragment key={index}>
-                  <div className=" col-lg-10    AllOrderContainer px-0 mt-4">
-                    <div className="row  mx-0">
-                      <div className="col-6 AllOrderCol1_height">
-                        <p className="orderId_heading">Order ID :{val.OrderId}</p>
+                  <div className=" col-lg-10 rounded   AllOrderContainer px-0 mt-4">
+                    <div className="orderdetailsheader">
+                      <div className="d-flex justify-content-between align-items-center">
+                        <div className="d-flex gap-2">  <p className="sellerName_date">Order ID : {val.OrderId}  </p>   <div className="d-flex gap-1 align-items-center">
+                                      <BsFillCircleFill color={val.Order_Status === "Cancel" ? "#fb0000" : "#45d37d"} size={16} />
+                                      <span className="allOrder_spanName">
+                                        {val.Order_Status}
+                                      </span>
+                                    </div>
+                                    </div>
+                          <p className="sellerName_date">SubTotal : {val.subtotal}</p>
                       </div>
-                      <div className="col-6 AllOrderCol1_height text-end">
-                        <h2 className="orderId_heading">{val.trackOrder}</h2>
+                      <div className="d-flex justify-content-between align-items-center">
+                        
+                          <h2 className="sellerName_date">
+                            Seller Name : {val.SellerName}
+                          </h2>
+                    
+                          <span className="sellerName_date ">
+                            {val.OrderDate.slice(0, 10)}
+                          </span>
+                      
                       </div>
                     </div>
-                    <div className="row mx-0">
-                      <div className="col-8 AllOrderCol_height">
-                        <h2 className="sellerName_date">
-                          Seller Name : {val.SellerName}
-                        </h2>
-                      </div>
-                      <div className="col-4 AllOrderCol_height text-end">
-                        <span className="sellerName_date ">
-                          {val.OrderDate.slice(0, 10)}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="row mx-0">
-                      {val.Product.map((items, index) => {
+                    <div className="p-3">
+                      {/* {val.Product.map((items, index) => {
                         return (
-                          <React.Fragment key={index}>
-                            <div className="col-12 allOrderCard_container ">
+                      
+                            <div className="col-12 allOrderCard_container " key={index}>
                               <div className="imageSectionWrapper">
                                 <section className="allOrder_Card_Image_section">
                                   <div className="Allorder_img_container">
@@ -94,12 +97,31 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,loading}) => {
                                 </section>
                               </div>
                             </div>
-                          </React.Fragment>
+                        
+                        );
+                      })} */}
+                       {val.Product.map((items, index) => {
+                        return (
+                      
+                          <div className="place_order_product_cart ">
+                          <div className="place_order_product_cart_image">
+                              <LazyLoadImage onError={event => {
+                                  event.target.src = "/image/blankImage.jpg"
+                                  event.onerror = null
+                              }} className='w-100' src={`${items.Image}`} alt="imag not found" />
+                          </div>
+                          <div className="place_order_product_cart_Text">
+                              <h4 className='productname'>{items.ProductName}</h4> 
+                              <p className="price"><b>Price</b> : $ {items.TotalPrice}</p>  
+                              <p><b>Qty</b> : {items.Cart_Quantity}</p>
+                          </div>
+                          </div>
+                        
                         );
                       })}
                     </div>
-                    <div className="row mx-0 py-2">
-                      <div className="col-6 viewOrderDetals d-flex align-items-center gap-4">
+                    <div className="row mx-0 py-2 ">
+                      <div className="viewOrderDetals d-flex align-items-center justify-content-end gap-3">
                         {location.pathname.slice(0, 21) ===
                         "/MyOrderProductDetail" ? (
                           ""
@@ -112,19 +134,15 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,loading}) => {
                           </div>
                           {
                             val.Order_Status !=="Cancel" &&
-                         
-                          <div><LoadingButton loading={Loading} className={classes.cncelbtnorder}  onClick={() => { CencelOrder(val.OrderId) }}>Cancel </LoadingButton></div>}
+                             <div><LoadingButton loading={Loading} className={classes.cncelbtnorder}  onClick={() => { CencelOrder(val.OrderId) }}>Cancel </LoadingButton></div>}
                          </>
                         )}
                       </div>
-                      <div className="col-6 text-end viewOrderDetals">
-                        <h2 className="allOrderTotals">{val.subtotal}</h2>
-                      </div>
+                    
                     </div>
                   </div>
                   {
-                ordertype==="Pending Order" && 
-                <div className=" col-lg-10  text-end   border-0 p-0">
+                     ordertype==="Pending Order" &&  <div className=" col-lg-10  text-end   border-0 p-0">
                 <Box className={`  ${classes.Cencell}  `}
                     sx={{
                         display: "flex",
@@ -133,7 +151,7 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,loading}) => {
 
                     }}   >  <LoadingButton loading={Loading} onClick={() => { CencelOrder(val.OrderId) }}>Cancel </LoadingButton> </Box>
                     </div>
-            }
+                  }
                 </React.Fragment>
               );
             })}

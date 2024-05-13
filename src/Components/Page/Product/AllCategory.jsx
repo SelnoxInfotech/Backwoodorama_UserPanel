@@ -55,7 +55,9 @@ const AllCategory = () => {
 
                 {
 
-                    Loading ? <div className="loaderFLower"></div> : <AllProductCategory flowerArray={Category}></AllProductCategory>
+                    Loading ? <div className="loader_container">
+                    <span className="newloader shine"><img src='/image/logo.png' alt='image' /></span>
+                </div> : <AllProductCategory flowerArray={Category}></AllProductCategory>
                 }
             </div>
         </div>

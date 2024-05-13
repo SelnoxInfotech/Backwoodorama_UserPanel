@@ -151,10 +151,7 @@ export default function DispensoriesDetails() {
             })
     }
 
-    function ProductNavigate(Product) {
-        // const Route = location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"
-        navigate(`/products/${modifystr(Product.category_name)}/${modifystr(Product.SubcategoryName)}/${modifystr(Product.Product_Name)}/${Product.id}`)
-    }
+  
 
     const ProductFilterData = [{ Id: 1, Name: "Category", Type1: "Flower", Type2: "CBD", Icons: <BsLayoutSplit className={classes.muiIcons} /> },
     { Id: 2, Name: "Brand", Type1: "Leafly", Type2: "CBD", Icons: <MdOutlineBrandingWatermark className={classes.muiIcons} /> },
@@ -184,10 +181,7 @@ export default function DispensoriesDetails() {
 
             Store_Get_Review(id).then((res) => {
 
-                // SetReview(res.data)
-                // var Obj = _.find(res.data, { user: state.Profile.id });
-                // SetGetProductReview({ ...GetProductReview, 'popup': false, 'value': Obj.rating, 'Title': Obj.Title, 'comment': Obj.comment })
-
+             
                 axios.post('https://api.cannabaze.com/UserPanel/GetallProductReviewbyStore/', {
                     "store": id
                 }).then((response) => {
@@ -199,12 +193,7 @@ export default function DispensoriesDetails() {
 
         }
     }, [reviewtype, id, api])
-    // React.useEffect(() => {
-    //     Store_OverAllGet_Review(id).then((res) => {
-    //         SetRating(res)
-           
-    //     }).catch(() => { })
-    // }, [id, api])
+  
 
 
     React.useEffect(() => {
@@ -252,15 +241,10 @@ export default function DispensoriesDetails() {
       formdata.append('multiplevideos', b[i]);
     }
 
-        // const Review = {
-        //     Store: id,
-        //     rating: GetProductReview.value,
-        //     Title: GetProductReview.Title,
-        //     comment: GetProductReview.comment
-        // }
+       
         setReviewloading(true)
         Store_Add_Review(formdata).then((res) => {
-            // setOpen(false)
+           
             SetGetProductReview({ ...GetProductReview, 'popup': false })
             SetApi(!api)
             setReviewloading(false)
@@ -275,7 +259,7 @@ export default function DispensoriesDetails() {
         document.documentElement.scrollTo({
             top: 0,
             left: 0,
-            behavior: "instant", // Optional if you want to skip the scrolling animation
+            behavior: "instant",
         });
         console.log(location)
     }, [])
@@ -369,9 +353,7 @@ export default function DispensoriesDetails() {
                                     arr={DespensariesData}
                                 />
                                 <div className="col-12 col-lg-9 col-xxl-10 prod_cat_right_sec">
-                                    <ProductList arr={DespensariesData}
-                                        ProductNavigate={ProductNavigate}
-                                    />
+                                    <ProductList arr={DespensariesData} />
                                 </div>
                             </div>
                         </React.Fragment>

@@ -6,15 +6,12 @@ import CategorySkeleton from "../../../../Component/Skeleton/CategorySkeleton";
 import {FirstLetterCaps} from "../../../../../Hooks/Function"
 const CategoryProduct = ({ ShowCategoryProduct, Category, Skeleton }) => {
  const Params = useParams()
- 
     return (
         <React.Fragment>
             <div className=' CategoryBordrr'>
                 <div className='row'>
                        {
-                             !Skeleton?
-                           
-                                <div className="catagoryTabs_section">
+                             !Skeleton?  <div className="catagoryTabs_section">
                                     {
                                        Object.keys(Params).length === 0 ?  <h2 className='shopByCategoryHeading'>Shop By Category</h2> : null
                                     }

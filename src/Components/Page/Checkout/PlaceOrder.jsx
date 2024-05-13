@@ -60,77 +60,81 @@ const PlaceOrder = () => {
                             <span><FaRegPaperPlane className='order_conform_card_icons' /></span>
                             <h3 className="card_title">Thank You!</h3>
                             <p className="card_message">You'll receive a confirmation email soon</p>
+                            <Link to={`/MyOrderProductDetail/${location?.state?.OrderId}`} className='mt-4'>
+                                <button className='trackorderbtn'>Track Order</button>
+                            </Link>
                         </div>
 
                         <div className='d-flex justify-content-between align-items-center'>
                             <p className="card_message m-0"> <b>Order ID</b> : #{location.state.OrderId} </p>
                             <p className="card_message m-0"> <b>Order Date</b> : {formatted} </p>
                         </div>
-                        <div className='row '>
-                            <div className='border p-3 mb-3'>
+                    
+                        <div className='border row p-3 mb-3'>
+                            <div className='col-lg-8'>
+                            {
+                                location.state.Product.map((item) => {
+                                
+                                    pricess.Subtotal += item.TotalPrice
+                                    pricess.Delivery += 0
+                                    pricess.Taxes += 0
+                                    pricess.Paid += 0
+                                    pricess.discount += item.DiscountedAmount
+                                    pricess.DueLater += pricess.Subtotal + item.Price.SalePrice
+                                    
+                                    return (<div className="place_order_product_cart ">
+                                        <div className="place_order_product_cart_image">
+                                            <LazyLoadImage onError={event => {
+                                                event.target.src = "/image/blankImage.jpg"
 
-                                {
-                                    location.state.Product.map((item) => {
-                                        console.log(item.DiscountedAmount)
-                                        pricess.Subtotal += item.TotalPrice
-                                        pricess.Delivery += 0
-                                        pricess.Taxes += 0
-                                        pricess.Paid += 0
-                                        pricess.discount += item.DiscountedAmount
-                                        pricess.DueLater += pricess.Subtotal + item.Price.SalePrice
+                                                event.onerror = null
+                                            }} className='w-100' src={`${item.Image}`} alt="imag not found" />
+                                            {/* <img src={item.Image} alt="" className='w-100' /> */}
+                                        </div>
+                                        <div className="place_order_product_cart_Text">
                                         
-                                        return (<div className="place_order_product_cart  row border-bottom py-3">
-                                            <div className="col-sm-2 col-3 col-sm-2">
-                                                <LazyLoadImage onError={event => {
-                                                    event.target.src = "/image/blankImage.jpg"
-
-                                                    event.onerror = null
-                                                }} className='w-100' src={`${item.Image}`} alt="imag not found" />
-                                                {/* <img src={item.Image} alt="" className='w-100' /> */}
-                                            </div>
-                                            <div className="col-sm-10 col-9">
-                                                <div className='d-flex justify-content-between align-items-start'>  <h4 className='w-75 text-wrap text-break'>{item.ProductName}</h4>  <p className="price">$ {item.TotalPrice}</p>  </div>
-                                                <p><b>Qty</b> : {item.Cart_Quantity}</p>
-                                            </div>
-                                        </div>)
-                                    })
-
-                                },
-                                      {
-                            // console.log( pricess.Subtotal - (pricess.Subtotal-pricess.discount))
-                        }
-                                <div className='d-flex justify-content-end'>
-                                    <div className="order_price_details col-md-4 col-12 ml-auto p-sm-3 mt-3 p-2 border">
-                                        <div className="d-flex justify-content-between align-items-center">
-                                            <span>Subtotal</span>
-                                            <span>${pricess.Subtotal}</span>
+                                            <h4 className='productname'>{item.ProductName}</h4> 
+                                            <p className="price"><b>Price</b> : $ {item.TotalPrice}</p>  
+                                            <p><b>Qty</b> : {item.Cart_Quantity}</p>
                                         </div>
-                                        <div className="d-flex justify-content-between align-items-center">
-                                            <span>Delivery</span>
-                                            <span>${pricess.Delivery}</span>
-                                        </div>
-                                        <div className="d-flex justify-content-between align-items-center">
-                                            <span>Taxes</span>
-                                            <span>${pricess.Delivery}</span>
-                                        </div>
-                                        <hr />
-                                        <div className="d-flex justify-content-between align-items-center">
-                                            <div style={{ display: "grid" }}>
-                                                <span>Total</span>
-                                              {Boolean(pricess.discount)&&  <span>Discount Amount</span>
-}
-                                            </div >
-                                            <div style={{ display: "grid" }}>
-                                                {Boolean(pricess.discount)?  <del>${pricess.Subtotal}</del> :   <span>${pricess.Subtotal}</span>}
-                                            {Boolean(pricess.discount)&& <span>${(pricess.Subtotal-pricess.discount) }</span>}
-                                            </div>
-                                        </div>
+                                    </div>)
+                                })
 
-
+                            }
+                                {
+                    
+                            }
+                            </div>
+                            <div className=' col-lg-4 mt-3 mt-lg-0 '>
+                                <div className="order_price_details  ml-auto p-sm-3 p-2 border">
+                                    <div className="d-flex justify-content-between align-items-center">
+                                        <span>Subtotal</span>
+                                        <span>${pricess.Subtotal}</span>
                                     </div>
+                                    <div className="d-flex justify-content-between align-items-center">
+                                        <span>Delivery</span>
+                                        <span>${pricess.Delivery}</span>
+                                    </div>
+                                    <div className="d-flex justify-content-between align-items-center">
+                                        <span>Taxes</span>
+                                        <span>${pricess.Delivery}</span>
+                                    </div>
+                                    <hr />
+                                    <div className="d-flex justify-content-between align-items-center">
+                                        <div style={{ display: "grid" }}>
+                                            <span>Total</span>
+                                        {Boolean(pricess.discount)&&  <span>Discount Amount</span>
+}
+                                        </div >
+                                        <div style={{ display: "grid" }}>
+                                            {Boolean(pricess.discount)?  <del>${pricess.Subtotal}</del> :   <span>${pricess.Subtotal}</span>}
+                                        {Boolean(pricess.discount)&& <span>${(pricess.Subtotal-pricess.discount) }</span>}
+                                        </div>
+                                    </div>
+
+
                                 </div>
                             </div>
-
                         </div>
                         <div className="row border place-order_address">
 
@@ -148,11 +152,6 @@ const PlaceOrder = () => {
                                 <h4>Payment Method</h4>
                                 <p>Offline</p>
                             </div>
-                        </div>
-                        <div className='d-flex justify-content-center py-4'>
-                            <Link to={`/MyOrderProductDetail/${location?.state?.OrderId}`}>
-                                <button className='trackorderbtn'>Track Order</button>
-                            </Link>
                         </div>
                     </div>
 

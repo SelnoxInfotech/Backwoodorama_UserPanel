@@ -18,18 +18,21 @@ const Deliveries = () => {
     const { state } = React.useContext(Createcontext)
     const Location = useLocation()
     const [Deliverie, SetDelivery] = React.useState([])
-    const [loader, setloader] = React.useState(false);
+     const [loader, setloader] = React.useState(false);
 
     React.useEffect(() => {
         const object = { City: state.City.replace(/-/g, " "), State: state.State.replace(/-/g, " "), Country: state.Country.replace(/-/g, " ") }
         GetAllDelivery(object).then((response) => {
             setloader(true)
+           
             if (Boolean(response)) {
                 SetDelivery(response)
             }
             else {
                 SetDelivery([])
             }
+        }).catch((error)=>{
+            setloader(true)
         })
     }, [state])
     const classes = useStyles()
@@ -104,7 +107,8 @@ const Deliveries = () => {
                         <Delivery location={Location.pathname}></Delivery>
 
                         {
-                   loader? ( Boolean(Deliverie.length) ?
+                   loader?
+                    ( Boolean(Deliverie.length) ?
               
                     <Box className={``} sx={{ width: '100%', typography: 'body1', }}>
                         <TabContext value={value}>

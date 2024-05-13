@@ -1,7 +1,4 @@
 @media(max-width:1024px) {
-  .orderId_heading {
-    font-size: 16px;
-  }
 
   .sellerName_date {
     font-size: 16px;
@@ -184,10 +181,6 @@
 /**********************   PERFECT CSS   ******************************/
 
 @media(max-width:1536px) {
-  .CategorySkeletons {
-    overflow-y: hidden;
-    height: 199px;
-  }
   .add_prod_plus_sub {
    
     font-size: 26px;
@@ -211,9 +204,6 @@
   }
   .sellerName_date{
     font-size: 16px;
-  }
-  .AllOrderCol_height{
-    height: 50px;
   }
   .AllOrder_heading{
     font-size: 16px;
@@ -671,11 +661,7 @@
     font-size: .8rem;
     white-space: none !important;
   }
-  .CategorySkeletons {
-    height: 200px;
-    padding: 0px 10px;
-    overflow-y: hidden;
-  }
+
   .featuredBrandPadding {
     height: 267px;
     overflow-y: hidden;
@@ -816,8 +802,8 @@
     font-size: 14px;
   }
   .place-order_address h4{
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 600;
   }
   .product_Sorted_filter_dropdown {
     position: fixed;
@@ -1338,10 +1324,6 @@
 
   .AllOrder_heading {
     font-size: 14px;
-  }
-
-  .orderId_heading {
-    font-size: 10px;
   }
 
   .sellerName_date {

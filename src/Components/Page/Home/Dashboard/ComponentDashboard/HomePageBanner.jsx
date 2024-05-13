@@ -3,26 +3,29 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Autoplay } from 'swiper/modules';
 import {Homepagebanner} from '../../../../../Api/Api.jsx';
+import Skeleton from '@mui/material/Skeleton';
 import "swiper/css";
 import { Link } from "react-router-dom";
-
-import HomePageBannerSkeleton from '../../../../Component/Skeleton/DashBoardSkeleton/HomePageBannerSkeleton';
+import useStyles from '../../../../../Style.jsx';
+import HomePageBannerSkeleton from '../../../../Component/Skeleton/DashBoardSkeleton/HomePageBannerSkeleton.jsx';
 const HomePageBanner = () => {
     const [HomePageBannerImage,SetHomePageBannerImage]=React.useState([])
-    const [Skeleton , SetSkeleton] = React.useState(true)
+    const [Skeletoncom , SetSkeleton] = React.useState(true)
+    const classes = useStyles()
     React.useEffect(()=>{
         Homepagebanner().then((res)=>{
           
             SetHomePageBannerImage(res.data)
             SetSkeleton(false)
-        })
+        })  
     },[])
     
 
 
     return (
-
-        !Skeleton ?
+        <React.Fragment>
+{
+        !Skeletoncom ?
             
             <div className="homeBannerContainer">
                 <div className="destop_image">
@@ -52,7 +55,7 @@ const HomePageBanner = () => {
                     </Swiper>
                 </div>
                 <div className="mobile_imges">
-                <Swiper loop={true} autoplay={{
+                   <Swiper loop={true} autoplay={{
                     delay: 2000,
                     
                     disableOnInteraction: true,
@@ -80,10 +83,11 @@ const HomePageBanner = () => {
             </div>
           
         :
-        <HomePageBannerSkeleton></HomePageBannerSkeleton>
+       <HomePageBannerSkeleton/>
+}
 
 
-
+</React.Fragment>
     )
 
 }

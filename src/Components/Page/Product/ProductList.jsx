@@ -3,7 +3,7 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import Box from "@mui/material/Box";
 import { BsStar, BsStarFill } from "react-icons/bs";
 import useStyles from "../../../Style";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import _ from "lodash";
 import PreCheckout from "./PreCheckout/PreCheckout";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -16,8 +16,9 @@ import { AiFillHeart } from "react-icons/ai";
 import IconButton from "@mui/material/IconButton";
 import { WishListPost } from "../../Component/Whishlist/WishListApi_";
 import { WhisList } from "../../Component/Whishlist/WhisList";
-const ProductList = ({ arr, ProductNavigate }) => {
+const ProductList = ({ arr }) => {
   const cookies = new Cookies();
+  const Navigate = useNavigate();
   const [CartClean, SetCartClean] = React.useState(false);
   const [showdata, setShowdata] = React.useState([]);
   const token_data = cookies.get("User_Token_access");
@@ -219,7 +220,7 @@ const ProductList = ({ arr, ProductNavigate }) => {
       }
     }
 
-    return str;
+    return str.toLowerCase();
   }
   function discountshoer(CategoryCoupoun,ProductCoupoun ){
     let newarr = CategoryCoupoun.concat(ProductCoupoun)
@@ -285,11 +286,12 @@ const ProductList = ({ arr, ProductNavigate }) => {
                                 )}
                                 </IconButton>
                             </span>
-                            <div className="prod_cat_cont" onClick={() => ProductNavigate(ele)}>
+                            <div className="prod_cat_cont" onClick={() =>{Navigate(`/products/${modifystr(ele.category_name)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.Product_Name)}/${ele.id}`)}}>
                             
                                 <div className="col-12 p-sm-2 p-0 prod_cat_img position-relative">
+                                  <Link to={`/products/${modifystr(ele.category_name)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.Product_Name)}/${ele.id}`}>
                                     <LazyLoadImage
-                                        onClick={() => ProductNavigate(ele)}
+                                        onClick={() =>{Navigate(`/products/${modifystr(ele.category_name)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.Product_Name)}/${ele.id}`)}}
                                         className="product_search_result_image"
                                         onError={(event) => {
                                         event.target.src = "/image/blankImage.jpg";
@@ -298,6 +300,7 @@ const ProductList = ({ arr, ProductNavigate }) => {
                                         src={`${ele?.images[0]?.image}`}
                                         alt={ele.Product_Name}
                                     />
+                                    </Link>
                             
                                     <div className="prod_img_btn d-flex">
                                         {ele.THC !== 0 && (
@@ -324,21 +327,23 @@ const ProductList = ({ arr, ProductNavigate }) => {
                                 </div>
                             
                             </div>
+                            <Link to={`/products/${modifystr(ele.category_name)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.Product_Name)}/${ele.id}`}>
+                                  
                             <div className="product_cat_allProduct" >
-                                <div className="col-12  prod_para_name" onClick={() => ProductNavigate(ele)} style={{ marginBottom: "" }}>
+                                <div className="col-12  prod_para_name"  style={{ marginBottom: "" }}>
                                    <h3  className="productListHeadings ellipsis"  >   {ele.Product_Name} </h3>
                                 </div>
-                                <div className="col-12  prod_para prod_sub_heading_height ellipsis" onClick={() => ProductNavigate(ele)}>
+                                <div className="col-12  prod_para prod_sub_heading_height ellipsis" >
                                    <p className="fontStyle m-0 common_sub_head"> {ele?.StoreName} </p>
                                 </div>
-                                <div className="discount_boc" onClick={() => ProductNavigate(ele)}>
+                                <div className="discount_boc" >
                                      {
                                                         ele?.CategoryCoupoun?.length !== 0 || ele?.ProductCoupoun?.length !== 0 &&  <div className="discountinfo">
                                                                                                                             <span className="carddiscountoffer">{discountshoer(ele.CategoryCoupoun ,ele.ProductCoupoun )} </span>  and more Offers
                                                                                                                         </div>
                                      }
                                 </div>
-                                <div className="col-12 py-2 d-flex prod_para prod_sub_heading_height ellipsis" onClick={() => ProductNavigate(ele)}  style={{ marginBottom: "0px" }} >
+                                <div className="col-12 py-2 d-flex prod_para prod_sub_heading_height ellipsis"   style={{ marginBottom: "0px" }} >
                                    {ele.rating &&
                                     new Array(ele.rating)
                                     .fill(null)
@@ -409,6 +414,7 @@ const ProductList = ({ arr, ProductNavigate }) => {
                                   </div>
                                 </div>
                             </div>
+                            </Link>
                             <div className="col-12 d-flex mt-sm-4 mt-3 mb-2 Fly">
                                 {ele.Prices[0]?.Price[0]?.Stock === "IN Stock" ? (
                                     <Box
@@ -459,8 +465,8 @@ const ProductList = ({ arr, ProductNavigate }) => {
             <PreCheckout />
           </React.Fragment>
         ) : (
-          <div className="col-12 center">
-            <div className="loaderFLower"></div>
+          <div className="loader_container">
+                    <span className="newloader shine"><img src='/image/logo.png' alt='image' /></span>
           </div>
         )
       ) : (

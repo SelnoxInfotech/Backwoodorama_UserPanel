@@ -17,9 +17,7 @@ const DispensoriesAddressSkeleton = () => {
                 <Grid container columnSpacing={2} sx={{ height: "auto", marginTop: "20px" }}>
                     {DispensoriesAddressSkeletonArr.map((val, index) => {
                         return (
-                            <Grid item lg={2.4} md={3} sm={6} xs={12}  key={index} sx={{ height: "450px" }}>
-
-
+                            <Grid item lg={2.4} md={4}  xs={6}  key={index} sx={{ height: "450px" }}>
                                 <Paper sx={{ height: "420px" }}>
                                        <Skeleton variant="rectangular" sx={{ width: "100%", height: "200px", borderRadius: "10px" }} />
                                     <Box sx={{ width: "100%", paddingLeft: "15px", marginTop: "10px" }}>
@@ -38,8 +36,6 @@ const DispensoriesAddressSkeleton = () => {
                                         <Skeleton variant="rectangular" sx={{ width: "100%",height:"35px",borderRadius:"30px" }} />
                                     </Box>
                                 </Paper>
-
-
                             </Grid>
                         )
                     })}

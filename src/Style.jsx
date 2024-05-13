@@ -804,6 +804,42 @@ const useStyles = makeStyles({
       borderRadius: "0px",
     },
   },
+  cagetoryskeleton:{
+    "&.MuiSkeleton-root":{
+      width:'120px',
+      height:'120px',
+    },
+     "@media(max-width:480px)": {
+      "&.MuiSkeleton-root":{
+        width:'80px',
+        height:'80px',
+      },
+     }
+  },
+  bannerskeleton:{
+    "&.MuiSkeleton-root":{
+    
+      height:'420px',
+    },
+     "@media(max-width:480px)": {
+      "&.MuiSkeleton-root":{
+      
+        height:'180px',
+      },
+     }  
+  },
+  deliverySkeletoncard:{
+    "&.MuiSkeleton-root":{
+    
+      height:'280px',
+    },
+     "@media(max-width:480px)": {
+      "&.MuiSkeleton-root":{
+        width:'80px',
+        height:'80px',
+      },
+     }  
+  },
   EditProfileTextFields_Outline: {
     "& fieldset": {
       border: 'none'
@@ -813,7 +849,7 @@ const useStyles = makeStyles({
     "& .MuiDialog-container": {
       "& .MuiPaper-root": {
         width: "50%",
-        height: "400px",  // Set your width here
+        height: "400px",
         borderRadius: "20px",
         background: "#FFFFFF",
       },

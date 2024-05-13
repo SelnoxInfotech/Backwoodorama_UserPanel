@@ -144,7 +144,7 @@ const DeliveryServices = () => {
         <React.Fragment>
             <div className="px-sm-0 px-3">
                 <div >
-                    {!Skeleton ? <React.Fragment>
+                    {  !Skeleton ? <React.Fragment>
                        
                         <div className="d-flex align-items-center justify-content-between">
                             <div className="">

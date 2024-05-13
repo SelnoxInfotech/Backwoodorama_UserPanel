@@ -184,7 +184,7 @@ const Product = () => {
                     <div className="col-12 center">
                         {
                             loading ?
-                                // <div className="loaderFLower"></div>
+                               
                                 <div className="col-12">
                                     <SkeletonCard />
                                 </div>

@@ -30,7 +30,9 @@ const SubcategoryProduct = () => {
         <div className="col-12 center">
             {
                 Loading ?
-                    <div className="loaderFLower"></div>
+                <div className="loader_container">
+                <span className="newloader shine"><img src='/image/logo.png' alt='image' /></span>
+            </div>
                     :
                     <div className="col-12 mt-4">
                         <ProductSearchResult RelatedProductResult={Product} CategoryName={CategoryName} />

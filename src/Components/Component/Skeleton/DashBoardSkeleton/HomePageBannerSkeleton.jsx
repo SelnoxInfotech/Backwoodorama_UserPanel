@@ -1,17 +1,13 @@
 import React from "react"
-import Grid from '@mui/material/Grid';
 import Skeleton from '@mui/material/Skeleton';
+import useStyles from "../../../../Style";
 
 const HomePageBannerSkeleton = () => {
+    const classes = useStyles()
 
     return (
         <React.Fragment>
-            <Grid container  sx={{height:"auto"}}>
-                <Grid item xs={12} sx={{height:"270px"}}>
-                        <Skeleton variant="rectangular" sx={{height:"350px",width:"100%",marginTop:"-40px"}}/>
-
-                </Grid>
-            </Grid>
+           <Skeleton variant="rectangular"  className={classes.bannerskeleton}/>
         </React.Fragment>
     )
 }

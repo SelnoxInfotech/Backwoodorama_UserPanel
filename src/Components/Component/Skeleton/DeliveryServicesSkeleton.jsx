@@ -2,8 +2,11 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
 import React from 'react';
+import useStyles from '../../../Style';
+
 const DeliverServiceSkeleton = () => {
     const data = [1, 2, 3, 4];
+    const classes = useStyles()
     return (
         <React.Fragment>
             <div className='col-12 DeliveryServicesSkeleton'>
@@ -17,11 +20,11 @@ const DeliverServiceSkeleton = () => {
                         columnSpacing={2}>
                         {data.map((items, index) => {
                             return (
-                                <Grid item md={3} sm={6} xs={12} key={index} sx={{ width: "100%", height: "280px", borderRadius: "12px" }}>
+                                <Grid item md={3} xs={6} key={index} className={classes.deliverySkeletoncard}>
                                     <Skeleton sx={{ width: "100%", height: "258px", borderRadius: "12px", marginBottom: "-27px" }} />
-                                    <Skeleton sx={{ width: "50%", height: "30px", marginBottom: "-4px" }} />
-                                    <Skeleton sx={{ width: "50%", height: "30px", marginBottom: "-4px" }} />
-                                    <Skeleton sx={{ width: "50%", height: "30px", marginBottom: "-4px" }} />
+                                    <Skeleton sx={{ width: "100%", height: "30px", marginBottom: "-4px" }} />
+                                    <Skeleton sx={{ width: "100%", height: "30px", marginBottom: "-4px" }} />
+                                    <Skeleton sx={{ width: "70%", height: "30px", marginBottom: "-4px" }} />
 
 
                                 </Grid>

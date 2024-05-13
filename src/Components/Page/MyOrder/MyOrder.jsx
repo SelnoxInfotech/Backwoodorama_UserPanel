@@ -294,39 +294,7 @@ const MyOrder = () => {
                     </div>
                     <div className="col-lg-10 d-flex mt-4 " style={{ padding: "0" }}>
                         <div className="col-8 col-lg-6">
-                            {/* <SearchBar onChange={(e) => SetSearch(e)} className={`${classes.MyOrderSearchBar}`} style={{ background: "#FFFFF", border: "1px solid #CACACA" }} width={"100%"} placeholder="Search by customer, product, order id" /> */}
-                            {/* <TextField
-                                default={'All Order'}
-                                value={GetFilter}
-                                size="small"
-                                onChange={filter}
-                                name="cls"
-                            
-                                sx={{
-                                    '.MuiSvgIcon-root-393': {
-                                        visibility: 'hidden'
-                                    }
-                                }}
-                                SelectProps={{
-                                    MenuProps: {
-                                        className: classes.texttoselect,
-                                    },
-                                    renderValue: (option) => option,
-                                }}
-                                margin="normal"
-                                InputProps={{
-                                    startAdornment: (
-                                        <InputAdornment position="start"><HiArrowsUpDown color="#31B665" /></InputAdornment>
-                                    )
-                                }}
-                                className={classes.texttoselect}
-                            >
-                                <MenuItem value={"All Order"}> All Order</MenuItem>
-                                <MenuItem value={"Pending Order"}>Pending Order</MenuItem>
-                                <MenuItem value={"Shipped Order"}>Shipped Order</MenuItem>
-                                <MenuItem value={"Delivered Order"}>Delivered Order</MenuItem>
-                                <MenuItem value={"Cancelled Order"} >Cancelled Order</MenuItem>
-                            </TextField> */}
+                           
 
                             <Autocomplete
                                 freeSolo
@@ -385,7 +353,7 @@ const MyOrder = () => {
 
 
                     <div className="Order_Text col-10 mt-4">
-                        <div className=" center mt-5" >
+                        <div className=" center mt-2" >
                             <p style={{ color: "#707070" }}>
                                 Welcome to your personalized order hub! Easily track and manage yourpurchases with the convenience of organized sections. Explore the status of your orders under the following categories
                             </p>
