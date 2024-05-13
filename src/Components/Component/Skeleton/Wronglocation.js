@@ -3,7 +3,7 @@ import Createcontext from '../../../Hooks/Context'
 const Wronglocation = ({title ,description}) => {
   const {state ,dispatch}=useContext(Createcontext)
   let image=''
-  if(title.includes('dispensaries')){
+  if(title?.includes('dispensaries')){
     image='/image/error.webp'
   }else{
     image='/image/errorimage.webp'

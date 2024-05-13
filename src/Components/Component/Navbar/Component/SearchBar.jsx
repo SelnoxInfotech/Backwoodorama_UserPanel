@@ -10,7 +10,6 @@ import { useNavigate } from 'react-router-dom';
 import _, { remove } from "lodash"
 import AddressSearchapi from "./AddressSearchapi"
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import debouce from "lodash.debounce";
 const SearchBar = ({ path }) => {
     const Navigation = useNavigate()
     const [SearchData, SetSearchData] = React.useState([])
@@ -192,8 +191,8 @@ const SearchBar = ({ path }) => {
                         componentsProps={{ popper: { style: { height: '100%', width: `${optionwidth}px` } } }}
                         onChange={(event, value) => SearchAPi(value?.id, value?.type, value, event)}
                         // onClick={(event, value) => SearchAPi(value?.id, value?.type, value, event)}
-                        getOptionSelected={option => option.value}
-                        getOptionLabel={(option) => option.value}
+                        // getoptionselected={(option, value) => option?.description === value?.description}
+                        getOptionLabel={(option) => option?.value}
                         options={SearchData}
                         groupBy={(option) => option.type}
                         renderOption={(props, t) => {

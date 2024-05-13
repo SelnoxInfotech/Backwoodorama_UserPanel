@@ -1,9 +1,10 @@
 import React from 'react'
 import Createcontext from "../../../Hooks/Context"
 import { useNavigate } from 'react-router-dom'
-export default function RoutingSearch({ city, State, country, pathname, route,com }) {
+export default function RoutingSearch({ city, State, country, pathname, route, com }) {
   const { state, dispatch } = React.useContext(Createcontext)
   const navigate = useNavigate()
+  console.log(city, State, country, pathname, route)
   React.useEffect(() => {
     if (route !== undefined) {
       location(route + " " + city + " " + State + " " + country, "route")
@@ -50,6 +51,7 @@ export default function RoutingSearch({ city, State, country, pathname, route,co
             const locationPromises = addressComponents.map(async (data) => {
               switch (true) {
                 case data.types.includes('country'):
+                  console.log( data.long_name)
                   Coun = data.long_name.replace(/\s/g, '-');
                   await dispatch({ type: 'Country', Country: Coun });
                   break;
@@ -58,20 +60,27 @@ export default function RoutingSearch({ city, State, country, pathname, route,co
                   await dispatch({ type: 'State', State: sta });
                   break;
                 case data.types.includes('locality') || data.types.includes('administrative_area_level_3') || data.types.includes('postal_town') || data.types.includes('sublocality'):
-                  ci = data.long_name.replace(/\s/g, '-');
-                  await dispatch({ type: 'City', City: ci })
+                  if (!Boolean(ci)) {
+                    ci = data.long_name.replace(/\s/g, '-');
+                    await dispatch({ type: 'City', City: ci })
+                  }
                   break;
-                case data.types.includes('route') || data.types.includes('sublocality_level_2') || data.types.includes('establishment'):
-                  route = data.long_name.replace(/\s/g, '-');
-                  await dispatch({ type: 'route', route: route });
-                  break;
-                case !ci && (data.types.includes('administrative_area_level_2') || data.types.includes('political')):
+                case !ci && (data.types.includes('administrative_area_level_2')):
                   ci = data.long_name.replace(/\s/g, '-');
                   await dispatch({ type: 'City', City: ci });
                   break;
+                case data.types.includes('route') || data.types.includes('sublocality_level_2') || data.types.includes('establishment') || data.types.includes('neighborhood'):
+                  if (!Boolean(Coun)) {
+                    Coun = data.long_name.replace(/\s/g, '-');
+                    await dispatch({ type: 'Country', Country: Coun });
+                  }
+                  else {
+                    route = data.long_name.replace(/\s/g, '-');
+                    await dispatch({ type: 'route', route: route });
+                  }
               }
             });
-
+            console.log(route , Coun)
             await Promise.all(locationPromises);
             if (ci !== undefined && sta !== undefined && Coun !== undefined) {
 

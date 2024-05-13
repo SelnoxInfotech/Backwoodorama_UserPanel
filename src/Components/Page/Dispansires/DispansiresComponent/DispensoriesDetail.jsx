@@ -39,7 +39,7 @@ export default function DispensoriesDetails() {
         value: 0,
         comment: '',
         Title: "",
-        media:[],
+        media: [],
         popup: false
     })
     React.useEffect(() => {
@@ -106,9 +106,9 @@ export default function DispensoriesDetails() {
 
         return str.toLowerCase()
     }
-    useEffect(()=>{
+    useEffect(() => {
         console.log(reviewtype)
-        if(reviewtype === "All"){
+        if (reviewtype === "All") {
             axios.get(`https://api.cannabaze.com/UserPanel/Get-AllAverage/${id}`).then((res) => {
                 SetRating(res.data)
 
@@ -151,7 +151,7 @@ export default function DispensoriesDetails() {
             })
     }
 
-  
+
 
     const ProductFilterData = [{ Id: 1, Name: "Category", Type1: "Flower", Type2: "CBD", Icons: <BsLayoutSplit className={classes.muiIcons} /> },
     { Id: 2, Name: "Brand", Type1: "Leafly", Type2: "CBD", Icons: <MdOutlineBrandingWatermark className={classes.muiIcons} /> },
@@ -181,7 +181,7 @@ export default function DispensoriesDetails() {
 
             Store_Get_Review(id).then((res) => {
 
-             
+
                 axios.post('https://api.cannabaze.com/UserPanel/GetallProductReviewbyStore/', {
                     "store": id
                 }).then((response) => {
@@ -193,7 +193,7 @@ export default function DispensoriesDetails() {
 
         }
     }, [reviewtype, id, api])
-  
+
 
 
     React.useEffect(() => {
@@ -222,29 +222,27 @@ export default function DispensoriesDetails() {
 
     const onSubmit = () => {
         const formdata = new FormData();
-    let a =GetProductReview?.media?.filter((item)=>{
-        return item?.type.includes('image')
-      })
-    let b =GetProductReview?.media?.filter((item)=>{
-        return item?.type.includes('video')
-  })
-    formdata.append('product' ,id )
-    formdata.append('rating' ,GetProductReview.value )
-    formdata.append('Title' ,GetProductReview.Title )
-    formdata.append('comment' ,GetProductReview.comment )
-    console.log(a)
-    console.log(b)
-    for (let i = 0; i < a.length; i++) {
-      formdata.append('multipleimages', a[i]);
-    }
-    for (let i = 0; i < b.length; i++) {
-      formdata.append('multiplevideos', b[i]);
-    }
+        let a = GetProductReview?.media?.filter((item) => {
+            return item?.type.includes('image')
+        })
+        let b = GetProductReview?.media?.filter((item) => {
+            return item?.type.includes('video')
+        })
+        formdata.append('Store', id)
+        formdata.append('rating', GetProductReview.value)
+        formdata.append('Title', GetProductReview.Title)
+        formdata.append('comment', GetProductReview.comment)
+        for (let i = 0; i < a.length; i++) {
+            formdata.append('multipleimages', a[i]);
+        }
+        for (let i = 0; i < b.length; i++) {
+            formdata.append('multiplevideos', b[i]);
+        }
 
-       
+
         setReviewloading(true)
         Store_Add_Review(formdata).then((res) => {
-           
+
             SetGetProductReview({ ...GetProductReview, 'popup': false })
             SetApi(!api)
             setReviewloading(false)
@@ -306,33 +304,34 @@ export default function DispensoriesDetails() {
             })
         }
     }
-    function navigationtab(route ,store, id) {
+    function navigationtab(route, store, id) {
+        console.log(route, store, id, Boolean(route))
         if (Boolean(store)) {
 
-            navigate(`/${route}/${store.toLowerCase()}/${id}`)
+            navigate(`${route}/${store.toLowerCase()}/${id}`)
         }
         else if (Boolean(route)) {
             if (Boolean(state.City)) {
-                navigate(`/${route}/in/${state.Country.toLowerCase()}/${state.State.toLowerCase()}/${state.City.toLowerCase()}`)
+                navigate(`${route}/in/${state.Country.toLowerCase()}/${state.State.toLowerCase()}/${state.City.toLowerCase()}`)
             }
             else if (Boolean(state.State)) {
-                navigate(`/${route}/in/${modifystr(state.Country)}/${modifystr(state.State)}`)
+                navigate(`${route}/in/${modifystr(state.Country)}/${modifystr(state.State)}`)
             }
             else {
-                navigate(`/${(route)}/in/${modifystr(state.Country)}`)
+                navigate(`${(route)}/in/${modifystr(state.Country)}`)
             }
         }
     }
     if (!Despen.length) {
         return <p>Loading....</p>
     }
-
     return (
         <div>
-            <p> {(location.pathname.slice(0, 18) === "/weed-dispensaries" ||  location.pathname.slice(0, 16) === "/weed-deliveries")   &&
-                <div style={{ fontSize: '12px' }} > <span style={{ fontSize: '12px', cursor: 'pointer' }} onClick={() => navigationtab("/weed-deliveries")}>weed-dispensaries</span> 
-                {" >"} <span style={{ fontSize: '12px', cursor: 'pointer' }} onClick={() => navigationtab("/weed-deliveries", params.StoreName, id)}> {params.StoreName}</span> 
-                {" >"}  <span> {params?.tab}</span> </div>
+            <p> {(location.pathname.slice(0, 18) === "/weed-dispensaries" || location.pathname.slice(0, 16) === "/weed-deliveries") &&
+                <div style={{ fontSize: '12px' }} > <span style={{ fontSize: '12px', cursor: 'pointer' }} onClick={() => navigationtab(location.pathname.slice(0, 18) === "/weed-dispensaries" ? '/weed-dispensaries' : "/weed-deliveries")}> {location.pathname.slice(0, 18) === "/weed-dispensaries" ? 'weed-dispensaries' : "weed-deliveries"}</span>
+                    {" >"} <span style={{ fontSize: '12px', cursor: 'pointer' }} onClick={() => navigationtab("/weed-deliveries", params.StoreName, id)}> {params.StoreName}</span>
+                {Boolean(params?.tab)   &&  <span> {" > "}{params?.tab}</span> }
+                    </div>
             }</p>
             <StoreDetails Despen={Despen} locationStore={location.pathname}></StoreDetails>
             <div className="container-fluid product_container" >

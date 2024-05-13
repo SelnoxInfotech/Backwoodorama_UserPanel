@@ -155,7 +155,12 @@ console.log(DeliveryService ,'DeliveryService')
                         {
                             Boolean(DeliveryService?.length) ? <div className="col-12  my-4 mt-2 recentViewProductSlider" id="width" ref={ref}>
                             <ScrollContainer className="ScrollContainerRelative">
+<<<<<<< HEAD
                                 {DeliveryService?.map((items, index) => { 
+=======
+                                {DeliveryService?.map((items, index) => {
+                                    // console.log(items)
+>>>>>>> 8fd8a383 (routing chnage location work)
                                     return (
                                          <div className='dispensoriesContainer' key={index}>
                                           <div className=' dispensoriesAddressBorder'>

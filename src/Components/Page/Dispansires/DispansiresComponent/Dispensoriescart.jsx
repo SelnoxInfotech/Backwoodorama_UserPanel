@@ -40,7 +40,7 @@ const Dispensoriescart = ({index ,ele }) => {
   return (
     <div className="row mt-4" key={index}>
         <div className=" col-11  mx-auto despensories_card_container">
-        <Link  to={`/weed-dispensaries/${modifystr(ele?.Store_Name.toLowerCase())}/${ele.id}`}>
+        {/* <Link  to={`/weed-dispensaries/${modifystr(ele?.Store_Name.toLowerCase())}/${ele.id}`}> */}
             <div className="row">
                 <div className="col-4 disensories_card_image_div">
                     <Link  to={`/weed-dispensaries/${modifystr(ele?.Store_Name.toLowerCase())}/${ele.id}`}>
@@ -96,7 +96,7 @@ const Dispensoriescart = ({index ,ele }) => {
 
                 </div>
             </div>
-            </Link>
+            {/* </Link>  */}
         </div>
     </div>
   )

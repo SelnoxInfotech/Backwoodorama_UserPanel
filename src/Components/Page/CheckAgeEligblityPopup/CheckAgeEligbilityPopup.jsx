@@ -4,17 +4,17 @@ import Dialog from '@mui/material/Dialog';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import useStyles from '../../../Style';
+import useStyles from '../../../../src/Style';
 import Cookies from 'universal-cookie';
 import Createcontext from "../../../Hooks/Context"
 import {ImNotification} from "react-icons/im"
 const CheckAgeEligbilityPopup = ({value}) => {
-    const classes=useStyles()
     const cookies = new Cookies();
     const [open, setOpen] = React.useState(value);
     const [Country, SetCountry] = React.useState('USA');
     const [NotAgepop, SetNotAge] = React.useState('')
     const {state, dispatch } = React.useContext(Createcontext)
+    const classes = useStyles()
     const get = () => {
         setOpen(false)
         let date = new Date();
@@ -41,7 +41,7 @@ const CheckAgeEligbilityPopup = ({value}) => {
         <div>
             <Dialog open={open}
                overlayStyle={{backgroundColor: 'red'}}
-                className={`${classes.checkAgeEligibility} ${classes.checAgeEligibiltyHeight}`}
+                className={`${classes?.checkAgeEligibility} ${classes?.checAgeEligibiltyHeight}`}
                 role="dialog" aria-labelledby="dialog-label"
             >
                 <div className='container-fluid'>
@@ -58,7 +58,7 @@ const CheckAgeEligbilityPopup = ({value}) => {
                                     <label className='askCountry'>Where are you from</label>
                                 </div>
                                 <div className='col-12 checkAgeEligibility_Select'>
-                                    <FormControl sx={{ m: 1, }} className={`${classes.checkAge_eligibility_Select}`}>
+                                    <FormControl sx={{ m: 1, }} className={`${classes?.checkAge_eligibility_Select}`}>
                                         <Select
                                             defaultValue='USA'
                                             value={Country}
@@ -81,10 +81,10 @@ const CheckAgeEligbilityPopup = ({value}) => {
                                     <label>Are you 21 year older</label>
                                 </div>
                                 <div className='col-12 checkAgeEligibilty_btn_container'>
-                                    <Button className={`${classes.checAgeEliigiblityPopup}`} onClick={get} >Yes, I am</Button>
+                                    <Button className={`${classes?.checAgeEliigiblityPopup}`} onClick={get} >Yes, I am</Button>
                                 </div>
                                 <div className='col-12 checkAgeEligibilty_btn_container'>
-                                    <Button className={`${classes.checkAgeEligibiltyAge_SecBtn}`} onClick={NotAge}>No,I'm not</Button>
+                                    <Button className={`${classes?.checkAgeEligibiltyAge_SecBtn}`} onClick={NotAge}>No,I'm not</Button>
                                 </div>
 
                             </div>

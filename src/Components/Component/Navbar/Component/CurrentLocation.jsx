@@ -2,7 +2,6 @@ import React from "react";
 import Createcontext from "../../../../Hooks/Context"
 import Cookies from 'universal-cookie';
 import { useGeolocated } from "react-geolocated";
-import { ready } from "jquery";
 const CurrentLocation = () => {
   const { state, dispatch } = React.useContext(Createcontext)
   const cookies = new Cookies();
@@ -44,7 +43,7 @@ const CurrentLocation = () => {
 
   React.useEffect(() => {
     dispatch({ type: 'permission', permission: coords === undefined ? false : true })
-    coords !== undefined ?
+      Boolean(coords) ?
 
       fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${coords?.latitude},${coords?.longitude}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
         .then(res => res.json() )

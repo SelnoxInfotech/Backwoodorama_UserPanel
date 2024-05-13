@@ -357,7 +357,6 @@ const ProductList = ({ arr }) => {
                                     ))}
 
                                 {new Array(5 - ele.rating).fill(null).map(() => {
-                                   console.log(ele.rating)
                                   return(
                                     <BsStar
                                     size={16}

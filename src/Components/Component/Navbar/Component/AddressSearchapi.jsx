@@ -9,20 +9,26 @@ import Autocomplete from '@mui/material/Autocomplete';
 import useStyles from "../../../../Style"
 import Createcontext from "../../../../Hooks/Context"
 import { useNavigate } from "react-router-dom";
-export default function SearchingLocation({ openLocation, SearchBarWidth, open1, setOpenLocation, path }) {
-  const {
-    placesService,
-    placePredictions,
-    getPlacePredictions,
-  } = useGoogle({
-    debounce: 500,
-    language: 'en',
-    apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU'
-  });
+// import { ScriptTag } from 'react-script-tag';
+export default  function SearchingLocation({ openLocation, SearchBarWidth, open1, setOpenLocation, path }) {
   const classes = useStyles()
   const navigate = useNavigate();
   const [formatted_address, Setformatted_address] = React.useState('')
   const { state, dispatch } = React.useContext(Createcontext)
+
+  const {
+    placesService,
+    placePredictions,
+    getPlacePredictions,
+  } =  useGoogle({
+    debounce: 500,
+    language: 'en',
+    apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU'
+  });
+  
+
+
+
   React.useEffect(() => {
     Setformatted_address(state?.Location)
   }, [state])
@@ -217,13 +223,15 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
     });
   }
   React.useEffect(()=>{
-    console.log(state.locationFocus)
+
 
     if(state.locationFocus){
       onFocus()
     }
     },[state.locationFocus])
   return (
+    <>
+   
     <Autocomplete
       freeSolo
       disableClearable
@@ -249,7 +257,7 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
           <li  {...props} >  <IoLocationSharp />{value?.description}</li>
         )
       }}
-      getOptionSelected={option => option?.description}
+      // getOptionSelected={(option, value) => option?.description === value?.description}
       getOptionLabel={(option) => (option?.description ? option?.description : '')}
       renderInput={(params) => (
         <TextField
@@ -282,5 +290,6 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
         />
       )}
     />
+    </>
   );
 }

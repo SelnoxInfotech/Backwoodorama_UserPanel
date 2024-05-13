@@ -110,7 +110,7 @@ function Context(props) {
                             CoupounAmount +=  parseInt(data1?.DiscountedAmount) -  parseInt(data1?.TotalPrice)
                         }
                     }
-                    console.log(data1 , CoupounAmount)
+                    // console.log(data1 , CoupounAmount)
                     return AllTotal += parseInt(data1?.TotalPrice)
                 })
                 CarTProduct.length === 0 &&  dispatch({ type: 'coupoun_code', coupoun_code: '' })
@@ -177,7 +177,7 @@ function Context(props) {
         })
     }, [])
 
-  console.log( parseInt(state.Cookies))
+//   console.log( parseInt(state.Cookies))
     return (
 
         <Createcontext.Provider value={{ state, dispatch }} container>

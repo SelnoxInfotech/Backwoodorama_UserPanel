@@ -6048,7 +6048,7 @@ width: max-content;
   width: 100%;
 }
 .dispensoriesContainer{
-  width: 200px;
+  min-width: 200px;
   position: relative;
   overflow: hidden;
 }
