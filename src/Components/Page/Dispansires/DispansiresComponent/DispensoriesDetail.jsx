@@ -261,7 +261,6 @@ export default function DispensoriesDetails() {
             left: 0,
             behavior: "instant",
         });
-        console.log(location)
     }, [])
 
     const Swal = require('sweetalert2')
