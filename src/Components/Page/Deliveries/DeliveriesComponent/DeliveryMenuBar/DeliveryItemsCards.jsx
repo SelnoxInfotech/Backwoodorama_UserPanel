@@ -75,7 +75,7 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                             <Box
                                                 className={`${classes.loadingBtnTextAndBack}`}
                                             >
-                                                <Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g,'-').toLowerCase()}/${items.id}`}><LoadingButton style={{ width: "100%", height: "30px" }} variant="outlined">View Menu</LoadingButton></Link>
+                                                <Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g,'-').toLowerCase()}/${items.id}`}><LoadingButton variant="outlined">View Menu</LoadingButton></Link>
 
                                             </Box>
 

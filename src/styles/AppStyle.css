@@ -2538,7 +2538,37 @@ border-radius: 3px;
 #width {
   padding: 0px;
 }
-
+.nodeliveryinhomepage{
+  width: 100%;
+  padding: 20px 0;
+  margin: 20px 0;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.nodeliveryinhomepage .nodeliveryinhomeimage{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid black; 
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.nodeliveryinhomepage .nodeliveryinhomeimage img{
+  width: 80%;
+  max-height: 100%;
+}
+.nodeliveryinhomepage  p{
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+ margin-bottom: 0;
+ margin-top: 10px;
+}
 .customSearchBarsearchicon{
   position: relative;
 }
@@ -5776,6 +5806,7 @@ padding: 5px 0;
 .tableList{
   color: #2b2b2b;
   transition: all .3s ease;
+  font-weight: 500;
 }
 .tableList:hover{
   cursor: pointer;
@@ -5788,7 +5819,7 @@ padding: 5px 0;
 .isweedLegalHeading {
   color: #000000;
   font-weight: 700;
-  font-size: 28px;
+  font-size: 24px;
 }
 .errorPara{
   color: red;
@@ -5817,7 +5848,7 @@ padding: 5px 0;
 }
 
 .isWeedLegalParagraph {
-  font-size: 18px;
+  font-size: 16px;
   color: #6B6B6B;
   font-weight: 400;
   text-align: justify;

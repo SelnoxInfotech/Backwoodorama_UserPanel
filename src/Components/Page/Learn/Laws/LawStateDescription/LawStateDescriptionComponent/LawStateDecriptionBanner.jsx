@@ -3,8 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from "styled-components";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-const LawStateDecriptionBanner = () => {
+const LawStateDecriptionBanner = (props) => {
     const LawStateDecriptionBanner = styled(Slider)`
 
     .slick-arrow{
@@ -75,24 +74,23 @@ const LawStateDecriptionBanner = () => {
             }
         ]
     };
-    const LearnBannerArray = [{ imgUrl: "/image/learnBanner.webp" }, { imgUrl: "/image/learnBanner2.jpg" }]
-
+    
     return (
         <React.Fragment>
             <div className='col-12 lawStateDescBannerCol'>
                 <LawStateDecriptionBanner {...settings}>
-                    {LearnBannerArray?.map((items, index) => {
-                        return (
-                            <div className='learn_banner_header' key={index}>
-                                <div className='col-12 learn_image_slider'>
+                  
+                     
+                            <div className='learn_banner_header'    >
+                                {/* <div className='col-12 learn_image_slider'>
                                     <LazyLoadImage src={items.imgUrl} alt='img_not_available' />
-                                </div>
+                                </div> */}
                                 <div className='text_on_Learn_banner'>
-                                    <h3 className='learn_banner_text'>Alaska</h3>
+                                    <h3 className='learn_banner_text'>{props.cityname}</h3>
                                 </div>
                             </div>
-                        )
-                    })}
+                        
+                   
 
                 </LawStateDecriptionBanner>
             </div>

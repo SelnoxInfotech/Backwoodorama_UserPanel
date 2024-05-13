@@ -136,10 +136,7 @@ const DeliveryServices = () => {
 
         return str.toLowerCase()
     }
-
-
-
-
+console.log(DeliveryService ,'DeliveryService')
     return (
         <React.Fragment>
             <div className="px-sm-0 px-3">
@@ -155,10 +152,10 @@ const DeliveryServices = () => {
                                 <span className="viewallbtn">View All <FaArrowRight   /></span>
                             </Link>
                         </div>
-                        <div className="col-12  my-4 mt-2 recentViewProductSlider" id="width" ref={ref}>
+                        {
+                            Boolean(DeliveryService?.length) ? <div className="col-12  my-4 mt-2 recentViewProductSlider" id="width" ref={ref}>
                             <ScrollContainer className="ScrollContainerRelative">
-                                {DeliveryService?.map((items, index) => {
-                                    console.log(items)
+                                {DeliveryService?.map((items, index) => { 
                                     return (
                                          <div className='dispensoriesContainer' key={index}>
                                           <div className=' dispensoriesAddressBorder'>
@@ -214,6 +211,15 @@ const DeliveryServices = () => {
                                 })}
                             </ScrollContainer>
                         </div>
+                        :
+                        <div className='nodeliveryinhomepage' >
+                            <div className='nodeliveryinhomeimage'>
+                                <img src='/image/NOTDELIVERED.png' alt='src'/>
+                            </div>
+                            <p>No Delivery Services available</p>
+                        </div>
+                        }
+                        
                     </React.Fragment> : <DeliverServiceSkeleton></DeliverServiceSkeleton>
                     }
                 </div>

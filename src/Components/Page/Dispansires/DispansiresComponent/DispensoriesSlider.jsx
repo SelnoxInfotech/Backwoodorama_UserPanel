@@ -112,7 +112,7 @@ const Dispensories = () => {
                       </Link>
                     </div>
                     </div >
-                    <div className="col-12 mt-3  recentViewProductSlider" id="width" ref={ref}>
+                  { Boolean(Store.length)? <div className="col-12 mt-3  recentViewProductSlider" id="width" ref={ref}>
                         <ScrollContainer className="ScrollContainerRelative">
 
                             {Store?.map((ele, index) => {
@@ -173,6 +173,15 @@ const Dispensories = () => {
                             })}
                         </ScrollContainer >
                     </div >
+                    :
+                    <div className='nodeliveryinhomepage' >
+                    <div className='nodeliveryinhomeimage'>
+                        <img src='/image/nodespensire.png' alt='src'/>
+                    </div>
+                    <p>No Dispensaries Services available</p>
+                </div>
+                    
+                    }
                 </div >
                     :
                     <DispensoriesAddressSkeleton></DispensoriesAddressSkeleton>}

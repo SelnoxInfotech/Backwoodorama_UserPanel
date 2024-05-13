@@ -120,6 +120,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
             <div className='container-fluid'>
                 <div className="row center reviewCardWrapper">
                     {(state.login ? moveObject(AllReview, 'user', state.Profile.id, 0) : AllReview)?.map((ele, index) => {
+                        console.log(ele)
                         const text = ele?.comment;
                         return (
                             <div className="w-100 related_review_container" key={index}>

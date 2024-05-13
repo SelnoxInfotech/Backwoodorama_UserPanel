@@ -82,7 +82,7 @@ const LawStateDescription = () => {
             <LawState Title={`Cannabis Law in ${GetContant?.name}`} State={GetContant?.Country} location={useLocation().pathname}></LawState>
             <div className="container-fluid">
                 <div className="row">
-                    <LawStateDecriptionBanner />
+                    <LawStateDecriptionBanner cityname={GetContant?.name} />
                      <div className="law_contertn"> 
                         <div className="col-12 lawStateDescriptionHeadings">
                             <h1 className="LawStateDescriptionHeading">Cannabis Law in {GetContant?.name}</h1>

@@ -97,7 +97,7 @@ text-align: center;
 
 .offercard .leftcoupon span:nth-child(2){
    
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 600;
     line-height: 1.6;
     font-family: "Inter", sans-serif;
@@ -135,13 +135,13 @@ text-align: center;
    }
    
    .offercard .rightcoupon span:nth-child(2){
-       font-family: Inter;
-       font-size: 12px;
-       font-weight: 600;
-       line-height: 1.6;
-    display: block;
-    font-family: "Inter", sans-serif;
-       color: #000;
+        font-family: Inter;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1.6;
+        display: block;
+        font-family: "Inter", sans-serif;
+        color: #000;
    }
    
    .offercard .rightcoupon span:nth-child(3){

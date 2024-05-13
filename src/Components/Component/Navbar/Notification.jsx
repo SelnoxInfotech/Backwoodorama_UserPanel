@@ -50,7 +50,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                     if (item.Order.length !== 0) {
                      
                         datax.push({
-                            Image: item.Order[0].IdCard,
+                            Image: item.Order[0].StoreImages,
                             title: `Thank you for ordering with WeedX.io! Your order #${item.Order[0].OrderId} is confirmed for $${item.Order[0].subtotal}.`,
                             date: item.Order[0].OrderDate,
                             link: `/MyOrderProductDetail/${item.Order[0].OrderId}`,
