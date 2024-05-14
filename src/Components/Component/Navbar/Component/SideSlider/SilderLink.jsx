@@ -20,7 +20,7 @@ export default function DashBoardLink({ state }) {
   const location = useLocation();
   const [notificationdata, Setnotificationdata] = React.useState([]);
   const [totalnotify, Settotalnotify] = React.useState([]);
- 
+ console.log(state)
   React.useEffect(() => {
     Setcurrent_route(location.pathname);
   }, [location]);

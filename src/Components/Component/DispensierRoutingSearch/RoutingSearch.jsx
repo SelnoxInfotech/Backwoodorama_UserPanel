@@ -1,6 +1,7 @@
 import React from 'react'
 import Createcontext from "../../../Hooks/Context"
 import { useNavigate } from 'react-router-dom'
+import _ from "lodash";
 export default function RoutingSearch({ city, State, country, pathname, route, com }) {
   const { state, dispatch } = React.useContext(Createcontext)
   const navigate = useNavigate()
@@ -31,10 +32,11 @@ export default function RoutingSearch({ city, State, country, pathname, route, c
     fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
       .then(res => res.json())
       .then(async response => {
-        var Coun;
-        var sta;
-        var ci;
-        var route;
+        let Coun;
+        let sta;
+        let ci;
+        let route;
+        const object = {}
         if (response?.error_message) {
           dispatch({ type: 'Location', Location: 'New York, NY, USA' })
           dispatch({ type: 'Country', Country: "United-States" })
@@ -47,55 +49,115 @@ export default function RoutingSearch({ city, State, country, pathname, route, c
             await dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address })
             const firstResult = response.results[0];
             const addressComponents = firstResult.address_components || [];
+            console.log(addressComponents)
+            addressComponents.map((data) => {
+              let l = data.types[0] === "political" ? data.types[1] : data.types[0]
+              object[l] = data.long_name
+            })
+            if (Boolean(object.country)) {
+              Coun = object.country.replace(/\s/g, '-');
+              dispatch({ type: 'Country', Country: Coun });
+            }
+            else if (Object.keys(object).length === 1) {
+              console.log(Object.values(object)[0])
+              Coun = Object.values(object)[0].replace(/\s/g, '-');
+              dispatch({ type: 'Country', Country: Coun });
+            }
+            // if (Boolean(object.administrative_area_level_1) || Boolean(object.locality)) {
+            //   if (Boolean(object.administrative_area_level_1) && Boolean(object.locality)) {
+            //     sta = object.administrative_area_level_1.replace(/\s/g, '-');
+            //     dispatch({ type: 'State', State: sta });
+            //   }
+            //   if (Boolean(object.administrative_area_level_1)) {
 
-            const locationPromises = addressComponents.map(async (data) => {
-              switch (true) {
-                case data.types.includes('country'):
-                  console.log( data.long_name)
-                  Coun = data.long_name.replace(/\s/g, '-');
-                  await dispatch({ type: 'Country', Country: Coun });
-                  break;
-                case data.types.includes('administrative_area_level_1'):
-                  sta = data.long_name.replace(/\s/g, '-');
-                  await dispatch({ type: 'State', State: sta });
-                  break;
-                case data.types.includes('locality') || data.types.includes('administrative_area_level_3') || data.types.includes('postal_town') || data.types.includes('sublocality'):
-                  if (!Boolean(ci)) {
-                    ci = data.long_name.replace(/\s/g, '-');
-                    await dispatch({ type: 'City', City: ci })
-                  }
-                  break;
-                case !ci && (data.types.includes('administrative_area_level_2')):
-                  ci = data.long_name.replace(/\s/g, '-');
-                  await dispatch({ type: 'City', City: ci });
-                  break;
-                case data.types.includes('route') || data.types.includes('sublocality_level_2') || data.types.includes('establishment') || data.types.includes('neighborhood'):
-                  if (!Boolean(Coun)) {
-                    Coun = data.long_name.replace(/\s/g, '-');
-                    await dispatch({ type: 'Country', Country: Coun });
-                  }
-                  else {
-                    route = data.long_name.replace(/\s/g, '-');
-                    await dispatch({ type: 'route', route: route });
-                  }
-              }
-            });
-            console.log(route , Coun)
-            await Promise.all(locationPromises);
-            if (ci !== undefined && sta !== undefined && Coun !== undefined) {
+            //     sta = object.administrative_area_level_1.replace(/\s/g, '-');
+            //     dispatch({ type: 'State', State: sta });
 
-              navigate(pathname + `/${'in'}/${Coun.toLowerCase()}/${sta.toLowerCase()}/${ci.toLowerCase()}/`)
+            //   }
+            //   else {
+            //     sta = object.locality.replace(/\s/g, '-');
+            //     dispatch({ type: 'State', State: sta });
+            //   }
+            // }
+            if (Boolean(object.administrative_area_level_1)) {
+
+              sta = object.administrative_area_level_1.replace(/\s/g, '-');
+              dispatch({ type: 'State', State: sta });
 
             }
-            else {
-              if (sta !== undefined && Coun !== undefined) {
-                navigate(pathname + `/${'in'}/${Coun.toLowerCase()}/${sta.toLowerCase()}/`)
+            if (Boolean(object.administrative_area_level_3) || Boolean(object.establishment) || Boolean(object.locality) || Boolean(object.sublocality) || Boolean(object.administrative_area_level_2)) {
+              console.log(!Boolean(object.administrative_area_level_3) && !Boolean(object.establishment) && !Boolean(object.locality) && !Boolean(object.sublocality) && Boolean(object.administrative_area_level_2))
+
+              if (Boolean(object.administrative_area_level_3)) {
+                ci = object.administrative_area_level_3.replace(/\s/g, '-')
+                dispatch({ type: 'City', City: ci })
+              }
+              if (Boolean(object.sublocality) &&  Boolean(object.locality)) {
+                ci = object.sublocality.replace(/\s/g, '-')
+                dispatch({ type: 'City', City: ci })
+              }
+              else if (Boolean(object.locality)) {
+                ci = object.locality.replace(/\s/g, '-')
+                dispatch({ type: 'City', City: ci })
+              }
+              else if (Object.keys(object).length !== 1 && Boolean(object.establishment)) {
+                ci = object.establishment.replace(/\s/g, '-')
+                dispatch({ type: 'City', City: ci })
+              }
+              else if (Boolean(object.sublocality)) {
+                ci = object.sublocality.replace(/\s/g, '-')
+                dispatch({ type: 'City', City: ci })
+              }
+
+              if (Boolean(object.administrative_area_level_3) && Boolean(object.locality)) {
+                ci = object.locality.replace(/\s/g, '-')
+                dispatch({ type: 'City', City: ci })
               }
               else {
-                if (Coun !== undefined) {
-                  navigate(pathname + `/${'in'}/${Coun.toLowerCase()}/`)
+                if (!Boolean(object.administrative_area_level_3) && !Boolean(object.establishment) && !Boolean(object.locality) && !Boolean(object.sublocality) && Boolean(object.administrative_area_level_2)) {
+                  ci = object.administrative_area_level_2.replace(/\s/g, '-')
+                  dispatch({ type: 'City', City: ci })
                 }
+              }
+            }
+            if (Boolean(object.route) || Boolean(object.sublocality_level_2) || Boolean(object.neighborhood) || Boolean(object.establishment)) {
+              if (Boolean(object.route)) {
+                route = object.route.replace(/\s/g, '-');
+                dispatch({ type: 'route', route: route });
+              }
+              else if (Boolean(object.sublocality)) {
+                route = object.sublocality.replace(/\s/g, '-');
+                dispatch({ type: 'route', route: route });
+              }
+              else if (Boolean(object.neighborhood)) {
+                route = object.neighborhood.replace(/\s/g, '-');
+                dispatch({ type: 'route', route: route });
+              }
+              else if (Boolean(object.establishment)) {
+                route = object.establishment.replace(/\s/g, '-');
+                dispatch({ type: 'route', route: route });
+              }
 
+            }
+            if (ci !== undefined && sta !== undefined && Coun !== undefined && route !== undefined) {
+
+              navigate(pathname + `/${'in'}/${Coun.toLowerCase()}/${sta.toLowerCase()}/${ci.toLowerCase()}/${route.toLowerCase()}`)
+            
+            }
+            else {
+              if (sta !== undefined && Coun !== undefined && ci !== undefined) {
+                navigate(pathname + `/${'in'}/${Coun.toLowerCase()}/${sta.toLowerCase()}/${ci.toLowerCase()}`)
+              }
+              else {
+                if (Coun !== undefined && sta !== undefined) {
+                  navigate(pathname + `/${'in'}/${Coun.toLowerCase()}/${sta.toLowerCase()}`)
+                }
+                else {
+                  if (Coun !== undefined) {
+                    navigate(pathname + `/${'in'}/${Coun.toLowerCase()}`)
+                  }
+                }
+            
               }
             }
           }
@@ -247,6 +309,7 @@ export default function RoutingSearch({ city, State, country, pathname, route, c
               })
 
           }
+
         }
 
       }
@@ -256,4 +319,56 @@ export default function RoutingSearch({ city, State, country, pathname, route, c
   }
   // return com
 
-} 
+}
+
+
+
+
+// const locationPromises = addressComponents.map(async (data) => {
+//   switch (true) {
+//     case data.types.includes('country'):
+//       Coun = data.long_name.replace(/\s/g, '-');
+//       await dispatch({ type: 'Country', Country: Coun });
+//       break;
+//     case data.types.includes('administrative_area_level_1'):
+//       sta = data.long_name.replace(/\s/g, '-');
+//       await dispatch({ type: 'State', State: sta });
+//       break;
+//     case data.types.includes('locality') || data.types.includes('administrative_area_level_3') || data.types.includes('postal_town') || data.types.includes('sublocality') :
+//       if (!Boolean(ci)) {
+//         ci = data.long_name.replace(/\s/g, '-');
+//         await dispatch({ type: 'City', City: ci })
+//       }
+//       break;
+//     case !ci && (data.types.includes('administrative_area_level_2') ) :
+//       ci = data.long_name.replace(/\s/g, '-');
+//       await dispatch({ type: 'City', City: ci });
+//       break;
+//     case data.types.includes('route') || data.types.includes('sublocality_level_2') || data.types.includes('establishment') || data.types.includes('neighborhood'):
+//       route = data.long_name.replace(/\s/g, '-');
+//       await dispatch({ type: 'route', route: route });
+//   }
+// });
+
+// await Promise.all(locationPromises);
+// if (ci !== undefined && sta !== undefined && Coun !== undefined && route !== undefined) {
+
+//   navigate(pathname + `/${'in'}/${Coun.toLowerCase()}/${sta.toLowerCase()}/${ci.toLowerCase()}/${route.toLowerCase()}`)
+
+// }
+// else {
+//   if (sta !== undefined && Coun !== undefined && ci !== undefined) {
+//     navigate(pathname + `/${'in'}/${Coun.toLowerCase()}/${sta.toLowerCase()}/${ci.toLowerCase()}`)
+//   }
+//   else {
+//     if (Coun !== undefined && sta !== undefined) {
+//       navigate(pathname + `/${'in'}/${Coun.toLowerCase()}/${sta.toLowerCase()}`)
+//     }
+//     else {
+//       if (Coun !== undefined) {
+//         navigate(pathname + `/${'in'}/${Coun.toLowerCase()}`)
+//       }
+//     }
+
+//   }
+// }
