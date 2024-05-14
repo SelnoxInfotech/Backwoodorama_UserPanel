@@ -176,11 +176,7 @@ function Context(props) {
         })
     }, [])
 
-<<<<<<< HEAD
  
-=======
-//   console.log( parseInt(state.Cookies))
->>>>>>> 77fab5dcd65875e2b722b60195ae18137e97134a
     return (
 
         <Createcontext.Provider value={{ state, dispatch }} container>
