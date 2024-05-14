@@ -105,7 +105,7 @@ const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart, setadding, a
 
                                 </div>
                                 <div className="product_cart_review my-3">
-                                    {items.rating && new Array(items.rating).fill(null).map(() => (
+                                    { new Array(items.rating).fill(null).map(() => (
                                         <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />
                                     ))}
 

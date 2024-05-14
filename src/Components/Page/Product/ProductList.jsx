@@ -344,7 +344,7 @@ const ProductList = ({ arr }) => {
                                      }
                                 </div>
                                 <div className="col-12 py-2 d-flex prod_para prod_sub_heading_height ellipsis"   style={{ marginBottom: "0px" }} >
-                                   {ele.rating &&
+                                   {
                                     new Array(ele.rating)
                                     .fill(null)
                                     .map((ine, indesx) => (
@@ -357,7 +357,6 @@ const ProductList = ({ arr }) => {
                                     ))}
 
                                 {new Array(5 - ele.rating).fill(null).map(() => {
-                                   console.log(ele.rating)
                                   return(
                                     <BsStar
                                     size={16}

@@ -99,18 +99,17 @@ function Context(props) {
                     {
                         dispatch({ type: 'coupoun_code', coupoun_code: data1.Coupon })
                     }
-                    // console.log(parseInt( (-data1?.DiscountedAmount))  )
                     if(Boolean(data1.Coupon)){
                         if(data1?.DiscountedAmount === 0) {
 
                             // CoupounAmount +=  parseInt(data1?.TotalPrice)
                         }
                         else{
-                            console.log( parseInt(data1?.DiscountedAmount) -  parseInt(data1?.TotalPrice))
+                           
                             CoupounAmount +=  parseInt(data1?.DiscountedAmount) -  parseInt(data1?.TotalPrice)
                         }
                     }
-                    console.log(data1 , CoupounAmount)
+                  
                     return AllTotal += parseInt(data1?.TotalPrice)
                 })
                 CarTProduct.length === 0 &&  dispatch({ type: 'coupoun_code', coupoun_code: '' })
@@ -177,7 +176,7 @@ function Context(props) {
         })
     }, [])
 
-  console.log( parseInt(state.Cookies))
+ 
     return (
 
         <Createcontext.Provider value={{ state, dispatch }} container>

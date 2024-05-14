@@ -412,7 +412,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                                                                             </div>
                                                                             {
                                                                                 SubCategory?.map((SubCategory) => {
-                                                                                    console.log(data)
+                                                                                  
                                                                                     return (
                                                                                         SubCategory.CatgoryId === data.id
                                                                                         &&

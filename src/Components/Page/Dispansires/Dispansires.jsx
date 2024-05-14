@@ -145,7 +145,7 @@ export default function Dispansires() {
                     }
                 })
                 } catch (error) {
-                  console.log(error)  
+                 
                 }
             }
             const timeoutId = setTimeout(sendPostRequest, 1000);

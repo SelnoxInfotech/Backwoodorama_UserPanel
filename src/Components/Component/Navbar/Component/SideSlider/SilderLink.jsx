@@ -34,7 +34,6 @@ export default function DashBoardLink({ state }) {
   useEffect(()=>{
     settextnotify(!textnotify)
   },[notificationdata])
-console.log(state ,'state')
   return (
     <React.Fragment>
       <div className="container-fluid Top p-sm-0 p-2 m-0 mt-sm-4">

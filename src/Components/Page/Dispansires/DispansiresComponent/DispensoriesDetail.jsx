@@ -221,25 +221,24 @@ export default function DispensoriesDetails() {
 
 
     const onSubmit = () => {
+        console.log('challalalalallalalalalalalalalalallal')
         const formdata = new FormData();
-    let a =GetProductReview?.media?.filter((item)=>{
-        return item?.type.includes('image')
-      })
-    let b =GetProductReview?.media?.filter((item)=>{
-        return item?.type.includes('video')
-  })
-    formdata.append('product' ,id )
-    formdata.append('rating' ,GetProductReview.value )
-    formdata.append('Title' ,GetProductReview.Title )
-    formdata.append('comment' ,GetProductReview.comment )
-    console.log(a)
-    console.log(b)
-    for (let i = 0; i < a.length; i++) {
-      formdata.append('multipleimages', a[i]);
-    }
-    for (let i = 0; i < b.length; i++) {
-      formdata.append('multiplevideos', b[i]);
-    }
+        let a =GetProductReview?.media?.filter((item)=>{
+            return item?.type.includes('image')
+        })
+        let b =GetProductReview?.media?.filter((item)=>{
+            return item?.type.includes('video')
+        })
+        formdata.append('product' ,id )
+        formdata.append('rating' ,GetProductReview.value )
+        formdata.append('Title' ,GetProductReview.Title )
+        formdata.append('comment' ,GetProductReview.comment )
+        for (let i = 0; i < a.length; i++) {
+         formdata.append('multipleimages', a[i]);
+        }
+        for (let i = 0; i < b.length; i++) {
+        formdata.append('multiplevideos', b[i]);
+        }
 
        
         setReviewloading(true)

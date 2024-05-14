@@ -88,7 +88,6 @@ const CheckOutMainPage = () => {
                 SetLoading(true)
             ).then(response => {
                 SetLoading(false)
-                // console.log(location.state.orderBtn ,  response.data.data)
                 let datanew = { orterbtn: location.state.orderBtn, ...response.data.data }
                 navigate("/order-placed", { state: datanew })
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
@@ -124,7 +123,6 @@ const CheckOutMainPage = () => {
 
     }, [])
 
-    console.log(state?.AllProduct[0]?.StoreHours)
     return (
         <React.Fragment>
             <div className="container">

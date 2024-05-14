@@ -136,7 +136,6 @@ const DeliveryServices = () => {
 
         return str.toLowerCase()
     }
-console.log(DeliveryService ,'DeliveryService')
     return (
         <React.Fragment>
             <div className="px-sm-0 px-3">

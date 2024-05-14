@@ -16,7 +16,6 @@ import { RxCross2 } from "react-icons/rx";
 const SignupWithEmail = () => {
     const Navigate = useNavigate()
     const location = useLocation();
-    console.log(location , ' location')
     let state  = location.state;
     const [showPassword, setShowPassword] = React.useState(false);
     const [loading, Setloading] = React.useState(false)

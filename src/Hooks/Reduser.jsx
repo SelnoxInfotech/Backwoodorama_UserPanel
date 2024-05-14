@@ -60,7 +60,7 @@ const reducer = (state, action) => {
       }
     case "locationchange":
       {
-        console.log('CHALA')
+       
         return { ...state, locationFocus: action.focus }
       }
     case "DeliveryAddress":

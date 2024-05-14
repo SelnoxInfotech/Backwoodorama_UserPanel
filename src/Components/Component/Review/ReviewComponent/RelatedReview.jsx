@@ -113,14 +113,12 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
             sliderdata.image=element.images
             sliderdata.video=element.videos
             sliderdata.index=a
-        console.log(a)
     }
     return (
         <React.Fragment>
             <div className='container-fluid'>
                 <div className="row center reviewCardWrapper">
                     {(state.login ? moveObject(AllReview, 'user', state.Profile.id, 0) : AllReview)?.map((ele, index) => {
-                        console.log(ele)
                         const text = ele?.comment;
                         return (
                             <div className="w-100 related_review_container" key={index}>
@@ -230,7 +228,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                                                 {
                                                     ele.videos.map((item , index)=>{
                                                          return     <div className='reviewvideobox' >
-                                                                        <video  autoPlay={false} onClick={()=>{ console.log('sdfgsdfg'); openimageslider(ele , 'video' , index)}} muted  src={item.video} className='reviewVideo' alt='video'/>
+                                                                        <video  autoPlay={false} onClick={()=>{  openimageslider(ele , 'video' , index)}} muted  src={item.video} className='reviewVideo' alt='video'/>
                                                                     </div>
                                                     })
                                                 }
@@ -316,13 +314,11 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                    >
                     {
                         sliderdata?.image?.map((item , index)=>{
-                            console.log(index)
                             return  <SwiperSlide> <div className='Reviewimageslidebox'><img src={item.image} alt='image'/></div></SwiperSlide>
                         })
                     }
                      {
                         sliderdata?.video?.map((item, index )=>{
-                            console.log(index)
                             return  <SwiperSlide> <div className='Reviewimageslidebox'>  <video  autoPlay={true} muted controls src={item.video} className='reviewVideo' alt='video'/></div></SwiperSlide>
                         })
                     }

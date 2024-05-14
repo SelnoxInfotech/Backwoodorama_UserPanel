@@ -112,7 +112,7 @@ import CustomAlert from "../../../Component/CustomAlert/CustomAlert";
               </div>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="col-12 text-center">
-                  <h2 className="writeReviewHeadings">Leave a Review for Weedx.io</h2>
+                  <h2 className="writeReviewHeadings">Leave your Review</h2>
                   <h3 className="secRatingHeadings">How would you rate working at weedx.io?</h3>
                   <FormControl size={"small"}>
                     <Controller

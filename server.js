@@ -44,7 +44,6 @@
 
 // // Start the server
 // app.listen(PORT, () => {
-//     console.log(`Express app running on port ${PORT}.`);
 // });
 
 

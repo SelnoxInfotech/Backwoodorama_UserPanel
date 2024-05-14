@@ -140,7 +140,6 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
       setanyoutstock(nss)
   },[state?.AllProduct])
   
-  console.log(Boolean(state.CoupounAmount ), state.CoupounAmount !== 0  ,  state.CoupounAmount !==  ''  , state.CoupounAmount )
 
   return (
     <div className="col-12 Add_product_cart_right_container_summary">

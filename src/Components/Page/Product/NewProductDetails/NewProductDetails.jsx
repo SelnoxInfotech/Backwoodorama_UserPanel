@@ -230,7 +230,6 @@ const NewProductDetails = () => {
   }, [copyed])
 
   let path = useLocation()?.pathname
-  //  console.log(StoreProduct.length)
   if (!StoreProduct.length) {
     return <p>Loading....</p>
   }

@@ -3,7 +3,6 @@ import LawsOptions from "./LawsComponent/LawsOptions"
 import { Law } from "../../../Component/ScoPage/LearnSeo"
 import { useLocation } from "react-router-dom"
 const Laws = () => {
-  // console.log(LawsOptions)
   return (
     <div className="">
       <Law location={useLocation().pathname}></Law>

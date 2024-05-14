@@ -63,7 +63,6 @@ const PromoCode = () => {
                     headers: { Authorization: `Bearer ${token_data}` }
                 },
             ).then((res) => {
-                console.log(res.data)
                 Setsuccess(res.data)
                 SetError('')
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })

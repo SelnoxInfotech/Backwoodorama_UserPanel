@@ -20,7 +20,6 @@ const AddToCartReview = () => {
     const [wondowWidth, setWindowWidth] = useState('')
     const [AfterDiscount, SetAfterDiscount] = React.useState()
     async function DeleteItem(Id, id) {
-        console.log(Id, id)
         Swal.fire({
             title: 'Are you sure?',
             text: "You want to remove this product from Cart!",
@@ -279,7 +278,6 @@ const AddToCartReview = () => {
 
                                     </div>
                                        {
-                                        // console.log(Boolean(ele.free))
                                         Boolean(ele.free) &&     <div className="ssss row py-3 px-0 border-top border-bottom justify-content-center   align-items-center" key={index}>
                                         <div className='row align-items-center col-5'>
                                             <div className="p-0 Add_prod_item_image_cont">

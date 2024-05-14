@@ -106,7 +106,7 @@ const NewProductSearchResult = ({ NewProductSearchRseultArray, heading }) => {
                                             <span className="product_search_result_span1"></span>
                                             {/* <span className="product_search_result_span2"><span className={` ${classes.disp_star_color}`}><IoMdStar className="product_search_rating_star" /></span>4.5 rating</span> */}
                                             <div className="product_cart_review">
-                                                {items.rating && new Array(items.rating).fill(null).map(() => (
+                                                { new Array(items.rating).fill(null).map(() => (
                                                     <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />
                                                 ))}
 

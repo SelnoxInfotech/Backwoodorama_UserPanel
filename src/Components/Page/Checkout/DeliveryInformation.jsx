@@ -51,7 +51,6 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
       function maxagelimit(){
          let date = new Date()
          let y = date.getFullYear() -18
-         console.log(`${y}-01-01`)
          return `${y}-01-01`
       }
     return (
