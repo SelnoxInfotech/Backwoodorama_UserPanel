@@ -1,11 +1,8 @@
 import React, { useEffect } from "react";
 import Grid from "@mui/system/Unstable_Grid";
-import { BsLinkedin } from "react-icons/bs";
 import { AiFillHeart } from "react-icons/ai";
 import { IoIosNotifications } from "react-icons/io";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { ImFacebook } from "react-icons/im";
-import { RiInstagramLine } from "react-icons/ri";
 import { Link, useLocation } from "react-router-dom";
 import SearchBar from "../../Component/SearchBar";
 import Badge from "@mui/material/Badge";
@@ -34,7 +31,6 @@ export default function DashBoardLink({ state }) {
   useEffect(()=>{
     settextnotify(!textnotify)
   },[notificationdata])
-// console.log(state ,'state')
   return (
     <React.Fragment>
       <div className="container-fluid Top p-sm-0 p-2 m-0 mt-sm-4">
