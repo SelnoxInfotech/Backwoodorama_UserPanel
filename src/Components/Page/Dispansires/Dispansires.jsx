@@ -1,3 +1,6 @@
+
+'use server';
+
 import React from "react";
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
@@ -11,7 +14,7 @@ import { useLocation, useParams, useNavigate } from "react-router-dom";
 import axios, { Axios } from "axios";
 import { DespensioriesItem } from '../../../Api/Api';
 import Wronglocation from "../../Component/Skeleton/Wronglocation";
-    function TabPanel(props) {
+function TabPanel(props) {
 
     const { children, value, index, ...other } = props;
 
@@ -30,19 +33,19 @@ import Wronglocation from "../../Component/Skeleton/Wronglocation";
             )}
         </div>
     );
-    }
-    TabPanel.propTypes = {
-        children: PropTypes.node,
-        index: PropTypes.number.isRequired,
-        value: PropTypes.number.isRequired,
-    };
+}
+TabPanel.propTypes = {
+    children: PropTypes.node,
+    index: PropTypes.number.isRequired,
+    value: PropTypes.number.isRequired,
+};
 
-    function a11yProps(index) {
-        return {
-            id: `simple-tab-${index}`,
-            'aria-controls': `simple-tabpanel-${index}`,
-        };
-    }
+function a11yProps(index) {
+    return {
+        id: `simple-tab-${index}`,
+        'aria-controls': `simple-tabpanel-${index}`,
+    };
+}
 export default function Dispansires() {
     const [searchtext, setsearchtext] = React.useState("");
     const navigate = useNavigate()
@@ -56,6 +59,8 @@ export default function Dispansires() {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+
+
     React.useEffect(() => {
         document.documentElement.scrollTo({
             top: 0,
@@ -63,6 +68,8 @@ export default function Dispansires() {
             behavior: "instant", // Optional if you want to skip the scrolling animation
         });
     }, [])
+
+
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
         str = str.trim().replaceAll(' ', "-");
@@ -83,23 +90,25 @@ export default function Dispansires() {
 
         return str.toLowerCase()
     }
+
+
     React.useEffect(() => {
         const sendPostRequest = () => {
             axios.post(
                 `https://api.cannabaze.com/UserPanel/Update-SiteMap/14`,
                 {
-                    j: 'https://www.weedx.io' + modifystr(Location.pathname.replace(/\/+$/, ""))
+                    j: 'https://www.weedx.io' + modifystr(Location?.pathname.replace(/\/+$/, ""))
                 }
             ).then((res) => {
             }).catch((err) => {
             });
         };
 
-        
+
         const timeoutId = setTimeout(sendPostRequest, 2000);
 
         return () => clearTimeout(timeoutId);
-    }, [Location]); 
+    }, [Location]);
 
     React.useEffect(() => {
 
@@ -115,17 +124,17 @@ export default function Dispansires() {
                     json
                 )
                     .then(function (response) {
-                setloader(()=>true)
+                        setloader(() => true)
 
                         SetStore(response?.data);
-                      
+
                     })
                     .catch(function (error) {
-                setloader(()=>true)
+                        setloader(() => true)
 
                         console.trace(error);
                         SetStore([]);
-                        
+
                     });
             }, 1000)
             return () => clearTimeout(getData)
@@ -133,25 +142,28 @@ export default function Dispansires() {
             const sendPostRequest = () => {
                 try {
                     const object = { City: state.City.replace(/-/g, " "), "Country": state.Country?.replace(/-/g, " "), "State": state.State?.replace(/-/g, " "), }
-                state.Country !== "" && DespensioriesItem(object)
-                .then((res) => {
-                    setloader(()=>true)
-    
-                    if (res === "No Dispensary in your area") {
-                        SetStore([])
-                    }
-                    else {
-                        SetStore(res)
-                    }
-                })
+                    state.Country !== "" && DespensioriesItem(object)
+                        .then((res) => {
+                            setloader(() => true)
+
+                            if (res === "No Dispensary in your area") {
+                                SetStore([])
+                            }
+                            else {
+                                SetStore(res)
+                            }
+                        })
                 } catch (error) {
-                 
+                  
                 }
             }
             const timeoutId = setTimeout(sendPostRequest, 1000);
             return () => clearTimeout(timeoutId);
         }
     }, [searchtext, state])
+
+
+
     function breadcrumCountry(country, state1, city) {
         if (Boolean(city)) {
             dispatch({ type: 'route', route: "" })
@@ -174,74 +186,76 @@ export default function Dispansires() {
 
     }
     const classes = useStyles()
-    
+
     return (
-                <div className="row  dispensaries_centers">
-                    <div className="col-12 col-sm-12">
-                        <div>
+        <div className="row  dispensaries_centers">
+            <div className="col-12 col-sm-12">
+                <div>
 
-                            <span onClick={() => navigate("/")}>{"Home"}</span>
-                            {Boolean(state.Country) && <span> {">"} <span onClick={() => breadcrumCountry("Country")}>{state.Country}</span></span>}
-                            {Boolean(state.State) && <span> {">"} <span onClick={() => breadcrumCountry("Country", "state")}>{state.State}</span></span>}
-                            {Boolean(state.City) && <span> {">"} <span onClick={() => breadcrumCountry("Country", "state", "City")}>{state.City}</span></span>}
-                            {Boolean(state.route) && <span> {">"} <span>{state.route}</span></span>}
-                        </div>
-
-
-
-                    <div className="headerBoxdescription">
-                        {DispensorShopLocation.map((ele, index) => {
-                            return (
-                                <div key={index}>
-
-                                    <h1 className=" lh-1 m-0"> <span className="dispensories_name">{ele.name}</span> <span className="dispensories_city">{ele.city}</span></h1>
-                                </div>
-                            )
-                        })}
-                        <p>{`Find Nearby Dispensaries in ${state?.Location} for Recreational & Medical weed. Browse Top Cannabis Products and Place Orders from Trusted Local Dispensaries.`}</p>
-                    </div>
-                    </div>
-                    <div className="col-12 col-sm-12 dispensory_menu my-2">
-                        {
-                        //   loader ?
-                           ( Boolean(Store.length) ?
-                                <Box className={`dispensories_tabss ${classes.dispensory_tab_background}`} sx={{ width: '100%' }}>
-                                <Box className={classes.open_dispensory_tab} sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                                    <Tabs scrollButtons={false} variant="scrollable" sx={{ justifyContent: 'space-around' }} value={value} onChange={handleChange} aria-label="basic tabs example">
-                                        <Tab label="Open" {...a11yProps(0)} />
-                                        <Tab label="Storefronts" {...a11yProps(1)} />
-                                        <Tab label="delivery" {...a11yProps(2)} />
-                                        <Tab label="Order online" {...a11yProps(3)} />
-                                    </Tabs>
-                                </Box>
-                                <Box sx={{ "& .MuiBox-root": { paddingLeft: "0px", paddingRight: "0px", paddingTop: "20px" } }}>
-                                    <TabPanel value={value} index={0}>
-                                        <WeedDispansires Store={Store} SetStore={SetStore} searchtext={searchtext} setsearchtext={setsearchtext} />
-                                    </TabPanel>
-                                    <TabPanel value={value} index={1}>
-                                        <WeedDispansires Store={Store} SetStore={SetStore}  searchtext={searchtext} setsearchtext={setsearchtext}/>
-                                    </TabPanel>
-                                    <TabPanel value={value} index={2}>
-                                        <WeedDispansires Store={Store} SetStore={SetStore} searchtext={searchtext} setsearchtext={setsearchtext} />
-                                    </TabPanel>
-                                    <TabPanel value={value} index={3}>
-                                        <WeedDispansires Store={Store} SetStore={SetStore}  searchtext={searchtext} setsearchtext={setsearchtext}/>
-                                    </TabPanel>
-                                </Box>
-                                <div className="Dispansires_map">
-                                </div>
-                                </Box>
-                                 :
-                                <Wronglocation title={' No dispensaries available'} description={'We apologize, but it appears that there are no dispensaries available in your location. Would you like to enter a different address to search for a nearby dispensary?'}/>)
-                                // :
-                                // <div className="loader_container">
-                                //     <span className="newloader shine"><img src='/image/logo.png' alt="image" /></span>
-                                // </div>
-                        }
-                     
-                        </div>
-
+                    <span onClick={() => navigate("/")}>{"Home"}</span>
+                    {Boolean(state.Country) && <span> {">"} <span onClick={() => breadcrumCountry("Country")}>{state.Country}</span></span>}
+                    {Boolean(state.State) && <span> {">"} <span onClick={() => breadcrumCountry("Country", "state")}>{state.State}</span></span>}
+                    {Boolean(state.City) && <span> {">"} <span onClick={() => breadcrumCountry("Country", "state", "City")}>{state.City}</span></span>}
+                    {Boolean(state.route) && <span> {">"} <span>{state.route}</span></span>}
                 </div>
+
+
+
+                <div className="headerBoxdescription">
+                    {DispensorShopLocation?.map((ele, index) => {
+                        return (
+                            <div key={index}>
+
+                                <h1 className=" lh-1 m-0"> <span className="dispensories_name">{ele.name}</span> <span className="dispensories_city">{ele.city}</span></h1>
+                            </div>
+                        )
+                    })}
+                    <p>{`Find Nearby Dispensaries in ${state?.Location} for Recreational & Medical weed. Browse Top Cannabis Products and Place Orders from Trusted Local Dispensaries.`}</p>
+                </div>
+            </div>
+            <div className="col-12 col-sm-12 dispensory_menu my-2">
+                {
+                    //   loader ?
+                    (Boolean(Store?.length) ?
+                        <Box className={`dispensories_tabss ${classes.dispensory_tab_background}`} sx={{ width: '100%' }}>
+                            <Box className={classes.open_dispensory_tab} sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                                <Tabs scrollButtons={false} variant="scrollable" sx={{ justifyContent: 'space-around' }} value={value} onChange={handleChange} aria-label="basic tabs example">
+                                    <Tab label="Open" {...a11yProps(0)} />
+                                    <Tab label="Storefronts" {...a11yProps(1)} />
+                                    <Tab label="delivery" {...a11yProps(2)} />
+                                    <Tab label="Order online" {...a11yProps(3)} />
+                                </Tabs>
+                            </Box>
+                            <Box sx={{ "& .MuiBox-root": { paddingLeft: "0px", paddingRight: "0px", paddingTop: "20px" } }}>
+                                <TabPanel value={value} index={0}>
+                                    <WeedDispansires Store={Store} SetStore={SetStore} searchtext={searchtext} setsearchtext={setsearchtext} />
+                                </TabPanel>
+                                <TabPanel value={value} index={1}>
+                                    <WeedDispansires Store={Store} SetStore={SetStore} searchtext={searchtext} setsearchtext={setsearchtext} />
+                                </TabPanel>
+                                <TabPanel value={value} index={2}>
+                                    <WeedDispansires Store={Store} SetStore={SetStore} searchtext={searchtext} setsearchtext={setsearchtext} />
+                                </TabPanel>
+                                <TabPanel value={value} index={3}>
+                                    <WeedDispansires Store={Store} SetStore={SetStore} searchtext={searchtext} setsearchtext={setsearchtext} />
+                                </TabPanel>
+                            </Box>
+                            {/* <div className="Dispansires_map">
+                            </div> */}
+                        </Box>
+                        :
+                
+                        <Wronglocation title={' No dispensaries available'} description={'We apologize, but it appears that there are no dispensaries available in your location. Would you like to enter a different address to search for a nearby dispensary?'} />
+                    )
+                    // :
+                    // <div className="loader_container">
+                    //     <span className="newloader shine"><img src='/image/logo.png' alt="image" /></span>
+                    // </div>
+                }
+
+            </div>
+
+        </div>
     )
 
 

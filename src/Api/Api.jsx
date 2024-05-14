@@ -248,6 +248,10 @@ export function SubcategoryProduct(object, id) {
 
 
 export function GetAllDelivery(object) {
+<<<<<<< HEAD
+=======
+    // console.log(object)
+>>>>>>> 77fab5dcd65875e2b722b60195ae18137e97134a
     return (
         axios.post(
             'https://api.cannabaze.com/UserPanel/Get-DeliveryStores/',

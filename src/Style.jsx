@@ -1215,9 +1215,7 @@ const useStyles = makeStyles({
       height:'35px',
 
     },
-    "& $disabled": {
-      color: "pink"
-    },
+
     "& .MuiStepLabel-root .Mui-active": {
       color: "#707070",
       width:'35px',

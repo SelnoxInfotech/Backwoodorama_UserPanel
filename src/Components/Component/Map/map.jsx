@@ -1,6 +1,6 @@
 import { Map, GoogleApiWrapper } from 'google-maps-react';
 // import {Fa500Px } from "react-icons/fa";
-export function MapContainer(props) {
+export   function MapContainer(props) {
   // const locations = [
   //   { latitude: 40.727019, longitude: -74.037536, name: 'First Marker' },
   //   { latitude: 40.719941, longitude: -74.049308, name: 'First Marker' },
@@ -37,7 +37,7 @@ export function MapContainer(props) {
     //   <div className='row'>
     //     <div className='col-12  ' >
           <Map
-            style={{ height: props.height, width: props.width ,backgroundColor: 'black' }}
+            style={{ height: props?.height, width: props.width ,backgroundColor: 'black' }}
             google={window.google}
             zoom={15}
             initialCenter={{ lat: 40.719074, lng: -74.050552 }}
@@ -55,6 +55,7 @@ export function MapContainer(props) {
   );
 }
 
-export default GoogleApiWrapper({
+ export default  GoogleApiWrapper ({
+  LoadingContainer: () => <div>Loading...</div>,
   apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU'
 })(MapContainer);

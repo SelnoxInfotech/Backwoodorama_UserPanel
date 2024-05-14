@@ -61,6 +61,7 @@ const csv = require('csv-parser');
 app.use(express.static(path.resolve(__dirname, 'build')));
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
+
 function modifystr(str) {
 
   str = str?.replace(/[^a-zA-Z0-9/ ]/g, "-");
@@ -79,9 +80,9 @@ function modifystr(str) {
       a++
     }
   }
-
   return str?.toLowerCase()
 }
+
 // API endpoint to fetch news post data
 app.get('/cannabis-news/:news?/:postId', async (req, res) => {
   const postId = req.params.postId;
@@ -235,8 +236,6 @@ app.get("/Sitemap/:category", async (req, res) => {
     // code block executed if expression doesn't match any case
   }
 })
-
-
 app.post('/weed-dispensaries/upload-csv', upload.single('csvFile'), async (req, res) => {
   try {
     // Check if a file is uploaded
@@ -290,8 +289,6 @@ app.post('/weed-dispensaries/upload-csv', upload.single('csvFile'), async (req, 
     res.status(500).send('Internal Server Error');
   }
 });
-
-
 app.post('/weed-deliveries/upload-csv', upload.single('csvFile'), async (req, res) => {
   try {
     // Check if a file is uploaded
@@ -346,10 +343,10 @@ app.post('/weed-deliveries/upload-csv', upload.single('csvFile'), async (req, re
   }
 });
 
-
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
+
 // Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

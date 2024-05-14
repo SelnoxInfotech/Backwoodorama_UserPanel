@@ -13,7 +13,7 @@ import useStyles from "../../../../../Style";
 import IconButton from "@mui/material/IconButton";
 import Notification from "../../Notification";
 export default function DashBoardLink({ state }) {
-  const classes = useStyles();
+  const classes = useStyles()
   const [current_route, Setcurrent_route] = React.useState();
   const [notify, setnotify] = React.useState(false);
   const [textnotify, settextnotify] = React.useState(false);
@@ -34,6 +34,7 @@ export default function DashBoardLink({ state }) {
   useEffect(()=>{
     settextnotify(!textnotify)
   },[notificationdata])
+// console.log(state ,'state')
   return (
     <React.Fragment>
       <div className="container-fluid Top p-sm-0 p-2 m-0 mt-sm-4">

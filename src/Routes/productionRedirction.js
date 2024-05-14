@@ -12,7 +12,6 @@ export default function ProductRedirction(props) {
     const { state } = useContext(Createcontext); // Corrected useContext usage
 
     useEffect(() => {
-      
         const index = pathname.indexOf('/menu') + '/menu'.length;
         const extracted = pathname.substring(index);
         Navigate(`/products${extracted}`);
