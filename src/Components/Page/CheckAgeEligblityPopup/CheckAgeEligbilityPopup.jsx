@@ -16,19 +16,20 @@ const CheckAgeEligbilityPopup = ({value}) => {
     const {state, dispatch } = React.useContext(Createcontext)
     const classes = useStyles()
     const get = () => {
-        setOpen(false)
+        setOpen(false);
         let date = new Date();
-        date.setTime(date.getTime() + (60 * 60 * 8000))
-        cookies.set('CheckAge', 0, { expires: date })
-        if (Country === "USA"){
-            cookies.set('Location', JSON.stringify("New York"), { expires: date })
-            dispatch({ type: 'DefalutLocation', DefalutLocation: 'New York' })
-        }
-        else {
-            cookies.set('Location', JSON.stringify("Canada"), { expires: date })
-            dispatch({ type: 'DefalutLocation', DefalutLocation: "Canada" })
+        // Set time to one year (in milliseconds)
+        date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000));
+        cookies.set('CheckAge', 0, { expires: date });
+        if (Country === "USA") {
+            cookies.set('Location', JSON.stringify("New York"), { expires: date });
+            dispatch({ type: 'DefalutLocation', DefalutLocation: 'New York' });
+        } else {
+            cookies.set('Location', JSON.stringify("Canada"), { expires: date });
+            dispatch({ type: 'DefalutLocation', DefalutLocation: "Canada" });
         }
     }
+    
     const handleChange = (event) => {
         // cookies.set('CheckAge', false)
 
