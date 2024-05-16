@@ -91,6 +91,7 @@ const Product = () => {
             SubCategoryApibyname(params.categoryname.toUpperCase()).then((response) => {
                 setsubcategories(response.data)
             }).catch((error) => {
+                setsubcategories([])
                 console.trace(error)
             })
            
