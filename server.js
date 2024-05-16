@@ -169,21 +169,36 @@ app.get("/Sitemap/:category", async (req, res) => {
     case "/Sitemap/sitemapproduct.xml":
       const response4 = await axios.get(`https://api.cannabaze.com/UserPanel/ListProductView/`);
       if (response4) {
-        const sitemapXmll = `<?xml version="1.0" encoding="UTF-8"?>
-          <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+        // Generate the first sitemap
+        const sitemapXml1 = `<?xml version="1.0" encoding="UTF-8"?>
+        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
             ${response4.data.map((url) => `
-              <url>
-              <loc>https://www.weedx.io/products/${modifystr(url.category_name)}/${modifystr(url.SubcategoryName)}/${modifystr(url.Product_Name)}/${url.id}</loc>
-                <changefreq>daily</changefreq>
-                <priority>0.7</priority>
-              </url>
+                <url>
+                    <loc>https://www.weedx.io/products/${modifystr(url.category_name)}/${modifystr(url.SubcategoryName)}/${modifystr(url.Product_Name)}/${url.id}</loc>
+                    <changefreq>daily</changefreq>
+                    <priority>0.80</priority>
+                </url>
+                <url>
+                    <loc>https://www.weedx.io/products/${modifystr(url.category_name)}/${url.category_id}</loc>
+                    <changefreq>daily</changefreq>
+                    <priority>0.80</priority>
+                </url>
+                <url>
+                    <loc>https://www.weedx.io/products/${modifystr(url.category_name)}/${modifystr(url.SubcategoryName)}/${url.Sub_Category_id}</loc>
+                    <changefreq>daily</changefreq>
+                    <priority>0.80</priority>
+                </url>
             `).join('')}
-          </urlset>`;
+        </urlset>`;
+        // Set response headers
         res.setHeader('Content-Type', 'text/xml');
         res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
-        res.write(sitemapXmll);
+
+        // Send the response
+        res.write(sitemapXml1);
         res.end();
       }
+
       break
     case "/Sitemap/Dispensaries_stores.xml":
       const response5 = await axios.get(`https://api.cannabaze.com/UserPanel/Get-Stores/`);
