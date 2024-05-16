@@ -72,7 +72,6 @@ const Product = () => {
 
 
     React.useEffect(() => {
-        console.log(params.categoryname.toUpperCase())
         if (params.subCategory) {
             SetLoading(true)
             const object = {
