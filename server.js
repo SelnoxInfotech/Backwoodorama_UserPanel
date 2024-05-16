@@ -166,7 +166,7 @@ app.get("/Sitemap/:category", async (req, res) => {
         res.end();
       }
       break
-    case "/Sitemap/sitemapproduct.xml":
+    case "/Sitemap/products-sitemap.xml":
       const response4 = await axios.get(`https://api.cannabaze.com/UserPanel/ListProductView/`);
       if (response4) {
         // Generate the first sitemap
