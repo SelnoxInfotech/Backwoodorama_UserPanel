@@ -102,9 +102,9 @@ app.get('/cannabis-news/:news?/:postId', async (req, res) => {
     res.status(500).send('Error fetching news post data');
   }
 });
-app.get("/Sitemap/:category", async (req, res) => {
+app.get("/sitemap/:category", async (req, res) => {
   switch (req.url) {
-    case "/Sitemap/weed-dispensaries.xml":
+    case "/sitemap/weed-dispensaries.xml":
       const response1 = await axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/14`);
       if (response1.data[0].Xml) {
 
@@ -125,7 +125,7 @@ app.get("/Sitemap/:category", async (req, res) => {
         //   fs.writeFileSync('./build/Sitemap/weed-dispensaries.xml', sitemapXmll);
       }
       break;
-    case "/Sitemap/weed-deliveries.xml":
+    case "/sitemap/weed-deliveries.xml":
       const response2 = await axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/11`);
 
       if (response2.data[0].Xml) {
@@ -147,7 +147,7 @@ app.get("/Sitemap/:category", async (req, res) => {
         //   fs.writeFileSync('./build/Sitemap/weed-dispensaries.xml', sitemapXmll);
       }
       break;
-    case "/Sitemap/news.xml":
+    case "/sitemap/news.xml":
       const response3 = await axios.get(`https://api.cannabaze.com/UserPanel/Get-News/`);
       if (response3) {
         const sitemapXmll = `<?xml version="1.0" encoding="UTF-8"?>
@@ -166,8 +166,10 @@ app.get("/Sitemap/:category", async (req, res) => {
         res.end();
       }
       break
-    case "/Sitemap/products-sitemap.xml":
+    case "/sitemap/products-sitemap.xml":
       const response4 = await axios.get(`https://api.cannabaze.com/UserPanel/ListProductView/`);
+      const responsecategory = await axios.get(`https://api.cannabaze.com/UserPanel/Get-Categories/`);
+      const responseSubCategory = await axios.get(`https://api.cannabaze.com/UserPanel/Get-AllSubCategoriesForSitemap/`);
       if (response4) {
         // Generate the first sitemap
         const sitemapXml1 = `<?xml version="1.0" encoding="UTF-8"?>
@@ -178,17 +180,21 @@ app.get("/Sitemap/:category", async (req, res) => {
                     <changefreq>daily</changefreq>
                     <priority>0.80</priority>
                 </url>
-                <url>
-                    <loc>https://www.weedx.io/products/${modifystr(url.category_name)}/${url.category_id}</loc>
-                    <changefreq>daily</changefreq>
-                    <priority>0.80</priority>
-                </url>
-                <url>
-                    <loc>https://www.weedx.io/products/${modifystr(url.category_name)}/${modifystr(url.SubcategoryName)}/${url.Sub_Category_id}</loc>
-                    <changefreq>daily</changefreq>
-                    <priority>0.80</priority>
-                </url>
             `).join('')}
+            ${responsecategory.data.map((url) => `
+            <url>
+                <loc>https://www.weedx.io/products/${modifystr(url.name)}/${url.id}</loc>
+                <changefreq>daily</changefreq>
+                <priority>0.80</priority>
+            </url>
+        `).join('')}
+        ${responseSubCategory.data.map((url) => `
+        <url>
+        <loc>https://www.weedx.io/products/${modifystr(url.category_name)}/${modifystr(url.name)}/${url.id}</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.80</priority>
+        </url>
+    `).join('')}
         </urlset>`;
         // Set response headers
         res.setHeader('Content-Type', 'text/xml');
