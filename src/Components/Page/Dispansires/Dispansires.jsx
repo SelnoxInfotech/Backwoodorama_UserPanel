@@ -215,7 +215,7 @@ export default function Dispansires() {
             </div>
             <div className="col-12 col-sm-12 dispensory_menu my-2">
                 {
-                    //   loader ?
+                      loader ?
                     (Boolean(Store?.length) ?
                         <Box className={`dispensories_tabss ${classes.dispensory_tab_background}`} sx={{ width: '100%' }}>
                             <Box className={classes.open_dispensory_tab} sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -247,10 +247,10 @@ export default function Dispansires() {
                 
                         <Wronglocation title={' No dispensaries available'} description={'We apologize, but it appears that there are no dispensaries available in your location. Would you like to enter a different address to search for a nearby dispensary?'} />
                     )
-                    // :
-                    // <div className="loader_container">
-                    //     <span className="newloader shine"><img src='/image/logo.png' alt="image" /></span>
-                    // </div>
+                    :
+                    <div className="loader_container">
+                        <span className="newloader shine"><img src='/image/logo.png' alt="image" /></span>
+                    </div>
                 }
 
             </div>
