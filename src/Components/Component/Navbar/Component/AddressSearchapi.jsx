@@ -67,13 +67,11 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
       //   //     await dispatch({ type: 'route', route: route });
       //   // }
       // })
-      console.log(object)
       placeDetails?.address_components.map((data) => {
         let l = data.types[0] === "political" ? data.types[1] : data.types[0]
         object[l] = data.long_name
       })
 
-      console.log(object)
       if (Boolean(object.country)) {
         Coun = object.country.replace(/\s/g, '-');
         dispatch({ type: 'Country', Country: Coun });
