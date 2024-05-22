@@ -81,26 +81,14 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
         Coun = Object.values(object)[0].replace(/\s/g, '-');
         dispatch({ type: 'Country', Country: Coun });
       }
-      //   }
-      //   if (Boolean(object.administrative_area_level_1)) {
 
-      //     sta = object.administrative_area_level_1.replace(/\s/g, '-');
-      //     dispatch({ type: 'State', State: sta });
-
-      //   }
-      //   else {
-      //     sta = object.locality.replace(/\s/g, '-');
-      //     dispatch({ type: 'State', State: sta });
-      //   }
-      // }
       if (Boolean(object.administrative_area_level_1)) {
 
-        sta = object.administrative_area_level_1.replace(/\s/g, '-');
-        dispatch({ type: 'State', State: sta });
+          sta = object.administrative_area_level_1.replace(/\s/g, '-');
+          dispatch({ type: 'State', State: sta });
 
       }
       if (Boolean(object.administrative_area_level_3) || Boolean(object.establishment) || Boolean(object.locality) || Boolean(object.sublocality) || Boolean(object.administrative_area_level_2)) {
-        console.log(!Boolean(object.administrative_area_level_3) && !Boolean(object.establishment) && !Boolean(object.locality) && !Boolean(object.sublocality) && Boolean(object.administrative_area_level_2))
 
         if (Boolean(object.administrative_area_level_3)) {
           ci = object.administrative_area_level_3.replace(/\s/g, '-')
@@ -245,6 +233,7 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
   }
 
   const [open, setOpen] = React.useState(false);
+
   function current(event) {
     navigator.permissions.query({ name: 'geolocation' }).then(permissionStatus => {
 
@@ -368,12 +357,15 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
         renderInput={(params) => (
           <TextField
             {...params}
+
             onChange={(e) => {
               Setformatted_address(e.target.value);
               getPlacePredictions({
                 input: e.target.value
               })
             }}
+
+
             InputProps={{
               ...params.InputProps,
               startAdornment: (
