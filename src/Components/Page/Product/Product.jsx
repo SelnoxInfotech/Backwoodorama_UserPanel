@@ -10,7 +10,7 @@ import { ProductSeo, ProductCategorySeo } from "../../Component/ScoPage/ProductS
 import SkeletonCard from '../../Component/Skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton';
 import ProductSearchResult from "./ProductSearchResult/ProductSearchResult"
 import Createcontext from "../../../Hooks/Context"
-import { GetProduct, CategoryProductsearch, SubCategoryApi, SubcategoryProduct } from "../../../Api/Api"
+import { GetProduct, CategoryProductsearch, SubCategoryApi, SubcategoryProduct , SubCategoryApibyname } from "../../../Api/Api"
 const Product = () => {
     const navigate = useNavigate();
     const classes = useStyles()
@@ -43,6 +43,7 @@ const Product = () => {
 
         return str
     }
+
     async function ShowCategoryProduct(id, name) {
         await navigate(`/products/${modifystr(name.toLowerCase())}/${id}`);
         await setSelectedOption(null)
@@ -54,10 +55,12 @@ const Product = () => {
         navigate(`/products/${modifystr(params.categoryname.toLowerCase())}/${modifystr(option.name.toLowerCase())}/${option.id}`)
 
     };
+
+
     const [Category, SetCategory] = React.useState([])
     const [C, f] = React.useState('')
+
     React.useEffect(() => {
-       
         const fetchData = async () => {
             const apidata = await fetch("https://api.cannabaze.com/UserPanel/Get-Categories/");
             const data = await apidata.json()
@@ -65,6 +68,9 @@ const Product = () => {
         }
         fetchData()
     }, [])
+
+
+
     React.useEffect(() => {
         if (params.subCategory) {
             SetLoading(true)
@@ -80,9 +86,14 @@ const Product = () => {
                     f(response[0]?.category_name)
                     SetProduct(response)
                 }
-                else {                 
-                }
             })
+            SubCategoryApibyname(params.categoryname.toUpperCase()).then((response) => {
+                setsubcategories(response.data)
+            }).catch((error) => {
+                setsubcategories([])
+                console.trace(error)
+            })
+           
         }
         else {
             if (params.categoryname) {

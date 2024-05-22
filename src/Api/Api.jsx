@@ -229,6 +229,16 @@ export function SubCategoryApi(_id) {
     )
 }
 
+export function SubCategoryApibyname(name) {
+    return (
+
+        axios.get(`https://api.cannabaze.com/UserPanel/Get-SubcategoryByCategoryname/${name}`).then((res) => {
+            return res
+        })
+    )
+}
+
+
 export function SubcategoryProduct(object, id) {
     return (
         axios.post(`https://api.cannabaze.com/UserPanel/Get-ProductBySubCategory/${id}`, object).then((res) => {

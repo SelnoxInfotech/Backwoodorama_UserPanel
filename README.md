@@ -68,3 +68,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+<!-- scp -i "Selnox1.pem" build.zip  ubuntu@ec2-3-239-249-177.compute-1.amazonaws.com:/home/ubuntu/WeedX -->
+<!-- ssh -i "Selnox1.pem" ubuntu@ec2-3-239-249-177.compute-1.amazonaws.com -->
