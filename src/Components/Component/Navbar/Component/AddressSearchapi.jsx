@@ -77,7 +77,6 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
         dispatch({ type: 'Country', Country: Coun });
       }
       else if (Object.keys(object).length === 1) {
-        console.log(Object.values(object)[0])
         Coun = Object.values(object)[0].replace(/\s/g, '-');
         dispatch({ type: 'Country', Country: Coun });
       }

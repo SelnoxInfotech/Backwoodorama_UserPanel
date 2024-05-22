@@ -42,7 +42,6 @@ const Blogs = () => {
     const [News, SetNews] = React.useState({})
     const [WishList, SetWishList] = React.useState(false)
     const [ViewCount, SetViewCount] = React.useState(0)
-    console.log(Location.pathname.split('/')[1])
     const cookies = new Cookies();
     const token_data = cookies.get('User_Token_access')
     React.useEffect(() => {

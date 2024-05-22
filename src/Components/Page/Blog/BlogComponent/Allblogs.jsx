@@ -21,7 +21,6 @@ import {useNavigate} from 'react-router-dom'
 const Allblogs = () => {
   const [allblogs, setallblogs] = useState([])
   let location= useLocation();
- console.log(location.pathname.substring(1)==='blogs')
   const navigate = useNavigate()
   const { state } = React.useContext(Createcontext)
   const [value, SetValue] = React.useState([])
@@ -152,7 +151,7 @@ const Allblogs = () => {
     }
   }
 
-  console.log(allblogs ,'allblogs')
+
   return (
     <React.Fragment>   
       <NewsSeo location={location.pathname.substring(1)} ></NewsSeo>

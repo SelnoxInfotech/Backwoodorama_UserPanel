@@ -107,7 +107,7 @@ export default function DispensoriesDetails() {
         return str.toLowerCase()
     }
     useEffect(() => {
-        console.log(reviewtype)
+    
         if (reviewtype === "All") {
             axios.get(`https://api.cannabaze.com/UserPanel/Get-AllAverage/${id}`).then((res) => {
                 SetRating(res.data)
@@ -306,7 +306,7 @@ export default function DispensoriesDetails() {
         }
     }
     function navigationtab(route, store, id) {
-        console.log(route, store, id, Boolean(route))
+      
         if (Boolean(store)) {
 
             navigate(`${route}/${store.toLowerCase()}/${id}`)

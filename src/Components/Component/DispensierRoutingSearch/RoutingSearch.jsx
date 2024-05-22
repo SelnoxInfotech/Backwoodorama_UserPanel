@@ -5,7 +5,7 @@ import _ from "lodash";
 export default function RoutingSearch({ city, State, country, pathname, route, com }) {
   const { state, dispatch } = React.useContext(Createcontext)
   const navigate = useNavigate()
-  console.log(city, State, country, pathname, route)
+
   React.useEffect(() => {
     if (route !== undefined) {
       location(route + " " + city + " " + State + " " + country, "route")
@@ -49,7 +49,7 @@ export default function RoutingSearch({ city, State, country, pathname, route, c
             await dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address })
             const firstResult = response.results[0];
             const addressComponents = firstResult.address_components || [];
-            console.log(addressComponents)
+           
             addressComponents.map((data) => {
               let l = data.types[0] === "political" ? data.types[1] : data.types[0]
               object[l] = data.long_name
@@ -59,7 +59,7 @@ export default function RoutingSearch({ city, State, country, pathname, route, c
               dispatch({ type: 'Country', Country: Coun });
             }
             else if (Object.keys(object).length === 1) {
-              console.log(Object.values(object)[0])
+            
               Coun = Object.values(object)[0].replace(/\s/g, '-');
               dispatch({ type: 'Country', Country: Coun });
             }
@@ -86,8 +86,7 @@ export default function RoutingSearch({ city, State, country, pathname, route, c
 
             }
             if (Boolean(object.administrative_area_level_3) || Boolean(object.establishment) || Boolean(object.locality) || Boolean(object.sublocality) || Boolean(object.administrative_area_level_2)) {
-              console.log(!Boolean(object.administrative_area_level_3) && !Boolean(object.establishment) && !Boolean(object.locality) && !Boolean(object.sublocality) && Boolean(object.administrative_area_level_2))
-
+             
               if (Boolean(object.administrative_area_level_3)) {
                 ci = object.administrative_area_level_3.replace(/\s/g, '-')
                 dispatch({ type: 'City', City: ci })
