@@ -34,8 +34,7 @@ const HomePageBanner = () => {
                         disableOnInteraction: false,
                        
                         }}  modules={[Autoplay]}>
-                                        {HomePageBannerImage?.map((items, index) => {
-                                        
+                            {HomePageBannerImage?.map((items, index) => { 
                             return (
                                 <SwiperSlide key={index}>
                                 <div className='col-12 homePageBanner_container'>
@@ -61,6 +60,7 @@ const HomePageBanner = () => {
                     disableOnInteraction: true,
                     }}  modules={[Autoplay]}>
                         {HomePageBannerImage.map((items, index) => {
+                          
                             return (
                                 <SwiperSlide  key={index}>
                                     <div className='col-12 homePageBanner_container'>

@@ -42,7 +42,6 @@ const AddToCartReview = () => {
                         )
                             .then(async (res) => {
                                 await dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-
                                 SetLoadingDelete(false)
                                 resolve();
                             })
@@ -50,7 +49,6 @@ const AddToCartReview = () => {
                                 SetLoadingDelete(false)
                                 reject();
                             })
-
                     }
                     else {
                         var obj = JSON.parse(localStorage.getItem("items"));

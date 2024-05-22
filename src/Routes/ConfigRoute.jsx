@@ -3,7 +3,7 @@ import Layout from "../Layout/Layout"
 import Dashboard from "../Components/Page/Home/Dashboard/Dashboard";
 import ProtectRout from "../Routes/ProtectRout"
 import RoutingDespen from "../Routes/RoutingDespen"
-import Myreview from "../Components/Page/Profile/Myreview.jsx";
+import Myreview from "../Components/Page/Profile/Myreview";
 import RoutingList from "../Routes/RoutingList"
 import Learnproductcontent from "../Components/Page/Learn/Product/Learnproductcontent";
 import Blogs from "../Components/Page/Blog/Blog"
@@ -43,13 +43,13 @@ import StrainProduct from "../Components/Page/Strain/StrainProduct"
 import MyOrderProductDetail from "../Components/Page/MyOrder/MyOrderProductDetail"
 import MyOrder from "../Components/Page/MyOrder/MyOrder"
 import Allblogs from "../Components/Page/Blog/BlogComponent/Allblogs"
-import Privatepolicy from "../Components/Page/Privacypolicy/Privacypolicy.jsx"
-import Cookiespolicy from "../Components/Page/Cookiespolicy/Cookiespolicy.jsx"
-import Termsconditions from '../Components/Page/Termsconditions/Termsconditions.jsx'
+import Privatepolicy from "../Components/Page/Privacypolicy/Privacypolicy"
+import Cookiespolicy from "../Components/Page/Cookiespolicy/Cookiespolicy"
+import Termsconditions from '../Components/Page/Termsconditions/Termsconditions'
 import MyLocationSearch from "../Components/Component/Navbar/Component/locationFuntion"
-import Layout1 from '../Layout1/Layout1.jsx'
-import sitemap from "../Components/Page/websitemap/sitemap.jsx";
-import ProductRedirction from "./productionRedirction.js";
+import Layout1 from '../Layout1/Layout1'
+import sitemap from "../Components/Page/websitemap/sitemap";
+import ProductRedirction from "./productionRedirction";
 const routesConfig = [
  
   {
@@ -220,6 +220,14 @@ const routesConfig = [
       {
         path: "/cannabis-news",
         element: <RoutingList Component={Allblogs} ></RoutingList>
+      },
+      {
+        path: "/blogs",
+        element: <RoutingList Component={Allblogs} ></RoutingList>
+      },
+      {
+        path: "/blogs/:name/:id",
+        element: <RoutingList Component={Blogs} ></RoutingList>
       },
       {
         path: "/cannabis-news/:name/:id",

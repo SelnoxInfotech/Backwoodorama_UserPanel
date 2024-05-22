@@ -47,6 +47,7 @@ const LearnTabs = () => {
                                     <Tab label="History" value="/History" /> */}
                                     <Tab label="Law" value="/learn/laws-and-regulation" />
                                     <Tab label="All News" value="" onClick={()=>{Naviagte('/cannabis-news')}} />
+                                    <Tab label="Blogs" value="" onClick={()=>{Naviagte('/blogs')}} />
 
                                 </TabList>
                             </Box>

@@ -44,7 +44,6 @@ const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart, setadding, a
     };
     const handleClose = () => setOpen(false);
     const [SelectWeight, SetSelectWeight] = React.useState(items?.Prices[0]?.Price[0]?.id);
-    // const [ Price ,  SetPrice] =  React.useState(parseInt(items?.Prices[0]?.Price[0]?.SalePrice))
     const [counter, setCounter] = React.useState(1);
 
     React.useEffect(() => {

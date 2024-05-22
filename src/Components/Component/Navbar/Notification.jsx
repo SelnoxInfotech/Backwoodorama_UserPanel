@@ -140,16 +140,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
             config,
                 ).then((res) => {
 
-                    // res.data.map((data)=>{
-
-                    //     data.blog.map((data)=> Setnotificationdata((notificationdata)=>[ ...notificationdata ,{ "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title , date:calculateTImefromDate(data.updated) , image:data?.Image  }]))
-                    //     data.StoreHelpFull.map((data)=> Setnotificationdata([...notificationdata ,{  "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title  }]))
-                    //     data.ProductHelpfull.map((data)=> Setnotificationdata([...notificationdata,{ "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title  }]))
-                    //     data.StoreReview.map((data)=> Setnotificationdata([...notificationdata ,{ "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title  }]))
-                    //     data.ProductReview.map((data)=> Setnotificationdata([...notificationdata,{ "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': data.Title  }]))
-                    //     data.Order.map((data)=> Setnotificationdata([...notificationdata ,{ "link": `/cannabis-news/${data.Title}/${data.id}`, 'title': `Thank you for ordering with WeedX.io! Your order #${data.OrderId} is confirmed for $${data.subtotal}.`,date:calculateTImefromDate(data.OrderDate) ,image:data.IdCard  }]))
-
-                    // })
+                  
                     let datax = []
                     res.data.forEach((item, index) => {
 
@@ -209,7 +200,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                                         return (
                                             <div className='notification_box'>
 
-                                                <Link to={data.link}>
+                                                <Link to={data.link} onClick={()=>{setnotify(false)}}>
                                                     <div className="notification_img">
                                                         <div className="notiimgCircle">
                                                             <img src={data.Image} alt="img" />
@@ -224,7 +215,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
 
 
 
-                                                    <Link to={data.link}>
+                                                    <Link to={data.link} onClick={()=>{setnotify(false)}}>
                                                           <div className="d-flex align-items-center justify-content-between gap-5">
                                                             <span className="notify_date ">{calculateTImefromDate(data.date)}</span>
                                                           </div>  
@@ -239,7 +230,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                                 return (
                                         <div className='notification_box'>
 
-                                            <Link to={data.link}>
+                                            <Link to={data.link} onClick={()=>{setnotify(false)}}>
                                                 <div className="notification_img">
                                                     <div className="notiimgCircle">
                                                         <img src={data?.image} alt="img" onError={() => this.img.src = '/image/logo.png'} />
@@ -247,8 +238,8 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                                                 </div>
                                             </Link>
                                             <div className="notifytext w-100" >
-                                                <div className='d-flex justify-content-between align-items-center'> <Link to={data.link}>    <span className="notify_date ">{calculateTImefromDate(data.date)}</span> </Link> </div>
-                                                <Link to={data.link}>  <div className="d-flex align-items-center justify-content-between gap-5"><h4 className="notititle">{data.title} </h4> </div>  </Link>
+                                                <div className='d-flex justify-content-between align-items-center'> <Link to={data.link} onClick={()=>{setnotify(false)}}>    <span className="notify_date ">{calculateTImefromDate(data.date)}</span> </Link> </div>
+                                                <Link to={data.link} onClick={()=>{setnotify(false)}}>  <div className="d-flex align-items-center justify-content-between gap-5"><h4 className="notititle">{data.title} </h4> </div>  </Link>
 
                                             </div>
 
@@ -273,7 +264,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                                         return (
                                             <div className='notification_box'>
 
-                                                <Link to={data.link}>
+                                                <Link to={data.link} onClick={()=>{setnotify(false)}}>
                                                     <div className="notification_img">
                                                         <div className="notiimgCircle">
                                                             <img src={data.Image} alt="img" />
@@ -281,8 +272,8 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                                                     </div>
                                                 </Link>
                                                 <div className="notifytext w-100" >
-                                                    <div className='d-flex justify-content-between align-items-center'> <Link to={data.link}>    <span className="notify_date ">{calculateTImefromDate(data.date)}</span> </Link><span className='cursor-pointer' onClick={(e) => Clear(data)}><RxCross2 size={15} color={"#000"} /></span></div>
-                                                    <Link to={data.link}>  <div className="d-flex align-items-center justify-content-between gap-5"><h4 className="notititle">{data.title} </h4> </div>  </Link>
+                                                    <div className='d-flex justify-content-between align-items-center'> <Link to={data.link} onClick={()=>{setnotify(false)}}>    <span className="notify_date ">{calculateTImefromDate(data.date)}</span> </Link><span className='cursor-pointer' onClick={(e) => Clear(data)}><RxCross2 size={15} color={"#000"} /></span></div>
+                                                    <Link to={data.link} onClick={()=>{setnotify(false)}}>  <div className="d-flex align-items-center justify-content-between gap-5"><h4 className="notititle">{data.title} </h4> </div>  </Link>
 
                                                 </div>
 
@@ -293,7 +284,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                                 return (
                                         <div className='notification_box'>
 
-                                            <Link to={data.link}>
+                                            <Link to={data.link} onClick={()=>{setnotify(false)}}>
                                                 <div className="notification_img">
                                                     <div className="notiimgCircle">
                                                         <img src={data?.image} alt="img" onError={() => this.img.src = '/image/logo.png'} />
@@ -301,8 +292,8 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                                                 </div>
                                             </Link>
                                             <div className="notifytext w-100" >
-                                                <div className='d-flex justify-content-between align-items-center'> <Link to={data.link}>    <span className="notify_date ">{calculateTImefromDate(data.date)}</span> </Link> </div>
-                                                <Link to={data.link}>  <div className="d-flex align-items-center justify-content-between gap-5"><h4 className="notititle">{data.title} </h4> </div>  </Link>
+                                                <div className='d-flex justify-content-between align-items-center'> <Link to={data.link} onClick={()=>{setnotify(false)}}>    <span className="notify_date ">{calculateTImefromDate(data.date)}</span> </Link> </div>
+                                                <Link to={data.link} onClick={()=>{setnotify(false)}}>  <div className="d-flex align-items-center justify-content-between gap-5"><h4 className="notititle">{data.title} </h4> </div>  </Link>
 
                                             </div>
 

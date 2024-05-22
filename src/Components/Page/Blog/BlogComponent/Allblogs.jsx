@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { getAllNews } from '../../../../Api/Api.jsx';
 import { AiFillHeart, AiFillEye } from "react-icons/ai";
 import { BiCommentDetail } from "react-icons/bi";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import SearchBar from '@mkyy/mui-search-bar';
 import useStyles from "../../../../Style.jsx";
 import axios from "axios";
@@ -20,6 +20,8 @@ import Cookies from 'universal-cookie';
 import {useNavigate} from 'react-router-dom'
 const Allblogs = () => {
   const [allblogs, setallblogs] = useState([])
+  let location= useLocation();
+ console.log(location.pathname.substring(1)==='blogs')
   const navigate = useNavigate()
   const { state } = React.useContext(Createcontext)
   const [value, SetValue] = React.useState([])
@@ -59,25 +61,56 @@ const Allblogs = () => {
       }); 
        
       if (state.login) {
-      axios.get('https://api.cannabaze.com/UserPanel/GetNewsbyUser/',{
+          // axios.get('https://api.cannabaze.com/UserPanel/GetNewsbyUser/',{
+          
+          //     headers: { Authorization: `Bearer ${token_data}` }
+          
+          // }).then(async (res) => {
+          //   setallblogs(res.data)
+          //   setloader(false)
+          //   setisdata(true)
+          //   }).catch((err) => {
+          //     console.trace(err)
+          //   })
+            if(location.pathname.substring(1)==='blogs'){
+              axios.get('https://api.cannabaze.com/UserPanel/Get-NewsbyCategorybyBlog/').then(async (res) => {
+                setallblogs(res.data)
+                setloader(false)
+                setisdata(true)
+              }).catch((err) => {
+                console.trace(err)
+                setloader(false)
       
-          headers: { Authorization: `Bearer ${token_data}` }
-      
-      }).then(async (res) => {
-         setallblogs(res.data)
-         setloader(false)
-         setisdata(true)
-        }).catch((err) => {
-          console.trace(err)
-        })
+              })
+            }else{
+                axios.get('https://api.cannabaze.com/UserPanel/Get-NewsbyCategorybyCANNABISNEWS/').then(async (res) => {
+                setallblogs(res.data)
+                setloader(false)
+                setisdata(true)
+                }).catch((err) => {
+                  console.trace(err)
+                })
+            }
       }else{
-          getAllNews().then(async (res) => {
-          setallblogs(res)
-          setloader(false)
-          setisdata(true)
-        }).catch((err) => {
-          console.trace(err)
-        })
+        if(location.pathname.substring(1)==='blogs'){
+          axios.get('https://api.cannabaze.com/UserPanel/Get-NewsbyCategorybyBlog/').then(async (res) => {
+            setallblogs(res.data)
+            setloader(false)
+            setisdata(true)
+          }).catch((err) => {
+            console.trace(err)
+            setloader(false)
+  
+          })
+        }else{
+            axios.get('https://api.cannabaze.com/UserPanel/Get-NewsbyCategorybyCANNABISNEWS/').then(async (res) => {
+            setallblogs(res.data)
+            setloader(false)
+            setisdata(true)
+            }).catch((err) => {
+              console.trace(err)
+            })
+        }
       }
   }, [])
   function Searchbar(e){
@@ -118,13 +151,15 @@ const Allblogs = () => {
       navigate('/login')
     }
   }
+
+  console.log(allblogs ,'allblogs')
   return (
     <React.Fragment>   
-      <NewsSeo></NewsSeo>
+      <NewsSeo location={location.pathname.substring(1)} ></NewsSeo>
       <div>
          <div className='p-md-0 p-2 d-md-flex  justify-content-between align-items-center'>   
          <div className='col-lg-3'>
-            <h1 className='section_main_title'>Latest news</h1>
+            <h1 className='section_main_title'>  { location.pathname.substring(1)==='blogs' ? "Blogs" :" Latest news "}   </h1>
           </div> 
             <SearchBar value={searchtext}  onChange={(e)=>Searchbar(e)} style={{ background: "#FFFFF", border: "1px solid #31B665" }} width={"100%"} placeholder="Search Menu" />
           </div>
@@ -138,7 +173,7 @@ const Allblogs = () => {
                   <div className='row blogListCard mx-0' key={index}>
                     <div className='col-3 p-0 d-flex align-items-center'>
                       <div className='blogCardImg'>
-                        <Link to={`/cannabis-news/${modifystr(items.Title)}/${items.id}`} key={index}>
+                        <Link to={`/${location.pathname.substring(1)}/${modifystr(items.Title)}/${items.id}`} key={index}>
                           <LazyLoadImage
                             onError={event => {
                               event.target.src = "/image/blog.jpg"
@@ -151,10 +186,10 @@ const Allblogs = () => {
                     <div className='col-9'>
                       <div className='blogcardText'>
                         <div className='blogDate'> <span>{items.Publish_Date.slice(0, 10)}</span></div>
-                        <Link to={`/cannabis-news/${modifystr(items.Title)}/${items.id}`} key={index}>
+                        <Link to={`/${location.pathname.substring(1)}/${modifystr(items.Title)}/${items.id}`} key={index}>
                           <h2 className='blogcardHeading'>{items.Title}</h2>
                         </Link>
-                        <Link to={`/cannabis-news/${modifystr(items.Title)}/${items.id}`} key={index}>
+                        <Link to={`/${location.pathname.substring(1)}/${modifystr(items.Title)}/${items.id}`} key={index}>
                           <p className='blogcardDescription'>   <div dangerouslySetInnerHTML={{ __html: items?.Description.split('</p>')[0]}} /></p>
                         </Link>
                         {/* <p onClick={handlechmnag}>click</p>  */}
@@ -177,7 +212,7 @@ const Allblogs = () => {
                           <div className='col-3'>
                             <span className='action_icons'>
                               <RWebShare
-                                data={{ url: `https://www.weedx.io/cannabis-news/${modifystr(items.Title)}/${items.id}` }}
+                                data={{ url: `https://www.weedx.io/${location.pathname.substring(1)}/${modifystr(items.Title)}/${items.id}` }}
                                 sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
                                 onClick={() => console.info("share successful!")}
                                 color="#31B665"

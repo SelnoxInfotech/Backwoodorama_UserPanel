@@ -55,8 +55,9 @@ const NewsBlog = () => {
                         <ScrollContainer className="ScrollContainerRelative">
                            
                                 {News?.map((ele, index) => {
+                                    console.log(modifystr(ele.Category_Name).toLowerCase().replaceAll(' ', '-'))
                                     return (
-                                        <Link to={`/cannabis-news/${modifystr(ele.Title.replace(/ /g, "-").replace("?", "").toLowerCase())}/${ele.id}`} key={index}> 
+                                        <Link to={`/${ ele.Category_Name==='BLOGS'? "blogs":'cannabis-news'}/${modifystr(ele.Title.replace(/ /g, "-").replace("?", "").toLowerCase())}/${ele.id}`} key={index}> 
                                             <div className="new_blog_card">
                                                 <div className="new_blog_card_img">
                                                     <LazyLoadImage 

@@ -63,8 +63,8 @@ const Footer = () => {
                                     <Link to={'/aboutus'}><span className="footer_li text-capitalize ellipsis">About Us</span></Link>
                                     <Link to={'/faq'}><span className="footer_li ellipsis">FAQ's</span></Link>
                                     <Link to={'/helpcenter'}><span className="footer_li text-capitalize ellipsis">Help Center</span></Link>
-
-                                    <Link to={`/cannabis-news`}><span className="footer_li text-capitalize ellipsis" >All News</span> </Link>
+                                    <Link to={`/cannabis-news`}><span className="footer_li text-capitalize ellipsis" >News</span> </Link>
+                                    <Link to={`/blogs`}><span className="footer_li text-capitalize ellipsis" >Blogs </span> </Link>
                                 </div>
                             </div>
                             <div className="footer_list">
@@ -164,7 +164,7 @@ const Footer = () => {
 
                     </div>
                     <div className=" footer_bootom_headings_container">
-                        <p className="copyright_title">Copyright © 2023 weedx.io</p>
+                        <p className="copyright_title">Copyright © 2024 weedx.io</p>
 
                     </div>
 

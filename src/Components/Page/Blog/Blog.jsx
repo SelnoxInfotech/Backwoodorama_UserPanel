@@ -13,10 +13,8 @@ import { BiCommentDetail } from "react-icons/bi";
 import { FaEdit } from 'react-icons/fa';
 import { AiFillDelete } from 'react-icons/ai';
 import Select from '@mui/material/Select';
-import { AiOutlineLike } from "react-icons/ai";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import { AiTwotoneLike } from "react-icons/ai";
 import { IoEyeSharp } from "react-icons/io5";
 import { AiFillHeart } from "react-icons/ai";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -31,9 +29,6 @@ import { WhisList } from "../../Component/Whishlist/WhisList";
 import { useLocation, Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { SingleNewsSeo } from "../../Component/ScoPage/NewsSeo.jsx";
-
-
-
 const Blogs = () => {
     const ref = useRef(null)
     const classes = useStyles()
@@ -47,6 +42,7 @@ const Blogs = () => {
     const [News, SetNews] = React.useState({})
     const [WishList, SetWishList] = React.useState(false)
     const [ViewCount, SetViewCount] = React.useState(0)
+    console.log(Location.pathname.split('/')[1])
     const cookies = new Cookies();
     const token_data = cookies.get('User_Token_access')
     React.useEffect(() => {
@@ -65,18 +61,11 @@ const Blogs = () => {
             } else {
                 navigate("/404")
             }
-            // await ViewCountApi(id).then((res) => {
-            //      SetViewCount(res.data.data)
-            //      SetBlogReviewCount(res.data.ViewCount)
-            //  }).catch(() => {
-
-            // })
-
         }
         document.documentElement.scrollTo({
             top: 0,
             left: 0,
-            behavior: "instant", // Optional if you want to skip the scrolling animation
+            behavior: "instant",
         });
         getApi()
 
@@ -92,7 +81,6 @@ const Blogs = () => {
             });
         }
     }, [News])
-
     async function GetComment(id) {
         await Get_Comment(id).then((res) => {
 
@@ -131,7 +119,6 @@ const Blogs = () => {
         SetCommentCardArray(Getcommnet.UserComment)
 
     }, [Getcommnet.UserComment])
-
     const [currentPage, setCurrentPage] = React.useState(1);
     const [postsPerPage] = React.useState(5);
     const indexOfLastPost = currentPage * postsPerPage;
@@ -151,7 +138,6 @@ const Blogs = () => {
             setCurrentPage(currentPage - 1);
         }
     };
-
     const nextPage = () => {
         if (currentPage !== Math.ceil(CommentCardArrays?.length / postsPerPage)) {
             setCurrentPage(currentPage + 1);
@@ -180,29 +166,6 @@ const Blogs = () => {
                 })
             })
     }
-
-    // React.useEffect(() => {
-    //     if(Object.keys(News).length !== 0) {
-    //         document.title = News?.Meta_title;
-    //         const ogTitleMeta = document.querySelector('meta[property="og:title"]');
-    //         if (ogTitleMeta) {
-    //             ogTitleMeta.setAttribute("content", News?.Meta_title);
-    //         }
-    //         const ogDescriptionMeta = document.querySelector('meta[property="og:description"]');
-    //         if (ogDescriptionMeta) {
-    //             ogDescriptionMeta.setAttribute("content", News?.Meta_Description);
-    //         }
-    //         const ogImageMeta = document.querySelector('meta[property="og:image"]');
-    //         if (ogImageMeta) {
-    //             updateOGImage(News?.Image)
-    //             // ogImageMeta.setAttribute("content", News?.Image);
-    //         }
-    //         const ogUrlMeta = document.querySelector('meta[property="og:url"]');
-    //         if (ogUrlMeta) {
-    //             ogUrlMeta.setAttribute("content", window.location.href);
-    //         }
-    //     }
-    // }, [News]);
     if (!Object.keys(News).length) {
         return <p>Loading...</p>
     }
@@ -216,7 +179,7 @@ const Blogs = () => {
                     <div className="col-12 w-100 row align-items-center justify-content-between blog_searchBar_container px-0">
                         <section className=" col-2 backButton_section">
                             <div className="col-12 backBtnCol_searchBar_height">
-                                <span onClick={() => { navigate('/cannabis-news') }} style={{ marginLeft: "-4px", cursor: 'pointer' }}> <IoChevronBack color="#000000" size={20} /></span><span onClick={() => { navigate('/cannabis-news') }} style={{ cursor: 'pointer' }} className="blogBackSpan">Back</span>
+                                <span onClick={() => { Location.pathname.split('/')[1] === "cannabis-news"? navigate( Location.pathname.split('/')[1] === "cannabis-news" ?'/cannabis-news': '/blogs') : navigate('/blogs') }} style={{ marginLeft: "-4px", cursor: 'pointer' }}> <IoChevronBack color="#000000" size={20} /></span><span onClick={() => { Location.pathname.split('/')[1] === "cannabis-news"? navigate( Location.pathname.split('/')[1] === "cannabis-news" ?'/cannabis-news': '/blogs') : navigate('/blogs') }} style={{ cursor: 'pointer' }} className="blogBackSpan">Back</span>
 
                             </div>
                         </section>
@@ -224,20 +187,15 @@ const Blogs = () => {
 
                     <div className="p-0 blogEditorContainer">
                         <div className=" UserNmae_Blog">
-                            {/* <div className=""> */}
-                            {/* <div className="Col_BlogUSerIcon"> */}
-                            {/* <h2>{News?.username?.slice(0, 1)}</h2> */}
-                            {/* </div> */}
-                            {/* </div> */}
+                           
                             <div className="UserNmae">
-                                {/* <h6>{News?.username}</h6> */}
+                                
                             </div>
                         </div>
                         <section className="blog_Image" style={{ backgroundImage: `url(${state?.StaticImage?.blogbanner})` }} >
                             <div className="overlay_blog"></div>
                             <h1 className="blog_Title ">{News?.Title}</h1>
-                            {/* <img src ="https://api.cannabaze.com/image/images/download/media/BlankImage/b1_2.png"  style={{width:"100%" , height:"250px"}}alt="blog image"></img> */}
-                        </section>
+                            </section>
                         <div className="blog_text_container" id="center1" >
                             <div className="blogEditorPaddings ">
 

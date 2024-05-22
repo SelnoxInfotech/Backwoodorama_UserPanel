@@ -190,9 +190,6 @@ export function getAllNews() {
     })
     return allnews
 }
-
-
-// product page Api 
 export function CategoryProductsearch( object , id) {
     return (
         axios.post(`https://api.cannabaze.com/UserPanel/Get-ProductByCategory/${id}`, object).then((res) => {
