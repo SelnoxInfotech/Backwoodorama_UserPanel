@@ -21,7 +21,7 @@ const SignupWithEmail = () => {
     const [loading, Setloading] = React.useState(false)
     const [EmailDisabled, SetEmailDisabled] = React.useState(true)
     const [dulicate, Setduplicate] = React.useState([])
-    const [Email, SetEmail] = React.useState(state?.email)
+    const [Email, SetEmail] = React.useState(state?.State?.email)
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     const method = useForm()
     const classes = useStyles()
