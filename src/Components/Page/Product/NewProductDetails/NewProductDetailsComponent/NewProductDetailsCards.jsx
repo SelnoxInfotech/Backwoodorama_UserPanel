@@ -400,7 +400,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                             </div>
                             <div className="col-12 mt-2">
                                 <p>
-                                    <Rating name="read-only" className={`mx-2 ${classes.homePageStarIcons}`} value={Product.rating === null ? 0 : parseInt(Product?.rating)} size="small" readOnly />
+                                    <Rating name="read-only" className={`mx-2 ${classes.homePageStarIconscolor}`} value={Product.rating === null ? 0 : parseInt(Product?.rating)} size="small" readOnly />
                                     <span>
                                     </span><span className="mx-2">{Product.rating === null ? 0 : Product.rating + ".0"} {Product?.TotalRating !== 0 ? `(${ Product?.TotalRating})` : `(0)`} </span>
                                 </p>

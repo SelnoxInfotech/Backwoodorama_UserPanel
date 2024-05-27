@@ -188,7 +188,7 @@ const NewProductDetails = () => {
     if (output1) {
       navigate(`/weed-${sttp}/${Params.StoreName.replaceAll(' ', '-').toLowerCase()}/${Product.Store_id}`)
     } else {
-      navigate(`/products`)
+      navigate(-1)
     }
   }
   function handleDelete(id) {
@@ -241,7 +241,7 @@ const NewProductDetails = () => {
     <div className="container-fluid">
       {Object.keys(Product).length !== 0 && <ProductDetailsSeo Productname={Product.Product_Name} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={path} ></ProductDetailsSeo>
       }
-      <span onClick={() => Tolastpage()} className="BackPageBtn"> <AiOutlineLeft size={22} />{'StoreName' in Params ? <> <span className="backPgBtnImg"><img src={`${Despen.Store_Image}`} alt="" /></span> {Despen.Store_Name}</> : 'Back to products'}</span>
+      <span onClick={() => navigate(-1)} className="BackPageBtn"> <AiOutlineLeft size={22} /> Back to products </span>
       <NewProductDetailsCards dynamicWeight={dynamicWeight} setdynamicWeight={setdynamicWeight} quentity={quentity} setquentity={setquentity} Product={Product} DiscountedValue={discount} Price={Price} SetPrice={SetPrice} />
       <div className="offerlist">
         <h2 className="section_main_title">Offers</h2>
@@ -266,7 +266,6 @@ const NewProductDetails = () => {
           }
         </div>
       </div>
-
       <ProductSearchResult RelatedProductResult={StoreProduct} currentProductID={Product.id} CategoryName={heading} />
       <Review
         delBtn={Despen}

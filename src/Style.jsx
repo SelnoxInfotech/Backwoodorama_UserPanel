@@ -634,6 +634,20 @@ const useStyles = makeStyles({
     },
   
   },
+  homePageStarIconscolor:{
+    "&.MuiRating-root": {
+      fontSize:"24px",
+      "& .MuiRating-iconFilled":{
+        color: "#FFDA03",
+      },
+      "& .MuiRating-iconEmpty":{
+        color:'#31B655',
+        "& .MuiSvgIcon-root":{
+          fill:'#31B655'
+        }
+      }
+    },
+  },
   productSearchIcons: {
     fontSize: "25px",
     color: "gray"
