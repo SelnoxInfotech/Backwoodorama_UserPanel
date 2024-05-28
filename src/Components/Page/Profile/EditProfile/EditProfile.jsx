@@ -88,7 +88,9 @@ const EditProfile = () => {
                                         <div className="ProfileImageWrapper">
                             
                                             {
-                                                    selectedImage !== null ? <LazyLoadImage src={selectedImage} alt='profile_image'    className="profile_images" />
+                                                    selectedImage !== null ? <LazyLoadImage src={selectedImage} alt='profile_image'
+                                                        title='profile_image'
+                                                        className="profile_images" />
                                                         :
                                                         <LazyLoadImage
                                                             onError={ event => {
@@ -97,6 +99,7 @@ const EditProfile = () => {
                                                             }}
                                                             src={ state.Profile.googlelink === null ?`${state.Profile.image} ` : state.Profile.googlelink}
                                                             alt='profile_image'
+                                                            title='profile_image'
                                                             className="profile_images"
                                                         />
                                                 }

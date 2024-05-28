@@ -32,7 +32,11 @@ const LawsOptions = () => {
                                                     key={index}
                                                 >
                                                     <li >
-                                                        <LazyLoadImage src={'/image/weedleaf.webp'} className="lawOPtionListImage" alt="image-not-found" />
+                                                        <LazyLoadImage src={'/image/weedleaf.webp'} 
+                                                        className="lawOPtionListImage" 
+                                                        alt={val.name}
+                                                        title={val.name}
+                                                        />
                                                         <span className="lawOptionCountry_state_List">{val.name}</span>
                                                     </li>
                                                 </Link>

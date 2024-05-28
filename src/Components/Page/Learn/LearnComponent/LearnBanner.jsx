@@ -83,9 +83,7 @@ const LearnBanner = () => {
                 {LearnBannerArray?.map((items, index) => {
                     return (
                         <div className='learn_banner_header' key={index}>
-                            {/* <div className='col-12 learn_image_slider'>
-                                <LazyLoadImage src={items.imgUrl} alt='img_not_available' />
-                            </div> */}
+                           
                             <div className='text_on_Learn_banner'>
                                 <h2 className='learn_banner_text'>Learn</h2>
                             </div>

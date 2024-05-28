@@ -45,7 +45,7 @@ const HomePageDealsSignup = () => {
                     <div className='row'>
                         <div className='col-md-6 col-12 d-md-inline d-none'>
                             <div className='newsletterImage text-center'>
-                                <img src='/image/newsletters.png'/>
+                                <img src='/image/newsletters.png' alt='newsletter Icon' title='newsletter Icon'/>
                             </div>
                         </div>
                         <div className='col-md-6  col-12'>

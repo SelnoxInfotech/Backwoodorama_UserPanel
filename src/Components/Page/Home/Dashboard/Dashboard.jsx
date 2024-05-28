@@ -91,7 +91,11 @@ export default function Dashboard() {
                                     event.onerror = null
                               
                                 }}       width={100}
-                                height={'auto'} src={state?.StaticImage?.AboutUs1} alt=" Online Ordering" />
+                                height={'auto'} 
+                                src={state?.StaticImage?.AboutUs1} 
+                                alt=" Online Ordering" 
+                                title=" Online Ordering" 
+                                />
                             </div>
                             <div className="about_text">
                                 <h3 className="acard_title">
@@ -115,7 +119,10 @@ export default function Dashboard() {
                                     }}
                                     width={100}
                                     height={'auto'}
-                                    src={state?.StaticImage?.AboutUs2} alt="Delivery Services" />
+                                    src={state?.StaticImage?.AboutUs2} 
+                                    alt="Delivery Services"
+                                    title="Delivery Services"
+                                     />
                             </div>
                             <div className="about_text">
                                 <h3 className="acard_title">
@@ -139,7 +146,10 @@ export default function Dashboard() {
                                     }}
                                     width={100}
                                     height={'auto'}
-                                    src={state?.StaticImage?.AboutUs3} alt="Dispensary Listings" />
+                                    src={state?.StaticImage?.AboutUs3} 
+                                    alt="Dispensary Listings" 
+                                    title="Dispensary Listings" 
+                                    />
                             </div>
                             <div className="about_text">
                                 <h3 className="acard_title">
@@ -164,7 +174,10 @@ export default function Dashboard() {
                                     }}
                                     width={100}
                                     height={'auto'}
-                                    src={state?.StaticImage?.AboutUs4} alt="Retailer Listings" />
+                                    src={state?.StaticImage?.AboutUs4}
+                                    alt="Retailer Listings"
+                                    title="Retailer Listings"
+                                     />
                             </div>
                             <div className="about_text">
                                 <h3 className="acard_title">

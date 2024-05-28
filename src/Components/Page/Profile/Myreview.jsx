@@ -128,11 +128,14 @@ const Myreview = () => {
                                             <div className='productreview_imgcircle'>
                                              
                                                 <LazyLoadImage onError={event => {
-                                        event.target.src = "/image/user.webp"
-                                        event.onerror = null
-                                        }}
-                                        src={  item?.Product.images[0]?.image }
-                                        alt='Profile' className="Navbar_profile_imgs" />
+                                                    event.target.src = "/image/user.webp"
+                                                    event.onerror = null
+                                                    }}
+                                                    src={  item?.Product.images[0]?.image }
+                                                    alt='Profile' 
+                                                    title='Profile' 
+                                                    className="Navbar_profile_imgs" 
+                                                />
                                             </div>
                                         </div>
                                         <div className='productReviewText'>
@@ -164,6 +167,7 @@ const Myreview = () => {
                                                             className='realted_review_images'
                                                             src={item?.review.StoreImage}
                                                             alt="userImage"
+                                                            title="userImage"
                                                         />
                                                     </div>
                                                 </div>
@@ -209,7 +213,9 @@ const Myreview = () => {
                                                         event.onerror = null
                                                         }}
                                                         src={ item?.StoreImage  }
-                                                        alt='Profile' className="Navbar_profile_imgs" />
+                                                        alt='Profile'
+                                                        title='Profile'
+                                                         className="Navbar_profile_imgs" />
                                             </div>
                                         </div>
                                         <div className='productReviewText'>
@@ -241,6 +247,7 @@ const Myreview = () => {
                                                             className='realted_review_images'
                                                             src={item?.StoreImage}
                                                             alt="userImage"
+                                                            title="userImage"
                                                         />
                                                     </div>
                                                 </div>

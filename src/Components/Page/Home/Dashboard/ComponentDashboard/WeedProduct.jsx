@@ -118,7 +118,7 @@ const WeedProduct = () => {
 
                                         <div className="col-12 weed_img_div">
                                            
-                                            <img src={ele.img_url} alt="img_not_found" style={{pointerEvents: "none"}}/>
+                                            <img src={ele.img_url} alt="img_not_found" title="img_not_found" style={{pointerEvents: "none"}}/>
                                         </div>
                                     </div>
                                     <div className="col content_cont">

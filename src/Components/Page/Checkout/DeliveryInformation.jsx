@@ -98,8 +98,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                             </div>
                             <div className='row'>
                                 <div className='col-8 delivery_option_img_div_height' >
-
-                                    <LazyLoadImage style={{border:DefalutImage && "1px solid red" }} className='delivery_option_image' src={image} />
+                                    <LazyLoadImage style={{border:DefalutImage && "1px solid red" }} className='delivery_option_image' src={image} title={'Delivery info'} alt={'Delivery info'} />
                                 </div>
 
 

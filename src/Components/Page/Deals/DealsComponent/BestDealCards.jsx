@@ -20,7 +20,7 @@ const BestDealCards = ({CardDataArray,Heading}) => {
                             <div className="col-xl-3 col-lg-4 col-sm-6 col-12 mb-4  bestDealCards" key={index}>
                                 <div className="row bestDealsCardContainer mx-1 my-2">
                                     <div className="col-12 BestDeals_image_container px-0">
-                                        <LazyLoadImage className="bestDeals_imageHeight" src={items.imgUrl} alt="image not available" />
+                                        <LazyLoadImage className="bestDeals_imageHeight" src={items.imgUrl} alt={items.head1} title={items.head1} />
                                     </div>
 
                                 </div>

@@ -81,7 +81,7 @@ const LearnCardRelatedPageBanner=()=>{
         {LearnBannerArray.map((items,index)=>{
             return(
                 <div className='col-12 learnCard_Related_image_slider' key={index}>
-                  <LazyLoadImage className='learnCard_related_imageBanner' src={items.imgUrl} alt='img_not_available'/>
+                  <LazyLoadImage className='learnCard_related_imageBanner' src={items.imgUrl} alt='image'  title='image'/>
                 </div>
             )
         })}

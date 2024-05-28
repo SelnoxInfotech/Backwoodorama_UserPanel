@@ -69,15 +69,8 @@ const Learnproductcontent = () => {
     // </div>
    
     <div className='learnproduct_content'>
-      {/* {
-        showdata[0].content.map((element,index)=>{
-          if(element)
-        
-        })
-      } */}
-
        <h1 className="main_title">How Long Do The Effects Of Edible Substances Last?</h1>
-       <div><img src="/image/learnproduct1.jpg" alt="" /></div>
+       <div><img src="/image/learnproduct1.jpg" alt="Learn" title='Learn' /></div>
        <p>It's not surprising that edibles have gained popularity over the past few years because they offer a handy and smokeless way to absorb marijuana. Learn more about the effects of edibles and what influences the strength and length of an edible high in the sections below.</p>
        <h2 className="main_title">What Are Edible Forms Of Cannabis?</h2>
     </div>

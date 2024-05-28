@@ -21,7 +21,6 @@ const EmptyCard = () => {
                         <div className="row">
                             <div className="col-12 image_container">
                                 <div className="Empty_card_image">
-                                    {/* <LazyLoadImage className="Empty_image" src="/image/empty_image.jpg"/> */}
                                     <Box className={classes.muiIcons}>
                                     <BsCartXFill size={40}/>
                                     </Box>

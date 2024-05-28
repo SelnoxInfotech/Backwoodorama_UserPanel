@@ -172,7 +172,7 @@ const Product = () => {
                                             setIsDropdownOpen(!isDropdownOpen)
                                         }}>
                                             {selectedOption && (
-                                                <img src={`${selectedOption.SubCategoryImage}`} alt={selectedOption.name} className="dropdown-option-image" />
+                                                <img src={`${selectedOption.SubCategoryImage}`} alt={selectedOption.name} title={selectedOption.name} className="dropdown-option-image" />
                                             )}
                                             <span className="dropdown-option-label">
                                                 {selectedOption ? selectedOption.name : 'Sort by Subcategory '}
@@ -182,7 +182,7 @@ const Product = () => {
                                         <ul className={`dropdown-menu image_dropdown ${isDropdownOpen ? 'open' : ''}`}>
                                             {subcategories?.map((option, index) => (
                                                 <li key={index} onClick={() => selectOption(option)}>
-                                                    <img src={`${option.SubCategoryImage}`} alt={option.name} className="dropdown-option-image" />
+                                                    <img src={`${option.SubCategoryImage}`} alt={option.name} title={option.name} className="dropdown-option-image" />
                                                     <span className="dropdown-option-label">{option.name}</span>
                                                 </li>
                                             ))}
@@ -211,7 +211,7 @@ const Product = () => {
                                                 <div className="row">
                                                     <div className="col-12 image_container">
                                                         <div className="Empty_card_image">
-                                                            {/* <LazyLoadImage className="Empty_image" src="/image/empty_image.jpg"/> */}
+                                                           
                                                             <Box className={classes.muiIcons}>
                                                             <MdOutlineProductionQuantityLimits size={45} />
                                                             </Box>

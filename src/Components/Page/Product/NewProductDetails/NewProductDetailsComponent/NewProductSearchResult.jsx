@@ -90,7 +90,8 @@ const NewProductSearchResult = ({ NewProductSearchRseultArray, heading }) => {
                                                 event.onerror = null
                                             }}
                                             src={items?.images ? `${items?.images[0]?.image}` : items.imgUrl}
-                                            // src={items.imgUrl}
+                                            alt={items.Product_Name}
+                                            title={items.Product_Name}
                                             height={"100px"}
                                         />
                                     </div>

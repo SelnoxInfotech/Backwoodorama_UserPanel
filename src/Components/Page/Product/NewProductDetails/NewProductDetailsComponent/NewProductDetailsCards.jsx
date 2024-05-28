@@ -368,7 +368,11 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                                                                     event.target.src = "/image/delivery.png"
                                                                     event.onerror = null
                                                                 }}
-                                                                className="NewProductDetails_image" height={"100px"} src={items.image}
+                                                                className="NewProductDetails_image" 
+                                                                height={"100px"}
+                                                                src={items.image}
+                                                                alt={Product?.Product_Name}
+                                                                title={Product?.Product_Name}
                                                                 onClick={() => { Setdisplaypic(items?.image) }} />
 
                                                         </div>
@@ -601,7 +605,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
 
                     {startload && <div className="loader_container">
                         <span className="newloader shine">
-                            <img src="/image/weedx.io logo.png" alt="weedx.io logo" />
+                            <img src="/image/weedx.io logo.png" alt="weedx.io logo" title='weedx.io logo'  />
                         </span>
                     </div>
                     }

@@ -15,7 +15,11 @@ const FourZeroThree=()=>{
                 <div className="col-12 FourZeroThree_container">
                     <div className="col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12">
                     <section className="FourZeroThree_Image_section ">
-                            <LazyLoadImage src="https://selnoxmedia.s3.amazonaws.com/media/BlankImage/FourZeroThree.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAS4WSA6KJNP6NPPES%2F20231017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231017T091443Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=4f4081279d43cd879d0c757fd7731ca8f01430cfe063a7ec226a7a267e7e81b5" className="fourZeroThree_image" />
+                            <LazyLoadImage src="https://selnoxmedia.s3.amazonaws.com/media/BlankImage/FourZeroThree.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAS4WSA6KJNP6NPPES%2F20231017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231017T091443Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=4f4081279d43cd879d0c757fd7731ca8f01430cfe063a7ec226a7a267e7e81b5"
+                             className="fourZeroThree_image"
+                             alt="503"
+                             title="503"
+                              />
                         </section>
                         <section className="fourZeroThree_content_section mt-2">
                             

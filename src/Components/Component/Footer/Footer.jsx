@@ -40,7 +40,7 @@ const Footer = () => {
                         <div className="row main_content_logo">
                             <div className=" footer_logo_container">
                                 <div className="footerLogo">
-                                    <LazyLoadImage className="footer_logo_image" src={state?.StaticImage?.Logo} alt="weedx.io logo" />
+                                    <LazyLoadImage className="footer_logo_image" src={'/image/weedx.io logo.png'} alt="weedx.io logo" title="weedx.io logo" />
                                 </div>
 
                                 <div className="contact_info">

@@ -16,7 +16,7 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,loading}) => {
     <div className="container-fluid">
       {loading?
          <div className="loader_container">
-         <span className="newloader shine"><img src='/image/weedx.io logo.png' alt='weedx.io logo' /></span>
+         <span className="newloader shine"><img src='/image/weedx.io logo.png' alt='weedx.io logo'  title='weedx.io logo' /></span>
      </div>
             :
           <div className="row center  ">
@@ -48,58 +48,7 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,loading}) => {
                       </div>
                     </div>
                     <div className="p-3">
-                      {/* {val.Product.map((items, index) => {
-                        return (
-                      
-                            <div className="col-12 allOrderCard_container " key={index}>
-                              <div className="imageSectionWrapper">
-                                <section className="allOrder_Card_Image_section">
-                                  <div className="Allorder_img_container">
-                                    <LazyLoadImage
-                                      className="Allorder_img"
-                                      onError={(event) => {
-                                        event.target.src = "/image/blankImage.jpg";
-                                        event.onerror = null;
-                                      }}
-                                      src={`${items?.Image}`}
-                                    />
-                                  </div>
-                                </section>
-                                <section className="allOrder_Card_Content_section">
-                                  <div className="col-12">
-                                    <h2 className="AllOrder_heading">
-                                      {items.ProductName}
-                                    </h2>
-                                  </div>
-                                  <div className="w-100  allOrder_span_quantity_div">
-                                    <span className="allOrder_span_quantity">
-                                      Quantity : {items.Cart_Quantity}
-                                    </span>
-                                    <span className="allOrder_span_quantity">
-                                      Brand : {items?.Brand_Name}
-                                    </span>
-                                  </div>
-                                  <div className="w-100 allOrder_icons_container">
-                                    <span className="allOrder_spanName">
-                                      Amount :
-                                      <span className="Amount_price">
-                                        {" "}
-                                        {items.Price.SalePrice}
-                                      </span>
-                                    </span>
-                                    <div className="allOrder_icons_div">
-                                      <BsFillCircleFill color={val.Order_Status === "Cancel" ? "#d33" : "#31B665"} size={20} />
-                                      <span className="allOrder_spanName">
-                                        {val.Order_Status}
-                                      </span>
-                                    </div>
-                                  </div>
-                                </section>
-                              </div>
-                            </div>
-                        
-                        );
-                      })} */}
+                     
                        {val.Product.map((items, index) => {
                         return (
                       
@@ -108,7 +57,7 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,loading}) => {
                               <LazyLoadImage onError={event => {
                                   event.target.src = "/image/blankImage.jpg"
                                   event.onerror = null
-                              }} className='w-100' src={`${items.Image}`} alt="imag not found" />
+                              }} className='w-100' src={`${items.Image}`} alt={items.ProductName} title={items.ProductName} />
                           </div>
                           <div className="place_order_product_cart_Text">
                               <h4 className='productname'>{items.ProductName}</h4> 

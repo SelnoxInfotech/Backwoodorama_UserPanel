@@ -38,7 +38,11 @@ const NewFlavourBanner = ({ delBtn }) => {
                                                 event.target.src = "/image/delivery.png"
                                                 event.onerror = null
                                             }}
-                                            className='newFlavour_image' src={`${data?.Store_Image}`} alt='not available' height={"100px"} />
+                                            className='newFlavour_image'
+                                            src={`${data?.Store_Image}`}
+                                            alt={data.Store_Name}
+                                            title={data.Store_Name}
+                                            height={"100px"} />
                                         </div>
                                     </div>
                                     <div className="col-md-9 col-sm-8  col-9  newFlavourContent_height" style={{position:"0px"}}>

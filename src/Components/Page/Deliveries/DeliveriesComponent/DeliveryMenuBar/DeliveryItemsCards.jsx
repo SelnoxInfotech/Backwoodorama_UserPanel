@@ -24,7 +24,11 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                                         event.target.src = "/image/delivery.png"
                                                         event.onerror = null
                                                     }}
-                                                className='w-100 h-auto' src={`${items.Store_Image}`} alt={items.Store_Name} height={"100px"} />
+                                                className='w-100 h-auto' 
+                                                src={`${items.Store_Image}`}
+                                                 alt={items.Store_Name} 
+                                                 title={items.Store_Name} 
+                                                 height={"100px"} />
                                             </Link>
                                         </div>
                                         <div className='delivery_items_card_info_container'>

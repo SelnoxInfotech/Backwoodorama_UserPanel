@@ -65,7 +65,10 @@ const NewProductCategorySlider = ({ flowerArray }) => {
                                                         event.onerror = null
                                                     }}
                                                     className="newProductCategory_image"
-                                                    src={`${items?.SubCategoryImage}`}/>
+                                                    src={`${items?.SubCategoryImage}`}
+                                                    alt={items.name}
+                                                    title={items.name}
+                                                    />
                                             </Link>
                                             
                                         </div>

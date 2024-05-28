@@ -119,7 +119,7 @@ const Navbar = () => {
                   justifyContent="start"
                 >
                   <span >
-                    <Link to="/"><img className='navbar_logo_image' alt='WeedX.io logo' src={"/image/weedx.io logo.png"} /></Link>
+                    <Link to="/"><img className='navbar_logo_image' alt='WeedX.io logo' title='WeedX.io logo' src={"/image/weedx.io logo.png"} /></Link>
                   </span>
 
                 </Grid>
@@ -137,7 +137,7 @@ const Navbar = () => {
               <SearchBar path={Location.pathname}/>
               :
               <span className='mobileNavLogo' >
-              <Link to="/"><LazyLoadImage className='navbar_logo_image' alt="WeedX.io logo" src={'/image/weedx.io logo.png'} /></Link>
+              <Link to="/"><LazyLoadImage className='navbar_logo_image' alt="WeedX.io logo" title="WeedX.io logo" src={'/image/weedx.io logo.png'} /></Link>
             </span>
             }
             </Grid>
@@ -188,6 +188,7 @@ const Navbar = () => {
                             }}
                             src={ state.Profile.googlelink === null ?`${state.Profile.image} ` : state.Profile.googlelink}
                             alt='Profile'
+                            title='Profile'
                             className="Navbar_logo_imgs"
                             onClick={handleClickDropdown}
                           />
@@ -196,17 +197,10 @@ const Navbar = () => {
                       {DropDownState && (
                         <div className='profileDropdown_container'>
                           <section className='Navbar_proflie_image_name_section'>
-                            {/* <div className='profile_image_container'>
-                              <LazyLoadImage onError={event => {
-                                event.target.src = "/image/user.webp"
-                                event.onerror = null
-                              }}
-                                src={state.Profile.googlelink === null ?`${state.Profile.image} ` : state.Profile.googlelink}
-                                alt='Profile' className="Navbar_profile_imgs" />
-                            </div> */}
+                          
                             <div className='profile_name_container'>
                               <p className='profile_names ellipsis'>{state.Profile.username}</p>
-                              {/* <p className='profile_viewAll m-0' onClick={ViewProfiles}>Edit Profile</p> */}
+                            
                             </div>
 
                           </section>

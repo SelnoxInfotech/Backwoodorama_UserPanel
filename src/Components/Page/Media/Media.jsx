@@ -18,7 +18,11 @@ const Media = () => {
                             <div className="col-lg-4  col-sm-6 col-12 media_outer_container">
                                 <div className="row media_row mx-1 mt-2">
                                     <div className="col-12 media_image_container px-0">
-                                        <LazyLoadImage className="media_image" src={items.imgUrl} />
+                                        <LazyLoadImage className="media_image"
+                                         src={items.imgUrl} 
+                                         alt={'image'}
+                                         title={'image'}
+                                         />
                                     </div>
                                 </div>
                             </div>

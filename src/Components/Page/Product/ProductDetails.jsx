@@ -233,13 +233,13 @@ const ProductDetail = () => {
                                         <div className="col-12 add_prod_first_img">
                                             {Image ?
                                                 ele?.images.map((data, index) => {
-                                                    // if (data.id === Image) {
+                                                   
                                                     return data.id === Image && <LazyLoadImage key={index} src={`${data.image}`} alt="img_not_found" />
-                                                    // }
+                                                    
 
                                                 })
                                                 :
-                                                <LazyLoadImage src={`${ele.images[0]?.image}`} alt="img_not_found" />
+                                                <LazyLoadImage src={`${ele.images[0]?.image}`} alt={ele.Product_Name} title={ele.Product_Name} />
 
                                             }
 
@@ -250,9 +250,8 @@ const ProductDetail = () => {
                                                 return (
                                                     <div className="col-3 p-2" key={index}>
                                                         <div className="col-12 add_prod_inner_img " onClick={(() => { ImageSet(eleImage.id) })}>
-                                                            <LazyLoadImage src={`${eleImage?.image}`} alt="img_not_found" />
+                                                            <LazyLoadImage src={`${eleImage?.image}`} alt={ele.Product_Name} title={ele.Product_Name} />
                                                         </div>
-
                                                     </div>
                                                 )
                                             })}

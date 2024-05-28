@@ -47,6 +47,7 @@ const RecentViewProduct = () => {
                 <div className="col-12   recentViewProductSlider" id="width" ref={ref}>
                     <ScrollContainer className=" RecentViewScrollContainerRelative">
                         {FlowerArray.map((items, index) => {
+                            console.log(FlowerArray)
                             return (
 
                             <div className='recentViewContainer col-12  col-sm-6 col-md-6 col-lg-4 col-xl-3' key={index}>
@@ -54,7 +55,11 @@ const RecentViewProduct = () => {
                                 <div className='recentViewProductBorder mx-1'>
 
                                         <div className="col-12 center recentViewImageContainer p-2">
-                                            <LazyLoadImage className="recentView_images" src={items.imgUrl} alt="image not availble" />
+                                            <LazyLoadImage className="recentView_images"
+                                              src={items.imgUrl}
+                                              alt="image not availble" 
+                                              title="image not availble"
+                                            />
                                         </div>
                                         <div className="col-12 recentViewProductContent_container">
 

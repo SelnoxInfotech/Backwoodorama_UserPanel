@@ -164,7 +164,11 @@ const DeliveryServices = () => {
                                                             onError={event => {
                                                               event.target.src = "/image/delivery.png"
                                                               event.onerror = null
-                                                          }} src={`${items?.Store_Image}`} alt={items?.Store_Name.charAt(0).toUpperCase() + items?.Store_Name.slice(1)} className=' dispensories_image  center-block' />
+                                                          }} 
+                                                          src={`${items?.Store_Image}`}
+                                                        alt={items?.Store_Name.charAt(0).toUpperCase() + items?.Store_Name.slice(1)} 
+                                                        title={items?.Store_Name.charAt(0).toUpperCase() + items?.Store_Name.slice(1)} 
+                                                        className=' dispensories_image  center-block' />
                                                   </Link>
                                               </div>
                                               <div className='dispensoriesContentContainer'>
@@ -213,7 +217,7 @@ const DeliveryServices = () => {
                         :
                         <div className='nodeliveryinhomepage' >
                             <div className='nodeliveryinhomeimage'>
-                                <img src='/image/NOTDELIVERED.png' alt='src'/>
+                                <img src='/image/NOTDELIVERED.png' alt='NOTDELIVERED' title='NOTDELIVERED'/>
                             </div>
                             <p>No Delivery Services available</p>
                         </div>

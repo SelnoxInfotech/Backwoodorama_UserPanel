@@ -81,10 +81,7 @@ const LawStateDecriptionBanner = (props) => {
                 <LawStateDecriptionBanner {...settings}>
                   
                      
-                            <div className='learn_banner_header'    >
-                                {/* <div className='col-12 learn_image_slider'>
-                                    <LazyLoadImage src={items.imgUrl} alt='img_not_available' />
-                                </div> */}
+                            <div className='learn_banner_header'    > 
                                 <div className='text_on_Learn_banner'>
                                     <h3 className='learn_banner_text'>{props.cityname}</h3>
                                 </div>

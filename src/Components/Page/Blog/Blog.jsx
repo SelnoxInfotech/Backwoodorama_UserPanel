@@ -295,7 +295,7 @@ console.log(News)
                                                                             event.target.src = "/image/blankImage.jpg"
                                                                             event.onerror = null
                                                                         }}
-                                                                        src={`${val.image}`} className="blogsCommentImages" alt="image-notfound" />
+                                                                        src={`${val.image}`} className="blogsCommentImages" alt={val.username} title={val.username} />
                                                                 </div>
                                                             </div>
                                                             <div className="commentCradContentSection">
@@ -388,7 +388,7 @@ console.log(News)
                                                                         event.target.src = "/image/blankImage.jpg"
                                                                         event.onerror = null
                                                                     }}
-                                                                    src={`${val.image}`} className="blogsCommentImages" alt="image-notfound" />
+                                                                    src={`${val.image}`} className="blogsCommentImages" alt={val.username} title={val.username} />
                                                             </div>
                                                         </div>
                                                         <div className="commentCradContentSection">

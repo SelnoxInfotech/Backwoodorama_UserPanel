@@ -12,7 +12,11 @@ const FiveZeroThree = () => {
                 <div className="col-12 fiveZeroThree_container">
                     <div className="col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12">
                         <section className="FiveZero_Image_section ">
-                            <LazyLoadImage src="https://selnoxmedia.s3.amazonaws.com/media/BlankImage/FiveZeroThree.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAS4WSA6KJNP6NPPES%2F20231017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231017T091414Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=385f7276b9d5a8305a5bab834d5a4a82fd9f071e4436f2d2532435156ec816cb" className="fiveZero_image" />
+                            <LazyLoadImage src="https://selnoxmedia.s3.amazonaws.com/media/BlankImage/FiveZeroThree.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAS4WSA6KJNP6NPPES%2F20231017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231017T091414Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=385f7276b9d5a8305a5bab834d5a4a82fd9f071e4436f2d2532435156ec816cb"
+                             className="fiveZero_image" 
+                             alt="503"
+                             title="503"
+                             />
                         </section>
                         <section className="fiveZero_content_section mt-2">
                             

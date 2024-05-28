@@ -88,8 +88,8 @@ const PlaceOrder = () => {
                                                 event.target.src = "/image/blankImage.jpg"
 
                                                 event.onerror = null
-                                            }} className='w-100' src={`${item.Image}`} alt="imag not found" />
-                                            {/* <img src={item.Image} alt="" className='w-100' /> */}
+                                            }} className='w-100' src={`${item.Image}`} alt={item.ProductName} title={item.ProductName} />
+                                           
                                         </div>
                                         <div className="place_order_product_cart_Text">
                                         

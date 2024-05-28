@@ -207,7 +207,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                                                 <Link to={data.link} onClick={()=>{setnotify(false)}}>
                                                     <div className="notification_img">
                                                         <div className="notiimgCircle">
-                                                            <img src={data.Image} alt="img" />
+                                                            <img src={data.Image} alt={data.title} title={data.title} />
                                                         </div>
                                                     </div>
                                                 </Link>
@@ -249,7 +249,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                                             <Link to={data.link} onClick={()=>{setnotify(false) ; removenotify(data)}}>
                                                 <div className="notification_img">
                                                     <div className="notiimgCircle">
-                                                        <img src={data?.image} alt="weedx.io logo" onError={() => this.img.src = '/image/weedx.io logo.png'} />
+                                                        <img src={data?.image} alt={data.title} title={data.title} onError={() => this.img.src = '/image/weedx.io logo.png'} />
                                                     </div>
                                                 </div>
                                             </Link>

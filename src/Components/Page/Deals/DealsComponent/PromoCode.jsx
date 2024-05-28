@@ -22,7 +22,7 @@ const PromoCode = ({CardDataArray,Heading}) => {
                     <div className="col-xl-3 col-lg-4  col-sm-6 col-12 mb-4  promoCode_card_Outer_container" key={index}>
                         <div className="row promoCode_card_inner_container mx-1 my-2">
                             <div className="col-12 promocode_image_container px-0">
-                              <LazyLoadImage className="promocode_image" src={items.imgUrl} alt="image not available"/>
+                              <LazyLoadImage className="promocode_image" src={items.imgUrl} alt="image" title="image"/>
                             </div>
                         </div>
                     </div>

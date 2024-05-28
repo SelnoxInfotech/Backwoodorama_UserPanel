@@ -47,7 +47,10 @@ const HomePageWeedBanner=()=>{
                             event.onerror = null
                         }}
                         width="100" height="auto"
-                        src={`${ele?.Banner}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
+                        src={`${ele?.Banner}`}
+                        alt="Weedx.io Promotion banner"
+                        title="Weedx.io Promotion banner"
+                        className='HomePageBanner_image'/>
                         </a>
                     </div>
           
@@ -73,7 +76,10 @@ const HomePageWeedBanner=()=>{
                                     event.onerror = null
                                 }}
                                 width="100" height="auto"
-                        src={`${ele?.mobile}`}  alt="Weedx.io Promotion banner" className='HomePageBanner_image'/>
+                          src={`${ele?.mobile}`}
+                          alt="Weedx.io Promotion banner"
+                          title="Weedx.io Promotion banner"
+                          className='HomePageBanner_image'/>
                         </a>
                     </div>
                     </SwiperSlide>

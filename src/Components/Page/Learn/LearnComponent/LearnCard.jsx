@@ -15,7 +15,7 @@ const LearnCards = () => {
                             <Link to="/LearnCardRelatedPage">
                             <section className='learn_image_section'>
                                 <div className='learCard_image_div'>
-                                <LazyLoadImage className="learn_image" src={items.imgUrl} alt='img_not_available' />
+                                <LazyLoadImage className="learn_image" src={items.imgUrl} alt={items.title} title={items.title} />
 
                                 </div>
                                 <div className='learnCard_title_container'>

@@ -126,7 +126,10 @@ const Dispensories = () => {
                                                           onError={event => {
                                                             event.target.src = "/image/delivery.png"
                                                             event.onerror = null
-                                                        }} src={`${ele?.Store_Image}`} alt={ele.Store_Name.charAt(0).toUpperCase() + ele.Store_Name.slice(1)} className=' dispensories_image  center-block' />
+                                                        }} src={`${ele?.Store_Image}`}
+                                                        alt={ele.Store_Name.charAt(0).toUpperCase() + ele.Store_Name.slice(1)}
+                                                        title={ele.Store_Name.charAt(0).toUpperCase() + ele.Store_Name.slice(1)}
+                                                        className=' dispensories_image  center-block' />
                                                 </Link>
                                             </div>
                                             <div className='dispensoriesContentContainer'>
@@ -176,7 +179,7 @@ const Dispensories = () => {
                     :
                     <div className='nodeliveryinhomepage' >
                     <div className='nodeliveryinhomeimage'>
-                        <img src='/image/nodespensire.png' alt='src'/>
+                        <img src='/image/nodespensire.png' alt='nodespensire' title='nodespensire'/>
                     </div>
                     <p>No Dispensaries Services available</p>
                 </div>

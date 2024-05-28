@@ -25,7 +25,7 @@ const AllProductCategory = ({ flowerArray }) => {
                                                             event.target.src = "/image/blankImage.jpg"
                                                             event.onerror = null
                                                         }}
-                                                        className="allProduct_imageHeight" src={`${items?.SubCategoryImage}`} alt="image not found" />
+                                                        className="allProduct_imageHeight" src={`${items?.SubCategoryImage}`} alt={items.name} title={items.name} />
                                                 </Link>
 
                                             </div>

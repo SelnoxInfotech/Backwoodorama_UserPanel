@@ -36,7 +36,7 @@ const RelatedVerifyBanner = ({ BrandDetails }) => {
                     <div className="related_verifyBrandBanner_maincol">
                         <div className="RelatedVerifyBrandBanner_image_box">
                             <div className="realtedVerifyBanner_image_inner_container">
-                                <LazyLoadImage className="related_verify_banner_img" src={BrandDetails?.Brand_Logo} alt="Brand_Logo image not available" />
+                                <LazyLoadImage className="related_verify_banner_img" src={BrandDetails?.Brand_Logo} title={BrandDetails?.name} alt={BrandDetails?.name} />
                             </div>
                         </div>
                         <div className="RelatedVerifyBanner_content_box">

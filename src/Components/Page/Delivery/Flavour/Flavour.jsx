@@ -14,7 +14,7 @@ const Flavour = (Deta) => {
                     <div className=' flavour_New_container'>
 
                         <div className='col-lg-1  col-md-2 col-sm-2 flav_img_height_div_container'>
-                            <img className='flav_img_height' src={"image/cat_pro_img1.png"} alt="img_not_found" style={{ pointerEvents: "none" }} />
+                            <img className='flav_img_height' src={"image/cat_pro_img1.png"} alt="img_not_found" title="img_not_found" style={{ pointerEvents: "none" }} />
 
                         </div>
                         <div className='col-lg-10 col-md-8 col-sm-8 flav_content_right_side fontStyle'>

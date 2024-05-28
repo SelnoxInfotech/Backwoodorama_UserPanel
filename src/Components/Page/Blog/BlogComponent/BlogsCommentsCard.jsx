@@ -73,7 +73,7 @@ const BlogsCommentsCard = ({ Getcommnet }) => {
                                                                 event.target.src = "/image/blankImage.jpg"
                                                                 event.onerror = null
                                                             }}
-                                                            src={`${val.image}`} className="blogsCommentImages" alt="image-notfound" />
+                                                            src={`${val.image}`} className="blogsCommentImages" alt={val.username} title={val.username} />
                                                     </div>
                                                 </section>
                                                 <section className="commentCradContentSection">

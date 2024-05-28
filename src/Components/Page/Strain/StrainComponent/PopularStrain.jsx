@@ -25,11 +25,10 @@ const PopularStrain = ({SliderDataArray,Heading}) => {
                                     <div className="popularStrainImageContainer">
 
                                         <LazyLoadImage
-                                          
-                                            className="popularStrain_Image"
-                                             src={items.imgUrl}
-                                             alt="Image not available"
-                                             />
+                                                className="popularStrain_Image"
+                                                src={items.imgUrl}
+                                                alt={items.name}
+                                                title={items.name} />
                                              
                                     </div>
 

@@ -201,8 +201,7 @@ const NewBlog = () => {
             <section className="blog_Image" style={{ backgroundImage: `url(${state?.StaticImage?.blogbanner})` }} >
                 <div className="overlay_blog"></div>
                 <h1 className="blog_Title ">{News?.Title}</h1>
-                {/* <img src ="https://api.cannabaze.com/image/images/download/media/BlankImage/b1_2.png"  style={{width:"100%" , height:"250px"}}alt="blog image"></img> */}
-            </section>
+               </section>
             <div className="blog_text_container" id="center1" >
                 <div className="blogEditorPaddings ">
 

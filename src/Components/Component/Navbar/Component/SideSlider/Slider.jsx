@@ -56,7 +56,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                             <div className=" px-3 d-flex w-100 ml-0 py-3 align-items-center manuheader justify-content-between">
                                 <div className='w-50'>
                                     <span >
-                                        <Link to="/"><LazyLoadImage className='navbar_logo_image'  src='./image/WeedWhiteLogo.webp' alt='WeedX.io' /></Link>
+                                        <Link to="/"><LazyLoadImage className='navbar_logo_image'  src='./image/WeedWhiteLogo.webp' alt='WeedX.io logo' title="Weedx.io logo" /></Link>
                                     </span>
                                 </div>
                                 <div className='w-50 text-end'>
@@ -74,7 +74,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                                                         <LazyLoadImage  onError={event => {
                                                                 event.target.src = "/image/user.webp"
                                                                 event.onerror = null
-                                                            }} alt='Profile' onClick={Redirect} src={state?.Profile?.image} className="Slider_inner_profile_imgs" />
+                                                            }} alt='Profile' title='Profile' onClick={Redirect} src={state?.Profile?.image} className="Slider_inner_profile_imgs" />
                                                            
                                                     </div>
                                                     <div className="slider_image_profile_names_conatiner">

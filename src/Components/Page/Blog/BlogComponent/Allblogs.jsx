@@ -178,7 +178,7 @@ const Allblogs = () => {
                               event.target.src = "/image/blog.jpg"
                               event.onerror = null
                             }}
-                            src={`${items.Image}`} alt={items.Alt_Text} />
+                            src={`${items.Image}`} alt={items.Alt_Text} title={items.Alt_Text} />
                         </Link>
                       </div>
                     </div>
@@ -272,7 +272,7 @@ const Allblogs = () => {
             : <DeliveryItemsCardSkeleton></DeliveryItemsCardSkeleton>
           }
           { 
-            loader && <div className="loader_container"> <span className="newloader shine"><img src='/image/weedx.io logo.png' alt='weedx.io logo' /></span> </div>
+            loader && <div className="loader_container"> <span className="newloader shine"><img src='/image/weedx.io logo.png' alt='weedx.io logo' title='weedx.io logo' /></span> </div>
           }
 
       </div>

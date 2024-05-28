@@ -88,7 +88,7 @@ const AddPhotoId = ({ image, Api, SetApi }) => {
                                 <section className='addphoto_section'>
                                     <div className='add_photo_container'>
                                         {
-                                            selectedImage !== null ? <LazyLoadImage src={selectedImage} alt='' className='add_photo_size' />
+                                            selectedImage !== null ? <LazyLoadImage src={selectedImage} alt='user Image' title={'User Image'} className='add_photo_size' />
                                                 :
                                                 <LazyLoadImage
                                                     onError={event => {
@@ -97,12 +97,12 @@ const AddPhotoId = ({ image, Api, SetApi }) => {
                                                     }}
                                                     src={`${image}`}
                                                     // src={image}
-                                                    alt=''
+                                                    alt='User Image'
+                                                    title={'User Image'}
                                                     className='add_photo_size'
                                                 />
                                         }
 
-                                        {/* <LazyLoadImage src='./image/user.webp' className='add_photo_size' /> */}
                                     </div>
                                     <div className="add_photo_label_div">
                                         <label htmlFor="Add photo" className="add_photo_label">

@@ -31,7 +31,7 @@ const SubcategoryProduct = () => {
             {
                 Loading ?
                 <div className="loader_container">
-                <span className="newloader shine"><img src='/image/weedx.io logo.png' alt='weedx.io logo' /></span>
+                <span className="newloader shine"><img src='/image/weedx.io logo.png' alt='weedx.io logo' title='weedx.io logo' /></span>
             </div>
                     :
                     <div className="col-12 mt-4">

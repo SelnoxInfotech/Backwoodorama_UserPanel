@@ -196,6 +196,7 @@ const SearchBar = ({ path }) => {
                         options={SearchData}
                         groupBy={(option) => option.type}
                         renderOption={(props, t) => {
+                            console.log(t.value ,'t.value')
                             return (
                                 <div {...props} style={{ color: "black" }} >
                                     <ul className='PopperLIst'>
@@ -205,7 +206,7 @@ const SearchBar = ({ path }) => {
                                                 onError={event => {
                                                     event.target.src = "/image/blankImage.jpg"
                                                 }}
-                                                className='searchBarImageStyles' src={`${t.image}`} alt=''></LazyLoadImage>
+                                                className='searchBarImageStyles' src={`${t.image}`} alt={t.value} title={t.value}></LazyLoadImage>
                                             <span className='searchBarSpanValue'> {`${t.value}`}</span>
                                         </li>
                                         {/* </div> */}

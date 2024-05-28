@@ -26,7 +26,8 @@ const WeedDealsByProduct = ({ArrayData,heading}) => {
                                           
                                             className="popularStrain_Image"
                                              src={items.imgUrl}
-                                             alt="Image not available"
+                                             alt={items.name}
+                                             title={items.name}
                                              />
                                              
                                     </div>

@@ -29,6 +29,7 @@ const CategoryProduct = ({ ShowCategoryProduct, Category, Skeleton }) => {
                                                     }}
                                                     onClick={() => { ShowCategoryProduct(ele.id, ele.name) }} 
                                                     src={ele.categoryImages} alt={ele.name.substr(0, 100)} 
+                                                    title={ele.name.substr(0, 100)}
                                                     className='rounded-circle catagoriesTabImg' />
 
                                                 </div>

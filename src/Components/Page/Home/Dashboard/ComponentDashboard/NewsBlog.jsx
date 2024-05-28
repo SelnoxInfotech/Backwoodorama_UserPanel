@@ -65,7 +65,10 @@ const NewsBlog = () => {
                                                             event.target.src = "/image/blog.jpg"
                                                             event.onerror = null
                                                         }}
-                                                    src={`${ele.Image}`} alt={ele.Title} style={{ pointerEvents: "none" }} />
+                                                    src={`${ele.Image}`} 
+                                                    alt={ele.Title} 
+                                                    title={ele.Title} 
+                                                    style={{ pointerEvents: "none" }} />
                                                 </div>
                                                 <div className="new_blog_card_text">  
                                                     <span className="fontStyle latest_font_size text-capitalize">

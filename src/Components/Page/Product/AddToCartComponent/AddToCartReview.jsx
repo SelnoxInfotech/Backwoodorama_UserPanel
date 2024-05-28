@@ -240,7 +240,11 @@ const AddToCartReview = () => {
                                                     <LazyLoadImage onError={event => {
                                                         event.target.src = "/image/blankImage.jpg"
                                                         event.onerror = null
-                                                    }} src={`${ele.Image}`} alt="imag not found" />
+                                                    }}
+                                                    src={`${ele.Image}`}
+                                                    alt={ele.StoreName}
+                                                    title={ele.StoreName} 
+                                                     />
                                                 </Link>
                                             </div>
                                             <div className="Add_prod_content_cont ">
@@ -283,7 +287,10 @@ const AddToCartReview = () => {
                                                     <LazyLoadImage onError={event => {
                                                         event.target.src = "/image/blankImage.jpg"
                                                         event.onerror = null
-                                                    }} src={`${ele.Image}`} alt="imag not found" />
+                                                    }} src={`${ele.Image}`}
+                                                     alt={ele.ProductName}
+                                                     title={ele.ProductName}
+                                                     />
                                                 {/* </Link> */}
                                             </div>
                                             <div className="Add_prod_content_cont ">
@@ -337,7 +344,10 @@ const AddToCartReview = () => {
                                             <LazyLoadImage onError={event => {
                                                 event.target.src = "/image/blankImage.jpg"
                                                 event.onerror = null
-                                            }} src={`https://selnoxmedia.s3.amazonaws.com/${ele.Image}`} alt="imag not found" />
+                                            }} src={`https://selnoxmedia.s3.amazonaws.com/${ele.Image}`}
+                                             alt={ele.ProductName}
+                                             title={ele.ProductName}
+                                              />
                                         </Link>
                                     </div>
                                     <div className="mb_addtoproduct_card_content">

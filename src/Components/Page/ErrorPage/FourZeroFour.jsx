@@ -16,7 +16,7 @@ const FourZero = () => {
                 <div className="col-12 four_zero_four_img_content_container">
                     <div className="col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12">
                         <section className="Image_section ">
-                            <LazyLoadImage src={state?.StaticImage?.Fourhundredfour} className="fourZero_image" />
+                            <LazyLoadImage src={state?.StaticImage?.Fourhundredfour} alt="404" title="404" className="fourZero_image" />
                         </section>
                         <section className="fourZero_content_section mt-2">
                             <div className="fourZeroFour_div_width">

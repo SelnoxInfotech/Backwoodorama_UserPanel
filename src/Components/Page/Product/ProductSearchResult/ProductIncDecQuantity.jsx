@@ -88,7 +88,9 @@ const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart, setadding, a
                                         event.target.src = "/image/blankImage.jpg"
                                         event.onerror = null
                                     }}
-                                    alt="image not available" />
+                                    alt={items.Product_Name}
+                                    title={items.Product_Name}
+                                     />
                             </div>
                             <div className='col-12 col-md-6 col-sm-6 productInc_dec_content'>
 
