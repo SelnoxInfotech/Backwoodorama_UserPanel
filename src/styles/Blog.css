@@ -143,9 +143,9 @@
   font-weight: 400;
   font-family: 'Montserrat', sans-serif;
 }
-.blog_text_container ul li{
+/* .blog_text_container ul li{
     list-style-type: none;
-}
+} */
 
 .blogListCard{
   border: 1px solid #747474;
