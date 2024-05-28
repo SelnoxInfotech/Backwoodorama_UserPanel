@@ -193,7 +193,7 @@ const Blogs = () => {
                             <div className="overlay_blog"></div>
                             <h1 className="blog_Title ">{News?.Title}</h1>
                             </section>
-                        <div className="blog_text_container" id="center1" >
+                        <div className="blog_text_container"  >
                             <div className="blogEditorPaddings ">
 
                                 <div>
@@ -202,7 +202,7 @@ const Blogs = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="blog_text_container" id="center1" >
+                        <div className="blog_text_container" >
                             {/* <div className="col-12 BlogLink"> */}
                             <div className="col-12 Linkofblog ">
                                 <div className="col BlogSocal" id="center1">

@@ -93,7 +93,7 @@ const Allblogs = () => {
       }else{
         if(location.pathname.substring(1)==='blogs'){
           axios.get('https://api.cannabaze.com/UserPanel/Get-NewsbyCategorybyBlog/').then(async (res) => {
-            setallblogs(res.data)
+            setallblogs(res.data.reverse())
             setloader(false)
             setisdata(true)
           }).catch((err) => {
