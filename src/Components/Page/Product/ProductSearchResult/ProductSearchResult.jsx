@@ -17,7 +17,7 @@ import Createcontext from "../../../../Hooks/Context"
 import './ProductSearchResult.css'
 import _ from "lodash";
 import AddToCartPopUp from "../AddToCartPopUp/AddToCartPopUp";
-import { Link } from "react-router-dom";
+import { Link ,useLocation} from "react-router-dom";
 import { WishListPost } from "../../../Component/Whishlist/WishListApi_"
 import { WhisList } from "../../../Component/Whishlist/WhisList"
 
@@ -26,6 +26,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
     const { state, dispatch } = React.useContext(Createcontext)
     const classes = useStyles()
     const cookies = new Cookies();
+    const location = useLocation()
     const token_data = cookies.get('User_Token_access')
     const [CartClean, SetCartClean] = useState(false)
     const [adding, setadding] = React.useState('')
@@ -286,7 +287,12 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                     </IconButton>
                                                 </Box>
                                             </div>
-                                            <Link to={`/products/${modifystr(items.category_name.toLowerCase())}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${modifystr(items.Product_Name.toLowerCase())}/${items.id}`}>
+                                            <Link to={`/products/${modifystr(items.category_name.toLowerCase())}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${modifystr(items.Product_Name.toLowerCase())}/${items.id}`}
+
+                                            state={{
+                                                 prevuisurl: location.pathname,
+                                                 id:items.id
+                                                }}  >
                                                 <LazyLoadImage
                                                     className="product_search_result_image"
                                                     onError={event => {
@@ -296,11 +302,15 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                     src={`${items?.images[0]?.image}`}
                                                     height={"100px"}
                                                     alt={items.Product_Name}
+                                                    title={items.Product_Name}
                                                 />
                                             </Link>
                                         </div>
                                         <div className=" product_search_result_content_div ">
-                                            <Link to={`/products/${items.category_name.toLowerCase()}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${items.Product_Name.replace(/%20| /g, "-").toLowerCase()}/${items.id}`} state={items.id}>
+                                            <Link to={`/products/${items.category_name.toLowerCase()}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${items.Product_Name.replace(/%20| /g, "-").toLowerCase()}/${items.id}`}  state={{
+                                                 prevuisurl: location.pathname,
+                                                 id:items.id
+                                                }} >
                                                 <p className="productSearchResultParagraph text-truncate">{items.Product_Name}</p>
 
                                                 <p className="product_search_result_sub_heading text-truncate">by {items.StoreName}</p>

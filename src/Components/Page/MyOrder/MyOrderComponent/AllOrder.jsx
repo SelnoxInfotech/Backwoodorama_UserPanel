@@ -16,7 +16,7 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,loading}) => {
     <div className="container-fluid">
       {loading?
          <div className="loader_container">
-         <span className="newloader shine"><img src='/image/logo.png' alt='image' /></span>
+         <span className="newloader shine"><img src='/image/weedx.io logo.png' alt='weedx.io logo' /></span>
      </div>
             :
           <div className="row center  ">

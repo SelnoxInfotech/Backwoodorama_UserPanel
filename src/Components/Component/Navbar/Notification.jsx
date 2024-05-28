@@ -35,7 +35,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
             return secs + " secs ago"
         }
     }
-   
+   let navigate =useNavigation()
     React.useEffect(() => {
         if (state.login) {
             const config = {
@@ -46,7 +46,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
             ).then((res) => { 
                 let datax = []
                 res.data.forEach((item, index) => {
-
+                  
                     if (item.Order.length !== 0) {
                      
                         datax.push({
@@ -63,7 +63,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                             Image: item.blog[0].Image,
                             title: item.blog[0].Title,
                             date: item.blog[0].created,
-                            link: `/cannabis-news/${item.blog[0].Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${item.blog[0].id}`,
+                            link: `/${item.blog[0].category_name==="BLOGS"? "blogs":"cannabis-news"}/${item.blog[0].Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${item.blog[0].id}`,
                             Id:item.Notification
                         })
                     }
@@ -88,7 +88,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                
                 if(Boolean(respones?.data)){
                     let newdata = respones.data.Blog.map((data) => {
-                        return { "link": `/cannabis-news/${data.Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${data.id}`, 'title': data.Title, "image": data.Image, 'date': data.created }
+                        return { "link": `/${data.category_name==="BLOGS"? "blogs":"cannabis-news"}/${data.Title.replace(/ /g, "-").replace("?", "").toLowerCase()}/${data.id}`, 'title': data.Title, "image": data.Image, 'date': data.created }
                     })
                   
                     Setnotificationdata(newdata)
@@ -200,8 +200,6 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                         Boolean(notificationdata?.length > state?.Profile?.RemovedNotification?.length)
                         ?
                             notificationdata?.map((data, index) => {
-                            
-                            if(state.login){
                                     if(Boolean(!state.Profile.RemovedNotification.includes(data.Id))){
                                         return (
                                             <div className='notification_box'>
@@ -215,7 +213,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                                                 </Link>
                                                 <div className="notifytext w-100" >
                                                     <div className='d-flex justify-content-between align-items-center'> 
-                                                           <div className="d-flex align-items-center justify-content-between gap-5"> <h4 className="notititle">{data.title} </h4></div>
+                                                     <Link to={data.link} onClick={()=>{setnotify(false)}}> <div className="d-flex align-items-center justify-content-between gap-5"> <h4 className="notititle">{data.title} </h4></div></Link>
                                                            <span className='cursor-pointer' onClick={(e) => Clear(data)}><RxCross2 size={15} color={"#000"} /></span>
                                                     </div>
 
@@ -232,26 +230,6 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                                             </div>
                                         )
                                     }
-                            }else{
-                                return (
-                                        <div className='notification_box'>
-
-                                            <Link to={data.link} onClick={()=>{setnotify(false)  }}>
-                                                <div className="notification_img">
-                                                    <div className="notiimgCircle">
-                                                        <img src={data?.image} alt="img" onError={() => this.img.src = '/image/logo.png'} />
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                            <div className="notifytext w-100" >
-                                                <div className='d-flex justify-content-between align-items-center'> <Link to={data.link} onClick={()=>{setnotify(false) }}>    <span className="notify_date ">{calculateTImefromDate(data.date)}</span> </Link> </div>
-                                                <Link to={data.link} onClick={()=>{setnotify(false) }}>  <div className="d-flex align-items-center justify-content-between gap-5"><h4 className="notititle">{data.title} </h4> </div>  </Link>
-                                            </div>
-
-                                        </div>
-                                    )
-                                
-                            }
                             })
                         :
                         <div className='w-100 h-100 d-flex align-items-center justify-content-center '>No New Notification</div>
@@ -264,35 +242,14 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                         ?
                             notificationdata?.map((data, index) => {
                             
-                            if(state.login){
-                                    if(Boolean(!state.Profile.RemovedNotification.includes(data.Id))){
-                                        return (
-                                            <div className='notification_box'>
-
-                                                <Link to={data.link} onClick={()=>{setnotify(false)}}>
-                                                    <div className="notification_img">
-                                                        <div className="notiimgCircle">
-                                                            <img src={data.Image} alt="img" />
-                                                        </div>
-                                                    </div>
-                                                </Link>
-                                                <div className="notifytext w-100" >
-                                                    <div className='d-flex justify-content-between align-items-center'> <Link to={data.link} onClick={()=>{setnotify(false)}}>    <span className="notify_date ">{calculateTImefromDate(data.date)}</span> </Link><span className='cursor-pointer' onClick={(e) => Clear(data)}><RxCross2 size={15} color={"#000"} /></span></div>
-                                                    <Link to={data.link} onClick={()=>{setnotify(false)}}>  <div className="d-flex align-items-center justify-content-between gap-5"><h4 className="notititle">{data.title} </h4> </div>  </Link>
-
-                                                </div>
-
-                                            </div>
-                                        )
-                                    }
-                            }else{
+                        
                                 return (
                                         <div className='notification_box'>
 
                                             <Link to={data.link} onClick={()=>{setnotify(false) ; removenotify(data)}}>
                                                 <div className="notification_img">
                                                     <div className="notiimgCircle">
-                                                        <img src={data?.image} alt="img" onError={() => this.img.src = '/image/logo.png'} />
+                                                        <img src={data?.image} alt="weedx.io logo" onError={() => this.img.src = '/image/weedx.io logo.png'} />
                                                     </div>
                                                 </div>
                                             </Link>
@@ -305,7 +262,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                                         </div>
                                     )
                                 
-                            }
+                            
                             })
                         :
                         <div className='w-100 h-100 d-flex align-items-center justify-content-center '>No New Notification</div>

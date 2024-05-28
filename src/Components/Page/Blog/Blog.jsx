@@ -169,7 +169,7 @@ const Blogs = () => {
         return <p>Loading...</p>
     }
 
-
+console.log(News)
     return (
         <React.Fragment>
             <SingleNewsSeo Title={News?.Meta_title} Description={News?.Meta_Description} location={Location.pathname}></SingleNewsSeo>
@@ -191,7 +191,7 @@ const Blogs = () => {
                                 
                             </div>
                         </div>
-                        <section className="blog_Image" style={{ backgroundImage: `url(${state?.StaticImage?.blogbanner})` }} >
+                           <section className="blog_Image" style={{ backgroundImage: `url(${News.Image})` }} >
                             <div className="overlay_blog"></div>
                             <h1 className="blog_Title ">{News?.Title}</h1>
                             </section>

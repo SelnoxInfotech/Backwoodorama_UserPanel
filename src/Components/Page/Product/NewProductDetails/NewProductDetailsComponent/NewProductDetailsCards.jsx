@@ -25,7 +25,6 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import { Link, useParams } from "react-router-dom";
 import AddToCartPopUp from "../../AddToCartPopUp/AddToCartPopUp";
-// import logoiamge from '../../../../../../public/image/logo.png'
 import { WhisList } from '../../../../Component/Whishlist/WhisList'
 const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, quentity, setquentity, dynamicWeight, setdynamicWeight }) => {
 
@@ -319,7 +318,9 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                                             event.onerror = null
 
                                         }}
-                                        src={Boolean(displaypic) ? displaypic : Product?.images[0]?.image} />
+                                        src={Boolean(displaypic) ? displaypic : Product?.images[0]?.image}
+                                        alt={Product?.Product_Name} 
+                                        title={Product?.Product_Name}/>
 
                                 </div>
                                 {
@@ -600,7 +601,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
 
                     {startload && <div className="loader_container">
                         <span className="newloader shine">
-                            <img src="https://i.ibb.co/KG0yQcM/logo.png" />
+                            <img src="/image/weedx.io logo.png" alt="weedx.io logo" />
                         </span>
                     </div>
                     }

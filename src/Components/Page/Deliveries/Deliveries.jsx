@@ -133,7 +133,7 @@ const Deliveries = () => {
                                     :
                                     <Wronglocation title={'No deliveries available'} description={`Delivery service isn't available at your location. Would you like to try a different address ?`} />)
                                 : <div className="loader_container">
-                                    <span className="newloader shine"><img src='/image/logo.png' alt='image' /></span>
+                                    <span className="newloader shine"><img src='/image/weedx.io logo.png' alt='weedx.io logo' /></span>
                                 </div>
 
                         }

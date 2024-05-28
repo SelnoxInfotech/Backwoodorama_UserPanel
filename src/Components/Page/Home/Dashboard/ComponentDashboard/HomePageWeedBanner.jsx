@@ -34,7 +34,7 @@ const HomePageWeedBanner=()=>{
         
           disableOnInteraction: false,
         }}  modules={[Autoplay]}>
-            {data?.map((ele, index) => {
+            {data?.reverse()?.map((ele, index) => {
                 return (
                     <SwiperSlide key={index}>
               
@@ -62,7 +62,7 @@ const HomePageWeedBanner=()=>{
           
           disableOnInteraction: false,
         }}  modules={[Autoplay]}>
-            {data?.map((ele, index) => {
+            {data?.reverse()?.map((ele, index) => {
                 return (
                     <SwiperSlide key={index}>
                     <div className='col-12 homePageBanner_container'>

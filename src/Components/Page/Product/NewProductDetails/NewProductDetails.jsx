@@ -150,12 +150,7 @@ const NewProductDetails = () => {
     formdata.append('Title', GetProductReview.Title)
     formdata.append('comment', GetProductReview.comment)
 
-    // const Review = {
-    //   product: Product.id,
-    //   rating: GetProductReview.value,
-    //   Title: GetProductReview.Title,
-    //   comment: GetProductReview.comment
-    // }
+ 
     setReviewloading(true)
     Product_Add_Review(formdata).then((res) => {
       SetGetProductReview({ ...GetProductReview, 'popup': false })
@@ -229,19 +224,16 @@ const NewProductDetails = () => {
     }
   }, [copyed])
 
-  let path = useLocation()?.pathname
+  const location = useLocation()
   if (!StoreProduct.length) {
     return <p>Loading....</p>
   }
 
-
-
-
   return (
     <div className="container-fluid">
-      {Object.keys(Product).length !== 0 && <ProductDetailsSeo Productname={Product.Product_Name} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={path} ></ProductDetailsSeo>
+      {Object.keys(Product).length !== 0 && <ProductDetailsSeo Productname={Product.Product_Name} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={location.pathname} ></ProductDetailsSeo>
       }
-      <span onClick={() => navigate(-1)} className="BackPageBtn"> <AiOutlineLeft size={22} /> Back to products </span>
+      <span onClick={() => {navigate(location?.state !== null ? (location?.state?.prevuisurl !== '/products' ? location?.state?.prevuisurl : '/products'): '/products')}} className="BackPageBtn"> <AiOutlineLeft size={22} /> Back to products </span>
       <NewProductDetailsCards dynamicWeight={dynamicWeight} setdynamicWeight={setdynamicWeight} quentity={quentity} setquentity={setquentity} Product={Product} DiscountedValue={discount} Price={Price} SetPrice={SetPrice} />
       <div className="offerlist">
         <h2 className="section_main_title">Offers</h2>

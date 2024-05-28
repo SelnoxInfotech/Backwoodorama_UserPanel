@@ -272,7 +272,7 @@ const Allblogs = () => {
             : <DeliveryItemsCardSkeleton></DeliveryItemsCardSkeleton>
           }
           { 
-            loader && <div className="loader_container"> <span className="newloader shine"><img src='/image/logo.png' alt='image' /></span> </div>
+            loader && <div className="loader_container"> <span className="newloader shine"><img src='/image/weedx.io logo.png' alt='weedx.io logo' /></span> </div>
           }
 
       </div>

@@ -3,7 +3,7 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import Box from "@mui/material/Box";
 import { BsStar, BsStarFill } from "react-icons/bs";
 import useStyles from "../../../Style";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import _ from "lodash";
 import PreCheckout from "./PreCheckout/PreCheckout";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -19,6 +19,7 @@ import { WhisList } from "../../Component/Whishlist/WhisList";
 const ProductList = ({ arr }) => {
   const cookies = new Cookies();
   const Navigate = useNavigate();
+  const location = useLocation()
   const [CartClean, SetCartClean] = React.useState(false);
   const [showdata, setShowdata] = React.useState([]);
   const token_data = cookies.get("User_Token_access");
@@ -286,10 +287,16 @@ const ProductList = ({ arr }) => {
                                 )}
                                 </IconButton>
                             </span>
-                            <div className="prod_cat_cont" onClick={() =>{Navigate(`/products/${modifystr(ele.category_name)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.Product_Name)}/${ele.id}`)}}>
+                            <div className="prod_cat_cont" onClick={() =>{Navigate(`/products/${modifystr(ele.category_name)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.Product_Name)}/${ele.id}`,  {
+    state: {
+      prevuisurl: location.pathname,
+    }
+  })}}>
                             
                                 <div className="col-12 p-sm-2 p-0 prod_cat_img position-relative">
-                                  <Link to={`/products/${modifystr(ele.category_name)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.Product_Name)}/${ele.id}`}>
+                                  <Link to={`/products/${modifystr(ele.category_name)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.Product_Name)}/${ele.id}`} state={{
+                                                 prevuisurl: location.pathname,
+                                                }}>
                                     <LazyLoadImage
                                         onClick={() =>{Navigate(`/products/${modifystr(ele.category_name)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.Product_Name)}/${ele.id}`)}}
                                         className="product_search_result_image"
@@ -299,6 +306,7 @@ const ProductList = ({ arr }) => {
                                         }}
                                         src={`${ele?.images[0]?.image}`}
                                         alt={ele.Product_Name}
+                                        title={ele.Product_Name}
                                     />
                                     </Link>
                             
@@ -327,7 +335,9 @@ const ProductList = ({ arr }) => {
                                 </div>
                             
                             </div>
-                            <Link to={`/products/${modifystr(ele.category_name)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.Product_Name)}/${ele.id}`}>
+                            <Link to={`/products/${modifystr(ele.category_name)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.Product_Name)}/${ele.id}`} state={{
+                                                 prevuisurl: location.pathname,
+                                                }}>
                                   
                             <div className="product_cat_allProduct" >
                                 <div className="col-12  prod_para_name"  style={{ marginBottom: "" }}>
@@ -465,7 +475,7 @@ const ProductList = ({ arr }) => {
           </React.Fragment>
         ) : (
           <div className="loader_container">
-                    <span className="newloader shine"><img src='/image/logo.png' alt='image' /></span>
+                    <span className="newloader shine"><img src='/image/weedx.io logo.png' alt='weedx.io logo' /></span>
           </div>
         )
       ) : (

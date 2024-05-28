@@ -107,13 +107,6 @@ const Navbar = () => {
   
   const navigate = useNavigate()
 
-  // const ViewProfiles = () => {
-  //   navigate("/profile")
-  //   SetDropDownState((DropDownState) => {
-  //     return !DropDownState;
-  //   })
-  // }
-
   return (
     <React.Fragment>
       <div className='container p-0'>
@@ -126,7 +119,7 @@ const Navbar = () => {
                   justifyContent="start"
                 >
                   <span >
-                    <Link to="/"><img className='navbar_logo_image' alt='WeedX.io' src={"/image/G11.png"} /></Link>
+                    <Link to="/"><img className='navbar_logo_image' alt='WeedX.io logo' src={"/image/weedx.io logo.png"} /></Link>
                   </span>
 
                 </Grid>
@@ -144,7 +137,7 @@ const Navbar = () => {
               <SearchBar path={Location.pathname}/>
               :
               <span className='mobileNavLogo' >
-              <Link to="/"><LazyLoadImage className='navbar_logo_image' alt="WeedX.io" src={'/image/G11.png'} /></Link>
+              <Link to="/"><LazyLoadImage className='navbar_logo_image' alt="WeedX.io logo" src={'/image/weedx.io logo.png'} /></Link>
             </span>
             }
             </Grid>
