@@ -168,8 +168,6 @@ const Blogs = () => {
     if (!Object.keys(News).length) {
         return <p>Loading...</p>
     }
-
-console.log(News)
     return (
         <React.Fragment>
             <SingleNewsSeo Title={News?.Meta_title} Description={News?.Meta_Description} location={Location.pathname}></SingleNewsSeo>
