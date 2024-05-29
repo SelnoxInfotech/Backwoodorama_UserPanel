@@ -176,7 +176,7 @@ const Blogs = () => {
                     <div className="col-12 w-100 row align-items-center justify-content-between blog_searchBar_container px-0">
                         <section className=" col-2 backButton_section">
                             <div className="col-12 backBtnCol_searchBar_height">
-                                <span onClick={() => { Location.pathname.split('/')[1] === "cannabis-news"? navigate( Location.pathname.split('/')[1] === "cannabis-news" ?'/cannabis-news': '/blogs') : navigate('/blogs') }} style={{ marginLeft: "-4px", cursor: 'pointer' }}> <IoChevronBack color="#000000" size={20} /></span><span onClick={() => { Location.pathname.split('/')[1] === "cannabis-news"? navigate( Location.pathname.split('/')[1] === "cannabis-news" ?'/cannabis-news': '/blogs') : navigate('/blogs') }} style={{ cursor: 'pointer' }} className="blogBackSpan">Back</span>
+                                <span onClick={() => { Location.pathname.split('/')[1] === "cannabis-news" ? navigate(Location.pathname.split('/')[1] === "cannabis-news" ? '/cannabis-news' : '/blogs') : navigate('/blogs') }} style={{ marginLeft: "-4px", cursor: 'pointer' }}> <IoChevronBack color="#000000" size={20} /></span><span onClick={() => { Location.pathname.split('/')[1] === "cannabis-news" ? navigate(Location.pathname.split('/')[1] === "cannabis-news" ? '/cannabis-news' : '/blogs') : navigate('/blogs') }} style={{ cursor: 'pointer' }} className="blogBackSpan">Back</span>
 
                             </div>
                         </section>
@@ -184,22 +184,19 @@ const Blogs = () => {
 
                     <div className="p-0 blogEditorContainer">
                         <div className=" UserNmae_Blog">
-                           
+
                             <div className="UserNmae">
-                                
+
                             </div>
                         </div>
-                           <section className="blog_Image" style={{ backgroundImage: `url(${News.Image})` }} >
+                        <section className="blog_Image" style={{ backgroundImage: `url(${News.Image})` }} >
                             <div className="overlay_blog"></div>
                             <h1 className="blog_Title ">{News?.Title}</h1>
-                            </section>
+                        </section>
                         <div className="blog_text_container"  >
                             <div className="blogEditorPaddings ">
 
-                                <div>
-                                    <span >
-                                        <div className="linkTaginsideEditer" dangerouslySetInnerHTML={{ __html: News?.Description }} /></span>
-                                </div>
+                                <div className="linkTaginsideEditer" dangerouslySetInnerHTML={{ __html: News?.Description }} />
                             </div>
                         </div>
                         <div className="blog_text_container" >
