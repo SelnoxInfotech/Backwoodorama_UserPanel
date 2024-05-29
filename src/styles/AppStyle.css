@@ -5596,6 +5596,10 @@ padding: 5px 0;
 .blogEditorPaddings ul li{
   margin-bottom: 10px;
 }
+.linkTaginsideEditer img{
+  max-width: 100% !important;
+  height: auto !important;
+}
 .linkTaginsideEditer table  {
   border-collapse: separate !important ;
 }
