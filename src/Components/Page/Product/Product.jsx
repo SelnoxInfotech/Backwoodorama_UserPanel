@@ -23,6 +23,8 @@ const Product = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
   
+ console.log(params)
+
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
         str = str.trim().replaceAll(' ', "-");
@@ -108,6 +110,7 @@ const Product = () => {
                         SetLoading(false)
                         f(response[0]?.category_name)
                         SetProduct(response)
+                        console.log()
                         SubCategoryApi(response[0]?.category_id).then((response) => {
                             setsubcategories(response.data.data)
                         }).catch((error) => {
