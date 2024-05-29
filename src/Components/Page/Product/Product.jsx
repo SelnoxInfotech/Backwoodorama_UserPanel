@@ -110,7 +110,6 @@ const Product = () => {
                         SetLoading(false)
                         f(response[0]?.category_name)
                         SetProduct(response)
-                        console.log()
                         SubCategoryApi(response[0]?.category_id).then((response) => {
                             setsubcategories(response.data.data)
                         }).catch((error) => {
