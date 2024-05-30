@@ -1,5 +1,10 @@
 // import DeliveryPickupMenu from "./DeliveriesComponent/DeliveryPickupMenu"
 import DeliveryMenuBar from "./DeliveriesComponent/DeliveryMenuBar/DeliveryMenuBar"
+import Accordion from '@mui/material/Accordion';
+import AccordionActions from '@mui/material/AccordionActions';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Createcontext from "../../../Hooks/Context"
 import React from "react"
 import { useLocation } from "react-router-dom"
@@ -19,7 +24,7 @@ const Deliveries = () => {
     const Location = useLocation()
     const [Deliverie, SetDelivery] = React.useState([])
     const [loader, setloader] = React.useState(false);
-
+    const [contentdata , setcontentdata] = React.useState('')
     React.useEffect(() => {
         const object = { City: state.City.replace(/-/g, " "), State: state.State.replace(/-/g, " "), Country: state.Country.replace(/-/g, " ") }
         GetAllDelivery(object).then((response) => {
@@ -89,12 +94,23 @@ const Deliveries = () => {
         // Cleanup function to clear the timeout if the component unmounts or Location changes
         return () => clearTimeout(timeoutId);
     }, [Location]);
+    React.useEffect(()=>{
+        axios.post(`https://api.cannabaze.com/AdminPanel/Get-Webpagedescriptionbyid/29`,
+        {
 
+        },
+        {
+            headers: { Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4MTUzMzc0LCJpYXQiOjE3MTcwNDkzNzQsImp0aSI6ImMxNmI1NDVjMzUyYjQ2MzA4MzBiMjE3OWM2NzIzZjgwIiwidXNlcl9pZCI6Mn0.ByGRSGJOfigqW7KFV0xqwQ97uq0K3gMZ-gL9194YaAE            ` }
+        },
+        ).then((res)=>{
+            setcontentdata(res.data)
+        })
+    },[])
     return (
         <React.Fragment>
             {/* {xml()} */}
-            <div className="container-fluid">
-                <div className="row  deliveries_centers">
+               <div className="container-fluid">
+                 <div className="row  deliveries_centers">
                     <div className="headerBoxdescription">
                         <h1 className="m-0 lh-1">
                             <span className="dispensories_name">Weed Delivery In </span>
@@ -138,10 +154,31 @@ const Deliveries = () => {
 
                         }
                     </div>
-
+                    {/* <div className="col-12 webContent">
+                           <h3 className="section_main_title">{contentdata?.Title}</h3>
+                           <div dangerouslySetInnerHTML={{ __html: contentdata?.Content }} />
+                    </div>
+                     { contentdata !== '' && <><h3 className="section_main_title">FAQs</h3>
+                    <div className="row">
+                        {
+                            contentdata?.Faq?.map((item)=>{
+                            return <div className="col-lg-6 webContent"> <Accordion>
+                            <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1-content"
+                            id="panel1-header"
+                            >
+                            <h2 className="">{item.title}</h2>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                              <p>{item.answer}</p>
+                            </AccordionDetails>
+                            </Accordion></div>
+                            })
+                        }
+                       
+                    </div></>} */}
                 </div>
-
-
             </div>
         </React.Fragment>
     )

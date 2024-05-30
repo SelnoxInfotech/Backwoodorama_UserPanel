@@ -90,8 +90,34 @@ const SignupWithEmail = () => {
                             </div>
                         </div>
                         <form onSubmit={method.handleSubmit(Submit)}>
+                           
                             <div className='row signup_margins_top'>
-                                <label>Password</label>
+                                <label>Enter your username</label>
+
+                                <div className='col-lg-12 signup_margins_top_textfield '>
+                                    <TextField
+                                        placeholder='Enter your Username'
+                                        variant="outlined"
+                                        fullWidth
+                                        type="text"
+                                        name='Name'
+                                        size='small'
+                                        className={`${classes.textFieldFocusBorderColor}`}
+                                        inputRef={method.register({
+                                            required: "Name  is required*.",
+                                            minLength: {
+                                                value: 8,
+                                                message: 'Name must be more than 8 characters'
+                                            }
+                                        },
+                                        )}
+                                        helperText={method.errors?.Name?.message || dulicate?.username}
+                                        error={Boolean(method.errors?.Name) || Boolean(dulicate?.username)}
+                                    />
+                                </div>
+                            </div>
+                            <div className='row signup_margins_top'>
+                                <label>Password using minimum 8 character</label>
 
                                 <div className='col-lg-12 signup_margins_top_textfield '>
                                     <TextField
@@ -132,31 +158,6 @@ const SignupWithEmail = () => {
                                         )}
                                         helperText={method.errors?.password?.message}
                                         error={Boolean(method.errors?.password)}
-                                    />
-                                </div>
-                            </div>
-                            <div className='row signup_margins_top'>
-                                <label>Enter your username 8 character</label>
-
-                                <div className='col-lg-12 signup_margins_top_textfield '>
-                                    <TextField
-                                        placeholder='Enter your username 8 character'
-                                        variant="outlined"
-                                        fullWidth
-                                        type="text"
-                                        name='Name'
-                                        size='small'
-                                        className={`${classes.textFieldFocusBorderColor}`}
-                                        inputRef={method.register({
-                                            required: "Name  is required*.",
-                                            minLength: {
-                                                value: 8,
-                                                message: 'Name must be more than 8 characters'
-                                            }
-                                        },
-                                        )}
-                                        helperText={method.errors?.Name?.message || dulicate?.username}
-                                        error={Boolean(method.errors?.Name) || Boolean(dulicate?.username)}
                                     />
                                 </div>
                             </div>

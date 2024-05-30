@@ -2059,6 +2059,126 @@ const Content = [
             {
                 Country: 'USA',
                 id: 25,
+                name: "New York",
+                content: [
+                    {
+                        title: "New York Has Legalized Cannabis",
+                        content:<div> 
+                            <p>{`After years of fruitless and delayed efforts, New York has legalised recreational marijuana. According to Cannabis Law New York, residents can lawfully possess up to three ounces of cannabis for recreational use or 24 grams of cannabis, such as oils produced from the cannabis plant.`}
+                        </p>
+                        <p>{`According to New York Times people over the age of 21 can use, smoke, eat, or consume cannabis products, and they can also give them to others of the same age. People will be allowed to keep up to five pounds of cannabis at home, but they must take "reasonable steps" to keep it secure· Possessing more than the legal amount of cannabis and selling the substance without a licence carry penalties ranging from a simple violation to a crime·`}</p>
+                        </div>
+                    },
+                    {
+                        title: "Legal Adult Use and Purchase in New York City",
+                        content: <div>
+                            <p>Any person cannot sell cannabis without a retail license, which can be obtained by anyone interested· Cannabis Law New York, on the other hand, has proclaimed cannabis lawful for individuals 21 and older, and it is permitted in private homes, smoking areas, and hookah clubs·</p>
+                            <p>It is prohibited to smoke or vape cannabis in a car at any time, including when parked· It is not permitted in restaurants, parks, or event venues, as well as cannabis-related businesses· If caught smoking or vaping cannabis in an illegal environment, you may face civil penalties and summons·</p>
+                        </div>
+                    },
+                    {
+                        title: "Medical Cannabis Program:",
+                        content: <div>
+                            <p>{`Some of the existing medical New York marijuana laws initiatives in New York have been improved to accommodate anyone who may require the medication for therapy· The program's purpose is to increase the number of individuals who can use MMJ as a treatment and increase the number of cannabis suppliers, which helps patients to pay acceptable costs· As a result of the developments more and more patients may require cannabis treatments that are safe, efficient, and cost-effective in terms of getting quality lives·`}</p>
+                            <ol>
+                                <li>Improving the Accessibility of Medical Marijuana Products</li>
+                                <p>The range of medicinal cannabis products has grown substantially to meet patients' diverse needs· Patients can now get tinctures, tablets, sweets, topicals, and vape cartridges in a variety of different forms· Customers may now receive prescriptions easily due to the state's increased number of pharmacies</p>
+                                <li> Reduced Costs</li>
+                                <p>As a result of the financial challenges that many patients confront, the initiative has taken steps such as lowering the cost of medicinal cannabis products and providing specific discounts to low-income individuals· These projects aim to reduce the overall cost of medicinal marijuana while boosting accessibility so that everyone can benefit from it·</p>
+                                <li> Increase of Qualifying Conditions </li>
+                                <p>The policy covers chronic pain, PTSD, and opioid use disorder, as well as highly disabling and severe illnesses, along with the extension will allow more individuals to benefit from marijuana's cross-therapeutic benefits.</p>
+                                
+                              
+                             
+                            </ol>
+                        </div>
+
+                    },
+                    {
+                        title: "Marijuana Regulation and Taxation Act:",
+                        content: <div>
+                            <p>{`On March 31, 2021, New York State Governor Andrew Cuomo signed the Marijuana Regulations and Taxation Act (MRTA), making recreational marijuana use legal for adults over the age of 21. The key terms or impacts of the MRTA are as follows:`}</p>
+                           <h2>Regulation:</h2>
+                           <ul>
+                            <li>The Office of Cannabis Management (OCM) oversees the state's marijuana industry, including medical, adult-use, or cannabis production.</li>
+                            <li>The OCM is responsible for licencing, regulation, and enforcement·</li>
+                           </ul>
+                           <h2>Taxation:</h2>
+                           <ul>
+                            <li>Cannabis items are subject to a 13% sales tax, which comprises a 9% state and 4% local Cannabis tax revenue New York.</li>
+                            <li>There is an additional tax dependent on the potency of the substance, with greater taxes applied to more potent products·</li>
+                           </ul>
+                           <h2>Public Health and Safety:</h2>
+                           <ul>
+                            <li>Strict standards for product safety, quality control, and child-resistant packaging</li>
+                            <li>Limits on advertising to protect minors from being targeted·</li>
+                           </ul>
+                        </div>
+                    },
+                    {
+                        title: "Benefits Associated with Using Cannabis:",
+                        content: <div>
+                            <p>{`Cannabis use has been thoroughly researched, and some possible benefits have been identified, particularly in the medical area· Here are some of the primary benefits:`}</p>
+                                <ul>
+                                    <li>   <h2>{`Help Reduce Chronic Pain`}</h2>  </li>
+                                    <p>{`They act as CB1 receptors in the brain to relieve pain, particularly chronic pain and inflammation·`}</p>
+                                    <li>   <h2>{`Reducing Inflammation`}</h2>  </li>
+                                    <p>{`Cannabis has anti-inflammatory properties and hence has the possibility to help with inflammation management in the body· CBD has a significant impact on inflammation reduction and is beneficial in pain alleviation when used in chronic pain management· It is for this reason that one should consider taking medical cannabis instead of dangerous pills to reduce pain and swelling, with all the benefits coming from the natural product known as marijuana·`}</p>
+                                    <li>   <h2>{`Cutting Down Cancer Odds`}</h2>  </li>
+                                    <p>{`Furthermore, cannabis-infused medications have been demonstrated to effectively treat cancer and pain· Cannabinoids have been demonstrated to lessen chemotherapy-induced nausea and vomiting, demonstrating marijuana oil's benefits for cancer patients`}</p>
+                                    <li>   <h2>{`Reducing Pain During Menstruation`}</h2>  </li>
+                                    <p>{`Cannabis sativa seed oil may help to alleviate or at least lessen some of the symptoms and discomforts connected with menstruation, such as cramping and mood changes· Some of the compounds found in marijuana, known as cannabinoids, have the ability to perform functions of alleviating inflammation and pain; this makes them useful in improving menstrual cycle and health·`}</p>
+                                    <li>   <h2>{`Improves Heart Health`}</h2>  </li>
+                                    <p>{`Marijuana has been shown in studies to improve cardiovascular health and reduce the risk of heart disease and stroke· According to research, cannabis may improve cardiac efficiency and reduce blood pressure·`}</p>
+                                   
+                                </ul>
+                        </div>
+                    },
+                    {
+                        title: "Public Health Risks:",
+                        content: <div>
+                          <p>Cannabis is a drug with numerous names, including marijuana, pot, and weed· This has resulted in several arguments regarding the social, health, and economic ramifications· As the form of Cannabis legalization New York or in different areas and regions, It will be critical to more fully identify the public health risks associated with the chemical.</p>
+                          <ul>
+                                    <li>   <h2>{`Mental Health`}</h2>  </li>
+                                    <p>{`Various mental health issues have been associated with cannabis use· The chances of developing some psychiatric disorders such as schizophrenia, anxiety, and depression are increased by heavy and continuous usage, particularly among young people· Additionally, it may increase symptoms for those who are already ill·`}</p>
+                                    <li>   <h2>{`Road Safety`}</h2>  </li>
+                                    <p>{`Motor coordination, reaction time, and judgement are impaired by the consumption of marijuana, increasing risk factors for road crashes· Moreover, driving under the influence of marijuana is a major public safety issue due to its severe impairment on safe vehicle operation·`}</p>
+                                    <li>   <h2>{`Societal Costs`}</h2>  </li>
+                                    <p>{`This involves higher healthcare costs resulting from marijuana use, productivity loss as well as law enforcement resources· To address the hazards of marijuana-related illnesses, significant investment in public health programmes, education, and treatment activities is required·`}</p>
+                                  
+                                   
+                                </ul>
+                        </div>
+                    },
+                    {
+                        title: "Conclusion:",
+                        content: <div>
+                            <p>In March 2021, New York State legalised recreational cannabis for adults aged 21 and above, in a historic decision  designed at addressing social justice issues while also creating economic benefits· Adults are permitted to possess up to three ounces of cannabis and cultivate a limited number of plants at home· It also includes processes for expunging earlier marijuana-related convictions, which have disproportionately affected communities of colour· The Act establishes a regulated market that is expected to generate jobs and significant tax income for the state· However, obstacles persist, including ensuring public safety, avoiding underage usage, and controlling potential public health consequences· Continuous education and strict regulation will be essential for the effective implementation of cannabis legalisation in New York.</p>
+                        </div>
+                    },
+                    {
+                        title: "Frequently Asked Questions",
+                        content: <div>
+                            <ol>
+                                <li>Which limits are breached by New Yorkers for unlawful Marijuana possession?</li>
+                                <p>More than three ounces of marijuana or twenty-four grams of concentrated cannabis is illegal· The new law allows for the possession of smaller amounts·</p>
+                                <li>Are medical marijuana products permitted outside New York state?</li>
+                                <p>Failure to comply with any current or future laws, rules, or New York State cannabis regulations established by the Cannabis Control Board may result in disciplinary actions, including revocation of registration· Medical marijuana products and plants intended for personal cultivation will not be allowed to cross state boundaries beyond New York·.</p>
+                                <li>What are the cannabis regulations and restrictions in New York?</li>
+                                <p>Cannabis Law New York allows those over 21 to legally consume three ounces or less of marijuana and up to 24 gram for personal use outside the home· Your home can hold up to five pounds of cannabis flower.</p>
+                                <li> Are cigarettes available in the state of New York?</li>
+                                <p>Tobacco and electronic cigarettes are not permitted for those under the age of 21· Furthermore, no one under the age of 18 may sell tobacco or sit in a shop·</p>
+                                <li> Can you use marijuana and drive in New York?</li>
+                                <p>Using Cannabis: It is prohibited for drivers and passengers to consume or have open containers of cannabis in a car· Driving while under the influence of cannabis can result in DUI charges.</p>
+                            </ol>
+                        </div>
+                    },
+
+                ]
+            },
+            {
+                Country: 'USA',
+                id: 26,
                 name: "Washington",
                 content: [
                     {
@@ -2133,7 +2253,7 @@ const Content = [
             },
             {
                 Country: 'USA',
-                id: 26,
+                id: 27,
                 name: "West Virginia ",
                 content: [
                     {
@@ -2225,7 +2345,7 @@ const Content = [
             },
             {
                 Country: 'USA',
-                id: 27,
+                id: 28,
                 name: "Wisconsin",
                 content: [
                     {
@@ -2303,7 +2423,7 @@ const Content = [
             },
             {
                 Country: 'USA',
-                id: 28,
+                id: 29,
                 name: "Wyoming",
                 content: [
                     {

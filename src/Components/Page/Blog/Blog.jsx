@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import { IoChevronBack } from "react-icons/io5"
-import SearchBar from '@mkyy/mui-search-bar';
 import { IoIosArrowDown } from "react-icons/io"
 import { IoIosArrowUp } from "react-icons/io"
 import { IconButton } from "@material-ui/core";
@@ -19,6 +18,7 @@ import { IoEyeSharp } from "react-icons/io5";
 import { AiFillHeart } from "react-icons/ai";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import BlogPaginate from "./BlogComponent/BlogPaginate.jsx";
+import BlogSkeleton from '../../Component/Skeleton/BlogSkeleton.js'
 import { BsThreeDotsVertical } from "react-icons/bs"
 import Createcontext from "../../../Hooks/Context";
 import { BlogLike, Get_Comment, Post_BlogLike } from "../../../Api/Api"
@@ -26,7 +26,7 @@ import _ from "lodash"
 import Cookies from 'universal-cookie';
 import { RWebShare } from "react-web-share";
 import { WhisList } from "../../Component/Whishlist/WhisList";
-import { useLocation, Link, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { SingleNewsSeo } from "../../Component/ScoPage/NewsSeo.jsx";
 const Blogs = () => {
@@ -166,7 +166,7 @@ const Blogs = () => {
             })
     }
     if (!Object.keys(News).length) {
-        return <p>Loading...</p>
+        return <BlogSkeleton/>
     }
     return (
         <React.Fragment>

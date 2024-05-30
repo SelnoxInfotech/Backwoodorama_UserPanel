@@ -617,6 +617,12 @@ const useStyles = makeStyles({
     fontSize: "60px",
     color: "gray"
   },
+  mainimage:{
+      height:'280px !important'
+  },
+  mainheadingskeleton:{
+    fontSize:'28px'
+  },
   homePageStarIcons: {
     "&.MuiRating-root": {
      
