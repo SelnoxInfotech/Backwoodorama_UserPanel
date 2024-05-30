@@ -23,7 +23,7 @@ const Product = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
   
- console.log(params)
+//  console.log(params)
 
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
@@ -98,7 +98,7 @@ const Product = () => {
            
         }
         else {
-            if (params.categoryname) {
+            if (params?.categoryname) {
                 const object = {
                     City: state.City.replace(/-/g, " "),
                     Country: state.Country.replace(/-/g, " "),
@@ -110,9 +110,10 @@ const Product = () => {
                         SetLoading(false)
                         f(response[0]?.category_name)
                         SetProduct(response)
-                        SubCategoryApi(response[0]?.category_id).then((response) => {
-                            setsubcategories(response.data.data)
+                        SubCategoryApibyname(params.categoryname.toUpperCase()).then((response) => {
+                            setsubcategories(response.data)
                         }).catch((error) => {
+                            setsubcategories([])
                             console.trace(error)
                         })
                     }
