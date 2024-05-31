@@ -3,8 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from "styled-components";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-const LearnBanner = () => {
+const LearnBanner = ({heading}) => {
     const LearnSlider = styled(Slider)`
 
     .slick-arrow{
@@ -75,22 +74,16 @@ const LearnBanner = () => {
             }
         ]
     };
-    const LearnBannerArray = [{ imgUrl:" /image/learnBanner.webp" }]
-
+   
     return (
         <div className='col-12 '>
             <LearnSlider {...settings}>
-                {LearnBannerArray?.map((items, index) => {
-                    return (
-                        <div className='learn_banner_header' key={index}>
+                        <div className='learn_banner_header'>
                            
                             <div className='text_on_Learn_banner'>
-                                <h2 className='learn_banner_text'>Learn</h2>
+                                <h2 className='learn_banner_text'>{heading}</h2>
                             </div>
                         </div>
-                    )
-                })}
-
             </LearnSlider>
         </div>
     )

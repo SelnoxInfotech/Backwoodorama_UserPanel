@@ -7,7 +7,7 @@ const Learnproduct = () => {
         <div className="container-fluid">
             <ProductSeo></ProductSeo>
             <div className="row px-2">
-                <LearnBanner />
+                <LearnBanner heading="Learn" />
             </div>
             <div className="learn_product_card_wrapper">
                 <Link to='/learn/product/1'>

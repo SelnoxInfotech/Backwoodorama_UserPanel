@@ -90,13 +90,7 @@ export default function DashBoardLink({ state }) {
                 >
                   <li>Deliveries</li>
                 </Link>
-                {/* <Link
-                  to="/brands"
-                  id={`${current_route === "/brands" ? "Active" : ""}`}
-                >
-                  {" "}
-                  <li>Brand</li>
-                </Link> */}
+               
                 <Link
                   onClick={scrollToTop}
                   to="/products"
@@ -104,7 +98,7 @@ export default function DashBoardLink({ state }) {
                 >
                   <li>Product</li>
                 </Link>
-                {/* <Link to="/Deals"  id={`${(current_route ===  "/Deals" ? "Active" : "")}`}><li>Deals</li></Link> */}
+               
                 <Link
                   to="/deals"
                   id={`${current_route === "/deals" ? "Active" : ""}`}
@@ -115,54 +109,13 @@ export default function DashBoardLink({ state }) {
                   to="/learn/laws-and-regulation"
                   id={`${current_route === "/learn/laws-and-regulation" ? "Active" : ""}`}
                 >
-                  <li>Learn</li>
+                  <li>Law</li>
                 </Link>
-                {/* <Link to="/strain" id={`${(current_route === "/strain" ? "Active" : "")}`}><li>Strain</li></Link> */}
-                {/* <Link to="/Strain" id={`${(current_route === "/Strain" ? "Active" : "")}`}><li>Strain</li></Link> */}
+               
               </ul>
             </div>
           </Grid>
-          {/* <Grid
-            xs={6}
-            md={2}
-            xl={2}
-            display={{ xs: "none", md: "block", lg: "block" }}
-          >
-            <div className=" col-12 Login_Sigup_button Login_Sigup_logo ">
-              <a
-                target="_blank"
-                href={"https://www.facebook.com/profile.php?id=61550742531174"}
-              >
-                <ImFacebook color={"#39569c"} size={25}></ImFacebook>
-              </a>
-              <a target="_blank" href={"https://www.instagram.com/weedx_io"}>
-                {" "}
-                <RiInstagramLine
-                  className="InstaColor"
-                  size={25}
-                ></RiInstagramLine>
-              </a>
-              <a
-                target="_blank"
-                href={"https://www.linkedin.com/company/weedx-io/"}
-              >
-                {" "}
-                <BsLinkedin size={22} color="#0072b1"></BsLinkedin>
-              </a>
-              <a target="_blank" href={"https://twitter.com/Weedx_io"}>
-                <span className="x_icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="1em"
-                    viewBox="0 0 512 512"
-                  >
-                    <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
-                  </svg>
-                </span>
-              </a>
-            
-            </div>
-          </Grid> */}
+         
           <Grid
             xs={6}
             md={3}

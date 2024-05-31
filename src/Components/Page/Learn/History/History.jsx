@@ -7,7 +7,7 @@ const History = () => {
         <div className="container-fluid">
           <HistorySeo></HistorySeo>
             <div className="row px-2">
-                <LearnBanner />
+                <LearnBanner heading="History" />
                 <HistoryEditorData />
             </div>
            <div className="history_blogs">

@@ -8,7 +8,7 @@ const Laws = () => {
       <Law location={useLocation().pathname}></Law>
       <div className="row ">
         <h1 className="canabisLawMainHeadings">Cannabis Law in USA, Canada & Internationals</h1>
-        <LearnBanner />
+        <LearnBanner  heading="Law"/>
         <LawsOptions />
       </div>
     
