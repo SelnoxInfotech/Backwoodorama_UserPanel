@@ -80,7 +80,7 @@ function StoreDetails({ Despen, locationStore  }) {
             if (tab === undefined) {
 
                 SetMetaTag({
-                    ...MetaTag, title: `Weed Delivery in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name}| Weedx.io`,
+                    ...MetaTag, title: `Weed Delivery in ${Boolean(Despen[0]?.City) ?Despen[0]?.City :  ''}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name}| Weedx.io`,
                     discription: `Shop your favorite cannabis products from ${Despen[0]?.Store_Name} Weed delivery ${Despen[0]?.City}, ${Despen[0]?.State}. High Quality marijuana products near you. Get the best deals and offers now. 
                     `
                 })  
