@@ -5640,14 +5640,14 @@ padding: 5px 0;
   margin-bottom: 40px;
 }
 .webContent h1{
- font-size: 18px;
+ font-size: 20px;
  font-weight: 700;
  line-height: 2;
  font-family: 'Inter', sans-serif;
  margin: 0;
 }
 .webContent h2{
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 600;
   line-height: 1.6;
   font-family: 'Inter', sans-serif;
@@ -5681,7 +5681,7 @@ padding: 5px 0;
   font-family: 'Inter', sans-serif;
   margin: 0;
  }
- .webContent p{
+ .webContent p ,  .webContent li{
   font-size: 14px;
   font-weight: 400;
   line-height: 1.4;

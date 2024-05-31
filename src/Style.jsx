@@ -422,6 +422,7 @@ const useStyles = makeStyles({
       color: "#ffff",
       backgroundColor: "#00b96a",
       border: "2px solid #31B665",
+      transition:"all .3s ease",
     },
   },
   Cencell: {

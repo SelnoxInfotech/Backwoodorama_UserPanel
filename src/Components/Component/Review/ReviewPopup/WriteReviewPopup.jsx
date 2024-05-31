@@ -96,7 +96,9 @@ import CustomAlert from "../../../Component/CustomAlert/CustomAlert";
    },[images])
   return (
     <>
-      <Button className={classes[buttonclass]} variant="outlined" onClick={handleClickOpen}> Write a review </Button>
+     <Box  className={`${classes.loadingBtnTextAndBack}`} >
+       <LoadingButton variant="outlined" onClick={handleClickOpen}> Write a review </LoadingButton>
+      </Box>
       <Dialog
         open={GetProductReview.popup}
         onClose={handleClose}
