@@ -188,7 +188,28 @@ line-height: normal;
   line-height: 2;
 }
 /* end */
-
+.RelatedVerifyBanner_content_box #band_shlebtn{
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .3s ease;
+  color: #6d6d6d;
+  padding-top: 10px;
+}
+.RelatedVerifyBanner_content_box #band_shlebtn:hover{
+  color: black;
+ }
+.band_shlebtn{
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .3s ease;
+  color: #6d6d6d;
+  padding-top: 10px;
+}
+.band_shlebtn:hover{
+ color: black;
+}
 
 /* category */
 
@@ -246,17 +267,7 @@ line-height: normal;
   font-size: 12px;
   text-align: center;
 }
-.band_shlebtn{
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all .3s ease;
-  color: #6d6d6d;
-  padding-top: 10px;
-}
-.band_shlebtn:hover{
- color: black;
-}
+
 .weed_btn p{
   font-size: 12px;
   color: black;

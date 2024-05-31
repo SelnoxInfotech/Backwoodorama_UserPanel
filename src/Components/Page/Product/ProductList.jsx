@@ -32,6 +32,7 @@ const ProductList = ({ arr }) => {
     return initialValue || [];
   });
   const [NewData, SetNewData] = React.useState([]);
+  console.log(arr)
   const Addtocard = async (Event) => {
 
 

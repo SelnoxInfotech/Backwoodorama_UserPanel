@@ -323,75 +323,79 @@ export default function DispensoriesDetails() {
             }
         }
     }
-    if (!Despen.length) {
-        return <p>Loading....</p>
-    }
+   
+    
     return (
-        <div>
-            <p> {(location.pathname.slice(0, 18) === "/weed-dispensaries" || location.pathname.slice(0, 16) === "/weed-deliveries") &&
-                <div style={{ fontSize: '12px' }} > <span style={{ fontSize: '12px', cursor: 'pointer' }} onClick={() => navigationtab(location.pathname.slice(0, 18) === "/weed-dispensaries" ? '/weed-dispensaries' : "/weed-deliveries")}> {location.pathname.slice(0, 18) === "/weed-dispensaries" ? 'weed-dispensaries' : "weed-deliveries"}</span>
-                    {" >"} <span style={{ fontSize: '12px', cursor: 'pointer' }} onClick={() => navigationtab("/weed-deliveries", params.StoreName, id)}> {params.StoreName}</span>
-                {Boolean(params?.tab)   &&  <span> {" > "}{params?.tab}</span> }
-                    </div>
-            }</p>
-            <StoreDetails Despen={Despen} locationStore={location.pathname}></StoreDetails>
-            <div className="container-fluid product_container" >
-                <NewFlavourBanner delBtn={Despen}></NewFlavourBanner>
-                <div className="row">
-                    <div className="col-12 mt-4 "   >
-                        <StoreDetailMenuItem tab={tab} SelectionTab={SelectionTab}></StoreDetailMenuItem>
-                    </div>
-                    {
-                        (tab === 'menu' || tab === undefined) &&
-                        <React.Fragment>
-                            <CategoryProduct Category={category} ShowCategoryProduct={ShowCategoryProduct}> </CategoryProduct>
-                            <div className="col-12 productCat_cont" style={{ display: "contents" }}>
-                                <ProductFilter Store_id={Despen[0]?.id}
-                                    ProductFilterData={ProductFilterData}
-                                    Setarr1={SetDespensariesProductData}
-                                    arr={DespensariesData}
-                                />
-                                <div className="col-12 col-lg-9 col-xxl-10 prod_cat_right_sec">
-                                    <ProductList arr={DespensariesData} />
+        <div>{
+               !Despen.length ?   <div className="loader_container">
+               <span className="newloader shine"><img src='/image/weedx.io logo.png' alt="weedx.io logo" title="weedx.io logo" /></span>
+           </div>: <div>
+                    <p> {(location.pathname.slice(0, 18) === "/weed-dispensaries" || location.pathname.slice(0, 16) === "/weed-deliveries") &&
+                        <div style={{ fontSize: '12px' }} > <span style={{ fontSize: '12px', cursor: 'pointer' }} onClick={() => navigationtab(location.pathname.slice(0, 18) === "/weed-dispensaries" ? '/weed-dispensaries' : "/weed-deliveries")}> {location.pathname.slice(0, 18) === "/weed-dispensaries" ? 'weed-dispensaries' : "weed-deliveries"}</span>
+                            {" >"} <span style={{ fontSize: '12px', cursor: 'pointer' }} onClick={() => navigationtab(location.pathname.slice(0, 18) === "/weed-dispensaries" ? '/weed-dispensaries' : "/weed-deliveries", params.StoreName, id)}> {params.StoreName}</span>
+                        {Boolean(params?.tab)   &&  <span> {" > "}{params?.tab}</span> }
+                            </div>
+                    }</p>
+                    <StoreDetails Despen={Despen} locationStore={location.pathname}></StoreDetails>
+                    <div className="container-fluid product_container" >
+                        <NewFlavourBanner delBtn={Despen}></NewFlavourBanner>
+                        <div className="row">
+                            <div className="col-12 mt-4 "   >
+                                <StoreDetailMenuItem tab={tab} SelectionTab={SelectionTab}></StoreDetailMenuItem>
+                            </div>
+                            {
+                                (tab === 'menu' || tab === undefined) &&
+                                <React.Fragment>
+                                    <CategoryProduct Category={category} ShowCategoryProduct={ShowCategoryProduct}> </CategoryProduct>
+                                    <div className="col-12 productCat_cont" style={{ display: "contents" }}>
+                                        <ProductFilter Store_id={Despen[0]?.id}
+                                            ProductFilterData={ProductFilterData}
+                                            Setarr1={SetDespensariesProductData}
+                                            arr={DespensariesData}
+                                        />
+                                        <div className="col-12 col-lg-9 col-xxl-10 prod_cat_right_sec">
+                                            <ProductList arr={DespensariesData} />
+                                        </div>
+                                    </div>
+                                </React.Fragment>
+                            }
+                            {
+                                tab === 'store-details' && <ComponentStoreDetails storeDetails={Despen}></ComponentStoreDetails>
+                            }
+                            {
+                                tab === 'review' && <Review
+                                    HellFull={HellFull}
+                                    type={`store`}
+                                    reviewtype={reviewtype}
+                                    setReviewtype={setReviewtype}
+                                    delBtn={Despen}
+                                    handleEdit={handleEdit}
+                                    reviewloading={reviewloading}
+                                    handleDelete={handleDelete}
+                                    Rating={Rating}
+                                    onSubmit={onSubmit}
+                                    GetProductReview={GetProductReview}
+                                    SetGetProductReview={SetGetProductReview}
+                                    AllReview={AllReview}
+                                    SetReview={SetReview}></Review>
+                            }
+                            {
+                                tab === 'deals' && <div className="noReview">
+                                    <div className="noreviewicon">
+                                        <div className="iconcircl"><img src={'/image/nodeal.png'} className="nodealsicon" alt="no Deals" title="no Deals" /></div>
+                                    </div>
+                                    <h3 className="noreview_title">Discover More Savings Soon!</h3>
+                                    <p className="noreview_description w-lg-50 ">It looks like there are no active deals at the moment at <Link target="_blank" to={`/weed-dispensaries/${Despen[0]?.Store_Name.toLowerCase().replaceAll(" ", "-")}/${Despen[0]?.id}`}><b>{Despen[0]?.Store_Name}</b></Link>. Don't worry, though – our partnered stores frequently update their promotions. Be sure to check back regularly for exciting discounts and special offers on your favorite products.</p>
+                                    <p className="noreview_description w-lg-50">In the meantime, explore the diverse range of products available at <Link target="_blank" to={`/weed-dispensaries/${Despen[0]?.Store_Name.toLowerCase().replaceAll(" ", "-")}/${Despen[0]?.id}`}><b>{Despen[0]?.Store_Name}</b></Link>. We're constantly working to bring you the best deals, so stay tuned for upcoming promotions.</p>
                                 </div>
-                            </div>
-                        </React.Fragment>
-                    }
-                    {
-                        tab === 'store-details' && <ComponentStoreDetails storeDetails={Despen}></ComponentStoreDetails>
-                    }
-                    {
-                        tab === 'review' && <Review
-                            HellFull={HellFull}
-                            type={`store`}
-                            reviewtype={reviewtype}
-                            setReviewtype={setReviewtype}
-                            delBtn={Despen}
-                            handleEdit={handleEdit}
-                            reviewloading={reviewloading}
-                            handleDelete={handleDelete}
-                            Rating={Rating}
-                            onSubmit={onSubmit}
-                            GetProductReview={GetProductReview}
-                            SetGetProductReview={SetGetProductReview}
-                            AllReview={AllReview}
-                            SetReview={SetReview}></Review>
-                    }
-                    {
-                        tab === 'deals' && <div className="noReview">
-                            <div className="noreviewicon">
-                                <div className="iconcircl"><img src={'/image/nodeal.png'} className="nodealsicon" alt="no Deals" title="no Deals" /></div>
-                            </div>
-                            <h3 className="noreview_title">Discover More Savings Soon!</h3>
-                            <p className="noreview_description w-lg-50 ">It looks like there are no active deals at the moment at <Link target="_blank" to={`/weed-dispensaries/${Despen[0]?.Store_Name.toLowerCase().replaceAll(" ", "-")}/${Despen[0]?.id}`}><b>{Despen[0]?.Store_Name}</b></Link>. Don't worry, though – our partnered stores frequently update their promotions. Be sure to check back regularly for exciting discounts and special offers on your favorite products.</p>
-                            <p className="noreview_description w-lg-50">In the meantime, explore the diverse range of products available at <Link target="_blank" to={`/weed-dispensaries/${Despen[0]?.Store_Name.toLowerCase().replaceAll(" ", "-")}/${Despen[0]?.id}`}><b>{Despen[0]?.Store_Name}</b></Link>. We're constantly working to bring you the best deals, so stay tuned for upcoming promotions.</p>
+                            }
+                            {/* {
+                                tab === 'media' && <Media></Media>
+                            } */}
                         </div>
-                    }
-                    {/* {
-                        tab === 'media' && <Media></Media>
-                    } */}
-                </div>
-            </div>
+                    </div>
+                 </div>
+        }
         </div>
     )
 }

@@ -5,7 +5,7 @@ import { RWebShare } from "react-web-share";
 import './RelatedVerifyBrandBanner.css';
 import { useState } from "react";
 import React from "react";
-
+import '../../../../../styles/AppStyle.css'
 const RelatedVerifyBanner = ({ BrandDetails }) => {
     const [readmore, setreadmore] = useState(false)
   
