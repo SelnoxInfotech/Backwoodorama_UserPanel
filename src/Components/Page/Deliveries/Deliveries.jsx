@@ -1,7 +1,6 @@
 // import DeliveryPickupMenu from "./DeliveriesComponent/DeliveryPickupMenu"
 import DeliveryMenuBar from "./DeliveriesComponent/DeliveryMenuBar/DeliveryMenuBar"
 import Accordion from '@mui/material/Accordion';
-import AccordionActions from '@mui/material/AccordionActions';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -24,7 +23,7 @@ const Deliveries = () => {
     const Location = useLocation()
     const [Deliverie, SetDelivery] = React.useState([])
     const [loader, setloader] = React.useState(false);
-    const [contentdata , setcontentdata] = React.useState('')
+    const [contentdata , setcontentdata] = React.useState([])
     React.useEffect(() => {
         const object = { City: state.City.replace(/-/g, " "), State: state.State.replace(/-/g, " "), Country: state.Country.replace(/-/g, " ") }
         GetAllDelivery(object).then((response) => {
@@ -33,12 +32,20 @@ const Deliveries = () => {
             if (Boolean(response)) {
                 SetDelivery(response)
             }
+
+
             else {
                 SetDelivery([])
             }
         }).catch((error) => {
             setloader(true)
         })
+      axios.post(`https://api.cannabaze.com/UserPanel/Get-WebpageDescriptionDeliveries/`,{...object}
+    
+        ).then((res)=>{
+            setcontentdata(res.data)
+        })
+
     }, [state])
     const classes = useStyles()
     const [value, setValue] = React.useState('1');
@@ -94,18 +101,18 @@ const Deliveries = () => {
         // Cleanup function to clear the timeout if the component unmounts or Location changes
         return () => clearTimeout(timeoutId);
     }, [Location]);
-    React.useEffect(()=>{
-        axios.post(`https://api.cannabaze.com/AdminPanel/Get-Webpagedescriptionbyid/29`,
-        {
+    // React.useEffect(()=>{
+    //     axios.post(`https://api.cannabaze.com/AdminPanel/Get-Webpagedescriptionbyid/29`,
+    //     {
 
-        },
-        {
-            headers: { Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4MTUzMzc0LCJpYXQiOjE3MTcwNDkzNzQsImp0aSI6ImMxNmI1NDVjMzUyYjQ2MzA4MzBiMjE3OWM2NzIzZjgwIiwidXNlcl9pZCI6Mn0.ByGRSGJOfigqW7KFV0xqwQ97uq0K3gMZ-gL9194YaAE            ` }
-        },
-        ).then((res)=>{
-            setcontentdata(res.data)
-        })
-    },[])
+    //     },
+    //     {
+    //         headers: { Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4MTUzMzc0LCJpYXQiOjE3MTcwNDkzNzQsImp0aSI6ImMxNmI1NDVjMzUyYjQ2MzA4MzBiMjE3OWM2NzIzZjgwIiwidXNlcl9pZCI6Mn0.ByGRSGJOfigqW7KFV0xqwQ97uq0K3gMZ-gL9194YaAE            ` }
+    //     },
+    //     ).then((res)=>{
+    //         setcontentdata(res.data)
+    //     })
+    // },[])
     return (
         <React.Fragment>
             {/* {xml()} */}
@@ -154,11 +161,12 @@ const Deliveries = () => {
 
                         }
                     </div>
-                    {/* <div className="col-12 webContent">
+                    <div className="col-12 webContent">
                            <h3 className="section_main_title">{contentdata?.Title}</h3>
                            <div dangerouslySetInnerHTML={{ __html: contentdata?.Content }} />
                     </div>
-                     { contentdata !== '' && <><h3 className="section_main_title">FAQs</h3>
+                     { contentdata.length !== 0 && <><h3 className="section_main_title">FAQs</h3>
+                        
                     <div className="row">
                         {
                             contentdata?.Faq?.map((item)=>{
@@ -177,7 +185,7 @@ const Deliveries = () => {
                             })
                         }
                        
-                    </div></>} */}
+                    </div></>}
                 </div>
             </div>
         </React.Fragment>

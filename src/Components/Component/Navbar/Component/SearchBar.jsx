@@ -36,7 +36,14 @@ const SearchBar = ({ path }) => {
                 str = str.replaceAll("-/", "/")
             } else if (str.includes("//")) {
                 str = str.replaceAll("/-", "/")
-            } else {
+            } 
+            else if (str.includes("//")) {
+                str = str.replaceAll("/-", "/")
+            } 
+            else if (str.includes("/")) {
+                str = str.replaceAll("/", "-")
+            } 
+            else {
                 a++
             }
         }
@@ -53,7 +60,6 @@ const SearchBar = ({ path }) => {
                 Setloading(true)
                 Axios.post(`https://api.cannabaze.com/UserPanel/Get-HomePageFilter/`,
                 {
-
                     search: input
                 }
             ).then(response => {

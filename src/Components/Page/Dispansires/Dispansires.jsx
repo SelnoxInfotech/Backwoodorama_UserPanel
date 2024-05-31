@@ -54,7 +54,7 @@ export default function Dispansires() {
     const [value, setValue] = React.useState(0);
     const [Store, SetStore] = React.useState([]);
     const [loader, setloader] = React.useState(false);
-
+    const [contentdata , setcontentdata] = React.useState([])
     const DispensorShopLocation = [{ name: "Weed Dispensaries in", city: state.Location }]
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -153,6 +153,13 @@ export default function Dispansires() {
                                 SetStore(res)
                             }
                         })
+
+                        axios.post(`https://api.cannabaze.com/UserPanel/Get-WebpageDescriptionDispensary/   `,{...object}
+    
+                    ).then((res)=>{
+                        setcontentdata(res.data)
+                    })
+
                 } catch (error) {
                   
                 }
@@ -228,16 +235,16 @@ export default function Dispansires() {
                             </Box>
                             <Box sx={{ "& .MuiBox-root": { paddingLeft: "0px", paddingRight: "0px", paddingTop: "20px" } }}>
                                 <TabPanel value={value} index={0}>
-                                    <WeedDispansires Store={Store} SetStore={SetStore} searchtext={searchtext} setsearchtext={setsearchtext} />
+                                    <WeedDispansires Store={Store} SetStore={SetStore} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata} />
                                 </TabPanel>
                                 <TabPanel value={value} index={1}>
-                                    <WeedDispansires Store={Store} SetStore={SetStore} searchtext={searchtext} setsearchtext={setsearchtext} />
+                                    <WeedDispansires Store={Store} SetStore={SetStore} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata}/>
                                 </TabPanel>
                                 <TabPanel value={value} index={2}>
-                                    <WeedDispansires Store={Store} SetStore={SetStore} searchtext={searchtext} setsearchtext={setsearchtext} />
+                                    <WeedDispansires Store={Store} SetStore={SetStore} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata}/>
                                 </TabPanel>
                                 <TabPanel value={value} index={3}>
-                                    <WeedDispansires Store={Store} SetStore={SetStore} searchtext={searchtext} setsearchtext={setsearchtext} />
+                                    <WeedDispansires Store={Store} SetStore={SetStore} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata}/>
                                 </TabPanel>
                             </Box>
                             {/* <div className="Dispansires_map">
