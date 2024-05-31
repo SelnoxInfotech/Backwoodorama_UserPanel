@@ -231,7 +231,7 @@ const NewProductDetails = () => {
 console.log(Product)
   return (
     <div className="container-fluid">
-      {Object.keys(Product).length !== 0 && <ProductDetailsSeo Productnm={Product.Product_Name} Productname={` ${Product.Product_Name} at ${Product.StoreName} on WeedX.io - Your Trusted Marketplace`} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={location.pathname} ></ProductDetailsSeo>
+      {Object.keys(Product).length !== 0 && <ProductDetailsSeo Productnm={Product.Product_Name} Productname={`Buy ${Product.Product_Name} at ${Product.StoreName} on WeedX.io - Your Trusted Marketplace`} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={location.pathname} ></ProductDetailsSeo>
       }
       <span onClick={() => {navigate(location?.state !== null ? (location?.state?.prevuisurl !== '/products' ? location?.state?.prevuisurl : '/products'): '/products')}} className="BackPageBtn"> <AiOutlineLeft size={22} /> Back to products </span>
       <NewProductDetailsCards dynamicWeight={dynamicWeight} setdynamicWeight={setdynamicWeight} quentity={quentity} setquentity={setquentity} Product={Product} DiscountedValue={discount} Price={Price} SetPrice={SetPrice} />
