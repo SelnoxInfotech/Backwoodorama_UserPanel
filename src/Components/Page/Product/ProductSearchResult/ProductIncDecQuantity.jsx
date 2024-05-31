@@ -68,7 +68,7 @@ const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart, setadding, a
     const classes = useStyles()
     return (
         <>
-            <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" }}
+            <LoadingButton 
                 onClick={handleOpen} >
                <span><FaShoppingCart  size={18} /> </span>  Add To Cart
             </LoadingButton>

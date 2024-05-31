@@ -388,7 +388,7 @@ line-height: normal;
  border-radius: 8px;
   border: 1px solid #E7E7E7;
   transition: all .2s ease;
-  padding: 15px ;
+  padding: 10px ;
   position: relative;
  margin-bottom: 20px;
  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
@@ -408,17 +408,19 @@ line-height: normal;
   overflow-x: scroll;
   overflow-y: hidden;
   gap: 10px;
-  height: 120px;
 }
 .prod_cat_btn_cont{
  width: 30%;
 }
 .prod_cat_img img {
-  width: 100%;
+  /* width: 100%;
   font-size: 8px;
-  /* height: 90px; */
   min-height: 254px !important;
-  max-height: 254px !important;
+  max-height: 254px !important; */
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  display: block;
 
 }
 
@@ -452,10 +454,8 @@ line-height: normal;
 }
 
 .prod_cat_cont {
-  height: 277px;
   display: grid;
   place-items: center;
-
 }
 
 
@@ -586,11 +586,11 @@ line-height: normal;
   overflow: hidden;
 }
 .productListHeadings {
-  font-size: 16px;
-  color: #000000;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
   margin: 0;
-  line-height: 1.4;
+  color: rgb(82, 82, 82);
 }
 
 .btn2 {

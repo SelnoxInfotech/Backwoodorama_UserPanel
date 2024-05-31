@@ -172,8 +172,6 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                 SetPopup(false)
                 SetAddToCard([Arry])
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-
-
             }
             dispatch({ type: 'Cart_subTotal' })
 
@@ -315,7 +313,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
 
                                                 <p className="product_search_result_sub_heading text-truncate">by {items.StoreName}</p>
                                                 <div className="product_category_list">
-                                                    <span className="product_search_result_span1">15% THC | 0.2% CBD</span>
+                                                    <span className="product_search_result_span1">15{items.lab_Result !== "Magnesium" ? '%' : "Mg."} THC | 0.2{items.lab_Result !== "Magnesium" ? '%' : "Mg."} CBD</span>
                                                     <div className="product_cart_review">
                                                         { new Array(items.rating).fill(null).map((itwm , index) => (
                                                             <BsStarFill key={index +1}  size={16} color="#31B665" className="product_search_rating_star" />
