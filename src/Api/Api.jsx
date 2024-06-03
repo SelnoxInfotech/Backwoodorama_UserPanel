@@ -297,8 +297,8 @@ export function GetAllDelivery(object) {
             return k
         }).catch(
             function (error) {
-
-            })
+   return error
+        })
     )
 }
 

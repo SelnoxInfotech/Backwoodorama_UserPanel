@@ -27,17 +27,17 @@ const Deliveries = () => {
     React.useEffect(() => {
         const object = { City: state.City.replace(/-/g, " "), State: state.State.replace(/-/g, " "), Country: state.Country.replace(/-/g, " ") }
         GetAllDelivery(object).then((response) => {
-            setloader(true)
+          
 
             if (Boolean(response)) {
                 SetDelivery(response)
+                setloader(true)
             }
         }).catch((error) => {
             setloader(true)
+            console.log(error ,'erorejdgaudf hfh fgy h')
         })
-      axios.post(`https://api.cannabaze.com/UserPanel/Get-WebpageDescriptionDeliveries/`,{...object}
-    
-        ).then((res)=>{
+         axios.post(`https://api.cannabaze.com/UserPanel/Get-WebpageDescriptionDeliveries/`,{...object}).then((res)=>{
             setcontentdata(res.data)
         })
 
@@ -96,18 +96,7 @@ const Deliveries = () => {
         // Cleanup function to clear the timeout if the component unmounts or Location changes
         return () => clearTimeout(timeoutId);
     }, [Location]);
-    // React.useEffect(()=>{
-    //     axios.post(`https://api.cannabaze.com/AdminPanel/Get-Webpagedescriptionbyid/29`,
-    //     {
-
-    //     },
-    //     {
-    //         headers: { Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4MTUzMzc0LCJpYXQiOjE3MTcwNDkzNzQsImp0aSI6ImMxNmI1NDVjMzUyYjQ2MzA4MzBiMjE3OWM2NzIzZjgwIiwidXNlcl9pZCI6Mn0.ByGRSGJOfigqW7KFV0xqwQ97uq0K3gMZ-gL9194YaAE            ` }
-    //     },
-    //     ).then((res)=>{
-    //         setcontentdata(res.data)
-    //     })
-    // },[])
+  
     return (
         <React.Fragment>
             {/* {xml()} */}
