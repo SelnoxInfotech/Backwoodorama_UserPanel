@@ -73,7 +73,9 @@ const Allblogs = () => {
           //   })
             if(location.pathname.substring(1)==='blogs'){
               axios.get('https://api.cannabaze.com/UserPanel/Get-NewsbyCategorybyBlog/').then(async (res) => {
-                setallblogs(res.data)
+                // setallblogs(res.data)
+                let as = _.orderBy(res.data, [ 'created' ],  [ 'asc', 'desc' ]);
+                setallblogs(as)
                 setloader(false)
                 setisdata(true)
               }).catch((err) => {
@@ -83,7 +85,9 @@ const Allblogs = () => {
               })
             }else{
                 axios.get('https://api.cannabaze.com/UserPanel/Get-NewsbyCategorybyCANNABISNEWS/').then(async (res) => {
-                setallblogs(res.data)
+              
+                let as = _.orderBy(res.data, [ 'created' ],  [ 'asc', 'desc' ]);
+                setallblogs(as)
                 setloader(false)
                 setisdata(true)
                 }).catch((err) => {
@@ -93,7 +97,9 @@ const Allblogs = () => {
       }else{
         if(location.pathname.substring(1)==='blogs'){
           axios.get('https://api.cannabaze.com/UserPanel/Get-NewsbyCategorybyBlog/').then(async (res) => {
-            setallblogs(res.data.reverse())
+            // setallblogs(res.data)
+            let as = _.orderBy(res.data, [ 'created' ],  [ 'asc', 'desc' ]);
+            setallblogs(as)
             setloader(false)
             setisdata(true)
           }).catch((err) => {
@@ -103,7 +109,9 @@ const Allblogs = () => {
           })
         }else{
             axios.get('https://api.cannabaze.com/UserPanel/Get-NewsbyCategorybyCANNABISNEWS/').then(async (res) => {
-            setallblogs(res.data)
+          
+            let as = _.orderBy(res.data, [ 'created' ],  [ 'asc', 'desc' ]);
+            setallblogs(as)
             setloader(false)
             setisdata(true)
             }).catch((err) => {
@@ -165,7 +173,7 @@ const Allblogs = () => {
           { 
            isdata ? <div className='blogListWrapper'>
             {
-              allblogs?.map((items, index) => {
+              allblogs?.reverse().map((items, index) => {
            
                 return (
 

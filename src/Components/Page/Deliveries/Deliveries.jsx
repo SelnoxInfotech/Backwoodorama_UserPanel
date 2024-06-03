@@ -32,11 +32,6 @@ const Deliveries = () => {
             if (Boolean(response)) {
                 SetDelivery(response)
             }
-
-
-            else {
-                SetDelivery([])
-            }
         }).catch((error) => {
             setloader(true)
         })
@@ -131,7 +126,7 @@ const Deliveries = () => {
 
                         {
                             loader ?
-                                (Boolean(Deliverie.length) ?
+                                (Boolean(Deliverie?.length) ?
 
                                     <Box className={``} sx={{ width: '100%', typography: 'body1', }}>
                                         <TabContext value={value}>

@@ -243,7 +243,7 @@ const Navbar = () => {
               }
             </Grid>
             <Grid xs={12} md={12} xl={12} >
-              <SliderLink state={state}></SliderLink>
+            <SliderLink state={state}></SliderLink>
               <SideNavbar closeNav={closeNav} Open={Open}></SideNavbar>
             </Grid>
           </Grid>
