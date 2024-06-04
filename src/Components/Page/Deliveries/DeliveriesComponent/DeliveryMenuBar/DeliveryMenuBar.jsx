@@ -39,8 +39,8 @@ const DeliveryMenuBar = () => {
                         <Box className={`${classes.open_dispensory_tab_background} ${classes.open_dispensory_tab}`} sx={{ borderBottom: 1, borderColor: 'divider' }}>
                             <TabList scrollButtons={false} variant="scrollable" onChange={handleChange} aria-label="lab API tabs example">
                                 <Tab label="Order Online" value="1" />
-                                <Tab label="Order now" value="2" />
-                                <Tab label="Best of WeedX" value="3" />
+                                {/* <Tab label="Order now" value="2" />
+                                <Tab label="Best of WeedX" value="3" /> */}
                                 {/* <Tab label="Recreational" value="4" /> */}
 
                             </TabList>

@@ -60,20 +60,10 @@ const Allblogs = () => {
       }); 
        
       if (state.login) {
-          // axios.get('https://api.cannabaze.com/UserPanel/GetNewsbyUser/',{
-          
-          //     headers: { Authorization: `Bearer ${token_data}` }
-          
-          // }).then(async (res) => {
-          //   setallblogs(res.data)
-          //   setloader(false)
-          //   setisdata(true)
-          //   }).catch((err) => {
-          //     console.trace(err)
-          //   })
+        
             if(location.pathname.substring(1)==='blogs'){
               axios.get('https://api.cannabaze.com/UserPanel/Get-NewsbyCategorybyBlog/').then(async (res) => {
-                // setallblogs(res.data)
+
                 let as = _.orderBy(res.data, [ 'created' ],  [ 'asc', 'desc' ]);
                 setallblogs(as)
                 setloader(false)
@@ -97,7 +87,7 @@ const Allblogs = () => {
       }else{
         if(location.pathname.substring(1)==='blogs'){
           axios.get('https://api.cannabaze.com/UserPanel/Get-NewsbyCategorybyBlog/').then(async (res) => {
-            // setallblogs(res.data)
+            
             let as = _.orderBy(res.data, [ 'created' ],  [ 'asc', 'desc' ]);
             setallblogs(as)
             setloader(false)
@@ -119,7 +109,7 @@ const Allblogs = () => {
             })
         }
       }
-  }, [])
+  }, [location.pathname])
   function Searchbar(e){
     setsearchtext(e)
    axios.post('https://api.cannabaze.com/UserPanel/Get-BlogSearchApi/', {
@@ -158,8 +148,6 @@ const Allblogs = () => {
       navigate('/login')
     }
   }
-
-
   return (
     <React.Fragment>   
       <NewsSeo location={location.pathname.substring(1)} ></NewsSeo>

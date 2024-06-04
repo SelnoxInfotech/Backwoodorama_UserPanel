@@ -260,44 +260,49 @@ export function GetAllDelivery(object) {
             'https://api.cannabaze.com/UserPanel/Get-DeliveryStores/',
             object
         ).then(response => {
-            const k = response.data.reduce((acc, current) => {
-                const x = acc.find(item => item.id === current.id);
-                if (!x) {
-                    const newCurr = {
-                        Store_Name: current.Store_Name,
-                        Category: [{ [current.Category]: current.ProductCount }],
-                        id: current.id,
-                        Store_Image: current.Store_Image,
-                        Store_Address: current.Store_Address,
-                        rating: current.rating,
-                        TotalRating: current.TotalRating
-                    }
-                    return acc.concat([newCurr]);
-                } else {
-                    const currData = x.Category.filter(d => d === current.Category);
-                    if (!currData.length) {
-                        const newData = x.Category.push({ [current.Category]: current.ProductCount });
+            if(Boolean(response.data.length)){
+                const k = response.data.reduce((acc, current) => {
+                    const x = acc.find(item => item.id === current.id);
+                    if (!x) {
                         const newCurr = {
                             Store_Name: current.Store_Name,
-                            Category: newData,
+                            Category: [{ [current.Category]: current.ProductCount }],
                             id: current.id,
                             Store_Image: current.Store_Image,
                             Store_Address: current.Store_Address,
                             rating: current.rating,
                             TotalRating: current.TotalRating
-
                         }
-                        return acc;
+                        return acc.concat([newCurr]);
                     } else {
-                        return acc;
+                        const currData = x.Category.filter(d => d === current.Category);
+                        if (!currData.length) {
+                            const newData = x.Category.push({ [current.Category]: current.ProductCount });
+                            const newCurr = {
+                                Store_Name: current.Store_Name,
+                                Category: newData,
+                                id: current.id,
+                                Store_Image: current.Store_Image,
+                                Store_Address: current.Store_Address,
+                                rating: current.rating,
+                                TotalRating: current.TotalRating
+
+                            }
+                            return acc;
+                        } else {
+                            return acc;
+                        }
+                        //   Category: [{ [y.Category]: y.ProductCount }] 
                     }
-                    //   Category: [{ [y.Category]: y.ProductCount }] 
-                }
-            }, []);
-            return k
+                }, []);
+                return k
+
+             }else{
+                return []
+             }
         }).catch(
             function (error) {
-   return error
+               return error
         })
     )
 }

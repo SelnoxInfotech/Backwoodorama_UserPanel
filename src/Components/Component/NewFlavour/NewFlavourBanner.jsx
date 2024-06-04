@@ -20,10 +20,10 @@ const NewFlavourBanner = ({ delBtn }) => {
     }, 0);
     window.scrollTo({top: 0, left: 0})
    },[ new Date().getMinutes() , delBtn])
-
+console.log(delBtn)
     return (
         <React.Fragment>
-            {/* <div className='container-fluid'> */}
+            
             <div className="row  newFlavour_row" >
                 <div className="col-12 newFlavour_container  position-relative">
                     {
@@ -63,15 +63,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                                                 <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph'>
                                                     <p className='newFlavBanerRatingFontStyle'>{data?.rating?.toFixed(1)}</p>
                                                     <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />  
-                                                    {/* <div className="product_cart_review">
-                                                            {delBtn[0].rating &&  new Array(delBtn[0].rating).fill(null).map(() => (
-                                                                <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />  
-                                                            ))}
-                                                            
-                                                            {new Array(5-delBtn[0].rating).fill(null).map(() => (
-                                                                <BsStar size={16} color="#31B665" className="product_search_rating_star" />  
-                                                            ))}
-                                                        </div> */}
+                                                    
                                                 </div>
 
                                                 <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph newFlav_margin'>
@@ -108,9 +100,7 @@ const NewFlavourBanner = ({ delBtn }) => {
 
                                                 }
                                             </div>
-
                                         </div>
-
                                     </div>
                                     <div className='shareiconcontainer position-absolute w-auto top-0 p-2 end-0'>
                                     
@@ -131,7 +121,6 @@ const NewFlavourBanner = ({ delBtn }) => {
                 </div>
 
             </div>
-            {/* </div> */}
         </React.Fragment>
     )
 }

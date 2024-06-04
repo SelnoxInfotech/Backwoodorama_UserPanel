@@ -26,22 +26,20 @@ const Deliveries = () => {
     const [contentdata , setcontentdata] = React.useState([])
     React.useEffect(() => {
         const object = { City: state.City.replace(/-/g, " "), State: state.State.replace(/-/g, " "), Country: state.Country.replace(/-/g, " ") }
-        GetAllDelivery(object).then((response) => {
-          
-
-            if (Boolean(response)) {
-                SetDelivery(response)
-                setloader(true)
-            }
+       if(state.Country !== ''){ GetAllDelivery(object).then((response) => {
+           
+                    SetDelivery(()=>response)
+                   
+                    setloader(true)
+            
         }).catch((error) => {
-            setloader(true)
-            console.log(error ,'erorejdgaudf hfh fgy h')
+            setloader(true)   
         })
-         axios.post(`https://api.cannabaze.com/UserPanel/Get-WebpageDescriptionDeliveries/`,{...object}).then((res)=>{
+        axios.post(`https://api.cannabaze.com/UserPanel/Get-WebpageDescriptionDeliveries/`,{...object}).then((res)=>{
             setcontentdata(res.data)
-        })
+        })}
 
-    }, [state])
+    }, [state.City ,state.State, state.Country])
     const classes = useStyles()
     const [value, setValue] = React.useState('1');
     const handleChange = (event, newValue) => {
@@ -96,7 +94,6 @@ const Deliveries = () => {
         // Cleanup function to clear the timeout if the component unmounts or Location changes
         return () => clearTimeout(timeoutId);
     }, [Location]);
-  
     return (
         <React.Fragment>
             {/* {xml()} */}
@@ -115,7 +112,7 @@ const Deliveries = () => {
 
                         {
                             loader ?
-                                (Boolean(Deliverie?.length) ?
+                                (    Boolean(Deliverie?.length) ?
 
                                     <Box className={``} sx={{ width: '100%', typography: 'body1', }}>
                                         <TabContext value={value}>
@@ -129,9 +126,7 @@ const Deliveries = () => {
                                                 </TabList>
                                             </Box>
                                             <Box className={`${classes.deliverItemCardPadding}`}>
-                                                <TabPanel value="1" >
-                                                    <DeliveryItemsCard Deliverie={Deliverie} />
-                                                </TabPanel>
+                                                <TabPanel value="1"><DeliveryItemsCard Deliverie={Deliverie} /></TabPanel>
                                                 <TabPanel value="2"><DeliveryItemsCard Deliverie={Deliverie} /></TabPanel>
                                                 <TabPanel value="3"><DeliveryItemsCard Deliverie={Deliverie} /></TabPanel>
                                             </Box>
@@ -139,7 +134,8 @@ const Deliveries = () => {
                                     </Box>
                                     :
                                     <Wronglocation title={'No deliveries available'} description={`Delivery service isn't available at your location. Would you like to try a different address ?`} />)
-                                : <div className="loader_container">
+                                :
+                                 <div className="loader_container">
                                     <span className="newloader shine"><img src='/image/weedx.io logo.png' alt='weedx.io logo'  title='weedx.io logo'/></span>
                                 </div>
 

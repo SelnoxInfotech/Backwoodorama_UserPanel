@@ -39,13 +39,13 @@ TabPanel.propTypes = {
     index: PropTypes.number.isRequired,
     value: PropTypes.number.isRequired,
 };
-
 function a11yProps(index) {
     return {
         id: `simple-tab-${index}`,
         'aria-controls': `simple-tabpanel-${index}`,
     };
 }
+
 export default function Dispansires() {
     const [searchtext, setsearchtext] = React.useState("");
     const navigate = useNavigate()
@@ -59,8 +59,6 @@ export default function Dispansires() {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-
-
     React.useEffect(() => {
         document.documentElement.scrollTo({
             top: 0,
@@ -68,8 +66,6 @@ export default function Dispansires() {
             behavior: "instant", // Optional if you want to skip the scrolling animation
         });
     }, [])
-
-
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
         str = str.trim().replaceAll(' ', "-");
@@ -90,8 +86,6 @@ export default function Dispansires() {
 
         return str.toLowerCase()
     }
-
-
     React.useEffect(() => {
         const sendPostRequest = () => {
             axios.post(
@@ -109,7 +103,6 @@ export default function Dispansires() {
 
         return () => clearTimeout(timeoutId);
     }, [Location]);
-
     React.useEffect(() => {
 
         if (searchtext !== "") {
@@ -122,20 +115,14 @@ export default function Dispansires() {
                 }
                 Axios.post(`https://api.cannabaze.com/UserPanel/FilterDispensaries/`,
                     json
-                )
-                    .then(function (response) {
-                        setloader(() => true)
-
-                        SetStore(response?.data);
-
-                    })
-                    .catch(function (error) {
-                        setloader(() => true)
-
-                        console.trace(error);
-                        SetStore([]);
-
-                    });
+                ).then(function (response) {
+                        setloader(true)
+                        SetStore(()=>response?.data);
+                })
+                .catch(function (error) {
+                    setloader(true)
+                    console.trace(error);
+                });
             }, 1000)
             return () => clearTimeout(getData)
         } else {
@@ -144,14 +131,14 @@ export default function Dispansires() {
                     const object = { City: state.City.replace(/-/g, " "), "Country": state.Country?.replace(/-/g, " "), "State": state.State?.replace(/-/g, " "), }
                     state.Country !== "" && DespensioriesItem(object)
                         .then((res) => {
-                            setloader(() => true)
 
                             if (res === "No Dispensary in your area") {
-                                SetStore([])
                             }
                             else {
                                 SetStore(res)
                             }
+                            setloader(true)
+
                         })
 
                         axios.post(`https://api.cannabaze.com/UserPanel/Get-WebpageDescriptionDispensary/   `,{...object}
@@ -168,9 +155,6 @@ export default function Dispansires() {
             return () => clearTimeout(timeoutId);
         }
     }, [searchtext, state])
-
-
-
     function breadcrumCountry(country, state1, city) {
         if (Boolean(city)) {
             dispatch({ type: 'route', route: "" })
@@ -223,41 +207,40 @@ export default function Dispansires() {
             <div className="col-12 col-sm-12 dispensory_menu my-2">
                 {
                       loader ?
-                    (Boolean(Store?.length) ?
-                        <Box className={`dispensories_tabss ${classes.dispensory_tab_background}`} sx={{ width: '100%' }}>
-                            <Box className={classes.open_dispensory_tab} sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                                <Tabs scrollButtons={false} variant="scrollable" sx={{ justifyContent: 'space-around' }} value={value} onChange={handleChange} aria-label="basic tabs example">
-                                    <Tab label="Open" {...a11yProps(0)} />
-                                    <Tab label="Storefronts" {...a11yProps(1)} />
-                                    <Tab label="delivery" {...a11yProps(2)} />
-                                    <Tab label="Order online" {...a11yProps(3)} />
-                                </Tabs>
+                        ( Store?.length !== 0 ?
+                            <Box className={`dispensories_tabss ${classes.dispensory_tab_background}`} sx={{ width: '100%' }}>
+                                <Box className={classes.open_dispensory_tab} sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                                    <Tabs scrollButtons={false} variant="scrollable" sx={{ justifyContent: 'space-around' }} value={value} onChange={handleChange} aria-label="basic tabs example">
+                                        <Tab label="Open" {...a11yProps(0)} />
+                                        <Tab label="Storefronts" {...a11yProps(1)} />
+                                        <Tab label="delivery" {...a11yProps(2)} />
+                                        <Tab label="Order online" {...a11yProps(3)} />
+                                    </Tabs>
+                                </Box>
+                                <Box sx={{ "& .MuiBox-root": { paddingLeft: "0px", paddingRight: "0px", paddingTop: "20px" } }}>
+                                    <TabPanel value={value} index={0}>
+                                        <WeedDispansires Store={Store} SetStore={SetStore} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata} />
+                                    </TabPanel>
+                                    <TabPanel value={value} index={1}>
+                                        <WeedDispansires Store={Store} SetStore={SetStore} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata}/>
+                                    </TabPanel>
+                                    <TabPanel value={value} index={2}>
+                                        <WeedDispansires Store={Store} SetStore={SetStore} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata}/>
+                                    </TabPanel>
+                                    <TabPanel value={value} index={3}>
+                                        <WeedDispansires Store={Store} SetStore={SetStore} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata}/>
+                                    </TabPanel>
+                                </Box>
+                            
                             </Box>
-                            <Box sx={{ "& .MuiBox-root": { paddingLeft: "0px", paddingRight: "0px", paddingTop: "20px" } }}>
-                                <TabPanel value={value} index={0}>
-                                    <WeedDispansires Store={Store} SetStore={SetStore} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata} />
-                                </TabPanel>
-                                <TabPanel value={value} index={1}>
-                                    <WeedDispansires Store={Store} SetStore={SetStore} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata}/>
-                                </TabPanel>
-                                <TabPanel value={value} index={2}>
-                                    <WeedDispansires Store={Store} SetStore={SetStore} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata}/>
-                                </TabPanel>
-                                <TabPanel value={value} index={3}>
-                                    <WeedDispansires Store={Store} SetStore={SetStore} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata}/>
-                                </TabPanel>
-                            </Box>
-                            {/* <div className="Dispansires_map">
-                            </div> */}
-                        </Box>
+                            :
+                    
+                            <Wronglocation title={' No dispensaries available'} description={'We apologize, but it appears that there are no dispensaries available in your location. Would you like to enter a different address to search for a nearby dispensary?'} />
+                        )
                         :
-                
-                        <Wronglocation title={' No dispensaries available'} description={'We apologize, but it appears that there are no dispensaries available in your location. Would you like to enter a different address to search for a nearby dispensary?'} />
-                    )
-                    :
-                    <div className="loader_container">
-                        <span className="newloader shine"><img src='/image/weedx.io logo.png' alt="weedx.io logo" title="weedx.io logo" /></span>
-                    </div>
+                        <div className="loader_container">
+                            <span className="newloader shine"><img src='/image/weedx.io logo.png' alt="weedx.io logo" title="weedx.io logo" /></span>
+                        </div>
                 }
 
             </div>
