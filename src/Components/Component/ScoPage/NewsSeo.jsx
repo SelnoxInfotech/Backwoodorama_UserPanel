@@ -26,7 +26,7 @@ function NewsSeo({location}) {
         return (
             <Helmet>
                 <title>{"Today's Latest Cannabis and Marijuana News | weedx.io"}</title>
-                <meta name="title" content={`Today's Latest Cannabis and Marijuana News | weedx.io`}/>
+                {/* <meta name="title" content={`Today's Latest Cannabis and Marijuana News | weedx.io`}/> */}
                 <meta name='description' content={" Weedx.io: Your trusted source for the latest cannabis industry news, updates, trends, and insights. Discover breaking stories and expert analysis here."} />
                 <link rel="canonical" href={`https://www.weedx.io/${location}`} /> 
                 {/* Facebook tags */}
@@ -66,4 +66,4 @@ function SingleNewsSeo({Title ,Description ,location}) {
         </Helmet>
     )
 }
-export {NewsSeo ,SingleNewsSeo}
+export {NewsSeo , SingleNewsSeo }

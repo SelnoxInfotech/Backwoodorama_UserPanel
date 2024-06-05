@@ -26,9 +26,10 @@ import _ from "lodash"
 import Cookies from 'universal-cookie';
 import { RWebShare } from "react-web-share";
 import { WhisList } from "../../Component/Whishlist/WhisList";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams  } from "react-router-dom";
 import axios from "axios";
 import { SingleNewsSeo } from "../../Component/ScoPage/NewsSeo.jsx";
+// import useHistory from 'react-router-dom';
 const Blogs = () => {
     const ref = useRef(null)
     const classes = useStyles()
@@ -38,7 +39,7 @@ const Blogs = () => {
     const [value, SetValue] = React.useState([])
     const [Getlikes, SetLikes] = React.useState([])
     const [Getcommnet, Setcommnet] = React.useState([])
-    const { id } = useParams();
+    const { id  , name} = useParams();
     const [News, SetNews] = React.useState({})
     const [WishList, SetWishList] = React.useState(false)
     const [ViewCount, SetViewCount] = React.useState(0)
@@ -80,6 +81,26 @@ const Blogs = () => {
             });
         }
     }, [News])
+    function modifystr(str) {
+        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str.trim().replaceAll(' ', "-");
+        let a = 0;
+        while (a < 1) {
+            if (str.includes("--")) {
+                str = str.replaceAll("--", "-")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("//", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("-/", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("/-", "/")
+            } else {
+                a++
+            }
+        }
+    
+        return str.toLowerCase()
+    }
     async function GetComment(id) {
         await Get_Comment(id).then((res) => {
 
@@ -105,6 +126,7 @@ const Blogs = () => {
             SetWishList(true)
         }
     }
+
     function color() {
         const l = _.find(Getlikes, function (n) {
             return n?.user === state?.Profile?.id;
@@ -112,6 +134,14 @@ const Blogs = () => {
         return l
 
     }
+//    console.log(name)
+ React.useEffect(()=>{
+   Boolean(Boolean(Object.keys(News).length)) && 
+   
+   name !== (News.Url_slug === ("" || null || undefined) ?  modifystr(News.Title) : modifystr(News.Url_slug)) && navigate( `/${News.category_name === "BLOGS" ? "blogs" :"cannabis-news"}/${News.Url_slug === ("" || null || undefined) ?  modifystr(News.Title) : modifystr(News.Url_slug)}/${News.id}` , { replace: true });
+
+ },[News])
+
     const [ShowCards, SetShowCards] = React.useState(false)
     const [CommentCardArrays, SetCommentCardArray] = React.useState()
     React.useEffect(() => {
@@ -168,9 +198,12 @@ const Blogs = () => {
     if (!Object.keys(News).length) {
         return <BlogSkeleton/>
     }
+    else{
+
+    
     return (
         <React.Fragment>
-            <SingleNewsSeo Title={News?.Meta_title} Description={News?.Meta_Description} location={Location.pathname}></SingleNewsSeo>
+            <SingleNewsSeo Title={News?.Meta_title} Description={News?.Meta_Description} location={Location?.pathname}></SingleNewsSeo>
             <div className="container" >
                 <div className="row mx-1" ref={ref}>
                     <div className="col-12 w-100 row align-items-center justify-content-between blog_searchBar_container px-0">
@@ -426,4 +459,9 @@ const Blogs = () => {
         </React.Fragment>
     )
 }
+}
 export default Blogs
+
+
+
+//  navigate("/checkout", { replace: true });

@@ -40,7 +40,7 @@ const HomePageDealsSignup = () => {
     };
 
     return (
-        <div className=" mt-4">
+        <div className="container mt-4">
                 <div className="col-12 HomePageDealsSignupContainer">
                     <div className='row'>
                         <div className='col-md-6 col-12 d-md-inline d-none'>
