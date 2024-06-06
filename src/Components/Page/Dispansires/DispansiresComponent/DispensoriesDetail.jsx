@@ -151,8 +151,6 @@ export default function DispensoriesDetails() {
             })
     }
 
-
-
     const ProductFilterData = [{ Id: 1, Name: "Category", Type1: "Flower", Type2: "CBD", Icons: <BsLayoutSplit className={classes.muiIcons} /> },
     { Id: 2, Name: "Brand", Type1: "Leafly", Type2: "CBD", Icons: <MdOutlineBrandingWatermark className={classes.muiIcons} /> },
     { Id: 3, Name: "Strain", Type1: "Indica", Type2: "Hybrid", Icons: <BsStripe className={classes.muiIcons} /> },
@@ -253,13 +251,18 @@ export default function DispensoriesDetails() {
 
         })
     };
+   const [scroll , SetScroll ] =  React.useState(true)
 
     React.useEffect(() => {
-        document.documentElement.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "instant",
-        });
+        if(scroll) {
+            document.documentElement.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: "instant",
+            });
+            SetScroll(()=>false)
+        }
+       
     }, [])
 
     const Swal = require('sweetalert2')
