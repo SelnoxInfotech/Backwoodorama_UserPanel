@@ -68,7 +68,7 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
       //   // }
       // })
       placeDetails?.address_components.map((data) => {
-        let l = data.types[0] === "political" ? data.types[1] : data.types[0]
+        let l = data.types[0] === "political" ? data.types[1] === "sublocality" ? data.types[2] : data.types[1] : data.types[0]
         object[l] = data.long_name
       })
 
@@ -83,8 +83,8 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
 
       if (Boolean(object.administrative_area_level_1)) {
 
-          sta = object.administrative_area_level_1.replace(/\s/g, '-');
-          dispatch({ type: 'State', State: sta });
+        sta = object.administrative_area_level_1.replace(/\s/g, '-');
+        dispatch({ type: 'State', State: sta });
 
       }
       if (Boolean(object.administrative_area_level_3) || Boolean(object.establishment) || Boolean(object.locality) || Boolean(object.sublocality) || Boolean(object.administrative_area_level_2)) {
@@ -110,15 +110,15 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
           dispatch({ type: 'City', City: ci })
         }
 
-        if (Boolean(object.sublocality_level_1) && Boolean(object.locality)) {
+        else if (Boolean(object.sublocality_level_1) && Boolean(object.locality)) {
           ci = object.sublocality_level_1.replace(/\s/g, '-')
           dispatch({ type: 'City', City: ci })
         }
-        if (Boolean(object.sublocality_level_1) && Boolean(object.locality)) {
+        else  if (Boolean(object.sublocality_level_1) && Boolean(object.locality)) {
           ci = object.sublocality_level_1.replace(/\s/g, '-')
           dispatch({ type: 'City', City: ci })
         }
-        if ((Boolean(object.administrative_area_level_3) && Boolean(object.locality)) && (Boolean(object.administrative_area_level_1) && Boolean(object.locality))) {
+        else if ((Boolean(object.administrative_area_level_3) && Boolean(object.locality)) && (Boolean(object.administrative_area_level_1) && Boolean(object.locality))) {
           ci = object.locality.replace(/\s/g, '-')
           dispatch({ type: 'City', City: ci })
         }
