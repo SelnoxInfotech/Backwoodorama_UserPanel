@@ -14,6 +14,10 @@ import { useLocation, useParams, useNavigate } from "react-router-dom";
 import axios, { Axios } from "axios";
 import { DespensioriesItem } from '../../../Api/Api';
 import Wronglocation from "../../Component/Skeleton/Wronglocation";
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 function TabPanel(props) {
 
     const { children, value, index, ...other } = props;
@@ -236,12 +240,37 @@ export default function Dispansires() {
                             :
                     
                             <Wronglocation title={' No dispensaries available'} description={'We apologize, but it appears that there are no dispensaries available in your location. Would you like to enter a different address to search for a nearby dispensary?'} />
+                        
                         )
                         :
                         <div className="loader_container">
                             <span className="newloader shine"><img src='/image/weedx.io logo.png' alt="weedx.io logo" title="weedx.io logo" /></span>
                         </div>
                 }
+                {/* {console.log(contentdata?.Faq[0]?.title)} */}
+                  {contentdata?.length !== 0 &&
+                  contentdata?.Faq[0]?.title &&
+                   <><h3 className="section_main_title">FAQs</h3>
+                        <div className="row">
+                            {
+                                contentdata?.Faq?.map((item) => {
+                                    return <div className="col-lg-6 webContent my-2"> <Accordion>
+                                        <AccordionSummary
+                                            expandIcon={<ExpandMoreIcon />}
+                                            aria-controls="panel1-content"
+                                            id="panel1-header"
+                                        >
+                                            <h3 className="">{item.title}</h3>
+                                        </AccordionSummary>
+                                        <AccordionDetails>
+                                            <p>{item.answer}</p>
+                                        </AccordionDetails>
+                                    </Accordion></div>
+                                })
+                            }
+
+                        </div></>
+                    }
 
             </div>
 

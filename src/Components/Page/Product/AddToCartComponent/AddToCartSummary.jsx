@@ -277,7 +277,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
           <p>Delivery fee</p>
         </div>
         <div className=" fontStyle">
-          <p>$0</p>
+          <p>${state.DeliveryPrice}</p>
         </div>
       </div>
       <div className="col-12 order_Summary_total_container">
@@ -294,8 +294,13 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
        
       </div>
       <div className="add_prod_cart_p">
-          <p>Taxes are Shows</p>
-        </div>
+              {
+                state.DeliveryPrice === 0 ? 
+               <p>Taxes are Shows</p>
+               : 
+               <p style={{color:"#e78d8d"}}> Minimum order card value {state.MinimumOrderPrice}</p> 
+              }
+               </div>
         <PromoCode />
       <div className="col-12 AddProd_cart_center_btn">
         {location.pathname === "/cart" ? (

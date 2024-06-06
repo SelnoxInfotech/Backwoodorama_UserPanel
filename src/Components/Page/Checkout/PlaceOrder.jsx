@@ -31,7 +31,7 @@ const PlaceOrder = () => {
         Taxes: 0,
         Total: 0,
         Paid: 0,
-        discount:0,
+        discount: 0,
         DueLater: 0
     }
     React.useEffect(() => {
@@ -69,41 +69,41 @@ const PlaceOrder = () => {
                             <p className="card_message m-0"> <b>Order ID</b> : #{location.state.OrderId} </p>
                             <p className="card_message m-0"> <b>Order Date</b> : {formatted} </p>
                         </div>
-                    
+
                         <div className='border row p-3 mb-3'>
                             <div className='col-lg-8'>
-                            {
-                                location.state.Product.map((item) => {
-                                
-                                    pricess.Subtotal += item.TotalPrice
-                                    pricess.Delivery += 0
-                                    pricess.Taxes += 0
-                                    pricess.Paid += 0
-                                    pricess.discount += item.DiscountedAmount
-                                    pricess.DueLater += pricess.Subtotal + item.Price.SalePrice
-                                    
-                                    return (<div className="place_order_product_cart ">
-                                        <div className="place_order_product_cart_image">
-                                            <LazyLoadImage onError={event => {
-                                                event.target.src = "/image/blankImage.jpg"
-
-                                                event.onerror = null
-                                            }} className='w-100' src={`${item.Image}`} alt={item.ProductName} title={item.ProductName} />
-                                           
-                                        </div>
-                                        <div className="place_order_product_cart_Text">
-                                        
-                                            <h4 className='productname'>{item.ProductName}</h4> 
-                                            <p className="price"><b>Price</b> : $ {item.TotalPrice}</p>  
-                                            <p><b>Qty</b> : {item.Cart_Quantity}</p>
-                                        </div>
-                                    </div>)
-                                })
-
-                            }
                                 {
-                    
-                            }
+                                    location.state.Product.map((item) => {
+
+                                        pricess.Subtotal += item.TotalPrice + state.DeliveryPrice
+                                        pricess.Taxes += 0
+                                        pricess.Paid += 0
+                                        pricess.discount += item.DiscountedAmount
+                                        pricess.DueLater += pricess.Subtotal + item.Price.SalePrice
+
+
+                                        return (<div className="place_order_product_cart ">
+                                            <div className="place_order_product_cart_image">
+                                                <LazyLoadImage onError={event => {
+                                                    event.target.src = "/image/blankImage.jpg"
+
+                                                    event.onerror = null
+                                                }} className='w-100' src={`${item.Image}`} alt={item.ProductName} title={item.ProductName} />
+
+                                            </div>
+                                            <div className="place_order_product_cart_Text">
+
+                                                <h4 className='productname'>{item.ProductName}</h4>
+                                                <p className="price"><b>Price</b> : $ {item.TotalPrice}</p>
+                                                <p><b>Qty</b> : {item.Cart_Quantity}</p>
+                                            </div>
+                                        </div>)
+                                    })
+
+                                }
+                                {
+
+                                }
                             </div>
                             <div className=' col-lg-4 mt-3 mt-lg-0 '>
                                 <div className="order_price_details  ml-auto p-sm-3 p-2 border">
@@ -117,18 +117,18 @@ const PlaceOrder = () => {
                                     </div>
                                     <div className="d-flex justify-content-between align-items-center">
                                         <span>Taxes</span>
-                                        <span>${pricess.Delivery}</span>
+                                        <span>${state.DeliveryPrice}</span>
                                     </div>
                                     <hr />
                                     <div className="d-flex justify-content-between align-items-center">
                                         <div style={{ display: "grid" }}>
                                             <span>Total</span>
-                                        {Boolean(pricess.discount)&&  <span>Discount Amount</span>
-}
+                                            {Boolean(pricess.discount) && <span>Discount Amount</span>
+                                            }
                                         </div >
                                         <div style={{ display: "grid" }}>
-                                            {Boolean(pricess.discount)?  <del>${pricess.Subtotal}</del> :   <span>${pricess.Subtotal}</span>}
-                                        {Boolean(pricess.discount)&& <span>${(pricess.Subtotal-pricess.discount) }</span>}
+                                            {Boolean(pricess.discount) ? <del>${pricess.Subtotal}</del> : <span>${pricess.Subtotal}</span>}
+                                            {Boolean(pricess.discount) && <span>${(pricess.Subtotal - pricess.discount)}</span>}
                                         </div>
                                     </div>
 

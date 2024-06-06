@@ -23,23 +23,25 @@ const Deliveries = () => {
     const Location = useLocation()
     const [Deliverie, SetDelivery] = React.useState([])
     const [loader, setloader] = React.useState(false);
-    const [contentdata , setcontentdata] = React.useState([])
+    const [contentdata, setcontentdata] = React.useState([])
     React.useEffect(() => {
         const object = { City: state.City.replace(/-/g, " "), State: state.State.replace(/-/g, " "), Country: state.Country.replace(/-/g, " ") }
-       if(state.Country !== ''){ GetAllDelivery(object).then((response) => {
-           
-                    SetDelivery(()=>response)
-                   
-                    setloader(true)
-            
-        }).catch((error) => {
-            setloader(true)   
-        })
-        axios.post(`https://api.cannabaze.com/UserPanel/Get-WebpageDescriptionDeliveries/`,{...object}).then((res)=>{
-            setcontentdata(res.data)
-        })}
+        if (state.Country !== '') {
+            GetAllDelivery(object).then((response) => {
 
-    }, [state.City ,state.State, state.Country])
+                SetDelivery(() => response)
+
+                setloader(true)
+
+            }).catch((error) => {
+                setloader(true)
+            })
+            axios.post(`https://api.cannabaze.com/UserPanel/Get-WebpageDescriptionDeliveries/`, { ...object }).then((res) => {
+                setcontentdata(res.data)
+            })
+        }
+
+    }, [state.City, state.State, state.Country])
     const classes = useStyles()
     const [value, setValue] = React.useState('1');
     const handleChange = (event, newValue) => {
@@ -97,8 +99,8 @@ const Deliveries = () => {
     return (
         <React.Fragment>
             {/* {xml()} */}
-               <div className="container-fluid">
-                 <div className="row  deliveries_centers">
+            <div className="container-fluid">
+                <div className="row  deliveries_centers">
                     <div className="headerBoxdescription">
                         <h1 className="m-0 lh-1">
                             <span className="dispensories_name">Weed Delivery In </span>
@@ -112,7 +114,7 @@ const Deliveries = () => {
 
                         {
                             loader ?
-                                (    Boolean(Deliverie?.length) ?
+                                (Boolean(Deliverie?.length) ?
 
                                     <Box className={``} sx={{ width: '100%', typography: 'body1', }}>
                                         <TabContext value={value}>
@@ -135,37 +137,39 @@ const Deliveries = () => {
                                     :
                                     <Wronglocation title={'No deliveries available'} description={`Delivery service isn't available at your location. Would you like to try a different address ?`} />)
                                 :
-                                 <div className="loader_container">
-                                    <span className="newloader shine"><img src='/image/weedx.io logo.png' alt='weedx.io logo'  title='weedx.io logo'/></span>
+                                <div className="loader_container">
+                                    <span className="newloader shine"><img src='/image/weedx.io logo.png' alt='weedx.io logo' title='weedx.io logo' /></span>
                                 </div>
 
                         }
                     </div>
                     <div className="col-12 webContent">
-                           <h2 className="section_main_title">{contentdata?.Title}</h2>
-                           <div dangerouslySetInnerHTML={{ __html: contentdata?.Content }} />
+                        <h2 className="section_main_title">{contentdata?.Title}</h2>
+                        <div dangerouslySetInnerHTML={{ __html: contentdata?.Content }} />
                     </div>
-                     { contentdata.length !== 0 && <><h3 className="section_main_title">FAQs</h3>
-                        
-                    <div className="row">
-                        {
-                            contentdata?.Faq?.map((item)=>{
-                            return <div className="col-lg-6 webContent my-2"> <Accordion>
-                            <AccordionSummary
-                            expandIcon={<ExpandMoreIcon />}
-                            aria-controls="panel1-content"
-                            id="panel1-header"
-                            >
-                            <h3 className="">{item.title}</h3>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                              <p>{item.answer}</p>
-                            </AccordionDetails>
-                            </Accordion></div>
-                            })
-                        }
-                       
-                    </div></>}
+                    {contentdata.length !== 0 && 
+                     contentdata?.Faq[0]?.title !== '' &&
+                    <>  <h3 className="section_main_title">FAQs</h3>
+
+                        <div className="row">
+                            {
+                                contentdata?.Faq?.map((item) => {
+                                    return <div className="col-lg-6 webContent my-2"> <Accordion>
+                                        <AccordionSummary
+                                            expandIcon={<ExpandMoreIcon />}
+                                            aria-controls="panel1-content"
+                                            id="panel1-header"
+                                        >
+                                            <h3 >{item.title}</h3>
+                                        </AccordionSummary>
+                                        <AccordionDetails>
+                                            <p>{item.answer}</p>
+                                        </AccordionDetails>
+                                    </Accordion></div>
+                                })
+                            }
+
+                        </div></>}
                 </div>
             </div>
         </React.Fragment>

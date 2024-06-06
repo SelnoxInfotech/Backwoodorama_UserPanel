@@ -3,18 +3,15 @@ import React from "react";
 import Dispensoriescart from './Dispensoriescart'
 // import { DespensioriesItem } from '../../../../Api/Api';
 import { DispensariesSco } from "../../../Component/ScoPage/DispensariesSco"
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
+
 import Createcontext from "../../../../Hooks/Context"
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-const Weed_Dispansires = ({Store,SetStore ,searchtext ,setsearchtext ,contentdata}) => {
+const Weed_Dispansires = ({ Store, SetStore, searchtext, setsearchtext, contentdata }) => {
 
     const locaton = useLocation();
     const { state } = React.useContext(Createcontext);
     return (
         <React.Fragment>
-          
+
             <DispensariesSco location={locaton?.pathname}></DispensariesSco>
             <div className="container">
                 <div className="row">
@@ -37,38 +34,19 @@ const Weed_Dispansires = ({Store,SetStore ,searchtext ,setsearchtext ,contentdat
 
 
                         {Store?.map((ele, index) => {
-                           
+
                             return (
-                            <div  key={index}>
+                                <div key={index}>
                                     <Dispensoriescart index={index} ele={ele} />
-                            </div>
+                                </div>
                             )
                         })}
                     </div>
                     <div className="col-12 webContent">
-                           <h2 className="section_main_title">{contentdata?.Title}</h2>
-                           <div dangerouslySetInnerHTML={{ __html: contentdata?.Content }} />
+                        <h2 className="section_main_title">{contentdata?.Title}</h2>
+                        <div dangerouslySetInnerHTML={{ __html: contentdata?.Content }} />
                     </div>
-                     { contentdata.length !== 0 && <><h3 className="section_main_title">FAQs</h3>
-                    <div className="row">
-                        {
-                            contentdata?.Faq?.map((item)=>{
-                            return <div className="col-lg-6 webContent my-2"> <Accordion>
-                            <AccordionSummary
-                            expandIcon={<ExpandMoreIcon />}
-                            aria-controls="panel1-content"
-                            id="panel1-header"
-                            >
-                            <h3 className="">{item.title}</h3>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                              <p>{item.answer}</p>
-                            </AccordionDetails>
-                            </Accordion></div>
-                            })
-                        }
-                       
-                    </div></>}
+                  
                 </div>
             </div>
         </React.Fragment>
