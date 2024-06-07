@@ -13,8 +13,7 @@ const DeliveryItemsCard = ({ Deliverie }) => {
     return (
         <React.Fragment>
             <div className="container-fluid">
-                    {Deliverie?.map((items, index) => {
-                        console.log(items)
+                    {Deliverie?.map((items, index) => { 
                         return (
                             <div className="delivery_items_cards_container mt-4" key={index}>
                                 <div className='d-flex w-100 justify-content-between'>
