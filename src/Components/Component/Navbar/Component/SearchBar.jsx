@@ -202,7 +202,6 @@ const SearchBar = ({ path }) => {
                         options={SearchData}
                         groupBy={(option) => option.type}
                         renderOption={(props, t) => {
-                            console.log(t.value ,'t.value')
                             return (
                                 <div {...props} style={{ color: "black" }} >
                                     <ul className='PopperLIst'>

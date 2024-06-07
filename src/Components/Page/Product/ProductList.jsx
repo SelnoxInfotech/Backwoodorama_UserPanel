@@ -172,7 +172,7 @@ const ProductList = ({ arr }) => {
           }
         } else {
           SetCartClean(true);
-          console.log(5)
+          // console.log(5)
         }
       } else {
         SetAddToCard([Arry]);

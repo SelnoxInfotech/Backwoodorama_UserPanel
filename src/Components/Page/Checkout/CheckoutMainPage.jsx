@@ -42,7 +42,7 @@ const CheckOutMainPage = () => {
     const config = {
         headers: { Authorization: `Bearer ${token_data}` }
     };
- console.log(Boolean(state.CoupounAmount))
+//  console.log(Boolean(state.CoupounAmount))
 
     async function SubmitData() {
 

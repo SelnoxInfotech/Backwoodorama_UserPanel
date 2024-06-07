@@ -228,7 +228,7 @@ const NewProductDetails = () => {
   if (!StoreProduct.length) {
     return <p>Loading....</p>
   }
-console.log(Product)
+// console.log(Product)
   return (
     <div className="container-fluid">
       {Object.keys(Product).length !== 0 && <ProductDetailsSeo Productnm={Product.Product_Name} Productname={`Buy ${Product.Product_Name} at ${Product.StoreName} on WeedX.io - Your Trusted Marketplace`} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={location.pathname} ></ProductDetailsSeo>

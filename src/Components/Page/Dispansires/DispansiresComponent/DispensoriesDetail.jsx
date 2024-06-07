@@ -26,7 +26,8 @@ export default function DispensoriesDetails() {
     const location = useLocation()
     const params = useParams();
     const [reviewtype, setReviewtype] = React.useState('All')
-    const { id, tab, Category, SubCategory } = params
+    const { id, tab, Category, StoreName } = params
+    // console.log(params, location, location.pathname.slice(0, 16) === "/weed-deliveries")
     const classes = useStyles()
     const [category, SetCategory] = React.useState([])
     const [DespensariesData, SetDespensariesProductData] = React.useState([])
@@ -42,14 +43,55 @@ export default function DispensoriesDetails() {
         media: [],
         popup: false
     })
+    function modifystr(str) {
+        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str.trim().replaceAll(' ', "-");
+        let a = 0;
+        while (a < 1) {
+            if (str.includes("--")) {
+                str = str.replaceAll("--", "-")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("//", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("-/", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("/-", "/")
+            } else {
+                a++
+            }
+        }
+
+        return str.toLowerCase()
+    }
     React.useEffect(() => {
         axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${id}`, {
         }).then(response => {
             if (response.data.length === 0) {
                 navigate("/404")
             } else {
-
                 SetDespens(response.data)
+                if (Boolean(location.pathname.slice(0, 16) === "/weed-deliveries" && modifystr(response.data[0].Store_Name) !== StoreName)) {
+                    if (Boolean(tab)) {
+
+                        navigate(`/weed-deliveries/${modifystr(response.data[0].Store_Name)}/${tab}/${id}`, { replace: false })
+                    }
+                    else {
+                        navigate(`/weed-deliveries/${modifystr(response.data[0].Store_Name)}/${id}`, { replace: false })
+                    }
+                }
+                else {
+                    if (modifystr(response.data[0].Store_Name) !== StoreName) {
+                        if(Boolean(tab)) {
+
+                            navigate(`/weed-dispensaries/${modifystr(response.data[0].Store_Name)}/${tab}/${id}`, { replace: false })
+                        }
+                        else {
+                            navigate(`/weed-dispensaries/${modifystr(response.data[0].Store_Name)}/${id}`, { replace: false })
+                        }
+                    }
+                }
+
+                // Boolean(location.pathname.slice(0 ,16) === "/weed-deliveries" &&  response.data[0].Store_Name !== StoreName) && navigate(`/weed-deliveries/${modifystr(response.data[0].Store_Name)}/${id}` , { replace: true })
             }
 
         }).catch((error) => {
@@ -85,7 +127,7 @@ export default function DispensoriesDetails() {
         }).then(response => {
             SetDespensariesProductData(response.data)
         })
-    }, [params])
+    }, [id])
     function modifystr(str) {
         str = str?.replace(/[^a-zA-Z0-9/ ]/g, "-");
         str = str?.trim()?.replaceAll(' ', "-");
@@ -107,7 +149,7 @@ export default function DispensoriesDetails() {
         return str.toLowerCase()
     }
     useEffect(() => {
-    
+
         if (reviewtype === "All") {
             axios.get(`https://api.cannabaze.com/UserPanel/Get-AllAverage/${id}`).then((res) => {
                 SetRating(res.data)
@@ -219,7 +261,7 @@ export default function DispensoriesDetails() {
 
 
     const onSubmit = () => {
-      
+
         const formdata = new FormData();
         let a = GetProductReview?.media?.filter((item) => {
             return item?.type.includes('image')
@@ -251,18 +293,18 @@ export default function DispensoriesDetails() {
 
         })
     };
-   const [scroll , SetScroll ] =  React.useState(true)
+    const [scroll, SetScroll] = React.useState(true)
 
     React.useEffect(() => {
-        if(scroll) {
+        if (scroll) {
             document.documentElement.scrollTo({
                 top: 0,
                 left: 0,
                 behavior: "instant",
             });
-            SetScroll(()=>false)
+            SetScroll(() => false)
         }
-       
+
     }, [])
 
     const Swal = require('sweetalert2')
@@ -295,6 +337,7 @@ export default function DispensoriesDetails() {
     function handleEdit() {
         SetGetProductReview({ ...GetProductReview, 'popup': true })
     }
+
     function HellFull(ReviewId) {
         if ("ProductName" in ReviewId) {
             ProductHelpFull(ReviewId.id, state.Profile.id).then((res) => {
@@ -308,8 +351,9 @@ export default function DispensoriesDetails() {
             })
         }
     }
+
     function navigationtab(route, store, id) {
-      
+
         if (Boolean(store)) {
 
             navigate(`${route}/${store.toLowerCase()}/${id}`)
@@ -326,18 +370,20 @@ export default function DispensoriesDetails() {
             }
         }
     }
-   
-    
+
+
     return (
         <div>{
-               !Despen.length ?   <div className="loader_container">
-               <span className="newloader shine"><img src='/image/weedx.io logo.png' alt="weedx.io logo" title="weedx.io logo" /></span>
-           </div>: <div>
+            !Despen.length ? <div className="loader_container">
+                <span className="newloader shine"><img src='/image/weedx.io logo.png' alt="weedx.io logo" title="weedx.io logo" /></span>
+            </div>
+                :
+                <div>
                     <p> {(location.pathname.slice(0, 18) === "/weed-dispensaries" || location.pathname.slice(0, 16) === "/weed-deliveries") &&
                         <div style={{ fontSize: '12px' }} > <span style={{ fontSize: '12px', cursor: 'pointer' }} onClick={() => navigationtab(location.pathname.slice(0, 18) === "/weed-dispensaries" ? '/weed-dispensaries' : "/weed-deliveries")}> {location.pathname.slice(0, 18) === "/weed-dispensaries" ? 'weed-dispensaries' : "weed-deliveries"}</span>
                             {" >"} <span style={{ fontSize: '12px', cursor: 'pointer' }} onClick={() => navigationtab(location.pathname.slice(0, 18) === "/weed-dispensaries" ? '/weed-dispensaries' : "/weed-deliveries", params.StoreName, id)}> {params.StoreName}</span>
-                        {Boolean(params?.tab)   &&  <span> {" > "}{params?.tab}</span> }
-                            </div>
+                            {Boolean(params?.tab) && <span> {" > "}{params?.tab}</span>}
+                        </div>
                     }</p>
                     <StoreDetails Despen={Despen} locationStore={location.pathname}></StoreDetails>
                     <div className="container-fluid product_container" >
@@ -397,7 +443,7 @@ export default function DispensoriesDetails() {
                             } */}
                         </div>
                     </div>
-                 </div>
+                </div>
         }
         </div>
     )

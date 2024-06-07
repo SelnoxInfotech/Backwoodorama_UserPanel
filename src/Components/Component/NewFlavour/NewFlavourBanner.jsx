@@ -20,7 +20,6 @@ const NewFlavourBanner = ({ delBtn }) => {
     }, 0);
     window.scrollTo({top: 0, left: 0})
    },[ new Date().getMinutes() , delBtn])
-console.log(delBtn)
     return (
         <React.Fragment>
             

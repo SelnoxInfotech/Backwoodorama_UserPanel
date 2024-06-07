@@ -47,7 +47,7 @@ const RecentViewProduct = () => {
                 <div className="col-12   recentViewProductSlider" id="width" ref={ref}>
                     <ScrollContainer className=" RecentViewScrollContainerRelative">
                         {FlowerArray.map((items, index) => {
-                            console.log(FlowerArray)
+                            // console.log(FlowerArray)
                             return (
 
                             <div className='recentViewContainer col-12  col-sm-6 col-md-6 col-lg-4 col-xl-3' key={index}>

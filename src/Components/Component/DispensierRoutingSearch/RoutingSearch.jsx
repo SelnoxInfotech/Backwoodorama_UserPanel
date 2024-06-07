@@ -3,7 +3,7 @@ import Createcontext from "../../../Hooks/Context"
 import { useNavigate } from 'react-router-dom'
 import _ from "lodash";
 export default function RoutingSearch({ city, State, country, pathname, route, com }) {
-  const { state, dispatch } = React.useContext(Createcontext)
+  const { dispatch } = React.useContext(Createcontext)
   const navigate = useNavigate()
 
   React.useEffect(() => {
