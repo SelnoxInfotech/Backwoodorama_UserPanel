@@ -13,19 +13,25 @@ export default function RoutingSearch({ city, State, country, pathname, route, c
     else {
       if (city === undefined) {
         if (State !== undefined) {
+          if (State === "new-york")
+          location(State + "state " + country, "state")
+        else {
           location(State + " " + country, "state")
+        }
         }
         else {
           location(country, "Country")
         }
       }
       else {
-        location(city + " " + State + " " + country, "city")
+        location(city + " " + State + " " + country, "city")  
       }
     }
     dispatch({ type: 'permission', permission: true })
   }, [])
 
+
+  console.log(State === "new-york", Boolean(city))
 
   async function location(value, type) {
     // var ci, sta, Coun , route;    
@@ -51,10 +57,9 @@ export default function RoutingSearch({ city, State, country, pathname, route, c
             const addressComponents = firstResult.address_components || [];
 
             addressComponents.map((data) => {
-              let l =  data.types[0]
+              let l = data.types[0]
               if (data.types[0] === "political") {
                 let rever = data.types.reverse()
-                console.log(rever)
                 let l = rever[0] === "political" ? rever[1] : rever[0]
                 object[l] = data.long_name
               }
@@ -71,56 +76,60 @@ export default function RoutingSearch({ city, State, country, pathname, route, c
               Coun = Object.values(object)[0].replace(/\s/g, '-');
               dispatch({ type: 'Country', Country: Coun });
             }
-      
+
             if (Boolean(object.administrative_area_level_1)) {
-      
+
               sta = object.administrative_area_level_1.replace(/\s/g, '-');
               dispatch({ type: 'State', State: sta });
-      
+
             }
-            if (Boolean(object.administrative_area_level_3) || Boolean(object.establishment) || Boolean(object.locality) || Boolean(object.sublocality) || Boolean(object.administrative_area_level_2)) {
-      
-              if (Boolean(object.administrative_area_level_3)) {
-                ci = object.administrative_area_level_3.replace(/\s/g, '-')
-                dispatch({ type: 'City', City: ci })
-              }
-              if (Boolean(object.sublocality) && Boolean(object.locality)) {
-                ci = object.sublocality.replace(/\s/g, '-')
-                dispatch({ type: 'City', City: ci })
-              }
-              else if (Boolean(object.locality)) {
-                ci = object.locality.replace(/\s/g, '-')
-                dispatch({ type: 'City', City: ci })
-              }
-              else if (Object.keys(object).length !== 1 && Boolean(object.establishment)) {
-                ci = object.establishment.replace(/\s/g, '-')
-                dispatch({ type: 'City', City: ci })
-              }
-              else if (Boolean(object.sublocality_level_1)) {
-                ci = object.sublocality_level_1.replace(/\s/g, '-')
-                dispatch({ type: 'City', City: ci })
-              }
-      
-              if (Boolean(object.sublocality_level_1) && Boolean(object.locality)) {
-                ci = object.sublocality_level_1.replace(/\s/g, '-')
-                dispatch({ type: 'City', City: ci })
-              }
-              if (Boolean(object.sublocality_level_1) && Boolean(object.locality)) {
-                ci = object.sublocality_level_1.replace(/\s/g, '-')
-                dispatch({ type: 'City', City: ci })
-              }
-              if ((Boolean(object.administrative_area_level_3) && Boolean(object.locality)) && (Boolean(object.administrative_area_level_1) && Boolean(object.locality))) {
-                ci = object.locality.replace(/\s/g, '-')
-                dispatch({ type: 'City', City: ci })
-              }
-              else {
-                if (!Boolean(object.administrative_area_level_3) && !Boolean(object.establishment) && !Boolean(object.locality) && !Boolean(object.sublocality) && Boolean(object.administrative_area_level_2)) {
-                  if (!ci) {
-                    ci = object.administrative_area_level_2.replace(/\s/g, '-')
-                    dispatch({ type: 'City', City: ci })
+
+
+           
+              if (Boolean(object.administrative_area_level_3) || Boolean(object.establishment) || Boolean(object.locality) || Boolean(object.sublocality) || Boolean(object.administrative_area_level_2)) {
+
+                if (Boolean(object.administrative_area_level_3)) {
+                  ci = object.administrative_area_level_3.replace(/\s/g, '-')
+                  dispatch({ type: 'City', City: ci })
+                }
+                if (Boolean(object.sublocality) && Boolean(object.locality)) {
+                  ci = object.sublocality.replace(/\s/g, '-')
+                  dispatch({ type: 'City', City: ci })
+                }
+                else if (Boolean(object.locality)) {
+                  ci = object.locality.replace(/\s/g, '-')
+                  dispatch({ type: 'City', City: ci })
+                }
+                else if (Object.keys(object).length !== 1 && Boolean(object.establishment)) {
+                  ci = object.establishment.replace(/\s/g, '-')
+                  dispatch({ type: 'City', City: ci })
+                }
+                else if (Boolean(object.sublocality_level_1)) {
+                  ci = object.sublocality_level_1.replace(/\s/g, '-')
+                  dispatch({ type: 'City', City: ci })
+                }
+
+                if (Boolean(object.sublocality_level_1) && Boolean(object.locality)) {
+                  ci = object.sublocality_level_1.replace(/\s/g, '-')
+                  dispatch({ type: 'City', City: ci })
+                }
+                if (Boolean(object.sublocality_level_1) && Boolean(object.locality)) {
+                  ci = object.sublocality_level_1.replace(/\s/g, '-')
+                  dispatch({ type: 'City', City: ci })
+                }
+                if ((Boolean(object.administrative_area_level_3) && Boolean(object.locality)) && (Boolean(object.administrative_area_level_1) && Boolean(object.locality))) {
+                  ci = object.locality.replace(/\s/g, '-')
+                  dispatch({ type: 'City', City: ci })
+                }
+                else {
+                  if (!Boolean(object.administrative_area_level_3) && !Boolean(object.establishment) && !Boolean(object.locality) && !Boolean(object.sublocality) && Boolean(object.administrative_area_level_2)) {
+                    if (!ci) {
+                      ci = object.administrative_area_level_2.replace(/\s/g, '-')
+                      dispatch({ type: 'City', City: ci })
+                    }
                   }
                 }
-              }
+              
             }
             if (Boolean(object.route) || Boolean(object.sublocality_level_2) || Boolean(object.neighborhood) || Boolean(object.establishment)) {
               if (Boolean(object.route)) {
@@ -143,9 +152,9 @@ export default function RoutingSearch({ city, State, country, pathname, route, c
                 route = object.sublocality_level_2.replace(/\s/g, '-');
                 dispatch({ type: 'route', route: route });
               }
-      
+
             }
-      
+
 
 
 
