@@ -31,8 +31,6 @@ export default function RoutingSearch({ city, State, country, pathname, route, c
   }, [])
 
 
-  console.log(State === "new-york", Boolean(city))
-
   async function location(value, type) {
     // var ci, sta, Coun , route;    
     fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
