@@ -1,8 +1,7 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 import Createcontext from "../Hooks/Context"
 import { useParams, useLocation } from "react-router-dom";
 import RoutingSearch from "../Components/Component/DispensierRoutingSearch/RoutingSearch";
-import axios from "axios";
 export default function RoutingDespen(props) {
     const { state } = useContext(Createcontext)
     const params = useParams()
