@@ -10,6 +10,7 @@ import { ProductSeo, ProductCategorySeo } from "../../Component/ScoPage/ProductS
 import SkeletonCard from '../../Component/Skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton';
 import ProductSearchResult from "./ProductSearchResult/ProductSearchResult"
 import Createcontext from "../../../Hooks/Context"
+import _ from "lodash"
 import { GetProduct, CategoryProductsearch, SubcategoryProduct , SubCategoryApibyname } from "../../../Api/Api"
 const Product = () => {
     const navigate = useNavigate();
