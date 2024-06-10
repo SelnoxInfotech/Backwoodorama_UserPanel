@@ -103,20 +103,20 @@ const Deliveries = () => {
         if (Boolean(city)) {
             dispatch({ type: 'route', route: "" })
             dispatch({ type: 'Location', Location: state.City })
-            navigate(`/weed-dispensaries/in/${modifystr(state.Country.toLowerCase())}/${modifystr(state.State.toLowerCase())}/${modifystr(state.City.toLowerCase())}`)
+            navigate(`/weed-deliveries-/in/${modifystr(state.Country.toLowerCase())}/${modifystr(state.State.toLowerCase())}/${modifystr(state.City.toLowerCase())}`)
         }
         else if (Boolean(state1)) {
             dispatch({ type: 'Location', Location: state.State })
             dispatch({ type: 'City', City: "" })
             dispatch({ type: 'route', route: "" })
-            navigate(`/weed-dispensaries/in/${modifystr(state.Country)}/${modifystr(state?.State)}`)
+            navigate(`/weed-deliveries-/in/${modifystr(state.Country)}/${modifystr(state?.State)}`)
         }
         else if (Boolean(country)) {
             dispatch({ type: 'State', State: "" })
             dispatch({ type: 'City', City: "" })
             dispatch({ type: 'route', route: "" })
             dispatch({ type: 'Location', Location: state.Country })
-            navigate(`/weed-dispensaries/in/${modifystr(state.Country.toLowerCase())}/`)
+            navigate(`/weed-deliveries-/in/${modifystr(state.Country.toLowerCase())}/`)
         }
 
     }

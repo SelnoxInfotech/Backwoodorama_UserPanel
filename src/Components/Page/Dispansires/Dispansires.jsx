@@ -14,10 +14,10 @@ import { useLocation, useParams, useNavigate } from "react-router-dom";
 import axios, { Axios } from "axios";
 import { DespensioriesItem } from '../../../Api/Api';
 import Wronglocation from "../../Component/Skeleton/Wronglocation";
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+// import Accordion from '@mui/material/Accordion';
+// import AccordionSummary from '@mui/material/AccordionSummary';
+// import AccordionDetails from '@mui/material/AccordionDetails';
+// import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Loader from "../../Component/Loader/Loader";
 function TabPanel(props) {
 
@@ -244,9 +244,7 @@ export default function Dispansires() {
                         
                         )
                         :
-                        <div className="loader_container">
-                            <span className="newloader shine"><img src='/image/weedx.io logo.png' alt="weedx.io logo" title="weedx.io logo" /></span>
-                        </div>
+                     <Loader/>
                 }
 
             </div>

@@ -10,20 +10,19 @@ import { ProductSeo, ProductCategorySeo } from "../../Component/ScoPage/ProductS
 import SkeletonCard from '../../Component/Skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton';
 import ProductSearchResult from "./ProductSearchResult/ProductSearchResult"
 import Createcontext from "../../../Hooks/Context"
-import { GetProduct, CategoryProductsearch, SubCategoryApi, SubcategoryProduct , SubCategoryApibyname } from "../../../Api/Api"
+import { GetProduct, CategoryProductsearch, SubcategoryProduct , SubCategoryApibyname } from "../../../Api/Api"
 const Product = () => {
     const navigate = useNavigate();
     const classes = useStyles()
     const params = useParams();
     const location = useLocation()
-    const { state, dispatch } = React.useContext(Createcontext)
+    const { state } = React.useContext(Createcontext)
     const [loading, SetLoading] = React.useState(true)
     const [subcategories, setsubcategories] = useState([])
     const [Product, SetProduct] = React.useState([])
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
   
-//  console.log(params)
 
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
@@ -70,8 +69,6 @@ const Product = () => {
         }
         fetchData()
     }, [])
-
-
 
     React.useEffect(() => {
         if (params.subCategory) {
@@ -154,11 +151,30 @@ const Product = () => {
           }); 
     }, [state.Location, params])
   
+    function breadcrumCountry(params ,  name) {
+        if (params === "Product") {
+            navigate(`/products`)
+        }
+        else if (params === "categoryname") {
+         const categoryfind = _.find(Category, function(o) { return o.name ===  name.toUpperCase()})
+            navigate(`/products/${categoryfind.name.toLowerCase()}/${categoryfind.id}` )
+        }
+    }
+
+
     return (
         <React.Fragment>
+            <div style={{cursor:"pointer"}}>
+                <span onClick={() => navigate("/")}>{"Home"}</span>
+                {<span> {">"} <span onClick={() => breadcrumCountry("Product")}>Product</span></span>}
+                {Boolean(params.categoryname) && <span> {">"} <span onClick={() => breadcrumCountry("categoryname" , params.categoryname)}>{params.categoryname}</span></span>}
+                {Boolean(params.subCategory) && <span> {">"} <span >{params.subCategory}</span></span>}
+               
+
+            </div>
             {!params.id ? <ProductSeo location={location?.pathname}></ProductSeo> :
             <ProductCategorySeo categoryname={params?.categoryname} location={location?.pathname} ></ProductCategorySeo>}
-            <div className=" " >
+       
                 <div className="row">
                     <div className="col-12 mt-4">
                         <CategoryProduct Category={Category} ShowCategoryProduct={ShowCategoryProduct}></CategoryProduct>
@@ -245,7 +261,7 @@ const Product = () => {
                         }
                     </div>
                 </div>
-            </div>
+   
         </React.Fragment>
     )
 }
