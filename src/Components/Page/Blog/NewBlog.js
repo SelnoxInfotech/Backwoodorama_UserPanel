@@ -29,6 +29,7 @@ import { WhisList } from "../../Component/Whishlist/WhisList";
 import { useLocation, Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { SingleNewsSeo } from "../../Component/ScoPage/NewsSeo.jsx";
+import Loader from "../../Component/Loader/Loader.js";
 const NewBlog = () => {
     const ref = useRef(null)
     const classes = useStyles()
@@ -173,7 +174,7 @@ const NewBlog = () => {
             })
     }
     if (!Object.keys(News).length) {
-        return <p>Loading...</p>
+        return <Loader/>
     }
   return (
     <div className="container" >

@@ -261,6 +261,7 @@ export function GetAllDelivery(object) {
             object
         ).then(response => {
             if(Boolean(response.data.length)){
+              
                 const k = response.data.reduce((acc, current) => {
                     const x = acc.find(item => item.id === current.id);
                     if (!x) {
@@ -271,7 +272,9 @@ export function GetAllDelivery(object) {
                             Store_Image: current.Store_Image,
                             Store_Address: current.Store_Address,
                             rating: current.rating,
-                            TotalRating: current.TotalRating
+                            TotalRating: current.TotalRating,
+                            DeliveryTime :current.SetbyMin,
+                            DeliveryPrice:current.DeliveryPrice
                         }
                         return acc.concat([newCurr]);
                     } else {
@@ -285,8 +288,9 @@ export function GetAllDelivery(object) {
                                 Store_Image: current.Store_Image,
                                 Store_Address: current.Store_Address,
                                 rating: current.rating,
-                                TotalRating: current.TotalRating
-
+                                TotalRating: current.TotalRating,
+                                DeliveryTime :current.SetbyMin,
+                                DeliveryPrice:current.DeliveryPrice
                             }
                             return acc;
                         } else {
@@ -295,6 +299,7 @@ export function GetAllDelivery(object) {
                         //   Category: [{ [y.Category]: y.ProductCount }] 
                     }
                 }, []);
+                console.log( k)
                 return k
 
              }else{

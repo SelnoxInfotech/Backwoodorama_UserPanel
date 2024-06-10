@@ -1,4 +1,5 @@
 import { Map, GoogleApiWrapper } from 'google-maps-react';
+import Loader from '../Loader/Loader';
 // import {Fa500Px } from "react-icons/fa";
 export   function MapContainer(props) {
   // const locations = [
@@ -56,6 +57,6 @@ export   function MapContainer(props) {
 }
 
  export default  GoogleApiWrapper ({
-  LoadingContainer: () => <div>Loading...</div>,
+  LoadingContainer: () => <Loader/>,
   apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU'
 })(MapContainer);

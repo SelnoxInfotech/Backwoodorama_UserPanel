@@ -18,6 +18,7 @@ import { RWebShare } from "react-web-share";
 import { IconButton } from "@material-ui/core";
 import Cookies from 'universal-cookie';
 import {useNavigate} from 'react-router-dom'
+import Loader from '../../../Component/Loader/Loader.js';
 const Allblogs = () => {
   const [allblogs, setallblogs] = useState([])
   let location= useLocation();
@@ -268,7 +269,7 @@ const Allblogs = () => {
             : <DeliveryItemsCardSkeleton></DeliveryItemsCardSkeleton>
           }
           { 
-            loader && <div className="loader_container"> <span className="newloader shine"><img src='/image/weedx.io logo.png' alt='weedx.io logo' title='weedx.io logo' /></span> </div>
+            loader && <Loader/>
           }
 
       </div>

@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import Axios from "axios";
 import AllProductCategory from "./AllProductCategory";
 import { ProductCategorySeo } from "../../Component/ScoPage/ProductSeo";
+import Loader from "../../Component/Loader/Loader";
 const AllCategory = () => {
     const navigate = useNavigate();
     const Params = useParams()
@@ -55,9 +56,7 @@ const AllCategory = () => {
 
                 {
 
-                    Loading ? <div className="loader_container">
-                    <span className="newloader shine"><img src='/image/weedx.io logo.png' alt='weedx.io logo' title='weedx.io logo'/></span>
-                </div> : <AllProductCategory flowerArray={Category}></AllProductCategory>
+                    Loading ? <Loader/> : <AllProductCategory flowerArray={Category}></AllProductCategory>
                 }
             </div>
         </div>

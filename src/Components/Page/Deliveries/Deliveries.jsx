@@ -18,6 +18,7 @@ import DeliveryItemsCard from "./DeliveriesComponent/DeliveryMenuBar/DeliveryIte
 import { Delivery } from '../../Component/ScoPage/Deliveries';
 import { GetAllDelivery } from "../../../Api/Api"
 import Wronglocation from "../../Component/Skeleton/Wronglocation"
+import Loader from "../../Component/Loader/Loader";
 const Deliveries = () => {
     const { state } = React.useContext(Createcontext)
     const Location = useLocation()
@@ -29,7 +30,6 @@ const Deliveries = () => {
        if(state.Country !== ''){ GetAllDelivery(object).then((response) => {
            
                     SetDelivery(()=>response)
-                   
                     setloader(true)
             
         }).catch((error) => {
@@ -135,9 +135,7 @@ const Deliveries = () => {
                                     :
                                     <Wronglocation title={'No deliveries available'} description={`Delivery service isn't available at your location. Would you like to try a different address ?`} />)
                                 :
-                                 <div className="loader_container">
-                                    <span className="newloader shine"><img src='/image/weedx.io logo.png' alt='weedx.io logo'  title='weedx.io logo'/></span>
-                                </div>
+                                <Loader/>
 
                         }
                     </div>

@@ -26,6 +26,7 @@ import Box from '@mui/material/Box';
 import { Link, useParams } from "react-router-dom";
 import AddToCartPopUp from "../../AddToCartPopUp/AddToCartPopUp";
 import { WhisList } from '../../../../Component/Whishlist/WhisList'
+import Loader from "../../../../Component/Loader/Loader";
 const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, quentity, setquentity, dynamicWeight, setdynamicWeight }) => {
 
     const cookies = new Cookies();
@@ -603,11 +604,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                         </div>
                     </div>
 
-                    {startload && <div className="loader_container">
-                        <span className="newloader shine">
-                            <img src="/image/weedx.io logo.png" alt="weedx.io logo" title='weedx.io logo'  />
-                        </span>
-                    </div>
+                    {startload && <Loader/>
                     }
                     {Whishlist && <WhisList open1={Whishlist} SetWishList={SetWishList}></WhisList>}
                 </div >

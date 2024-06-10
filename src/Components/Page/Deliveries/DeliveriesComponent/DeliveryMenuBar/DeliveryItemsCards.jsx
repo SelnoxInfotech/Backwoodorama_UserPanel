@@ -10,11 +10,12 @@ import { Link } from 'react-router-dom';
 import { Rating } from '@mui/material';
 const DeliveryItemsCard = ({ Deliverie }) => {
     const classes = useStyles()
+    console.log(Deliverie ,'Deliverie')
     return (
         <React.Fragment>
             <div className="container-fluid">
                     {Deliverie?.map((items, index) => {
-                        console.log(items)
+                    
                         return (
                             <div className="delivery_items_cards_container mt-4" key={index}>
                                 <div className='d-flex w-100 justify-content-between'>
@@ -70,18 +71,21 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                 </div>
                                 <div className='col-md-12 delivery_items_button_div'>
                                 <div className='delivery_item_paragraphBtn  delivery_items_card_flex center'>
+                                               { items.DeliveryTime !== null?
                                                 <div className='deliverItemCard_icons'>
-                                                    <MdShoppingCart color='#707070' size={16} /><span>30 to 90 min |</span><span>Free delivery</span>|<span>$50 min</span>
+                                                    <MdShoppingCart color='#707070' size={16} /> <span>{items.DeliveryTime.Startmin} min to {items.DeliveryTime.Endmin} min |</span>{items.DeliveryPrice !== 0 ?<span> ${items.DeliveryPrice} Delivery changes </span>:<span>Free delivery</span>} 
                                                 </div>
+                                                :
+                                                <div className='deliverItemCard_icons'>
+                                                    <MdShoppingCart color='#707070' size={16} /> <span>30 to 90 min |</span> <span>Free delivery</span> |<span>$50 min</span>
+                                                </div>
+                                                }
                                             </div>
                                     <div className='row'>
                                         
                                         <div className='delivery_btn_div'>
-                                            <Box
-                                                className={`${classes.loadingBtnTextAndBack}`}
-                                            >
+                                            <Box className={`${classes.loadingBtnTextAndBack}`} >
                                                 <Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g,'-').toLowerCase()}/${items.id}`}><LoadingButton variant="outlined">View Menu</LoadingButton></Link>
-
                                             </Box>
 
                                         </div>

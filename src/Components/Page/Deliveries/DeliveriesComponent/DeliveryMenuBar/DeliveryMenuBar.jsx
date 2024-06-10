@@ -17,6 +17,7 @@ const DeliveryMenuBar = () => {
     React.useEffect(() => {
             const object = { City: state.City.replace(/-/g, " ") , State: state.State.replace(/-/g, " "), Country: state.Country.replace(/-/g, " ") }
             GetAllDelivery(object).then((response) => {
+                console.log(response,'response')
                 if (response?.length !== 0) {
                     SetDelivery(response)
                 }

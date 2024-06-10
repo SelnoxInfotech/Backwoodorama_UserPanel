@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { order } from "../MyorderApi";
 import { useLocation } from "react-router-dom";
 import useStyles from '../../../../Style'
+import Loader from "../../../Component/Loader/Loader";
 const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,loading}) => {
   const location = useLocation();
   const classes = useStyles()
@@ -15,9 +16,7 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,loading}) => {
   return (
     <div className="container-fluid">
       {loading?
-         <div className="loader_container">
-         <span className="newloader shine"><img src='/image/weedx.io logo.png' alt='weedx.io logo'  title='weedx.io logo' /></span>
-     </div>
+         <Loader/>
             :
           <div className="row center  ">
             {AllOrder_data?.map((val, index) => {

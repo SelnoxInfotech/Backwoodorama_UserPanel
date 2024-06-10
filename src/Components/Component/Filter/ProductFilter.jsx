@@ -12,6 +12,7 @@ import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import { PriceFilter } from "../../../Api/Api";
 import Createcontext from "../../../Hooks/Context";
+import Loader from "../Loader/Loader";
 const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
   const classes = useStyles();
   const { id } = useParams();
@@ -397,7 +398,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                                         (
                                             <ClickAwayListener onClickAway={() => {SetOpenEvent(null) }}>
                                                 {
-                                                   loading ? <span className="mx-4">Loading....</span>
+                                                   loading ? <Loader/>
                                                  :
                                                     <div className=" product_category_border product_category_dropdown" id="Related_Brand_Data" ref={ref}>
 

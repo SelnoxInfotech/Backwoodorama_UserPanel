@@ -32,7 +32,6 @@ export function modifystr(str) {
     return str.toLowerCase()
 }
 function isShopOpen(storeDetails){
-   
     let done = false
     let ans = false
     var date = new Date();

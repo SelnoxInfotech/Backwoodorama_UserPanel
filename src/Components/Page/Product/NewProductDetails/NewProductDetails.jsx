@@ -14,6 +14,7 @@ import Createcontext from "../../../../Hooks/Context"
 import _ from 'lodash'
 import { Link } from 'react-router-dom'
 import { makeStyles } from "@material-ui/core/styles";
+import Loader from "../../../Component/Loader/Loader";
 const usePlaceholderStyles = makeStyles(theme => ({
   placeholder: {
     color: "#aaa",
@@ -226,7 +227,7 @@ const NewProductDetails = () => {
 
   const location = useLocation()
   if (!StoreProduct.length) {
-    return <p>Loading....</p>
+    return <Loader/>
   }
 console.log(Product)
   return (

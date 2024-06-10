@@ -20,6 +20,7 @@ import Review from "../../../Component/Review/Review";
 import { StoreDetails } from "../../../../Components/Component/ScoPage/StoreDetails"
 import { Store_Add_Review, Store_OverAllGet_Review, Store_Get_UserComment, Store_Get_Review, Delete_StoreReview, StoreHelpFull } from "../../../../Api/Api";
 import Createcontext from "../../../../Hooks/Context"
+import Loader from "../../../Component/Loader/Loader";
 export default function DispensoriesDetails() {
     const navigate = useNavigate()
     const { state, dispatch } = React.useContext(Createcontext)
@@ -327,9 +328,7 @@ export default function DispensoriesDetails() {
     
     return (
         <div>{
-               !Despen.length ?   <div className="loader_container">
-               <span className="newloader shine"><img src='/image/weedx.io logo.png' alt="weedx.io logo" title="weedx.io logo" /></span>
-           </div>: <div>
+               !Despen.length ?   <Loader/>: <div>
                     <p> {(location.pathname.slice(0, 18) === "/weed-dispensaries" || location.pathname.slice(0, 16) === "/weed-deliveries") &&
                         <div style={{ fontSize: '12px' }} > <span style={{ fontSize: '12px', cursor: 'pointer' }} onClick={() => navigationtab(location.pathname.slice(0, 18) === "/weed-dispensaries" ? '/weed-dispensaries' : "/weed-deliveries")}> {location.pathname.slice(0, 18) === "/weed-dispensaries" ? 'weed-dispensaries' : "weed-deliveries"}</span>
                             {" >"} <span style={{ fontSize: '12px', cursor: 'pointer' }} onClick={() => navigationtab(location.pathname.slice(0, 18) === "/weed-dispensaries" ? '/weed-dispensaries' : "/weed-deliveries", params.StoreName, id)}> {params.StoreName}</span>

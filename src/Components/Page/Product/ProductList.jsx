@@ -18,6 +18,7 @@ import { AiFillHeart } from "react-icons/ai";
 import IconButton from "@mui/material/IconButton";
 import { WishListPost } from "../../Component/Whishlist/WishListApi_";
 import { WhisList } from "../../Component/Whishlist/WhisList";
+import Loader from "../../Component/Loader/Loader";
 const ProductList = ({ arr }) => {
   const cookies = new Cookies();
   const Navigate = useNavigate();
@@ -623,9 +624,7 @@ const ProductList = ({ arr }) => {
             <PreCheckout />
           </React.Fragment>
         ) : (
-          <div className="loader_container">
-            <span className="newloader shine"><img src='/image/weedx.io logo.png' alt='weedx.io logo' title='weedx.io logo' /></span>
-          </div>
+          <Loader/>
         )
       ) : (
         <div className="col-12 center">

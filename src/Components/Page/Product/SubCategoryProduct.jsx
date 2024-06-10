@@ -2,6 +2,7 @@ import React from "react"
 import { useLocation, useParams } from "react-router-dom";
 import Axios from "axios";
 import ProductSearchResult from "./ProductSearchResult/ProductSearchResult";
+import Loader from "../../Component/Loader/Loader";
 const SubcategoryProduct = () => {
     const Params = useParams()
     const Id = Params.id
@@ -30,9 +31,7 @@ const SubcategoryProduct = () => {
         <div className="col-12 center">
             {
                 Loading ?
-                <div className="loader_container">
-                <span className="newloader shine"><img src='/image/weedx.io logo.png' alt='weedx.io logo' title='weedx.io logo' /></span>
-            </div>
+               <Loader/>
                     :
                     <div className="col-12 mt-4">
                         <ProductSearchResult RelatedProductResult={Product} CategoryName={CategoryName} />

@@ -14,6 +14,7 @@ import { useLocation, useParams, useNavigate } from "react-router-dom";
 import axios, { Axios } from "axios";
 import { DespensioriesItem } from '../../../Api/Api';
 import Wronglocation from "../../Component/Skeleton/Wronglocation";
+import Loader from "../../Component/Loader/Loader";
 function TabPanel(props) {
 
     const { children, value, index, ...other } = props;
@@ -238,9 +239,8 @@ export default function Dispansires() {
                             <Wronglocation title={' No dispensaries available'} description={'We apologize, but it appears that there are no dispensaries available in your location. Would you like to enter a different address to search for a nearby dispensary?'} />
                         )
                         :
-                        <div className="loader_container">
-                            <span className="newloader shine"><img src='/image/weedx.io logo.png' alt="weedx.io logo" title="weedx.io logo" /></span>
-                        </div>
+                      <Loader/>
+                      
                 }
 
             </div>
