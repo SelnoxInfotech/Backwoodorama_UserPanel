@@ -6,7 +6,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Createcontext from "../../../Hooks/Context"
 import React from "react"
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import axios from "axios"
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
@@ -20,8 +20,9 @@ import { GetAllDelivery } from "../../../Api/Api"
 import Wronglocation from "../../Component/Skeleton/Wronglocation"
 import Loader from "../../Component/Loader/Loader";
 const Deliveries = () => {
-    const { state } = React.useContext(Createcontext)
+    const { state, dispatch } = React.useContext(Createcontext)
     const Location = useLocation()
+    const navigate = useNavigate()
     const [Deliverie, SetDelivery] = React.useState([])
     const [loader, setloader] = React.useState(false);
     const [contentdata, setcontentdata] = React.useState([])
@@ -97,9 +98,39 @@ const Deliveries = () => {
         // Cleanup function to clear the timeout if the component unmounts or Location changes
         return () => clearTimeout(timeoutId);
     }, [Location]);
+
+    function breadcrumCountry(country, state1, city) {
+        if (Boolean(city)) {
+            dispatch({ type: 'route', route: "" })
+            dispatch({ type: 'Location', Location: state.City })
+            navigate(`/weed-dispensaries/in/${modifystr(state.Country.toLowerCase())}/${modifystr(state.State.toLowerCase())}/${modifystr(state.City.toLowerCase())}`)
+        }
+        else if (Boolean(state1)) {
+            dispatch({ type: 'Location', Location: state.State })
+            dispatch({ type: 'City', City: "" })
+            dispatch({ type: 'route', route: "" })
+            navigate(`/weed-dispensaries/in/${modifystr(state.Country)}/${modifystr(state?.State)}`)
+        }
+        else if (Boolean(country)) {
+            dispatch({ type: 'State', State: "" })
+            dispatch({ type: 'City', City: "" })
+            dispatch({ type: 'route', route: "" })
+            dispatch({ type: 'Location', Location: state.Country })
+            navigate(`/weed-dispensaries/in/${modifystr(state.Country.toLowerCase())}/`)
+        }
+
+    }
+
     return (
         <React.Fragment>
-            {/* {xml()} */}
+            <div style={{cursor:"pointer"}}>
+                <span onClick={() => navigate("/")}>{"Home"}</span>
+                {Boolean(state.Country) && <span> {">"} <span onClick={() => breadcrumCountry("Country")}>{state.Country}</span></span>}
+                {Boolean(state.State) && <span> {">"} <span onClick={() => breadcrumCountry("Country", "state")}>{state.State}</span></span>}
+                {Boolean(state.City) && <span> {">"} <span onClick={() => breadcrumCountry("Country", "state", "City")}>{state.City}</span></span>}
+                {Boolean(state.route) && <span> {">"} <span>{state.route}</span></span>}
+
+            </div>
             <div className="container-fluid">
                 <div className="row  deliveries_centers">
                     <div className="headerBoxdescription">
@@ -146,29 +177,29 @@ const Deliveries = () => {
                         <h2 className="section_main_title">{contentdata?.Title}</h2>
                         <div dangerouslySetInnerHTML={{ __html: contentdata?.Content }} />
                     </div>
-                    {contentdata.length !== 0 && 
-                     contentdata?.Faq[0]?.title !== '' &&
-                    <>  <h3 className="section_main_title">FAQs</h3>
+                    {contentdata.length !== 0 &&
+                        contentdata?.Faq[0]?.title !== '' &&
+                        <>  <h3 className="section_main_title">FAQs</h3>
 
-                        <div className="row">
-                            {
-                                contentdata?.Faq?.map((item) => {
-                                    return <div className="col-lg-6 webContent my-2"> <Accordion>
-                                        <AccordionSummary
-                                            expandIcon={<ExpandMoreIcon />}
-                                            aria-controls="panel1-content"
-                                            id="panel1-header"
-                                        >
-                                            <h3 >{item.title}</h3>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                            <p>{item.answer}</p>
-                                        </AccordionDetails>
-                                    </Accordion></div>
-                                })
-                            }
+                            <div className="row">
+                                {
+                                    contentdata?.Faq?.map((item) => {
+                                        return <div className="col-lg-6 webContent my-2"> <Accordion>
+                                            <AccordionSummary
+                                                expandIcon={<ExpandMoreIcon />}
+                                                aria-controls="panel1-content"
+                                                id="panel1-header"
+                                            >
+                                                <h3 >{item.title}</h3>
+                                            </AccordionSummary>
+                                            <AccordionDetails>
+                                                <p>{item.answer}</p>
+                                            </AccordionDetails>
+                                        </Accordion></div>
+                                    })
+                                }
 
-                        </div></>}
+                            </div></>}
                 </div>
             </div>
         </React.Fragment>

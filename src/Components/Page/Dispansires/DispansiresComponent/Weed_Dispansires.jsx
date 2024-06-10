@@ -1,14 +1,12 @@
 import { useLocation } from "react-router-dom";
 import React from "react";
 import Dispensoriescart from './Dispensoriescart'
-// import { DespensioriesItem } from '../../../../Api/Api';
+
 import { DispensariesSco } from "../../../Component/ScoPage/DispensariesSco"
 
-import Createcontext from "../../../../Hooks/Context"
 const Weed_Dispansires = ({ Store, SetStore, searchtext, setsearchtext, contentdata }) => {
 
     const locaton = useLocation();
-    const { state } = React.useContext(Createcontext);
     return (
         <React.Fragment>
 
