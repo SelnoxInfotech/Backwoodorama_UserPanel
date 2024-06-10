@@ -42,8 +42,10 @@ const CheckOutMainPage = () => {
     const config = {
         headers: { Authorization: `Bearer ${token_data}` }
     };
+//  console.log(Boolean(state.CoupounAmount))
 
     async function SubmitData() {
+
 
         if (image !== undefined) {
             let asdsd = 'Delivery'
@@ -74,7 +76,7 @@ const CheckOutMainPage = () => {
             formdata.append('Country', asdsd === "Delivery" ? state.DeliveryCountry : state.AllProduct[0]?.Country);
             formdata.append('State', asdsd === "Delivery" ? state.DeliveryState : state.AllProduct[0]?.State)
             formdata.append('City', asdsd === "Delivery" ? state.DeliveryCity : state.AllProduct[0]?.City)
-            formdata.append('DiscountedAmount',   state?.Cart_subTotal - state.CoupounAmount)
+            Boolean(state.CoupounAmount)&&   formdata.append('DiscountedAmount',   state?.Cart_subTotal - state.CoupounAmount)
             await Axios.post(
                 'https://api.cannabaze.com/UserPanel/Add-Order/ ',
                 formdata,

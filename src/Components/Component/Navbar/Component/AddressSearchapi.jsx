@@ -42,31 +42,7 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
       var ci
       var route
       const object = {}
-      // placeDetails?.address_components?.map(async (data) => {
-      //   // switch (true) {
-      //   //   case data.types.includes('country'):
-      //   //     Coun = data.long_name.replace(/\s/g, '-');
-      //   //     await dispatch({ type: 'Country', Country: Coun });
-      //   //     break;
-      //   //   case data.types.includes('administrative_area_level_1'):
-      //   //     sta = data.long_name.replace(/\s/g, '-');
-      //   //     await dispatch({ type: 'State', State: sta });
-      //   //     break;
-      //   //   case data.types.includes('locality') || data.types.includes('administrative_area_level_3') || data.types.includes('postal_town') || data.types.includes('sublocality') || data.types.includes('establishment') :
-      //   //     if (!Boolean(ci)) {
-      //   //       ci = data.long_name.replace(/\s/g, '-');
-      //   //       await dispatch({ type: 'City', City: ci })
-      //   //     }
-      //   //     break;
-      //   //   case !ci && (data.types.includes('administrative_area_level_2')):
-      //   //     ci = data.long_name.replace(/\s/g, '-');
-      //   //     await dispatch({ type: 'City', City: ci });
-      //   //     break;
-      //   //   case data.types.includes('route') || data.types.includes('sublocality_level_2') || data.types.includes('establishment') || data.types.includes('neighborhood'):
-      //   //     route = data.long_name.replace(/\s/g, '-');
-      //   //     await dispatch({ type: 'route', route: route });
-      //   // }
-      // })
+
       placeDetails?.address_components.map((data) => {
         let l = data.types[0] === "political" ? data.types[1] : data.types[0]
         object[l] = data.long_name
@@ -83,8 +59,8 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
 
       if (Boolean(object.administrative_area_level_1)) {
 
-          sta = object.administrative_area_level_1.replace(/\s/g, '-');
-          dispatch({ type: 'State', State: sta });
+        sta = object.administrative_area_level_1.replace(/\s/g, '-');
+        dispatch({ type: 'State', State: sta });
 
       }
       if (Boolean(object.administrative_area_level_3) || Boolean(object.establishment) || Boolean(object.locality) || Boolean(object.sublocality) || Boolean(object.administrative_area_level_2)) {

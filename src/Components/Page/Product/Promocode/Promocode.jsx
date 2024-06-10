@@ -14,7 +14,7 @@ const PromoCode = () => {
     const { state, dispatch } = React.useContext(Createcontext);
     const classes = useStyles()
     const navigate = useNavigate()
-    const [promocode, Setpromocode] = React.useState(state.coupoun_code)
+    const [promocode, Setpromocode] = React.useState(state.coupoun_code || '')
     const [error, SetError] = React.useState('')
     const cookies = new Cookies();
     const token_data = cookies.get('User_Token_access')

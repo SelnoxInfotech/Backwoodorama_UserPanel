@@ -50,15 +50,16 @@ const initialUser = {
     PromoCode: "",
     Coupoun: [],
     CoupounAmount: "",
-    locationFocus:false,
+    locationFocus: false,
     // Delivery Address
     DeliveryCountry: "",
     DeliveryCity: "",
     DeliveryState: "",
     // Coupoun Code 
-    coupoun_code:""
-
-
+    coupoun_code: "",
+    // Delvery Price
+    DeliveryPrice: "",
+    MinimumOrderPrice: ""
 
 }
 
@@ -94,27 +95,42 @@ function Context(props) {
                 let AllTotal = 0
                 let CoupounAmount = 0
                 CarTProduct.map((data1) => {
-                   
-                    if(data1.Coupon !== "")
-                    {
+                    if (data1.Coupon !== "") {
                         dispatch({ type: 'coupoun_code', coupoun_code: data1.Coupon })
                     }
-                    if(Boolean(data1.Coupon)){
-                        if(data1?.DiscountedAmount === 0) {
+                    if (Boolean(data1.Coupon)) {
+                        if (data1?.DiscountedAmount === 0) {
 
                             // CoupounAmount +=  parseInt(data1?.TotalPrice)
                         }
-                        else{
-                           
-                            CoupounAmount +=  parseInt(data1?.DiscountedAmount) -  parseInt(data1?.TotalPrice)
+                        else {
+
+                            CoupounAmount += parseInt(data1?.DiscountedAmount) - parseInt(data1?.TotalPrice)
                         }
                     }
-                   
+
                     return AllTotal += parseInt(data1?.TotalPrice)
                 })
-                CarTProduct.length === 0 &&  dispatch({ type: 'coupoun_code', coupoun_code: '' })
-                dispatch({ type: "CoupounAmount", CoupounAmount: Math.abs(CoupounAmount)})
-                dispatch({ type: 'Cart_subTotal', Cart_subTotal: AllTotal })
+
+                CarTProduct.length === 0 && dispatch({ type: 'coupoun_code', coupoun_code: '' })
+                dispatch({ type: "MinimumOrderPrice", MinimumOrderPrice: CarTProduct[0].MinimumOrderPrice })
+              
+                // CarTProduct[0].DeliveryPrice === 0
+                dispatch({ type: "CoupounAmount", CoupounAmount: Math.abs(CoupounAmount) })
+                if (CarTProduct[0].DeliveryPrice !== 0) {
+                    if (AllTotal > CarTProduct[0].MinimumOrderPrice){
+                        dispatch({ type: 'Cart_subTotal', Cart_subTotal: AllTotal })
+                        dispatch({ type: "DeliveryPrice", DeliveryPrice: 0 })
+                    }
+                    else{
+                        dispatch({ type: 'Cart_subTotal', Cart_subTotal: AllTotal + CarTProduct[0].DeliveryPrice})
+                        dispatch({ type: "DeliveryPrice", DeliveryPrice: CarTProduct[0].DeliveryPrice })
+                    }
+                }
+                else {
+                    dispatch({ type: 'Cart_subTotal', Cart_subTotal: AllTotal  })
+                    dispatch({ type: "DeliveryPrice", DeliveryPrice: 0 })
+                }
 
             })
                 .catch(function (error) {
@@ -138,7 +154,7 @@ function Context(props) {
                     return data
 
                 })
-                dispatch({ type: 'WishList', WishList:object})
+                dispatch({ type: 'WishList', WishList: object })
 
 
             }).catch((err) => { });
@@ -158,13 +174,13 @@ function Context(props) {
                 dispatch({ type: 'AllProduct', AllProduct: length })
                 let AllTotal = 0
                 JSON.parse(data)?.map((data1) => {
-                
+
                     return AllTotal += parseInt(data1.Price.SalePrice * data1.Cart_Quantity);
                 })
                 dispatch({ type: 'LoadingApi', LoadingApi: false })
                 dispatch({ type: 'Cart_subTotal', Cart_subTotal: AllTotal })
             }
-        }   
+        }
     }, [state.ApiProduct, state.login])
 
     React.useEffect(() => {
@@ -176,7 +192,7 @@ function Context(props) {
         })
     }, [])
 
- 
+
     return (
 
         <Createcontext.Provider value={{ state, dispatch }} container>

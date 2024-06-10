@@ -60,7 +60,7 @@ const reducer = (state, action) => {
       }
     case "locationchange":
       {
-       
+
         return { ...state, locationFocus: action.focus }
       }
     case "DeliveryAddress":
@@ -145,7 +145,14 @@ const reducer = (state, action) => {
       {
         return { ...state, coupoun_code: action.coupoun_code }
       }
-
+    case "DeliveryPrice":
+      {
+        return { ...state, DeliveryPrice: action.DeliveryPrice }
+      }
+    case "MinimumOrderPrice":
+      {
+        return { ...state, MinimumOrderPrice: action.MinimumOrderPrice }
+      }
 
     default: return state
   }

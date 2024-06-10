@@ -169,7 +169,7 @@ const Allblogs = () => {
                   <div className='row blogListCard mx-0' key={index}>
                     <div className='col-3 p-0 d-flex align-items-center'>
                       <div className='blogCardImg'>
-                        <Link to={`/${location.pathname.substring(1)}/${modifystr(items.Title)}/${items.id}`} key={index}>
+                        <Link to={`/${location.pathname.substring(1)}/${items.Url_slug === ("" || null || undefined) ?  modifystr(items.Title) : modifystr(items.Url_slug)}/${items.id}`} key={index}>
                           <LazyLoadImage
                             onError={event => {
                               event.target.src = "/image/blog.jpg"
