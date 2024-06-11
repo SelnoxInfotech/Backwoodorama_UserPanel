@@ -1,5 +1,4 @@
 import React from 'react';
-import useStyles from "../../../Style"
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Createcontext from "../../../Hooks/Context"
 import Cookies from 'universal-cookie';
@@ -10,7 +9,6 @@ import { Link } from "react-router-dom";
 import Axios from 'axios';
 const PlaceOrder = () => {
     const location = useLocation();
-    const classes = useStyles()
     const { state, dispatch } = React.useContext(Createcontext)
     const cookies = new Cookies();
     const token_data = cookies.get('User_Token_access')
@@ -60,7 +58,7 @@ const PlaceOrder = () => {
                             <span><FaRegPaperPlane className='order_conform_card_icons' /></span>
                             <h3 className="card_title">Thank You!</h3>
                             <p className="card_message">You'll receive a confirmation email soon</p>
-                            <Link to={`/MyOrderProductDetail/${location?.state?.OrderId}`} className='mt-4'>
+                            <Link to={location.pathname==='/menu-integration/order-placed'?`/menu-integration/MyOrderProductDetail/${location?.state?.OrderId}`:`/MyOrderProductDetail/${location?.state?.OrderId}`} className='mt-4'>
                                 <button className='trackorderbtn'>Track Order</button>
                             </Link>
                         </div>
@@ -74,14 +72,11 @@ const PlaceOrder = () => {
                             <div className='col-lg-8'>
                                 {
                                     location.state.Product.map((item) => {
-
                                         pricess.Subtotal += item.TotalPrice + state.DeliveryPrice
                                         pricess.Taxes += 0
                                         pricess.Paid += 0
                                         pricess.discount += item.DiscountedAmount
                                         pricess.DueLater += pricess.Subtotal + item.Price.SalePrice
-
-
                                         return (<div className="place_order_product_cart ">
                                             <div className="place_order_product_cart_image">
                                                 <LazyLoadImage onError={event => {

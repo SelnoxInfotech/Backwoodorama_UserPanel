@@ -247,12 +247,11 @@ const Product = () => {
                                                     </div>
                                                    
                                                     <div className="col-12 center height_Empty_btnDiv mt-2">
-                                                    <Box
-                                                            className={`  ${classes.loadingBtnTextAndBack}`}
-                                                        >
+                                                        <Box  className={`${classes.loadingBtnTextAndBack}`}  >
                                                             <LoadingButton  style={{width:"100%",height:"100%"}} variant="outlined" loading={false} type={'submit'}>Shop now</LoadingButton>
                                                         </Box>
                                                     </div>
+                                                    
                                                 </div>
                                             </div>
                         

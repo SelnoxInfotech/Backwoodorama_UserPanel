@@ -33,17 +33,13 @@ const CheckOutMainPage = () => {
         Email: "",
         Ordertype: '',
     })
-
     const [CheckOut_Loading, SetLoading] = React.useState(false)
-
     React.useEffect(() => {
         window.scroll(0, 0)
     }, [ShowData, ShowDeliveryInformation, DeliveryOptionData])
     const config = {
         headers: { Authorization: `Bearer ${token_data}` }
     };
-//  console.log(Boolean(state.CoupounAmount))
-
     async function SubmitData() {
 
 
@@ -77,11 +73,9 @@ const CheckOutMainPage = () => {
             formdata.append('State', asdsd === "Delivery" ? state.DeliveryState : state.AllProduct[0]?.State)
             formdata.append('City', asdsd === "Delivery" ? state.DeliveryCity : state.AllProduct[0]?.City)
             Boolean(state.CoupounAmount)&&   formdata.append('DiscountedAmount',   state?.Cart_subTotal - state.CoupounAmount)
-            await Axios.post(
-                'https://api.cannabaze.com/UserPanel/Add-Order/ ',
+            await Axios.post('https://api.cannabaze.com/UserPanel/Add-Order/',
                 formdata,
                 config,
-
                 {
                     headers: {
                         'Content-Type': 'multipart/form-data',
@@ -91,16 +85,13 @@ const CheckOutMainPage = () => {
             ).then(response => {
                 SetLoading(false)
                 let datanew = { orterbtn: location.state.orderBtn, ...response.data.data }
-                navigate("/order-placed", { state: datanew })
+                navigate( location.pathname === '/menu-integration/checkout' ?"/menu-integration/order-placed":"/order-placed", { state: datanew })
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
             }).catch(
                 function (error) {
                     SetLoading(false)
                 })
-            // Axios.post(`https://api.cannabaze.com/UserPanel/Add-UserProfileOrderDetails/`, formdata, config).then((data) => {
-
-            // })
-
+           
         }
         else (
             SetDefalutimage(true)
@@ -124,7 +115,6 @@ const CheckOutMainPage = () => {
         })
 
     }, [])
-
     return (
         <React.Fragment>
             <div className="container">

@@ -363,7 +363,15 @@ const routesConfig = [
       {
         path: "/menu-integration/checkout",
         element: <ProtectRout Component={CheckOutMainPage} path="/CheckOutMainPage"></ProtectRout>
-      }
+      },
+      {
+        path: "/menu-integration/order-placed",
+        element: <RoutingList Component={PlaceOrder} ></RoutingList>,
+      },
+      {
+        path: "/menu-integration/MyOrderProductDetail/:id",
+        element: <RoutingList Component={MyOrderProductDetail} ></RoutingList>
+      },
     ]
   }
 ]
