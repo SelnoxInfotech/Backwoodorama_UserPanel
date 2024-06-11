@@ -325,17 +325,17 @@ const routesConfig = [
         element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
       },
       {
-        path: "/menu-integration/:StoreName/menu/:category/:subcategory/:product/:id/",
-        element: <ProductRedirction Component={NewProductDetails} ></ProductRedirction>
+        path: "/menu-integration/:category/:subcategory/:product/:id/",
+        element: <RoutingList Component={NewProductDetails} ></RoutingList>
       },
       {
         path: "/menu-integration/:StoreName/:tab?/:Category?/:SubCategory?/:id/:SubId?/",
         element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
       },
-      {
-        path: "/menu-integration/:StoreName/menu/:Category/:SubCategory/:Product/:id/",
-        element: <ProductRedirction Component={NewProductDetails} ></ProductRedirction>
-      },
+      // {
+      //   path: "/menu-integration/:StoreName/menu/:Category/:SubCategory/:Product/:id/",
+      //   element: <RoutingList Component={NewProductDetails} ></RoutingList>
+      // },
       {
         path: "/carts",
         element: <RoutingList Component={AddToCart} ></RoutingList>

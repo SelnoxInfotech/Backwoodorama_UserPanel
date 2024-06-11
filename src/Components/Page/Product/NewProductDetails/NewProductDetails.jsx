@@ -207,6 +207,7 @@ const NewProductDetails = () => {
   React.useEffect(() => {
     h(Price.length !== 0 && Product.Prices[0].Price.filter((data) => data.id === parseInt(Price[0].Item_id)))
   }, [Price])
+
   function discountype(type, amount) {
     switch (type) {
       case "PercentageDiscount":
@@ -229,13 +230,18 @@ const NewProductDetails = () => {
   if (!StoreProduct.length) {
     return <Loader/>
   }
+  console.log(location.pathname.slice(0 ,9) === "/products" , Params)
 // console.log(Product)
   return (
     <div className="container-fluid">
       {Object.keys(Product).length !== 0 && <ProductDetailsSeo Productnm={Product.Product_Name} Productname={`Buy ${Product.Product_Name} at ${Product.StoreName} on WeedX.io - Your Trusted Marketplace`} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={location.pathname} ></ProductDetailsSeo>
       }
-      {/* <span onClick={() => {navigate(location?.state !== null ? (location?.state?.prevuisurl !== '/products' ? location?.state?.prevuisurl : '/products'): '/products')}} className="BackPageBtn"> <AiOutlineLeft size={22} /> Back to products </span> */}
-      {/* <NewProductDetailsCards dynamicWeight={dynamicWeight} setdynamicWeight={setdynamicWeight} quentity={quentity} setquentity={setquentity} Product={Product} DiscountedValue={discount} Price={Price} SetPrice={SetPrice} /> */}
+      
+       <span onClick={() => { location.pathname.slice(0 ,9) === "/products" ? 
+       navigate(location?.state !== null ? (location?.state?.prevuisurl !== '/products' ? location?.state?.prevuisurl : '/products'): '/products')
+      : navigate(-1)
+      }} className="BackPageBtn"> <AiOutlineLeft size={22} /> Back to products </span>
+      <NewProductDetailsCards link={location.pathname.slice(0 ,9) === "/products"? "" :""} dynamicWeight={dynamicWeight} setdynamicWeight={setdynamicWeight} quentity={quentity} setquentity={setquentity} Product={Product} DiscountedValue={discount} Price={Price} SetPrice={SetPrice} />
       <div className="offerlist">
         <h2 className="section_main_title">Offers</h2>
         <div className="offerlistwrapper">
