@@ -21,6 +21,7 @@ import { StoreDetails } from "../../../../Components/Component/ScoPage/StoreDeta
 import { Store_Add_Review, Store_OverAllGet_Review, Store_Get_UserComment, Store_Get_Review, Delete_StoreReview, StoreHelpFull } from "../../../../Api/Api";
 import Createcontext from "../../../../Hooks/Context"
 import Loader from "../../../Component/Loader/Loader";
+import { Embedded } from "../../../Component/ScoPage/Embedded";
 export default function DispensoriesDetails() {
     const navigate = useNavigate()
     const { state, dispatch } = React.useContext(Createcontext)
@@ -372,7 +373,7 @@ export default function DispensoriesDetails() {
         }
     }
 
-
+// console.log()
     return (
         <div>{
                !Despen.length ?   <Loader/>: <div>
@@ -382,7 +383,13 @@ export default function DispensoriesDetails() {
                             {Boolean(params?.tab) && <span> {" > "}{params?.tab}</span>}
                         </div>
                     }</p>
-                    <StoreDetails Despen={Despen} locationStore={location.pathname}></StoreDetails>
+                {  Boolean((location.pathname.slice(0, 18) === "/weed-dispensaries" || location.pathname.slice(0, 16) === "/weed-deliveries")) 
+                ?
+                  <StoreDetails Despen={Despen} locationStore={location.pathname}></StoreDetails>
+                  :
+                  <Embedded Despen={Despen} locationStore={location.pathname}></Embedded>
+                  
+                }
                     <div className="container-fluid product_container" >
                         <NewFlavourBanner delBtn={Despen}></NewFlavourBanner>
                         <div className="row">

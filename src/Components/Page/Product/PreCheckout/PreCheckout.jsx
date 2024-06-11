@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom"
 const PreCheckout = () => {
     const { state } = React.useContext(Createcontext)
     const params = useLocation()
-    console.log(params.pathname.includes('menu-integration') ,'params')
+    console.log(params.pathname.includes('embedded') ,'params')
     return (
         <>
             {
