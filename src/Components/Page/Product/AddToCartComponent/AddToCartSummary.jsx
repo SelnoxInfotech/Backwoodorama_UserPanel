@@ -10,7 +10,6 @@ import DeliverAutoCompleteAddress from "./DeliverAutoCompleteAddress";
 import PromoCode from "../Promocode/Promocode";
 const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails ,Details  }) => {
   const classes = useStyles();
-  // const method = useForm()
   const { state, dispatch } = React.useContext(Createcontext);
   const[anyoutstock,setanyoutstock]=React.useState([])
   const navigate = useNavigate();
@@ -106,7 +105,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
         }
       }
     }else{
-      navigate("/login" ,{
+      navigate( location.pathname==='/carts' ? '/embeddedlogin':"/login" , {
         state: {
           location
         }
@@ -116,7 +115,6 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
   };
   React.useEffect(() => {
     if (location.pathname === "/cart") {
-      
       if (state.selectDeliveryoptions === "pickup_btn") {
         SetOpenDelivery(false);
         SetOpenPickup(true);

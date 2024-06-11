@@ -50,6 +50,7 @@ import MyLocationSearch from "../Components/Component/Navbar/Component/locationF
 import Layout1 from '../Layout1/Layout1'
 import sitemap from "../Components/Page/websitemap/sitemap";
 import ProductRedirction from "./productionRedirction";
+import EmbeddedLayout from "../EmbeddedLayout/EmbeddedLayout";
 const routesConfig = [
  
   {
@@ -216,7 +217,6 @@ const routesConfig = [
         path: "/sitemap",
         element: <RoutingList Component={sitemap} ></RoutingList>
       },
-      // blogs
       {
         path: "/cannabis-news",
         element: <RoutingList Component={Allblogs} ></RoutingList>
@@ -313,6 +313,37 @@ const routesConfig = [
       }
 
 
+    ]
+  },
+  {
+
+    element: <EmbeddedLayout />,
+
+    children: [
+      {
+        path: "/embedded/:StoreName/:tab?/:Category?/:SubCategory?/:id/",
+        element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
+      },
+      {
+        path: "/embedded/:StoreName/menu/:category/:subcategory/:product/:id/",
+        element: <ProductRedirction Component={NewProductDetails} ></ProductRedirction>
+      },
+      {
+        path: "/embedded/:StoreName/:tab?/:Category?/:SubCategory?/:id/:SubId?/",
+        element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
+      },
+      {
+        path: "/embedded/:StoreName/menu/:Category/:SubCategory/:Product/:id/",
+        element: <ProductRedirction Component={NewProductDetails} ></ProductRedirction>
+      },
+      {
+        path: "/carts",
+        element: <RoutingList Component={AddToCart} ></RoutingList>
+      },
+      {
+        path: "/embeddedlogin",
+        element: <RoutingList Component={Login} ></RoutingList>,
+      },
     ]
   }
 ]
