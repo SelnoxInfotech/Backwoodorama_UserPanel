@@ -10,7 +10,6 @@ import { Link } from 'react-router-dom';
 import { Rating } from '@mui/material';
 const DeliveryItemsCard = ({ Deliverie }) => {
     const classes = useStyles()
-    console.log(Deliverie ,'Deliverie')
     return (
         <React.Fragment>
             <div className="container-fluid">
