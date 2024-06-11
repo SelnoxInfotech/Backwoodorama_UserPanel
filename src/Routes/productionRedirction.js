@@ -14,6 +14,7 @@ export default function ProductRedirction(props) {
     useEffect(() => {
         const index = pathname.indexOf('/menu') + '/menu'.length;
         const extracted = pathname.substring(index);
+        console.log(extracted)
         Navigate(`/products${extracted}`);
     }, [pathname, Navigate]); // Include dependencies pathname and Navigate
 

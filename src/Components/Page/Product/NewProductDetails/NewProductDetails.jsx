@@ -175,18 +175,18 @@ const NewProductDetails = () => {
     })
   }, [Product, api])
 
-  const Tolastpage = () => {
-    let output1 = 'StoreName' in Params;
-    let sttp=Product.Store_Type.replace(/y$/, "ies").toLowerCase()
-    if(Product.Store_Type==="Curbside Pickup"){
-      sttp='dispensaries'
-    }
-    if (output1) {
-      navigate(`/weed-${sttp}/${Params.StoreName.replaceAll(' ', '-').toLowerCase()}/${Product.Store_id}`)
-    } else {
-      navigate(-1)
-    }
-  }
+  // const Tolastpage = () => {
+  //   let output1 = 'StoreName' in Params;
+  //   let sttp=Product.Store_Type.replace(/y$/, "ies").toLowerCase()
+  //   if(Product.Store_Type==="Curbside Pickup"){
+  //     sttp='dispensaries'
+  //   }
+  //   if (output1) {
+  //     navigate(`/weed-${sttp}/${Params.StoreName.replaceAll(' ', '-').toLowerCase()}/${Product.Store_id}`)
+  //   } else {
+  //     navigate(-1)
+  //   }
+  // }
   function handleDelete(id) {
     Delete_Review(id).then((res) => {
       res.data.status === 'success' && SetApi(!api)
@@ -234,8 +234,8 @@ const NewProductDetails = () => {
     <div className="container-fluid">
       {Object.keys(Product).length !== 0 && <ProductDetailsSeo Productnm={Product.Product_Name} Productname={`Buy ${Product.Product_Name} at ${Product.StoreName} on WeedX.io - Your Trusted Marketplace`} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={location.pathname} ></ProductDetailsSeo>
       }
-      <span onClick={() => {navigate(location?.state !== null ? (location?.state?.prevuisurl !== '/products' ? location?.state?.prevuisurl : '/products'): '/products')}} className="BackPageBtn"> <AiOutlineLeft size={22} /> Back to products </span>
-      <NewProductDetailsCards dynamicWeight={dynamicWeight} setdynamicWeight={setdynamicWeight} quentity={quentity} setquentity={setquentity} Product={Product} DiscountedValue={discount} Price={Price} SetPrice={SetPrice} />
+      {/* <span onClick={() => {navigate(location?.state !== null ? (location?.state?.prevuisurl !== '/products' ? location?.state?.prevuisurl : '/products'): '/products')}} className="BackPageBtn"> <AiOutlineLeft size={22} /> Back to products </span> */}
+      {/* <NewProductDetailsCards dynamicWeight={dynamicWeight} setdynamicWeight={setdynamicWeight} quentity={quentity} setquentity={setquentity} Product={Product} DiscountedValue={discount} Price={Price} SetPrice={SetPrice} /> */}
       <div className="offerlist">
         <h2 className="section_main_title">Offers</h2>
         <div className="offerlistwrapper">
