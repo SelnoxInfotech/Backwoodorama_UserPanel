@@ -113,7 +113,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                             label="First name on photo id"
                                             variant="standard"
                                             fullWidth
-                                            onChange={handleChange}
+                                            onChange={((e)=>handleChange(e))}
                                             name='FirstName'
                                             inputRef={method.register({
                                                 required: "FirstName is required*.",
@@ -129,7 +129,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                             label="Last name on photo id"
                                             variant="standard"
                                             value={Details.LastName}
-                                            onChange={handleChange}
+                                            onChange={((e)=>handleChange(e))}
                                             fullWidth
                                             name='LastName'
                                             inputRef={method.register({
@@ -176,9 +176,8 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                                
                                                 helperText={method.errors?.Birthdate?.message}
                                                 error={Boolean(method.errors?.Birthdate)}
-
                                             />
-                                           
+                                        
                                         </Box>
                                     </div>
                                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
@@ -186,7 +185,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                             className={classes.deliveryInformationTextFildColor}
                                             label="Email"
                                             value={Details.Email}
-                                            onChange={handleChange}
+                                            onChange={((e)=>handleChange(e))}
                                             variant="standard"
                                             fullWidth
                                             name='Email'
@@ -208,7 +207,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                         <TextField
                                             className={classes.deliveryInformationTextFildColor}
                                             type='number'
-                                            onChange={handleChange}
+                                            onChange={((e)=>handleChange(e))}
                                             value={Details.MobileNo}
                                             label="Mobile phone"
                                             variant="standard"

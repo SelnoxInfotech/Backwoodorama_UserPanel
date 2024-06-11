@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async"
 import { useLocation, useParams } from "react-router-dom"
 import React from "react"
-function StoreDetails({ Despen, locationStore  }) {
+function Embedded({ Despen, locationStore  }) {
     const [MetaTag, SetMetaTag] = React.useState({ title: "", discription: "" })
     const location = useLocation()
     const params = useParams()
@@ -157,7 +157,7 @@ function StoreDetails({ Despen, locationStore  }) {
             <link rel="canonical" href={`https://www.weedx.io${locationStore}`} />
             <meta itemprop="name" content="WeedX" />
             <meta itemprop="description" content={MetaTag.discription} />
-            <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
+            <meta name="robots" content="NOINDEX,INDEXIFEMBEDDED" />
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
             <meta property="og:title" content={MetaTag.title} />
@@ -171,4 +171,4 @@ function StoreDetails({ Despen, locationStore  }) {
         </Helmet>
     )
 }
-export { StoreDetails }
+export { Embedded }

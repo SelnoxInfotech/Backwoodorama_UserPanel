@@ -25,7 +25,6 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
     SetInputValues({ ...InputValues, [name]: value });
   };
   const HandlePickupAndDelivery = (e) => {
-   
     SetOpenPickup(!OpenPickup);
     SetOpenDelivery(false);
     if (e.currentTarget.id === "pickup_btn") {

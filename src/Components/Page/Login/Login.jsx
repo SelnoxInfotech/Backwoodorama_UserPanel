@@ -57,7 +57,7 @@ const Login = () => {
                 dispatch({ type: 'Login', login: true })
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
                 if (location.pathname === "/signupwithemail") {
-                        Navigate("/")
+                        Navigate("-1")
                 
                 }
                 else{
