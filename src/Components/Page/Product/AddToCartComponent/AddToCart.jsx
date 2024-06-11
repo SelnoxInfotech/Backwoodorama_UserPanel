@@ -3,7 +3,7 @@ import React from "react";
 import AddToCartReview from "./AddToCartReview"
 import AddToCartSummary from "./AddToCartSummary"
 import Createcontext from "../../../../Hooks/Context"
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import EmptyCard from "../EmptyCard/EmptyCard"
 import { Cart } from "../../../Component/ScoPage/CommenpageSeo";
 const AddToCart = () => {
@@ -16,21 +16,22 @@ const AddToCart = () => {
         });
     
     },[])
-
+    const location = useLocation()
+    console.log(location.pathname)
     return (
 
         <div className="container">
- <Cart></Cart>
+            <Cart></Cart>
             {
                 state?.AllProduct?.length !== 0
                  ?
-
                     <div className="row mt-4">
                         <div className="col-12 addTocard_main_container_height">
-                            <div className="col-12 addtoCart_headingss">
+                            {   location.pathname !== '/carts' && <div className="col-12 addtoCart_headingss">
                                 <p className="mb-0">Your Cart from</p>
                                 <Link to={`/weed-deliveries/${state.AllProduct[0]?.StoreName.replaceAll(' ' ,'-')}/${state.AllProduct[0]?.Store_id}`}>          <h1 className="addToCartHeadingss"> {state.AllProduct[0]?.StoreName} </h1> </Link>
-                            </div>
+                                                  </div>
+                            }
                             <div className="row  AddProductCartContainer">
 
                                 <div className="col-lg-8 col-12 AddProductCartContainerinner">

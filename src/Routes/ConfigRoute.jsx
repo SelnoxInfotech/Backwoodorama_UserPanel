@@ -321,19 +321,19 @@ const routesConfig = [
 
     children: [
       {
-        path: "/embedded/:StoreName/:tab?/:Category?/:SubCategory?/:id/",
+        path: "/menu-integration/:StoreName/:tab?/:Category?/:SubCategory?/:id/",
         element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
       },
       {
-        path: "/embedded/:StoreName/menu/:category/:subcategory/:product/:id/",
+        path: "/menu-integration/:StoreName/menu/:category/:subcategory/:product/:id/",
         element: <ProductRedirction Component={NewProductDetails} ></ProductRedirction>
       },
       {
-        path: "/embedded/:StoreName/:tab?/:Category?/:SubCategory?/:id/:SubId?/",
+        path: "/menu-integration/:StoreName/:tab?/:Category?/:SubCategory?/:id/:SubId?/",
         element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
       },
       {
-        path: "/embedded/:StoreName/menu/:Category/:SubCategory/:Product/:id/",
+        path: "/menu-integration/:StoreName/menu/:Category/:SubCategory/:Product/:id/",
         element: <ProductRedirction Component={NewProductDetails} ></ProductRedirction>
       },
       {
@@ -341,9 +341,29 @@ const routesConfig = [
         element: <RoutingList Component={AddToCart} ></RoutingList>
       },
       {
-        path: "/embeddedlogin",
+        path: "/menu-integration/login",
         element: <RoutingList Component={Login} ></RoutingList>,
       },
+      {
+        path: "/menu-integration/signupwithemail",
+        element: <RoutingList Component={SignupWithEmail} ></RoutingList>,
+      },
+      {
+        path: "/menu-integration/signup",
+        element: <RoutingList Component={Signup} ></RoutingList>
+      },
+      {
+        path: "/menu-integration/forgot-password",
+        element: <RoutingList Component={ForgotPassword} ></RoutingList>,
+      },
+      {
+        path: "/menu-integration/CreatePassword",
+        element: <RoutingList Component={CreatePassword} ></RoutingList>,
+      },
+      {
+        path: "/menu-integration/checkout",
+        element: <ProtectRout Component={CheckOutMainPage} path="/CheckOutMainPage"></ProtectRout>
+      }
     ]
   }
 ]

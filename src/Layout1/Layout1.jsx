@@ -8,7 +8,6 @@ import Cookies from 'universal-cookie';
 const Layout1 = () => {
   const cookies = new Cookies();
   const { state, dispatch } = React.useContext(Createcontext)
-  // console.log(state)
   React.useEffect(() => {
     let date = new Date();
     date.setTime(date.getTime() + (60 * 60 * 8000))

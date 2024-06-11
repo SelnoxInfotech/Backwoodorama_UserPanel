@@ -17,10 +17,7 @@ function LoginWithGoogle() {
     const login = useGoogleLogin({
         onSuccess: (codeResponse) => { GoogleAuth(codeResponse) },
         onError: (error) =>alert('Login Failed:', error)
-
     })
-
-
     async function GoogleAuth(codeResponse) {
        await axios.post("https://api.cannabaze.com/UserPanel/GoogleView/ ", {
             token: codeResponse.access_token
@@ -33,7 +30,13 @@ function LoginWithGoogle() {
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
                 if( location?.state?.location?.pathname === '/cart'){
                     Navigate('/cart')
-                }else{ Navigate('/')}
+                }else{ 
+                    if(location.pathname === '/menu-integration/login'){
+                       Navigate(-1)
+                    }else{
+                       Navigate('/')
+                    }
+                }
             
         }).catch(
             function (error) {

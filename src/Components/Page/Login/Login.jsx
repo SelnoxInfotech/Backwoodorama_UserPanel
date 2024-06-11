@@ -17,11 +17,12 @@ import LoginWithGoogle from './LoginWithGoogle';
 import Cookies from 'universal-cookie';
 import Createcontext from "../../../Hooks/Context"
 import { LoginSeo } from '../../Component/ScoPage/CommenpageSeo';
-const Login = () => {
+const   Login = () => {
     const cookies = new Cookies();
     const method = useForm()
     const location = useLocation();
     const Swal = require('sweetalert2')
+    console.log(location.pathname)
     const { state, dispatch } = React.useContext(Createcontext)
     const Navigate = useNavigate()
     const [loading, Setloading] = React.useState(false)
@@ -43,7 +44,13 @@ const Login = () => {
 
             if (location.pathname === "/CheckOutMainPage") {
                 if (state.AllProduct.length === 0) {
-                    Navigate("/Product")
+                   
+                    if(location.pathname==='/menu-integration/login' ){
+                        Navigate(-1)
+
+                    }else{
+                        Navigate("/Product")
+                    }
                 }
             }
             else {
@@ -57,12 +64,23 @@ const Login = () => {
                 dispatch({ type: 'Login', login: true })
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
                 if (location.pathname === "/signupwithemail") {
-                        Navigate("/")
-                
+                    if(location.pathname==='/menu-integration/login' ){
+                        Navigate(-1)
+
+                    }else{
+                        Navigate('/')
+
+                    }
                 }
                 else{
+                    if(location.pathname==='/menu-integration/login' ){
+                        Navigate(-1)
 
-                    Navigate('/')
+                    }else{
+                        Navigate('/')
+
+                    }
+
                 }
                 Setloading(false)
             }
@@ -98,7 +116,6 @@ const Login = () => {
                   });
             })
     }
-  
     React.useEffect(()=>{
         document.documentElement.scrollTo({
             top: 0,
@@ -106,7 +123,6 @@ const Login = () => {
             behavior: "instant", // Optional if you want to skip the scrolling animation
         });
     },[])
-
 
     return (
         <React.Fragment>
@@ -179,12 +195,7 @@ const Login = () => {
                                         />
                                     </div>
                                 </div>
-                                {/* <div className='w-100 logininputbox loginCenterDiv'>
-                                    <span className='loginParagraphFontSize'>Having trouble to access your account?</span>
-                                
-                                    <Link to="/forgot-password"><span className='loginParagraphFontSize loginCkBtn'>Click here</span></Link>
-                                
-                                </div> */}
+                          
                                 <div className='row  signup_margins_top'>
                                     <div className=' col-lg-12 '>
                                         <Box className={ !loading ?`${classes.loginBtnTextAndBackground}` : `${classes.loginBtnTextAndBackgroundAfter}`} >
@@ -206,7 +217,7 @@ const Login = () => {
                             </div>
                             <div className='w-100 text-center my-2 '>
                                 <h2 className='login_bottom'>New To weedx ?</h2> 
-                                <Link className='signInfo' to={'/signup'}><span>Create your Weedx Account</span></Link>
+                                <Link className='signInfo' to={location.pathname==='/menu-integration/login' ?   '/menu-integration/signup':  '/signup'}><span>Create your Weedx Account</span></Link>
                             </div>
                             <div className='crosslogin'>
                               <Tooltip title="Back">

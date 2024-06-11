@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom"
 const PreCheckout = () => {
     const { state } = React.useContext(Createcontext)
     const params = useLocation()
-    console.log(params.pathname.includes('embedded') ,'params')
+    console.log(params.pathname.includes('menu-integration') ,'params')
     return (
         <>
             {
@@ -14,7 +14,7 @@ const PreCheckout = () => {
                 <div className="row">
                     <div className="col-12">
                         <div className="row preCheckOut_center">
-                            <Link to={params.pathname.includes('embedded') ? '/carts' :"/cart"}>
+                            <Link to={params.pathname.includes('menu-integration') ? '/carts' :"/cart"}>
 
                                 <div className="col-lg-3 col-md-6 col-sm-8 col-8  border preCheckout_container">
                                     <div className=" preCheck_heading">

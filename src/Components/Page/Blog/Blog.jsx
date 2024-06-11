@@ -461,7 +461,3 @@ const Blogs = () => {
 }
 }
 export default Blogs
-
-
-
-//  navigate("/checkout", { replace: true });

@@ -59,9 +59,9 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
         if (state.DeliveryAddress === "") {
           alert("Select Delivery address");
         } else {
-          if (location.pathname === "/cart") {
+          if(Boolean(location.pathname === "/cart") || Boolean( location.pathname === "/carts")) {
             if (state.login) {
-              navigate("/checkout", {
+              navigate( location.pathname === "/carts"? '/menu-integration/checkout': "/checkout", {
                 state: { InputValues, abc: state.Cart_subTotal , orderBtn : state.selectDeliveryoptions },
               });
             } else {
@@ -78,15 +78,15 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
               alert("First Fill form ");
             }
           }
-          if (location.pathname === "/checkout") {
+
+          if (  Boolean(location.pathname === "/checkout")   || Boolean(location.pathname === "/menu-integration/checkout") ) {
             SubmitData();
-            // SetLoading(true)DeliveryAddress
           }
         }
       } else {
         if (state.selectDeliveryoptions === "pickup_btn" || state.selectDeliveryoptions === "CurbsidePickup" ) {
-          if (location.pathname === "/cart") {
-            navigate("/checkout", {
+          if(Boolean(location.pathname === "/cart") || Boolean( location.pathname === "/carts")) {
+            navigate( location.pathname === "/carts"? '/menu-integration/checkout': "/checkout", {
               state: { InputValues, abc: state.Cart_subTotal , orderBtn : state.selectDeliveryoptions},
             });
           } else {
@@ -96,16 +96,15 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
               alert("First Fill form ");
             }
           }
-          if (location.pathname === "/checkout") {
-            SubmitData();
-            // SetLoading(true)DeliveryAddress
+          if (Boolean(location.pathname === "/checkout")   || Boolean(location.pathname === "/menu-integration/checkout")){
+              SubmitData();
           }
         } else {
           alert("Select Delivery address");
         }
       }
     }else{
-      navigate( location.pathname==='/carts' ? '/embeddedlogin':"/login" , {
+      navigate( location.pathname==='/carts' ? '/menu-integration/login':"/login" , {
         state: {
           location
         }
@@ -144,7 +143,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
       <div className="col-12 fontStyle AddProdCartFont_weight">
         <h5>Order Summary</h5>
       </div>
-      {location.pathname !== "/checkout" ? (
+      { (Boolean(location.pathname !== "/checkout") || Boolean(location.pathname !== "/checkout") ) ? (
         <div className="col-12 d-flex addToCart_deliver">
           {state.AllProduct[0]?.StoreDelivery && (
             <div className="col-6">

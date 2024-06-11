@@ -35,9 +35,12 @@ const SignupWithEmail = () => {
             user_type: "Customer"
         },
         ).then(response => {
-            Navigate("/login")
+            if(location.pathname==='/menu-integration/signupwithemail'){
+                Navigate("/menu-integration/login")
+            }else{
+                Navigate("/login")
+            }
             Setloading(false)
-
         }).catch(
             function (error) {
                 Setloading(false)
@@ -49,7 +52,8 @@ const SignupWithEmail = () => {
                     SetEmailDisabled(false)
                     Setduplicate(error.response.data)
                 }
-            })
+            }
+        )
     }
     return (
        

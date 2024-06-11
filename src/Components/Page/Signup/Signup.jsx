@@ -2,7 +2,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
 import TextField from '@mui/material/TextField';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate , useLocation} from 'react-router-dom';
 import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import { RxCross2 } from "react-icons/rx";
@@ -16,6 +16,7 @@ const Signup = () => {
     const { state } = React.useContext(Createcontext)
     const [emailvalid,setemailvalid]=useState(false)
     const navigate = useNavigate()
+    const location =useLocation()
     const method = useForm()
     const classes = useStyles()
     function Submit(State) {
@@ -24,8 +25,14 @@ const Signup = () => {
         email:State.email
       }).then((res)=>{
         if(res.data.email !== "Email is already Registered"){
-            navigate("/signupwithemail", { state: { State } })
-       
+            // navigate("/signupwithemail", { state: { State } })
+            if(location.pathname==='/menu-integration/signup'){
+                navigate("/menu-integration/signupwithemail", { state: { State } })
+
+            }else{
+                navigate("/signupwithemail", { state: { State } })
+
+            }
         }else{
             setemailvalid(true)
         }
@@ -93,15 +100,7 @@ const Signup = () => {
 
                             </div>
                         </form>
-                        {/* <div className='row'>
-                            <div className='col-12 signup_Col'>
-                                <span className='Signup_spanss'>Already a member?</span>
-                                <span>
-                                    <Link to="/login" className='signupLinkColor'><span >Signin</span></Link>
-                                </span>
-                            </div>
-
-                        </div> */}
+                  
                         <div className='w-100 d-flex mt-4 center'>
                             <div className='signupHorizontalLine'></div> <span className='px-2 login_OR'>OR</span> <div className='signupHorizontalLine'></div>
                         </div>
@@ -114,7 +113,7 @@ const Signup = () => {
 
                         <div className='w-100 text-center my-2 '>
                             <h2 className='login_bottom'>New To weedx ?</h2> 
-                            <Link className='signInfo' to={'/login'}><span>Already a member? Login</span></Link>
+                            <Link className='signInfo' to={ location.pathname==='embeddedsignup'?   'embeddedlogin':  '/login'}><span>Already a member? Login</span></Link>
                         </div>
                         <div className='crosslogin'>
                               <Tooltip title="Back">
