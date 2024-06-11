@@ -27,7 +27,7 @@ import { Link, useParams } from "react-router-dom";
 import AddToCartPopUp from "../../AddToCartPopUp/AddToCartPopUp";
 import { WhisList } from '../../../../Component/Whishlist/WhisList'
 import Loader from "../../../../Component/Loader/Loader";
-const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, quentity, setquentity, dynamicWeight, setdynamicWeight }) => {
+const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, quentity, setquentity, dynamicWeight, setdynamicWeight ,link="/products" }) => {
 
     const cookies = new Cookies();
     const params = useParams()
@@ -393,7 +393,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                         <div className="newProductdetails_rightSideContent_container">
                             <h2 className="newProductDetails_heading">{Product?.Product_Name}</h2>
                             <div className=" ">
-                                <Link to={`/weed-deliveries/${modifystr(Product?.StoreName)}/${Product?.Store_id}`}>
+                                <Link to={`/${link}/${modifystr(Product?.StoreName)}/${Product?.Store_id}`}>
                                     <h3 className="newProductDetails_subHeadingss">By {Product.StoreName}</h3>
                                 </Link>
                             </div>

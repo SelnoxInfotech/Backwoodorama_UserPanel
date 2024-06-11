@@ -21,7 +21,7 @@ import { Link ,useLocation} from "react-router-dom";
 import { WishListPost } from "../../../Component/Whishlist/WishListApi_"
 import { WhisList } from "../../../Component/Whishlist/WhisList"
 
-const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProductID, title }) => {
+const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProductID, title , link="products" }) => {
 
     const { state, dispatch } = React.useContext(Createcontext)
     const classes = useStyles()
@@ -285,7 +285,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                     </IconButton>
                                                 </Box>
                                             </div>
-                                            <Link to={`/products/${modifystr(items.category_name.toLowerCase())}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${modifystr(items.Product_Name.toLowerCase())}/${items.id}`}
+                                            <Link to={`/${link}/${modifystr(items.category_name.toLowerCase())}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${modifystr(items.Product_Name.toLowerCase())}/${items.id}`}
 
                                             state={{
                                                  prevuisurl: location.pathname,
@@ -305,7 +305,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                             </Link>
                                         </div>
                                         <div className=" product_search_result_content_div ">
-                                            <Link to={`/products/${items.category_name.toLowerCase()}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${items.Product_Name.replace(/%20| /g, "-").toLowerCase()}/${items.id}`}  state={{
+                                            <Link to={`/${link}/${items.category_name.toLowerCase()}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${items.Product_Name.replace(/%20| /g, "-").toLowerCase()}/${items.id}`}  state={{
                                                  prevuisurl: location.pathname,
                                                  id:items.id
                                                 }} >

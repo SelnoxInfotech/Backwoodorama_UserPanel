@@ -20,7 +20,6 @@ import { WishListPost } from "../../Component/Whishlist/WishListApi_";
 import { WhisList } from "../../Component/Whishlist/WhisList";
 import Loader from "../../Component/Loader/Loader";
 const ProductList = ({ arr , link="products" }) => {
-  console.log(link)
   const cookies = new Cookies();
   const Navigate = useNavigate();
   const location = useLocation()

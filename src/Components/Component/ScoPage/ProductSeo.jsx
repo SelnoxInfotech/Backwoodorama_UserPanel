@@ -1,14 +1,14 @@
 import { Helmet } from 'react-helmet-async';
 import React from "react"
 import { useLocation } from "react-router-dom"
-function ProductDetailsSeo({Productname ,Productnm, ProductCategory , StoreName ,  City , State ,location}) {
+function ProductDetailsSeo({Productname ,Productnm, ProductCategory , StoreName ,  City , State ,location , robot}) {
     return (
         <Helmet>
             <title> {`${Productname}  `}</title>
             <meta name="title" content={`${Productname}`}/>
             <meta name='description' content={`${Productnm} - ${ProductCategory} at ${StoreName} - Your Ultimate Cannabis ${useLocation().pathname.slice(0, 16) === "/weed-deliveries" ? `Delivery` : `Dispensary`} in ${City}, ${State}.`} />
            <link rel="canonical" href={`https://www.weedx.io${location}`} /> 
-           <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
+           <meta name="robots" content={robot}></meta>
             {/* Facebook tags */}
             <meta property="og:type" content="website"/>
             <meta property="og:title" content={`${Productname}`} />

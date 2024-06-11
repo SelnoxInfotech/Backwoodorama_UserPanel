@@ -230,18 +230,20 @@ const NewProductDetails = () => {
   if (!StoreProduct.length) {
     return <Loader/>
   }
-  console.log(location.pathname.slice(0 ,9) === "/products" , Params)
-// console.log(Product)
-  return (
+   return (
     <div className="container-fluid">
-      {Object.keys(Product).length !== 0 && <ProductDetailsSeo Productnm={Product.Product_Name} Productname={`Buy ${Product.Product_Name} at ${Product.StoreName} on WeedX.io - Your Trusted Marketplace`} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={location.pathname} ></ProductDetailsSeo>
+      {Object.keys(Product).length !== 0
+       &&
+        <ProductDetailsSeo
+         robot={ location.pathname.slice(0 ,9) === "/products" ?  "INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1" : "NOINDEX,INDEXIFEMBEDDED" }
+        Productnm={Product.Product_Name} Productname={`Buy ${Product.Product_Name} at ${Product.StoreName} on WeedX.io - Your Trusted Marketplace`} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={location.pathname} ></ProductDetailsSeo>
       }
       
        <span onClick={() => { location.pathname.slice(0 ,9) === "/products" ? 
        navigate(location?.state !== null ? (location?.state?.prevuisurl !== '/products' ? location?.state?.prevuisurl : '/products'): '/products')
       : navigate(-1)
       }} className="BackPageBtn"> <AiOutlineLeft size={22} /> Back to products </span>
-      <NewProductDetailsCards link={location.pathname.slice(0 ,9) === "/products"? "" :""} dynamicWeight={dynamicWeight} setdynamicWeight={setdynamicWeight} quentity={quentity} setquentity={setquentity} Product={Product} DiscountedValue={discount} Price={Price} SetPrice={SetPrice} />
+      <NewProductDetailsCards link={location.pathname.slice(0 ,9) === "/products"? Product.Store_Type === "dispensary" ?  "weed-dispensaries": "weed-deliveries" :"menu-integration"} dynamicWeight={dynamicWeight} setdynamicWeight={setdynamicWeight} quentity={quentity} setquentity={setquentity} Product={Product} DiscountedValue={discount} Price={Price} SetPrice={SetPrice} />
       <div className="offerlist">
         <h2 className="section_main_title">Offers</h2>
         <div className="offerlistwrapper">
@@ -265,7 +267,7 @@ const NewProductDetails = () => {
           }
         </div>
       </div>
-      <ProductSearchResult RelatedProductResult={StoreProduct} currentProductID={Product.id} CategoryName={heading} />
+      <ProductSearchResult link={location.pathname.slice(0 ,9) === "/products"? "products" :"menu-integration"} RelatedProductResult={StoreProduct} currentProductID={Product.id} CategoryName={heading} />
       <Review
         delBtn={Despen}
         reviewloading={reviewloading}

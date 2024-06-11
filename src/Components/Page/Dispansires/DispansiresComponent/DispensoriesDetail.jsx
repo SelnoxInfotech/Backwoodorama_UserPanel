@@ -441,7 +441,6 @@ export default function DispensoriesDetails() {
                                     />
                                     <div className="col-12 col-lg-9 col-xxl-10 prod_cat_right_sec">
                                         <ProductList arr={DespensariesData}  link={Boolean(location.pathname.slice(0, 18) === "/weed-dispensaries" || location.pathname.slice(0, 16) === "/weed-deliveries") ?"products" :"menu-integration"}/>
-                                    {console.log(Boolean(location.pathname.slice(0, 18) === "/weed-dispensaries" || location.pathname.slice(0, 16) === "/weed-deliveries"))}
                                     </div>
                                 </div>
                             </React.Fragment>
