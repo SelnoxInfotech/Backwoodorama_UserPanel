@@ -10,8 +10,9 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import { RWebShare } from "react-web-share";
 import React, { useMemo, useState } from 'react';
 import {isShopOpen} from '../../../Hooks/Function'
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams ,useLocation } from 'react-router-dom';
 const NewFlavourBanner = ({ delBtn }) => {
+    const location = useLocation()
     const classes = useStyles()
     const [shopopen , setshopopen ] = useState()
    React.useEffect(()=>{
@@ -67,7 +68,10 @@ const NewFlavourBanner = ({ delBtn }) => {
 
                                                 <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph newFlav_margin'>
                                                     <p className='m-0'><TbCircleFilled id="new_flavCircle" /></p>
-                                                     <Link to={`/weed-deliveries/leaflyweednyc/store-details/${delBtn[0].id}`}><p className='marginLeftnewFlavStore '>Store details</p></Link> 
+                                                     <Link 
+                                                     to={ Boolean(location.pathname.slice(0, 18) === "/weed-dispensaries" || location.pathname.slice(0, 16) === "/weed-deliveries") ? `/weed-deliveries/leaflyweednyc/store-details/${delBtn[0].id}` : `/menu-integration/leaflyweednyc/store-details/${delBtn[0].id}`}
+                                                     
+                                                     ><p className='marginLeftnewFlavStore '>Store details</p></Link> 
                                                 </div>
 
                                                 <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph newFlav_margin'>

@@ -19,7 +19,8 @@ import IconButton from "@mui/material/IconButton";
 import { WishListPost } from "../../Component/Whishlist/WishListApi_";
 import { WhisList } from "../../Component/Whishlist/WhisList";
 import Loader from "../../Component/Loader/Loader";
-const ProductList = ({ arr }) => {
+const ProductList = ({ arr , link="products" }) => {
+  console.log(link)
   const cookies = new Cookies();
   const Navigate = useNavigate();
   const location = useLocation()
@@ -423,7 +424,7 @@ const ProductList = ({ arr }) => {
                         </IconButton>
                       </span>
                       <div className="prod_cat_cont" onClick={() => {
-                        Navigate(`/products/${modifystr(ele.category_name)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.Product_Name)}/${ele.id}`, {
+                        Navigate(`/${link}/${modifystr(ele.category_name)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.Product_Name)}/${ele.id}`, {
                           state: {
                             prevuisurl: location.pathname,
                           }
@@ -431,11 +432,11 @@ const ProductList = ({ arr }) => {
                       }}>
 
                         <div className="col-12  p-0 prod_cat_img position-relative">
-                          <Link to={`/products/${modifystr(ele.category_name)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.Product_Name)}/${ele.id}`} state={{
+                          <Link to={`/${link}/${modifystr(ele.category_name)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.Product_Name)}/${ele.id}`} state={{
                             prevuisurl: location.pathname,
                           }}>
                             <LazyLoadImage
-                              onClick={() => { Navigate(`/products/${modifystr(ele.category_name)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.Product_Name)}/${ele.id}`) }}
+                              onClick={() => { Navigate(`/${link}/${modifystr(ele.category_name)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.Product_Name)}/${ele.id}`) }}
                               className="product_search_result_image"
                               onError={(event) => {
                                 event.target.src = "/image/blankImage.jpg";
@@ -472,7 +473,7 @@ const ProductList = ({ arr }) => {
                         </div>
 
                       </div>
-                      <Link to={`/products/${modifystr(ele.category_name)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.Product_Name)}/${ele.id}`} state={{
+                      <Link to={`/${link}/${modifystr(ele.category_name)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.Product_Name)}/${ele.id}`} state={{
                         prevuisurl: location.pathname,
                       }}>
 
