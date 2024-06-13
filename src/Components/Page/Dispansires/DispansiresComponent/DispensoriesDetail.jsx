@@ -222,10 +222,12 @@ export default function DispensoriesDetails(props) {
             if (Category !== name) {
                 if(Boolean(location.pathname.slice(0, 16) === "/weed-deliveries")  || Boolean(location.pathname.slice(0, 18) === "/weed-dispensaries")) {
                
-                    navigate(`${location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${modifystr(Despen[0]?.Store_Name.toLowerCase())}/${"menu"}/${modifystr(name.toLowerCase())}/${id}`)
+                    // navigate()
+                    window.history.replaceState(null, '', `${location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${modifystr(Despen[0]?.Store_Name.toLowerCase())}/${"menu"}/${modifystr(name.toLowerCase())}/${id}`);
                 }
                 else {
-                    navigate(`/menu-integration/${modifystr(Despen[0]?.Store_Name.toLowerCase())}/${"menu"}/${modifystr(name.toLowerCase())}/${id}`) 
+                    // window.history.replaceState(null, '', `/menu-integration/${modifystr(Despen[0]?.Store_Name.toLowerCase())}/${"menu"}/${modifystr(name.toLowerCase())}/${id}`);
+                    // navigate(`/menu-integration/${modifystr(Despen[0]?.Store_Name.toLowerCase())}/${"menu"}/${modifystr(name.toLowerCase())}/${id}` ,  { replace: true }) 
                 }
             }
             SetDespensariesProductData(response.data)
