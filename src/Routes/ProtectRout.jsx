@@ -6,7 +6,10 @@ import Cookies from 'universal-cookie';
 export default function ProtectRout(props) {
 
     const cookies = new Cookies();
-    const login = cookies.get("User_Token_access")
+    let login = cookies.get("User_Token_access")
+    let accessToken = localStorage.getItem('User_Token_access');
+    // logi  =  accessToken
+    if(  Boolean(accessToken) ){ login  =  accessToken}
     const Navigate = useNavigate()
     const { Component } = props;
     const { state, dispatch } = React.useContext(Createcontext)

@@ -9,7 +9,9 @@ import Createcontext from "../../../Hooks/Context"
 import { Link, useNavigation } from 'react-router-dom';
 export default function Notification({ notify, setnotify,Settotalnotify, Setnotificationdata, notificationdata }) {
     const cookies = new Cookies();
-    const token_data = cookies.get('User_Token_access')
+    let token_data = cookies.get('User_Token_access')
+    let accessToken = localStorage.getItem('User_Token_access');
+    if(  Boolean(accessToken) ){ token_data  =  accessToken}
     const { state , dispatch } = React.useContext(Createcontext)
     function calculateTImefromDate(value) {
         let diffTime = Math.abs(new Date().valueOf() - new Date(value).valueOf());

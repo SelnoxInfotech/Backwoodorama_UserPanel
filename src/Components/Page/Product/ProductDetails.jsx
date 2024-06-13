@@ -17,7 +17,9 @@ import Cookies from 'universal-cookie';
 import AddToCartPopUp from "./AddToCartPopUp/AddToCartPopUp"
 const ProductDetail = () => {
     const cookies = new Cookies();
-    const token_data = cookies.get('User_Token_access')
+       let token_data = cookies.get('User_Token_access')
+    let accessToken = localStorage.getItem('User_Token_access');
+    if(  Boolean(accessToken) ){ token_data  =  accessToken}
     const location = useLocation()
     const Id = location.state
     const { state, dispatch } = React.useContext(Createcontext)

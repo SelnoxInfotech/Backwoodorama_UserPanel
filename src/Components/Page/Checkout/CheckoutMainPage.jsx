@@ -13,7 +13,9 @@ const CheckOutMainPage = () => {
     const { state, dispatch } = React.useContext(Createcontext)
     const cookies = new Cookies();
     const navigate = useNavigate()
-    const token_data = cookies.get('User_Token_access')
+    let token_data = cookies.get('User_Token_access')
+    let accessToken = localStorage.getItem('User_Token_access');
+    if(  Boolean(accessToken) ){ token_data  =  accessToken}
     const [ShowData, SetShowData] = React.useState(false)
     const [ShowDeliveryInformation, SetShowDeliveryInformation] = React.useState(false)
     const [DeliveryOptionData, SetDeliveryOptionData] = React.useState([])

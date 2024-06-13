@@ -17,7 +17,7 @@ const AddToCart = () => {
     
     },[])
     const location = useLocation()
-    // console.log(location.pathname)
+    console.log(state)
     return (
 
         <div className="container">

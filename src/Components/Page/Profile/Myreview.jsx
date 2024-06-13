@@ -36,7 +36,9 @@ const Myreview = () => {
     }
     }
 
-    const token_data = cookies.get('User_Token_access')
+       let token_data = cookies.get('User_Token_access')
+    let accessToken = localStorage.getItem('User_Token_access');
+    if(  Boolean(accessToken) ){ token_data  =  accessToken}
     React.useEffect(()=>{
         if(state.login){
         axios.get('https://api.cannabaze.com/UserPanel/Get-ProductReviewbyUser/',

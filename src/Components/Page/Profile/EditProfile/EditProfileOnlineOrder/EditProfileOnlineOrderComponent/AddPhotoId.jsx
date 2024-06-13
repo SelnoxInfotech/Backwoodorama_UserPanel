@@ -15,7 +15,9 @@ import Axios from 'axios';
 const AddPhotoId = ({ image, Api, SetApi }) => {
     const classes = useStyles()
     const cookies = new Cookies();
-    const token_data = cookies.get('User_Token_access')
+       let token_data = cookies.get('User_Token_access')
+    let accessToken = localStorage.getItem('User_Token_access');
+    if(  Boolean(accessToken) ){ token_data  =  accessToken}
     const [selectedImage, setSelectedImage] = React.useState(null);
     const [image1, Setimage] = React.useState(null)
     const [Open, SetOpen] = React.useState(false)

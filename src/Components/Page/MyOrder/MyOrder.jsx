@@ -13,7 +13,9 @@ import Cookies from 'universal-cookie';
 import {MyOrderSeo} from "../../Component/ScoPage/CommenpageSeo"
 const MyOrder = () => {
     const cookies = new Cookies();
-    const token_data = cookies.get('User_Token_access')
+    let token_data = cookies.get('User_Token_access')
+    let accessToken = localStorage.getItem('User_Token_access');
+    if(  Boolean(accessToken) ){ token_data  =  accessToken}
     const [Getsearch, SetSearch] = React.useState("")
     const navigate = useNavigate()
     const classes = useStyles()

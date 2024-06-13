@@ -17,7 +17,10 @@ const Profile = () => {
     const classes = useStyles()
     const { state, dispatch } = React.useContext(Createcontext)
     const cookies = new Cookies();
-    const token_data = cookies.get("User_Token_access")
+    let token_data = cookies.get("User_Token_access")
+    let accessToken = localStorage.getItem('User_Token_access');
+    // logi  =  accessToken
+    if(  Boolean(accessToken) ){ token_data  =  accessToken}
     const [selectedImage, setSelectedImage] = React.useState(null);
     const [Error, SetError] = React.useState('')
     const Navigate = useNavigate()

@@ -31,7 +31,9 @@ const Allblogs = () => {
   const [searchtext , setsearchtext] = useState('')
   const classes = useStyles()
   const cookies = new Cookies();
-  const token_data = cookies.get('User_Token_access')
+  let token_data = cookies.get('User_Token_access')
+  let accessToken = localStorage.getItem('User_Token_access');
+  if(  Boolean(accessToken) ){ token_data  =  accessToken}
 
   function modifystr(str) {
     str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");

@@ -11,7 +11,9 @@ const PlaceOrder = () => {
     const location = useLocation();
     const { state, dispatch } = React.useContext(Createcontext)
     const cookies = new Cookies();
-    const token_data = cookies.get('User_Token_access')
+    let token_data = cookies.get('User_Token_access')
+    let accessToken = localStorage.getItem('User_Token_access');
+    if(  Boolean(accessToken) ){ token_data  =  accessToken}
     const [Order, SetOrder] = React.useState([])
     const today = new Date(location.state.OrderDate);
     const yyyy = today.getFullYear();

@@ -29,7 +29,9 @@ import { useState } from 'react';
 import Createcontext from "../../../../Hooks/Context"
 const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, HellFull}) => {
     const cookies = new Cookies();
-    const token_data = cookies.get('User_Token_access')
+    let token_data = cookies.get('User_Token_access')
+    let accessToken = localStorage.getItem('User_Token_access');
+    if(  Boolean(accessToken) ){ token_data  =  accessToken}
     const [imageopup , setImagepopup] = useState(false)
     const [sliderdata,setsliderdata]= useState({
     image:[],

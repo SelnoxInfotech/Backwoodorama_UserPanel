@@ -69,6 +69,7 @@ function Context(props) {
         let logi = cookies.get("User_Token_access")
         let accessToken = localStorage.getItem('User_Token_access');
         // logi  =  accessToken
+        if(  Boolean(accessToken) ){ logi  =  accessToken}
         console.log(accessToken)
         console.log(logi)
         dispatch({ type: 'DefalutLocation', DefalutLocation: cookies.get("Location") })

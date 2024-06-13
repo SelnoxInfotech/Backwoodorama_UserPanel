@@ -27,7 +27,10 @@ const ProductList = ({ arr , link="products" }) => {
   const [adding, setadding] = React.useState('')
   const [popup, SetPopup] = React.useState(true)
   const [showdata, setShowdata] = React.useState([]);
-  const token_data = cookies.get("User_Token_access");
+  let token_data = cookies.get("User_Token_access");
+    let accessToken = localStorage.getItem('User_Token_access');
+    // logi  =  accessToken
+    if(  Boolean(accessToken) ){ token_data  =  accessToken}
   const { state, dispatch } = React.useContext(Createcontext);
   const [Whishlist, SetWishList] = React.useState(false);
   const [Price, SetPrice] = React.useState([]);
