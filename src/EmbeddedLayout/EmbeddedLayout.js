@@ -4,12 +4,16 @@ import Menuintregrate from '../Components/Page/StoreDetail/StoreDetailComponent/
 
 const EmbeddedLayout = () => {
   return (
-    <div className='container '>
+    <div>
       <div className='sticky-top '>
         <Menuintregrate></Menuintregrate>
       </div>
-
-      <Outlet  />
+      <div className='container '>
+        <Outlet  />
+      </div>
+      <div className='py-3' style={{ backgroundColor: '#F6F6F6'}}>
+        <p className='m-0 text-center'>Copyright © 2024 weedx.io</p>
+      </div>
     </div>
   )
 }

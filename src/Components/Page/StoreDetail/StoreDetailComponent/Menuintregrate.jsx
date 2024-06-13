@@ -80,115 +80,105 @@ const Menuintregrate = ({tab = "Menu" }) => {
  
 
     return (
-        <React.Fragment>
-            <div className="container-fluid mt-3">
-                <div className="row center">
-                    <div className="col-lg-12  col-md-12 col-sm-12 col-12 StoreDetailMenuItem_container center">
-                        <ol className="store_detail_order_list">
-                            {StoreDetailMenuItem.map((ele, index) => {
-                                return (
-                                    <li className="listfontStyle store_detail_list"
-                                     onClick={() => { SelectionTab(ele.item) }}
-                                        style={{ color: tab === ele.item.toLowerCase().replace(" ", "-")
-                                             && ele.color }}
-                                        key={index}><span className="storeDetalMenuItemCursor">{ele.item}</span></li>
-                                )
-                            })}
-                            {/*  tab === "store-details" && ele.color  */}
-                        </ol>
-                      <div  style={{
-                                display: 'flex',
-                                gap: "10px"
-                        }}>
-                      <div style={{ display: "contents" }}>
-                            <Link to="/carts">
-                                <Badge badgeContent={state.AllProduct?.length > 0 ? state.AllProduct?.length : null} className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`}>
-                                    <IconButton className={classes.navBarButton_icons} aria-label='shopping-cart'><MdOutlineShoppingCart color="#858585" size={22}></MdOutlineShoppingCart></IconButton>
-                                </Badge>
-                            </Link>
-                        </div>
-                        <div>
-                            {
-                                state.login === true
-                                    ?
+       <div style={{ backgroundColor: '#F6F6F6'}}>
+                    <div className="container">
+                        <div className="StoreDetailMenuItem_container">
+                            <ol className="store_detail_order_list">
+                                {StoreDetailMenuItem.map((ele, index) => {
+                                    return (
+                                        <li className=" store_detail_list"
+                                        onClick={() => { SelectionTab(ele.item) }}
+                                            style={{ color: tab === ele.item.toLowerCase().replace(" ", "-")
+                                                && ele.color }}
+                                            key={index}><span className="storeDetalMenuItemCursor">{ele.item}</span></li>
+                                    )
+                                })}
+                                {/*  tab === "store-details" && ele.color  */}
+                            </ol>
+                            <div className="d-flex gap-4">
+                                <div style={{ display: "contents" }}>
+                                    <Link to="/carts">
+                                        <Badge badgeContent={state.AllProduct?.length > 0 ? state.AllProduct?.length : null} className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`}>
+                                            <IconButton className={classes.navBarButton_icons} aria-label='shopping-cart'><MdOutlineShoppingCart color="#858585" size={22}></MdOutlineShoppingCart></IconButton>
+                                        </Badge>
+                                    </Link>
+                                </div>
+                                <div>
+                                    {
+                                        state.login === true
+                                            ?
+                                            <div className='navbarProfileDropDown_container' ref={profileRef}>
+                                                <Grid display={{ md: "flex" }} justifyContent="flex-end">
+                                                    <div className='Navbar_profile_logo_container'>
+                                                        <LazyLoadImage
+                                                            onError={event => {
+                                                                event.target.src = "/image/user.webp"
+                                                                event.onerror = null
+                                                            }}
+                                                            src={state.Profile.googlelink === null ? `${state.Profile.image} ` : state.Profile.googlelink}
+                                                            alt='Profile'
+                                                            title='Profile'
+                                                            className="Navbar_logo_imgs"
+                                                            onClick={handleClickDropdown}
+                                                        />
+                                                    </div>
+                                                </Grid>
+                                                {DropDownState && (
+                                                    <div className='profileDropdown_container'>
+                                                        <section className='Navbar_proflie_image_name_section'>
+
+                                                            <div className='profile_name_container'>
+                                                                <p className='profile_names ellipsis'>{state.Profile.username}</p>
+
+                                                            </div>
+
+                                                        </section>
+                                                        <hr />
+                                                        <section className=' navbarProfileDropDownSection'>
+                                                            <ol className='navbar_profile_orderList px-0'>
+
+                                                                {/* <Link to={'/EditProfile'} onClick={()=>{SetDropDownState(false)}}> <li className='profile_list'>  <span><TbEdit  /></span> EDIT PROFILE</li></Link>
+                                        <Link to={'/myorder'} onClick={()=>{SetDropDownState(false)}}> <li className='profile_list' > <span><FiShoppingBag /></span> MY ORDER</li></Link>
+                                        <Link to={'/whislists'} onClick={()=>{SetDropDownState(false) }}> <li className='profile_list'> <span><FaHeart /></span> FAVORITES </li></Link>
+                                        <Link to={'/myreviews'} onClick={()=>{SetDropDownState(false) }}> <li className='profile_list' >  <span><MdReviews /></span>MY REVIEW </li></Link>
+                                        <Link to={'/helpcenter'} onClick={()=>{SetDropDownState(false)}}> <li className='profile_list'>  <span><FaHandsHelping /></span> HELP</li></Link>
+                                        */}
+                                                                <li className='profile_list' onClick={() => { Logout() }}>  <span><TbLogout /></span> LOGOUT</li>
 
 
-                                    <div className='navbarProfileDropDown_container' ref={profileRef}>
-                                        <Grid display={{ xs: "none", md: "flex" }} justifyContent="flex-end">
-                                            <div className='Navbar_profile_logo_container'>
-                                                <LazyLoadImage
-                                                    onError={event => {
-                                                        event.target.src = "/image/user.webp"
-                                                        event.onerror = null
-                                                    }}
-                                                    src={state.Profile.googlelink === null ? `${state.Profile.image} ` : state.Profile.googlelink}
-                                                    alt='Profile'
-                                                    title='Profile'
-                                                    className="Navbar_logo_imgs"
-                                                    onClick={handleClickDropdown}
-                                                />
-                                            </div>
-                                        </Grid>
-                                        {DropDownState && (
-                                            <div className='profileDropdown_container'>
-                                                <section className='Navbar_proflie_image_name_section'>
 
-                                                    <div className='profile_name_container'>
-                                                        <p className='profile_names ellipsis'>{state.Profile.username}</p>
+                                                            </ol>
+
+                                                        </section>
 
                                                     </div>
-
-                                                </section>
-                                                <hr />
-                                                <section className=' navbarProfileDropDownSection'>
-                                                    <ol className='navbar_profile_orderList px-0'>
-
-                                                        {/* <Link to={'/EditProfile'} onClick={()=>{SetDropDownState(false)}}> <li className='profile_list'>  <span><TbEdit  /></span> EDIT PROFILE</li></Link>
-                                 <Link to={'/myorder'} onClick={()=>{SetDropDownState(false)}}> <li className='profile_list' > <span><FiShoppingBag /></span> MY ORDER</li></Link>
-                                 <Link to={'/whislists'} onClick={()=>{SetDropDownState(false) }}> <li className='profile_list'> <span><FaHeart /></span> FAVORITES </li></Link>
-                                 <Link to={'/myreviews'} onClick={()=>{SetDropDownState(false) }}> <li className='profile_list' >  <span><MdReviews /></span>MY REVIEW </li></Link>
-                                 <Link to={'/helpcenter'} onClick={()=>{SetDropDownState(false)}}> <li className='profile_list'>  <span><FaHandsHelping /></span> HELP</li></Link>
-                                  */}
-                                                        <li className='profile_list' onClick={() => { Logout() }}>  <span><TbLogout /></span> LOGOUT</li>
-
-
-
-                                                    </ol>
-
-                                                </section>
+                                                )}
 
                                             </div>
-                                        )}
-
-                                    </div>
-
-                                    :
-                                    <div className='Login_Sigup_button justify-content-end  Sapceing'>
-                                        {/* <div className=''> */}
-                                            <Grid display={{ xs: "none", md: "block", lg: "block", }} >
-                                                 <Button className={classes.muiBtn}
-                                                  onClick={()=>setOpen(()=>true)}
-                                                 >Log In</Button>
-                                            </Grid>
-                                        {/* </div> */}
-                                        {/* <div className=''> */}
-                                            {/* <Grid display={{ xs: "none", md: "block", lg: "block" }}>
-                                                <NavLink to="/signup" >    <Button sx={{ boxShadow: 3 }} className={classes.muiBtn_Signup} >Sign Up</Button></NavLink>
-                                            </Grid> */}
-                                        {/* </div> */}
-                                    </div>
-                            }
+                                            :
+                                            <div className='Login_Sigup_button justify-content-end  Sapceing'>
+                                                {/* <div className=''> */}
+                                                    <Grid display={{ xs: "none", md: "block", lg: "block", }} >
+                                                        <Button className={classes.muiBtn}
+                                                        onClick={()=>setOpen(()=>true)}
+                                                        >Log In</Button>
+                                                    </Grid>
+                                                {/* </div> */}
+                                                {/* <div className=''> */}
+                                                    {/* <Grid display={{ xs: "none", md: "block", lg: "block" }}>
+                                                        <NavLink to="/signup" >    <Button sx={{ boxShadow: 3 }} className={classes.muiBtn_Signup} >Sign Up</Button></NavLink>
+                                                    </Grid> */}
+                                                {/* </div> */}
+                                            </div>
+                                    }
+                                </div>
+                            </div>
                         </div>
-                      </div>
                     </div>
-
-
-                </div>
-                {
-        open && <Menuintegration_login open={open} setOpen={setOpen}></Menuintegration_login>
-      }
-            </div>
-        </React.Fragment>
+                    {
+                        open && <Menuintegration_login open={open} setOpen={setOpen}></Menuintegration_login>
+                    }
+          </div>
     )
 }
 export default Menuintregrate

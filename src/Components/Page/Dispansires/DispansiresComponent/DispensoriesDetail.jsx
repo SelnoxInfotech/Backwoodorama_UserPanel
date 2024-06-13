@@ -26,14 +26,12 @@ import Menuintregrate from "../../StoreDetail/StoreDetailComponent/Menuintregrat
 import { useLoaderData } from 'react-router-dom';
 export default function DispensoriesDetails(props) {
     const  data  = useLoaderData();
-    // console.log(data ,  useLoaderData())
     const navigate = useNavigate()
     const { state, dispatch } = React.useContext(Createcontext)
     const location = useLocation()
     const params = useParams();
     const [reviewtype, setReviewtype] = React.useState('All')
     const { id, tab, Category, StoreName } = params
-    // console.log(params, location, location.pathname.slice(0, 16) === "/weed-deliveries")
     const classes = useStyles()
     const [category, SetCategory] = React.useState([])
     const [DespensariesData, SetDespensariesProductData] = React.useState([])
@@ -69,7 +67,6 @@ export default function DispensoriesDetails(props) {
 
         return str.toLowerCase()
     }
-    // console.log(Boolean(location.pathname.slice(0, 18) === "/weed-dispensaries"), location.pathname.slice(0, 18))
     React.useEffect(() => {
          if(Boolean(data)){
 
@@ -209,8 +206,7 @@ export default function DispensoriesDetails(props) {
            }
 
     }
-
-    function ShowCategoryProduct(Id, name) { //https://api.cannabaze.com/UserPanel/Get-filterProductbyStoreandCategory/`,
+    function ShowCategoryProduct(Id, name) {
         dispatch({ type: 'Loading', Loading: true })
         axios.post(`https://api.cannabaze.com/UserPanel/Get-filterProductbyStoreandCategory/`,
             {
@@ -235,7 +231,6 @@ export default function DispensoriesDetails(props) {
 
             })
     }
-
     const ProductFilterData = [{ Id: 1, Name: "Category", Type1: "Flower", Type2: "CBD", Icons: <BsLayoutSplit className={classes.muiIcons} /> },
     { Id: 2, Name: "Brand", Type1: "Leafly", Type2: "CBD", Icons: <MdOutlineBrandingWatermark className={classes.muiIcons} /> },
     { Id: 3, Name: "Strain", Type1: "Indica", Type2: "Hybrid", Icons: <BsStripe className={classes.muiIcons} /> },
@@ -243,7 +238,6 @@ export default function DispensoriesDetails(props) {
     { Id: 5, Name: "Weight", Type1: "Any", Type2: "$25", Price: "$100", Icons: <GiWeightScale className={classes.muiIcons} /> },
     { Id: 6, Name: "Unit", Type1: "Any", Type2: "$25", Price: "$100", Icons: <AiOutlineDeploymentUnit className={classes.muiIcons} /> },
     ]
-
     useEffect(() => {
         if (reviewtype === "product") {
             axios.post('https://api.cannabaze.com/UserPanel/GetallProductReviewbyStore/', {
@@ -277,7 +271,6 @@ export default function DispensoriesDetails(props) {
 
         }
     }, [reviewtype, id, api])
-
     React.useEffect(() => {
         if (state.login && state.Profile.id !== undefined && id !== undefined) {
             Store_Get_UserComment(state.Profile.id, id).then((res) => {
@@ -300,8 +293,6 @@ export default function DispensoriesDetails(props) {
 
         }
     }, [state.Profile, id, api])
-
-
     const onSubmit = () => {
 
         const formdata = new FormData();
@@ -336,7 +327,6 @@ export default function DispensoriesDetails(props) {
         })
     };
     const [scroll, SetScroll] = React.useState(true)
-
     React.useEffect(() => {
         if (scroll) {
             document.documentElement.scrollTo({
@@ -348,9 +338,7 @@ export default function DispensoriesDetails(props) {
         }
 
     }, [])
-
     const Swal = require('sweetalert2')
-
     function handleDelete(id) {
         Swal.fire({
             title: "Are you sure?",
@@ -375,11 +363,9 @@ export default function DispensoriesDetails(props) {
         });
 
     }
-
     function handleEdit() {
         SetGetProductReview({ ...GetProductReview, 'popup': true })
     }
-
     function HellFull(ReviewId) {
         if ("ProductName" in ReviewId) {
             ProductHelpFull(ReviewId.id, state.Profile.id).then((res) => {
@@ -393,7 +379,6 @@ export default function DispensoriesDetails(props) {
             })
         }
     }
-
     function navigationtab(route, store, id) {
 
         if (Boolean(store)) {
@@ -412,8 +397,6 @@ export default function DispensoriesDetails(props) {
             }
         }
     }
-
-    
     return (
         <div>{
             !Despen.length ? <Loader /> : <div>

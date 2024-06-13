@@ -23,7 +23,7 @@ import { Pagination } from 'swiper/modules';
 import _ from "lodash"
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import AddToCartPopUp from "../../AddToCartPopUp/AddToCartPopUp";
 import { WhisList } from '../../../../Component/Whishlist/WhisList'
 import Loader from "../../../../Component/Loader/Loader";
@@ -304,7 +304,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
             SetSelectVariant(Product?.Prices[0]?.Price[0]?.id)
         }
     }, [Product])
-
+let location = useLocation()
     return (
         <React.Fragment>
             {
@@ -606,7 +606,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                         </div>
                     </div>
 
-                    {startload && <Loader/>
+                    {(startload && !location?.pathname?.includes('/menu-integration')) && <Loader/>
                     }
                     {Whishlist && <WhisList open1={Whishlist} SetWishList={SetWishList}></WhisList>}
                 </div >

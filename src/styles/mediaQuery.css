@@ -135,7 +135,8 @@
   }
 
   .store_detail_list {
-    min-width: 100px;
+    font-size: 12px;
+    font-weight: 500;
   }
   .amenities_list {
     gap: 7%;

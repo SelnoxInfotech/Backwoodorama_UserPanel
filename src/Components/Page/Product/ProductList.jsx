@@ -17,10 +17,13 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
 import IconButton from "@mui/material/IconButton";
 import { WishListPost } from "../../Component/Whishlist/WishListApi_";
+import Pagination from '@mui/material/Pagination';
 import { WhisList } from "../../Component/Whishlist/WhisList";
 import Loader from "../../Component/Loader/Loader";
 const ProductList = ({ arr , link="products" }) => {
   const cookies = new Cookies();
+  const [page, setPage] = React.useState(1);
+
   const Navigate = useNavigate();
   const location = useLocation()
   const [CartClean, SetCartClean] = React.useState(false);
@@ -33,6 +36,7 @@ const ProductList = ({ arr , link="products" }) => {
     if(  Boolean(accessToken) ){ token_data  =  accessToken}
   const { state, dispatch } = React.useContext(Createcontext);
   const [Whishlist, SetWishList] = React.useState(false);
+  const [paginateddata,setpaginateddata]= React.useState([])
   const [Price, SetPrice] = React.useState([]);
   const [AddTOCard, SetAddToCard] = React.useState(() => {
     const saved = localStorage.getItem("items");
@@ -379,7 +383,14 @@ const ProductList = ({ arr , link="products" }) => {
 
     return str.toLowerCase();
   }
-
+  const pagechanges = (event, value) => {
+    setPage(value);
+    
+      let assa = showdata.slice((value*8)-8, value*8)
+      setpaginateddata(assa)
+    
+   
+  };
 
 
   React.useEffect(() => {
@@ -390,6 +401,12 @@ const ProductList = ({ arr , link="products" }) => {
       return item.Prices[0]?.Price[0]?.Stock !== "IN Stock"
     })
     setShowdata(newdata.concat(newdata2))
+    if(location.pathname.includes('/menu-integration')){
+    let assa = newdata.concat(newdata2).slice(0,8)
+    setpaginateddata(assa)
+    }else{
+      setpaginateddata(newdata.concat(newdata2))
+    }
   }, [arr]);
   return (
     <>
@@ -400,7 +417,7 @@ const ProductList = ({ arr , link="products" }) => {
               className="row  mx-2"
               style={{ height: "auto", marginBottom: "10px" }}
             >
-              {showdata?.map((ele, index) => {
+              {paginateddata?.map((ele, index) => {
                 return (
                   <div
                     className="col-6 col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12   "
@@ -620,6 +637,9 @@ const ProductList = ({ arr , link="products" }) => {
                   </div>
                 );
               })}
+            {
+              (showdata.length > 8 && location.pathname.includes('/menu-integration')) && <div className="d-flex justify-content-center"><Pagination count={(parseInt(showdata.length/8)+1)} page={page} onChange={pagechanges} /></div>
+            }
             </div>
             {Whishlist && (
               <WhisList open1={Whishlist} SetWishList={SetWishList}></WhisList>

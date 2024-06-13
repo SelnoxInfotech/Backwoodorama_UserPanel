@@ -11,7 +11,7 @@ const StoreDetailMenuItem = ({SelectionTab , tab}) => {
         <React.Fragment>
             <div className="container-fluid px-0">
                 <div className="row center">
-                    <div className="col-lg-12  col-md-12 col-sm-12 col-12 StoreDetailMenuItem_container center">
+                    <div className="col-lg-12  col-md-12 col-sm-12 col-12 StoreDetailMenuItem_container center"  style={{ backgroundColor: '#F6F6F6'}}>
                         <ol className="store_detail_order_list">
                             {StoreDetailMenuItem.map((ele, index) => {
                                 return (

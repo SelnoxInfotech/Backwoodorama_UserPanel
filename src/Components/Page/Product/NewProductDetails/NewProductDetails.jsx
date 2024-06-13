@@ -31,7 +31,7 @@ const NewProductDetails = () => {
     CouponMassage: "",
     DiscountType: ""
   });
-
+  
   const Params = useParams()
   const { state } = React.useContext(Createcontext)
   const navigate = useNavigate();
@@ -47,8 +47,6 @@ const NewProductDetails = () => {
   const [j, h] = React.useState([])
   const [quentity, setquentity] = React.useState(1);
   const [dynamicWeight, setdynamicWeight] = React.useState(0);
-
-
   const [GetProductReview, SetGetProductReview] = React.useState({
     value: 0,
     comment: '',
@@ -98,7 +96,7 @@ const NewProductDetails = () => {
     }).catch(
       function (error) {
         navigate('/404')
-      })
+    })
 
 
   }, [id])
@@ -228,7 +226,7 @@ const NewProductDetails = () => {
 
   const location = useLocation()
   if (!StoreProduct.length) {
-    return <Loader/>
+    return location?.pathname?.includes('/menu-integration') ? '' : <Loader/>
   }
    return (
     <div className="container-fluid">
