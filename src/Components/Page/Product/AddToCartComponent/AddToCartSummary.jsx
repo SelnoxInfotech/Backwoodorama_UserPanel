@@ -8,10 +8,12 @@ import Createcontext from "../../../../Hooks/Context";
 import DeliverAutoCompleteAddress from "./DeliverAutoCompleteAddress";
 // import { useForm, FormProvider, Controller } from "react-hook-form";
 import PromoCode from "../Promocode/Promocode";
-const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails ,Details  }) => {
+import { Menuintegration_login } from "../../Login/menu-integration_login";
+const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails, Details }) => {
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
   const { state, dispatch } = React.useContext(Createcontext);
-  const[anyoutstock,setanyoutstock]=React.useState([])
+  const [anyoutstock, setanyoutstock] = React.useState([])
   const navigate = useNavigate();
   const location = useLocation();
   const [OpenDelivery, SetOpenDelivery] = React.useState(false);
@@ -30,18 +32,18 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
     if (e.currentTarget.id === "pickup_btn") {
       SetOpenPickup(!OpenPickup);
       SetOpenDelivery(false);
-      if(state.AllProduct[0]?.StoreCurbsidePickup){
+      if (state.AllProduct[0]?.StoreCurbsidePickup) {
         dispatch({
           type: "selectDeliveryoptions",
           selectDeliveryoptions: "CurbsidePickup",
         });
-      }else{
+      } else {
         dispatch({
           type: "selectDeliveryoptions",
           selectDeliveryoptions: "pickup_btn",
         });
       }
-    
+
     } else if (e.currentTarget.id === "delivery_btn") {
       SetOpenDelivery(!OpenDelivery);
       SetOpenPickup(false);
@@ -52,19 +54,20 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
     }
 
   };
+  // console.log(state)
   const CheckoutProcess = (event, j) => {
-    if(state.login){
+    if (state.login) {
       if (state.selectDeliveryoptions === "delivery_btn") {
         if (state.DeliveryAddress === "") {
           alert("Select Delivery address");
         } else {
-          if(Boolean(location.pathname === "/cart") || Boolean( location.pathname === "/carts")) {
+          if (Boolean(location.pathname === "/cart") || Boolean(location.pathname === "/carts")) {
             if (state.login) {
-              navigate( location.pathname === "/carts"? '/menu-integration/checkout': "/checkout", {
-                state: { InputValues, abc: state.Cart_subTotal , orderBtn : state.selectDeliveryoptions },
+              navigate(location.pathname === "/carts" ? '/menu-integration/checkout' : "/checkout", {
+                state: { InputValues, abc: state.Cart_subTotal, orderBtn: state.selectDeliveryoptions },
               });
             } else {
-              navigate("/login" , {
+              navigate("/login", {
                 state: {
                   location
                 }
@@ -78,15 +81,15 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
             }
           }
 
-          if (  Boolean(location.pathname === "/checkout")   || Boolean(location.pathname === "/menu-integration/checkout") ) {
+          if (Boolean(location.pathname === "/checkout") || Boolean(location.pathname === "/menu-integration/checkout")) {
             SubmitData();
           }
         }
       } else {
-        if (state.selectDeliveryoptions === "pickup_btn" || state.selectDeliveryoptions === "CurbsidePickup" ) {
-          if(Boolean(location.pathname === "/cart") || Boolean( location.pathname === "/carts")) {
-            navigate( location.pathname === "/carts"? '/menu-integration/checkout': "/checkout", {
-              state: { InputValues, abc: state.Cart_subTotal , orderBtn : state.selectDeliveryoptions},
+        if (state.selectDeliveryoptions === "pickup_btn" || state.selectDeliveryoptions === "CurbsidePickup") {
+          if (Boolean(location.pathname === "/cart") || Boolean(location.pathname === "/carts")) {
+            navigate(location.pathname === "/carts" ? '/menu-integration/checkout' : "/checkout", {
+              state: { InputValues, abc: state.Cart_subTotal, orderBtn: state.selectDeliveryoptions },
             });
           } else {
             if (state.DeliveryOption === false) {
@@ -95,21 +98,25 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
               alert("First Fill form ");
             }
           }
-          if (Boolean(location.pathname === "/checkout")   || Boolean(location.pathname === "/menu-integration/checkout")){
-              SubmitData();
+          if (Boolean(location.pathname === "/checkout") || Boolean(location.pathname === "/menu-integration/checkout")) {
+            SubmitData();
           }
         } else {
           alert("Select Delivery address");
         }
       }
-    }else{
-      navigate( location.pathname==='/carts' ? '/menu-integration/login':"/login" , {
-        state: {
-          location
-        }
-      });
+    } else {
+      if (location.pathname === '/carts') {
+        setOpen((open) => true)
+      }
+      else {
+
+        navigate("/login", {
+          state: { location }
+        });
+      }
     }
-   
+
   };
   React.useEffect(() => {
     if (location.pathname === "/cart") {
@@ -123,26 +130,26 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
     }
   }, [state.selectDeliveryoptions]);
   function ChnageDeliveryAddress() {
-    navigate("/cart" );
+    navigate("/cart");
   }
-  useEffect(()=>{
-      let nss=  state?.AllProduct?.map((ele) => {
-        if( ele?.Price?.Stock !== "IN Stock"){
-        return  'oos'
-        }else{
+  useEffect(() => {
+    let nss = state?.AllProduct?.map((ele) => {
+      if (ele?.Price?.Stock !== "IN Stock") {
+        return 'oos'
+      } else {
         return 'ins'
-        }
-      })
-      setanyoutstock(nss)
-  },[state?.AllProduct])
-  
+      }
+    })
+    setanyoutstock(nss)
+  }, [state?.AllProduct])
+
 
   return (
     <div className="col-12 Add_product_cart_right_container_summary">
       <div className="col-12 fontStyle AddProdCartFont_weight">
         <h5>Order Summary</h5>
       </div>
-      { (Boolean(location.pathname !== "/checkout") || Boolean(location.pathname !== "/checkout") ) ? (
+      {(Boolean(location.pathname !== "/checkout") || Boolean(location.pathname !== "/checkout")) ? (
         <div className="col-12 d-flex addToCart_deliver">
           {state.AllProduct[0]?.StoreDelivery && (
             <div className="col-6">
@@ -167,26 +174,26 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
           <div className="col-6">
             {(state.AllProduct[0]?.StoreCurbsidePickup ||
               state.AllProduct[0]?.StorePickup) && (
-              <Box
-                className={`px-1 add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`} >
-                <LoadingButton
-                  style={{
-                    backgroundColor: OpenPickup && "#00b96a",
-                    color: OpenPickup && "white",
-                  }}
-                  variant="outlined"
-                  id="pickup_btn"
-                  onClick={HandlePickupAndDelivery}
-                >
-                  {state.AllProduct[0]?.StoreCurbsidePickup
-                    ? "Curbside Pickup"
-                    : "Store Pickup"}
-                </LoadingButton>
-              </Box>
-            )}
+                <Box
+                  className={`px-1 add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`} >
+                  <LoadingButton
+                    style={{
+                      backgroundColor: OpenPickup && "#00b96a",
+                      color: OpenPickup && "white",
+                    }}
+                    variant="outlined"
+                    id="pickup_btn"
+                    onClick={HandlePickupAndDelivery}
+                  >
+                    {state.AllProduct[0]?.StoreCurbsidePickup
+                      ? "Curbside Pickup"
+                      : "Store Pickup"}
+                  </LoadingButton>
+                </Box>
+              )}
           </div>
         </div>
-        ) : (
+      ) : (
         <Box
           className={`add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
         >
@@ -280,24 +287,24 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
         <div className=" order_summary_flex">
           <div className=" fontStyle add_prod_cart_summary_p">
             <p className="m-0">Total Amount</p>
-          {Boolean(state.CoupounAmount ) &&  <p className="m-0">Discount Amount</p>}
+            {Boolean(state.CoupounAmount) && <p className="m-0">Discount Amount</p>}
           </div>
           <div className=" fontStyle">
-         {Boolean(state.CoupounAmount ) ?     <del   ><span className="m-0" style={{color:'#fff' , textDecoration:'line-through 2px #000'}}>${state.Cart_subTotal }</span></del> :<p className="m-0">${state.Cart_subTotal }</p> } 
-          { Boolean(state.CoupounAmount )  && <p className="m-0">${  state.Cart_subTotal - state.CoupounAmount }</p>}
+            {Boolean(state.CoupounAmount) ? <del   ><span className="m-0" style={{ color: '#fff', textDecoration: 'line-through 2px #000' }}>${state.Cart_subTotal}</span></del> : <p className="m-0">${state.Cart_subTotal}</p>}
+            {Boolean(state.CoupounAmount) && <p className="m-0">${state.Cart_subTotal - state.CoupounAmount}</p>}
           </div>
         </div>
-       
+
       </div>
       <div className="add_prod_cart_p">
-              {
-                state.DeliveryPrice === 0 ? 
-               <p>Taxes are Shows</p>
-               : 
-               <p style={{color:"#e78d8d"}}> Minimum order card value {state.MinimumOrderPrice}</p> 
-              }
-               </div>
-        <PromoCode />
+        {
+          state.DeliveryPrice === 0 ?
+            <p>Taxes are Shows</p>
+            :
+            <p style={{ color: "#e78d8d" }}> Minimum order card value {state.MinimumOrderPrice}</p>
+        }
+      </div>
+      <PromoCode />
       <div className="col-12 AddProd_cart_center_btn">
         {location.pathname === "/cart" ? (
           (OpenDelivery || OpenPickup) && (
@@ -307,7 +314,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
               <LoadingButton
                 variant="outlined"
                 loading={CheckOut_Loading}
-                disabled={ anyoutstock.includes('oos') ? true :false}
+                disabled={anyoutstock.includes('oos') ? true : false}
                 onClick={(e) => {
                   CheckoutProcess(e);
                 }}
@@ -329,7 +336,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
                 CheckoutProcess(e);
               }}
               className={classes.flotchceckoutbtn}
-             
+
               type="submit"
             >
               checkout
@@ -337,6 +344,9 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
           </Box>
         )}
       </div>
+      {
+        open && <Menuintegration_login open={open} setOpen={setOpen}></Menuintegration_login>
+      }
     </div>
   );
 };

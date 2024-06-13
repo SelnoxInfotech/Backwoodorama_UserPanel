@@ -9,7 +9,13 @@ const EmptyCard = () => {
     const Navigate = useNavigate()
     const location = useLocation()
     function ShopNow (){
-        Navigate("/products")
+        if(location.pathname === '/carts'){
+            Navigate(-1)
+        }
+        else {
+
+            Navigate("/products")
+        }
 
     }
 
@@ -38,7 +44,7 @@ const EmptyCard = () => {
                             <p> your weed today.</p>
 
                             </div>
-                           { location.pathname !== '/carts' &&  <div className="col-12 center height_Empty_btnDiv mt-2">
+                           {   <div className="col-12 center height_Empty_btnDiv mt-2">
                                 <Box className={`  ${classes.loadingBtnTextAndBack}`}>
                                      <LoadingButton onClick={ShopNow} style={{width:"100%",height:"100%"}} variant="outlined" loading={false} type={'submit'}>Shop now</LoadingButton>
                                 </Box></div>

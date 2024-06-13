@@ -66,11 +66,15 @@ function Context(props) {
     const [state, dispatch] = useReducer(Reducer, initialUser)
     React.useEffect(() => {
         const cookies = new Cookies();
-        const logi = cookies.get("User_Token_access")
+        let logi = cookies.get("User_Token_access")
+        let accessToken = localStorage.getItem('User_Token_access');
+        // logi  =  accessToken
+        console.log(accessToken)
+        console.log(logi)
         dispatch({ type: 'DefalutLocation', DefalutLocation: cookies.get("Location") })
         dispatch({ type: 'LoadingApi', LoadingApi: true })
 
-        if (Boolean(logi)) {
+        if (Boolean(logi) || Boolean(accessToken)) {
             axios.get("https://api.cannabaze.com/UserPanel/Get-Addtocart/", {
                 headers: { Authorization: `Bearer ${logi}` }
             }).then(async function (response) {

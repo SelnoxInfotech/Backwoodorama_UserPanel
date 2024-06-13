@@ -3,9 +3,10 @@ import Box from '@mui/material/Box';
 import useStyles from "../../../Style"
 import TextField from '@mui/material/TextField';
 import { Link, useNavigate, useLocation} from 'react-router-dom'
-import React from 'react';
-import axios from 'axios';
 import { useForm } from "react-hook-form";
+import axios from 'axios';
+import Cookies from 'universal-cookie';
+import React from 'react';
 import { RxCross2 } from "react-icons/rx";
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -14,7 +15,6 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { CiLock } from "react-icons/ci"
 import LoginWithGoogle from './LoginWithGoogle';
-import Cookies from 'universal-cookie';
 import Createcontext from "../../../Hooks/Context"
 import { LoginSeo } from '../../Component/ScoPage/CommenpageSeo';
 const   Login = () => {

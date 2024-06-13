@@ -6,10 +6,12 @@ import { useLocation } from "react-router-dom"
 const PreCheckout = () => {
     const { state } = React.useContext(Createcontext)
     const params = useLocation()
+    console.log()
     return (
         <>
             {
-                state.AllProduct?.length !== 0 &&
+                (state.AllProduct?.length !== 0 && params.pathname.slice(0 ,  17) !== "/menu-integration") &&
+
                 <div className="row">
                     <div className="col-12">
                         <div className="row preCheckOut_center">

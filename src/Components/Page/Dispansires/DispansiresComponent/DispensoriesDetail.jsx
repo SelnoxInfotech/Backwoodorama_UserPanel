@@ -22,6 +22,7 @@ import { Store_Add_Review, Store_OverAllGet_Review, Store_Get_UserComment, Store
 import Createcontext from "../../../../Hooks/Context"
 import Loader from "../../../Component/Loader/Loader";
 import { Embedded } from "../../../Component/ScoPage/Embedded";
+import Menuintregrate from "../../StoreDetail/StoreDetailComponent/Menuintregrate";
 export default function DispensoriesDetails() {
     const navigate = useNavigate()
     const { state, dispatch } = React.useContext(Createcontext)
@@ -110,10 +111,6 @@ export default function DispensoriesDetails() {
 
 
                 }
-
-
-
-
                 // Boolean(location.pathname.slice(0 ,16) === "/weed-deliveries" &&  response.data[0].Store_Name !== StoreName) && navigate(`/weed-deliveries/${modifystr(response.data[0].Store_Name)}/${id}` , { replace: true })
             }
 
@@ -406,7 +403,7 @@ export default function DispensoriesDetails() {
         }
     }
 
-    // console.log()
+    
     return (
         <div>{
             !Despen.length ? <Loader /> : <div>
@@ -424,10 +421,15 @@ export default function DispensoriesDetails() {
 
                 }
                 <div className="container-fluid product_container" >
+             {/* { Boolean((location.pathname.slice(0, 18) !== "/weed-dispensaries" && location.pathname.slice(0, 16) !== "/weed-deliveries") )&& 
+                <div className="mb-2">
+                     <Menuintregrate tab={tab} SelectionTab={SelectionTab}></Menuintregrate>
+                </div>
+              } */}
                     <NewFlavourBanner delBtn={Despen}></NewFlavourBanner>
                     <div className="row">
                         <div className="col-12 mt-4 "   >
-                            <StoreDetailMenuItem tab={tab} SelectionTab={SelectionTab}></StoreDetailMenuItem>
+                         {Boolean((location.pathname.slice(0, 18) === "/weed-dispensaries" || location.pathname.slice(0, 16) === "/weed-deliveries")) &&   <StoreDetailMenuItem tab={tab} SelectionTab={SelectionTab}></StoreDetailMenuItem>}
                         </div>
                         {
                             (tab === 'menu' || tab === undefined) &&
