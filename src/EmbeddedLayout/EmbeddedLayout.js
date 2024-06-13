@@ -5,11 +5,11 @@ import Menuintregrate from '../Components/Page/StoreDetail/StoreDetailComponent/
 const EmbeddedLayout = () => {
   return (
     <div className='container '>
-          <div className='sticky-top '>
-      <Menuintregrate></Menuintregrate>
+      <div className='sticky-top '>
+        <Menuintregrate></Menuintregrate>
       </div>
 
-      <Outlet/>
+      <Outlet  />
     </div>
   )
 }

@@ -23,7 +23,10 @@ import Createcontext from "../../../../Hooks/Context"
 import Loader from "../../../Component/Loader/Loader";
 import { Embedded } from "../../../Component/ScoPage/Embedded";
 import Menuintregrate from "../../StoreDetail/StoreDetailComponent/Menuintregrate";
-export default function DispensoriesDetails() {
+import { useLoaderData } from 'react-router-dom';
+export default function DispensoriesDetails(props) {
+    const  data  = useLoaderData();
+    // console.log(data ,  useLoaderData())
     const navigate = useNavigate()
     const { state, dispatch } = React.useContext(Createcontext)
     const location = useLocation()
@@ -68,54 +71,61 @@ export default function DispensoriesDetails() {
     }
     // console.log(Boolean(location.pathname.slice(0, 18) === "/weed-dispensaries"), location.pathname.slice(0, 18))
     React.useEffect(() => {
-        axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${id}`, {
-        }).then(response => {
-            if (response.data.length === 0) {
-                navigate("/404")
-            } else {
-                SetDespens(response.data)
-                if (Boolean(location.pathname.slice(0, 16) === "/weed-deliveries") || Boolean(location.pathname.slice(0, 18) === "/weed-dispensaries")) {
-                    if (Boolean(location.pathname.slice(0, 16) === "/weed-deliveries" && modifystr(response.data[0].Store_Name) !== StoreName)) {
-                        if (Boolean(tab)) {
+         if(Boolean(data)){
 
-                            navigate(`/weed-deliveries/${modifystr(response.data[0].Store_Name)}/${tab}/${id}`, { replace: false })
-                        }
-                        else {
-                            navigate(`/weed-deliveries/${modifystr(response.data[0].Store_Name)}/${id}`, { replace: false })
-                        }
-                    }
-                    else {
-                        if (modifystr(response.data[0].Store_Name) !== StoreName) {
+            SetDespens(data)
+            dispatch({ type: 'Embeddedstore', Embeddedstore: data })
+         }
+         else {
+            axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${id}`, {
+            }).then(response => {
+                if (response.data.length === 0) {
+                    navigate("/404")
+                } else {
+                    SetDespens(response.data)
+                    if (Boolean(location.pathname.slice(0, 16) === "/weed-deliveries") || Boolean(location.pathname.slice(0, 18) === "/weed-dispensaries")) {
+                        if (Boolean(location.pathname.slice(0, 16) === "/weed-deliveries" && modifystr(response.data[0].Store_Name) !== StoreName)) {
                             if (Boolean(tab)) {
-
-                                navigate(`/weed-dispensaries/${modifystr(response.data[0].Store_Name)}/${tab}/${id}`, { replace: false })
+    
+                                navigate(`/weed-deliveries/${modifystr(response.data[0].Store_Name)}/${tab}/${id}`, { replace: false })
                             }
                             else {
-                                navigate(`/weed-dispensaries/${modifystr(response.data[0].Store_Name)}/${id}`, { replace: false })
+                                navigate(`/weed-deliveries/${modifystr(response.data[0].Store_Name)}/${id}`, { replace: false })
+                            }
+                        }
+                        else {
+                            if (modifystr(response.data[0].Store_Name) !== StoreName) {
+                                if (Boolean(tab)) {
+    
+                                    navigate(`/weed-dispensaries/${modifystr(response.data[0].Store_Name)}/${tab}/${id}`, { replace: false })
+                                }
+                                else {
+                                    navigate(`/weed-dispensaries/${modifystr(response.data[0].Store_Name)}/${id}`, { replace: false })
+                                }
                             }
                         }
                     }
-                }
-                else if (Boolean(location.pathname.slice(0, 17) === "/menu-integration")) {
-
-                    if (Boolean(location.pathname.slice(0, 17) === "/menu-integration" && modifystr(response.data[0].Store_Name) !== StoreName)) {
-                        if (Boolean(tab)) {
-
-                            navigate(`/menu-integration/${modifystr(response.data[0].Store_Name)}/${tab}/${id}`, { replace: false })
+                    else if (Boolean(location.pathname.slice(0, 17) === "/menu-integration")) {
+    
+                        if (Boolean(location.pathname.slice(0, 17) === "/menu-integration" && modifystr(response.data[0].Store_Name) !== StoreName)) {
+                            if (Boolean(tab)) {
+    
+                                navigate(`/menu-integration/${modifystr(response.data[0].Store_Name)}/${tab}/${id}`, { replace: false })
+                            }
+                            else {
+                                navigate(`/menu-integration/${modifystr(response.data[0].Store_Name)}/${id}`, { replace: false })
+                            }
                         }
-                        else {
-                            navigate(`/menu-integration/${modifystr(response.data[0].Store_Name)}/${id}`, { replace: false })
-                        }
+    
+    
+    
                     }
-
-
-
+                    // Boolean(location.pathname.slice(0 ,16) === "/weed-deliveries" &&  response.data[0].Store_Name !== StoreName) && navigate(`/weed-deliveries/${modifystr(response.data[0].Store_Name)}/${id}` , { replace: true })
                 }
-                // Boolean(location.pathname.slice(0 ,16) === "/weed-deliveries" &&  response.data[0].Store_Name !== StoreName) && navigate(`/weed-deliveries/${modifystr(response.data[0].Store_Name)}/${id}` , { replace: true })
-            }
-
-        }).catch((error) => {
-        })
+    
+            }).catch((error) => {
+            })
+         }
 
         axios.post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/ ",
             {

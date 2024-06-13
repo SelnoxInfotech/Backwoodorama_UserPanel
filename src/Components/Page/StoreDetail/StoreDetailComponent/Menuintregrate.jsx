@@ -9,21 +9,44 @@ import IconButton from '@mui/material/IconButton';
 import { MdOutlineShoppingCart } from "react-icons/md"
 import Grid from '@mui/system/Unstable_Grid';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { FiShoppingBag } from "react-icons/fi";
-import { FaHeart } from "react-icons/fa";
-import { MdReviews } from "react-icons/md";
 import { TbLogout } from "react-icons/tb";
-import { TbEdit } from "react-icons/tb";
-import { FaHandsHelping } from "react-icons/fa";
 import Cookies from 'universal-cookie';
 import { Menuintegration_login } from "../../Login/menu-integration_login";
-const Menuintregrate = ({ SelectionTab, tab }) => {
+import { useNavigate } from "react-router-dom";
+// import Createcontext from "../../../../Hooks/Context"
+const Menuintregrate = ({tab = "Menu" }) => {
+    const navigate = useNavigate()
+    const { state, dispatch } = React.useContext(Createcontext)
+    function modifystr(str) {
+        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str.trim().replaceAll(' ', "-");
+        let a = 0;
+        while (a < 1) {
+            if (str.includes("--")) {
+                str = str.replaceAll("--", "-")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("//", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("-/", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("/-", "/")
+            } else {
+                a++
+            }
+        }
+
+        return str.toLowerCase()
+    }
+    function SelectionTab(item) {
+         navigate (`/menu-integration/${modifystr(state.Embeddedstore[0]?.Store_Name)}/${modifystr(item)}/${state.Embeddedstore[0].id}`)
+ }
+
+
     const cookies = new Cookies();
 
     const [open, setOpen] = React.useState(false);
     const classes = useStyles()
     const profileRef = React.useRef(null)
-    const { state, dispatch } = React.useContext(Createcontext)
     const [DropDownState, SetDropDownState] = React.useState(false);
     const StoreDetailMenuItem = [{ item: "Menu", color: "#31B665" }, { item: "Store Details", color: "#31B665" },
     { item: "Review", color: "#31B665" }, { item: "Deals", color: "#31B665" },
@@ -64,8 +87,10 @@ const Menuintregrate = ({ SelectionTab, tab }) => {
                         <ol className="store_detail_order_list">
                             {StoreDetailMenuItem.map((ele, index) => {
                                 return (
-                                    <li className="listfontStyle store_detail_list" onClick={() => { SelectionTab(ele.item) }}
-                                        style={{ color: tab === ele.item.toLowerCase().replace(" ", "-") && ele.color }}
+                                    <li className="listfontStyle store_detail_list"
+                                     onClick={() => { SelectionTab(ele.item) }}
+                                        style={{ color: tab === ele.item.toLowerCase().replace(" ", "-")
+                                             && ele.color }}
                                         key={index}><span className="storeDetalMenuItemCursor">{ele.item}</span></li>
                                 )
                             })}

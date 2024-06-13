@@ -58,7 +58,8 @@ const initialUser = {
     coupoun_code: "",
     // Delvery Price
     DeliveryPrice: "",
-    MinimumOrderPrice: ""
+    MinimumOrderPrice: "",
+    Embeddedstore:[]
 
 }
 

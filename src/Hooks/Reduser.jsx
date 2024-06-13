@@ -153,6 +153,11 @@ const reducer = (state, action) => {
       {
         return { ...state, MinimumOrderPrice: action.MinimumOrderPrice }
       }
+      case "Embeddedstore":
+        {
+          return { ...state, Embeddedstore: action.Embeddedstore }
+        }
+  
 
     default: return state
   }

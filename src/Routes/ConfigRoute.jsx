@@ -51,8 +51,13 @@ import Layout1 from '../Layout1/Layout1'
 import sitemap from "../Components/Page/websitemap/sitemap";
 import ProductRedirction from "./productionRedirction";
 import EmbeddedLayout from "../EmbeddedLayout/EmbeddedLayout";
+import {useNavigate } from "react-router-dom";
+import axios from "axios";
+
+
 const routesConfig = [
- 
+
+  
   {
 
     element: <Layout1 />,
@@ -90,7 +95,7 @@ const routesConfig = [
         path: "/MyLocationSearch",
         element: <RoutingList Component={MyLocationSearch} ></RoutingList>,
       },
-    
+
       {
         path: "/faq",
         element: <RoutingList Component={Faq} ></RoutingList>,
@@ -250,7 +255,7 @@ const routesConfig = [
         path: "/order-placed",
         element: <RoutingList Component={PlaceOrder} ></RoutingList>,
       },
-      
+
 
       {
         path: "/checkout",
@@ -322,7 +327,23 @@ const routesConfig = [
     children: [
       {
         path: "/menu-integration/:StoreName/:tab?/:Category?/:SubCategory?/:id/",
-        element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
+        element: <RoutingList Component={DispensoriesDetails} ></RoutingList>,
+        loader: async ({ params }) => {
+           
+          // Fetch data by ID using params
+          let data=  axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${params.id}`, {
+          }).then(response => {
+            console.log(response)
+            if (response.data.length === 0) {
+              const navigate = useNavigate()
+              navigate("/404")
+            } else {
+              
+              return response.data
+            }
+          })
+          return data 
+        },
       },
       {
         path: "/menu-integration/:category/:subcategory/:product/:id/",
