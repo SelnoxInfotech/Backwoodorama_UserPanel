@@ -52,6 +52,7 @@
     "react-alice-carousel": "^2.7.0",
     "react-circular-progressbar": "^2.1.0",
     "react-dom": "^18.2.0",
+    "react-error-boundary": "^4.0.13",
     "react-facebook-login": "^4.1.1",
     "react-flying-item": "^1.1.2",
     "react-form-stepper": "^2.0.3",

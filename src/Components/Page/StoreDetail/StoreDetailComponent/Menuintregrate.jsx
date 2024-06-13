@@ -38,7 +38,8 @@ const Menuintregrate = ({tab = "Menu" }) => {
         return str.toLowerCase()
     }
     function SelectionTab(item) {
-         navigate (`/menu-integration/${modifystr(state.Embeddedstore[0]?.Store_Name)}/${modifystr(item)}/${state.Embeddedstore[0].id}`)
+
+        Boolean(state.Embeddedstore[0]) && navigate (`/menu-integration/${modifystr(state.Embeddedstore[0]?.Store_Name)}/${modifystr(item)}/${state.Embeddedstore[0].id}`)
  }
 
 

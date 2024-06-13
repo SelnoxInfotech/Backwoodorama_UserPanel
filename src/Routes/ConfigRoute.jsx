@@ -326,12 +326,15 @@ const routesConfig = [
 
     children: [
       {
-        path: "/menu-integration/:StoreName/:tab?/:Category?/:SubCategory?/:id/",
+        path: "/menu-integration/:StoreName/:tab?/:category?/:id/",
         element: <RoutingList Component={DispensoriesDetails} ></RoutingList>,
+      
         loader: async ({ params }) => {
+           
+          // Fetch data by ID using params
           let data=  axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${params.id}`, {
           }).then(response => {
-           
+            console.log(response)
             if (response.data.length === 0) {
               const navigate = useNavigate()
               navigate("/404")
@@ -348,10 +351,10 @@ const routesConfig = [
         element: <RoutingList Component={NewProductDetails} ></RoutingList>,
       
       },
-      {
-        path: "/menu-integration/:StoreName/:tab?/:Category?/:SubCategory?/:id/:SubId?/",
-        element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
-      },
+      // {
+      //   path: "/menu-integration/:StoreName/:tab?/:Category?/:SubCategory?/:id/",
+      //   element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
+      // },
       // {
       //   path: "/menu-integration/:StoreName/menu/:Category/:SubCategory/:Product/:id/",
       //   element: <RoutingList Component={NewProductDetails} ></RoutingList>
