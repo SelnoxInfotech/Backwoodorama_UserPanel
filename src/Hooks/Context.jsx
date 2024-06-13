@@ -77,6 +77,7 @@ function Context(props) {
         dispatch({ type: 'LoadingApi', LoadingApi: true })
 
         if (Boolean(logi) || Boolean(accessToken)) {
+            dispatch({ type: 'Login', login: true })
             axios.get("https://api.cannabaze.com/UserPanel/Get-Addtocart/", {
                 headers: { Authorization: `Bearer ${logi}` }
             }).then(async function (response) {
