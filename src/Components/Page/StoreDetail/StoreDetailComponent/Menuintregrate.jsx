@@ -10,10 +10,11 @@ import { MdOutlineShoppingCart } from "react-icons/md"
 import Grid from '@mui/system/Unstable_Grid';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { TbLogout } from "react-icons/tb";
+import { FaRegUserCircle } from "react-icons/fa";
 import Cookies from 'universal-cookie';
 import { Menuintegration_login } from "../../Login/menu-integration_login";
+import Tooltip from '@mui/material/Tooltip';
 import { useNavigate } from "react-router-dom";
-// import Createcontext from "../../../../Hooks/Context"
 const Menuintregrate = ({tab = "Menu" }) => {
     const navigate = useNavigate()
     const { state, dispatch } = React.useContext(Createcontext)
@@ -38,13 +39,9 @@ const Menuintregrate = ({tab = "Menu" }) => {
         return str.toLowerCase()
     }
     function SelectionTab(item) {
-
         Boolean(state.Embeddedstore[0]) && navigate (`/menu-integration/${modifystr(state.Embeddedstore[0]?.Store_Name)}/${modifystr(item)}/${state.Embeddedstore[0].id}`)
- }
-
-
+    }
     const cookies = new Cookies();
-
     const [open, setOpen] = React.useState(false);
     const classes = useStyles()
     const profileRef = React.useRef(null)
@@ -81,7 +78,7 @@ const Menuintregrate = ({tab = "Menu" }) => {
  
 
     return (
-       <div style={{ backgroundColor: '#F6F6F6'}}>
+       <div className="integratedheader">
                     <div className="container">
                         <div className="StoreDetailMenuItem_container">
                             <ol className="store_detail_order_list">
@@ -138,12 +135,7 @@ const Menuintregrate = ({tab = "Menu" }) => {
                                                         <section className=' navbarProfileDropDownSection'>
                                                             <ol className='navbar_profile_orderList px-0'>
 
-                                                                {/* <Link to={'/EditProfile'} onClick={()=>{SetDropDownState(false)}}> <li className='profile_list'>  <span><TbEdit  /></span> EDIT PROFILE</li></Link>
-                                        <Link to={'/myorder'} onClick={()=>{SetDropDownState(false)}}> <li className='profile_list' > <span><FiShoppingBag /></span> MY ORDER</li></Link>
-                                        <Link to={'/whislists'} onClick={()=>{SetDropDownState(false) }}> <li className='profile_list'> <span><FaHeart /></span> FAVORITES </li></Link>
-                                        <Link to={'/myreviews'} onClick={()=>{SetDropDownState(false) }}> <li className='profile_list' >  <span><MdReviews /></span>MY REVIEW </li></Link>
-                                        <Link to={'/helpcenter'} onClick={()=>{SetDropDownState(false)}}> <li className='profile_list'>  <span><FaHandsHelping /></span> HELP</li></Link>
-                                        */}
+                                                                
                                                                 <li className='profile_list' onClick={() => { Logout() }}>  <span><TbLogout /></span> LOGOUT</li>
 
 
@@ -158,18 +150,16 @@ const Menuintregrate = ({tab = "Menu" }) => {
                                             </div>
                                             :
                                             <div className='Login_Sigup_button justify-content-end  Sapceing'>
-                                                {/* <div className=''> */}
-                                                    <Grid display={{ xs: "none", md: "block", lg: "block", }} >
-                                                        <Button className={classes.muiBtn}
-                                                        onClick={()=>setOpen(()=>true)}
-                                                        >Log In</Button>
+                                               
+                                                    <Grid >
+                                                        <span  onClick={()=>setOpen(()=>true)}>
+                                                            <Tooltip title="Login">
+                                                                <IconButton>
+                                                                  <FaRegUserCircle size={22} color="#858585"/>
+                                                                </IconButton>
+                                                            </Tooltip>
+                                                         </span>
                                                     </Grid>
-                                                {/* </div> */}
-                                                {/* <div className=''> */}
-                                                    {/* <Grid display={{ xs: "none", md: "block", lg: "block" }}>
-                                                        <NavLink to="/signup" >    <Button sx={{ boxShadow: 3 }} className={classes.muiBtn_Signup} >Sign Up</Button></NavLink>
-                                                    </Grid> */}
-                                                {/* </div> */}
                                             </div>
                                     }
                                 </div>

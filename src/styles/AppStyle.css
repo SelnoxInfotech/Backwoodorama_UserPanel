@@ -11,7 +11,7 @@
 }
 
 .product_container{
-  /* height: 341px; */
+   min-height: 87vh;
 }
 
 
@@ -223,6 +223,19 @@ line-height: normal;
   object-fit: cover;
   border: 2px solid transparent;
 }
+.Integrated-catagoriesTabImg{
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  transition: all .3s ease;
+  object-fit: cover;
+  border: 2px solid transparent;
+}
+.Integrated-catagoriesTabImg:hover{
+  border: 2px solid #31B665;
+}
 .catagoriesTabImg:hover{
   border: 2px solid #31B665;
 }
@@ -382,6 +395,7 @@ line-height: normal;
 .productFilter_sortedList {
   list-style: none;
   z-index: 1;
+  border: 1px solid gainsboro;
 }
 
 .prod_inner_cont {
@@ -483,7 +497,7 @@ line-height: normal;
   display: block;
 }
 
-.product_category_dropdown_cursor p {
+.product_category_dropdown_cursor label {
   cursor: pointer;
 }
 .product_category_dropdown{
@@ -542,7 +556,7 @@ line-height: normal;
     -webkit-transform: scale(1);
     transform: scale(1);
 }
-.product_sub_category_dropDown_cursor p {
+.product_sub_category_dropDown_cursor label{
   cursor: pointer;
 
 }
@@ -1594,15 +1608,15 @@ scrollbar-width: none;  /* Firefox */
 
 /* StoreDetailMenuItem */
 .store_detail_list {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   line-height: 1.4;
   font-family: 'Inter', sans-serif;
- color: #000000ad;
+ color: #000000;
 }
 .store_detail_list:hover{
-  color: #000;
   transition:all .3s ease;
+  color: #000000ad;
 }
 .storeDetalMenuItemCursor {
   cursor: pointer;
@@ -5713,6 +5727,17 @@ padding: 5px 0;
   border-radius: 5px;
   position: relative;
   margin-bottom: 14px;
+}
+.integrated-filter_manu_items{
+  background-color: #ffffff;
+  line-height: 45px;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  position: relative;
+  margin-bottom: 14px;
+  cursor: pointer;
+  font-size: 14px;
+  min-width: 100px;
 }
 .product_category_border{
   padding: 0 10px;

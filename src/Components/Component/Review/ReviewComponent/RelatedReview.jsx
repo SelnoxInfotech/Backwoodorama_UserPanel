@@ -20,16 +20,18 @@ import { MdVerified } from "react-icons/md";
 import Tooltip from '@mui/material/Tooltip';
 import { BsThreeDotsVertical } from "react-icons/bs"
 import useStyles from "../../../../Style";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import React from 'react';
 import Badge from '@mui/material/Badge';
 import ReportReviewPopup from '../ReviewPopup/ReportReviewPopup';
 import Cookies from 'universal-cookie';
 import { useState } from 'react';
 import Createcontext from "../../../../Hooks/Context"
+import { Menuintegration_login } from '../../../Page/Login/menu-integration_login';
 const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, HellFull}) => {
     const cookies = new Cookies();
     let token_data = cookies.get('User_Token_access')
+    const [open, setOpen] = React.useState(false)
     let accessToken = localStorage.getItem('User_Token_access');
     if(  Boolean(accessToken) ){ token_data  =  accessToken}
     const [imageopup , setImagepopup] = useState(false)
@@ -40,6 +42,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
     })
     const classes = useStyles();
     const navigate = useNavigate();
+    const location = useLocation()
     const { state, dispatch } = React.useContext(Createcontext);
     const [readopen, setreadopen] = useState('');
     function textgive(text , id) {
@@ -278,7 +281,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
 
                                 <div className='related_review_footer '>
 
-                                    <div className='related_review_footer_paragraph ellipsis'  onClick={() =>{  state?.login ? HellFull(ele) : navigate('/login')  }}>
+                                    <div className='related_review_footer_paragraph ellipsis'  onClick={() =>{  state?.login ? HellFull(ele) : (location.pathname.includes('/menu-integration') ? setOpen(true):  navigate('/login') ) }}>
                                             <Badge badgeContent={ele?.count} className={classes.sliderLink_badge}>
                                                {ele?.helpfull?.includes(state?.Profile?.id) ? <AiTwotoneLike color='#31B655' size={25}/> : <AiOutlineLike color='#31B655' size={25} />} 
                                             </Badge>
@@ -288,6 +291,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
 
 
                                 </div>
+                               
                             </div>
                         )
                     })}
@@ -333,7 +337,10 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
             </div>
           </div>
         </div>
-      </Dialog >
+           </Dialog >
+           {
+                                  open && <Menuintegration_login open={open} setOpen={setOpen}></Menuintegration_login>
+                                }
         </React.Fragment>
     )
 }

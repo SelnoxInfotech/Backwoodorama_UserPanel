@@ -24,11 +24,10 @@ const NewFlavourBanner = ({ delBtn }) => {
     return (
         <React.Fragment>
             
-            <div className="row  newFlavour_row" >
+            <div  className={location.pathname.includes('/menu-integration') ? 'row integratdclass newFlavour_row':"row newFlavour_row"} >
                 <div className="col-12 newFlavour_container  position-relative">
                     {
                         delBtn?.map((data) => {
-                        
                             return (
                                 <div className="row" key={data.id}>
                                     <div className="col-md-2 col-sm-4  col-3 newFlavour_image_container_height">
@@ -42,7 +41,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                                             src={`${data?.Store_Image}`}
                                             alt={data.Store_Name}
                                             title={data.Store_Name}
-                                            height={"100px"} />
+                                         />
                                         </div>
                                     </div>
                                     <div className="col-md-9 col-sm-8  col-9  newFlavourContent_height" style={{position:"0px"}}>
@@ -81,7 +80,7 @@ const NewFlavourBanner = ({ delBtn }) => {
 
 
                                             </div>
-                                            <div className='col-lg-12  col-md-8 col-sm-8 col-12 mt-sm-4 mt-2 d-flex newFlav_btn_height'>
+                                           {  !location.pathname.includes('/menu-integration')  &&  <div className='col-lg-12  col-md-8 col-sm-8 col-12 mt-sm-4 mt-2 d-flex newFlav_btn_height'>
                                             {
                                                 data.StoreEmail !== "" &&  data.StoreEmail !== null &&
                                                
@@ -102,10 +101,10 @@ const NewFlavourBanner = ({ delBtn }) => {
                                                     </Box>
 
                                                 }
-                                            </div>
+                                            </div>}
                                         </div>
                                     </div>
-                                    <div className='shareiconcontainer position-absolute w-auto top-0 p-2 end-0'>
+                                   { !location.pathname.includes('/menu-integration')  &&  <div className='shareiconcontainer position-absolute w-auto top-0 p-2 end-0'>
                                     
                                         <RWebShare
                                             data={{ url: window.location.href }}
@@ -116,7 +115,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                                         </RWebShare>
                                 
                                     </div>
-                                   
+                                   }
                                 </div>
                             )
                         })

@@ -1,0 +1,29 @@
+.integratdclass{
+   .newFlavour_container  {
+    height: auto;
+    padding: 10px;
+     .newFlavour_image_container_height{
+        height: auto;
+        .newFlavourimage_div{
+            height: 100px;
+            width: 100px;
+            img{
+                height: 100%;
+                width: 100%;
+            }
+        }
+     }
+     .newFlavourContent_height{
+        height: auto;
+     }
+    }
+}
+.integratedheader{
+   background-color: #FFF;
+   -webkit-box-shadow: 0px 4px 5px -1px rgba(133,124,133,.5);
+   -moz-box-shadow: 0px 4px 5px -1px rgba(133,124,133,.5);
+   box-shadow: 0px 4px 5px -1px rgba(133,124,133,.5);
+}
+.prod_cat_right_sec{
+   min-height: 80vh;
+}

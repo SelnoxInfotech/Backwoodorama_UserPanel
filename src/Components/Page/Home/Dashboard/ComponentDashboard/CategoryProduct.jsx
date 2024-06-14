@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { ScrollContainer } from 'react-indiana-drag-scroll';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import CategorySkeleton from "../../../../Component/Skeleton/CategorySkeleton";
 import {FirstLetterCaps} from "../../../../../Hooks/Function"
 const CategoryProduct = ({ ShowCategoryProduct, Category, Skeleton }) => {
  const Params = useParams()
+ const location = useLocation()
     return (
         <React.Fragment>
             <div className=' CategoryBordrr'>
@@ -30,8 +31,7 @@ const CategoryProduct = ({ ShowCategoryProduct, Category, Skeleton }) => {
                                                     onClick={() => { ShowCategoryProduct(ele.id, ele.name) }} 
                                                     src={ele.categoryImages} alt={ele.name.substr(0, 100)} 
                                                     title={ele.name.substr(0, 100)}
-                                                    className='rounded-circle catagoriesTabImg' />
-
+                                                    className={location.pathname.includes('/menu-integration')?'rounded-circle Integrated-catagoriesTabImg':'rounded-circle catagoriesTabImg'} />
                                                 </div>
                                                 <div className='col center Category_title' >
                                                     <p>{FirstLetterCaps(ele.name.substr(0, 100))}</p>

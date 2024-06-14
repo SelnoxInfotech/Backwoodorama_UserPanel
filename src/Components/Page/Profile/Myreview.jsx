@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import { BsStar ,BsStarFill } from "react-icons/bs";
 import { IconButton } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from 'axios'
 import Button from '@mui/material/Button';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -14,12 +14,14 @@ import Createcontext from "../../../Hooks/Context"
 import useStyles from "../../../Style";
 import {StoreHelpFull} from '../../../Api/Api';
 import {ProductHelpFull} from '../Product/ProductApi'
+import { Menuintegration_login } from '../Login/menu-integration_login';
 const Myreview = () => {
     const Navigate= useNavigate()
     const classes = useStyles()
     const [allproductreiew,setallproductreviews]=useState([])
     const [allstorereiew,setallstorereviews]=useState([])
     const cookies = new Cookies();
+    const [open, setOpen] = React.useState(false)
     const { state, dispatch } = React.useContext(Createcontext);
     function HellFull (ReviewId){
         if(state.login){
@@ -35,8 +37,8 @@ const Myreview = () => {
         })
     }
     }
-
-       let token_data = cookies.get('User_Token_access')
+    let location = useLocation()
+    let token_data = cookies.get('User_Token_access')
     let accessToken = localStorage.getItem('User_Token_access');
     if(  Boolean(accessToken) ){ token_data  =  accessToken}
     React.useEffect(()=>{
@@ -273,15 +275,17 @@ const Myreview = () => {
                                     </div>}
                                     <div className='myreview_footer text-end px-3'>
                                                 <Badge badgeContent={item?.count} className={classes.sliderLink_badge} >
-                                                     {item?.helpfull?.includes(state?.Profile?.id) ? <AiTwotoneLike color='#31B655' size={25} onClick={() =>{  state?.login ? helpfullStoe(item) : Navigate('/login')  }}/> : <AiOutlineLike color='#31B655' size={25} onClick={() =>{  state.login ? helpfullStoe(item) : Navigate("/login")  }}/>} 
+                                                     {item?.helpfull?.includes(state?.Profile?.id) ? <AiTwotoneLike color='#31B655' size={25} onClick={() =>{  state?.login ? helpfullStoe(item) :(location.pathname.includes('/menu-integration') ? setOpen(true):  Navigate('/login') ) }}/> : <AiOutlineLike color='#31B655' size={25} onClick={() =>{  state.login ? helpfullStoe(item) : (location.pathname.includes('/menu-integration') ? setOpen(true):  Navigate('/login')) }}/>} 
                                                 </Badge>
-
                                     </div>
                                </div>
                     })
                 }
             </div>
         </div>
+        {
+          open && <Menuintegration_login open={open} setOpen={setOpen}></Menuintegration_login>
+        }
    </div>
   )
 }

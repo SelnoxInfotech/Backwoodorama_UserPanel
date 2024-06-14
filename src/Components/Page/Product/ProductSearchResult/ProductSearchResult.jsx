@@ -263,12 +263,111 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
     return (
         <React.Fragment>
             <div className="row mx-0 marginProductSearchResult">
-
                 <div className="col-12 mt-sm-4 mt-2 p-0 fontStyle">
                    {CategoryName?.length !== undefined  && <h1 className="section_main_title ">{CategoryName}</h1>}
                 </div>
+               { location.pathname.includes('/menu-integration') ? 
+                    <div className="product_card_wrapper p-0">
+                        {
+                            showdata?.map((items, index) => {
 
-                <div className="product_card_wrapper p-0">
+                                if (items.id !== currentProductID) {
+                                    return (
+                                        <div className="productSearch_result_container" key={index}>
+                                            {parseInt(items.Prices[0].Price[0].Price) > parseInt(items.Prices[0].Price[0].SalePrice) && <span className="discountTag">{((parseInt(items.Prices[0].Price[0].Price) - parseInt(items.Prices[0].Price[0].SalePrice)) / parseInt(items.Prices[0].Price[0].Price) * 100).toFixed(1)}% OFF</span>}
+                                            <div className="productSearchResultImage_container">
+                                                <div className="product_whish_list">
+
+                                                    <Box className={classes.productSearchIcons2}>
+                                                        <IconButton onClick={() => { handleWhishList(items.id) }} aria-label="Example">
+                                                            {
+                                                                state.login ? state.WishList[items.id] ? <AiFillHeart color="31B665"></AiFillHeart> : <AiOutlineHeart color="31B665" /> : <AiOutlineHeart color="31B665" />
+                                                            }
+                                                        </IconButton>
+                                                    </Box>
+                                                </div>
+                                                <Link to={`/${link}/${modifystr(items.category_name.toLowerCase())}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${modifystr(items.Product_Name.toLowerCase())}/${items.id}`}
+
+                                                state={{
+                                                    prevuisurl: location.pathname,
+                                                    id:items.id
+                                                    }}  >
+                                                    <LazyLoadImage
+                                                        className="product_search_result_image"
+                                                        onError={event => {
+                                                            event.target.src = "/image/blankImage.jpg"
+                                                            event.onerror = null
+                                                        }}
+                                                        src={`${items?.images[0]?.image}`}
+                                                        height={"100px"}
+                                                        alt={items.Product_Name}
+                                                        title={items.Product_Name}
+                                                    />
+                                                </Link>
+                                            </div>
+                                            <div className=" product_search_result_content_div ">
+                                                <Link to={`/${link}/${items.category_name.toLowerCase()}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${items.Product_Name.replace(/%20| /g, "-").toLowerCase()}/${items.id}`}  state={{
+                                                    prevuisurl: location.pathname,
+                                                    id:items.id
+                                                    }} >
+                                                    <p className="productSearchResultParagraph text-truncate">{items.Product_Name}</p>
+
+                                                    <p className="product_search_result_sub_heading text-truncate">by {items.StoreName}</p>
+                                                    <div className="product_category_list">
+                                                        <span className="product_search_result_span1">15{items.lab_Result !== "Magnesium" ? '%' : "Mg."} THC | 0.2{items.lab_Result !== "Magnesium" ? '%' : "Mg."} CBD</span>
+                                                        <div className="product_cart_review">
+                                                            { new Array(items.rating).fill(null).map((itwm , index) => (
+                                                                <BsStarFill key={index +1}  size={16} color="#31B665" className="product_search_rating_star" />
+                                                            ))}
+
+                                                            {new Array(5 - items.rating).fill(null).map((item , index) => (
+                                                                <BsStar  key={index +1} size={16} color="#31B665" className="product_search_rating_star" />
+                                                            ))}
+                                                        </div>
+                                                    </div>
+                                                    <div className=" productPriceDivHeight">
+                                                        <p className="productSearch text-truncate"><span className="productSearchPrice">${parseInt(items.Prices[0]?.Price[0]?.SalePrice)}  {parseInt(items.Prices[0].Price[0].Price) > parseInt(items.Prices[0].Price[0].SalePrice) && <del className="text-muted">${parseInt(items.Prices[0].Price[0].Price)}</del>} </span> per {items.Prices[0].Price[0].Weight ? items.Prices[0].Price[0].Weight : `${items.Prices[0].Price[0].Unit} Unit`}</p>
+                                                    </div>
+                                                    <div className="discount_boc">{
+                                                        items?.CategoryCoupoun?.length !== 0 || items?.ProductCoupoun?.length !== 0 && <div className="discountinfo">
+                                                            <span className="carddiscountoffer">{discountshoer(items.CategoryCoupoun, items.ProductCoupoun)} </span>  and more Offers
+                                                        </div>
+                                                    }</div>
+
+                                                </Link>
+                                                <div className="my-2">
+                                                    <Box className={`center ${classes.loadingBtnTextAndBack}`}>
+                                                        {
+                                                            items?.Prices[0].Price.length > 1
+                                                                ?
+                                                                <ProductIncDecQuantity popup={popup} setadding={setadding}
+                                                                    adding={adding} SetPopup={SetPopup} items={items} AddToCart={AddToCart} />
+                                                                :
+
+                                                                items?.Prices[0].Price[0].Stock === "IN Stock" ?
+                                                                        <LoadingButton loading={adding === items.id} loadingIndicator={<CircularProgress color="inherit" size={16} />}
+                                                                            onClick={() => { AddToCart(items) }} >
+                                                                            <span><FaShoppingCart  size={18} /> </span> Add To Cart
+                                                                        </LoadingButton>
+                                                                    :
+                                                                        <LoadingButton className={`${classes.odsbtn}`} >
+                                                                        <span><FaShoppingCart size={18} /> </span>  Out of Stock
+                                                                        </LoadingButton>
+                                                        }
+                                                        {
+                                                            CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />
+                                                        }
+                                                    </Box>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                }
+                            })
+                        }
+                    </div>
+                  :
+                    <div className="product_card_wrapper p-0">
                     {
                         showdata?.map((items, index) => {
 
@@ -290,8 +389,8 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                             <Link to={`/${link}/${modifystr(items.category_name.toLowerCase())}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${modifystr(items.Product_Name.toLowerCase())}/${items.id}`}
 
                                             state={{
-                                                 prevuisurl: location.pathname,
-                                                 id:items.id
+                                                prevuisurl: location.pathname,
+                                                id:items.id
                                                 }}  >
                                                 <LazyLoadImage
                                                     className="product_search_result_image"
@@ -308,8 +407,8 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                         </div>
                                         <div className=" product_search_result_content_div ">
                                             <Link to={`/${link}/${items.category_name.toLowerCase()}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${items.Product_Name.replace(/%20| /g, "-").toLowerCase()}/${items.id}`}  state={{
-                                                 prevuisurl: location.pathname,
-                                                 id:items.id
+                                                prevuisurl: location.pathname,
+                                                id:items.id
                                                 }} >
                                                 <p className="productSearchResultParagraph text-truncate">{items.Product_Name}</p>
 
@@ -352,7 +451,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                                     </LoadingButton>
                                                                 :
                                                                     <LoadingButton className={`${classes.odsbtn}`} >
-                                                                       <span><FaShoppingCart size={18} /> </span>  Out of Stock
+                                                                        <span><FaShoppingCart size={18} /> </span>  Out of Stock
                                                                     </LoadingButton>
                                                     }
                                                     {
@@ -366,8 +465,8 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                             }
                         })
                     }
-                </div>
-
+                    </div>
+                }
             </div>
             {Whishlist && <WhisList open1={Whishlist} SetWishList={SetWishList}></WhisList>}
             <PreCheckout />

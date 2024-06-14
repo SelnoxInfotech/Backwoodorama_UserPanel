@@ -74,6 +74,7 @@
   .prodfilterSortedListGap {
     display: flex;
     gap: 10px;
+    height: 45px;
   }
 
   .product_search_and_select {
@@ -521,6 +522,7 @@
     min-height: 120px !important;
     display: block;
     margin: 0 auto;
+    height: unset;
   }
 
   .cat_prod_inner_btn {
@@ -849,6 +851,7 @@
   padding: 0;
   height: 100%;
   align-items: center;
+  height: 45px;
 }
   .product_category_dropdown{
     z-index: 5;

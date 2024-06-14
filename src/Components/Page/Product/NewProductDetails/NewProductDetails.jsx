@@ -172,19 +172,6 @@ const NewProductDetails = () => {
       console.error(e)
     })
   }, [Product, api])
-
-  // const Tolastpage = () => {
-  //   let output1 = 'StoreName' in Params;
-  //   let sttp=Product.Store_Type.replace(/y$/, "ies").toLowerCase()
-  //   if(Product.Store_Type==="Curbside Pickup"){
-  //     sttp='dispensaries'
-  //   }
-  //   if (output1) {
-  //     navigate(`/weed-${sttp}/${Params.StoreName.replaceAll(' ', '-').toLowerCase()}/${Product.Store_id}`)
-  //   } else {
-  //     navigate(-1)
-  //   }
-  // }
   function handleDelete(id) {
     Delete_Review(id).then((res) => {
       res.data.status === 'success' && SetApi(!api)

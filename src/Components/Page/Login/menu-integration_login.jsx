@@ -139,39 +139,19 @@ export function Menuintegration_login({ open, setOpen }) {
 
     return (
         <React.Fragment>
-            {/* <Button variant="outlined" onClick={handleClickOpen}>
-                Open form dialog
-            </Button> */}
+           
             <Dialog
                 open={open}
                 onClose={handleClose}
-                // PaperProps={{
-                //     component: 'form',
-                //     onSubmit: (event) => {
-                //         event.preventDefault();
-                //         const formData = new FormData(event.currentTarget);
-                //         const formJson = Object.fromEntries((formData).entries());
-                //         const email = formJson.email;
-                //         handleClose();
-                //     },
-                // }}
+                
             >
                
-                {/* <DialogContent>
-                    <DialogContentText>
-                        To subscribe to this website, please enter your email address here. We
-                        will send updates occasionally.
-                    </DialogContentText>
-                
-                </DialogContent> */}
                     <div className="login_signup_reset_container ">
                         <div className='col-12 fontStyle signup_head'>
                             <h1>Log In</h1>
                         </div>
                         <form onSubmit={method.handleSubmit(Submit)}>
                             <div className='logininputbox'>
-                                {/* <label htmlFor='Email'>Email</label> */}
-
                                 <div className='col-lg-12 signup_margins_top_textfield '>
                                     <TextField
                                         placeholder="Enter Your Email"
@@ -195,8 +175,6 @@ export function Menuintegration_login({ open, setOpen }) {
                                 </div>
                             </div>
                             <div className='row logininputbox'>
-                                {/* <label htmlFor='Password'>Password</label> */}
-
                                 <div className='col-lg-12 signup_margins_top_textfield '>
                                     <TextField
                                         type={showPassword ? 'text' : 'password'}
@@ -257,11 +235,11 @@ export function Menuintegration_login({ open, setOpen }) {
                             <Link className='signInfo' to={location.pathname === '/carts' ? '/signup' : '/signup'}><span>Create your Weedx Account</span></Link>
                         </div> */}
                         <div className='crosslogin'>
-                            <Tooltip title="Back">
+                            {/* <Tooltip title="Back">
                                 <IconButton>
                                     <RxCross2 color={'#000'} size={22} onClick={() => { Navigate(-1) }} />
                                 </IconButton>
-                            </Tooltip>
+                            </Tooltip> */}
                         </div>
                     </div>
                 {/* <DialogActions>

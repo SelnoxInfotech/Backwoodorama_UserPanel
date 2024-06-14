@@ -424,6 +424,15 @@ const useStyles = makeStyles({
       border: "2px solid #31B665",
       transition:"all .3s ease",
     },
+    "@media(max-width:480px)": {
+      "& .MuiLoadingButton-root": {
+       
+        "& span":{
+            marginRight:'5px',
+            display:'none',
+        }
+      },   
+    },
   },
   Cencell: {
     "& .MuiButton-text": {

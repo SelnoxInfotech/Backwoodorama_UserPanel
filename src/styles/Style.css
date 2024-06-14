@@ -1,0 +1,27 @@
+.integratdclass .newFlavour_container {
+  height: auto;
+  padding: 10px;
+}
+.integratdclass .newFlavour_container .newFlavour_image_container_height {
+  height: auto;
+}
+.integratdclass .newFlavour_container .newFlavour_image_container_height .newFlavourimage_div {
+  height: 100px;
+  width: 100px;
+}
+.integratdclass .newFlavour_container .newFlavour_image_container_height .newFlavourimage_div img {
+  height: 100%;
+  width: 100%;
+}
+.integratdclass .newFlavour_container .newFlavourContent_height {
+  height: auto;
+}
+
+.integratedheader {
+  background-color: #FFF;
+  box-shadow: 0px 4px 5px -1px rgba(133, 124, 133, 0.5);
+}
+
+.prod_cat_right_sec {
+  min-height: 80vh;
+}/*# sourceMappingURL=Style.css.map */

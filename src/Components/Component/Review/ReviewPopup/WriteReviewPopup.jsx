@@ -13,8 +13,9 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import { Box, FormControl } from "@mui/material";
 import { useForm, Controller } from "react-hook-form";
 import Createcontext from "../../../../Hooks/Context";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import CustomAlert from "../../../Component/CustomAlert/CustomAlert";
+import { Menuintegration_login } from "../../../Page/Login/menu-integration_login";
   const WriteReviewPopup = ({
     reviewloading,
     onSubmit,
@@ -29,10 +30,12 @@ import CustomAlert from "../../../Component/CustomAlert/CustomAlert";
   const { state } = React.useContext(Createcontext);
   const [images, setImages] = React.useState([])
   const [mediaurls, setmediaurls] = React.useState([])
+  const [open, setOpen] = React.useState(false)
   const [alert, setalert] = React.useState({
         title:'',
         description:''
   })
+  const location = useLocation()
   const [isvideo , setIsvideo] = React.useState(false)
   const [isalert , setisalert] = React.useState(false)
   const { register, handleSubmit, errors, getValues, control } = useForm();
@@ -40,8 +43,12 @@ import CustomAlert from "../../../Component/CustomAlert/CustomAlert";
   const handleClickOpen = () => {
     if (state.login) {
       SetGetProductReview({ ...GetProductReview, popup: true });
-    } else {
-      navigate("/login");
+    }else{
+      if(location.pathname.includes('/menu-integration') ){
+        setOpen(true)
+      }else{
+        navigate("/login");
+      }
     }
   };
   const handleClose = () => {
@@ -242,6 +249,9 @@ import CustomAlert from "../../../Component/CustomAlert/CustomAlert";
           </div>
         </div>
       </Dialog >
+      {
+        open && <Menuintegration_login open={open} setOpen={setOpen}></Menuintegration_login>
+      }
     </>
   );
 };

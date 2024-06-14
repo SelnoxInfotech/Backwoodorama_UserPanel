@@ -17,6 +17,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
   const classes = useStyles();
   const { id } = useParams();
   const ref = useRef();
+  const location =useLocation()
   const { state, dispatch } = React.useContext(Createcontext);
   const [select, setselect] = useState("Sort by A to Z");
   const [searchtext, setsearchtext] = React.useState("")
@@ -222,7 +223,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
         }
      },[stainitems])
     function FilterSubCategorydata(SubCategoryid, SubCategory_name, categoryName) {
-        dispatch({ type: 'Loading', Loading: true })
+       {!location.pathname.includes('/menu-integration') &&  dispatch({ type: 'Loading', Loading: true })}
         Axios.post(`https://api.cannabaze.com/UserPanel/Get-filterProductbyStoreandSubCategory/`, {
             "Store_Id": Store_id,
             "SubCategory_Id": SubCategoryid
@@ -387,7 +388,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                 {ProductFilterData.map((ele, index) => {
                     const { Id, Name, Icons } = ele;
                     return (
-                        <div key={index} className="filter_manu_items">
+                        <div key={index} className={ location.pathname.includes('/menu-integration')?"integrated-filter_manu_items":"filter_manu_items"}>
                             <div className="col-12 d-flex align-items-center prodCat_gap product_category_border " onClick={() => HandleOpenEvent(Id, Name)}>
                                     <p className="m-0 prod_filter_icon" >{Icons}</p>
                                     <p className="m-0 product_filter_name">{Name}</p>
@@ -398,7 +399,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                                         (
                                             <ClickAwayListener onClickAway={() => {SetOpenEvent(null) }}>
                                                 {
-                                                   loading ? <Loader/>
+                                                   loading ? (location.pathname.includes('/menu-integration') ? <React.Fragment></React.Fragment>:<Loader/>)
                                                  :
                                                     <div className=" product_category_border product_category_dropdown" id="Related_Brand_Data" ref={ref}>
 
@@ -471,25 +472,17 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                 })
 
                 }
-                <Grid container display={{ xs: "inlineBlock", md: "none", lg: "none" }} style={{ width: 'auto', borderWidth: '1px', borderStyle: 'solid', borderColor: 'gainsboro' }}>
+                <Grid container display={{ xs: "inlineBlock", md: "none", lg: "none" }}>
 
                     {SortedArrayData.map((ele, index) => {
                         const { Id, name } = ele
                         return (
                             <div key={index} onClick={() => HandleOpenSortedData(Id, name)}>
-
                                 <ol className="productFilter_sortedList prodfilterSortedListGap">
-                                    <li>
-                                        {(Id === OpenSortedData) ? <FiChevronLeft /> : ""}
-
-                                    </li>
+                                    <li> {(Id === OpenSortedData) ? <FiChevronLeft /> : ""}</li>
                                     <li className="fontStyle">{name}</li>
-                                    <li>
-                                        {(Id === OpenSortedData) ? "" : <FiChevronRight />}
-
-                                    </li>
+                                    <li>  {(Id === OpenSortedData) ? "" : <FiChevronRight />}</li>
                                 </ol>
-
                 {Id === OpenSortedData ? (
                   <ClickAwayListener
                     onClickAway={() => {
@@ -509,7 +502,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                 )}
               </div>
             );
-          })}
+              })}
                 </Grid>
             </div>
         </>

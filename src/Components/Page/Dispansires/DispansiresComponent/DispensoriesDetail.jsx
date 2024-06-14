@@ -416,22 +416,18 @@ export default function DispensoriesDetails(props) {
 
                 }
                 <div className="container-fluid product_container" >
-             {/* { Boolean((location.pathname.slice(0, 18) !== "/weed-dispensaries" && location.pathname.slice(0, 16) !== "/weed-deliveries") )&& 
-                <div className="mb-2">
-                     <Menuintregrate tab={tab} SelectionTab={SelectionTab}></Menuintregrate>
-                </div>
-              } */}
-                    <NewFlavourBanner delBtn={Despen}></NewFlavourBanner>
+            
+                  { !location.pathname.includes('/menu-integration') && <NewFlavourBanner delBtn={Despen}></NewFlavourBanner>}
                     <div className="row">
-                        <div className="col-12 mt-4 "   >
+                        <div className="col-12"   >
                          {Boolean((location.pathname.slice(0, 18) === "/weed-dispensaries" || location.pathname.slice(0, 16) === "/weed-deliveries")) &&   <StoreDetailMenuItem tab={tab} SelectionTab={SelectionTab}></StoreDetailMenuItem>}
                         </div>
                         {
                             (tab === 'menu' || tab === undefined) &&
                             <React.Fragment>
-                                <CategoryProduct Category={category} ShowCategoryProduct={ShowCategoryProduct}> </CategoryProduct>
+                               { !location.pathname.includes('/menu-integration') && <CategoryProduct Category={category} ShowCategoryProduct={ShowCategoryProduct}> </CategoryProduct>}
                                 <div className="col-12 productCat_cont" style={{ display: "contents" }}>
-                                    <ProductFilter Store_id={Despen[0]?.id}
+                                   <ProductFilter Store_id={Despen[0]?.id}
                                         ProductFilterData={ProductFilterData}
                                         Setarr1={SetDespensariesProductData}
                                         arr={DespensariesData}

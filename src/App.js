@@ -3,6 +3,7 @@
 import './styles/App.css';
 import './styles/termconditions.css';
 import "./styles/AppStyle.css";
+import "./styles/Style.css";
 import './styles/mediaQuery.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import "./styles/Blog.css";

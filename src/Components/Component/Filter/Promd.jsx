@@ -30,7 +30,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
     const [catname2, setcatname2] = useState('')
     const SortedArrayData = [{ Id: 1, name: "Sort by" }]
     const SortedData = [{ type: "Sort by A to Z" }, { type: "Sort by Z to A" }, { type: "Sort by low to high" }, { type: "Sort by high to low" }]
-
+    const location = useLocation()
     const [value, setValue] = React.useState();
     function valuetext(value) {
         return `${value}°C`;
@@ -383,7 +383,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                                         SetOpenEvent(null)
                                     }}>
                                         {
-                                            loading ? <Loader/>
+                                            loading ?  (location.pathname.includes('/menu-integration') ? <React.Fragment></React.Fragment>:<Loader/>)
                                                 :
                                                 <div className=" product_category_border product_category_dropdown" id="Related_Brand_Data" >
 

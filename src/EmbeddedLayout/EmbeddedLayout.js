@@ -5,14 +5,13 @@ import Menuintregrate from '../Components/Page/StoreDetail/StoreDetailComponent/
 const EmbeddedLayout = () => {
   return (
     <div>
-      <div className='sticky-top '>
-        <Menuintregrate></Menuintregrate>
-      </div>
-      <div className='container '>
-        <Outlet  />
+     
+      <Menuintregrate></Menuintregrate>
+      <div className='container'>
+       <Outlet  />
       </div>
       <div className='py-3' style={{ backgroundColor: '#F6F6F6'}}>
-        <p className='m-0 text-center'>Copyright © 2024 weedx.io</p>
+        <p className='m-0 text-center'>A minimum age of 21 is required to place any order</p>
       </div>
     </div>
   )

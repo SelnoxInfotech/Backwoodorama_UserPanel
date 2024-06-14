@@ -31,20 +31,18 @@ const ProductList = ({ arr , link="products" }) => {
   const [popup, SetPopup] = React.useState(true)
   const [showdata, setShowdata] = React.useState([]);
   let token_data = cookies.get("User_Token_access");
-    let accessToken = localStorage.getItem('User_Token_access');
-    // logi  =  accessToken
-    if(  Boolean(accessToken) ){ token_data  =  accessToken}
+  let accessToken = localStorage.getItem('User_Token_access');
+  if(  Boolean(accessToken) ){ token_data  =  accessToken}
   const { state, dispatch } = React.useContext(Createcontext);
   const [Whishlist, SetWishList] = React.useState(false);
   const [paginateddata,setpaginateddata]= React.useState([])
   const [Price, SetPrice] = React.useState([]);
   const [AddTOCard, SetAddToCard] = React.useState(() => {
-    const saved = localStorage.getItem("items");
-    const initialValue = JSON.parse(saved);
-    return initialValue || [];
+  const saved = localStorage.getItem("items");
+  const initialValue = JSON.parse(saved);
+  return initialValue || [];
   });
   const [NewData, SetNewData] = React.useState([]);
- 
   const Addtocard = async (Event) => {
   
     if (token_data) {
@@ -328,12 +326,10 @@ const ProductList = ({ arr , link="products" }) => {
 
     }
     
-}
+  }
   React.useEffect(() => {
     localStorage.setItem("items", JSON.stringify(AddTOCard));
   }, [AddTOCard]);
-
-
   async function PriceSelect(Product, Item) {
     SetPrice((Price) => {
       return Price.filter((Price) => Price.Product_id !== Product);
@@ -341,7 +337,6 @@ const ProductList = ({ arr , link="products" }) => {
     SetPrice((Price) => [...Price, { Product_id: Product, Item_id: Item }]);
   }
   const classes = useStyles();
-
   const handleWhishList = (id) => {
     if (state.login === false) {
       SetWishList(!Whishlist);
@@ -384,15 +379,13 @@ const ProductList = ({ arr , link="products" }) => {
     return str.toLowerCase();
   }
   const pagechanges = (event, value) => {
-    setPage(value);
-    
+      setPage(value);
+      window.scrollTo({top: 0, left: 0})
       let assa = showdata.slice((value*8)-8, value*8)
       setpaginateddata(assa)
     
    
   };
-
-
   React.useEffect(() => {
     let newdata = arr.filter((item) => {
       return item.Prices[0]?.Price[0]?.Stock === "IN Stock"
@@ -408,6 +401,7 @@ const ProductList = ({ arr , link="products" }) => {
       setpaginateddata(newdata.concat(newdata2))
     }
   }, [arr]);
+
   return (
     <>
       {(showdata?.length !== 0 && typeof (showdata) !== "string") ? (
@@ -420,7 +414,7 @@ const ProductList = ({ arr , link="products" }) => {
               {paginateddata?.map((ele, index) => {
                 return (
                   <div
-                    className="col-6 col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12   "
+                    className={location.pathname.includes('/menu-integration') ? "col-6 col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12  "  :"col-6 col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12 "}
                     key={index}
                   >
                     <div className="prod_inner_cont  product_inner_row" >
@@ -527,56 +521,9 @@ const ProductList = ({ arr , link="products" }) => {
                               )
                             })}
                           </div>
-                          {/* <div className="mobile_view_weigth">
-                            <div className="prod_cat_cont_btn product_price_tabs">
-                              {ele.Prices?.map((ele1) => {
-                                return ele1.Price?.map((data, index) => {
-                                  let s = false;
-                                  if (Price.length === 0) {
-                                    if (data.id === 1) {
-                                      s = true;
-                                    }
-                                  } else
-                                    Price?.map((Price) => {
-                                      if (
-                                        ele.id === Price?.Product_id &&
-                                        data.id === Price?.Item_id
-                                      ) {
-                                        s = true;
-                                      } else {
-                                        s = false;
-                                      }
-                                      return s;
-                                    });
-                                  return (
-                                    <div
-                                      className="prod_cat_btn_cont"
-                                      id=""
-                                      key={index}
-                                    >
-                                      <section
-                                        className={
-                                          "prod_cat_btns " + (s ? "active" : "")
-                                        }
-                                        value={data.id}
-                                        onClick={() =>
-                                          PriceSelect(ele.id, data.id)
-                                        }
-                                      >
-                                        {data.Weight || data.Unit}
-                                        <p className="rs m-0">
-                                          ${data?.SalePrice?.toFixed()}
-                                        </p>
-                                      </section>
-                                    </div>
-                                  );
-                                });
-                              })}
-                            </div>
-                          </div> */}
-                           <div className=" productPriceDivHeight">
-                                                    <p className="productSearch text-truncate mb-0"><span className="productSearchPrice">${parseInt(ele.Prices[0]?.Price[0]?.SalePrice)}  {parseInt(ele.Prices[0].Price[0].Price) > parseInt(ele.Prices[0].Price[0].SalePrice) && <del className="text-muted">${parseInt(ele.Prices[0].Price[0].Price)}</del>} </span> per {ele.Prices[0].Price[0].Weight ? ele.Prices[0].Price[0].Weight : `${ele.Prices[0].Price[0].Unit} Unit`}</p>
-                                                </div>
+                          <div className=" productPriceDivHeight">
+                              <p className="productSearch text-truncate mb-0"><span className="productSearchPrice">${parseInt(ele.Prices[0]?.Price[0]?.SalePrice)}  {parseInt(ele.Prices[0].Price[0].Price) > parseInt(ele.Prices[0].Price[0].SalePrice) && <del className="text-muted">${parseInt(ele.Prices[0].Price[0].Price)}</del>} </span> per {ele.Prices[0].Price[0].Weight ? ele.Prices[0].Price[0].Weight : `${ele.Prices[0].Price[0].Unit} Unit`}</p>
+                          </div>
                         </div>
                       </Link>
                       <div className="col-12 d-flex mt-sm-2 mt-2  Fly">
@@ -590,22 +537,10 @@ const ProductList = ({ arr , link="products" }) => {
                       : 
                       
                       (ele.Prices[0]?.Price[0]?.Stock === "IN Stock" ? (
-                          <Box
-                            className={` ${classes.loadingBtnTextAndBack}`}
-                            style={{ width: "100%" }}
-                          >
-                         
-
-                            <LoadingButton
-                              onClick={() => {
-                                Addtocard(ele);
-                              }}
-                              variant="outlined"
-                            >
-                            
+                          <Box className={` ${classes.loadingBtnTextAndBack}`} style={{ width: "100%" }} >
+                            <LoadingButton onClick={() => {  Addtocard(ele); }} variant="outlined">
                               <span><FaShoppingCart  size={18} /> </span> Add To Cart
                             </LoadingButton>
-                           
                           </Box>
                         ) : (
                           <Box
@@ -638,7 +573,7 @@ const ProductList = ({ arr , link="products" }) => {
                 );
               })}
             {
-              (showdata.length > 8 && location.pathname.includes('/menu-integration')) && <div className="d-flex justify-content-center"><Pagination count={(parseInt(showdata.length/8)+1)} page={page} onChange={pagechanges} /></div>
+              (showdata.length > 8 && location.pathname.includes('/menu-integration')) && <div className="d-flex justify-content-center"><Pagination count={showdata.length%8===0?parseInt(showdata.length/8):(parseInt(showdata.length/8)+1)} page={page} onChange={pagechanges} /></div>
             }
             </div>
             {Whishlist && (
