@@ -8,8 +8,6 @@ function FirstLetterCaps(str){
 
 
  }
-
-export {FirstLetterCaps}
  
 export function modifystr(str) {
     str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
@@ -31,6 +29,7 @@ export function modifystr(str) {
 
     return str.toLowerCase()
 }
+
 function isShopOpen(storeDetails){
     let done = false
     let ans = false
@@ -73,4 +72,4 @@ function isShopOpen(storeDetails){
     })
      return ans
 }
-export {isShopOpen}
+export {isShopOpen , FirstLetterCaps}
