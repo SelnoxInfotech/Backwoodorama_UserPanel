@@ -30,13 +30,7 @@ const Dispensoriescart = ({index ,ele }) => {
         return str
       }
 
-      const [shopopen , setshopopen ] = React.useState()
-      React.useEffect(()=>{
-      
-           setshopopen(isShopOpen(ele)) 
-      
-   
-      },[ new Date().getMinutes() , ele])
+
   return (
     <div className="row mt-4" key={index}>
         <div className=" col-11  mx-auto despensories_card_container">
@@ -59,7 +53,7 @@ const Dispensoriescart = ({index ,ele }) => {
                         <span className="text-truncate dispensorieAddressNames">{ele.Store_Address}</span>
                     </div>
                     <div className="col-12 dispensories_buttonsContainer">
-                        <button className="dispensories_open_res_btns">{shopopen ? 'Open' : "Closed"}</button>
+                        <button className="dispensories_open_res_btns" style={{color: isShopOpen([ele]) ? "#31B665" : "red"}}>{isShopOpen([ele]) ? 'Open' : "Closed"}</button>
                         {
                           ele.Delivery &&   <button className="dispensories_open_res_btns2">Order Online</button>
                        
