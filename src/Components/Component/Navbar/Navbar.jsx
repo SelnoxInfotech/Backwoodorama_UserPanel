@@ -63,10 +63,12 @@ const Navbar = () => {
     SetOpen(false)
   }
   async function Logout() {
+    localStorage.removeItem('User_Token_access');
     await cookies.remove('User_Token_access')
     await dispatch({ type: 'Login', login: false })
     await dispatch({ type: 'ApiProduct' })
     await dispatch({ type: 'Profile' , Profile :[] })
+
   }
 
 

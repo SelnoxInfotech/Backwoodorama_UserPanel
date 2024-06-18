@@ -60,6 +60,7 @@ const   Login = () => {
                 let date = new Date();
               
                 date.setTime(date.getTime() + 60*60*24*365)
+                localStorage.setItem('User_Token_access',  response.data.access_token);
                 cookies.set('User_Token_access', response?.data?.tokens?.access, { expires: date })
                 dispatch({ type: 'Login', login: true })
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
