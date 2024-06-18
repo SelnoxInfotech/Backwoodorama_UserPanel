@@ -144,7 +144,7 @@ const AboutUs = () => {
             <div className='about_us_header'>
 
 
-                <LazyLoadImage src='./image/about_us_banner.jpg' alt='imgs not available' title='imgs not available'  className='About_us_banner_image' />
+                <LazyLoadImage src='/image/about_us_banner.jpg' alt='imgs not available' title='imgs not available'  className='About_us_banner_image' />
                 <div className='text-on-image'>
                     <h1>About us</h1>
                 </div>
