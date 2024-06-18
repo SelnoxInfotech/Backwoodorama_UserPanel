@@ -98,7 +98,9 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                 SetFilter(_.uniqBy(response.data, 'name'))
                 setloading(false)
             }).catch(
+              
                 function (error) {
+                    setloading(false)
                     alert("SomeThing Goes wrong")
             })
         }
@@ -233,6 +235,8 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
             // navigate(`${location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${StoreName.replace(/\s/g, '-').toLowerCase()}/${"menu"}/${categoryName?.toLowerCase()}/${SubCategory_name?.toLowerCase().replace(/\s/g, '-')}/${SubCategoryid}`)
         }).catch(
             function (error) {
+            dispatch({ type: 'Loading', Loading: false })
+
                 alert("Something Goes Wrong")
             })
     }

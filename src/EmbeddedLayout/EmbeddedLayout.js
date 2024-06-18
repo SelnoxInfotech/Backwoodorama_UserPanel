@@ -7,9 +7,9 @@ const EmbeddedLayout = () => {
     <div>
      
       <Menuintregrate></Menuintregrate>
-      <div className='container'>
+      {/* <div className='container'> */}
        <Outlet  />
-      </div>
+      {/* </div> */}
       <div className='py-3' style={{ backgroundColor: '#F6F6F6'}}>
         <p className='m-0 text-center'>A minimum age of 21 is required to place any order</p>
       </div>

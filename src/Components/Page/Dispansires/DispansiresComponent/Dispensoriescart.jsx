@@ -34,7 +34,7 @@ const Dispensoriescart = ({index ,ele }) => {
   return (
     <div className="row mt-4" key={index}>
         <div className=" col-11  mx-auto despensories_card_container">
-        {/* <Link  to={`/weed-dispensaries/${modifystr(ele?.Store_Name.toLowerCase())}/${ele.id}`}> */}
+        
             <div className="row">
                 <div className="col-4 disensories_card_image_div">
                     <Link  to={`/weed-dispensaries/${modifystr(ele?.Store_Name.toLowerCase())}/${ele.id}`}>
@@ -66,10 +66,9 @@ const Dispensoriescart = ({index ,ele }) => {
 
                     {
 
-                      ele.StoreFront  &&
-                    <div className="col-12 dispensories_buttonsContainer mt-2">
+                      ele.StoreFront  && <div className="col-12 dispensories_buttonsContainer mt-2">
                         <button className="dispensories_pickup_btn">Store Front</button>
-                    </div>
+                       </div>
                     }
                      </div>
                      <div className='homecardRating'>
@@ -90,7 +89,7 @@ const Dispensoriescart = ({index ,ele }) => {
 
                 </div>
             </div>
-            {/* </Link>  */}
+           
         </div>
     </div>
   )

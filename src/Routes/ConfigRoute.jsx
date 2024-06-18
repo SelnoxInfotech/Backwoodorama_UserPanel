@@ -53,6 +53,7 @@ import ProductRedirction from "./productionRedirction";
 import EmbeddedLayout from "../EmbeddedLayout/EmbeddedLayout";
 import {useNavigate } from "react-router-dom";
 import axios from "axios";
+import Dummypages from "../Components/Page/Dummypages/Dummypages";
 
 
 const routesConfig = [
@@ -351,14 +352,7 @@ const routesConfig = [
         element: <RoutingList Component={NewProductDetails} ></RoutingList>,
       
       },
-      // {
-      //   path: "/menu-integration/:StoreName/:tab?/:Category?/:SubCategory?/:id/",
-      //   element: <RoutingList Component={DispensoriesDetails} ></RoutingList>
-      // },
-      // {
-      //   path: "/menu-integration/:StoreName/menu/:Category/:SubCategory/:Product/:id/",
-      //   element: <RoutingList Component={NewProductDetails} ></RoutingList>
-      // },
+   
       {
         path: "/carts",
         element: <RoutingList Component={AddToCart} ></RoutingList>
@@ -394,7 +388,10 @@ const routesConfig = [
       {
         path: "/menu-integration/MyOrderProductDetail/:id",
         element: <RoutingList Component={MyOrderProductDetail} ></RoutingList>
-      },
+      },{
+        path: "/dummypage",
+        element: <RoutingList Component={Dummypages} ></RoutingList>
+      }
     ]
   }
 ]

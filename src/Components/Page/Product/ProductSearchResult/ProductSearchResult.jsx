@@ -6,20 +6,25 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "../../../../Style";
 import { AiOutlineHeart, AiFillHeart, AiOutlineLeft } from "react-icons/ai"
+import { Swiper, SwiperSlide } from "swiper/react";
 import IconButton from '@mui/material/IconButton';
 import ProductIncDecQuantity from "./ProductIncDecQuantity"
 import { FaShoppingCart } from "react-icons/fa";
 import { MdShoppingCart } from "react-icons/md";
+import "swiper/css";
 import PreCheckout from "../PreCheckout/PreCheckout";
 import axios from "axios";
 import Cookies from 'universal-cookie';
 import Createcontext from "../../../../Hooks/Context"
 import './ProductSearchResult.css'
+import 'swiper/css/navigation';
 import _ from "lodash";
 import AddToCartPopUp from "../AddToCartPopUp/AddToCartPopUp";
 import { Link ,useLocation} from "react-router-dom";
 import { WishListPost } from "../../../Component/Whishlist/WishListApi_"
 import { WhisList } from "../../../Component/Whishlist/WhisList"
+import { Navigation } from 'swiper/modules';
+
 
 const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProductID, title , link="products" }) => {
 
@@ -268,103 +273,130 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                 </div>
                { location.pathname.includes('/menu-integration') ? 
                     <div className="product_card_wrapper p-0">
+                          <Swiper className="mySwiper similerproduxt"
+                           spaceBetween={50}
+                           slidesPerView={6}
+                           navigation={true} modules={[Navigation]}
+                           breakpoints={{
+                             0: {
+                               slidesPerView: 1,
+                             },
+                             480:{
+                               slidesPerView:3,
+                               spaceBetween:20,
+                             },
+                             768:{
+                               slidesPerView:3,
+                               spaceBetween:20,
+                             },
+                             992:{
+                               slidesPerView:4
+                             },
+                             1296:{
+                               slidesPerView:5
+                             },
+                             
+                           }}
+                           >
                         {
                             showdata?.map((items, index) => {
-
                                 if (items.id !== currentProductID) {
                                     return (
-                                        <div className="productSearch_result_container" key={index}>
-                                            {parseInt(items.Prices[0].Price[0].Price) > parseInt(items.Prices[0].Price[0].SalePrice) && <span className="discountTag">{((parseInt(items.Prices[0].Price[0].Price) - parseInt(items.Prices[0].Price[0].SalePrice)) / parseInt(items.Prices[0].Price[0].Price) * 100).toFixed(1)}% OFF</span>}
-                                            <div className="productSearchResultImage_container">
-                                                <div className="product_whish_list">
+                                        <SwiperSlide>
+                                            <div className="productSearch_result_container" key={index}>
+                                                {parseInt(items.Prices[0].Price[0].Price) > parseInt(items.Prices[0].Price[0].SalePrice) && <span className="discountTag">{((parseInt(items.Prices[0].Price[0].Price) - parseInt(items.Prices[0].Price[0].SalePrice)) / parseInt(items.Prices[0].Price[0].Price) * 100).toFixed(1)}% OFF</span>}
+                                                <div className="productSearchResultImage_container">
+                                                    <div className="product_whish_list">
 
-                                                    <Box className={classes.productSearchIcons2}>
-                                                        <IconButton onClick={() => { handleWhishList(items.id) }} aria-label="Example">
+                                                        <Box className={classes.productSearchIcons2}>
+                                                            <IconButton onClick={() => { handleWhishList(items.id) }} aria-label="Example">
+                                                                {
+                                                                    state.login ? state.WishList[items.id] ? <AiFillHeart color="31B665"></AiFillHeart> : <AiOutlineHeart color="31B665" /> : <AiOutlineHeart color="31B665" />
+                                                                }
+                                                            </IconButton>
+                                                        </Box>
+                                                    </div>
+                                                    <Link to={`/${link}/${modifystr(items.category_name.toLowerCase())}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${modifystr(items.Product_Name.toLowerCase())}/${items.id}`}
+
+                                                    state={{
+                                                        prevuisurl: location.pathname,
+                                                        id:items.id
+                                                        }}  >
+                                                        <LazyLoadImage
+                                                            className="product_search_result_image"
+                                                            onError={event => {
+                                                                event.target.src = "/image/blankImage.jpg"
+                                                                event.onerror = null
+                                                            }}
+                                                            src={`${items?.images[0]?.image}`}
+                                                            height={"100px"}
+                                                            alt={items.Product_Name}
+                                                            title={items.Product_Name}
+                                                        />
+                                                    </Link>
+                                                </div>
+                                                <div className=" product_search_result_content_div ">
+                                                    <Link to={`/${link}/${items.category_name.toLowerCase()}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${items.Product_Name.replace(/%20| /g, "-").toLowerCase()}/${items.id}`}  state={{
+                                                        prevuisurl: location.pathname,
+                                                        id:items.id
+                                                        }} >
+                                                        <p className="productSearchResultParagraph text-truncate">{items.Product_Name}</p>
+
+                                                        <p className="product_search_result_sub_heading text-truncate">by {items.StoreName}</p>
+                                                        <div className="product_category_list">
+                                                            <span className="product_search_result_span1">15{items.lab_Result !== "Magnesium" ? '%' : "Mg."} THC | 0.2{items.lab_Result !== "Magnesium" ? '%' : "Mg."} CBD</span>
+                                                            <div className="product_cart_review">
+                                                                { new Array(items.rating).fill(null).map((itwm , index) => (
+                                                                    <BsStarFill key={index +1}  size={16} color="#31B665" className="product_search_rating_star" />
+                                                                ))}
+
+                                                                {new Array(5 - items.rating).fill(null).map((item , index) => (
+                                                                    <BsStar  key={index +1} size={16} color="#31B665" className="product_search_rating_star" />
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                        <div className=" productPriceDivHeight">
+                                                            <p className="productSearch text-truncate"><span className="productSearchPrice">${parseInt(items.Prices[0]?.Price[0]?.SalePrice)}  {parseInt(items.Prices[0].Price[0].Price) > parseInt(items.Prices[0].Price[0].SalePrice) && <del className="text-muted">${parseInt(items.Prices[0].Price[0].Price)}</del>} </span> per {items.Prices[0].Price[0].Weight ? items.Prices[0].Price[0].Weight : `${items.Prices[0].Price[0].Unit} Unit`}</p>
+                                                        </div>
+                                                        <div className="discount_boc">{
+                                                            items?.CategoryCoupoun?.length !== 0 || items?.ProductCoupoun?.length !== 0 && <div className="discountinfo">
+                                                                <span className="carddiscountoffer">{discountshoer(items.CategoryCoupoun, items.ProductCoupoun)} </span>  and more Offers
+                                                            </div>
+                                                        }</div>
+
+                                                    </Link>
+                                                    <div className="my-2">
+                                                        <Box className={`center ${classes.loadingBtnTextAndBack}`}>
                                                             {
-                                                                state.login ? state.WishList[items.id] ? <AiFillHeart color="31B665"></AiFillHeart> : <AiOutlineHeart color="31B665" /> : <AiOutlineHeart color="31B665" />
-                                                            }
-                                                        </IconButton>
-                                                    </Box>
-                                                </div>
-                                                <Link to={`/${link}/${modifystr(items.category_name.toLowerCase())}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${modifystr(items.Product_Name.toLowerCase())}/${items.id}`}
-
-                                                state={{
-                                                    prevuisurl: location.pathname,
-                                                    id:items.id
-                                                    }}  >
-                                                    <LazyLoadImage
-                                                        className="product_search_result_image"
-                                                        onError={event => {
-                                                            event.target.src = "/image/blankImage.jpg"
-                                                            event.onerror = null
-                                                        }}
-                                                        src={`${items?.images[0]?.image}`}
-                                                        height={"100px"}
-                                                        alt={items.Product_Name}
-                                                        title={items.Product_Name}
-                                                    />
-                                                </Link>
-                                            </div>
-                                            <div className=" product_search_result_content_div ">
-                                                <Link to={`/${link}/${items.category_name.toLowerCase()}/${items.SubcategoryName.replace(/%20| /g, "-").toLowerCase()}/${items.Product_Name.replace(/%20| /g, "-").toLowerCase()}/${items.id}`}  state={{
-                                                    prevuisurl: location.pathname,
-                                                    id:items.id
-                                                    }} >
-                                                    <p className="productSearchResultParagraph text-truncate">{items.Product_Name}</p>
-
-                                                    <p className="product_search_result_sub_heading text-truncate">by {items.StoreName}</p>
-                                                    <div className="product_category_list">
-                                                        <span className="product_search_result_span1">15{items.lab_Result !== "Magnesium" ? '%' : "Mg."} THC | 0.2{items.lab_Result !== "Magnesium" ? '%' : "Mg."} CBD</span>
-                                                        <div className="product_cart_review">
-                                                            { new Array(items.rating).fill(null).map((itwm , index) => (
-                                                                <BsStarFill key={index +1}  size={16} color="#31B665" className="product_search_rating_star" />
-                                                            ))}
-
-                                                            {new Array(5 - items.rating).fill(null).map((item , index) => (
-                                                                <BsStar  key={index +1} size={16} color="#31B665" className="product_search_rating_star" />
-                                                            ))}
-                                                        </div>
-                                                    </div>
-                                                    <div className=" productPriceDivHeight">
-                                                        <p className="productSearch text-truncate"><span className="productSearchPrice">${parseInt(items.Prices[0]?.Price[0]?.SalePrice)}  {parseInt(items.Prices[0].Price[0].Price) > parseInt(items.Prices[0].Price[0].SalePrice) && <del className="text-muted">${parseInt(items.Prices[0].Price[0].Price)}</del>} </span> per {items.Prices[0].Price[0].Weight ? items.Prices[0].Price[0].Weight : `${items.Prices[0].Price[0].Unit} Unit`}</p>
-                                                    </div>
-                                                    <div className="discount_boc">{
-                                                        items?.CategoryCoupoun?.length !== 0 || items?.ProductCoupoun?.length !== 0 && <div className="discountinfo">
-                                                            <span className="carddiscountoffer">{discountshoer(items.CategoryCoupoun, items.ProductCoupoun)} </span>  and more Offers
-                                                        </div>
-                                                    }</div>
-
-                                                </Link>
-                                                <div className="my-2">
-                                                    <Box className={`center ${classes.loadingBtnTextAndBack}`}>
-                                                        {
-                                                            items?.Prices[0].Price.length > 1
-                                                                ?
-                                                                <ProductIncDecQuantity popup={popup} setadding={setadding}
-                                                                    adding={adding} SetPopup={SetPopup} items={items} AddToCart={AddToCart} />
-                                                                :
-
-                                                                items?.Prices[0].Price[0].Stock === "IN Stock" ?
-                                                                        <LoadingButton loading={adding === items.id} loadingIndicator={<CircularProgress color="inherit" size={16} />}
-                                                                            onClick={() => { AddToCart(items) }} >
-                                                                            <span><FaShoppingCart  size={18} /> </span> Add To Cart
-                                                                        </LoadingButton>
+                                                                items?.Prices[0].Price.length > 1
+                                                                    ?
+                                                                    <ProductIncDecQuantity popup={popup} setadding={setadding}
+                                                                        adding={adding} SetPopup={SetPopup} items={items} AddToCart={AddToCart} />
                                                                     :
-                                                                        <LoadingButton className={`${classes.odsbtn}`} >
-                                                                        <span><FaShoppingCart size={18} /> </span>  Out of Stock
-                                                                        </LoadingButton>
-                                                        }
-                                                        {
-                                                            CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />
-                                                        }
-                                                    </Box>
+
+                                                                    items?.Prices[0].Price[0].Stock === "IN Stock" ?
+                                                                            <LoadingButton loading={adding === items.id} loadingIndicator={<CircularProgress color="inherit" size={16} />}
+                                                                                onClick={() => { AddToCart(items) }} >
+                                                                                <span><FaShoppingCart  size={18} /> </span> Add To Cart
+                                                                            </LoadingButton>
+                                                                        :
+                                                                            <LoadingButton className={`${classes.odsbtn}`} >
+                                                                            <span><FaShoppingCart size={18} /> </span>  Out of Stock
+                                                                            </LoadingButton>
+                                                            }
+                                                            {
+                                                                CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />
+                                                            }
+                                                        </Box>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </SwiperSlide>
                                     )
                                 }
                             })
                         }
+                        </Swiper>
                     </div>
                   :
                     <div className="product_card_wrapper p-0">

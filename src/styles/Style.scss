@@ -27,3 +27,50 @@
 .prod_cat_right_sec{
    min-height: 80vh;
 }
+.similerproduxt{
+   width: 100%;
+   height: max-content;
+   .swiper-button-prev, .swiper-button-next{
+      width: 40px;
+      height: 40px;
+      background-color: #fff;
+      border-radius: 50%;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+   }
+   .swiper-button-prev:after, .swiper-button-next:after{
+      font-size: 24px;
+      font-weight: 700;
+      color: #31B655;
+   }
+   .swiper-button-prev.swiper-button-disabled, .swiper-button-next.swiper-button-disabled{
+      pointer-events:unset;
+   }
+}
+.menuintregarteproductpage {
+   .newProductDetails_heading{
+      font-size: 28px;
+      line-height: 1;
+   }
+   .newProductDetails_subHeadingss{
+      font-size: 18px;
+   }
+   .newProductDetailsButon .newProductdetailsButtonss{
+      font-size: 14px;
+   }
+   .newProduct_Weight {
+      font-size: 16px;
+   }
+   .newProd_grms{
+      font-size: 16px;
+   }
+   .newProductAboutUs_description {
+      font-size: 14px;
+   }
+   .newProduct_doller_price {
+      font-size: 20px;
+   }
+   .newProduct_Gms{
+      font-size: 14px;
+   }
+}

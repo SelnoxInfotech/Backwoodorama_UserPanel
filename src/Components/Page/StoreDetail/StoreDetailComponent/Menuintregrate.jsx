@@ -79,7 +79,7 @@ const Menuintregrate = ({tab = "Menu" }) => {
 
     return (
        <div className="integratedheader">
-                    <div className="container">
+                    {/* <div className="container"> */}
                         <div className="StoreDetailMenuItem_container">
                             <ol className="store_detail_order_list">
                                 {StoreDetailMenuItem.map((ele, index) => {
@@ -165,7 +165,7 @@ const Menuintregrate = ({tab = "Menu" }) => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    {/* </div> */}
                     {
                         open && <Menuintegration_login open={open} setOpen={setOpen}></Menuintegration_login>
                     }

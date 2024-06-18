@@ -38,7 +38,7 @@ const SignupWithEmail = () => {
             if(location.pathname==='/menu-integration/signupwithemail'){
                 Navigate("/menu-integration/login")
             }else{
-                Navigate("/login")
+                Navigate("/login", { state: { lastlocation:'signin' } })
             }
             Setloading(false)
         }).catch(

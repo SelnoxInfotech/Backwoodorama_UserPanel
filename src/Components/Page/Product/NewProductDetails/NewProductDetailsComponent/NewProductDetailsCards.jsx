@@ -31,8 +31,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
 
     const cookies = new Cookies();
     const params = useParams()
-    // const [quentity, setquentity] = useState(1);
-    // const [dynamicWeight, setdynamicWeight] = useState(0);
+    const location = useLocation()
     const [displaypic, Setdisplaypic] = useState('');
     let p = Product?.images === undefined ? "" : Product?.images[0].image;
     const classes = useStyles();
@@ -304,14 +303,13 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
             SetSelectVariant(Product?.Prices[0]?.Price[0]?.id)
         }
     }, [Product])
-let location = useLocation()
     return (
         <React.Fragment>
             {
                 Product?.length !== 0 &&
 
                 <div className=" w-100">
-                    <div className=" newProductDetailsContainer position-relative  mt-4">
+                    <div className={location.pathname.includes('/menu-integration') ? "menuintregarteproductpage newProductDetailsContainer  position-relative  mt-4" : " newProductDetailsContainer  position-relative  mt-4"}>
                         <div className="newProductDetailsCardLeftCol">
                             <div className="">
                                 <div className="newProductDetailsUpperimage_container">

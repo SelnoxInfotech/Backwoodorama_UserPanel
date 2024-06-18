@@ -113,7 +113,7 @@ const Signup = () => {
 
                         <div className='w-100 text-center my-2 '>
                             <h2 className='login_bottom'>New To weedx ?</h2> 
-                            <Link className='signInfo' to={ location.pathname==='embeddedsignup'?   'embeddedlogin':  '/login'}><span>Already a member? Login</span></Link>
+                           <span onClick={()=>{  navigate("/login", { state: { lastlocation:'signin' } })}}>Already a member? Login</span>
                         </div>
                         <div className='crosslogin'>
                               <Tooltip title="Back">

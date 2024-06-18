@@ -22,7 +22,7 @@ const   Login = () => {
     const method = useForm()
     const location = useLocation();
     const Swal = require('sweetalert2')
-    console.log(location.pathname)
+    console.log(location ,'dhek raha hai vinod')
     const { state, dispatch } = React.useContext(Createcontext)
     const Navigate = useNavigate()
     const [loading, Setloading] = React.useState(false)
@@ -42,18 +42,18 @@ const   Login = () => {
         ).then(response => {
 
 
-            if (location.pathname === "/CheckOutMainPage") {
-                if (state.AllProduct.length === 0) {
+            // if (location.pathname === "/CheckOutMainPage") {
+            //     if (state.AllProduct.length === 0) {
                    
-                    if(location.pathname==='/menu-integration/login' ){
-                        Navigate(-1)
+            //         if(location.pathname==='/menu-integration/login' ){
+            //             Navigate(-1)
 
-                    }else{
-                        Navigate("/Product")
-                    }
-                }
-            }
-            else {
+            //         }else{
+            //             Navigate("/Product")
+            //         }
+            //     }
+            // }
+            // else {
                 if(response.data !== "Not Authorised"){
 
                 
@@ -63,46 +63,46 @@ const   Login = () => {
                 cookies.set('User_Token_access', response?.data?.tokens?.access, { expires: date })
                 dispatch({ type: 'Login', login: true })
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-                if (location.pathname === "/signupwithemail") {
-                    if(location.pathname==='/menu-integration/login' ){
+                // if (location.pathname === "/signupwithemail") {
+                //     if(location.pathname==='/menu-integration/login' ){
+                //         Navigate(-1)
+
+                //     }else{
+                //         Navigate('/')
+
+                //     }
+                // }
+                // else{
+                    if(location.state=== null ){
                         Navigate(-1)
 
                     }else{
                         Navigate('/')
 
                     }
+
+                
+                Setloading(false)
                 }
                 else{
-                    if(location.pathname==='/menu-integration/login' ){
-                        Navigate(-1)
-
-                    }else{
-                        Navigate('/')
-
-                    }
-
+                    // alert("SomeThing Worng")
+                    Swal.fire({
+                        imageUrl: "/image/cross.png",
+                        imageClass: "loginsweetimg",
+                        imageWidth: 60,
+                        imageHeight: 60,
+                        title: "Oops...",
+                        text: "Login Credentials Incorrect     ",
+                        footer:"Invalid email or password. Please check and try again. If not registered, use the correct email or sign up for a new account.",
+                        customClass: {
+                            confirmButton: 'loginSweetbtn',
+                            title: 'title-class',
+                            icon: 'loginSweeticon'
+                        },
+                    });
+                    Setloading(false) 
                 }
-                Setloading(false)
-            }
-            else{
-                // alert("SomeThing Worng")
-                Swal.fire({
-                    imageUrl: "/image/cross.png",
-                    imageClass: "loginsweetimg",
-                    imageWidth: 60,
-                    imageHeight: 60,
-                    title: "Oops...",
-                    text: "Login Credentials Incorrect     ",
-                    footer:"Invalid email or password. Please check and try again. If not registered, use the correct email or sign up for a new account.",
-                    customClass: {
-                        confirmButton: 'loginSweetbtn',
-                        title: 'title-class',
-                        icon: 'loginSweeticon'
-                      },
-                  });
-                Setloading(false) 
-            }
-        }
+        
 
 
         }).catch(
