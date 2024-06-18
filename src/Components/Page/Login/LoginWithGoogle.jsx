@@ -26,6 +26,7 @@ function LoginWithGoogle() {
                 let date = new Date();
                 date.setTime(date.getTime() + 60*60*24*365)
                 cookies.set('User_Token_access', response.data.access_token, { expires: date })
+                localStorage.setItem('User_Token_access',  response.data.access_token);
                 dispatch({ type: 'Login', login: true })
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
                 if( location?.state?.location?.pathname === '/cart'){
