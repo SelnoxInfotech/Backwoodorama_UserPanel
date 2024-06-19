@@ -21,7 +21,7 @@ function ProductDetailsSeo({Productname ,Productnm, ProductCategory , StoreName 
             "@type": "Weedx",
             "name": "weedx.io"
         },
-        "reviewBody": Description,
+        "reviewBody": "This product is excellent. Highly recommended!",
         "datePublished": "2024-06-19"
     };
 
