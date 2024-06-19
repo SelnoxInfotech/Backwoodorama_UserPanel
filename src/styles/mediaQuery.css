@@ -1418,6 +1418,10 @@
   }
 }
 @media (max-width:400px) {
+  .prod_cat_img img {
+   height: 120px;
+  }
+
   .dispensories_result_head {
     font-size: 12px;
   }
