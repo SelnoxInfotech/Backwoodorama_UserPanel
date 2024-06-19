@@ -1474,3 +1474,10 @@
     display: none;
   }
 }
+@media(max-width:320px) {
+  
+ .prod_cat_right_sec .row>*{
+    padding-left: 5px  !important;
+    padding-right: 5px !important;
+ }
+}
