@@ -20,6 +20,7 @@ import { WishListPost } from "../../Component/Whishlist/WishListApi_";
 import Pagination from '@mui/material/Pagination';
 import { WhisList } from "../../Component/Whishlist/WhisList";
 import Loader from "../../Component/Loader/Loader";
+import DispensoriesAddressSkeleton from "../../Component/Skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton";
 const ProductList = ({ arr , link="products" }) => {
   const cookies = new Cookies();
   const [page, setPage] = React.useState(1);
@@ -492,11 +493,9 @@ const ProductList = ({ arr , link="products" }) => {
 
                         <div className="product_cat_allProduct" >
                           <div className="col-12  prod_para_name" style={{ marginBottom: "" }}>
-                            <h3 className="productListHeadings ellipsis"  >   {ele.Product_Name} </h3>
+                            <h3 className="productListHeadings ellipsis"  title={ele.Product_Name} >   {ele.Product_Name} </h3>
                           </div>
-                          {/* <div className="col-12  prod_para prod_sub_heading_height ellipsis" >
-                            <p className="fontStyle m-0 common_sub_head"> {ele?.StoreName} </p>
-                          </div> */}
+                         
 
                           <div className="col-12 py-2 d-flex prod_para prod_sub_heading_height ellipsis" style={{ marginBottom: "0px" }} >
                             {
@@ -585,8 +584,9 @@ const ProductList = ({ arr , link="products" }) => {
           <Loader/>
         )
       ) : (
-        <div className="col-12 center">
-          <p>No Product</p>
+        <div className="col-12 ">
+          {/* <p>No Product</p> */}
+          <DispensoriesAddressSkeleton/>
         </div>
       )}
     </>

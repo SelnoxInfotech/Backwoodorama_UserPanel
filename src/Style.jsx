@@ -433,6 +433,15 @@ const useStyles = makeStyles({
         }
       },   
     },
+    "@media(max-width:320px)": {
+      "& .MuiLoadingButton-root": {
+       fontSize:'10px',
+        "& span":{
+            marginRight:'5px',
+            display:'none',
+        }
+      },   
+    },
   },
   Cencell: {
     "& .MuiButton-text": {
@@ -555,6 +564,10 @@ const useStyles = makeStyles({
     justifyContent:'center !important',
     fontSize:'16px !important',
     fontWeight:'500 !important',
+    "@media(max-width:320px)": {
+      fontSize:'10px !important',
+    },
+
   },
   dispensory_tab_background: {
     "& .MuiTabs-flexContainer": {

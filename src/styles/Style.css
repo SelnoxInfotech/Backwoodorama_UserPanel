@@ -84,4 +84,30 @@ iframe.iframeweedx {
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .integratedheader .store_detail_order_list {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    display: block;
+    height: 100vh;
+    background-color: #fff;
+    width: 100%;
+    padding: 15px;
+  }
+  .integratedheader .store_detail_order_list .store_detail_list {
+    display: block;
+    padding: 15px 0;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  .integratedheader .store_detail_order_list .crossbtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
 }/*# sourceMappingURL=Style.css.map */

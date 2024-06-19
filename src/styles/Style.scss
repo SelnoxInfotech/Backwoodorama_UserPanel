@@ -27,6 +27,8 @@ iframe.iframeweedx{
    -webkit-box-shadow: 0px 4px 5px -1px rgba(133,124,133,.5);
    -moz-box-shadow: 0px 4px 5px -1px rgba(133,124,133,.5);
    box-shadow: 0px 4px 5px -1px rgba(133,124,133,.5);
+
+  
 }
 .prod_cat_right_sec{
    min-height: 80vh;
@@ -84,4 +86,36 @@ iframe.iframeweedx{
    position: fixed;
    bottom: 0;
    width: 100%;
+}
+
+
+@media screen and (max-width: 768px){
+   
+   .integratedheader{
+  
+      .store_detail_order_list{
+         position: fixed;
+         left: 0;
+         top: 0;
+         z-index: 10;
+         display: block;
+         height: 100vh;
+         background-color: #fff;
+         width: 100%;
+         padding: 15px;
+         .store_detail_list{
+            display: block;
+            padding: 15px 0;
+            font-size: 18px;
+            line-height: 1.5;
+         }
+         .crossbtn{
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+         }
+      }
+   }
+
 }

@@ -427,7 +427,7 @@ export default function DispensoriesDetails(props) {
                             <React.Fragment>
                                { !location.pathname.includes('/menu-integration') && <CategoryProduct Category={category} ShowCategoryProduct={ShowCategoryProduct}> </CategoryProduct>}
                                 <div className="col-12 productCat_cont" style={{ display: "contents" }}>
-                                   <ProductFilter Store_id={Despen[0]?.id}
+                                    <ProductFilter Store_id={Despen[0]?.id}
                                         ProductFilterData={ProductFilterData}
                                         Setarr1={SetDespensariesProductData}
                                         arr={DespensariesData}
@@ -468,9 +468,6 @@ export default function DispensoriesDetails(props) {
                                 <p className="noreview_description w-lg-50">In the meantime, explore the diverse range of products available at <Link target="_blank" to={`/weed-dispensaries/${Despen[0]?.Store_Name.toLowerCase().replaceAll(" ", "-")}/${Despen[0]?.id}`}><b>{Despen[0]?.Store_Name}</b></Link>. We're constantly working to bring you the best deals, so stay tuned for upcoming promotions.</p>
                             </div>
                         }
-                        {/* {
-                                tab === 'media' && <Media></Media>
-                            } */}
                     </div>
                 </div>
             </div>

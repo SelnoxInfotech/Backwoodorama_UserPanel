@@ -138,7 +138,7 @@ export function Menuintegration_login({ open, setOpen }) {
     }, [])
 
     return (
-        <React.Fragment>
+        <div className='menuItegratedlogin'>
            
             <Dialog
                 open={open}
@@ -248,7 +248,8 @@ export function Menuintegration_login({ open, setOpen }) {
                     <Button type="submit">Subscribe</Button>
                 </DialogActions> */}
             </Dialog>
-        </React.Fragment>
+
+        </div>
     );
 }
 

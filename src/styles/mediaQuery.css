@@ -715,6 +715,10 @@
   }
 }
 @media (max-width:480px) {
+  
+  .addtocart_textfield{
+    width: 100% !important;
+  }
   .delivery_items_cards_container{
     width: 100%;
     padding: 25px 10px 10px;
@@ -1409,7 +1413,9 @@
   .Category_title {
     font-size: 12px;
   }
- 
+ .login_signup_reset_container {
+    width: 100%;
+ }
 }
 @media (max-width:408px) {
   .weedx_number_container ol li {
@@ -1483,5 +1489,8 @@
  .prod_cat_right_sec .row>*{
     padding-left: 5px  !important;
     padding-right: 5px !important;
+ }
+ .addToCartHeadingss {
+  font-size: 18px !important;
  }
 }

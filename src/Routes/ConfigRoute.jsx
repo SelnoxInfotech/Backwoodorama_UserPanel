@@ -388,9 +388,6 @@ const routesConfig = [
       {
         path: "/menu-integration/MyOrderProductDetail/:id",
         element: <RoutingList Component={MyOrderProductDetail} ></RoutingList>
-      },{
-        path: "/dummypage",
-        element: <RoutingList Component={Dummypages} ></RoutingList>
       }
     ]
   }
