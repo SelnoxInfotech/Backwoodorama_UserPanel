@@ -60,7 +60,6 @@ const   Login = () => {
                 let date = new Date();
               
                 date.setTime(date.getTime() + 60*60*24*365)
-                console.log(response?.data?.tokens.access)
                 localStorage.setItem('User_Token_access',  response?.data?.tokens?.access);
                 cookies.set('User_Token_access', response?.data?.tokens?.access, { expires: date })
                 dispatch({ type: 'Login', login: true })
