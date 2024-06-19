@@ -215,13 +215,17 @@ const NewProductDetails = () => {
   if (!StoreProduct.length) {
     return location?.pathname?.includes('/menu-integration') ? '' : <Loader/>
   }
+// console.log(Product.Product_Description)
    return (
     <div className="container-fluid">
       {Object.keys(Product).length !== 0
        &&
         <ProductDetailsSeo
          robot={ location.pathname.slice(0 ,9) === "/products" ?  "INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1" : "NOINDEX,INDEXIFEMBEDDED" }
-        Productnm={Product.Product_Name} Productname={`Buy ${Product.Product_Name} at ${Product.StoreName} on WeedX.io - Your Trusted Marketplace`} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={location.pathname} ></ProductDetailsSeo>
+         rating={Product?.rating || 0} 
+         image={Product?.images[0]?.image || "/image/weedx.io%20logo.png"}
+         Description={Product.Product_Description}
+         Productnm={Product.Product_Name} Productname={`Buy ${Product.Product_Name} at ${Product.StoreName} on WeedX.io - Your Trusted Marketplace`} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={location.pathname} ></ProductDetailsSeo>
       }
       
        <span onClick={() => { location.pathname.slice(0 ,9) === "/products" ? 
