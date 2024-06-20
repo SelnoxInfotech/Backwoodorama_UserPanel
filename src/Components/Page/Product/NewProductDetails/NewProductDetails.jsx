@@ -31,7 +31,7 @@ const NewProductDetails = () => {
     CouponMassage: "",
     DiscountType: ""
   });
-  
+
   const Params = useParams()
   const { state } = React.useContext(Createcontext)
   const navigate = useNavigate();
@@ -96,7 +96,7 @@ const NewProductDetails = () => {
     }).catch(
       function (error) {
         navigate('/404')
-    })
+      })
 
 
   }, [id])
@@ -149,7 +149,7 @@ const NewProductDetails = () => {
     formdata.append('Title', GetProductReview.Title)
     formdata.append('comment', GetProductReview.comment)
 
- 
+
     setReviewloading(true)
     Product_Add_Review(formdata).then((res) => {
       SetGetProductReview({ ...GetProductReview, 'popup': false })
@@ -213,26 +213,32 @@ const NewProductDetails = () => {
 
   const location = useLocation()
   if (!StoreProduct.length) {
-    return location?.pathname?.includes('/menu-integration') ? '' : <Loader/>
+    return location?.pathname?.includes('/menu-integration') ? '' : <Loader />
   }
-// console.log(Product.Product_Description)
-   return (
+  console.log(Product?.Prices[0]?.Price[0]?.SalePrice)
+  return (
     <div className="container-fluid">
       {Object.keys(Product).length !== 0
-       &&
+        &&
         <ProductDetailsSeo
-         robot={ location.pathname.slice(0 ,9) === "/products" ?  "INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1" : "NOINDEX,INDEXIFEMBEDDED" }
-         rating={Product?.rating || 0} 
-         image={Product?.images[0]?.image || "/image/weedx.io%20logo.png"}
-         Description={Product.Product_Description}
-         Productnm={Product.Product_Name} Productname={`Buy ${Product.Product_Name} at ${Product.StoreName} on WeedX.io - Your Trusted Marketplace`} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={location.pathname} ></ProductDetailsSeo>
+          robot={location.pathname.slice(0, 9) === "/products" ? "INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1" : "NOINDEX,INDEXIFEMBEDDED"}
+          rating={Product?.rating || 0}
+          image={Product?.images[0]?.image || "/image/weedx.io%20logo.png"}
+          category={Product.category_name}
+          Subcategorge={Product.SubcategoryName}
+          id={Product.id}
+          price={Product?.Prices[0]?.Price[0]?.SalePrice}
+          sellername={Product.StoreName}
+          Description={Product.Product_Description}
+          Productnm={Product.Product_Name} Productname={`Buy ${Product.Product_Name} at ${Product.StoreName} on WeedX.io - Your Trusted Marketplace`} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={location.pathname} ></ProductDetailsSeo>
       }
-      
-       <span onClick={() => { location.pathname.slice(0 ,9) === "/products" ? 
-       navigate(location?.state !== null ? (location?.state?.prevuisurl !== '/products' ? location?.state?.prevuisurl : '/products'): '/products')
-      : navigate(-1)
+
+      <span onClick={() => {
+        location.pathname.slice(0, 9) === "/products" ?
+        navigate(location?.state !== null ? (location?.state?.prevuisurl !== '/products' ? location?.state?.prevuisurl : '/products') : '/products')
+        : navigate(-1)
       }} className="BackPageBtn"> <AiOutlineLeft size={22} /> Back to products </span>
-      <NewProductDetailsCards link={location.pathname.slice(0 ,9) === "/products"? Product.Store_Type === "dispensary" ?  "weed-dispensaries": "weed-deliveries" :"menu-integration"} dynamicWeight={dynamicWeight} setdynamicWeight={setdynamicWeight} quentity={quentity} setquentity={setquentity} Product={Product} DiscountedValue={discount} Price={Price} SetPrice={SetPrice} />
+      <NewProductDetailsCards link={location.pathname.slice(0, 9) === "/products" ? Product.Store_Type === "dispensary" ? "weed-dispensaries" : "weed-deliveries" : "menu-integration"} dynamicWeight={dynamicWeight} setdynamicWeight={setdynamicWeight} quentity={quentity} setquentity={setquentity} Product={Product} DiscountedValue={discount} Price={Price} SetPrice={SetPrice} />
       <div className="offerlist">
         <h2 className="section_main_title">Offers</h2>
         <div className="offerlistwrapper">
@@ -256,7 +262,7 @@ const NewProductDetails = () => {
           }
         </div>
       </div>
-      <ProductSearchResult link={location.pathname.slice(0 ,9) === "/products"? "products" :"menu-integration"} RelatedProductResult={StoreProduct} currentProductID={Product.id} CategoryName={heading} />
+      <ProductSearchResult link={location.pathname.slice(0, 9) === "/products" ? "products" : "menu-integration"} RelatedProductResult={StoreProduct} currentProductID={Product.id} CategoryName={heading} />
       <Review
         delBtn={Despen}
         reviewloading={reviewloading}
