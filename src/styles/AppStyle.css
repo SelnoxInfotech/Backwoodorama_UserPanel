@@ -1392,7 +1392,7 @@ scrollbar-width: none;  /* Firefox */
 /* dispensory_menu */
 
 .dispensories_name {
-  font-size: 1.5rem;
+  font-size: 18px;
   font-weight: 700;
 }
 
@@ -1402,7 +1402,7 @@ scrollbar-width: none;  /* Firefox */
 }
 
 .dispensories_city {
-  font-size: 1.5rem;
+  font-size: 16px;
   color: rgb(96, 100, 111);
   font-weight: 400;
   margin-left: 10px;
@@ -5419,10 +5419,20 @@ padding: 5px 0;
 }
 .headerBoxdescription{
   border: 1px solid #e7e7e7;
-  border-radius: 12px;
-  padding: 20px;
-  margin: 20px 0;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px 0;
   background-color: #f9f9f9;
+}
+.headerBoxdescription p{
+  font-size: 14px;
+  font-weight: 400;
+  color: #777777;
+}
+.headerBoxdescription h1{
+  font-size: 24px;
+  font-weight: 400;
+  color: #777777;
 }
 .nodatafoundcontainer h3{
    font-size: 20px;

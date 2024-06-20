@@ -186,27 +186,28 @@ export default function Dispansires() {
     return (
         <div className="row  dispensaries_centers">
             <div className="col-12 col-sm-12">
-                <div style={{cursor:"pointer"}}>
-
-                    <span onClick={() => navigate("/")}>{"Home"}</span>
-                    {Boolean(state.Country) && <span> {">"} <span onClick={() => breadcrumCountry("Country")}>{state.Country}</span></span>}
-                    {Boolean(state.State) && <span> {">"} <span onClick={() => breadcrumCountry("Country", "state")}>{state.State}</span></span>}
-                    {Boolean(state.City) && <span> {">"} <span onClick={() => breadcrumCountry("Country", "state", "City")}>{state.City}</span></span>}
-                    {Boolean(state.route) && <span> {">"} <span>{state.route}</span></span>}
-                </div>
+                
 
 
 
                 <div className="headerBoxdescription">
+                <div style={{cursor:"pointer"}}>
+
+<span onClick={() => navigate("/")}>{"Home"}</span>
+{Boolean(state.Country) && <span> {">"} <span onClick={() => breadcrumCountry("Country")}>{state.Country}</span></span>}
+{Boolean(state.State) && <span> {">"} <span onClick={() => breadcrumCountry("Country", "state")}>{state.State}</span></span>}
+{Boolean(state.City) && <span> {">"} <span onClick={() => {Boolean(state.route) &&breadcrumCountry("Country", "state", "City")}}>{state.City}</span></span>}
+{Boolean(state.route) && <span> {">"} <span>{state.route}</span></span>}
+</div>
                     {DispensorShopLocation?.map((ele, index) => {
                         return (
                             <div key={index}>
 
-                                <h1 className=" lh-1 m-0"> <span className="dispensories_name">{ele.name}</span> <span className="dispensories_city">{ele.city}</span></h1>
+                                <h1 className="m-0"> <span className="dispensories_name">{ele.name}</span> <span className="dispensories_city">{ele.city}</span></h1>
                             </div>
                         )
                     })}
-                    <p>{`Find Nearby Dispensaries in ${state?.Location} for Recreational & Medical weed. Browse Top Cannabis Products and Place Orders from Trusted Local Dispensaries.`}</p>
+                    <p className="m-0">{`Find Nearby Dispensaries in ${state?.Location} for Recreational & Medical weed. Browse Top Cannabis Products and Place Orders from Trusted Local Dispensaries.`}</p>
                 </div>
             </div>
             <div className="col-12 col-sm-12 dispensory_menu my-2">

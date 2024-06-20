@@ -103,20 +103,20 @@ const Deliveries = () => {
         if (Boolean(city)) {
             dispatch({ type: 'route', route: "" })
             dispatch({ type: 'Location', Location: state.City })
-            navigate(`/weed-deliveries-/in/${modifystr(state.Country.toLowerCase())}/${modifystr(state.State.toLowerCase())}/${modifystr(state.City.toLowerCase())}`)
+            navigate(`/weed-deliveries/in/${modifystr(state.Country.toLowerCase())}/${modifystr(state.State.toLowerCase())}/${modifystr(state.City.toLowerCase())}`)
         }
         else if (Boolean(state1)) {
             dispatch({ type: 'Location', Location: state.State })
             dispatch({ type: 'City', City: "" })
             dispatch({ type: 'route', route: "" })
-            navigate(`/weed-deliveries-/in/${modifystr(state.Country)}/${modifystr(state?.State)}`)
+            navigate(`/weed-deliveries/in/${modifystr(state.Country)}/${modifystr(state?.State)}`)
         }
         else if (Boolean(country)) {
             dispatch({ type: 'State', State: "" })
             dispatch({ type: 'City', City: "" })
             dispatch({ type: 'route', route: "" })
             dispatch({ type: 'Location', Location: state.Country })
-            navigate(`/weed-deliveries-/in/${modifystr(state.Country.toLowerCase())}/`)
+            navigate(`/weed-deliveries/in/${modifystr(state.Country.toLowerCase())}/`)
         }
 
     }
@@ -127,17 +127,17 @@ const Deliveries = () => {
                 <span onClick={() => navigate("/")}>{"Home"}</span>
                 {Boolean(state.Country) && <span> {">"} <span onClick={() => breadcrumCountry("Country")}>{state.Country}</span></span>}
                 {Boolean(state.State) && <span> {">"} <span onClick={() => breadcrumCountry("Country", "state")}>{state.State}</span></span>}
-                {Boolean(state.City) && <span> {">"} <span onClick={() => breadcrumCountry("Country", "state", "City")}>{state.City}</span></span>}
+                {Boolean(state.City) && <span> {">"} <span onClick={() => {Boolean(state.route) && breadcrumCountry("Country", "state", "City")}}>{state.City}</span></span>}
                 {Boolean(state.route) && <span> {">"} <span>{state.route}</span></span>}
 
             </div>
             <div className="container-fluid">
                 <div className="row  deliveries_centers">
                     <div className="headerBoxdescription">
-                        <h1 className="m-0 lh-1">
+                        <h1 className="m-0">
                             <span className="dispensories_name">Weed Delivery In </span>
                             <span className="dispensories_city">{state.Location}</span></h1>
-                        <p>{`Find Nearby Weed Delivery in  ${state.Location}  for Recreational & Medical Uses. Browse Top Cannabis Products and Place Orders from Trusted weed delivery near you.`}</p>
+                        <p className="m-0">{`Find Nearby Weed Delivery in  ${state.Location}  for Recreational & Medical Uses. Browse Top Cannabis Products and Place Orders from Trusted weed delivery near you.`}</p>
 
                     </div>
 

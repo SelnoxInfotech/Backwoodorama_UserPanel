@@ -30,7 +30,7 @@ const ProductList = ({ arr , link="products" }) => {
   const [CartClean, SetCartClean] = React.useState(false);
   const [adding, setadding] = React.useState('')
   const [popup, SetPopup] = React.useState(true)
-  const [showdata, setShowdata] = React.useState([]);
+  const [showdata, setShowdata] = React.useState( 'No');
   let token_data = cookies.get("User_Token_access");
   let accessToken = localStorage.getItem('User_Token_access');
   if(  Boolean(accessToken) ){ token_data  =  accessToken}
@@ -404,7 +404,7 @@ const ProductList = ({ arr , link="products" }) => {
   },[])
   return (
     <>
-      {(showdata?.length !== 0 && typeof (showdata) !== "string") ? (
+      {(showdata?.length !== 0 && typeof(showdata) !== "string") ? (
         !state?.Loading ? (
           <React.Fragment>
             <div
@@ -583,8 +583,9 @@ const ProductList = ({ arr , link="products" }) => {
           <DispensoriesAddressSkeleton/>
         )
       ) : (
-        <div className="col-12 center ">
-          <p>No Product</p>
+        <div className="col-12  ">
+          {/* <p>No Product</p> */}
+          <DispensoriesAddressSkeleton/> 
         </div>
       )}
     </>
