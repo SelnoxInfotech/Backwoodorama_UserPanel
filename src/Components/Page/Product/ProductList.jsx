@@ -24,7 +24,7 @@ import DispensoriesAddressSkeleton from "../../Component/Skeleton/DashBoardSkele
 const ProductList = ({ arr , link="products" }) => {
   const cookies = new Cookies();
   const [page, setPage] = React.useState(1);
-
+  const [productperpage, setproductperPage] = React.useState(8);
   const Navigate = useNavigate();
   const location = useLocation()
   const [CartClean, SetCartClean] = React.useState(false);
@@ -331,12 +331,6 @@ const ProductList = ({ arr , link="products" }) => {
   React.useEffect(() => {
     localStorage.setItem("items", JSON.stringify(AddTOCard));
   }, [AddTOCard]);
-  async function PriceSelect(Product, Item) {
-    SetPrice((Price) => {
-      return Price.filter((Price) => Price.Product_id !== Product);
-    });
-    SetPrice((Price) => [...Price, { Product_id: Product, Item_id: Item }]);
-  }
   const classes = useStyles();
   const handleWhishList = (id) => {
     if (state.login === false) {
@@ -382,10 +376,8 @@ const ProductList = ({ arr , link="products" }) => {
   const pagechanges = (event, value) => {
       setPage(value);
       window.scrollTo({top: 0, left: 0})
-      let assa = showdata.slice((value*8)-8, value*8)
+      let assa = showdata.slice((value*productperpage)-productperpage, value*productperpage)
       setpaginateddata(assa)
-    
-   
   };
   React.useEffect(() => {
     let newdata = arr.filter((item) => {
@@ -396,13 +388,20 @@ const ProductList = ({ arr , link="products" }) => {
     })
     setShowdata(newdata.concat(newdata2))
     if(location.pathname.includes('/menu-integration')){
-    let assa = newdata.concat(newdata2).slice(0,8)
+    let assa = newdata.concat(newdata2).slice(0,productperpage)
     setpaginateddata(assa)
     }else{
       setpaginateddata(newdata.concat(newdata2))
     }
   }, [arr]);
-
+  React.useEffect(()=>{
+    let width= window.innerWidth
+    if(width>=1400){
+      setproductperPage(8)
+    }else if(width > 992  && width <1400){
+      setproductperPage(6)
+    }
+  },[])
   return (
     <>
       {(showdata?.length !== 0 && typeof (showdata) !== "string") ? (
@@ -415,7 +414,7 @@ const ProductList = ({ arr , link="products" }) => {
               {paginateddata?.map((ele, index) => {
                 return (
                   <div
-                    className={location.pathname.includes('/menu-integration') ? "col-6 col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12  "  :"col-6 col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12 "}
+                    className={location.pathname.includes('/menu-integration') ? "col-6 col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6  "  :"col-6 col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 "}
                     key={index}
                   >
                     <div className="prod_inner_cont  product_inner_row" >
@@ -572,7 +571,7 @@ const ProductList = ({ arr , link="products" }) => {
                 );
               })}
             {
-              (showdata.length > 8 && location.pathname.includes('/menu-integration')) && <div className="d-flex justify-content-center"><Pagination count={showdata.length%8===0?parseInt(showdata.length/8):(parseInt(showdata.length/8)+1)} page={page} onChange={pagechanges} /></div>
+              (showdata.length > productperpage && location.pathname.includes('/menu-integration')) && <div className="d-flex justify-content-center"><Pagination count={showdata.length%productperpage===0?parseInt(showdata.length/productperpage):(parseInt(showdata.length/productperpage)+1)} page={page} onChange={pagechanges} /></div>
             }
             </div>
             {Whishlist && (
@@ -581,12 +580,11 @@ const ProductList = ({ arr , link="products" }) => {
             <PreCheckout />
           </React.Fragment>
         ) : (
-          <Loader/>
+          <DispensoriesAddressSkeleton/>
         )
       ) : (
-        <div className="col-12 ">
-          {/* <p>No Product</p> */}
-          <DispensoriesAddressSkeleton/>
+        <div className="col-12 center ">
+          <p>No Product</p>
         </div>
       )}
     </>

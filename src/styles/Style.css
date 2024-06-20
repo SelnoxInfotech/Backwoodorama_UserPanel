@@ -27,7 +27,13 @@ iframe.iframeweedx {
 }
 
 .prod_cat_right_sec {
-  min-height: 80vh;
+  height: 800px;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.prod_cat_right_sec::-webkit-scrollbar {
+  display: none;
 }
 
 .similerproduxt {
@@ -81,8 +87,6 @@ iframe.iframeweedx {
 .integratedmanuFooter {
   background-color: #F6F6F6;
   padding: 12px 0;
-  position: fixed;
-  bottom: 0;
   width: 100%;
 }
 
