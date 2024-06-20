@@ -383,13 +383,10 @@ app.post('/weed-deliveries/upload-csv', upload.single('csvFile'), async (req, re
     res.status(500).send('Internal Server Error');
   }
 });
-
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
-
 // Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-
 });
