@@ -2,10 +2,45 @@ import { Helmet } from "react-helmet-async"
 import { useLocation, useParams } from "react-router-dom"
 import React from "react"
 function StoreDetails({ Despen, locationStore  }) {
+    console.log(Despen[0])
     const [MetaTag, SetMetaTag] = React.useState({ title: "", discription: "" })
     const location = useLocation()
     const params = useParams()
-    const { tab, Category, SubCategory } = params
+    const { tab, Category, SubCategory } = params;
+    const reviewSchema = {
+        "@context": "https://schema.org",
+        "@type": "store",
+        "name": Despen[0].Store_Name,
+        "image": Despen[0].Store_Image,
+        "sku": "0",
+        "mpn": "0",
+        "description":Despen[0].Stores_Description.replace(/<\/?[^>]+(>|$)/g, ""),
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": Despen[0].Store_Address,
+            "addressLocality": Despen[0].City,
+            "addressRegion": Despen[0].State,
+            "addressCountry": Despen[0].Country
+        },
+        "review": {
+            "@type": "Review",
+            "reviewRating": {
+                "@type": "Rating",
+                "bestRating": Boolean(Despen[0].rating) ? Despen[0].rating.toString():0,
+                "ratingValue": Boolean(Despen[0].rating) ? Despen[0].rating.toString():0
+            },
+            "author": {
+                "@type": "Person",
+                "name": "weedx"
+            }
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingCount":Boolean(Despen[0].TotalRating) ? Despen[0].TotalRating.toString():0,
+            "ratingValue": Boolean(Despen[0].rating) ? Despen[0].rating.toString():0
+        }
+    };
+
     React.useEffect(() => {
         if (location.pathname.slice(0, 16) !== "/weed-deliveries") {
             if (tab === undefined) {
@@ -168,6 +203,9 @@ function StoreDetails({ Despen, locationStore  }) {
             <meta name="twitter:card" content={"Marijuana Dispensaries & Delivery Near Me"} />
             <meta name="twitter:title" content={MetaTag.title} />
             <meta name="twitter:description" content={MetaTag.discription} />
+           {Despen[0].TotalRating !== 0 &&  <script type="application/ld+json">
+                {JSON.stringify(reviewSchema)}
+            </script>}
         </Helmet>
     )
 }

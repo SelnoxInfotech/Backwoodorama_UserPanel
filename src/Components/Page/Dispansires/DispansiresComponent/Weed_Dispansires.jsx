@@ -35,7 +35,6 @@ const Weed_Dispansires = ({ Store, SetStore, searchtext, setsearchtext, contentd
 
 
                         {Store?.map((ele, index) => {
-console.log(ele)
                             return (
                                 <div key={index}>
                                     <Dispensoriescart index={index} ele={ele} />
