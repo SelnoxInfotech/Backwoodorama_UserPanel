@@ -26,18 +26,18 @@ function ProductDetailsSeo({ Productname, Productnm, ProductCategory, StoreName,
             "@type": "Review",
             "reviewRating": {
                 "@type": "Rating",
-                "bestRating": rating.toString(),
-                "ratingValue": rating.toString()
+                "bestRating":rating.toString(),
+                "ratingValue":rating.toString()
             },
             "author": {
-                "@type": "Person",
-                "name": "weedx"
+                "@type":"Person",
+                "name":"weedx"
             }
         },
         "aggregateRating": {
             "@type": "AggregateRating",
             "ratingCount":rating.toString(),
-            "ratingValue": rating.toString()
+            "ratingValue":rating.toString()
         }
     };
 
