@@ -396,6 +396,8 @@ export default function DispensoriesDetails(props) {
             }
         }
     }
+    console.log(DespensariesData ,'DespensariesData')
+
     return (
         <div>{
             !Despen.length ? <Loader /> : <div>
