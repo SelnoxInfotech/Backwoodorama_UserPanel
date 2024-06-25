@@ -7,22 +7,21 @@ const Neighborhood = () => {
     const [AllCity, SetAllCity] = React.useState([])
 
     React.useEffect(() => {
-           console.log(state , Boolean(state.citycode) , state.havecity)
         if (Boolean(state.havecity)) {
-             axios.get(`https://nominatim.openstreetmap.org/search`, {
+            axios.get(`https://nominatim.openstreetmap.org/search`, {
                 params: {
-                  city: state.City,
-                  format: 'json',
-                  limit: 50
-                }}).then((res)=>{
-                    console.log(res.data , "SADasds")
-          SetAllCity(res.data)
-                })
+                    city: state.City,
+                    format: 'json',
+                    limit: 50
+                }
+            }).then((res) => {
+                console.log(res.data, "SADasds")
+                SetAllCity(res.data)
+            })
         }
         else {
-            if (Boolean(state.statecode)) { SetAllCity(City.getCitiesOfState(state.countrycode, state.statecode)) }
+            if (Boolean(state.havestate)) { SetAllCity(City.getCitiesOfState(state.countrycode, state.statecode)) }
             else {
-                console.log(State.getStatesOfCountry(state.countrycode) ,  "city")
                 SetAllCity(State.getStatesOfCountry(state.countrycode))
             }
 
@@ -36,7 +35,7 @@ const Neighborhood = () => {
         <div className='d-flex flex-wrap ' style={{ gap: "5px" }}>
             {
                 AllCity?.map((data) => {
-                    return <p> { data.display_name || data.name} |</p>
+                    return <p> {data.display_name || data.name} |</p>
                 })
             }
 

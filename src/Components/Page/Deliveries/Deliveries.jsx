@@ -20,6 +20,7 @@ import { GetAllDelivery } from "../../../Api/Api"
 import Wronglocation from "../../Component/Skeleton/Wronglocation"
 import Loader from "../../Component/Loader/Loader";
 import Neighborhood from "../Dispansires/DispansiresComponent/loactoncomponent/Neighborhood";
+import Zipcode from "../Dispansires/DispansiresComponent/loactoncomponent/Zipcode";
 const Deliveries = () => {
     const { state, dispatch } = React.useContext(Createcontext)
     const Location = useLocation()
@@ -234,8 +235,8 @@ const Deliveries = () => {
                                     <h3>Neighborhood Locations Near {state.Location}:</h3>
                                  <Neighborhood></Neighborhood>
 
-                                    {/* <h3>Zip Codes in {state.Location} Area:</h3>
-                                    <p> Zip Code 1 | Zip Code 2 </p>
+                                    <h3>Zip Codes in {state.Location} Area:</h3>
+                                 <Zipcode></Zipcode>
 
                                     <h3>Popular Searches in {state.Location}</h3>
                                     <ul>
@@ -245,7 +246,7 @@ const Deliveries = () => {
                                         <li>Delivery Services in {state.Location} Open Late</li>
                                         <li>Medical Cannabis Delivery Services in {state.Location}</li>
                                         <li>Recreational Cannabis Delivery Services in {state.Location}</li>
-                                    </ul> */}
+                                    </ul>
 
                                 </div>
                             </div>}
