@@ -59,7 +59,16 @@ const initialUser = {
     // Delvery Price
     DeliveryPrice: "",
     MinimumOrderPrice: "",
-    Embeddedstore:[]
+    Embeddedstore:[],
+//   Neighborhood Locations and zip code 
+      havecity : false,
+      havestate: false,
+      havecountry : false ,
+      countrycode:"",
+      citycode:"",
+      statecode:"",
+
+
 
 }
 

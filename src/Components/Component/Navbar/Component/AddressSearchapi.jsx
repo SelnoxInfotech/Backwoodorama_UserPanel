@@ -42,44 +42,47 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
       var ci
       var route
       const object = {}
-
+      const short = {}
       placeDetails?.address_components.map((data) => {
         let l = data.types[0] === "political" ? data.types[1] : data.types[0]
         object[l] = data.long_name
+        short[l] = data?.short_name
       })
-
       if (Boolean(object.country)) {
         Coun = object.country.replace(/\s/g, '-');
         dispatch({ type: 'Country', Country: Coun });
+        dispatch({ type: 'countrycode', countrycode: short.country });
       }
       else if (Object.keys(object).length === 1) {
         Coun = Object.values(object)[0].replace(/\s/g, '-');
         dispatch({ type: 'Country', Country: Coun });
+        dispatch({ type: 'countrycode', countrycode: short.country });
       }
-
       if (Boolean(object.administrative_area_level_1)) {
-
         sta = object.administrative_area_level_1.replace(/\s/g, '-');
         dispatch({ type: 'State', State: sta });
-
+        dispatch({ type: 'statecode', statecode: short.administrative_area_level_1 });
       }
       if (Boolean(object.administrative_area_level_3) || Boolean(object.establishment) || Boolean(object.locality) || Boolean(object.sublocality) || Boolean(object.administrative_area_level_2)) {
-
         if (Boolean(object.administrative_area_level_3)) {
           ci = object.administrative_area_level_3.replace(/\s/g, '-')
           dispatch({ type: 'City', City: ci })
+          dispatch({ type: 'citycode', citycode: short.administrative_area_level_3});
         }
         if (Boolean(object.sublocality) && Boolean(object.locality)) {
           ci = object.sublocality.replace(/\s/g, '-')
           dispatch({ type: 'City', City: ci })
+          dispatch({ type: 'citycode', citycode: short.sublocality});
         }
         else if (Boolean(object.locality)) {
           ci = object.locality.replace(/\s/g, '-')
           dispatch({ type: 'City', City: ci })
+          dispatch({ type: 'citycode', citycode: short.locality});
         }
         else if (Object.keys(object).length !== 1 && Boolean(object.establishment)) {
           ci = object.establishment.replace(/\s/g, '-')
           dispatch({ type: 'City', City: ci })
+          dispatch({ type: 'citycode', citycode: short.establishment});
         }
         else if (Boolean(object.sublocality_level_1)) {
           ci = object.sublocality_level_1.replace(/\s/g, '-')
@@ -89,20 +92,24 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
         if (Boolean(object.sublocality_level_1) && Boolean(object.locality)) {
           ci = object.sublocality_level_1.replace(/\s/g, '-')
           dispatch({ type: 'City', City: ci })
+          dispatch({ type: 'citycode', citycode: short.sublocality_level_1});
         }
         if (Boolean(object.sublocality_level_1) && Boolean(object.locality)) {
           ci = object.sublocality_level_1.replace(/\s/g, '-')
           dispatch({ type: 'City', City: ci })
+          dispatch({ type: 'citycode', citycode: short.sublocality_level_1});
         }
         if ((Boolean(object.administrative_area_level_3) && Boolean(object.locality)) && (Boolean(object.administrative_area_level_1) && Boolean(object.locality))) {
           ci = object.locality.replace(/\s/g, '-')
           dispatch({ type: 'City', City: ci })
+          dispatch({ type: 'citycode', citycode: short.locality});
         }
         else {
           if (!Boolean(object.administrative_area_level_3) && !Boolean(object.establishment) && !Boolean(object.locality) && !Boolean(object.sublocality) && Boolean(object.administrative_area_level_2)) {
             if (!ci) {
               ci = object.administrative_area_level_2.replace(/\s/g, '-')
               dispatch({ type: 'City', City: ci })
+              dispatch({ type: 'citycode', citycode: short.administrative_area_level_2});
             }
           }
         }
@@ -136,6 +143,7 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
       if (ci !== undefined && sta !== undefined && Coun !== undefined && route !== undefined) {
         window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}/${route?.toLowerCase()}`)
         window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}/${route?.toLowerCase()}`)
+        dispatch({ type: 'havecity', havecity: true });
 
       }
       else {
@@ -143,17 +151,22 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
           dispatch({ type: 'route', route: '' });
           window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
           window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
-
+          dispatch({ type: 'havecity', havecity: true });
         }
         else if (Coun !== undefined && sta !== undefined) {
           dispatch({ type: 'route', route: '' });
           window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}`)
           window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}/${sta?.toLowerCase()}`)
+          dispatch({ type: 'havestate', havestate: true });
+          dispatch({ type: 'havecity', havecity: false });
         }
         else if (Coun !== undefined) {
           dispatch({ type: 'route', route: '' });
           window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${Coun?.toLowerCase()}`)
           window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate(`weed-deliveries/in/${Coun?.toLowerCase()}`)
+          dispatch({ type: 'havecountry', havecountry: true });
+          dispatch({ type: 'havestate', havestate: false });
+          dispatch({ type: 'havecity', havecity: false });
         }
         // else if (Coun === undefined) {
         //   window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate(`weed-dispensaries/in/${route?.toLowerCase()}`)

@@ -153,9 +153,37 @@ const reducer = (state, action) => {
       {
         return { ...state, MinimumOrderPrice: action.MinimumOrderPrice }
       }
-      case "Embeddedstore":
+    case "Embeddedstore":
+      {
+        return { ...state, Embeddedstore: action.Embeddedstore }
+      }
+    case "havecountry":
+      {
+        return { ...state, havecountry: action.havecountry }
+      }
+
+    case "havestate":
+      {
+        return { ...state, havestate: action.havestate }
+      }
+
+    case "havecity":
+      {
+        return { ...state, havecity: action.havecity }
+      }
+      case "countrycode":
         {
-          return { ...state, Embeddedstore: action.Embeddedstore }
+          return { ...state, countrycode: action.countrycode }
+        }
+  
+      case "citycode":
+        {
+          return { ...state, citycode: action.citycode }
+        }
+  
+      case "statecode":
+        {
+          return { ...state, statecode: action.statecode }
         }
   
 

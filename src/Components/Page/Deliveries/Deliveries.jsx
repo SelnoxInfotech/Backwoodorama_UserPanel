@@ -19,6 +19,7 @@ import { Delivery } from '../../Component/ScoPage/Deliveries';
 import { GetAllDelivery } from "../../../Api/Api"
 import Wronglocation from "../../Component/Skeleton/Wronglocation"
 import Loader from "../../Component/Loader/Loader";
+import Neighborhood from "../Dispansires/DispansiresComponent/loactoncomponent/Neighborhood";
 const Deliveries = () => {
     const { state, dispatch } = React.useContext(Createcontext)
     const Location = useLocation()
@@ -231,9 +232,9 @@ const Deliveries = () => {
                                        </ul>
                                     }
                                     <h3>Neighborhood Locations Near {state.Location}:</h3>
-                                    <p> Nearby Location 1 | Nearby Location 2 | Nearby Location 3 </p>
+                                 <Neighborhood></Neighborhood>
 
-                                    <h3>Zip Codes in {state.Location} Area:</h3>
+                                    {/* <h3>Zip Codes in {state.Location} Area:</h3>
                                     <p> Zip Code 1 | Zip Code 2 </p>
 
                                     <h3>Popular Searches in {state.Location}</h3>
@@ -244,7 +245,7 @@ const Deliveries = () => {
                                         <li>Delivery Services in {state.Location} Open Late</li>
                                         <li>Medical Cannabis Delivery Services in {state.Location}</li>
                                         <li>Recreational Cannabis Delivery Services in {state.Location}</li>
-                                    </ul>
+                                    </ul> */}
 
                                 </div>
                             </div>}
