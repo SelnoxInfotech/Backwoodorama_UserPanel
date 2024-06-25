@@ -56,7 +56,7 @@ function Embedded({ Despen, locationStore  }) {
                         break;
                     case 'deal':
                         SetMetaTag({
-                            ...MetaTag, title: `Weed dispensary in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name}| ${tab.replace("-", " ")} | Weedx.io`,
+                            ...MetaTag, title: `Weed dispensary in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name}| ${tab.replace("-", " ")}| Deals | Weedx.io`,
                             discription: `Best deals from ${Despen[0]?.Store_Name} marijuana dispensary in ${Despen[0]?.City}, ${Despen[0]?.State}. Get the best deals, offers and discounts on your favorite cannabis products.`
                         })
                         break;
@@ -120,8 +120,8 @@ function Embedded({ Despen, locationStore  }) {
                         break;
                     case 'review':
                         SetMetaTag({
-                            ...MetaTag, title: `${Despen[0]?.Legal_Store_Name !== null ? Despen[0]?.Legal_Store_Name : 'Weedx.io'} Reviews | weedx.io `,
-                            discription: `Discover reviews for  ${Despen[0]?.Legal_Store_Name} dispensary and delivery service on WeedX.io. Read user feedback, ratings, and experiences to find the best cannabis products and services near you.`
+                            ...MetaTag, title: `${Despen[0]?.Store_Name !== null ? Despen[0]?.Store_Name : 'Weedx.io'} Reviews | weedx.io `,
+                            discription: `Discover reviews for  ${Despen[0]?.Store_Name} dispensary and delivery service on WeedX.io. Read user feedback, ratings, and experiences to find the best cannabis products and services near you.`
                         })
                         break;
                     case 'deal':

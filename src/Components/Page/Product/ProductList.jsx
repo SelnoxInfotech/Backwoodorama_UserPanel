@@ -583,9 +583,9 @@ const ProductList = ({ arr , link="products" }) => {
           <DispensoriesAddressSkeleton/>
         )
       ) : (
-        <div className="col-12  ">
-          {/* <p>No Product</p> */}
-          <DispensoriesAddressSkeleton/> 
+        <div className="col-12 center  ">
+          <p>No Product</p>
+          {/* <DispensoriesAddressSkeleton/>  */}
         </div>
       )}
     </>

@@ -54,7 +54,7 @@ const NewsBlog = () => {
                     <div className="blogs_card_slider">
                         <ScrollContainer className="ScrollContainerRelative">
                            
-                                {News?.map((ele, index) => {
+                                {News?.slice(1,8)?.map((ele, index) => {
                                   
                                     return (
                                         <Link to={`/${ ele.Category_Name==='BLOGS'? "blogs":'cannabis-news'}/${modifystr(ele.Title.replace(/ /g, "-").replace("?", "").toLowerCase())}/${ele.id}`} key={index}> 

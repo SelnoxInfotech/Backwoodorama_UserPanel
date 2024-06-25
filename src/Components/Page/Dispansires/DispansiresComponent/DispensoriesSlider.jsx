@@ -115,7 +115,7 @@ const Dispensories = () => {
                   { Boolean(Store.length)? <div className="col-12 mt-3  recentViewProductSlider" id="width" ref={ref}>
                         <ScrollContainer className="ScrollContainerRelative">
 
-                            {Store?.map((ele, index) => {
+                            {Store?.slice(1,7)?.map((ele, index) => {
                                 return (
 
                                     <div className='dispensoriesContainer' key={index}>

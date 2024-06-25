@@ -24,6 +24,7 @@ import Loader from "../../../Component/Loader/Loader";
 import { Embedded } from "../../../Component/ScoPage/Embedded";
 import Menuintregrate from "../../StoreDetail/StoreDetailComponent/Menuintregrate";
 import { useLoaderData } from 'react-router-dom';
+import DispensoriesAddressSkeleton from "../../../Component/Skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton";
 export default function DispensoriesDetails(props) {
     const  data  = useLoaderData();
     const navigate = useNavigate()
@@ -425,7 +426,8 @@ export default function DispensoriesDetails(props) {
                         {
                             (tab === 'menu' || tab === undefined) &&
                             <React.Fragment>
-                               { !location.pathname.includes('/menu-integration') && <CategoryProduct Category={category} ShowCategoryProduct={ShowCategoryProduct}> </CategoryProduct>}
+                             {Boolean(DespensariesData.length) ?<> {!location.pathname.includes('/menu-integration') && 
+                                <CategoryProduct Category={category} ShowCategoryProduct={ShowCategoryProduct}> </CategoryProduct>}
                                 <div className="col-12 productCat_cont" style={{ display: "contents" }}>
                                     <ProductFilter Store_id={Despen[0]?.id}
                                         ProductFilterData={ProductFilterData}
@@ -436,6 +438,8 @@ export default function DispensoriesDetails(props) {
                                         <ProductList arr={DespensariesData}  link={Boolean(location.pathname.slice(0, 18) === "/weed-dispensaries" || location.pathname.slice(0, 16) === "/weed-deliveries") ?"products" :"menu-integration"}/>
                                     </div>
                                 </div>
+                                </>:
+                                <DispensoriesAddressSkeleton/>}
                             </React.Fragment>
                         }
                         {

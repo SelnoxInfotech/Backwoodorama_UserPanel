@@ -191,14 +191,14 @@ export default function Dispansires() {
 
 
                 <div className="headerBoxdescription">
-                <div style={{cursor:"pointer"}}>
+                   <div style={{cursor:"pointer"}}>
 
-<span onClick={() => navigate("/")}>{"Home"}</span>
-{Boolean(state.Country) && <span> {">"} <span onClick={() => breadcrumCountry("Country")}>{state.Country}</span></span>}
-{Boolean(state.State) && <span> {">"} <span onClick={() => breadcrumCountry("Country", "state")}>{state.State}</span></span>}
-{Boolean(state.City) && <span> {">"} <span onClick={() => {Boolean(state.route) &&breadcrumCountry("Country", "state", "City")}}>{state.City}</span></span>}
-{Boolean(state.route) && <span> {">"} <span>{state.route}</span></span>}
-</div>
+                        <span onClick={() => navigate("/")}>{"Home"}</span>
+                        {Boolean(state.Country) && <span> {">"} <span onClick={() => breadcrumCountry("Country")}>{state.Country}</span></span>}
+                        {Boolean(state.State) && <span> {">"} <span onClick={() => breadcrumCountry("Country", "state")}>{state.State}</span></span>}
+                        {Boolean(state.City) && <span> {">"} <span onClick={() => {Boolean(state.route) &&breadcrumCountry("Country", "state", "City")}}>{state.City}</span></span>}
+                        {Boolean(state.route) && <span> {">"} <span>{state.route}</span></span>}
+                    </div>
                     {DispensorShopLocation?.map((ele, index) => {
                         return (
                             <div key={index}>
