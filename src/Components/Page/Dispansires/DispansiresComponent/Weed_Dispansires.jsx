@@ -1,4 +1,4 @@
-import { useLocation, Link } from "react-router-dom";
+import { useLocation , Link } from "react-router-dom";
 import React, { useContext } from "react";
 import Dispensoriescart from './Dispensoriescart'
 import Accordion from '@mui/material/Accordion';
@@ -7,39 +7,36 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { DispensariesSco } from "../../../Component/ScoPage/DispensariesSco"
 import Createcontext from "../../../../Hooks/Context";
-import  WebContent  from "../DispansiresComponent/Webcontent"
-const Weed_Dispansires = ({ Store, searchtext, setsearchtext, contentdata }) => {
-    const { state } = useContext(Createcontext)
+
+const Weed_Dispansires = ({ Store,searchtext, setsearchtext, contentdata }) => { 
+  
+    const {state} = useContext(Createcontext)
     const locaton = useLocation();
     function modifystr(str) {
-        if(typeof str !=='string') {
-
-        }
-        else{
-            str = str?.replace(/[^a-zA-Z0-9/ ]/g, "-");
-        str = str?.trim().replaceAll(' ', "-");
+        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str.trim().replaceAll(' ', "-");
         let a = 0;
         while (a < 1) {
-            if (str?.includes("--")) {
-                str = str?.replaceAll("--", "-")
-            } else if (str?.includes("//")) {
-                str = str?.replaceAll("//", "/")
-            } else if (str?.includes("//")) {
-                str = str?.replaceAll("-/", "/")
-            } else if (str?.includes("//")) {
-                str = str?.replaceAll("/-", "/")
-            } else {
-                a++
-            }
+          if (str.includes("--")) {
+            str = str.replaceAll("--", "-")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("//", "/")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("-/", "/")
+          } else if (str.includes("//")) {
+            str = str.replaceAll("/-", "/")
+          } else {
+            a++
+          }
         }
-
+    
         return str
-        }
     }
-
+    React.useEffect(()=>{
+      
+    },[Store])
     return (
         <React.Fragment>
-
             <DispensariesSco location={locaton?.pathname}></DispensariesSco>
             <div className="container">
                 <div className="row">
@@ -74,32 +71,31 @@ const Weed_Dispansires = ({ Store, searchtext, setsearchtext, contentdata }) => 
                         <div dangerouslySetInnerHTML={{ __html: contentdata?.Content }} />
                     </div>
                     {contentdata.length !== 0 &&
-                        contentdata?.Faq[0]?.title !== '' &&
-                        <>  <h3 className="section_main_title">FAQs</h3>
+                    contentdata?.Faq[0]?.title !== '' &&
+                    <>  <h3 className="section_main_title">FAQs</h3>
 
-                            <div className="row">
-                                {
-                                    contentdata?.Faq?.map((item) => {
-                                        return <div className="col-lg-6 webContent my-2"> <Accordion>
-                                            <AccordionSummary
-                                                expandIcon={<ExpandMoreIcon />}
-                                                aria-controls="panel1-content"
-                                                id="panel1-header"
-                                            >
-                                                <h3 >{item.title}</h3>
-                                            </AccordionSummary>
-                                            <AccordionDetails>
-                                                <p>{item.answer}</p>
-                                            </AccordionDetails>
-                                        </Accordion></div>
-                                    })
-                                }
+                        <div className="row">
+                            {
+                                contentdata?.Faq?.map((item) => {
+                                    return <div className="col-lg-6 webContent my-2"> <Accordion>
+                                        <AccordionSummary
+                                            expandIcon={<ExpandMoreIcon />}
+                                            aria-controls="panel1-content"
+                                            id="panel1-header"
+                                        >
+                                            <h3 >{item.title}</h3>
+                                        </AccordionSummary>
+                                        <AccordionDetails>
+                                            <p>{item.answer}</p>
+                                        </AccordionDetails>
+                                    </Accordion></div>
+                                })
+                            }
 
-                            </div></>}
- <WebContent modifystr={modifystr} Store={Store} state={state}></WebContent>
+                        </div></>}
 
 
-                        <div className="col-12 webContent">
+                            <div className="col-12 webContent"> 
                                 <h2 className="section_main_title">Discover the Best Cannabis Dispensaries in {state.Location} </h2>
                                 <div>
                                 <p>Explore top-rated weed dispensaries in {state.Location} with Weedx.io. Our platform simplifies the search for trusted recreational and medical dispensaries conveniently located near you in {state.Location} </p>
@@ -110,10 +106,8 @@ const Weed_Dispansires = ({ Store, searchtext, setsearchtext, contentdata }) => 
                                                 return <li><Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${items.id}`}>{items.Store_Name}</Link></li>
                                             })
                                         }
-                                         
                                        </ul>
                                     }
-
                                     <h3>Top Selling Weed Dispensaries  Products in {state.Location}:</h3>
                                     { Boolean(Store?.length) &&  <ul>
                                         {
@@ -146,7 +140,7 @@ const Weed_Dispansires = ({ Store, searchtext, setsearchtext, contentdata }) => 
                                 </div>
                             </div>
                   
-                             <h3 className="section_main_title">FAQs</h3>
+                                <h3 className="section_main_title">FAQs</h3>
                                 {Boolean(Store.length) &&  <div className="row">
                                         <div className="col-lg-6 webContent my-2">
                                             <Accordion>
@@ -162,10 +156,10 @@ const Weed_Dispansires = ({ Store, searchtext, setsearchtext, contentdata }) => 
                                         <div className="col-lg-6 webContent my-2">
                                             <Accordion>
                                                 <AccordionSummary  expandIcon={<ExpandMoreIcon />}   aria-controls="panel1-content"  id="panel1-header" >
-                                                    <h3 >{` Where can I find dispensaries near [Popular Landmark]? `}</h3>
+                                                    <h3 >{` Where can I find dispensaries near ${state.Location}? `}</h3>
                                                 </AccordionSummary>
                                                 <AccordionDetails>
-                                                    <p> Popular dispensaries near [Landmark] include  <Link to={`/weed-dispensaries/${modifystr(Store[0]?.Store_Name.toLowerCase())}/${Store[0].id}`}>{Store[0]?.Store_Name}</Link>, <Link to={`/weed-dispensaries/${modifystr(Store[1]?.Store_Name.toLowerCase())}/${Store[1].id}`}>{Store[1]?.Store_Name}</Link> and  <Link to={`/weed-dispensaries/${modifystr(Store[2]?.Store_Name.toLowerCase())}/${Store[2].id}`}>{Store[2]?.Store_Name}</Link> .  Dispensaries near [Landmark].
+                                                    <p> Popular dispensaries near {state.Location} include  <Link to={`/weed-dispensaries/${modifystr(Store[0]?.Store_Name.toLowerCase())}/${Store[0].id}`}>{Store[0]?.Store_Name}</Link>, <Link to={`/weed-dispensaries/${modifystr(Store[1]?.Store_Name.toLowerCase())}/${Store[1].id}`}>{Store[1]?.Store_Name}</Link> and  <Link to={`/weed-dispensaries/${modifystr(Store[2]?.Store_Name.toLowerCase())}/${Store[2].id}`}>{Store[2]?.Store_Name}</Link> .  Dispensaries near {state.Location}.
                                                     </p>
                                                 </AccordionDetails>
                                             </Accordion>

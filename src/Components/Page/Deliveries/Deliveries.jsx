@@ -25,6 +25,7 @@ const Deliveries = () => {
     const Location = useLocation()
     const navigate = useNavigate()
     const [Deliverie, SetDelivery] = React.useState([])
+    const [edibaleproduct, setedibaleproduct] = React.useState([])
     const [loader, setloader] = React.useState(false);
     const [contentdata, setcontentdata] = React.useState([])
     React.useEffect(() => {
@@ -78,8 +79,21 @@ const Deliveries = () => {
         return str.toLowerCase()
     }
 
+   React.useEffect(()=>{
+    let a=[]
+    Deliverie?.forEach((item)=>{
+     
+        item?.Category?.forEach((items)=>{
+           
+               if("EDIBLES" in items){
+                a.push({Store_Name:item.Store_Name,id:item.id}) 
+               }
+        })
+    })
+    setedibaleproduct(a)
+
+   },[Deliverie])
     React.useEffect(() => {
-        // Define a function to send the POST request
         const sendPostRequest = () => {
             axios.post(
                 `https://api.cannabaze.com/UserPanel/Update-SiteMap/11`,
@@ -87,9 +101,7 @@ const Deliveries = () => {
                     j: 'https://www.weedx.io' + modifystr(Location.pathname.replace(/\/+$/, ""))
                 }
             ).then((res) => {
-                // Handle response if needed
             }).catch((err) => {
-                // Handle error if needed
             });
         };
 
@@ -213,7 +225,7 @@ const Deliveries = () => {
                                 <h3>Top  Delivery Services in {state.Location}:</h3>
                                    { Boolean(Deliverie?.length) &&  <ul>
                                         {
-                                            Deliverie?.filter((item)=> item.rating >= 4)?.map((items)=>{
+                                            Deliverie?.filter((item)=> item.rating >= 3)?.map((items)=>{
                                                 return <li><Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${items.id}`}>{items.Store_Name}</Link></li>
                                             })
                                         }
@@ -224,7 +236,7 @@ const Deliveries = () => {
                                     <h3>Top Selling Delivery Products in {state.Location}:</h3>
                                     { Boolean(Deliverie?.length) &&  <ul>
                                         {
-                                            Deliverie?.filter((item)=> item.rating > 4)?.map((items)=>{
+                                            Deliverie?.filter((item)=> item.rating > 3)?.map((items)=>{
                                                 return <li><Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${items.id}`}>{items.Store_Name}</Link></li>
                                             })
                                         }
@@ -234,18 +246,7 @@ const Deliveries = () => {
                                     <h3>Neighborhood Locations Near {state.Location}:</h3>
                                  <Neighborhood></Neighborhood>
 
-                                    {/* <h3>Zip Codes in {state.Location} Area:</h3>
-                                    <p> Zip Code 1 | Zip Code 2 </p>
-
-                                    <h3>Popular Searches in {state.Location}</h3>
-                                    <ul>
-                                        <li>Newest Cannabis Delivery Services in {state.Location}</li>
-                                        <li>Delivery Services in {state.Location} with Curbside Pickup</li>
-                                        <li>Delivery Services in {state.Location} with Daily Deals</li>
-                                        <li>Delivery Services in {state.Location} Open Late</li>
-                                        <li>Medical Cannabis Delivery Services in {state.Location}</li>
-                                        <li>Recreational Cannabis Delivery Services in {state.Location}</li>
-                                    </ul> */}
+                                  
 
                                 </div>
                             </div>}
@@ -334,7 +335,7 @@ const Deliveries = () => {
                                                         <h3 >{`Which delivery services in ${state.Location} have the best selection of edibles? `}</h3>
                                                     </AccordionSummary>
                                                     <AccordionDetails>
-                                                        <p> For a great selection of edibles, try <Link to={`/weed-deliveries/${Deliverie[0]?.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${Deliverie[0]?.id}`}>{Deliverie[0]?.Store_Name}</Link>, <Link to={`/weed-deliveries/${Deliverie[1]?.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${Deliverie[1]?.id}`}>{Deliverie[1]?.Store_Name}</Link>, and <Link to={`/weed-deliveries/${Deliverie[2]?.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${Deliverie[2]?.id}`}>{Deliverie[2]?.Store_Name}</Link>.  Edible Delivery Services in {state.Location}.</p>
+                                                        <p> For a great selection of edibles, try  {edibaleproduct.map((item)=>{return <Link to={`/weed-deliveries/${item?.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${item?.id}`}>{item?.Store_Name} ,</Link> })}.  Edible Delivery Services in {state.Location}.</p>
                                                     </AccordionDetails>
                                                 </Accordion>
                                             </div>

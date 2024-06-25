@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -7,9 +7,30 @@ import { Link } from "react-router-dom";
 import Neighborhood from "./loactoncomponent/Neighborhood";
 import Zipcode from "./loactoncomponent/Zipcode";
 const WebContent = ({ state, Store = [], modifystr }) => {
+    function getediblelist(){
+        console.log('run')
+         Store?.forEach((item)=>{
+            console.log(item)
+            item?.Category?.forEach((items)=>{
+                console.log("EDIBLES" in items)
+                   if("EDIBLES" in items){
+                   }
+            })
+        })
+    }
+   useEffect(()=>{
+    console.log('run')
+    Store?.forEach((item)=>{
+       console.log(item)
+       item?.Category?.forEach((items)=>{
+           console.log("EDIBLES" in items)
+              if("EDIBLES" in items){
+              }
+       })
+   })
+   },[Store])
     return (
         <div>
-
             <div className="col-12 webContent">
                 <h2 className="section_main_title">Discover the Best Cannabis Dispensaries in {state.Location} </h2>
                 <div>
@@ -56,7 +77,6 @@ const WebContent = ({ state, Store = [], modifystr }) => {
 
                 </div>
             </div>
-{console.log(Boolean(Store.length) , Store.length)}
             <h3 className="section_main_title">FAQs</h3>
             {Boolean(Store.length) && <div className="row">
                 <div className="col-lg-6 webContent my-2">
@@ -73,10 +93,10 @@ const WebContent = ({ state, Store = [], modifystr }) => {
                 <div className="col-lg-6 webContent my-2">
                     <Accordion>
                         <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1-content" id="panel1-header" >
-                            <h3 >{` Where can I find dispensaries near [Popular Landmark]? `}</h3>
+                            <h3 >{` Where can I find dispensaries near ${state.Location}? `}</h3>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <p> Popular dispensaries near [Landmark] include  <Link to={`/weed-dispensaries/${modifystr(Store[0]?.Store_Name.toLowerCase())}/${Store[0].id}`}>{Store[0]?.Store_Name}</Link>, <Link to={`/weed-dispensaries/${modifystr(Store[1]?.Store_Name.toLowerCase())}/${Store[1]?.id}`}>{Store[1]?.Store_Name}</Link> and  <Link to={`/weed-dispensaries/${modifystr(Store[2]?.Store_Name.toLowerCase())}/${Store[2]?.id}`}>{Store[2]?.Store_Name}</Link> . See the full list: Dispensaries near [Landmark].
+                            <p> Popular dispensaries near {state.Location} include  <Link to={`/weed-dispensaries/${modifystr(Store[0]?.Store_Name.toLowerCase())}/${Store[0].id}`}>{Store[0]?.Store_Name}</Link>, <Link to={`/weed-dispensaries/${modifystr(Store[1]?.Store_Name.toLowerCase())}/${Store[1]?.id}`}>{Store[1]?.Store_Name}</Link> and  <Link to={`/weed-dispensaries/${modifystr(Store[2]?.Store_Name.toLowerCase())}/${Store[2]?.id}`}>{Store[2]?.Store_Name}</Link> . See the full list: Dispensaries near {state.Location}.
                             </p>
                         </AccordionDetails>
                     </Accordion>

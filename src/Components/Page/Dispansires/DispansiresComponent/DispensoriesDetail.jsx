@@ -396,7 +396,6 @@ export default function DispensoriesDetails(props) {
             }
         }
     }
-    console.log(DespensariesData ,'DespensariesData')
 
     return (
         <div>{
@@ -418,7 +417,7 @@ export default function DispensoriesDetails(props) {
             
                   { !location.pathname.includes('/menu-integration') && <NewFlavourBanner delBtn={Despen}></NewFlavourBanner>}
                     <div className="row">
-                        <div className="col-12"   >
+                        <div className="col-12">
                          {Boolean((location.pathname.slice(0, 18) === "/weed-dispensaries" || location.pathname.slice(0, 16) === "/weed-deliveries")) &&   <StoreDetailMenuItem tab={tab} SelectionTab={SelectionTab}></StoreDetailMenuItem>}
                         </div>
                         {
