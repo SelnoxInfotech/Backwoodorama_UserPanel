@@ -5,7 +5,7 @@ import Grid from '@mui/material/Grid';
 import { Paper } from "@mui/material";
 import useStyles from "../../../../Style";
 const DispensoriesAddressSkeleton = () => {
-    const DispensoriesAddressSkeletonArr = [1, 2, 3, 4, 5, 6]
+    const DispensoriesAddressSkeletonArr = [1, 2, 3, 4, 5, 6,6,6,6,6,6,6,6,6,6]
     const classes = useStyles()
     return (
         <React.Fragment>

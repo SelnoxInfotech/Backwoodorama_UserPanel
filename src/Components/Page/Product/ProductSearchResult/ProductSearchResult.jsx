@@ -404,7 +404,6 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                     <div className="product_card_wrapper p-0">
                     {
                         showdata?.map((items, index) => {
-
                             if (items.id !== currentProductID) {
                                 return (
                                     <div className="productSearch_result_container" key={index}>
@@ -457,6 +456,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                         {new Array(5 - items.rating).fill(null).map((item , index) => (
                                                             <BsStar  key={index +1} size={16} color="#31B665" className="product_search_rating_star" />
                                                         ))}
+                                                        <span className="product_search_result_sub_heading ">({items.TotalRating})</span>
                                                     </div>
                                                 </div>
                                                 <div className=" productPriceDivHeight">

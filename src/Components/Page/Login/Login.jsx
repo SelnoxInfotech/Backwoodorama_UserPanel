@@ -42,41 +42,17 @@ const   Login = () => {
         ).then(response => {
 
 
-            // if (location.pathname === "/CheckOutMainPage") {
-            //     if (state.AllProduct.length === 0) {
-                   
-            //         if(location.pathname==='/menu-integration/login' ){
-            //             Navigate(-1)
-
-            //         }else{
-            //             Navigate("/Product")
-            //         }
-            //     }
-            // }
-            // else {
+           
                 if(response.data !== "Not Authorised"){
-
-                
-                let date = new Date();
+                    let date = new Date();
+                    date.setTime(date.getTime() + 60*60*24*365)
+                    localStorage.setItem('User_Token_access',  response?.data?.tokens?.access);
+                    cookies.set('User_Token_access', response?.data?.tokens?.access, { expires: date })
+                    dispatch({ type: 'Login', login: true })
+                    dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
               
-                date.setTime(date.getTime() + 60*60*24*365)
-                localStorage.setItem('User_Token_access',  response?.data?.tokens?.access);
-                cookies.set('User_Token_access', response?.data?.tokens?.access, { expires: date })
-                dispatch({ type: 'Login', login: true })
-                dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-                // if (location.pathname === "/signupwithemail") {
-                //     if(location.pathname==='/menu-integration/login' ){
-                //         Navigate(-1)
-
-                //     }else{
-                //         Navigate('/')
-
-                //     }
-                // }
-                // else{
-                    if(location.state=== null ){
+                    if(location.state=== null || location.state.location.pathname==='/cart'){
                         Navigate(-1)
-
                     }else{
                         Navigate('/')
 
@@ -86,7 +62,7 @@ const   Login = () => {
                 Setloading(false)
                 }
                 else{
-                    // alert("SomeThing Worng")
+                   
                     Swal.fire({
                         imageUrl: "/image/cross.png",
                         imageClass: "loginsweetimg",
@@ -103,9 +79,6 @@ const   Login = () => {
                     });
                     Setloading(false) 
                 }
-        
-
-
         }).catch(
             function (error) {
                 Setloading(false)
@@ -121,10 +94,9 @@ const   Login = () => {
         document.documentElement.scrollTo({
             top: 0,
             left: 0,
-            behavior: "instant", // Optional if you want to skip the scrolling animation
+            behavior: "instant",
         });
     },[])
-
     return (
         <React.Fragment>
                     <LoginSeo></LoginSeo>
@@ -134,8 +106,6 @@ const   Login = () => {
                             </div>
                             <form onSubmit={method.handleSubmit(Submit)}>
                                 <div className='logininputbox'>
-                                    {/* <label htmlFor='Email'>Email</label> */}
-
                                     <div className='col-lg-12 signup_margins_top_textfield '>
                                         <TextField
                                             placeholder="Enter Your Email"

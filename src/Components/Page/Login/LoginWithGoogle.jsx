@@ -12,6 +12,8 @@ function LoginWithGoogle() {
     const classes = useStyles()
     const cookies = new Cookies();
     const location = useLocation();
+    console.log(location.state ,'location.statelocation.state location.state location.state')
+
     const Navigate = useNavigate()
     const { state, dispatch } = React.useContext(Createcontext)
     const login = useGoogleLogin({
@@ -32,11 +34,9 @@ function LoginWithGoogle() {
                 if( location?.state?.location?.pathname === '/cart'){
                     Navigate('/cart')
                 }else{ 
-                    if(location.pathname === '/menu-integration/login'){
+                   
                        Navigate(-1)
-                    }else{
-                       Navigate('/')
-                    }
+                 
                 }
             
         }).catch(

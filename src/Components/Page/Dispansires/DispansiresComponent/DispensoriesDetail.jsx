@@ -37,6 +37,7 @@ export default function DispensoriesDetails(props) {
     const [category, SetCategory] = React.useState([])
     const [DespensariesData, SetDespensariesProductData] = React.useState([])
     const [reviewloading, setReviewloading] = React.useState(false)
+    const [productload, setProductload] = React.useState(true)
     const [Despen, SetDespens] = React.useState([])
     const [Rating, SetRating] = React.useState()
     const [api, SetApi] = React.useState(false)
@@ -154,6 +155,7 @@ export default function DispensoriesDetails(props) {
         axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
         }).then(response => {
             SetDespensariesProductData(response.data)
+            setProductload(false)
         })
     }, [id])
     function modifystr(str) {
@@ -218,17 +220,11 @@ export default function DispensoriesDetails(props) {
             dispatch({ type: 'Loading', Loading: false })
             if (Category !== name) {
                 if(Boolean(location.pathname.slice(0, 16) === "/weed-deliveries")  || Boolean(location.pathname.slice(0, 18) === "/weed-dispensaries")) {
-               
-                    // navigate()
                     window.history.replaceState(null, '', `${location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${modifystr(Despen[0]?.Store_Name.toLowerCase())}/${"menu"}/${modifystr(name.toLowerCase())}/${id}`);
-                }
-                else {
-                    // window.history.replaceState(null, '', `/menu-integration/${modifystr(Despen[0]?.Store_Name.toLowerCase())}/${"menu"}/${modifystr(name.toLowerCase())}/${id}`);
-                    // navigate(`/menu-integration/${modifystr(Despen[0]?.Store_Name.toLowerCase())}/${"menu"}/${modifystr(name.toLowerCase())}/${id}` ,  { replace: true }) 
                 }
             }
             SetDespensariesProductData(response.data)
-
+            setProductload(false)
         }).catch(
             function (error) {
 
@@ -426,18 +422,55 @@ export default function DispensoriesDetails(props) {
                         {
                             (tab === 'menu' || tab === undefined) &&
                             <React.Fragment>
-                             {Boolean(DespensariesData.length) ?<> {!location.pathname.includes('/menu-integration') && 
-                                <CategoryProduct Category={category} ShowCategoryProduct={ShowCategoryProduct}> </CategoryProduct>}
-                                <div className="col-12 productCat_cont" style={{ display: "contents" }}>
-                                    <ProductFilter Store_id={Despen[0]?.id}
-                                        ProductFilterData={ProductFilterData}
-                                        Setarr1={SetDespensariesProductData}
-                                        arr={DespensariesData}
-                                    />
-                                    <div className="col-12 col-lg-9 col-xxl-10 prod_cat_right_sec">
-                                        <ProductList arr={DespensariesData}  link={Boolean(location.pathname.slice(0, 18) === "/weed-dispensaries" || location.pathname.slice(0, 16) === "/weed-deliveries") ?"products" :"menu-integration"}/>
+                             {!productload ?<> {!location.pathname.includes('/menu-integration') ? 
+                                 (   Boolean(DespensariesData.length)?
+                                    <>
+                                        <CategoryProduct Category={category} ShowCategoryProduct={ShowCategoryProduct}> </CategoryProduct>
+                                        <div className="col-12 productCat_cont" style={{ display: "contents" }}>
+                                            <ProductFilter Store_id={Despen[0]?.id}
+                                                ProductFilterData={ProductFilterData}
+                                                Setarr1={SetDespensariesProductData}
+                                                arr={DespensariesData}
+                                            />
+                                            <div className={location.pathname.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec":"col-12 col-lg-9 col-xxl-10"}>
+                                                <ProductList arr={DespensariesData}  link={Boolean(location.pathname.slice(0, 18) === "/weed-dispensaries" || location.pathname.slice(0, 16) === "/weed-deliveries") ?"products" :"menu-integration"}/>
+                                            </div>
+                                        </div>
+                                    </>
+                                    :
+                                      <div id='oopss'>
+                                        <div id='error-text'>
+                                            <img src="/image/gif.svg" alt="no product"/>
+                                            <span>Menu Not Available</span>
+                                            <p class="p-a">This business hasn't posted its menu on Weedx.io yet. Click below to discover other nearby businesses</p>
+                                            <span onClick={()=>{navigate(-1)}} class="back">VIEW OTHER BUSINESSES</span>
+                                        </div>
+                                      </div>
+                                 ):
+                                    (  !productload ? 
+                                    ( Boolean(DespensariesData.length)?<div className="col-12 productCat_cont" style={{ display: "contents" }}>
+                                        <ProductFilter Store_id={Despen[0]?.id}
+                                            ProductFilterData={ProductFilterData}
+                                            Setarr1={SetDespensariesProductData}
+                                            arr={DespensariesData}
+                                        />
+                                        <div className={location.pathname.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec":"col-12 col-lg-9 col-xxl-10"}>
+                                            <ProductList arr={DespensariesData}  link={Boolean(location.pathname.slice(0, 18) === "/weed-dispensaries" || location.pathname.slice(0, 16) === "/weed-deliveries") ?"products" :"menu-integration"}/>
+                                        </div>
                                     </div>
-                                </div>
+                                    :
+                                    <div id='oopss'>
+                                        <div id='error-text'>
+                                            <img src="/image/gif.svg" alt="no product"/>
+                                            <span>Menu Not Available</span>
+                                            <p class="p-a">This business hasn't posted its menu on Weedx.io yet. Click below to discover other nearby businesses </p>
+                                            <span class="back">VIEW OTHER BUSINESSES</span>
+                                        </div>
+                                    </div>)
+                                    :
+                                    <DispensoriesAddressSkeleton/>
+                                    )
+                                }
                                 </>:
                                 <DispensoriesAddressSkeleton/>}
                             </React.Fragment>
