@@ -57,8 +57,6 @@ const Product = () => {
         navigate(`/products/${modifystr(params.categoryname.toLowerCase())}/${modifystr(option.name.toLowerCase())}/${option.id}`)
 
     };
-
-
     const [Category, SetCategory] = React.useState([])
     const [C, f] = React.useState('')
 
@@ -161,8 +159,6 @@ const Product = () => {
             navigate(`/products/${categoryfind.name.toLowerCase()}/${categoryfind.id}` )
         }
     }
-
-
     return (
         <React.Fragment>
             <div style={{cursor:"pointer"}}>
@@ -170,8 +166,6 @@ const Product = () => {
                 {<span> {">"} <span onClick={() => breadcrumCountry("Product")}>Product</span></span>}
                 {Boolean(params.categoryname) && <span> {">"} <span onClick={() => breadcrumCountry("categoryname" , params.categoryname)}>{params.categoryname}</span></span>}
                 {Boolean(params.subCategory) && <span> {">"} <span >{params.subCategory}</span></span>}
-               
-
             </div>
             {!params.id ? <ProductSeo location={location?.pathname}></ProductSeo> :
             <ProductCategorySeo categoryname={params?.categoryname} location={location?.pathname} ></ProductCategorySeo>}

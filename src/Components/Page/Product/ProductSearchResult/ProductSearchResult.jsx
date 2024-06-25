@@ -251,10 +251,10 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
     }
     React.useEffect(()=>{
        let a =  RelatedProductResult.filter((item)=>{
-            return item?.Prices[0]?.Price[0]?.Stock === "IN Stock"
+            return item?.Prices[0]?.Price[0]?.Stock === "IN Stock" && item.rating !== 0
         })
         let b =  RelatedProductResult.filter((item)=>{
-            return item?.Prices[0]?.Price[0]?.Stock !== "IN Stock"
+            return item?.Prices[0]?.Price[0]?.Stock !== "IN Stock" && item.rating === 0
         })
         Setshowdata(a.concat(b))
         const scrollToTop = () => {
@@ -265,6 +265,8 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
           });
         }
     },[RelatedProductResult])
+
+
     return (
         <React.Fragment>
             <div className="row mx-0 marginProductSearchResult">
