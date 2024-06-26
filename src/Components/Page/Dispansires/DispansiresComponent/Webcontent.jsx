@@ -59,7 +59,7 @@ const WebContent = ({ state, Store = [], modifystr }) => {
                     <h3>Neighborhood Locations Near {state.Location}:</h3>
                     <Neighborhood></Neighborhood>
 
-                    {/* <h3>Zip Codes in {state.Location} Area:</h3>
+                    <h3>Zip Codes in {state.Location} Area:</h3>
                     <Zipcode></Zipcode>
                     <h3>Popular Searches in {state.Location}</h3>
 
@@ -73,7 +73,7 @@ const WebContent = ({ state, Store = [], modifystr }) => {
                         <li>cannabis dispensaries close to me near{state.Location}</li>
                         <li>dispensaries near me that are open in {state.Location}</li>
                         <li>weeds shop near me in {state.Location}</li>
-                    </ul> */}
+                    </ul>
 
                 </div>
             </div>

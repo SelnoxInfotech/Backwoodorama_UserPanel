@@ -6,7 +6,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Createcontext from "../../../Hooks/Context"
 import React from "react"
-import { useLocation, useNavigate , Link } from "react-router-dom"
+import { useLocation, useNavigate, Link } from "react-router-dom"
 import axios from "axios"
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
@@ -20,6 +20,7 @@ import { GetAllDelivery } from "../../../Api/Api"
 import Wronglocation from "../../Component/Skeleton/Wronglocation"
 import Loader from "../../Component/Loader/Loader";
 import Neighborhood from "../Dispansires/DispansiresComponent/loactoncomponent/Neighborhood";
+import Zipcode from "../Dispansires/DispansiresComponent/loactoncomponent/Zipcode";
 const Deliveries = () => {
     const { state, dispatch } = React.useContext(Createcontext)
     const Location = useLocation()
@@ -30,16 +31,16 @@ const Deliveries = () => {
     const [contentdata, setcontentdata] = React.useState([])
     React.useEffect(() => {
         const object = { City: state.City.replace(/-/g, " "), State: state.State.replace(/-/g, " "), Country: state.Country.replace(/-/g, " ") }
-       if(state.Country !== ''){
-         GetAllDelivery(object).then((response) => {
-           
-                    SetDelivery(()=>response)
-                    setloader(true)
-            
-        }).catch((error) => {
-            setloader(true)   
-        })
-      
+        if (state.Country !== '') {
+            GetAllDelivery(object).then((response) => {
+
+                SetDelivery(() => response)
+                setloader(true)
+
+            }).catch((error) => {
+                setloader(true)
+            })
+
             axios.post(`https://api.cannabaze.com/UserPanel/Get-WebpageDescriptionDeliveries/`, { ...object }).then((res) => {
                 setcontentdata(res.data)
             })
@@ -135,11 +136,11 @@ const Deliveries = () => {
     }
     return (
         <React.Fragment>
-            <div style={{cursor:"pointer"}}>
+            <div style={{ cursor: "pointer" }}>
                 <span onClick={() => navigate("/")}>{"Home"}</span>
                 {Boolean(state.Country) && <span> {">"} <span onClick={() => breadcrumCountry("Country")}>{state.Country}</span></span>}
                 {Boolean(state.State) && <span> {">"} <span onClick={() => breadcrumCountry("Country", "state")}>{state.State}</span></span>}
-                {Boolean(state.City) && <span> {">"} <span onClick={() => {Boolean(state.route) && breadcrumCountry("Country", "state", "City")}}>{state.City}</span></span>}
+                {Boolean(state.City) && <span> {">"} <span onClick={() => { Boolean(state.route) && breadcrumCountry("Country", "state", "City") }}>{state.City}</span></span>}
                 {Boolean(state.route) && <span> {">"} <span>{state.route}</span></span>}
 
             </div>
@@ -181,15 +182,14 @@ const Deliveries = () => {
                                     :
                                     <Wronglocation title={'No deliveries available'} description={`Delivery service isn't available at your location. Would you like to try a different address ?`} />)
                                 :
-                                <Loader/>
-
+                                <Loader />
                         }
                     </div>
-                        <div className="col-12 webContent">
-                            <h2 className="section_main_title">{contentdata?.Title}</h2>
-                            <div dangerouslySetInnerHTML={{ __html: contentdata?.Content }} />
-                        </div>
-                        {contentdata.length !== 0 &&
+                    <div className="col-12 webContent">
+                        <h2 className="section_main_title">{contentdata?.Title}</h2>
+                        <div dangerouslySetInnerHTML={{ __html: contentdata?.Content }} />
+                    </div>
+                    {contentdata.length !== 0 &&
                         contentdata?.Faq[0]?.title !== '' &&
                         <>  <h3 className="section_main_title">FAQs</h3>
 
@@ -211,47 +211,53 @@ const Deliveries = () => {
                                     })
                                 }
 
-                        </div></>}
+                            </div></>}
 
 
-                           {Boolean(Deliverie.length) && <div className="col-12 webContent">
-                                <h2 className="section_main_title">Fast and Reliable Cannabis Delivery in {state.Location} </h2>
-                                <div>
-                                <p>At Weedx.io, we connect you with the best cannabis delivery services in {state.Location}. Our platform helps you find the most reliable delivery options, read reviews, and discover top products, all from the comfort of your home.
-                                </p>
-                                <h2>Top-Rated Delivery Services According to Users in {state.Location}</h2>
+                            {Boolean(Deliverie.length) && <div className="col-12 webContent">
+                        <h2 className="section_main_title">Fast and Reliable Cannabis Delivery in {state.Location} </h2>
+                        <div>
+                            <p>At Weedx.io, we connect you with the best cannabis delivery services in {state.Location}. Our platform helps you find the most reliable delivery options, read reviews, and discover top products, all from the comfort of your home.
+                            </p>
+                            <h2>Top-Rated Delivery Services According to Users in {state.Location}</h2>
 
 
-                                <h3>Top  Delivery Services in {state.Location}:</h3>
+                                <h3>Top Delivery Services in {state.Location}:</h3>
                                    { Boolean(Deliverie?.length) &&  <ul>
                                         {
-                                            Deliverie?.filter((item)=> item.rating >= 3)?.map((items)=>{
+                                            Deliverie?.filter((item)=> item.rating >= 3)?Deliverie?.filter((item)=> item.rating >= 3)?.map((items)=>{
                                                 return <li><Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${items.id}`}>{items.Store_Name}</Link></li>
                                             })
+                                            :
+                                            (
+                                                Boolean(Deliverie?.length > 5) ? Deliverie?.slice(0,5)?.map((items)=>{
+                                                       return <li><Link to={`/weed-deliveries/${items?.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${items?.id}`}>{items.Store_Name}</Link></li>
+                                                }):
+                                                Deliverie?.map((items)=>{
+                                                    return <li><Link to={`/weed-deliveries/${items?.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${items?.id}`}>{items?.Store_Name}</Link></li>
+                                                })
+
+                                            )
+                                            
                                         }
                                          
                                        </ul>
                                     }
-
                                     <h3>Top Selling Delivery Products in {state.Location}:</h3>
                                     { Boolean(Deliverie?.length) &&  <ul>
                                         {
-                                            Deliverie?.filter((item)=> item.rating > 3)?.map((items)=>{
+                                            Deliverie?.filter((item)=> item.rating > 4)?.map((items)=>{
                                                 return <li><Link to={`/weed-deliveries/${items.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${items.id}`}>{items.Store_Name}</Link></li>
                                             })
-                                        }
-                                         
-                                       </ul>
+                                        } </ul>
                                     }
                                     <h3>Neighborhood Locations Near {state.Location}:</h3>
-                                 <Neighborhood></Neighborhood>
-
-                                  
-
+                                    <Neighborhood></Neighborhood>
                                 </div>
                             </div>}
                   
-                            { Boolean(Deliverie.length) &&
+                            { 
+                                Boolean(Deliverie.length) &&
                                 <>
                                 <h3 className="section_main_title">FAQs</h3>
                                 <div className="row">
@@ -262,7 +268,7 @@ const Deliveries = () => {
                                                         aria-controls="panel1-content"
                                                         id="panel1-header"
                                                     >
-                                                        <h3 >{`What are the best cannabis delivery services in ${state.Location} ?`}</h3>
+                                                        <h3 >{`What are the best cannabis  delivery services in ${state.Location} ?`}</h3>
                                                     </AccordionSummary>
                                                     <AccordionDetails>
                                                         <p> Top-rated cannabis delivery services in {state.Location} include  <Link to={`/weed-deliveries/${Deliverie[0]?.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${Deliverie[0]?.id}`}>{Deliverie[0]?.Store_Name}</Link>, <Link to={`/weed-deliveries/${Deliverie[1]?.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${Deliverie[1]?.id}`}>{Deliverie[1]?.Store_Name}</Link> , and <Link to={`/weed-deliveries/${Deliverie[2]?.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${Deliverie[2]?.id}`}>{Deliverie[2]?.Store_Name}</Link>.  Best Delivery Services in {state.Location}.</p>
@@ -276,7 +282,7 @@ const Deliveries = () => {
                                                         aria-controls="panel1-content"
                                                         id="panel1-header"
                                                     >
-                                                        <h3 >{`Which delivery services in ${state.Location} offer the fastest delivery? `}</h3>
+                                                        <h3 >{`Which weed delivery services in ${state.Location} offer the fastest delivery? `}</h3>
                                                     </AccordionSummary>
                                                     <AccordionDetails>
                                                         <p> For quick cannabis delivery in {state.Location}, try <Link to={`/weed-deliveries/${Deliverie[0]?.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${Deliverie[0]?.id}`}>{Deliverie[0]?.Store_Name}</Link>, <Link to={`/weed-deliveries/${Deliverie[1]?.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${Deliverie[1]?.id}`}>{Deliverie[1]?.Store_Name}</Link>, and <Link to={`/weed-deliveries/${Deliverie[2]?.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${Deliverie[2]?.id}`}>{Deliverie[2]?.Store_Name}</Link>.  Fast Delivery Services in {state.Location}.</p>
@@ -318,7 +324,7 @@ const Deliveries = () => {
                                                         aria-controls="panel1-content"
                                                         id="panel1-header"
                                                     >
-                                                        <h3 >{`What delivery services in ${state.Location} offer the best prices? `}</h3>
+                                                        <h3 >{`What weed delivery services in ${state.Location} offer the best prices? `}</h3>
                                                     </AccordionSummary>
                                                     <AccordionDetails>
                                                         <p> Affordable cannabis delivery services in {state.Location} include <Link to={`/weed-deliveries/${Deliverie[0]?.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${Deliverie[0]?.id}`}>{Deliverie[0]?.Store_Name}</Link>, <Link to={`/weed-deliveries/${Deliverie[1]?.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${Deliverie[1]?.id}`}>{Deliverie[1]?.Store_Name}</Link>, and <Link to={`/weed-deliveries/${Deliverie[2]?.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${Deliverie[2]?.id}`}>{Deliverie[2]?.Store_Name}</Link>.  Affordable Delivery Services in {state.Location}.</p>
@@ -335,7 +341,7 @@ const Deliveries = () => {
                                                         <h3 >{`Which delivery services in ${state.Location} have the best selection of edibles? `}</h3>
                                                     </AccordionSummary>
                                                     <AccordionDetails>
-                                                        <p> For a great selection of edibles, try  {edibaleproduct.map((item)=>{return <Link to={`/weed-deliveries/${item?.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${item?.id}`}>{item?.Store_Name} ,</Link> })}.  Edible Delivery Services in {state.Location}.</p>
+                                                        <p> For a great selection of edibles, try   {edibaleproduct.map((item)=>{return <Link to={`/weed-deliveries/${item?.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${item?.id}`}>{item?.Store_Name} ,</Link> })}.  Edible Delivery Services in {state.Location}.</p>
                                                     </AccordionDetails>
                                                 </Accordion>
                                             </div>
@@ -355,12 +361,8 @@ const Deliveries = () => {
                                             </div>
                                             <div className="col-lg-6 webContent my-2">
                                                 <Accordion>
-                                                    <AccordionSummary
-                                                        expandIcon={<ExpandMoreIcon />}
-                                                        aria-controls="panel1-content"
-                                                        id="panel1-header"
-                                                    >
-                                                        <h3 >{`Which delivery services in ${state.Location} are available 24/7? `}</h3>
+                                                    <AccordionSummary expandIcon={<ExpandMoreIcon />}  aria-controls="panel1-content" id="panel1-header" >
+                                                        <h3 >{`Which weed delivery services in ${state.Location} are available 24/7? `}</h3>
                                                     </AccordionSummary>
                                                     <AccordionDetails>
                                                         <p> For 24/7 cannabis delivery in {state.Location}, check out <Link to={`/weed-deliveries/${Deliverie[0]?.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${Deliverie[0]?.id}`}>{Deliverie[0]?.Store_Name}</Link>, <Link to={`/weed-deliveries/${Deliverie[1]?.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${Deliverie[1]?.id}`}>{Deliverie[1]?.Store_Name}</Link>, and <Link to={`/weed-deliveries/${Deliverie[2]?.Store_Name.replace(/\s/g,'-').toLowerCase()}/${"review"}/${Deliverie[2]?.id}`}>{Deliverie[2]?.Store_Name}</Link>.  24/7 Delivery Services in {state.Location}.</p>

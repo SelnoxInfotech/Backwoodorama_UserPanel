@@ -257,12 +257,8 @@ export function SubcategoryProduct(object, id) {
     return (
         axios.post(`https://api.cannabaze.com/UserPanel/Get-ProductBySubCategory/${id}`, object).then((res) => {
             return res.data
-            // SubCategoryApi(res.data[0].category_id)
-            // SetLoading(false)
-
         }).catch((err) => {
-            // SetLoading(false)
-            // SetProduct([])
+           
         })
     )
 }
