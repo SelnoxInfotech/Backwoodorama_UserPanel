@@ -270,6 +270,7 @@ export function GetAllDelivery(object) {
             'https://api.cannabaze.com/UserPanel/Get-DeliveryStores/',
             object
         ).then(response => {
+            console.log(Boolean(response.data.length) , response)
             if(Boolean(response.data.length)){
               
                 const k = response.data.reduce((acc, current) => {
@@ -317,7 +318,7 @@ export function GetAllDelivery(object) {
              }
         }).catch(
             function (error) {
-               return error
+               return []
         })
     )
 }

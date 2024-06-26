@@ -95,6 +95,7 @@ const Deliveries = () => {
     setedibaleproduct(a)
 
    },[Deliverie])
+   console.log(Deliverie)
     React.useEffect(() => {
         const sendPostRequest = () => {
             axios.post(
