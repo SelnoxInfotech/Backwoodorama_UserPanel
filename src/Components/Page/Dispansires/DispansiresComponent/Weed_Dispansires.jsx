@@ -98,7 +98,7 @@ const Weed_Dispansires = ({ Store, searchtext, setsearchtext, contentdata }) => 
                             </div>
                             </>
                             }
-                    <WebContent modifystr={modifystr} Store={Store} state={state}></WebContent>
+                    <WebContent modifystr={modifystr} Store={Store} state={state} from={"dispensaries"} url={'dispensaries'}></WebContent>
 
                 </div>
             </div>
