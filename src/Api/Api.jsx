@@ -309,7 +309,7 @@ export function GetAllDelivery(object) {
                         //   Category: [{ [y.Category]: y.ProductCount }] 
                     }
                 }, []);
-                console.log( k)
+                // console.log( k)
                 return k
 
              }else{

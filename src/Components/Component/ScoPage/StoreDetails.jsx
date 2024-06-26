@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async"
 import { useLocation, useParams } from "react-router-dom"
 import React from "react"
 function StoreDetails({ Despen, locationStore  }) {
-    console.log(Despen[0])
     const [MetaTag, SetMetaTag] = React.useState({ title: "", discription: "" })
     const location = useLocation()
     const params = useParams()
