@@ -5,9 +5,9 @@ const Zipcode = () => {
     // https://api.cannabaze.com/VendorPanel/Get-CountryFilter/
     const { state } = React.useContext(Createcontext)
     const [AllZipcode, SetZipcode] = React.useState([])
-    console.log(state)
+    // console.log(state)
     React.useEffect(() => {
-        if (Boolean(state.havecity)) {
+        if (Boolean(state.havecity)   && Boolean(state.City)) {
             axios.post(`https://api.cannabaze.com/VendorPanel/Get-CountryFilter/`,
                 {
 
@@ -24,7 +24,7 @@ const Zipcode = () => {
                 {
 
                     "AdministratorArea": "administrative_area_level_1",
-                    "search": state.State.replace(/-/g, " ")
+                    "search": Boolean(state.State) ?  state.State.replace(/-/g, " ") : state.Country
 
                 }
             ).then((res) => {
@@ -34,13 +34,13 @@ const Zipcode = () => {
     }, [state])
 
 
-    console.log(AllZipcode)
+    // console.log(AllZipcode)
     return (
         <div className='d-flex flex-wrap ' style={{ gap: "5px" }}>
         {
-            AllZipcode?.length === 0 ? <p>no zip code</p> :
+            AllZipcode?.length === 0 ? <p>no zip code  {state.Location}</p> :
             AllZipcode?.map((data) => {
-                console.log(data)
+                // console.log(data)
                 return <p> { data.zip} |</p>
             })
         }

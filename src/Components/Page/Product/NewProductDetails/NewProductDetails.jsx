@@ -230,8 +230,10 @@ const NewProductDetails = () => {
           price={Product?.Prices[0]?.Price[0]?.SalePrice}
           sellername={Product.StoreName}
           Description={Product.Product_Description}
-          Productnm={Product.Product_Name} Productname={`Buy ${Product.Product_Name} at ${Product.StoreName} on WeedX.io - Your Trusted Marketplace`} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={location.pathname} ></ProductDetailsSeo>
-      }
+          Productnm={Product.Product_Name} Productname={`Buy ${Product.Product_Name} at ${Product.StoreName} on WeedX.io - Your Trusted Marketplace`} ProductCategory={Product.category_name} StoreName={Product.StoreName} City={Product.Store_City} State={Product.Store_State} location={location.pathname}
+          TotalRating={Product.TotalRating}
+          ></ProductDetailsSeo>
+     }
 
       <span onClick={() => {
         location.pathname.slice(0, 9) === "/products" ?

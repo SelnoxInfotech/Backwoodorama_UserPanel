@@ -3,12 +3,22 @@ import Createcontext from "../Hooks/Context"
 import { useParams, useLocation } from "react-router-dom";
 import RoutingSearch from "../Components/Component/DispensierRoutingSearch/RoutingSearch";
 export default function RoutingDespen(props) {
-    const { state } = useContext(Createcontext)
+    const { state , dispatch} = useContext(Createcontext)
     const params = useParams()
     const Location = useLocation()
     const { Component } = props;
-    return (
+    if ((state.permission === false)
+        && (params?.city?.toLowerCase() !== state?.City?.toLowerCase()
+            || params?.state?.toLowerCase() !== state?.State?.toLowerCase()
+            || params?.Country?.toLowerCase() !== state?.Country?.toLowerCase()
+            || params.route?.toLowerCase() !== state?.route?.toLowerCase())) {
 
+                dispatch({ type: 'havecountry', havecountry: true });
+                    dispatch({ type: 'havestate', havestate: true });
+                    dispatch({ type: 'havecity', havecity: true });
+    }
+
+    return (
         <div>
 
 

@@ -37,7 +37,8 @@ function StoreDetails({ Despen, locationStore  }) {
         "aggregateRating": {
             "@type": "AggregateRating",
             "ratingCount":Boolean(Despen[0].TotalRating) ? Despen[0].TotalRating.toString():0,
-            "ratingValue": Boolean(Despen[0].rating) ? Despen[0].rating.toString():0
+            "ratingValue": Boolean(Despen[0].rating) ? Despen[0].rating.toString():0,
+            "reviewCount": Boolean(Despen[0].TotalRating) ? Despen[0].TotalRating.toString():0,
         }
     };
 

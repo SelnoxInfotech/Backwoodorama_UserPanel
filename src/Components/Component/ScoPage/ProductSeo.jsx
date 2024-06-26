@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import React from "react"
 import { useLocation } from "react-router-dom"
-function ProductDetailsSeo({ Productname, Productnm, ProductCategory, StoreName, image, rating, City, State, location,sellername,price, robot, Description,category,id,Subcategorge }) {
+function ProductDetailsSeo({ Productname, Productnm, ProductCategory, StoreName, TotalRating , image, rating, City, State, location,sellername,price, robot, Description,category,id,Subcategorge }) {
   
     const reviewSchema = {
         "@context": "https://schema.org",
@@ -37,7 +37,8 @@ function ProductDetailsSeo({ Productname, Productnm, ProductCategory, StoreName,
         "aggregateRating": {
             "@type": "AggregateRating",
             "ratingCount":rating.toString(),
-            "ratingValue":rating.toString()
+            "ratingValue":rating.toString(),
+            "reviewCount": TotalRating?.toString(),
         }
     };
 

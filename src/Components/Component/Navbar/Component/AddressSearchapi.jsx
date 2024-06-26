@@ -198,7 +198,6 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
   }
 
   const [open, setOpen] = React.useState(false);
-
   function current(event) {
     navigator.permissions.query({ name: 'geolocation' }).then(permissionStatus => {
 
@@ -328,9 +327,8 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
               getPlacePredictions({
                 input: e.target.value
               })
+              setOpen(true)
             }}
-
-
             InputProps={{
               ...params.InputProps,
               startAdornment: (

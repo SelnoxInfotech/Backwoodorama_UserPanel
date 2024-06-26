@@ -182,7 +182,7 @@ export default function Dispansires() {
 
     }
     const classes = useStyles()
-    console.log(state)
+    // console.log(state)
     return (
         <div className="row  dispensaries_centers">
             <div className="col-12 col-sm-12">
