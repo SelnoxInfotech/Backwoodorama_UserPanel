@@ -25,6 +25,7 @@ import { Embedded } from "../../../Component/ScoPage/Embedded";
 import Menuintregrate from "../../StoreDetail/StoreDetailComponent/Menuintregrate";
 import { useLoaderData } from 'react-router-dom';
 import DispensoriesAddressSkeleton from "../../../Component/Skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton";
+import { modifystr } from "../../../../Hooks/Function";
 export default function DispensoriesDetails(props) {
     const  data  = useLoaderData();
     const navigate = useNavigate()
@@ -49,26 +50,6 @@ export default function DispensoriesDetails(props) {
         media: [],
         popup: false
     })
-    function modifystr(str) {
-        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
-        str = str.trim().replaceAll(' ', "-");
-        let a = 0;
-        while (a < 1) {
-            if (str.includes("--")) {
-                str = str.replaceAll("--", "-")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("//", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("-/", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("/-", "/")
-            } else {
-                a++
-            }
-        }
-
-        return str.toLowerCase()
-    }
     React.useEffect(() => {
          if(Boolean(data)){
 
@@ -158,26 +139,7 @@ export default function DispensoriesDetails(props) {
             setProductload(false)
         })
     }, [id])
-    function modifystr(str) {
-        str = str?.replace(/[^a-zA-Z0-9/ ]/g, "-");
-        str = str?.trim()?.replaceAll(' ', "-");
-        let a = 0;
-        while (a < 1) {
-            if (str.includes("--")) {
-                str = str.replaceAll("--", "-")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("//", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("-/", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("/-", "/")
-            } else {
-                a++
-            }
-        }
 
-        return str.toLowerCase()
-    }
     useEffect(() => {
 
         if (reviewtype === "All") {

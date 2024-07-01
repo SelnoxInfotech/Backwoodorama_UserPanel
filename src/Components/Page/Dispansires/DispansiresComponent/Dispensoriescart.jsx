@@ -6,29 +6,10 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import {isShopOpen} from '../../../../Hooks/Function'
 import { Link } from "react-router-dom";
 import { Rating } from '@mui/material';
+import { modifystr } from '../../../../Hooks/Function';
 const Dispensoriescart = ({index ,ele }) => {
  
     const classes = useStyles()
-      function modifystr(str) {
-        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
-        str = str.trim().replaceAll(' ', "-");
-        let a = 0;
-        while (a < 1) {
-          if (str.includes("--")) {
-            str = str.replaceAll("--", "-")
-          } else if (str.includes("//")) {
-            str = str.replaceAll("//", "/")
-          } else if (str.includes("//")) {
-            str = str.replaceAll("-/", "/")
-          } else if (str.includes("//")) {
-            str = str.replaceAll("/-", "/")
-          } else {
-            a++
-          }
-        }
-    
-        return str
-      }
 
 
   return (

@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 import Createcontext from "../../../../Hooks/Context"
 import DeliverServiceSkeleton from '../../../Component/Skeleton/DeliveryServicesSkeleton';
 import axios from 'axios';
-
+import { modifystr } from '../../../../Hooks/Function';
 const DeliveryServices = () => {
     const [DeliveryService, SetDeliveryService] = useState([])
     const navigate =useNavigate()
@@ -116,26 +116,7 @@ const DeliveryServices = () => {
         }
     }, [state])
     
-    function modifystr(str) {
-        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
-        str = str.trim().replaceAll(' ', "-");
-        let a = 0;
-        while (a < 1) {
-            if (str.includes("--")) {
-                str = str.replaceAll("--", "-")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("//", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("-/", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("/-", "/")
-            } else {
-                a++
-            }
-        }
 
-        return str.toLowerCase()
-    }
     return (
         <React.Fragment>
             <div className="px-sm-0 px-3">

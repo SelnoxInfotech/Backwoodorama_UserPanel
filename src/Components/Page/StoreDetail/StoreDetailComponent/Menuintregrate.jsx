@@ -19,29 +19,11 @@ import Cookies from 'universal-cookie';
 import { Menuintegration_login } from "../../Login/menu-integration_login";
 import Tooltip from '@mui/material/Tooltip';
 import { useNavigate } from "react-router-dom";
+import { modifystr } from "../../../../Hooks/Function";
 const Menuintregrate = ({tab = "Menu" }) => {
     const navigate = useNavigate()
     const { state, dispatch } = React.useContext(Createcontext)
-    function modifystr(str) {
-        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
-        str = str.trim().replaceAll(' ', "-");
-        let a = 0;
-        while (a < 1) {
-            if (str.includes("--")) {
-                str = str.replaceAll("--", "-")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("//", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("-/", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("/-", "/")
-            } else {
-                a++
-            }
-        }
 
-        return str.toLowerCase()
-    }
     function SelectionTab(item) {
         Boolean(state.Embeddedstore[0]) && navigate (`/menu-integration/${modifystr(state.Embeddedstore[0]?.Store_Name)}/${modifystr(item)}/${state.Embeddedstore[0].id}`)
     }

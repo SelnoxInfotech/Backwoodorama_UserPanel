@@ -3,30 +3,12 @@ import { ScrollContainer } from 'react-indiana-drag-scroll';
 import * as React from 'react';
 import { FaArrowRight } from "react-icons/fa";
 import FeaturedBrandSkeleton from "../../../../Component/Skeleton/DashBoardSkeleton/FeaturedBrandSkeleton";
+import { modifystr } from "../../../../../Hooks/Function";
 import { Link,  } from "react-router-dom"
 const FeaturedBrand = ({ CardDataArray ,BrandSkeleton}) => {
    
     const ref = React.useRef(null);
-    function modifystr(str) {
-        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
-        str = str.trim().replaceAll(' ', "-");
-        let a = 0;
-        while (a < 1) {
-            if (str.includes("--")) {
-                str = str.replaceAll("--", "-")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("//", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("-/", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("/-", "/")
-            } else {
-                a++
-            }
-        }
 
-        return str.toLowerCase()
-    }
     return (
         <div className="px-sm-0 px-3 feature_brands_section">
             <div className="">

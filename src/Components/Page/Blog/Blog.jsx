@@ -29,7 +29,7 @@ import { WhisList } from "../../Component/Whishlist/WhisList";
 import { useLocation, useNavigate, useParams  } from "react-router-dom";
 import axios from "axios";
 import { SingleNewsSeo } from "../../Component/ScoPage/NewsSeo.jsx";
-// import useHistory from 'react-router-dom';
+import { modifystr } from "../../../Hooks/Function";
 const Blogs = () => {
     const ref = useRef(null)
     const classes = useStyles()
@@ -46,6 +46,7 @@ const Blogs = () => {
     const cookies = new Cookies();
     let token_data = cookies.get('User_Token_access')
     let accessToken = localStorage.getItem('User_Token_access');
+  
     if(  Boolean(accessToken) ){ token_data  =  accessToken}
     React.useEffect(() => {
         const getApi = async () => {
@@ -83,26 +84,6 @@ const Blogs = () => {
             });
         }
     }, [News])
-    function modifystr(str) {
-        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
-        str = str.trim().replaceAll(' ', "-");
-        let a = 0;
-        while (a < 1) {
-            if (str.includes("--")) {
-                str = str.replaceAll("--", "-")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("//", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("-/", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("/-", "/")
-            } else {
-                a++
-            }
-        }
-    
-        return str.toLowerCase()
-    }
     async function GetComment(id) {
         await Get_Comment(id).then((res) => {
 

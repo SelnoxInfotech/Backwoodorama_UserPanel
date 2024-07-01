@@ -12,6 +12,7 @@ import ProductSearchResult from "./ProductSearchResult/ProductSearchResult"
 import Createcontext from "../../../Hooks/Context"
 import _ from "lodash"
 import { GetProduct, CategoryProductsearch, SubcategoryProduct , SubCategoryApibyname } from "../../../Api/Api"
+import { modifystr } from "../../../Hooks/Function";
 const Product = () => {
     const navigate = useNavigate();
     const classes = useStyles()
@@ -25,26 +26,6 @@ const Product = () => {
     const [selectedOption, setSelectedOption] = useState(null);
   
 
-    function modifystr(str) {
-        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
-        str = str.trim().replaceAll(' ', "-");
-        let a = 0;
-        while (a < 1) {
-            if (str.includes("--")) {
-                str = str.replaceAll("--", "-")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("//", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("-/", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("/-", "/")
-            } else {
-                a++
-            }
-        }
-
-        return str
-    }
 
     async function ShowCategoryProduct(id, name) {
         await navigate(`/products/${modifystr(name.toLowerCase())}/${id}`);

@@ -8,34 +8,10 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { DispensariesSco } from "../../../Component/ScoPage/DispensariesSco"
 import Createcontext from "../../../../Hooks/Context";
 import WebContent from "../DispansiresComponent/Webcontent"
+import { modifystr } from "../../../../Hooks/Function";
 const Weed_Dispansires = ({ Store, searchtext, setsearchtext, contentdata }) => {
     const { state } = useContext(Createcontext)
     const locaton = useLocation();
-    function modifystr(str) {
-        if (typeof str !== 'string') {
-
-        }
-        else {
-            str = str?.replace(/[^a-zA-Z0-9/ ]/g, "-");
-            str = str?.trim().replaceAll(' ', "-");
-            let a = 0;
-            while (a < 1) {
-                if (str?.includes("--")) {
-                    str = str?.replaceAll("--", "-")
-                } else if (str?.includes("//")) {
-                    str = str?.replaceAll("//", "/")
-                } else if (str?.includes("//")) {
-                    str = str?.replaceAll("-/", "/")
-                } else if (str?.includes("//")) {
-                    str = str?.replaceAll("/-", "/")
-                } else {
-                    a++
-                }
-            }
-
-            return str
-        }
-    }
 
     return (
         <React.Fragment>

@@ -14,10 +14,7 @@ import { useLocation, useParams, useNavigate } from "react-router-dom";
 import axios, { Axios } from "axios";
 import { DespensioriesItem } from '../../../Api/Api';
 import Wronglocation from "../../Component/Skeleton/Wronglocation";
-// import Accordion from '@mui/material/Accordion';
-// import AccordionSummary from '@mui/material/AccordionSummary';
-// import AccordionDetails from '@mui/material/AccordionDetails';
-// import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { modifystr } from "../../../Hooks/Function";
 import Loader from "../../Component/Loader/Loader";
 function TabPanel(props) {
 
@@ -71,26 +68,6 @@ export default function Dispansires() {
             behavior: "instant", // Optional if you want to skip the scrolling animation
         });
     }, [])
-    function modifystr(str) {
-        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
-        str = str.trim().replaceAll(' ', "-");
-        let a = 0;
-        while (a < 1) {
-            if (str.includes("--")) {
-                str = str.replaceAll("--", "-")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("//", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("-/", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("/-", "/")
-            } else {
-                a++
-            }
-        }
-
-        return str.toLowerCase()
-    }
     React.useEffect(() => {
         const sendPostRequest = () => {
             axios.post(

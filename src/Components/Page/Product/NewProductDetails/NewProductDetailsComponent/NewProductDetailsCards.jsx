@@ -27,6 +27,8 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import AddToCartPopUp from "../../AddToCartPopUp/AddToCartPopUp";
 import { WhisList } from '../../../../Component/Whishlist/WhisList'
 import Loader from "../../../../Component/Loader/Loader";
+import { modifystr } from "../../../../../Hooks/Function";
+
 const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, quentity, setquentity, dynamicWeight, setdynamicWeight ,link="/products" }) => {
 
     const cookies = new Cookies();
@@ -191,28 +193,6 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
         }, "1000");
 
     }, [params])
-
-    function modifystr(str) {
-        str = str === undefined ? "" : str
-        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
-        str = str.trim().replaceAll(' ', "-");
-        let a = 0;
-        while (a < 1) {
-            if (str.includes("--")) {
-                str = str.replaceAll("--", "-")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("//", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("-/", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("/-", "/")
-            } else {
-                a++
-            }
-        }
-
-        return str.toLowerCase()
-    }
 
     function k(id) {
 

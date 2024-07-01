@@ -24,7 +24,7 @@ import { Link ,useLocation} from "react-router-dom";
 import { WishListPost } from "../../../Component/Whishlist/WishListApi_"
 import { WhisList } from "../../../Component/Whishlist/WhisList"
 import { Navigation } from 'swiper/modules';
-
+import { modifystr } from "../../../../Hooks/Function";
 
 const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProductID, title , link="products" }) => {
 
@@ -211,26 +211,6 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                 }
             }).catch((err) => { });
         }
-    }
-    function modifystr(str) {
-        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
-        str = str.trim().replaceAll(' ', "-");
-        let a = 0;
-        while (a < 1) {
-            if (str.includes("--")) {
-                str = str.replaceAll("--", "-")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("//", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("-/", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("/-", "/")
-            } else {
-                a++
-            }
-        }
-
-        return str
     }
     function discountshoer(CategoryCoupoun, ProductCoupoun) {
         let newarr = CategoryCoupoun.concat(ProductCoupoun)

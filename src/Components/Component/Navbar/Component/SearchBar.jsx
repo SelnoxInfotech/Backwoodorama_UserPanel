@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import _, { remove } from "lodash"
 import AddressSearchapi from "./AddressSearchapi"
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { modifystr } from '../../../../Hooks/Function';
 const SearchBar = ({ path }) => {
     const Navigation = useNavigate()
     const [SearchData, SetSearchData] = React.useState([])
@@ -22,33 +23,6 @@ const SearchBar = ({ path }) => {
     const Search = (event) => {
         event.preventDefault()
         Setinput(event.target.value)
-    }
-    function modifystr(str) {
-        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
-        str = str.trim().replaceAll(' ', "-");
-        let a = 0;
-        while (a < 1) {
-            if (str.includes("--")) {
-                str = str.replaceAll("--", "-")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("//", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("-/", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("/-", "/")
-            } 
-            else if (str.includes("//")) {
-                str = str.replaceAll("/-", "/")
-            } 
-            else if (str.includes("/")) {
-                str = str.replaceAll("/", "-")
-            } 
-            else {
-                a++
-            }
-        }
-
-        return str.toLowerCase()
     }
 
     React.useEffect(() => {

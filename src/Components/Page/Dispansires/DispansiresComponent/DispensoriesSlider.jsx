@@ -11,6 +11,7 @@ import { ScrollContainer } from 'react-indiana-drag-scroll';
 import { DespensioriesItem } from '../../../../Api/Api';
 import DispensoriesAddressSkeleton from '../../../Component/Skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton';
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { modifystr } from '../../../../Hooks/Function';
 const Dispensories = () => {
     const ref = React.useRef(null);
     const Navigate = useNavigate();
@@ -73,27 +74,6 @@ const Dispensories = () => {
         }
 
     }, [state])
-
-    function modifystr(str) {
-        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
-        str = str.trim().replaceAll(' ', "-");
-        let a = 0;
-        while (a < 1) {
-            if (str.includes("--")) {
-                str = str.replaceAll("--", "-")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("//", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("-/", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("/-", "/")
-            } else {
-                a++
-            }
-        }
-
-        return str.toLowerCase()
-    }
 
 
     const classes = useStyles()

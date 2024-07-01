@@ -22,6 +22,7 @@ import Loader from "../../Component/Loader/Loader";
 import Neighborhood from "../Dispansires/DispansiresComponent/loactoncomponent/Neighborhood";
 import Zipcode from "../Dispansires/DispansiresComponent/loactoncomponent/Zipcode";
 import WebContent from "../Dispansires/DispansiresComponent/Webcontent";
+import { modifystr } from "../../../Hooks/Function";
 const Deliveries = () => {
     const { state, dispatch } = React.useContext(Createcontext)
     const Location = useLocation()
@@ -60,26 +61,6 @@ const Deliveries = () => {
             behavior: "instant", // Optional if you want to skip the scrolling animation
         });
     }, [])
-    function modifystr(str) {
-        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
-        str = str.trim().replaceAll(' ', "-");
-        let a = 0;
-        while (a < 1) {
-            if (str.includes("--")) {
-                str = str.replaceAll("--", "-")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("//", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("-/", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("/-", "/")
-            } else {
-                a++
-            }
-        }
-
-        return str.toLowerCase()
-    }
 
    React.useEffect(()=>{
     let a=[]

@@ -19,6 +19,7 @@ import { IconButton } from "@material-ui/core";
 import Cookies from 'universal-cookie';
 import {useNavigate} from 'react-router-dom'
 import Loader from '../../../Component/Loader/Loader.js';
+import  {modifystr} from "../../../../Hooks/Function.jsx"
 const Allblogs = () => {
   const [allblogs, setallblogs] = useState([])
   let location= useLocation();
@@ -35,26 +36,6 @@ const Allblogs = () => {
   let accessToken = localStorage.getItem('User_Token_access');
   if(  Boolean(accessToken) ){ token_data  =  accessToken}
 
-  function modifystr(str) {
-    str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
-    str = str.trim().replaceAll(' ', "-");
-    let a = 0;
-    while (a < 1) {
-        if (str.includes("--")) {
-            str = str.replaceAll("--", "-")
-        } else if (str.includes("//")) {
-            str = str.replaceAll("//", "/")
-        } else if (str.includes("//")) {
-            str = str.replaceAll("-/", "/")
-        } else if (str.includes("//")) {
-            str = str.replaceAll("/-", "/")
-        } else {
-            a++
-        }
-    }
-
-    return str.toLowerCase()
-}
   useEffect(() => {
       document.documentElement.scrollTo({
         top: 0,

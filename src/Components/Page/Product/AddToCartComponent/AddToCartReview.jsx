@@ -8,6 +8,7 @@ import Cookies from 'universal-cookie';
 import Createcontext from "../../../../Hooks/Context"
 import { LoadingButton } from '@mui/lab';
 import { Link, useNavigate } from 'react-router-dom';
+import { modifystr } from '../../../../Hooks/Function';
 const AddToCartReview = () => {
     const Swal = require('sweetalert2')
     const { state, dispatch } = React.useContext(Createcontext)
@@ -191,27 +192,7 @@ const AddToCartReview = () => {
 
         navigate(`/products/${modifystr(e.category)}/${modifystr(e.SubcategoryName)}/${modifystr(e.ProductName)}/${e.Product_id}`)
     }
-    function modifystr(str) {
-        str = str === undefined ? "" : str
-        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
-        str = str.trim().replaceAll(' ', "-");
-        let a = 0;
-        while (a < 1) {
-            if (str.includes("--")) {
-                str = str.replaceAll("--", "-")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("//", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("-/", "/")
-            } else if (str.includes("//")) {
-                str = str.replaceAll("/-", "/")
-            } else {
-                a++
-            }
-        }
 
-        return str.toLowerCase()
-    }
     useEffect(() => {
         setWindowWidth(window.innerWidth)
         SetAfterDiscount(state.AllProduct)
